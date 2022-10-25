@@ -34,7 +34,8 @@
           "routes": [
             {
               "title": "Default theme",
-              "path": "/docs/theme/default-theme.mdx"
+              "path": "/docs/theme/default-theme.mdx",
+              "updated": true
             },
             {
               "title": "Customize theme",

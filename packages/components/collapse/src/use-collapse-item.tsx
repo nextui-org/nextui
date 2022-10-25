@@ -36,12 +36,6 @@ export interface UseCollapseItemProps<T extends object> extends CollapseItemBase
   isDisabled?: boolean;
 }
 
-// subtitle?: ReactNode | string; //TODO: unique per item
-// borderWeight?: CSS["borderWidth"];
-// dividerWeight?: CSS["borderWidth"];
-// withDivider?: boolean;
-// disableAnimation?: boolean;
-
 export function useCollapseItem<T extends object>(props: UseCollapseItemProps<T>) {
   const {item, ...propsWithoutItem} = props;
 
@@ -51,10 +45,13 @@ export function useCollapseItem<T extends object>(props: UseCollapseItemProps<T>
     as = item.props?.as,
     state,
     focusedKey,
+    subtitle = item.props?.subtitle,
     indicator = item.props?.indicator ?? <CollapseIcon />,
     variant = item.props?.variant ?? "default",
+    withDivider = item.props?.withDivider ?? true,
     borderWeight = item.props?.borderWeight ?? "normal",
     dividerWeight = item.props?.dividerWeight ?? "light",
+    disableAnimation = item.props?.disableAnimation ?? false,
     isDisabled: groupDisabled = false,
     onFocusChange,
     ...otherProps
@@ -98,10 +95,13 @@ export function useCollapseItem<T extends object>(props: UseCollapseItemProps<T>
     item,
     css: itemCss,
     indicator,
+    subtitle,
     variant,
     isDisabled,
     isOpen,
     isFocusVisible,
+    withDivider,
+    disableAnimation,
     buttonProps,
     regionProps,
     focusProps,

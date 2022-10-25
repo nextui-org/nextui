@@ -1,11 +1,20 @@
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
-import {CSS} from "@nextui-org/system";
+import {CSSProp} from "@nextui-org/system";
 import {FocusableProps} from "@react-types/shared";
 import {ReactNode} from "react";
 
-type RenderIndicatorProps = {
+export type RenderIndicatorProps = {
+  /**
+   * The current indicator
+   */
   indicator?: ReactNode;
+  /**
+   * The current open status.
+   */
   isOpen?: boolean;
+  /**
+   * The current disabled status.
+   */
   isDisabled?: boolean;
 };
 
@@ -18,8 +27,10 @@ export interface CollapseItemBaseProps<T extends object = {}>
   children?: ReactNode | null;
   /**
    * The collapse item `expanded` indicator, it's usually an arrow icon.
+   * If you pass a function, NextUI will expose the current indicator and the open status,
+   * In case you want to use a custom indicator or muodify the current one.
    */
-  indicator?: ReactNode | null;
+  indicator?: ReactNode | ((props: RenderIndicatorProps) => ReactNode) | null;
   /**
    * The collapse item subtitle.
    */
@@ -34,12 +45,12 @@ export interface CollapseItemBaseProps<T extends object = {}>
    * The border weight for bordered collapse item variation.
    * @default "normal"
    */
-  borderWeight?: CSS["borderWidth"];
+  borderWeight?: CSSProp["borderWidth"];
   /**
    * The border weight for the collapse item divider.
    * @default "light"
    */
-  dividerWeight?: CSS["borderWidth"];
+  dividerWeight?: CSSProp["borderWidth"];
   /**
    * Whether the collapse item have a bottom border.
    * @default true
@@ -50,16 +61,6 @@ export interface CollapseItemBaseProps<T extends object = {}>
    * @default false
    */
   disableAnimation?: boolean;
-
-  /**
-   * If you pass this function NextUI will expose the current indicator and the open status, In case you want to use a custom indicator or muodify the current one.
-   * @param indicator The current indicator
-   * @param isOpen The current open status.
-   * @param isDisabled The current disabled status.
-   *
-   * @returns The indicator to be used.
-   */
-  renderIndicator?: (props: RenderIndicatorProps) => ReactNode;
 }
 
 const CollapseItem = BaseItem as (props: CollapseItemBaseProps) => JSX.Element;

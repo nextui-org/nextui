@@ -20,7 +20,7 @@ export declare namespace ConfigType {
     space?: {[token in number | string]: boolean | number | string};
     radii?: {[token in number | string]: boolean | number | string};
     zIndices?: {[token in number | string]: boolean | number | string};
-    borderWeights?: {[token in number | string]: boolean | number | string};
+    borderWidths?: {[token in number | string]: boolean | number | string};
     colors?: {[token in number | string]: boolean | number | string};
     shadows?: {[token in number | string]: boolean | number | string};
     dropShadows?: {[token in number | string]: boolean | number | string};
@@ -60,6 +60,7 @@ export type StitchesTheme = typeof theme;
 export type CSSComponent = typeof css;
 
 // theme types
+export type BaseThemeMap = StitchesConfig["themeMap"];
 export type BaseTheme = ConfigType.Theme;
 export type NextUITheme = StitchesTheme;
 export type ThemeType = "dark" | "light";
@@ -76,11 +77,34 @@ export interface TokenValue {
 }
 
 export type Theme = {
+  /**
+   * The theme type.
+   * @default "light"
+   */
   type?: ThemeType | string;
+  /**
+   * The stitches theme class name.
+   * @see https://stitches.dev/docs/theming#add-a-new-theme
+   */
   className?: string;
+  /**
+   * The stitches theme tokens object.
+   */
   theme?: BaseTheme;
+  /**
+   * The stitches theme media object.
+   * @see https://stitches.dev/docs/breakpoints
+   */
   media?: ConfigType.Media;
+  /**
+   * The theme utils object.
+   * @see https://stitches.dev/docs/utils
+   */
   utils?: ConfigType.Utils;
+  /**
+   * The stitches theme themeMap object.
+   * @see https://stitches.dev/docs/tokens#property-mapping
+   */
   themeMap?: ConfigType.ThemeMap;
 };
 
@@ -88,4 +112,24 @@ export type NextUIThemeContext = {
   type: ThemeType | string;
   theme?: NextUITheme;
   isDark?: boolean;
+};
+
+type Globals = "inherit" | "initial" | "revert" | "unset";
+
+type Index = (number | string) & Record<never, never>;
+
+type TokenByScaleName<ScaleName, Theme> = ScaleName extends keyof Theme
+  ? keyof Theme[ScaleName]
+  : never;
+
+type TokenByPropertyName<PropertyName, Theme, ThemeMap> = PropertyName extends keyof ThemeMap
+  ? TokenByScaleName<ThemeMap[PropertyName], Theme>
+  : never;
+
+export type CSSProp = {
+  [K in keyof CSSProperties]?:
+    | TokenByPropertyName<K, NextUITheme, BaseThemeMap>
+    | Globals
+    | Index
+    | undefined;
 };

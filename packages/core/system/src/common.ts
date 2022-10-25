@@ -133,7 +133,7 @@ export const defaultTokens = {
     10: "1000",
     max: "9999",
   },
-  borderWeights: {
+  borderWidths: {
     light: "1px",
     normal: "2px",
     bold: "3px",
@@ -515,7 +515,6 @@ export const defaultThemeMap = {
   inlineSize: "space",
   minInlineSize: "space",
   maxInlineSize: "space",
-  borderWidth: "borderWeights",
 };
 
 export default {

@@ -49,12 +49,12 @@ const CollapseItem = forwardRef<CollapseItemProps, "div">((props, ref) => {
   }, [indicator]);
 
   const indicatorComponent = useMemo(() => {
-    if (typeof item.props?.renderIndicator === "function") {
-      return item.props?.renderIndicator({indicator, isOpen, isDisabled});
+    if (typeof item.props?.indicator === "function") {
+      return item.props?.indicator({indicator, isOpen, isDisabled});
     }
 
     return indicatorWrapper;
-  }, [item.props?.renderIndicator, indicator, indicatorWrapper, isOpen, isDisabled]);
+  }, [item.props?.indicator, indicator, indicatorWrapper, isOpen, isDisabled]);
 
   return (
     <StyledCollapseItem
