@@ -1,5 +1,7 @@
 import React from "react";
 import {mount} from "enzyme";
+import {render, screen} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Table from "../index";
 
@@ -73,11 +75,11 @@ describe("Table", () => {
       expect(header.props()["aria-describedby"]).toBeFalsy();
     });
 
-    expect(headers.at(0 * STITCHES_FACTOR).text()).toBe("Foo");
-    expect(headers.at(1 * STITCHES_FACTOR).text()).toBe("Bar");
+    expect(headers.at(0).text()).toBe("Foo");
+    expect(headers.at(STITCHES_FACTOR).text()).toBe("Bar");
     expect(headers.at(2 * STITCHES_FACTOR).text()).toBe("Baz");
 
-    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(STITCHES_FACTOR);
 
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
@@ -118,7 +120,7 @@ describe("Table", () => {
     expect(table.props()["aria-label"]).toBe("Table with selection");
     expect(table.props()["aria-multiselectable"]).toBe("true");
 
-    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(STITCHES_FACTOR);
 
     // select all checkbox
     let checkbox = table.find('[type="checkbox"]').at(0);
@@ -128,7 +130,7 @@ describe("Table", () => {
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
 
-    expect(rows.length).toBe(1 * STITCHES_FACTOR);
+    expect(rows.length).toBe(STITCHES_FACTOR);
 
     // get body first cell (rowheader)
     const bodyFirstCell = rows.at(0).find('[role="rowheader"]').at(0);
@@ -162,7 +164,7 @@ describe("Table", () => {
 
     expect(table.props()["aria-label"]).toBe("Dynamic Table");
 
-    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(STITCHES_FACTOR);
 
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
@@ -203,7 +205,7 @@ describe("Table", () => {
     expect(table.props()["aria-label"]).toBe("Dynamic Table with selection");
     expect(table.props()["aria-multiselectable"]).toBe("true");
 
-    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(STITCHES_FACTOR);
 
     // select all checkbox
     let checkbox = table.find('[type="checkbox"]').at(0);
@@ -253,13 +255,13 @@ describe("Table", () => {
     expect(columnHeaders.length).toBe(3 * STITCHES_FACTOR);
 
     // check first column header
-    const firstColumnHeader = columnHeaders.at(0 * STITCHES_FACTOR);
+    const firstColumnHeader = columnHeaders.at(0);
 
     expect(firstColumnHeader.text()).toBe("NAME");
     expect(firstColumnHeader.props()["aria-sort"]).toBeFalsy();
 
     // check second column header
-    const secondColumnHeader = columnHeaders.at(1 * STITCHES_FACTOR);
+    const secondColumnHeader = columnHeaders.at(STITCHES_FACTOR);
 
     expect(secondColumnHeader.text()).toBe("TYPE");
     expect(secondColumnHeader.props()["aria-sort"]).toBe("none");
@@ -309,13 +311,13 @@ describe("Table", () => {
     expect(columnHeaders.length).toBe(3 * STITCHES_FACTOR);
 
     // check first column header
-    const firstColumnHeader = columnHeaders.at(0 * STITCHES_FACTOR);
+    const firstColumnHeader = columnHeaders.at(0);
 
     expect(firstColumnHeader.text()).toBe("NAME");
     expect(firstColumnHeader.props()["aria-sort"]).toBeFalsy();
 
     // check second column header
-    const secondColumnHeader = columnHeaders.at(1 * STITCHES_FACTOR);
+    const secondColumnHeader = columnHeaders.at(STITCHES_FACTOR);
 
     expect(secondColumnHeader.text()).toBe("TYPE");
     expect(secondColumnHeader.props()["aria-sort"]).toBe("ascending");
@@ -362,13 +364,13 @@ describe("Table", () => {
     expect(columnHeaders.length).toBe(3 * STITCHES_FACTOR);
 
     // check first column header
-    const firstColumnHeader = columnHeaders.at(0 * STITCHES_FACTOR);
+    const firstColumnHeader = columnHeaders.at(0);
 
     expect(firstColumnHeader.text()).toBe("NAME");
     expect(firstColumnHeader.props()["aria-sort"]).toBeFalsy();
 
     // check second column header
-    const secondColumnHeader = columnHeaders.at(1 * STITCHES_FACTOR);
+    const secondColumnHeader = columnHeaders.at(STITCHES_FACTOR);
 
     expect(secondColumnHeader.text()).toBe("TYPE");
     expect(secondColumnHeader.props()["aria-sort"]).toBe("descending");
@@ -378,5 +380,79 @@ describe("Table", () => {
 
     expect(thirdColumnHeader.text()).toBe("DATE MODIFIED");
     expect(thirdColumnHeader.props()["aria-sort"]).toBe("none");
+  });
+
+  it("should render a button", () => {
+    render(
+      <Table>
+        <Table.Header>
+          <Table.Column>NAME</Table.Column>
+          <Table.Column>TYPE</Table.Column>
+          <Table.Column>DATE MODIFIED</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Games</Table.Cell>
+            <Table.Cell>File folder</Table.Cell>
+            <Table.Cell>6/7/2020</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Button>A Button</Table.Button>
+      </Table>,
+    );
+
+    const button = screen.getByRole("button", {name: /a button/i});
+
+    expect(button).toBeTruthy();
+  });
+
+  it("should execute the button's onPress function once", async () => {
+    const handleClick = jest.fn();
+
+    render(
+      <Table>
+        <Table.Header>
+          <Table.Column>NAME</Table.Column>
+          <Table.Column>TYPE</Table.Column>
+          <Table.Column>DATE MODIFIED</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Games</Table.Cell>
+            <Table.Cell>File folder</Table.Cell>
+            <Table.Cell>6/7/2020</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Button onPress={handleClick}>A Button</Table.Button>
+      </Table>,
+    );
+
+    const button = screen.getByRole("button", {name: /a button/i});
+
+    userEvent.click(button);
+
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not render the button if props "show" equals false', () => {
+    render(
+      <Table>
+        <Table.Header>
+          <Table.Column>NAME</Table.Column>
+          <Table.Column>TYPE</Table.Column>
+          <Table.Column>DATE MODIFIED</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Games</Table.Cell>
+            <Table.Cell>File folder</Table.Cell>
+            <Table.Cell>6/7/2020</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Button show={false}>A Button</Table.Button>
+      </Table>,
+    );
+
+    expect(screen.queryByRole("button", {name: /a button/i})).toBeNull();
   });
 });

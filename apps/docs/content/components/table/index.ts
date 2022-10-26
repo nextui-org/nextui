@@ -15,6 +15,7 @@ import sortableTable from "./sortable";
 import disabledKeysTable from "./disabled-keys";
 import disallowEmptySelectionTable from "./disallow-empty-selection";
 import noAnimatedTable from "./no-animated";
+import buttonTable from "./button";
 
 export default {
   staticTable,
@@ -34,4 +35,5 @@ export default {
   disabledKeysTable,
   disallowEmptySelectionTable,
   noAnimatedTable,
+  buttonTable,
 };

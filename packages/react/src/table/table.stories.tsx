@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Meta} from "@storybook/react";
 
 import {getKeyValue} from "../utils/object";
@@ -279,8 +279,8 @@ export const Sortable = () => {
     async sort({items, sortDescriptor}: {items: any[]; sortDescriptor: SortDescriptor}) {
       return {
         items: items.sort((a, b) => {
-          let first = a[sortDescriptor.column];
-          let second = b[sortDescriptor.column];
+          let first = a[sortDescriptor.column!];
+          let second = b[sortDescriptor.column!];
           let cmp = collator.compare(first, second);
 
           if (sortDescriptor.direction === "descending") {
@@ -366,14 +366,14 @@ export const Pagination = () => {
   );
 };
 
-export const InfinityPagination = () => {
-  let scopedColumns = [
-    {name: "Name", uid: "name"},
-    {name: "Height", uid: "height"},
-    {name: "Mass", uid: "mass"},
-    {name: "Birth Year", uid: "birth_year"},
-  ];
+const apiColumns = [
+  {name: "Name", uid: "name"},
+  {name: "Height", uid: "height"},
+  {name: "Mass", uid: "mass"},
+  {name: "Birth Year", uid: "birth_year"},
+];
 
+export const InfinityPagination = () => {
   // // fetch people from swapi
   // const [people, setPeople] = React.useState([]);
   // const [page, setPage] = React.useState(1);
@@ -422,7 +422,7 @@ export const InfinityPagination = () => {
       css={{width: "640px", height: "calc($space$14 * 10)"}}
       shadow={false}
     >
-      <Table.Header columns={scopedColumns}>
+      <Table.Header columns={apiColumns}>
         {(column) => <Table.Column key={column.uid}>{column.name}</Table.Column>}
       </Table.Header>
       <Table.Body items={list.items} loadingState={list.loadingState} onLoadMore={list.loadMore}>
@@ -430,6 +430,52 @@ export const InfinityPagination = () => {
           <Table.Row key={item.name}>{(key) => <Table.Cell>{item[key]}</Table.Cell>}</Table.Row>
         )}
       </Table.Body>
+    </Table>
+  );
+};
+
+export const WithButton = () => {
+  const [showButton, setShowButton] = useState(true);
+  let list = useAsyncList({
+    async load({signal, cursor}) {
+      if (cursor) {
+        // write this /^http:\/\//i using RegExp
+        const regex = "/^http:///i";
+
+        cursor = cursor.replace(regex, "https://");
+      }
+
+      let res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
+      let json = await res.json();
+
+      setShowButton(!!json.next);
+
+      return {
+        items: json.results,
+        cursor: json.next,
+      };
+    },
+  });
+
+  return (
+    <Table
+      bordered
+      aria-label="Example table with dynamic content & button"
+      color="primary"
+      css={{width: "640px", height: "calc($space$14 * 10)"}}
+      shadow={false}
+    >
+      <Table.Header columns={apiColumns}>
+        {(column) => <Table.Column key={column.uid}>{column.name}</Table.Column>}
+      </Table.Header>
+      <Table.Body items={list.items} loadingState={list.loadingState} onLoadMore={list.loadMore}>
+        {(item: any) => (
+          <Table.Row key={item.name}>{(key) => <Table.Cell>{item[key]}</Table.Cell>}</Table.Row>
+        )}
+      </Table.Body>
+      <Table.Button show={showButton} onPress={list.loadMore}>
+        Load More
+      </Table.Button>
     </Table>
   );
 };

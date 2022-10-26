@@ -26,6 +26,7 @@ import { Table } from '@nextui-org/react';
 - **Table.Body**: The body of the table and wrapper for the table's rows. Table body can be configured to display a loading indicator while data is being fetched.
 - **Table.Row**: Table rows can be navigated to using the arrow keys. Table rows support selection via mouse, touch, or keyboard. Clicking, tapping, or pressing the <kbd>Space</kbd> key anywhere in the row selects it.
 - **Table.Pagination**: Table pagination is used to navigate between pages of data.
+- **Table.Button**: Table button is used to display a button as the last row of the table.
 
 <Spacer y={2} />
 
@@ -113,7 +114,7 @@ import { Table } from '@nextui-org/react';
 
 <Playground
   title="Infinity Pagination"
-  desc="Table supports loading data asynchronously, and will display a progress loading set by the loadingState prop. 
+  desc="Table supports loading data asynchronously, and will display a progress loading set by the loadingState prop.
   It also supports infinite scrolling to load more data on demand as the user scrolls, via the `onLoadMore` prop."
   highlightedLines="38-40"
   files={tableContent.infinityPaginationTable}
@@ -153,6 +154,13 @@ import { Table } from '@nextui-org/react';
   desc="You can disable the animation of the entire `Table` by using `animated={false}` property."
   highlightedLines="11"
   files={tableContent.noAnimatedTable}
+/>
+
+<Playground
+  title="Button"
+  desc="You can add a button to the `Table` by using `Table.Button`."
+  highlightedLines="11"
+  files={tableContent.buttonTable}
 />
 
 <Spacer y={3} />
@@ -265,6 +273,16 @@ import { Table } from '@nextui-org/react';
 | **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
 | **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
 | **aria-details**     | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
+
+<Spacer y={2} />
+
+#### Table Button Props
+
+| Attribute            | Type           | Description                                              | Default |
+| -------------------- | -------------- | -------------------------------------------------------- | ------- |
+| **children**         | `ReactNode`    | The content of the button                                | -       |
+| **show**             | `boolean`      | Display the button                                       | true    |
+| ...                  | `ButtonProps`  | Button component props                                   | -       |
 
 <Spacer y={2} />
 

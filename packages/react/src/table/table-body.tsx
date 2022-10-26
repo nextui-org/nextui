@@ -7,7 +7,12 @@ import {CSS} from "../theme/stitches.config";
 import {Loading, LoadingProps} from "../index";
 import clsx from "../utils/clsx";
 
-import {TableVariantsProps, StyledBaseTableCell, StyledTableLoadingRow} from "./table.styles";
+import {
+  TableVariantsProps,
+  StyledBaseTableCell,
+  StyledTableLoadingRow,
+  StyledTableButtonRow,
+} from "./table.styles";
 import TableRowGroup from "./table-row-group";
 import TableRow from "./table-row";
 import TableCell from "./table-cell";
@@ -23,6 +28,7 @@ interface Props<T> {
   hasPagination?: boolean;
   color?: TableVariantsProps["color"];
   as?: keyof JSX.IntrinsicElements;
+  button?: React.ReactNode;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
@@ -40,11 +46,13 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   color,
   hasPagination,
   hideLoading,
+  button,
   ...props
 }) => {
   const {currentPage, rowsPerPage} = useTableContext();
 
   const infinityScroll = useMemo(() => isInfinityScroll(collection), [collection.body.props]);
+  const hasButton = useMemo(() => React.isValidElement(button), [button]);
 
   const isLoading =
     collection.body?.props?.loadingState === "loading" ||
@@ -63,7 +71,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   const completeSpaces = useMemo(() => {
     const rowsCount = rows.length;
 
-    if (rowsCount >= rowsPerPage && !infinityScroll) {
+    if (rowsCount >= rowsPerPage && !(infinityScroll || hasButton)) {
       return null;
     }
 
@@ -77,9 +85,10 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
           }}
           style={mergeProps(
             {
-              "--nextui--tableBodyEmptySpaceHeight": infinityScroll
-                ? "var(--nextui-space-10)"
-                : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-14))`,
+              "--nextui--tableBodyEmptySpaceHeight":
+                infinityScroll || hasButton
+                  ? "var(--nextui-space-10)"
+                  : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-14))`,
             },
             props?.style || {},
           )}
@@ -90,7 +99,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
 
   // handle scroll and call next page on infinity scroll
   const handleScroll = (e: React.BaseSyntheticEvent) => {
-    if (!infinityScroll) {
+    if (!infinityScroll || hasButton) {
       return;
     }
     const element = e.target;
@@ -112,7 +121,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
         ...(props.css as any),
         ...(collection.body?.props?.css as any),
       }}
-      isInfinityScroll={infinityScroll}
+      isInfinityScroll={infinityScroll || hasButton}
       onScroll={handleScroll}
       {...props}
     >
@@ -144,7 +153,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
         <StyledTableLoadingRow
           aria-hidden="true"
           className="nextui-table-hidden-row"
-          isAbsolute={!infinityScroll}
+          isAbsolute={!infinityScroll && !hasButton}
           isAtEnd={rows.length > 0}
           role="row"
         >
@@ -152,6 +161,11 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
             <Loading color={color as LoadingProps["color"]} />
           </StyledBaseTableCell>
         </StyledTableLoadingRow>
+      )}
+      {React.isValidElement(button) && button.props.show && !isLoading && (
+        <StyledTableButtonRow role="row">
+          <StyledBaseTableCell colSpan={collection.columnCount}>{button}</StyledBaseTableCell>
+        </StyledTableButtonRow>
       )}
       {completeSpaces}
     </TableRowGroup>

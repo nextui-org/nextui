@@ -1,5 +1,6 @@
 import Table from "./table";
 import TablePagination from "./table-pagination";
+import TableButton from "./table-button";
 import {TableBody, TableColumn, TableRow, TableCell, TableHeader} from "./base";
 
 export type {SortDescriptor} from "@react-types/shared";
@@ -21,6 +22,7 @@ export type {TableHeaderRowProps} from "./table-header-row";
 export type {TableRowProps} from "./table-row";
 export type {TableCellProps} from "./table-cell";
 export type {TableFooterProps} from "./table-footer";
+export type {TableButtonProps} from "./table-button";
 
 Table.Cell = TableCell;
 Table.Column = TableColumn;
@@ -28,5 +30,6 @@ Table.Header = TableHeader;
 Table.Row = TableRow;
 Table.Body = TableBody;
 Table.Pagination = TablePagination;
+Table.Button = TableButton;
 
 export default Table;

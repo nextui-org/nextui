@@ -223,6 +223,14 @@ export const StyledTableLoadingRow = styled("tr", {
   },
 });
 
+export const StyledTableButtonRow = styled("tr", {
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "$space$18",
+});
+
 export const StyledTable = styled("table", {
   borderCollapse: "separate",
   borderSpacing: 0,

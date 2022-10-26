@@ -21,6 +21,7 @@ import {
   TableHeader as TableHeaderBase,
 } from "./base";
 import TablePagination from "./table-pagination";
+import TableButton from "./table-button";
 import TableFooter from "./table-footer";
 import TableBody from "./table-body";
 import {
@@ -79,9 +80,14 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
     const {hasPagination, rowsPerPage} = hasPaginationChild(children, TablePagination);
 
+    const [withoutButtonChildren, buttonChildren] = pickSingleChild<CollectionChildren<any>>(
+      withoutPaginationChildren,
+      TableButton,
+    );
+
     const state = useTableState({
       ...tableProps,
-      children: withoutPaginationChildren,
+      children: withoutButtonChildren,
       showSelectionCheckboxes:
         tableProps.showSelectionCheckboxes !== undefined
           ? tableProps.showSelectionCheckboxes
@@ -129,7 +135,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             shadow={shadow}
             {...gridProps}
           >
-            <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
+            <TableRowGroup as="thead" isFixed={isInfinityScroll(collection) || !!buttonChildren}>
               {collection.headerRows.map((headerRow) => (
                 <TableHeaderRow key={headerRow?.key} item={headerRow} state={state}>
                   {[...headerRow.childNodes].map((column) =>
@@ -156,6 +162,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             </TableRowGroup>
             <TableBody
               animated={animated}
+              button={buttonChildren}
               collection={collection}
               color={color}
               hasPagination={hasPagination}
@@ -189,6 +196,7 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Header: typeof TableHeaderBase;
   Body: typeof TableBodyBase;
   Pagination: typeof TablePagination;
+  Button: typeof TableButton;
 };
 
 Table.displayName = "NextUI.Table";
