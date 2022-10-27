@@ -10,6 +10,7 @@ import {
   StyledCollapseItemButton,
   StyledCollapseItemTitle,
   StyledCollapseItemIndicator,
+  collapseItemVariants,
 } from "./collapse.styles";
 import {UseCollapseItemProps, useCollapseItem} from "./use-collapse-item";
 
@@ -58,7 +59,7 @@ const CollapseItem = forwardRef<CollapseItemProps, "div">((props, ref) => {
 
   return (
     <StyledCollapseItem
-      className={clsx("nextui-collapse-item", className)}
+      className={clsx("nextui-collapse-item", collapseItemVariants(), className)}
       isDisabled={isDisabled}
       isOpen={isOpen}
       {...otherProps}

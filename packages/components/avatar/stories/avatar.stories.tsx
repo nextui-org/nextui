@@ -41,7 +41,7 @@ const userTheme = createTheme({
   type: "light",
   className: "user-theme",
   media: {
-    xsMax: "(min-width: 320px) and (max-width: 540px)",
+    // xsMax: "(min-width: 320px) and (max-width: 540px)",
     p1: "(min-width: 0px) and (max-width: 320px)",
   },
   utils: {

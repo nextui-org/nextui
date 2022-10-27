@@ -3,6 +3,8 @@ import {CSSProp} from "@nextui-org/system";
 import {FocusableProps} from "@react-types/shared";
 import {ReactNode} from "react";
 
+import {CollapseItemVariantProps} from "../collapse.styles";
+
 export type RenderIndicatorProps = {
   /**
    * The current indicator
@@ -45,12 +47,12 @@ export interface CollapseItemBaseProps<T extends object = {}>
    * The border weight for bordered collapse item variation.
    * @default "normal"
    */
-  borderWeight?: CSSProp["borderWidth"];
+  borderWeight?: CollapseItemVariantProps["borderWeight"];
   /**
    * The border weight for the collapse item divider.
    * @default "light"
    */
-  dividerWeight?: CSSProp["borderWidth"];
+  dividerWeight?: CollapseItemVariantProps["dividerWeight"];
   /**
    * Whether the collapse item have a bottom border.
    * @default true

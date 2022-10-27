@@ -10,7 +10,7 @@ export default {
 
 export const Default = () => (
   <Collapse selectionMode="single">
-    <Collapse.Item key="1" dividerWeight="" title="Your files">
+    <Collapse.Item key="1" dividerWeight="black" title="Your files">
       file
     </Collapse.Item>
     <Collapse.Item key="2" title="Shared with you">
@@ -32,7 +32,14 @@ export const CustomIndicator = () => {
 
   return (
     <Collapse selectionMode="single">
-      <Collapse.Item key="1" indicator={renderIndicator} title="Your files">
+      <Collapse.Item
+        key="1"
+        dividerWeight={{
+          "@xsMax": "black",
+        }}
+        indicator={renderIndicator}
+        title="Your files"
+      >
         file
       </Collapse.Item>
       <Collapse.Item key="2" title="Shared with you">

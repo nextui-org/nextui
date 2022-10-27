@@ -1,154 +1,59 @@
 import {PropertyValue, defaultThemeMap as defaultStitchesThemeMap} from "@stitches/react";
 
-export const defaultTokens = {
-  fonts: {
-    sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;",
-    mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;",
-  },
-  fontSizes: {
-    xs: "0.75rem",
-    sm: "0.875rem",
-    base: "1rem",
-    md: "1rem",
-    lg: "1.125rem",
-    xl: "1.25rem",
-    "2xl": "1.5rem",
-    "3xl": "1.875rem",
-    "4xl": "2.25rem",
-    "5xl": "3rem",
-    "6xl": "3.75rem",
-    "7xl": "4.5rem",
-    "8xl": "6rem",
-    "9xl": "8rem",
-  },
-  fontWeights: {
-    hairline: 100,
-    thin: 200,
-    light: 300,
-    normal: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800,
-    black: 900,
-  },
-  lineHeights: {
-    xs: 1,
-    sm: 1.25,
-    base: 1.5,
-    md: 1.5,
-    lg: 1.75,
-    xl: 1.75,
-    "2xl": 2,
-    "3xl": 2.25,
-    "4xl": 2.5,
-    "5xl": 1,
-    "6xl": 1,
-    "7xl": 1,
-    "8xl": 1,
-    "9xl": 1,
-  },
-  letterSpacings: {
-    tighter: "-0.05em",
-    tight: "-0.025em",
-    normal: "0",
-    wide: "0.025em",
-    wider: "0.05em",
-    widest: "0.1em",
-  },
-  space: {
-    0: "0rem",
-    xs: "0.5rem",
-    sm: "0.75rem",
-    md: "1rem",
-    lg: "1.25rem",
-    xl: "2.25rem",
-    "2xl": "3rem",
-    "3xl": "5rem",
-    "4xl": "10rem",
-    "5xl": "14rem",
-    "6xl": "18rem",
-    "7xl": "24rem",
-    "8xl": "32rem",
-    "9xl": "40rem",
-    min: "min-content",
-    max: "max-content",
-    fit: "fit-content",
-    screen: "100vw",
-    full: "100%",
-    px: "1px",
-    1: "0.125rem",
-    2: "0.25rem",
-    3: "0.375rem",
-    4: "0.5rem",
-    5: "0.625rem",
-    6: "0.75rem",
-    7: "0.875rem",
-    8: "1rem",
-    9: "1.25rem",
-    10: "1.5rem",
-    11: "1.75rem",
-    12: "2rem",
-    13: "2.25rem",
-    14: "2.5rem",
-    15: "2.75rem",
-    16: "3rem",
-    17: "3.5rem",
-    18: "4rem",
-    20: "5rem",
-    24: "6rem",
-    28: "7rem",
-    32: "8rem",
-    36: "9rem",
-    40: "10rem",
-    44: "11rem",
-    48: "12rem",
-    52: "13rem",
-    56: "14rem",
-    60: "15rem",
-    64: "16rem",
-    72: "18rem",
-    80: "20rem",
-    96: "24rem",
-  },
-  radii: {
-    xs: "7px",
-    sm: "9px",
-    md: "12px",
-    base: "14px",
-    lg: "14px",
-    xl: "18px",
-    "2xl": "24px",
-    "3xl": "32px",
-    squared: "33%",
-    rounded: "50%",
-    pill: "9999px",
-  },
-  zIndices: {
-    1: "100",
-    2: "200",
-    3: "300",
-    4: "400",
-    5: "500",
-    10: "1000",
-    max: "9999",
-  },
-  borderWidths: {
-    light: "1px",
-    normal: "2px",
-    bold: "3px",
-    extrabold: "4px",
-    black: "5px",
-  },
-  transitions: {
-    default: "all 250ms ease",
-    button:
-      "background 0.25s ease 0s, color 0.25s ease 0s, border-color 0.25s ease 0s, box-shadow 0.25s ease 0s, transform 0.25s ease 0s, opacity 0.25s ease 0s",
-    avatar: "box-shadow 0.25s ease 0s, opacity 0.25s ease 0s",
-    card: "transform 0.25s ease 0s, filter 0.25s ease 0s, box-shadow 0.25s ease 0s",
-    dropdownItem:
-      "background 0.12s ease, transform 0.12s ease, color 0.12s ease, box-shadow 0.12s ease 0s",
-  },
+const spaces = {
+  0: "0rem",
+  xs: "0.5rem",
+  sm: "0.75rem",
+  md: "1rem",
+  lg: "1.25rem",
+  xl: "2.25rem",
+  "2xl": "3rem",
+  "3xl": "5rem",
+  "4xl": "10rem",
+  "5xl": "14rem",
+  "6xl": "18rem",
+  "7xl": "24rem",
+  "8xl": "32rem",
+  "9xl": "40rem",
+  min: "min-content",
+  max: "max-content",
+  fit: "fit-content",
+  screen: "100vw",
+  full: "100%",
+  px: "1px",
+  1: "0.125rem",
+  2: "0.25rem",
+  3: "0.375rem",
+  4: "0.5rem",
+  5: "0.625rem",
+  6: "0.75rem",
+  7: "0.875rem",
+  8: "1rem",
+  9: "1.25rem",
+  10: "1.5rem",
+  11: "1.75rem",
+  12: "2rem",
+  13: "2.25rem",
+  14: "2.5rem",
+  15: "2.75rem",
+  16: "3rem",
+  17: "3.5rem",
+  18: "4rem",
+  20: "5rem",
+  24: "6rem",
+  28: "7rem",
+  32: "8rem",
+  36: "9rem",
+  40: "10rem",
+  44: "11rem",
+  48: "12rem",
+  52: "13rem",
+  56: "14rem",
+  60: "15rem",
+  64: "16rem",
+  72: "18rem",
+  80: "20rem",
+  96: "24rem",
 };
 
 export const defaultColors = {
@@ -236,6 +141,136 @@ export const defaultColors = {
   accents7: "$gray700",
   accents8: "$gray800",
   accents9: "$gray900",
+};
+
+export const defaultTokens = {
+  fonts: {
+    sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;",
+    mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;",
+  },
+  fontSizes: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+    base: "1rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.875rem",
+    "4xl": "2.25rem",
+    "5xl": "3rem",
+    "6xl": "3.75rem",
+    "7xl": "4.5rem",
+    "8xl": "6rem",
+    "9xl": "8rem",
+  },
+  fontWeights: {
+    hairline: 100,
+    thin: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
+  },
+  lineHeights: {
+    xs: 1,
+    sm: 1.25,
+    base: 1.5,
+    md: 1.5,
+    lg: 1.75,
+    xl: 1.75,
+    "2xl": 2,
+    "3xl": 2.25,
+    "4xl": 2.5,
+    "5xl": 1,
+    "6xl": 1,
+    "7xl": 1,
+    "8xl": 1,
+    "9xl": 1,
+  },
+  letterSpacings: {
+    tighter: "-0.05em",
+    tight: "-0.025em",
+    normal: "0",
+    wide: "0.025em",
+    wider: "0.05em",
+    widest: "0.1em",
+  },
+  space: {
+    ...spaces,
+  },
+  sizes: {
+    ...spaces,
+    auto: "auto",
+    "1/2": "50%",
+    "1/3": "33.333333%",
+    "2/3": "66.666667%",
+    "1/4": "25%",
+    "2/4": "50%",
+    "3/4": "75%",
+    "1/5": "20%",
+    "2/5": "40%",
+    "3/5": "60%",
+    "4/5": "80%",
+    "1/6": "16.666667%",
+    "2/6": "33.333333%",
+    "3/6": "50%",
+    "4/6": "66.666667%",
+    "5/6": "83.333333%",
+    "1/12": "8.333333%",
+    "2/12": "16.666667%",
+    "3/12": "25%",
+    "4/12": "33.333333%",
+    "5/12": "41.666667%",
+    "6/12": "50%",
+    "7/12": "58.333333%",
+    "8/12": "66.666667%",
+    "9/12": "75%",
+    "10/12": "83.333333%",
+    "11/12": "91.666667%",
+  },
+  radii: {
+    xs: "7px",
+    sm: "9px",
+    md: "12px",
+    base: "14px",
+    lg: "14px",
+    xl: "18px",
+    "2xl": "24px",
+    "3xl": "32px",
+    squared: "33%",
+    rounded: "50%",
+    pill: "9999px",
+  },
+  zIndices: {
+    1: "100",
+    2: "200",
+    3: "300",
+    4: "400",
+    5: "500",
+    10: "1000",
+    max: "9999",
+  },
+  borderWidths: {
+    light: "1px",
+    normal: "2px",
+    bold: "3px",
+    extrabold: "4px",
+    black: "5px",
+  },
+  transitions: {
+    default: "all 250ms ease",
+    button:
+      "background 0.25s ease 0s, color 0.25s ease 0s, border-color 0.25s ease 0s, box-shadow 0.25s ease 0s, transform 0.25s ease 0s, opacity 0.25s ease 0s",
+    avatar: "box-shadow 0.25s ease 0s, opacity 0.25s ease 0s",
+    card: "transform 0.25s ease 0s, filter 0.25s ease 0s, box-shadow 0.25s ease 0s",
+    dropdownItem:
+      "background 0.12s ease, transform 0.12s ease, color 0.12s ease, box-shadow 0.12s ease 0s",
+  },
+  colors: defaultColors,
 };
 
 export const defaultMedia = {
@@ -500,28 +535,12 @@ export const defaultUtils = {
 
 export const defaultThemeMap = {
   ...defaultStitchesThemeMap,
-  width: "space",
-  height: "space",
-  minWidth: "space",
-  maxWidth: "space",
-  minHeight: "space",
-  maxHeight: "space",
-  flexBasis: "space",
-  gridTemplateColumns: "space",
-  gridTemplateRows: "space",
-  blockSize: "space",
-  minBlockSize: "space",
-  maxBlockSize: "space",
-  inlineSize: "space",
-  minInlineSize: "space",
-  maxInlineSize: "space",
 };
 
 export default {
   prefix: "nextui",
   theme: {
     ...defaultTokens,
-    colors: defaultColors,
     shadows: {},
     dropShadows: {},
   },
@@ -529,3 +548,45 @@ export default {
   utils: defaultUtils,
   themeMap: defaultThemeMap,
 };
+
+/**
+ * Common theme types
+ */
+
+// defaultTokens
+export type Fonts = typeof defaultTokens.fonts;
+export type FontSizes = typeof defaultTokens.fontSizes;
+export type FontWeights = typeof defaultTokens.fontWeights;
+export type LineHeights = typeof defaultTokens.lineHeights;
+export type LetterSpacings = typeof defaultTokens.letterSpacings;
+export type Space = typeof defaultTokens.space;
+export type Sizes = typeof defaultTokens.sizes;
+export type Radii = typeof defaultTokens.radii;
+export type ZIndices = typeof defaultTokens.zIndices;
+export type BorderWidths = typeof defaultTokens.borderWidths;
+export type Transitions = typeof defaultTokens.transitions;
+export type Colors = typeof defaultColors;
+
+export type TokensGroup = {
+  fonts: Fonts;
+  fontSizes: FontSizes;
+  fontWeights: FontWeights;
+  lineHeights: LineHeights;
+  letterSpacings: LetterSpacings;
+  space: Space;
+  sizes: Sizes;
+  radii: Radii;
+  zIndices: ZIndices;
+  borderWidths: BorderWidths;
+  transitions: Transitions;
+  colors: Colors;
+};
+
+// defaultMedia
+export type Media = typeof defaultMedia;
+
+// defaultUtils
+export type Utils = typeof defaultUtils;
+
+// defaultThemeMap
+export type ThemeMap = typeof defaultThemeMap;

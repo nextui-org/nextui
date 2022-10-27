@@ -7,3 +7,4 @@ export * from "./theme-provider";
 export * from "./stitches.config";
 export * from "./use-theme";
 export * from "./types";
+export * from "./variants";

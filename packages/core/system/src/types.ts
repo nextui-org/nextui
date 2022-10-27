@@ -1,4 +1,5 @@
 import type * as Stitches from "@stitches/react";
+import type {Globals, Index, TokenByPropertyName} from "./type-utils";
 
 import {createThemeBase, config, theme, css} from "./stitches.config";
 import commonTheme from "./common";
@@ -66,16 +67,6 @@ export type NextUITheme = StitchesTheme;
 export type ThemeType = "dark" | "light";
 export type CreateTheme = ReturnType<typeof createThemeBase>;
 
-// tokens types
-export type TokenKeyName = keyof typeof commonTheme["theme"];
-
-export interface TokenValue {
-  token: number | string;
-  value: number | string;
-  scale: string;
-  prefix: string;
-}
-
 export type Theme = {
   /**
    * The theme type.
@@ -114,17 +105,17 @@ export type NextUIThemeContext = {
   isDark?: boolean;
 };
 
-type Globals = "inherit" | "initial" | "revert" | "unset";
+// tokens types
+export type TokenKeyName = keyof typeof commonTheme["theme"];
 
-type Index = (number | string) & Record<never, never>;
+export interface TokenValue {
+  token: number | string;
+  value: number | string;
+  scale: string;
+  prefix: string;
+}
 
-type TokenByScaleName<ScaleName, Theme> = ScaleName extends keyof Theme
-  ? keyof Theme[ScaleName]
-  : never;
-
-type TokenByPropertyName<PropertyName, Theme, ThemeMap> = PropertyName extends keyof ThemeMap
-  ? TokenByScaleName<ThemeMap[PropertyName], Theme>
-  : never;
+// styles types
 
 export type CSSProp = {
   [K in keyof CSSProperties]?:

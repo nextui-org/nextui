@@ -1,4 +1,4 @@
-import {styled} from "@nextui-org/system";
+import {styled, css, getVariants, VariantProps} from "@nextui-org/system";
 import {cssFocusVisible} from "@nextui-org/shared-css";
 
 export const StyledCollapse = styled("div", {
@@ -86,3 +86,16 @@ export const StyledCollapseItemIndicator = styled("span", {
     },
   },
 });
+
+export const collapseItemVariants = css({
+  variants: {
+    borderWeight: {
+      ...getVariants("borderWidths", "borderWidth"),
+    },
+    dividerWeight: {
+      ...getVariants("borderWidths", "borderWidth"),
+    },
+  },
+});
+
+export type CollapseItemVariantProps = VariantProps<typeof collapseItemVariants>;

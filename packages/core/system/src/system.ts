@@ -4,7 +4,8 @@
 
 import {forwardRef as baseForwardRef} from "react";
 
-import {CSS, styled} from "./stitches.config";
+import {styled} from "./stitches.config";
+import {CSS} from "./types";
 
 export type As<Props = any> = React.ElementType<Props>;
 export type DOMElements = keyof JSX.IntrinsicElements;
