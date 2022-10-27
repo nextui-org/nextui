@@ -11,7 +11,7 @@ type CSSProperties = Stitches.CSSProperties;
  * dynamically based on the tokens defined in the theme.
  *
  * @example
- * getVariant("fonts", "fontFamily")
+ * getVariants("fonts", "fontFamily")
  *
  * // returns
  * {
