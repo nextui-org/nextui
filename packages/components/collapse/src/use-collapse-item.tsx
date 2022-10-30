@@ -52,6 +52,7 @@ export function useCollapseItem<T extends object>(props: UseCollapseItemProps<T>
     borderWeight = item.props?.borderWeight ?? "normal",
     dividerWeight = item.props?.dividerWeight ?? "light",
     disableAnimation = item.props?.disableAnimation ?? false,
+    bgColor = item.props?.bgColor,
     isDisabled: groupDisabled = false,
     onFocusChange,
     ...otherProps
@@ -82,6 +83,7 @@ export function useCollapseItem<T extends object>(props: UseCollapseItemProps<T>
     css,
     borderWeight,
     dividerWeight,
+    bgColor,
     indicator,
     subtitle,
     variant,

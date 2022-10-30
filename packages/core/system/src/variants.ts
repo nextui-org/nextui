@@ -2,10 +2,11 @@ import type * as Stitches from "@stitches/react";
 
 import {CssComponent} from "@stitches/react/types/styled-component";
 
-import {TokensGroup, ThemeMap, Media, defaultTokens, defaultThemeMap} from "./common";
+import {ThemeMap, Media, defaultTokens, defaultThemeMap} from "./common";
+import {theme} from "./stitches.config";
+import {Prefixed} from "./type-utils";
 
-// TODO: Take ThemeMap, token keys & default theme map, from `theme` (stitches.config.ts)
-
+type Theme = typeof theme;
 type TokenKeys = keyof typeof defaultTokens;
 type CSSProperties = Stitches.CSSProperties;
 type VariantsToGenerate = {
@@ -33,22 +34,20 @@ type VariantsToGenerate = {
  *   }
  * }
  */
-export function getVariants<TK extends TokenKeys>(scale: TK, prop: keyof CSSProperties) {
-  if (!defaultTokens[scale]) {
+function getVariants<TK extends TokenKeys>(scale: TK, prop: keyof CSSProperties) {
+  if (!theme[scale]) {
     return;
   }
 
-  return Object.keys(defaultTokens[scale]).reduce((acc, token) => {
+  return Object.keys(theme[scale]).reduce((acc, token) => {
     // @ts-ignore
     acc[token] = {
       // @ts-ignore
-      [prop]: `${defaultTokens[scale][token]}`,
+      [prop]: `${theme[scale][token]}`,
     };
 
     return acc;
-  }, {}) as unknown as {
-    [K in keyof TokensGroup[TK]]: {[P in keyof CSSProperties]: TokensGroup[TK][K]};
-  };
+  }, {});
 }
 
 /**
@@ -66,8 +65,12 @@ export function getVariants<TK extends TokenKeys>(scale: TK, prop: keyof CSSProp
  *
  * variants: {
  *  "bgColor": {
- *    "primary": {},
- *    "secondary": {},
+ *    "primary": {
+ *      backgroundColor: "$blue600"
+ *    },
+ *    "secondary": {
+ *      backgroundColor: "$purple600"
+ *    },
  *    "success": {},
  *    .... all the colors defined in the theme
  *  },
@@ -98,17 +101,29 @@ export function generateVariants<VG extends VariantsToGenerate>(vg: VG) {
 
   return {variants} as unknown as {
     variants: {
-      [K in keyof VG]?: keyof TokensGroup[ThemeMap[VG[K]]];
+      [K in keyof VG]: {
+        [Q in keyof Theme[ThemeMap[VG[K]]]]: {
+          [P in VG[K]]: Prefixed<"$", Q>;
+        };
+      };
     };
   };
 }
 
 type ComponentVariants = {
-  variants?: {
-    [Name in string]: unknown;
+  variants: {
+    [Name in string]: {
+      [Variant in string]: {};
+    };
+  };
+};
+
+type TranformToVariants<V extends ComponentVariants> = {
+  variants: {
+    [K in keyof V["variants"]]?: keyof V["variants"][K];
   };
 };
 
 export type GeneratedVariantsProps<V extends ComponentVariants> = V extends ComponentVariants
-  ? Stitches.VariantProps<CssComponent<never, V["variants"], Media>>
+  ? Stitches.VariantProps<CssComponent<never, TranformToVariants<V>["variants"], Media>>
   : never;

@@ -10,7 +10,14 @@ export default {
 
 export const Default = () => (
   <Collapse selectionMode="single">
-    <Collapse.Item key="1" title="Your files">
+    <Collapse.Item
+      key="1"
+      bgColor={{
+        "@initial": "yellow600",
+        "@xsMax": "blue600",
+      }}
+      title="Your files"
+    >
       file
     </Collapse.Item>
     <Collapse.Item key="2" title="Shared with you">

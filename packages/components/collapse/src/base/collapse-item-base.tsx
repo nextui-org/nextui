@@ -52,6 +52,7 @@ export interface CollapseItemBaseProps<T extends object = {}>
    * @default "light"
    */
   dividerWeight?: CollapseItemVariantProps["dividerWeight"];
+  bgColor?: CollapseItemVariantProps["bgColor"];
   /**
    * Whether the collapse item have a bottom border.
    * @default true

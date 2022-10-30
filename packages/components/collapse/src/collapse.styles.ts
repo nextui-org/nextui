@@ -5,6 +5,7 @@ import {cssFocusVisible} from "@nextui-org/shared-css";
  * Variants
  */
 export const itemVariants = generateVariants({
+  bgColor: "backgroundColor",
   borderWeight: "borderWidth",
   dividerWeight: "borderWidth",
 });
@@ -55,7 +56,7 @@ export const StyledCollapseItem = styled(
       },
     },
   },
-  itemVariants as any,
+  itemVariants,
 );
 
 export const StyledCollapseItemHeading = styled("h2", {});
