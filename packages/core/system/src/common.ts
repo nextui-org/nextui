@@ -270,7 +270,20 @@ export const defaultTokens = {
     dropdownItem:
       "background 0.12s ease, transform 0.12s ease, color 0.12s ease, box-shadow 0.12s ease 0s",
   },
+  borderStyles: {
+    solid: "solid",
+    dashed: "dashed",
+    dotted: "dotted",
+    double: "double",
+    groove: "groove",
+    ridge: "ridge",
+    inset: "inset",
+    outset: "outset",
+    hidden: "hidden",
+    none: "none",
+  },
   colors: defaultColors,
+  shadows: {},
 };
 
 export const defaultMedia = {
@@ -563,7 +576,9 @@ export type Space = typeof defaultTokens.space;
 export type Sizes = typeof defaultTokens.sizes;
 export type Radii = typeof defaultTokens.radii;
 export type ZIndices = typeof defaultTokens.zIndices;
+export type BorderStyles = typeof defaultTokens.borderStyles;
 export type BorderWidths = typeof defaultTokens.borderWidths;
+export type Shadows = typeof defaultTokens.shadows;
 export type Transitions = typeof defaultTokens.transitions;
 export type Colors = typeof defaultColors;
 
@@ -580,6 +595,8 @@ export type TokensGroup = {
   borderWidths: BorderWidths;
   transitions: Transitions;
   colors: Colors;
+  borderStyles: BorderStyles;
+  shadows: Shadows;
 };
 
 // defaultMedia

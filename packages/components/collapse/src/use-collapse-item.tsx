@@ -5,7 +5,7 @@ import {TreeState} from "@react-stately/tree";
 import {callAllHandlers, ReactRef} from "@nextui-org/shared-utils";
 import {useAccordionItem, NodeWithProps} from "@nextui-org/aria-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {Key, useMemo} from "react";
+import {Key} from "react";
 
 import CollapseIcon from "./collapse-icon";
 
@@ -75,25 +75,13 @@ export function useCollapseItem<T extends object>(props: UseCollapseItemProps<T>
     onFocusChange?.(false);
   };
 
-  const scopeTokens = useMemo(() => {
-    return {
-      $$collapseItemBorderWeight: `$borderWeights${borderWeight}`,
-      $$collapseItemDividerWeight: `$borderWeights${dividerWeight}`,
-    };
-  }, [borderWeight, dividerWeight]);
-
-  const itemCss = useMemo(() => {
-    return {
-      ...scopeTokens,
-      ...css,
-    };
-  }, [css, scopeTokens]);
-
   return {
     as,
     domRef,
     item,
-    css: itemCss,
+    css,
+    borderWeight,
+    dividerWeight,
     indicator,
     subtitle,
     variant,

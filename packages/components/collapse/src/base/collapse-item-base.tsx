@@ -1,5 +1,4 @@
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
-import {CSSProp} from "@nextui-org/system";
 import {FocusableProps} from "@react-types/shared";
 import {ReactNode} from "react";
 
