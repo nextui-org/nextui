@@ -27,10 +27,10 @@ type VariantsToGenerate = {
  * // returns
  * {
  *   "sans": {
- *       "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;"
+ *       "fontFamily": "$sans"
  *   },
  *   "mono": {
- *       "fontFamily": "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
+ *       "fontFamily": "$mono"
  *   }
  * }
  */
