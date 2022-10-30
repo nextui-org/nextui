@@ -2,7 +2,7 @@ import {styled, generateVariants, GeneratedVariantsProps} from "@nextui-org/syst
 import {cssFocusVisible} from "@nextui-org/shared-css";
 
 /**
- * Variants
+ * Theme Variants
  */
 export const itemVariants = generateVariants({
   bgColor: "backgroundColor",
