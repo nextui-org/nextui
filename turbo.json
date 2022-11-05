@@ -1,5 +1,7 @@
 {
+  "$schema": "https://turbo.build/schema.json",
   "baseBranch": "origin/main",
+  "globalDependencies": ["tsconfig.json"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
@@ -17,6 +19,14 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "clean": {
+      "cache": false,
+      "outputs": []
+    },
     "lint": {
       "outputs": []
     },
@@ -26,6 +36,5 @@
     "sb": {
       "cache": false
     }
-  },
-  "globalDependencies": ["tsconfig.json"]
+  }
 }

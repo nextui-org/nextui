@@ -2,7 +2,7 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@stitches/react": ["../../../node_modules/@stitches/react"],
+      "@stitches/react": ["../../../node_modules/@stitches/react"]
     }
   },
   "include": ["src", "index.ts"]

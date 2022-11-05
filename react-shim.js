@@ -1,2 +1,2 @@
-import React from "react"
-export { React }
+import React from "react";
+export {React};

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -15,8 +16,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
+    "downlevelIteration": true
   },
   "include": ["packages", "react-shim.js"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules", "**/dist", "**/.turbo"]
 }

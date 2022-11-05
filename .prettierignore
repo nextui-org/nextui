@@ -5,8 +5,8 @@ plop
 coverage
 .next
 build
+scripts
 pnpm-lock.yaml
-!scripts
 !.storybook
 !.commitlintrc.cjs
 !.lintstagedrc.cjs

@@ -1,7 +1,7 @@
-import "@testing-library/jest-dom/extend-expect"
+import "@testing-library/jest-dom/extend-expect";
 
-const { getComputedStyle } = window
-window.getComputedStyle = (elt) => getComputedStyle(elt)
+const {getComputedStyle} = window;
+window.getComputedStyle = (elt) => getComputedStyle(elt);
 
 if (typeof window.matchMedia !== "function") {
   Object.defineProperty(window, "matchMedia", {
@@ -18,14 +18,14 @@ if (typeof window.matchMedia !== "function") {
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn(),
     })),
-  })
+  });
 }
 
 // Workaround https://github.com/jsdom/jsdom/issues/2524#issuecomment-897707183
-global.TextEncoder = require("util").TextEncoder
+global.TextEncoder = require("util").TextEncoder;
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),
-}))
+}));
