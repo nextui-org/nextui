@@ -17,7 +17,7 @@ export const StyledNotifyBanner = styled(StyledCardBlur, {
   borderTopColor: "transparent",
   borderLeftColor: "transparent",
   borderRightColor: "transparent",
-  transition: "margin-bottom 0.15s ease 0s, transform 0.15s ease 0s",
+  transition: "margin-bottom 0.25s ease 0s, transform 0.25s linear 0s",
   [`.${lightTheme} &`]: {
     "& .notify-gradient": {
       display: "none",

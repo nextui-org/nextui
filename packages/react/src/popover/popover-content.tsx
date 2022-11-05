@@ -1,10 +1,11 @@
-import React, {ReactNode} from "react";
+import type {CSS} from "../theme/stitches.config";
+
+import React, {ReactNode, useMemo} from "react";
 import {useModal, useOverlay, DismissButton} from "@react-aria/overlays";
 import {useDialog} from "@react-aria/dialog";
 import {FocusScope, useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import CSSTransition from "../utils/css-transition";
 import {__DEV__} from "../utils/assertion";
 import {mergeRefs, ReactRef} from "../utils/refs";
@@ -51,6 +52,13 @@ const PopoverContent = React.forwardRef(
 
     const transformOrigin = getTransformOrigin(placement);
 
+    const popoverCss = useMemo<CSS>(() => {
+      return {
+        transformOrigin,
+        ...css,
+      };
+    }, [transformOrigin, css]);
+
     // Hide content outside the modal from screen readers.
     const {modalProps} = useModal({isDisabled: true});
 
@@ -82,13 +90,10 @@ const PopoverContent = React.forwardRef(
         ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
           mergeProps(overlayProps, modalProps, dialogProps, focusProps, completeProps),
+          popoverCss,
         )}
         as={as}
         className={clsx("nextui-popover-content-container", className)}
-        css={{
-          transformOrigin,
-          ...(css as any),
-        }}
         isFocusVisible={isFocusVisible}
       >
         <DismissButton onDismiss={onClose} />

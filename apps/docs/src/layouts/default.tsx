@@ -26,6 +26,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({children, rout
           position: "relative",
           pt: "$$notifyBannerHeight", // only when the notify banner is visible
           minHeight: "100vh",
+          marginTop: "var(--nextui--navbarHeight)",
           "@mdMax": {
             overflowX: "hidden",
           },

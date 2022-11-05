@@ -10,7 +10,7 @@ export default function App() {
         Subscribe (controlled)
       </Checkbox>
       <Spacer x={1} />
-      <Checkbox defaultSelected={true} color="success">
+      <Checkbox defaultSelected color="success">
         Subscribe (uncontrolled)
       </Checkbox>
     </>

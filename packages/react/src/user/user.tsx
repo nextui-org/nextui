@@ -1,12 +1,12 @@
 import type {FocusRingAria} from "@react-aria/focus";
+import type {CSS} from "../theme/stitches.config";
 
 import {useFocusRing} from "@react-aria/focus";
-import React, {ReactNode} from "react";
+import React, {ReactNode, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 import {Avatar} from "../index";
 import {NormalColors, NormalSizes} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import {ReactRef} from "../utils/refs";
 import {useDOMRef} from "../utils/dom";
 import {__DEV__} from "../utils/assertion";
@@ -68,27 +68,28 @@ export const User = React.forwardRef((props: UserProps, ref: ReactRef<HTMLDivEle
 
   const {isFocusVisible, focusProps}: IFocusRingAria = useFocusRing();
 
+  const getAsButtonCss = useMemo<CSS | undefined>(() => {
+    if (as !== "button") return;
+
+    // reset button styles
+    return {
+      borderRadius: "$xs",
+      background: "none",
+      appearance: "none",
+      p: 0,
+      m: 0,
+      outline: "none",
+      border: "none",
+      cursor: "pointer",
+    };
+  }, [as]);
+
   return (
     <StyledUser
       ref={domRef}
       as={as}
       {...mergeProps(otherProps, focusProps)}
-      css={mergeProps(
-        as === "button"
-          ? {
-              borderRadius: "$xs",
-              // reset button styles
-              background: "none",
-              appearance: "none",
-              p: 0,
-              m: 0,
-              outline: "none",
-              border: "none",
-              cursor: "pointer",
-            }
-          : {},
-        css as any,
-      )}
+      css={{...getAsButtonCss, ...css}}
       isFocusVisible={isFocusVisible}
     >
       <Avatar

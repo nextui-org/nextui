@@ -41,7 +41,7 @@ const Dropdown = (props: DropdownProps) => {
         onClose={context.state.close}
       >
         {menuTrigger}
-        <Popover.Content>{menu}</Popover.Content>
+        {menu}
       </Popover>
     </DropdownProvider>
   );

@@ -1,10 +1,10 @@
 import type {FocusRingAria} from "@react-aria/focus";
+import type {CSS} from "../theme/stitches.config";
 
 import {useFocusRing} from "@react-aria/focus";
-import React, {useMemo, useState, useRef, useEffect} from "react";
+import React, {useMemo, useState, useEffect} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import {ReactRef} from "../utils/refs";
 import {useDOMRef} from "../utils/dom";
 import {__DEV__} from "../utils/assertion";
@@ -19,6 +19,7 @@ interface Props {
   icon?: React.ReactNode;
   alt?: string;
   className?: string;
+  imgRef?: ReactRef<HTMLImageElement>;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -40,14 +41,14 @@ const safeText = (text: string): string => {
 };
 
 export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSpanElement>) => {
-  const {as, src, css, text, icon, alt, className, ...otherProps} = props;
+  const {as, src, css, text, icon, alt, className, imgRef: imgRefProp, ...otherProps} = props;
 
   const domRef = useDOMRef(ref);
 
   const showText = !src;
   const [ready, setReady] = useState(false);
 
-  const imgRef = useRef<HTMLImageElement>(null);
+  const imgRef = useDOMRef(imgRefProp);
 
   const {isFocusVisible, focusProps}: IFocusRingAria = useFocusRing();
 
@@ -58,6 +59,18 @@ export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSp
   const getState = useMemo(() => {
     return !ready && src ? "loading" : "ready";
   }, [src, ready]);
+
+  const getAsButtonCss = useMemo<CSS | undefined>(() => {
+    if (as !== "button") return;
+
+    // reset button styles
+    return {
+      appearance: "none",
+      outline: "none",
+      border: "none",
+      cursor: "pointer",
+    };
+  }, [as]);
 
   return (
     <StyledAvatar
@@ -70,18 +83,7 @@ export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSp
         },
         className,
       )}
-      css={
-        as === "button"
-          ? {
-              // reset button styles
-              appearance: "none",
-              outline: "none",
-              border: "none",
-              cursor: "pointer",
-              ...css,
-            }
-          : css
-      }
+      css={{...getAsButtonCss, ...css}}
       data-state={getState}
       isFocusVisible={isFocusVisible}
     >

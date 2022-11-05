@@ -1,8 +1,9 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import {NormalSizes, NormalLoaders} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 
 import {
   StyledLoadingContainer,
@@ -44,8 +45,8 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
 }) => {
   const ariaLabel = children ? "" : "Loading";
 
-  const loadingGradientCSS = useMemo(() => {
-    return type === "gradient" ? {"._2": {bg: gradientBackground}} : {};
+  const loadingGradientCSS = useMemo<CSS | undefined>(() => {
+    if (type === "gradient") return {"._2": {bg: gradientBackground}};
   }, [type]);
 
   return (
@@ -57,10 +58,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           <StyledLoading
             aria-label={ariaLabel}
             className={`${preClass} ${preClass}-${type}`}
-            css={{
-              ...(loadingCss as any),
-              ...loadingGradientCSS,
-            }}
+            css={{...loadingCss, ...loadingGradientCSS}}
             size={size}
             type={type}
           >

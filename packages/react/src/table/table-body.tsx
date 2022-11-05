@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 import {TableCollection} from "@react-types/table";
 import {TableState} from "@react-stately/table";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import {Loading, LoadingProps} from "../index";
 import clsx from "../utils/clsx";
 
@@ -21,6 +22,8 @@ interface Props<T> {
   animated?: boolean;
   hideLoading?: boolean;
   hasPagination?: boolean;
+  // @internal
+  isStatic?: boolean;
   color?: TableVariantsProps["color"];
   as?: keyof JSX.IntrinsicElements;
 }
@@ -40,6 +43,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   color,
   hasPagination,
   hideLoading,
+  isStatic,
   ...props
 }) => {
   const {currentPage, rowsPerPage} = useTableContext();
@@ -107,10 +111,9 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       as="tbody"
       className={clsx("nextui-table-body", props.className)}
       css={{
-        pb: "$10",
         position: "relative",
-        ...(props.css as any),
-        ...(collection.body?.props?.css as any),
+        ...props.css,
+        ...collection.body?.props?.css,
       }}
       isInfinityScroll={infinityScroll}
       onScroll={handleScroll}
@@ -134,7 +137,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
                   state={state}
                 />
               ) : (
-                <TableCell key={cell?.key} cell={cell} state={state} />
+                <TableCell key={cell?.key} cell={cell} isStatic={isStatic} state={state} />
               ),
             )}
           </TableRow>

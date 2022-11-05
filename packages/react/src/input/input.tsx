@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {
   PropsWithoutRef,
   RefAttributes,
@@ -10,8 +12,6 @@ import React, {
 import {useLabel} from "@react-aria/label";
 
 import {ContentPosition} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
-import Textarea from "../textarea";
 import useTheme from "../use-theme";
 import {warn} from "../utils/console";
 import ClearIcon from "../utils/clear-icon";
@@ -201,10 +201,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
         borderWeight={borderWeight}
         className={clsx(`${preClass}-main-container`, `${preClass}-main-container--${getState}`)}
         color={color}
-        css={{
-          width,
-          ...(css as any),
-        }}
+        css={{width, ...css}}
         data-state={getState}
         disabled={disabled}
         helperColor={helperColor}
@@ -376,7 +373,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
 type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {
-  Textarea: typeof Textarea;
   Password: typeof InputPassword;
 };
 

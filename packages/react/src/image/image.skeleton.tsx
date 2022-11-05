@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -26,7 +27,7 @@ const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
     return (
       <StyledImageSkeleton
         className={clsx("nextui-image-skeleton", className)}
-        css={{opacity, ...(css as any)}}
+        css={{opacity, ...css}}
         {...props}
       />
     );
