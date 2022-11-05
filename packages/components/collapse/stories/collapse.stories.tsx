@@ -13,8 +13,7 @@ export const Default = () => (
     <Collapse.Item
       key="1"
       bgColor={{
-        "@initial": "yellow600",
-        "@xsMax": "blue600",
+        "@xsMax": "accents0",
       }}
       title="Your files"
     >

@@ -1,6 +1,5 @@
 import type * as Stitches from "@stitches/react";
-
-import {CssComponent} from "@stitches/react/types/styled-component";
+import type {TransformProps} from "@stitches/react/types/styled-component";
 
 import {ThemeMap, Media, defaultTokens, defaultThemeMap} from "./common";
 import {theme} from "./stitches.config";
@@ -125,5 +124,5 @@ type TranformToVariants<V extends ComponentVariants> = {
 };
 
 export type GeneratedVariantsProps<V extends ComponentVariants> = V extends ComponentVariants
-  ? Stitches.VariantProps<CssComponent<never, TranformToVariants<V>["variants"], Media>>
+  ? TransformProps<TranformToVariants<V>["variants"], Media>
   : never;
