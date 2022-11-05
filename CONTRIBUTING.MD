@@ -105,7 +105,7 @@ After cloning the repository, execute the following commands in the root folder:
 1. Install dependencies
 
 ```bash
-pnpm
+pnpm i
 
 #or
 
