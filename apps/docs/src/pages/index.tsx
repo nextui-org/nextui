@@ -1,6 +1,6 @@
-import React from 'react';
-import { GetStaticProps } from 'next';
-import router, { useRouter } from 'next/router';
+import React from "react";
+import {GetStaticProps} from "next";
+import router, {useRouter} from "next/router";
 import {
   FeaturesGrid,
   Hero,
@@ -12,46 +12,41 @@ import {
   DarkModeSection,
   CustomizationSection,
   BuiltInStitchesSection,
-  LastButNotLeastSection
-} from '@components';
-import landingContent from '@content/landing';
-import DefaultLayout from '@layouts/default';
-import { getSlug } from '@lib/docs/utils';
-import { Route, getCurrentTag, fetchDocsManifest } from '@lib/docs/page';
-import { Action, useRegisterActions } from 'kbar';
-import { Spacer } from '@nextui-org/react';
-import { getId } from '@utils/collections';
+  LastButNotLeastSection,
+} from "@components";
+import landingContent from "@content/landing";
+import DefaultLayout from "@layouts/default";
+import {getSlug} from "@lib/docs/utils";
+import {Route, getCurrentTag, fetchDocsManifest} from "@lib/docs/page";
+import {Action, useRegisterActions} from "kbar";
+import {Spacer} from "@nextui-org/react";
+import {getId} from "@utils/collections";
 
 interface Props {
   routes: Route[];
   currentRoute: Route;
 }
 
-const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
-  const { query } = useRouter();
-  const { tag, slug } = getSlug(query);
+const IndexPage: React.FC<Props> = ({routes, currentRoute}) => {
+  const {query} = useRouter();
+  const {tag, slug} = getSlug(query);
 
   // kbar home action
   const homeAction: Action = React.useMemo(() => {
     return {
       id: getId(),
-      name: 'Getting started',
-      section: 'Scope',
+      name: "Getting started",
+      section: "Scope",
       shortcut: [],
-      keywords: 'help, docs, go, started, getting started, nextui',
-      perform: () => router.push('/docs/guide/getting-started')
+      keywords: "help, docs, go, started, getting started, nextui",
+      perform: () => router.push("/docs/guide/getting-started"),
     };
   }, [routes]);
 
   useRegisterActions([homeAction]);
 
   return (
-    <DefaultLayout
-      routes={routes}
-      currentRoute={currentRoute}
-      tag={tag}
-      slug={slug}
-    >
+    <DefaultLayout currentRoute={currentRoute} routes={routes} slug={slug} tag={tag}>
       {/* Hero */}
       <Hero />
       {/* Main features */}
@@ -65,8 +60,8 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       <BuiltInStitchesSection />
       <LastButNotLeastSection />
       {/* Installation banner */}
-      <Section css={{ zIndex: '$10' }}>
-        <Spacer y={6} css={{ '@xsMax': { mt: '$16' } }} />
+      <Section css={{zIndex: "$10"}}>
+        <Spacer css={{"@xsMax": {mt: "$16"}}} y={6} />
         <InstallBanner />
       </Section>
       <Spacer y={6} />
@@ -81,10 +76,11 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const tag = await getCurrentTag();
   const manifest = await fetchDocsManifest(tag);
+
   return {
     props: {
-      routes: manifest.routes
-    }
+      routes: manifest.routes,
+    },
   };
 };
 

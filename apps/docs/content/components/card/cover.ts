@@ -240,14 +240,14 @@ export default function App() {
 }`;
 
 const react = {
-  '/Card1.js': Card1,
-  '/Card2.js': Card2,
-  '/Card3.js': Card3,
-  '/Card4.js': Card4,
-  '/Card5.js': Card5,
-  '/App.js': App
+  "/Card1.js": Card1,
+  "/Card2.js": Card2,
+  "/Card3.js": Card3,
+  "/Card4.js": Card4,
+  "/Card5.js": Card5,
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

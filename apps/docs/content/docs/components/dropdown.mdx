@@ -1,6 +1,6 @@
 ---
-title: 'Dropdown'
-description: 'Displays a list of actions or options that a user can choose.'
+title: "Dropdown"
+description: "Displays a list of actions or options that a user can choose."
 url: https://nextui.org/docs/components/dropdown
 ---
 
@@ -9,7 +9,7 @@ url: https://nextui.org/docs/components/dropdown
 Displays a list of actions or options that a user can choose. Dropdown implementation is based on <br/> <a href="https://react-spectrum.adobe.com/react-aria/useMenu.html" rel="noreferrer" target="_blank">@react-aria/menu</a>
 
 ```jsx
-import { Dropdown } from '@nextui-org/react';
+import { Dropdown } from "@nextui-org/react";
 ```
 
 <CarbonAd />
@@ -140,14 +140,15 @@ import { Dropdown } from '@nextui-org/react';
 
 #### Dropdown Props
 
-| Attribute         | Type                                                   | Description                                                                                              | Default |
-| ----------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------- |
-| **children\***    | `ReactNode[]`                                          | The content of the dropdown. It's usually the `Dropdown.Trigger`, `Dropdown.Button` and `Dropdown.Menu`. | -       |
-| **type**          | [TriggerType](#trigger-type)                           | The type of dropdown menu that the dropdown trigger opens.                                               | `menu`  |
-| **trigger**       | [MenuTriggerType](#menu-trigger-type)                  | How the dropdown menu is triggered.                                                                      | `press` |
-| **closeOnSelect** | `boolean`                                              | Whether the dropdown menu closes when a selection is made.                                               | `true`  |
-| **isDisabled**    | `boolean`                                              | Whether dropdown trigger is disabled.                                                                    | `false` |
-| **PopoverProps**  | [PopoverProps](/docs/components/popover#popover-props) | Since dropdown is based on the `Popover` you can use any of the `Popover` props.                         | -       |
+| Attribute                                | Type                                                   | Description                                                                                              | Default |
+| ---------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------- |
+| **children\***                           | `ReactNode[]`                                          | The content of the dropdown. It's usually the `Dropdown.Trigger`, `Dropdown.Button` and `Dropdown.Menu`. | -       |
+| **type**                                 | [TriggerType](#trigger-type)                           | The type of dropdown menu that the dropdown trigger opens.                                               | `menu`  |
+| **trigger**                              | [MenuTriggerType](#menu-trigger-type)                  | How the dropdown menu is triggered.                                                                      | `press` |
+| **closeOnSelect**                        | `boolean`                                              | Whether the dropdown menu closes when a selection is made.                                               | `true`  |
+| **isDisabled**                           | `boolean`                                              | Whether dropdown trigger is disabled.                                                                    | `false` |
+| **disableTriggerPressedAnimation** `new` | `boolean`                                              | Whether the trigger should show a pressed animation when the menu is open.                               | `false` |
+| **PopoverProps**                         | [PopoverProps](/docs/components/popover#popover-props) | Since dropdown is based on the `Popover` you can use any of the `Popover` props.                         | -       |
 
 <Spacer y={1} />
 
@@ -197,14 +198,14 @@ import { Dropdown } from '@nextui-org/react';
 | **defaultSelectedKeys**    | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The initial selected keys in the collection (uncontrolled).                                             | -         |
 | **disabledKeys**           | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
 | **selectionMode**          | [SelectionModeType](#selection-mode-type)                                                                    | The type of selection that is allowed in the collection.                                                | -         |
-| **isVirtualized**          | `boolean`                                                                                                    | Whether the dropdown menu uses virtual scrolling.                                                       | `false`   |
-| **disallowEmptySelection** | `boolean`                                                                                                    | Whether the collection allows empty selection.                                                          | `false`   |
-| **autoFocus**              | `boolean` [FocusStrategyType](#focus-strategy-type)                                                          | Where the focus should be set.                                                                          | `false`   |
-| **shouldFocusWrap**        | `boolean`                                                                                                    | Whether keyboard navigation is circular.                                                                | `false`   |
 | **keyboardDelegate**       | [KeyboardDelegateType](#keyboard-delegate-type)                                                              | An optional keyboard delegate implementation for type to select, to override the default.               | -         |
 | **color**                  | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items color                                                                           | `default` |
 | **textColor**              | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items text color                                                                      | `default` |
 | **variant**                | [DropdownVariant](#dropdown-variants)                                                                        | The dropdown menu items variantion                                                                      | `flat`    |
+| **isVirtualized**          | `boolean`                                                                                                    | Whether the dropdown menu uses virtual scrolling.                                                       | `false`   |
+| **disallowEmptySelection** | `boolean`                                                                                                    | Whether the collection allows empty selection.                                                          | `false`   |
+| **autoFocus**              | `boolean` [FocusStrategyType](#focus-strategy-type)                                                          | Where the focus should be set.                                                                          | `false`   |
+| **shouldFocusWrap**        | `boolean`                                                                                                    | Whether keyboard navigation is circular.                                                                | `false`   |
 | **css**                    | `Stitches.CSS`                                                                                               | Override Default CSS style.                                                                             | -         |
 | **as**                     | `keyof JSX.IntrinsicElements`                                                                                | Changes which tag component outputs.                                                                    | `ul`      |
 
@@ -237,19 +238,20 @@ import { Dropdown } from '@nextui-org/react';
 
 #### Dropdown.Item Props
 
-| Attribute         | Type                                                | Description                                                      | Default   |
-| ----------------- | --------------------------------------------------- | ---------------------------------------------------------------- | --------- |
-| **key**           | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                | `false`   |
-| **command**       | `boolean`                                           | Right-aligned label text content, useful for displaying hotkeys. | -         |
-| **description**   | `boolean`                                           | Description text element inside the dropdown menu item.          | -         |
-| **icon**          | `ReactNode`                                         | The icon to render before the dropdown menu item's label.        | -         |
-| **withDivider**   | `boolean`                                           | Whether the dropdown item should have a border on top            | `false`   |
-| **dividerWeight** | [NormalWeight](#normal-weight)                      | The dropdown item divider height                                 | `light`   |
-| **color**         | [SimpleColors](#simple-colors)                      | The dropdown item color                                          | `default` |
-| **textColor**     | [SimpleColors](#simple-colors)                      | The dropdown item text color                                     | `default` |
-| **variant**       | [DropdownVariant](#dropdown-variants)               | The dropdown item variantion                                     | `flat`    |
-| **css**           | `Stitches.CSS`                                      | Override Default CSS style.                                      | -         |
-| **as**            | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                             | `li`      |
+| Attribute                     | Type                                                | Description                                                      | Default   |
+| ----------------------------- | --------------------------------------------------- | ---------------------------------------------------------------- | --------- |
+| **key**                       | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                | `false`   |
+| **description**               | `string`                                            | Description text element inside the dropdown menu item.          | -         |
+| **command**                   | `string`                                            | Right-aligned label text content, useful for displaying hotkeys. | -         |
+| **icon**                      | `ReactNode`                                         | The icon to render before the dropdown menu item's label.        | -         |
+| **dividerWeight**             | [NormalWeights](#normal-weights)                    | The dropdown item divider height                                 | `light`   |
+| **color**                     | [SimpleColors](#simple-colors)                      | The dropdown item color                                          | `default` |
+| **textColor**                 | [SimpleColors](#simple-colors)                      | The dropdown item text color                                     | `default` |
+| **variant**                   | [DropdownVariant](#dropdown-variants)               | The dropdown item variation                                      | `flat`    |
+| **withDivider**               | `boolean`                                           | Whether the dropdown item should have a border on top            | `false`   |
+| **showFullDescription** `new` | `boolean`                                           | Whether the item description should be truncated or not.         | `false`   |
+| **css**                       | `Stitches.CSS`                                      | Override Default CSS style.                                      | -         |
+| **as**                        | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                             | `li`      |
 
 <Spacer y={1} />
 
@@ -292,13 +294,13 @@ import { Dropdown } from '@nextui-org/react';
 #### Trigger Type
 
 ```ts
-type TriggerType = 'menu' | 'listbox';
+type TriggerType = "menu" | "listbox";
 ```
 
 #### Menu Trigger Type
 
 ```ts
-type MenuTriggerType = 'press' | 'longPress';
+type MenuTriggerType = "press" | "longPress";
 ```
 
 #### Collection Element Type
@@ -319,7 +321,7 @@ type CollectionChildren<T> =
 #### Focus Strategy Type
 
 ```ts
-type FocusStrategyType = 'first' | 'last';
+type FocusStrategyType = "first" | "last";
 ```
 
 #### Keyboard Delegate Type
@@ -350,37 +352,37 @@ getKeyForSearch(search: string, fromKey?: Key): Key
 #### Selection Mode Type
 
 ```ts
-type SelectionModeType = 'none' | 'single' | 'multiple';
+type SelectionModeType = "none" | "single" | "multiple";
 ```
 
 #### Selection Type
 
 ```ts
-import { Key } from 'react';
+import { Key } from "react";
 
-type SelectionType = 'all' | Set<Key>;
+type SelectionType = "all" | Set<Key>;
 ```
 
 #### Simple Colors
 
 ```ts
 type SimpleColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error';
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
 ```
 
 #### Dropdown Variants
 
 ```ts
-type DropdownVariants = 'flat' | 'light' | 'solid' | 'shadow';
+type DropdownVariants = "flat" | "light" | "solid" | "shadow";
 ```
 
 #### Normal Weights
 
 ```ts
-type NormalWeights = 'light' | 'normal' | 'bold' | 'extrabold' | 'black';
+type NormalWeights = "light" | "normal" | "bold" | "extrabold" | "black";
 ```

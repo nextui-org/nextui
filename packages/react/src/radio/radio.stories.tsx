@@ -1,11 +1,12 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Radio from './index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import Radio from "./index";
 
 export default {
-  title: 'Inputs/Radio',
+  title: "Inputs/Radio",
   component: Radio,
-  onChange: { action: 'changed' }
+  onChange: {action: "changed"},
 } as Meta;
 
 export const Default = () => (
@@ -18,8 +19,8 @@ export const Default = () => (
 );
 
 export const Disabled = () => (
-  <Radio.Group label="Options" defaultValue="A" isDisabled>
-    <Radio value="A" description="Description for Option A">
+  <Radio.Group isDisabled defaultValue="A" label="Options">
+    <Radio description="Description for Option A" value="A">
       Option A
     </Radio>
     <Radio value="B">Option B</Radio>
@@ -30,38 +31,38 @@ export const Disabled = () => (
 
 export const Sizes = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: 200 }}>
-      <Radio.Group label="Sizes" defaultValue="md">
-        <Radio value="xs" size="xs">
+    <div style={{display: "flex", flexDirection: "row", gap: 200}}>
+      <Radio.Group defaultValue="md" label="Sizes">
+        <Radio size="xs" value="xs">
           mini
         </Radio>
-        <Radio value="sm" size="sm">
+        <Radio size="sm" value="sm">
           small
         </Radio>
-        <Radio value="md" size="md">
+        <Radio size="md" value="md">
           medium
         </Radio>
-        <Radio value="lg" size="lg">
+        <Radio size="lg" value="lg">
           large
         </Radio>
-        <Radio value="xl" size="xl">
+        <Radio size="xl" value="xl">
           xlarge
         </Radio>
       </Radio.Group>
-      <Radio.Group label="Sizes" defaultValue="md">
-        <Radio value="xs" size="xs" description="Description for Option mini">
+      <Radio.Group defaultValue="md" label="Sizes">
+        <Radio description="Description for Option mini" size="xs" value="xs">
           mini
         </Radio>
-        <Radio value="sm" size="sm" description="Description for Option small">
+        <Radio description="Description for Option small" size="sm" value="sm">
           small
         </Radio>
-        <Radio value="md" size="md" description="Description for Option medium">
+        <Radio description="Description for Option medium" size="md" value="md">
           medium
         </Radio>
-        <Radio value="lg" size="lg" description="Description for Option large">
+        <Radio description="Description for Option large" size="lg" value="lg">
           large
         </Radio>
-        <Radio value="xl" size="xl" description="Description for Option xlarge">
+        <Radio description="Description for Option xlarge" size="xl" value="xl">
           xlarge
         </Radio>
       </Radio.Group>
@@ -71,20 +72,20 @@ export const Sizes = () => {
 
 export const Colors = () => {
   return (
-    <Radio.Group label="Colors" defaultValue="primary">
-      <Radio value="primary" color="primary">
+    <Radio.Group defaultValue="primary" label="Colors">
+      <Radio color="primary" value="primary">
         primary
       </Radio>
-      <Radio value="secondary" color="secondary">
+      <Radio color="secondary" value="secondary">
         secondary
       </Radio>
-      <Radio value="success" color="success">
+      <Radio color="success" value="success">
         success
       </Radio>
-      <Radio value="warning" color="warning">
+      <Radio color="warning" value="warning">
         warning
       </Radio>
-      <Radio value="error" color="error">
+      <Radio color="error" value="error">
         error
       </Radio>
     </Radio.Group>
@@ -93,20 +94,20 @@ export const Colors = () => {
 
 export const LabelColors = () => {
   return (
-    <Radio.Group label="Label colors" defaultValue="primary">
-      <Radio value="primary" color="primary" labelColor="primary">
+    <Radio.Group defaultValue="primary" label="Label colors">
+      <Radio color="primary" labelColor="primary" value="primary">
         primary
       </Radio>
-      <Radio value="secondary" color="secondary" labelColor="secondary">
+      <Radio color="secondary" labelColor="secondary" value="secondary">
         secondary
       </Radio>
-      <Radio value="success" color="success" labelColor="success">
+      <Radio color="success" labelColor="success" value="success">
         success
       </Radio>
-      <Radio value="warning" color="warning" labelColor="warning">
+      <Radio color="warning" labelColor="warning" value="warning">
         warning
       </Radio>
-      <Radio value="error" color="error" labelColor="error">
+      <Radio color="error" labelColor="error" value="error">
         error
       </Radio>
     </Radio.Group>
@@ -114,75 +115,75 @@ export const LabelColors = () => {
 };
 
 export const Squared = () => (
-  <Radio.Group label="Options" defaultValue="A">
-    <Radio value="A" isSquared>
+  <Radio.Group defaultValue="A" label="Options">
+    <Radio isSquared value="A">
       Option A
     </Radio>
-    <Radio value="B" isSquared>
+    <Radio isSquared value="B">
       Option B
     </Radio>
-    <Radio value="C" isSquared>
+    <Radio isSquared value="C">
       Option C
     </Radio>
-    <Radio value="D" isSquared>
+    <Radio isSquared value="D">
       Option D
     </Radio>
   </Radio.Group>
 );
 
 export const Description = () => (
-  <Radio.Group label="Options" defaultValue="A">
-    <Radio value="A" description="Description for Option A">
+  <Radio.Group defaultValue="A" label="Options">
+    <Radio description="Description for Option A" value="A">
       Option A
     </Radio>
-    <Radio value="B" description="Description for Option B">
+    <Radio description="Description for Option B" value="B">
       Option B
     </Radio>
-    <Radio value="C" description="Description for Option C">
+    <Radio description="Description for Option C" value="C">
       Option C
     </Radio>
-    <Radio value="D" description="Description for Option D">
+    <Radio description="Description for Option D" value="D">
       Option D
     </Radio>
   </Radio.Group>
 );
 
 export const Invalid = () => (
-  <Radio.Group label="Options" defaultValue="A" validationState="invalid">
-    <Radio value="A" description="Description for Option A">
+  <Radio.Group defaultValue="A" label="Options" validationState="invalid">
+    <Radio description="Description for Option A" value="A">
       Option A
     </Radio>
-    <Radio value="B" description="Description for Option B">
+    <Radio description="Description for Option B" value="B">
       Option B
     </Radio>
-    <Radio value="C" description="Description for Option C">
+    <Radio description="Description for Option C" value="C">
       Option C
     </Radio>
-    <Radio value="D" description="Description for Option D">
+    <Radio description="Description for Option D" value="D">
       Option D
     </Radio>
   </Radio.Group>
 );
 
 export const Row = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 100 }}>
-    <Radio.Group label="Options" defaultValue="A" orientation="horizontal">
+  <div style={{display: "flex", flexDirection: "column", gap: 100}}>
+    <Radio.Group defaultValue="A" label="Options" orientation="horizontal">
       <Radio value="A">Option A</Radio>
       <Radio value="B">Option B</Radio>
       <Radio value="C">Option C</Radio>
       <Radio value="D">Option D</Radio>
     </Radio.Group>
-    <Radio.Group label="Options" defaultValue="A" orientation="horizontal">
-      <Radio value="A" description="Description for Option A">
+    <Radio.Group defaultValue="A" label="Options" orientation="horizontal">
+      <Radio description="Description for Option A" value="A">
         Option A
       </Radio>
-      <Radio value="B" description="Description for Option B">
+      <Radio description="Description for Option B" value="B">
         Option B
       </Radio>
-      <Radio value="C" description="Description for Option C">
+      <Radio description="Description for Option C" value="C">
         Option C
       </Radio>
-      <Radio value="D" description="Description for Option D">
+      <Radio description="Description for Option D" value="D">
         Option D
       </Radio>
     </Radio.Group>
@@ -190,10 +191,10 @@ export const Row = () => (
 );
 
 export const Controlled = () => {
-  const [checked, setChecked] = React.useState<string>('london');
+  const [checked, setChecked] = React.useState<string>("london");
 
   React.useEffect(() => {
-    console.log('checked:', checked);
+    console.log("checked:", checked);
   }, [checked]);
 
   return (
@@ -208,17 +209,17 @@ export const Controlled = () => {
 
 export const DisableAnimation = () => {
   return (
-    <Radio.Group label="Options" defaultValue="A">
-      <Radio value="A" disableAnimation>
+    <Radio.Group defaultValue="A" label="Options">
+      <Radio disableAnimation value="A">
         Option A
       </Radio>
-      <Radio value="B" disableAnimation>
+      <Radio disableAnimation value="B">
         Option B
       </Radio>
-      <Radio value="C" disableAnimation>
+      <Radio disableAnimation value="C">
         Option C
       </Radio>
-      <Radio value="D" disableAnimation>
+      <Radio disableAnimation value="D">
         Option D
       </Radio>
     </Radio.Group>

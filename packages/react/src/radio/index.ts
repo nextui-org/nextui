@@ -1,5 +1,5 @@
-import Radio from './radio';
-import RadioGroup from './radio-group';
+import Radio from "./radio";
+import RadioGroup from "./radio-group";
 
 Radio.Group = RadioGroup;
 
@@ -10,8 +10,8 @@ export {
   StyledRadioContainer,
   StyledRadioDescription,
   StyledRadioGroup,
-  StyledRadioGroupContainer
-} from './radio.styles';
+  StyledRadioGroupContainer,
+} from "./radio.styles";
 export type {
   RadioLabelVariantsProps,
   RadioTexVariantsProps,
@@ -19,7 +19,7 @@ export type {
   RadioContainerVariantsProps,
   RadioDescriptionVariantsProps,
   RadioGroupVariantsProps,
-  RadioGroupContainerVariantsProps
-} from './radio.styles';
+  RadioGroupContainerVariantsProps,
+} from "./radio.styles";
 
 export default Radio;

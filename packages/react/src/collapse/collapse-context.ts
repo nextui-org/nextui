@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface CollapseConfig {
   values: Array<number>;
@@ -8,11 +8,10 @@ export interface CollapseConfig {
 }
 
 const defaultContext = {
-  values: []
+  values: [],
 };
 
-export const CollapseContext =
-  React.createContext<CollapseConfig>(defaultContext);
+export const CollapseContext = React.createContext<CollapseConfig>(defaultContext);
 
 export const useCollapseContext = (): CollapseConfig =>
   React.useContext<CollapseConfig>(CollapseContext);

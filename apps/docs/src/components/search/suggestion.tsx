@@ -1,38 +1,40 @@
-import * as React from 'react';
-import cn from 'classnames';
-import { Highlight } from 'react-instantsearch-dom';
-import NextLink from 'next/link';
-import { Hit } from 'react-instantsearch-core';
-import { useTheme } from '@nextui-org/react';
-import { CodeDocument, Hash, ArrowRight } from '../icons';
-import { addColorAlpha } from '@utils/index';
-import { includes } from 'lodash';
+import * as React from "react";
+import cn from "classnames";
+import {Highlight} from "react-instantsearch-dom";
+import NextLink from "next/link";
+import {Hit} from "react-instantsearch-core";
+import {useTheme} from "@nextui-org/react";
+import {addColorAlpha} from "@utils/index";
+import {includes} from "lodash";
+
+import {CodeDocument, Hash, ArrowRight} from "../icons";
 
 interface Props {
   hit: Hit;
   highlighted: boolean;
 }
 
-const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
-  const { theme } = useTheme();
+const Suggestion: React.FC<Props> = ({hit, highlighted}) => {
+  const {theme} = useTheme();
+
   return (
     <NextLink href={hit.url}>
-      <span className={cn('suggestion__container', { highlighted })}>
+      <span className={cn("suggestion__container", {highlighted})}>
         <div className="suggestion__icon-container">
-          {hit.type !== 'lvl1' || includes(hit.url, '#') ? (
+          {hit.type !== "lvl1" || includes(hit.url, "#") ? (
             <Hash fill={theme?.colors?.accents6?.value} />
           ) : (
             <CodeDocument fill={theme?.colors?.accents6?.value} />
           )}
         </div>
         <div className="suggestion__data-container">
-          {hit.type !== 'lvl1' && (
+          {hit.type !== "lvl1" && (
             <span className="suggestion__title">
-              <Highlight hit={hit} attribute="hierarchy.lvl1" tagName="mark" />
+              <Highlight attribute="hierarchy.lvl1" hit={hit} tagName="mark" />
             </span>
           )}
           <span className="suggestion__content">
-            <Highlight hit={hit} attribute="content" tagName="mark" />
+            <Highlight attribute="content" hit={hit} tagName="mark" />
           </span>
         </div>
         <div>
@@ -47,8 +49,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
               cursor: pointer;
               padding: 16px 8px;
               justify-content: space-between;
-              border-bottom: 1px solid
-                ${addColorAlpha(theme?.colors?.border?.value, 0.6)};
+              border-bottom: 1px solid ${addColorAlpha(theme?.colors?.border?.value, 0.1)};
               min-height: 68px;
               transition: all 0.2s ease;
             }

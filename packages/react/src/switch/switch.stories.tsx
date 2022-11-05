@@ -1,16 +1,18 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Switch from './index';
-import { Moon, Sun, Lock, Notification } from '../utils/icons';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Moon, Sun, Lock, Notification} from "../utils/icons";
+
+import Switch from "./index";
 
 export default {
-  title: 'Inputs/Switch',
+  title: "Inputs/Switch",
   component: Switch,
-  onChange: { action: 'changed' }
+  onChange: {action: "changed"},
 } as Meta;
 
 export const Default = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
+  <div style={{display: "flex", flexDirection: "column"}}>
     <Switch />
     <br />
     <Switch initialChecked />
@@ -18,31 +20,31 @@ export const Default = () => (
 );
 
 export const Colors = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Switch color="primary" checked={true}>
+  <div style={{display: "flex", flexDirection: "column"}}>
+    <Switch checked={true} color="primary">
       Primary
     </Switch>
     <br />
-    <Switch color="secondary" checked={true}>
+    <Switch checked={true} color="secondary">
       Secondary
     </Switch>
     <br />
-    <Switch color="success" checked={true}>
+    <Switch checked={true} color="success">
       Success
     </Switch>
     <br />
-    <Switch color="warning" checked={true}>
+    <Switch checked={true} color="warning">
       Warning
     </Switch>
     <br />
-    <Switch color="error" checked={true}>
+    <Switch checked={true} color="error">
       Error
     </Switch>
   </div>
 );
 
 export const Sizes = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
+  <div style={{display: "flex", flexDirection: "column"}}>
     <Switch initialChecked size="xs" />
     <br />
     <Switch size="sm" />
@@ -56,43 +58,43 @@ export const Sizes = () => (
 );
 
 export const Squared = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Switch squared color="primary" checked={true}>
+  <div style={{display: "flex", flexDirection: "column"}}>
+    <Switch squared checked={true} color="primary">
       Primary
     </Switch>
     <br />
-    <Switch squared color="secondary" checked={true}>
+    <Switch squared checked={true} color="secondary">
       Secondary
     </Switch>
     <br />
-    <Switch squared color="success" checked={true}>
+    <Switch squared checked={true} color="success">
       Success
     </Switch>
     <br />
-    <Switch squared color="warning" checked={true}>
+    <Switch squared checked={true} color="warning">
       Warning
     </Switch>
     <br />
-    <Switch squared color="error" checked={true}>
+    <Switch squared checked={true} color="error">
       Error
     </Switch>
   </div>
 );
 
 export const Disabled = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
+  <div style={{display: "flex", flexDirection: "column"}}>
     <Switch disabled />
     <br />
-    <Switch initialChecked disabled />
+    <Switch disabled initialChecked />
   </div>
 );
 
 export const Icons = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <Switch size="xl" icon={<Lock />} />
-      <Switch size="xl" icon={<Notification />} />
-      <Switch size="xl" iconOn={<Sun />} iconOff={<Moon />} />
+    <div style={{display: "flex", flexDirection: "column"}}>
+      <Switch icon={<Lock />} size="xl" />
+      <Switch icon={<Notification />} size="xl" />
+      <Switch iconOff={<Moon />} iconOn={<Sun />} size="xl" />
     </div>
   );
 };

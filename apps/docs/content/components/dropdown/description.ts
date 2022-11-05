@@ -1,6 +1,4 @@
-const AddNoteIcon = `import { React } from "@nextui-org/react";
-
-export const AddNoteIcon = ({ fill, size, height, width, ...props }) => {
+const AddNoteIcon = `export const AddNoteIcon = ({ fill, size, height, width, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,9 +20,7 @@ export const AddNoteIcon = ({ fill, size, height, width, ...props }) => {
   );
 };`;
 
-const CopyDocumentIcon = `import { React } from "@nextui-org/react";
-
-export const CopyDocumentIcon = ({ fill, size, height, width, ...props }) => {
+const CopyDocumentIcon = `export const CopyDocumentIcon = ({ fill, size, height, width, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,9 +46,7 @@ export const CopyDocumentIcon = ({ fill, size, height, width, ...props }) => {
   );
 };`;
 
-const EditDocumentIcon = `import { React } from "@nextui-org/react";
-
-export const EditDocumentIcon = ({ fill, size, height, width, ...props }) => {
+const EditDocumentIcon = `export const EditDocumentIcon = ({ fill, size, height, width, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -74,9 +68,7 @@ export const EditDocumentIcon = ({ fill, size, height, width, ...props }) => {
   );
 };`;
 
-const DeleteDocumentIcon = `import { React } from "@nextui-org/react";
-
-export const DeleteDocumentIcon = ({ fill, size, height, width, ...props }) => {
+const DeleteDocumentIcon = `export const DeleteDocumentIcon = ({ fill, size, height, width, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -162,13 +154,13 @@ export default function App() {
 }`;
 
 const react = {
-  '/AddNoteIcon.js': AddNoteIcon,
-  '/CopyDocumentIcon.js': CopyDocumentIcon,
-  '/EditDocumentIcon.js': EditDocumentIcon,
-  '/DeleteDocumentIcon.js': DeleteDocumentIcon,
-  '/App.js': App
+  "/AddNoteIcon.js": AddNoteIcon,
+  "/CopyDocumentIcon.js": CopyDocumentIcon,
+  "/EditDocumentIcon.js": EditDocumentIcon,
+  "/DeleteDocumentIcon.js": DeleteDocumentIcon,
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

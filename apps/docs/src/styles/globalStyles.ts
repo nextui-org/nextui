@@ -1,66 +1,76 @@
-import { globalCss } from '@nextui-org/react';
+import {globalCss} from "@nextui-org/react";
 
 export default globalCss({
   html: {
-    scrollPaddingTop: '80px'
+    $$notifyBannerHeight: "40px",
+    $$navbarHeight: "76px",
+    scrollPaddingTop: "80px",
+    "&.dragging-ew": {
+      userSelect: "none !important",
+      cursor: "ew-resize !important",
+      "*": {
+        userSelect: "none !important",
+        cursor: "ew-resize !important",
+      },
+    },
   },
+
   // css baseline overrides
   blockquote: {
-    mb: '$14 !important',
-    '& p': {
-      fontSize: '1rem !important'
-    }
+    mb: "$14 !important",
+    "& p": {
+      fontSize: "1rem !important",
+    },
   },
   // home sections
-  '.inview-section': {
-    zIndex: '$2',
-    width: '100%'
+  ".inview-section": {
+    zIndex: "$2",
+    width: "100%",
   },
   // sandpack-react
-  '.sp-highlight': {
-    background: '$codeHighlight',
-    borderLeft: '2px solid $gray400'
+  ".sp-highlight": {
+    background: "$codeHighlight",
+    borderLeft: "2px solid $gray400",
   },
-  '.sp-tabs': {
-    border: 'none !important',
-    borderRadius: 'inherit',
+  ".sp-tabs": {
+    border: "none !important",
+    borderRadius: "inherit",
     button: {
-      cursor: 'pointer'
-    }
+      cursor: "pointer",
+    },
   },
-  '.sp-layout': {
-    border: 'none !important',
-    overflow: 'visible !important',
-    WebkitMaskImage: 'none !important',
-    background: 'transparent !important'
+  ".sp-layout": {
+    border: "none !important",
+    overflow: "visible !important",
+    WebkitMaskImage: "none !important",
+    background: "transparent !important",
   },
-  '.sp-pre-placeholder': {
-    background: 'transparent !important',
-    borderRadius: '0 !important'
+  ".sp-pre-placeholder": {
+    background: "transparent !important",
+    borderRadius: "0 !important",
   },
-  '#nprogress': {
-    pointerEvents: 'none'
+  "#nprogress": {
+    pointerEvents: "none",
   },
-  '#nprogress .bar': {
-    background: 'var(--nextui-colors-secondary)',
-    position: 'fixed',
-    zIndex: '999999',
+  "#nprogress .bar": {
+    background: "var(--nextui-colors-secondary)",
+    position: "fixed",
+    zIndex: "999999",
     top: 0,
     left: 0,
-    width: '100%',
-    height: '3px'
+    width: "100%",
+    height: "3px",
   },
   /* Fancy blur effect */
-  ' #nprogress .peg': {
-    display: 'block',
-    position: 'absolute',
-    right: '0px',
-    width: '100px',
-    height: '100%',
-    boxShadow:
-      '0 0 10px var(--nextui-colors-secondary), 0 0 5px var(--nextui-colors-secondary)',
+  " #nprogress .peg": {
+    display: "block",
+    position: "absolute",
+    right: "0px",
+    width: "100px",
+    height: "100%",
+    boxShadow: "0 0 10px var(--nextui-colors-secondary), 0 0 5px var(--nextui-colors-secondary)",
     opacity: 1,
-    WebkitTransform: 'rotate(3deg) translate(0px, -4px)',
-    transform: 'rotate(3deg) translate(0px, -4px)'
-  }
+    WebkitTransform: "rotate(3deg) translate(0px, -4px)",
+    transform: "rotate(3deg) translate(0px, -4px)",
+  },
 });

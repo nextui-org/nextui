@@ -1,21 +1,23 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Pagination from './pagination';
-import { Grid } from '../index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Grid} from "../index";
+
+import Pagination from "./pagination";
 
 export default {
-  title: 'Navigation/Pagination',
+  title: "Navigation/Pagination",
   component: Pagination,
   decorators: [
     (Story) => (
       <Grid.Container gap={2} sm={12}>
         <Story />
       </Grid.Container>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
-export const Default = () => <Pagination total={20} initialPage={1} />;
+export const Default = () => <Pagination initialPage={1} total={20} />;
 
 export const Colors = () => (
   <>
@@ -49,13 +51,13 @@ export const Sizes = () => (
       <Pagination size="sm" total={5} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="md" total={10} initialPage={6} />
+      <Pagination initialPage={6} size="md" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="lg" total={10} initialPage={6} />
+      <Pagination initialPage={6} size="lg" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="xl" total={30} initialPage={6} />
+      <Pagination initialPage={6} size="xl" total={30} />
     </Grid>
   </>
 );
@@ -69,13 +71,13 @@ export const Rounded = () => (
       <Pagination rounded size="sm" total={5} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="md" total={10} initialPage={6} />
+      <Pagination rounded initialPage={6} size="md" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="lg" total={10} initialPage={6} />
+      <Pagination rounded initialPage={6} size="lg" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="xl" total={30} initialPage={6} />
+      <Pagination rounded initialPage={6} size="xl" total={30} />
     </Grid>
   </>
 );
@@ -83,10 +85,10 @@ export const Rounded = () => (
 export const Bordered = () => (
   <>
     <Grid xs={12}>
-      <Pagination bordered total={20} initialPage={1} />
+      <Pagination bordered initialPage={1} total={20} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded bordered total={20} initialPage={1} />
+      <Pagination bordered rounded initialPage={1} total={20} />
     </Grid>
   </>
 );
@@ -117,19 +119,19 @@ export const Shadow = () => (
 export const OnlyDots = () => (
   <>
     <Grid xs={12}>
-      <Pagination color="primary" onlyDots size="xs" total={10} />
+      <Pagination onlyDots color="primary" size="xs" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination shadow color="secondary" onlyDots size="sm" total={10} />
+      <Pagination onlyDots shadow color="secondary" size="sm" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination color="success" onlyDots size="md" total={10} />
+      <Pagination onlyDots color="success" size="md" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination shadow color="warning" onlyDots size="lg" total={10} />
+      <Pagination onlyDots shadow color="warning" size="lg" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination color="error" onlyDots size="xl" total={10} />
+      <Pagination onlyDots color="error" size="xl" total={10} />
     </Grid>
   </>
 );
@@ -137,7 +139,7 @@ export const OnlyDots = () => (
 export const Loop = () => (
   <>
     <Grid xs={12}>
-      <Pagination loop total={6} initialPage={1} />
+      <Pagination loop initialPage={1} total={6} />
     </Grid>
   </>
 );
@@ -145,7 +147,7 @@ export const Loop = () => (
 export const NoMargin = () => (
   <>
     <Grid xs={12}>
-      <Pagination shadow noMargin color="secondary" total={6} initialPage={1} />
+      <Pagination noMargin shadow color="secondary" initialPage={1} total={6} />
     </Grid>
   </>
 );
@@ -153,13 +155,7 @@ export const NoMargin = () => (
 export const NoControls = () => (
   <>
     <Grid xs={12}>
-      <Pagination
-        shadow
-        controls={false}
-        color="success"
-        total={20}
-        initialPage={1}
-      />
+      <Pagination shadow color="success" controls={false} initialPage={1} total={20} />
     </Grid>
   </>
 );
@@ -167,7 +163,7 @@ export const NoControls = () => (
 export const NoAnimated = () => (
   <>
     <Grid xs={12}>
-      <Pagination animated={false} total={6} initialPage={1} />
+      <Pagination animated={false} initialPage={1} total={6} />
     </Grid>
   </>
 );

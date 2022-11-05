@@ -1,12 +1,11 @@
-import React from 'react';
-import withDefaults from '../utils/with-defaults';
-import { CSS } from '../theme/stitches.config';
-import {
-  StyledImageSkeleton,
-  ImageSkeletonVariantsProps
-} from './image.styles';
-import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
+import React from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {CSS} from "../theme/stitches.config";
+import clsx from "../utils/clsx";
+import {__DEV__} from "../utils/assertion";
+
+import {StyledImageSkeleton, ImageSkeletonVariantsProps} from "./image.styles";
 
 interface Props {
   opacity: number;
@@ -17,29 +16,27 @@ interface Props {
 
 const defaultProps = {
   opacity: 0.5,
-  className: ''
+  className: "",
 };
 
-export type ImageSkeletonProps = Props &
-  typeof defaultProps &
-  ImageSkeletonVariantsProps;
+export type ImageSkeletonProps = Props & typeof defaultProps & ImageSkeletonVariantsProps;
 
 const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
-  ({ opacity, css, className, ...props }) => {
+  ({opacity, css, className, ...props}) => {
     return (
       <StyledImageSkeleton
-        css={{ opacity, ...(css as any) }}
-        className={clsx('nextui-image-skeleton', className)}
+        className={clsx("nextui-image-skeleton", className)}
+        css={{opacity, ...(css as any)}}
         {...props}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  ImageSkeleton.displayName = 'NextUI.ImageSkeleton';
+  ImageSkeleton.displayName = "NextUI.ImageSkeleton";
 }
 
-ImageSkeleton.toString = () => '.nextui-image-skeleton';
+ImageSkeleton.toString = () => ".nextui-image-skeleton";
 
 export default withDefaults(ImageSkeleton, defaultProps);

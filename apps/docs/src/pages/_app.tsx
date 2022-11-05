@@ -1,24 +1,22 @@
-import React from 'react';
-import { NextPage } from 'next';
-import { debounce } from 'lodash';
-import { NextRouter, Router } from 'next/router';
-import { NextUIProvider } from '@nextui-org/react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import NProgress from 'nprogress';
-import PlausibleProvider from 'next-plausible';
-import { AppInitialProps } from 'next/app';
-import { NextComponent } from '@lib/types';
-import { lightTheme, darkTheme } from '../theme/shared';
-import { isProd } from '@utils/index';
-import RouterEvents from '@lib/router-events';
-import globalStyles from '../styles/globalStyles';
-import '../styles/sandpack.css';
-import { KBarWrapper as KBarProvider } from '@components';
+import React from "react";
+import {NextPage} from "next";
+import {debounce} from "lodash";
+import {NextRouter, Router} from "next/router";
+import {NextUIProvider} from "@nextui-org/react";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+import NProgress from "nprogress";
+import PlausibleProvider from "next-plausible";
+import {AppInitialProps} from "next/app";
+import {NextComponent} from "@lib/types";
+import {isProd} from "@utils/index";
+import RouterEvents from "@lib/router-events";
+import {KBarWrapper as KBarProvider} from "@components";
 
-type AppPropsType<
-  R extends NextRouter = NextRouter,
-  P = {}
-> = AppInitialProps & {
+import {lightTheme, darkTheme} from "../theme/shared";
+import globalStyles from "../styles/globalStyles";
+import "../styles/sandpack.css";
+
+type AppPropsType<R extends NextRouter = NextRouter, P = {}> = AppInitialProps & {
   Component: NextComponent<P>;
   router: R;
   __N_SSG?: boolean;
@@ -27,29 +25,31 @@ type AppPropsType<
 
 type AppProps<P = {}> = AppPropsType<Router, P>;
 
-NProgress.configure({ parent: '#app-container' });
+NProgress.configure({parent: "#app-container"});
 
 const start = debounce(NProgress.start, 100);
-RouterEvents.on('routeChangeStart', start);
-RouterEvents.on('routeChangeComplete', (url) => {
+
+RouterEvents.on("routeChangeStart", start);
+RouterEvents.on("routeChangeComplete", (url) => {
   console.log(`Changed to URL: ${url}`);
   start.cancel();
   NProgress.done();
 });
-RouterEvents.on('routeChangeError', () => {
+RouterEvents.on("routeChangeError", () => {
   start.cancel();
   NProgress.done();
 });
 
-const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
+const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   globalStyles();
+
   return (
     <NextThemesProvider
-      defaultTheme="system"
       attribute="class"
+      defaultTheme="system"
       value={{
         light: lightTheme.className,
-        dark: darkTheme.className
+        dark: darkTheme.className,
       }}
     >
       <NextUIProvider>

@@ -1,57 +1,65 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import Button from '../index';
-import { nativeEvent } from '../../../tests/utils';
+import React from "react";
+import {mount} from "enzyme";
+import {render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-describe('ButtonGroup', () => {
-  it('should render correctly', () => {
+import Button from "../index";
+import {nativeEvent} from "../../../tests/utils";
+
+describe("ButtonGroup", () => {
+  it("should render correctly", () => {
     const wrapper = mount(
       <Button.Group>
         <Button>action</Button>
-      </Button.Group>
+      </Button.Group>,
     );
+
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('props should be passed to each button', () => {
+  it("props should be passed to each button", () => {
     const wrapper = mount(
-      <Button.Group size="xs" color="success">
+      <Button.Group color="success" size="xs">
         <Button>action</Button>
-      </Button.Group>
+      </Button.Group>,
     );
+
     expect(wrapper.html()).toMatchSnapshot();
-    wrapper.setProps({ flat: true });
+    wrapper.setProps({flat: true});
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should ignore events when group disabled', () => {
+  it("should ignore events when group disabled", () => {
     const handler = jest.fn();
-    const wrapper = mount(
-      <Button.Group>
-        <Button onClick={handler}>action</Button>
-      </Button.Group>
+    const wrapper = render(
+      <Button.Group disabled>
+        <Button data-testid="button-test" onClick={handler}>
+          action
+        </Button>
+      </Button.Group>,
     );
-    wrapper.find('button').simulate('click', nativeEvent);
-    expect(handler).toHaveBeenCalledTimes(1);
-    wrapper.setProps({ disabled: true });
-    wrapper.find('button').simulate('click', nativeEvent);
-    expect(handler).toHaveBeenCalledTimes(1);
+
+    let button = wrapper.getByTestId("button-test");
+
+    userEvent.click(button);
+    expect(handler).toBeCalledTimes(0);
   });
 
-  it('buttons should be displayed vertically', () => {
+  it("buttons should be displayed vertically", () => {
     const wrapper = mount(
       <Button.Group vertical>
         <Button>action1</Button>
         <Button>action2</Button>
-      </Button.Group>
+      </Button.Group>,
     );
+
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should render different variants', () => {
+  it("should render different variants", () => {
     const wrapper = mount(
       <Button.Group>
         <Button flat>button</Button>
@@ -69,8 +77,9 @@ describe('ButtonGroup', () => {
         <Button shadow>button</Button>
         <Button auto>button</Button>
         <Button animated={false}>button</Button>
-      </Button.Group>
+      </Button.Group>,
     );
+
     expect(wrapper).toMatchSnapshot();
     expect(<Button>button</Button>).toMatchSnapshot();
   });

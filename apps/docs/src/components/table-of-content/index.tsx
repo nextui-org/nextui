@@ -1,26 +1,23 @@
-import * as React from 'react';
-import cn from 'classnames';
-import { useScrollSpy } from '@hooks/use-scroll-spy';
-import { Heading } from '@utils/get-headings';
-import { useTheme } from '@nextui-org/react';
-import { useIsMobile } from '@hooks/use-media-query';
+import * as React from "react";
+import cn from "classnames";
+import {useScrollSpy} from "@hooks/use-scroll-spy";
+import {Heading} from "@utils/get-headings";
+import {useTheme} from "@nextui-org/react";
+import {useIsMobile} from "@hooks/use-media-query";
 
 interface TableOfContentProps {
   headings: Heading[];
 }
 
-const TableOfContent: React.FC<TableOfContentProps> = ({
-  headings,
-  ...props
-}) => {
+const TableOfContent: React.FC<TableOfContentProps> = ({headings, ...props}) => {
   const isMobile = useIsMobile();
   const activeId = useScrollSpy(
-    headings.map(({ id }) => `[id="${id}"]`),
+    headings.map(({id}) => `[id="${id}"]`),
     {
-      rootMargin: '0% 0% -80% 0%'
-    }
+      rootMargin: "0% 0% -80% 0%",
+    },
   );
-  const { theme } = useTheme();
+  const {theme} = useTheme();
 
   if (headings.length <= 0 || isMobile) return null;
 
@@ -31,8 +28,8 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
         {headings.map((heading, i) => (
           <li
             key={i}
-            className={cn('list-item', {
-              active: activeId == heading.id
+            className={cn("list-item", {
+              active: activeId == heading.id,
             })}
           >
             <a href={`#${heading.id}`}>{heading.text}</a>
@@ -80,7 +77,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           font-weight: 500;
         }
         .list-item:after {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           right: auto;

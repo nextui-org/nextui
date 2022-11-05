@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from "react";
 import {
   useTheme,
   Avatar,
@@ -9,9 +9,9 @@ import {
   Button,
   Spacer,
   Grid,
-  CSS
-} from '@nextui-org/react';
-import withDefaults from '@utils/with-defaults';
+  CSS,
+} from "@nextui-org/react";
+import withDefaults from "@utils/with-defaults";
 
 interface Props {
   avatarUrl?: string;
@@ -20,10 +20,10 @@ interface Props {
 }
 
 const defaultProps = {
-  avatarUrl: '/avatars/avatar-2.png'
+  avatarUrl: "/avatars/avatar-2.png",
 };
 
-export type UserTwitterCardProps = Props & { css?: CSS };
+export type UserTwitterCardProps = Props & {css?: CSS};
 
 const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
   avatarUrl,
@@ -32,43 +32,36 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
   onClick,
   ...props
 }) => {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   const [following, setFollowing] = useState(false);
 
   return (
     <Grid.Container
       className="user-twitter-card__container"
       css={{
-        mw: '250px',
-        borderRadius: '$lg',
-        padding: '$sm',
-        ...(css as any)
+        mw: "250px",
+        borderRadius: "$lg",
+        padding: "$sm",
+        ...(css as any),
       }}
       onClick={onClick}
       {...props}
     >
-      <Row justify="space-between" align="center">
+      <Row align="center" justify="space-between">
         <Col span={3}>
-          <Avatar
-            size="lg"
-            src={avatarUrl}
-            color="gradient"
-            bordered
-            squared
-            {...avatarProps}
-          />
+          <Avatar bordered squared color="gradient" size="lg" src={avatarUrl} {...avatarProps} />
         </Col>
         <Col span={9}>
           <Row>
-            <Grid xs={12} direction="column">
-              <Text className="user-twitter-card__text" b size={15}>
+            <Grid direction="column" xs={12}>
+              <Text b className="user-twitter-card__text" size={15}>
                 Zoey Lang
               </Text>
               <Text
                 className="user-twitter-card__text"
-                size={14}
-                css={{ mt: '-$3' }}
                 color={theme?.colors?.accents7?.value}
+                css={{mt: "-$3"}}
+                size={14}
               >
                 @zoeylang
               </Text>
@@ -76,18 +69,18 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
             <Button
               auto
               rounded
-              onClick={() => setFollowing(!following)}
-              css={{
-                maxHeight: '$space$12',
-                fs: '$xs',
-                fontWeight: '$semibold',
-                borderColor: following ? '$foreground' : '$primary',
-                color: following ? '$foreground' : '$white'
-              }}
-              color="primary"
               bordered={following}
+              color="primary"
+              css={{
+                maxHeight: "$space$12",
+                fs: "$xs",
+                fontWeight: "$semibold",
+                borderColor: following ? "$foreground" : "$primary",
+                color: following ? "$foreground" : "$white",
+              }}
+              onClick={() => setFollowing(!following)}
             >
-              {following ? 'Unfollow' : 'Follow'}
+              {following ? "Unfollow" : "Follow"}
             </Button>
           </Row>
         </Col>
@@ -96,9 +89,9 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
         <Grid xs={12}>
           <Text
             className="user-twitter-card__text"
-            size={14}
-            css={{ mt: '$1' }}
             color={theme?.colors?.accents6?.value}
+            css={{mt: "$1"}}
+            size={14}
           >
             Full-stack developer, @getnextui lover she/her 🎉
           </Text>
@@ -106,37 +99,19 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
       </Grid.Container>
 
       <Grid.Container
+        alignContent="center"
         className="user-twitter-card__metrics-container"
         justify="flex-start"
-        alignContent="center"
       >
-        <Text
-          className="user-twitter-card__text"
-          size={14}
-          color={theme?.colors?.accents7?.value}
-        >
-          <Text
-            b
-            color="foreground"
-            className="user-twitter-card__text"
-            size={14}
-          >
+        <Text className="user-twitter-card__text" color={theme?.colors?.accents7?.value} size={14}>
+          <Text b className="user-twitter-card__text" color="foreground" size={14}>
             4
           </Text>
           &nbsp;Following
         </Text>
         <Spacer inline x={0.5} />
-        <Text
-          className="user-twitter-card__text"
-          size={14}
-          color={theme?.colors?.accents7?.value}
-        >
-          <Text
-            b
-            color="foreground"
-            className="user-twitter-card__text"
-            size={14}
-          >
+        <Text className="user-twitter-card__text" color={theme?.colors?.accents7?.value} size={14}>
+          <Text b className="user-twitter-card__text" color="foreground" size={14}>
             97.1K
           </Text>
           &nbsp;Followers

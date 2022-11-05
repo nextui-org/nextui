@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
+
 import {
   NormalSizes,
   SimpleColors,
   ContentPosition,
   NormalWeights,
-  AsProp
-} from '../utils/prop-types';
+  AsProp,
+} from "../utils/prop-types";
 
 export type FormElement = HTMLInputElement | HTMLTextAreaElement;
 
-export interface Props
-  extends AsProp<'input' | 'textarea'>,
-    React.HTMLAttributes<FormElement> {
+export interface Props extends AsProp<"input" | "textarea">, React.HTMLAttributes<FormElement> {
   value?: string | ReadonlyArray<string> | number;
   fullWidth?: boolean;
   initialValue?: string;
@@ -46,10 +45,7 @@ export interface Props
   onClearClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onFocus?: (e: React.FocusEvent<FormElement>) => void;
   onBlur?: (e: React.FocusEvent<FormElement>) => void;
-  onContentClick?: (
-    key: ContentPosition,
-    e: React.MouseEvent<HTMLDivElement>
-  ) => void;
+  onContentClick?: (key: ContentPosition, e: React.MouseEvent<HTMLDivElement>) => void;
   autoComplete?: string;
 }
 
@@ -67,14 +63,14 @@ export const defaultProps = {
   contentRightStyling: true,
   contentLeftStyling: true,
   required: false,
-  width: 'initial',
-  size: 'md' as NormalSizes,
-  color: 'default' as SimpleColors,
-  helperColor: 'default' as SimpleColors,
-  status: 'default' as SimpleColors,
-  borderWeight: 'normal' as NormalWeights,
-  autoComplete: 'off',
-  className: '',
-  placeholder: '',
-  initialValue: ''
+  width: "initial",
+  size: "md" as NormalSizes,
+  color: "default" as SimpleColors,
+  helperColor: "default" as SimpleColors,
+  status: "default" as SimpleColors,
+  borderWeight: "normal" as NormalWeights,
+  autoComplete: "off",
+  className: "",
+  placeholder: "",
+  initialValue: "",
 };

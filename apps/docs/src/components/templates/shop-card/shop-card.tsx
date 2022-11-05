@@ -1,14 +1,9 @@
-import React, { useMemo } from 'react';
-import {
-  Card,
-  Col,
-  Grid,
-  Row,
-  Text,
-  Spacer,
-  useTheme
-} from '@nextui-org/react';
-import { Box } from '@components';
+import React, {useMemo} from "react";
+import {Card, Col, Grid, Row, Text, Spacer, useTheme} from "@nextui-org/react";
+import {Box} from "@components";
+import {get} from "lodash";
+import {motion} from "framer-motion";
+
 import {
   GridItem,
   TabText,
@@ -23,20 +18,18 @@ import {
   StyledPrice,
   StyledOldPrice,
   StyledDiscount,
-  StyledCard
-} from './styles';
-import { get } from 'lodash';
-import { themes, sizes } from './content';
-import { motion } from 'framer-motion';
-import framerAnimations from './animations';
+  StyledCard,
+} from "./styles";
+import {themes, sizes} from "./content";
+import framerAnimations from "./animations";
 import {
   lightModernTheme,
   darkModernTheme,
   lightElegantTheme,
   darkElegantTheme,
   lightRetroTheme,
-  darkRetroTheme
-} from './themes';
+  darkRetroTheme,
+} from "./themes";
 
 interface Props {
   onChangeTheme?: (theme: string) => void;
@@ -44,31 +37,28 @@ interface Props {
 
 const getActiveTheme = (id: string, isDark?: boolean) => {
   switch (id) {
-    case 'nextui':
+    case "nextui":
       return;
-    case 'modern':
+    case "modern":
       return isDark ? darkModernTheme : lightModernTheme;
-    case 'elegant':
+    case "elegant":
       return isDark ? darkElegantTheme : lightElegantTheme;
-    case 'retro':
+    case "retro":
       return isDark ? darkRetroTheme : lightRetroTheme;
     default:
       return;
   }
 };
 
-const ShopCard: React.FC<Props> = ({ onChangeTheme }) => {
+const ShopCard: React.FC<Props> = ({onChangeTheme}) => {
   const [activeTheme, setActiveTheme] = React.useState(themes[0].id);
   const [activeSize, setActiveSize] = React.useState(sizes[0].id);
   const [liked, setLiked] = React.useState(false);
-  const { isDark } = useTheme();
+  const {isDark} = useTheme();
 
   const animations = get(framerAnimations, activeTheme);
 
-  const theme = useMemo(
-    () => getActiveTheme(activeTheme, isDark),
-    [activeTheme, isDark]
-  );
+  const theme = useMemo(() => getActiveTheme(activeTheme, isDark), [activeTheme, isDark]);
 
   const handleChangeTheme = (id: string) => {
     setActiveTheme(id);
@@ -76,14 +66,14 @@ const ShopCard: React.FC<Props> = ({ onChangeTheme }) => {
   };
 
   return (
-    <Box className={theme} css={{ ov: 'visible' }}>
-      <Grid.Container gap={5} css={{ py: 0 }}>
-        {themes.map(({ id, title, icon }, index) => (
+    <Box className={theme} css={{ov: "visible"}}>
+      <Grid.Container css={{py: 0}} gap={5}>
+        {themes.map(({id, title, icon}, index) => (
           <GridItem
             key={`${id}-${index}`}
-            css={{ pl: 0, '@xs': { mr: '$10' } }}
-            onClick={() => handleChangeTheme(id)}
+            css={{pl: 0, "@xs": {mr: "$10"}}}
             selected={activeTheme === id}
+            onClick={() => handleChangeTheme(id)}
           >
             {icon()}
             <TabText>{title}</TabText>
@@ -92,87 +82,72 @@ const ShopCard: React.FC<Props> = ({ onChangeTheme }) => {
       </Grid.Container>
       <Spacer y={0.1} />
       <StyledCard>
-        <Card.Body css={{ px: '$8', position: 'relative', ov: 'visible' }}>
-          <StyledStar
-            size={30}
-            liked={liked}
-            onClick={() => setLiked(!liked)}
-          />
+        <Card.Body css={{px: "$8", position: "relative", ov: "visible"}}>
+          <StyledStar liked={liked} size={30} onClick={() => setLiked(!liked)} />
           <Grid.Container>
             <Grid
-              sm={4}
               css={{
-                '@smMax': {
-                  mr: '$10'
+                "@smMax": {
+                  mr: "$10",
                 },
-                '@xsMax': {
-                  width: '100%',
-                  mr: '0 !important'
-                }
+                "@xsMax": {
+                  width: "100%",
+                  mr: "0 !important",
+                },
               }}
+              sm={4}
             >
-              <ProductImageContainer
-                as={motion.div}
-                animate={animations.productContainer}
-              >
+              <ProductImageContainer animate={animations.productContainer} as={motion.div}>
                 <ProductImage src="/images/shoes-1.png" />
               </ProductImageContainer>
             </Grid>
             <Grid
-              sm={8}
               css={{
-                px: '$10',
-                position: 'relative',
-                zIndex: '$10',
-                '@xsMax': {
-                  py: '$8'
-                }
+                px: "$10",
+                position: "relative",
+                zIndex: "$10",
+                "@xsMax": {
+                  py: "$8",
+                },
               }}
+              sm={8}
             >
               <Col as="nav">
-                <StyledTitle as={motion.h4} animate={animations.title}>
+                <StyledTitle animate={animations.title} as={motion.h4}>
                   Nike Adapt BB 2.0
                 </StyledTitle>
-                <StyledSubtitle as={motion.p} animate={animations.subtitle}>
+                <StyledSubtitle animate={animations.subtitle} as={motion.p}>
                   Consistent, customized fit, game-changing.
                 </StyledSubtitle>
-                <Row css={{ py: '$4' }}>
-                  <StyledPrice as={motion.p} animate={animations.price}>
+                <Row css={{py: "$4"}}>
+                  <StyledPrice animate={animations.price} as={motion.p}>
                     $279.97
                   </StyledPrice>
-                  <StyledOldPrice as={motion.p} animate={animations.oldPrice}>
+                  <StyledOldPrice animate={animations.oldPrice} as={motion.p}>
                     $350
                   </StyledOldPrice>
-                  <StyledDiscount as={motion.p} animate={animations.discount}>
+                  <StyledDiscount animate={animations.discount} as={motion.p}>
                     20% off
                   </StyledDiscount>
                 </Row>
-                <Grid.Container gap={2} css={{ py: '$4' }}>
-                  {sizes.map(({ id, title }, index) => (
-                    <Grid
-                      key={`${id}-${index}`}
-                      css={{ pl: 0 }}
-                      onClick={() => setActiveSize(id)}
-                    >
+                <Grid.Container css={{py: "$4"}} gap={2}>
+                  {sizes.map(({id, title}, index) => (
+                    <Grid key={`${id}-${index}`} css={{pl: 0}} onClick={() => setActiveSize(id)}>
                       <ProductSize
+                        animate={animations.productSizeButton}
                         as={motion.div}
                         selected={activeSize === id}
-                        animate={animations.productSizeButton}
-                        transition={{ duration: 0.1 }}
+                        transition={{duration: 0.1}}
                       >
-                        <Text
-                          b
-                          size={14}
-                          css={{ textAlign: 'center', color: 'currentColor' }}
-                        >
+                        <Text b css={{textAlign: "center", color: "currentColor"}} size={14}>
                           {title}
                         </Text>
                       </ProductSize>
                     </Grid>
                   ))}
                 </Grid.Container>
-                <Row css={{ pt: '$4' }}>
-                  <BuyButton auto shadow={activeTheme === 'nextui'}>
+                <Row css={{pt: "$4"}}>
+                  <BuyButton auto shadow={activeTheme === "nextui"}>
                     Buy now
                   </BuyButton>
                   <Spacer x={0.5} />

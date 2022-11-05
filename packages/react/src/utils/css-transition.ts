@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import withDefaults from './with-defaults';
-import clsx from './clsx';
+import React, {useEffect, useState} from "react";
+
+import withDefaults from "./with-defaults";
+import clsx from "./clsx";
 
 interface Props {
   visible?: boolean;
@@ -19,8 +20,8 @@ const defaultProps = {
   enterTime: 60,
   leaveTime: 60,
   clearTime: 60,
-  className: '',
-  name: 'transition'
+  className: "",
+  name: "transition",
 };
 
 export type CSSTransitionProps = Props & typeof defaultProps;
@@ -38,11 +39,11 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
   onEntered,
   ...props
 }) => {
-  const [classes, setClasses] = useState<string>('');
+  const [classes, setClasses] = useState<string>("");
   const [renderable, setRenderable] = useState<boolean>(visible);
 
   useEffect(() => {
-    const statusClassName = visible ? 'enter' : 'leave';
+    const statusClassName = visible ? "enter" : "leave";
     const time = visible ? enterTime : leaveTime;
 
     if (visible && !renderable) {
@@ -53,10 +54,8 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
 
     // set class to active
     const timer = setTimeout(() => {
-      setClasses(
-        `${name}-${statusClassName} ${name}-${statusClassName}-active`
-      );
-      if (statusClassName === 'leave') {
+      setClasses(`${name}-${statusClassName} ${name}-${statusClassName}-active`);
+      if (statusClassName === "leave") {
         onExited?.();
       } else {
         onEntered?.();
@@ -67,7 +66,7 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
     // remove classess when animation over
     const clearClassesTimer = setTimeout(() => {
       if (!visible) {
-        setClasses('');
+        setClasses("");
         setRenderable(false);
       }
       clearTimeout(clearClassesTimer);
@@ -84,11 +83,10 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
     if (!childrenRef?.current) {
       return;
     }
-    const classesArr = classes.split(' ');
-    const refClassesArr = childrenRef.current.className.split(' ');
-    const newRefClassesArr = refClassesArr.filter(
-      (item) => !item.includes(name)
-    );
+    const classesArr = classes.split(" ");
+    const refClassesArr = childrenRef.current.className.split(" ");
+    const newRefClassesArr = refClassesArr.filter((item) => !item.includes(name));
+
     childrenRef.current.className = clsx(newRefClassesArr, classesArr);
   }, [childrenRef, classes]);
 
@@ -96,11 +94,7 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
 
   return React.cloneElement(children, {
     ...props,
-    className: clsx(
-      children.props.className,
-      className,
-      !childrenRef?.current ? classes : ''
-    )
+    className: clsx(children.props.className, className, !childrenRef?.current ? classes : ""),
   });
 };
 

@@ -13,7 +13,7 @@ export default function App() {
       price: "$3.00",
     },
     {
-      title: "Raspberry",
+      title: "Cherry",
       img: "/images/fruit-3.jpeg",
       price: "$10.00",
     },
@@ -23,7 +23,7 @@ export default function App() {
       price: "$5.30",
     },
     {
-      title: "Advocato",
+      title: "Avocado",
       img: "/images/fruit-5.jpeg",
       price: "$15.70",
     },
@@ -74,9 +74,9 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

@@ -1,10 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react';
-import cn from 'classnames';
-import Image from 'next/image';
-import ArrowRight from '../icons/arrow-right';
-import withDefaults from '@utils/with-defaults';
-import { useTheme } from '@nextui-org/react';
-import { Badge } from '@components';
+import React, {useRef, useState, useEffect} from "react";
+import cn from "classnames";
+import Image from "next/image";
+import withDefaults from "@utils/with-defaults";
+import {useTheme} from "@nextui-org/react";
+import {Badge} from "@components";
+
+import ArrowRight from "../icons/arrow-right";
 
 export interface Props {
   level: number;
@@ -20,7 +21,7 @@ const defaultProps = {
   level: 1,
   isMobile: false,
   selected: false,
-  opened: false
+  opened: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -35,10 +36,10 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   iconUrl,
   updated,
   opened,
-  children
+  children,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { theme, isDark } = useTheme();
+  const {theme, isDark} = useTheme();
   const [toggle, setToggle] = useState<boolean>(selected || opened);
   const [shouldScroll, setShouldScroll] = useState<boolean>(false);
 
@@ -61,9 +62,10 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   useEffect(() => {
     if (toggle && shouldScroll) {
       const content = document.querySelector(
-        isMobile ? '.docs-dropdown' : '.sidebar-content'
+        isMobile ? ".docs-dropdown" : ".sidebar-content",
       ) as HTMLDivElement;
       let height = 0;
+
       // 10 is added for better margin
       if (ref.current && content) {
         height = ref.current?.offsetTop - (isMobile ? 10 : content?.offsetTop);
@@ -74,33 +76,26 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   }, [toggle, shouldScroll, isMobile]);
 
   return (
-    <div
-      ref={ref}
-      className={cn('category', levelClass, { open: toggle, selected })}
-    >
-      <div className="label-container" onClick={toggleCategory}>
+    <div ref={ref} className={cn("category", levelClass, {open: toggle, selected})}>
+      <div className="label-container" role="button" onClick={toggleCategory}>
         {iconUrl && (
           <Image
-            width={24}
-            height={24}
-            className="category-image"
-            src={iconUrl.replace('.svg', isDark ? '-dark.svg' : '-light.svg')}
             alt={`${title} icon`}
+            className="category-image"
+            height={24}
+            src={iconUrl.replace(".svg", isDark ? "-dark.svg" : "-light.svg")}
+            width={24}
           />
         )}
         <span className="label noselect">{title}</span>
         <ArrowRight
           className="arrow-right"
-          width={14}
-          height={14}
           fill={theme?.colors?.accents8?.value}
+          height={14}
+          width={14}
         />
         {updated && (
-          <Badge
-            className="category__update-badge"
-            type="secondary"
-            css={{ ml: '$6' }}
-          >
+          <Badge className="category__update-badge" css={{ml: "$6"}} type="secondary">
             Updated
           </Badge>
         )}
