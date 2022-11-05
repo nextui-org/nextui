@@ -28,12 +28,12 @@ interface Props {
   offset?: number;
   className?: string;
   keepMounted?: boolean;
+  isDisabled?: boolean;
   portalClassName?: string;
   onClick?: () => void;
   onVisibleChange?: TooltipOnVisibleChange;
   as?: keyof JSX.IntrinsicElements;
   triggerCss?: CSS;
-  isDisabled?: boolean;
 }
 
 const defaultProps = {
@@ -43,6 +43,7 @@ const defaultProps = {
   shadow: true,
   rounded: false,
   keepMounted: false,
+  isDisabled: false,
   trigger: "hover" as TriggerTypes,
   enterDelay: 0,
   leaveDelay: 0,
