@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc.json",
   "env": {
     "browser": false,
     "es2021": true,
@@ -32,19 +33,7 @@
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
-    "prettier/prettier": [
-      "warn",
-      {
-        "printWidth": 100,
-        "trailingComma": "all",
-        "tabWidth": 2,
-        "semi": true,
-        "singleQuote": false,
-        "bracketSpacing": false,
-        "arrowParens": "always",
-        "endOfLine": "auto"
-      }
-    ],
+    "prettier/prettier": "warn",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -88,8 +77,8 @@
     ],
     "padding-line-between-statements": [
       "warn",
-      { "blankLine": "always", "prev": "*", "next": "return" },
-      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {"blankLine": "always", "prev": "*", "next": "return"},
+      {"blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
       {
         "blankLine": "any",
         "prev": ["const", "let", "var"],
