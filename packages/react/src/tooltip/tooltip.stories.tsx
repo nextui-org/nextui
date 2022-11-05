@@ -294,3 +294,16 @@ export const WithoutContent = () => {
     </Container>
   );
 };
+
+export const Disabled = () => {
+  return (
+    <Container>
+      <Tooltip isDisabled color="primary" content="Developers love Next.js">
+        <Button auto flat color="error">
+          Disabled
+        </Button>
+      </Tooltip>
+    </Container>
+  );
+};
+

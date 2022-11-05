@@ -147,4 +147,14 @@ describe("Tooltip", () => {
 
     expect(wrapper.find("#visible").length).toBe(0);
   });
+
+  it("should not render when props.isDisabled present", async () => {
+    const wrapper = mount(
+      <div>
+        <Tooltip isDisabled content={<p id="visible">custom-content</p>}>some tips</Tooltip>
+      </div>,
+    );
+
+    expect(wrapper.find("#visible").length).toBe(0);
+  });
 });
