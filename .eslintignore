@@ -5,7 +5,6 @@ examples/*
 dist
 esm/*
 public/*
-scripts/*
 tests/*
 *.config.js
 .DS_Store
@@ -13,4 +12,11 @@ node_modules
 coverage
 .next
 build
-
+!scripts
+!.storybook
+!.commitlintrc.cjs
+!.lintstagedrc.cjs
+!jest.config.js
+!plopfile.js
+!react-shim.js
+!tsup.config.ts

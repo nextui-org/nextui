@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Avoid excessive outputs
+if [ -t 2 ]; then
+  exec >/dev/tty 2>&1
+fi
+
+pnpm lint-staged

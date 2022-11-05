@@ -1,5 +1,16 @@
 dist
+examples
 node_modules
+plop
 coverage
 .next
 build
+pnpm-lock.yaml
+!scripts
+!.storybook
+!.commitlintrc.cjs
+!.lintstagedrc.cjs
+!jest.config.js
+!plopfile.js
+!react-shim.js
+!tsup.config.ts
