@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useEffect, useRef, useState} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import useClickAway from "../use-click-away";
 import {Placement} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import {TriggerTypes} from "../utils/prop-types";
 
 import TooltipContent from "./tooltip-content";
@@ -141,9 +142,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     <StyledTooltipTrigger
       ref={ref}
       className={`nextui-tooltip-button ${className}`}
-      css={{
-        ...(triggerCss as any),
-      }}
+      css={triggerCss}
       role="button"
       tabIndex={-1}
       onBlur={() => mouseEventHandler(false)}

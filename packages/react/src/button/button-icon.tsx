@@ -1,6 +1,8 @@
+import type {VariantProps, CSS} from "../theme/stitches.config";
+
 import React from "react";
 
-import {styled, VariantProps, CSS} from "../theme/stitches.config";
+import {styled} from "../theme/stitches.config";
 import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 
@@ -127,9 +129,7 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
         },
         className,
       )}
-      css={{
-        ...(css as any),
-      }}
+      css={css}
       {...props}
     >
       {children}

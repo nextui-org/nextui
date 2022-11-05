@@ -1,8 +1,9 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, useContext} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import {Justify} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import cslx from "../utils/clsx";
 
 import {StyledModalFooter, ModalFooterVariantsProps} from "./modal.styles";
@@ -52,10 +53,7 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
         },
         className,
       )}
-      css={{
-        justifyContent: justify,
-        ...(css as any),
-      }}
+      css={{justifyContent: justify, ...css}}
       noPadding={noPadding}
       {...props}
     >

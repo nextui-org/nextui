@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React from "react";
 
 import {ButtonProps} from "./button";
@@ -27,7 +29,7 @@ export const filterPropsWithGroup = (
   };
 };
 
-export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
+export const getCssColors = (props: React.PropsWithChildren<ButtonProps>): CSS | undefined => {
   if (!props.disabled) {
     if (props.auto && props.color === "gradient" && (props.bordered || props.ghost)) {
       return {
@@ -38,7 +40,8 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
 
     return {};
   }
-  const defaultDisabledCss = {
+
+  const defaultDisabledCss: CSS = {
     bg: "$accents1",
     color: "$accents7",
     transform: "none",
@@ -49,6 +52,7 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
   if (!props.bordered && !props.flat && !props.ghost && !props.light) {
     return defaultDisabledCss;
   }
+
   if (props.color === "gradient" && (props.bordered || props.ghost)) {
     return {
       color: "$accents4",
@@ -61,6 +65,7 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
       pr: "$$buttonBorderWeight",
     };
   }
+
   if (props.bordered || props.ghost || props.light) {
     return {
       ...defaultDisabledCss,
@@ -68,6 +73,7 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
       borderColor: "$accents4",
     };
   }
+
   if (props.flat) {
     return {
       ...defaultDisabledCss,
@@ -75,5 +81,5 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
     };
   }
 
-  return {};
+  return;
 };

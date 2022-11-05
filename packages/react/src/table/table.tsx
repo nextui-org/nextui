@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 import {useTable} from "@react-aria/table";
 import {useTableState, TableStateProps} from "@react-stately/table";
@@ -5,7 +7,6 @@ import {SelectionMode, SelectionBehavior, CollectionChildren} from "@react-types
 import {mergeProps} from "@react-aria/utils";
 
 import {Spacer} from "../index";
-import {CSS} from "../theme/stitches.config";
 import {pickSingleChild} from "../utils/collections";
 import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
@@ -120,7 +121,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           borderWeight={borderWeight}
           bordered={bordered}
           className="nextui-table-container"
-          css={{...(containerCss as any)}}
+          css={containerCss}
           shadow={shadow}
         >
           <StyledTable

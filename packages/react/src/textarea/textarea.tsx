@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useRef, useImperativeHandle, useLayoutEffect} from "react";
 
 import withDefaults from "../utils/with-defaults";
@@ -6,7 +8,6 @@ import useResize from "../use-resize";
 import {warn} from "../utils/console";
 import {Props as InputProps} from "../input/input-props";
 import {excludedInputPropsForTextarea, ExcludedInputProps} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import {__DEV__} from "../utils/assertion";
 
 import {calculateNodeHeight, SizingData, getSizingData} from "./utils";
@@ -109,15 +110,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       useResize(resizeTextarea);
     }
 
-    return (
-      <Input
-        ref={textareaRef}
-        as="textarea"
-        css={{...(css as any)}}
-        onChange={handleChange}
-        {...props}
-      />
-    );
+    return <Input ref={textareaRef} as="textarea" css={css} onChange={handleChange} {...props} />;
   },
 );
 

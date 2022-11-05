@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
-import {CSS} from "../theme/stitches.config";
 import {Justify, AlignItems, Wrap} from "../utils/prop-types";
 
 import StyledRow, {RowVariantsProps} from "./row.styles";
@@ -44,7 +45,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
         marginRight: `calc(${gap} * $space$lg / 2)`,
         justifyContent: justify,
         alignItems: align,
-        ...(css as any),
+        ...css,
       }}
       {...props}
     >
