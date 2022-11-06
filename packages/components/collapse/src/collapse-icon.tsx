@@ -10,7 +10,7 @@ const CollapseIcon = forwardRef<CollapseIconProps, "svg">((props, ref) => {
     <NextUI.Svg
       ref={ref}
       aria-hidden="true"
-      className={clsx('nextui-collapse-icon', className)}
+      className={clsx("nextui-collapse-icon", className)}
       css={{
         opacity: 0.7,
         ...css,
