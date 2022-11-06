@@ -59,18 +59,15 @@ export const StyledPopoverContentContainer = styled(
 
     animationFillMode: "forwards",
     willChange: "transform, opacity",
-
     "@motion": {
       transition: "none",
     },
-
     "&.nextui-popover-content-enter": {
       animationName: appearanceIn,
       animationTimingFunction: "ease-out",
       animationDirection: "normal",
       animationDuration: "300ms",
     },
-
     "&.nextui-popover-content-leave": {
       animationName: appearanceOut,
       animationTimingFunction: "ease-in",
@@ -108,6 +105,17 @@ export const StyledPopoverContentContainer = styled(
         black: {
           bw: "$black",
           $$popoverBorderWeight: "$borderWeights$black",
+        },
+      },
+      disableAnimation: {
+        true: {
+          transition: "none",
+          "&.nextui-popover-content-enter": {
+            animation: "none",
+          },
+          "&.nextui-popover-content-leave": {
+            animation: "none",
+          },
         },
       },
     },

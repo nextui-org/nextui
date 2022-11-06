@@ -85,6 +85,7 @@ const CSSTransition: FC<CSSTransitionProps> = (props: CSSTransitionProps) => {
 
   return cloneElement(children, {
     ...otherProps,
+    // @ts-ignore
     className: clsx(children.props.className, className, !childrenRef?.current && classes),
   });
 };
