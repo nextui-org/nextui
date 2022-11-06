@@ -1,12 +1,15 @@
-import React, { useMemo, ReactNode } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { CSS } from '../theme/stitches.config';
-import { SimpleColors, TextTransforms } from '../utils/prop-types';
-import { isNormalColor } from '../utils/color';
-import { ReactRef } from '../utils/refs';
-import { useDOMRef } from '../utils/dom';
-import { __DEV__ } from '../utils/assertion';
-import { StyledText, TextVariantsProps } from './text.styles';
+import type {CSS} from "../theme/stitches.config";
+import type {SimpleColors} from "../utils/prop-types";
+
+import React, {useMemo, ReactNode} from "react";
+
+import {isNormalColor} from "../utils/color";
+import {CSSFontSize} from "../theme";
+import {ReactRef} from "../utils/refs";
+import {useDOMRef} from "../utils/dom";
+import {__DEV__} from "../utils/assertion";
+
+import {StyledText, TextVariantsProps} from "./text.styles";
 
 type As = keyof JSX.IntrinsicElements | React.ComponentType<any>;
 
@@ -14,88 +17,79 @@ export interface Props {
   tag: keyof JSX.IntrinsicElements;
   children?: ReactNode;
   color?: SimpleColors | string;
-  size?: string | number;
-  margin?: string | number;
-  transform?: TextTransforms;
+  /**
+   * The **`font-size`** CSS property sets the size of the font. Changing the font size also updates the sizes of the font size-relative `<length>` units, such as `em`, `ex`, and so forth.
+   *
+   * **Syntax**: `<absolute-size> | <relative-size> | <length-percentage>`
+   *
+   * **Initial value**: `medium`
+   *
+   */
+  size?: CSSFontSize;
+  /**
+   * The **`text-transform`** CSS property specifies how to capitalize an element's text. It can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also can help improve legibility for ruby.
+   *
+   * **Syntax**: `none | capitalize | uppercase | lowercase | full-width | full-size-kana`
+   *
+   * **Initial value**: `none`
+   *
+   */
+  transform?: CSS["tt"];
   css?: CSS;
   as?: As;
 }
 
-const defaultProps = {
-  color: 'default' as SimpleColors | string
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type TextChildProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  TextVariantsProps;
+export type TextChildProps = Props & NativeAttrs & TextVariantsProps;
 
-export const TextChild = React.forwardRef(
-  (props: TextChildProps, ref: ReactRef<HTMLElement>) => {
-    const {
-      children,
-      tag,
-      color: userColor,
-      transform,
-      margin: marginProp,
-      size,
-      css,
-      ...otherProps
-    } = props;
+export const TextChild = React.forwardRef((props: TextChildProps, ref: ReactRef<HTMLElement>) => {
+  const {
+    children,
+    tag,
+    color: userColor = "default",
+    transform,
+    size: fontSize,
+    css,
+    ...otherProps
+  } = props;
 
-    const domRef = useDOMRef(ref);
+  const domRef = useDOMRef(ref);
 
-    const color = useMemo(() => {
-      if (isNormalColor(userColor)) {
-        switch (userColor) {
-          case 'default':
-            return '$text';
-          default:
-            return `$${userColor}`;
-        }
+  const color = useMemo(() => {
+    if (isNormalColor(userColor)) {
+      switch (userColor) {
+        case "default":
+          return "$text";
+        default:
+          return `$${userColor}`;
       }
-      return userColor;
-    }, [userColor]);
+    }
 
-    const fontSize = useMemo<string>(() => {
-      if (!size) return 'inherit';
-      if (typeof size === 'number') return `${size}px`;
-      return size;
-    }, [size]);
+    return userColor;
+  }, [userColor]);
 
-    const margin = useMemo<string>(() => {
-      if (!marginProp) return 'inherit';
-      if (typeof marginProp === 'number') return `${size}px`;
-      return marginProp;
-    }, [marginProp]);
-
-    return (
-      <StyledText
-        ref={domRef}
-        as={tag}
-        css={{
-          color,
-          fontSize: size ? fontSize : '',
-          margin,
-          tt: transform,
-          ...(css as any)
-        }}
-        {...otherProps}
-      >
-        {children}
-      </StyledText>
-    );
-  }
-);
+  return (
+    <StyledText
+      ref={domRef}
+      as={tag}
+      css={{
+        color,
+        fontSize,
+        tt: transform,
+        ...css,
+      }}
+      {...otherProps}
+    >
+      {children}
+    </StyledText>
+  );
+});
 
 if (__DEV__) {
-  TextChild.displayName = 'NextUI.TextChild';
+  TextChild.displayName = "NextUI.TextChild";
 }
 
-TextChild.toString = () => '.nextui-text-child';
+TextChild.toString = () => ".nextui-text-child";
 
-const MemoTextChild = React.memo(TextChild);
-
-export default withDefaults(MemoTextChild, defaultProps);
+export default React.memo(TextChild);

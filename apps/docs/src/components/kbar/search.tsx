@@ -1,21 +1,19 @@
-import * as React from 'react';
-import { useKBar } from 'kbar';
-import { useTheme } from '@nextui-org/react';
+import * as React from "react";
+import {useKBar} from "kbar";
+import {useTheme} from "@nextui-org/react";
 
-export default function KBarSearch(
-  props: React.InputHTMLAttributes<HTMLInputElement>
-) {
-  const { query, search, actions, currentRootActionId } = useKBar((state) => ({
+export default function KBarSearch(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  const {query, search, actions, currentRootActionId} = useKBar((state) => ({
     search: state.searchQuery,
     currentRootActionId: state.currentRootActionId,
-    actions: state.actions
+    actions: state.actions,
   }));
 
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   const ownRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
-    query.setSearch('');
+    query.setSearch("");
     ownRef.current?.focus();
   }, [currentRootActionId, query]);
 
@@ -30,8 +28,9 @@ export default function KBarSearch(
           query.setSearch(event.target.value);
         }}
         onKeyDown={(event) => {
-          if (currentRootActionId && !search && event.key === 'Backspace') {
+          if (currentRootActionId && !search && event.key === "Backspace") {
             const parent = actions[currentRootActionId].parent;
+
             query.setCurrentRootAction(parent);
           }
         }}
@@ -52,7 +51,7 @@ export default function KBarSearch(
           transition: opacity 0.25s ease 0s;
         }
         input::placeholder {
-          color: ${theme?.colors?.accents4?.value};
+          color: ${theme?.colors?.accents7?.value};
           transition: opacity 0.25s ease 0s;
           -moz-transition: opacity 0.25s ease 0s;
           -ms-transition: opacity 0.25s ease 0s;

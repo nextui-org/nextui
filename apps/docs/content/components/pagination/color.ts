@@ -22,8 +22,8 @@ export default function App() {
       </Grid>
       <Grid xs={12}>
         <Radio.Group
-          row
           size="sm"
+          orientation="horizontal"
           value={selectedColor}
           onChange={setSelectedColor}
         >
@@ -39,9 +39,9 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

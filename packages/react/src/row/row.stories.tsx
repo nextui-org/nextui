@@ -1,23 +1,27 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Row from './index';
-import { Card, Grid, Spacer } from '../index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Card, Grid, Spacer} from "../index";
+
+import Row from "./index";
 
 export default {
-  title: 'Layout/Row',
+  title: "Layout/Row",
   component: Row,
   decorators: [
     (Story) => (
-      <Grid.Container justify="center" direction="column">
+      <Grid.Container direction="column" justify="center">
         <Story />
       </Grid.Container>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 const MockItem = () => {
   return (
-    <Card color="primary" shadow style={{ width: '100%', height: '40px' }} />
+    <Card color="primary" style={{width: "100%", height: "40px"}}>
+      <Card.Body />
+    </Card>
   );
 };
 

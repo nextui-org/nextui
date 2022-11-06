@@ -28,7 +28,7 @@
       ],
       "@lib/*": [
         "./src/lib/*"
-      ],
+      ]
     },
     "lib": [
       "dom",
@@ -41,7 +41,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "types": [
-        "node"
+      "node"
     ],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -57,9 +57,10 @@
     "skipLibCheck": true,
     "module": "esnext",
     "typeRoots": [
-        "../../node_modules/@types",
-        "./typings"
-    ]
+      "../../node_modules/@types",
+      "./typings"
+    ],
+    "incremental": true
   },
   "include": [
     "**/*.ts",

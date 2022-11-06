@@ -1,206 +1,215 @@
-import {
-  styled,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
-import { StyledDrip } from '../utils/drip';
+import {styled, VariantProps} from "../theme/stitches.config";
+import {cssFocusVisible} from "../theme/shared-css";
+import {StyledDrip} from "../utils/drip";
 
 export const StyledButton = styled(
-  'button',
+  "button",
   {
-    $$buttonBorderRadius: '$radii$md',
+    $$buttonBorderRadius: "$radii$md",
     $$buttonPressedScale: 0.97,
-    dflex: 'center',
-    appearance: 'none',
-    boxSizing: 'border-box',
-    fontWeight: '$medium',
-    us: 'none',
-    lineHeight: '$sm',
-    ta: 'center',
-    whiteSpace: 'nowrap',
-    transition: '$button',
-    position: 'relative',
-    overflow: 'hidden',
-    border: 'none',
-    cursor: 'pointer',
-    pe: 'auto',
+    dflex: "center",
+    appearance: "none",
+    boxSizing: "border-box",
+    fontWeight: "$medium",
+    us: "none",
+    lineHeight: "$sm",
+    ta: "center",
+    whiteSpace: "nowrap",
+    transition: "$button",
+    position: "relative",
+    overflow: "hidden",
+    border: "none",
+    cursor: "pointer",
+    pe: "auto",
     p: 0,
-    br: '$$buttonBorderRadius',
-    '@motion': {
-      transition: 'none'
+    br: "$$buttonBorderRadius",
+    "@motion": {
+      transition: "none",
     },
-    '.nextui-button-text': {
-      dflex: 'center',
-      zIndex: '$2',
-      'p, pre, div': {
-        margin: 0
-      }
+    ".nextui-button-text": {
+      dflex: "center",
+      zIndex: "$2",
+      "p, pre, div": {
+        margin: 0,
+      },
     },
     [`& ${StyledDrip}`]: {
-      zIndex: '$1',
-      '.nextui-drip-filler': {
+      zIndex: "$1",
+      ".nextui-drip-filler": {
         opacity: 0.25,
-        fill: '$accents2'
-      }
+        fill: "$accents2",
+      },
     },
     variants: {
       bordered: {
         true: {
-          bg: 'transparent',
-          borderStyle: 'solid',
-          color: '$text'
-        }
+          bg: "transparent",
+          borderStyle: "solid",
+          color: "$text",
+        },
       },
       ghost: {
-        true: {}
+        true: {},
       },
       color: {
         default: {
-          bg: '$primary',
-          color: '$primarySolidContrast'
+          bg: "$primary",
+          color: "$primarySolidContrast",
         },
         primary: {
-          bg: '$primary',
-          color: '$primarySolidContrast'
+          bg: "$primary",
+          color: "$primarySolidContrast",
         },
         secondary: {
-          bg: '$secondary',
-          color: '$secondarySolidContrast'
+          bg: "$secondary",
+          color: "$secondarySolidContrast",
         },
         success: {
-          bg: '$success',
-          color: '$successSolidContrast'
+          bg: "$success",
+          color: "$successSolidContrast",
         },
         warning: {
-          bg: '$warning',
-          color: '$warningSolidContrast'
+          bg: "$warning",
+          color: "$warningSolidContrast",
         },
         error: {
-          bg: '$error',
-          color: '$errorSolidContrast'
+          bg: "$error",
+          color: "$errorSolidContrast",
         },
         gradient: {
-          bg: '$gradient',
-          color: '$primarySolidContrast'
-        }
+          bg: "$gradient",
+          color: "$primarySolidContrast",
+        },
       },
       size: {
         xs: {
-          $$buttonPadding: '$space$3',
-          $$buttonBorderRadius: '$radii$xs',
-          px: '$3',
-          height: '$10',
-          lh: '$space$10',
-          width: 'auto',
-          minWidth: '$20',
-          fontSize: '$tiny'
+          $$buttonPadding: "$space$3",
+          $$buttonBorderRadius: "$radii$xs",
+          $$buttonHeight: "$space$10",
+          px: "$3",
+          height: "$$buttonHeight",
+          lh: "$space$10",
+          width: "auto",
+          minWidth: "$20",
+          fontSize: "$xs",
         },
         sm: {
-          $$buttonPadding: '$space$5',
-          $$buttonBorderRadius: '$radii$sm',
-          px: '$5',
-          height: '$12',
-          lh: '$space$14',
-          width: 'auto',
-          minWidth: '$36',
-          fontSize: '$xs'
+          $$buttonPadding: "$space$5",
+          $$buttonBorderRadius: "$radii$sm",
+          $$buttonHeight: "$space$12",
+          px: "$5",
+          height: "$$buttonHeight",
+          lh: "$space$14",
+          width: "auto",
+          minWidth: "$36",
+          fontSize: "$sm",
         },
         md: {
-          $$buttonPadding: '$space$7',
-          $$buttonBorderRadius: '$radii$md',
-          px: '$7',
-          height: '$14',
-          lh: '$space$14',
-          width: 'auto',
-          minWidth: '$48',
-          fontSize: '$xs'
+          $$buttonPadding: "$space$7",
+          $$buttonBorderRadius: "$radii$md",
+          $$buttonHeight: "$space$14",
+          px: "$7",
+          height: "$$buttonHeight",
+          lh: "$space$14",
+          width: "auto",
+          minWidth: "$48",
+          fontSize: "$sm",
         },
         lg: {
-          $$buttonPadding: '$space$9',
-          $$buttonBorderRadius: '$radii$base',
-          px: '$9',
-          height: '$15',
-          lh: '$space$15',
-          width: 'auto',
-          minWidth: '$60',
-          fontSize: '$base'
+          $$buttonPadding: "$space$9",
+          $$buttonBorderRadius: "$radii$base",
+          $$buttonHeight: "$space$16",
+          px: "$9",
+          height: "$$buttonHeight",
+          lh: "$space$15",
+          width: "auto",
+          minWidth: "$60",
+          fontSize: "$md",
         },
         xl: {
-          $$buttonPadding: '$space$10',
-          $$buttonBorderRadius: '$radii$xl',
-          px: '$10',
-          height: '$17',
-          lh: '$space$17',
-          width: 'auto',
-          minWidth: '$72',
-          fontSize: '$sm'
-        }
+          $$buttonPadding: "$space$10",
+          $$buttonBorderRadius: "$radii$xl",
+          $$buttonHeight: "$space$18",
+          px: "$10",
+          height: "$$buttonHeight",
+          lh: "$space$17",
+          width: "auto",
+          minWidth: "$72",
+          fontSize: "$lg",
+        },
       },
       borderWeight: {
         light: {
-          bw: '$light',
-          $$buttonBorderWeight: '$borderWeights$light'
+          bw: "$light",
+          $$buttonBorderWeight: "$borderWeights$light",
         },
         normal: {
-          bw: '$normal',
-          $$buttonBorderWeight: '$borderWeights$normal'
+          bw: "$normal",
+          $$buttonBorderWeight: "$borderWeights$normal",
         },
         bold: {
-          bw: '$bold',
-          $$buttonBorderWeight: '$borderWeights$bold'
+          bw: "$bold",
+          $$buttonBorderWeight: "$borderWeights$bold",
         },
         extrabold: {
-          bw: '$extrabold',
-          $$buttonBorderWeight: '$borderWeights$extrabold'
+          bw: "$extrabold",
+          $$buttonBorderWeight: "$borderWeights$extrabold",
         },
         black: {
-          bw: '$black',
-          $$buttonBorderWeight: '$borderWeights$black'
-        }
+          bw: "$black",
+          $$buttonBorderWeight: "$borderWeights$black",
+        },
       },
       flat: {
         true: {
-          color: '$text'
-        }
+          color: "$text",
+        },
       },
       light: {
         true: {
-          bg: 'transparent',
+          bg: "transparent",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$accents2'
-            }
-          }
-        }
+              fill: "$accents2",
+            },
+          },
+        },
       },
       shadow: {
         true: {
-          bs: '$sm'
-        }
+          bs: "$sm",
+        },
       },
       animated: {
         false: {
-          transition: 'none'
-        }
+          transition: "none",
+        },
       },
       auto: {
         true: {
-          width: 'auto',
-          minWidth: 'min-content'
-        }
+          width: "auto",
+          minWidth: "min-content",
+        },
       },
       rounded: {
         true: {
-          $$buttonBorderRadius: '$radii$pill'
-        }
+          $$buttonBorderRadius: "$radii$pill",
+        },
       },
       isPressed: {
-        true: {}
+        true: {},
       },
       isHovered: {
-        true: {}
-      }
+        true: {},
+      },
+      isChildLess: {
+        true: {
+          p: 0,
+          width: "$$buttonHeight",
+          height: "$$buttonHeight",
+        },
+      },
     },
     compoundVariants: [
       // isPressed && animated
@@ -208,604 +217,608 @@ export const StyledButton = styled(
         isPressed: true,
         animated: true,
         css: {
-          transform: 'scale($$buttonPressedScale)'
-        }
+          transform: "scale($$buttonPressedScale)",
+        },
       },
-      // size / auto
+      // size / auto / isChildLess
       {
         auto: true,
-        size: 'xs',
+        isChildLess: false,
+        size: "xs",
         css: {
-          px: '$5',
-          minWidth: 'min-content'
-        }
-      },
-      {
-        auto: true,
-        size: 'sm',
-        css: {
-          px: '$8',
-          minWidth: 'min-content'
-        }
+          px: "$5",
+          minWidth: "min-content",
+        },
       },
       {
         auto: true,
-        size: 'md',
+        isChildLess: false,
+        size: "sm",
         css: {
-          px: '$9',
-          minWidth: 'min-content'
-        }
+          px: "$8",
+          minWidth: "min-content",
+        },
       },
       {
         auto: true,
-        size: 'lg',
+        isChildLess: false,
+        size: "md",
         css: {
-          px: '$10',
-          minWidth: 'min-content'
-        }
+          px: "$9",
+          minWidth: "min-content",
+        },
       },
       {
         auto: true,
-        size: 'xl',
+        isChildLess: false,
+        size: "lg",
         css: {
-          px: '$11',
-          minWidth: 'min-content'
-        }
+          px: "$10",
+          minWidth: "min-content",
+        },
+      },
+      {
+        auto: true,
+        isChildLess: false,
+        size: "xl",
+        css: {
+          px: "$11",
+          minWidth: "min-content",
+        },
       },
       // shadow / color
       {
         shadow: true,
-        color: 'default',
+        color: "default",
         css: {
-          normalShadow: '$primaryShadow'
-        }
+          normalShadow: "$primaryShadow",
+        },
       },
       {
         shadow: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          normalShadow: '$primaryShadow'
-        }
+          normalShadow: "$primaryShadow",
+        },
       },
       {
         shadow: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          normalShadow: '$secondaryShadow'
-        }
+          normalShadow: "$secondaryShadow",
+        },
       },
       {
         shadow: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          normalShadow: '$warningShadow'
-        }
+          normalShadow: "$warningShadow",
+        },
       },
       {
         shadow: true,
-        color: 'success',
+        color: "success",
         css: {
-          normalShadow: '$successShadow'
-        }
+          normalShadow: "$successShadow",
+        },
       },
       {
         shadow: true,
-        color: 'error',
+        color: "error",
         css: {
-          normalShadow: '$errorShadow'
-        }
+          normalShadow: "$errorShadow",
+        },
       },
       {
         shadow: true,
-        color: 'gradient',
+        color: "gradient",
         css: {
-          normalShadow: '$primaryShadow'
-        }
+          normalShadow: "$primaryShadow",
+        },
       },
       // light / color
       {
         light: true,
-        color: 'default',
+        color: "default",
         css: {
-          bg: 'transparent',
-          color: '$text',
+          bg: "transparent",
+          color: "$text",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$primaryLightActive'
-            }
-          }
-        }
+              fill: "$primaryLightActive",
+            },
+          },
+        },
       },
       {
         light: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          bg: 'transparent',
-          color: '$primary',
+          bg: "transparent",
+          color: "$primary",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$primaryLightActive'
-            }
-          }
-        }
+              fill: "$primaryLightActive",
+            },
+          },
+        },
       },
       {
         light: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          bg: 'transparent',
-          color: '$secondary',
+          bg: "transparent",
+          color: "$secondary",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$secondaryLightActive'
-            }
-          }
-        }
+              fill: "$secondaryLightActive",
+            },
+          },
+        },
       },
       {
         light: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          bg: 'transparent',
-          color: '$warning',
+          bg: "transparent",
+          color: "$warning",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$warningLightActive'
-            }
-          }
-        }
+              fill: "$warningLightActive",
+            },
+          },
+        },
       },
       {
         light: true,
-        color: 'success',
+        color: "success",
         css: {
-          bg: 'transparent',
-          color: '$success',
+          bg: "transparent",
+          color: "$success",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$successLightActive'
-            }
-          }
-        }
+              fill: "$successLightActive",
+            },
+          },
+        },
       },
       {
         light: true,
-        color: 'error',
+        color: "error",
         css: {
-          bg: 'transparent',
-          color: '$error',
+          bg: "transparent",
+          color: "$error",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.8,
-              fill: '$errorLightActive'
-            }
-          }
-        }
+              fill: "$errorLightActive",
+            },
+          },
+        },
       },
       // bordered / color
       {
         bordered: true,
-        color: 'default',
+        color: "default",
         css: {
-          bg: 'transparent',
-          borderColor: '$primary',
-          color: '$primary',
+          bg: "transparent",
+          borderColor: "$primary",
+          color: "$primary",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$primary'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$primary",
+            },
+          },
+        },
       },
       {
         bordered: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          bg: 'transparent',
-          borderColor: '$primary',
-          color: '$primary',
+          bg: "transparent",
+          borderColor: "$primary",
+          color: "$primary",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$primary'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$primary",
+            },
+          },
+        },
       },
       {
         bordered: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          bg: 'transparent',
-          borderColor: '$secondary',
-          color: '$secondary',
+          bg: "transparent",
+          borderColor: "$secondary",
+          color: "$secondary",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$secondary'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$secondary",
+            },
+          },
+        },
       },
       {
         bordered: true,
-        color: 'success',
+        color: "success",
         css: {
-          bg: 'transparent',
-          borderColor: '$success',
-          color: '$success',
+          bg: "transparent",
+          borderColor: "$success",
+          color: "$success",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$success'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$success",
+            },
+          },
+        },
       },
       {
         bordered: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          bg: 'transparent',
-          borderColor: '$warning',
-          color: '$warning',
+          bg: "transparent",
+          borderColor: "$warning",
+          color: "$warning",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$warning'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$warning",
+            },
+          },
+        },
       },
       {
         bordered: true,
-        color: 'error',
+        color: "error",
         css: {
-          bg: 'transparent',
-          borderColor: '$error',
-          color: '$error',
+          bg: "transparent",
+          borderColor: "$error",
+          color: "$error",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$error'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$error",
+            },
+          },
+        },
       },
       {
         bordered: true,
-        color: 'gradient',
+        color: "gradient",
         css: {
-          bg: 'transparent',
-          color: '$text',
-          padding: '$$buttonBorderWeight',
-          bgClip: 'content-box, border-box',
-          borderColor: '$primary',
-          backgroundImage:
-            'linear-gradient($background, $background), $gradient',
-          border: 'none',
+          bg: "transparent",
+          color: "$text",
+          padding: "$$buttonBorderWeight",
+          bgClip: "content-box, border-box",
+          borderColor: "$primary",
+          backgroundImage: "linear-gradient($background, $background), $gradient",
+          border: "none",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
-              fill: '$secondary'
-            }
-          }
-        }
+            ".nextui-drip-filler": {
+              fill: "$secondary",
+            },
+          },
+        },
       },
       // ghost / color && isHovered
       {
         ghost: true,
         isHovered: true,
-        color: 'default',
+        color: "default",
         css: {
-          bg: '$primary',
-          color: '$primarySolidContrast'
-        }
+          bg: "$primary",
+          color: "$primarySolidContrast",
+        },
       },
       {
         ghost: true,
         isHovered: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          bg: '$primary',
-          color: '$primarySolidContrast'
-        }
+          bg: "$primary",
+          color: "$primarySolidContrast",
+        },
       },
       {
         ghost: true,
         isHovered: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          bg: '$secondary',
-          color: '$secondarySolidContrast'
-        }
+          bg: "$secondary",
+          color: "$secondarySolidContrast",
+        },
       },
       {
         ghost: true,
         isHovered: true,
-        color: 'success',
+        color: "success",
         css: {
-          bg: '$success',
-          color: '$successSolidContrast'
-        }
+          bg: "$success",
+          color: "$successSolidContrast",
+        },
       },
       {
         ghost: true,
         isHovered: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          bg: '$warning',
-          color: '$warningSolidContrast'
-        }
+          bg: "$warning",
+          color: "$warningSolidContrast",
+        },
       },
       {
         ghost: true,
         isHovered: true,
-        color: 'error',
+        color: "error",
         css: {
-          bg: '$error',
-          color: '$errorSolidContrast'
-        }
+          bg: "$error",
+          color: "$errorSolidContrast",
+        },
       },
       {
         ghost: true,
-        color: 'gradient',
+        color: "gradient",
         isHovered: true,
         css: {
-          bg: '$gradient',
-          color: '$white'
-        }
+          bg: "$gradient",
+          color: "$white",
+        },
       },
       // flat / color
       {
         flat: true,
-        color: 'default',
+        color: "default",
         css: {
-          bg: '$primaryLight',
-          color: '$primaryLightContrast',
+          bg: "$primaryLight",
+          color: "$primaryLightContrast",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.4,
-              fill: '$primary'
-            }
-          }
-        }
+              fill: "$primary",
+            },
+          },
+        },
       },
       {
         flat: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          bg: '$primaryLight',
-          color: '$primaryLightContrast',
+          bg: "$primaryLight",
+          color: "$primaryLightContrast",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.4,
-              fill: '$primary'
-            }
-          }
-        }
+              fill: "$primary",
+            },
+          },
+        },
       },
       {
         flat: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          bg: '$secondaryLight',
-          color: '$secondaryLightContrast',
+          bg: "$secondaryLight",
+          color: "$secondaryLightContrast",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.4,
-              fill: '$secondary'
-            }
-          }
-        }
+              fill: "$secondary",
+            },
+          },
+        },
       },
       {
         flat: true,
-        color: 'success',
+        color: "success",
         css: {
-          bg: '$successLight',
-          color: '$successLightContrast',
+          bg: "$successLight",
+          color: "$successLightContrast",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.4,
-              fill: '$success'
-            }
-          }
-        }
+              fill: "$success",
+            },
+          },
+        },
       },
       {
         flat: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          bg: '$warningLight',
-          color: '$warningLightContrast',
+          bg: "$warningLight",
+          color: "$warningLightContrast",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.4,
-              fill: '$warning'
-            }
-          }
-        }
+              fill: "$warning",
+            },
+          },
+        },
       },
       {
         flat: true,
-        color: 'error',
+        color: "error",
         css: {
-          bg: '$errorLight',
-          color: '$errorLightContrast',
+          bg: "$errorLight",
+          color: "$errorLightContrast",
           [`& ${StyledDrip}`]: {
-            '.nextui-drip-filler': {
+            ".nextui-drip-filler": {
               opacity: 0.4,
-              fill: '$error'
-            }
-          }
-        }
+              fill: "$error",
+            },
+          },
+        },
       },
       // flat / isHovered / color
       {
         flat: true,
         isHovered: true,
-        color: 'default',
+        color: "default",
         css: {
-          bg: '$primaryLightHover'
-        }
+          bg: "$primaryLightHover",
+        },
       },
       {
         flat: true,
         isHovered: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          bg: '$primaryLightHover'
-        }
+          bg: "$primaryLightHover",
+        },
       },
       {
         flat: true,
         isHovered: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          bg: '$secondaryLightHover'
-        }
+          bg: "$secondaryLightHover",
+        },
       },
       {
         flat: true,
         isHovered: true,
-        color: 'success',
+        color: "success",
         css: {
-          bg: '$successLightHover'
-        }
+          bg: "$successLightHover",
+        },
       },
       {
         flat: true,
         isHovered: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          bg: '$warningLightHover'
-        }
+          bg: "$warningLightHover",
+        },
       },
       {
         flat: true,
         isHovered: true,
-        color: 'error',
+        color: "error",
         css: {
-          bg: '$errorLightHover'
-        }
+          bg: "$errorLightHover",
+        },
       },
       // flat / isPressed / color
       {
         flat: true,
         isPressed: true,
-        color: 'default',
+        color: "default",
         css: {
-          bg: '$primaryLightActive'
-        }
+          bg: "$primaryLightActive",
+        },
       },
       {
         flat: true,
         isPressed: true,
-        color: 'primary',
+        color: "primary",
         css: {
-          bg: '$primaryLightActive'
-        }
+          bg: "$primaryLightActive",
+        },
       },
       {
         flat: true,
         isPressed: true,
-        color: 'secondary',
+        color: "secondary",
         css: {
-          bg: '$secondaryLightActive'
-        }
+          bg: "$secondaryLightActive",
+        },
       },
       {
         flat: true,
         isPressed: true,
-        color: 'success',
+        color: "success",
         css: {
-          bg: '$successLightActive'
-        }
+          bg: "$successLightActive",
+        },
       },
       {
         flat: true,
         isPressed: true,
-        color: 'warning',
+        color: "warning",
         css: {
-          bg: '$warningLightActive'
-        }
+          bg: "$warningLightActive",
+        },
       },
       {
         flat: true,
         isPressed: true,
-        color: 'error',
+        color: "error",
         css: {
-          bg: '$errorLightActive'
-        }
+          bg: "$errorLightActive",
+        },
       },
       // auto / gradient-color / bordered
       {
         auto: true,
-        color: 'gradient',
+        color: "gradient",
         bordered: true,
         css: {
-          '.nextui-button-text': {
-            px: '$$buttonPadding'
+          ".nextui-button-text": {
+            px: "$$buttonPadding",
           },
-          '.nextui-button-icon': {
-            ml: '$$buttonPadding'
+          ".nextui-button-icon": {
+            ml: "$$buttonPadding",
           },
-          '.nextui-button-icon-right': {
-            mr: '$$buttonPadding'
+          ".nextui-button-icon-right": {
+            mr: "$$buttonPadding",
           },
-          '.nextui-button-text-left': {
-            pl: 0
+          ".nextui-button-text-left": {
+            pl: 0,
           },
-          '.nextui-button-text-right': {
-            pr: 0
-          }
-        }
+          ".nextui-button-text-right": {
+            pr: 0,
+          },
+        },
       },
       // rounded && size
       {
         rounded: true,
-        size: 'xs',
+        size: "xs",
         css: {
-          br: '$pill'
-        }
+          br: "$pill",
+        },
       },
       {
         rounded: true,
-        size: 'sm',
+        size: "sm",
         css: {
-          br: '$pill'
-        }
+          br: "$pill",
+        },
       },
       {
         rounded: true,
-        size: 'md',
+        size: "md",
         css: {
-          br: '$pill'
-        }
+          br: "$pill",
+        },
       },
       {
         rounded: true,
-        size: 'lg',
+        size: "lg",
         css: {
-          br: '$pill'
-        }
+          br: "$pill",
+        },
       },
       {
         rounded: true,
-        size: 'xl',
+        size: "xl",
         css: {
-          br: '$pill'
-        }
-      }
+          br: "$pill",
+        },
+      },
     ],
     defaultVariants: {
-      color: 'default',
-      borderWeight: 'normal',
+      color: "default",
+      borderWeight: "normal",
       animated: true,
-      size: 'md'
-    }
+      size: "md",
+    },
   },
-  cssFocusVisible
+  cssFocusVisible,
 );
 
 export type ButtonVariantsProps = VariantProps<typeof StyledButton>;

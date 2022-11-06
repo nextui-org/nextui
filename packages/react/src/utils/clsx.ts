@@ -3,16 +3,16 @@
 function toVal(mix: any) {
   var k,
     y,
-    str = '';
+    str = "";
 
-  if (typeof mix === 'string' || typeof mix === 'number') {
+  if (typeof mix === "string" || typeof mix === "number") {
     str += mix;
-  } else if (typeof mix === 'object') {
+  } else if (typeof mix === "object") {
     if (Array.isArray(mix)) {
       for (k = 0; k < mix.length; k++) {
         if (mix[k]) {
           if ((y = toVal(mix[k]))) {
-            str && (str += ' ');
+            str && (str += " ");
             str += y;
           }
         }
@@ -20,7 +20,7 @@ function toVal(mix: any) {
     } else {
       for (k in mix) {
         if (mix[k]) {
-          str && (str += ' ');
+          str && (str += " ");
           str += k;
         }
       }
@@ -34,14 +34,16 @@ export default function (...args: any[]) {
   var i = 0,
     tmp,
     x,
-    str = '';
+    str = "";
+
   while (i < args.length) {
     if ((tmp = args[i++])) {
       if ((x = toVal(tmp))) {
-        str && (str += ' ');
+        str && (str += " ");
         str += x;
       }
     }
   }
+
   return str;
 }

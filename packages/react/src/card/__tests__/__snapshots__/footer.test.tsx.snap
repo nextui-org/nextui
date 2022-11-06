@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Card Footer should render correctly 1`] = `"<div role=\\"section\\" tabindex=\\"-1\\" class=\\"nextui-c-kltynt nextui-c-kltynt-fKnEka-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-cuwTXc-animated-true nextui-c-kltynt-ifTMkJ-cover-false\\"><div class=\\"nextui-c-kArxtH\\"><p>card</p></div><div class=\\"nextui-c-hVMOuh\\">footer</div></div>"`;

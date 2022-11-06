@@ -13,7 +13,7 @@ export default function App() {
       price: "$3.00",
     },
     {
-      title: "Raspberry",
+      title: "Cherry",
       img: "/images/fruit-3.jpeg",
       price: "$10.00",
     },
@@ -23,7 +23,7 @@ export default function App() {
       price: "$5.30",
     },
     {
-      title: "Advocato",
+      title: "Avocado",
       img: "/images/fruit-5.jpeg",
       price: "$15.70",
     },
@@ -48,20 +48,20 @@ export default function App() {
     <Grid.Container gap={2} justify="flex-start">
       {list.map((item, index) => (
         <Grid xs={6} sm={3} key={index}>
-          <Card hoverable clickable>
+          <Card isPressable>
             <Card.Body css={{ p: 0 }}>
               <Card.Image
+                src={"https://nextui.org" + item.img}
                 objectFit="cover"
-                src={'https://nextui.org' + item.img}
                 width="100%"
                 height={140}
                 alt={item.title}
               />
             </Card.Body>
-            <Card.Footer justify="flex-start">
-              <Row wrap="wrap" justify="space-between">
+            <Card.Footer css={{ justifyItems: "flex-start" }}>
+              <Row wrap="wrap" justify="space-between" align="center">
                 <Text b>{item.title}</Text>
-                <Text css={{ color: "$accents4", fontWeight: "$semibold" }}>
+                <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
                   {item.price}
                 </Text>
               </Row>
@@ -74,9 +74,9 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

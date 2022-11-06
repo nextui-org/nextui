@@ -1,22 +1,23 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import Table from '../index';
+import React from "react";
+import {mount} from "enzyme";
+
+import Table from "../index";
 
 const STITCHES_FACTOR = 2;
 
 const columns = [
-  { name: 'Foo', key: 'foo' },
-  { name: 'Bar', key: 'bar' },
-  { name: 'Baz', key: 'baz' }
+  {name: "Foo", key: "foo"},
+  {name: "Bar", key: "bar"},
+  {name: "Baz", key: "baz"},
 ];
 
 let items = [
-  { test: 'Test 1', foo: 'Foo 1', bar: 'Bar 1', yay: 'Yay 1', baz: 'Baz 1' },
-  { test: 'Test 2', foo: 'Foo 2', bar: 'Bar 2', yay: 'Yay 2', baz: 'Baz 2' }
+  {test: "Test 1", foo: "Foo 1", bar: "Bar 1", yay: "Yay 1", baz: "Baz 1"},
+  {test: "Test 2", foo: "Foo 2", bar: "Bar 2", yay: "Yay 2", baz: "Baz 2"},
 ];
 
-describe('Table', () => {
-  it('should render correctly', () => {
+describe("Table", () => {
+  it("should render correctly", () => {
     const wrapper = mount(
       <Table aria-label="Test example table">
         <Table.Header>
@@ -31,13 +32,13 @@ describe('Table', () => {
             <Table.Cell>6/7/2020</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
-    expect(wrapper.html()).toMatchSnapshot();
+
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should render a static table', () => {
+  it("should render a static table", () => {
     const wrapper = mount(
       <Table aria-label="Static Table">
         <Table.Header>
@@ -52,45 +53,48 @@ describe('Table', () => {
             <Table.Cell>Baz 1</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Static Table');
+
+    expect(table.props()["aria-label"]).toBe("Static Table");
     expect(table.find('[role="rowgroup"]').at(0).length).not.toBeNull();
     expect(table.find('[role="rowgroup"]').at(1).length).not.toBeNull();
 
     // get all headers
     const headers = table.find('[role="columnheader"]');
+
     expect(headers.length).toBe(3 * STITCHES_FACTOR); // is multiplied by 2 because of the stitches components
 
     headers.forEach((header) => {
-      expect(header.props()['aria-sort']).toBeFalsy();
-      expect(header.props()['aria-describedby']).toBeFalsy();
+      expect(header.props()["aria-sort"]).toBeFalsy();
+      expect(header.props()["aria-describedby"]).toBeFalsy();
     });
 
-    expect(headers.at(0 * STITCHES_FACTOR).text()).toBe('Foo');
-    expect(headers.at(1 * STITCHES_FACTOR).text()).toBe('Bar');
-    expect(headers.at(2 * STITCHES_FACTOR).text()).toBe('Baz');
+    expect(headers.at(0 * STITCHES_FACTOR).text()).toBe("Foo");
+    expect(headers.at(1 * STITCHES_FACTOR).text()).toBe("Bar");
+    expect(headers.at(2 * STITCHES_FACTOR).text()).toBe("Baz");
 
-    const bodyRowGroup = table
-      .find('[role="rowgroup"]')
-      .at(1 * STITCHES_FACTOR);
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
 
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
+
     expect(rows.length).toBe(2);
 
     // get body first cell (rowheader)
     const bodyFirstCell = rows.at(0).find('[role="rowheader"]').at(0);
-    expect(bodyFirstCell.text()).toBe('Foo 1');
+
+    expect(bodyFirstCell.text()).toBe("Foo 1");
 
     // get all cells
     const cells = rows.at(0).find('[role="gridcell"]');
+
     expect(cells.length).toBe(2 * STITCHES_FACTOR);
   });
 
-  it('should render a table with selection', () => {
+  it("should render a table with selection", () => {
     const wrapper = mount(
       <Table aria-label="Table with selection" selectionMode="multiple">
         <Table.Header>
@@ -105,34 +109,37 @@ describe('Table', () => {
             <Table.Cell>Baz 1</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Table with selection');
-    expect(table.props()['aria-multiselectable']).toBe('true');
 
-    const bodyRowGroup = table
-      .find('[role="rowgroup"]')
-      .at(1 * STITCHES_FACTOR);
+    expect(table.props()["aria-label"]).toBe("Table with selection");
+    expect(table.props()["aria-multiselectable"]).toBe("true");
+
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
 
     // select all checkbox
     let checkbox = table.find('[type="checkbox"]').at(0);
-    expect(checkbox.props()['aria-label']).toBe('Select All');
+
+    expect(checkbox.props()["aria-label"]).toBe("Select All");
 
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
+
     expect(rows.length).toBe(1 * STITCHES_FACTOR);
 
     // get body first cell (rowheader)
     const bodyFirstCell = rows.at(0).find('[role="rowheader"]').at(0);
-    expect(bodyFirstCell.text()).toBe('Foo 1');
+
+    expect(bodyFirstCell.text()).toBe("Foo 1");
 
     const firstRowCheckbox = rows.at(0).find('[type="checkbox"]').at(0);
-    expect(firstRowCheckbox.props()['aria-label']).toBe('Select');
+
+    expect(firstRowCheckbox.props()["aria-label"]).toBe("Select");
   });
 
-  it('should render dynamic table', () => {
+  it("should render dynamic table", () => {
     const wrapper = mount(
       <Table aria-label="Dynamic Table">
         <Table.Header columns={columns}>
@@ -147,30 +154,32 @@ describe('Table', () => {
             </Table.Row>
           )}
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Dynamic Table');
 
-    const bodyRowGroup = table
-      .find('[role="rowgroup"]')
-      .at(1 * STITCHES_FACTOR);
+    expect(table.props()["aria-label"]).toBe("Dynamic Table");
+
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
 
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
+
     expect(rows.length).toBe(2 * STITCHES_FACTOR);
 
     // get body first cell (rowheader)
     const bodyFirstCell = rows.at(0).find('[role="rowheader"]').at(0);
-    expect(bodyFirstCell.text()).toBe('Test 1');
+
+    expect(bodyFirstCell.text()).toBe("Test 1");
 
     // get all cells
     const cells = rows.at(0).find('[role="gridcell"]');
+
     expect(cells.length).toBe(2 * STITCHES_FACTOR);
   });
 
-  it('should render a dynamic table with selection', () => {
+  it("should render a dynamic table with selection", () => {
     const wrapper = mount(
       <Table aria-label="Dynamic Table with selection" selectionMode="multiple">
         <Table.Header columns={columns}>
@@ -185,34 +194,37 @@ describe('Table', () => {
             </Table.Row>
           )}
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Dynamic Table with selection');
-    expect(table.props()['aria-multiselectable']).toBe('true');
 
-    const bodyRowGroup = table
-      .find('[role="rowgroup"]')
-      .at(1 * STITCHES_FACTOR);
+    expect(table.props()["aria-label"]).toBe("Dynamic Table with selection");
+    expect(table.props()["aria-multiselectable"]).toBe("true");
+
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
 
     // select all checkbox
     let checkbox = table.find('[type="checkbox"]').at(0);
-    expect(checkbox.props()['aria-label']).toBe('Select All');
+
+    expect(checkbox.props()["aria-label"]).toBe("Select All");
 
     // get all rows
     const rows = bodyRowGroup.find('[role="row"]');
+
     expect(rows.length).toBe(2 * STITCHES_FACTOR);
 
     // get body first cell (rowheader)
     const bodyFirstCell = rows.at(0).find('[role="rowheader"]').at(0);
-    expect(bodyFirstCell.text()).toBe('Test 1');
+
+    expect(bodyFirstCell.text()).toBe("Test 1");
 
     const firstRowCheckbox = rows.at(0).find('[type="checkbox"]').at(0);
-    expect(firstRowCheckbox.props()['aria-label']).toBe('Select');
+
+    expect(firstRowCheckbox.props()["aria-label"]).toBe("Select");
   });
 
-  it('should render a static table correctly with sorting', () => {
+  it("should render a static table correctly with sorting", () => {
     const wrapper = mount(
       <Table aria-label="Test sorting table">
         <Table.Header>
@@ -227,40 +239,44 @@ describe('Table', () => {
             <Table.Cell>6/7/2020</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Test sorting table');
+
+    expect(table.props()["aria-label"]).toBe("Test sorting table");
 
     // get column headers
     const columnHeaders = table.find('[role="columnheader"]');
+
     expect(columnHeaders.length).toBe(3 * STITCHES_FACTOR);
 
     // check first column header
     const firstColumnHeader = columnHeaders.at(0 * STITCHES_FACTOR);
-    expect(firstColumnHeader.text()).toBe('NAME');
-    expect(firstColumnHeader.props()['aria-sort']).toBeFalsy();
+
+    expect(firstColumnHeader.text()).toBe("NAME");
+    expect(firstColumnHeader.props()["aria-sort"]).toBeFalsy();
 
     // check second column header
     const secondColumnHeader = columnHeaders.at(1 * STITCHES_FACTOR);
-    expect(secondColumnHeader.text()).toBe('TYPE');
-    expect(secondColumnHeader.props()['aria-sort']).toBe('none');
+
+    expect(secondColumnHeader.text()).toBe("TYPE");
+    expect(secondColumnHeader.props()["aria-sort"]).toBe("none");
 
     // check third column header
     const thirdColumnHeader = columnHeaders.at(2 * STITCHES_FACTOR);
-    expect(thirdColumnHeader.text()).toBe('DATE MODIFIED');
-    expect(thirdColumnHeader.props()['aria-sort']).toBe('none');
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(thirdColumnHeader.text()).toBe("DATE MODIFIED");
+    expect(thirdColumnHeader.props()["aria-sort"]).toBe("none");
+
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should set the proper aria-sort on an ascending sorted column header', () => {
+  it("should set the proper aria-sort on an ascending sorted column header", () => {
     const wrapper = mount(
       <Table
         aria-label="Test sorting table"
-        sortDescriptor={{ column: 'type', direction: 'ascending' }}
+        sortDescriptor={{column: "type", direction: "ascending"}}
       >
         <Table.Header>
           <Table.Column key="name">NAME</Table.Column>
@@ -278,37 +294,42 @@ describe('Table', () => {
             <Table.Cell>6/7/2020</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Test sorting table');
+
+    expect(table.props()["aria-label"]).toBe("Test sorting table");
 
     // get column headers
     const columnHeaders = table.find('[role="columnheader"]');
+
     expect(columnHeaders.length).toBe(3 * STITCHES_FACTOR);
 
     // check first column header
     const firstColumnHeader = columnHeaders.at(0 * STITCHES_FACTOR);
-    expect(firstColumnHeader.text()).toBe('NAME');
-    expect(firstColumnHeader.props()['aria-sort']).toBeFalsy();
+
+    expect(firstColumnHeader.text()).toBe("NAME");
+    expect(firstColumnHeader.props()["aria-sort"]).toBeFalsy();
 
     // check second column header
     const secondColumnHeader = columnHeaders.at(1 * STITCHES_FACTOR);
-    expect(secondColumnHeader.text()).toBe('TYPE');
-    expect(secondColumnHeader.props()['aria-sort']).toBe('ascending');
+
+    expect(secondColumnHeader.text()).toBe("TYPE");
+    expect(secondColumnHeader.props()["aria-sort"]).toBe("ascending");
 
     // check third column header
     const thirdColumnHeader = columnHeaders.at(2 * STITCHES_FACTOR);
-    expect(thirdColumnHeader.text()).toBe('DATE MODIFIED');
-    expect(thirdColumnHeader.props()['aria-sort']).toBe('none');
+
+    expect(thirdColumnHeader.text()).toBe("DATE MODIFIED");
+    expect(thirdColumnHeader.props()["aria-sort"]).toBe("none");
   });
 
-  it('should set the proper aria-sort on an descending sorted column header', () => {
+  it("should set the proper aria-sort on an descending sorted column header", () => {
     const wrapper = mount(
       <Table
         aria-label="Test sorting table"
-        sortDescriptor={{ column: 'type', direction: 'descending' }}
+        sortDescriptor={{column: "type", direction: "descending"}}
       >
         <Table.Header>
           <Table.Column key="name">NAME</Table.Column>
@@ -326,29 +347,34 @@ describe('Table', () => {
             <Table.Cell>6/7/2020</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
 
     const table = wrapper.find('[role="grid"]').at(0);
-    expect(table.props()['aria-label']).toBe('Test sorting table');
+
+    expect(table.props()["aria-label"]).toBe("Test sorting table");
 
     // get column headers
     const columnHeaders = table.find('[role="columnheader"]');
+
     expect(columnHeaders.length).toBe(3 * STITCHES_FACTOR);
 
     // check first column header
     const firstColumnHeader = columnHeaders.at(0 * STITCHES_FACTOR);
-    expect(firstColumnHeader.text()).toBe('NAME');
-    expect(firstColumnHeader.props()['aria-sort']).toBeFalsy();
+
+    expect(firstColumnHeader.text()).toBe("NAME");
+    expect(firstColumnHeader.props()["aria-sort"]).toBeFalsy();
 
     // check second column header
     const secondColumnHeader = columnHeaders.at(1 * STITCHES_FACTOR);
-    expect(secondColumnHeader.text()).toBe('TYPE');
-    expect(secondColumnHeader.props()['aria-sort']).toBe('descending');
+
+    expect(secondColumnHeader.text()).toBe("TYPE");
+    expect(secondColumnHeader.props()["aria-sort"]).toBe("descending");
 
     // check third column header
     const thirdColumnHeader = columnHeaders.at(2 * STITCHES_FACTOR);
-    expect(thirdColumnHeader.text()).toBe('DATE MODIFIED');
-    expect(thirdColumnHeader.props()['aria-sort']).toBe('none');
+
+    expect(thirdColumnHeader.text()).toBe("DATE MODIFIED");
+    expect(thirdColumnHeader.props()["aria-sort"]).toBe("none");
   });
 });

@@ -1,12 +1,14 @@
-import React, { useCallback } from 'react';
-import cn from 'classnames';
-import Image from 'next/image';
-import { useTheme } from '@nextui-org/react';
-import { addColorAlpha } from '@utils/index';
-import Keyboard from '../keyboard';
-import Icon from '../icons/map-icons';
-import { isEmpty } from 'lodash';
-import { Action, ResultHandlers, ResultState } from './types';
+import React, {useCallback} from "react";
+import cn from "classnames";
+import Image from "next/image";
+import {useTheme} from "@nextui-org/react";
+import {addColorAlpha} from "@utils/index";
+import {isEmpty} from "lodash";
+
+import Keyboard from "../keyboard";
+import Icon from "../icons/map-icons";
+
+import {Action, ResultHandlers, ResultState} from "./types";
 
 interface Props {
   action: Action;
@@ -14,10 +16,10 @@ interface Props {
   state: ResultState;
 }
 
-const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
+const KBarOption: React.FC<Props> = ({action, handlers, state}) => {
   const ownRef = React.useRef<HTMLLIElement>(null);
   const active = state.index === state.activeIndex;
-  const { theme, isDark } = useTheme();
+  const {theme, isDark} = useTheme();
 
   React.useEffect(() => {
     if (active) {
@@ -26,16 +28,17 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
       window.requestAnimationFrame(() =>
         window.requestAnimationFrame(() => {
           const element = ownRef.current;
+
           if (!element) {
             return;
           }
           // @ts-ignore
           element.scrollIntoView({
-            block: 'nearest',
-            behavior: 'smooth',
-            inline: 'start'
+            block: "nearest",
+            behavior: "smooth",
+            inline: "start",
           });
-        })
+        }),
       );
     }
   }, [active]);
@@ -45,61 +48,45 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
       return (
         <div className="option-icon">
           <Icon
-            fill={
-              active
-                ? theme?.colors?.accents5?.value
-                : theme?.colors?.accents3?.value
-            }
+            fill={active ? theme?.colors?.accents7?.value : theme?.colors?.accents6?.value}
             name="arrow-right"
           />
         </div>
       );
     }
-    if (
-      action.icon &&
-      typeof action.icon === 'string' &&
-      action.icon.includes('.svg')
-    ) {
+    if (action.icon && typeof action.icon === "string" && action.icon.includes(".svg")) {
       return (
         <div className="option-icon">
           <Image
-            width={24}
-            height={24}
-            src={action.icon?.replace(
-              '.svg',
-              isDark ? '-dark.svg' : '-light.svg'
-            )}
             alt={`${action.name} icon`}
+            height={24}
+            src={action.icon?.replace(".svg", isDark ? "-dark.svg" : "-light.svg")}
+            width={24}
           />
         </div>
       );
-    } else if (action.icon && typeof action.icon === 'string') {
+    } else if (action.icon && typeof action.icon === "string") {
       return (
         <div className="option-icon">
           <Icon
-            fill={
-              active
-                ? theme?.colors?.accents5?.value
-                : theme?.colors?.accents3?.value
-            }
+            fill={active ? theme?.colors?.accents7?.value : theme?.colors?.accents6?.value}
             name={action.icon}
           />
         </div>
       );
     }
+
     return <div className="option-icon">{action.icon}</div>;
   }, [active, isDark]);
 
   return (
     <li ref={ownRef} className="kbar-option" {...handlers}>
-      <div className={cn('option-container', { active })}>
+      <div className={cn("option-container", {active})}>
         <div className="option-left-container">
           {renderIcon()}
           <div className="option-text-container">
             <span className="option-text-title">{action.name}</span>
-            {action.subtitle && (
-              <span className="option-text-subtitle">{action.subtitle}</span>
-            )}
+            {action.subtitle && <span className="option-text-subtitle">{action.subtitle}</span>}
           </div>
         </div>
         <div className="option-right-container">
@@ -157,7 +144,7 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
           }
           .option-text-subtitle {
             font-size: 12px;
-            color: ${theme?.colors?.accents4?.value};
+            color: ${theme?.colors?.accents7?.value};
           }
           .kbd-container {
             display: grid;

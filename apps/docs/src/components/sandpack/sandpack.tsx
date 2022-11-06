@@ -1,24 +1,25 @@
-import React, { useMemo, useRef } from 'react';
+import React, {useMemo, useRef} from "react";
 import {
   SandpackProvider,
   SandpackLayout,
   SandpackFiles,
   SandpackPredefinedTemplate,
-  SandpackPreview
-} from '@codesandbox/sandpack-react';
-import { Grid } from '@nextui-org/react';
-import withDefaults from '@utils/with-defaults';
-import useLocalStorage from '@hooks/use-local-storage';
-import { getHighlightedLines, getFileName } from './utils';
-import CopyButton from './copy-button';
-import { entry } from './entry';
-import { nextuiTheme } from './themes';
-import CodeSandboxButton from './codesanbox-button';
-import BugReportButton from './bugreport-button';
-import { StyledPlaygroundButtons } from './styles';
-import LanguageSelector from './language-selector';
-import { HighlightedLines } from './types';
-import CodeViewer from './code-viewer';
+  SandpackPreview,
+} from "@codesandbox/sandpack-react";
+import {Grid} from "@nextui-org/react";
+import withDefaults from "@utils/with-defaults";
+import useLocalStorage from "@hooks/use-local-storage";
+
+import {getHighlightedLines, getFileName} from "./utils";
+import CopyButton from "./copy-button";
+import {entry, entryWithoutContainer} from "./entry";
+import {nextuiTheme} from "./themes";
+import CodeSandboxButton from "./codesanbox-button";
+import BugReportButton from "./bugreport-button";
+import {StyledPlaygroundButtons} from "./styles";
+import LanguageSelector from "./language-selector";
+import {HighlightedLines} from "./types";
+import CodeViewer from "./code-viewer";
 
 interface Props {
   files?: SandpackFiles;
@@ -27,6 +28,7 @@ interface Props {
   showCopyCode?: boolean;
   showReportBug?: boolean;
   showOpenInCodeSandbox?: boolean;
+  removeEntryContainer?: boolean;
   template?: SandpackPredefinedTemplate;
   highlightedLines?: HighlightedLines;
 }
@@ -36,9 +38,10 @@ const defaultProps = {
   showPreview: true,
   showEditor: true,
   showOpenInCodeSandbox: true,
+  removeEntryContainer: false,
   showReportBug: true,
   showCopyCode: true,
-  template: 'react'
+  template: "react",
 };
 
 export type SandpackProps = Props & typeof defaultProps;
@@ -51,39 +54,39 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   showEditor,
   showReportBug,
   showOpenInCodeSandbox,
+  removeEntryContainer,
   showCopyCode,
-  template
+  template,
 }) => {
   // once the user select a template we store it in local storage
-  const [currentTemplate, setCurrentTemplate] =
-    useLocalStorage<SandpackPredefinedTemplate>('currentTemplate', template);
+  const [currentTemplate, setCurrentTemplate] = useLocalStorage<SandpackPredefinedTemplate>(
+    "currentTemplate",
+    template,
+  );
 
   const editorContainerRef = useRef<HTMLDivElement>(null);
 
   const hasTypescript = Object.keys(files).some(
-    (file) => file.includes('.ts') || file.includes('.tsx')
+    (file) => file.includes(".ts") || file.includes(".tsx"),
   );
 
   const decorators = getHighlightedLines(highlightedLines, currentTemplate);
 
   const sandpackTemplate = useMemo(
-    () =>
-      currentTemplate === 'react-ts' && hasTypescript
-        ? currentTemplate
-        : 'react',
-    [currentTemplate, hasTypescript]
+    () => (currentTemplate === "react-ts" && hasTypescript ? currentTemplate : "react"),
+    [currentTemplate, hasTypescript],
   );
 
   // map current template to its mime type
   const mimeType = useMemo(
-    () => (sandpackTemplate === 'react-ts' ? '.ts' : '.js'),
-    [sandpackTemplate]
+    () => (sandpackTemplate === "react-ts" ? ".ts" : ".js"),
+    [sandpackTemplate],
   );
 
   // get entry file by current template
   const entryFile = useMemo(
-    () => (sandpackTemplate === 'react-ts' ? '/index.tsx' : '/index.js'),
-    [sandpackTemplate]
+    () => (sandpackTemplate === "react-ts" ? "/index.tsx" : "/index.js"),
+    [sandpackTemplate],
   );
 
   // filter files by current template
@@ -92,6 +95,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
       // @ts-ignore
       acc[key] = files[key];
     }
+
     return acc;
   }, {});
 
@@ -102,89 +106,86 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
       const bFile = files[b] as string;
       const aName = getFileName(a);
       const bName = getFileName(b);
+
       if (aFile?.includes(bName)) {
         return -1;
       }
       if (bFile.includes(aName)) {
         return 1;
       }
+
       return 0;
     })
     .reduce((acc, key) => {
       return {
         ...acc,
-        [key]: files[key]
+        [key]: files[key],
       };
     }, {});
 
   return (
     <SandpackProvider
       skipEval
-      template={sandpackTemplate}
       customSetup={{
         files: {
           ...sortedFiles,
           [entryFile]: {
-            code: entry,
-            hidden: true
-          }
+            code: removeEntryContainer ? entryWithoutContainer : entry,
+            hidden: true,
+          },
         },
         entry: entryFile,
         dependencies: {
-          '@nextui-org/react': 'latest'
-        }
+          "@nextui-org/react": "latest",
+        },
       }}
+      template={sandpackTemplate}
     >
       <SandpackLayout
-        theme={nextuiTheme}
         style={{
           // @ts-ignore
-          '--sp-border-radius': 'var(--nextui-radii-lg)',
-          '--sp-colors-fg-inactive': 'transparent'
+          "--sp-border-radius": "var(--nextui-radii-lg)",
+          "--sp-colors-fg-inactive": "transparent",
         }}
+        theme={nextuiTheme}
       >
-        <Grid.Container css={{ maxWidth: '100%' }}>
+        <Grid.Container css={{maxWidth: "100%"}}>
           <Grid
-            xs={12}
             css={{
-              height: showPreview ? '350px' : 'auto'
+              height: showPreview ? "350px" : "auto",
             }}
+            xs={12}
           >
             {showPreview ? <SandpackPreview /> : children}
           </Grid>
           <Grid
             ref={editorContainerRef}
-            xs={12}
             css={{
-              maxHeight: 'auto',
-              position: 'relative',
-              '.sp-playground-buttons': {
-                opacity: 0
+              maxHeight: "auto",
+              position: "relative",
+              ".sp-playground-buttons": {
+                opacity: 0,
               },
-              '&:hover': {
-                '.sp-playground-buttons': {
-                  opacity: 1
-                }
+              "&:hover": {
+                ".sp-playground-buttons": {
+                  opacity: 1,
+                },
               },
-              '.sp-stack': {
-                background: 'var(--sp-colors-bg-default)',
-                borderRadius: '$lg',
-                overflowX: 'auto'
+              ".sp-stack": {
+                background: "var(--sp-colors-bg-default)",
+                borderRadius: "$lg",
+                overflowX: "auto",
               },
-              '.sp-cm': {
-                p: 'var(--sp-space-4)'
+              ".sp-cm": {
+                p: "var(--sp-space-4)",
               },
-              '.cm-scroller::-webkit-scrollbar': {
-                width: '0px'
-              }
+              ".cm-scroller::-webkit-scrollbar": {
+                width: "0px",
+              },
             }}
+            xs={12}
           >
-            {showEditor && (
-              <CodeViewer
-                containerRef={editorContainerRef}
-                decorators={decorators}
-              />
-            )}
+            {showEditor && <CodeViewer containerRef={editorContainerRef} decorators={decorators} />}
             <StyledPlaygroundButtons className="sp-playground-buttons">
               {showReportBug && <BugReportButton />}
               {showCopyCode && <CopyButton />}
@@ -192,10 +193,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
             </StyledPlaygroundButtons>
 
             {hasTypescript && sandpackTemplate && (
-              <LanguageSelector
-                template={sandpackTemplate}
-                onChange={setCurrentTemplate}
-              />
+              <LanguageSelector template={sandpackTemplate} onChange={setCurrentTemplate} />
             )}
           </Grid>
         </Grid.Container>

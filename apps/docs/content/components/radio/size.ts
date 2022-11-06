@@ -1,57 +1,31 @@
-const App = `import { Radio, Spacer } from "@nextui-org/react";
-import React from "react";
+const App = `import { Radio } from "@nextui-org/react";
 
 export default function App() {
-  const [selected, setSelected] = React.useState("xs");
   return (
-    <>
-      <Radio
-        checked={selected === "xs"}
-        onChange={() => setSelected("xs")}
-        size="xs"
-      >
-        xs
+    <Radio.Group label="Sizes" defaultValue="md">
+      <Radio value="xs" size="xs">
+        mini
       </Radio>
-      <Spacer />
-      <Radio
-        checked={selected === "sm"}
-        onChange={() => setSelected("sm")}
-        size="sm"
-      >
+      <Radio value="sm" size="sm">
         small
       </Radio>
-      <Spacer />
-      <Radio
-        checked={selected === "md"}
-        onChange={() => setSelected("md")}
-        size="md"
-      >
+      <Radio value="md" size="md">
         medium
       </Radio>
-      <Spacer />
-      <Radio
-        checked={selected === "lg"}
-        onChange={() => setSelected("lg")}
-        size="lg"
-      >
+      <Radio value="lg" size="lg">
         large
       </Radio>
-      <Spacer />
-      <Radio
-        checked={selected === "xl"}
-        onChange={() => setSelected("xl")}
-        size="xl"
-      >
+      <Radio value="xl" size="xl">
         xlarge
       </Radio>
-    </>
+    </Radio.Group>
   );
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

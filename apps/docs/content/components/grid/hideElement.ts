@@ -33,10 +33,12 @@ export default function App() {
 
   const MockItem = ({ text }) => {
     return (
-      <Card color="primary" css={{ h: "$20" }}>
-        <Text h6 size={15} color="white" css={{ m: 0 }}>
-          {text}
-        </Text>
+      <Card css={{ h: "$20", $$cardColor: '$colors$primary' }}>
+        <Card.Body>
+          <Text h6 size={15} color="white" css={{ m: 0 }}>
+            {text}
+          </Text>
+        </Card.Body>
       </Card>
     );
   };
@@ -59,10 +61,10 @@ export default function App() {
 }`;
 
 const react = {
-  '/useMediaQuery.js': useMediaQuery,
-  '/App.js': AppJs
+  "/useMediaQuery.js": useMediaQuery,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

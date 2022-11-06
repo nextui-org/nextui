@@ -22,7 +22,9 @@ Inside your React project directory, install NextUI by running either of the fol
 
 ```bash
 yarn add @nextui-org/react
-# or
+```
+
+```bash
 npm i @nextui-org/react
 ```
 
@@ -75,6 +77,7 @@ export default MyApp;
 2. Go to `pages/_document.js` or `pages/_document.tsx` (create if it doesn't exist) and add this:
 
 ```jsx
+import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { CssBaseline } from '@nextui-org/react';
 
@@ -83,7 +86,7 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: [<>{initialProps.styles}</>]
+      styles: React.Children.toArray([initialProps.styles])
     };
   }
 

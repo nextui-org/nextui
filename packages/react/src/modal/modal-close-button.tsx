@@ -1,10 +1,9 @@
-import React from 'react';
-import ClearIcon from '../utils/clear-icon';
-import { CSS } from '../theme/stitches.config';
-import {
-  StyledModalCloseButton,
-  ModalCloseButtonVariantsProps
-} from './modal.styles';
+import React from "react";
+
+import ClearIcon from "../utils/clear-icon";
+import {CSS} from "../theme/stitches.config";
+
+import {StyledModalCloseButton, ModalCloseButtonVariantsProps} from "./modal.styles";
 
 interface Props {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -15,12 +14,9 @@ type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
 
 export type ModalCloseButtonProps = Props &
   NativeAttrs &
-  ModalCloseButtonVariantsProps & { css?: CSS };
+  ModalCloseButtonVariantsProps & {css?: CSS};
 
-const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({
-  onClick,
-  ...props
-}) => {
+const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({onClick, ...props}) => {
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -30,24 +26,24 @@ const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({
 
   return (
     <StyledModalCloseButton
+      aria-label="Close"
+      className="nextui-modal-close-icon"
       type="button"
       onClick={clickHandler}
-      className="nextui-modal-close-icon"
-      aria-label="Close"
       {...props}
     >
       <ClearIcon
         plain
-        size={18}
+        aria-hidden={true}
         className="nextui-modal-close-icon-svg"
         fill="currentColor"
-        aria-hidden={true}
+        size={18}
       />
     </StyledModalCloseButton>
   );
 };
 
-ModalCloseButton.toString = () => '.nextui-modal-close-icon';
+ModalCloseButton.toString = () => ".nextui-modal-close-icon";
 
 const MemoModalCloseButton = React.memo(ModalCloseButton);
 

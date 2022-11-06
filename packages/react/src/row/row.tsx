@@ -1,8 +1,11 @@
-import React from 'react';
-import withDefaults from '../utils/with-defaults';
-import { CSS } from '../theme/stitches.config';
-import { Justify, AlignItems, Wrap } from '../utils/prop-types';
-import StyledRow, { RowVariantsProps } from './row.styles';
+import type {CSS} from "../theme/stitches.config";
+
+import React from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {Justify, AlignItems, Wrap} from "../utils/prop-types";
+
+import StyledRow, {RowVariantsProps} from "./row.styles";
 
 interface Props {
   gap?: number;
@@ -15,9 +18,9 @@ interface Props {
 
 const defaultProps = {
   gap: 0,
-  wrap: 'nowrap' as Wrap,
-  justify: 'flex-start' as Justify,
-  align: 'flex-start' as AlignItems
+  wrap: "nowrap" as Wrap,
+  justify: "flex-start" as Justify,
+  align: "flex-start" as AlignItems,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -42,7 +45,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
         marginRight: `calc(${gap} * $space$lg / 2)`,
         justifyContent: justify,
         alignItems: align,
-        ...(css as any)
+        ...css,
       }}
       {...props}
     >
@@ -51,7 +54,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   );
 };
 
-Row.toString = () => '.nextui-row';
+Row.toString = () => ".nextui-row";
 
 const MemoRow = React.memo(Row);
 

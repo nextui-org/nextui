@@ -1,10 +1,10 @@
-import React from 'react';
-import { usePortal } from '@nextui-org/react';
-import cn from 'classnames';
-import withDefaults from '@utils/with-defaults';
-import { Route } from '@lib/docs/page';
-import { createPortal } from 'react-dom';
-import { Sidebar } from '@components';
+import React from "react";
+import {usePortal, useTheme} from "@nextui-org/react";
+import cn from "classnames";
+import withDefaults from "@utils/with-defaults";
+import {Route} from "@lib/docs/page";
+import {createPortal} from "react-dom";
+import {Sidebar} from "@components";
 
 interface Props {
   opened: boolean;
@@ -16,17 +16,13 @@ interface Props {
 
 const defaultProps = {
   opened: false,
-  detached: false
+  detached: false,
 };
 
-const MobileNavigation: React.FC<Props> = ({
-  opened,
-  detached,
-  hasNotify,
-  routes,
-  onClose
-}) => {
-  const portal = usePortal('mobile-navigation');
+const MobileNavigation: React.FC<Props> = ({opened, detached, hasNotify, routes, onClose}) => {
+  const portal = usePortal("mobile-navigation");
+
+  const {isDark} = useTheme();
 
   const handlePostClick = () => {
     onClose && onClose();
@@ -35,10 +31,11 @@ const MobileNavigation: React.FC<Props> = ({
   return portal
     ? createPortal(
         <nav
-          className={cn('mobile-navigation__container', {
+          className={cn("mobile-navigation__container", {
             opened,
             detached,
-            hasNotify
+            hasNotify,
+            isDark,
           })}
         >
           <div className="mobile-navigation__wrapper">
@@ -78,13 +75,15 @@ const MobileNavigation: React.FC<Props> = ({
               min-height: 100%;
               background: var(--nextui-colors-background);
             }
-            @supports (
-              (-webkit-backdrop-filter: none) or (backdrop-filter: none)
-            ) {
+            @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
               .mobile-navigation__wrapper {
                 background: var(--nextui-colors-menuBackground);
-                backdrop-filter: saturate(180%) blur(10px);
-                --webkit-backdrop-filter: saturate(180%) blur(10px);
+                backdrop-filter: saturate(180%) blur(60px);
+                --webkit-backdrop-filter: saturate(180%) blur(34px);
+              }
+              .mobile-navigation__container.isDark {
+                backdrop-filter: saturate(180%) blur(24px);
+                --webkit-backdrop-filter: saturate(180%) blur(20px);
               }
             }
             .mobile-navigation__list {
@@ -109,7 +108,7 @@ const MobileNavigation: React.FC<Props> = ({
             }
           `}</style>
         </nav>,
-        portal
+        portal,
       )
     : null;
 };

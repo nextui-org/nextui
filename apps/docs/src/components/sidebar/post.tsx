@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useMemo } from 'react';
-import cn from 'classnames';
-import NavLink, { NavLinkProps } from '../nav-link';
-import withDefaults from '@utils/with-defaults';
-import { Badge } from '@components';
-import { useTheme, Spacer } from '@nextui-org/react';
+import React, {useRef, useEffect, useMemo} from "react";
+import cn from "classnames";
+import withDefaults from "@utils/with-defaults";
+import {Badge} from "@components";
+import {useTheme, Spacer} from "@nextui-org/react";
+
+import NavLink, {NavLinkProps} from "../nav-link";
 
 export interface Props {
   level: number;
@@ -14,7 +15,7 @@ export interface Props {
 
 const defaultProps = {
   level: 1,
-  isMobile: false
+  isMobile: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -25,17 +26,15 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
   isMobile,
   route,
   level = 1,
-  onClick
+  onClick,
 }) => {
   const selectedRef = useRef<HTMLDivElement>(null);
   const ref = route.selected ? selectedRef : null;
-  const { theme, isDark } = useTheme();
+  const {theme, isDark} = useTheme();
 
   useEffect(() => {
     if (ref && ref.current && !isMobile) {
-      const content = document.querySelector(
-        '.sidebar-content'
-      ) as HTMLDivElement;
+      const content = document.querySelector(".sidebar-content") as HTMLDivElement;
       // 32 is the top and bottom margin for `.link`
       const height = ref.current.offsetTop - 32;
 
@@ -47,15 +46,14 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 
   const linkColor = useMemo(() => {
     if (route.selected) return theme?.colors?.text?.value;
-    if (route.comingSoon) return theme?.colors?.accents5?.value;
+    if (route.comingSoon)
+      return isDark ? theme?.colors?.accents6?.value : theme?.colors?.accents5?.value;
+
     return theme?.colors?.accents8?.value;
-  }, [isDark, route.selected]);
+  }, [theme, isDark, route.selected, route.comingSoon]);
 
   return (
-    <div
-      ref={ref}
-      className={cn('link', `level-${level}`, { disabled: route?.comingSoon })}
-    >
+    <div ref={ref} className={cn("link", `level-${level}`, {disabled: route?.comingSoon})}>
       <NavLink {...route} color={linkColor} onClick={onClick} />
       <Spacer inline x={0.2} />
       {route?.newPost && (
@@ -84,7 +82,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           cursor: not-allowed;
         }
         .link::before {
-          content: '';
+          content: "";
           flex-basis: 4px;
           flex-shrink: 0;
           display: block;

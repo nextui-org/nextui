@@ -1,47 +1,45 @@
-import React from 'react';
-import { styled, VariantProps, CSS } from '../theme/stitches.config';
+import React from "react";
 
-const StyledSortIcon = styled('svg', {
+import {styled, VariantProps, CSS} from "../theme/stitches.config";
+
+const StyledSortIcon = styled("svg", {
   opacity: 0,
-  transition: '$default',
+  transition: "$default",
   path: {
-    fill: '$$tableRowTextColor'
+    fill: "$$tableRowTextColor",
   },
   variants: {
     visible: {
       true: {
-        opacity: 1
-      }
+        opacity: 1,
+      },
     },
     ascending: {
       true: {
-        transform: 'rotate(180deg)'
-      }
-    }
-  }
+        transform: "rotate(180deg)",
+      },
+    },
+  },
 });
 
 type SortIconVariants = VariantProps<typeof StyledSortIcon>;
 
-type NativeAttrs = Omit<
-  React.SVGAttributes<SVGElement>,
-  keyof SortIconVariants
->;
+type NativeAttrs = Omit<React.SVGAttributes<SVGElement>, keyof SortIconVariants>;
 
-export type TableSortIconProps = SortIconVariants & NativeAttrs & { css?: CSS };
+export type TableSortIconProps = SortIconVariants & NativeAttrs & {css?: CSS};
 
 export const ICON_SIZE = 22;
 
 const TableSortIcon: React.FC<TableSortIconProps> = (props) => (
   <StyledSortIcon
-    role="presentation"
     aria-hidden="true"
-    focusable="false"
     className="nextui-table-sort-icon"
-    width={ICON_SIZE}
-    height={ICON_SIZE}
-    viewBox="0 0 24 24"
     fill="none"
+    focusable="false"
+    height={ICON_SIZE}
+    role="presentation"
+    viewBox="0 0 24 24"
+    width={ICON_SIZE}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

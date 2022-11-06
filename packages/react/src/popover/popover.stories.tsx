@@ -1,37 +1,39 @@
-import * as React from 'react';
-import { Meta } from '@storybook/react';
-import { Text, Grid, Button } from '../index';
-import Popover, { PopoverPlacement } from './index';
+import * as React from "react";
+import {Meta} from "@storybook/react";
+
+import {Text, Grid, Button} from "../index";
+
+import Popover, {PopoverPlacement} from "./index";
 
 export default {
-  title: 'Display/Popover',
-  component: Popover
+  title: "Display/Popover",
+  component: Popover,
 } as Meta;
 
 const placements = [
-  'bottom',
-  'bottom-left',
-  'bottom-right',
-  'top',
-  'top-left',
-  'top-right',
-  'left',
-  'left-top',
-  'left-bottom',
-  'right',
-  'right-top',
-  'right-bottom'
+  "bottom",
+  "bottom-left",
+  "bottom-right",
+  "top",
+  "top-left",
+  "top-right",
+  "left",
+  "left-top",
+  "left-bottom",
+  "right",
+  "right-top",
+  "right-bottom",
 ];
 
 export const Default = () => (
-  <Grid.Container justify="center" gap={2} css={{ maxW: '600px' }}>
+  <Grid.Container css={{maxW: "600px"}} gap={2} justify="center">
     <Grid>
       <Popover placement="top">
         <Popover.Trigger>
           <Button auto>Open popover</Button>
         </Popover.Trigger>
         <Popover.Content>
-          <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
+          <Text css={{p: "$10"}}>This is the content of the popover.</Text>
         </Popover.Content>
       </Popover>
     </Grid>
@@ -39,7 +41,7 @@ export const Default = () => (
 );
 
 export const Placements = () => (
-  <Grid.Container justify="center" gap={2} css={{ maxW: '600px' }}>
+  <Grid.Container css={{maxW: "600px"}} gap={2} justify="center">
     {placements.map((placement: PopoverPlacement) => (
       <Grid key={placement}>
         <Popover placement={placement}>
@@ -47,7 +49,7 @@ export const Placements = () => (
             <Button auto>{placement}</Button>
           </Popover.Trigger>
           <Popover.Content>
-            <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
+            <Text css={{p: "$10"}}>This is the content of the popover.</Text>
           </Popover.Content>
         </Popover>
       </Grid>
@@ -56,7 +58,7 @@ export const Placements = () => (
 );
 
 export const DisableAnimation = () => (
-  <Grid.Container justify="center" gap={2} css={{ maxW: '600px' }}>
+  <Grid.Container css={{maxW: "600px"}} gap={2} justify="center">
     <Grid>
       <Popover disableAnimation placement="top">
         <Popover.Trigger>
@@ -65,7 +67,7 @@ export const DisableAnimation = () => (
           </Button>
         </Popover.Trigger>
         <Popover.Content>
-          <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
+          <Text css={{p: "$10"}}>This is the content of the popover.</Text>
         </Popover.Content>
       </Popover>
     </Grid>

@@ -25,39 +25,38 @@ You can use any of the utilities through the `css` prop or using the `styled` fu
 <Playground
   initialEditorOpen
   code={`
-<Card css={{ px: '$4' }}>
-  <Text
-    h1
-    size={60}
-    css={{
-      textGradient: '45deg, $blue500 -20%, $pink500 50%'
-    }}
-    weight="bold"
-  >
-    Let's
-  </Text>
-  <Text
-    h1
-    size={60}
-    css={{
-      textGradient: '45deg, $purple500 -20%, $pink500 100%'
-    }}
-    weight="bold"
-  >
-    Make the Web
-  </Text>
-  <Text
-    h1
-    size={60}
-    css={{
-      textGradient: '45deg, $yellow500 -20%, $red500 100%'
-    }}
-    weight="bold"
-  >
-    Prettier
-  </Text>
-</Card>
-`}
+<>
+    <Text
+      h1
+      size={60}
+      css={{
+        textGradient: "45deg, $blue600 -20%, $pink600 50%",
+      }}
+      weight="bold"
+    >
+      Let's
+    </Text>
+    <Text
+      h1
+      size={60}
+      css={{
+        textGradient: "45deg, $purple600 -20%, $pink600 100%",
+      }}
+      weight="bold"
+    >
+      Make the Web
+    </Text>
+    <Text
+      h1
+      size={60}
+      css={{
+        textGradient: "45deg, $yellow600 -20%, $red600 100%",
+      }}
+      weight="bold"
+    >
+      Prettier
+    </Text>
+</>;`}
 />
 
 ### Utilities
@@ -195,6 +194,18 @@ export const utils = {
   bs: (value) => ({
     boxShadow: value
   }),
+  ds: (value) => ({
+    dropShadow: value
+  }),
+  shadow: (value) => ({
+    boxShadow: value
+  }),
+  dshadow: (value) => ({
+    dropShadow: value
+  }),
+  dropShadow: (value) => ({
+    filter: `$dropShadows${value}`
+  }),
   normalShadow: (value) => ({
     boxShadow: `0 4px 14px 0 $colors${value}`
   }),
@@ -279,11 +290,17 @@ export const utils = {
     backgroundImage: `linear-gradient(${value})`,
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent'
+  }),
+  truncateText: (value: Stitches.PropertyValue<'width'>) => ({
+    maxWidth: value,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   })
 };
 ```
 
-> Note: If you would like we to add more utilities, please let us know on [NextUI Discussions](https://github.com/nextui-org/nextui/discussions), or on [Discord](https://discord.gg/9b6yyZKmH4).
+> **Note:** If you would like we to add more utilities, please let us know on [NextUI Discussions](https://github.com/nextui-org/nextui/discussions), or on [Discord](https://discord.gg/9b6yyZKmH4).
 
 ### Theme Map
 

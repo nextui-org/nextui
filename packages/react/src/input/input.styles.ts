@@ -1,203 +1,200 @@
-import {
-  styled,
-  sharedVisuallyHidden,
-  VariantProps
-} from '../theme/stitches.config';
+import {styled, VariantProps} from "../theme/stitches.config";
+import {sharedVisuallyHidden} from "../theme/shared-css";
 
 const baseInputValues = {
-  $$inputColor: '$colors$accents0',
-  $$inputTextColor: '$colors$text',
-  $$inputPlaceholderColor: '$colors$accents6',
-  $$inputShadow: '$shadows$sm',
-  $$inputBorderColor: '$colors$border',
-  $$inputHoverBorderColor: '$colors$foreground',
-  $$inputLabelColor: '$$inputHoverBorderColor'
+  $$inputColor: "$colors$accents0",
+  $$inputTextColor: "$colors$text",
+  $$inputPlaceholderColor: "$colors$accents6",
+  $$inputShadow: "$shadows$sm",
+  $$inputBorderColor: "$colors$border",
+  $$inputHoverBorderColor: "$colors$foreground",
+  $$inputLabelColor: "$$inputHoverBorderColor",
 };
 
-export const StyledInputMainContainer = styled('div', {
+export const StyledInputMainContainer = styled("div", {
   ...baseInputValues,
-  display: 'inline-flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  position: 'relative',
-  boxSizing: 'border-box',
-  WebkitBoxAlign: 'center',
+  display: "inline-flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  position: "relative",
+  boxSizing: "border-box",
+  WebkitBoxAlign: "center",
   variants: {
     color: {
       default: {},
       primary: {
-        $$inputHoverBorderColor: '$colors$primary',
-        $$inputLabelColor: '$colors$primary'
+        $$inputHoverBorderColor: "$colors$primary",
+        $$inputLabelColor: "$colors$primary",
       },
       secondary: {
-        $$inputHoverBorderColor: '$colors$secondary',
-        $$inputLabelColor: '$colors$secondary'
+        $$inputHoverBorderColor: "$colors$secondary",
+        $$inputLabelColor: "$colors$secondary",
       },
       success: {
-        $$inputHoverBorderColor: '$colors$success',
-        $$inputLabelColor: '$colors$success'
+        $$inputHoverBorderColor: "$colors$success",
+        $$inputLabelColor: "$colors$success",
       },
       warning: {
-        $$inputHoverBorderColor: '$colors$warning',
-        $$inputLabelColor: '$colors$warning'
+        $$inputHoverBorderColor: "$colors$warning",
+        $$inputLabelColor: "$colors$warning",
       },
       error: {
-        $$inputHoverBorderColor: '$colors$error',
-        $$inputLabelColor: '$colors$error'
-      }
+        $$inputHoverBorderColor: "$colors$error",
+        $$inputLabelColor: "$colors$error",
+      },
     },
     status: {
       default: {},
       primary: {
-        $$inputColor: '$colors$primaryLight',
-        $$inputPlaceholderColor: '$colors$primaryLightContrast',
-        $$inputTextColor: '$colors$primaryLightContrast',
-        $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$primary'
+        $$inputColor: "$colors$primaryLight",
+        $$inputPlaceholderColor: "$colors$primaryLightContrast",
+        $$inputTextColor: "$colors$primaryLightContrast",
+        $$inputLabelColor: "$$inputTextColor",
+        $$inputHoverBorderColor: "$colors$primary",
       },
       secondary: {
-        $$inputColor: '$colors$secondaryLight',
-        $$inputPlaceholderColor: '$colors$secondaryLightContrast',
-        $$inputTextColor: '$colors$secondaryLightContrast',
-        $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$secondary'
+        $$inputColor: "$colors$secondaryLight",
+        $$inputPlaceholderColor: "$colors$secondaryLightContrast",
+        $$inputTextColor: "$colors$secondaryLightContrast",
+        $$inputLabelColor: "$$inputTextColor",
+        $$inputHoverBorderColor: "$colors$secondary",
       },
       success: {
-        $$inputColor: '$colors$successLight',
-        $$inputPlaceholderColor: '$colors$successLightContrast',
-        $$inputTextColor: '$colors$successLightContrast',
-        $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$success'
+        $$inputColor: "$colors$successLight",
+        $$inputPlaceholderColor: "$colors$successLightContrast",
+        $$inputTextColor: "$colors$successLightContrast",
+        $$inputLabelColor: "$$inputTextColor",
+        $$inputHoverBorderColor: "$colors$success",
       },
       warning: {
-        $$inputColor: '$colors$warningLight',
-        $$inputPlaceholderColor: '$colors$warningLightContrast',
-        $$inputTextColor: '$colors$warningLightContrast',
-        $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$warning'
+        $$inputColor: "$colors$warningLight",
+        $$inputPlaceholderColor: "$colors$warningLightContrast",
+        $$inputTextColor: "$colors$warningLightContrast",
+        $$inputLabelColor: "$$inputTextColor",
+        $$inputHoverBorderColor: "$colors$warning",
       },
       error: {
-        $$inputColor: '$colors$errorLight',
-        $$inputPlaceholderColor: '$colors$errorLightContrast',
-        $$inputTextColor: '$colors$errorLightContrast',
-        $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$error'
-      }
+        $$inputColor: "$colors$errorLight",
+        $$inputPlaceholderColor: "$colors$errorLightContrast",
+        $$inputTextColor: "$colors$errorLightContrast",
+        $$inputLabelColor: "$$inputTextColor",
+        $$inputHoverBorderColor: "$colors$error",
+      },
     },
     helperColor: {
       default: {
-        $$inputHelperColor: '$colors$text'
+        $$inputHelperColor: "$colors$text",
       },
       primary: {
-        $$inputHelperColor: '$colors$primary'
+        $$inputHelperColor: "$colors$primary",
       },
       secondary: {
-        $$inputHelperColor: '$colors$secondary'
+        $$inputHelperColor: "$colors$secondary",
       },
       success: {
-        $$inputHelperColor: '$colors$success'
+        $$inputHelperColor: "$colors$success",
       },
       warning: {
-        $$inputHelperColor: '$colors$warning'
+        $$inputHelperColor: "$colors$warning",
       },
       error: {
-        $$inputHelperColor: '$colors$error'
-      }
+        $$inputHelperColor: "$colors$error",
+      },
     },
     borderWeight: {
       light: {
-        $$inputBorderWeight: '$borderWeights$light'
+        $$inputBorderWeight: "$borderWeights$light",
       },
       normal: {
-        $$inputBorderWeight: '$borderWeights$normal'
+        $$inputBorderWeight: "$borderWeights$normal",
       },
       bold: {
-        $$inputBorderWeight: '$borderWeights$bold'
+        $$inputBorderWeight: "$borderWeights$bold",
       },
       extrabold: {
-        $$inputBorderWeight: '$borderWeights$extrabold'
+        $$inputBorderWeight: "$borderWeights$extrabold",
       },
       black: {
-        $$inputBorderWeight: '$borderWeights$black'
-      }
+        $$inputBorderWeight: "$borderWeights$black",
+      },
     },
     size: {
       xs: {
-        $$inputBorderRadius: '$space$3',
-        $$inputFontSize: '$fontSizes$tiny',
-        $$inputHeightRatio: '1.2',
-        br: '$$inputBorderRadius'
+        $$inputBorderRadius: "$space$3",
+        $$inputFontSize: "$fontSizes$xs",
+        $$inputHeightRatio: "1.2",
+        br: "$$inputBorderRadius",
       },
       sm: {
-        $$inputBorderRadius: '$space$4',
-        $$inputFontSize: '$fontSizes$tiny',
-        $$inputHeightRatio: '1.6',
-        br: '$$inputBorderRadius'
+        $$inputBorderRadius: "$space$4",
+        $$inputFontSize: "$fontSizes$xs",
+        $$inputHeightRatio: "1.6",
+        br: "$$inputBorderRadius",
       },
       md: {
-        $$inputBorderRadius: '$space$6',
-        $$inputFontSize: '$fontSizes$xs',
-        $$inputHeightRatio: '2',
-        br: '$$inputBorderRadius'
+        $$inputBorderRadius: "$space$6",
+        $$inputFontSize: "$fontSizes$sm",
+        $$inputHeightRatio: "2",
+        br: "$$inputBorderRadius",
       },
       lg: {
-        $$inputBorderRadius: '$space$7',
-        $$inputFontSize: '$fontSizes$base',
-        $$inputHeightRatio: '2.2',
-        br: '$$inputBorderRadius'
+        $$inputBorderRadius: "$space$7",
+        $$inputFontSize: "$fontSizes$md",
+        $$inputHeightRatio: "2.2",
+        br: "$$inputBorderRadius",
       },
       xl: {
-        $$inputBorderRadius: '$space$8',
-        $$inputFontSize: '$fontSizes$sm',
-        $$inputHeightRatio: '2.6',
-        br: '$$inputBorderRadius'
-      }
+        $$inputBorderRadius: "$space$8",
+        $$inputFontSize: "$fontSizes$lg",
+        $$inputHeightRatio: "2.6",
+        br: "$$inputBorderRadius",
+      },
     },
     rounded: {
       true: {
-        $$inputBorderRadius: '$radii$pill'
-      }
+        $$inputBorderRadius: "$radii$pill",
+      },
     },
     disabled: {
       true: {
-        $$inputColor: '$colors$accents1',
-        $$inputTextColor: '$colors$accents7',
-        $$inputPlaceholderColor: '$colors$accents7',
-        $$inputShadow: '$shadows$sm'
-      }
-    }
-  }
+        $$inputColor: "$colors$accents1",
+        $$inputTextColor: "$colors$accents7",
+        $$inputPlaceholderColor: "$colors$accents7",
+        $$inputShadow: "$shadows$sm",
+      },
+    },
+  },
 });
 
-export const StyledInputContainer = styled('div', {
-  width: '100%',
-  br: '$$inputBorderRadius',
-  '@motion': {
-    transition: 'none'
+export const StyledInputContainer = styled("div", {
+  width: "100%",
+  br: "$$inputBorderRadius",
+  "@motion": {
+    transition: "none",
   },
   variants: {
     isTextarea: {
       false: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        height: 'calc($$inputHeightRatio * $9)'
-      }
+        display: "inline-flex",
+        alignItems: "center",
+        height: "calc($$inputHeightRatio * $9)",
+      },
     },
     focused: {
-      true: {}
+      true: {},
     },
     isReadOnly: {
-      false: {}
+      false: {},
     },
-    underlined: { true: {} },
+    underlined: {true: {}},
     animated: {
       true: {
-        transition: '$default'
+        transition: "$default",
       },
       false: {
-        transition: 'none'
-      }
-    }
+        transition: "none",
+      },
+    },
   },
   compoundVariants: [
     {
@@ -205,8 +202,8 @@ export const StyledInputContainer = styled('div', {
       isReadOnly: false,
       underlined: true,
       css: {
-        transform: 'none'
-      }
+        transform: "none",
+      },
     },
     {
       // focused && animated && !isReadOnly && !underlined
@@ -215,190 +212,190 @@ export const StyledInputContainer = styled('div', {
       isReadOnly: false,
       underlined: false,
       css: {
-        transform: 'translateY(-$space$1)'
-      }
-    }
-  ]
+        transform: "translateY(-$space$1)",
+      },
+    },
+  ],
 });
 
-export const StyledInput = styled('input', {
+export const StyledInput = styled("input", {
   padding: 0,
-  fontSize: '$$inputFontSize',
-  bg: 'transparent',
-  border: 'none',
-  color: '$$inputTextColor',
+  fontSize: "$$inputFontSize",
+  bg: "transparent",
+  border: "none",
+  color: "$$inputTextColor",
   br: 0,
-  outline: 'none',
-  size: '100%',
+  outline: "none",
+  size: "100%",
   minWidth: 0,
-  WebkitAppearance: 'none',
-  '::placeholder': {
-    color: '$$inputPlaceholderColor',
-    transition: 'opacity 0.25s ease 0s',
-    MozTransition: 'opacity 0.25s ease 0s',
-    MsTransition: 'opacity 0.25s ease 0s',
-    WebkitTransition: 'opacity 0.25s ease 0s'
+  WebkitAppearance: "none",
+  "::placeholder": {
+    color: "$$inputPlaceholderColor",
+    transition: "opacity 0.25s ease 0s",
+    MozTransition: "opacity 0.25s ease 0s",
+    MsTransition: "opacity 0.25s ease 0s",
+    WebkitTransition: "opacity 0.25s ease 0s",
   },
-  '@motion': {
-    transition: 'none',
-    '&::placeholder': {
-      transition: 'none'
-    }
+  "@motion": {
+    transition: "none",
+    "&::placeholder": {
+      transition: "none",
+    },
   },
-  '&:disabled': {
-    pe: 'none',
-    color: '$accents4',
-    cursor: 'not-allowed'
+  "&:disabled": {
+    pe: "none",
+    color: "$accents4",
+    cursor: "not-allowed",
   },
   variants: {
     isTextarea: {
       true: {
-        boxShadow: 'none',
-        display: 'block',
-        size: '100%',
-        resize: 'none',
-        border: 'none',
-        outline: 'none'
-      }
+        boxShadow: "none",
+        display: "block",
+        size: "100%",
+        resize: "none",
+        border: "none",
+        outline: "none",
+      },
     },
     focused: {
       true: {
-        '&::placeholder': {
+        "&::placeholder": {
           opacity: 0,
-          transition: 'opacity 0.25s ease 0s'
-        }
-      }
+          transition: "opacity 0.25s ease 0s",
+        },
+      },
     },
     bordered: {
       true: {
-        padding: '0 $3'
-      }
+        padding: "0 $3",
+      },
     },
     rounded: {
       true: {
-        padding: '0 $3'
-      }
+        padding: "0 $3",
+      },
     },
     animated: {
       false: {
-        transition: 'none',
-        '::placeholder': {
-          transition: 'none'
-        }
-      }
+        transition: "none",
+        "::placeholder": {
+          transition: "none",
+        },
+      },
     },
     hasLeftContent: {
       true: {
-        ml: 0
-      }
+        ml: 0,
+      },
     },
     hasRightContent: {
       true: {
-        mr: 0
-      }
-    }
-  }
+        mr: 0,
+      },
+    },
+  },
 });
 
-export const StyledInputWrapper = styled('div', {
+export const StyledInputWrapper = styled("div", {
   flex: 1,
-  position: 'relative',
-  br: '$$inputBorderRadius',
-  bg: '$$inputColor',
-  display: 'inline-flex',
-  verticalAlign: 'middle',
-  alignItems: 'center',
-  userSelect: 'none',
-  '@motion': {
-    transition: 'none',
-    '&:before': {
-      transition: 'none'
+  position: "relative",
+  br: "$$inputBorderRadius",
+  bg: "$$inputColor",
+  display: "inline-flex",
+  verticalAlign: "middle",
+  alignItems: "center",
+  userSelect: "none",
+  "@motion": {
+    transition: "none",
+    "&:before": {
+      transition: "none",
     },
-    '&:after': {
-      transition: 'none'
-    }
+    "&:after": {
+      transition: "none",
+    },
   },
   variants: {
     focused: {
-      true: {}
+      true: {},
     },
     isReadOnly: {
-      true: {}
+      true: {},
     },
     bordered: {
       true: {
-        bg: 'transparent',
-        border: 'none',
-        boxShadow: '0 0 0 $$inputBorderWeight $$inputBorderColor',
-        transition: 'box-shadow 0.25s ease'
-      }
+        bg: "transparent",
+        border: "none",
+        boxShadow: "0 0 0 $$inputBorderWeight $$inputBorderColor",
+        transition: "box-shadow 0.25s ease",
+      },
     },
     shadow: {
       true: {
-        transition: '$default'
-      }
+        transition: "$default",
+      },
     },
     disabled: {
       true: {
-        cursor: 'not-allowed'
-      }
+        cursor: "not-allowed",
+      },
     },
     underlined: {
       true: {
-        bg: 'transparent',
+        bg: "transparent",
         [`& ${StyledInput}`]: {
-          margin: '$2 $3'
+          margin: "$2 $3",
         },
-        '&:before': {
-          content: '',
-          position: 'absolute',
-          zIndex: '$2',
+        "&:before": {
+          content: "",
+          position: "absolute",
+          zIndex: "$2",
           width: 0,
           bottom: 0,
-          height: '$1',
-          left: '50%',
-          transform: 'translate(-50%)',
-          background: '$$inputHoverBorderColor',
-          transition: 'width 0.25s ease'
+          height: "$1",
+          left: "50%",
+          transform: "translate(-50%)",
+          background: "$$inputHoverBorderColor",
+          transition: "width 0.25s ease",
         },
-        '&:after': {
-          content: '',
-          position: 'absolute',
-          zIndex: '$1',
+        "&:after": {
+          content: "",
+          position: "absolute",
+          zIndex: "$1",
           bottom: 0,
-          width: '100%',
-          height: '$$inputBorderWeight',
-          bg: '$$inputBorderColor'
-        }
+          width: "100%",
+          height: "$$inputBorderWeight",
+          bg: "$$inputBorderColor",
+        },
       },
       false: {
         [`& ${StyledInput}`]: {
-          margin: '$2 $5'
-        }
-      }
+          margin: "$2 $5",
+        },
+      },
     },
     animated: {
       false: {
-        transition: 'none',
-        '&:before': {
-          transition: 'none'
+        transition: "none",
+        "&:before": {
+          transition: "none",
         },
-        '&:after': {
-          transition: 'none'
-        }
-      }
+        "&:after": {
+          transition: "none",
+        },
+      },
     },
     isTextarea: {
       true: {
-        boxSizing: 'border-box',
-        width: '100%',
-        maxWidth: '100%',
-        height: 'auto'
+        boxSizing: "border-box",
+        width: "100%",
+        maxWidth: "100%",
+        height: "auto",
       },
       false: {
-        height: '100%'
-      }
-    }
+        height: "100%",
+      },
+    },
   },
   compoundVariants: [
     {
@@ -406,18 +403,18 @@ export const StyledInputWrapper = styled('div', {
       bordered: true,
       underlined: true,
       css: {
-        boxShadow: '0 0 0 0px $$inputBorderColor'
-      }
+        boxShadow: "0 0 0 0px $$inputBorderColor",
+      },
     },
     {
       // focused && underlined
       focused: true,
       underlined: true,
       css: {
-        '&:before': {
-          width: '100%'
-        }
-      }
+        "&:before": {
+          width: "100%",
+        },
+      },
     },
     // focused && shadow && !readOnly
     {
@@ -426,8 +423,8 @@ export const StyledInputWrapper = styled('div', {
       isReadOnly: false,
       underlined: false,
       css: {
-        boxShadow: '$$inputShadow'
-      }
+        boxShadow: "$$inputShadow",
+      },
     },
     // focused && bordered && !readOnly && !underlined
     {
@@ -436,8 +433,8 @@ export const StyledInputWrapper = styled('div', {
       isReadOnly: false,
       underlined: false,
       css: {
-        boxShadow: '0 0 0 $$inputBorderWeight $$inputHoverBorderColor'
-      }
+        boxShadow: "0 0 0 $$inputBorderWeight $$inputHoverBorderColor",
+      },
     },
     //  bordered && !readOnly && !underlined
     {
@@ -445,10 +442,10 @@ export const StyledInputWrapper = styled('div', {
       isReadOnly: false,
       underlined: false,
       css: {
-        '&:hover': {
-          boxShadow: '0 0 0 $$inputBorderWeight $$inputHoverBorderColor'
-        }
-      }
+        "&:hover": {
+          boxShadow: "0 0 0 $$inputBorderWeight $$inputHoverBorderColor",
+        },
+      },
     },
     // isTextarea  && !underlined
     {
@@ -456,113 +453,113 @@ export const StyledInputWrapper = styled('div', {
       underlined: false,
       css: {
         [`& ${StyledInput}`]: {
-          margin: '$xs $sm'
-        }
-      }
-    }
-  ]
+          margin: "$xs $sm",
+        },
+      },
+    },
+  ],
 });
 
-export const StyledHelperTextContainer = styled('div', {
-  position: 'absolute',
+export const StyledHelperTextContainer = styled("div", {
+  position: "absolute",
   opacity: 0,
-  bottom: 'calc($$inputHeightRatio * -$space$5)',
-  '@motion': {
-    transition: 'none'
+  bottom: "calc($$inputHeightRatio * -$space$5)",
+  "@motion": {
+    transition: "none",
   },
   variants: {
     animated: {
       true: {
-        transition: 'opacity 0.25s ease'
+        transition: "opacity 0.25s ease",
       },
       false: {
-        transition: 'none'
-      }
+        transition: "none",
+      },
     },
     withValue: {
       true: {
-        opacity: 1
-      }
-    }
-  }
+        opacity: 1,
+      },
+    },
+  },
 });
 
-export const StyledHelperText = styled('p', {
-  margin: '$1 0 0 $5',
-  fontSize: '$space$5',
-  color: '$$inputHelperColor'
+export const StyledHelperText = styled("p", {
+  margin: "$1 0 0 $5",
+  fontSize: "$space$5",
+  color: "$$inputHelperColor",
 });
 
-export const StyledInputPlaceholder = styled('span', {}, sharedVisuallyHidden);
+export const StyledInputPlaceholder = styled("span", {}, sharedVisuallyHidden);
 
 /// Input accessories
-export const StyledInputBlockLabel = styled('label', {
-  d: 'block',
-  fontWeight: '$normal',
-  color: '$$inputLabelColor',
-  p: '0 0 0 $2',
-  mb: '$3',
-  fs: '$$inputFontSize',
-  lh: '$md',
-  WebkitTouchCallout: 'none' /* iOS Safari */,
-  WebkitUserSelect: 'none' /* Safari */,
-  KhtmlUserSelect: 'none' /* Konqueror HTML */,
-  MozUserSelect: 'none' /* Firefox */,
-  MsUserSelect: 'none' /* Internet Explorer/Edge */,
-  us: 'none' /* Non-prefixed version, currently supported by Chrome and Opera */,
-  '> *:first-child': {
-    marginTop: 0
+export const StyledInputBlockLabel = styled("label", {
+  d: "block",
+  fontWeight: "$normal",
+  color: "$$inputLabelColor",
+  p: "0 0 0 $2",
+  mb: "$3",
+  fs: "$$inputFontSize",
+  lh: "$md",
+  WebkitTouchCallout: "none" /* iOS Safari */,
+  WebkitUserSelect: "none" /* Safari */,
+  KhtmlUserSelect: "none" /* Konqueror HTML */,
+  MozUserSelect: "none" /* Firefox */,
+  MsUserSelect: "none" /* Internet Explorer/Edge */,
+  us: "none" /* Non-prefixed version, currently supported by Chrome and Opera */,
+  "> *:first-child": {
+    marginTop: 0,
   },
-  '> *:last-child': {
-    mb: 0
+  "> *:last-child": {
+    mb: 0,
   },
-  '@motion': {
-    transition: 'none'
+  "@motion": {
+    transition: "none",
   },
   variants: {
     rounded: {
       true: {
-        padding: '0 0 0 $3'
-      }
+        padding: "0 0 0 $3",
+      },
     },
     asPlaceholder: {
       true: {
-        position: 'absolute',
+        position: "absolute",
         padding: 0,
-        zIndex: '$1',
-        left: '$space$6',
-        top: '20%',
+        zIndex: "$1",
+        left: "$space$6",
+        top: "20%",
         mb: 0,
-        cursor: 'text',
-        color: '$$inputPlaceholderColor',
-        transition: 'left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s'
-      }
+        cursor: "text",
+        color: "$$inputPlaceholderColor",
+        transition: "left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s",
+      },
     },
     animated: {
       false: {
-        transition: 'none'
-      }
+        transition: "none",
+      },
     },
     focused: {
       true: {
-        color: '$$inputHoverBorderColor'
-      }
+        color: "$$inputHoverBorderColor",
+      },
     },
     underlined: {
-      true: {}
+      true: {},
     },
     withValue: {
-      true: {}
+      true: {},
     },
     isTextarea: {
-      true: {}
+      true: {},
     },
     bordered: {
-      true: {}
+      true: {},
     },
     hasContentLeft: {
-      true: {}
-    }
+      true: {},
+    },
   },
   compoundVariants: [
     // underlined && asPlaceholder
@@ -570,8 +567,8 @@ export const StyledInputBlockLabel = styled('label', {
       underlined: true,
       asPlaceholder: true,
       css: {
-        left: '$space$2'
-      }
+        left: "$space$2",
+      },
     },
     // asPlaceholder && focused && !underlined
     {
@@ -580,10 +577,10 @@ export const StyledInputBlockLabel = styled('label', {
       underlined: false,
       isTextarea: false,
       css: {
-        top: '-72%',
-        left: '$2',
-        cursor: 'inherit'
-      }
+        top: "-72%",
+        left: "$2",
+        cursor: "inherit",
+      },
     },
     // asPlaceholder && focused && underlined
     {
@@ -592,10 +589,10 @@ export const StyledInputBlockLabel = styled('label', {
       underlined: true,
       isTextarea: false,
       css: {
-        top: '-72%',
-        left: '0px',
-        cursor: 'inherit'
-      }
+        top: "-72%",
+        left: "0px",
+        cursor: "inherit",
+      },
     },
     // asPlaceholder && focused && withValue && !underlined
     {
@@ -604,11 +601,11 @@ export const StyledInputBlockLabel = styled('label', {
       underlined: false,
       isTextarea: false,
       css: {
-        color: '$$inputTextColor',
-        top: '-72%',
-        left: '$2',
-        cursor: 'inherit'
-      }
+        color: "$$inputTextColor",
+        top: "-72%",
+        left: "$2",
+        cursor: "inherit",
+      },
     },
     // asPlaceholder && focused && withValue && underlined
     {
@@ -617,27 +614,27 @@ export const StyledInputBlockLabel = styled('label', {
       underlined: true,
       isTextarea: false,
       css: {
-        color: '$$inputTextColor',
-        top: '-72%',
-        left: '0px',
-        cursor: 'inherit'
-      }
+        color: "$$inputTextColor",
+        top: "-72%",
+        left: "0px",
+        cursor: "inherit",
+      },
     },
     // asPlaceholder && isTextarea
     {
       asPlaceholder: true,
       isTextarea: true,
       css: {
-        top: '$5'
-      }
+        top: "$5",
+      },
     },
     // asPlaceholder && hasContentLeft
     {
       asPlaceholder: true,
       hasContentLeft: true,
       css: {
-        left: 'calc($space$6 + $$inputHeightRatio * $space$7)'
-      }
+        left: "calc($space$6 + $$inputHeightRatio * $space$7)",
+      },
     },
     // asPlaceholder && isTextarea && focused
     {
@@ -645,9 +642,9 @@ export const StyledInputBlockLabel = styled('label', {
       isTextarea: true,
       focused: true,
       css: {
-        top: 'calc(-$space$10 - $space$3)',
-        left: '$2'
-      }
+        top: "calc(-$space$10 - $space$3)",
+        left: "$2",
+      },
     },
     // asPlaceholder && isTextarea && withValue
     {
@@ -655,8 +652,8 @@ export const StyledInputBlockLabel = styled('label', {
       isTextarea: true,
       withValue: true,
       css: {
-        top: '-$11'
-      }
+        top: "-$11",
+      },
     },
     // focused && asPlaceholder && isTextarea && bordered
     {
@@ -665,60 +662,60 @@ export const StyledInputBlockLabel = styled('label', {
       isTextarea: true,
       bordered: true,
       css: {
-        top: '-$12'
-      }
-    }
+        top: "-$12",
+      },
+    },
   ],
   defaultVariants: {
-    asPlaceholder: false
-  }
+    asPlaceholder: false,
+  },
 });
 
-export const StyledInputLabel = styled('span', {
-  position: 'relative',
-  display: 'inline-flex',
-  width: 'initial',
-  height: '100%',
-  fontWeight: '$medium',
-  ai: 'center',
-  pe: 'none',
+export const StyledInputLabel = styled("span", {
+  position: "relative",
+  display: "inline-flex",
+  width: "initial",
+  height: "100%",
+  fontWeight: "$medium",
+  ai: "center",
+  pe: "none",
   margin: 0,
-  padding: '0 $sm',
-  color: '$$inputPlaceholderColor',
-  fontSize: '$$inputFontSize',
-  lineHeight: '$xs',
+  padding: "0 $sm",
+  color: "$$inputPlaceholderColor",
+  fontSize: "$$inputFontSize",
+  lineHeight: "$xs",
   variants: {
     isRight: {
       true: {
-        btrr: '$$inputBorderRadius',
-        bbrr: '$$inputBorderRadius'
+        btrr: "$$inputBorderRadius",
+        bbrr: "$$inputBorderRadius",
       },
       false: {
-        btlr: '$$inputBorderRadius',
-        bblr: '$$inputBorderRadius'
-      }
+        btlr: "$$inputBorderRadius",
+        bblr: "$$inputBorderRadius",
+      },
     },
     isDark: {
-      true: {}
+      true: {},
     },
     isDefaultStatus: {
-      true: {}
+      true: {},
     },
     underlined: {
       true: {
-        bg: 'transparent'
-      }
+        bg: "transparent",
+      },
     },
     bordered: {
       true: {
-        '&:after': {
-          display: 'none'
+        "&:after": {
+          display: "none",
         },
-        '&:before': {
-          display: 'none'
-        }
-      }
-    }
+        "&:before": {
+          display: "none",
+        },
+      },
+    },
   },
   compoundVariants: [
     // isRight && underlined
@@ -726,24 +723,24 @@ export const StyledInputLabel = styled('span', {
       isRight: true,
       underlined: true,
       css: {
-        borderLeftColor: '$$inputPlaceholderColor',
-        borderLeftStyle: 'solid',
-        marginLeft: '$2',
-        borderLeftWidth: 'calc($$inputBorderWeight / 2)',
-        height: '40%'
-      }
+        borderLeftColor: "$$inputPlaceholderColor",
+        borderLeftStyle: "solid",
+        marginLeft: "$2",
+        borderLeftWidth: "calc($$inputBorderWeight / 2)",
+        height: "40%",
+      },
     },
     // !isRight && underlined
     {
       isRight: false,
       underlined: true,
       css: {
-        borderRightColor: '$$inputPlaceholderColor',
-        borderRightStyle: 'solid',
-        marginRight: '$2',
-        borderRightWidth: 'calc($$inputBorderWeight / 1)',
-        height: '40%'
-      }
+        borderRightColor: "$$inputPlaceholderColor",
+        borderRightStyle: "solid",
+        marginRight: "$2",
+        borderRightWidth: "calc($$inputBorderWeight / 1)",
+        height: "40%",
+      },
     },
     // isDefaultStatus && !bordered && !underlined
     {
@@ -751,8 +748,8 @@ export const StyledInputLabel = styled('span', {
       bordered: false,
       underlined: false,
       css: {
-        bg: '$accents2'
-      }
+        bg: "$accents2",
+      },
     },
     // isDefaultStatus && !bordered && !underlined && isDark
     {
@@ -761,8 +758,8 @@ export const StyledInputLabel = styled('span', {
       underlined: false,
       isDark: true,
       css: {
-        color: '$accents6'
-      }
+        color: "$accents6",
+      },
     },
     // !isDefaultStatus && !bordered && !underlined
     {
@@ -770,129 +767,126 @@ export const StyledInputLabel = styled('span', {
       bordered: true,
       underlined: false,
       css: {
-        bg: '$$inputColor'
-      }
+        bg: "$$inputColor",
+      },
     },
     // bordered && isRight
     {
       bordered: true,
       isRight: true,
       css: {
-        peddingRight: '$sm',
-        paddingLeft: 0
-      }
+        peddingRight: "$sm",
+        paddingLeft: 0,
+      },
     },
     // bordered && !isRight
     {
       bordered: true,
       isRight: false,
       css: {
-        peddingLeft: '$sm',
-        paddingRight: 0
-      }
-    }
+        peddingLeft: "$sm",
+        paddingRight: 0,
+      },
+    },
   ],
   defaultVariants: {
-    isRight: false
-  }
+    isRight: false,
+  },
 });
 
-export const StyledInputContent = styled('span', {
+export const StyledInputContent = styled("span", {
   variants: {
     applyStyles: {
       true: {
-        display: 'flex',
-        boxSizing: 'content-box',
-        width: 'calc($$inputHeightRatio * $space$4)',
-        height: '100%',
-        alignItems: 'center',
-        verticalAlign: 'center',
+        display: "flex",
+        boxSizing: "content-box",
+        width: "calc($$inputHeightRatio * $space$4)",
+        height: "100%",
+        alignItems: "center",
+        verticalAlign: "center",
         margin: 0,
-        padding: '0 calc($$inputHeightRatio * $3)',
-        color: '$$inputTextColor',
-        lineHeight: '$xs',
-        position: 'relative',
-        cursor: 'default',
-        pe: 'none'
-      }
+        padding: "0 calc($$inputHeightRatio * $3)",
+        color: "$$inputTextColor",
+        lineHeight: "$xs",
+        position: "relative",
+        cursor: "default",
+        pe: "none",
+      },
     },
     clickable: {
       true: {
-        cursor: 'pointer',
-        pe: 'auto'
-      }
-    }
-  }
+        cursor: "pointer",
+        pe: "auto",
+      },
+    },
+  },
 });
 
-export const StyledInputClearButton = styled('button', {
-  position: 'absolute',
+export const StyledInputClearButton = styled("button", {
+  position: "absolute",
   right: 0,
   margin: 0,
-  d: 'inline-flex',
-  ai: 'center',
-  border: 'none',
-  bg: 'transparent',
-  width: 'auto',
-  height: 'auto',
-  cursor: 'pointer',
-  boxSizing: 'border-box',
-  transition:
-    'color 250ms ease 0s, transform 250ms ease 0s, opacity 250ms ease 0s',
-  color: '$$inputPlaceholderColor',
-  visibility: 'hidden',
-  transform: 'translateX(20%)',
+  d: "inline-flex",
+  ai: "center",
+  border: "none",
+  bg: "transparent",
+  width: "auto",
+  height: "auto",
+  cursor: "pointer",
+  boxSizing: "border-box",
+  transition: "color 250ms ease 0s, transform 250ms ease 0s, opacity 250ms ease 0s",
+  color: "$$inputPlaceholderColor",
+  visibility: "hidden",
+  transform: "translateX(20%)",
   opacity: 0,
-  '&:hover': {
-    opacity: 0.85
+  "&:hover": {
+    opacity: 0.85,
   },
   svg: {
-    color: 'currentColor',
-    size: 'calc($space$5 * $$inputHeightRatio)'
+    color: "currentColor",
+    size: "calc($space$5 * $$inputHeightRatio)",
   },
-  '@motion': {
-    transition: 'none'
+  "@motion": {
+    transition: "none",
   },
   variants: {
     visible: {
       true: {
-        visibility: 'visible',
-        transform: 'translateX(0)',
-        opacity: 1
-      }
+        visibility: "visible",
+        transform: "translateX(0)",
+        opacity: 1,
+      },
     },
     underlined: {
       true: {
-        padding: '0 $1'
-      }
+        padding: "0 $1",
+      },
     },
     animated: {
       false: {
-        transition: 'none'
-      }
+        transition: "none",
+      },
     },
     hasContentRight: {
       true: {
         padding: 0,
-        position: 'relative',
-        transform: 'translateX(30%)'
-      }
+        position: "relative",
+        transform: "translateX(30%)",
+      },
     },
     disabled: {
       true: {
-        cursor: 'not-allowed',
-        '&:hover': {
-          color: '$accents3'
-        }
-      }
-    }
-  }
+        cursor: "not-allowed",
+        "&:hover": {
+          color: "$accents3",
+        },
+      },
+    },
+  },
 });
 
 // types
 export type InputVariantsProps = VariantProps<typeof StyledInput>;
-export type InputBlockLabelVariantsProps = VariantProps<
-  typeof StyledInputBlockLabel
->;
+export type InputBlockLabelVariantsProps = VariantProps<typeof StyledInputBlockLabel>;
 export type InputLabelVariantsProps = VariantProps<typeof StyledInputLabel>;
 export type InputContentVariantsProps = VariantProps<typeof StyledInputContent>;

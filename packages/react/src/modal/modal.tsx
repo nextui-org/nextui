@@ -1,17 +1,19 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { createPortal } from 'react-dom';
-import usePortal from '../use-portal';
-import ModalWrapper from './modal-wrapper';
-import ModalBody from './modal-body';
-import ModalHeader from './modal-header';
-import ModalFooter from './modal-footer';
-import Backdrop from '../backdrop';
-import { ModalConfig, ModalContext } from './modal-context';
-import useBodyScroll from '../use-body-scroll';
-import useCurrentState from '../use-current-state';
-import useKeyboard, { KeyCode } from '../use-keyboard';
-import { ModalWrapperProps } from './modal-wrapper';
-import { __DEV__ } from '../utils/assertion';
+import React, {useEffect, useMemo, useState} from "react";
+import {createPortal} from "react-dom";
+
+import usePortal from "../use-portal";
+import Backdrop from "../backdrop";
+import useBodyScroll from "../use-body-scroll";
+import useCurrentState from "../use-current-state";
+import useKeyboard, {KeyCode} from "../use-keyboard";
+import {__DEV__} from "../utils/assertion";
+
+import ModalWrapper from "./modal-wrapper";
+import ModalBody from "./modal-body";
+import ModalHeader from "./modal-header";
+import ModalFooter from "./modal-footer";
+import {ModalConfig, ModalContext} from "./modal-context";
+import {ModalWrapperProps} from "./modal-wrapper";
 
 interface Props {
   open?: boolean;
@@ -30,23 +32,20 @@ interface Props {
 }
 
 const defaultProps = {
-  width: '400px',
-  className: '',
+  width: "400px",
+  className: "",
   preventClose: false,
   fullScreen: false,
   closeButton: false,
   animated: true,
   blur: false,
   scroll: false,
-  noPadding: false
+  noPadding: false,
 };
 
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
 
-export type ModalProps = Props &
-  NativeAttrs &
-  Partial<typeof defaultProps> &
-  ModalWrapperProps;
+export type ModalProps = Props & NativeAttrs & Partial<typeof defaultProps> & ModalWrapperProps;
 
 const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   children,
@@ -63,8 +62,8 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   noPadding,
   ...props
 }) => {
-  const portal = usePortal('modal');
-  const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
+  const portal = usePortal("modal");
+  const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
   const [visible, setVisible, visibleRef] = useCurrentState<boolean>(false);
   const [rebound, setRebound] = useState(false);
 
@@ -94,10 +93,11 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
     }, 300);
   };
 
-  const { bindings } = useKeyboard(
+  const {bindings} = useKeyboard(
     () => {
       if (preventClose) {
         toggleRebound();
+
         return;
       }
       closeModal();
@@ -105,13 +105,14 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
     KeyCode.Escape,
     {
       disableGlobalEvent: true,
-      preventDefault: true
-    }
+      preventDefault: true,
+    },
   );
 
   const closeFromBackdrop = () => {
     if (preventClose) {
       toggleRebound();
+
       return;
     }
     closeModal();
@@ -121,37 +122,38 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
     () => ({
       close: closeModal,
       autoMargin,
-      noPadding
+      noPadding,
     }),
-    []
+    [],
   );
 
   if (!portal) return null;
+
   return createPortal(
     <ModalContext.Provider value={modalConfig}>
       <Backdrop
-        onClick={closeFromBackdrop}
-        visible={visible}
-        maxWidth={wrapperWidth}
-        fullScreen={fullScreen}
-        blur={blur}
         animated={animated}
+        blur={blur}
+        fullScreen={fullScreen}
+        maxWidth={wrapperWidth}
+        visible={visible}
+        onClick={closeFromBackdrop}
         {...bindings}
       >
         <ModalWrapper
-          visible={visible}
-          onCloseButtonClick={closeModal}
+          animated={animated}
           className={className}
           fullScreen={fullScreen}
           rebound={rebound}
-          animated={animated}
+          visible={visible}
+          onCloseButtonClick={closeModal}
           {...props}
         >
           {children}
         </ModalWrapper>
       </Backdrop>
     </ModalContext.Provider>,
-    portal
+    portal,
   );
 };
 
@@ -162,10 +164,10 @@ type ModalComponent<P = {}> = React.FC<P> & {
 };
 
 if (__DEV__) {
-  Modal.displayName = 'NextUI.Modal';
+  Modal.displayName = "NextUI.Modal";
 }
 
-Modal.toString = () => '.nextui-modal';
+Modal.toString = () => ".nextui-modal";
 
 Modal.defaultProps = defaultProps;
 

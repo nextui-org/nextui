@@ -1,219 +1,138 @@
-import React, { useEffect, useMemo, useState, ReactNode } from 'react';
-import { useRadioContext } from './radio-context';
-import RadioGroup from './radio-group';
-import { pickChild } from '../utils/collections';
-import useWarning from '../use-warning';
-import useKeyboard, { KeyCode } from '../use-keyboard';
-import { SimpleColors, NormalSizes } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import withDefaults from '../utils/with-defaults';
-import { ReactRef } from '../utils/refs';
-import { useDOMRef } from '../utils/dom';
-import { __DEV__ } from '../utils/assertion';
-import clsx from '../utils/clsx';
+import type {FocusRingAria} from "@react-aria/focus";
+import type {FocusableRef} from "@react-types/shared";
+import type {ReactRef} from "../utils/refs";
+import type {CSS} from "../theme/stitches.config";
+import type {UseRadioProps} from "./use-radio";
+
+import React, {useMemo, ReactNode} from "react";
+import {mergeProps} from "@react-aria/utils";
+import {useFocusRing} from "@react-aria/focus";
+import {VisuallyHidden} from "@react-aria/visually-hidden";
+
+import clsx from "../utils/clsx";
+import {__DEV__} from "../utils/assertion";
+import {useFocusableRef} from "../utils/dom";
+
+import RadioGroup from "./radio-group";
+import {useRadio} from "./use-radio";
 import {
-  StyledRadio,
-  StyledRadioLabel,
-  StyledRadioInput,
+  StyledRadioText,
   StyledRadioPoint,
+  StyledRadioLabel,
   StyledRadioDescription,
-  RadioVariantsProps
-} from './radio.styles';
+  StyledRadioContainer,
+} from "./radio.styles";
 
-interface RadioEventTarget {
-  checked: boolean;
-}
-
-export interface RadioEvent {
-  target: RadioEventTarget;
-  stopPropagation: () => void;
-  preventDefault: () => void;
-  nativeEvent: React.ChangeEvent;
-}
-
-interface Props {
+interface Props extends UseRadioProps {
+  label?: string;
   children?: ReactNode;
-  checked?: boolean;
-  value?: string | number;
-  size?: NormalSizes;
-  color?: SimpleColors;
-  textColor?: SimpleColors;
-  disabled?: boolean;
-  preventDefault?: boolean;
-  onChange?: (e: RadioEvent) => void;
+  description?: string | ReactNode;
+  className?: string;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  size: 'md' as NormalSizes,
-  color: 'default' as SimpleColors,
-  textColor: 'default' as SimpleColors,
-  disabled: false,
-  preventDefault: true
-};
+export type RadioProps = Props & {css?: CSS};
 
-type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof RadioProps>;
+}
 
-export type RadioProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  RadioVariantsProps & { css?: CSS };
+export const Radio = React.forwardRef((props: RadioProps, ref: ReactRef<HTMLInputElement>) => {
+  const {className, as, css, children, label, description, ...otherProps} = props;
 
-const preClass = 'nextui-radio';
+  const {
+    size,
+    color,
+    inputRef,
+    labelColor,
+    isHovered,
+    isSquared,
+    isInvalid,
+    isDisabled,
+    autoFocus,
+    disableAnimation,
+    hoverProps,
+    inputProps,
+    isRequired,
+  } = useRadio({...otherProps, children: children ?? label});
 
-export const Radio = React.forwardRef(
-  (props: RadioProps, ref: ReactRef<HTMLInputElement>) => {
-    const {
-      checked,
-      onChange,
-      disabled,
-      color,
-      size,
-      textColor,
-      value: radioValue,
-      preventDefault,
-      children,
-      ...otherProps
-    } = props;
+  const domRef = useFocusableRef<HTMLLabelElement>(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
-    const [selfChecked, setSelfChecked] = useState<boolean>(!!checked);
+  const {focusProps, isFocusVisible}: IFocusRingAria = useFocusRing({
+    autoFocus,
+  });
 
-    const domRef = useDOMRef(ref);
+  const radioState = useMemo(() => {
+    if (isHovered) return "is-hovered";
+    if (isDisabled) return "is-disabled";
 
-    const {
-      value: groupValue,
-      disabledAll,
-      inGroup,
-      color: groupColor,
-      size: groupSize,
-      textColor: textGroupColor,
-      updateState
-    } = useRadioContext();
+    return inputProps.checked ? "checked" : "uncheked";
+  }, [isDisabled, inputProps.checked, isHovered]);
 
-    const [withoutDescChildren, DescChildren] = pickChild(
-      children,
-      StyledRadioDescription
-    );
-
-    if (inGroup && __DEV__) {
-      if (checked !== undefined) {
-        useWarning('Remove props "checked" if in the Radio.Group.', 'Radio');
-      }
-      if (radioValue === undefined) {
-        useWarning(
-          'Props "value" must be deinfed if in the Radio.Group.',
-          'Radio'
-        );
-      }
-    }
-
-    useEffect(() => {
-      setSelfChecked(groupValue === radioValue);
-    }, [groupValue, radioValue]);
-
-    const isDisabled = useMemo(
-      () => disabled || disabledAll,
-      [disabled, disabledAll]
-    );
-
-    const radioColor = (
-      color !== 'default' ? color : groupColor
-    ) as SimpleColors;
-    const radioSize = (size !== 'md' ? size : groupSize) as NormalSizes;
-    const labelColor = (
-      textColor !== 'default' ? textColor : textGroupColor
-    ) as SimpleColors;
-
-    const changeHandler = (event: React.ChangeEvent) => {
-      if (isDisabled || (inGroup && selfChecked)) return;
-      const selfEvent: RadioEvent = {
-        target: {
-          checked: !selfChecked
-        },
-        stopPropagation: event.stopPropagation,
-        preventDefault: event.preventDefault,
-        nativeEvent: event
-      };
-      setSelfChecked(!selfChecked);
-      if (inGroup) {
-        updateState && updateState(radioValue as string | number);
-      }
-      onChange && onChange(selfEvent);
-    };
-
-    const { bindings } = useKeyboard(
-      (event: any) => {
-        changeHandler(event);
-      },
-      [KeyCode.Enter, KeyCode.Space],
-      {
-        disableGlobalEvent: true,
-        preventDefault
-      }
-    );
-    useEffect(() => {
-      if (checked === undefined) return;
-      setSelfChecked(Boolean(checked));
-    }, [checked]);
-
-    return (
-      <StyledRadio
-        aria-checked={selfChecked}
-        disabled={isDisabled}
-        active={selfChecked}
-        size={radioSize}
-        color={radioColor}
-        {...otherProps}
-        {...bindings}
-      >
-        <StyledRadioInput
-          type="radio"
-          tabIndex={-1}
-          ref={domRef}
-          value={radioValue}
-          checked={selfChecked}
-          onChange={changeHandler}
-          className={`${preClass}-input`}
-        />
-        <StyledRadioLabel
-          color={labelColor}
-          disabled={isDisabled}
-          className={`${preClass}-name`}
+  return (
+    <StyledRadioLabel
+      ref={domRef}
+      {...hoverProps}
+      as={as}
+      className={clsx("nextui-radio-label", `nextui-radio--${radioState}`, className)}
+      color={color}
+      css={css}
+      data-state={radioState}
+      disableAnimation={disableAnimation}
+      isChecked={inputProps.checked}
+      isDisabled={isDisabled}
+      isHovered={isHovered}
+      isInvalid={isInvalid}
+      isSquared={isSquared}
+      size={size}
+    >
+      <StyledRadioContainer className="nextui-radio-container">
+        <StyledRadioPoint
+          className="nextui-radio-point"
+          isFocusVisible={isFocusVisible}
+          {...focusProps}
         >
-          <StyledRadioPoint
-            tabIndex={isDisabled ? -1 : 0}
-            className={clsx(`${preClass}-point`, {
-              [`${preClass}-active`]: selfChecked,
-              [`${preClass}-disabled`]: isDisabled
-            })}
-          />
-          {withoutDescChildren}
-        </StyledRadioLabel>
-        {DescChildren && DescChildren}
-      </StyledRadio>
-    );
-  }
-);
+          <VisuallyHidden>
+            <input
+              ref={inputRef}
+              className="nextui-radio-input"
+              required={isRequired}
+              {...mergeProps(inputProps, focusProps)}
+            />
+          </VisuallyHidden>
+        </StyledRadioPoint>
+        <StyledRadioText
+          className="nextui-radio-label"
+          color={labelColor}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+        >
+          {children}
+        </StyledRadioText>
+      </StyledRadioContainer>
+      {description && (
+        <StyledRadioDescription
+          className="nextui-radio-description"
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+        >
+          {description}
+        </StyledRadioDescription>
+      )}
+    </StyledRadioLabel>
+  );
+});
 
-type RadioComponent<P = {}> = React.FC<P> & {
+type RadioComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<P> & React.RefAttributes<T>
+> & {
   Group: typeof RadioGroup;
-  Desc: typeof StyledRadioDescription;
-  Description: typeof StyledRadioDescription;
 };
-
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs &
-  RadioVariantsProps & { css?: CSS };
-
-Radio.defaultProps = defaultProps;
 
 if (__DEV__) {
-  Radio.displayName = 'NextUI.Radio';
+  Radio.displayName = "NextUI.Radio";
 }
 
-Radio.toString = () => '.nextui-radio';
+Radio.toString = () => ".nextui-radio";
 
-export default withDefaults(
-  Radio,
-  defaultProps
-) as RadioComponent<ComponentProps>;
+export default Radio as RadioComponent<HTMLLabelElement, RadioProps>;

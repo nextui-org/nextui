@@ -1,19 +1,21 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Button from './index';
-import { Spacer, Grid, Loading } from '../index';
-import { Lock, Notification, User, Camera, Activity } from '../utils/icons';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Spacer, Grid, Loading} from "../index";
+import {Lock, Notification, User, Camera, Activity} from "../utils/icons";
+
+import Button from "./index";
 
 export default {
-  title: 'General/Button',
+  title: "General/Button",
   component: Button,
   decorators: [
     (Story) => (
       <div style={{}}>
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 export const Default = () => <Button>Action</Button>;
@@ -47,28 +49,28 @@ export const Sizes = () => (
 export const Loadings = () => (
   <Grid.Container gap={2}>
     <Grid>
-      <Button auto disabled color="primary" css={{ px: '$13' }}>
+      <Button auto disabled color="primary" css={{px: "$13"}}>
         <Loading color="currentColor" size="sm" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="secondary" css={{ px: '$13' }}>
-        <Loading type="spinner" color="currentColor" size="sm" />
+      <Button auto disabled color="secondary" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="spinner" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="success" css={{ px: '$13' }}>
-        <Loading type="points" color="currentColor" size="sm" />
+      <Button auto disabled color="success" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="points" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="warning" css={{ px: '$13' }}>
-        <Loading type="points-opacity" color="currentColor" size="sm" />
+      <Button auto disabled color="warning" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="points-opacity" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="error" css={{ px: '$13' }}>
-        <Loading type="spinner" color="currentColor" size="sm" />
+      <Button auto disabled color="error" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="spinner" />
       </Button>
     </Grid>
   </Grid.Container>
@@ -93,23 +95,23 @@ export const Colors = () => (
 
 export const Ghost = () => (
   <>
-    <Button color="primary" ghost>
+    <Button ghost color="primary">
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" ghost>
+    <Button ghost color="secondary">
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" ghost>
+    <Button ghost color="success">
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" ghost>
+    <Button ghost color="warning">
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" ghost>
+    <Button ghost color="error">
       Error
     </Button>
     <Spacer y={0.5} />
@@ -152,27 +154,27 @@ export const Shadow = () => (
 
 export const Bordered = () => (
   <>
-    <Button color="primary" bordered>
+    <Button bordered color="primary">
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" bordered>
+    <Button bordered color="secondary">
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" bordered>
+    <Button bordered color="success">
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" bordered>
+    <Button bordered color="warning">
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" bordered>
+    <Button bordered color="error">
       Error
     </Button>
     <Spacer y={0.5} />
-    <Button color="gradient" bordered>
+    <Button bordered color="gradient">
       Gradient
     </Button>
   </>
@@ -180,23 +182,23 @@ export const Bordered = () => (
 
 export const Flat = () => (
   <>
-    <Button color="primary" flat>
+    <Button flat color="primary">
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" flat>
+    <Button flat color="secondary">
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" flat>
+    <Button flat color="success">
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" flat>
+    <Button flat color="warning">
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" flat>
+    <Button flat color="error">
       Error
     </Button>
   </>
@@ -204,27 +206,27 @@ export const Flat = () => (
 
 export const Rounded = () => (
   <>
-    <Button color="primary" rounded>
+    <Button rounded color="primary">
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" rounded>
+    <Button rounded color="secondary">
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" rounded>
+    <Button rounded color="success">
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" rounded>
+    <Button rounded color="warning">
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" rounded>
+    <Button rounded color="error">
       Error
     </Button>
     <Spacer y={0.5} />
-    <Button color="gradient" rounded>
+    <Button rounded color="gradient">
       Action
     </Button>
   </>
@@ -234,23 +236,23 @@ export const Light = () => (
   <>
     <Button light>Default</Button>
     <Spacer y={0.5} />
-    <Button color="primary" light>
+    <Button light color="primary">
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" light>
+    <Button light color="secondary">
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" light>
+    <Button light color="success">
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" light>
+    <Button light color="warning">
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" light>
+    <Button light color="error">
       Error
     </Button>
   </>
@@ -265,23 +267,23 @@ export const Icons = () => {
         Right Icon
       </Button>
       <Spacer y={0.5} />
-      <Button auto icon={<Camera fill="currentColor" />}>
+      <Button auto bordered color="gradient" icon={<Camera fill="currentColor" />}>
         Left Icon
       </Button>
       <Spacer y={0.5} />
-      <Button icon={<Lock fill="currentColor" />} color="success">
+      <Button color="success" icon={<Lock fill="currentColor" />}>
         Lock
       </Button>
       <Spacer y={0.5} />
-      <Button icon={<Notification fill="currentColor" />} color="secondary">
+      <Button color="secondary" icon={<Notification fill="currentColor" />}>
         Notifications
       </Button>
       <Spacer y={0.5} />
-      <Button icon={<User fill="currentColor" />} color="error" flat>
+      <Button flat color="error" icon={<User fill="currentColor" />}>
         Delete User
       </Button>
       <Spacer y={0.5} />
-      <Button icon={<User fill="currentColor" />} disabled>
+      <Button disabled icon={<User fill="currentColor" />}>
         Delete User
       </Button>
     </>

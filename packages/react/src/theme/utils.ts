@@ -1,24 +1,34 @@
-import commonTheme from './common';
-import defaultTheme from './light-theme';
-import { ThemeType, TokenValue, TokenKeyName } from './types';
-import clsx from '../utils/clsx';
+import clsx from "../utils/clsx";
+import {rgbToRgba, hexToRGBA} from "../utils/color";
 
-export const getTokenValue = (token: TokenKeyName, tokenName: string) => {
-  if (!document || !token) return '';
+import commonTheme from "./common";
+import defaultTheme from "./light-theme";
+import {ThemeType, TokenValue, TokenKeyName} from "./types";
+
+export const getTokenValue = (token: TokenKeyName, tokenName: string, alpha = 1) => {
+  if (typeof document === "undefined" || !token) return "";
   let docStyle = getComputedStyle(document.documentElement);
   const tokenKey = `--${commonTheme.prefix}-${token}-${tokenName}`;
   const tokenValue = docStyle.getPropertyValue(tokenKey);
-  if (tokenValue && tokenValue.includes('var')) {
+
+  if (tokenValue && tokenValue.includes("var")) {
     getTokenValue(token, tokenValue);
   }
+
+  if (tokenValue && alpha !== 1) {
+    if (tokenValue.includes("rgb")) {
+      return rgbToRgba(tokenValue, alpha);
+    }
+    if (tokenValue.includes("#")) {
+      return hexToRGBA(tokenValue, alpha);
+    }
+  }
+
   return tokenValue;
 };
 
 export const getDocumentCSSTokens = () => {
-  const colorKeys = [
-    ...Object.keys(commonTheme.theme.colors),
-    ...Object.keys(defaultTheme.colors)
-  ];
+  const colorKeys = [...Object.keys(commonTheme.theme.colors), ...Object.keys(defaultTheme.colors)];
 
   const shadowKeys = Object.keys(defaultTheme.shadows);
 
@@ -30,41 +40,39 @@ export const getDocumentCSSTokens = () => {
    *    value: "var(--nextui-colors-gray100)"
    * }
    */
-  const colorTokens = colorKeys.reduce(
-    (acc: { [key in string]?: TokenValue }, crr: string) => {
-      const color = getTokenValue('colors', crr);
-      if (color) {
-        acc[crr] = {
-          prefix: commonTheme.prefix,
-          scale: 'colors',
-          token: crr,
-          value: color
-        };
-      }
-      return acc;
-    },
-    {}
-  );
+  const colorTokens = colorKeys.reduce((acc: {[key in string]?: TokenValue}, crr: string) => {
+    const color = getTokenValue("colors", crr);
 
-  const shadowTokens = shadowKeys.reduce(
-    (acc: { [key in string]?: TokenValue }, crr: string) => {
-      const shadow = getTokenValue('shadows', crr);
-      if (shadow) {
-        acc[crr] = {
-          prefix: commonTheme.prefix,
-          scale: 'shadows',
-          token: crr,
-          value: shadow
-        };
-      }
-      return acc;
-    },
-    {}
-  );
+    if (color) {
+      acc[crr] = {
+        prefix: commonTheme.prefix,
+        scale: "colors",
+        token: crr,
+        value: color,
+      };
+    }
+
+    return acc;
+  }, {});
+
+  const shadowTokens = shadowKeys.reduce((acc: {[key in string]?: TokenValue}, crr: string) => {
+    const shadow = getTokenValue("shadows", crr);
+
+    if (shadow) {
+      acc[crr] = {
+        prefix: commonTheme.prefix,
+        scale: "shadows",
+        token: crr,
+        value: shadow,
+      };
+    }
+
+    return acc;
+  }, {});
 
   return {
     colors: colorTokens,
-    shadows: shadowTokens
+    shadows: shadowTokens,
   };
 };
 
@@ -74,25 +82,26 @@ export const getDocumentCSSTokens = () => {
 export const getDocumentTheme = (el: HTMLElement) => {
   const styleAttrValues =
     el
-      ?.getAttribute('style')
-      ?.split(';')
+      ?.getAttribute("style")
+      ?.split(";")
       .map((el) => el.trim())
-      .filter((el) => el.includes('color-scheme')) || [];
+      .filter((el) => el.includes("color-scheme")) || [];
 
   const colorScheme =
     styleAttrValues.length > 0
-      ? styleAttrValues[0].replace('color-scheme: ', '').replace(';', '')
-      : '';
+      ? styleAttrValues[0].replace("color-scheme: ", "").replace(";", "")
+      : "";
 
-  const documentTheme = el?.getAttribute('data-theme');
+  const documentTheme = el?.getAttribute("data-theme");
 
   return documentTheme || colorScheme;
 };
 
 export const getThemeName = (theme: ThemeType | string) => {
-  if (typeof theme === 'string') {
-    return theme?.includes('-theme') ? theme?.replace('-theme', '') : theme;
+  if (typeof theme === "string") {
+    return theme?.includes("-theme") ? theme?.replace("-theme", "") : theme;
   }
+
   return theme;
 };
 
@@ -102,21 +111,19 @@ export const changeTheme = (theme: ThemeType | string) => {
 
   const prevClasses =
     el
-      ?.getAttribute('class')
-      ?.split(' ')
-      .filter(
-        (cls) =>
-          !cls.includes('theme') &&
-          !cls.includes('light') &&
-          !cls.includes('dark')
-      ) || [];
+      ?.getAttribute("class")
+      ?.split(" ")
+      .filter((cls) => !cls.includes("theme") && !cls.includes("light") && !cls.includes("dark")) ||
+    [];
   const prevStyles =
     el
-      ?.getAttribute('style')
-      ?.split(';')
-      .filter((stl) => !stl.includes('color-scheme') && stl.length)
+      ?.getAttribute("style")
+      ?.split(";")
+      .filter((stl) => !stl.includes("color-scheme") && stl.length)
       .map((el) => `${el};`) || [];
 
-  el?.setAttribute('class', clsx(prevClasses, `${getThemeName(theme)}-theme`));
-  el?.setAttribute('style', clsx(prevStyles, `color-scheme: ${theme};`));
+  const themeName = getThemeName(theme);
+
+  el?.setAttribute("class", clsx(prevClasses, `${themeName}-theme`));
+  el?.setAttribute("style", clsx(prevStyles, `color-scheme: ${themeName};`));
 };

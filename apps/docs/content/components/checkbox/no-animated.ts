@@ -2,16 +2,16 @@ const App = `import { Checkbox } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Checkbox disableAnimation={true} defaultSelected={true} lineThrough={true}>
+    <Checkbox disableAnimation defaultSelected lineThrough>
       Option
     </Checkbox>
   );
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

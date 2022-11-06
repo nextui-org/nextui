@@ -1,0 +1,389 @@
+---
+title: "Dropdown"
+description: "Displays a list of actions or options that a user can choose."
+url: https://nextui.org/docs/components/dropdown
+---
+
+# Dropdown
+
+Displays a list of actions or options that a user can choose. Dropdown implementation is based on <br/> <a href="https://react-spectrum.adobe.com/react-aria/useMenu.html" rel="noreferrer" target="_blank">@react-aria/menu</a>
+
+```jsx
+import { Dropdown } from "@nextui-org/react";
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+#### Anatomy
+
+- **Dropdown**: The wrapper that provides state, context and focus management.
+- **Dropdown.Trigger**: Used to wrap the reference (or trigger) element.
+- **Dropdown.Button**: A NextUI `Button` component used as the trigger (includes a chevron icon).
+- **Dropdown.Menu**: The wrapper for the items. Must be a direct child of `Dropdown`.
+- **Dropdown.Item**: The individual items. Must be a direct child of `Dropdown.Menu`.
+- **Dropdown.Section**: A wrapper to group related menu items.
+
+<Spacer y={2} />
+
+<Playground
+  title="Static"
+  desc="Static collections, as in this example, can be used when the full list of items is known ahead of time."
+  files={dropdownContent.staticDropdown}
+/>
+
+> The Dropdown can be closed by clicking or interacting outside the popover, or by pressing the <kbd>Escape</kbd> key. When the popover is closed, focus is restored back to its trigger button.
+
+<Playground
+  title="Dynamic"
+  desc="Dynamic collections, as shown below, can be used when the items come from an external data source such as an API call, or update over time. Providing the data in this way allows for Menu to automatically cache the rendering of each item, which dramatically improves performance."
+  files={dropdownContent.dynamicDropdown}
+/>
+
+<Playground
+  title="Divider"
+  highlightedLines="11"
+  desc="Dropdown items include a prop called `withDivider` that can be used to separate items in the menu."
+  files={dropdownContent.withDivider}
+/>
+
+<Playground
+  title="Disabled Keys"
+  highlightedLines="8"
+  desc="You can disable specific rows by providing an array of keys to `Dropdown.Menu` through the `disabledKeys` prop. This will prevent items from being selectable as shown in the example below."
+  files={dropdownContent.disabledKeys}
+/>
+
+> **Note:** Its important to have a unique key for each item, otherwise the disabled keys will not work.
+
+<Playground
+  title="Variants"
+  desc="Dropdown can be styled with different variants. The default variant is `flat`, but you can also use `light`, `solid` and `shadow`."
+  files={dropdownContent.variants}
+/>
+
+<Playground
+  title="Single selection"
+  desc="You can set the `selectionMode` property as `single` to limit users to select only a single item at a time."
+  highlightedLines="21"
+  files={dropdownContent.singleSelection}
+/>
+
+<Playground
+  title="Multiple selection"
+  desc="You can set the `selectionMode` property as `multiple` to allow users to select multiple items at a time."
+  highlightedLines="21"
+  files={dropdownContent.multipleSelection}
+/>
+
+<Playground
+  title="Command"
+  desc="Dropdown items support adding commands (or hotkeys), you can use the `command` prop."
+  highlightedLines="21"
+  files={dropdownContent.command}
+/>
+
+<Playground
+  title="Icons"
+  desc="Dropdown items can include icons, you can use the `icon` prop."
+  files={dropdownContent.icon}
+/>
+
+> **Note:** If you use **currentColor** as the icon color, the icon will have the same color as the item text.
+
+<Playground
+  title="Description"
+  desc="Dropdown items can include descriptions, you can use the `description` prop."
+  files={dropdownContent.description}
+/>
+
+<Playground
+  title="Sections"
+  desc="Dropdown supports sections in order to group options. Sections can be used by wrapping groups of Items in a Section component. Each Section takes a `title` and key prop."
+  files={dropdownContent.sections}
+/>
+
+> **A11y:** Sections without a title must provide an aria-label for accessibility.
+
+<Playground
+  title="Custom Trigger"
+  desc="Dropdown trigger can be mixed with other components like `Avatar` or `User`."
+  files={dropdownContent.customTrigger}
+/>
+
+<Playground
+  title="Disable animation"
+  highlightedLines="9"
+  desc="Disables the animation of the dropdown and its items when it is opened or closed."
+  files={dropdownContent.disableAnimation}
+/>
+
+<Spacer y={3} />
+
+### Keyboard Interactions
+
+| Key                              | Description                                                                                                                                                             |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Space</kbd>                 | When focus is on `DropdownMenu.Trigger` or `Dropdown.Button`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
+| <kbd>Enter</kbd>                 | When focus is on `DropdownMenu.Trigger` or `Dropdown.Button`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
+| <kbd>ArrowDown</kbd>             | When focus is on `DropdownMenu.Trigger` or `Dropdown.Button`, opens the dropdown menu. When focus is on an item, moves focus to the next item.                          |
+| <kbd>ArrowUp</kbd>               | When focus is on an item, moves focus to the previous item.                                                                                                             |
+| <kbd>Esc</kbd>                   | Closes the dropdown menu and moves focus to `DropdownMenu.Trigger` or `Dropdown.Button`.                                                                                |
+| <kbd>A-Z</kbd> or <kbd>a-z</kbd> | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists.                                 |
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Dropdown Props
+
+| Attribute                                | Type                                                   | Description                                                                                              | Default |
+| ---------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------- |
+| **children\***                           | `ReactNode[]`                                          | The content of the dropdown. It's usually the `Dropdown.Trigger`, `Dropdown.Button` and `Dropdown.Menu`. | -       |
+| **type**                                 | [TriggerType](#trigger-type)                           | The type of dropdown menu that the dropdown trigger opens.                                               | `menu`  |
+| **trigger**                              | [MenuTriggerType](#menu-trigger-type)                  | How the dropdown menu is triggered.                                                                      | `press` |
+| **closeOnSelect**                        | `boolean`                                              | Whether the dropdown menu closes when a selection is made.                                               | `true`  |
+| **isDisabled**                           | `boolean`                                              | Whether dropdown trigger is disabled.                                                                    | `false` |
+| **disableTriggerPressedAnimation** `new` | `boolean`                                              | Whether the trigger should show a pressed animation when the menu is open.                               | `false` |
+| **PopoverProps**                         | [PopoverProps](/docs/components/popover#popover-props) | Since dropdown is based on the `Popover` you can use any of the `Popover` props.                         | -       |
+
+<Spacer y={1} />
+
+#### Dropdown Events
+
+| Attribute         | Type                                                     | Description                                                                       | Default |
+| ----------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------- | ------- |
+| **PopoverEvents** | [PopoverEvents](/docs/components/popover#popover-events) | Since dropdown is based on the `Popover` you can use any of the `Popover` events. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Dropdown.Trigger Props
+
+| Attribute      | Type        | Description                                                                                                                                                                | Default |
+| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **children\*** | `ReactNode` | The dropdown trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Dropdown.Button Props
+
+| Attribute       | Type                                                | Description                                                                           | Default |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- | ------- |
+| **ButtonProps** | [ButtonProps](/docs/components/button#button-props) | Since dropdown button is based on the `Button` you can use any of the `Button` props. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Dropdown.Menu Props
+
+| Attribute                  | Type                                                                                                         | Description                                                                                             | Default   |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
+| **children\***             | [CollectionChildrentype](#collection-children-type)                                                          | The contents of the collection. It's usually the `Dropdown.Item` or `Dropdown.Section`.                 | -         |
+| **items**                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | Item objects in the collection.                                                                         | -         |
+| **selectedKeys**           | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The currently selected keys in the collection (controlled).                                             | -         |
+| **defaultSelectedKeys**    | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The initial selected keys in the collection (uncontrolled).                                             | -         |
+| **disabledKeys**           | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
+| **selectionMode**          | [SelectionModeType](#selection-mode-type)                                                                    | The type of selection that is allowed in the collection.                                                | -         |
+| **keyboardDelegate**       | [KeyboardDelegateType](#keyboard-delegate-type)                                                              | An optional keyboard delegate implementation for type to select, to override the default.               | -         |
+| **color**                  | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items color                                                                           | `default` |
+| **textColor**              | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items text color                                                                      | `default` |
+| **variant**                | [DropdownVariant](#dropdown-variants)                                                                        | The dropdown menu items variantion                                                                      | `flat`    |
+| **isVirtualized**          | `boolean`                                                                                                    | Whether the dropdown menu uses virtual scrolling.                                                       | `false`   |
+| **disallowEmptySelection** | `boolean`                                                                                                    | Whether the collection allows empty selection.                                                          | `false`   |
+| **autoFocus**              | `boolean` [FocusStrategyType](#focus-strategy-type)                                                          | Where the focus should be set.                                                                          | `false`   |
+| **shouldFocusWrap**        | `boolean`                                                                                                    | Whether keyboard navigation is circular.                                                                | `false`   |
+| **css**                    | `Stitches.CSS`                                                                                               | Override Default CSS style.                                                                             | -         |
+| **containerCss** `new`     | `Stitches.CSS`                                                                                               | Override the dropdown mmenu container (`Popover.Content`) CSS style.                                    | -         |
+| **as**                     | `keyof JSX.IntrinsicElements`                                                                                | Changes which tag component outputs.                                                                    | `ul`      |
+
+<Spacer y={1} />
+
+#### Dropdown.Menu Events
+
+| Attribute             | Type                                                                            | Description                                        | Default |
+| --------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| **onAction**          | <Code>(key: [Key](https://reactjs.org/docs/lists-and-keys.html)) => void</Code> | Handler that is called when an item is selected.   | -       |
+| **onSelectionChange** | <Code>(keys:[SelectionType](#selection-type)) => any</Code>                     | Handler that is called when the selection changes. | -       |
+
+<Spacer y={1} />
+
+#### Dropdown.Menu Accessibility Props
+
+| Attribute            | Type     | Description                                                                                                        | Default |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label**       | `string` | Defines a string value that labels the current element                                                             | -       |
+| **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+| **aria-details**     | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Dropdown.Item Props
+
+| Attribute                     | Type                                                | Description                                                      | Default   |
+| ----------------------------- | --------------------------------------------------- | ---------------------------------------------------------------- | --------- |
+| **key**                       | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                | `false`   |
+| **description**               | `string`                                            | Description text element inside the dropdown menu item.          | -         |
+| **command**                   | `string`                                            | Right-aligned label text content, useful for displaying hotkeys. | -         |
+| **icon**                      | `ReactNode`                                         | The icon to render before the dropdown menu item's label.        | -         |
+| **dividerWeight**             | [NormalWeights](#normal-weights)                    | The dropdown item divider height                                 | `light`   |
+| **color**                     | [SimpleColors](#simple-colors)                      | The dropdown item color                                          | `default` |
+| **textColor**                 | [SimpleColors](#simple-colors)                      | The dropdown item text color                                     | `default` |
+| **variant**                   | [DropdownVariant](#dropdown-variants)               | The dropdown item variation                                      | `flat`    |
+| **withDivider**               | `boolean`                                           | Whether the dropdown item should have a border on top            | `false`   |
+| **showFullDescription** `new` | `boolean`                                           | Whether the item description should be truncated or not.         | `false`   |
+| **css**                       | `Stitches.CSS`                                      | Override Default CSS style.                                      | -         |
+| **as**                        | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                             | `li`      |
+
+<Spacer y={1} />
+
+#### Dropdown.Item Accessibility Props
+
+| Attribute      | Type     | Description                                            | Default |
+| -------------- | -------- | ------------------------------------------------------ | ------- |
+| **aria-label** | `string` | A screen reader only label for the dropdown menu item. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Dropdown.Section Props
+
+| Attribute   | Type        | Description                  | Default |
+| ----------- | ----------- | ---------------------------- | ------- |
+| **heading** | `ReactNode` | The heading for the section. | -       |
+
+<Spacer y={1} />
+
+#### Dropdown.Section Accessibility Props
+
+| Attribute      | Type     | Description                                                                 | Default |
+| -------------- | -------- | --------------------------------------------------------------------------- | ------- |
+| **aria-label** | `string` | An accessibility label for the section. Required if heading is not present. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+### Dropdown types
+
+<Spacer y={1} />
+
+#### Trigger Type
+
+```ts
+type TriggerType = "menu" | "listbox";
+```
+
+#### Menu Trigger Type
+
+```ts
+type MenuTriggerType = "press" | "longPress";
+```
+
+#### Collection Element Type
+
+```ts
+type CollectionElement<T> = SectionElement<T> | ItemElement<T>;
+```
+
+#### Collection Children Type
+
+```ts
+type CollectionChildren<T> =
+  | CollectionElement<T>
+  | CollectionElement<T>[]
+  | ((item: T) => CollectionElement<T>);
+```
+
+#### Focus Strategy Type
+
+```ts
+type FocusStrategyType = "first" | "last";
+```
+
+#### Keyboard Delegate Type
+
+```ts
+import { Key } from 'react';
+
+// Returns the key visually below the given one, or null for none.
+getKeyBelow(key: Key): Key
+// Returns the key visually above the given one, or null for none.
+getKeyAbove(key: Key): Key
+// Returns the key visually to the left of the given one, or null for none.
+getKeyLeftOf(key: Key): Key
+// Returns the key visually to the right of the given one, or null for none.
+getKeyRightOf(key: Key): Key
+// Returns the key visually one page below the given one, or null for none.
+getKeyPageBelow(key: Key): Key
+// Returns the key visually one page above the given one, or null for none.
+getKeyPageAbove(key: Key): Key
+// Returns the first key, or null for none.
+getFirstKey(key?: Key, global?: boolean): Key
+// Returns the last key, or null for none.
+getLastKey(key?: Key, global?: boolean): Key
+// Returns the next key after fromKey that matches the given search string, or null for none.
+getKeyForSearch(search: string, fromKey?: Key): Key
+```
+
+#### Selection Mode Type
+
+```ts
+type SelectionModeType = "none" | "single" | "multiple";
+```
+
+#### Selection Type
+
+```ts
+import { Key } from "react";
+
+type SelectionType = "all" | Set<Key>;
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
+```
+
+#### Dropdown Variants
+
+```ts
+type DropdownVariants = "flat" | "light" | "solid" | "shadow";
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = "light" | "normal" | "bold" | "extrabold" | "black";
+```

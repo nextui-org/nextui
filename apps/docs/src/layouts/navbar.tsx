@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from "react";
 import {
   Logo,
   MenuToggle,
@@ -7,29 +7,23 @@ import {
   Discord,
   Github,
   ThemeToggle,
-  Heart
-} from '@components';
-import { Box } from '@primitives';
-import cn from 'classnames';
-import NextLink from 'next/link';
-import dynamic from 'next/dynamic';
-import {
-  Row,
-  Col,
-  Spacer,
-  Link,
-  Button,
-  useBodyScroll
-} from '@nextui-org/react';
-import { Route } from '@lib/docs/page';
-import { Container } from '@nextui-org/react';
-import { useRouter } from 'next/router';
-import { useMediaQuery } from '@hooks/use-media-query';
-import { isActive } from '@utils/links';
-import { includes } from 'lodash';
-import { StyledNavContainer, StyledNavMainContainer } from './styles';
-import { darkTheme } from '@theme/shared';
-import { pulse } from '@utils/animations';
+  Heart,
+  NotifyBanner,
+} from "@components";
+import {Box} from "@primitives";
+import cn from "classnames";
+import NextLink from "next/link";
+import dynamic from "next/dynamic";
+import {Row, Col, Spacer, Link, Button, Container, useBodyScroll} from "@nextui-org/react";
+import {Route} from "@lib/docs/page";
+import {useRouter} from "next/router";
+import {useMediaQuery} from "@hooks/use-media-query";
+import {isActive} from "@utils/links";
+import {includes} from "lodash";
+import {darkTheme} from "@theme/shared";
+import {pulse} from "@utils/animations";
+
+import {StyledNavContainer, StyledNavMainContainer} from "./styles";
 
 export interface Props {
   routes?: Route[];
@@ -37,35 +31,29 @@ export interface Props {
   isHome?: boolean;
 }
 
-const MobileNavigation = dynamic(
-  () => import('../components/mobile-navigation'),
-  {
-    ssr: false
-  }
-);
+const MobileNavigation = dynamic(() => import("../components/mobile-navigation"), {
+  ssr: false,
+});
 
-const SearchInput = dynamic(
-  () => import('../components/search/instant-search'),
-  {
-    ssr: true
-  }
-);
+const SearchInput = dynamic(() => import("../components/search/instant-search"), {
+  ssr: true,
+});
 
-const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
+const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
   const isMobile = useMediaQuery(960);
-  const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
-  const [scrollPosition, setScrollPosition] = useState(
-    (typeof window !== 'undefined' && window.pageYOffset) || 0
-  );
+  const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  const detached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
+  const isDetached = hasNotify ? scrollPosition > 40 : scrollPosition > 0;
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll.bind(this));
+    setScrollPosition((typeof window !== "undefined" && window.pageYOffset) || 0);
+    window.addEventListener("scroll", onScroll.bind(this));
+
     return () => {
-      window.removeEventListener('scroll', onScroll.bind(this));
+      window.removeEventListener("scroll", onScroll.bind(this));
     };
   }, []);
 
@@ -87,35 +75,36 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
     isMobile && setBodyHidden(!expanded);
   };
 
-  const showBlur = !!expanded || !!detached || isHome;
+  const showBlur = !!expanded || !!isDetached || isHome;
 
   return (
     <StyledNavMainContainer id="navbar-container">
-      <StyledNavContainer detached={detached} showBlur={showBlur}>
-        <Container
-          lg={true}
-          as="nav"
-          display="flex"
-          wrap="nowrap"
-          alignItems="center"
-        >
+      {hasNotify && (
+        <NotifyBanner
+          href="/docs/components/navbar"
+          isVisible={!isDetached}
+          text="Navbar component"
+        />
+      )}
+      <StyledNavContainer isDetached={isDetached} showBlur={showBlur}>
+        <Container alignItems="center" as="nav" display="flex" lg={true} wrap="nowrap">
           <Col
             className="navbar__logo-container"
             css={{
-              '@mdMax': {
-                width: '100%'
-              }
+              "@mdMax": {
+                width: "100%",
+              },
             }}
           >
-            <Row justify="flex-start" align="center">
+            <Row align="center" justify="flex-start">
               <NextLink href="/">
                 <Link href="/">
                   <Logo
                     auto
                     className="navbar__logo"
                     css={{
-                      cursor: 'pointer',
-                      transition: '$default'
+                      cursor: "pointer",
+                      transition: "$default",
                     }}
                   />
                 </Link>
@@ -124,10 +113,10 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
               <Badge
                 solid
                 css={{
-                  px: '$4',
-                  '@mdMax': {
-                    display: 'none'
-                  }
+                  px: "$4",
+                  "@mdMax": {
+                    display: "none",
+                  },
                 }}
                 type="secondary"
               >
@@ -135,27 +124,24 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
               </Badge>
             </Row>
           </Col>
-          <Col
-            className="navbar__resources-container"
-            css={{ '@mdMax': { d: 'none' } }}
-          >
-            <Row justify="center" align="center">
+          <Col className="navbar__resources-container" css={{"@mdMax": {d: "none"}}}>
+            <Row align="center" justify="center">
               <Spacer x={1} y={0} />
               <NextLink href="/docs/guide/getting-started">
                 <Link
-                  className={cn('navbar__link', {
+                  className={cn("navbar__link", {
                     active:
-                      isActive(router.pathname, '/docs/[[...slug]]') &&
-                      !includes(router.asPath, 'components')
+                      isActive(router.pathname, "/docs/[[...slug]]") &&
+                      !includes(router.asPath, "components"),
                   })}
-                  href="#"
                   css={{
-                    color: '$text',
-                    '&.active': {
-                      fontWeight: '600',
-                      color: '$primary'
-                    }
+                    color: "$text",
+                    "&.active": {
+                      fontWeight: "600",
+                      color: "$primary",
+                    },
                   }}
+                  href="#"
                 >
                   Docs
                 </Link>
@@ -164,17 +150,17 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
               <NextLink href="/docs/components/avatar">
                 <Link
                   aria-disabled
-                  className={cn('navbar__link', {
-                    active: includes(router.asPath, 'components')
+                  className={cn("navbar__link", {
+                    active: includes(router.asPath, "components"),
                   })}
-                  title="Components"
                   css={{
-                    color: '$text',
-                    '&.active': {
-                      fontWeight: '600',
-                      color: '$primary'
-                    }
+                    color: "$text",
+                    "&.active": {
+                      fontWeight: "600",
+                      color: "$primary",
+                    },
                   }}
+                  title="Components"
                 >
                   Components
                 </Link>
@@ -182,13 +168,13 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
               <Spacer x={1} y={0} />
               <Link
                 className="navbar__link"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/nextui-org/nextui/discussions/new?category=feedback"
-                title="Leave your feedback"
                 css={{
-                  color: '$text'
+                  color: "$text",
                 }}
+                href="https://github.com/nextui-org/nextui/discussions/new?category=feedback"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="Leave your feedback"
               >
                 Feedback
               </Link>
@@ -196,138 +182,135 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
           </Col>
           <Col className="navbar__search-container">
             <Row
-              className="navbar__search-row"
-              justify="flex-end"
               align="center"
+              className="navbar__search-row"
               css={{
-                position: 'initial',
-                '@mdMax': {
-                  jc: 'center'
-                }
+                position: "initial",
+                "@mdMax": {
+                  jc: "center",
+                },
               }}
+              justify="flex-end"
             >
               <Row
-                className="navbar__social-icons-container"
-                justify="flex-end"
                 align="center"
-                gap={1}
+                className="navbar__social-icons-container"
                 css={{
-                  width: 'initial',
-                  '@mdMax': {
-                    d: 'none'
-                  }
+                  width: "initial",
+                  "@mdMax": {
+                    d: "none",
+                  },
                 }}
+                gap={1}
+                justify="flex-end"
               >
                 <Link
                   className="navbar__social-icon"
-                  href="https://twitter.com/getnextui"
-                  target="_blank"
-                  rel="noreferrer"
                   css={{
-                    m: '0 6px',
-                    '& svg': {
-                      transition: '$default'
+                    m: "0 6px",
+                    "& svg": {
+                      transition: "$default",
                     },
-                    '&:hover': {
-                      '& svg': {
-                        opacity: 0.7
-                      }
-                    }
+                    "&:hover": {
+                      "& svg": {
+                        opacity: 0.7,
+                      },
+                    },
                   }}
+                  href="https://twitter.com/getnextui"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   <Twitter size={24} />
                 </Link>
                 <Link
                   className="navbar__social-icon"
-                  href="https://discord.gg/9b6yyZKmH4"
-                  target="_blank"
-                  rel="noreferrer"
                   css={{
-                    m: '0 6px',
-                    '& svg': {
-                      transition: '$default'
+                    m: "0 6px",
+                    "& svg": {
+                      transition: "$default",
                     },
-                    '&:hover': {
-                      '& svg': {
-                        opacity: 0.7
-                      }
-                    }
+                    "&:hover": {
+                      "& svg": {
+                        opacity: 0.7,
+                      },
+                    },
                   }}
+                  href="https://discord.gg/9b6yyZKmH4"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   <Discord size={24} />
                 </Link>
                 <Link
                   className="navbar__social-icon"
-                  href="https://github.com/nextui-org/nextui"
-                  target="_blank"
-                  rel="noreferrer"
                   css={{
-                    m: '0 6px',
-                    '& svg': {
-                      transition: '$default'
+                    m: "0 6px",
+                    "& svg": {
+                      transition: "$default",
                     },
-                    '&:hover': {
-                      '& svg': {
-                        opacity: 0.7
-                      }
-                    }
+                    "&:hover": {
+                      "& svg": {
+                        opacity: 0.7,
+                      },
+                    },
                   }}
+                  href="https://github.com/nextui-org/nextui"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   <Github size={24} />
                 </Link>
                 <ThemeToggle
                   className="navbar__social-icon"
                   css={{
-                    m: '0 6px',
-                    '& svg': {
-                      transition: '$default'
+                    m: "0 6px",
+                    "& svg": {
+                      transition: "$default",
                     },
-                    '&:hover': {
-                      '& svg': {
-                        opacity: 0.7
-                      }
-                    }
+                    "&:hover": {
+                      "& svg": {
+                        opacity: 0.7,
+                      },
+                    },
                   }}
                 />
               </Row>
-              <SearchInput offsetTop={detached ? 0 : 30} />
+              <SearchInput offsetTop={!isDetached && hasNotify ? 40 : 0} />
               <Spacer x={0.5} />
               <Button
                 auto
                 as="a"
-                href="https://patreon.com/jrgarciadev"
-                target="_blank"
-                rel="noreferrer"
-                icon={
-                  <Heart filled size={20} fill="var(--nextui-colors-red600)" />
-                }
                 css={{
-                  bg: '$gray50',
-                  color: '$text',
-                  maxH: '38px',
-                  px: '$8',
-                  '@mdMax': {
-                    d: 'none'
+                  bg: "$gray50",
+                  color: "$text",
+                  maxH: "38px",
+                  px: "$8",
+                  "@mdMax": {
+                    d: "none",
                   },
-                  '& .nextui-button-icon': {
-                    mr: '$2'
+                  "& .nextui-button-icon": {
+                    mr: "$2",
                   },
-                  '& .nextui-button-icon svg': {
-                    transition: '$default'
+                  "& .nextui-button-icon svg": {
+                    transition: "$default",
                   },
-                  '&:hover': {
-                    '& .nextui-button-icon svg': {
-                      animation: `${pulse} 1s infinite`
-                    }
+                  "&:hover": {
+                    "& .nextui-button-icon svg": {
+                      animation: `${pulse} 1s infinite`,
+                    },
                   },
                   [`.${darkTheme} &`]: {
-                    bg: 'rgba(51, 51,51,0.7)',
-                    '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
-                      {
-                        bf: 'saturate(180%) blur(14px)'
-                      }
-                  }
+                    bg: "rgba(51, 51,51,0.7)",
+                    "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
+                      bf: "saturate(180%) blur(14px)",
+                    },
+                  },
                 }}
+                href="https://patreon.com/jrgarciadev"
+                icon={<Heart filled fill="var(--nextui-colors-red600)" size={20} />}
+                rel="noreferrer"
+                target="_blank"
               >
                 Sponsor
               </Button>
@@ -336,38 +319,35 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
           <Col
             className="navbar__menu-container"
             css={{
-              size: '100%',
-              display: 'none',
-              '@mdMax': {
-                display: 'flex',
-                justifyContent: 'flex-end'
-              }
+              size: "100%",
+              display: "none",
+              "@mdMax": {
+                display: "flex",
+                justifyContent: "flex-end",
+              },
             }}
           >
-            <ThemeToggle
-              className="navbar__social-icon-mobile"
-              css={{ m: '0' }}
-            />
+            <ThemeToggle className="navbar__social-icon-mobile" css={{m: "0"}} />
             <Box
               className="navbar__menu-arrow noselect"
-              onClick={onToggleNavigation}
               css={{
-                height: '100%',
-                minHeight: '40px',
-                minWidth: '30px',
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'center'
+                height: "100%",
+                minHeight: "40px",
+                minWidth: "30px",
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
               }}
+              onClick={onToggleNavigation}
             >
               <MenuToggle expanded={expanded} />
             </Box>
           </Col>
           <MobileNavigation
+            detached={isDetached}
             hasNotify={hasNotify}
-            routes={routes}
             opened={expanded}
-            detached={detached}
+            routes={routes}
             onClose={() => {
               setExpanded(false);
               setBodyHidden(false);

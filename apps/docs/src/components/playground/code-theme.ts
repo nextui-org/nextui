@@ -1,163 +1,143 @@
-import { PrismTheme } from 'prism-react-renderer';
-import { green } from '@nextui-org/react';
+import {PrismTheme} from "prism-react-renderer";
+import {green} from "@nextui-org/react";
 
 const makeCodeTheme = (): PrismTheme => ({
   plain: {
-    backgroundColor: 'var(--nextui-colors-codeBackground)',
-    color: '#F4F4F4',
-    fontWeight: '500',
-    fontStyle: 'normal',
-    fontFamily: '$mono',
-    fontSize: '$xs',
-    textRendering: 'geometricPrecision'
+    backgroundColor: "var(--nextui-colors-codeBackground)",
+    color: "#F4F4F4",
+    fontWeight: "500",
+    fontStyle: "normal",
+    fontFamily: "$mono",
+    fontSize: "$xs",
+    textRendering: "geometricPrecision",
   },
   styles: [
     {
-      types: ['comment', 'prolog', 'doctype', 'cdata'],
+      types: ["comment", "prolog", "doctype", "cdata"],
       style: {
-        color: 'var(--nextui-colors-codeComment)'
-      }
+        color: "var(--nextui-colors-codeComment)",
+      },
     },
     {
-      types: ['symbol', 'text'],
+      types: ["symbol", "text"],
       style: {
-        color: 'var(--nextui-colors-white)'
-      }
+        color: "var(--nextui-colors-white)",
+      },
     },
     {
-      types: ['punctuation'],
+      types: ["punctuation"],
       style: {
-        color: green.green200
-      }
+        color: green.green200,
+      },
     },
     {
-      types: ['function'],
+      types: ["function"],
       style: {
-        color: '#61AFEF'
-      }
+        color: "#61AFEF",
+      },
     },
     {
-      types: ['namespace'],
+      types: ["namespace"],
       style: {
-        opacity: 1
-      }
+        opacity: 1,
+      },
     },
     {
-      types: ['tag', 'operator', 'number'],
+      types: ["tag", "operator", "number"],
       style: {
-        color: '#E5C07B'
-      }
+        color: "#E5C07B",
+      },
     },
     {
-      types: ['property', 'function'],
+      types: ["property", "function"],
       style: {
-        color: 'var(--nextui-colors-success)'
-      }
+        color: "var(--nextui-colors-success)",
+      },
     },
     {
-      types: ['tag-id', 'selector', 'atrule-id'],
+      types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: '#E06C75'
-      }
+        color: "#E06C75",
+      },
     },
     {
-      types: ['attr-name'],
+      types: ["attr-name"],
       style: {
-        color: 'var(--nextui-colors-yellow600)'
-      }
+        color: "var(--nextui-colors-yellow600)",
+      },
     },
     {
       types: [
-        'boolean',
-        'string',
-        'entity',
-        'url',
-        'attr-value',
-        'keyword',
-        'control',
-        'directive',
-        'unit',
-        'statement',
-        'regex',
-        'at-rule',
-        'placeholder',
-        'variable'
+        "boolean",
+        "string",
+        "entity",
+        "url",
+        "attr-value",
+        "keyword",
+        "control",
+        "directive",
+        "unit",
+        "statement",
+        "regex",
+        "at-rule",
+        "placeholder",
+        "variable",
       ],
       style: {
-        color: '#98C379'
-      }
+        color: "#98C379",
+      },
     },
     {
-      types: ['deleted'],
+      types: ["deleted"],
       style: {
-        textDecorationLine: 'line-through'
-      }
+        textDecorationLine: "line-through",
+      },
     },
     {
-      types: ['language-javascript', 'script'],
+      types: ["language-javascript", "script"],
       style: {
-        color: 'var(--nextui-colors-success)'
-      }
+        color: "var(--nextui-colors-success)",
+      },
     },
     {
-      types: ['inserted'],
+      types: ["inserted"],
       style: {
-        textDecorationLine: 'underline'
-      }
+        textDecorationLine: "underline",
+      },
     },
     {
-      types: ['italic'],
+      types: ["italic"],
       style: {
-        fontStyle: 'italic'
-      }
+        fontStyle: "italic",
+      },
     },
     {
-      types: ['important', 'bold'],
+      types: ["important", "bold"],
       style: {
-        fontWeight: 'bold'
-      }
+        fontWeight: "bold",
+      },
     },
     {
-      types: ['important', 'primitive'],
+      types: ["important", "primitive"],
       style: {
-        color: '#c678dd'
-      }
-    }
-  ]
+        color: "#c678dd",
+      },
+    },
+  ],
 });
 
 export const getCodeThemeColors = () => {
   const codeTheme = makeCodeTheme();
-  const stringColor = codeTheme.styles.find((style) =>
-    style.types.includes('string')
-  );
-  const punctuationColor = codeTheme.styles.find((style) =>
-    style.types.includes('punctuation')
-  );
-  const numberColor = codeTheme.styles.find((style) =>
-    style.types.includes('number')
-  );
-  const textColor = codeTheme.styles.find((style) =>
-    style.types.includes('text')
-  );
-  const selectorColor = codeTheme.styles.find((style) =>
-    style.types.includes('selector')
-  );
-  const commentColor = codeTheme.styles.find((style) =>
-    style.types.includes('comment')
-  );
-  const classnameColor = codeTheme.styles.find((style) =>
-    style.types.includes('tag')
-  );
-  const attrColor = codeTheme.styles.find((style) =>
-    style.types.includes('attr-name')
-  );
-  const functionColor = codeTheme.styles.find((style) =>
-    style.types.includes('function')
-  );
-  const primitiveColor = codeTheme.styles.find((style) =>
-    style.types.includes('primitive')
-  );
+  const stringColor = codeTheme.styles.find((style) => style.types.includes("string"));
+  const punctuationColor = codeTheme.styles.find((style) => style.types.includes("punctuation"));
+  const numberColor = codeTheme.styles.find((style) => style.types.includes("number"));
+  const textColor = codeTheme.styles.find((style) => style.types.includes("text"));
+  const selectorColor = codeTheme.styles.find((style) => style.types.includes("selector"));
+  const commentColor = codeTheme.styles.find((style) => style.types.includes("comment"));
+  const classnameColor = codeTheme.styles.find((style) => style.types.includes("tag"));
+  const attrColor = codeTheme.styles.find((style) => style.types.includes("attr-name"));
+  const functionColor = codeTheme.styles.find((style) => style.types.includes("function"));
+  const primitiveColor = codeTheme.styles.find((style) => style.types.includes("primitive"));
 
   return {
     ...codeTheme.plain,
@@ -170,7 +150,7 @@ export const getCodeThemeColors = () => {
     classnameColor,
     attrColor,
     functionColor,
-    primitiveColor
+    primitiveColor,
   };
 };
 

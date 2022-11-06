@@ -83,12 +83,12 @@ export const KeyCode = {
   Equal: 187,
   Minus: 189,
   Backquote: 192,
-  Backslash: 220
+  Backslash: 220,
 };
 
 export const KeyMod = {
   CtrlCmd: (1 << 11) >>> 0,
   Shift: (1 << 10) >>> 0,
   Alt: (1 << 9) >>> 0,
-  WinCtrl: (1 << 8) >>> 0
+  WinCtrl: (1 << 8) >>> 0,
 };

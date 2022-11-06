@@ -1,10 +1,10 @@
-import Popover from './popover';
-import { PopoverContent } from './popover-content';
-import { PopoverTrigger } from './popover-trigger';
+import Popover from "./popover";
+import PopoverTrigger from "./popover-trigger";
+import PopoverContent from "./popover-content";
 
-export type { PopoverProps } from './popover';
-export type { PopoverPlacement } from './utils';
-export { StyledPopoverContent as StyledPopover } from './popover.styles';
+export type {PopoverProps} from "./popover";
+export type {PopoverPlacement} from "./utils";
+export {StyledPopoverContent as StyledPopoverContent} from "./popover.styles";
 
 Popover.Content = PopoverContent;
 Popover.Trigger = PopoverTrigger;

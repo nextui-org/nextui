@@ -1,39 +1,39 @@
-import { styled, VariantProps } from '../theme/stitches.config';
+import {styled, VariantProps} from "../theme/stitches.config";
 
-export const StyledContainer = styled('div', {
-  w: '100%',
-  mr: 'auto',
-  ml: 'auto',
+export const StyledContainer = styled("div", {
+  w: "100%",
+  mr: "auto",
+  ml: "auto",
   variants: {
     fluid: {
       true: {
-        maxWidth: '100%'
-      }
+        maxWidth: "100%",
+      },
     },
     responsive: {
       true: {
-        '@xs': {
-          maxWidth: '$breakpoints$xs'
+        "@xs": {
+          maxWidth: "$breakpoints$xs",
         },
-        '@sm': {
-          maxWidth: '$breakpoints$sm'
+        "@sm": {
+          maxWidth: "$breakpoints$sm",
         },
-        '@md': {
-          maxWidth: '$breakpoints$md'
+        "@md": {
+          maxWidth: "$breakpoints$md",
         },
-        '@lg': {
-          maxWidth: '$breakpoints$lg'
+        "@lg": {
+          maxWidth: "$breakpoints$lg",
         },
-        '@xl': {
-          maxWidth: '$breakpoints$xl'
-        }
-      }
-    }
+        "@xl": {
+          maxWidth: "$breakpoints$xl",
+        },
+      },
+    },
   },
   defaultVariants: {
     fluid: false,
-    responsive: true
-  }
+    responsive: true,
+  },
 });
 
 export type ContainerVariantsProps = VariantProps<typeof StyledContainer>;

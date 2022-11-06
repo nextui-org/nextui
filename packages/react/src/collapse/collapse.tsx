@@ -1,22 +1,24 @@
-import React, { useEffect, useMemo } from 'react';
-import { useFocusRing } from '@react-aria/focus';
-import CollapseIcon from './collapse-icon';
-import Expand from '../utils/expand';
-import { useCollapseContext } from './collapse-context';
-import useCurrentState from '../use-current-state';
-import CollapseGroup from './collapse-group';
-import useWarning from '../use-warning';
-import { useId } from '@react-aria/utils';
-import { CSS } from '../theme/stitches.config';
-import useKeyboard, { KeyCode } from '../use-keyboard';
+import React, {useEffect, useMemo} from "react";
+import {useFocusRing} from "@react-aria/focus";
+import {useId} from "@react-aria/utils";
+
+import {warn} from "../utils/console";
+import useCurrentState from "../use-current-state";
+import Expand from "../utils/expand";
+import {CSS} from "../theme/stitches.config";
+import useKeyboard, {KeyCode} from "../use-keyboard";
+import clsx from "../utils/clsx";
+import withDefaults from "../utils/with-defaults";
+
+import CollapseGroup from "./collapse-group";
+import {useCollapseContext} from "./collapse-context";
 import {
   StyledCollapse,
   StyledCollapseView,
   CollapseVariantsProps,
-  StyledCollapseContent
-} from './collapse.styles';
-import clsx from '../utils/clsx';
-import withDefaults from '../utils/with-defaults';
+  StyledCollapseContent,
+} from "./collapse.styles";
+import CollapseIcon from "./collapse-icon";
 
 interface Props {
   title: React.ReactNode | string;
@@ -35,7 +37,7 @@ interface Props {
   onChange?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index?: number | undefined,
-    value?: boolean
+    value?: boolean,
   ) => void;
   as?: keyof JSX.IntrinsicElements;
 }
@@ -48,7 +50,7 @@ const defaultProps = {
   animated: true,
   disabled: false,
   preventDefault: true,
-  expanded: false
+  expanded: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -56,9 +58,9 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type CollapseProps = Props &
   typeof defaultProps &
   CollapseVariantsProps &
-  NativeAttrs & { css?: CSS };
+  NativeAttrs & {css?: CSS};
 
-const preClass = 'nextui-collapse';
+const preClass = "nextui-collapse";
 
 const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   children,
@@ -86,22 +88,19 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     values,
     divider: groupDivider,
     animated: groupAnimated,
-    updateValues
+    updateValues,
   } = useCollapseContext();
 
   const {
     isFocusVisible,
-    focusProps
+    focusProps,
   }: {
     isFocusVisible: boolean;
-    focusProps: Omit<
-      React.HTMLAttributes<HTMLButtonElement>,
-      keyof CollapseProps
-    >;
+    focusProps: Omit<React.HTMLAttributes<HTMLButtonElement>, keyof CollapseProps>;
   } = useFocusRing();
 
   if (!title) {
-    useWarning('"title" is required.', 'Collapse');
+    warn('"title" is required.', "Collapse");
   }
 
   useEffect(() => {
@@ -113,14 +112,16 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   useEffect(() => {
     if (!values.length) return;
     const isActive = !!values.find((item) => item === index);
+
     setVisible(isActive);
-  }, [values.join(',')]);
+  }, [values.join(",")]);
 
   const ariaLabelledById = useId();
   const ariaControlId = useId();
 
   const arrowComponent = useMemo(() => {
     if (!showArrow) return null;
+
     return arrowIcon ? arrowIcon : <CollapseIcon />;
   }, [arrowIcon, showArrow]);
 
@@ -130,87 +131,74 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     return groupAnimated === undefined ? animatedProp : groupAnimated;
   }, [groupAnimated, animatedProp]);
 
-  const handleChange = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleChange = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (disabled) return;
     const next = !visibleRef.current;
+
     setVisible(next);
     updateValues && updateValues(index, next);
     onChange && onChange(event, index, next);
   };
 
-  const { bindings } = useKeyboard(
+  const {bindings} = useKeyboard(
     (event: any) => {
       handleChange(event);
     },
     [KeyCode.Enter, KeyCode.Space],
     {
       disableGlobalEvent: true,
-      preventDefault
-    }
+      preventDefault,
+    },
   );
 
   const getState = useMemo(() => {
-    return visible ? 'open' : 'closed';
+    return visible ? "open" : "closed";
   }, [visible]);
 
   return (
     <StyledCollapse
-      tabIndex={-1}
-      shadow={shadow}
-      bordered={bordered}
       animated={animated}
-      divider={withDivider}
       borderWeight={borderWeight}
-      visible={visible}
-      data-state={getState}
+      bordered={bordered}
       className={clsx(className, preClass, `${preClass}--${getState}`)}
+      data-state={getState}
+      divider={withDivider}
+      shadow={shadow}
+      tabIndex={-1}
+      visible={visible}
       {...props}
     >
       <StyledCollapseView
-        role="button"
-        tabIndex={disabled ? -1 : 0}
-        id={ariaLabelledById}
+        aria-controls={ariaControlId}
+        aria-disabled={disabled}
+        aria-expanded={visible}
         className={`${preClass}-view`}
         data-state={getState}
         disabled={disabled}
-        aria-disabled={disabled}
-        aria-expanded={visible}
-        aria-controls={ariaControlId}
+        id={ariaLabelledById}
         isFocusVisible={isFocusVisible}
+        role="button"
+        tabIndex={disabled ? -1 : 0}
         onClick={handleChange}
         {...focusProps}
         {...bindings}
       >
         <div className={clsx(`${preClass}-title-container`)}>
-          {contentLeft && (
-            <div className={`${preClass}-title-content-left`}>
-              {contentLeft}
-            </div>
-          )}
+          {contentLeft && <div className={`${preClass}-title-content-left`}>{contentLeft}</div>}
           <div className={`${preClass}-title-content`}>
-            {React.isValidElement(title) ? (
-              title
-            ) : (
-              <h3 className={`${preClass}-title`}>{title}</h3>
-            )}
-            {subtitle && (
-              <div className={`${preClass}-subtitle`}>{subtitle}</div>
-            )}
+            {React.isValidElement(title) ? title : <h3 className={`${preClass}-title`}>{title}</h3>}
+            {subtitle && <div className={`${preClass}-subtitle`}>{subtitle}</div>}
           </div>
-          <div className={`${preClass}-title-content-right`}>
-            {arrowComponent}
-          </div>
+          <div className={`${preClass}-title-content-right`}>{arrowComponent}</div>
         </div>
       </StyledCollapseView>
-      <Expand isExpanded={visible} animated={animated}>
+      <Expand animated={animated} isExpanded={visible}>
         <StyledCollapseContent
-          role="region"
-          tabIndex={-1}
-          id={ariaControlId}
           aria-labelledby={ariaLabelledById}
           className={`${preClass}-content`}
+          id={ariaControlId}
+          role="region"
+          tabIndex={-1}
         >
           {children}
         </StyledCollapseContent>
@@ -219,7 +207,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   );
 };
 
-Collapse.toString = () => '.nextui-collapse';
+Collapse.toString = () => ".nextui-collapse";
 
 type CollapseComponent<P = {}> = React.FC<P> & {
   Group: typeof CollapseGroup;
@@ -228,9 +216,6 @@ type CollapseComponent<P = {}> = React.FC<P> & {
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   CollapseVariantsProps &
-  NativeAttrs & { css?: CSS };
+  NativeAttrs & {css?: CSS};
 
-export default withDefaults(
-  Collapse,
-  defaultProps
-) as CollapseComponent<ComponentProps>;
+export default withDefaults(Collapse, defaultProps) as CollapseComponent<ComponentProps>;

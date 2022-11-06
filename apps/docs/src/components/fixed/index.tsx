@@ -1,7 +1,7 @@
-import * as React from 'react';
-import cn from 'classnames';
-import withDefaults from '@utils/with-defaults';
-import { styled, CSS } from '@nextui-org/react';
+import * as React from "react";
+import cn from "classnames";
+import withDefaults from "@utils/with-defaults";
+import {styled, CSS} from "@nextui-org/react";
 
 export interface FixedProps {
   offset?: number;
@@ -13,20 +13,20 @@ export interface FixedProps {
 const defaultProps = {
   offset: 0,
   shadow: false,
-  className: ''
+  className: "",
 };
 
-const StyledFixed = styled('div', {
-  background: 'transparent',
-  position: 'fixed',
-  zIndex: '$max',
+const StyledFixed = styled("div", {
+  background: "transparent",
+  position: "fixed",
+  zIndex: "$max",
   variants: {
     shadow: {
       true: {
-        bs: '$sm'
-      }
-    }
-  }
+        bs: "$sm",
+      },
+    },
+  },
 });
 
 const Fixed: React.FC<React.PropsWithChildren<FixedProps>> = ({
@@ -34,12 +34,12 @@ const Fixed: React.FC<React.PropsWithChildren<FixedProps>> = ({
   children,
   shadow,
   className,
-  css
+  css,
 }) => {
   return (
     <StyledFixed
-      css={{ ...(css as any), top: offset || 0 }}
-      className={cn(className, { shadow })}
+      className={cn(className, {shadow})}
+      css={{...css, top: offset || 0}}
       shadow={shadow}
     >
       {children}

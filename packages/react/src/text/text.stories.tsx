@@ -1,22 +1,23 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Text from './text';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import Text from "./text";
 
 export default {
-  title: 'General/Typography',
+  title: "General/Typography",
   component: Text,
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: '50%' }}>
+      <div style={{maxWidth: "50%"}}>
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
-const shortText = 'Almost before we knew it, we had left the ground.';
+const shortText = "Almost before we knew it, we had left the ground.";
 const largeText =
-  'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  "NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.";
 
 export const Headings = () => {
   return (
@@ -36,16 +37,16 @@ export const Gradient = () => (
     <Text
       h1
       css={{
-        textGradient: '45deg, $blue500 0%, $cyan500 100%'
+        textGradient: "45deg, $blue600 0%, $cyan600 100%",
       }}
       weight="bold"
     >
-      Let's
+      Let&apos;s
     </Text>
     <Text
       h1
       css={{
-        textGradient: '45deg, $pink500 0%, $red500 100%'
+        textGradient: "45deg, $pink600 0%, $red600 100%",
       }}
       weight="bold"
     >
@@ -54,7 +55,7 @@ export const Gradient = () => (
     <Text
       h1
       css={{
-        textGradient: '45deg, $yellow500 0%, $red500 100%'
+        textGradient: "45deg, $yellow600 0%, $red600 100%",
       }}
       weight="bold"
     >
@@ -85,7 +86,7 @@ export const Colors = () => (
 export const Small = () => (
   <Text>
     <Text small>{largeText}</Text>
-    <Text small i>
+    <Text i small>
       {largeText}
     </Text>
   </Text>
@@ -99,11 +100,11 @@ export const Blockquote = () => (
 
 export const Sizes = () => (
   <>
-    <Text size={12}>Font Size: 12px;</Text>
-    <Text size={14}>Font Size: 14px;</Text>
-    <Text size="100%">Font Size: 100%;</Text>
-    <Text size="1.25rem">Font Size: 1.25rem;</Text>
-    <Text size="2em">Font Size: 2em;</Text>
+    <Text size="$xs">Font Size: xs;</Text>
+    <Text size="$md">Font Size: md (base);</Text>
+    <Text size="$xl">Font Size: xl;</Text>
+    <Text size="$2xl">Font Size: 2xl;</Text>
+    <Text size="$3xl">Font Size: 3xl;</Text>
   </>
 );
 
@@ -111,10 +112,10 @@ export const Composed = () => (
   <>
     <Text weight="hairline">{largeText}</Text>
     <Text>
-      <Text small del>
+      <Text del small>
         {shortText}
       </Text>
-      <Text small b>
+      <Text b small>
         {shortText}
       </Text>
     </Text>

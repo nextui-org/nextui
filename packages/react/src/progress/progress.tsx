@@ -1,15 +1,14 @@
-import React, { useMemo } from 'react';
-import CSSTransition from '../utils/css-transition';
-import withDefaults from '../utils/with-defaults';
-import { valueToPercent } from '../utils/numbers';
-import { CSS } from '../theme/stitches.config';
-import {
-  StyledProgress,
-  StyledProgressBar,
-  ProgressVariantsProps
-} from './progress.styles';
-import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {useMemo} from "react";
+
+import CSSTransition from "../utils/css-transition";
+import withDefaults from "../utils/with-defaults";
+import {valueToPercent} from "../utils/numbers";
+import clsx from "../utils/clsx";
+import {__DEV__} from "../utils/assertion";
+
+import {StyledProgress, StyledProgressBar, ProgressVariantsProps} from "./progress.styles";
 
 interface Props {
   value: number;
@@ -30,22 +29,17 @@ const defaultProps = {
   indeterminated: false,
   value: 0,
   min: 0,
-  max: 100
+  max: 100,
 };
 
 type NativeAttrs = Omit<
-  Partial<
-    React.ProgressHTMLAttributes<unknown> & React.HTMLAttributes<unknown>
-  >,
+  Partial<React.ProgressHTMLAttributes<unknown> & React.HTMLAttributes<unknown>>,
   keyof Props
 >;
 
-export type ProgressProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  ProgressVariantsProps;
+export type ProgressProps = Props & typeof defaultProps & NativeAttrs & ProgressVariantsProps;
 
-const preClass = 'nextui-progress';
+const preClass = "nextui-progress";
 
 const Progress: React.FC<ProgressProps> = ({
   value: valueProp,
@@ -60,49 +54,46 @@ const Progress: React.FC<ProgressProps> = ({
 }) => {
   const value = useMemo(
     () => (valueProp > max ? max : valueProp < min ? min : valueProp),
-    [valueProp, min, max]
+    [valueProp, min, max],
   );
 
-  const percent = useMemo(
-    () => valueToPercent(value, min, max),
-    [value, min, max]
-  );
+  const percent = useMemo(() => valueToPercent(value, min, max), [value, min, max]);
 
   return (
     <StyledProgress
-      role="progressbar"
-      indeterminated={indeterminated}
       css={{
-        'nextui-progress-wrapper-enter': {
-          opacity: 0
+        "nextui-progress-wrapper-enter": {
+          opacity: 0,
         },
-        '.nextui-progress-wrapper-enter-active': {
+        ".nextui-progress-wrapper-enter-active": {
           opacity: 1,
-          width: `${percent}%`
+          width: `${percent}%`,
         },
-        ...(css as any)
+        ...css,
       }}
+      indeterminated={indeterminated}
+      role="progressbar"
       {...props}
     >
       <CSSTransition
         visible
-        name={`${preClass}-wrapper`}
+        clearTime={300}
         enterTime={10}
         leaveTime={20}
-        clearTime={300}
+        name={`${preClass}-wrapper`}
       >
         <StyledProgressBar
+          animated={animated}
+          aria-valuemax={max}
+          aria-valuemin={min}
+          aria-valuenow={value}
           className={clsx(`${preClass}-bar`, {
             [`${preClass}-striped`]: striped,
-            [`${preClass}-indeterminated`]: indeterminated
+            [`${preClass}-indeterminated`]: indeterminated,
           })}
-          aria-valuenow={value}
-          aria-valuemin={min}
-          aria-valuemax={max}
-          striped={striped}
-          animated={animated}
-          shadow={shadow}
           indeterminated={indeterminated}
+          shadow={shadow}
+          striped={striped}
           {...props}
         />
       </CSSTransition>
@@ -111,10 +102,10 @@ const Progress: React.FC<ProgressProps> = ({
 };
 
 if (__DEV__) {
-  Progress.displayName = 'NextUI.Progress';
+  Progress.displayName = "NextUI.Progress";
 }
 
-Progress.toString = () => '.nextui-progress';
+Progress.toString = () => ".nextui-progress";
 
 const MemoProgress = React.memo(Progress);
 

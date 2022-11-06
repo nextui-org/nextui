@@ -1,4 +1,4 @@
-const App = `import { Card, Grid, Text, Divider, Button, Row } from "@nextui-org/react";
+const App = `import { Card, Grid, Text, Button, Row } from "@nextui-org/react";
 
 export default function App() {
   return (
@@ -8,14 +8,14 @@ export default function App() {
           <Card.Header>
             <Text b>Card Title</Text>
           </Card.Header>
-          <Divider />
+          <Card.Divider />
           <Card.Body css={{ py: "$10" }}>
             <Text>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Text>
           </Card.Body>
-          <Divider />
+          <Card.Divider />
           <Card.Footer>
             <Row justify="flex-end">
               <Button size="sm" light>
@@ -31,14 +31,14 @@ export default function App() {
           <Card.Header>
             <Text b>Card Title</Text>
           </Card.Header>
-          <Divider />
+          <Card.Divider />
           <Card.Body css={{ py: "$10" }}>
             <Text>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Text>
           </Card.Body>
-          <Divider />
+          <Card.Divider />
           <Card.Footer>
             <Row justify="flex-end">
               <Button size="sm" light>
@@ -56,9 +56,9 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

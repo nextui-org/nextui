@@ -1,19 +1,20 @@
-import React from 'react';
-import { StyledLinkIcon } from './link.styles';
+import React from "react";
+
+import {StyledLinkIcon} from "./link.styles";
 
 export const LinkIcon: React.FC<{}> = () => {
   return (
     <StyledLinkIcon
-      viewBox="0 0 24 24"
-      width="1em"
+      className="nextui-link-icon"
+      fill="none"
       height="1em"
+      shapeRendering="geometricPrecision"
       stroke="currentColor"
-      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      fill="none"
-      shapeRendering="geometricPrecision"
-      className="nextui-link-icon"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      width="1em"
     >
       <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
       <path d="M15 3h6v6" />
@@ -22,6 +23,6 @@ export const LinkIcon: React.FC<{}> = () => {
   );
 };
 
-LinkIcon.toString = () => '.nextui-link-icon';
+LinkIcon.toString = () => ".nextui-link-icon";
 
 export default React.memo(LinkIcon);

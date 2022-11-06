@@ -1,11 +1,11 @@
-import React, { useMemo, useEffect, useState } from 'react';
-import clsx from '../utils/clsx';
-import { CSS } from '../theme/stitches.config';
-import {
-  StyledPaginationHighlight,
-  PaginationHighlightVariantsProps
-} from './pagination.styles';
-import { mergeProps } from '@react-aria/utils';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {useMemo, useEffect, useState} from "react";
+import {mergeProps} from "@react-aria/utils";
+
+import clsx from "../utils/clsx";
+
+import {StyledPaginationHighlight, PaginationHighlightVariantsProps} from "./pagination.styles";
 
 interface Props {
   active: number;
@@ -18,11 +18,9 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type PaginationHighlightProps = Props &
-  NativeAttrs &
-  PaginationHighlightVariantsProps;
+export type PaginationHighlightProps = Props & NativeAttrs & PaginationHighlightVariantsProps;
 
-const preClass = 'nextui-pagination-highlight';
+const preClass = "nextui-pagination-highlight";
 
 const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   active,
@@ -33,14 +31,14 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   ...props
 }) => {
   const [selfActive, setSelfActive] = useState(active);
-  const [moveClassName, setMoveClassName] = useState('');
+  const [moveClassName, setMoveClassName] = useState("");
 
   useEffect(() => {
     if (active !== selfActive) {
       setSelfActive(active);
       setMoveClassName(`${preClass}--moving`);
       const timer = setTimeout(() => {
-        setMoveClassName('');
+        setMoveClassName("");
         clearTimeout(timer);
       }, 350);
     }
@@ -50,17 +48,13 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
     () =>
       noMargin
         ? `var(--nextui--paginationSize) * ${selfActive}`
-        : `var(--nextui--paginationSize) * ${selfActive} + ${
-            selfActive * 4 + 2
-          }px`,
-    [selfActive, noMargin]
+        : `var(--nextui--paginationSize) * ${selfActive} + ${selfActive * 4 + 2}px`,
+    [selfActive, noMargin],
   );
 
   return (
     <StyledPaginationHighlight
       aria-hidden={true}
-      shadow={shadow}
-      rounded={rounded}
       className={clsx(
         preClass,
         moveClassName,
@@ -68,24 +62,20 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
           [`${preClass}--rounded`]: rounded,
           [`${preClass}--active`]: active,
           [`${preClass}--no-margin`]: noMargin,
-          [`${preClass}--shadow`]: shadow
+          [`${preClass}--shadow`]: shadow,
         },
-        props.className
+        props.className,
       )}
+      css={{left: "var(--nextui--paginationLeft)", ...css}}
       noMargin={noMargin}
-      style={mergeProps(
-        { '--nextui--paginationLeft': `calc(${leftValue})` },
-        props?.style || {}
-      )}
-      css={{
-        left: 'var(--nextui--paginationLeft)',
-        ...(css as any)
-      }}
+      rounded={rounded}
+      shadow={shadow}
+      style={mergeProps({"--nextui--paginationLeft": `calc(${leftValue})`}, props?.style || {})}
       {...props}
     />
   );
 };
 
-PaginationHighlight.toString = () => '.nextui-pagination-highlight';
+PaginationHighlight.toString = () => ".nextui-pagination-highlight";
 
 export default PaginationHighlight;

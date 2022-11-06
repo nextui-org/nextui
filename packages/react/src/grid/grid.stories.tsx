@@ -1,31 +1,35 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Grid from './index';
-import { Card, Spacer } from '../index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Card, Spacer} from "../index";
+
+import Grid from "./index";
 
 export default {
-  title: 'Layout/Grid',
-  component: Grid
+  title: "Layout/Grid",
+  component: Grid,
 } as Meta;
 
 const MockItem = () => {
   return (
-    <Card color="primary" shadow style={{ width: '100%', height: '100px' }} />
+    <Card color="primary" style={{width: "100%", height: "100px"}}>
+      <Card.Body />
+    </Card>
   );
 };
 
 export const Default = () => (
   <Grid.Container gap={2} justify="center">
-    <Grid xs={6} sm={3}>
+    <Grid sm={3} xs={6}>
       <MockItem />
     </Grid>
-    <Grid xs={6} sm={3}>
+    <Grid sm={3} xs={6}>
       <MockItem />
     </Grid>
-    <Grid xs={6} sm={3}>
+    <Grid sm={3} xs={6}>
       <MockItem />
     </Grid>
-    <Grid xs={6} sm={3}>
+    <Grid sm={3} xs={6}>
       <MockItem />
     </Grid>
   </Grid.Container>
@@ -68,19 +72,19 @@ export const Fluid = () => (
 
 export const Responsive = () => (
   <Grid.Container gap={2} justify="center">
-    <Grid xs={12} md={6}>
+    <Grid md={6} xs={12}>
       <MockItem />
     </Grid>
-    <Grid xs={12} md={6}>
+    <Grid md={6} xs={12}>
       <MockItem />
     </Grid>
-    <Grid xs={6} md={3}>
+    <Grid md={3} xs={6}>
       <MockItem />
     </Grid>
-    <Grid xs={6} md={2}>
+    <Grid md={2} xs={6}>
       <MockItem />
     </Grid>
-    <Grid xs={6} md={3}>
+    <Grid md={3} xs={6}>
       <MockItem />
     </Grid>
   </Grid.Container>
@@ -88,10 +92,10 @@ export const Responsive = () => (
 
 export const HideElements = () => (
   <Grid.Container gap={2} justify="center">
-    <Grid xs={0} md={6}>
+    <Grid md={6} xs={0}>
       <MockItem />
     </Grid>
-    <Grid xs={0} md={6}>
+    <Grid md={6} xs={0}>
       <MockItem />
     </Grid>
     <Grid xs={12}>

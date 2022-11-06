@@ -1,243 +1,234 @@
-import {
-  styled,
-  sharedFocus,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import {styled, VariantProps} from "../theme/stitches.config";
+import {sharedFocus, cssFocusVisible} from "../theme/shared-css";
 
 export const StyledCollapse = styled(
-  'div',
+  "div",
   {
-    transition: '$default',
-    '.nextui-collapse-title-content': {
-      w: '100%',
-      'h1,h2,h3,h4,h5,h6,p,span,b': {
-        margin: 0
-      }
-    },
-    '.nextui-collapse-title-container': {
-      d: 'flex',
-      jc: 'space-between',
-      ai: 'center'
-    },
-    '.nextui-collapse-title': {
-      color: '$foreground'
-    },
-    '.nextui-collapse-subtitle': {
-      color: '$accents7',
-      margin: 0,
-      '*': {
-        margin: 0
-      }
-    },
-    '.nextui-collapse-title-content-left': {
-      mr: '$sm'
-    },
-    '.nextui-collapse-title-content-left, .nextui-collapse-title-content-right':
-      {
-        d: 'flex',
-        ai: 'center'
+    transition: "$default",
+    ".nextui-collapse-title-content": {
+      w: "100%",
+      "h1,h2,h3,h4,h5,h6,p,span,b": {
+        margin: 0,
       },
-    '@motion': {
-      transition: 'none',
-      '.nextui-collapse-title-content-right ': {
+    },
+    ".nextui-collapse-title-container": {
+      d: "flex",
+      jc: "space-between",
+      ai: "center",
+    },
+    ".nextui-collapse-title": {
+      color: "$foreground",
+    },
+    ".nextui-collapse-subtitle": {
+      color: "$accents7",
+      margin: 0,
+      "*": {
+        margin: 0,
+      },
+    },
+    ".nextui-collapse-title-content-left": {
+      mr: "$sm",
+    },
+    ".nextui-collapse-title-content-left, .nextui-collapse-title-content-right": {
+      d: "flex",
+      ai: "center",
+    },
+    "@motion": {
+      transition: "none",
+      ".nextui-collapse-title-content-right ": {
         svg: {
-          transition: 'none'
-        }
-      }
+          transition: "none",
+        },
+      },
     },
     variants: {
       shadow: {
         true: {
-          border: 'none',
-          boxShadow: '$md',
-          br: '$lg',
-          p: '0 $lg',
-          bg: '$backgroundContrast'
-        }
+          border: "none",
+          boxShadow: "$md",
+          br: "$lg",
+          p: "0 $lg",
+          bg: "$backgroundContrast",
+        },
       },
       borderWeight: {
         light: {
-          $$collapseBorderWidth: '$borderWeights$light'
+          $$collapseBorderWidth: "$borderWeights$light",
         },
         normal: {
-          $$collapseBorderWidth: '$borderWeights$normal'
+          $$collapseBorderWidth: "$borderWeights$normal",
         },
         bold: {
-          $$collapseBorderWidth: '$borderWeights$bold'
+          $$collapseBorderWidth: "$borderWeights$bold",
         },
         extrabold: {
-          $$collapseBorderWidth: '$borderWeights$extrabold'
+          $$collapseBorderWidth: "$borderWeights$extrabold",
         },
         black: {
-          $$collapseBorderWidth: '$borderWeights$black'
-        }
+          $$collapseBorderWidth: "$borderWeights$black",
+        },
       },
       divider: {
         true: {
-          borderTop: '$$collapseBorderWidth solid $border',
-          borderBottom: '$$collapseBorderWidth solid $border'
-        }
+          borderTop: "$$collapseBorderWidth solid $border",
+          borderBottom: "$$collapseBorderWidth solid $border",
+        },
       },
       bordered: {
         true: {
-          br: '$lg',
-          p: '0 $lg',
-          border: '$$collapseBorderWidth solid $border'
-        }
+          br: "$lg",
+          p: "0 $lg",
+          border: "$$collapseBorderWidth solid $border",
+        },
       },
       animated: {
         true: {
-          '.nextui-collapse-title-content-right ': {
+          ".nextui-collapse-title-content-right ": {
             svg: {
-              transition: 'transform 200ms ease'
-            }
-          }
+              transition: "transform 200ms ease",
+            },
+          },
         },
         false: {
-          transition: 'none'
-        }
+          transition: "none",
+        },
       },
       visible: {
         true: {
-          '.nextui-collapse-title-content-right ': {
+          ".nextui-collapse-title-content-right ": {
             svg: {
-              transform: 'rotateZ(-90deg)'
-            }
-          }
+              transform: "rotateZ(-90deg)",
+            },
+          },
         },
         false: {
-          '.nextui-collapse-title-content-right': {
+          ".nextui-collapse-title-content-right": {
             svg: {
-              transform: 'rotateZ(0deg)'
-            }
-          }
-        }
-      }
+              transform: "rotateZ(0deg)",
+            },
+          },
+        },
+      },
     },
     defaultVariants: {
-      borderWeight: 'light'
-    }
+      borderWeight: "light",
+    },
   },
-  sharedFocus
+  sharedFocus,
 );
 
 export const StyledCollapseView = styled(
-  'div',
+  "div",
   {
-    w: '100%',
-    d: 'block',
-    ta: 'left',
-    bg: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    outline: 'none',
-    padding: '$lg 0',
+    w: "100%",
+    d: "block",
+    ta: "left",
+    bg: "transparent",
+    border: "none",
+    cursor: "pointer",
+    outline: "none",
+    padding: "$lg 0",
     variants: {
       disabled: {
         true: {
-          cursor: 'not-allowed',
-          '.nextui-collapse-title, .nextui-collapse-subtitle': {
-            opacity: 0.5
-          }
-        }
-      }
-    }
+          cursor: "not-allowed",
+          ".nextui-collapse-title, .nextui-collapse-subtitle": {
+            opacity: 0.5,
+          },
+        },
+      },
+    },
   },
-  cssFocusVisible
+  cssFocusVisible,
 );
 
-export const StyledCollapseContent = styled('div', {
-  fontSize: '$base',
-  lineHeight: '$lg',
-  pb: '$lg',
-  '*:first-child': {
-    mt: 0
+export const StyledCollapseContent = styled("div", {
+  fontSize: "$base",
+  lineHeight: "$lg",
+  pb: "$lg",
+  "*:first-child": {
+    mt: 0,
   },
-  '*:last-child': {
-    mb: 0
-  }
+  "*:last-child": {
+    mb: 0,
+  },
 });
 
-export const StyledCollapseIcon = styled('svg', {
+export const StyledCollapseIcon = styled("svg", {
   path: {
-    stroke: '$accents7'
-  }
+    stroke: "$accents7",
+  },
 });
 
-export const StyledCollapseGroup = styled('div', {
-  width: 'auto',
-  padding: '0 $sm',
-  'div + div': {
-    borderTop: 'none'
+export const StyledCollapseGroup = styled("div", {
+  width: "auto",
+  padding: "0 $sm",
+  "div + div": {
+    borderTop: "none",
   },
   [`& ${StyledCollapse}:first-child`]: {
-    borderTop: 'none'
+    borderTop: "none",
   },
   [`& ${StyledCollapse}:last-child`]: {
-    borderBottom: 'none'
+    borderBottom: "none",
   },
   variants: {
     borderWeight: {
       light: {
-        $$collapseGroupBorderWidth: '$borderWeights$light'
+        $$collapseGroupBorderWidth: "$borderWeights$light",
       },
       normal: {
-        $$collapseGroupBorderWidth: '$borderWeights$normal'
+        $$collapseGroupBorderWidth: "$borderWeights$normal",
       },
       bold: {
-        $$collapseGroupBorderWidth: '$borderWeights$bold'
+        $$collapseGroupBorderWidth: "$borderWeights$bold",
       },
       extrabold: {
-        $$collapseGroupBorderWidth: '$borderWeights$extrabold'
+        $$collapseGroupBorderWidth: "$borderWeights$extrabold",
       },
       black: {
-        $$collapseGroupBorderWidth: '$borderWeights$black'
-      }
+        $$collapseGroupBorderWidth: "$borderWeights$black",
+      },
     },
     shadow: {
       true: {
-        br: '$lg',
-        border: 'none',
-        boxShadow: '$md',
-        p: '0 $lg',
-        bg: '$backgroundContrast'
-      }
+        br: "$lg",
+        border: "none",
+        boxShadow: "$md",
+        p: "0 $lg",
+        bg: "$backgroundContrast",
+      },
     },
     bordered: {
       true: {
-        br: '$lg',
-        p: '0 $lg',
-        border: '$$collapseGroupBorderWidth solid $border'
-      }
+        br: "$lg",
+        p: "0 $lg",
+        border: "$$collapseGroupBorderWidth solid $border",
+      },
     },
     splitted: {
       true: {
         [`& ${StyledCollapse}`]: {
-          br: '$lg',
-          border: 'none',
-          bg: '$backgroundContrast',
-          boxShadow: '$md',
-          p: '0 $lg',
-          margin: '$md 0'
-        }
-      }
-    }
+          br: "$lg",
+          border: "none",
+          bg: "$backgroundContrast",
+          boxShadow: "$md",
+          p: "0 $lg",
+          margin: "$md 0",
+        },
+      },
+    },
   },
   defaultVariants: {
-    borderWeight: 'light',
+    borderWeight: "light",
     shadow: false,
     bordered: false,
-    splitted: false
-  }
+    splitted: false,
+  },
 });
 
 export type CollapseVariantsProps = VariantProps<typeof StyledCollapse>;
 export type CollapseViewVariantsProps = VariantProps<typeof StyledCollapseView>;
-export type CollapseContentVariantsProps = VariantProps<
-  typeof StyledCollapseContent
->;
+export type CollapseContentVariantsProps = VariantProps<typeof StyledCollapseContent>;
 export type CollapseIconVariantsProps = VariantProps<typeof StyledCollapseIcon>;
-export type CollapseGroupVariantsProps = VariantProps<
-  typeof StyledCollapseGroup
->;
+export type CollapseGroupVariantsProps = VariantProps<typeof StyledCollapseGroup>;

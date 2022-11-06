@@ -58,7 +58,7 @@ const SunIcon = `export const SunIcon = ({
   );
 };`;
 
-const SendIcon = `const SendIcon = ({
+const SendIcon = `export const SendIcon = ({
   fill = "currentColor",
   filled,
   size,
@@ -169,12 +169,12 @@ export default function App() {
 }`;
 
 const react = {
-  '/SunIcon.js': SunIcon,
-  '/App.js': AppJs,
-  '/SendButton.js': SendButton,
-  '/SendIcon.js': SendIcon
+  "/SunIcon.js": SunIcon,
+  "/App.js": AppJs,
+  "/SendButton.js": SendButton,
+  "/SendIcon.js": SendIcon,
 };
 
 export default {
-  ...react
+  ...react,
 };

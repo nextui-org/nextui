@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {
   PropsWithoutRef,
   RefAttributes,
@@ -5,16 +7,17 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState
-} from 'react';
-import { useLabel } from '@react-aria/label';
-import { ContentPosition } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import Textarea from '../textarea';
-import InputPassword from './input-password';
-import { Props, FormElement, defaultProps } from './input-props';
-import useTheme from '../use-theme';
-import useWarning from '../use-warning';
+  useState,
+} from "react";
+import {useLabel} from "@react-aria/label";
+
+import {ContentPosition} from "../utils/prop-types";
+import useTheme from "../use-theme";
+import {warn} from "../utils/console";
+import ClearIcon from "../utils/clear-icon";
+import clsx from "../utils/clsx";
+import {__DEV__} from "../utils/assertion";
+
 import {
   StyledInput,
   StyledInputMainContainer,
@@ -26,34 +29,31 @@ import {
   StyledInputClearButton as InputClearButton,
   StyledInputBlockLabel as InputBlockLabel,
   StyledInputLabel as InputLabel,
-  StyledInputContent as InputContent
-} from './input.styles';
-import ClearIcon from '../utils/clear-icon';
-import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
+  StyledInputContent as InputContent,
+} from "./input.styles";
+import {Props, FormElement, defaultProps} from "./input-props";
+import InputPassword from "./input-password";
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
-export type InputProps = Props &
-  typeof defaultProps &
-  NativeAttrs & { css?: CSS };
+export type InputProps = Props & typeof defaultProps & NativeAttrs & {css?: CSS};
 
 const simulateChangeEvent = (
   el: FormElement,
-  event: React.MouseEvent<HTMLButtonElement>
+  event: React.MouseEvent<HTMLButtonElement>,
 ): React.ChangeEvent<FormElement> => {
   return {
     ...event,
     target: el,
-    currentTarget: el
+    currentTarget: el,
   };
 };
 
-const preClass = 'nextui-input';
+const preClass = "nextui-input";
 
 const Input = React.forwardRef<FormElement, InputProps>(
   (
     {
-      as: Component = 'input',
+      as: Component = "input",
       label,
       labelPlaceholder,
       labelLeft,
@@ -93,7 +93,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       css,
       ...props
     },
-    ref: React.Ref<FormElement | null>
+    ref: React.Ref<FormElement | null>,
   ) => {
     const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
@@ -102,40 +102,32 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
 
-    const { isDark } = useTheme();
+    const {isDark} = useTheme();
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
-    const inputLabel = useMemo(
-      () => label || labelPlaceholder,
-      [label, labelPlaceholder]
-    );
+    const inputLabel = useMemo(() => label || labelPlaceholder, [label, labelPlaceholder]);
 
     const inputPlaceholder = useMemo(
-      () => (labelPlaceholder ? '' : placeholder),
-      [placeholder, labelPlaceholder]
+      () => (labelPlaceholder ? "" : placeholder),
+      [placeholder, labelPlaceholder],
     );
 
     const width = useMemo(() => {
-      if (fullWidth) return '100%';
+      if (fullWidth) return "100%";
       if (widthProp) return widthProp;
-      return 'initial';
+
+      return "initial";
     }, [fullWidth, widthProp]);
 
     if (underlined && __DEV__) {
-      bordered &&
-        useWarning(
-          'Using underlined and bordered at the same time will have no effect.'
-        );
-      rounded &&
-        useWarning(
-          'Using underlined and rounded at the same time will have no effect.'
-        );
+      bordered && warn("Using underlined and bordered at the same time will have no effect.");
+      rounded && warn("Using underlined and rounded at the same time will have no effect.");
     }
 
     const changeHandler = (event: React.ChangeEvent<FormElement>) => {
       if (disabled || readOnly) return;
-      setSelfValue(event.target.value);
+      isControlledComponent || setSelfValue(event.target.value);
       onChange && onChange(event);
     };
 
@@ -144,13 +136,14 @@ const Input = React.forwardRef<FormElement, InputProps>(
       event.stopPropagation();
       event.nativeEvent.stopImmediatePropagation();
 
-      setSelfValue('');
+      isControlledComponent || setSelfValue("");
       onClearClick && onClearClick(event);
       /* istanbul ignore next */
       if (!inputRef.current) return;
 
       const changeEvent = simulateChangeEvent(inputRef.current, event);
-      changeEvent.target.value = '';
+
+      changeEvent.target.value = "";
       onChange && onChange(changeEvent);
       inputRef.current.focus();
     };
@@ -164,10 +157,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       onBlur && onBlur(e);
     };
 
-    const contentClickHandler = (
-      key: ContentPosition,
-      e: React.MouseEvent<HTMLDivElement>
-    ) => {
+    const contentClickHandler = (key: ContentPosition, e: React.MouseEvent<HTMLDivElement>) => {
       if (disabled) return;
       onContentClick && onContentClick(key, e);
     };
@@ -176,109 +166,99 @@ const Input = React.forwardRef<FormElement, InputProps>(
       if (isControlledComponent) {
         setSelfValue(value as string);
       }
-    });
+    }, [isControlledComponent, value]);
 
-    const isTextarea = useMemo(() => Component === 'textarea', [Component]);
+    const isTextarea = useMemo(() => Component === "textarea", [Component]);
 
     const controlledValue = isControlledComponent
-      ? { value: selfValue }
-      : { defaultValue: initialValue };
+      ? {value: selfValue}
+      : {defaultValue: initialValue};
 
     const inputProps = {
       ...props,
-      ...controlledValue
+      ...controlledValue,
     };
 
-    const { labelProps, fieldProps } = useLabel({
+    const {labelProps, fieldProps} = useLabel({
       ...inputProps,
-      label: inputLabel
+      label: inputLabel,
     });
 
     const getState = useMemo(() => {
       return hover
-        ? 'hover'
+        ? "hover"
         : disabled
-        ? 'disabled'
+        ? "disabled"
         : readOnly
-        ? 'read-only'
+        ? "read-only"
         : selfValue
-        ? 'with-value'
-        : 'normal';
+        ? "with-value"
+        : "normal";
     }, [hover, disabled, readOnly, selfValue]);
 
     return (
       <StyledInputMainContainer
-        color={color}
-        data-state={getState}
-        helperColor={helperColor}
         borderWeight={borderWeight}
-        status={status}
-        size={size}
-        rounded={rounded}
+        className={clsx(`${preClass}-main-container`, `${preClass}-main-container--${getState}`)}
+        color={color}
+        css={{width, ...css}}
+        data-state={getState}
         disabled={disabled}
-        css={{
-          width,
-          ...(css as any)
-        }}
-        className={clsx(
-          `${preClass}-main-container`,
-          `${preClass}-main-container--${getState}`
-        )}
+        helperColor={helperColor}
+        rounded={rounded}
+        size={size}
+        status={status}
       >
         {inputLabel && (
           <InputBlockLabel
-            id={labelProps.id}
-            className={`${preClass}-block-label`}
-            htmlFor={labelProps.htmlFor}
-            isTextarea={isTextarea}
-            underlined={underlined}
             animated={animated}
-            bordered={bordered}
-            rounded={rounded}
-            hasContentLeft={!!contentLeft}
-            withValue={!!selfValue}
             asPlaceholder={!!labelPlaceholder}
+            bordered={bordered}
+            className={`${preClass}-block-label`}
             focused={hover}
+            hasContentLeft={!!contentLeft}
+            htmlFor={"htmlFor" in labelProps ? labelProps.htmlFor : ""}
+            id={labelProps.id}
+            isTextarea={isTextarea}
+            rounded={rounded}
+            underlined={underlined}
+            withValue={!!selfValue}
           >
             {inputLabel}
           </InputBlockLabel>
         )}
         <StyledInputContainer
           animated={animated}
-          isTextarea={isTextarea}
-          underlined={underlined}
-          isReadOnly={readOnly}
-          focused={hover}
           className={clsx(
             `${preClass}-container`,
             `${preClass}-container--${getState}`,
             {
               [`${preClass}-container--input`]: !isTextarea,
               [`${preClass}-container--textarea`]: isTextarea,
-              [`${preClass}-container--read-only`]: readOnly
+              [`${preClass}-container--read-only`]: readOnly,
             },
-            className
+            className,
           )}
+          focused={hover}
+          isReadOnly={readOnly}
+          isTextarea={isTextarea}
+          underlined={underlined}
         >
           <StyledInputWrapper
-            as={inputLabel ? 'div' : 'label'}
             animated={animated}
+            as={inputLabel ? "div" : "label"}
             bordered={bordered}
-            shadow={shadow}
+            className={clsx(`${preClass}-wrapper`, `${preClass}-wrapper--${getState}`, {
+              [`${preClass}-wrapper--bordered`]: bordered,
+              [`${preClass}-wrapper--underlined`]: underlined,
+              [`${preClass}-wrapper--shadow`]: shadow,
+            })}
             disabled={disabled}
             focused={hover}
             isReadOnly={readOnly}
-            underlined={underlined}
             isTextarea={isTextarea}
-            className={clsx(
-              `${preClass}-wrapper`,
-              `${preClass}-wrapper--${getState}`,
-              {
-                [`${preClass}-wrapper--bordered`]: bordered,
-                [`${preClass}-wrapper--underlined`]: underlined,
-                [`${preClass}-wrapper--shadow`]: shadow
-              }
-            )}
+            shadow={shadow}
+            underlined={underlined}
           >
             {!inputLabel && placeholder && (
               <StyledInputPlaceholder className={`${preClass}-placeholder`}>
@@ -287,72 +267,67 @@ const Input = React.forwardRef<FormElement, InputProps>(
             )}
             {labelLeft && (
               <InputLabel
-                className={`${preClass}-label--left`}
-                isDefaultStatus={status === 'default'}
-                underlined={underlined}
                 bordered={bordered}
+                className={`${preClass}-label--left`}
                 isDark={isDark}
+                isDefaultStatus={status === "default"}
+                underlined={underlined}
               >
                 {labelLeft}
               </InputLabel>
             )}
             {contentLeft && (
               <InputContent
-                className={clsx(
-                  `${preClass}-content`,
-                  `${preClass}-content--left`
-                )}
                 applyStyles={contentLeftStyling}
+                className={clsx(`${preClass}-content`, `${preClass}-content--left`)}
                 clickable={contentClickable}
-                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                  contentClickHandler('left', e)
-                }
+                onClick={(e: React.MouseEvent<HTMLDivElement>) => contentClickHandler("left", e)}
               >
                 {contentLeft}
               </InputContent>
             )}
             <StyledInput
-              type="text"
-              as={Component}
               ref={inputRef}
+              aria-multiline={isTextarea}
+              aria-placeholder={inputPlaceholder}
+              aria-readonly={readOnly}
+              aria-required={required}
+              as={Component}
+              autoComplete={autoComplete}
+              bordered={bordered}
               className={clsx({
                 [`${preClass}`]: !isTextarea,
                 [`${preClass}-textarea`]: isTextarea,
                 [`${preClass}-disabled`]: disabled,
                 [`${preClass}-rounded`]: rounded,
                 [`${preClass}-${preClass}-right-content`]: contentRight,
-                [`${preClass}-left-content`]: contentLeft
+                [`${preClass}-left-content`]: contentLeft,
               })}
-              isTextarea={isTextarea}
-              focused={hover}
-              bordered={bordered}
-              placeholder={inputPlaceholder}
+              data-state={getState}
               disabled={disabled}
-              readOnly={readOnly}
-              required={required}
-              onFocus={focusHandler}
-              onBlur={blurHandler}
-              onChange={changeHandler}
-              autoComplete={autoComplete}
+              focused={hover}
               hasLeftContent={!!contentLeft}
               hasRightContent={!!contentRight}
-              data-state={getState}
-              aria-placeholder={inputPlaceholder}
-              aria-readonly={readOnly}
-              aria-required={required}
-              aria-multiline={isTextarea}
+              isTextarea={isTextarea}
+              placeholder={inputPlaceholder}
+              readOnly={readOnly}
+              required={required}
+              type="text"
+              onBlur={blurHandler}
+              onChange={changeHandler}
+              onFocus={focusHandler}
               {...inputProps}
               {...fieldProps}
             />
             {clearable && (
               <InputClearButton
-                type="button"
-                className={`${preClass}-clear-button`}
                 animated={animated}
+                className={`${preClass}-clear-button`}
+                disabled={disabled || readOnly}
+                hasContentRight={!!contentRight}
+                type="button"
                 underlined={underlined}
                 visible={Boolean(selfValue)}
-                hasContentRight={!!contentRight}
-                disabled={disabled || readOnly}
                 onClick={clearHandler}
               >
                 <ClearIcon fill="currentColor" />
@@ -360,27 +335,22 @@ const Input = React.forwardRef<FormElement, InputProps>(
             )}
             {contentRight && (
               <InputContent
-                className={clsx(
-                  `${preClass}-content`,
-                  `${preClass}-content--right`
-                )}
                 applyStyles={contentRightStyling}
+                className={clsx(`${preClass}-content`, `${preClass}-content--right`)}
                 clickable={contentClickable}
-                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
-                  contentClickHandler('right', e)
-                }
+                onClick={(e: React.MouseEvent<HTMLDivElement>) => contentClickHandler("right", e)}
               >
                 {contentRight}
               </InputContent>
             )}
             {labelRight && (
               <InputLabel
-                className={`${preClass}-label--right`}
-                isDefaultStatus={status === 'default'}
-                underlined={underlined}
                 bordered={bordered}
-                isRight={true}
+                className={`${preClass}-label--right`}
                 isDark={isDark}
+                isDefaultStatus={status === "default"}
+                isRight={true}
+                underlined={underlined}
               >
                 {labelRight}
               </InputLabel>
@@ -392,31 +362,28 @@ const Input = React.forwardRef<FormElement, InputProps>(
           withValue={!!helperText}
         >
           {helperText && (
-            <StyledHelperText className={`${preClass}-helper-text`}>
-              {helperText}
-            </StyledHelperText>
+            <StyledHelperText className={`${preClass}-helper-text`}>{helperText}</StyledHelperText>
           )}
         </StyledHelperTextContainer>
       </StyledInputMainContainer>
     );
-  }
+  },
 );
 
 type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {
-  Textarea: typeof Textarea;
   Password: typeof InputPassword;
 };
 
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs & { css?: CSS };
+  NativeAttrs & {css?: CSS};
 
-Input.displayName = 'NextUI.Input';
+Input.displayName = "NextUI.Input";
 
 Input.defaultProps = defaultProps;
 
-Input.toString = () => '.nextui-input';
+Input.toString = () => ".nextui-input";
 
 export default Input as InputComponent<FormElement, ComponentProps>;

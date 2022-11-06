@@ -1,19 +1,23 @@
-import React, { ReactNode } from 'react';
-import { useModal, useOverlay, DismissButton } from '@react-aria/overlays';
-import { useDialog } from '@react-aria/dialog';
-import { FocusScope, useFocusRing } from '@react-aria/focus';
-import { mergeProps } from '@react-aria/utils';
-import { CSS } from '../theme/stitches.config';
-import CSSTransition from '../utils/css-transition';
-import { __DEV__ } from '../utils/assertion';
-import { mergeRefs, ReactRef } from '../utils/refs';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {ReactNode, useMemo} from "react";
+import {useModal, useOverlay, DismissButton} from "@react-aria/overlays";
+import {useDialog} from "@react-aria/dialog";
+import {FocusScope, useFocusRing} from "@react-aria/focus";
+import {mergeProps} from "@react-aria/utils";
+
+import CSSTransition from "../utils/css-transition";
+import {__DEV__} from "../utils/assertion";
+import {mergeRefs, ReactRef} from "../utils/refs";
+import clsx from "../utils/clsx";
+
 import {
   StyledPopoverContentContainer,
-  StyledPopoverContent
-} from './popover.styles';
-import { usePopoverContext } from './popover-context';
-import { getTransformOrigin } from './utils';
-import clsx from '../utils/clsx';
+  StyledPopoverContent,
+  PopoverContentVariantsProps,
+} from "./popover.styles";
+import {usePopoverContext} from "./popover-context";
+import {getTransformOrigin} from "./utils";
 
 interface Props {
   children: ReactNode;
@@ -22,77 +26,78 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type PopoverContentProps = Props & NativeAttrs & { css?: CSS };
+export type PopoverContentProps = Props & NativeAttrs & PopoverContentVariantsProps & {css?: CSS};
 
-export const PopoverContent = React.forwardRef(
+const PopoverContent = React.forwardRef(
   (props: PopoverContentProps, ref: ReactRef<HTMLDivElement>) => {
-    const { children, as, css, className, ...otherProps } = props;
+    const {children, as, css, className, ...otherProps} = props;
 
     const {
       state,
       placement,
       overlayRef,
       disableAnimation,
+      disableShadow,
       shouldCloseOnBlur,
       isDismissable,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside,
       getPopoverProps,
+      isBordered,
+      borderWeight,
       onClose,
       onEntered,
-      onExited
+      onExited,
     } = usePopoverContext();
 
     const transformOrigin = getTransformOrigin(placement);
 
-    // Hide content outside the modal from screen readers.
-    const { modalProps } = useModal({ isDisabled: true });
+    const popoverCss = useMemo<CSS>(() => {
+      return {
+        transformOrigin,
+        ...css,
+      };
+    }, [transformOrigin, css]);
 
-    const { dialogProps } = useDialog(
+    // Hide content outside the modal from screen readers.
+    const {modalProps} = useModal({isDisabled: true});
+
+    const {dialogProps} = useDialog(
       {
-        role: 'dialog'
+        role: "dialog",
       },
-      overlayRef
+      overlayRef,
     );
 
-    const { overlayProps } = useOverlay(
+    const {overlayProps} = useOverlay(
       {
         onClose,
         isOpen: state.isOpen,
         isDismissable: isDismissable && state.isOpen,
         shouldCloseOnBlur,
         isKeyboardDismissDisabled,
-        shouldCloseOnInteractOutside
+        shouldCloseOnInteractOutside,
       },
-      overlayRef
+      overlayRef,
     );
 
-    const { isFocusVisible, focusProps } = useFocusRing();
+    const completeProps = mergeProps({isBordered, disableShadow, borderWeight}, otherProps);
+
+    const {isFocusVisible, focusProps} = useFocusRing();
 
     const contents = (
       <StyledPopoverContentContainer
         ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
-          mergeProps(
-            overlayProps,
-            modalProps,
-            dialogProps,
-            focusProps,
-            otherProps
-          )
+          mergeProps(overlayProps, modalProps, dialogProps, focusProps, completeProps),
+          popoverCss,
         )}
-        className={clsx('nextui-popover-content-container', className)}
-        isFocusVisible={isFocusVisible}
         as={as}
-        css={{
-          transformOrigin,
-          ...(css as any)
-        }}
+        className={clsx("nextui-popover-content-container", className)}
+        isFocusVisible={isFocusVisible}
       >
         <DismissButton onDismiss={onClose} />
-        <StyledPopoverContent className="nextui-popover-content">
-          {children}
-        </StyledPopoverContent>
+        <StyledPopoverContent className="nextui-popover-content">{children}</StyledPopoverContent>
         <DismissButton onDismiss={onClose} />
       </StyledPopoverContentContainer>
     );
@@ -102,13 +107,13 @@ export const PopoverContent = React.forwardRef(
         {!disableAnimation ? (
           <FocusScope restoreFocus>
             <CSSTransition
-              visible={state.isOpen}
-              name="nextui-popover-content"
+              clearTime={300}
               enterTime={20}
               leaveTime={60}
-              clearTime={300}
-              onExited={onExited}
+              name="nextui-popover-content"
+              visible={state.isOpen}
               onEntered={onEntered}
+              onExited={onExited}
             >
               {contents}
             </CSSTransition>
@@ -118,11 +123,17 @@ export const PopoverContent = React.forwardRef(
         ) : null}
       </>
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  PopoverContent.displayName = 'NextUI.PopoverContent';
+  PopoverContent.displayName = "NextUI.PopoverContent";
 }
 
-PopoverContent.toString = () => '.nextui-popover-content';
+PopoverContent.toString = () => ".nextui-popover-content";
+
+type PopoverContentComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<P> & React.RefAttributes<T>
+>;
+
+export default PopoverContent as PopoverContentComponent<HTMLDivElement, PopoverContentProps>;

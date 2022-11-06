@@ -1,28 +1,28 @@
-import React from 'react';
-import { useTheme, Text, Button, Grid, Row } from '@nextui-org/react';
+import React from "react";
+import {useTheme, Text, Button, Grid, Row} from "@nextui-org/react";
 
 const DeleteUser: React.FC = () => {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
 
   return (
     <Grid.Container className="delete-user__container">
-      <Row justify="center" align="center">
+      <Row align="center" justify="center">
         <Text b>Confirm</Text>
       </Row>
       <Row>
         <Text>
-          Are you sure you want to delete this user ?, by doing this, you will
-          not be able to recover the data.
+          Are you sure you want to delete this user ?, by doing this, you will not be able to
+          recover the data.
         </Text>
       </Row>
-      <Grid.Container justify="space-between" alignContent="center">
+      <Grid.Container alignContent="center" justify="space-between">
         <Grid>
-          <Button size="sm" light>
+          <Button light size="sm">
             Cancel
           </Button>
         </Grid>
         <Grid>
-          <Button size="sm" shadow color="error">
+          <Button shadow color="error" size="sm">
             Delete
           </Button>
         </Grid>

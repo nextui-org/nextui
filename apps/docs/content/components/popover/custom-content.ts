@@ -63,7 +63,7 @@ export const UserTwitterCard = () => {
               onClick={() => setFollowing(!following)}
               css={{
                 maxHeight: "$space$12",
-                fs: "$tiny",
+                fs: "$xs",
                 fontWeight: "$semibold",
                 borderColor: following ? "$foreground" : "$primary",
                 color: following ? "$foreground" : "$white"
@@ -143,24 +143,10 @@ export default function App() {
         <Popover >
           <Popover.Trigger>
             <User
+              as="button"
               src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
               name="Ariana Wattson"
               description="UI/UX Designer"
-              as="button"
-              css={{ 
-                px: 0,
-                transition: 'opacity 0.25s ease',
-                cursor:'pointer',
-                borderRadius: '$xs',
-                background:'none',
-                border:'none',
-                '&:focus-visible': {
-                  outline: '2px $primary solid',
-                },
-                '&:hover': {
-                  opacity: 0.8
-                },
-              }}
             />
           </Popover.Trigger>
           <Popover.Content css={{ px: '$4', py: '$2' }}>
@@ -173,11 +159,11 @@ export default function App() {
 }`;
 
 const react = {
-  '/UserTwitterCard.js': UserTwitterCard,
-  '/DeleteUser.js': DeleteUser,
-  '/App.js': App
+  "/UserTwitterCard.js": UserTwitterCard,
+  "/DeleteUser.js": DeleteUser,
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };
