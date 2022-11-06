@@ -46,7 +46,6 @@ const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
     return {
       color: "inherit",
       height: "100%",
-      width: "fit-content",
       ...css,
     };
   }, [color, css]);
