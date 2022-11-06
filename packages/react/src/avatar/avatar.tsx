@@ -1,10 +1,10 @@
 import type {FocusRingAria} from "@react-aria/focus";
+import type {CSS} from "../theme/stitches.config";
 
 import {useFocusRing} from "@react-aria/focus";
 import React, {useMemo, useState, useEffect} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import {ReactRef} from "../utils/refs";
 import {useDOMRef} from "../utils/dom";
 import {__DEV__} from "../utils/assertion";
@@ -60,6 +60,18 @@ export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSp
     return !ready && src ? "loading" : "ready";
   }, [src, ready]);
 
+  const getAsButtonCss = useMemo<CSS | undefined>(() => {
+    if (as !== "button") return;
+
+    // reset button styles
+    return {
+      appearance: "none",
+      outline: "none",
+      border: "none",
+      cursor: "pointer",
+    };
+  }, [as]);
+
   return (
     <StyledAvatar
       ref={domRef}
@@ -71,18 +83,7 @@ export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSp
         },
         className,
       )}
-      css={
-        as === "button"
-          ? {
-              // reset button styles
-              appearance: "none",
-              outline: "none",
-              border: "none",
-              cursor: "pointer",
-              ...css,
-            }
-          : css
-      }
+      css={{...getAsButtonCss, ...css}}
       data-state={getState}
       isFocusVisible={isFocusVisible}
     >

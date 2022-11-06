@@ -1,4 +1,5 @@
 import type {SimpleColors, DropdownVariants} from "../utils/prop-types";
+import type {CSS} from "../theme/stitches.config";
 
 import React, {RefAttributes, PropsWithoutRef} from "react";
 import {DOMProps, AriaLabelingProps} from "@react-types/shared";
@@ -9,7 +10,6 @@ import {mergeProps} from "@react-aria/utils";
 
 import Popover from "../popover";
 import {useDOMRef, useSyncRef} from "../utils/dom";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -45,8 +45,8 @@ export type DropdownMenuProps<T = object> = Props<T> & NativeAttrs & {css?: CSS}
 const DropdownMenu = React.forwardRef(
   (props: DropdownMenuProps, ref: React.Ref<HTMLUListElement | null>) => {
     const {
-      css = {},
       as,
+      css,
       color = "default",
       textColor = "default",
       variant = "flat",
@@ -71,7 +71,7 @@ const DropdownMenu = React.forwardRef(
           ref={domRef}
           as={as}
           className={clsx("nextui-dropdown-menu", props.className)}
-          css={{...(css as any)}}
+          css={css}
           {...menuProps}
         >
           {[...state.collection].map((item) => {

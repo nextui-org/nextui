@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useEffect, useRef, useState} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import useClickAway from "../use-click-away";
 import {Placement} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import {TriggerTypes} from "../utils/prop-types";
 
 import TooltipContent from "./tooltip-content";
@@ -27,6 +28,7 @@ interface Props {
   offset?: number;
   className?: string;
   keepMounted?: boolean;
+  isDisabled?: boolean;
   portalClassName?: string;
   onClick?: () => void;
   onVisibleChange?: TooltipOnVisibleChange;
@@ -41,6 +43,7 @@ const defaultProps = {
   shadow: true,
   rounded: false,
   keepMounted: false,
+  isDisabled: false,
   trigger: "hover" as TriggerTypes,
   enterDelay: 0,
   leaveDelay: 0,
@@ -80,6 +83,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   onClick,
   keepMounted,
   visible: customVisible,
+  isDisabled,
   ...props
 }) => {
   const timer = useRef<number>();
@@ -141,9 +145,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     <StyledTooltipTrigger
       ref={ref}
       className={`nextui-tooltip-button ${className}`}
-      css={{
-        ...(triggerCss as any),
-      }}
+      css={triggerCss}
       role="button"
       tabIndex={-1}
       onBlur={() => mouseEventHandler(false)}
@@ -155,7 +157,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       {...props}
     >
       {children}
-      {content && <TooltipContent {...contentProps}>{content}</TooltipContent>}
+      {content && !isDisabled ? <TooltipContent {...contentProps}>{content}</TooltipContent> : null}
     </StyledTooltipTrigger>
   );
 };

@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
-import {CSS} from "../theme/stitches.config";
 
 import StyledCol, {ColVariantsProps} from "./col.styles";
 
@@ -33,7 +34,7 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
       css={{
         width: `${(100 / 12) * span}%`,
         marginLeft: `${(100 / 12) * offset}%`,
-        ...(css as any),
+        ...css,
       }}
       {...props}
     >

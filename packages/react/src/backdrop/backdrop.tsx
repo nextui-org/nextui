@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {CSS} from "../theme/stitches.config";
+
 import React, {MouseEvent, useCallback, useMemo} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import CSSTransition from "../utils/css-transition";
-import {CSS} from "../theme/stitches.config";
 import useCurrentState from "../use-current-state";
 import cslx from "../utils/clsx";
 import useKeyboard, {KeyCode} from "../use-keyboard";
@@ -97,10 +97,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
         <StyledBackdrop
           aria-hidden={true}
           className={cslx(preClass, `${preClass}--${getState}`, className)}
-          css={{
-            $$backdropOpacity: opacity,
-            ...(css as any),
-          }}
+          css={{$$backdropOpacity: opacity, ...css}}
           data-state={getState}
           role="button"
           tabIndex={-1}
@@ -120,9 +117,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
           <StyledBackdropContent
             animated={animated}
             className={`${preClass}-content`}
-            css={{
-              maxWidth,
-            }}
+            css={{maxWidth}}
             onClick={childrenClickHandler}
             onMouseDown={() => setIsContentMouseDown(true)}
           >

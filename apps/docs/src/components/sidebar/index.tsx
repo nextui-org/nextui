@@ -66,7 +66,6 @@ const Sidebar: React.FC<SidebarProps> = ({routes, level, tag, slug, onPostClick}
               isMobile={isMobile}
               level={level}
               opened={opened}
-              routes={routes}
               selected={categorySelected}
               title={title}
               updated={updated}

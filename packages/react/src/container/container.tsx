@@ -1,6 +1,7 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 
-import {CSS} from "../theme/stitches.config";
 import {useDOMRef} from "../utils/dom";
 import {Wrap, Display, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
 
@@ -95,7 +96,7 @@ const Container = React.forwardRef<HTMLElement, React.PropsWithChildren<Containe
           display: display,
           justifyContent: justify,
           flexDirection: direction,
-          ...(css as any),
+          ...css,
         }}
         fluid={fluid}
         responsive={responsive}

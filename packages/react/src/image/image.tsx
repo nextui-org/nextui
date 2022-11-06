@@ -1,4 +1,5 @@
 import type {PropsWithoutRef, RefAttributes} from "react";
+import type {CSS} from "../theme/stitches.config";
 
 import React, {useEffect, useMemo, useState} from "react";
 
@@ -9,7 +10,6 @@ import useResize from "../use-resize";
 import {ReactRef} from "../utils/refs";
 import {useDOMRef} from "../utils/dom";
 import {__DEV__} from "../utils/assertion";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 
 import {StyledImage, StyledImageContainer, ImageContainerVariantProps} from "./image.styles";
@@ -119,11 +119,7 @@ export const Image = React.forwardRef((props: ImageProps, ref: ReactRef<HTMLImag
   return (
     <StyledImageContainer
       className={clsx("nextui-image-container", `nextui-image--${getState}`, className)}
-      css={{
-        width: w,
-        height: zoomHeight,
-        ...(containerCss as any),
-      }}
+      css={{width: w, height: zoomHeight, ...containerCss}}
       data-state={getState}
       ready={!loading || showSkeleton}
     >
@@ -132,10 +128,7 @@ export const Image = React.forwardRef((props: ImageProps, ref: ReactRef<HTMLImag
         ref={imageRef}
         alt={props.alt || ""}
         className="nextui-image"
-        css={{
-          objectFit,
-          ...(css as any),
-        }}
+        css={{objectFit, ...css}}
         data-state={getState}
         height={height}
         src={src}
