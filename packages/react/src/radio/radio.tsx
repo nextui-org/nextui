@@ -102,7 +102,7 @@ export const Radio = React.forwardRef((props: RadioProps, ref: ReactRef<HTMLInpu
           </VisuallyHidden>
         </StyledRadioPoint>
         <StyledRadioText
-          className="nextui-radio-label"
+          className="nextui-radio-text"
           color={labelColor}
           isDisabled={isDisabled}
           isInvalid={isInvalid}
