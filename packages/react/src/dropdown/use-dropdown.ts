@@ -1,13 +1,14 @@
-import { useRef, useCallback } from 'react';
-import { mergeProps } from '@react-aria/utils';
-import { MenuTriggerType } from '@react-types/menu';
-import { useMenuTrigger } from '@react-aria/menu';
-import { useMenuTriggerState } from '@react-stately/menu';
-import { mergeRefs } from '../utils/refs';
-import { PopoverProps } from '../popover';
+import {useRef, useCallback} from "react";
+import {mergeProps} from "@react-aria/utils";
+import {MenuTriggerType} from "@react-types/menu";
+import {useMenuTrigger} from "@react-aria/menu";
+import {useMenuTriggerState} from "@react-stately/menu";
 
-export interface UseDropdownProps extends Omit<PopoverProps, 'children'> {
-  type?: 'menu' | 'listbox';
+import {mergeRefs} from "../utils/refs";
+import {PopoverProps} from "../popover";
+
+export interface UseDropdownProps extends Omit<PopoverProps, "children"> {
+  type?: "menu" | "listbox";
   /**
    * Whether menu trigger is disabled.
    * @default false
@@ -18,6 +19,11 @@ export interface UseDropdownProps extends Omit<PopoverProps, 'children'> {
    * @default 'press'
    */
   trigger?: MenuTriggerType;
+  /**
+   * Whether the trigger should show a pressed animation when the menu is open.
+   * @default false
+   */
+  disableTriggerPressedAnimation?: boolean;
   /**
    * Whether the Menu closes when a selection is made.
    * @default true
@@ -31,12 +37,13 @@ export interface UseDropdownProps extends Omit<PopoverProps, 'children'> {
 export function useDropdown(props: UseDropdownProps = {}) {
   const {
     triggerRef: triggerRefProp,
-    type = 'menu',
-    trigger = 'press',
+    type = "menu",
+    trigger = "press",
     isDisabled = false,
     borderWeight,
     closeOnSelect,
     disableAnimation = false,
+    disableTriggerPressedAnimation = false,
     ...popoverProps
   } = props;
 
@@ -47,23 +54,34 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
   const state = useMenuTriggerState(props);
 
-  const { menuTriggerProps, menuProps } = useMenuTrigger(
-    { type, trigger, isDisabled },
+  const {menuTriggerProps, menuProps} = useMenuTrigger(
+    {type, trigger, isDisabled},
     state,
-    menuTriggerRef
+    menuTriggerRef,
   );
 
   const getMenuTriggerProps = useCallback(
     (props = {}, _ref = null) => {
-      const realTriggerProps = triggerRefProp?.current
+      const {css, ...realTriggerProps} = triggerRefProp?.current
         ? mergeProps(menuTriggerProps, props)
         : mergeProps(props, menuTriggerProps);
+
       return {
+        ref: mergeRefs(triggerRef, _ref),
+        css: !disableTriggerPressedAnimation
+          ? {
+              '&[aria-haspopup="true"]&[aria-expanded="true"]': {
+                opacity: 0.7,
+                backfaceVisibility: "hidden",
+                transform: "translateZ(0) scale(0.97)",
+              },
+              ...css,
+            }
+          : css,
         ...realTriggerProps,
-        ref: mergeRefs(triggerRef, _ref)
       };
     },
-    [triggerRef, triggerRefProp, menuTriggerProps]
+    [triggerRef, triggerRefProp, menuTriggerProps, disableTriggerPressedAnimation],
   );
 
   return {
@@ -74,12 +92,13 @@ export function useDropdown(props: UseDropdownProps = {}) {
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
     disableAnimation,
+    disableTriggerPressedAnimation,
     menuRef,
     borderWeight,
     menuPopoverRef,
     menuTriggerRef,
     closeOnSelect,
-    getMenuTriggerProps
+    getMenuTriggerProps,
   };
 }
 

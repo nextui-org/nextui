@@ -1,4 +1,4 @@
-const App = `import React from 'react'
+const App = `import React from "react";
 import { Checkbox, Spacer } from "@nextui-org/react";
 
 export default function App() {
@@ -6,19 +6,21 @@ export default function App() {
 
   return (
     <>
-      <Checkbox defaultSelected={true} color="success">Subscribe (uncontrolled)</Checkbox>
-      <Spacer x={1} />
-      <Checkbox isSelected={selected} color="success" onChange={setSelected} >
+      <Checkbox isSelected={selected} color="success" onChange={setSelected}>
         Subscribe (controlled)
+      </Checkbox>
+      <Spacer x={1} />
+      <Checkbox defaultSelected={true} color="success">
+        Subscribe (uncontrolled)
       </Checkbox>
     </>
   );
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

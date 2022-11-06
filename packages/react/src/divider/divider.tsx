@@ -1,13 +1,11 @@
-import React, { useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { DividerAlign, SimpleColors } from '../utils/prop-types';
-import { getMargin } from '../utils/dimensions';
-import { CSS } from '../theme/stitches.config';
-import {
-  StyledDivider,
-  StyledDividerText,
-  DividerVariantsProps
-} from './divider.styles';
+import React, {useMemo} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {DividerAlign, SimpleColors} from "../utils/prop-types";
+import {getMargin} from "../utils/dimensions";
+import {CSS} from "../theme/stitches.config";
+
+import {StyledDivider, StyledDividerText, DividerVariantsProps} from "./divider.styles";
 
 interface Props {
   x?: number;
@@ -23,7 +21,7 @@ const defaultProps = {
   x: 0,
   y: 0,
   height: 1,
-  align: 'center' as DividerAlign
+  align: "center" as DividerAlign,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -40,14 +38,15 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   ...props
 }) => {
   const alignCss = useMemo(() => {
-    if (!align || align === 'center') return '';
-    if (align === 'left' || align === 'start') {
-      return { transform: 'translateY(-50%)', left: '7%' };
+    if (!align || align === "center") return "";
+    if (align === "left" || align === "start") {
+      return {transform: "translateY(-50%)", left: "7%"};
     }
+
     return {
-      transform: 'translateY(-50%)',
-      left: 'auto',
-      right: '7%'
+      transform: "translateY(-50%)",
+      left: "auto",
+      right: "7%",
     };
   }, [align]);
 
@@ -56,20 +55,16 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
 
   return (
     <StyledDivider
-      role="separator"
       css={{
         margin: `${top} ${left}`,
         height: `calc(${height} * 1px)`,
-        ...(css as any)
+        ...(css as any),
       }}
+      role="separator"
       {...props}
     >
       {children && (
-        <StyledDividerText
-          css={{ ...alignCss }}
-          color={textColor}
-          className="nextui-divider-text"
-        >
+        <StyledDividerText className="nextui-divider-text" color={textColor} css={{...alignCss}}>
           {children}
         </StyledDividerText>
       )}
@@ -77,7 +72,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   );
 };
 
-Divider.toString = () => '.nextui-divider';
+Divider.toString = () => ".nextui-divider";
 
 const MemoDivider = React.memo(Divider);
 

@@ -1,36 +1,35 @@
-import React, { useEffect } from 'react';
-import { Meta } from '@storybook/react';
-import useInput from '../use-input';
-import Textarea from './index';
-import Spacer from '../spacer';
-import Grid from '../grid';
-import Button from '../button';
-import Text from '../text';
+import React, {useEffect} from "react";
+import {Meta} from "@storybook/react";
+
+import useInput from "../use-input";
+import Spacer from "../spacer";
+import Grid from "../grid";
+import Button from "../button";
+import Text from "../text";
+
+import Textarea from "./index";
 
 export default {
-  title: 'General/Textarea',
+  title: "General/Textarea",
   component: Textarea,
   decorators: [
     (Story) => (
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '20px'
+          display: "flex",
+          flexDirection: "column",
+          padding: "20px",
         }}
       >
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 export const Default = () => (
   <>
-    <Textarea
-      label="Write your thoughts"
-      placeholder="Enter your amazing thoughts."
-    />
+    <Textarea label="Write your thoughts" placeholder="Enter your amazing thoughts." />
     <Spacer y={1.5} />
     <Textarea labelPlaceholder="Write your thoughts" />
   </>
@@ -38,19 +37,13 @@ export const Default = () => (
 
 export const Rows = () => (
   <>
-    <Textarea
-      label="Write your thoughts"
-      placeholder="Enter your amazing thoughts."
-    />
+    <Textarea label="Write your thoughts" placeholder="Enter your amazing thoughts." />
   </>
 );
 
 export const labelPlaceholder = () => (
   <>
-    <Textarea
-      label="Write your thoughts"
-      placeholder="Enter your amazing thoughts."
-    />
+    <Textarea label="Write your thoughts" placeholder="Enter your amazing thoughts." />
     <Spacer y={2} />
     <Textarea labelPlaceholder="Write your thoughts" />
   </>
@@ -60,11 +53,7 @@ export const Types = () => (
   <>
     <Textarea label="Default" placeholder="Default Textarea" />
     <Spacer y={2} />
-    <Textarea
-      underlined
-      color="primary"
-      labelPlaceholder="Underlined Textarea"
-    />
+    <Textarea underlined color="primary" labelPlaceholder="Underlined Textarea" />
     <Spacer y={2} />
     <Textarea bordered color="secondary" labelPlaceholder="Bordered Textarea" />
   </>
@@ -73,12 +62,7 @@ export const Types = () => (
 export const Disabled = () => {
   return (
     <>
-      <Textarea
-        disabled
-        label="Name"
-        helperText="Disabled"
-        placeholder="Enter your name"
-      />
+      <Textarea disabled helperText="Disabled" label="Name" placeholder="Enter your name" />
     </>
   );
 };
@@ -88,8 +72,8 @@ export const ReadOnly = () => {
     <>
       <Textarea
         readOnly
-        label="Read only Text"
         initialValue="Almost before we knew it, we had left the ground."
+        label="Read only Text"
       />
     </>
   );
@@ -98,61 +82,60 @@ export const ReadOnly = () => {
 export const WithHelperText = () => {
   return (
     <>
-      <Textarea
-        label="Name"
-        helperText="Please enter your name"
-        placeholder="Enter your name"
-      />
+      <Textarea helperText="Please enter your name" label="Name" placeholder="Enter your name" />
       <Spacer y={1.4} />
       <Textarea
-        status="error"
         helperColor="error"
         helperText="Required"
         label="Error"
         placeholder="Enter something"
+        status="error"
       />
       <Spacer y={1.4} />
       <Textarea
-        status="success"
         helperColor="success"
-        initialValue="getnextui"
         helperText="Excelent username"
+        initialValue="getnextui"
         label="Username"
         placeholder="Enter your username"
+        status="success"
       />
       <Spacer y={1.4} />
       <Textarea
         color="error"
-        status="error"
         helperColor="error"
         helperText="Required"
         label="Email"
         placeholder="Enter your email"
+        status="error"
       />
       <Spacer y={1.4} />
       <Textarea
-        status="warning"
         helperColor="warning"
         helperText="Insecure password"
         label="Password"
         placeholder="Enter your password"
+        status="warning"
       />
       <Spacer y={1.4} />
       <Textarea
         helperColor="warning"
-        status="warning"
+        helperText="Insecure password"
         initialValue="123"
-        helperText="Insecure password"
         label="Password"
         placeholder="Enter your password"
+        status="warning"
       />
     </>
   );
 };
 
 export const WithUseInput = () => {
-  const { value, setValue, reset, bindings } = useInput('NextUI');
+  const {value, setValue, reset, bindings} = useInput("NextUI");
+
+  // eslint-disable-next-line no-console
   useEffect(() => console.log(value), [value]);
+
   return (
     <>
       <Textarea {...bindings} />
@@ -181,17 +164,17 @@ export const WithUseInput = () => {
 export const Uncontrolled = () => {
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
   const onClick = () => {
-    if (textareaRef.current)
-      textareaRef.current.value = Math.random().toString(32);
+    if (textareaRef.current) textareaRef.current.value = Math.random().toString(32);
   };
+
   return (
     <>
       <Text>Update component in an uncontrolled way.</Text>
-      <Grid.Container gap={1} direction="column">
+      <Grid.Container direction="column" gap={1}>
         <Textarea
           ref={textareaRef}
           initialValue="Hello"
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => console.log(e.target.value)} // eslint-disable-line no-console
         />
         <Spacer y={0.5} />
         <Grid>

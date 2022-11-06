@@ -1,16 +1,17 @@
-import { useRef, useMemo, useState, useCallback } from 'react';
-import type { RefObject } from 'react';
-import { OverlayTriggerProps } from '@react-types/overlays';
-import { mergeProps } from '@react-aria/utils';
-import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
-import { useOverlayTriggerState } from '@react-stately/overlays';
-import { mergeRefs } from '../utils/refs';
-import { PopoverPlacement, getAriaPlacement } from './utils';
-import { PopoverContentVariantsProps } from './popover.styles';
+import type {RefObject} from "react";
 
-export interface UsePopoverProps
-  extends OverlayTriggerProps,
-    PopoverContentVariantsProps {
+import {useRef, useMemo, useState, useCallback} from "react";
+import {OverlayTriggerProps} from "@react-types/overlays";
+import {mergeProps} from "@react-aria/utils";
+import {useOverlayPosition, useOverlayTrigger} from "@react-aria/overlays";
+import {useOverlayTriggerState} from "@react-stately/overlays";
+
+import {mergeRefs} from "../utils/refs";
+
+import {PopoverPlacement, getAriaPlacement} from "./utils";
+import {PopoverContentVariantsProps} from "./popover.styles";
+
+export interface UsePopoverProps extends OverlayTriggerProps, PopoverContentVariantsProps {
   ref?: RefObject<HTMLElement>;
   /**
    * The ref for the element which the overlay positions itself with respect to.
@@ -42,7 +43,7 @@ export interface UsePopoverProps
   /**
    * Type of overlay that is opened by the trigger.
    */
-  triggerType?: 'dialog' | 'menu' | 'listbox' | 'tree' | 'grid';
+  triggerType?: "dialog" | "menu" | "listbox" | "tree" | "grid";
   /**
    * Whether the popover is animated.
    */
@@ -79,14 +80,14 @@ export function usePopover(props: UsePopoverProps = {}) {
     disableShadow,
     shouldFlip = true,
     offset = 12,
-    placement = 'bottom',
+    placement = "bottom",
     onClose,
-    triggerType = 'dialog',
+    triggerType = "dialog",
     isDismissable = true,
     shouldCloseOnBlur = false,
     isKeyboardDismissDisabled = false,
     disableAnimation = false,
-    shouldCloseOnInteractOutside
+    shouldCloseOnInteractOutside,
   } = props;
 
   const domRef = useRef<HTMLElement>(null);
@@ -98,14 +99,15 @@ export function usePopover(props: UsePopoverProps = {}) {
   const state = useOverlayTriggerState({
     isOpen,
     defaultOpen,
-    onOpenChange
+    onOpenChange,
   });
 
   const [exited, setExited] = useState(!state.isOpen);
 
   const getState = useMemo(() => {
-    if (state.isOpen) return 'open';
-    return 'closed';
+    if (state.isOpen) return "open";
+
+    return "closed";
   }, [state.isOpen]);
 
   const handleClose = useCallback(() => {
@@ -121,25 +123,18 @@ export function usePopover(props: UsePopoverProps = {}) {
     setExited(true);
   }, []);
 
-  const { triggerProps, overlayProps } = useOverlayTrigger(
-    { type: triggerType },
-    state,
-    triggerRef
-  );
+  const {triggerProps, overlayProps} = useOverlayTrigger({type: triggerType}, state, triggerRef);
 
-  const overlayPlacement = useMemo(
-    () => getAriaPlacement(placement),
-    [placement]
-  );
+  const overlayPlacement = useMemo(() => getAriaPlacement(placement), [placement]);
 
-  const { overlayProps: positionProps } = useOverlayPosition({
+  const {overlayProps: positionProps} = useOverlayPosition({
     isOpen: state.isOpen,
     targetRef: triggerRef,
     scrollRef,
     placement: overlayPlacement,
     overlayRef,
     shouldFlip,
-    offset
+    offset,
   });
 
   const getTriggerProps = useCallback(
@@ -147,12 +142,13 @@ export function usePopover(props: UsePopoverProps = {}) {
       const realTriggerProps = triggerRefProp?.current
         ? mergeProps(triggerProps, props)
         : mergeProps(props, triggerProps);
+
       return {
         ...realTriggerProps,
-        ref: mergeRefs(triggerRef, _ref)
+        ref: mergeRefs(triggerRef, _ref),
       };
     },
-    [triggerRef, triggerRefProp, triggerProps]
+    [triggerRef, triggerRefProp, triggerProps],
   );
 
   const getPopoverProps = useCallback(
@@ -161,11 +157,11 @@ export function usePopover(props: UsePopoverProps = {}) {
         ...props,
         ...overlayProps,
         ...positionProps,
-        'data-state': getState,
-        'data-placement': placement
+        "data-state": getState,
+        "data-placement": placement,
       };
     },
-    [getState, positionProps, overlayProps, placement]
+    [getState, positionProps, overlayProps, placement],
   );
 
   return {
@@ -190,7 +186,7 @@ export function usePopover(props: UsePopoverProps = {}) {
     overlayProps,
     positionProps,
     getTriggerProps,
-    getPopoverProps
+    getPopoverProps,
   };
 }
 

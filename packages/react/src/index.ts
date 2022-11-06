@@ -1,49 +1,47 @@
 //Utils
-export * from './utils/prop-types';
+export * from "./utils/prop-types";
 
 // Hooks
-export { default as useCurrentState } from './use-current-state';
-export { default as useRealShape } from './use-real-shape';
-export { default as useResize } from './use-resize';
-export { default as useTheme } from './use-theme';
-export { default as usePortal } from './use-portal';
-export { default as useSSR } from './use-ssr';
-export { default as useBodyScroll } from './use-body-scroll';
-export type { BodyScrollOptions } from './use-body-scroll';
-export { default as useClickAway } from './use-click-away';
-export { default as useClipboard } from './use-clipboard';
-export type { UseClipboardOptions, UseClipboardResult } from './use-clipboard';
-export { default as useClickAnywhere } from './use-click-anywhere';
-export { default as useInput } from './use-input';
-export { default as useKeyboard } from './use-keyboard';
-export { default as usePagination } from './use-pagination';
-export { default as useDrip } from './use-drip';
-export { default as Drip } from './utils/drip';
-export type { PaginationParams } from './use-pagination';
+export {default as useCurrentState} from "./use-current-state";
+export {default as useRealShape} from "./use-real-shape";
+export {default as useResize} from "./use-resize";
+export {default as useTheme} from "./use-theme";
+export {default as usePortal} from "./use-portal";
+export {default as useSSR} from "./use-ssr";
+export {default as useBodyScroll} from "./use-body-scroll";
+export type {BodyScrollOptions} from "./use-body-scroll";
+export {default as useClickAway} from "./use-click-away";
+export {default as useClipboard} from "./use-clipboard";
+export type {UseClipboardOptions, UseClipboardResult} from "./use-clipboard";
+export {default as useClickAnywhere} from "./use-click-anywhere";
+export {default as useInput} from "./use-input";
+export {default as useKeyboard} from "./use-keyboard";
+export {default as usePagination} from "./use-pagination";
+export {default as useScrollPosition} from "./use-scroll-position";
+export {default as useIntersectionObserver} from "./use-intersection-observer";
+
+// miscs & types
+export {default as useDrip} from "./use-drip";
+export {default as Drip} from "./utils/drip";
+export type {PaginationParams} from "./use-pagination";
 export type {
   UseKeyboardHandler,
   KeyboardOptions,
   KeyboardResult,
-  UseKeyboard
-} from './use-keyboard';
-export { KeyMod, KeyCode } from './use-keyboard/codes';
-export { default as CssBaseline } from './css-baseline';
+  UseKeyboard,
+} from "./use-keyboard";
+export {KeyMod, KeyCode} from "./use-keyboard/codes";
+export {default as CssBaseline} from "./css-baseline";
 
 // Third party
-export { useAsyncList } from '@react-stately/data';
-export { useCollator } from '@react-aria/i18n';
+export {useAsyncList} from "@react-stately/data";
+export {useCollator} from "@react-aria/i18n";
 
 //Theme
-export { default as NextUIProvider } from './theme/theme-provider';
-export { changeTheme, getDocumentTheme, getTokenValue } from './theme/utils';
-export type { VariantProps, CSS } from './theme/stitches.config';
-export type {
-  Theme,
-  NextUITheme,
-  ThemeType,
-  CreateTheme,
-  NextUIThemeContext
-} from './theme/types';
+export {default as NextUIProvider} from "./theme/theme-provider";
+export {changeTheme, getDocumentTheme, getTokenValue} from "./theme/utils";
+export type {VariantProps, CSS} from "./theme/stitches.config";
+export type {Theme, NextUITheme, ThemeType, CreateTheme, NextUIThemeContext} from "./theme/types";
 export {
   styled,
   css,
@@ -54,98 +52,104 @@ export {
   keyframes,
   config,
   config as stitchesConfig,
-  theme as defaultTheme
-} from './theme/stitches.config';
-export * from './theme/shared-css';
-export * from './theme/colors';
+  theme as defaultTheme,
+} from "./theme/stitches.config";
+export * from "./theme/shared-css";
+export * from "./theme/colors";
 
 // Components
-export { default as Avatar } from './avatar';
-export * from './avatar';
+export {default as Avatar} from "./avatar";
+export * from "./avatar";
 
-export { default as Button } from './button';
-export * from './button';
+export {default as Button} from "./button";
+export * from "./button";
 
-export { default as Card } from './card';
-export * from './card';
+export {default as Card} from "./card";
+export * from "./card";
 
-export { default as Checkbox } from './checkbox';
-export * from './checkbox';
+export {default as Checkbox} from "./checkbox";
+export * from "./checkbox";
 
-export { default as Code } from './code';
-export * from './code';
+export {default as Code} from "./code";
+export * from "./code";
 
-export { default as Col } from './col';
-export * from './col';
+export {default as Col} from "./col";
+export * from "./col";
 
-export { default as Collapse } from './collapse';
-export * from './collapse';
+export {default as Collapse} from "./collapse";
+export * from "./collapse";
 
-export { default as Container } from './container';
-export * from './container';
+export {default as Container} from "./container";
+export * from "./container";
 
-export { default as Divider } from './divider';
-export * from './divider';
+export {default as Divider} from "./divider";
+export * from "./divider";
 
-export { default as Grid } from './grid';
-export * from './grid';
+export {default as Grid} from "./grid";
+export * from "./grid";
 
-export { default as Image } from './image';
-export * from './image';
+export {default as Image} from "./image";
+export * from "./image";
 
-export { default as Spacer } from './spacer';
-export * from './spacer';
+export {default as Spacer} from "./spacer";
+export * from "./spacer";
 
-export { default as Snippet } from './snippet';
-export * from './snippet';
+export {default as Snippet} from "./snippet";
+export * from "./snippet";
 
-export { default as Row } from './row';
-export * from './row';
+export {default as Row} from "./row";
+export * from "./row";
 
-export { default as Link } from './link';
-export * from './link';
+export {default as Link} from "./link";
+export * from "./link";
 
-export { default as Loading } from './loading';
-export * from './loading';
+export {default as Loading} from "./loading";
+export * from "./loading";
 
-export { default as Radio } from './radio';
-export * from './radio';
+export {default as Radio} from "./radio";
+export * from "./radio";
 
-export { default as Text } from './text';
-export * from './text';
+export {default as Text} from "./text";
+export * from "./text";
 
-export { default as Switch } from './switch';
-export * from './switch';
+export {default as Switch} from "./switch";
+export * from "./switch";
 
-export { default as Backdrop } from './backdrop';
-export * from './backdrop';
+export {default as Backdrop} from "./backdrop";
+export * from "./backdrop";
 
-export { default as User } from './user';
-export * from './user';
+export {default as User} from "./user";
+export * from "./user";
 
-export { default as Progress } from './progress';
-export * from './progress';
+export {default as Progress} from "./progress";
+export * from "./progress";
 
-export { default as Modal } from './modal';
-export * from './modal';
-export { default as useModal } from './modal/use-modal';
+export {default as Modal} from "./modal";
+export * from "./modal";
+export {default as useModal} from "./modal/use-modal";
 
-export { default as Pagination } from './pagination';
-export * from './pagination';
+export {default as Pagination} from "./pagination";
+export * from "./pagination";
 
-export { default as Tooltip } from './tooltip';
-export * from './tooltip';
+export {default as Tooltip} from "./tooltip";
+export * from "./tooltip";
 
-export { default as Input } from './input';
-export * from './input';
+export {default as Input} from "./input";
+export * from "./input";
 
-export { default as Textarea } from './textarea';
+export {default as Textarea} from "./textarea";
 
-export { default as Table } from './table';
-export * from './table';
+export {default as Table} from "./table";
+export * from "./table";
 
-export { default as Popover } from './popover';
-export * from './popover';
+export {default as Popover} from "./popover";
+export * from "./popover";
 
-export { default as Dropdown } from './dropdown';
-export * from './dropdown';
+export {default as Dropdown} from "./dropdown";
+export * from "./dropdown";
+
+export {default as Badge} from "./badge";
+export * from "./badge";
+
+export {default as Navbar} from "./navbar";
+export * from "./navbar";

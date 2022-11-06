@@ -1,5 +1,6 @@
-import React from 'react';
-import { __DEV__ } from '../utils/assertion';
+import React from "react";
+
+import {__DEV__} from "../utils/assertion";
 
 export interface DropdownIconProps {
   fill?: string;
@@ -8,19 +9,13 @@ export interface DropdownIconProps {
   width?: string | number;
 }
 
-const DropdownIcon: React.FC<DropdownIconProps> = ({
-  fill,
-  size,
-  height,
-  width,
-  ...props
-}) => {
+const DropdownIcon: React.FC<DropdownIconProps> = ({fill, size, height, width, ...props}) => {
   return (
     <svg
-      width={size || width || 24}
+      fill="none"
       height={size || height || 24}
       viewBox="0 0 24 24"
-      fill="none"
+      width={size || width || 24}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -33,9 +28,9 @@ const DropdownIcon: React.FC<DropdownIconProps> = ({
 };
 
 if (__DEV__) {
-  DropdownIcon.displayName = 'NextUI.DropdownIcon';
+  DropdownIcon.displayName = "NextUI.DropdownIcon";
 }
 
-DropdownIcon.toString = () => '.nextui-dropdown-icon';
+DropdownIcon.toString = () => ".nextui-dropdown-icon";
 
 export default DropdownIcon;

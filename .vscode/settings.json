@@ -1,6 +1,14 @@
 {
-  "eslint.workingDirectories": ["./apps/docs", "./packages/react", "./packages/storybook"],
+  "eslint.workingDirectories": [
+    "./apps/docs",
+    "./packages/react",
+    "./packages/storybook"
+  ],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

@@ -1,17 +1,14 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import { Button, Grid, Text, Avatar, User } from '../index';
-import {
-  AddNoteBulk,
-  CopyDocumentBulk,
-  DeleteDocumentBulk,
-  EditDocumentBulk
-} from '../utils/icons';
-import Dropdown from './index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Button, Grid, Text, Avatar, User} from "../index";
+import {AddNoteBulk, CopyDocumentBulk, DeleteDocumentBulk, EditDocumentBulk} from "../utils/icons";
+
+import Dropdown from "./index";
 
 export default {
-  title: 'General/Dropdown',
-  component: Dropdown
+  title: "General/Dropdown",
+  component: Dropdown,
 } as Meta;
 
 export const Default = () => (
@@ -39,7 +36,7 @@ export const WithDivider = () => (
       <Dropdown.Item key="new">New file</Dropdown.Item>
       <Dropdown.Item key="copy">Copy link</Dropdown.Item>
       <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-      <Dropdown.Item key="delete" color="error" withDivider>
+      <Dropdown.Item key="delete" withDivider color="error">
         Delete file
       </Dropdown.Item>
     </Dropdown.Menu>
@@ -53,7 +50,7 @@ export const WithChevron = () => (
       <Dropdown.Item key="new">New file</Dropdown.Item>
       <Dropdown.Item key="copy">Copy link</Dropdown.Item>
       <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-      <Dropdown.Item key="delete" color="error" withDivider>
+      <Dropdown.Item key="delete" withDivider color="error">
         Delete file
       </Dropdown.Item>
     </Dropdown.Menu>
@@ -61,13 +58,13 @@ export const WithChevron = () => (
 );
 
 export const Bordered = () => (
-  <Dropdown isBordered disableShadow>
+  <Dropdown disableShadow isBordered>
     <Dropdown.Button>Trigger</Dropdown.Button>
     <Dropdown.Menu aria-label="Actions" onAction={alert}>
       <Dropdown.Item key="new">New file</Dropdown.Item>
       <Dropdown.Item key="copy">Copy link</Dropdown.Item>
       <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-      <Dropdown.Item key="delete" color="error" withDivider>
+      <Dropdown.Item key="delete" withDivider color="error">
         Delete file
       </Dropdown.Item>
     </Dropdown.Menu>
@@ -76,19 +73,19 @@ export const Bordered = () => (
 
 export const DisabledKeys = () => (
   <Dropdown>
-    <Dropdown.Button color="secondary" flat>
+    <Dropdown.Button flat color="secondary">
       Trigger
     </Dropdown.Button>
     <Dropdown.Menu
-      color="secondary"
       aria-label="Actions"
+      color="secondary"
+      disabledKeys={["edit", "delete"]}
       onAction={alert}
-      disabledKeys={['edit', 'delete']}
     >
       <Dropdown.Item key="new">New file</Dropdown.Item>
       <Dropdown.Item key="copy">Copy link</Dropdown.Item>
       <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-      <Dropdown.Item key="delete" color="error" withDivider>
+      <Dropdown.Item key="delete" withDivider color="error">
         Delete file
       </Dropdown.Item>
     </Dropdown.Menu>
@@ -104,7 +101,7 @@ export const Variants = () => (
           <Dropdown.Item key="new">New file</Dropdown.Item>
           <Dropdown.Item key="copy">Copy link</Dropdown.Item>
           <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-          <Dropdown.Item key="delete" color="error" withDivider>
+          <Dropdown.Item key="delete" withDivider color="error">
             Delete file
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -113,16 +110,11 @@ export const Variants = () => (
     <Grid>
       <Dropdown>
         <Dropdown.Button color="primary">Solid</Dropdown.Button>
-        <Dropdown.Menu
-          color="primary"
-          variant="solid"
-          aria-label="Actions"
-          onAction={alert}
-        >
+        <Dropdown.Menu aria-label="Actions" color="primary" variant="solid" onAction={alert}>
           <Dropdown.Item key="new">New file</Dropdown.Item>
           <Dropdown.Item key="copy">Copy link</Dropdown.Item>
           <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-          <Dropdown.Item key="delete" color="error" withDivider>
+          <Dropdown.Item key="delete" withDivider color="error">
             Delete file
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -130,19 +122,14 @@ export const Variants = () => (
     </Grid>
     <Grid>
       <Dropdown>
-        <Dropdown.Button color="primary" shadow>
+        <Dropdown.Button shadow color="primary">
           Shadow
         </Dropdown.Button>
-        <Dropdown.Menu
-          color="primary"
-          variant="shadow"
-          aria-label="Actions"
-          onAction={alert}
-        >
+        <Dropdown.Menu aria-label="Actions" color="primary" variant="shadow" onAction={alert}>
           <Dropdown.Item key="new">New file</Dropdown.Item>
           <Dropdown.Item key="copy">Copy link</Dropdown.Item>
           <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-          <Dropdown.Item key="delete" color="error" withDivider>
+          <Dropdown.Item key="delete" withDivider color="error">
             Delete file
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -150,19 +137,14 @@ export const Variants = () => (
     </Grid>
     <Grid>
       <Dropdown>
-        <Dropdown.Button color="primary" light>
+        <Dropdown.Button light color="primary">
           Light
         </Dropdown.Button>
-        <Dropdown.Menu
-          color="primary"
-          variant="light"
-          aria-label="Actions"
-          onAction={alert}
-        >
+        <Dropdown.Menu aria-label="Actions" color="primary" variant="light" onAction={alert}>
           <Dropdown.Item key="new">New file</Dropdown.Item>
           <Dropdown.Item key="copy">Copy link</Dropdown.Item>
           <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-          <Dropdown.Item key="delete" color="error" withDivider>
+          <Dropdown.Item key="delete" withDivider color="error">
             Delete file
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -172,26 +154,24 @@ export const Variants = () => (
 );
 
 export const SingleSelection = () => {
-  const [selected, setSelected] = React.useState<string | Set<React.Key>>(
-    new Set(['text'])
-  );
+  const [selected, setSelected] = React.useState<string | Set<React.Key>>(new Set(["text"]));
 
   const selectedValue = React.useMemo(
-    () => Array.from(selected).join(', ').replaceAll('_', ' '),
-    [selected]
+    () => Array.from(selected).join(", ").replaceAll("_", " "),
+    [selected],
   );
 
   return (
     <Dropdown>
-      <Dropdown.Button flat color="secondary" css={{ tt: 'capitalize' }}>
+      <Dropdown.Button flat color="secondary" css={{tt: "capitalize"}}>
         {selectedValue}
       </Dropdown.Button>
       <Dropdown.Menu
+        disallowEmptySelection
         aria-label="Actions"
         color="secondary"
-        disallowEmptySelection
-        selectionMode="single"
         selectedKeys={selected}
+        selectionMode="single"
         onSelectionChange={setSelected}
       >
         <Dropdown.Item key="text">Text</Dropdown.Item>
@@ -205,26 +185,24 @@ export const SingleSelection = () => {
 };
 
 export const MultipleSelection = () => {
-  const [selected, setSelected] = React.useState<string | Set<React.Key>>(
-    new Set(['text'])
-  );
+  const [selected, setSelected] = React.useState<string | Set<React.Key>>(new Set(["text"]));
 
   const selectedValue = React.useMemo(
-    () => Array.from(selected).join(', ').replaceAll('_', ' '),
-    [selected]
+    () => Array.from(selected).join(", ").replaceAll("_", " "),
+    [selected],
   );
 
   return (
     <Dropdown>
-      <Dropdown.Button flat color="secondary" css={{ tt: 'capitalize' }}>
+      <Dropdown.Button flat color="secondary" css={{tt: "capitalize"}}>
         {selectedValue}
       </Dropdown.Button>
       <Dropdown.Menu
+        disallowEmptySelection
         aria-label="Actions"
         color="secondary"
-        disallowEmptySelection
-        selectionMode="multiple"
         selectedKeys={selected}
+        selectionMode="multiple"
         onSelectionChange={setSelected}
       >
         <Dropdown.Item key="text">Text</Dropdown.Item>
@@ -240,7 +218,7 @@ export const MultipleSelection = () => {
 export const WithCommand = () => (
   <Dropdown>
     <Dropdown.Button flat color="secondary" size="sm" />
-    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+    <Dropdown.Menu aria-label="Actions" color="secondary" onAction={alert}>
       <Dropdown.Item key="new" command="⌘N">
         New file
       </Dropdown.Item>
@@ -250,7 +228,7 @@ export const WithCommand = () => (
       <Dropdown.Item key="edit" command="⌘⇧E">
         Edit file
       </Dropdown.Item>
-      <Dropdown.Item withDivider key="delete" color="error" command="⌘⇧D">
+      <Dropdown.Item key="delete" withDivider color="error" command="⌘⇧D">
         Delete file
       </Dropdown.Item>
     </Dropdown.Menu>
@@ -260,38 +238,34 @@ export const WithCommand = () => (
 export const WithIcon = () => (
   <Dropdown>
     <Dropdown.Button flat color="primary" size="sm" />
-    <Dropdown.Menu color="primary" aria-label="Actions" onAction={alert}>
+    <Dropdown.Menu aria-label="Actions" color="primary" onAction={alert}>
       <Dropdown.Item
         key="new"
         command="⌘N"
-        icon={<AddNoteBulk size={22} fill="var(--nextui-colors-primary)" />}
+        icon={<AddNoteBulk fill="var(--nextui-colors-primary)" size={22} />}
       >
         New file
       </Dropdown.Item>
       <Dropdown.Item
         key="copy"
         command="⌘C"
-        icon={
-          <CopyDocumentBulk size={22} fill="var(--nextui-colors-primary)" />
-        }
+        icon={<CopyDocumentBulk fill="var(--nextui-colors-primary)" size={22} />}
       >
         Copy link
       </Dropdown.Item>
       <Dropdown.Item
         key="edit"
         command="⌘⇧E"
-        icon={
-          <EditDocumentBulk size={22} fill="var(--nextui-colors-primary)" />
-        }
+        icon={<EditDocumentBulk fill="var(--nextui-colors-primary)" size={22} />}
       >
         Edit file
       </Dropdown.Item>
       <Dropdown.Item
-        withDivider
         key="delete"
+        withDivider
         color="error"
         command="⌘⇧D"
-        icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+        icon={<DeleteDocumentBulk fill="currentColor" size={22} />}
       >
         Delete file
       </Dropdown.Item>
@@ -302,12 +276,12 @@ export const WithIcon = () => (
 export const WithDescription = () => (
   <Dropdown>
     <Dropdown.Button flat color="secondary" size="sm" />
-    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+    <Dropdown.Menu aria-label="Actions" color="secondary" onAction={alert}>
       <Dropdown.Item
         key="new"
         command="⌘N"
         description="Create a new file"
-        icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
+        icon={<AddNoteBulk fill="var(--nextui-colors-secondary)" size={22} />}
       >
         New file
       </Dropdown.Item>
@@ -315,9 +289,7 @@ export const WithDescription = () => (
         key="copy"
         command="⌘C"
         description="Copy the link"
-        icon={
-          <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-        }
+        icon={<CopyDocumentBulk fill="var(--nextui-colors-secondary)" size={22} />}
       >
         Copy link
       </Dropdown.Item>
@@ -325,19 +297,17 @@ export const WithDescription = () => (
         key="edit"
         command="⌘⇧E"
         description="Edit the file"
-        icon={
-          <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-        }
+        icon={<EditDocumentBulk fill="var(--nextui-colors-secondary)" size={22} />}
       >
         Edit file
       </Dropdown.Item>
       <Dropdown.Item
-        withDivider
         key="delete"
+        withDivider
         color="error"
         command="⌘⇧D"
         description="Delete the file"
-        icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+        icon={<DeleteDocumentBulk fill="currentColor" size={22} />}
       >
         Delete file
       </Dropdown.Item>
@@ -348,13 +318,13 @@ export const WithDescription = () => (
 export const Sections = () => (
   <Dropdown>
     <Dropdown.Button flat color="secondary" size="sm" />
-    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+    <Dropdown.Menu aria-label="Actions" color="secondary" onAction={alert}>
       <Dropdown.Section title="Actions">
         <Dropdown.Item
           key="new"
           command="⌘N"
           description="Create a new fil"
-          icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
+          icon={<AddNoteBulk fill="var(--nextui-colors-secondary)" size={22} />}
         >
           New file
         </Dropdown.Item>
@@ -362,9 +332,7 @@ export const Sections = () => (
           key="copy"
           command="⌘C"
           description="Copy the link"
-          icon={
-            <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-          }
+          icon={<CopyDocumentBulk fill="var(--nextui-colors-secondary)" size={22} />}
         >
           Copy link
         </Dropdown.Item>
@@ -372,9 +340,7 @@ export const Sections = () => (
           key="edit"
           command="⌘⇧E"
           description="Edit the file"
-          icon={
-            <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-          }
+          icon={<EditDocumentBulk fill="var(--nextui-colors-secondary)" size={22} />}
         >
           Edit file
         </Dropdown.Item>
@@ -385,7 +351,7 @@ export const Sections = () => (
           color="error"
           command="⌘⇧D"
           description="Delete the file"
-          icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+          icon={<DeleteDocumentBulk fill="currentColor" size={22} />}
         >
           Delete file
         </Dropdown.Item>
@@ -395,28 +361,24 @@ export const Sections = () => (
 );
 
 export const CustomTrigger = () => (
-  <Grid.Container justify="center" gap={2}>
+  <Grid.Container gap={2} justify="center">
     <Grid>
-      <Dropdown placement="bottom-right">
+      <Dropdown disableTriggerPressedAnimation={false} placement="bottom-right">
         <Dropdown.Trigger>
           <Avatar
             bordered
-            size="lg"
             as="button"
             color="secondary"
+            size="lg"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         </Dropdown.Trigger>
-        <Dropdown.Menu
-          color="secondary"
-          aria-label="Avatar Actions"
-          onAction={alert}
-        >
-          <Dropdown.Item key="profile" css={{ height: '$18' }}>
-            <Text b color="inherit" css={{ d: 'flex' }}>
+        <Dropdown.Menu aria-label="Avatar Actions" color="secondary" onAction={alert}>
+          <Dropdown.Item key="profile" css={{height: "$18"}}>
+            <Text b color="inherit" css={{d: "flex"}}>
               Signed in as
             </Text>
-            <Text b color="inherit" css={{ d: 'flex' }}>
+            <Text b color="inherit" css={{d: "flex"}}>
               zoey@example.com
             </Text>
           </Dropdown.Item>
@@ -432,7 +394,7 @@ export const CustomTrigger = () => (
           <Dropdown.Item key="help_and_feedback" withDivider>
             Help & Feedback
           </Dropdown.Item>
-          <Dropdown.Item key="logout" color="error" withDivider>
+          <Dropdown.Item key="logout" withDivider color="error">
             Log Out
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -444,23 +406,19 @@ export const CustomTrigger = () => (
           <User
             bordered
             as="button"
-            name="Zoey Lang"
-            description="@zoey"
-            size="lg"
             color="primary"
+            description="@zoey"
+            name="Zoey Lang"
+            size="lg"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         </Dropdown.Trigger>
-        <Dropdown.Menu
-          color="primary"
-          aria-label="User Actions"
-          onAction={alert}
-        >
-          <Dropdown.Item key="profile" css={{ height: '$18' }}>
-            <Text b color="inherit" css={{ d: 'flex' }}>
+        <Dropdown.Menu aria-label="User Actions" color="primary" onAction={alert}>
+          <Dropdown.Item key="profile" css={{height: "$18"}}>
+            <Text b color="inherit" css={{d: "flex"}}>
               Signed in as
             </Text>
-            <Text b color="inherit" css={{ d: 'flex' }}>
+            <Text b color="inherit" css={{d: "flex"}}>
               zoey@example.com
             </Text>
           </Dropdown.Item>
@@ -476,7 +434,7 @@ export const CustomTrigger = () => (
           <Dropdown.Item key="help_and_feedback" withDivider>
             Help & Feedback
           </Dropdown.Item>
-          <Dropdown.Item key="logout" color="error" withDivider>
+          <Dropdown.Item key="logout" withDivider color="error">
             Log Out
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -488,12 +446,12 @@ export const CustomTrigger = () => (
 export const DisableAnimation = () => (
   <Dropdown disableAnimation>
     <Dropdown.Button flat color="secondary" size="sm" />
-    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+    <Dropdown.Menu aria-label="Actions" color="secondary" onAction={alert}>
       <Dropdown.Item
         key="new"
         command="⌘N"
         description="Create a new file"
-        icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
+        icon={<AddNoteBulk fill="var(--nextui-colors-secondary)" size={22} />}
       >
         New file
       </Dropdown.Item>
@@ -501,9 +459,7 @@ export const DisableAnimation = () => (
         key="copy"
         command="⌘C"
         description="Copy the link"
-        icon={
-          <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-        }
+        icon={<CopyDocumentBulk fill="var(--nextui-colors-secondary)" size={22} />}
       >
         Copy link
       </Dropdown.Item>
@@ -511,19 +467,17 @@ export const DisableAnimation = () => (
         key="edit"
         command="⌘⇧E"
         description="Edit the file"
-        icon={
-          <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-        }
+        icon={<EditDocumentBulk fill="var(--nextui-colors-secondary)" size={22} />}
       >
         Edit file
       </Dropdown.Item>
       <Dropdown.Item
-        withDivider
         key="delete"
+        withDivider
         color="error"
         command="⌘⇧D"
         description="Delete the file"
-        icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+        icon={<DeleteDocumentBulk fill="currentColor" size={22} />}
       >
         Delete file
       </Dropdown.Item>

@@ -1,7 +1,8 @@
-import { useCallback } from 'react';
-import usePortal from '../use-portal';
-import useWarning from '../use-warning';
-import { __DEV__ } from '../utils/assertion';
+import {useCallback} from "react";
+
+import usePortal from "../use-portal";
+import {warn} from "../utils/console";
+import {__DEV__} from "../utils/assertion";
 
 export type UseClipboardOptions = {
   onError: Function;
@@ -12,35 +13,35 @@ export type UseClipboardResult = {
 };
 
 const defaultOptions: UseClipboardOptions = {
-  onError: () => __DEV__ && useWarning('Failed to copy.', 'use-clipboard'),
+  onError: () => __DEV__ && warn("Failed to copy.", "use-clipboard"),
 };
 
-const useClipboard = (
-  options: UseClipboardOptions = defaultOptions
-): UseClipboardResult => {
-  const el = usePortal('clipboard');
+const useClipboard = (options: UseClipboardOptions = defaultOptions): UseClipboardResult => {
+  const el = usePortal("clipboard");
 
   const copyText = (el: HTMLElement | null, text: string) => {
     if (!el || !text) return;
     const selection = window.getSelection();
+
     if (!selection) return;
 
-    el.style.whiteSpace = 'pre';
+    el.style.whiteSpace = "pre";
     el.textContent = text;
 
     const range = window.document.createRange();
+
     selection.removeAllRanges();
     range.selectNode(el);
     selection.addRange(range);
     try {
-      window.document.execCommand('copy');
+      window.document.execCommand("copy");
     } catch (e) {
       options.onError && options.onError();
     }
 
     selection.removeAllRanges();
     if (el) {
-      el.textContent = '';
+      el.textContent = "";
     }
   };
 
@@ -48,10 +49,10 @@ const useClipboard = (
     (text: string) => {
       copyText(el, text);
     },
-    [el]
+    [el],
   );
 
-  return { copy };
+  return {copy};
 };
 
 export default useClipboard;
