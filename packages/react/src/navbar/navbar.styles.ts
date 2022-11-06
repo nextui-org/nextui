@@ -1,7 +1,5 @@
 import {styled, VariantProps} from "../theme/stitches.config";
 import {cssFocusVisible, cssHideShowIn} from "../theme/shared-css";
-import {StyledButton} from "../button/";
-import {StyledLink} from "../link";
 
 const itemColors = {
   default: {
@@ -244,6 +242,9 @@ export const StyledNavbarItem = styled(
       fontSize: "inherit !important",
       fontWeight: "inherit !important",
     },
+    ":first-child": {
+      boxSizing: "content-box",
+    },
     "&:before": {
       opacity: 0,
       zIndex: "$1",
@@ -255,9 +256,6 @@ export const StyledNavbarItem = styled(
       right: 0,
       bottom: 0,
       borderRadius: "$sm",
-    },
-    [`& ${StyledButton}, & ${StyledLink}`]: {
-      boxSizing: "content-box",
     },
     "&:after": {
       opacity: 0,
