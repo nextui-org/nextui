@@ -4,6 +4,7 @@ const fs = require("fs");
 // [Workaround] This logic means `"../packages/components/*/stories/*.stories.tsx"` but it's much faster.
 function getStories(pkg) {
   const scope = pkg ? [pkg] : fs.readdirSync("packages/components");
+
   return scope
     .map((package) => `packages/components/${package}/stories`)
     .filter((storyDir) => fs.existsSync(storyDir))
@@ -25,13 +26,11 @@ module.exports = {
   webpackFinal: async (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@nextui-org/react": path.resolve(
-        __dirname,
-        "../packages/core/react/src",
-      ),
-    }
-    config.resolve.extensions.push(".ts", ".tsx")
-    return config
+      "@nextui-org/react": path.resolve(__dirname, "../packages/core/react/src"),
+    };
+    config.resolve.extensions.push(".ts", ".tsx");
+
+    return config;
   },
   typescript: {
     reactDocgen: false,

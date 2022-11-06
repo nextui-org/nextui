@@ -1,11 +1,11 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 
-import { Snippet } from "../src";
+import {Snippet} from "../src";
 
 describe("Snippet", () => {
   it("should render correctly", () => {
-   const wrapper = render(<Snippet />);
+    const wrapper = render(<Snippet />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });

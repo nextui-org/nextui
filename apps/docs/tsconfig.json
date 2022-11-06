@@ -2,47 +2,23 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components": [
-        "./src/components/index.ts"
-      ],
-      "@primitives": [
-        "./src/components/primitives/index.ts"
-      ],
-      "@components/": [
-        "./src/components/*"
-      ],
-      "@content/*": [
-        "./content/*"
-      ],
-      "@layouts/*": [
-        "./src/layouts/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@theme/*": [
-        "./src/theme/*"
-      ],
-      "@lib/*": [
-        "./src/lib/*"
-      ]
+      "@components": ["./src/components/index.ts"],
+      "@primitives": ["./src/components/primitives/index.ts"],
+      "@components/": ["./src/components/*"],
+      "@content/*": ["./content/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@lib/*": ["./src/lib/*"]
     },
-    "lib": [
-      "dom",
-      "es2015",
-      "ESNext.String"
-    ],
+    "lib": ["dom", "es2015", "ESNext.String"],
     "target": "esnext",
     "jsx": "preserve",
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -56,20 +32,9 @@
     "noImplicitAny": true,
     "skipLibCheck": true,
     "module": "esnext",
-    "typeRoots": [
-      "../../node_modules/@types",
-      "./typings"
-    ],
+    "typeRoots": ["../../node_modules/@types", "./typings"],
     "incremental": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "next-env.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
+  "exclude": ["node_modules"]
 }

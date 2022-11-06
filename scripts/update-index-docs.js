@@ -6,12 +6,12 @@ const algoliasearch = require("algoliasearch");
 const toc = require("markdown-toc/index");
 
 const docusaurusUtils = require("@docusaurus/utils");
-const { parseMarkdownFile, fileToPath, removePrefix } = docusaurusUtils;
+const {parseMarkdownFile, fileToPath, removePrefix} = docusaurusUtils;
 
 const docsRootFolder = "apps/docs";
 
 async function getMDXMeta(file) {
-  const { content, frontMatter } = await parseMarkdownFile(file);
+  const {content, frontMatter} = await parseMarkdownFile(file);
   const tableOfContent = toc(content);
   const json = tableOfContent.json;
   const slug = fileToPath(file)
@@ -54,7 +54,7 @@ async function getSearchMeta() {
   // Initialise Algolia client
   const client = algoliasearch(
     process.env.ALGOLIA_APP_ID || "",
-    process.env.ALGOLIA_ADMIN_API_KEY || ""
+    process.env.ALGOLIA_ADMIN_API_KEY || "",
   );
 
   try {
@@ -95,7 +95,7 @@ async function getSearchMeta() {
 
     await mainIndex.replaceAllObjects(json, {
       autoGenerateObjectIDIfNotExist: true,
-      safe: true
+      safe: true,
     });
 
     console.log("[NextUI] Search meta is ready ✅");
