@@ -133,7 +133,8 @@ export const StyledNavbarCollapse = styled(
           "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
             bg: "$$navbarListBlurBackgroundColor",
             backdropFilter: "saturate(180%) blur($$navbarListBlur)",
-            "@safari": {
+            // safari
+            "@media screen and (-webkit-min-device-pixel-ratio:0)": {
               [`& ${StyledNavbarCollapseWrapper}`]: {
                 bg: "$$navbarListBlurBackgroundColor",
                 backdropFilter: "saturate(180%) blur($$navbarListBlur)",
