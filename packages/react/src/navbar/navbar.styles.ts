@@ -237,6 +237,9 @@ export const StyledNavbarItem = styled(
     fontSize: "$$navbarItemFontSize",
     fontWeight: "$$navbarItemFontWeight",
     position: "relative",
+    "& *": {
+      maxW: "none !important",
+    },
     "> *": {
       zIndex: "$2",
       fontSize: "inherit !important",
