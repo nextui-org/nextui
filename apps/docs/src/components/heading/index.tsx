@@ -3,6 +3,7 @@ import withDefaults from "@utils/with-defaults";
 
 export interface Props {
   title: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -13,7 +14,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type HeadingProps = Props & typeof defaultProps & NativeAttrs;
 
-const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({title, children}) => {
+const Heading: React.FC<HeadingProps> = ({title, children}) => {
   return (
     <div className="heading">
       <h4>{title}</h4>
