@@ -10,6 +10,7 @@ interface Props {
   isRight?: boolean;
   isSingle?: boolean;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -113,12 +114,7 @@ export type ButtonIconProps = Props &
     css?: CSS;
   };
 
-const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
-  children,
-  className,
-  css,
-  ...props
-}) => {
+const ButtonIcon: React.FC<ButtonIconProps> = ({children, className, css, ...props}) => {
   return (
     <StyledButtonIcon
       className={clsx(

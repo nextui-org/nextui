@@ -14,6 +14,7 @@ interface Props {
   align?: AlignItems;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -27,15 +28,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type RowProps = Props & NativeAttrs & RowVariantsProps;
 
-const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
-  children,
-  gap,
-  justify,
-  align,
-  wrap,
-  css,
-  ...props
-}) => {
+const Row: React.FC<RowProps> = ({children, gap, justify, align, wrap, css, ...props}) => {
   return (
     <StyledRow
       css={{

@@ -21,6 +21,7 @@ interface Props {
   borderWeight?: NormalWeights;
   size?: NormalSizes;
   color?: NormalColors;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -36,7 +37,7 @@ export type ButtonGroupProps = Props &
   NativeAttrs &
   typeof defaultProps & {css?: CSS};
 
-const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (groupProps) => {
+const ButtonGroup: React.FC<ButtonGroupProps> = (groupProps) => {
   const {
     disabled,
     size,

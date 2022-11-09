@@ -13,6 +13,7 @@ interface Props {
   name?: string;
   onExited?: () => void;
   onEntered?: () => void;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -26,7 +27,7 @@ const defaultProps = {
 
 export type CSSTransitionProps = Props & typeof defaultProps;
 
-const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
+const CSSTransition: React.FC<CSSTransitionProps> = ({
   children,
   childrenRef,
   className,

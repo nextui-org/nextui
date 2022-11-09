@@ -9,6 +9,7 @@ interface Props {
   animated?: boolean;
   delay?: number;
   css?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -34,13 +35,7 @@ const StyledExpand = styled("div", {
 
 export type ExpandProps = Props & typeof defaultProps;
 
-const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
-  isExpanded,
-  delay,
-  animated,
-  css,
-  children,
-}) => {
+const Expand: React.FC<ExpandProps> = ({isExpanded, delay, animated, css, children}) => {
   const [height, setHeight] = useState<string>(isExpanded ? "auto" : "0");
   const [selfExpanded, setSelfExpanded] = useState<boolean>(isExpanded);
   const contentRef = useRef<HTMLDivElement>(null);

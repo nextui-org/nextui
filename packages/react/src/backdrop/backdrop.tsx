@@ -28,6 +28,7 @@ interface Props {
   css?: CSS;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -46,7 +47,7 @@ export type BackdropProps = Props & typeof defaultProps & NativeAttrs & Backdrop
 
 const preClass = "nextui-backdrop";
 
-const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
+const Backdrop: React.FC<BackdropProps> = React.memo(
   ({
     children,
     onClick,
