@@ -20,6 +20,7 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
   className?: string;
   onCloseButtonClick?: () => void;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -34,7 +35,7 @@ export type ModalWrapperProps = Props & NativeAttrs & ModalVariantsProps & {css?
 
 const preClass = "nextui-modal";
 
-const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
+const ModalWrapper: React.FC<ModalWrapperProps> = ({
   className,
   children,
   visible,

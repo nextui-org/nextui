@@ -35,6 +35,7 @@ interface Props {
   hideArrow?: boolean;
   className?: string;
   css?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -47,7 +48,7 @@ export type TooltipContentProps = Props & typeof defaultProps & TooltipContentVa
 
 const preClass = "nextui-tooltip";
 
-const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> = ({
+const TooltipContent: React.FC<TooltipContentProps> = ({
   children,
   parent,
   visible,

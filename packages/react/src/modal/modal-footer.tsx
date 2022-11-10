@@ -15,6 +15,7 @@ interface Props {
   autoMargin?: boolean;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -28,7 +29,7 @@ export type ModalFooterProps = Props & typeof defaultProps & NativeAttrs & Modal
 
 const preClass = "nextui-modal-footer";
 
-const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
+const ModalFooter: React.FC<ModalFooterProps> = ({
   children,
   className,
   justify,

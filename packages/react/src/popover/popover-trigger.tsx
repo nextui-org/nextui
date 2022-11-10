@@ -15,7 +15,7 @@ import {usePopoverContext} from "./popover-context";
  * such as `button` or `a`.
  */
 const PopoverTrigger = React.forwardRef(
-  (props: React.PropsWithChildren<{}>, _: ReactRef<HTMLElement>) => {
+  (props: {children?: React.ReactNode}, _: ReactRef<HTMLElement>) => {
     const {state, triggerRef, getTriggerProps} = usePopoverContext();
     const {children, ...otherProps} = props;
 
@@ -57,4 +57,4 @@ type PopoverTriggerComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 >;
 
-export default PopoverTrigger as PopoverTriggerComponent<HTMLElement, React.PropsWithChildren<{}>>;
+export default PopoverTrigger as PopoverTriggerComponent<HTMLElement, {children?: React.ReactNode}>;

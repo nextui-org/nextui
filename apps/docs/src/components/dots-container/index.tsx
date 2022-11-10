@@ -1,7 +1,7 @@
 import * as React from "react";
 import {useTheme} from "@nextui-org/react";
 
-const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const DotsContainer: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const {theme} = useTheme();
 
   return (

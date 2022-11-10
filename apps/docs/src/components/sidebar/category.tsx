@@ -15,6 +15,7 @@ export interface Props {
   selected: boolean;
   opened: boolean;
   updated?: boolean;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -28,7 +29,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
 
 export type CategoryProps = Props & typeof defaultProps & NativeAttrs;
 
-const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
+const Category: React.FC<CategoryProps> = ({
   isMobile,
   level = 1,
   title,

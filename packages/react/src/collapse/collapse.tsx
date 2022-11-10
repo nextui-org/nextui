@@ -40,6 +40,7 @@ interface Props {
     value?: boolean,
   ) => void;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -62,7 +63,7 @@ export type CollapseProps = Props &
 
 const preClass = "nextui-collapse";
 
-const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
+const Collapse: React.FC<CollapseProps> = ({
   children,
   title,
   subtitle,

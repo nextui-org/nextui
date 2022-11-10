@@ -24,9 +24,10 @@ export interface Props {
   meta?: MetaProps;
   tag?: string;
   slug?: string;
+  children?: React.ReactNode;
 }
 
-const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
+const DocsLayout: React.FC<Props> = ({
   children,
   routes,
   prevRoute,
