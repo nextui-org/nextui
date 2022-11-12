@@ -36,7 +36,7 @@ export type ProviderProps = {
   defaultValues?: Partial<TableConfig>;
 };
 
-const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({children, defaultValues}) => {
+const Provider: React.FC<ProviderProps> = ({children, defaultValues}) => {
   const [footerAlign, setFooterAlign] = React.useState(
     defaultValues?.footerAlign || defaultContext.footerAlign,
   );

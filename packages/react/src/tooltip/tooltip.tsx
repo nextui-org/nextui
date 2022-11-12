@@ -34,6 +34,7 @@ interface Props {
   onVisibleChange?: TooltipOnVisibleChange;
   as?: keyof JSX.IntrinsicElements;
   triggerCss?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -60,7 +61,7 @@ export type TooltipProps = Props &
   Pick<TooltipContentVariantsProps, "color" | "contentColor"> &
   Pick<TooltipContentProps, "css">;
 
-const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
+const Tooltip: React.FC<TooltipProps> = ({
   children,
   initialVisible,
   content,

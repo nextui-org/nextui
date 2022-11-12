@@ -12,37 +12,37 @@ interface Props<T> {
   item: GridNode<T>;
   state: TableState<T>;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
 
 export type TableHeaderRowProps<T = unknown> = Props<T> & NativeAttrs & {css?: CSS};
 
-const TableHeaderRow = React.forwardRef<
-  HTMLTableRowElement,
-  React.PropsWithChildren<TableHeaderRowProps>
->(({children, item, state, ...props}, ref: React.Ref<HTMLTableRowElement | null>) => {
-  const tableHeaderRowRef = useRef<HTMLTableRowElement | null>(null);
+const TableHeaderRow = React.forwardRef<HTMLTableRowElement, TableHeaderRowProps>(
+  ({children, item, state, ...props}, ref: React.Ref<HTMLTableRowElement | null>) => {
+    const tableHeaderRowRef = useRef<HTMLTableRowElement | null>(null);
 
-  useImperativeHandle(ref, () => tableHeaderRowRef?.current);
+    useImperativeHandle(ref, () => tableHeaderRowRef?.current);
 
-  const {
-    rowProps,
-  }: {
-    rowProps: Omit<React.HTMLAttributes<unknown>, keyof TableHeaderRowProps<unknown>>;
-  } = useTableHeaderRow({node: item}, state, tableHeaderRowRef);
+    const {
+      rowProps,
+    }: {
+      rowProps: Omit<React.HTMLAttributes<unknown>, keyof TableHeaderRowProps<unknown>>;
+    } = useTableHeaderRow({node: item}, state, tableHeaderRowRef);
 
-  return (
-    <StyledTableHeaderRow
-      ref={tableHeaderRowRef}
-      className={clsx("nextui-table-header-row", props.className)}
-      {...props}
-      {...rowProps}
-    >
-      {children}
-    </StyledTableHeaderRow>
-  );
-});
+    return (
+      <StyledTableHeaderRow
+        ref={tableHeaderRowRef}
+        className={clsx("nextui-table-header-row", props.className)}
+        {...props}
+        {...rowProps}
+      >
+        {children}
+      </StyledTableHeaderRow>
+    );
+  },
+);
 
 TableHeaderRow.displayName = "NextUI.TableHeaderRow";
 

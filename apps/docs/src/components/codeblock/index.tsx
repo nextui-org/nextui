@@ -10,7 +10,7 @@ const globalStyles = globalCss({
   },
 });
 
-const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const Codeblock: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const codeTheme = makeCodeTheme();
   const stringColor = codeTheme.styles.find((style) => style.types.includes("string"));
   const punctuationColor = codeTheme.styles.find((style) => style.types.includes("punctuation"));

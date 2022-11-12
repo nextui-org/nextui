@@ -7,6 +7,7 @@ interface Props {
   width?: number;
   height?: number;
   radius?: number | string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -31,7 +32,7 @@ const getBackground = (plain: number | boolean, theme?: NextUITheme) => {
   return colors[plain - 1] || theme?.colors?.primary?.value;
 };
 
-const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
+const ExampleBlock: React.FC<ExampleBlockProps> = ({
   children,
   plain,
   width,

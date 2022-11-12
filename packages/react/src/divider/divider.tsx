@@ -16,6 +16,7 @@ interface Props {
   align?: DividerAlign;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -28,7 +29,7 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type DividerProps = Props & DividerVariantsProps & NativeAttrs;
 
-const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
+const Divider: React.FC<DividerProps> = ({
   height,
   x,
   y,

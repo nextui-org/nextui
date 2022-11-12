@@ -12,6 +12,7 @@ export {
   StyledRadioGroup,
   StyledRadioGroupContainer,
 } from "./radio.styles";
+
 export type {
   RadioLabelVariantsProps,
   RadioTexVariantsProps,
@@ -21,5 +22,9 @@ export type {
   RadioGroupVariantsProps,
   RadioGroupContainerVariantsProps,
 } from "./radio.styles";
+
+export type {RadioProps} from "./radio";
+
+export type {RadioGroupProps} from "./radio-group";
 
 export default Radio;

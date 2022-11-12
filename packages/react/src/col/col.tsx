@@ -11,6 +11,7 @@ interface Props {
   offset?: number;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -22,13 +23,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type ColProps = Props & typeof defaultProps & ColVariantsProps & NativeAttrs;
 
-const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
-  children,
-  span,
-  offset,
-  css,
-  ...props
-}) => {
+const Col: React.FC<ColProps> = ({children, span, offset, css, ...props}) => {
   return (
     <StyledCol
       css={{

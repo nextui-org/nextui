@@ -24,6 +24,7 @@ interface Props {
   copy?: CopyTypes;
   tooltipColor?: TooltipColors;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -50,7 +51,7 @@ const textArrayToString = (text: string[]): string => {
   }, "");
 };
 
-const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
+const Snippet: React.FC<SnippetProps> = ({
   bordered,
   children,
   symbol,

@@ -26,6 +26,7 @@ interface Props<T> {
   isStatic?: boolean;
   color?: TableVariantsProps["color"];
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
@@ -35,7 +36,7 @@ export type TableBodyProps<T = unknown> = Props<T> & NativeAttrs & {css?: CSS};
 // TODO: Remove this once we have a better way to pass it from the parent
 const SCROLL_OFFSET = 40;
 
-const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
+const TableBody: React.FC<TableBodyProps> = ({
   children,
   collection,
   state,

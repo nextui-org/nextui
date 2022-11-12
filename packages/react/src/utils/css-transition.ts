@@ -1,38 +1,45 @@
-import type {FC, ReactNode, RefObject} from "react";
+import React, {useEffect, useState} from "react";
 
-import React, {useEffect, useState, isValidElement, cloneElement} from "react";
-import {flushSync} from "react-dom";
-
+import withDefaults from "./with-defaults";
 import clsx from "./clsx";
 
-export interface CSSTransitionProps {
-  name?: string;
+interface Props {
   visible?: boolean;
+  childrenRef?: React.RefObject<HTMLElement>;
   enterTime?: number;
   leaveTime?: number;
   clearTime?: number;
   className?: string;
+  name?: string;
   onExited?: () => void;
   onEntered?: () => void;
-  children?: ReactNode;
-  childrenRef?: RefObject<HTMLElement>;
+  children?: React.ReactNode;
 }
 
-const CSSTransition: FC<CSSTransitionProps> = (props: CSSTransitionProps) => {
-  const {
-    children,
-    onExited,
-    onEntered,
-    className,
-    childrenRef,
-    enterTime = 60,
-    leaveTime = 60,
-    clearTime = 60,
-    visible = false,
-    name = "transition",
-    ...otherProps
-  } = props;
+const defaultProps = {
+  visible: false,
+  enterTime: 60,
+  leaveTime: 60,
+  clearTime: 60,
+  className: "",
+  name: "transition",
+};
 
+export type CSSTransitionProps = Props & typeof defaultProps;
+
+const CSSTransition: React.FC<CSSTransitionProps> = ({
+  children,
+  childrenRef,
+  className,
+  visible,
+  enterTime,
+  leaveTime,
+  clearTime,
+  name,
+  onExited,
+  onEntered,
+  ...props
+}) => {
   const [classes, setClasses] = useState<string>("");
   const [renderable, setRenderable] = useState<boolean>(visible);
 
@@ -40,9 +47,11 @@ const CSSTransition: FC<CSSTransitionProps> = (props: CSSTransitionProps) => {
     const statusClassName = visible ? "enter" : "leave";
     const time = visible ? enterTime : leaveTime;
 
-    if (visible && !renderable) setRenderable(true);
+    if (visible && !renderable) {
+      setRenderable(true);
+    }
 
-    flushSync(() => setClasses(`${name}-${statusClassName}`));
+    setClasses(`${name}-${statusClassName}`);
 
     // set class to active
     const timer = setTimeout(() => {
@@ -72,8 +81,9 @@ const CSSTransition: FC<CSSTransitionProps> = (props: CSSTransitionProps) => {
 
   // update children ref classes
   useEffect(() => {
-    if (!childrenRef?.current) return;
-
+    if (!childrenRef?.current) {
+      return;
+    }
     const classesArr = classes.split(" ");
     const refClassesArr = childrenRef.current.className.split(" ");
     const newRefClassesArr = refClassesArr.filter((item) => !item.includes(name));
@@ -81,13 +91,12 @@ const CSSTransition: FC<CSSTransitionProps> = (props: CSSTransitionProps) => {
     childrenRef.current.className = clsx(newRefClassesArr, classesArr);
   }, [childrenRef, classes]);
 
-  if (!isValidElement(children) || !renderable) return null;
+  if (!React.isValidElement(children) || !renderable) return null;
 
-  return cloneElement(children, {
-    ...otherProps,
-    // @ts-ignore
-    className: clsx(children.props.className, className, !childrenRef?.current && classes),
+  return React.cloneElement(children, {
+    ...props,
+    className: clsx(children.props.className, className, !childrenRef?.current ? classes : ""),
   });
 };
 
-export default React.memo(CSSTransition);
+export default withDefaults(CSSTransition, defaultProps);

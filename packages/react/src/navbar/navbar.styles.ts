@@ -133,7 +133,8 @@ export const StyledNavbarCollapse = styled(
           "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
             bg: "$$navbarListBlurBackgroundColor",
             backdropFilter: "saturate(180%) blur($$navbarListBlur)",
-            "@safari": {
+            // safari
+            "@media screen and (-webkit-min-device-pixel-ratio:0)": {
               [`& ${StyledNavbarCollapseWrapper}`]: {
                 bg: "$$navbarListBlurBackgroundColor",
                 backdropFilter: "saturate(180%) blur($$navbarListBlur)",
@@ -241,6 +242,9 @@ export const StyledNavbarItem = styled(
       zIndex: "$2",
       fontSize: "inherit !important",
       fontWeight: "inherit !important",
+    },
+    ":first-child": {
+      boxSizing: "content-box",
     },
     "&:before": {
       opacity: 0,

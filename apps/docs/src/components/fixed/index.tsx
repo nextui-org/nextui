@@ -8,6 +8,7 @@ export interface FixedProps {
   shadow?: boolean;
   className?: string;
   css?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -29,13 +30,7 @@ const StyledFixed = styled("div", {
   },
 });
 
-const Fixed: React.FC<React.PropsWithChildren<FixedProps>> = ({
-  offset,
-  children,
-  shadow,
-  className,
-  css,
-}) => {
+const Fixed: React.FC<FixedProps> = ({offset, children, shadow, className, css}) => {
   return (
     <StyledFixed
       className={cn(className, {shadow})}

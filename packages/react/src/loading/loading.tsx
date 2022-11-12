@@ -19,6 +19,7 @@ interface Props {
   type?: NormalLoaders;
   loadingCss?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -35,7 +36,7 @@ export type LoadingProps = Props &
 
 const preClass = "nextui-loading";
 
-const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
+const Loading: React.FC<LoadingProps> = ({
   children,
   size,
   gradientBackground,
