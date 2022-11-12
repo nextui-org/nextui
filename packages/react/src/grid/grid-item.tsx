@@ -21,6 +21,7 @@ interface Props {
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -62,7 +63,7 @@ const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
   };
 };
 
-const GridItem = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridItemProps>>(
+const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(
   (
     {
       xs,

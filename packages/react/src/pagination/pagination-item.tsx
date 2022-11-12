@@ -21,6 +21,7 @@ interface Props {
   preserveContent?: boolean;
   onClick?: (e: React.MouseEvent) => void;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -51,7 +52,7 @@ export type PaginationItemProps = Props & NativeAttrs & PaginationItemVariantsPr
 
 const preClass = "nextui-pagination-item";
 
-const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> = ({
+const PaginationItem: React.FC<PaginationItemProps> = ({
   active,
   value,
   children,

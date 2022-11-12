@@ -11,6 +11,7 @@ interface Props {
   small?: boolean;
   onClick?: () => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -46,7 +47,7 @@ const getLayout = (small: boolean, theme?: NextUITheme): CustomLayout => {
   };
 };
 
-const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
+const Keyboard: React.FC<KeyboardProps> = ({
   command,
   shift,
   option,

@@ -15,6 +15,7 @@ interface Props {
   autoMargin?: boolean;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -29,7 +30,7 @@ export type ModalHeaderProps = Props & typeof defaultProps & NativeAttrs & Modal
 
 const preClass = "nextui-modal-header";
 
-const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
+const ModalHeader: React.FC<ModalHeaderProps> = ({
   children,
   className,
   justify,

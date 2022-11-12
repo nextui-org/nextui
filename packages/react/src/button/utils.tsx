@@ -1,12 +1,10 @@
 import type {CSS} from "../theme/stitches.config";
 
-import React from "react";
-
 import {ButtonProps} from "./button";
 import {ButtonGroupConfig} from "./button-group-context";
 
 export const filterPropsWithGroup = (
-  props: React.PropsWithChildren<ButtonProps>,
+  props: ButtonProps,
   config: ButtonGroupConfig,
 ): ButtonProps => {
   if (!config.isButtonGroup) return props;
@@ -29,7 +27,7 @@ export const filterPropsWithGroup = (
   };
 };
 
-export const getCssColors = (props: React.PropsWithChildren<ButtonProps>): CSS | undefined => {
+export const getCssColors = (props: ButtonProps): CSS | undefined => {
   if (!props.disabled) {
     if (props.auto && props.color === "gradient" && (props.bordered || props.ghost)) {
       return {

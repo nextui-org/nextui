@@ -13,6 +13,7 @@ interface Props {
   wrap?: Wrap;
   className?: string;
   css?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -23,7 +24,7 @@ const defaultProps = {
 
 export type GridContainerProps = Props & Partial<typeof defaultProps> & GridItemProps;
 
-const GridContainer = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridContainerProps>>(
+const GridContainer = React.forwardRef<HTMLDivElement, GridContainerProps>(
   ({gap, wrap, css, children, className, ...props}, ref) => {
     const gapUnit = useMemo(() => {
       return `calc(${gap} * $space$3)`;
