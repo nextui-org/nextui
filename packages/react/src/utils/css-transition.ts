@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 
 import withDefaults from "./with-defaults";
 import clsx from "./clsx";
@@ -43,7 +43,7 @@ const CSSTransition: React.FC<CSSTransitionProps> = ({
   const [classes, setClasses] = useState<string>("");
   const [renderable, setRenderable] = useState<boolean>(visible);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const statusClassName = visible ? "enter" : "leave";
     const time = visible ? enterTime : leaveTime;
 
