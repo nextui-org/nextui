@@ -68,11 +68,6 @@ export const Loadings = () => (
         <Loading color="currentColor" size="sm" type="points-opacity" />
       </Button>
     </Grid>
-    <Grid>
-      <Button auto disabled color="error" css={{px: "$13"}}>
-        <Loading color="currentColor" size="sm" type="spinner" />
-      </Button>
-    </Grid>
   </Grid.Container>
 );
 
