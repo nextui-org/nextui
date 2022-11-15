@@ -1,4 +1,4 @@
-const App = `import { Link, Spacer } from "@nextui-org/react";
+const App = `import { Link, Spacer, Badge, Loading } from "@nextui-org/react";
 
 export default function App() {
   return (
@@ -8,6 +8,10 @@ export default function App() {
       </Link>
       <Spacer />
       <Link href="#" isExternal>
+        "First solve the problem. Then, write the code." - Jon Johnson.
+      </Link>
+      <Spacer />
+      <Link href="#" isExternal externalIcon={<Loading size="xs"/>}>
         "First solve the problem. Then, write the code." - Jon Johnson.
       </Link>
     </>
