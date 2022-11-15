@@ -443,7 +443,7 @@ export const PrimaryAction = () => {
       price: "$3.00",
     },
     {
-      title: "Raspberry",
+      title: "Cherry",
       img: "/images/fruit-3.jpeg",
       price: "$10.00",
     },
@@ -453,7 +453,7 @@ export const PrimaryAction = () => {
       price: "$5.30",
     },
     {
-      title: "Advocato",
+      title: "Avocado",
       img: "/images/fruit-5.jpeg",
       price: "$15.70",
     },

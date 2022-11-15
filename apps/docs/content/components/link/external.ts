@@ -7,11 +7,11 @@ export default function App() {
         "First solve the problem. Then, write the code." - Jon Johnson.
       </Link>
       <Spacer />
-      <Link href="#" isExternal>
+      <Link href="#" isExternal color="success">
         "First solve the problem. Then, write the code." - Jon Johnson.
       </Link>
       <Spacer />
-      <Link href="#" isExternal externalIcon={<Loading size="xs"/>}>
+      <Link href="#" isExternal externalIcon={<Loading size="xs" color="success"/>} color="success">
         "First solve the problem. Then, write the code." - Jon Johnson.
       </Link>
     </>
