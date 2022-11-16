@@ -49,27 +49,27 @@ export const Sizes = () => (
 export const Loadings = () => (
   <Grid.Container gap={2}>
     <Grid>
-      <Button auto disabled color="primary" css={{px: "$13"}}>
+      <Button auto color="primary" css={{px: "$13"}}>
         <Loading color="currentColor" size="sm" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="secondary" css={{px: "$13"}}>
+      <Button auto color="secondary" css={{px: "$13"}}>
         <Loading color="currentColor" size="sm" type="spinner" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="success" css={{px: "$13"}}>
+      <Button auto color="success" css={{px: "$13"}}>
         <Loading color="currentColor" size="sm" type="points" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="warning" css={{px: "$13"}}>
+      <Button auto color="warning" css={{px: "$13"}}>
         <Loading color="currentColor" size="sm" type="points-opacity" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto disabled color="error" css={{px: "$13"}}>
+      <Button auto color="error" css={{px: "$13"}}>
         <Loading color="currentColor" size="sm" type="spinner" />
       </Button>
     </Grid>
