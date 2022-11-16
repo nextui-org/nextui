@@ -69,8 +69,8 @@ export const Loadings = () => (
       </Button>
     </Grid>
     <Grid>
-      <Button auto color="warning" css={{px: "$13"}}>
-        <Loading color="currentColor" size="sm" type="points-opacity" />
+      <Button auto color="error" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="spinner" />
       </Button>
     </Grid>
   </Grid.Container>
