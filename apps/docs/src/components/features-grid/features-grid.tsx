@@ -44,8 +44,8 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   };
 
   return (
-    <Grid.Container css={{px: 0, ...(css as any)}} gap={2} {...props}>
-      {features.map((feat, index) => (
+    <Grid.Container css={{px: 0, ...css}} gap={2} {...props}>
+      {features.map((feat: Feature, index: number) => (
         <Grid key={`${feat.title}_${index}`} lg={lg} sm={sm} xs={xs}>
           <FeatureItem
             clickable={!!feat.href}

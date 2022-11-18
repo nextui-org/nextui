@@ -59,6 +59,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       isIndeterminate,
       inputRef,
       inputProps,
+      containerCss,
     } = useCheckbox({...otherProps, children: children ?? label});
 
     const domRef = useFocusableRef<HTMLLabelElement>(
@@ -92,7 +93,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
     return (
       <StyledCheckboxLabel
         ref={domRef}
-        {...mergeProps(hoverProps, pressProps)}
+        {...mergeProps(hoverProps, pressProps, otherProps)}
         as={as}
         className={clsx("nextui-checkbox-label", `nextui-checkbox--${checkboxState}`, className)}
         css={css}
@@ -103,6 +104,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
         <StyledCheckboxContainer
           className="nextui-checkbox-container"
           color={color}
+          css={containerCss}
           disableAnimation={disableAnimation}
           isDisabled={inputProps.disabled}
           isFocusVisible={isFocusVisible}

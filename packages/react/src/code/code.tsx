@@ -8,6 +8,7 @@ import {StyledCode, StyledPre, CodeVariantsProps} from "./code.styles";
 interface Props {
   block?: boolean;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -17,7 +18,7 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type CodeProps = Props & NativeAttrs & CodeVariantsProps & {css?: CSS};
 
-const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({block, children, ...props}) => {
+const Code: React.FC<CodeProps> = ({block, children, ...props}) => {
   if (!block) return <StyledCode {...props}>{children}</StyledCode>;
 
   return (

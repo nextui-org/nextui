@@ -8,6 +8,7 @@ interface Props {
   clearTime?: number;
   className?: string;
   name?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -21,7 +22,7 @@ const defaultProps = {
 
 export type CSSTransitionProps = Props & typeof defaultProps;
 
-const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
+const CSSTransition: React.FC<CSSTransitionProps> = ({
   children,
   className,
   visible,

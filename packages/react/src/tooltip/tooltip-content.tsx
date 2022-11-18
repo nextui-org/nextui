@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {MutableRefObject, useEffect, useMemo, useRef, useState} from "react";
 import {createPortal} from "react-dom";
 
@@ -5,7 +7,6 @@ import usePortal from "../use-portal";
 import useResize from "../use-resize";
 import CSSTransition from "../utils/css-transition";
 import useClickAnyWhere from "../use-click-anywhere";
-import {CSS} from "../theme/stitches.config";
 import {Placement} from "../utils/prop-types";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
@@ -34,6 +35,7 @@ interface Props {
   hideArrow?: boolean;
   className?: string;
   css?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -46,7 +48,7 @@ export type TooltipContentProps = Props & typeof defaultProps & TooltipContentVa
 
 const preClass = "nextui-tooltip";
 
-const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> = ({
+const TooltipContent: React.FC<TooltipContentProps> = ({
   children,
   parent,
   visible,
@@ -110,7 +112,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> = (
             opacity: 1,
             top: rect.top,
           },
-          ...(css as any),
+          ...css,
         }}
         data-state={getState}
         onClick={preventHandler}

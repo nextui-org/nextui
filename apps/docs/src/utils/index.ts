@@ -186,3 +186,4 @@ export const addColorAlpha = (colorProp?: string, alpha?: number) => {
 };
 
 export const isProd = process.env.NODE_ENV === "production";
+export const isPreview = process.env.IS_PREVIEW === "true";
