@@ -81,10 +81,6 @@ import Button from '@nextui-org/react/button';
 const Component = () => <Button>Click me</Button>;
 ```
 
-### Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=nextui-org/nextui&type=Date)](https://star-history.com/#nextui-org/nextui&Date)
-
 ### Community
 
 We're excited to see the community adopt NextUI, raise issues, and provide feedback.
@@ -93,6 +89,11 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 - [Discord](https://discord.gg/9b6yyZKmH4)
 - [Twitter](https://twitter.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
+
+## Star History
+
+
+<a href="https://star-history.com/#nextui-org/nextui"><img src="https://api.star-history.com/svg?repos=nextui-org/nextui&type=Date" alt="Star History Chart" width="600" /></a>
 
 ## Contributing
 
