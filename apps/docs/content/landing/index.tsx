@@ -10,7 +10,7 @@ import {
   Maximize,
   CodeDocument,
   HtmlLogo,
-} from "@components";
+} from "@icons";
 
 export default {
   topFeatures: [

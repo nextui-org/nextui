@@ -1,6 +1,7 @@
 import React from "react";
 import {useRouter} from "next/router";
-import {FeaturesGrid, Note, NextJsLogo} from "@components";
+import {Note, NextJsLogo} from "@icons";
+import FeaturesGrid from '@components/features-grid'
 import {Button, Container, Grid, Snippet} from "@nextui-org/react";
 import {StyledCardBlur, Title, Subtitle} from "@primitives";
 

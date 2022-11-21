@@ -8,8 +8,14 @@
       "@primitives": [
         "./src/components/primitives/index.ts"
       ],
-      "@components/": [
+      "@components/*": [
         "./src/components/*"
+      ],
+      "@icons": [
+        "./src/components/icons/index.ts"
+      ],
+      "@templates": [
+        "./src/components/templates/index.ts"
       ],
       "@content/*": [
         "./content/*"
