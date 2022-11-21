@@ -81,6 +81,10 @@ import Button from '@nextui-org/react/button';
 const Component = () => <Button>Click me</Button>;
 ```
 
+### Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=nextui-org/nextui&type=Date)](https://star-history.com/#nextui-org/nextui&Date)
+
 ### Community
 
 We're excited to see the community adopt NextUI, raise issues, and provide feedback.
