@@ -1,5 +1,6 @@
 import {styled, VariantProps} from "../theme/stitches.config";
 import {sharedVisuallyHidden} from "../theme/shared-css";
+import {cssFocusVisible} from "../theme/shared-css";
 
 const baseInputValues = {
   $$inputColor: "$colors$accents0",
@@ -884,6 +885,11 @@ export const StyledInputClearButton = styled("button", {
     },
   },
 });
+
+export const StyledInputClearButtonIconWrapper = styled('span', {
+  display: 'flex',
+  br: '100%'
+} , cssFocusVisible)
 
 // types
 export type InputVariantsProps = VariantProps<typeof StyledInput>;
