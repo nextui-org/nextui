@@ -60,6 +60,10 @@ const Progress: React.FC<ProgressProps> = ({
 
   return (
     <StyledProgress
+      aria-label="progress"
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
       css={{
         "nextui-progress-wrapper-enter": {
           opacity: 0,
@@ -83,9 +87,6 @@ const Progress: React.FC<ProgressProps> = ({
       >
         <StyledProgressBar
           animated={animated}
-          aria-valuemax={max}
-          aria-valuemin={min}
-          aria-valuenow={value}
           className={clsx(`${preClass}-bar`, {
             [`${preClass}-striped`]: striped,
             [`${preClass}-indeterminated`]: indeterminated,
