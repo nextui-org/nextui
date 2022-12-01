@@ -2,12 +2,10 @@ import React, {useEffect, useRef, useState} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import useClickAway from "../use-click-away";
-import {Placement} from "../utils/prop-types";
+import {Placement, TriggerTypes} from "../utils/prop-types";
 import {CSS} from "../theme/stitches.config";
-import {TriggerTypes} from "../utils/prop-types";
 
-import TooltipContent from "./tooltip-content";
-import {TooltipContentProps} from "./tooltip-content";
+import TooltipContent, {TooltipContentProps} from "./tooltip-content";
 import {StyledTooltipTrigger, TooltipContentVariantsProps} from "./tooltip.styles";
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
