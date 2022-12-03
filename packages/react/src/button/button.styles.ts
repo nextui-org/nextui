@@ -210,6 +210,7 @@ export const StyledButton = styled(
           height: "$$buttonHeight",
         },
       },
+      isFocusVisible: {true: {}, false: {}},
     },
     compoundVariants: [
       // isPressed && animated
@@ -269,6 +270,7 @@ export const StyledButton = styled(
       // shadow / color
       {
         shadow: true,
+        isFocusVisible: false,
         color: "default",
         css: {
           normalShadow: "$primaryShadow",
@@ -276,6 +278,7 @@ export const StyledButton = styled(
       },
       {
         shadow: true,
+        isFocusVisible: false,
         color: "primary",
         css: {
           normalShadow: "$primaryShadow",
@@ -283,6 +286,7 @@ export const StyledButton = styled(
       },
       {
         shadow: true,
+        isFocusVisible: false,
         color: "secondary",
         css: {
           normalShadow: "$secondaryShadow",
@@ -290,6 +294,7 @@ export const StyledButton = styled(
       },
       {
         shadow: true,
+        isFocusVisible: false,
         color: "warning",
         css: {
           normalShadow: "$warningShadow",
@@ -297,6 +302,7 @@ export const StyledButton = styled(
       },
       {
         shadow: true,
+        isFocusVisible: false,
         color: "success",
         css: {
           normalShadow: "$successShadow",
@@ -304,6 +310,7 @@ export const StyledButton = styled(
       },
       {
         shadow: true,
+        isFocusVisible: false,
         color: "error",
         css: {
           normalShadow: "$errorShadow",
@@ -311,6 +318,7 @@ export const StyledButton = styled(
       },
       {
         shadow: true,
+        isFocusVisible: false,
         color: "gradient",
         css: {
           normalShadow: "$primaryShadow",
