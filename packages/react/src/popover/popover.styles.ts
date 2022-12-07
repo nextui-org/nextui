@@ -67,11 +67,13 @@ export const StyledPopoverContentContainer = styled(
       animationTimingFunction: "ease-out",
       animationDirection: "normal",
       animationDuration: "300ms",
+      animationFillMode: "both",
     },
     "&.nextui-popover-content-leave": {
       animationName: appearanceOut,
       animationTimingFunction: "ease-in",
       animationDuration: "60ms",
+      animationFillMode: "both",
     },
     variants: {
       disableShadow: {
