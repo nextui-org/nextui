@@ -138,6 +138,10 @@ export function usePopover(props: UsePopoverProps = {}) {
     offset,
   });
 
+  const isPositioned = useMemo(() => {
+    return !!positionProps.style?.maxHeight;
+  }, [positionProps.style]);
+
   const getTriggerProps = useCallback(
     (props = {}, _ref = null) => {
       const realTriggerProps = triggerRefProp?.current
@@ -214,6 +218,7 @@ export function usePopover(props: UsePopoverProps = {}) {
     positionProps,
     getTriggerProps,
     getPopoverProps,
+    isPositioned,
   };
 }
 

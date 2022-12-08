@@ -48,6 +48,7 @@ const PopoverContent = React.forwardRef(
       onClose,
       onEntered,
       onExited,
+      isPositioned,
     } = usePopoverContext();
 
     const transformOrigin = getTransformOrigin(placement);
@@ -108,6 +109,7 @@ const PopoverContent = React.forwardRef(
         className={clsx("nextui-popover-content-container", className)}
         disableAnimation={disableAnimation}
         isFocusVisible={isFocusVisible}
+        isPositioned={isPositioned}
       >
         <DismissButton onDismiss={onClose} />
         <StyledPopoverContent className="nextui-popover-content">{children}</StyledPopoverContent>

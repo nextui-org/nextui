@@ -109,6 +109,14 @@ export const StyledPopoverContentContainer = styled(
           $$popoverBorderWeight: "$borderWeights$black",
         },
       },
+      isPositioned: {
+        true: {
+          visibility: "visible",
+        },
+        false: {
+          visibility: "hidden",
+        },
+      },
       disableAnimation: {
         true: {
           transition: "none",

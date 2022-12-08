@@ -1,6 +1,6 @@
 import type {FC, ReactNode, RefObject} from "react";
 
-import React, {useLayoutEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 
 import clsx from "./clsx";
 
@@ -69,7 +69,7 @@ const CSSTransition: FC<CSSTransitionProps> = ({
   }, [visible, renderable]);
 
   // update children ref classes
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!childrenRef?.current) return;
 
     const classesArr = classes.split(" ");
