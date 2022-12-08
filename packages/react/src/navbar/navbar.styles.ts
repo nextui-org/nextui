@@ -489,7 +489,6 @@ export const StyledNavbarContainer = styled("div", {
   boxSizing: "border-box",
   color: "inherit",
   px: "$$navbarPadding",
-  bg: "$$navbarBackgroundColor",
   maxW: "$$navbarContainerMaxWidth",
   zIndex: "$5",
   "@xsMax": {
@@ -505,6 +504,7 @@ export const StyledNavbar = styled("nav", {
   height: "auto",
   color: "$$navbarTextColor",
   zIndex: "$2",
+  bg: "$$navbarBackgroundColor",
   variants: {
     variant: {
       static: {
@@ -575,12 +575,11 @@ export const StyledNavbar = styled("nav", {
     },
     disableBlur: {
       false: {
-        "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
-          [`& ${StyledNavbarContainer}`]: {
+        "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))":
+          {
             bg: "$$navbarBlurBackgroundColor",
             backdropFilter: "saturate(180%) blur($$navbarBlur)",
           },
-        },
       },
     },
   },
