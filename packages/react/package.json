@@ -71,7 +71,9 @@
     "@react-aria/utils": "3.13.2",
     "@react-aria/visually-hidden": "3.4.0",
     "@react-stately/checkbox": "3.2.0",
+    "@react-stately/collections": "^3.5.0",
     "@react-stately/data": "3.6.0",
+    "@react-stately/menu": "^3.4.3",
     "@react-stately/overlays": "3.4.0",
     "@react-stately/radio": "3.5.0",
     "@react-stately/table": "3.3.0",
@@ -93,7 +95,6 @@
     "directory": "lib"
   },
   "devDependencies": {
-    "react": "17.0.2",
     "@babel/cli": "^7.14.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.15.6",
     "@babel/plugin-transform-runtime": "^7.14.5",
@@ -131,6 +132,7 @@
     "p-iteration": "^1.1.8",
     "parcel": "^2.3.1",
     "prettier": "^2.3.1",
+    "react": "17.0.2",
     "rimraf": "^3.0.2",
     "terser": "5.10.0",
     "ts-jest": "^26.5.5",
