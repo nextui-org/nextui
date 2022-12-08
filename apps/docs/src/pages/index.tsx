@@ -13,6 +13,7 @@ import {
   CustomizationSection,
   BuiltInStitchesSection,
   LastButNotLeastSection,
+  SupportSection,
 } from "@components";
 import landingContent from "@content/landing";
 import DefaultLayout from "@layouts/default";
@@ -59,6 +60,7 @@ const IndexPage: React.FC<Props> = ({routes, currentRoute}) => {
       <CustomizationSection />
       <BuiltInStitchesSection />
       <LastButNotLeastSection />
+      <SupportSection />
       {/* Installation banner */}
       <Section css={{zIndex: "$10"}}>
         <Spacer css={{"@xsMax": {mt: "$16"}}} y={6} />

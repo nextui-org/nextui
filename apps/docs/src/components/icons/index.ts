@@ -73,3 +73,6 @@ export {default as TypescriptLogo} from "./typescript";
 export {default as JavascriptLogo} from "./javascript";
 export {default as Scale} from "./scale";
 export {default as Sparkle} from "./sparkle";
+export {default as OpenCollectiveLogo} from "./open-collective";
+export {default as PatreonLogo} from "./patreon";
+export {default as LinkIcon} from "./link";
