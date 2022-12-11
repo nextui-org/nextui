@@ -47,9 +47,20 @@ const TableBody: React.FC<TableBodyProps> = ({
   isStatic,
   ...props
 }) => {
-  const {currentPage, rowsPerPage} = useTableContext();
+  const {
+    currentPage,
+    rowsPerPage,
+    collection: collectionContext,
+    setCollection,
+  } = useTableContext();
 
   const infinityScroll = useMemo(() => isInfinityScroll(collection), [collection.body.props]);
+
+  React.useEffect(() => {
+    if (collection !== collectionContext) {
+      setCollection?.(collection);
+    }
+  }, [collection, collectionContext]);
 
   const isLoading =
     collection.body?.props?.loadingState === "loading" ||

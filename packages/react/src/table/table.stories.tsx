@@ -344,6 +344,72 @@ export const Pagination = () => {
   );
 };
 
+export const AsyncPagination = () => {
+  let scopedColumns = [
+    {name: "Name", uid: "name"},
+    {name: "Height", uid: "height"},
+    {name: "Mass", uid: "mass"},
+    {name: "Birth Year", uid: "birth_year"},
+  ];
+
+  let list = useAsyncList({
+    async load({signal, cursor}) {
+      if (cursor) {
+        // write this /^http:\/\//i using RegExp
+        const regex = "/^http:///i";
+
+        cursor = cursor.replace(regex, "https://");
+      }
+
+      let res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
+      let json = await res.json();
+
+      return {
+        items: json.results,
+        cursor: json.next,
+      };
+    },
+  });
+
+  const rowsPerPage = 3;
+
+  return (
+    <Table
+      aria-label="Example table with asyncronosly loading dynamic content"
+      color="secondary"
+      css={{
+        minWidth: "620px",
+        height: "auto",
+        "@xsMax": {
+          minWidth: "100%",
+        },
+      }}
+      selectionMode="multiple"
+      shadow={false}
+    >
+      <Table.Header columns={scopedColumns}>
+        {(column) => <Table.Column key={column.uid}>{column.name}</Table.Column>}
+      </Table.Header>
+      <Table.Body items={list.items}>
+        {(item: any) => (
+          <Table.Row key={item.name}>{(key) => <Table.Cell>{item[key]}</Table.Cell>}</Table.Row>
+        )}
+      </Table.Body>
+      <Table.Pagination
+        noMargin
+        shadow
+        align="center"
+        rowsPerPage={rowsPerPage}
+        onPageChange={(page) => {
+          if (page >= list.items.length / rowsPerPage) {
+            list.loadMore();
+          }
+        }}
+      />
+    </Table>
+  );
+};
+
 export const InfinityPagination = () => {
   let scopedColumns = [
     {name: "Name", uid: "name"},

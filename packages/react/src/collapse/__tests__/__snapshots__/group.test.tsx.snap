@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse Group should be no errors when children are missing 1`] = `ReactWrapper {}`;
+
+exports[`Collapse Group should render correctly 1`] = `ReactWrapper {}`;
+
+exports[`Collapse Group should work with bordered 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="nextui-c-dWWWSv nextui-c-dWWWSv-eaqZHc-borderWeight-light nextui-c-dWWWSv-jXueSE-bordered-true"
+  >
+    <div
+      class="nextui-c-hPzDAx nextui-c-huiNHE nextui-c-hPzDAx-eLdNZT-borderWeight-light nextui-c-hPzDAx-jBQhgJ-divider-true nextui-c-hPzDAx-kMkCGX-animated-true nextui-c-hPzDAx-TDdeu-visible-false nextui-collapse nextui-collapse--closed"
+      data-state="closed"
+      tabindex="-1"
+    >
+      <div
+        aria-controls="react-aria9260875313-10"
+        aria-disabled="false"
+        aria-expanded="false"
+        class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
+        data-state="closed"
+        id="react-aria9260875313-9"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="nextui-collapse-title-container"
+        >
+          <div
+            class="nextui-collapse-title-content"
+          >
+            <h3
+              class="nextui-collapse-title"
+            >
+              title1
+            </h3>
+          </div>
+          <div
+            class="nextui-collapse-title-content-right"
+          >
+            <svg
+              class="nextui-c-fUXRSc nextui-collapse-icon"
+              fill="none"
+              focusable="false"
+              height="20"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css"
+      >
+        <div
+          class="nextui-expand-content"
+        >
+          <div
+            aria-labelledby="react-aria9260875313-9"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria9260875313-10"
+            role="region"
+            tabindex="-1"
+          >
+            content1
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="nextui-c-hPzDAx nextui-c-huiNHE nextui-c-hPzDAx-eLdNZT-borderWeight-light nextui-c-hPzDAx-jBQhgJ-divider-true nextui-c-hPzDAx-kMkCGX-animated-true nextui-c-hPzDAx-TDdeu-visible-false nextui-collapse nextui-collapse--closed"
+      data-state="closed"
+      tabindex="-1"
+    >
+      <div
+        aria-controls="react-aria9260875313-12"
+        aria-disabled="false"
+        aria-expanded="false"
+        class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
+        data-state="closed"
+        id="react-aria9260875313-11"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="nextui-collapse-title-container"
+        >
+          <div
+            class="nextui-collapse-title-content"
+          >
+            <h3
+              class="nextui-collapse-title"
+            >
+              title2
+            </h3>
+          </div>
+          <div
+            class="nextui-collapse-title-content-right"
+          >
+            <svg
+              class="nextui-c-fUXRSc nextui-collapse-icon"
+              fill="none"
+              focusable="false"
+              height="20"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css"
+      >
+        <div
+          class="nextui-expand-content"
+        >
+          <div
+            aria-labelledby="react-aria9260875313-11"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria9260875313-12"
+            role="region"
+            tabindex="-1"
+          >
+            content2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Collapse Group should work without accordion 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="nextui-c-dWWWSv nextui-c-dWWWSv-eaqZHc-borderWeight-light"
+  >
+    <div
+      class="nextui-c-hPzDAx nextui-c-huiNHE nextui-c-hPzDAx-eLdNZT-borderWeight-light nextui-c-hPzDAx-jBQhgJ-divider-true nextui-c-hPzDAx-kMkCGX-animated-true nextui-c-hPzDAx-TDdeu-visible-false nextui-collapse nextui-collapse--closed"
+      data-state="closed"
+      tabindex="-1"
+    >
+      <div
+        aria-controls="react-aria9260875313-6"
+        aria-disabled="false"
+        aria-expanded="false"
+        class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
+        data-state="closed"
+        id="react-aria9260875313-5"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="nextui-collapse-title-container"
+        >
+          <div
+            class="nextui-collapse-title-content"
+          >
+            <h3
+              class="nextui-collapse-title"
+            >
+              title1
+            </h3>
+          </div>
+          <div
+            class="nextui-collapse-title-content-right"
+          >
+            <svg
+              class="nextui-c-fUXRSc nextui-collapse-icon"
+              fill="none"
+              focusable="false"
+              height="20"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css"
+      >
+        <div
+          class="nextui-expand-content"
+        >
+          <div
+            aria-labelledby="react-aria9260875313-5"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria9260875313-6"
+            role="region"
+            tabindex="-1"
+          >
+            content1
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="nextui-c-hPzDAx nextui-c-huiNHE nextui-c-hPzDAx-eLdNZT-borderWeight-light nextui-c-hPzDAx-jBQhgJ-divider-true nextui-c-hPzDAx-kMkCGX-animated-true nextui-c-hPzDAx-TDdeu-visible-false nextui-collapse nextui-collapse--closed"
+      data-state="closed"
+      tabindex="-1"
+    >
+      <div
+        aria-controls="react-aria9260875313-8"
+        aria-disabled="false"
+        aria-expanded="false"
+        class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
+        data-state="closed"
+        id="react-aria9260875313-7"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="nextui-collapse-title-container"
+        >
+          <div
+            class="nextui-collapse-title-content"
+          >
+            <h3
+              class="nextui-collapse-title"
+            >
+              title2
+            </h3>
+          </div>
+          <div
+            class="nextui-collapse-title-content-right"
+          >
+            <svg
+              class="nextui-c-fUXRSc nextui-collapse-icon"
+              fill="none"
+              focusable="false"
+              height="20"
+              role="presentation"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.5 19l-7-7 7-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css"
+      >
+        <div
+          class="nextui-expand-content"
+        >
+          <div
+            aria-labelledby="react-aria9260875313-7"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria9260875313-8"
+            role="region"
+            tabindex="-1"
+          >
+            content2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
