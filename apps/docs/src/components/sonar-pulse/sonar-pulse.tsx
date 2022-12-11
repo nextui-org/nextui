@@ -11,6 +11,7 @@ import {
 
 interface SonarPulseProps {
   children: React.ReactNode;
+  icon?: React.ReactNode;
   size?: number;
   circlesCount?: number;
   playState?: "running" | "paused";
@@ -20,6 +21,7 @@ interface SonarPulseProps {
 const SonarPulse: React.FC<SonarPulseProps> = ({
   children,
   color = "#FF4ECD",
+  icon,
   size = 80,
   circlesCount = 4,
   playState = "paused",
@@ -61,7 +63,7 @@ const SonarPulse: React.FC<SonarPulseProps> = ({
         $$sonarSize: `${size}px`,
       }}
     >
-      <StyledIconWrapper>{children}</StyledIconWrapper>
+      <StyledIconWrapper>{icon}</StyledIconWrapper>
       <StyledSonarElements>
         <StyledSonarCircle
           className={`circle circle-static`}
@@ -75,6 +77,7 @@ const SonarPulse: React.FC<SonarPulseProps> = ({
           }}
         />
         {renderCircles}
+        {children}
       </StyledSonarElements>
     </StyledSonarPulse>
   );

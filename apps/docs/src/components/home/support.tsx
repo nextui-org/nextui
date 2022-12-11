@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useMemo} from "react";
 import {Heart, OpenCollectiveLogo, PatreonLogo, Plus, FeaturesGrid, SonarPulse} from "@components";
 import {Section, Title, Subtitle} from "@primitives";
-import {styled, Row, Spacer, Tooltip} from "@nextui-org/react";
+import {styled, Row, Spacer, Tooltip, Avatar, AvatarProps} from "@nextui-org/react";
 import {InView} from "react-intersection-observer";
+import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS} from "@lib/docs/sponsors";
 import {pulse} from "@utils/animations";
+import {clamp} from "lodash";
 
 const supportAccounts = [
   {
@@ -22,6 +24,10 @@ const supportAccounts = [
   },
 ];
 
+const SONAR_PULSE_SIZE = 80;
+const SONAR_PULSE_CIRCLES_COUNT = 4;
+const SONAR_PULSE_RADIUS = 130;
+
 const StyledPlusWrapper = styled("div", {
   display: "flex",
   alignItems: "center",
@@ -36,12 +42,101 @@ const StyledPlusWrapper = styled("div", {
   },
 });
 
-const SupportSection = () => {
+const StyledSponsorsWrapper = styled("div", {
+  position: "absolute",
+  size: SONAR_PULSE_RADIUS,
+  borderRadius: "50%",
+  background: "transparent",
+  top: (SONAR_PULSE_RADIUS / 2) * -1,
+  left: (SONAR_PULSE_RADIUS / 2) * -1,
+});
+
+export interface SupportSectionProps {
+  sponsors: Sponsor[];
+}
+
+const SupportSection: React.FC<SupportSectionProps> = ({sponsors = []}) => {
   const [isSonarVisible, setIsSonarVisible] = useState(false);
 
-  const handleSupportClick = () => {
-    window.open(supportAccounts[0].href, "_blank");
+  const handleExternalLinkClick = (href: string) => {
+    if (!href) return;
+    window.open(href, "_blank");
   };
+
+  const getSponsorName = (sponsor: Sponsor) => {
+    if (!sponsor.name) {
+      return "";
+    }
+
+    return sponsor.name.slice(0, 2).toUpperCase();
+  };
+
+  const getSponsorSize = (sponsor: Sponsor) => {
+    let size: AvatarProps["size"] = "md";
+
+    switch (sponsor.tier) {
+      case SPONSOR_TIERS.BRONZE:
+        size = "md";
+        break;
+      case SPONSOR_TIERS.SILVER:
+        size = "md";
+        break;
+      case SPONSOR_TIERS.GOLD:
+        size = "xl";
+        break;
+      case SPONSOR_TIERS.PLATINUM:
+        size = "xl";
+        break;
+      default:
+        size = "md";
+    }
+
+    return size;
+  };
+
+  const getSponsorColor = (sponsor: Sponsor) => {
+    return SPONSOR_COLORS[sponsor.tier] || "default";
+  };
+
+  const getSponsorCss = (index: number) => {
+    const angle = (index * 360) / sponsors.length;
+    const radius = SONAR_PULSE_RADIUS;
+
+    // position the avatar randomly inside the sonar pulse
+    const randomRadius = clamp(Math.floor((index + 1) * radius), radius * 0.4, radius);
+
+    const x = randomRadius * Math.cos((angle * Math.PI) / 180);
+    const y = randomRadius * Math.sin((angle * Math.PI) / 180);
+
+    return {
+      position: "absolute",
+      top: "calc(50% - 20px)",
+      left: "calc(50% - 20px)",
+      transform: `translate(${x}px, ${y}px)`,
+    };
+  };
+
+  const renderSponsors = useMemo(() => {
+    if (!sponsors.length) return null;
+
+    return (
+      <StyledSponsorsWrapper>
+        {sponsors.map((sponsor, index) => (
+          <Avatar
+            key={`${sponsor.MemberId}-${index}`}
+            bordered
+            pointer
+            color={getSponsorColor(sponsor) as AvatarProps["color"]}
+            css={getSponsorCss(index)}
+            size={getSponsorSize(sponsor)}
+            src={sponsor.image}
+            text={getSponsorName(sponsor)}
+            onClick={() => handleExternalLinkClick(sponsor.profile)}
+          />
+        ))}
+      </StyledSponsorsWrapper>
+    );
+  }, [sponsors]);
 
   return (
     <Section css={{zIndex: "$10"}}>
@@ -67,15 +162,26 @@ const SupportSection = () => {
       </Row>
       <Spacer y={2} />
       <FeaturesGrid features={supportAccounts} justify="center" sm={6} xs={12} />
-      <Spacer y={5} />
+      <Spacer y={7} />
       <InView as="section" className="inview-section" onChange={setIsSonarVisible}>
         <Row justify="center">
-          <SonarPulse color="#7928CA" playState={isSonarVisible ? "running" : "paused"}>
-            <Tooltip rounded color="secondary" content={"Become a sponsor"} offset={86}>
-              <StyledPlusWrapper role="button" onClick={handleSupportClick}>
-                <Plus fill="#fff" size={54} />
-              </StyledPlusWrapper>
-            </Tooltip>
+          <SonarPulse
+            circlesCount={SONAR_PULSE_CIRCLES_COUNT}
+            color="#7928CA"
+            icon={
+              <Tooltip rounded color="secondary" content={"Become a sponsor"} offset={86}>
+                <StyledPlusWrapper
+                  role="button"
+                  onClick={() => handleExternalLinkClick(supportAccounts[0].href)}
+                >
+                  <Plus fill="#fff" size={54} />
+                </StyledPlusWrapper>
+              </Tooltip>
+            }
+            playState={isSonarVisible ? "running" : "paused"}
+            size={SONAR_PULSE_SIZE}
+          >
+            {renderSponsors}
           </SonarPulse>
         </Row>
       </InView>
