@@ -95,7 +95,7 @@ const TableBody: React.FC<TableBodyProps> = ({
             {
               "--nextui--tableBodyEmptySpaceHeight": infinityScroll
                 ? "var(--nextui-space-10)"
-                : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-14))`,
+                : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-15))`,
             },
             props?.style || {},
           )}
