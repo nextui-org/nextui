@@ -1,7 +1,8 @@
-import React from "react";
-import {Heart, OpenCollectiveLogo, PatreonLogo, FeaturesGrid} from "@components";
+import React, {useState} from "react";
+import {Heart, OpenCollectiveLogo, PatreonLogo, Plus, FeaturesGrid, SonarPulse} from "@components";
 import {Section, Title, Subtitle} from "@primitives";
-import {Row, Spacer} from "@nextui-org/react";
+import {styled, Row, Spacer, Tooltip} from "@nextui-org/react";
+import {InView} from "react-intersection-observer";
 import {pulse} from "@utils/animations";
 
 const supportAccounts = [
@@ -21,7 +22,27 @@ const supportAccounts = [
   },
 ];
 
+const StyledPlusWrapper = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "50%",
+  background: "linear-gradient(180deg, #FF1CF7 0%, #7928CA 100%)",
+  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.2)",
+  cursor: "pointer",
+  transition: "opacity 0.25s ease",
+  "&:active": {
+    opacity: 0.8,
+  },
+});
+
 const SupportSection = () => {
+  const [isSonarVisible, setIsSonarVisible] = useState(false);
+
+  const handleSupportClick = () => {
+    window.open(supportAccounts[0].href, "_blank");
+  };
+
   return (
     <Section css={{zIndex: "$10"}}>
       <Spacer css={{"@xsMax": {mt: "$14"}}} y={6} />
@@ -45,7 +66,20 @@ const SupportSection = () => {
         </Subtitle>
       </Row>
       <Spacer y={2} />
-      <FeaturesGrid features={supportAccounts} justify="center" xs={6} />
+      <FeaturesGrid features={supportAccounts} justify="center" sm={6} xs={12} />
+      <Spacer y={5} />
+      <InView as="section" className="inview-section" onChange={setIsSonarVisible}>
+        <Row justify="center">
+          <SonarPulse color="#7928CA" playState={isSonarVisible ? "running" : "paused"}>
+            <Tooltip rounded color="secondary" content={"Become a sponsor"} offset={86}>
+              <StyledPlusWrapper role="button" onClick={handleSupportClick}>
+                <Plus fill="#fff" size={54} />
+              </StyledPlusWrapper>
+            </Tooltip>
+          </SonarPulse>
+        </Row>
+      </InView>
+      <Spacer y={5} />
     </Section>
   );
 };
