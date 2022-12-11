@@ -119,7 +119,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </PaginationItem>
       );
     },
-    [total, onlyDots, active, bordered, animated],
+    [total, onlyDots, active, bordered, animated, setPage],
   );
 
   const handleNext = () => {
