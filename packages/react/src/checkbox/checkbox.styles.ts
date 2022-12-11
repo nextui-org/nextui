@@ -4,6 +4,8 @@ import {styled} from "../theme/stitches.config";
 import {cssFocusVisible} from "../theme/shared-css";
 
 export const StyledCheckboxLabel = styled("label", {
+  $$checkboxBorderColor: "$colors$border",
+  $$checkboxBorderRadius: "$radii$squared",
   d: "inline-flex",
   jc: "flex-start",
   ai: "center",
@@ -13,7 +15,6 @@ export const StyledCheckboxLabel = styled("label", {
   zIndex: "$1",
   opacity: 1,
   transition: "opacity 0.25s ease",
-  $$checkboxBorderColor: "$colors$border",
   "@motion": {
     transition: "none",
   },
@@ -461,7 +462,7 @@ export const StyledCheckboxText = styled("span", {
 export const StyledCheckboxContainer = styled(
   "div",
   {
-    br: "$squared",
+    br: "$$checkboxBorderRadius",
     position: "relative",
     sizeMin: "$$checkboxSize",
     transition: "box-shadow 0.25s ease",
@@ -517,7 +518,7 @@ export const StyledCheckboxContainer = styled(
       },
       isRounded: {
         true: {
-          br: "$pill",
+          $$checkboxBorderRadius: "$radii$pill",
         },
       },
       isDisabled: {

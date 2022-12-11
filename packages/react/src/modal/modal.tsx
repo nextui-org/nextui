@@ -29,6 +29,7 @@ interface Props {
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -47,7 +48,7 @@ type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
 
 export type ModalProps = Props & NativeAttrs & Partial<typeof defaultProps> & ModalWrapperProps;
 
-const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
+const Modal: React.FC<ModalProps> = ({
   children,
   onClose,
   onOpen,

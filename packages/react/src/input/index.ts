@@ -1,5 +1,3 @@
-import Textarea from "../textarea";
-
 import Input from "./input";
 import InputPassword from "./input-password";
 
@@ -29,7 +27,6 @@ export type {
   InputContentVariantsProps,
 } from "./input.styles";
 
-Input.Textarea = Textarea;
 Input.Password = InputPassword;
 
 export default Input;

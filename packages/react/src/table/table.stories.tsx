@@ -2,7 +2,18 @@ import React from "react";
 import {Meta} from "@storybook/react";
 
 import {getKeyValue} from "../utils/object";
-import {User, Text, Col, Row, Tooltip, styled, useAsyncList, useCollator} from "../index";
+import {
+  Badge,
+  User,
+  Text,
+  Col,
+  Row,
+  Tooltip,
+  styled,
+  useAsyncList,
+  useCollator,
+  BadgeProps,
+} from "../index";
 import {Eye, Edit, Delete} from "../utils/icons";
 
 import Table, {TableProps, SortDescriptor} from "./index";
@@ -18,41 +29,6 @@ export default {
     ),
   ],
 } as Meta;
-
-const StyledBadge = styled("span", {
-  display: "inline-block",
-  textTransform: "uppercase",
-  padding: "$2 $3",
-  margin: "0 2px",
-  fontSize: "10px",
-  fontWeight: "$bold",
-  borderRadius: "14px",
-  letterSpacing: "0.6px",
-  lineHeight: 1,
-  boxShadow: "1px 2px 5px 0px rgb(0 0 0 / 5%)",
-  alignItems: "center",
-  alignSelf: "center",
-  color: "$white",
-  variants: {
-    type: {
-      active: {
-        bg: "$successLight",
-        color: "$success",
-      },
-      paused: {
-        bg: "$errorLight",
-        color: "$error",
-      },
-      vacation: {
-        bg: "$warningLight",
-        color: "$warning",
-      },
-    },
-  },
-  defaultVariants: {
-    type: "active",
-  },
-});
 
 const IconButton = styled("button", {
   dflex: "center",
@@ -279,7 +255,9 @@ export const Sortable = () => {
     async sort({items, sortDescriptor}: {items: any[]; sortDescriptor: SortDescriptor}) {
       return {
         items: items.sort((a, b) => {
+          // @ts-ignore
           let first = a[sortDescriptor.column];
+          // @ts-ignore
           let second = b[sortDescriptor.column];
           let cmp = collator.compare(first, second);
 
@@ -366,7 +344,6 @@ export const Pagination = () => {
   );
 };
 
-
 export const AsyncPagination = () => {
   let scopedColumns = [
     {name: "Name", uid: "name"},
@@ -394,7 +371,7 @@ export const AsyncPagination = () => {
     },
   });
 
-  const rowsPerPage = 3
+  const rowsPerPage = 3;
 
   return (
     <Table
@@ -584,6 +561,13 @@ export const CustomCells = () => {
 
   const renderCell = (user: UserType, columnKey: React.Key) => {
     const cellValue = user[columnKey];
+    const statusColor: {
+      [key: string]: BadgeProps["color"];
+    } = {
+      active: "success",
+      paused: "warning",
+      vacation: "error",
+    };
 
     switch (columnKey) {
       case "name":
@@ -608,7 +592,17 @@ export const CustomCells = () => {
           </Col>
         );
       case "status":
-        return <StyledBadge type={user?.status}>{cellValue}</StyledBadge>;
+        return (
+          <Badge
+            color={statusColor[user?.status]}
+            css={{
+              tt: "capitalize",
+            }}
+            variant="flat"
+          >
+            {cellValue}
+          </Badge>
+        );
 
       case "actions":
         return (

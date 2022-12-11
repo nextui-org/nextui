@@ -108,11 +108,11 @@ const HeroComponents = () => {
           content={"Developers love Next.js"}
           css={{
             animation: `${levitating} 14s ease infinite 0.1s`,
-            marginLeft: "-80px",
+            marginLeft: "-90px",
             marginTop: "$2",
             transform: "translate(0, 0)",
           }}
-          offset={50}
+          offset={124}
           trigger="click"
         >
           <Button auto bordered borderWeight="bold" color="primary" size="sm">

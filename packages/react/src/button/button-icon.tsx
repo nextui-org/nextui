@@ -1,6 +1,8 @@
+import type {VariantProps, CSS} from "../theme/stitches.config";
+
 import React from "react";
 
-import {styled, VariantProps, CSS} from "../theme/stitches.config";
+import {styled} from "../theme/stitches.config";
 import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 
@@ -8,6 +10,7 @@ interface Props {
   isRight?: boolean;
   isSingle?: boolean;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -111,12 +114,7 @@ export type ButtonIconProps = Props &
     css?: CSS;
   };
 
-const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
-  children,
-  className,
-  css,
-  ...props
-}) => {
+const ButtonIcon: React.FC<ButtonIconProps> = ({children, className, css, ...props}) => {
   return (
     <StyledButtonIcon
       className={clsx(
@@ -127,9 +125,7 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
         },
         className,
       )}
-      css={{
-        ...(css as any),
-      }}
+      css={css}
       {...props}
     >
       {children}

@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
-import {CSS} from "../theme/stitches.config";
 import {Justify, AlignItems, Wrap} from "../utils/prop-types";
 
 import StyledRow, {RowVariantsProps} from "./row.styles";
@@ -13,6 +14,7 @@ interface Props {
   align?: AlignItems;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -26,15 +28,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type RowProps = Props & NativeAttrs & RowVariantsProps;
 
-const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
-  children,
-  gap,
-  justify,
-  align,
-  wrap,
-  css,
-  ...props
-}) => {
+const Row: React.FC<RowProps> = ({children, gap, justify, align, wrap, css, ...props}) => {
   return (
     <StyledRow
       css={{
@@ -44,7 +38,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
         marginRight: `calc(${gap} * $space$lg / 2)`,
         justifyContent: justify,
         alignItems: align,
-        ...(css as any),
+        ...css,
       }}
       {...props}
     >

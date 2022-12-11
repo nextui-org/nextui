@@ -4,42 +4,29 @@ description: NextUI in Next.js
 url: https://nextui.org/docs/nextui-plus-nextjs
 ---
 
-# NextUI + Next.js
+### Next.js 13
 
-NextUI is totally compatible with <a target="_blank" rel="nofollow" href="https://nextjs.org">Next.js</a> you just need to customize the <a target="_blank" rel="nofollow" href="https://nextjs.org/docs/advanced-features/custom-app">\_app.jsx</a> entry file to load the provider.
+Next.js 13 introduces a new `app/` directory folder structure. By default it uses React Server Components. To use NextUI in those components, you need to convert them into client-side component by adding a <br/> `'use client';` at the top of your file. 
+**NextUI only works in client-side components.**
 
-Start your Next.js project with <a target="_blank" rel="nofollow" href="https://github.com/nextui-org/nextui/tree/main/examples/create-next-app"> this example</a>.
+<Spacer y={2}/>
+
+### Next.js 12 and below
+
+If you're not using the new app/ directory, there's no need to add the `'use client';` directive, you just need to customize the <a target="_blank" rel="nofollow" href="https://nextjs.org/docs/advanced-features/custom-app">\_app.jsx</a> entry file to load the provider. Here's an <a target="_blank" rel="nofollow" href="https://github.com/nextui-org/nextui/tree/main/examples/create-next-app">example</a> project.
 
 <CarbonAd />
 
 <Spacer y={2} />
 
-### Server Render
 
-All Components of `@nextui-org/react` are compatible with **Server Render**. In fact, the page you see now is rendered by the server.
+### SSR Setup
 
-Server-side rendering (SSR) is the process of rendering web pages on a server and passing them to the browser (client-side),
-instead of rendering them in the browser. SSR sends a fully rendered page to the client; the client's JavaScript
-bundle takes over and enables the SPA framework to operate, the best option to use server side render in React.js is using <a target="_blank" color rel="nofollow" href="https://nextjs.org">Next.js</a>.
-
-If you are worried about losing the advantages of a Single Page Application by implementing server-side rendering, you can use the `hybrid render` application.
-Please read <a target="_blank" rel="nofollow" href="https://nextjs.org/blog/next-9-3#next-gen-static-site-generation-ssg-support">
-the post from the Next.js team</a> to learn more.
-
-In addition, for **server-side render** and web applications, we
-strongly recommend that you read this famous post&nbsp;<a href="https://rauchg.com/2014/7-principles-of-rich-web-applications" rel="nofollow" target="_blank">7-principles-of-rich-web-applications</a> from _Guillermo Rauch_.
-
-<Spacer y={1} />
-
-### Next.js
-
-In <a target="_blank" rel="nofollow" href="https://nextjs.org">Next.js</a> framework, you need customization file `_document.js`,
-please refer to <a target="_blank" href="https://nextjs.org/docs/advanced-features/custom-document" rel="nofollow">Next.js document here</a>
-to create file `_document.js`.
-
-Then we add the following code to the file:
+In <a target="_blank" rel="nofollow" href="https://nextjs.org">Next.js</a> framework, you need to customize the `pages/_document.js` <a target="_blank" href="https://nextjs.org/docs/advanced-features/custom-document" rel="nofollow">file</a>. Then we add the following code to the file:
 
 ```jsx
+// pages/_document.js
+
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { CssBaseline } from "@nextui-org/react";
@@ -69,31 +56,69 @@ class MyDocument extends Document {
 export default MyDocument;
 ```
 
-Here's an example of what your `_document.js` file should look like: <a target="_blank" href="https://github.com/nextui-org/nextui/blob/main/examples/create-next-app/pages/_document.js" rel="nofollow" color>\_document.jsx</a>.
-
 <Spacer y={1}/>
 
-### Custom Server
+### Provider Setup
 
-In the custom server, also get the style set from function `CssBaseline.flush` as shown below.
+NextUI needs to be wrapped in a provider to work properly. You need to set up the `NextUIProvider` at the root of your application.
+
+Go to `pages/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the following code:
 
 ```jsx
-import React from "react";
-import ReactDOM from "react-dom/server";
-import { CssBaseline } from "@nextui-org/react";
-import App from "./app";
+// pages/_app.js
 
-export default (req, res) => {
-  const app = ReactDOM.renderToString(<App />);
-  const styles = CssBaseline.flush();
-  const html = ReactDOM.renderToStaticMarkup(
-    <html>
-      <head>{styles}</head>
-      <body>
-        <div id="root" dangerouslySetInnerHTML={{ __html: app }} />
-      </body>
-    </html>
-  );
-  res.end("<!doctype html>" + html);
-};
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react'
+
+function MyApp({ Component, pageProps }) {
+  // 2. Use at the root of your app
+  return (
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp
 ```
+
+
+### Cutomizing theme
+
+If you intend to customise the default theme object to match your design requirements, you need to extend the `theme`.
+
+NextUI provides a `createTheme` function that deep merges the default theme with your customizations.
+
+
+```jsx
+// pages/_app.js
+
+// 1. Import `createTheme`
+import { createTheme, NextUIProvider } from "@nextui-org/react"
+
+// 2. Call `createTheme` and pass your custom theme values
+const theme = createTheme({
+  type: "dark", // it could be "light" or "dark"
+  theme: {
+    colors: {
+      primary: '#4ADE7B',
+      secondary: '#F9CB80',
+      error: '#FCC5D8',
+    },
+  }
+})
+
+
+// 3. Pass the new `theme`` to the `NextUIProvider`
+function MyApp({ Component, pageProps }) {
+  return (
+    <NextUIProvider theme={theme}>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp
+```
+
+To futher customize the theme, please refer to the <a target="_blank" rel="nofollow" href="https://nextui.org/docs/theme/customize-theme">theming</a> documentation.

@@ -1,10 +1,11 @@
-import React, {ReactNode} from "react";
+import type {CSS} from "../theme/stitches.config";
+
+import React, {ReactNode, useMemo} from "react";
 import {useModal, useOverlay, DismissButton} from "@react-aria/overlays";
 import {useDialog} from "@react-aria/dialog";
 import {FocusScope, useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import CSSTransition from "../utils/css-transition";
 import {__DEV__} from "../utils/assertion";
 import {mergeRefs, ReactRef} from "../utils/refs";
@@ -47,9 +48,17 @@ const PopoverContent = React.forwardRef(
       onClose,
       onEntered,
       onExited,
+      isPositioned,
     } = usePopoverContext();
 
     const transformOrigin = getTransformOrigin(placement);
+
+    const popoverCss = useMemo<CSS>(() => {
+      return {
+        transformOrigin,
+        ...css,
+      };
+    }, [transformOrigin, css]);
 
     // Hide content outside the modal from screen readers.
     const {modalProps} = useModal({isDisabled: true});
@@ -77,19 +86,30 @@ const PopoverContent = React.forwardRef(
 
     const {isFocusVisible, focusProps} = useFocusRing();
 
+    const transitionProps = useMemo(() => {
+      return {
+        clearTime: disableAnimation ? 0 : 300,
+        enterTime: disableAnimation ? 0 : 20,
+        leaveTime: disableAnimation ? 0 : 60,
+        name: "nextui-popover-content",
+        visible: state.isOpen,
+        onEntered: onEntered,
+        onExited: onExited,
+      };
+    }, [disableAnimation, state.isOpen]);
+
     const contents = (
       <StyledPopoverContentContainer
         ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
           mergeProps(overlayProps, modalProps, dialogProps, focusProps, completeProps),
+          popoverCss,
         )}
         as={as}
         className={clsx("nextui-popover-content-container", className)}
-        css={{
-          transformOrigin,
-          ...(css as any),
-        }}
+        disableAnimation={disableAnimation}
         isFocusVisible={isFocusVisible}
+        isPositioned={isPositioned}
       >
         <DismissButton onDismiss={onClose} />
         <StyledPopoverContent className="nextui-popover-content">{children}</StyledPopoverContent>
@@ -99,23 +119,9 @@ const PopoverContent = React.forwardRef(
 
     return (
       <>
-        {!disableAnimation ? (
-          <FocusScope restoreFocus>
-            <CSSTransition
-              clearTime={300}
-              enterTime={20}
-              leaveTime={60}
-              name="nextui-popover-content"
-              visible={state.isOpen}
-              onEntered={onEntered}
-              onExited={onExited}
-            >
-              {contents}
-            </CSSTransition>
-          </FocusScope>
-        ) : state.isOpen ? (
-          <FocusScope restoreFocus>{contents}</FocusScope>
-        ) : null}
+        <FocusScope restoreFocus>
+          <CSSTransition {...transitionProps}>{contents}</CSSTransition>
+        </FocusScope>
       </>
     );
   },

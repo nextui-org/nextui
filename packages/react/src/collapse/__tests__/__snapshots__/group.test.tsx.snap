@@ -15,12 +15,20 @@ LoadedCheerio {
       tabindex="-1"
     >
       <div
+<<<<<<< HEAD
         aria-controls="react-aria5082782828-10"
+=======
+        aria-controls="react-aria3708293044-10"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         aria-disabled="false"
         aria-expanded="false"
         class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
         data-state="closed"
+<<<<<<< HEAD
         id="react-aria5082782828-9"
+=======
+        id="react-aria3708293044-9"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         role="button"
         tabindex="0"
       >
@@ -66,9 +74,15 @@ LoadedCheerio {
           class="nextui-expand-content"
         >
           <div
+<<<<<<< HEAD
             aria-labelledby="react-aria5082782828-9"
             class="nextui-c-fMAxGR nextui-collapse-content"
             id="react-aria5082782828-10"
+=======
+            aria-labelledby="react-aria3708293044-9"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria3708293044-10"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
             role="region"
             tabindex="-1"
           >
@@ -83,12 +97,20 @@ LoadedCheerio {
       tabindex="-1"
     >
       <div
+<<<<<<< HEAD
         aria-controls="react-aria5082782828-12"
+=======
+        aria-controls="react-aria3708293044-12"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         aria-disabled="false"
         aria-expanded="false"
         class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
         data-state="closed"
+<<<<<<< HEAD
         id="react-aria5082782828-11"
+=======
+        id="react-aria3708293044-11"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         role="button"
         tabindex="0"
       >
@@ -134,9 +156,15 @@ LoadedCheerio {
           class="nextui-expand-content"
         >
           <div
+<<<<<<< HEAD
             aria-labelledby="react-aria5082782828-11"
             class="nextui-c-fMAxGR nextui-collapse-content"
             id="react-aria5082782828-12"
+=======
+            aria-labelledby="react-aria3708293044-11"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria3708293044-12"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
             role="region"
             tabindex="-1"
           >
@@ -188,12 +216,20 @@ LoadedCheerio {
       tabindex="-1"
     >
       <div
+<<<<<<< HEAD
         aria-controls="react-aria5082782828-6"
+=======
+        aria-controls="react-aria3708293044-6"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         aria-disabled="false"
         aria-expanded="false"
         class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
         data-state="closed"
+<<<<<<< HEAD
         id="react-aria5082782828-5"
+=======
+        id="react-aria3708293044-5"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         role="button"
         tabindex="0"
       >
@@ -239,9 +275,15 @@ LoadedCheerio {
           class="nextui-expand-content"
         >
           <div
+<<<<<<< HEAD
             aria-labelledby="react-aria5082782828-5"
             class="nextui-c-fMAxGR nextui-collapse-content"
             id="react-aria5082782828-6"
+=======
+            aria-labelledby="react-aria3708293044-5"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria3708293044-6"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
             role="region"
             tabindex="-1"
           >
@@ -256,12 +298,20 @@ LoadedCheerio {
       tabindex="-1"
     >
       <div
+<<<<<<< HEAD
         aria-controls="react-aria5082782828-8"
+=======
+        aria-controls="react-aria3708293044-8"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         aria-disabled="false"
         aria-expanded="false"
         class="nextui-c-lfcDHB nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-collapse-view"
         data-state="closed"
+<<<<<<< HEAD
         id="react-aria5082782828-7"
+=======
+        id="react-aria3708293044-7"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
         role="button"
         tabindex="0"
       >
@@ -307,9 +357,15 @@ LoadedCheerio {
           class="nextui-expand-content"
         >
           <div
+<<<<<<< HEAD
             aria-labelledby="react-aria5082782828-7"
             class="nextui-c-fMAxGR nextui-collapse-content"
             id="react-aria5082782828-8"
+=======
+            aria-labelledby="react-aria3708293044-7"
+            class="nextui-c-fMAxGR nextui-collapse-content"
+            id="react-aria3708293044-8"
+>>>>>>> ae48289ee7c250d0bd2adcd295ec7e4a358a92e0
             role="region"
             tabindex="-1"
           >

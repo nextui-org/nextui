@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 import {TableCollection} from "@react-types/table";
 import {TableState} from "@react-stately/table";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import {Loading, LoadingProps} from "../index";
 import clsx from "../utils/clsx";
 
@@ -21,8 +22,11 @@ interface Props<T> {
   animated?: boolean;
   hideLoading?: boolean;
   hasPagination?: boolean;
+  // @internal
+  isStatic?: boolean;
   color?: TableVariantsProps["color"];
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
@@ -32,7 +36,7 @@ export type TableBodyProps<T = unknown> = Props<T> & NativeAttrs & {css?: CSS};
 // TODO: Remove this once we have a better way to pass it from the parent
 const SCROLL_OFFSET = 40;
 
-const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
+const TableBody: React.FC<TableBodyProps> = ({
   children,
   collection,
   state,
@@ -40,9 +44,15 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   color,
   hasPagination,
   hideLoading,
+  isStatic,
   ...props
 }) => {
-  const {currentPage, rowsPerPage, collection: collectionContext, setCollection} = useTableContext();
+  const {
+    currentPage,
+    rowsPerPage,
+    collection: collectionContext,
+    setCollection,
+  } = useTableContext();
 
   const infinityScroll = useMemo(() => isInfinityScroll(collection), [collection.body.props]);
 
@@ -113,10 +123,9 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       as="tbody"
       className={clsx("nextui-table-body", props.className)}
       css={{
-        pb: "$10",
         position: "relative",
-        ...(props.css as any),
-        ...(collection.body?.props?.css as any),
+        ...props.css,
+        ...collection.body?.props?.css,
       }}
       isInfinityScroll={infinityScroll}
       onScroll={handleScroll}
@@ -140,7 +149,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
                   state={state}
                 />
               ) : (
-                <TableCell key={cell?.key} cell={cell} state={state} />
+                <TableCell key={cell?.key} cell={cell} isStatic={isStatic} state={state} />
               ),
             )}
           </TableRow>

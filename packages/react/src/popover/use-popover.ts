@@ -7,6 +7,7 @@ import {useOverlayPosition, useOverlayTrigger} from "@react-aria/overlays";
 import {useOverlayTriggerState} from "@react-stately/overlays";
 
 import {mergeRefs} from "../utils/refs";
+import {isObject} from "../utils/object";
 
 import {PopoverPlacement, getAriaPlacement} from "./utils";
 import {PopoverContentVariantsProps} from "./popover.styles";
@@ -137,6 +138,10 @@ export function usePopover(props: UsePopoverProps = {}) {
     offset,
   });
 
+  const isPositioned = useMemo(() => {
+    return !!positionProps.style?.maxHeight;
+  }, [positionProps.style]);
+
   const getTriggerProps = useCallback(
     (props = {}, _ref = null) => {
       const realTriggerProps = triggerRefProp?.current
@@ -152,11 +157,37 @@ export function usePopover(props: UsePopoverProps = {}) {
   );
 
   const getPopoverProps = useCallback(
-    (props = {}) => {
+    (props = {}, css = {}) => {
+      const positionKeys = positionProps.style ? Object.keys(positionProps.style) : [];
+      let positionCss = {};
+
+      positionKeys.forEach((key) => {
+        const value = isObject(css) && css[key];
+
+        if (value) {
+          positionCss = {
+            ...positionCss,
+            [key]: value,
+          };
+        }
+      });
+
+      const realPositionProps =
+        Object.keys(positionCss).length > 0
+          ? {
+              ...positionProps,
+              style: {
+                ...positionProps.style,
+                ...positionCss,
+              },
+            }
+          : positionProps;
+
       return {
+        css,
         ...props,
         ...overlayProps,
-        ...positionProps,
+        ...realPositionProps,
         "data-state": getState,
         "data-placement": placement,
       };
@@ -187,6 +218,7 @@ export function usePopover(props: UsePopoverProps = {}) {
     positionProps,
     getTriggerProps,
     getPopoverProps,
+    isPositioned,
   };
 }
 

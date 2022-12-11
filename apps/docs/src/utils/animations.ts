@@ -38,3 +38,45 @@ export const pulse = keyframes({
     transform: "scale(1)",
   },
 });
+
+export const growCircles = keyframes({
+  "0%": {
+    opacity: 0,
+    transform: "scale(1)",
+  },
+  "50%": {
+    opacity: 1,
+    transform: "scale(1.3)",
+  },
+  "100%": {
+    opacity: 0,
+    transform: "scale(1.295)",
+  },
+});
+
+export const growCirclesWithoutDisappear = keyframes({
+  "0%": {
+    transform: "scale(1)",
+  },
+  "50%": {
+    transform: "scale(1.2)",
+  },
+  "100%": {
+    transform: "scale(1)",
+  },
+});
+
+export const pulseWave = keyframes({
+  "0%": {
+    opacity: 0,
+    transform: "scale(0.1)",
+  },
+  "50%": {
+    opacity: 1,
+    transform: "scale(0.5)",
+  },
+  "100%": {
+    opacity: 0,
+    transform: "scale(1.0)",
+  },
+});

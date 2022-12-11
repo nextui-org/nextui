@@ -5,6 +5,7 @@ import {Anchor} from "../icons";
 
 export interface Props {
   pure?: boolean;
+  children?: React.ReactNode;
 }
 
 export const virtualAnchorEncode = (text?: string) => {
@@ -13,7 +14,7 @@ export const virtualAnchorEncode = (text?: string) => {
   return text.toLowerCase().replace(/ /g, "-");
 };
 
-const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({children, pure}) => {
+const VirtualAnchor: React.FC<Props> = ({children, pure}) => {
   const {theme} = useTheme();
   const ref = useRef<HTMLAnchorElement>(null);
   const [id, setId] = useState<string | undefined>();

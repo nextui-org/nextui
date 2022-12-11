@@ -2,6 +2,7 @@ import React from "react";
 import {Grid, GridProps, Text, Row, CSS} from "@nextui-org/react";
 import withDefaults from "@utils/with-defaults";
 import {useRouter} from "next/router";
+import {LinkIcon} from "@components";
 
 import {FeatureItem} from "./styles";
 
@@ -10,6 +11,7 @@ export interface Feature {
   description: string;
   icon: React.ReactNode;
   href?: string;
+  isExternal?: boolean;
 }
 
 interface Props {
@@ -35,23 +37,29 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   sm,
   lg,
   css,
+
   itemCss,
   ...props
 }) => {
   const router = useRouter();
-  const handleClick = (href: string) => {
-    router.push(href);
+  const handleClick = (feat: Feature) => {
+    if (!feat.href) {
+      return;
+    }
+
+    if (feat.isExternal) {
+      window.open(feat.href, "_blank");
+
+      return;
+    }
+    router.push(feat.href);
   };
 
   return (
-    <Grid.Container css={{px: 0, ...(css as any)}} gap={2} {...props}>
-      {features.map((feat, index) => (
+    <Grid.Container css={{px: 0, ...css}} gap={2} {...props}>
+      {features.map((feat: Feature, index: number) => (
         <Grid key={`${feat.title}_${index}`} lg={lg} sm={sm} xs={xs}>
-          <FeatureItem
-            clickable={!!feat.href}
-            css={itemCss}
-            onClick={() => (feat.href ? handleClick(feat.href) : undefined)}
-          >
+          <FeatureItem clickable={!!feat.href} css={itemCss} onClick={() => handleClick(feat)}>
             <Row align="center">
               <div className="icon-wrapper">{feat.icon}</div>
               <Text
@@ -65,6 +73,15 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
               >
                 {feat.title}
               </Text>
+              {feat.isExternal && (
+                <LinkIcon
+                  css={{
+                    ml: "$4",
+                  }}
+                  fill="var(--nextui-colors-accents7)"
+                  size={18}
+                />
+              )}
             </Row>
             <Row align="center" css={{px: "$2", pt: "$4", pb: "$2"}}>
               <Text className="feature-description" css={{color: "$accents8"}}>

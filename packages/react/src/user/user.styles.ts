@@ -30,7 +30,6 @@ export const StyledUserName = styled("span", {
   fontSize: "$sm",
   color: "$text",
   lh: "$sm",
-  tt: "capitalize",
   fontWeight: "$medium",
   maxW: "$60",
   to: "ellipsis", // text overflow
