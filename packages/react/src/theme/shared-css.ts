@@ -16,15 +16,13 @@ export const sharedFocus = css({
 });
 
 export const cssFocusVisible = css({
+  outline: "none",
   variants: {
     isFocusVisible: {
       true: {
         boxShadow: "0 0 0 2px $colors$background, 0 0 0 4px $colors$primary",
       },
-      false: {
-        outline: "none",
-        boxShadow: "none",
-      },
+      false: {},
     },
   },
 });
