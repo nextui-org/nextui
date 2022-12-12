@@ -19,12 +19,11 @@ export const cssFocusVisible = css({
   variants: {
     isFocusVisible: {
       true: {
-        outline: "transparent solid 2px",
-        outlineOffset: "2px",
         boxShadow: "0 0 0 2px $colors$background, 0 0 0 4px $colors$primary",
       },
       false: {
         outline: "none",
+        boxShadow: "none",
       },
     },
   },
