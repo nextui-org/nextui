@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Meta} from "@storybook/react";
 
 import {getKeyValue} from "../utils/object";
@@ -345,6 +345,8 @@ export const Pagination = () => {
 };
 
 export const AsyncPagination = () => {
+  const [total, setTotal] = useState(0);
+
   let scopedColumns = [
     {name: "Name", uid: "name"},
     {name: "Height", uid: "height"},
@@ -364,6 +366,8 @@ export const AsyncPagination = () => {
       let res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
       let json = await res.json();
 
+      setTotal(json.count);
+
       return {
         items: json.results,
         cursor: json.next,
@@ -371,7 +375,7 @@ export const AsyncPagination = () => {
     },
   });
 
-  const rowsPerPage = 3;
+  const rowsPerPage = 10;
 
   return (
     <Table
@@ -390,7 +394,7 @@ export const AsyncPagination = () => {
       <Table.Header columns={scopedColumns}>
         {(column) => <Table.Column key={column.uid}>{column.name}</Table.Column>}
       </Table.Header>
-      <Table.Body items={list.items}>
+      <Table.Body items={list.items} loadingState={list.loadingState}>
         {(item: any) => (
           <Table.Row key={item.name}>{(key) => <Table.Cell>{item[key]}</Table.Cell>}</Table.Row>
         )}
@@ -400,6 +404,7 @@ export const AsyncPagination = () => {
         shadow
         align="center"
         rowsPerPage={rowsPerPage}
+        total={Math.round(total / rowsPerPage)}
         onPageChange={(page) => {
           if (page >= list.items.length / rowsPerPage) {
             list.loadMore();
