@@ -44,6 +44,9 @@ export function useDropdown(props: UseDropdownProps = {}) {
     closeOnSelect,
     disableAnimation = false,
     disableTriggerPressedAnimation = false,
+    isOpen,
+    defaultOpen,
+    onOpenChange,
     ...popoverProps
   } = props;
 
@@ -52,13 +55,18 @@ export function useDropdown(props: UseDropdownProps = {}) {
   const menuRef = useRef<HTMLUListElement>(null);
   const menuPopoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useMenuTriggerState(props);
+  const state = useMenuTriggerState({...props, isOpen, defaultOpen, onOpenChange});
 
   const {menuTriggerProps, menuProps} = useMenuTrigger(
     {type, trigger, isDisabled},
     state,
     menuTriggerRef,
   );
+
+  const handleClose = useCallback(() => {
+    state.close();
+    popoverProps.onClose?.();
+  }, [state.close, popoverProps.onClose]);
 
   const getMenuTriggerProps = useCallback(
     (props = {}, _ref = null) => {
@@ -89,7 +97,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     popoverProps,
     state,
     ref: menuRef,
-    onClose: state.close,
+    onClose: handleClose,
     autoFocus: state.focusStrategy || true,
     disableAnimation,
     disableTriggerPressedAnimation,
