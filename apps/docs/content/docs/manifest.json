@@ -22,8 +22,8 @@
             {
               "title": "NextUI + Next.js",
               "keywords": "next, nextjs, nextui",
-              "updated": true,
-              "path": "/docs/guide/nextui-plus-nextjs.mdx"
+              "path": "/docs/guide/nextui-plus-nextjs.mdx",
+              "updated": true
             }
           ]
         },
@@ -35,7 +35,8 @@
           "routes": [
             {
               "title": "Default theme",
-              "path": "/docs/theme/default-theme.mdx"
+              "path": "/docs/theme/default-theme.mdx",
+              "updated": true
             },
             {
               "title": "Customize theme",
