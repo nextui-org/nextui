@@ -22,6 +22,7 @@
             {
               "title": "NextUI + Next.js",
               "keywords": "next, nextjs, nextui",
+              "updated": true,
               "path": "/docs/guide/nextui-plus-nextjs.mdx"
             }
           ]
@@ -129,14 +130,12 @@
             {
               "title": "Navbar",
               "keywords": "navbar, nav, navbar, navigation, menu, header",
-              "path": "/docs/components/navbar.mdx",
-              "newPost": true
+              "path": "/docs/components/navbar.mdx"
             },
             {
               "title": "Badge",
               "keywords": "badge, status, display, count, highlight",
-              "path": "/docs/components/badge.mdx",
-              "newPost": true
+              "path": "/docs/components/badge.mdx"
             },
             {
               "title": "Input",
