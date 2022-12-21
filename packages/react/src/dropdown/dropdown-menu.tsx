@@ -35,12 +35,12 @@ interface Props<T> extends AriaMenuProps<T>, DOMProps, AriaLabelingProps {
    * @default 'default'
    */
   textColor?: SimpleColors;
-  containerCss?: CSS;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
 
-export type DropdownMenuProps<T = object> = Props<T> & NativeAttrs & {css?: CSS};
+export type DropdownMenuProps<T = object> = Props<T> &
+  NativeAttrs & {css?: CSS; containerCss?: CSS};
 
 const DropdownMenu = React.forwardRef(
   (props: DropdownMenuProps, ref: React.Ref<HTMLUListElement | null>) => {

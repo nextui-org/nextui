@@ -41,7 +41,7 @@
     "publish:dry-run": "npm publish ./lib --dry-run",
     "build": "node ./scripts/build.js",
     "build:minify": "node ./scripts/minify.js",
-    "build:types": "yarn tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
+    "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir lib/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:watch": "node ./scripts/build-watch.js",
@@ -84,8 +84,8 @@
     "@react-types/grid": "3.1.4",
     "@react-types/menu": "3.7.2",
     "@react-types/overlays": "3.6.4",
-    "@react-types/shared": "3.15.0",
-    "@stitches/react": "1.2.8"
+    "@stitches/react": "1.2.8",
+    "@react-types/shared": "3.15.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
