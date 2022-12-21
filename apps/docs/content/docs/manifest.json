@@ -155,8 +155,7 @@
             {
               "title": "Checkbox",
               "keywords": "check, radio, selectable, checkbox, box",
-              "path": "/docs/components/checkbox.mdx",
-              "updated": true
+              "path": "/docs/components/checkbox.mdx"
             },
             {
               "title": "Checkbox Group",
@@ -181,8 +180,7 @@
             {
               "title": "Dropdown",
               "keywords": "dropdown, select, selectable, menu",
-              "path": "/docs/components/dropdown.mdx",
-              "updated": true
+              "path": "/docs/components/dropdown.mdx"
             },
             {
               "title": "Progress",
@@ -211,14 +209,12 @@
             {
               "title": "Text",
               "keywords": "text, txt, paragraph",
-              "path": "/docs/components/text.mdx",
-              "updated": true
+              "path": "/docs/components/text.mdx"
             },
             {
               "title": "Link",
               "keywords": "link, navigation, href, next link",
-              "path": "/docs/components/link.mdx",
-              "updated": true
+              "path": "/docs/components/link.mdx"
             },
             {
               "title": "User",
