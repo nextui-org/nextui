@@ -185,7 +185,7 @@ const SupportSection: React.FC<SupportSectionProps> = ({sponsors = []}) => {
           </SonarPulse>
         </Row>
       </InView>
-      <Spacer y={5} />
+      <Spacer y={8} />
     </Section>
   );
 };
