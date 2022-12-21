@@ -17,7 +17,7 @@
     "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
     "start:sb": "turbo run start --scope=@nextui-org/react-storybook --no-deps",
     "build:docs": "turbo run build --scope=@nextui-org/docs",
-    "build": "turbo run build",
+    "build": "turbo run build --concurrency=1",
     "build:nextui": "turbo run build --scope=@nextui-org/react --no-deps",
     "build:sb": "turbo run build --scope=@nextui-org/react-storybook --no-deps",
     "turbo:graph": "yarn build --graph=dependency-graph.png",
