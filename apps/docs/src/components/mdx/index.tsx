@@ -10,7 +10,7 @@ import CarbonAd from "../carbon-ad";
 import * as Icons from "../icons";
 import Block from "../templates/example-block";
 
-const Table: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
     <div className="docs-table-container">
       <table className="docs-table">{children}</table>
@@ -28,7 +28,7 @@ const Table: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
     </div>
   );
 };
-const Thead: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const Thead: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const {theme} = useTheme();
 
   return (
@@ -57,10 +57,10 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
     </thead>
   );
 };
-const Trow: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const Trow: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return <tr className="docs-tr">{children}</tr>;
 };
-const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const Tcol: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const {theme} = useTheme();
 
   return (
@@ -82,6 +82,7 @@ const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
 export interface LinkedHeadingProps {
   as: keyof JSX.IntrinsicElements;
   linked?: boolean;
+  children?: React.ReactNode;
 }
 
 const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, ...props}) => {
@@ -94,7 +95,7 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, ...prop
   );
 };
 
-const List: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
   const {theme} = useTheme();
 
   return (

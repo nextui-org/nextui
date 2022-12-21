@@ -28,6 +28,9 @@
 
 > **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
 
+> **Warning 🚧:** This project is still in development, it might have bugs and breaking changes so it is not recommended to use it in production. 
+
+
 ## Getting Started
 
 Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextui.org/guide</a> to get started with NextUI.

@@ -1,4 +1,5 @@
 import type {SimpleColors, DropdownVariants} from "../utils/prop-types";
+import type {CSS} from "../theme/stitches.config";
 
 import React, {RefAttributes, PropsWithoutRef} from "react";
 import {DOMProps, AriaLabelingProps} from "@react-types/shared";
@@ -7,8 +8,8 @@ import {useMenu} from "@react-aria/menu";
 import {useTreeState} from "@react-stately/tree";
 import {mergeProps} from "@react-aria/utils";
 
+import Popover from "../popover";
 import {useDOMRef, useSyncRef} from "../utils/dom";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -34,6 +35,7 @@ interface Props<T> extends AriaMenuProps<T>, DOMProps, AriaLabelingProps {
    * @default 'default'
    */
   textColor?: SimpleColors;
+  containerCss?: CSS;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
@@ -43,11 +45,12 @@ export type DropdownMenuProps<T = object> = Props<T> & NativeAttrs & {css?: CSS}
 const DropdownMenu = React.forwardRef(
   (props: DropdownMenuProps, ref: React.Ref<HTMLUListElement | null>) => {
     const {
-      css = {},
       as,
+      css,
       color = "default",
       textColor = "default",
       variant = "flat",
+      containerCss,
       ...otherProps
     } = props;
 
@@ -63,17 +66,30 @@ const DropdownMenu = React.forwardRef(
     useSyncRef(context, domRef);
 
     return (
-      <StyledDropdownMenu
-        ref={domRef}
-        as={as}
-        className={clsx("nextui-dropdown-menu", props.className)}
-        css={{...(css as any)}}
-        {...menuProps}
-      >
-        {[...state.collection].map((item) => {
-          if (item.type === "section") {
-            return (
-              <DropdownSection
+      <Popover.Content css={containerCss}>
+        <StyledDropdownMenu
+          ref={domRef}
+          as={as}
+          className={clsx("nextui-dropdown-menu", props.className)}
+          css={css}
+          {...menuProps}
+        >
+          {[...state.collection].map((item) => {
+            if (item.type === "section") {
+              return (
+                <DropdownSection
+                  key={item.key}
+                  color={color}
+                  item={item}
+                  state={state}
+                  textColor={textColor}
+                  variant={variant}
+                  onAction={completeProps.onAction}
+                />
+              );
+            }
+            let dropdownItem = (
+              <DropdownItem
                 key={item.key}
                 color={color}
                 item={item}
@@ -83,26 +99,15 @@ const DropdownMenu = React.forwardRef(
                 onAction={completeProps.onAction}
               />
             );
-          }
-          let dropdownItem = (
-            <DropdownItem
-              key={item.key}
-              color={color}
-              item={item}
-              state={state}
-              textColor={textColor}
-              variant={variant}
-              onAction={completeProps.onAction}
-            />
-          );
 
-          if (item.wrapper) {
-            dropdownItem = item.wrapper(dropdownItem);
-          }
+            if (item.wrapper) {
+              dropdownItem = item.wrapper(dropdownItem);
+            }
 
-          return dropdownItem;
-        })}
-      </StyledDropdownMenu>
+            return dropdownItem;
+          })}
+        </StyledDropdownMenu>
+      </Popover.Content>
     );
   },
 );

@@ -22,7 +22,8 @@
             {
               "title": "NextUI + Next.js",
               "keywords": "next, nextjs, nextui",
-              "path": "/docs/guide/nextui-plus-nextjs.mdx"
+              "path": "/docs/guide/nextui-plus-nextjs.mdx",
+              "updated": true
             }
           ]
         },
@@ -34,7 +35,8 @@
           "routes": [
             {
               "title": "Default theme",
-              "path": "/docs/theme/default-theme.mdx"
+              "path": "/docs/theme/default-theme.mdx",
+              "updated": true
             },
             {
               "title": "Customize theme",
@@ -129,14 +131,12 @@
             {
               "title": "Navbar",
               "keywords": "navbar, nav, navbar, navigation, menu, header",
-              "path": "/docs/components/navbar.mdx",
-              "newPost": true
+              "path": "/docs/components/navbar.mdx"
             },
             {
               "title": "Badge",
               "keywords": "badge, status, display, count, highlight",
-              "path": "/docs/components/badge.mdx",
-              "newPost": true
+              "path": "/docs/components/badge.mdx"
             },
             {
               "title": "Input",
@@ -155,7 +155,8 @@
             {
               "title": "Checkbox",
               "keywords": "check, radio, selectable, checkbox, box",
-              "path": "/docs/components/checkbox.mdx"
+              "path": "/docs/components/checkbox.mdx",
+              "updated": true
             },
             {
               "title": "Checkbox Group",

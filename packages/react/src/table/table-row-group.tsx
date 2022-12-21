@@ -9,6 +9,7 @@ import {StyledTableRowGroup, TableRowGroupVariants} from "./table.styles";
 
 interface Props {
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -19,10 +20,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type TableRowGroupProps = Props & TableRowGroupVariants & NativeAttrs & {css?: CSS};
 
-const TableRowGroup: React.FC<React.PropsWithChildren<TableRowGroupProps>> = ({
-  children,
-  ...props
-}) => {
+const TableRowGroup: React.FC<TableRowGroupProps> = ({children, ...props}) => {
   const {
     rowGroupProps,
   }: {

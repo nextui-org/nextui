@@ -11,6 +11,7 @@ export interface Props {
   route: NavLinkProps;
   isMobile: boolean;
   onClick?: () => void;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -22,12 +23,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
 
 export type PostProps = Props & typeof defaultProps & NativeAttrs;
 
-const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
-  isMobile,
-  route,
-  level = 1,
-  onClick,
-}) => {
+const Post: React.FC<PostProps> = ({isMobile, route, level = 1, onClick}) => {
   const selectedRef = useRef<HTMLDivElement>(null);
   const ref = route.selected ? selectedRef : null;
   const {theme, isDark} = useTheme();

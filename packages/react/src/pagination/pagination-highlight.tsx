@@ -1,8 +1,9 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, useEffect, useState} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 import clsx from "../utils/clsx";
-import {CSS} from "../theme/stitches.config";
 
 import {StyledPaginationHighlight, PaginationHighlightVariantsProps} from "./pagination.styles";
 
@@ -65,10 +66,7 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
         },
         props.className,
       )}
-      css={{
-        left: "var(--nextui--paginationLeft)",
-        ...(css as any),
-      }}
+      css={{left: "var(--nextui--paginationLeft)", ...css}}
       noMargin={noMargin}
       rounded={rounded}
       shadow={shadow}

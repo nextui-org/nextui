@@ -1,6 +1,7 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
-import {CSS} from "../theme/stitches.config";
 import {Wrap} from "../utils/prop-types";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
@@ -12,6 +13,7 @@ interface Props {
   wrap?: Wrap;
   className?: string;
   css?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -22,7 +24,7 @@ const defaultProps = {
 
 export type GridContainerProps = Props & Partial<typeof defaultProps> & GridItemProps;
 
-const GridContainer = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridContainerProps>>(
+const GridContainer = React.forwardRef<HTMLDivElement, GridContainerProps>(
   ({gap, wrap, css, children, className, ...props}, ref) => {
     const gapUnit = useMemo(() => {
       return `calc(${gap} * $space$3)`;
@@ -39,7 +41,7 @@ const GridContainer = React.forwardRef<HTMLDivElement, React.PropsWithChildren<G
           boxSizing: "border-box",
           margin: "calc(-1 * $$gridGapUnit)",
           width: "calc(100% + $$gridGapUnit * 2)",
-          ...(css as any),
+          ...css,
         }}
         {...props}
       >

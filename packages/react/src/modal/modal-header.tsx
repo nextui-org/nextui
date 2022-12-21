@@ -1,8 +1,9 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useContext, useMemo} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import {Justify} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import cslx from "../utils/clsx";
 
 import {StyledModalHeader, ModalHeaderVariantsProps} from "./modal.styles";
@@ -14,6 +15,7 @@ interface Props {
   autoMargin?: boolean;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -28,7 +30,7 @@ export type ModalHeaderProps = Props & typeof defaultProps & NativeAttrs & Modal
 
 const preClass = "nextui-modal-header";
 
-const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
+const ModalHeader: React.FC<ModalHeaderProps> = ({
   children,
   className,
   justify,
@@ -53,10 +55,7 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
         },
         className,
       )}
-      css={{
-        justifyContent: justify,
-        ...(css as any),
-      }}
+      css={{justifyContent: justify, ...css}}
       noPadding={noPadding}
       {...props}
     >

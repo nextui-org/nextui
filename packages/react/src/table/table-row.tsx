@@ -14,13 +14,14 @@ interface Props<T> {
   item: GridNode<T>;
   state: TableState<T>;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
 
 export type TableRowProps<T = unknown> = Props<T> & NativeAttrs & {css?: CSS};
 
-const TableRow = React.forwardRef<HTMLTableRowElement, React.PropsWithChildren<TableRowProps>>(
+const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
   ({children, item, state, ...props}, ref: React.Ref<HTMLTableRowElement | null>) => {
     const tableRowRef = useRef<HTMLTableRowElement | null>(null);
 
