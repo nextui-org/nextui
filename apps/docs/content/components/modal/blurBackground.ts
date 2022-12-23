@@ -50,7 +50,7 @@ export default function App() {
   };
   return (
     <div>
-      <Button auto color="warning" shadow onClick={handler}>
+      <Button auto color="warning" shadow onPress={handler}>
         Open modal
       </Button>
       <Modal
@@ -95,10 +95,10 @@ export default function App() {
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button auto flat color="error" onClick={closeHandler}>
+          <Button auto flat color="error" onPress={closeHandler}>
             Close
           </Button>
-          <Button auto onClick={closeHandler}>
+          <Button auto onPress={closeHandler}>
             Sign in
           </Button>
         </Modal.Footer>

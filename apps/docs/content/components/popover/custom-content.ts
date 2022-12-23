@@ -60,7 +60,7 @@ export const UserTwitterCard = () => {
             <Button
               auto
               rounded
-              onClick={() => setFollowing(!following)}
+              onPress={() => setFollowing(!following)}
               css={{
                 maxHeight: "$space$12",
                 fs: "$xs",
