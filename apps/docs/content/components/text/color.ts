@@ -18,9 +18,6 @@ export default function App() {
       <Text color="error">
         Almost before we knew it, we had left the ground.
       </Text>
-      <Text color="$cyan600">
-        Almost before we knew it, we had left the ground.
-      </Text>
       <Text color="#ff4ecd">
         Almost before we knew it, we had left the ground.
       </Text>

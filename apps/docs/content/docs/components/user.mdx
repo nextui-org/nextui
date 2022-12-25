@@ -1,15 +1,14 @@
 ---
-title: "User"
-description: "Flexible User Profile Component"
+title: 'User'
+description: 'Flexible User Profile Component'
 url: https://nextui.org/docs/components/user
 ---
-
 # User
 
 Flexible User Profile Component.
 
 ```jsx
-import { User } from "@nextui-org/react";
+import { User } from '@nextui-org/react';
 ```
 
 <CarbonAd />
@@ -48,7 +47,7 @@ import { User } from "@nextui-org/react";
 
 <Playground
   title="Pointer"
-  desc="Display pointer cursor on hover."
+    desc="Display pointer cursor on hover."
   files={UserContent.pointer}
 />
 
@@ -78,22 +77,21 @@ import { User } from "@nextui-org/react";
 
 #### User Props
 
-| Attribute       | Type                                                | Description                                                                   | Default   |
-| --------------- | --------------------------------------------------- | ----------------------------------------------------------------------------- | --------- |
-| **color**       | [NormalColors](#normal-colors) `string`             | Change User Profile border color                                              | `default` |
-| **src**         | `string`                                            | Image source (local or remote)                                                | -         |
-| **name**        | `string`                                            | Display Text Next to Image                                                    | -         |
-| **text**        | `string`                                            | Display Text when image is missing                                            | -         |
-| **alt**         | `string`                                            | Display alt text when image is missing                                        | -         |
-| **size**        | [NormalSizes](#normal-sizes) `number`               | User Profile size                                                             | `medium`  |
-| **bordered**    | `boolean`                                           | Bordered User Profile                                                         | `false`   |
-| **zoomed**      | `boolean`                                           | Zoomed User Profile                                                           | `false`   |
-| **pointer**     | `boolean`                                           | Display pointer cursor on hover                                               | `false`   |
-| **squared**     | `boolean`                                           | Squared User Profile                                                          | `false`   |
-| **avatarProps** | [AvatarProps](/docs/components/avatar#avatar-props) | Since user component uses the `Avatar` you can use any of the `Avatar` props. | -         |
-| **css**         | `Stitches.CSS`                                      | Override Default CSS style                                                    | -         |
-| **as**          | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs                                           | `div`    |
-
+| Attribute        | Type                           | Accepted values                          | Description                            | Default   |
+| ---------------- | ------------------------------ | ---------------------------------------- | -------------------------------------- | --------- |
+| **color**        | `NormalColors` `string`        | [NormalColors](#normal-colors)           | Change User Profile border color       | `default` |
+| **src**          | `string`                       | -                                        | Image source (local or remote)         | -         |
+| **name**         | `string`                       | -                                        | Display Text Next to Image             | -         |
+| **text**         | `string`                       | -                                        | Display Text when image is missing     | -         |
+| **alt**          | `string`                       | -                                        | Display alt text when image is missing | -         |
+| **size**         | `NormalSizes` `number`         | [NormalSizes](#normal-sizes)             | User Profile size                      | `medium`  |
+| **bordered**     | `boolean`                      | `true/false`                             | Bordered User Profile                  | `false`   |
+| **zoomed**       | `boolean`                      | `true/false`                             | Zoomed User Profile                    | `false`   |
+| **pointer**      | `boolean`                      | `true/false`                             | Display pointer cursor on hover        | `false`   |
+| **squared**      | `boolean`                      | `true/false`                             | Squared User Profile                   | `false`   |
+| **css**          | `Stitches.CSS`                 | -                                        | Override Default CSS style             | -         |
+| **as**           | `keyof JSX.IntrinsicElements`  | -                                        | Changes which tag component outputs    | `span`    |
+| ...              | `ImgHTMLAttributes`            | `'alt', 'crossOrigin', 'className', ...` | Native props                           | -         |
 <Spacer y={2} />
 
 ### User types
@@ -104,16 +102,16 @@ import { User } from "@nextui-org/react";
 
 ```ts
 type NormalColors =
-  | "default"
-  | "primary"
-  | "secondary"
-  | "success"
-  | "warning"
-  | "error";
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
 ```
 
 #### Normal Sizes
 
 ```ts
-type NormalSizes = "xs" | "sm" | "md" | "lg" | "xl";
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```

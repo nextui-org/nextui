@@ -25,7 +25,7 @@ import {
   getPaths,
 } from "@lib/docs/page";
 import componentsContent from "@content/components";
-import {isProd} from "@utils/index";
+import {isProd, isPreview} from "@utils/index";
 import {getId} from "@utils/collections";
 
 const components = {
@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   let meta, doc;
 
-  if (isProd) {
+  if (isProd && !isPreview) {
     const rawFileSource = await fetchRawDoc(route.path, currentTag);
     const {content, data} = matter(rawFileSource);
 

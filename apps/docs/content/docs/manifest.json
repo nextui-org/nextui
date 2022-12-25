@@ -22,7 +22,8 @@
             {
               "title": "NextUI + Next.js",
               "keywords": "next, nextjs, nextui",
-              "path": "/docs/guide/nextui-plus-nextjs.mdx"
+              "path": "/docs/guide/nextui-plus-nextjs.mdx",
+              "updated": true
             }
           ]
         },
@@ -130,14 +131,12 @@
             {
               "title": "Navbar",
               "keywords": "navbar, nav, navbar, navigation, menu, header",
-              "path": "/docs/components/navbar.mdx",
-              "newPost": true
+              "path": "/docs/components/navbar.mdx"
             },
             {
               "title": "Badge",
               "keywords": "badge, status, display, count, highlight",
-              "path": "/docs/components/badge.mdx",
-              "newPost": true
+              "path": "/docs/components/badge.mdx"
             },
             {
               "title": "Input",
@@ -156,8 +155,7 @@
             {
               "title": "Checkbox",
               "keywords": "check, radio, selectable, checkbox, box",
-              "path": "/docs/components/checkbox.mdx",
-              "updated": true
+              "path": "/docs/components/checkbox.mdx"
             },
             {
               "title": "Checkbox Group",
@@ -182,8 +180,7 @@
             {
               "title": "Dropdown",
               "keywords": "dropdown, select, selectable, menu",
-              "path": "/docs/components/dropdown.mdx",
-              "updated": true
+              "path": "/docs/components/dropdown.mdx"
             },
             {
               "title": "Progress",
@@ -212,14 +209,12 @@
             {
               "title": "Text",
               "keywords": "text, txt, paragraph",
-              "path": "/docs/components/text.mdx",
-              "updated": true
+              "path": "/docs/components/text.mdx"
             },
             {
               "title": "Link",
               "keywords": "link, navigation, href, next link",
-              "path": "/docs/components/link.mdx",
-              "updated": true
+              "path": "/docs/components/link.mdx"
             },
             {
               "title": "User",

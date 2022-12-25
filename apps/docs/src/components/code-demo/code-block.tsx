@@ -105,9 +105,9 @@ function CodeTypewriter({value, className, css, ...props}: any) {
   return (
     <Pre className={className} css={css} {...props}>
       <code
-        dangerouslySetInnerHTML={{__html: value}}
         ref={wrapperRef}
         className={className}
+        dangerouslySetInnerHTML={{__html: value}}
         style={{opacity: 0}}
       />
     </Pre>
@@ -136,7 +136,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
   // convert to html
   result = hastToHtml(result);
 
-  // TODO: reset theme
+  // TODO reset theme
 
   const classes = `language-${language} ${className}`;
 
@@ -153,7 +153,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
       {...props}
     >
       {showWindowIcons && <WindowActions />}
-      <code dangerouslySetInnerHTML={{__html: result}} className={classes} />
+      <code className={classes} dangerouslySetInnerHTML={{__html: result}} />
     </Pre>
   );
 });
