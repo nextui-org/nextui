@@ -9,7 +9,7 @@ import type {
 import {useState, useEffect, useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
-import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
+import {CSS, HTMLNextUIProps, forwardRef} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, safeText, __DEV__} from "@nextui-org/shared-utils";
 
@@ -77,20 +77,17 @@ const Avatar = forwardRef<AvatarProps, "span", CompundAvatar>((props, ref) => {
     return !ready && src ? "loading" : "ready";
   }, [src, ready]);
 
-  const getCss = useMemo(() => {
-    if (as === "button") {
-      return {
-        // reset button styles
-        appearance: "none",
-        outline: "none",
-        border: "none",
-        cursor: "pointer",
-        ...css,
-      };
-    }
+  const asButtonCss = useMemo<CSS | undefined>(() => {
+    if (as !== "button") return;
 
-    return css;
-  }, [as, css]);
+    // reset button styles
+    return {
+      appearance: "none",
+      outline: "none",
+      border: "none",
+      cursor: "pointer",
+    };
+  }, [as]);
 
   return (
     <StyledAvatar
@@ -114,7 +111,7 @@ const Avatar = forwardRef<AvatarProps, "span", CompundAvatar>((props, ref) => {
         },
         className,
       )}
-      css={getCss}
+      css={{...asButtonCss, ...css}}
       data-state={getState}
       isFocusVisible={isFocusVisible}
     >
