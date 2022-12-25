@@ -1,6 +1,7 @@
 import type {UseButtonProps} from "./use-button";
+import {CSS} from '@nextui-org/system'
 
-export const getColors = (props: UseButtonProps) => {
+export const getColors = (props: UseButtonProps): CSS => {
   if (!props.disabled) {
     if (props.auto && props.color === "gradient" && (props.bordered || props.ghost)) {
       return {
@@ -11,7 +12,7 @@ export const getColors = (props: UseButtonProps) => {
 
     return {};
   }
-  const defaultDisabledCss = {
+  const defaultDisabledCss: CSS = {
     bg: "$accents1",
     color: "$accents7",
     transform: "none",

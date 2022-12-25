@@ -246,7 +246,7 @@ export function useButton(props: UseButtonProps) {
     return disabled ? "disabled" : "ready";
   }, [disabled, isHovered, isPressed]);
 
-  const getIconCss = useMemo<any>(() => {
+  const getIconCss = useMemo<CSS | undefined>(() => {
     if (isRightIcon) return iconRightCss;
 
     return iconLeftCss;
