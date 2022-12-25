@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ReactNode} from "react";
 
 import {globalCss, getCssText} from "./stitches.config";
 
@@ -240,7 +240,7 @@ const globalStyles = globalCss({
 
 const flushCSS = () => <style dangerouslySetInnerHTML={{__html: getCssText()}} id="stitches" />;
 
-const CssBaselineBase: React.FC<React.PropsWithChildren<{}>> = ({children}) => {
+const CssBaselineBase: React.FC<{children?: ReactNode}> = ({children}) => {
   globalStyles();
 
   return <React.Fragment>{children}</React.Fragment>;
@@ -250,8 +250,8 @@ type MemoCssBaselineComponent<P = {}> = React.NamedExoticComponent<P> & {
   flush: typeof flushCSS;
 };
 
-export const CssBaseline = React.memo(CssBaselineBase) as MemoCssBaselineComponent<
-  React.PropsWithChildren<{}>
->;
+export const CssBaseline = React.memo(CssBaselineBase) as MemoCssBaselineComponent<{
+  children?: ReactNode;
+}>;
 
 CssBaseline.flush = flushCSS;

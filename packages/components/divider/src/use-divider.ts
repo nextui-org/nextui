@@ -46,7 +46,7 @@ export function useDivider(props: UseDividerProps) {
     ...otherProps
   } = props;
 
-  const alignCss = useMemo(() => {
+  const alignCss = useMemo<CSS | undefined>(() => {
     if (!align || align === "center") return {};
     if (align === "left" || align === "start") {
       return {transform: "translateY(-50%)", left: "7%"};
