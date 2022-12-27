@@ -1,20 +1,34 @@
-import {useCallback, useEffect, useRef} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 
-export function useIsMounted() {
-  const isMounted = useRef(false);
+export type UseIsMountedProps = {
+  rerender?: boolean;
+};
+
+export function useIsMounted(props: UseIsMountedProps = {}) {
+  const {rerender = false} = props;
+
+  const isMountedRef = useRef(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   // Update the ref when the component mounts
   useEffect(() => {
-    isMounted.current = true;
+    isMountedRef.current = true;
+
+    if (rerender) {
+      setIsMounted(true);
+    }
 
     // Update the ref when the component unmounts
     return () => {
-      isMounted.current = false;
+      isMountedRef.current = false;
+      if (rerender) {
+        setIsMounted(false);
+      }
     };
-  }, []);
+  }, [rerender]);
 
   // Return a callback that returns the value of the ref
-  return useCallback(() => isMounted.current, []);
+  return [useCallback(() => isMountedRef.current, []), isMounted];
 }
 
 export type UseIsMountedReturn = ReturnType<typeof useIsMounted>;

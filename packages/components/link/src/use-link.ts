@@ -3,8 +3,8 @@ import type {AriaLinkProps} from "@react-types/link";
 import {useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, CSS, getTokenValue} from "@nextui-org/system";
-import {isNormalColor} from "@nextui-org//shared-utils";
-
+import {isNormalColor} from "@nextui-org/shared-utils";
+import {useIsMounted} from "@nextui-org/use-is-mounted";
 export interface Props extends HTMLNextUIProps<"a"> {
   /**
    * The link's color.
@@ -46,13 +46,17 @@ export function useLink(props: UseLinkProps) {
 
   const {isFocusVisible, focusProps} = useFocusRing({autoFocus});
 
+  const [, isMounted] = useIsMounted({rerender: true});
+
   const linkCss = useMemo(() => {
     const isNormal = isNormalColor(color as string);
 
     const linkColor = isNormal ? `$${color}` : color;
     const backgroundColor = isNormal
       ? `${linkColor}Light`
-      : getTokenValue("colors", color as string, 0.2);
+      : isMounted
+      ? getTokenValue("colors", color as string, 0.2)
+      : "transparent";
 
     if (block) {
       return {
@@ -66,7 +70,7 @@ export function useLink(props: UseLinkProps) {
     }
 
     return {color: linkColor};
-  }, [color, block]);
+  }, [color, block, isMounted]);
 
   return {linkCss, focusProps, isExternal, animated, isFocusVisible, ...otherProps};
 }

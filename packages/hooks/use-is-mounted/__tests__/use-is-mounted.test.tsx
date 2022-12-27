@@ -4,9 +4,9 @@ import {renderToStaticMarkup} from "react-dom/server";
 import {useIsMounted} from "../src";
 
 function Example() {
-  const isMounted = useIsMounted();
+  const [, isMounted] = useIsMounted({rerender: true});
 
-  return <p>{isMounted() ? "mounted" : "not mounted"}</p>;
+  return <p>{isMounted ? "mounted" : "not mounted"}</p>;
 }
 
 describe("useIsMounted", () => {
