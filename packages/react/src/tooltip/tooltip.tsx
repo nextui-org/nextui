@@ -150,7 +150,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       role="button"
       tabIndex={-1}
       onBlur={() => mouseEventHandler(false)}
-      onClick={clickEventHandler}
+      onClickCapture={clickEventHandler}
       onFocus={() => mouseEventHandler(true)}
       onKeyUp={() => mouseEventHandler(true)}
       onMouseEnter={() => mouseEventHandler(true)}
