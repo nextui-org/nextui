@@ -10,7 +10,7 @@ export default function App() {
   };
   return (
     <div>
-      <Button auto flat color="error" onClick={handler}>
+      <Button auto flat color="error" onPress={handler}>
         Open modal
       </Button>
       <Modal noPadding open={visible} onClose={closeHandler}>
