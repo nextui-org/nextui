@@ -135,7 +135,7 @@ const SupportSection: React.FC<SupportSectionProps> = ({sponsors = []}) => {
             src={sponsor.image}
             text={getSponsorName(sponsor)}
             onClick={() =>
-              handleExternalLinkClick(get(sponsor, "website", get(sponsor, "profile")))
+              handleExternalLinkClick(get(sponsor, "website") || get(sponsor, "profile"))
             }
           />
         ))}
