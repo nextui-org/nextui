@@ -11,6 +11,7 @@ import {NextComponent} from "@lib/types";
 import {isProd} from "@utils/index";
 import RouterEvents from "@lib/router-events";
 import {KBarWrapper as KBarProvider} from "@components";
+import {Analytics} from "@vercel/analytics/react";
 
 import {lightTheme, darkTheme} from "../theme/shared";
 import globalStyles from "../styles/globalStyles";
@@ -44,33 +45,36 @@ const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   globalStyles();
 
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      value={{
-        light: lightTheme.className,
-        dark: darkTheme.className,
-      }}
-    >
-      <NextUIProvider>
-        <PlausibleProvider domain="nextui.org" enabled={isProd}>
-          <KBarProvider>
-            <Component {...pageProps} />
-          </KBarProvider>
-        </PlausibleProvider>
-        <style global jsx>{`
-          .noselect {
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-            -khtml-user-select: none; /* Konqueror HTML */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+    <>
+      <NextThemesProvider
+        attribute="class"
+        defaultTheme="system"
+        value={{
+          light: lightTheme.className,
+          dark: darkTheme.className,
+        }}
+      >
+        <NextUIProvider>
+          <PlausibleProvider domain="nextui.org" enabled={isProd}>
+            <KBarProvider>
+              <Component {...pageProps} />
+            </KBarProvider>
+          </PlausibleProvider>
+          <style global jsx>{`
+            .noselect {
+              -webkit-touch-callout: none; /* iOS Safari */
+              -webkit-user-select: none; /* Safari */
+              -khtml-user-select: none; /* Konqueror HTML */
+              -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-          }
-        `}</style>
-      </NextUIProvider>
-    </NextThemesProvider>
+            }
+          `}</style>
+        </NextUIProvider>
+      </NextThemesProvider>
+      {isProd && <Analytics />}
+    </>
   );
 };
 
