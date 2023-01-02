@@ -18,12 +18,13 @@ interface Props {
   textColor?: SimpleColors;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type SpinnerProps = Props & NativeAttrs & SpinnerVariantsProps & {css?: CSS};
 
-const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
+const Spinner: React.FC<SpinnerProps> = ({
   children,
   size,
   color,

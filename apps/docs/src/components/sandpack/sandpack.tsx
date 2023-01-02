@@ -31,6 +31,7 @@ interface Props {
   removeEntryContainer?: boolean;
   template?: SandpackPredefinedTemplate;
   highlightedLines?: HighlightedLines;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -46,7 +47,7 @@ const defaultProps = {
 
 export type SandpackProps = Props & typeof defaultProps;
 
-const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
+const Sandpack: React.FC<SandpackProps> = ({
   files,
   children,
   highlightedLines,

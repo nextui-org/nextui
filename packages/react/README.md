@@ -7,7 +7,7 @@
 </br>
 <p align="center">
   <a href="https://github.com/jrgarciadev/nextui/blob/main/LICENSE">
-    <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat" alt="License">
+    <img src="https://img.shields.io/npm/l/@nextui-org/react?style=flat" alt="License">
   </a>
   <a href="https://codecov.io/gh/jrgarciadev/nextui">
     <img src="https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4" alt="codecov badge">
@@ -27,6 +27,9 @@
 </p>
 
 > **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
+
+> **Warning 🚧:** This project is still in development, it might have bugs and breaking changes so it is not recommended to use it in production. 
+
 
 ## Getting Started
 

@@ -107,11 +107,14 @@ export default {
  `}
 />
 
+
 #### Understanding the Base scale
 
 There are 10 steps in each scale from 50 to 900. Each step was designed for at least one specific use case.
 
 This table is a simple overview of the most common use case for each step. However, there are many exceptions and caveats to factor in, which are covered in further detail below.
+
+<Spacer y={1}/>
 
 | Step    | Use Case                                |
 | ------- | --------------------------------------- |
@@ -267,6 +270,7 @@ This table is a simple overview of the most common use case for each step. Howev
         "backgroundContrast",
         "foreground",
         "text",
+        "textLight",
         "border",
         "white", 
         "black"
@@ -280,6 +284,7 @@ This table is a simple overview of the most common use case for each step. Howev
   code={`
     <Palette colors={[
         "link",
+        "linkLight",
         "selection",
         "code"
     ]}/>

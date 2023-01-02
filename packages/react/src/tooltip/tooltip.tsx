@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useEffect, useRef, useState} from "react";
 
 import withDefaults from "../utils/with-defaults";
@@ -25,11 +27,13 @@ interface Props {
   offset?: number;
   className?: string;
   keepMounted?: boolean;
+  isDisabled?: boolean;
   portalClassName?: string;
   onClick?: () => void;
   onVisibleChange?: TooltipOnVisibleChange;
   as?: keyof JSX.IntrinsicElements;
   triggerCss?: CSS;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -39,6 +43,7 @@ const defaultProps = {
   shadow: true,
   rounded: false,
   keepMounted: false,
+  isDisabled: false,
   trigger: "hover" as TriggerTypes,
   enterDelay: 0,
   leaveDelay: 0,
@@ -55,7 +60,7 @@ export type TooltipProps = Props &
   Pick<TooltipContentVariantsProps, "color" | "contentColor"> &
   Pick<TooltipContentProps, "css">;
 
-const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
+const Tooltip: React.FC<TooltipProps> = ({
   children,
   initialVisible,
   content,
@@ -78,6 +83,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   onClick,
   keepMounted,
   visible: customVisible,
+  isDisabled,
   ...props
 }) => {
   const timer = useRef<number>();
@@ -139,13 +145,11 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     <StyledTooltipTrigger
       ref={ref}
       className={`nextui-tooltip-button ${className}`}
-      css={{
-        ...(triggerCss as any),
-      }}
+      css={triggerCss}
       role="button"
       tabIndex={-1}
       onBlur={() => mouseEventHandler(false)}
-      onClick={clickEventHandler}
+      onClickCapture={clickEventHandler}
       onFocus={() => mouseEventHandler(true)}
       onKeyUp={() => mouseEventHandler(true)}
       onMouseEnter={() => mouseEventHandler(true)}
@@ -153,7 +157,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       {...props}
     >
       {children}
-      {content && <TooltipContent {...contentProps}>{content}</TooltipContent>}
+      {content && !isDisabled ? <TooltipContent {...contentProps}>{content}</TooltipContent> : null}
     </StyledTooltipTrigger>
   );
 };

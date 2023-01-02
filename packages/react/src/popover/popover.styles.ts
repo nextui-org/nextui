@@ -4,7 +4,7 @@ import {cssFocusVisible} from "../theme/shared-css";
 export const appearanceIn = keyframes({
   "0%": {
     opacity: 0,
-    transform: "scale(0.95)",
+    transform: "translateZ(0)  scale(0.95)",
   },
   "60%": {
     opacity: 0.75,
@@ -15,6 +15,7 @@ export const appearanceIn = keyframes({
   },
   "100%": {
     opacity: 1,
+    transform: "translateZ(0) scale(1)",
   },
 });
 
@@ -33,8 +34,8 @@ export const StyledPopoverContentContainer = styled(
   "div",
   {
     /* variables */
-    $$popoverMinWidth: "$space$13",
-    $$popoverMinHeight: "$space$13",
+    $$popoverMinWidth: "$space$fit",
+    $$popoverMinHeight: "$space$fit",
     $$popoverBorderRadius: "$radii$lg",
     $$popoverBackground: "$colors$backgroundContrast",
     $$popoverBoxShadow: "$shadows$md",
@@ -58,22 +59,21 @@ export const StyledPopoverContentContainer = styled(
 
     animationFillMode: "forwards",
     willChange: "transform, opacity",
-
     "@motion": {
       transition: "none",
     },
-
     "&.nextui-popover-content-enter": {
       animationName: appearanceIn,
       animationTimingFunction: "ease-out",
       animationDirection: "normal",
-      animationDuration: "250ms",
+      animationDuration: "300ms",
+      animationFillMode: "both",
     },
-
     "&.nextui-popover-content-leave": {
       animationName: appearanceOut,
       animationTimingFunction: "ease-in",
       animationDuration: "60ms",
+      animationFillMode: "both",
     },
     variants: {
       disableShadow: {
@@ -107,6 +107,25 @@ export const StyledPopoverContentContainer = styled(
         black: {
           bw: "$black",
           $$popoverBorderWeight: "$borderWeights$black",
+        },
+      },
+      isPositioned: {
+        true: {
+          visibility: "visible",
+        },
+        false: {
+          visibility: "hidden",
+        },
+      },
+      disableAnimation: {
+        true: {
+          transition: "none",
+          "&.nextui-popover-content-enter": {
+            animation: "none",
+          },
+          "&.nextui-popover-content-leave": {
+            animation: "none",
+          },
         },
       },
     },

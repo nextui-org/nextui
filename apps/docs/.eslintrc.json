@@ -10,7 +10,17 @@
               "jsx": true
             }
         },
-        "rules": {}
+        "rules": {
+          "react/no-unknown-property": [
+            2,
+            {
+              "ignore": [
+                "jsx",
+                "global"
+              ]
+            }
+          ]
+        }
       },
       {
         "files": ["*.ts", "*.tsx"],

@@ -28,6 +28,7 @@ interface Props {
   boundaries?: number;
   onChange?: (page: number) => void;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -55,7 +56,7 @@ export type PaginationProps = Props &
 
 const preClass = "nextui-pagination";
 
-const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
+const Pagination: React.FC<PaginationProps> = ({
   page,
   initialPage,
   onlyDots,
@@ -118,7 +119,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         </PaginationItem>
       );
     },
-    [total, onlyDots, active, bordered, animated],
+    [total, onlyDots, active, bordered, animated, setPage],
   );
 
   const handleNext = () => {

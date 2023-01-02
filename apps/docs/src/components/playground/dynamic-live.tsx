@@ -188,6 +188,12 @@ const LiveContainer = Components.styled(Box, {
   },
 });
 
+const StyledInView = Components.styled(InView, {
+  fontSize: "$base",
+  lineHeight: "$md",
+  fontFamily: "$sans",
+});
+
 export const scope = {
   ...Components,
   ...Icons,
@@ -238,7 +244,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
 
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope} theme={codeTheme}>
-      <InView className="inview-section" triggerOnce={isProd} onChange={setIsVisible}>
+      <StyledInView className="inview-section" triggerOnce={isProd} onChange={setIsVisible}>
         <LiveContainer
           className="dynamic-live-container"
           css={{
@@ -321,7 +327,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
           )}
           {showEditor && <Editor code={code} initialOpen={initialEditorOpen} />}
         </LiveContainer>
-      </InView>
+      </StyledInView>
     </LiveProvider>
   );
 };

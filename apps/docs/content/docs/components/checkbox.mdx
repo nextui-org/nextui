@@ -1,6 +1,6 @@
 ---
-title: 'Checkbox'
-description: 'Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.'
+title: "Checkbox"
+description: "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected."
 url: https://nextui.org/docs/components/checkbox
 ---
 
@@ -10,7 +10,7 @@ Checkboxes allow users to select multiple items from a list of individual items,
 @react-aria/checkbox</a>
 
 ```jsx
-import { Checkbox } from '@nextui-org/react';
+import { Checkbox } from "@nextui-org/react";
 ```
 
 <CarbonAd />
@@ -87,27 +87,28 @@ import { Checkbox } from '@nextui-org/react';
 
 #### Checkbox Props
 
-| Attribute            | Type                           | Description                                                                                                                                                    | Default   |
-| -------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| **children**         | `ReactNode`                    | The label for the element                                                                                                                                      | -         |
-| **value**            | `string`                       | The value of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefvalue) | -         |
-| **label**            | `string`                       | The label for the element                                                                                                                                      | -         |
-| **name**             | `string`                       | The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)   | -         |
-| **color**            | [NormalColors](#normal-colors) | The color of the component                                                                                                                                     | `default` |
-| **labelColor**       | [SimpleColors](#simple-colors) | The color of the label                                                                                                                                         | `default` |
-| **size**             | [NormalSizes](#normal-sizes)   | The size of the component                                                                                                                                      | `md`      |
-| **isSelected**       | `boolean`                      | Whether the element should be selected (controlled)                                                                                                            | `false`   |
-| **defaultSelected**  | `boolean`                      | Whether the element should be selected (uncontrolled)                                                                                                          | `false`   |
-| **disableAnimation** | `boolean`                      | Whether the checkbox has animations                                                                                                                            | `false`   |
-| **isDisabled**       | `boolean`                      | Whether the input is disabled                                                                                                                                  | `false`   |
-| **isIndeterminate**  | `boolean`                      | Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction.                                          | `false`   |
-| **isRounded**        | `boolean`                      | Whether the checkbox is rounded                                                                                                                                | `false`   |
-| **lineThrough**      | `boolean`                      | Line in the middle of the label when the `Checkbox` is checked                                                                                                 | -         |
-| **isReadOnly**       | `boolean`                      | Whether the input can be selected but not changed by the user.                                                                                                 | `false`   |
-| **isRequired**       | `boolean`                      | Whether user input is required on the input before form submission.                                                                                            | `false`   |
-| **autoFocus**        | `boolean`                      | Whether the element should receive focus on render                                                                                                             |
-| **css**              | `Stitches.CSS`                 | Override Default CSS style                                                                                                                                     | -         |
-| **as**               | `keyof JSX.IntrinsicElements`  | Changes which tag component outputs                                                                                                                            | `label`   |
+| Attribute              | Type                           | Description                                                                                                                                                    | Default   |
+| ---------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| **children**           | `ReactNode`                    | The label for the element                                                                                                                                      | -         |
+| **value**              | `string`                       | The value of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefvalue) | -         |
+| **label**              | `string`                       | The label for the element                                                                                                                                      | -         |
+| **name**               | `string`                       | The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)   | -         |
+| **color**              | [NormalColors](#normal-colors) | The color of the component                                                                                                                                     | `default` |
+| **labelColor**         | [SimpleColors](#simple-colors) | The color of the label                                                                                                                                         | `default` |
+| **size**               | [NormalSizes](#normal-sizes)   | The size of the component                                                                                                                                      | `md`      |
+| **isSelected**         | `boolean`                      | Whether the element should be selected (controlled)                                                                                                            | `false`   |
+| **defaultSelected**    | `boolean`                      | Whether the element should be selected (uncontrolled)                                                                                                          | `false`   |
+| **disableAnimation**   | `boolean`                      | Whether the checkbox has animations                                                                                                                            | `false`   |
+| **isDisabled**         | `boolean`                      | Whether the input is disabled                                                                                                                                  | `false`   |
+| **isIndeterminate**    | `boolean`                      | Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction.                                          | `false`   |
+| **isRounded**          | `boolean`                      | Whether the checkbox is rounded                                                                                                                                | `false`   |
+| **lineThrough**        | `boolean`                      | Line in the middle of the label when the `Checkbox` is checked                                                                                                 | -         |
+| **isReadOnly**         | `boolean`                      | Whether the input can be selected but not changed by the user.                                                                                                 | `false`   |
+| **isRequired**         | `boolean`                      | Whether user input is required on the input before form submission.                                                                                            | `false`   |
+| **autoFocus**          | `boolean`                      | Whether the element should receive focus on render                                                                                                             |
+| **containerCss** `new` | `Stitches.CSS`                 | Override Default CSS Container style                                                                                                                           | -         |
+| **css**                | `Stitches.CSS`                 | Override Default CSS style                                                                                                                                     | -         |
+| **as**                 | `keyof JSX.IntrinsicElements`  | Changes which tag component outputs                                                                                                                            | `label`   |
 
 <Spacer y={1} />
 
@@ -147,31 +148,31 @@ import { Checkbox } from '@nextui-org/react';
 
 ```ts
 type NormalColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'gradient';
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error"
+  | "gradient";
 ```
 
 #### Simple Colors
 
 ```ts
 type SimpleColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error';
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
 ```
 
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type NormalSizes = "xs" | "sm" | "md" | "lg" | "xl";
 ```
 
 #### Keyboard event

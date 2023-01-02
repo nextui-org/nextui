@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useState, useMemo, useEffect} from "react";
+import React, {useState, useMemo, useEffect} from "react";
 import {SSRProvider} from "@react-aria/ssr";
 import {OverlayProvider} from "@react-aria/overlays";
 
@@ -15,6 +15,7 @@ import ThemeContext, {defaultContext} from "./theme-context";
 export interface Props {
   theme?: CreateTheme;
   disableBaseline?: boolean;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -23,7 +24,7 @@ const defaultProps = {
 
 export type ThemeProviderProps = Props & typeof defaultProps;
 
-const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
+const ThemeProvider: React.FC<ThemeProviderProps> = ({
   theme: userTheme,
   disableBaseline,
   children,

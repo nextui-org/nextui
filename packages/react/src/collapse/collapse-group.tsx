@@ -15,6 +15,7 @@ interface Props {
   divider?: boolean;
   onChange?: (index?: number | undefined, value?: boolean) => void;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -25,7 +26,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type CollapseGroupProps = Props & NativeAttrs & CollapseGroupVariantsProps & {css?: CSS};
 
-const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
+const CollapseGroup: React.FC<CollapseGroupProps> = ({
   children,
   accordion,
   animated,

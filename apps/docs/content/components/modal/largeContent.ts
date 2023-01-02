@@ -4,7 +4,7 @@ export default function App() {
   const { setVisible, bindings } = useModal();
   return (
     <div>
-      <Button auto shadow color="secondary" onClick={() => setVisible(true)}>
+      <Button auto shadow color="secondary" onPress={() => setVisible(true)}>
         Open modal
       </Button>
       <Modal
@@ -208,10 +208,10 @@ export default function App() {
           </Text>
         </Modal.Body>
         <Modal.Footer>
-          <Button auto flat color="error" onClick={() => setVisible(false)}>
+          <Button auto flat color="error" onPress={() => setVisible(false)}>
             Close
           </Button>
-          <Button auto onClick={() => setVisible(false)}>
+          <Button auto onPress={() => setVisible(false)}>
             Agree
           </Button>
         </Modal.Footer>
