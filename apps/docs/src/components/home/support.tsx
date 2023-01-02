@@ -3,9 +3,9 @@ import {Heart, OpenCollectiveLogo, PatreonLogo, Plus, FeaturesGrid, SonarPulse} 
 import {Section, Title, Subtitle} from "@primitives";
 import {styled, Row, Spacer, Tooltip, Avatar, AvatarProps} from "@nextui-org/react";
 import {InView} from "react-intersection-observer";
-import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS} from "@lib/docs/sponsors";
+import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@lib/docs/sponsors";
 import {pulse} from "@utils/animations";
-import {clamp} from "lodash";
+import {clamp, get} from "lodash";
 
 const supportAccounts = [
   {
@@ -73,8 +73,9 @@ const SupportSection: React.FC<SupportSectionProps> = ({sponsors = []}) => {
 
   const getSponsorSize = (sponsor: Sponsor) => {
     let size: AvatarProps["size"] = "md";
+    const tier = sponsor.tier || getTier(sponsor.totalAmountDonated);
 
-    switch (sponsor.tier) {
+    switch (tier) {
       case SPONSOR_TIERS.BRONZE:
         size = "md";
         break;
@@ -95,7 +96,9 @@ const SupportSection: React.FC<SupportSectionProps> = ({sponsors = []}) => {
   };
 
   const getSponsorColor = (sponsor: Sponsor) => {
-    return SPONSOR_COLORS[sponsor.tier] || "default";
+    const tier = sponsor.tier || getTier(sponsor.totalAmountDonated);
+
+    return SPONSOR_COLORS[tier] || "default";
   };
 
   const getSponsorCss = (index: number) => {
@@ -131,7 +134,9 @@ const SupportSection: React.FC<SupportSectionProps> = ({sponsors = []}) => {
             size={getSponsorSize(sponsor)}
             src={sponsor.image}
             text={getSponsorName(sponsor)}
-            onClick={() => handleExternalLinkClick(sponsor.profile)}
+            onClick={() =>
+              handleExternalLinkClick(get(sponsor, "website", get(sponsor, "profile")))
+            }
           />
         ))}
       </StyledSponsorsWrapper>
