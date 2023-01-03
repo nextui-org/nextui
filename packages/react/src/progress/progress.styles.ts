@@ -14,7 +14,7 @@ export const StyledProgress = styled("div", {
   padding: 0,
   width: "100%",
   position: "relative",
-  overflow: "auto",
+  overflow: "hidden",
   variants: {
     color: {
       default: {
