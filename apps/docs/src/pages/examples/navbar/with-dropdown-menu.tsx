@@ -46,6 +46,10 @@ export default function NavbarWithDropdownMenuExample() {
             </Navbar.Item>
             <Dropdown.Menu
               aria-label="ACME features"
+              containerCss={{
+                position: "fixed",
+                top: "64px",
+              }}
               css={{
                 $$dropdownMenuWidth: "340px",
                 $$dropdownItemHeight: "70px",

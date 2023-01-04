@@ -53,6 +53,7 @@ export const Radio = React.forwardRef((props: RadioProps, ref: ReactRef<HTMLInpu
     disableAnimation,
     hoverProps,
     inputProps,
+    isRequired,
   } = useRadio({...otherProps, children: children ?? label});
 
   const domRef = useFocusableRef<HTMLLabelElement>(ref as FocusableRef<HTMLLabelElement>, inputRef);
@@ -75,7 +76,7 @@ export const Radio = React.forwardRef((props: RadioProps, ref: ReactRef<HTMLInpu
       as={as}
       className={clsx("nextui-radio-label", `nextui-radio--${radioState}`, className)}
       color={color}
-      css={css as any}
+      css={css}
       data-state={radioState}
       disableAnimation={disableAnimation}
       isChecked={inputProps.checked}
@@ -95,12 +96,13 @@ export const Radio = React.forwardRef((props: RadioProps, ref: ReactRef<HTMLInpu
             <input
               ref={inputRef}
               className="nextui-radio-input"
+              required={isRequired}
               {...mergeProps(inputProps, focusProps)}
             />
           </VisuallyHidden>
         </StyledRadioPoint>
         <StyledRadioText
-          className="nextui-radio-label"
+          className="nextui-radio-text"
           color={labelColor}
           isDisabled={isDisabled}
           isInvalid={isInvalid}

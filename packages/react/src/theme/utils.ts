@@ -122,6 +122,8 @@ export const changeTheme = (theme: ThemeType | string) => {
       .filter((stl) => !stl.includes("color-scheme") && stl.length)
       .map((el) => `${el};`) || [];
 
-  el?.setAttribute("class", clsx(prevClasses, `${getThemeName(theme)}-theme`));
-  el?.setAttribute("style", clsx(prevStyles, `color-scheme: ${theme};`));
+  const themeName = getThemeName(theme);
+
+  el?.setAttribute("class", clsx(prevClasses, `${themeName}-theme`));
+  el?.setAttribute("style", clsx(prevStyles, `color-scheme: ${themeName};`));
 };

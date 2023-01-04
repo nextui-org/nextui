@@ -51,7 +51,7 @@ const Checkmark: React.FC<CheckmarkProps> = (props) => {
   return (
     <StyledCheckmark
       className={clsx("nextui-checkmark", className)}
-      css={{...(css as any)}}
+      css={css}
       height={size || height}
       role="img"
       viewBox="0 0 52 52"

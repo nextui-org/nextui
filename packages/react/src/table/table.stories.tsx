@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import {Meta} from "@storybook/react";
 
 import {getKeyValue} from "../utils/object";
-import {User, Text, Col, Row, Tooltip, styled, useAsyncList, useCollator} from "../index";
+import {
+  Badge,
+  User,
+  Text,
+  Col,
+  Row,
+  Tooltip,
+  styled,
+  useAsyncList,
+  useCollator,
+  BadgeProps,
+} from "../index";
 import {Eye, Edit, Delete} from "../utils/icons";
 
 import Table, {TableProps, SortDescriptor} from "./index";
@@ -18,41 +29,6 @@ export default {
     ),
   ],
 } as Meta;
-
-const StyledBadge = styled("span", {
-  display: "inline-block",
-  textTransform: "uppercase",
-  padding: "$2 $3",
-  margin: "0 2px",
-  fontSize: "10px",
-  fontWeight: "$bold",
-  borderRadius: "14px",
-  letterSpacing: "0.6px",
-  lineHeight: 1,
-  boxShadow: "1px 2px 5px 0px rgb(0 0 0 / 5%)",
-  alignItems: "center",
-  alignSelf: "center",
-  color: "$white",
-  variants: {
-    type: {
-      active: {
-        bg: "$successLight",
-        color: "$success",
-      },
-      paused: {
-        bg: "$errorLight",
-        color: "$error",
-      },
-      vacation: {
-        bg: "$warningLight",
-        color: "$warning",
-      },
-    },
-  },
-  defaultVariants: {
-    type: "active",
-  },
-});
 
 const IconButton = styled("button", {
   dflex: "center",
@@ -279,7 +255,9 @@ export const Sortable = () => {
     async sort({items, sortDescriptor}: {items: any[]; sortDescriptor: SortDescriptor}) {
       return {
         items: items.sort((a, b) => {
+          // @ts-ignore
           let first = a[sortDescriptor.column];
+          // @ts-ignore
           let second = b[sortDescriptor.column];
           let cmp = collator.compare(first, second);
 
@@ -361,6 +339,77 @@ export const Pagination = () => {
         align="center"
         rowsPerPage={3}
         onPageChange={(page) => console.log({page})} // eslint-disable-line no-console
+      />
+    </Table>
+  );
+};
+
+export const AsyncPagination = () => {
+  const [total, setTotal] = useState(0);
+
+  let scopedColumns = [
+    {name: "Name", uid: "name"},
+    {name: "Height", uid: "height"},
+    {name: "Mass", uid: "mass"},
+    {name: "Birth Year", uid: "birth_year"},
+  ];
+
+  let list = useAsyncList({
+    async load({signal, cursor}) {
+      if (cursor) {
+        // write this /^http:\/\//i using RegExp
+        const regex = "/^http:///i";
+
+        cursor = cursor.replace(regex, "https://");
+      }
+
+      let res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
+      let json = await res.json();
+
+      setTotal(json.count);
+
+      return {
+        items: json.results,
+        cursor: json.next,
+      };
+    },
+  });
+
+  const rowsPerPage = 10;
+
+  return (
+    <Table
+      aria-label="Example table with asyncronosly loading dynamic content"
+      color="secondary"
+      css={{
+        minWidth: "620px",
+        height: "auto",
+        "@xsMax": {
+          minWidth: "100%",
+        },
+      }}
+      selectionMode="multiple"
+      shadow={false}
+    >
+      <Table.Header columns={scopedColumns}>
+        {(column) => <Table.Column key={column.uid}>{column.name}</Table.Column>}
+      </Table.Header>
+      <Table.Body items={list.items} loadingState={list.loadingState}>
+        {(item: any) => (
+          <Table.Row key={item.name}>{(key) => <Table.Cell>{item[key]}</Table.Cell>}</Table.Row>
+        )}
+      </Table.Body>
+      <Table.Pagination
+        noMargin
+        shadow
+        align="center"
+        rowsPerPage={rowsPerPage}
+        total={Math.round(total / rowsPerPage)}
+        onPageChange={(page) => {
+          if (page >= list.items.length / rowsPerPage) {
+            list.loadMore();
+          }
+        }}
       />
     </Table>
   );
@@ -517,6 +566,13 @@ export const CustomCells = () => {
 
   const renderCell = (user: UserType, columnKey: React.Key) => {
     const cellValue = user[columnKey];
+    const statusColor: {
+      [key: string]: BadgeProps["color"];
+    } = {
+      active: "success",
+      paused: "warning",
+      vacation: "error",
+    };
 
     switch (columnKey) {
       case "name":
@@ -541,7 +597,17 @@ export const CustomCells = () => {
           </Col>
         );
       case "status":
-        return <StyledBadge type={user?.status}>{cellValue}</StyledBadge>;
+        return (
+          <Badge
+            color={statusColor[user?.status]}
+            css={{
+              tt: "capitalize",
+            }}
+            variant="flat"
+          >
+            {cellValue}
+          </Badge>
+        );
 
       case "actions":
         return (

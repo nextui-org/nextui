@@ -13,6 +13,7 @@ interface PasswordProps extends Props {
   hideToggle?: boolean;
   visibleIcon?: React.ReactNode;
   hiddenIcon?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const passwordDefaultProps = {
@@ -27,10 +28,7 @@ export type InputPasswordProps = PasswordProps &
   typeof passwordDefaultProps &
   NativeAttrs & {css?: CSS};
 
-const InputPassword = React.forwardRef<
-  HTMLInputElement,
-  React.PropsWithChildren<InputPasswordProps>
->(
+const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
   (
     {hideToggle, visibleIcon, hiddenIcon, children, ...props},
     ref: React.Ref<HTMLInputElement | null>,

@@ -25,16 +25,19 @@ const usePagination = ({
 }: PaginationParams) => {
   const [activePage, setActivePage] = useState(page || initialPage);
 
-  const onChangeActivePage = (newPage: number) => {
-    setActivePage(newPage);
-    onChange && onChange(newPage);
-  };
-
   useEffect(() => {
     if (page && page !== activePage) {
       setActivePage(page);
     }
   }, [page]);
+
+  const onChangeActivePage = useCallback(
+    (newPage: number) => {
+      setActivePage(newPage);
+      onChange?.(newPage);
+    },
+    [setActivePage, onChange],
+  );
 
   const setPage = useCallback(
     (pageNumber: number) => {
@@ -46,7 +49,7 @@ const usePagination = ({
         onChangeActivePage(pageNumber);
       }
     },
-    [total],
+    [onChangeActivePage, total],
   );
 
   const next = () => setPage(activePage + 1);

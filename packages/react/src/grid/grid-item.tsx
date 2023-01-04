@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
 import {BreakpointsValue, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
 
@@ -20,6 +21,7 @@ interface Props {
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -61,7 +63,7 @@ const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
   };
 };
 
-const GridItem = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridItemProps>>(
+const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(
   (
     {
       xs,
@@ -134,7 +136,7 @@ const GridItem = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridIt
               ...getItemLayout(xl),
             },
           },
-          ...(css as any),
+          ...css,
         }}
         {...props}
       >

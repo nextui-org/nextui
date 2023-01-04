@@ -7,7 +7,7 @@ LoadedCheerio {
       class="nextui-c-ijHtNE nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-ijHtNE-iPJLV-css"
     >
       <span
-        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false only-text-avatar nextui-user-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar nextui-user-avatar"
         data-state="ready"
       >
         <span
@@ -23,7 +23,7 @@ LoadedCheerio {
         class="nextui-c-kNKVvs nextui-user-info"
       >
         <span
-          class="nextui-c-hEcroZ nextui-user-name"
+          class="nextui-c-eGlVTL nextui-user-name"
         >
           Junior
         </span>
@@ -36,7 +36,7 @@ LoadedCheerio {
       class="nextui-c-ijHtNE nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-ijHtNE-iPJLV-css"
     >
       <span
-        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-user-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css nextui-user-avatar"
         data-state="loading"
       >
         <span
@@ -52,7 +52,7 @@ LoadedCheerio {
         class="nextui-c-kNKVvs nextui-user-info"
       >
         <span
-          class="nextui-c-hEcroZ nextui-user-name"
+          class="nextui-c-eGlVTL nextui-user-name"
         >
           Junior Garcia
         </span>

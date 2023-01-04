@@ -1,3 +1,5 @@
+import {addColorAlpha} from "../utils/color";
+
 import {
   blueDark,
   greenDark,
@@ -62,7 +64,9 @@ export default {
     neutralSolidContrast: "$white",
 
     // misc
+    textLight: addColorAlpha(grayDark.gray900, 0.2),
     text: "$gray900",
+    linkLight: addColorAlpha(blueDark.blue600, 0.2),
     link: "$blue700",
     codeLight: "$cyan50",
     code: "$cyan600",

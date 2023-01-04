@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {
   PropsWithoutRef,
   RefAttributes,
@@ -11,8 +13,6 @@ import {useLabel} from "@react-aria/label";
 import {useFocusRing} from "@react-aria/focus";
 
 import {ContentPosition} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
-import Textarea from "../textarea";
 import useTheme from "../use-theme";
 import {warn} from "../utils/console";
 import ClearIcon from "../utils/clear-icon";
@@ -129,7 +129,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const changeHandler = (event: React.ChangeEvent<FormElement>) => {
       if (disabled || readOnly) return;
-      setSelfValue(event.target.value);
+      isControlledComponent || setSelfValue(event.target.value);
       onChange && onChange(event);
     };
 
@@ -138,7 +138,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       event.stopPropagation();
       event.nativeEvent.stopImmediatePropagation();
 
-      setSelfValue("");
+      isControlledComponent || setSelfValue("");
       onClearClick && onClearClick(event);
       /* istanbul ignore next */
       if (!inputRef.current) return;
@@ -208,10 +208,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
         borderWeight={borderWeight}
         className={clsx(`${preClass}-main-container`, `${preClass}-main-container--${getState}`)}
         color={color}
-        css={{
-          width,
-          ...(css as any),
-        }}
+        css={{width, ...css}}
         data-state={getState}
         disabled={disabled}
         helperColor={helperColor}
@@ -388,7 +385,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
 type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {
-  Textarea: typeof Textarea;
   Password: typeof InputPassword;
 };
 

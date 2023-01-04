@@ -11,13 +11,14 @@ export interface Props {
   currentRoute?: Route;
   tag?: string;
   slug?: string;
+  children?: React.ReactNode;
 }
 
-const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({children, routes}) => {
+const DefaultLayout: React.FC<Props> = ({children, routes}) => {
   return (
     <div id="app-container">
       <Header />
-      <Navbar hasNotify isHome routes={routes} />
+      <Navbar isHome routes={routes} />
       <Container
         alignContent="space-between"
         as="main"

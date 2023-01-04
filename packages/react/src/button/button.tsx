@@ -1,6 +1,7 @@
 import type {PressEvent} from "@react-types/shared";
 import type {AriaButtonProps} from "@react-types/button";
 import type {FocusRingAria} from "@react-aria/focus";
+import type {CSS} from "../theme/stitches.config";
 
 import React, {useMemo, PropsWithoutRef, RefAttributes} from "react";
 import {useFocusRing} from "@react-aria/focus";
@@ -10,7 +11,6 @@ import {mergeProps} from "@react-aria/utils";
 
 import {warn} from "../utils/console";
 import ButtonDrip from "../utils/drip";
-import {CSS} from "../theme/stitches.config";
 import {NormalColors} from "../utils/prop-types";
 import clsx from "../utils/clsx";
 import useDrip from "../use-drip";
@@ -159,7 +159,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     return disabled ? "disabled" : "ready";
   }, [disabled, isHovered, isPressed]);
 
-  const getIconCss = useMemo<any>(() => {
+  const getIconCss = useMemo<CSS | undefined>(() => {
     if (isRight) return iconRightCss;
 
     return iconLeftCss;
@@ -174,10 +174,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
       borderWeight={borderWeight}
       bordered={bordered || ghost}
       className={clsx("nextui-button", `nextui-button--${getState}`, className)}
-      css={{
-        ...(css as any),
-        ...cssColors,
-      }}
+      css={{...css, ...cssColors}}
       data-state={getState}
       flat={flat}
       ghost={ghost}

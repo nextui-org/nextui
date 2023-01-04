@@ -41,5 +41,6 @@ export {default as NotifyBanner} from "./notify-banner";
 export {default as WindowActions} from "./window-actions";
 export {default as SandpackEditor} from "./sandpack";
 export {default as Sparkles} from "./sparkles";
+export {default as SonarPulse} from "./sonar-pulse";
 export * as Examples from "./examples";
 export * from "./sandpack";

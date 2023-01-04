@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import {DividerAlign, SimpleColors} from "../utils/prop-types";
 import {getMargin} from "../utils/dimensions";
-import {CSS} from "../theme/stitches.config";
 
 import {StyledDivider, StyledDividerText, DividerVariantsProps} from "./divider.styles";
 
@@ -15,6 +16,7 @@ interface Props {
   align?: DividerAlign;
   css?: CSS;
   as?: keyof JSX.IntrinsicElements;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
@@ -27,7 +29,7 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type DividerProps = Props & DividerVariantsProps & NativeAttrs;
 
-const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
+const Divider: React.FC<DividerProps> = ({
   height,
   x,
   y,
@@ -37,8 +39,8 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   css,
   ...props
 }) => {
-  const alignCss = useMemo(() => {
-    if (!align || align === "center") return "";
+  const alignCss = useMemo<CSS | undefined>(() => {
+    if (!align || align === "center") return;
     if (align === "left" || align === "start") {
       return {transform: "translateY(-50%)", left: "7%"};
     }
@@ -58,7 +60,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
       css={{
         margin: `${top} ${left}`,
         height: `calc(${height} * 1px)`,
-        ...(css as any),
+        ...css,
       }}
       role="separator"
       {...props}

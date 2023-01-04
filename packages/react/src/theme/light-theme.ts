@@ -1,3 +1,5 @@
+import {addColorAlpha} from "../utils/color";
+
 import {blue, purple, green, yellow, red, cyan, pink, gray} from "./colors";
 
 export default {
@@ -19,7 +21,9 @@ export default {
     ...gray,
 
     // misc
+    textLight: addColorAlpha(gray.gray900, 0.2),
     text: "$gray900",
+    linkLight: addColorAlpha(blue.blue600, 0.2),
     link: "$blue600",
     codeLight: "$pink100",
     code: "$pink600",

@@ -35,7 +35,7 @@ export const DeleteUser = () => {
   );
 };`;
 
-const UserTwitterCard = `import React from "react"; 
+const UserTwitterCard = `import React from "react";
 import { Avatar, Row, Col, Text, Button, Spacer, Grid } from "@nextui-org/react";
 
 export const UserTwitterCard = ({
@@ -88,7 +88,7 @@ export const UserTwitterCard = ({
             <Button
               auto
               rounded
-              onClick={() => setFollowing(!following)}
+              onPress={() => setFollowing(!following)}
               css={{
                 maxHeight: "$space$12",
                 fs: "$xs",

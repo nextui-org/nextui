@@ -38,10 +38,10 @@ const Dropdown = (props: DropdownProps) => {
         isOpen={context.state.isOpen}
         scrollRef={context.menuRef}
         triggerRef={context.menuTriggerRef}
-        onClose={context.state.close}
+        onClose={context.onClose}
       >
         {menuTrigger}
-        <Popover.Content>{menu}</Popover.Content>
+        {menu}
       </Popover>
     </DropdownProvider>
   );

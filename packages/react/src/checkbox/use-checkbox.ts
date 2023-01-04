@@ -8,6 +8,7 @@ import {
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
 } from "@react-aria/checkbox";
 
+import {CSS} from "../theme";
 import {__DEV__} from "../utils/assertion";
 
 import {useCheckboxGroupContext} from "./checkbox-context";
@@ -19,6 +20,7 @@ export interface UseCheckboxProps extends AriaCheckboxProps {
   size?: NormalSizes;
   color?: NormalColors;
   labelColor?: SimpleColors;
+  containerCss?: CSS;
 }
 
 /**
@@ -35,6 +37,7 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     isRounded = false,
     disableAnimation = false,
     isIndeterminate = false,
+    containerCss,
     ...otherProps
   } = props;
 
@@ -85,6 +88,7 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     isIndeterminate,
     inputRef,
     inputProps,
+    containerCss,
   };
 };
 
