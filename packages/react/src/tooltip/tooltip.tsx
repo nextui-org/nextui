@@ -5,7 +5,6 @@ import React, {useEffect, useRef, useState} from "react";
 import withDefaults from "../utils/with-defaults";
 import useClickAway from "../use-click-away";
 import {Placement, TriggerTypes} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 
 import TooltipContent, {TooltipContentProps} from "./tooltip-content";
 import {StyledTooltipTrigger, TooltipContentVariantsProps} from "./tooltip.styles";
