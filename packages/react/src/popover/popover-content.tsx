@@ -48,6 +48,7 @@ const PopoverContent = React.forwardRef(
       onClose,
       onEntered,
       onExited,
+      isPositioned,
     } = usePopoverContext();
 
     const transformOrigin = getTransformOrigin(placement);
@@ -85,6 +86,18 @@ const PopoverContent = React.forwardRef(
 
     const {isFocusVisible, focusProps} = useFocusRing();
 
+    const transitionProps = useMemo(() => {
+      return {
+        clearTime: disableAnimation ? 0 : 300,
+        enterTime: disableAnimation ? 0 : 20,
+        leaveTime: disableAnimation ? 0 : 60,
+        name: "nextui-popover-content",
+        visible: state.isOpen,
+        onEntered: onEntered,
+        onExited: onExited,
+      };
+    }, [disableAnimation, state.isOpen]);
+
     const contents = (
       <StyledPopoverContentContainer
         ref={mergeRefs(overlayRef, ref)}
@@ -94,7 +107,9 @@ const PopoverContent = React.forwardRef(
         )}
         as={as}
         className={clsx("nextui-popover-content-container", className)}
+        disableAnimation={disableAnimation}
         isFocusVisible={isFocusVisible}
+        isPositioned={isPositioned}
       >
         <DismissButton onDismiss={onClose} />
         <StyledPopoverContent className="nextui-popover-content">{children}</StyledPopoverContent>
@@ -104,23 +119,9 @@ const PopoverContent = React.forwardRef(
 
     return (
       <>
-        {!disableAnimation ? (
-          <FocusScope restoreFocus>
-            <CSSTransition
-              clearTime={300}
-              enterTime={20}
-              leaveTime={60}
-              name="nextui-popover-content"
-              visible={state.isOpen}
-              onEntered={onEntered}
-              onExited={onExited}
-            >
-              {contents}
-            </CSSTransition>
-          </FocusScope>
-        ) : state.isOpen ? (
-          <FocusScope restoreFocus>{contents}</FocusScope>
-        ) : null}
+        <FocusScope restoreFocus>
+          <CSSTransition {...transitionProps}>{contents}</CSSTransition>
+        </FocusScope>
       </>
     );
   },

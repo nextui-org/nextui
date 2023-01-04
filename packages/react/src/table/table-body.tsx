@@ -47,9 +47,20 @@ const TableBody: React.FC<TableBodyProps> = ({
   isStatic,
   ...props
 }) => {
-  const {currentPage, rowsPerPage} = useTableContext();
+  const {
+    currentPage,
+    rowsPerPage,
+    collection: collectionContext,
+    setCollection,
+  } = useTableContext();
 
   const infinityScroll = useMemo(() => isInfinityScroll(collection), [collection.body.props]);
+
+  React.useEffect(() => {
+    if (collection !== collectionContext) {
+      setCollection?.(collection);
+    }
+  }, [collection, collectionContext]);
 
   const isLoading =
     collection.body?.props?.loadingState === "loading" ||
@@ -84,7 +95,7 @@ const TableBody: React.FC<TableBodyProps> = ({
             {
               "--nextui--tableBodyEmptySpaceHeight": infinityScroll
                 ? "var(--nextui-space-10)"
-                : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-14))`,
+                : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-15))`,
             },
             props?.style || {},
           )}

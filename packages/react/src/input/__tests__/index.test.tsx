@@ -1,5 +1,7 @@
 import React from "react";
 import {mount} from "enzyme";
+import {render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import {Input} from "../../index";
 import {nativeEvent} from "../../../tests/utils";
@@ -180,5 +182,21 @@ describe("Input", () => {
 
     expect(ref.current).not.toBeNull();
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("should show a focus ring around the clear button when focused with a keyoboard", () => {
+    const wrapper = render(<Input clearable data-testid="input" label="label" />);
+
+    const input = wrapper.getByTestId("input");
+    const clearButton = wrapper.getByLabelText("clear");
+
+    const focusVisible = expect.stringContaining("isFocusVisible-true");
+
+    userEvent.type(input, "test");
+    expect(input).toEqual(document.activeElement);
+    expect(clearButton.children[0].className).not.toEqual(focusVisible);
+    userEvent.tab();
+    expect(clearButton).toEqual(document.activeElement);
+    expect(clearButton.children[0].className).toEqual(focusVisible);
   });
 });

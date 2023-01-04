@@ -9,8 +9,6 @@ import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
-import useTheme from "../use-theme";
-import {getTokenValue} from "../theme/utils";
 import {__DEV__} from "../utils/assertion";
 
 import LinkIcon from "./icon";
@@ -57,8 +55,6 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
     otherProps.target = otherProps.target ?? '_blank'
   }
 
-  const {isDark} = useTheme();
-
   const domRef = useDOMRef(ref);
 
   const {linkProps}: ILinkAria = useLink({...otherProps, elementType: as} as AriaLinkProps, domRef);
@@ -69,15 +65,15 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
 
     switch (color) {
       case "inherit": {
-        linkBackgroundColor = getTokenValue("colors", "text", 0.2);
+        linkBackgroundColor = "$colors$textLight";
         break;
       }
       case "default": {
-        linkBackgroundColor = getTokenValue("colors", "link", 0.2);
+        linkBackgroundColor = "$colors$linkLight";
         break;
       }
       case "text": {
-        linkBackgroundColor = getTokenValue("colors", "text", 0.2);
+        linkBackgroundColor = "$colors$textLight";
         break;
       }
     }
@@ -86,7 +82,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
       ...css,
       $$linkBackgroundColor: linkBackgroundColor,
     };
-  }, [css, color, isDark]);
+  }, [css, color]);
 
   return (
     <StyledLink
