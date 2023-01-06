@@ -148,7 +148,7 @@ dark.colors.background.computedValue; // var(--nextui-colors-background)
 You can add styles based on themes by retrieving the generated theme class.
 
 ```jsx
-import { Button, createTheme } from '@nextui-org/react';
+import { Button, createTheme, styled } from '@nextui-org/react';
 
 const myTheme = createTheme({
   theme: {
@@ -202,7 +202,7 @@ const MyApp = () => {
 A function to create a global CSS `@keyframe` rule.
 
 ```jsx
-import { keyframes, Text } from '@nextui-org/react';
+import { keyframes, Text, styled } from '@nextui-org/react';
 
 const scaleUp = keyframes({
   '0%': { transform: 'scale(1)' },
