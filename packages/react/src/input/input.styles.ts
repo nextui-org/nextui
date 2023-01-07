@@ -172,65 +172,73 @@ const inputAutofillStyles = {
   caretColor: "$$inputTextColor",
 };
 
-export const StyledInputContainer = styled("div", {
-  width: "100%",
-  br: "$$inputBorderRadius",
-  input: {
-    "&:-webkit-autofill": {
-      ...inputAutofillStyles,
-      "&:hover": inputAutofillStyles,
-      "&:focus": inputAutofillStyles,
-      "&:active": inputAutofillStyles,
+export const StyledInputContainer = styled(
+  "div",
+  {
+    width: "100%",
+    br: "$$inputBorderRadius",
+    input: {
+      "&:-webkit-autofill": {
+        ...inputAutofillStyles,
+        "&:hover": inputAutofillStyles,
+        "&:focus": inputAutofillStyles,
+        "&:active": inputAutofillStyles,
+      },
     },
+    "@motion": {
+      transition: "none",
+    },
+    variants: {
+      isTextarea: {
+        false: {
+          display: "inline-flex",
+          alignItems: "center",
+          height: "calc($$inputHeightRatio * $9)",
+        },
+      },
+      focused: {
+        true: {},
+      },
+      isReadOnly: {
+        false: {},
+      },
+      underlined: {
+        true: {
+          br: "0",
+        },
+      },
+      animated: {
+        true: {
+          transition: "$default",
+        },
+        false: {
+          transition: "none",
+        },
+      },
+    },
+    compoundVariants: [
+      {
+        // underlined && !isReadOnly
+        isReadOnly: false,
+        underlined: true,
+        css: {
+          transform: "none",
+        },
+      },
+      {
+        // focused && animated && !isReadOnly && !underlined
+        focused: true,
+        animated: true,
+        isReadOnly: false,
+        underlined: false,
+        css: {
+          transform: "translateY(-$space$1)",
+        },
+      },
+    ],
   },
-  "@motion": {
-    transition: "none",
-  },
-  variants: {
-    isTextarea: {
-      false: {
-        display: "inline-flex",
-        alignItems: "center",
-        height: "calc($$inputHeightRatio * $9)",
-      },
-    },
-    focused: {
-      true: {},
-    },
-    isReadOnly: {
-      false: {},
-    },
-    underlined: {true: {}},
-    animated: {
-      true: {
-        transition: "$default",
-      },
-      false: {
-        transition: "none",
-      },
-    },
-  },
-  compoundVariants: [
-    {
-      // underlined && !isReadOnly
-      isReadOnly: false,
-      underlined: true,
-      css: {
-        transform: "none",
-      },
-    },
-    {
-      // focused && animated && !isReadOnly && !underlined
-      focused: true,
-      animated: true,
-      isReadOnly: false,
-      underlined: false,
-      css: {
-        transform: "translateY(-$space$1)",
-      },
-    },
-  ],
-});
+  cssFocusVisible,
+);
 
 export const StyledInput = styled("input", {
   padding: 0,

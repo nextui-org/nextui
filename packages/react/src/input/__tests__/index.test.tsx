@@ -199,4 +199,25 @@ describe("Input", () => {
     expect(clearButton).toEqual(document.activeElement);
     expect(clearButton.children[0].className).toEqual(focusVisible);
   });
+
+  it("should show a focus ring on keyboard but not on click focus", () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-one" />
+        <Input data-testid="input-two" />
+      </>,
+    );
+
+    const inputOne = wrapper.getByTestId("input-one");
+    const inputTwo = wrapper.getByTestId("input-two");
+
+    const focusVisible = expect.stringContaining("isFocusVisible-true");
+
+    userEvent.click(inputOne);
+    expect(inputOne).toEqual(document.activeElement);
+    expect(inputOne.className).not.toEqual(focusVisible);
+    userEvent.tab();
+    expect(inputTwo).toEqual(document.activeElement);
+    expect(inputTwo.className).toEqual(focusVisible);
+  });
 });

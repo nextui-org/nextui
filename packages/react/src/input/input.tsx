@@ -1,3 +1,4 @@
+import type {FocusRingAria} from "@react-aria/focus";
 import type {CSS} from "../theme/stitches.config";
 
 import React, {
@@ -11,6 +12,7 @@ import React, {
 } from "react";
 import {useLabel} from "@react-aria/label";
 import {useFocusRing} from "@react-aria/focus";
+import {mergeProps} from "@react-aria/utils";
 
 import {ContentPosition} from "../utils/prop-types";
 import useTheme from "../use-theme";
@@ -38,6 +40,10 @@ import InputPassword from "./input-password";
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs & {css?: CSS};
+
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLInputElement>, keyof Props>;
+}
 
 const simulateChangeEvent = (
   el: FormElement,
@@ -181,6 +187,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
       ...controlledValue,
     };
 
+    const {isFocusVisible, focusProps}: IFocusRingAria = useFocusRing({
+      autoFocus: props.autoFocus,
+    });
+
     const {
       isFocusVisible: isClearButtonFocusVisible,
       focusProps: clearButtonFocusVisibleFocusProps,
@@ -247,6 +257,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
             className,
           )}
           focused={hover}
+          isFocusVisible={isFocusVisible && !disabled}
+          isFocusVisibleOffset={bordered}
           isReadOnly={readOnly}
           isTextarea={isTextarea}
           underlined={underlined}
@@ -320,11 +332,12 @@ const Input = React.forwardRef<FormElement, InputProps>(
               readOnly={readOnly}
               required={required}
               type="text"
-              onBlur={blurHandler}
               onChange={changeHandler}
-              onFocus={focusHandler}
               {...inputProps}
-              {...fieldProps}
+              {...mergeProps(focusProps, fieldProps, {
+                onFocus: focusHandler,
+                onBlur: blurHandler,
+              })}
             />
             {clearable && (
               <InputClearButton

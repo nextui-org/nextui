@@ -18,6 +18,7 @@ export const sharedFocus = css({
 export const cssFocusVisible = css({
   outline: "none",
   variants: {
+    isFocusVisibleOffset: {true: {}},
     isFocusVisible: {
       true: {
         boxShadow: "0 0 0 2px $colors$background, 0 0 0 4px $colors$primary",
@@ -25,6 +26,15 @@ export const cssFocusVisible = css({
       false: {},
     },
   },
+  compoundVariants: [
+    {
+      isFocusVisibleOffset: true,
+      isFocusVisible: true,
+      css: {
+        boxShadow: "0 0 0 4px $colors$background, 0 0 0 6px $colors$primary",
+      },
+    },
+  ],
 });
 
 export const cssNoBlurriness = css({
