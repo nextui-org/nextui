@@ -6,8 +6,7 @@ import type {CSS} from "../theme/stitches.config";
 import React, {useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import clsx from "../utils/clsx";

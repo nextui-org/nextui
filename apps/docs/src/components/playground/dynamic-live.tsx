@@ -2,14 +2,13 @@ import React, {useRef, useState, useEffect} from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import NextLink from "next/link";
 import {useMediaQuery} from "@hooks/use-media-query";
-import {validateEmail} from "@utils/index";
+import {validateEmail, isProd} from "@utils/index";
 import withDefaults from "@utils/with-defaults";
 import {motion, useTransform, useMotionValue} from "framer-motion";
 import {InView} from "react-intersection-observer";
 import {Box} from "@primitives";
 import * as Components from "@nextui-org/react";
 import {WindowActions} from "@components";
-import {isProd} from "@utils/index";
 
 import * as TemplateComponents from "../templates";
 import Palette from "../palette";

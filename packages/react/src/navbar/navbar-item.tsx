@@ -1,7 +1,6 @@
 import React, {useMemo, useEffect} from "react";
 import {useHover} from "@react-aria/interactions";
-import {mergeProps} from "@react-aria/utils";
-import {useId} from "@react-aria/utils";
+import {mergeProps, useId} from "@react-aria/utils";
 
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";

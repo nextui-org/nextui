@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {Container, Row, Col} from "@nextui-org/react";
+import {Container, Row, Col, Link} from "@nextui-org/react";
 import NextLink from "next/link";
 import {Route} from "@lib/docs/page";
-import {Link} from "@nextui-org/react";
 import {Heading, getHeadings} from "@utils/get-headings";
 import {MetaProps} from "@lib/docs/meta";
 import Header from "@layouts/header";
