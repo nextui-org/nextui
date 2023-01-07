@@ -2,14 +2,13 @@ import React, {useRef, useState, useEffect} from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import NextLink from "next/link";
 import {useMediaQuery} from "@hooks/use-media-query";
-import {validateEmail} from "@utils/index";
+import {validateEmail, isProd} from "@utils/index";
 import withDefaults from "@utils/with-defaults";
 import {motion, useTransform, useMotionValue} from "framer-motion";
 import {InView} from "react-intersection-observer";
 import {Box} from "@primitives";
 import * as Components from "@nextui-org/react";
 import {WindowActions} from "@components";
-import {isProd} from "@utils/index";
 
 import * as TemplateComponents from "../templates";
 import Palette from "../palette";
@@ -189,6 +188,12 @@ const LiveContainer = Components.styled(Box, {
   },
 });
 
+const StyledInView = Components.styled(InView, {
+  fontSize: "$base",
+  lineHeight: "$md",
+  fontFamily: "$sans",
+});
+
 export const scope = {
   ...Components,
   ...Icons,
@@ -239,7 +244,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
 
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope} theme={codeTheme}>
-      <InView className="inview-section" triggerOnce={isProd} onChange={setIsVisible}>
+      <StyledInView className="inview-section" triggerOnce={isProd} onChange={setIsVisible}>
         <LiveContainer
           className="dynamic-live-container"
           css={{
@@ -322,7 +327,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
           )}
           {showEditor && <Editor code={code} initialOpen={initialEditorOpen} />}
         </LiveContainer>
-      </InView>
+      </StyledInView>
     </LiveProvider>
   );
 };

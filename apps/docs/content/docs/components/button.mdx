@@ -126,7 +126,20 @@ _Note: `gradient` variant is not supported with the `flat` mode._"
 | **as**           | `keyof JSX.IntrinsicElements`                   | Changes which tag component outputs       | `button`  |
 | ...              | `'id', 'className', ...`                        | Button native props                       | -         |
 
-<Spacer y={2} />
+<Spacer y={1} />
+
+#### Button Events
+
+| Attribute                | Type                                                                                              | Description                                                                                                             | Default |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------- |
+| **onClick** `deprecated` | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html)) => void</Code> | Button click handler                                                                                                    | -       |
+| **onPress**              | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html)) => void</Code> | Handler that is called when the press is released over the button.                                                      | -       |
+| **onPressUp**            | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html)) => void</Code> | Handler that is called when a press is released over the button, regardless of whether it started on the button or not. | -       |
+| **onPressStart**         | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html)) => void</Code> | Handler that is called when a press interaction starts.                                                                 | -       |
+| **onPressEnd**           | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html)) => void</Code> | Handler that is called when a press interaction ends, either over the button or when the pointer leaves the button.     | -       |
+| **onPressChange**        | `(isPressed: boolean) => void`                                                                    | Handler that is called when the press state changes.                                                                    | -       |
+
+<Spacer y={1} />
 
 #### Button Accessibility Props
 

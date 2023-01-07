@@ -13,13 +13,22 @@ export const SPONSOR_TIERS = {
   HERO: "Hero Sponsor 🎖",
 };
 
+export const SPONSOR_TIER_BY_AMOUNT = {
+  [SPONSOR_TIERS.HERO]: 1000,
+  [SPONSOR_TIERS.PLATINUM]: 500,
+  [SPONSOR_TIERS.GOLD]: 100,
+  [SPONSOR_TIERS.SILVER]: 30,
+  [SPONSOR_TIERS.BRONZE]: 10,
+  [SPONSOR_TIERS.BACKER]: 1,
+};
+
 export const SPONSOR_COLORS = {
   [SPONSOR_TIERS.BACKER]: "default",
   [SPONSOR_TIERS.BRONZE]: "default",
-  [SPONSOR_TIERS.SILVER]: "default",
+  [SPONSOR_TIERS.SILVER]: "primary",
   [SPONSOR_TIERS.GOLD]: "warning",
-  [SPONSOR_TIERS.PLATINUM]: "primary",
-  [SPONSOR_TIERS.HERO]: "secondary",
+  [SPONSOR_TIERS.PLATINUM]: "secondary",
+  [SPONSOR_TIERS.HERO]: "gradient",
 };
 
 export type SponsorTiers =
@@ -62,4 +71,11 @@ export const getSponsors = async () => {
   );
 
   return sponsors;
+};
+
+export const getTier = (amount: number) => {
+  return (
+    Object.keys(SPONSOR_TIER_BY_AMOUNT).find((tier) => amount >= SPONSOR_TIER_BY_AMOUNT[tier]) ??
+    SPONSOR_TIERS.BACKER
+  );
 };
