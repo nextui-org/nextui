@@ -8,12 +8,11 @@ import useCurrentState from "../use-current-state";
 import useKeyboard, {KeyCode} from "../use-keyboard";
 import {__DEV__} from "../utils/assertion";
 
-import ModalWrapper from "./modal-wrapper";
+import ModalWrapper, {ModalWrapperProps} from "./modal-wrapper";
 import ModalBody from "./modal-body";
 import ModalHeader from "./modal-header";
 import ModalFooter from "./modal-footer";
 import {ModalConfig, ModalContext} from "./modal-context";
-import {ModalWrapperProps} from "./modal-wrapper";
 
 interface Props {
   open?: boolean;

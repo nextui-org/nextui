@@ -4,11 +4,9 @@ import React, {useEffect, useRef, useState} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import useClickAway from "../use-click-away";
-import {Placement} from "../utils/prop-types";
-import {TriggerTypes} from "../utils/prop-types";
+import {Placement, TriggerTypes} from "../utils/prop-types";
 
-import TooltipContent from "./tooltip-content";
-import {TooltipContentProps} from "./tooltip-content";
+import TooltipContent, {TooltipContentProps} from "./tooltip-content";
 import {StyledTooltipTrigger, TooltipContentVariantsProps} from "./tooltip.styles";
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
@@ -150,7 +148,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       role="button"
       tabIndex={-1}
       onBlur={() => mouseEventHandler(false)}
-      onClick={clickEventHandler}
+      onClickCapture={clickEventHandler}
       onFocus={() => mouseEventHandler(true)}
       onKeyUp={() => mouseEventHandler(true)}
       onMouseEnter={() => mouseEventHandler(true)}

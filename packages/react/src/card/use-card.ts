@@ -6,8 +6,7 @@ import type {NormalWeights, CardVariants} from "./../utils/prop-types";
 import React, {useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
-import {usePress} from "@react-aria/interactions";
-import {useHover} from "@react-aria/interactions";
+import {usePress, useHover} from "@react-aria/interactions";
 
 import useDrip from "../use-drip";
 import {useDOMRef} from "../utils/dom";

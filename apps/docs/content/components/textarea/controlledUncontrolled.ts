@@ -12,7 +12,7 @@ export default function App() {
 
   // Uncontrolled
   const textareaRef = React.useRef(null);
-  const onClick = () => {
+  const onPress = () => {
     if (textareaRef.current) {
       textareaRef.current.value = Math.random().toString(32);
     }
@@ -29,13 +29,13 @@ export default function App() {
                 auto
                 color="primary"
                 size="sm"
-                onClick={() => setControlledValue(Math.random().toString(32))}
+                onPress={() => setControlledValue(Math.random().toString(32))}
               >
                 Set value
               </Button>
             </Grid>
             <Grid>
-              <Button auto flat size="sm" onClick={() => reset()}>
+              <Button auto flat size="sm" onPress={() => reset()}>
                 Reset value
               </Button>
             </Grid>
@@ -51,7 +51,7 @@ export default function App() {
           <Spacer y={0.5} />
           <Grid.Container gap={0.5}>
             <Grid>
-              <Button auto color="secondary" size="sm" onClick={onClick}>
+              <Button auto color="secondary" size="sm" onPress={onPress}>
                 Set value
               </Button>
             </Grid>

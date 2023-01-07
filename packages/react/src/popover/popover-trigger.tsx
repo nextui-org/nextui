@@ -19,7 +19,7 @@ interface Props {
  * such as `button` or `a`.
  */
 const PopoverTrigger = React.forwardRef((props: Props, _: ReactRef<HTMLElement>) => {
-  const {state, triggerRef, getTriggerProps} = usePopoverContext();
+  const {triggerRef, getTriggerProps} = usePopoverContext();
 
   const {children, ...otherProps} = props;
 
@@ -30,11 +30,11 @@ const PopoverTrigger = React.forwardRef((props: Props, _: ReactRef<HTMLElement>)
     return Children.only(children);
   }, [children]);
 
-  const {onPress, onPressStart, ...rest} = useMemo(() => {
+  const {onPress, onKeyDown, onPressStart, ...rest} = useMemo(() => {
     return getTriggerProps(mergeProps(child.props, otherProps), child.ref);
   }, [getTriggerProps, child.props, otherProps, child.ref]);
 
-  const {buttonProps} = useButton({onPress, onPressStart, ...rest}, triggerRef);
+  const {buttonProps} = useButton({onPress, onKeyDown, onPressStart, ...rest}, triggerRef);
 
   // validates if contains a NextUI Button as a child
   const [, triggerChildren] = pickChild(props.children, Button);
@@ -43,13 +43,15 @@ const PopoverTrigger = React.forwardRef((props: Props, _: ReactRef<HTMLElement>)
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
+  // avoid the error that cannot read properties of undefined (reading 'contains')
   const nextUIButtonProps = useMemo(() => {
     return {
       ...rest,
+      onPress,
+      onKeyDown,
       onPressStart,
-      onPress: () => state.open(),
     };
-  }, [rest, onPressStart, state.open]);
+  }, [rest, onPress, onKeyDown, onPressStart]);
 
   return cloneElement(child, mergeProps(rest, hasNextUIButton ? nextUIButtonProps : buttonProps));
 });

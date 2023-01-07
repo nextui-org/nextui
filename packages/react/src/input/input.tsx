@@ -10,6 +10,7 @@ import React, {
   useState,
 } from "react";
 import {useLabel} from "@react-aria/label";
+import {useFocusRing} from "@react-aria/focus";
 
 import {ContentPosition} from "../utils/prop-types";
 import useTheme from "../use-theme";
@@ -26,6 +27,7 @@ import {
   StyledHelperText,
   StyledInputWrapper,
   StyledInputPlaceholder,
+  StyledInputClearButtonIconWrapper as InputClearButtonIconWrapper,
   StyledInputClearButton as InputClearButton,
   StyledInputBlockLabel as InputBlockLabel,
   StyledInputLabel as InputLabel,
@@ -179,6 +181,11 @@ const Input = React.forwardRef<FormElement, InputProps>(
       ...controlledValue,
     };
 
+    const {
+      isFocusVisible: isClearButtonFocusVisible,
+      focusProps: clearButtonFocusVisibleFocusProps,
+    } = useFocusRing();
+
     const {labelProps, fieldProps} = useLabel({
       ...inputProps,
       label: inputLabel,
@@ -322,15 +329,20 @@ const Input = React.forwardRef<FormElement, InputProps>(
             {clearable && (
               <InputClearButton
                 animated={animated}
+                aria-label="clear"
                 className={`${preClass}-clear-button`}
                 disabled={disabled || readOnly}
                 hasContentRight={!!contentRight}
+                lang="en"
                 type="button"
                 underlined={underlined}
                 visible={Boolean(selfValue)}
                 onClick={clearHandler}
+                {...clearButtonFocusVisibleFocusProps}
               >
-                <ClearIcon fill="currentColor" />
+                <InputClearButtonIconWrapper isFocusVisible={isClearButtonFocusVisible}>
+                  <ClearIcon fill="currentColor" />
+                </InputClearButtonIconWrapper>
               </InputClearButton>
             )}
             {contentRight && (
