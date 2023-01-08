@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/grid",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "The layout Grid adapts to screen size and orientation, ensuring consistency across layouts.",
   "keywords": [
     "grid"

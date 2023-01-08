@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/shared-css",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "NextUI package for Stitches CSS Utilities",
   "keywords": [
     "shared-css"

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/text",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "Text component is the used to render text and paragraphs within an interface using well-defined typographic styles. It renders a &lt;p&gt; tag by default.",
   "keywords": [
     "text"

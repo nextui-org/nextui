@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/spacer",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "The Spacer component provides a vertically or horizontally empty space",
   "keywords": [
     "spacer"

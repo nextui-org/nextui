@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-is-mounted",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "This hook can be used to render client-based components or run client logic",
   "keywords": [
     "use-is-mounted"

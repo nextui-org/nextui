@@ -1,9 +1,15 @@
 {
-  "name": "@nextui-org/divider",
+  "name": "@nextui-org/theme",
   "version": "2.0.0-beta.1",
-  "description": "Dividers are used to visually separate content in a list or group.",
+  "description": "The default theme for NextUI components",
   "keywords": [
-    "divider"
+    "theme",
+    "theming",
+    "design",
+    "ui",
+    "components",
+    "styles",
+    "css"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +25,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/divider"
+    "directory": "packages/core/theme"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -33,17 +39,10 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "peerDependencies": {
-    "react": ">=16.8.0"
+  "devDependencies": {
+    "clean-package": "2.1.1"
   },
   "dependencies": {
-    "@nextui-org/text": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*"
-  },
-  "devDependencies": {
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "class-variance-authority": "0.4.0"
   }
 }

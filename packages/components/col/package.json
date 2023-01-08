@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/col",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "The column component is part of the NextUI's Grid system that uses a series of containers, rows and columns",
   "keywords": [
     "col"

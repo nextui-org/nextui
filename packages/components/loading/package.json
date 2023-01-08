@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/loading",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "Loaders express an unspecified wait time or display the length of a process.",
   "keywords": [
     "loading"

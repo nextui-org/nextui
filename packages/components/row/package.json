@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/row",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "The row component is part of the NextUI&#x27;s Grid system that uses a series of containers, rows and columns",
   "keywords": [
     "row"

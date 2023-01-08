@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/image",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "The Image component is used to display images with support for fallback.",
   "keywords": [
     "image"

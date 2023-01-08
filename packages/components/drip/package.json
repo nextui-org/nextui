@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/drip",
-  "version": "1.0.0-beta.11",
+  "version": "2.0.0-beta.1",
   "description": "A ripple effect for ensuring that the user fells the system is reacting instantaneously",
   "keywords": [
     "drip"
