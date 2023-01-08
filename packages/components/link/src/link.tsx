@@ -25,11 +25,12 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
   } = useLink(props);
 
   const domRef = useDOMRef(ref);
+  const Component = as || "a";
 
   const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
 
   return (
-    <a
+    <Component
       ref={domRef}
       className={cx(
         link({
@@ -46,7 +47,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
         {children}
         {isExternal && <LinkIcon />}
       </>
-    </a>
+    </Component>
   );
 });
 
