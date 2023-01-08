@@ -30,7 +30,7 @@ type MyLinkProps = ExtendVariantProps<LinkProps, VariantProps<typeof customLink>
 const MyLink = (props: MyLinkProps) => {
   const {link, color, ...otherProps} = props;
 
-  return <Link {...otherProps} isExternal className={customLink({color, link})} />;
+  return <Link {...otherProps} className={customLink({color, link})} isExternal={!!link} />;
 };
 
 export const CustomVariant = () => {
