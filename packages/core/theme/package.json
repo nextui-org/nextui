@@ -17,7 +17,9 @@
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "plugin.js",
+    "colors.js"
   ],
   "publishConfig": {
     "access": "public"
@@ -31,8 +33,7 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format=esm,cjs --dts && pnpm build:plugin",
-    "build:plugin": "tsup plugin.js --format=cjs",
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",

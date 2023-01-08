@@ -1,30 +1,29 @@
 import React from "react";
-import {Meta} from "@storybook/react";
-import {Spacer} from "@nextui-org/spacer";
 import {Grid} from "@nextui-org/grid";
-import {Text} from "@nextui-org/text";
 
 import {Link} from "../src";
 
 export default {
   title: "Navigation/Link",
   component: Link,
-} as Meta;
+};
 
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
 export const Default = () => <Link href="#">{text}</Link>;
 
 export const Underline = () => (
-  <Link underline color="primary">
+  <Link isUnderline color="primary" href="#">
     {text}
   </Link>
 );
 
-export const Variants = () => (
+export const Colors = () => (
   <Grid.Container gap={1}>
     <Grid xs={12}>
-      <Link href="#">{text}</Link>
+      <Link color="primary" href="#">
+        {text}
+      </Link>
     </Grid>
     <Grid xs={12}>
       <Link color="secondary" href="#">
@@ -43,6 +42,11 @@ export const Variants = () => (
     </Grid>
     <Grid xs={12}>
       <Link color="error" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link className="text-teal-600" href="#">
         {text}
       </Link>
     </Grid>
@@ -67,37 +71,32 @@ export const isExternal = () => (
 export const Block = () => (
   <Grid.Container gap={1}>
     <Grid xs={12}>
-      <Link block color="primary" href="#">
+      <Link isBlock color="primary" href="#">
         {text}
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link block color="text" href="#">
+      <Link isBlock color="secondary" href="#">
         {text}
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link block color="secondary" href="#">
+      <Link isBlock color="success" href="#">
         {text}
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link block color="success" href="#">
+      <Link isBlock color="warning" href="#">
         {text}
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link block color="warning" href="#">
+      <Link isBlock color="error" href="#">
         {text}
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link block color="error" href="#">
-        {text}
-      </Link>
-    </Grid>
-    <Grid xs={12}>
-      <Link block color="$pink600" href="#">
+      <Link isBlock className="text-pink-600" href="#">
         {text}
       </Link>
     </Grid>

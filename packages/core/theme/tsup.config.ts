@@ -2,7 +2,7 @@ import {defineConfig} from "tsup";
 import {findUpSync} from "find-up";
 
 export default defineConfig({
-  clean: false,
+  clean: true,
   minify: false,
   treeshake: false,
   format: ["cjs", "esm"],

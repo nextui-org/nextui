@@ -19,7 +19,9 @@ module.exports = {
   babel: async (options) => {
     return {
       ...options,
-      presets: [...options.presets, "@babel/preset-react", "@babel/preset-typescript"],
+      presets: [...options.presets,[ "@babel/preset-react", {
+          runtime: 'automatic',
+      }], "@babel/preset-typescript"],
     };
   },
   staticDirs: ["../public"],

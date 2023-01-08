@@ -27,11 +27,11 @@
   "scripts": {
     "storybook": "concurrently \"pnpm:watch:*\"",
     "build-storybook": "concurrently \"pnpm:build:*\"",
+    "start-storybook": "pnpx serve storybook-static",
     "build:css": "npx tailwindcss -i ./.storybook/tailwind.css -o ./public/tailwind.css",
     "build:storybook": "storybook build",
     "watch:css": "npx tailwindcss -i ./.storybook/tailwind.css -o ./public/tailwind.css --watch",
-    "watch:storybook": "storybook dev -p 6006",
-    "start:storybook": "pnpx serve storybook-static"
+    "watch:storybook": "storybook dev -p 6006 --no-manager-cache"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.5.13",
@@ -50,6 +50,8 @@
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
     "babel-loader": "^8.2.3",
+    "postcss": "^8.0.9",
+    "autoprefixer": "^10.4.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "prop-types": "^15.8.1",
