@@ -1,0 +1,62 @@
+{
+  "name": "@nextui-org/storybook",
+  "version": "2.0.0-beta.1",
+  "description": "The NextUI react components storybook ",
+  "keywords": [
+    "storybook"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/storybook"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "storybook": "concurrently \"pnpm:watch:*\"",
+    "build-storybook": "concurrently \"pnpm:build:*\"",
+    "build:css": "npx tailwindcss -i ./.storybook/tailwind.css -o ./public/tailwind.css",
+    "build:storybook": "storybook build",
+    "watch:css": "npx tailwindcss -i ./.storybook/tailwind.css -o ./public/tailwind.css --watch",
+    "watch:storybook": "storybook dev -p 6006",
+    "start:storybook": "pnpx serve storybook-static"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.5.13",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-storysource": "^6.5.13",
+    "@storybook/addon-essentials": "^7.0.0-beta.20",
+    "@storybook/addon-interactions": "^7.0.0-beta.20",
+    "@storybook/addon-links": "^7.0.0-beta.20",
+    "@storybook/blocks": "^7.0.0-beta.20",
+    "@storybook/node-logger": "^7.0.0-beta.20",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^7.0.0-beta.20",
+    "@storybook/react-webpack5": "^7.0.0-beta.20",
+    "@storybook/testing-library": "^0.0.14-next.1",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.0-beta.20",
+    "concurrently": "^7.6.0",
+    "storybook-dark-mode": "^1.1.0",
+    "tailwindcss": "^3.2.4",
+    "webpack": "^5.75.0"
+  }
+}
