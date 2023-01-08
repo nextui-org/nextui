@@ -1,7 +1,8 @@
 import React from "react";
 import {Grid} from "@nextui-org/grid";
+import {cva, linkVariants, type VariantProps, ExtendVariantProps} from "@nextui-org/theme";
 
-import {Link} from "../src";
+import {Link, LinkProps} from "../src";
 
 export default {
   title: "Navigation/Link",
@@ -11,6 +12,34 @@ export default {
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
 export const Default = () => <Link href="#">{text}</Link>;
+
+const customLink = cva(null, {
+  variants: {
+    color: {
+      ...linkVariants.color,
+      teal: "text-teal-600",
+    },
+    link: {
+      true: "before:content-['👉'] before:mr-1",
+    },
+  },
+});
+
+type MyLinkProps = ExtendVariantProps<LinkProps, VariantProps<typeof customLink>>;
+
+const MyLink = (props: MyLinkProps) => {
+  const {link, color, ...otherProps} = props;
+
+  return <Link {...otherProps} isExternal className={customLink({color, link})} />;
+};
+
+export const CustomVariant = () => {
+  return (
+    <MyLink link color="teal" href="#">
+      Visit out new Store
+    </MyLink>
+  );
+};
 
 export const Sizes = () => (
   <Grid.Container gap={1}>
@@ -40,7 +69,7 @@ export const Sizes = () => (
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link className="text-3xl text-pink-500" href="#">
+      <Link className="text-2xl text-pink-500" href="#">
         {text}
       </Link>
     </Grid>
