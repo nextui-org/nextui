@@ -31,7 +31,8 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "build": "tsup src/index.ts --format=esm,cjs --dts && pnpm build:plugin",
+    "build:plugin": "tsup plugin.js --format=cjs",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
@@ -40,7 +41,8 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
-    "clean-package": "2.1.1"
+    "clean-package": "2.1.1",
+    "tailwindcss": "^3.2.4"
   },
   "dependencies": {
     "class-variance-authority": "0.4.0"

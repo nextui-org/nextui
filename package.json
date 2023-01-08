@@ -66,6 +66,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.2.0",
+    "@storybook/react": "^7.0.0-beta.20",
     "@types/jest": "^28.1.1",
     "@types/node": "^15.12.4",
     "@types/react": "17.0.33",

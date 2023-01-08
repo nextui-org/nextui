@@ -2,9 +2,9 @@ import {defineConfig} from "tsup";
 import {findUpSync} from "find-up";
 
 export default defineConfig({
-  clean: true,
+  clean: false,
   minify: false,
-  treeshake: true,
+  treeshake: false,
   format: ["cjs", "esm"],
   outExtension(ctx) {
     return {js: `.${ctx.format}.js`};
