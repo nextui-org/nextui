@@ -12,10 +12,39 @@ const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
 export const Default = () => <Link href="#">{text}</Link>;
 
-export const Underline = () => (
-  <Link isUnderline color="primary" href="#">
-    {text}
-  </Link>
+export const Sizes = () => (
+  <Grid.Container gap={1}>
+    <Grid xs={12}>
+      <Link color="primary" href="#" size="xs">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link color="secondary" href="#" size="sm">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link color="success" href="#" size="md">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link color="warning" href="#" size="xl">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link className="text-2xl" color="error" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link className="text-3xl text-pink-500" href="#">
+        {text}
+      </Link>
+    </Grid>
+  </Grid.Container>
 );
 
 export const Colors = () => (
@@ -53,6 +82,12 @@ export const Colors = () => (
   </Grid.Container>
 );
 
+export const isUnderline = () => (
+  <Link isUnderline color="primary" href="#">
+    {text}
+  </Link>
+);
+
 export const isExternal = () => (
   <Grid.Container gap={1}>
     <Grid xs={12}>
@@ -68,7 +103,7 @@ export const isExternal = () => (
   </Grid.Container>
 );
 
-export const Block = () => (
+export const isBlock = () => (
   <Grid.Container gap={1}>
     <Grid xs={12}>
       <Link isBlock color="primary" href="#">
@@ -96,7 +131,7 @@ export const Block = () => (
       </Link>
     </Grid>
     <Grid xs={12}>
-      <Link isBlock className="text-pink-600" href="#">
+      <Link isBlock className="text-pink-600 hover:after:bg-pink-600/25" href="#">
         {text}
       </Link>
     </Grid>

@@ -14,9 +14,10 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {
     children,
     as,
+    color,
+    size,
     isUnderline,
     isBlock,
-    color,
     disableAnimation,
     isExternal,
     focusProps,
@@ -35,6 +36,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
       className={cx(
         link({
           color,
+          size,
           isUnderline,
           isBlock,
           disableAnimation,
