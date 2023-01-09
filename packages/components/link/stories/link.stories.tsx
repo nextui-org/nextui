@@ -117,20 +117,47 @@ export const isUnderline = () => (
   </Link>
 );
 
-export const isExternal = () => (
-  <Grid.Container gap={1}>
-    <Grid xs={12}>
-      <Link isExternal href="#">
-        {text}
-      </Link>
-    </Grid>
-    <Grid xs={12}>
-      <Link isExternal color="secondary" href="#">
-        {text}
-      </Link>
-    </Grid>
-  </Grid.Container>
-);
+export const isExternal = () => {
+  const CustomLink = () => {
+    return (
+      <svg
+        className="custom-link-icon ml-1"
+        fill="none"
+        height="1em"
+        shapeRendering="geometricPrecision"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+    );
+  };
+
+  return (
+    <Grid.Container gap={1}>
+      <Grid xs={12}>
+        <Link isExternal href="#">
+          {text}
+        </Link>
+      </Grid>
+      <Grid xs={12}>
+        <Link isExternal color="secondary" href="#">
+          {text}
+        </Link>
+      </Grid>
+      <Grid xs={12}>
+        <Link isExternal color="success" externalIcon={<CustomLink />} href="#">
+          {text}
+        </Link>
+      </Grid>
+    </Grid.Container>
+  );
+};
 
 export const isBlock = () => (
   <Grid.Container gap={1}>

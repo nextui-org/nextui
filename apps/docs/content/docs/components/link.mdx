@@ -42,8 +42,8 @@ import { Link } from "@nextui-org/react";
 
 <Playground
   title="External Link"
-  desc="Show an icon in the `Link` with the `isExternal` prop."
-  files={linkContent.icon}
+  desc="Open link in new tab with the `isExternal` prop, you can also define custom `externalIcon` by yourself."
+  files={linkContent.external}
 />
 
 <Playground
@@ -70,6 +70,7 @@ import { Link } from "@nextui-org/react";
 | **color**                | `LinkColors` `boolean` `string`                 | [LinkColors](#link-colors) | Change link color                   | `false` |
 | **href**                 | `string`                                        | -                          | Link url                            | -       |
 | **isExternal** `updated` | `boolean`                                       | `true/false`               | Show link icon                      | `false` |
+| **externalIcon** `updated` | `React.ReactNode`                             | -                          | Suffix link icon when `isExternal=true` | `<LinkIcon />` |
 | **underline**            | `boolean`                                       | `true/false`               | Display underline                   | `false` |
 | **block**                | `boolean`                                       | `true/false`               | Display as a separate block         | `false` |
 | **ref**                  | <Code>Ref<HTMLAnchorElement &#124; null></Code> | -                          | forwardRef                          | -       |

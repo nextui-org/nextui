@@ -1,14 +1,6 @@
-import {NextUI} from "@nextui-org/system";
-
 export const LinkIcon = () => (
-  <NextUI.Svg
-    className="nextui-link-icon"
-    css={{
-      ml: "$1",
-      as: "center",
-      display: "flex",
-      color: "currentColor",
-    }}
+  <svg
+    className="flex ml-1 text-current self-center"
     fill="none"
     height="1em"
     shapeRendering="geometricPrecision"
@@ -22,7 +14,7 @@ export const LinkIcon = () => (
     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
     <path d="M15 3h6v6" />
     <path d="M10 14L21 3" />
-  </NextUI.Svg>
+  </svg>
 );
 
 LinkIcon.toString = () => ".nextui-link-icon";

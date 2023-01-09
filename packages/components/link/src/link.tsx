@@ -1,9 +1,7 @@
-import {useLink as useAriaLink} from "@react-aria/link";
 import {mergeProps} from "@react-aria/utils";
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {link, cx} from "@nextui-org/theme";
+import {__DEV__} from "@nextui-org/shared-utils";
 
 import {UseLinkProps, useLink} from "./use-link";
 import {LinkIcon} from "./link-icon";
@@ -12,23 +10,22 @@ export interface LinkProps extends UseLinkProps {}
 
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {
-    children,
     as,
     color,
     size,
+    domRef,
+    children,
     isUnderline,
     isBlock,
     disableAnimation,
+    externalIcon = <LinkIcon />,
     isExternal,
-    focusProps,
+    linkProps,
     className,
     ...otherProps
-  } = useLink(props);
+  } = useLink({...props, ref});
 
-  const domRef = useDOMRef(ref);
   const Component = as || "a";
-
-  const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
 
   return (
     <Component
@@ -43,11 +40,11 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
         }),
         className,
       )}
-      {...mergeProps(linkProps, focusProps, otherProps)}
+      {...mergeProps(linkProps, otherProps)}
     >
       <>
         {children}
-        {isExternal && <LinkIcon />}
+        {isExternal && externalIcon}
       </>
     </Component>
   );
