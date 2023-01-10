@@ -1,12 +1,12 @@
 import type {AriaLinkProps} from "@react-types/link";
-import type {StyledLinkProps} from "@nextui-org/theme";
+import type {LinkVariantProps} from "@nextui-org/theme";
 
 import {useLink as useAriaLink} from "@react-aria/link";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
 
-export interface Props extends HTMLNextUIProps<"a">, StyledLinkProps {
+export interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
   /**
    * Ref to the DOM node.
    */

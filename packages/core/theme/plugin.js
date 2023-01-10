@@ -84,6 +84,11 @@ module.exports = plugin(
             DEFAULT: "#11181C",
             dark: "#ECEDEE",
           },
+          border: {
+            light: "#00000026",
+            DEFAULT: "#00000026",
+            dark: "#ffffff26",
+          },
           neutral: {
             light: "#889096",
             DEFAULT: "#889096",

@@ -45,7 +45,6 @@
     "@nextui-org/use-resize": "workspace:*"
   },
   "devDependencies": {
-    "@nextui-org/grid": "workspace:*",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

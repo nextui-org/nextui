@@ -48,8 +48,6 @@
     "@react-aria/focus": "^3.9.0"
   },
   "devDependencies": {
-    "@nextui-org/spacer": "workspace:*",
-    "@nextui-org/grid": "workspace:*",
     "@nextui-org/loading": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@react-types/shared": "^3.15.0",

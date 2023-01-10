@@ -95,4 +95,4 @@ const link = cva(linkBase, linkStyles);
 
 export {linkBase, linkVariants, linkCompoundVariants, linkDefaultVariants, linkStyles, link};
 
-export type StyledLinkProps = VariantProps<typeof link>;
+export type LinkVariantProps = VariantProps<typeof link>;

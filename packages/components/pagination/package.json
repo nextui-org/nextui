@@ -42,7 +42,6 @@
     "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/use-pagination": "workspace:*",
-    "@nextui-org/grid": "workspace:*",
     "@react-aria/utils": "^3.14.0"
   },
   "devDependencies": {

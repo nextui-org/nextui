@@ -1,6 +1,5 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";
-import {Divider} from "@nextui-org/divider";
 import {Image} from "@nextui-org/image";
 import {Drip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
@@ -59,7 +58,6 @@ type CompoundCard = {
   Body: typeof CardBody;
   Footer: typeof CardFooter;
   Image: typeof Image;
-  Divider: typeof Divider;
 };
 
 const Card = forwardRef<CardProps, "div", CompoundCard>((props, ref) => {
@@ -104,7 +102,6 @@ Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
 Card.Image = Image;
-Card.Divider = Divider;
 
 if (__DEV__) {
   Card.displayName = "NextUI.Card";
