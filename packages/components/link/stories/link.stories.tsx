@@ -79,6 +79,11 @@ export const Sizes = () => (
 export const Colors = () => (
   <Grid.Container gap={1}>
     <Grid xs={12}>
+      <Link color="foreground" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
       <Link color="primary" href="#">
         {text}
       </Link>
@@ -161,6 +166,11 @@ export const isExternal = () => {
 
 export const isBlock = () => (
   <Grid.Container gap={1}>
+    <Grid xs={12}>
+      <Link isBlock color="foreground" href="#">
+        {text}
+      </Link>
+    </Grid>
     <Grid xs={12}>
       <Link isBlock color="primary" href="#">
         {text}

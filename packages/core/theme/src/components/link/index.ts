@@ -23,6 +23,7 @@ const linkVariants = {
     xl: "text-xl",
   },
   color: {
+    foreground: "text-foreground dark:text-foreground-dark",
     primary: "text-primary",
     secondary: "text-secondary dark:text-secondary-dark",
     success: "text-success",
@@ -35,7 +36,7 @@ const linkVariants = {
   },
   isBlock: {
     true: "px-2 py-1 hover:after:opacity-100 after:content-[' '] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute",
-    false: "hover:opacity-80",
+    false: "hover:opacity-80 transition-opacity",
   },
   disableAnimation: {
     true: "after:transition-none transition-none",
@@ -43,6 +44,11 @@ const linkVariants = {
 };
 
 const linkCompoundVariants = [
+  {
+    isBlock: true,
+    color: "foreground",
+    class: "hover:after:bg-foreground/25 dark:hover:after:bg-foreground-dark/25",
+  },
   {
     isBlock: true,
     color: "primary",

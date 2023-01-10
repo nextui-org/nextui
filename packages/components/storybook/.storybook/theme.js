@@ -4,5 +4,6 @@ export default create({
   base: "light",
   brandTitle: "NextUI",
   brandUrl: "https://nextui.org",
-  // brandImage: 'https://nextui.org/logotipo.svg',
+  brandTarget: "_self",
+  brandImage: 'https://nextui.org/logotipo.svg',
 });
