@@ -64,6 +64,7 @@ importers:
       execa: ^5.1.1
       find-up: ^6.3.0
       fs-extra: ^10.0.0
+      glob: ^8.0.3
       graceful-fs: ^4.2.6
       gray-matter: ^4.0.3
       husky: ^8.0.1
@@ -149,6 +150,7 @@ importers:
       execa: 5.1.1
       find-up: 6.3.0
       fs-extra: 10.1.0
+      glob: 8.0.3
       graceful-fs: 4.2.10
       gray-matter: 4.0.3
       husky: 8.0.1
@@ -15868,6 +15870,17 @@ packages:
       minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
+
+  /glob/8.0.3:
+    resolution: {integrity: sha512-ull455NHSHI/Y1FqGaaYFaLGkNMMJbavMrEGFXG/PGrg6y7sutWHUHrz6gy6WEBH6akM1M414dWKCNs+IhKdiQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 5.1.2
+      once: 1.4.0
+    dev: true
 
   /global-dirs/0.1.1:
     resolution: {integrity: sha512-NknMLn7F2J7aflwFOlGdNIuCDpN3VGoSoB+aap3KABFWbHVn1TCgFC+np23J8W2BiZbjfEw3BFBycSMv1AFblg==}

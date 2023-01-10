@@ -18,6 +18,6 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true
   },
-  "include": ["packages", "react-shim.js"],
+  "include": ["packages"],
   "exclude": ["**/node_modules", "**/dist", "**/.turbo"]
 }

@@ -25,11 +25,11 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "build": "tsup src --dts",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src/index.ts --format=esm,cjs",
+    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -41,5 +41,13 @@
     "clean-package": "2.1.1",
     "react": "^17.0.2",
     "react-dom": "17.0.2"
+  },
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
   }
 }

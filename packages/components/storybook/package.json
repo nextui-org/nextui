@@ -60,5 +60,13 @@
     "storybook-dark-mode": "^2.0.5",
     "tailwindcss": "^3.2.4",
     "webpack": "^5.75.0"
+  },
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
   }
 }
