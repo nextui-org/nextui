@@ -31,7 +31,7 @@
     "build:css": "npx tailwindcss -i ./.storybook/tailwind.css -o ./public/tailwind.css",
     "build:storybook": "storybook build",
     "watch:css": "npx tailwindcss -i ./.storybook/tailwind.css -o ./public/tailwind.css --watch",
-    "watch:storybook": "storybook dev -p 6006 --no-manager-cache"
+    "watch:storybook": "storybook dev -p 6006"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.5.13",

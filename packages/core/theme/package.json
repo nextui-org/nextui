@@ -48,7 +48,8 @@
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {
-    "class-variance-authority": "0.4.0"
+    "class-variance-authority": "0.4.0",
+    "tailwind-merge": "^1.8.1"
   },
   "tsup": {
     "clean": true,

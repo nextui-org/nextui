@@ -1,6 +1,6 @@
 import {mergeProps} from "@react-aria/utils";
 import {forwardRef} from "@nextui-org/system";
-import {link, cx} from "@nextui-org/theme";
+import {link, twMerge} from "@nextui-org/theme";
 import {__DEV__} from "@nextui-org/shared-utils";
 
 import {UseLinkProps, useLink} from "./use-link";
@@ -28,22 +28,20 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
 
   const Component = as || "a";
 
+  const classes = twMerge(
+    link({
+      color,
+      size,
+      isUnderline,
+      isBlock,
+      isDisabled,
+      disableAnimation,
+      className,
+    }),
+  );
+
   return (
-    <Component
-      ref={domRef}
-      className={cx(
-        link({
-          color,
-          size,
-          isUnderline,
-          isBlock,
-          isDisabled,
-          disableAnimation,
-        }),
-        className,
-      )}
-      {...mergeProps(linkProps, otherProps)}
-    >
+    <Component ref={domRef} className={classes} {...mergeProps(linkProps, otherProps)}>
       <>
         {children}
         {showAnchorIcon && anchorIcon}

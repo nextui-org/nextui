@@ -4,13 +4,9 @@ const linkBase = withFocusVisible([
   "inline-flex",
   "relative",
   "items-center",
-  "leading-inherit",
   "text-current",
   "rounded-lg",
-  "bg-transparent",
-  "bg-img-inherit",
-  "bg-clip-inherit",
-  "text-fill-inherit",
+  "w-fit",
 ]);
 
 const linkVariants = {

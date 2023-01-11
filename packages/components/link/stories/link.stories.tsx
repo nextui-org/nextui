@@ -47,49 +47,49 @@ export const CustomVariant = () => {
 };
 
 export const Sizes = () => (
-  <div className="flex flex-wrap space-y-2">
-    <Link className="w-full" color="primary" href="#" size="xs">
+  <div className="flex flex-col space-y-2">
+    <Link color="primary" href="#" size="xs">
       {text}
     </Link>
-    <Link className="w-full" color="secondary" href="#" size="sm">
+    <Link color="secondary" href="#" size="sm">
       {text}
     </Link>
-    <Link className="w-full" color="success" href="#" size="md">
+    <Link color="success" href="#" size="md">
       {text}
     </Link>
-    <Link className="w-full" color="warning" href="#" size="xl">
+    <Link color="warning" href="#" size="xl">
       {text}
     </Link>
-    <Link className="w-full text-2xl" color="error" href="#">
+    <Link className="text-2xl" color="error" href="#">
       {text}
     </Link>
-    <Link className="w-full text-2xl text-pink-500" href="#">
+    <Link className="text-2xl text-pink-500" href="#">
       {text}
     </Link>
   </div>
 );
 
 export const Colors = () => (
-  <div className="flex flex-wrap space-y-2">
-    <Link className="w-full" color="foreground" href="#">
+  <div className="flex flex-col space-y-2">
+    <Link color="foreground" href="#">
       {text}
     </Link>
-    <Link className="w-full" color="primary" href="#">
+    <Link color="primary" href="#">
       {text}
     </Link>
-    <Link className="w-full" color="secondary" href="#">
+    <Link color="secondary" href="#">
       {text}
     </Link>
-    <Link className="w-full" color="success" href="#">
+    <Link color="success" href="#">
       {text}
     </Link>
-    <Link className="w-full" color="warning" href="#">
+    <Link color="warning" href="#">
       {text}
     </Link>
-    <Link className="w-full" color="error" href="#">
+    <Link color="error" href="#">
       {text}
     </Link>
-    <Link className="w-full text-teal-600" href="#">
+    <Link className="text-teal-600" href="#">
       {text}
     </Link>
   </div>
@@ -123,21 +123,14 @@ export const isExternal = () => {
   };
 
   return (
-    <div className="flex flex-wrap space-y-2">
-      <Link isExternal showAnchorIcon className="w-full" href="#">
+    <div className="flex flex-col space-y-2">
+      <Link isExternal showAnchorIcon href="#">
         {text}
       </Link>
-      <Link isExternal showAnchorIcon className="w-full" color="secondary" href="#">
+      <Link isExternal showAnchorIcon color="secondary" href="#">
         {text}
       </Link>
-      <Link
-        isExternal
-        showAnchorIcon
-        anchorIcon={<CustomLink />}
-        className="w-full"
-        color="success"
-        href="#"
-      >
+      <Link isExternal showAnchorIcon anchorIcon={<CustomLink />} color="success" href="#">
         {text}
       </Link>
     </div>
@@ -145,7 +138,7 @@ export const isExternal = () => {
 };
 
 export const isBlock = () => (
-  <div className="flex flex-wrap space-y-2">
+  <div className="flex flex-col space-y-2">
     <Link isBlock color="foreground" href="#">
       {text}
     </Link>
@@ -164,7 +157,7 @@ export const isBlock = () => (
     <Link isBlock color="error" href="#">
       {text}
     </Link>
-    <Link isBlock className="text-pink-600 hover:after:bg-pink-600/25" href="#">
+    <Link isBlock className="text-pink-500 hover:after:bg-pink-500/25" href="#">
       {text}
     </Link>
   </div>
