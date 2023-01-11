@@ -6,7 +6,6 @@ const linkBase = withFocusVisible([
   "items-center",
   "leading-inherit",
   "text-current",
-  "w-fit",
   "rounded-lg",
   "bg-transparent",
   "bg-img-inherit",
@@ -37,6 +36,9 @@ const linkVariants = {
   isBlock: {
     true: "px-2 py-1 hover:after:opacity-100 after:content-[' '] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute",
     false: "hover:opacity-80 transition-opacity",
+  },
+  isDisabled: {
+    true: "opacity-50 cursor-default pointer-events-none",
   },
   disableAnimation: {
     true: "after:transition-none transition-none",

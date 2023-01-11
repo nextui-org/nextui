@@ -71,19 +71,21 @@ import {Link} from "@nextui-org/react";
 
 #### Link Props
 
-| Attribute            | Type                                                           | Description                             | Default        |
-| -------------------- | -------------------------------------------------------------- | --------------------------------------- | -------------- |
-| **color**            | `foreground` `primary` `secondary` `success` `warning` `error` | Change link color                       | `primary`      |
-| **href**             | `string`                                                       | Link url                                | -              |
-| **size**             | `xs` `sm` `md` `lg` `xl`                                       | Change link size                        | `md`           |
-| **isUnderline**      | `boolean`                                                      | Display underline                       | `false`        |
-| **isBlock**          | `boolean`                                                      | Display as a separate block             | `false`        |
-| **isExternal**       | `boolean`                                                      | Show link icon                          | `false`        |
-| **externalIcon**     | `React.ReactNode`                                              | Suffix link icon when `isExternal=true` | `<LinkIcon />` |
-| **disableAnimation** | `boolean`                                                      | Disable link hover animation            | `false`        |
-| **ref**              | <Code>Ref<HTMLAnchorElement &#124; null></Code>                | forwardRef                              | -              |
-| **as**               | `keyof JSX.IntrinsicElements`                                  | Changes which tag component outputs     | `a`            |
-| ...                  | `AnchorHTMLAttributes`                                         | Native props                            | -              |
+| Attribute            | Type                                                           | Description                                         | Default        |
+| -------------------- | -------------------------------------------------------------- | --------------------------------------------------- | -------------- |
+| **color**            | `foreground` `primary` `secondary` `success` `warning` `error` | Change link color                                   | `primary`      |
+| **href**             | `string`                                                       | Link url                                            | -              |
+| **size**             | `xs` `sm` `md` `lg` `xl`                                       | Change link size                                    | `md`           |
+| **isUnderline**      | `boolean`                                                      | Display underline                                   | `false`        |
+| **isBlock**          | `boolean`                                                      | Display as a separate block                         | `false`        |
+| **isExternal**       | `boolean`                                                      | Show link icon                                      | `false`        |
+| **showAnchorIcon**   | `boolean`                                                      | Whether to show the icon when the link is external. | `false`        |
+| **anchorIcon**       | `React.ReactNode`                                              | The icon to display right after the link.           | `<LinkIcon />` |
+| **isDisabled**       | `boolean`                                                      | Whether the link is diasbled.                       | `false`        |
+| **disableAnimation** | `boolean`                                                      | Disable link hover animation                        | `false`        |
+| **ref**              | <Code>Ref<HTMLAnchorElement &#124; null></Code>                | forwardRef                                          | -              |
+| **as**               | `keyof JSX.IntrinsicElements`                                  | Changes which tag component outputs                 | `a`            |
+| ...                  | `AnchorHTMLAttributes`                                         | Native props                                        | -              |
 
 <Spacer y={2} />
 

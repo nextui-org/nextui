@@ -17,16 +17,33 @@ export interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
    */
   isExternal?: boolean;
   /**
-   * The icon to display when the link is external.
+   * Whether the link is disabled.
+   * @default false
+   */
+  isDisabled?: boolean;
+  /**
+   * Whether to show the icon when the link is external.
+   * @default false
+   */
+  showAnchorIcon?: boolean;
+  /**
+   * The icon to display right after the link.
    * @default <LinkIcon />
    */
-  externalIcon?: React.ReactNode;
+  anchorIcon?: React.ReactNode;
 }
 
 export type UseLinkProps = Props & AriaLinkProps;
 
 export function useLink(props: UseLinkProps) {
-  const {ref, as = "a", isExternal = false, ...otherProps} = props;
+  const {
+    ref,
+    as = "a",
+    isExternal = false,
+    showAnchorIcon = false,
+    isDisabled = false,
+    ...otherProps
+  } = props;
 
   const domRef = useDOMRef(ref);
 
@@ -37,7 +54,7 @@ export function useLink(props: UseLinkProps) {
     otherProps.target = otherProps.target ?? "_blank";
   }
 
-  return {as, domRef, linkProps, isExternal, ...otherProps};
+  return {as, domRef, linkProps, showAnchorIcon, isDisabled, ...otherProps};
 }
 
 export type UseLinkReturn = ReturnType<typeof useLink>;

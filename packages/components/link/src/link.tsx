@@ -17,9 +17,10 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
     children,
     isUnderline,
     isBlock,
+    isDisabled,
     disableAnimation,
-    externalIcon = <LinkIcon />,
-    isExternal,
+    showAnchorIcon,
+    anchorIcon = <LinkIcon />,
     linkProps,
     className,
     ...otherProps
@@ -36,6 +37,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
           size,
           isUnderline,
           isBlock,
+          isDisabled,
           disableAnimation,
         }),
         className,
@@ -44,7 +46,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
     >
       <>
         {children}
-        {isExternal && externalIcon}
+        {showAnchorIcon && anchorIcon}
       </>
     </Component>
   );

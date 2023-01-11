@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html[data-mode="light"] {
+  @apply bg-white text-black;
+}
+
 html[data-mode="dark"] {
-  @apply bg-black text-black;
+  @apply bg-black text-white;
 }
 
 body {

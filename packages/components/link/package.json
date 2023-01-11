@@ -49,7 +49,6 @@
   },
   "devDependencies": {
     "@react-types/link": "^3.3.3",
-    "@nextui-org/text": "workspace:*",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   },

@@ -1,6 +1,6 @@
 export const LinkIcon = () => (
   <svg
-    className="flex ml-1 text-current self-center"
+    className="flex mx-1 text-current self-center"
     fill="none"
     height="1em"
     shapeRendering="geometricPrecision"

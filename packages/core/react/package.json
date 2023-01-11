@@ -54,7 +54,6 @@
     "@nextui-org/pagination": "workspace:*",
     "@nextui-org/radio": "workspace:*",
     "@nextui-org/snippet": "workspace:*",
-    "@nextui-org/text": "workspace:*",
     "@nextui-org/user": "workspace:*"
   },
   "peerDependencies": {
