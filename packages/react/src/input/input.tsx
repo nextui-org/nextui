@@ -172,9 +172,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const isTextarea = useMemo(() => Component === "textarea", [Component]);
 
-    const controlledValue = isControlledComponent
-      ? {value: selfValue}
-      : {defaultValue: initialValue};
+    const controlledValue = isControlledComponent ? {value} : {defaultValue: initialValue};
 
     const inputProps = {
       ...props,
