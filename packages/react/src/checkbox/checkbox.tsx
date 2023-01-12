@@ -89,10 +89,18 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
         : "uncheked";
     }, [isHovered, isIndeterminate, inputProps.checked]);
 
+    const labelProps = useMemo(() => {
+      const mergedProps = {...mergeProps(hoverProps, pressProps, otherProps)};
+
+      delete mergedProps.isSelected;
+
+      return mergedProps;
+    }, [hoverProps, pressProps, otherProps]);
+
     return (
       <StyledCheckboxLabel
         ref={domRef}
-        {...mergeProps(hoverProps, pressProps, otherProps)}
+        {...labelProps}
         as={as}
         className={clsx("nextui-checkbox-label", `nextui-checkbox--${checkboxState}`, className)}
         css={css}
