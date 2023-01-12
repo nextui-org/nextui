@@ -44,6 +44,7 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
+    "@storybook/addon-storysource": "^6.5.12",
     "clean-package": "2.1.1",
     "tailwindcss": "^3.2.4"
   },

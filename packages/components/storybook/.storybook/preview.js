@@ -1,4 +1,14 @@
-import {DEFAULT_THEME, withTailwindTheme} from "./withTailwindTheme.decorator";
+import {themes} from "@storybook/theming";
+import Style from "./style";
+
+export const decorators = [
+  (Story) => (
+    <div className="bg-dark">
+      <Style />
+      <Story />
+    </div>
+  ),
+];
 
 export const parameters = {
   actions: {argTypesRegex: "^on[A-Z].*"},
@@ -8,24 +18,21 @@ export const parameters = {
       date: /Date$/,
     },
   },
-};
-
-export const globalTypes = {
-  theme: {
-    name: "Theme",
-    description: "Global theme for components",
-    defaultValue: DEFAULT_THEME,
-    toolbar: {
-      icon: "paintbrush",
-      // Array of plain string values or MenuItem shape (see below)
-      items: [
-        {value: "light", title: "Light", left: "🌞"},
-        {value: "dark", title: "Dark", left: "🌛"},
-      ],
-      // Change title based on selected value
-      dynamicTitle: true,
+  darkMode: {
+    current: "dark",
+    darkClass: "dark",
+    stylePreview: true,
+    dark: {
+      ...themes.dark,
+      appBg: "#161616",
+      barBg: "black",
+      background: "black",
+      appContentBg: "black",
+      appBorderRadius: 14,
     },
+    light: {
+      ...themes.light,
+      appBorderRadius: 14
+    }
   },
 };
-
-export const decorators = [withTailwindTheme];

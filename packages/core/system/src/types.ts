@@ -52,7 +52,7 @@ export declare namespace ConfigType {
 
 // stitches types
 export type StitchesConfig = typeof config;
-export type VariantProps<T> = Stitches.VariantProps<T>;
+export type VariantProps<T extends {[key: symbol | string]: any}> = Stitches.VariantProps<T>;
 export type PropertyValue<T extends keyof Stitches.CSSProperties> = Stitches.PropertyValue<T>;
 export type ScaleValue<T> = Stitches.ScaleValue<T>;
 export type CSSProperties = Stitches.CSSProperties;
@@ -106,7 +106,7 @@ export type NextUIThemeContext = {
 };
 
 // tokens types
-export type TokenKeyName = keyof typeof commonTheme["theme"];
+export type TokenKeyName = keyof (typeof commonTheme)["theme"];
 
 export interface TokenValue {
   token: number | string;
