@@ -42,6 +42,18 @@ const spinner = keyframes({
   },
 });
 
+const pointsShib = keyframes({
+  "0%": {
+    transform: "translateX(calc($$loadingSize * -1.1))",
+  },
+  "50%": {
+    transform: "translateX(calc($$loadingSize * 1.1))",
+  },
+  "100%": {
+    transform: "translateX(calc($$loadingSize * -1.1))",
+  },
+});
+
 export const StyledLoadingContainer = styled("div", {
   d: "inline-flex",
   fd: "column",
@@ -329,6 +341,28 @@ export const StyledLoading = styled("span", {
           display: "none",
         },
       },
+      "points-shib": {
+        d: "flex",
+        br: "$rounded",
+        position: "relative",
+        size: "$$loadingSize",
+        i: {
+          position: "absolute",
+          top: "0px",
+          size: "100%",
+          br: "inherit",
+          bg: "$$loadingColor",
+          animation: `${pointsShib} 1.5s infinite`,
+        },
+        "._2": {
+          animationDelay: "0.12s",
+          opacity: "0.25",
+        },
+        "._3": {
+          animationDelay: "0.06s",
+          opacity: "0.5",
+        },
+      },
     },
   },
   compoundVariants: [
@@ -410,6 +444,46 @@ export const StyledLoading = styled("span", {
       type: "points",
       css: {
         $$loadingSize: "$space$5",
+      },
+    },
+    // points-shib & xs size
+    {
+      size: "xs",
+      type: "points-shib",
+      css: {
+        $$loadingSize: "$space$6",
+      },
+    },
+    // points-shib & sm size
+    {
+      size: "sm",
+      type: "points-shib",
+      css: {
+        $$loadingSize: "$space$7",
+      },
+    },
+    // points-shib & md size
+    {
+      size: "md",
+      type: "points-shib",
+      css: {
+        $$loadingSize: "$space$8",
+      },
+    },
+    // points-shib & lg size
+    {
+      size: "lg",
+      type: "points-shib",
+      css: {
+        $$loadingSize: "$space$9",
+      },
+    },
+    // points-shib & xl size
+    {
+      size: "xl",
+      type: "points-shib",
+      css: {
+        $$loadingSize: "$space$10",
       },
     },
   ],

@@ -112,5 +112,9 @@ export const Types = () => (
     <Loading style={{marginLeft: "-0.5rem"}} type="gradient">
       gradient
     </Loading>
+    <Spacer y={2} />
+    <Loading style={{marginLeft: "-0.5rem"}} type="points-shib">
+      points-shib
+    </Loading>
   </Container>
 );

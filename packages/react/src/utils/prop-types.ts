@@ -53,7 +53,14 @@ export const extraColors = tuple(
   "cyan",
 );
 
-export const normalLoaders = tuple("default", "points", "points-opacity", "gradient", "spinner");
+export const normalLoaders = tuple(
+  "default",
+  "points",
+  "points-opacity",
+  "gradient",
+  "spinner",
+  "points-shib",
+);
 
 export const normalWeights = tuple("light", "normal", "bold", "extrabold", "black");
 
