@@ -54,16 +54,7 @@ export const StyledCard = styled(
           bg: "$accents0",
         },
         shadow: {
-          dropShadow: "$lg",
-          "@safari": {
-            boxShadow: "$lg",
-            dropShadow: "none",
-          },
-          // firefox
-          "@-moz-document url-prefix()": {
-            boxShadow: "$lg",
-            dropShadow: "none",
-          },
+          boxShadow: "$lg",
         },
         bordered: {
           borderStyle: "solid",
@@ -107,16 +98,7 @@ export const StyledCard = styled(
       },
       isHovered: {
         true: {
-          dropShadow: "$lg",
-          "@safari": {
-            boxShadow: "$lg",
-            dropShadow: "none",
-          },
-          // firefox
-          "@-moz-document url-prefix()": {
-            boxShadow: "$lg",
-            dropShadow: "none",
-          },
+          boxShadow: "$lg",
         },
       },
     },
@@ -142,16 +124,7 @@ export const StyledCard = styled(
         isHovered: true,
         variant: "shadow",
         css: {
-          dropShadow: "$xl",
-          "@safari": {
-            boxShadow: "$xl",
-            dropShadow: "none",
-          },
-          // firefox
-          "@-moz-document url-prefix()": {
-            boxShadow: "$xl",
-            dropShadow: "none",
-          },
+          boxShadow: "$xl",
         },
       },
     ],
