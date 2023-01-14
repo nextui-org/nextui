@@ -11,8 +11,6 @@ const SelectMenu = (props: any) => {
   let {listBoxProps} = useListBox(props, state, listBoxRef);
   const popoverContext = usePopoverContext();
 
-  debugger;
-
   return (
     <StyledSelectMenu {...listBoxProps} ref={listBoxRef}>
       {[...state.collection].map((item) => {
