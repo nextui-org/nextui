@@ -1,5 +1,13 @@
 import React, {Children} from "react";
-import {HiddenSelect, useListBox, useOption, Overlay, usePopover, useSelect} from "react-aria";
+import {
+  HiddenSelect,
+  useListBox,
+  useOption,
+  Overlay,
+  usePopover,
+  useSelect,
+  AriaSelectOptions,
+} from "react-aria";
 import {DismissButton} from "@react-aria/overlays";
 import {useListState, useSelectState} from "react-stately";
 
@@ -8,29 +16,32 @@ import Popover from "../popover";
 import Input from "../input";
 import Dropdown from "../dropdown";
 import DropdownIcon from "../dropdown/dropdown-icon";
+import {InputProps} from "../input/input";
 
 import SelectOption from "./select-option";
 import {SelectProvider} from "./select-context";
 import SelectMenu from "./select-menu";
+interface SelectProps {
+  inputProps?: Partial<InputProps>;
+}
 
 // Select
-function Select(props: any) {
-  const {children, ...otherProps} = props;
+function Select(props: AriaSelectOptions<object> & SelectProps) {
+  const {inputProps} = props;
   let state = useSelectState(props);
   let ref = React.useRef<any>();
-  let {labelProps, triggerProps, valueProps, menuProps} = useSelect(props, state, ref);
 
   return (
     <SelectProvider value={state}>
       <Popover>
         <Popover.Trigger>
           <Input
-            {...triggerProps}
-            {...valueProps}
+            {...inputProps}
             contentRight={<DropdownIcon fill="currentColor" size={14} />}
             initialValue="Select a value"
             label="salut"
             placeholder="select"
+            value={state.selectedItem?.textValue || "Séléctionner"}
           />
         </Popover.Trigger>
         <Popover.Content>
