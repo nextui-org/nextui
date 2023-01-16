@@ -1,5 +1,4 @@
 import React from "react";
-import {Item} from "react-stately";
 
 import User from "../user";
 

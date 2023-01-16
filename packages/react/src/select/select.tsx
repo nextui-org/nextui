@@ -1,32 +1,20 @@
-import React, {Children} from "react";
-import {
-  HiddenSelect,
-  useListBox,
-  useOption,
-  Overlay,
-  usePopover,
-  useSelect,
-  AriaSelectOptions,
-} from "react-aria";
-import {DismissButton} from "@react-aria/overlays";
-import {useListState, useSelectState} from "react-stately";
+import React from "react";
+import {useSelectState, SelectProps as StatelySelectProps} from "@react-stately/select";
 
-import Button from "../button";
-import Popover from "../popover";
-import Input from "../input";
-import Dropdown from "../dropdown";
 import DropdownIcon from "../dropdown/dropdown-icon";
+import Input from "../input";
 import {InputProps} from "../input/input";
+import Popover from "../popover";
 
-import SelectOption from "./select-option";
 import {SelectProvider} from "./select-context";
 import SelectMenu from "./select-menu";
+import SelectOption from "./select-option";
 interface SelectProps {
   inputProps?: Partial<InputProps>;
 }
 
 // Select
-function Select(props: AriaSelectOptions<object> & SelectProps) {
+function Select(props: StatelySelectProps<object> & SelectProps) {
   const {inputProps} = props;
   let state = useSelectState(props);
   let ref = React.useRef<any>();

@@ -77,6 +77,7 @@
     "@react-stately/menu": "3.4.2",
     "@react-stately/overlays": "3.4.2",
     "@react-stately/radio": "3.6.0",
+    "@react-stately/select": "^3.3.4",
     "@react-stately/table": "3.5.0",
     "@react-stately/toggle": "3.4.2",
     "@react-stately/tree": "3.3.4",
@@ -86,9 +87,7 @@
     "@react-types/menu": "3.7.2",
     "@react-types/overlays": "3.6.4",
     "@react-types/shared": "3.15.0",
-    "@stitches/react": "1.2.8",
-    "react-aria": "^3.22.0",
-    "react-stately": "^3.20.0"
+    "@stitches/react": "1.2.8"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
