@@ -24,6 +24,7 @@ const usePagination = ({
   onChange,
 }: PaginationParams) => {
   const [activePage, setActivePage] = useState(page || initialPage);
+  const isControlled = useMemo(() => page !== undefined, [page]);
 
   useEffect(() => {
     if (page && page !== activePage) {
@@ -33,10 +34,12 @@ const usePagination = ({
 
   const onChangeActivePage = useCallback(
     (newPage: number) => {
-      setActivePage(newPage);
+      if (!isControlled) {
+        setActivePage(newPage);
+      }
       onChange?.(newPage);
     },
-    [setActivePage, onChange],
+    [setActivePage, onChange, isControlled],
   );
 
   const setPage = useCallback(
