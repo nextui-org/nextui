@@ -29,7 +29,7 @@ const usePagination = ({
     if (page && page !== activePage) {
       setActivePage(page);
     }
-  }, [page]);
+  }, [page, activePage]);
 
   const onChangeActivePage = useCallback(
     (newPage: number) => {
