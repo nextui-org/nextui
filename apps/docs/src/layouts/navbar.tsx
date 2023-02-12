@@ -81,9 +81,12 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
     <StyledNavMainContainer id="navbar-container">
       {hasNotify && (
         <NotifyBanner
-          href="/docs/components/navbar"
+          href="https://github.com/nextui-org/nextui/discussions/1035"
           isVisible={!isDetached}
-          text="Navbar component"
+          showAnimatedText={false}
+          showIcon={false}
+          showSparkles={false}
+          text="Read: Next move (v2)"
         />
       )}
       <StyledNavContainer isDetached={isDetached} showBlur={showBlur}>
