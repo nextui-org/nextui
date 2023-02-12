@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "development"
-  ],
-  "hints": {
-    "typescript-config/strict": "off"
-  }
-}
