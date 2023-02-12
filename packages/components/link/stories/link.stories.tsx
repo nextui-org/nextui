@@ -1,8 +1,10 @@
+import {ComponentStory, ComponentMeta} from "@storybook/react";
 import React from "react";
 // import {cva, linkVariants, type VariantProps, ExtendVariantProps} from "@nextui-org/theme";
 
 import {Link, LinkProps} from "../src";
 
+// const meta: Meta<typeof Link> = {
 export default {
   title: "Navigation/Link",
   component: Link,
@@ -25,17 +27,20 @@ export default {
       },
     },
   },
-};
+} as ComponentMeta<typeof Link>;
+
+// type Story = StoryObj<LinkProps>;
 
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
-const Template = (args: LinkProps) => (
+const Template: ComponentStory<typeof Link> = (args: LinkProps) => (
   <Link {...args} href="#">
     {text}
   </Link>
 );
 
-export const Default = Template.bind({}) as any;
+export const Default = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   isDisabled: false,
   color: "foreground",

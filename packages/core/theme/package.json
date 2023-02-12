@@ -43,14 +43,13 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
+  "dependencies": {
+    "tailwind-variants": "^0.0.30"
+  },
   "devDependencies": {
     "@storybook/addon-storysource": "^6.5.12",
     "clean-package": "2.1.1",
     "tailwindcss": "^3.2.4"
-  },
-  "dependencies": {
-    "class-variance-authority": "0.4.0",
-    "tailwind-merge": "^1.8.1"
   },
   "tsup": {
     "clean": true,

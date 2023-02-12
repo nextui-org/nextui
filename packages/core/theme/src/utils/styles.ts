@@ -1,5 +1,3 @@
-import {cx} from "./cva";
-
 /**
  * focus styles when the element is focused by keyboard.
  */
@@ -12,7 +10,3 @@ export const focusVisibleClasses = [
   "focus-visible:ring-offset-background",
   "dark:focus-visible:ring-offset-background-dark",
 ];
-
-export const withFocusVisible = (classes: Array<string>) => {
-  return cx(classes, focusVisibleClasses);
-};
