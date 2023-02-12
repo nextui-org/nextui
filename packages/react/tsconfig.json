@@ -13,6 +13,7 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "ignoreDeprecations": "5.0",
     "target": "es6",
     "module": "esnext",
     "typeRoots": ["../../node_modules/@types", "./typings"]
