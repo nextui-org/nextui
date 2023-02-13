@@ -9,7 +9,7 @@ import {focusVisibleClasses} from "../../utils";
  * <a className={link({ color: "secondary", isBlock: true })} href="#" />
  */
 const link = tv({
-  base: focusVisibleClasses,
+  base: [...focusVisibleClasses, "relative inline-flex items-center [&_svg]:ml-1"],
   variants: {
     size: {
       xs: "text-xs",

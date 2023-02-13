@@ -25,7 +25,7 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "storybook": "concurrently \"pnpm:watch:*\"",
+    "storybook": "concurrently \"pnpm watch:css\" \"pnpm watch:storybook\"",
     "build-storybook": "concurrently \"pnpm:build:*\"",
     "build:css": "npx tailwindcss -i ./.storybook/style.css -o ./public/tailwind.css",
     "build:storybook": "build-storybook build",

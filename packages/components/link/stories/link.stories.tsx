@@ -1,10 +1,9 @@
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import React from "react";
-// import {cva, linkVariants, type VariantProps, ExtendVariantProps} from "@nextui-org/theme";
+import {tv, type VariantProps} from "@nextui-org/theme";
 
 import {Link, LinkProps} from "../src";
 
-// const meta: Meta<typeof Link> = {
 export default {
   title: "Navigation/Link",
   component: Link,
@@ -29,8 +28,6 @@ export default {
   },
 } as ComponentMeta<typeof Link>;
 
-// type Story = StoryObj<LinkProps>;
-
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
 const Template: ComponentStory<typeof Link> = (args: LinkProps) => (
@@ -40,7 +37,6 @@ const Template: ComponentStory<typeof Link> = (args: LinkProps) => (
 );
 
 export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   isDisabled: false,
   color: "foreground",
@@ -90,30 +86,31 @@ isBlock.args = {
   color: "secondary",
 };
 
-// const customLink = cva(null, {
-//   variants: {
-//     color: {
-//       ...linkVariants.color,
-//       teal: "text-teal-600",
-//     },
-//     link: {
-//       true: "before:content-['👉'] before:mr-1",
-//     },
-//   },
-// });
+const customLink = tv({
+  variants: {
+    color: {
+      teal: "text-teal-600",
+    },
+    isLink: {
+      true: "before:content-['👉'] before:mr-1",
+    },
+  },
+});
 
-// type MyLinkProps = ExtendVariantProps<LinkProps, VariantProps<typeof customLink>>;
+type MyLinkVariantProps = VariantProps<typeof customLink>;
 
-// const MyLink = (props: MyLinkProps) => {
-//   const {link, color, ...otherProps} = props;
+type MyLinkProps = MyLinkVariantProps & Omit<LinkProps, "color">;
 
-//   return <Link {...otherProps} className={customLink({color, link})} isExternal={!!link} />;
-// };
+const MyLink = (props: MyLinkProps) => {
+  const {isLink, color, ...otherProps} = props;
 
-// export const CustomVariant = () => {
-//   return (
-//     <MyLink link color="teal" href="#">
-//       Visit out new Store
-//     </MyLink>
-//   );
-// };
+  return <Link className={customLink({color, isLink})} isExternal={!!isLink} {...otherProps} />;
+};
+
+export const CustomVariant = () => {
+  return (
+    <MyLink isLink color="teal" href="#">
+      Visit out new Store
+    </MyLink>
+  );
+};

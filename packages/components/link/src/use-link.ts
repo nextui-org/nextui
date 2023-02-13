@@ -22,7 +22,7 @@ export interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
    * Whether the link is disabled.
    * @default false
    */
-  isDisabled?: boolean;
+  isDisabled?: LinkVariantProps["isDisabled"];
   /**
    * Whether to show the icon when the link is external.
    * @default false

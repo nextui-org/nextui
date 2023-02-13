@@ -1,5 +1,6 @@
 export const LinkIcon = () => (
   <svg
+    aria-hidden="true"
     className="flex mx-1 text-current self-center"
     fill="none"
     height="1em"
