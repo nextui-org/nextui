@@ -9,9 +9,9 @@ export interface LinkProps extends UseLinkProps {}
 
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {
-    as,
+    Component,
     domRef,
-    classes,
+    styles,
     children,
     showAnchorIcon,
     anchorIcon = <LinkIcon />,
@@ -19,10 +19,8 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
     ...otherProps
   } = useLink({...props, ref});
 
-  const Component = as || "a";
-
   return (
-    <Component ref={domRef} className={classes} {...mergeProps(linkProps, otherProps)}>
+    <Component ref={domRef} className={styles} {...mergeProps(linkProps, otherProps)}>
       <>
         {children}
         {showAnchorIcon && anchorIcon}

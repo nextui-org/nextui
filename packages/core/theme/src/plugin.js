@@ -1,4 +1,5 @@
 const plugin = require("tailwindcss/plugin");
+const twColors = require("tailwindcss/colors");
 
 const colors = require("./colors.js");
 
@@ -90,31 +91,37 @@ module.exports = plugin(
             dark: "#ffffff26",
           },
           neutral: {
+            ...twColors.neutral,
             light: "#889096",
             DEFAULT: "#889096",
             dark: "#697177",
           },
           primary: {
+            ...colors.blue,
             light: colors.blue[200],
             DEFAULT: colors.blue[500],
             dark: colors.blue[500],
           },
           secondary: {
+            ...colors.purple,
             light: colors.purple[200],
             DEFAULT: colors.purple[500],
             dark: colors.purple[400],
           },
           success: {
+            ...colors.green,
             light: colors.green[200],
             DEFAULT: colors.green[500],
             dark: colors.green[500],
           },
           warning: {
+            ...colors.yellow,
             light: colors.yellow[400],
             DEFAULT: colors.yellow[500],
             dark: colors.yellow[700],
           },
           error: {
+            ...colors.red,
             light: colors.red[200],
             DEFAULT: colors.red[500],
             dark: colors.red[500],

@@ -39,7 +39,7 @@
     "version:dev": "changeset version --snapshot dev",
     "release": "changeset publish",
     "release:dev": "changeset publish --tag dev",
-    "postinstall": "husky install && pnpm clean:pn-types"
+    "postinstall": "husky install && pnpm clean:pn-types && pnpm --filter @nextui-org/theme build"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",

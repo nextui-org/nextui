@@ -1,38 +1,11 @@
-import type {
-  ReactRef,
-  NormalColors,
-  SimpleColors,
-  NormalSizes,
-  NormalWeights,
-} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
+import {forwardRef} from "@nextui-org/system";
+import {safeText, __DEV__} from "@nextui-org/shared-utils";
 
-import {useState, useEffect, useMemo} from "react";
-import {useFocusRing} from "@react-aria/focus";
-import {mergeProps} from "@react-aria/utils";
-import {CSS, HTMLNextUIProps, forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, safeText, __DEV__} from "@nextui-org/shared-utils";
-
-import {StyledAvatar} from "./avatar.styles";
 import AvatarGroup from "./avatar-group";
+import {useAvatar, UseAvatarReturn} from "./use-avatar";
 
-export interface AvatarProps extends HTMLNextUIProps<"span"> {
-  bordered?: boolean;
-  rounded?: boolean;
-  stacked?: boolean;
-  pointer?: boolean;
-  squared?: boolean;
-  zoomed?: boolean;
-  text?: string;
-  src?: string;
-  alt?: string;
-  color?: NormalColors;
-  textColor?: SimpleColors;
-  size?: NormalSizes;
-  borderWeight?: NormalWeights;
-  icon?: React.ReactNode;
-  imgRef?: ReactRef<HTMLImageElement>;
-}
+export interface AvatarProps extends UseAvatarReturn {}
 
 type CompundAvatar = {
   Group: typeof AvatarGroup;
@@ -40,97 +13,50 @@ type CompundAvatar = {
 
 const Avatar = forwardRef<AvatarProps, "span", CompundAvatar>((props, ref) => {
   const {
-    as,
+    Component,
     src,
-    css,
-    text,
     icon,
     alt,
-    bordered,
-    stacked,
-    pointer,
-    squared,
-    zoomed,
-    color = "default",
-    textColor = "default",
-    size = "md",
-    borderWeight = "normal",
-    rounded = true,
-    className,
-    imgRef: imgRefProp,
-    ...otherProps
-  } = props;
-
-  const domRef = useDOMRef(ref);
-  const imgRef = useDOMRef(imgRefProp);
-
-  const showText = !src;
-  const [ready, setReady] = useState(false);
-
-  const {isFocusVisible, focusProps} = useFocusRing();
-
-  useEffect(() => {
-    imgRef?.current?.complete && setReady(true);
-  }, []);
-
-  const getState = useMemo(() => {
-    return !ready && src ? "loading" : "ready";
-  }, [src, ready]);
-
-  const asButtonCss = useMemo<CSS | undefined>(() => {
-    if (as !== "button") return;
-
-    // reset button styles
-    return {
-      appearance: "none",
-      outline: "none",
-      border: "none",
-      cursor: "pointer",
-    };
-  }, [as]);
+    domRef,
+    imgRef,
+    styles,
+    classes,
+    initials,
+    baseClassname,
+    shouldShowInitials,
+    buttonClasses,
+    onImgLoad,
+    getState,
+    getAvatarProps,
+  } = useAvatar({
+    ref,
+    ...props,
+  });
 
   return (
-    <StyledAvatar
+    <Component
       ref={domRef}
-      as={as}
-      borderWeight={borderWeight}
-      bordered={bordered}
-      color={color}
-      pointer={pointer}
-      rounded={rounded}
-      size={size}
-      squared={squared}
-      stacked={stacked}
-      textColor={textColor}
-      zoomed={zoomed}
-      {...mergeProps(otherProps, focusProps)}
-      className={clsx(
-        "nextui-avatar",
-        {
-          "only-text-avatar": showText,
-        },
-        className,
-      )}
-      css={{...asButtonCss, ...css}}
+      {...getAvatarProps()}
+      className={styles.base({
+        class: clsx(baseClassname, buttonClasses),
+      })}
       data-state={getState}
-      isFocusVisible={isFocusVisible}
     >
-      <span className="nextui-avatar-bg" />
-      {!showText && (
+      {!shouldShowInitials && (
         <img
           ref={imgRef}
           alt={alt}
-          className={clsx("nextui-avatar-img", `nextui-avatar--${getState}`, {
-            "nextui-avatar-ready": ready,
-          })}
+          className={styles.img({class: classes?.img})}
           data-state={getState}
           src={src}
-          onLoad={() => setReady(true)}
+          onLoad={onImgLoad}
         />
       )}
-      {showText && !icon && text && <span className="nextui-avatar-text">{safeText(text)}</span>}
-      {icon && <span className="nextui-avatar-icon">{icon}</span>}
-    </StyledAvatar>
+      {shouldShowInitials && !icon && initials && (
+        <span className={styles.initials({class: classes?.initials})}>{safeText(initials)}</span>
+      )}
+      {icon && <span className={styles.icon({class: classes?.icon})}>{icon}</span>}
+    </Component>
   );
 });
 

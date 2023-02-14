@@ -8,7 +8,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
-export interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
+interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
   /**
    * Ref to the DOM node.
    */
@@ -18,11 +18,6 @@ export interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
    * @default false
    */
   isExternal?: boolean;
-  /**
-   * Whether the link is disabled.
-   * @default false
-   */
-  isDisabled?: LinkVariantProps["isDisabled"];
   /**
    * Whether to show the icon when the link is external.
    * @default false
@@ -54,6 +49,7 @@ export function useLink(props: UseLinkProps) {
   } = props;
 
   const domRef = useDOMRef(ref);
+  const Component = as || "a";
 
   const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
 
@@ -62,7 +58,7 @@ export function useLink(props: UseLinkProps) {
     otherProps.target = otherProps.target ?? "_blank";
   }
 
-  const classes = useMemo(
+  const styles = useMemo(
     () =>
       link({
         color,
@@ -76,7 +72,7 @@ export function useLink(props: UseLinkProps) {
     [color, size, isUnderline, isBlock, isDisabled, disableAnimation, className],
   );
 
-  return {as, classes, domRef, linkProps, showAnchorIcon, isDisabled, ...otherProps};
+  return {Component, as, styles, domRef, linkProps, showAnchorIcon, isDisabled, ...otherProps};
 }
 
 export type UseLinkReturn = ReturnType<typeof useLink>;

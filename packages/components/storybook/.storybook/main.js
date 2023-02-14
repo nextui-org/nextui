@@ -1,14 +1,17 @@
 module.exports = {
-  stories: ["../../link/stories/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../../link/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../avatar/stories/*.stories.@(js|jsx|ts|tsx)",
+  ],
   staticDirs: ["../public"],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    'storybook-dark-mode',
-    '@storybook/addon-a11y',
-    '@storybook/addon-storysource',
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "storybook-dark-mode",
+    "@storybook/addon-a11y",
+    "@storybook/addon-storysource",
     {
-      name: '@storybook/addon-postcss',
+      name: "@storybook/addon-postcss",
       options: {
         cssLoaderOptions: {
           // When you have splitted your css over multiple files
@@ -17,13 +20,13 @@ module.exports = {
         },
         postcssLoaderOptions: {
           // When using postCSS 8
-          implementation: require('postcss'),
+          implementation: require("postcss"),
         },
       },
     },
   ],
-  framework: '@storybook/react',
+  framework: "@storybook/react",
   core: {
-    builder: 'webpack5',
+    builder: "webpack5",
   },
 };
