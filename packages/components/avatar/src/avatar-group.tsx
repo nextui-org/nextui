@@ -1,42 +1,39 @@
-import {ReactNode} from "react";
-import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {forwardRef} from "@nextui-org/system";
+import {__DEV__} from "@nextui-org/shared-utils";
 
-import {StyledAvatarGroup, StyledAvatarGroupCount} from "./avatar-group.styles";
+import {AvatarGroupProvider} from "./avatar-group-context";
+import {useAvatarGroup, UseAvatarGroupProps} from "./use-avatar-group";
+import Avatar from "./avatar";
 
-export interface AvatarGroupProps extends HTMLNextUIProps<"div"> {
-  count?: number;
-  animated?: boolean;
-  children?: ReactNode;
-}
+export interface AvatarGroupProps extends UseAvatarGroupProps {}
 
 const AvatarGroup = forwardRef<AvatarGroupProps, "div">((props, ref) => {
-  const {count, animated, children, className, ...otherProps} = props;
-
-  const domRef = useDOMRef(ref);
+  const {
+    Component,
+    domRef,
+    clones,
+    context,
+    styles,
+    remainingCount,
+    renderCount = (count) => <Avatar className="hover:-translate-x-0" name={`+${count}`} />,
+    ...otherProps
+  } = useAvatarGroup({
+    ref,
+    ...props,
+  });
 
   return (
-    <StyledAvatarGroup
-      ref={domRef}
-      animated={animated}
-      className={clsx("nextui-avatar-group", className)}
-      {...otherProps}
-    >
-      {children}
-      {count && (
-        <StyledAvatarGroupCount className="nextui-avatar-group-count">
-          +{count}
-        </StyledAvatarGroupCount>
-      )}
-    </StyledAvatarGroup>
+    <Component ref={domRef} className={styles} role="group" {...otherProps}>
+      <AvatarGroupProvider value={context}>
+        {clones}
+        {remainingCount > 0 && renderCount(remainingCount)}
+      </AvatarGroupProvider>
+    </Component>
   );
 });
 
 if (__DEV__) {
   AvatarGroup.displayName = "NextUI.AvatarGroup";
 }
-
-AvatarGroup.toString = () => ".nextui-avatar-group";
 
 export default AvatarGroup;

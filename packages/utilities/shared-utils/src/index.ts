@@ -12,3 +12,4 @@ export * from "./functions";
 export * from "./context";
 export * from "./numbers";
 export * from "./console";
+export * from "./react";

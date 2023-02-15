@@ -4,7 +4,18 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   modulePathIgnorePatterns: ["<rootDir>/examples", "<rootDir>/tooling/cra-template*"],
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)?$": "@swc-node/jest",
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: "automatic",
+            },
+          },
+        },
+      },
+    ],
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect", "./scripts/setup-test.ts"],

@@ -222,7 +222,6 @@ export const Notification: React.FC<IconProps> = ({fill, size, height, width, ..
 export const User: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   return (
     <svg
-      data-name="Iconly/Curved/Profile"
       height={size || height || 24}
       viewBox="0 0 24 24"
       width={size || width || 24}

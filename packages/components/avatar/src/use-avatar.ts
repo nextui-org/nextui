@@ -4,9 +4,12 @@ import {avatar} from "@nextui-org/theme";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef, clsx} from "@nextui-org/shared-utils";
+import {ReactRef, clsx, safeText} from "@nextui-org/shared-utils";
 import {useFocusRing} from "@react-aria/focus";
-import {useMemo, useState, useEffect, useCallback} from "react";
+import {useMemo, useCallback} from "react";
+import {useImage} from "@nextui-org/use-image";
+
+import {useAvatarGroupContext} from "./avatar-group-context";
 
 export interface UseAvatarProps extends HTMLNextUIProps<"span">, AvatarVariantProps {
   /**
@@ -18,9 +21,11 @@ export interface UseAvatarProps extends HTMLNextUIProps<"span">, AvatarVariantPr
    */
   imgRef?: ReactRef<HTMLImageElement>;
   /**
-   * Initials to show when no image is provided.
+   * The name of the person in the avatar. -
+   * if **src** has loaded, the name will be used as the **alt** attribute of the **img**
+   * - If **src** is not loaded, the name will be used to create the initials
    */
-  initials?: string;
+  name?: string;
   /**
    * Image source.
    */
@@ -38,10 +43,44 @@ export interface UseAvatarProps extends HTMLNextUIProps<"span">, AvatarVariantPr
    * @default false
    */
   isFocusable?: boolean;
+  /**
+   * If `true`, the fallback logic will be skipped.
+   * @default false
+   */
+  ignoreFallback?: boolean;
+  /**
+   * If `false`, the avatar will show the background color while loading.
+   */
+  showFallback?: boolean;
+  /**
+   * List of classes to change the styles of the avatar.
+   *
+   * @example
+   * ```ts
+   * <Avatar classes={{
+   *    base:"base-classes",
+   *    img: "image-classes",
+   *    name: "name-classes",
+   *    icon: "icon-classes",
+   * }} />
+   * ```
+   *
+   */
   classes?: SlotsToClasses<AvatarSlots>;
+  /**
+   * Function to get the initials to display
+   */
+  getInitials?: (name: string) => string;
+  /**
+   * Function called when image failed to load
+   */
+  onError?: () => void;
 }
 
 export function useAvatar(props: UseAvatarProps) {
+  const groupContext = useAvatarGroupContext();
+  const isInGroup = !!groupContext;
+
   const {
     as,
     ref,
@@ -49,20 +88,36 @@ export function useAvatar(props: UseAvatarProps) {
     imgRef: imgRefProp,
     classes,
     className,
-    color,
-    radius,
-    size,
-    isBordered,
+    name,
+    alt = name,
+    color = groupContext?.color ?? "neutral",
+    radius = groupContext?.radius ?? "full",
+    size = groupContext?.size ?? "md",
+    isBordered = groupContext?.isBordered ?? false,
     isFocusable = false,
+    getInitials = safeText,
+    ignoreFallback = false,
+    showFallback: showFallbackProp = false,
+    onError,
     ...otherProps
   } = props;
-
-  const [isImgLoaded, setIsImgLoaded] = useState(false);
 
   const domRef = useDOMRef(ref);
   const imgRef = useDOMRef(imgRefProp);
 
   const Component = as || "span";
+
+  const imageStatus = useImage({src, onError, ignoreFallback});
+  const isImgLoaded = imageStatus === "loaded";
+
+  /**
+   * Fallback avatar applies under 2 conditions:
+   * - If `src` was passed and the image has not loaded or failed to load
+   * - If `src` wasn't passed
+   *
+   * In this case, we'll show either the name avatar or default avatar
+   */
+  const showFallback = (!src || !isImgLoaded) && showFallbackProp;
 
   const buttonClasses = useMemo(() => {
     if (as !== "button") return "";
@@ -71,31 +126,19 @@ export function useAvatar(props: UseAvatarProps) {
     return "appearance-none outline-none border-none cursor-pointer";
   }, [as]);
 
-  useEffect(() => {
-    if (!src) {
-      return;
-    }
-    imgRef?.current?.complete && setIsImgLoaded(true);
-  }, [src, imgRef]);
-
   const {isFocusVisible, focusProps} = useFocusRing();
 
   const styles = useMemo(
-    () => avatar({color, radius, size, isBordered, isFocusVisible}),
-    [color, radius, size, isBordered, isFocusVisible],
+    () => avatar({color, radius, size, isBordered, isFocusVisible, isInGroup}),
+    [color, radius, size, isBordered, isInGroup, isFocusVisible],
   );
 
-  const baseClassname = useMemo(() => clsx(className, classes?.base), [className, classes?.base]);
+  const imgClassname = clsx(
+    "transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100",
+    classes?.img,
+  );
 
-  const shouldShowInitials = useMemo(() => !src, [src]);
-
-  const onImgLoad = () => {
-    setIsImgLoaded(true);
-  };
-
-  const getState = useMemo(() => {
-    return !isImgLoaded && src ? "loading" : "loaded";
-  }, [src, isImgLoaded]);
+  const baseClassname = clsx(className, classes?.base);
 
   const canBeFocused = useMemo(() => {
     return isFocusable || as === "button";
@@ -112,21 +155,20 @@ export function useAvatar(props: UseAvatarProps) {
   return {
     Component,
     src,
+    alt,
+    name,
     domRef,
     imgRef,
     styles,
     classes,
-    className,
-    baseClassname,
-    isFocusable,
-    isFocusVisible,
     isImgLoaded,
-    shouldShowInitials,
+    showFallback,
+    ignoreFallback,
     buttonClasses,
-    getState,
+    baseClassname,
+    imgClassname,
     getAvatarProps,
-    focusProps,
-    onImgLoad,
+    getInitials,
     ...otherProps,
   };
 }

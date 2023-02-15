@@ -33,15 +33,15 @@ const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => <Avatar {
 
 export const Default = Template.bind({});
 Default.args = {
-  initials: "Junior",
+  name: "Junior",
 };
 
 export const InitialsColor = Template.bind({});
 InitialsColor.args = {
   color: "warning",
-  initials: "Junior",
+  name: "Junior",
   classes: {
-    initials: "text-yellow-50 dark:text-yellow-900 text-sm",
+    name: "text-yellow-50 dark:text-yellow-900 text-sm",
   },
 };
 
@@ -76,4 +76,24 @@ CustomAvatar.args = {
   classes: {
     base: "shadow-lg bg-cyan-200 dark:bg-cyan-800",
   },
+};
+
+export const DefaultIcon = Template.bind({});
+DefaultIcon.args = {
+  classes: {
+    icon: "text-neutral-600",
+  },
+};
+
+export const IconFallback = Template.bind({});
+IconFallback.args = {
+  src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+  showFallback: true,
+};
+
+export const InitialsFallback = Template.bind({});
+InitialsFallback.args = {
+  src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  name: "Junior",
+  showFallback: true,
 };

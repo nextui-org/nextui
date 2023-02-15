@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/avatar",
+  "name": "@nextui-org/use-safe-layout-effect",
   "version": "2.0.0-beta.1",
-  "description": "The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.",
+  "description": "",
   "keywords": [
-    "avatar"
+    "use-safe-layout-effect"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,36 +19,24 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/avatar"
+    "directory": "packages/hooks/use-safe-layout-effect"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
     "react": ">=16.8.0"
   },
-  "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/use-image": "workspace:*",
-    "@react-aria/focus": "^3.9.0",
-    "@react-aria/utils": "^3.14.0"
-  },
   "devDependencies": {
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/test-utils": "workspace:*",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   },
