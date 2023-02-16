@@ -75,6 +75,7 @@ export interface UseAvatarProps extends HTMLNextUIProps<"span", AvatarVariantPro
    *    img: "image-classes",
    *    name: "name-classes",
    *    icon: "icon-classes",
+   *    fallback: "fallback-classes"
    * }} />
    * ```
    */
