@@ -6,6 +6,7 @@
     "lib": ["dom", "esnext"],
     "sourceMap": true,
     "moduleResolution": "node",
+    "declaration": false,
     "skipLibCheck": true,
     "strict": true,
     "isolatedModules": true,

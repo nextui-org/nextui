@@ -1,5 +1,12 @@
 export const AvatarIcon = () => (
-  <svg aria-hidden="true" fill="none" height="1.8rem" viewBox="0 0 24 24" width="1.8rem">
+  <svg
+    aria-hidden="true"
+    fill="none"
+    height="80%"
+    role="presentation"
+    viewBox="0 0 24 24"
+    width="80%"
+  >
     <path
       d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49C12.12 11.49 12.13 11.49 12.15 11.49C12.16 11.49 12.16 11.49 12.17 11.49C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"
       fill="currentColor"

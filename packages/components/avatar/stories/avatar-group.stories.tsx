@@ -79,6 +79,6 @@ CustomCount.args = {
   max: 3,
   total: 10,
   renderCount: (count: number) => (
-    <p className="text-sm text-black dark:text-white ml-3">+{count}</p>
+    <p className="text-sm text-black dark:text-white ml-2">+{count}</p>
   ),
 };

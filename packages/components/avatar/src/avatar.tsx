@@ -1,4 +1,3 @@
-import {clsx} from "@nextui-org/shared-utils";
 import {forwardRef} from "@nextui-org/system";
 import {__DEV__} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
@@ -17,16 +16,14 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
     domRef,
     imgRef,
     styles,
-    classes,
+    slots,
     name,
     isImgLoaded,
     showFallback,
-    ignoreFallback,
-    baseClassname,
-    buttonClasses,
-    imgClassname,
+    imgStyles,
     getAvatarProps,
     getInitials,
+    fallback: fallbackComponent,
   } = useAvatar({
     ref,
     ...props,
@@ -35,47 +32,42 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   const fallback = useMemo(() => {
     if (!showFallback && src) return null;
 
-    if (name) {
+    const ariaLabel = alt || name || "avatar";
+
+    if (fallbackComponent) {
       return (
-        <span aria-label={name} className={styles.name({class: classes?.name})} role="img">
-          {getInitials(name)}
-        </span>
-      );
-    } else {
-      return (
-        <span aria-label="avatar" className={styles.icon({class: classes?.icon})} role="img">
-          {icon}
-        </span>
+        <div
+          aria-label={ariaLabel}
+          className={slots.fallback({class: styles?.fallback})}
+          role="img"
+        >
+          {fallbackComponent}
+        </div>
       );
     }
-  }, [
-    src,
-    styles,
-    alt,
-    name,
-    icon,
-    classes,
-    isImgLoaded,
-    showFallback,
-    ignoreFallback,
-    getInitials,
-  ]);
+
+    return name ? (
+      <span aria-label={ariaLabel} className={slots.name({class: styles?.name})} role="img">
+        {getInitials(name)}
+      </span>
+    ) : (
+      <span aria-label={ariaLabel} className={slots.icon({class: styles?.icon})} role="img">
+        {icon}
+      </span>
+    );
+  }, [showFallback, src, fallbackComponent, name, styles]);
 
   return (
-    <Component
-      ref={domRef}
-      {...getAvatarProps()}
-      className={styles.base({
-        class: clsx(baseClassname, buttonClasses),
-      })}
-    >
-      <img
-        ref={imgRef}
-        alt={alt}
-        className={styles.img({class: imgClassname})}
-        data-loaded={isImgLoaded}
-        src={src}
-      />
+    <Component ref={domRef} {...getAvatarProps()}>
+      {src && (
+        <img
+          ref={imgRef}
+          alt={alt}
+          className={slots.img({class: imgStyles})}
+          data-loaded={isImgLoaded}
+          src={src}
+        />
+      )}
       {fallback}
     </Component>
   );

@@ -1,8 +1,10 @@
+import type {ReactNode} from "react";
+
 import {avatarGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx, getValidChildren, compact} from "@nextui-org/shared-utils";
-import {useMemo, type ReactNode, cloneElement} from "react";
+import {cloneElement} from "react";
 
 import {AvatarProps} from "./index";
 
@@ -76,7 +78,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     isBordered,
   };
 
-  const styles = useMemo(() => avatarGroup({className}), [className]);
+  const styles = avatarGroup({className});
 
   const validChildren = getValidChildren(children);
   const childrenWithinMax = max ? validChildren.slice(0, max) : validChildren;

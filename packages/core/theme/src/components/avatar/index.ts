@@ -24,17 +24,26 @@ const avatar = tv({
       "box-border",
       "overflow-hidden",
       "align-middle",
-      "dark:text-white",
+      "text-white",
       "z-10",
     ],
     img: ["flex", "object-cover", "w-full", "h-full"],
-    name: [...translateCenterClasses, "font-semibold", "text-center", "text-white"],
-    icon: [...translateCenterClasses, "flex"],
+    fallback: [...translateCenterClasses, "flex", "items-center", "justify-center"],
+    name: [...translateCenterClasses, "font-semibold", "text-center", "text-inherit"],
+    icon: [
+      ...translateCenterClasses,
+      "flex",
+      "items-center",
+      "justify-center",
+      "text-inherit",
+      "w-full",
+      "h-full",
+    ],
   },
   variants: {
     size: {
       xs: {
-        base: "w-7 h-7 text-xs",
+        base: "w-7 h-7 text-[0.625rem]",
       },
       sm: {
         base: "w-8 h-8 text-xs",
@@ -51,8 +60,7 @@ const avatar = tv({
     },
     color: {
       neutral: {
-        base: "bg-neutral-200 dark:bg-neutral-700",
-        name: "text-neutral-700 dark:text-white",
+        base: "bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-white",
       },
       primary: {
         base: "bg-primary",
@@ -61,12 +69,10 @@ const avatar = tv({
         base: "bg-secondary",
       },
       success: {
-        base: "bg-success",
-        name: "text-success-800",
+        base: "bg-success text-success-800 dark:text-success-800",
       },
       warning: {
-        base: "bg-warning",
-        name: "text-warning-800",
+        base: "bg-warning text-warning-800 dark:text-warning-800",
       },
       error: {
         base: "bg-error",

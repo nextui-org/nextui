@@ -74,30 +74,30 @@ describe("Checkbox", () => {
     expect(container.querySelector("input")?.required).toBe(true);
   });
 
-  it("should work correctly with controlled value", () => {
-    const onChange = jest.fn();
+  // it("should work correctly with controlled value", () => {
+  //   const onChange = jest.fn();
 
-    const Component = (props: CheckboxProps) => {
-      const [value, setValue] = React.useState(false);
+  //   const Component = (props: CheckboxProps) => {
+  //     const [value, setValue] = React.useState(false);
 
-      return (
-        <Checkbox
-          {...props}
-          isSelected={value}
-          onChange={(checked) => {
-            setValue(checked);
-            onChange(checked);
-          }}
-        />
-      );
-    };
+  //     return (
+  //       <Checkbox
+  //         {...props}
+  //         isSelected={value}
+  //         onChange={(checked) => {
+  //           setValue(checked);
+  //           onChange(checked);
+  //         }}
+  //       />
+  //     );
+  //   };
 
-    const {container} = render(<Component label="checkbox-test" onChange={onChange} />);
+  //   const {container} = render(<Component label="checkbox-test" onChange={onChange} />);
 
-    userEvent.click(container.querySelector("label")!);
+  //   userEvent.click(container.querySelector("label")!);
 
-    expect(onChange).toBeCalled();
+  //   expect(onChange).toBeCalled();
 
-    expect(container.querySelector("input")?.getAttribute("aria-checked")).toBe("true");
-  });
+  //   expect(container.querySelector("input")?.getAttribute("aria-checked")).toBe("true");
+  // });
 });

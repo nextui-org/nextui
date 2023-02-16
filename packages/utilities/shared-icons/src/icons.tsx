@@ -7,6 +7,7 @@ interface IconProps {
   height?: string | number;
   width?: string | number;
   label?: string;
+  className?: string;
 }
 
 export const Sun: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {

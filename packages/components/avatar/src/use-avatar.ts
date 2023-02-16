@@ -11,7 +11,7 @@ import {useImage} from "@nextui-org/use-image";
 
 import {useAvatarGroupContext} from "./avatar-group-context";
 
-export interface UseAvatarProps extends HTMLNextUIProps<"span">, AvatarVariantProps {
+export interface UseAvatarProps extends HTMLNextUIProps<"span", AvatarVariantProps> {
   /**
    * Ref to the DOM node.
    */
@@ -53,28 +53,32 @@ export interface UseAvatarProps extends HTMLNextUIProps<"span">, AvatarVariantPr
    */
   showFallback?: boolean;
   /**
-   * List of classes to change the styles of the avatar.
+   * Function to get the initials to display
+   */
+  getInitials?: (name: string) => string;
+  /**
+   * Custom fallback component.
+   */
+  fallback?: React.ReactNode;
+  /**
+   * Function called when image failed to load
+   */
+  onError?: () => void;
+  /**
+   * Classname or List of classes to change the styles of the avatar.
+   * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Avatar classes={{
+   * <Avatar styles={{
    *    base:"base-classes",
    *    img: "image-classes",
    *    name: "name-classes",
    *    icon: "icon-classes",
    * }} />
    * ```
-   *
    */
-  classes?: SlotsToClasses<AvatarSlots>;
-  /**
-   * Function to get the initials to display
-   */
-  getInitials?: (name: string) => string;
-  /**
-   * Function called when image failed to load
-   */
-  onError?: () => void;
+  styles?: SlotsToClasses<AvatarSlots>;
 }
 
 export function useAvatar(props: UseAvatarProps) {
@@ -85,11 +89,10 @@ export function useAvatar(props: UseAvatarProps) {
     as,
     ref,
     src,
-    imgRef: imgRefProp,
-    classes,
-    className,
     name,
+    styles,
     alt = name,
+    imgRef: imgRefProp,
     color = groupContext?.color ?? "neutral",
     radius = groupContext?.radius ?? "full",
     size = groupContext?.size ?? "md",
@@ -98,6 +101,7 @@ export function useAvatar(props: UseAvatarProps) {
     getInitials = safeText,
     ignoreFallback = false,
     showFallback: showFallbackProp = false,
+    className,
     onError,
     ...otherProps
   } = props;
@@ -119,7 +123,7 @@ export function useAvatar(props: UseAvatarProps) {
    */
   const showFallback = (!src || !isImgLoaded) && showFallbackProp;
 
-  const buttonClasses = useMemo(() => {
+  const buttonStyles = useMemo(() => {
     if (as !== "button") return "";
 
     // reset button styles
@@ -128,17 +132,14 @@ export function useAvatar(props: UseAvatarProps) {
 
   const {isFocusVisible, focusProps} = useFocusRing();
 
-  const styles = useMemo(
-    () => avatar({color, radius, size, isBordered, isFocusVisible, isInGroup}),
-    [color, radius, size, isBordered, isInGroup, isFocusVisible],
-  );
+  const slots = avatar({color, radius, size, isBordered, isFocusVisible, isInGroup});
 
-  const imgClassname = clsx(
+  const imgStyles = clsx(
     "transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100",
-    classes?.img,
+    styles?.img,
   );
 
-  const baseClassname = clsx(className, classes?.base);
+  const baseStyles = clsx(styles?.base, className);
 
   const canBeFocused = useMemo(() => {
     return isFocusable || as === "button";
@@ -147,9 +148,12 @@ export function useAvatar(props: UseAvatarProps) {
   const getAvatarProps = useCallback(
     () => ({
       tabIndex: canBeFocused ? 0 : -1,
+      className: slots.base({
+        class: clsx(baseStyles, buttonStyles),
+      }),
       ...mergeProps(otherProps, canBeFocused ? focusProps : {}),
     }),
-    [canBeFocused],
+    [canBeFocused, slots, baseStyles, buttonStyles],
   );
 
   return {
@@ -159,14 +163,12 @@ export function useAvatar(props: UseAvatarProps) {
     name,
     domRef,
     imgRef,
+    slots,
     styles,
-    classes,
     isImgLoaded,
     showFallback,
     ignoreFallback,
-    buttonClasses,
-    baseClassname,
-    imgClassname,
+    imgStyles,
     getAvatarProps,
     getInitials,
     ...otherProps,
