@@ -58,6 +58,10 @@ export function useLink(props: UseLinkProps) {
     otherProps.target = otherProps.target ?? "_blank";
   }
 
+  if (as !== "a") {
+    otherProps.role = "link";
+  }
+
   const styles = useMemo(
     () =>
       link({
@@ -72,7 +76,7 @@ export function useLink(props: UseLinkProps) {
     [color, size, isUnderline, isBlock, isDisabled, disableAnimation, className],
   );
 
-  return {Component, as, styles, domRef, linkProps, showAnchorIcon, isDisabled, ...otherProps};
+  return {Component, as, styles, domRef, linkProps, showAnchorIcon, ...otherProps};
 }
 
 export type UseLinkReturn = ReturnType<typeof useLink>;

@@ -17,5 +17,3 @@ export const LinkIcon = () => (
     <path d="M10 14L21 3" />
   </svg>
 );
-
-LinkIcon.toString = () => ".nextui-link-icon";

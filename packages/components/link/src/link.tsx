@@ -33,6 +33,4 @@ if (__DEV__) {
   Link.displayName = "NextUI.Link";
 }
 
-Link.toString = () => ".nextui-link";
-
 export default Link;

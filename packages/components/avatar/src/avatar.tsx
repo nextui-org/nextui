@@ -1,71 +1,80 @@
-import {clsx} from "@nextui-org/shared-utils";
 import {forwardRef} from "@nextui-org/system";
-import {safeText, __DEV__} from "@nextui-org/shared-utils";
+import {__DEV__} from "@nextui-org/shared-utils";
+import {useMemo} from "react";
 
-import AvatarGroup from "./avatar-group";
-import {useAvatar, UseAvatarReturn} from "./use-avatar";
+import {useAvatar, UseAvatarProps} from "./use-avatar";
+import {AvatarIcon} from "./avatar-icon";
 
-export interface AvatarProps extends UseAvatarReturn {}
+export interface AvatarProps extends UseAvatarProps {}
 
-type CompundAvatar = {
-  Group: typeof AvatarGroup;
-};
-
-const Avatar = forwardRef<AvatarProps, "span", CompundAvatar>((props, ref) => {
+const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   const {
     Component,
     src,
-    icon,
+    icon = <AvatarIcon />,
     alt,
     domRef,
     imgRef,
     styles,
-    classes,
-    initials,
-    baseClassname,
-    shouldShowInitials,
-    buttonClasses,
-    onImgLoad,
-    getState,
+    slots,
+    name,
+    isImgLoaded,
+    showFallback,
+    imgStyles,
     getAvatarProps,
+    getInitials,
+    fallback: fallbackComponent,
   } = useAvatar({
     ref,
     ...props,
   });
 
+  const fallback = useMemo(() => {
+    if (!showFallback && src) return null;
+
+    const ariaLabel = alt || name || "avatar";
+
+    if (fallbackComponent) {
+      return (
+        <div
+          aria-label={ariaLabel}
+          className={slots.fallback({class: styles?.fallback})}
+          role="img"
+        >
+          {fallbackComponent}
+        </div>
+      );
+    }
+
+    return name ? (
+      <span aria-label={ariaLabel} className={slots.name({class: styles?.name})} role="img">
+        {getInitials(name)}
+      </span>
+    ) : (
+      <span aria-label={ariaLabel} className={slots.icon({class: styles?.icon})} role="img">
+        {icon}
+      </span>
+    );
+  }, [showFallback, src, fallbackComponent, name, styles]);
+
   return (
-    <Component
-      ref={domRef}
-      {...getAvatarProps()}
-      className={styles.base({
-        class: clsx(baseClassname, buttonClasses),
-      })}
-      data-state={getState}
-    >
-      {!shouldShowInitials && (
+    <Component ref={domRef} {...getAvatarProps()}>
+      {src && (
         <img
           ref={imgRef}
           alt={alt}
-          className={styles.img({class: classes?.img})}
-          data-state={getState}
+          className={slots.img({class: imgStyles})}
+          data-loaded={isImgLoaded}
           src={src}
-          onLoad={onImgLoad}
         />
       )}
-      {shouldShowInitials && !icon && initials && (
-        <span className={styles.initials({class: classes?.initials})}>{safeText(initials)}</span>
-      )}
-      {icon && <span className={styles.icon({class: classes?.icon})}>{icon}</span>}
+      {fallback}
     </Component>
   );
 });
 
-Avatar.Group = AvatarGroup;
-
 if (__DEV__) {
   Avatar.displayName = "NextUI.Avatar";
 }
-
-Avatar.toString = () => ".nextui-avatar";
 
 export default Avatar;

@@ -5,12 +5,12 @@ import {translateCenterClasses} from "../../utils";
 /**
  * Avatar wrapper tv component
  *
- * const {base, img, icon, initials } = avatar({...})
+ * const {base, img, icon, name } = avatar({...})
  *
  * @example
  * <div className={base())}>
  *    <img className={img()} src="https://picsum.photos/200/300" alt="your avatar" />
- *    <div role="img" aria-label="your initials" className={initials()}>your initials</div>
+ *    <div role="img" aria-label="your name" className={name()}>your name</div>
  *    <span role="img" aria-label="your icon" className={icon()}>your icon</span>
  * </div>
  */
@@ -24,16 +24,26 @@ const avatar = tv({
       "box-border",
       "overflow-hidden",
       "align-middle",
-      "dark:text-white",
+      "text-white",
+      "z-10",
     ],
-    img: ["flex", "z-10", "object-cover", "w-full", "h-full"],
-    initials: [...translateCenterClasses, "font-semibold", "text-center", "text-white"],
-    icon: [...translateCenterClasses, "flex", "z-10"],
+    img: ["flex", "object-cover", "w-full", "h-full"],
+    fallback: [...translateCenterClasses, "flex", "items-center", "justify-center"],
+    name: [...translateCenterClasses, "font-semibold", "text-center", "text-inherit"],
+    icon: [
+      ...translateCenterClasses,
+      "flex",
+      "items-center",
+      "justify-center",
+      "text-inherit",
+      "w-full",
+      "h-full",
+    ],
   },
   variants: {
     size: {
       xs: {
-        base: "w-7 h-7 text-xs",
+        base: "w-7 h-7 text-[0.625rem]",
       },
       sm: {
         base: "w-8 h-8 text-xs",
@@ -50,8 +60,7 @@ const avatar = tv({
     },
     color: {
       neutral: {
-        base: "bg-neutral-200 dark:bg-neutral-700",
-        initials: "text-neutral-700 dark:text-white",
+        base: "bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-white",
       },
       primary: {
         base: "bg-primary",
@@ -60,12 +69,10 @@ const avatar = tv({
         base: "bg-secondary",
       },
       success: {
-        base: "bg-success",
-        initials: "text-success-800",
+        base: "bg-success text-success-800 dark:text-success-800",
       },
       warning: {
-        base: "bg-warning",
-        initials: "text-warning-800",
+        base: "bg-warning text-warning-800 dark:text-warning-800",
       },
       error: {
         base: "bg-error",
@@ -101,7 +108,12 @@ const avatar = tv({
     },
     isFocusVisible: {
       true: {
-        base: "outline-none ring-2 ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark",
+        base: "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark",
+      },
+    },
+    isInGroup: {
+      true: {
+        base: "-ml-2 hover:-translate-x-3 transition-transform",
       },
     },
   },
@@ -158,6 +170,13 @@ const avatar = tv({
       size: "xl",
       class: {
         base: "ring",
+      },
+    },
+    {
+      isInGroup: true,
+      isFocusVisible: true,
+      class: {
+        base: "-translate-x-3",
       },
     },
   ],

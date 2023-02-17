@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {Activity} from "@nextui-org/shared-icons";
+import {Activity, Camera} from "@nextui-org/shared-icons";
 
 import {Avatar, AvatarProps} from "../src";
 
@@ -26,6 +26,11 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
+    showFallback: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as ComponentMeta<typeof Avatar>;
 
@@ -33,16 +38,7 @@ const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => <Avatar {
 
 export const Default = Template.bind({});
 Default.args = {
-  initials: "Junior",
-};
-
-export const InitialsColor = Template.bind({});
-InitialsColor.args = {
-  color: "warning",
-  initials: "Junior",
-  classes: {
-    initials: "text-yellow-50 dark:text-yellow-900 text-sm",
-  },
+  name: "Junior",
 };
 
 export const WithImage = Template.bind({});
@@ -65,15 +61,50 @@ isFocusable.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: <Activity fill="currentColor" size={20} />,
-  radius: "xl",
+  size: "lg",
 };
 
-export const CustomAvatar = Template.bind({});
-CustomAvatar.args = {
+export const Custom = Template.bind({});
+Custom.args = {
   icon: <Activity fill="currentColor" size={20} />,
   radius: "xl",
   classes: {
     base: "shadow-lg bg-cyan-200 dark:bg-cyan-800",
   },
+};
+
+export const DefaultIcon = Template.bind({});
+DefaultIcon.args = {
+  styles: {
+    icon: "text-neutral-400",
+  },
+};
+
+export const IconFallback = Template.bind({});
+IconFallback.args = {
+  src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+  showFallback: true,
+};
+
+export const InitialsFallback = Template.bind({});
+InitialsFallback.args = {
+  src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  name: "Junior",
+  showFallback: true,
+};
+
+export const CustomFallback = Template.bind({});
+CustomFallback.args = {
+  src: "https://images.unsplash.com/broken",
+  showFallback: true,
+  fallback: (
+    <Camera className="animate-pulse w-6 h-6 text-neutral-500" fill="currentColor" size={20} />
+  ),
+};
+
+export const BrokenImage = Template.bind({});
+BrokenImage.args = {
+  src: "https://images.unsplash.com/broken-image",
+  name: "Junior",
+  showFallback: true,
 };

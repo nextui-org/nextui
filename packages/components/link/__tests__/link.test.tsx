@@ -23,13 +23,34 @@ describe("Link", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should show a link icon when "isExternal" is true', () => {
-    const wrapper = render(
+  it('should show a link icon when "showAnchorIcon" is true', () => {
+    const {container} = render(
+      <Link showAnchorIcon href="#">
+        Link
+      </Link>,
+    );
+
+    expect(container.querySelector("svg")).not.toBeNull();
+  });
+
+  it('should have target="_blank" and rel="noopener" when "isExternal" is true', () => {
+    const {container} = render(
       <Link isExternal href="#">
         Link
       </Link>,
     );
 
-    expect(wrapper.container.querySelector("svg")).not.toBeNull();
+    expect(container.querySelector("a")?.rel).toBe("noopener");
+    expect(container.querySelector("a")?.target).toBe("_blank");
+  });
+
+  it('should have role="link" when "as" is different from "a"', () => {
+    const {container} = render(
+      <Link as="button" href="#">
+        Link
+      </Link>,
+    );
+
+    expect(container.querySelector("button")?.getAttribute("role")).toBe("link");
   });
 });
