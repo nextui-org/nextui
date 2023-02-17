@@ -1,21 +1,5 @@
-import {styled, VariantProps} from "@nextui-org/system";
+import {styled} from "@nextui-org/system";
 import {cssFocusVisible, cssNoBlurriness} from "@nextui-org/shared-css";
-
-export const StyledCardBody = styled("div", {
-  d: "flex",
-  w: "100%",
-  h: "auto",
-  flex: "1 1 auto",
-  fd: "column",
-  jc: "inherit",
-  ai: "inherit",
-  ac: "inherit",
-  py: "$lg",
-  px: "$sm",
-  oy: "auto",
-  position: "relative",
-  ta: "left",
-});
 
 export const StyledCard = styled(
   "div",
@@ -158,35 +142,3 @@ export const StyledCard = styled(
   cssNoBlurriness,
   cssFocusVisible,
 );
-
-export const StyledCardHeader = styled("div", {
-  w: "100%",
-  display: "flex",
-  flexShrink: 0,
-  zIndex: "$1",
-  jc: "flex-start",
-  ai: "center",
-  overflow: "hidden",
-  color: "inherit",
-  p: "$sm",
-});
-
-export const StyledCardFooter = styled("div", {
-  w: "100%",
-  h: "auto",
-  p: "$sm",
-  d: "flex",
-  ai: "center",
-  overflow: "hidden",
-  color: "inherit",
-  bblr: "$lg",
-  bbrr: "$lg",
-  variants: {
-    isBlurred: {
-      true: {
-        bf: "saturate(180%) blur(10px)",
-        bg: "$$cardColor",
-      },
-    },
-  },
-});

@@ -71,6 +71,10 @@ module.exports = plugin(
     darkMode: "class",
     theme: {
       extend: {
+        borderWidth: {
+          3: "3px",
+          5: "5px",
+        },
         colors: {
           transparent: "transparent",
           white: "#ffffff",

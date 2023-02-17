@@ -418,6 +418,7 @@ importers:
       '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
       '@react-aria/focus': ^3.9.0
       '@react-aria/interactions': ^3.12.0
       '@react-aria/utils': ^3.14.0
@@ -431,6 +432,7 @@ importers:
       '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/interactions': 3.13.1_react@17.0.2
       '@react-aria/utils': 3.14.2_react@17.0.2
