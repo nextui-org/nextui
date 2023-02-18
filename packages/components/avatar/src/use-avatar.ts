@@ -12,7 +12,10 @@ import {useImage} from "@nextui-org/use-image";
 import {useAvatarGroupContext} from "./avatar-group-context";
 
 export interface UseAvatarProps
-  extends Omit<HTMLNextUIProps<"span", AvatarVariantProps>, "children"> {
+  extends Omit<
+    HTMLNextUIProps<"span", AvatarVariantProps>,
+    "children" | "isInGroup" | "isInGridGroup" | "isFocusVisible"
+  > {
   /**
    * Ref to the DOM node.
    */
@@ -102,7 +105,6 @@ export function useAvatar(props: UseAvatarProps) {
     size = groupContext?.size ?? "md",
     isBordered = groupContext?.isBordered ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
-    isInGridGroup = groupContext?.isGrid ?? false,
     isFocusable = false,
     getInitials = safeText,
     ignoreFallback = false,
@@ -146,7 +148,7 @@ export function useAvatar(props: UseAvatarProps) {
     isFocusVisible,
     isDisabled,
     isInGroup,
-    isInGridGroup,
+    isInGridGroup: groupContext?.isGrid ?? false,
   });
 
   const imgStyles = clsx(
