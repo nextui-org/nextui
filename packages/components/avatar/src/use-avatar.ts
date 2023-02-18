@@ -12,7 +12,7 @@ import {useImage} from "@nextui-org/use-image";
 import {useAvatarGroupContext} from "./avatar-group-context";
 
 export interface UseAvatarProps
-  extends Omit<HTMLNextUIProps<"span", AvatarVariantProps>, "children" | "isFocusVisible"> {
+  extends Omit<HTMLNextUIProps<"span", AvatarVariantProps>, "children"> {
   /**
    * Ref to the DOM node.
    */
@@ -92,7 +92,9 @@ export function useAvatar(props: UseAvatarProps) {
     ref,
     src,
     name,
+    icon,
     styles,
+    fallback,
     alt = name,
     imgRef: imgRefProp,
     color = groupContext?.color ?? "neutral",
@@ -173,11 +175,13 @@ export function useAvatar(props: UseAvatarProps) {
     Component,
     src,
     alt,
+    icon,
     name,
     domRef,
     imgRef,
     slots,
     styles,
+    fallback,
     isImgLoaded,
     showFallback,
     ignoreFallback,
