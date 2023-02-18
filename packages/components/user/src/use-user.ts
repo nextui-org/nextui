@@ -66,11 +66,11 @@ export function useUser(props: UseUserProps) {
     ...otherProps
   } = props;
 
+  const Component = as || "div";
+
   const domRef = useDOMRef(ref);
 
   const {isFocusVisible, focusProps} = useFocusRing();
-
-  const Component = as || "div";
 
   const canBeFocused = useMemo(() => {
     return isFocusable || as === "button";

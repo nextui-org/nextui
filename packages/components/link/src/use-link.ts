@@ -3,10 +3,9 @@ import type {LinkVariantProps} from "@nextui-org/theme";
 
 import {link} from "@nextui-org/theme";
 import {useLink as useAriaLink} from "@react-aria/link";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
-import {useMemo} from "react";
 
 interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
   /**
@@ -32,24 +31,14 @@ interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
 
 export type UseLinkProps = Props & AriaLinkProps;
 
-export function useLink(props: UseLinkProps) {
-  const {
-    ref,
-    as = "a",
-    color,
-    size,
-    isUnderline,
-    isBlock,
-    disableAnimation,
-    isExternal = false,
-    showAnchorIcon = false,
-    isDisabled = false,
-    className,
-    ...otherProps
-  } = props;
+export function useLink(originalProps: UseLinkProps) {
+  const [props, variantProps] = mapPropsVariants(originalProps, link.variantKeys);
+
+  const {ref, as, isExternal = false, showAnchorIcon = false, className, ...otherProps} = props;
+
+  const Component = as || "a";
 
   const domRef = useDOMRef(ref);
-  const Component = as || "a";
 
   const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
 
@@ -62,19 +51,10 @@ export function useLink(props: UseLinkProps) {
     otherProps.role = "link";
   }
 
-  const styles = useMemo(
-    () =>
-      link({
-        color,
-        size,
-        isUnderline,
-        isBlock,
-        isDisabled,
-        disableAnimation,
-        className,
-      }),
-    [color, size, isUnderline, isBlock, isDisabled, disableAnimation, className],
-  );
+  const styles = link({
+    ...variantProps,
+    className,
+  });
 
   return {Component, as, styles, domRef, linkProps, showAnchorIcon, ...otherProps};
 }
