@@ -114,10 +114,12 @@ export function useAvatar(props: UseAvatarProps) {
     ...otherProps
   } = props;
 
+  const Component = as || "span";
+
   const domRef = useDOMRef(ref);
   const imgRef = useDOMRef(imgRefProp);
 
-  const Component = as || "span";
+  const {isFocusVisible, focusProps} = useFocusRing();
 
   const imageStatus = useImage({src, onError, ignoreFallback});
   const isImgLoaded = imageStatus === "loaded";
@@ -131,15 +133,6 @@ export function useAvatar(props: UseAvatarProps) {
    */
   const showFallback = (!src || !isImgLoaded) && showFallbackProp;
 
-  const buttonStyles = useMemo(() => {
-    if (as !== "button") return "";
-
-    // reset button styles
-    return "appearance-none outline-none border-none cursor-pointer";
-  }, [as]);
-
-  const {isFocusVisible, focusProps} = useFocusRing();
-
   const slots = avatar({
     color,
     radius,
@@ -150,6 +143,13 @@ export function useAvatar(props: UseAvatarProps) {
     isInGroup,
     isInGridGroup: groupContext?.isGrid ?? false,
   });
+
+  const buttonStyles = useMemo(() => {
+    if (as !== "button") return "";
+
+    // reset button styles
+    return "appearance-none outline-none border-none cursor-pointer";
+  }, [as]);
 
   const imgStyles = clsx(
     "transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100",

@@ -78,6 +78,7 @@ const link = tv({
     size: "md",
     isBlock: false,
     isUnderline: false,
+    isDisabled: false,
     disableAnimation: false,
   },
 });
