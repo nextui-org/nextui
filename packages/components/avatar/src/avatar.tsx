@@ -2,8 +2,8 @@ import {forwardRef} from "@nextui-org/system";
 import {__DEV__} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
-import {useAvatar, UseAvatarProps} from "./use-avatar";
 import {AvatarIcon} from "./avatar-icon";
+import {useAvatar, UseAvatarProps} from "./use-avatar";
 
 export interface AvatarProps extends UseAvatarProps {}
 
