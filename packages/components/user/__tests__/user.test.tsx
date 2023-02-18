@@ -1,5 +1,6 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
+import {Link} from "@nextui-org/link";
 
 import {User} from "../src";
 
@@ -17,11 +18,29 @@ describe("User", () => {
     expect(ref.current).not.toBeNull();
   });
 
+  it("should have the passed name", () => {
+    const {container} = render(<User name="Test" />);
+    const name = container.querySelector("span");
+
+    expect(name).toHaveTextContent("Test");
+  });
+
+  it("should have the passed description", () => {
+    const wrapper = render(
+      <User description={<p data-testid="test-desc">Test Desc</p>} name="Test Name" />,
+    );
+
+    expect(wrapper.getByTestId("test-desc")).toHaveTextContent("Test Desc");
+  });
+
   it("should support image and text", () => {
     const wrapper = render(
       <div>
-        <User name="Text" text="User" />
-        <User name="User test" src="https://avatars.githubusercontent.com/u/30373425?v=4" />
+        <User avatarProps={{name: "User"}} name="User" />
+        <User
+          avatarProps={{src: "https://avatars.githubusercontent.com/u/30373425?v=4"}}
+          name="User test"
+        />
       </div>,
     );
 
@@ -40,20 +59,17 @@ describe("User", () => {
   });
 
   it("should render link on user.link", () => {
-    const {container} = render(
-      <User name="User">
-        <User.Link href="https://nextui.org">NextUI</User.Link>
-      </User>,
+    const wrapper = render(
+      <User
+        description={
+          <Link data-testid="test-user-link" href="https://nextui.org">
+            NextUI
+          </Link>
+        }
+        name="User"
+      />,
     );
 
-    expect(container.querySelector("a")).not.toBeNull();
-  });
-
-  it("should pass alt attribute", () => {
-    const {container} = render(
-      <User alt="User" name="User" src="https://avatars.githubusercontent.com/u/30373425?v=4" />,
-    );
-
-    expect(container.querySelector("img")?.getAttribute("alt")).toBe("User");
+    expect(wrapper.getByTestId("test-user-link")).toBeInTheDocument();
   });
 });

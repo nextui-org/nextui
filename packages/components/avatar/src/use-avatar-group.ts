@@ -31,6 +31,14 @@ export interface UseAvatarGroupProps extends HTMLNextUIProps<"div"> {
    */
   isBordered?: AvatarProps["isBordered"];
   /**
+   * Whether the avatars are disabled
+   */
+  isDisabled?: AvatarProps["isDisabled"];
+  /**
+   * Whether the avatars should be displayed in a grid
+   */
+  isGrid?: boolean;
+  /**
    * The maximum number of visible avatars
    * @default 5
    */
@@ -49,7 +57,9 @@ export type ContextType = {
   size?: AvatarProps["size"];
   color?: AvatarProps["color"];
   radius?: AvatarProps["radius"];
+  isGrid?: boolean;
   isBordered?: AvatarProps["isBordered"];
+  isDisabled?: AvatarProps["isDisabled"];
 };
 
 export function useAvatarGroup(props: UseAvatarGroupProps) {
@@ -61,8 +71,10 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     size,
     color,
     radius,
-    isBordered,
     children,
+    isBordered,
+    isDisabled,
+    isGrid,
     className,
     ...otherProps
   } = props;
@@ -75,10 +87,12 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     size,
     color,
     radius,
+    isGrid,
     isBordered,
+    isDisabled,
   };
 
-  const styles = avatarGroup({className});
+  const styles = avatarGroup({className, isGrid});
 
   const validChildren = getValidChildren(children);
   const childrenWithinMax = max ? validChildren.slice(0, max) : validChildren;
@@ -91,7 +105,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
 
     const childProps = {
       className: clsx(
-        isFirstAvatar ? "ml-0" : "-ml-2",
+        isFirstAvatar ? "ml-0" : !isGrid ? "-ml-2" : "",
         isLastAvatar && remainingCount < 1 ? "hover:-translate-x-0" : "",
       ),
     };

@@ -37,8 +37,20 @@ export default {
 const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => <Avatar {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  name: "Junior",
+Default.args = {};
+
+export const WithText = Template.bind({});
+WithText.args = {
+  name: "JW",
+  color: "error",
+};
+
+export const isDisabled = Template.bind({});
+isDisabled.args = {
+  src: "https://i.pravatar.cc/300?u=a042581f4e29026709d",
+  color: "secondary",
+  isBordered: true,
+  isDisabled: true,
 };
 
 export const WithImage = Template.bind({});
@@ -68,8 +80,24 @@ export const Custom = Template.bind({});
 Custom.args = {
   icon: <Activity fill="currentColor" size={20} />,
   radius: "xl",
-  classes: {
+  styles: {
     base: "shadow-lg bg-cyan-200 dark:bg-cyan-800",
+  },
+};
+
+export const CustomSize = Template.bind({});
+CustomSize.args = {
+  styles: {
+    base: "w-32 h-32 text-md",
+  },
+};
+
+export const CustomSizeImg = Template.bind({});
+CustomSizeImg.args = {
+  src: "https://i.pravatar.cc/300?u=a042581f4e29026705d",
+  name: "Junior",
+  styles: {
+    base: "w-32 h-32 text-md",
   },
 };
 

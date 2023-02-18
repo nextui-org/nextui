@@ -1,4 +1,4 @@
-import {tv} from "tailwind-variants";
+import {tv, VariantProps} from "tailwind-variants";
 
 /**
  * AvatarGroup wrapper tv component
@@ -12,6 +12,13 @@ import {tv} from "tailwind-variants";
  */
 const avatarGroup = tv({
   base: "flex items-center justify-center h-auto w-max-content",
+  variants: {
+    isGrid: {
+      true: "inline-grid grid-cols-4 gap-3",
+    },
+  },
 });
+
+export type AvatarGroupVariantProps = VariantProps<typeof avatarGroup>;
 
 export {avatarGroup};

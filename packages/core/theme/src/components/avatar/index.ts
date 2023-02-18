@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {translateCenterClasses} from "../../utils";
+import {translateCenterClasses, ringClasses} from "../../utils";
 
 /**
  * Avatar wrapper tv component
@@ -106,14 +106,24 @@ const avatar = tv({
         base: "ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark",
       },
     },
+    isDisabled: {
+      true: {
+        base: "opacity-50",
+      },
+    },
     isFocusVisible: {
       true: {
-        base: "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark",
+        base: [...ringClasses],
       },
     },
     isInGroup: {
       true: {
         base: "-ml-2 hover:-translate-x-3 transition-transform",
+      },
+    },
+    isInGridGroup: {
+      true: {
+        base: "m-0 hover:translate-x-0",
       },
     },
   },

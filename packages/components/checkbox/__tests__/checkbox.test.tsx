@@ -2,7 +2,7 @@ import * as React from "react";
 import {render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import {Checkbox, CheckboxProps} from "../src";
+import {Checkbox} from "../src";
 
 describe("Checkbox", () => {
   it("should render correctly", () => {

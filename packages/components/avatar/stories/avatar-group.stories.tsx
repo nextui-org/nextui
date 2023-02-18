@@ -39,6 +39,8 @@ const pics = [
   "https://i.pravatar.cc/300?u=a042581f4e29026707d",
   "https://i.pravatar.cc/300?u=a042581f4e29026709d",
   "https://i.pravatar.cc/300?u=a042581f4f29026709d",
+  "https://i.pravatar.cc/300?u=a042581f4e29026710d",
+  "https://i.pravatar.cc/300?u=a042581f4e29026711d",
 ];
 
 const Template: ComponentStory<typeof AvatarGroup> = (args: AvatarGroupProps) => (
@@ -48,6 +50,10 @@ const Template: ComponentStory<typeof AvatarGroup> = (args: AvatarGroupProps) =>
     <Avatar src={pics[2]} />
     <Avatar src={pics[3]} />
     <Avatar src={pics[4]} />
+    <Avatar src={pics[5]} />
+    <Avatar src={pics[2]} />
+    <Avatar src={pics[3]} />
+    <Avatar src={pics[6]} />
   </AvatarGroup>
 );
 
@@ -55,6 +61,21 @@ export const Default = Template.bind({});
 Default.args = {
   color: "primary",
   isBordered: true,
+};
+
+export const Grid = Template.bind({});
+Grid.args = {
+  color: "primary",
+  isBordered: true,
+  max: 7,
+  isGrid: true,
+};
+
+export const isDisabled = Template.bind({});
+isDisabled.args = {
+  color: "warning",
+  isBordered: true,
+  isDisabled: true,
 };
 
 export const WithMaxCount = Template.bind({});
