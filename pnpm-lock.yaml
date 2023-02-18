@@ -334,7 +334,6 @@ importers:
   packages/components/avatar:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
@@ -347,7 +346,6 @@ importers:
       react: ^17.0.2
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
@@ -569,11 +567,9 @@ importers:
   packages/components/link:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
-      '@nextui-org/use-is-mounted': workspace:*
       '@react-aria/focus': ^3.9.0
       '@react-aria/link': ^3.3.4
       '@react-aria/utils': ^3.14.0
@@ -582,11 +578,9 @@ importers:
       react: ^17.0.2
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
-      '@nextui-org/use-is-mounted': link:../../hooks/use-is-mounted
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/link': 3.3.6_react@17.0.2
       '@react-aria/utils': 3.14.2_react@17.0.2
@@ -741,9 +735,9 @@ importers:
       '@nextui-org/avatar': workspace:*
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/link': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
       '@react-aria/focus': ^3.9.0
       '@react-aria/utils': ^3.14.0
       clean-package: 2.1.1
@@ -751,13 +745,13 @@ importers:
     dependencies:
       '@nextui-org/avatar': link:../avatar
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/link': link:../link
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/utils': 3.14.2_react@17.0.2
     devDependencies:
+      '@nextui-org/link': link:../link
       clean-package: 2.1.1
       react: 17.0.2
 

@@ -38,10 +38,8 @@
   },
   "dependencies": {
     "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@nextui-org/use-is-mounted": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@react-aria/link": "^3.3.4",
     "@react-aria/utils": "^3.14.0",

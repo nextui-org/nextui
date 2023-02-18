@@ -11,6 +11,15 @@ export const focusVisibleClasses = [
   "dark:focus-visible:ring-offset-background-dark",
 ];
 
+export const ringClasses = [
+  "outline-none",
+  "ring-2",
+  "!ring-primary",
+  "ring-offset-2",
+  "ring-offset-background",
+  "dark:ring-offset-background-dark",
+];
+
 /**
  * This classes centers the element by using absolute positioning.
  */

@@ -11,7 +11,8 @@ import {useImage} from "@nextui-org/use-image";
 
 import {useAvatarGroupContext} from "./avatar-group-context";
 
-export interface UseAvatarProps extends HTMLNextUIProps<"span", AvatarVariantProps> {
+export interface UseAvatarProps
+  extends Omit<HTMLNextUIProps<"span", AvatarVariantProps>, "children" | "isFocusVisible"> {
   /**
    * Ref to the DOM node.
    */
@@ -98,6 +99,8 @@ export function useAvatar(props: UseAvatarProps) {
     radius = groupContext?.radius ?? "full",
     size = groupContext?.size ?? "md",
     isBordered = groupContext?.isBordered ?? false,
+    isDisabled = groupContext?.isDisabled ?? false,
+    isInGridGroup = groupContext?.isGrid ?? false,
     isFocusable = false,
     getInitials = safeText,
     ignoreFallback = false,
@@ -133,7 +136,16 @@ export function useAvatar(props: UseAvatarProps) {
 
   const {isFocusVisible, focusProps} = useFocusRing();
 
-  const slots = avatar({color, radius, size, isBordered, isFocusVisible, isInGroup});
+  const slots = avatar({
+    color,
+    radius,
+    size,
+    isBordered,
+    isFocusVisible,
+    isDisabled,
+    isInGroup,
+    isInGridGroup,
+  });
 
   const imgStyles = clsx(
     "transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100",
@@ -154,7 +166,7 @@ export function useAvatar(props: UseAvatarProps) {
       }),
       ...mergeProps(otherProps, canBeFocused ? focusProps : {}),
     }),
-    [canBeFocused, slots, baseStyles, buttonStyles],
+    [canBeFocused, slots, baseStyles, buttonStyles, focusProps, otherProps],
   );
 
   return {
@@ -172,7 +184,6 @@ export function useAvatar(props: UseAvatarProps) {
     imgStyles,
     getAvatarProps,
     getInitials,
-    ...otherProps,
   };
 }
 
