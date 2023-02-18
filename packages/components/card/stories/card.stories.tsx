@@ -2,10 +2,10 @@ import React from "react";
 // import {styled} from "@nextui-org/system";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {Link} from "@nextui-org/link";
-
+import {Code} from "@nextui-org/code";
 // import {Col} from "@nextui-org/col";
 // import {Row} from "@nextui-org/row";
-// import {Code} from "@nextui-org/code";
+
 import {Card, CardProps} from "../src";
 
 export default {
@@ -560,25 +560,25 @@ export const WithFooter = () => (
 //   );
 // };
 //
-// export const WithDivider = () => (
-//   <Card css={{w: "400px"}}>
-//     <Card.Header>
-//       <Text b>Description</Text>
-//     </Card.Header>
-//     <Card.Divider />
-//     <Card.Body>
-//       <Text>The Object constructor creates an object wrapper for the given value.</Text>
-//     </Card.Body>
-//     <Card.Divider />
-//     <Card.Footer>
-//       <Text>
-//         When called in a non-constructor context, Object behaves identically to{" "}
-//         <Code>new Object()</Code>.
-//       </Text>
-//     </Card.Footer>
-//   </Card>
-// );
-//
+export const WithDivider = () => (
+  <Card css={{w: "400px"}}>
+    <Card.Header>
+      <strong>Description</strong>
+    </Card.Header>
+    {/*<Card.Divider />*/}
+    <Card.Body>
+      <p>The Object constructor creates an object wrapper for the given value.</p>
+    </Card.Body>
+    {/*<Card.Divider />*/}
+    <Card.Footer>
+      <p>
+        When called in a non-constructor context, Object behaves identically to{" "}
+        <Code>new Object()</Code>.
+      </p>
+    </Card.Footer>
+  </Card>
+);
+
 // export const Shadows = () => {
 //   const Box = styled("div", {
 //     size: "120px",

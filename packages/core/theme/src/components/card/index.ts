@@ -11,7 +11,7 @@ import {focusVisibleClasses} from "../../utils";
 const card = tv({
   base: [
     ...focusVisibleClasses,
-    "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto  bg-white rounded-xl box-border",
+    "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto bg-white rounded-xl box-border",
   ],
   variants: {
     variant: {
