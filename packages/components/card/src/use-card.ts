@@ -116,13 +116,14 @@ export function useCard(props: UseCardProps) {
   const styles = useMemo(
     () =>
       card({
-        variant,
         borderWeight,
+        className,
+        disableAnimation,
         isPressable,
         isHoverable,
-        className,
+        variant,
       }),
-    [variant, borderWeight, isPressable, isHoverable],
+    [disableAnimation, variant, borderWeight, isPressable, isHoverable],
   );
 
   const getCardProps = useCallback(

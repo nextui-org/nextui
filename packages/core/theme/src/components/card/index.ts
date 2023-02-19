@@ -11,12 +11,12 @@ import {focusVisibleClasses} from "../../utils";
 const card = tv({
   base: [
     ...focusVisibleClasses,
-    "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto bg-white rounded-xl box-border",
+    "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto bg-white text-foreground rounded-xl box-border dark:bg-neutral-900 dark:text-foreground-dark",
   ],
   variants: {
     variant: {
       shadow: "drop-shadow-lg",
-      bordered: "border-border-default",
+      bordered: "border-border dark:border-border-dark",
       flat: "bg-neutral-100",
     },
     borderWeight: {
@@ -27,13 +27,27 @@ const card = tv({
       black: "",
     },
     isHoverable: {
-      true: "hover:drop-shadow-lg hover:-translate-y-0.5 transition",
+      true: "hover:drop-shadow-lg",
     },
     isPressable: {
-      true: "cursor-pointer active:scale-95",
+      true: "cursor-pointer",
+    },
+    disableAnimation: {
+      true: "",
+      false: "!transition motion-reduce:transition-none",
     },
   },
   compoundVariants: [
+    {
+      isHoverable: true,
+      disableAnimation: false,
+      class: "hover:-translate-y-0.5",
+    },
+    {
+      isPressable: true,
+      disableAnimation: false,
+      class: "active:scale-95",
+    },
     {
       variant: "bordered",
       borderWeight: "light",
