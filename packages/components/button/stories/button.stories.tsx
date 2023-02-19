@@ -2,7 +2,6 @@ import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {button} from "@nextui-org/theme";
 // import {Loading} from "@nextui-org/loading";
-// import {Lock, Notification, User, Camera, Activity} from "@nextui-org/shared-icons";
 import {Notification, Camera} from "@nextui-org/shared-icons";
 
 import {Button, ButtonProps} from "../src";
