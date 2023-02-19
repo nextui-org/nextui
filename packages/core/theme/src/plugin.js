@@ -151,6 +151,27 @@ module.exports = plugin(
             DEFAULT: colors.pink[500],
           },
         },
+        animation: {
+          "drip-expand": "drip-expand 350ms linear",
+        },
+        keyframes: {
+          "drip-expand": {
+            "0%": {
+              opacity: 0,
+              transform: "scale(0.25)",
+            },
+            "30%": {
+              opacity: 1,
+            },
+            "80%": {
+              opacity: 0.5,
+            },
+            "100%": {
+              transform: "scale(28)",
+              opacity: 0,
+            },
+          },
+        },
       },
     },
   },

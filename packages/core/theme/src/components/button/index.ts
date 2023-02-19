@@ -5,133 +5,76 @@ import {ringClasses} from "../../utils";
 /**
  * Button wrapper **Tailwind Variants** component
  *
- * const {base, icon} = button({...})
+ * const styles = button({...})
  *
  * @example
- * <button className={base())}>
- *   <span className={icon()} aria-hidden="true" focusable="false" >
- *     <svg>your left icon</svg>
- *   </span>
- *    Button text
- *    <span className={icon()} aria-hidden="true" focusable="false" >
- *      <svg>your right icon</svg>
- *    </span>
+ * <button className={styles())}>
+ *   Button
  * </button>
  */
 const button = tv({
-  slots: {
-    base: [
-      "inline-flex",
-      "items-center",
-      "justify-center",
-      "box-border",
-      "apparance-none",
-      "outline-none",
-      "user-select-none",
-      "font-medium",
-    ],
-    icon: "",
-  },
+  base: [
+    "relative",
+    "inline-flex",
+    "items-center",
+    "justify-center",
+    "box-border",
+    "apparance-none",
+    "outline-none",
+    "select-none",
+    "font-medium",
+    "antialiased",
+    "active:scale-95",
+    "overflow-hidden",
+    "gap-2",
+  ],
   variants: {
     variant: {
-      solid: {},
-      bordered: {
-        base: "border-2 !bg-transparent",
-      },
-      light: {
-        base: "!bg-transparent",
-      },
-      flat: {},
-      shadow: {},
-      ghost: {
-        base: "transition-background border-2 !bg-transparent",
-      },
+      solid: "",
+      bordered: "border-2 !bg-transparent",
+      light: "!bg-transparent",
+      flat: "",
+      shadow: "",
+      ghost: "border-2 !bg-transparent",
     },
     size: {
-      xs: {
-        base: "px-2 h-6 text-xs",
-      },
-      sm: {
-        base: "px-3 h-8 text-sm",
-      },
-      md: {
-        base: "px-4 h-10 text-base",
-      },
-      lg: {
-        base: "px-6 h-12 text-md",
-      },
-      xl: {
-        base: "px-8 h-14 text-lg",
-      },
+      xs: "px-2 h-6 text-xs",
+      sm: "px-3 h-8 text-sm",
+      md: "px-4 h-10 text-base",
+      lg: "px-6 h-12 text-md",
+      xl: "px-8 h-14 text-lg",
     },
     color: {
-      neutral: {
-        base: "bg-neutral-300 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100",
-      },
-      primary: {
-        base: "bg-primary text-white",
-      },
-      secondary: {
-        base: "bg-secondary text-white",
-      },
-      success: {
-        base: "bg-success text-success-800",
-      },
-      warning: {
-        base: "bg-warning text-warning-800",
-      },
-      danger: {
-        base: "bg-danger text-white",
-      },
+      neutral: "bg-neutral-300 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100",
+      primary: "bg-primary text-white",
+      secondary: "bg-secondary text-white",
+      success: "bg-success text-success-800",
+      warning: "bg-warning text-warning-800",
+      danger: "bg-danger text-white",
     },
     radius: {
-      none: {
-        base: "rounded-none",
-      },
-      base: {
-        base: "rounded",
-      },
-      sm: {
-        base: "rounded-sm",
-      },
-      md: {
-        base: "rounded-md",
-      },
-      lg: {
-        base: "rounded-lg",
-      },
-      xl: {
-        base: "rounded-xl",
-      },
-      "2xl": {
-        base: "rounded-2xl",
-      },
-      "3xl": {
-        base: "rounded-3xl",
-      },
-      full: {
-        base: "rounded-full",
-      },
+      none: "rounded-none",
+      base: "rounded",
+      sm: "rounded-sm",
+      md: "rounded-md",
+      lg: "rounded-lg",
+      xl: "rounded-xl",
+      "2xl": "rounded-2xl",
+      "3xl": "rounded-3xl",
+      full: "rounded-full",
     },
     fullWidth: {
-      true: {
-        base: "w-full",
-      },
+      true: "w-full",
     },
     isDisabled: {
-      true: {
-        base: "opacity-50 pointer-events-none",
-      },
+      true: "opacity-50 pointer-events-none",
     },
     isFocusVisible: {
-      true: {
-        base: [...ringClasses],
-      },
+      true: [...ringClasses],
     },
     disableAnimation: {
-      true: {
-        base: "!transition-none",
-      },
+      false: "transition-transform",
+      true: "!transition-none",
     },
   },
   defaultVariants: {
@@ -148,221 +91,166 @@ const button = tv({
     {
       variant: "shadow",
       color: "neutral",
-      class: {
-        base: "shadow-lg shadow-neutral/40",
-      },
+      class: "shadow-lg shadow-neutral/40",
     },
     {
       variant: "shadow",
       color: "primary",
-      class: {
-        base: "shadow-lg shadow-primary/40",
-      },
+      class: "shadow-lg shadow-primary/40",
     },
     {
       variant: "shadow",
       color: "secondary",
-      class: {
-        base: "shadow-lg shadow-secondary/40",
-      },
+      class: "shadow-lg shadow-secondary/40",
     },
     {
       variant: "shadow",
       color: "success",
-      class: {
-        base: "shadow-lg shadow-success/40",
-      },
+      class: "shadow-lg shadow-success/40",
     },
     {
       variant: "shadow",
       color: "warning",
-      class: {
-        base: "shadow-lg shadow-warning/40",
-      },
+      class: "shadow-lg shadow-warning/40",
     },
     {
       variant: "shadow",
       color: "danger",
-      class: {
-        base: "shadow-lg shadow-danger/40",
-      },
+      class: "shadow-lg shadow-danger/40",
     },
     // bordered / color
     {
       variant: "bordered",
       color: "neutral",
-      class: {
-        base: "border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-100",
-      },
+      class: "border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-100",
     },
     {
       variant: "bordered",
       color: "primary",
-      class: {
-        base: "border-primary text-primary",
-      },
+      class: "border-primary text-primary",
     },
     {
       variant: "bordered",
       color: "secondary",
-      class: {
-        base: "border-secondary text-secondary",
-      },
+      class: "border-secondary text-secondary",
     },
     {
       variant: "bordered",
       color: "success",
-      class: {
-        base: "border-success text-success",
-      },
+      class: "border-success text-success",
     },
     {
       variant: "bordered",
       color: "warning",
-      class: {
-        base: "border-warning text-warning",
-      },
+      class: "border-warning text-warning",
     },
     {
       variant: "bordered",
       color: "danger",
-      class: {
-        base: "border-danger text-danger",
-      },
+      class: "border-danger text-danger",
     },
     // flat / color
     {
       variant: "flat",
       color: "neutral",
-      class: {
-        base: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-100",
-      },
+      class: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-100",
     },
     {
       variant: "flat",
       color: "primary",
-      class: {
-        base: "bg-primary-50 dark:bg-primary-900 text-primary",
-      },
+      class: "bg-primary-50 dark:bg-primary-900 text-primary",
     },
     {
       variant: "flat",
       color: "secondary",
-      class: {
-        base: "bg-secondary-50 dark:bg-secondary-900 text-secondary dark:text-secondary-400",
-      },
+      class: "bg-secondary-50 dark:bg-secondary-900 text-secondary dark:text-secondary-400",
     },
     {
       variant: "flat",
       color: "success",
-      class: {
-        base: "bg-success-50 dark:bg-success-900 text-success-600 dark:text-success",
-      },
+      class: "bg-success-50 dark:bg-success-900 text-success-600 dark:text-success",
     },
     {
       variant: "flat",
       color: "warning",
-      class: {
-        base: "bg-warning-50 dark:bg-warning-900 text-warning-600 dark:text-warning",
-      },
+      class: "bg-warning-50 dark:bg-warning-900 text-warning-600 dark:text-warning",
     },
     {
       variant: "flat",
       color: "danger",
-      class: {
-        base: "bg-danger-50 dark:bg-danger-900 text-danger dark:text-danger-400",
-      },
+      class: "bg-danger-50 dark:bg-danger-900 text-danger dark:text-danger-400",
     },
     // light / color
     {
       variant: "light",
       color: "neutral",
-      class: {
-        base: "text-neutral-700 dark:text-neutral-100",
-      },
+      class: "text-neutral-700 dark:text-neutral-100",
     },
     {
       variant: "light",
       color: "primary",
-      class: {
-        base: "text-primary",
-      },
+      class: "text-primary",
     },
     {
       variant: "light",
       color: "secondary",
-      class: {
-        base: "text-secondary",
-      },
+      class: "text-secondary",
     },
     {
       variant: "light",
       color: "success",
-      class: {
-        base: "text-success",
-      },
+      class: "text-success",
     },
     {
       variant: "light",
       color: "warning",
-      class: {
-        base: "text-warning",
-      },
+      class: "text-warning",
     },
     {
       variant: "light",
       color: "danger",
-      class: {
-        base: "text-danger",
-      },
+      class: "text-danger",
     },
     // ghost / color
     {
       variant: "ghost",
       color: "neutral",
-      class: {
-        base: "border-neutral-300 dark:border-neutral-700 hover:!bg-neutral-300",
-      },
+      class: "border-neutral-300 dark:border-neutral-700 hover:!bg-neutral-300",
     },
     {
       variant: "ghost",
       color: "primary",
-      class: {
-        base: "border-primary text-primary hover:text-white hover:!bg-primary",
-      },
+      class: "border-primary text-primary hover:text-white hover:!bg-primary",
     },
     {
       variant: "ghost",
       color: "secondary",
-      class: {
-        base: "border-secondary text-secondary hover:text-white hover:!bg-secondary",
-      },
+      class: "border-secondary text-secondary hover:text-white hover:!bg-secondary",
     },
     {
       variant: "ghost",
       color: "success",
-      class: {
-        base: "border-success text-success hover:text-white hover:!bg-success",
-      },
+      class: "border-success text-success hover:text-white hover:!bg-success",
     },
     {
       variant: "ghost",
       color: "warning",
-      class: {
-        base: "border-warning text-warning hover:text-white hover:!bg-warning",
-      },
+      class: "border-warning text-warning hover:text-white hover:!bg-warning",
     },
     {
       variant: "ghost",
       color: "danger",
-      class: {
-        base: "border-danger text-danger hover:text-white hover:!bg-danger",
-      },
+      class: "border-danger text-danger hover:text-white hover:!bg-danger",
+    },
+    // !disabledAnimation / ghost
+    {
+      variant: "ghost",
+      disableAnimation: false,
+      class: "transition-[transform,background]",
     },
   ],
 });
 
 export type ButtonVariantProps = VariantProps<typeof button>;
-export type ButtonSlots = keyof ReturnType<typeof button>;
 
 export {button};

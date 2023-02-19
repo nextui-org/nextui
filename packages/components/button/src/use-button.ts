@@ -1,10 +1,11 @@
-import type {ButtonVariantProps, ButtonSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@react-types/button";
 import type {PressEvent} from "@react-types/shared";
 import type {ReactRef} from "@nextui-org/shared-utils";
 import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {ReactNode} from "react";
 
-import {MouseEventHandler, ReactNode, useCallback} from "react";
+import {MouseEventHandler, useCallback} from "react";
 import {useButton as useAriaButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
@@ -12,6 +13,7 @@ import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {warn, clsx} from "@nextui-org/shared-utils";
 import {button} from "@nextui-org/theme";
+import {isValidElement, cloneElement} from "react";
 
 import {useButtonGroupContext} from "./button-group-context";
 
@@ -31,24 +33,11 @@ export interface UseButtonProps
   /**
    * The button left content.
    */
-  iconLeft?: ReactNode;
+  leftIcon?: ReactNode;
   /**
    * The button right content.
    */
-  iconRight?: ReactNode;
-  /**
-   * Classname or List of classes to change the styles of the avatar.
-   * if `className` is passed, it will be added to the base slot.
-   *
-   * @example
-   * ```ts
-   * <Avatar styles={{
-   *    base:"base-classes",
-   *    icon: "image-classes",
-   * }} />
-   * ```
-   */
-  styles?: SlotsToClasses<ButtonSlots>;
+  rightIcon?: ReactNode;
   /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
@@ -63,11 +52,10 @@ export function useButton(props: UseButtonProps) {
     ref,
     as,
     children,
-    iconLeft,
-    iconRight,
+    leftIcon: leftIconProp,
+    rightIcon: rightIconProp,
     autoFocus,
     className,
-    styles,
     fullWidth = groupContext?.fullWidth ?? false,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "neutral",
@@ -89,16 +77,11 @@ export function useButton(props: UseButtonProps) {
 
   const domRef = useDOMRef(ref);
 
-  const hasIcon = iconLeft || iconRight;
-  const isRightIcon = Boolean(iconRight);
-
   const {isFocusVisible, focusProps} = useFocusRing({
     autoFocus,
   });
 
-  const baseStyles = clsx(styles?.base, className);
-
-  const slots = button({
+  const styles = button({
     size,
     color,
     variant,
@@ -107,6 +90,7 @@ export function useButton(props: UseButtonProps) {
     isDisabled,
     isFocusVisible,
     disableAnimation,
+    className,
   });
 
   const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, domRef);
@@ -147,18 +131,30 @@ export function useButton(props: UseButtonProps) {
     [buttonAriaProps, focusProps, otherProps],
   );
 
+  const getIconClone = (icon: ReactNode) =>
+    isValidElement(icon)
+      ? cloneElement(icon, {
+          "aria-hidden": true,
+          focusable: false,
+          tabIndex: -1,
+          width: "70%",
+          height: "70%",
+          className: clsx("fill-current max-w-[24px]", icon.props.className),
+        })
+      : null;
+
+  const leftIcon = getIconClone(leftIconProp);
+  const rightIcon = getIconClone(rightIconProp);
+
   return {
     Component,
     children,
     domRef,
-    slots,
     styles,
-    baseStyles,
-    hasIcon,
-    iconLeft,
-    iconRight,
-    isRightIcon,
+    leftIcon,
+    rightIcon,
     dripBindings,
+    disableRipple,
     getButtonProps,
   };
 }

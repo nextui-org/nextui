@@ -48,8 +48,8 @@ WithText.args = {
   color: "danger",
 };
 
-export const isDisabled = Template.bind({});
-isDisabled.args = {
+export const IsDisabled = Template.bind({});
+IsDisabled.args = {
   ...defaultProps,
   src: "https://i.pravatar.cc/300?u=a042581f4e29026709d",
   color: "secondary",
