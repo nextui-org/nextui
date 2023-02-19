@@ -13,7 +13,6 @@ export interface UseAvatarGroupProps extends HTMLNextUIProps<"div"> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
-  children?: ReactNode;
   /**
    * The size of the avatars
    */
