@@ -5,7 +5,7 @@ import {useMemo} from "react";
 import {AvatarIcon} from "./avatar-icon";
 import {useAvatar, UseAvatarProps} from "./use-avatar";
 
-export interface AvatarProps extends UseAvatarProps {}
+export interface AvatarProps extends Omit<UseAvatarProps, "ref"> {}
 
 const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   const {

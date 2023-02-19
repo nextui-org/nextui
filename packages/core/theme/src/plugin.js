@@ -118,9 +118,9 @@ module.exports = plugin(
             ...colors.yellow,
             light: colors.yellow[400],
             DEFAULT: colors.yellow[500],
-            dark: colors.yellow[700],
+            dark: colors.yellow[500],
           },
-          error: {
+          danger: {
             ...colors.red,
             light: colors.red[200],
             DEFAULT: colors.red[500],

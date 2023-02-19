@@ -39,8 +39,8 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/drip": "workspace:*",
     "@react-aria/button": "^3.6.2",
     "@react-aria/interactions": "^3.12.0",

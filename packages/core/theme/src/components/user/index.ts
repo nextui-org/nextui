@@ -3,7 +3,7 @@ import {tv, VariantProps} from "tailwind-variants";
 import {ringClasses} from "../../utils";
 
 /**
- * User wrapper tv component
+ * User wrapper **Tailwind Variants** component
  *
  * const {base, wrapper, name, description} = user({...})
  *

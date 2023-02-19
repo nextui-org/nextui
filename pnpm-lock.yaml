@@ -384,10 +384,10 @@ importers:
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/drip': workspace:*
       '@nextui-org/loading': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
       '@react-aria/button': ^3.6.2
       '@react-aria/focus': ^3.9.0
       '@react-aria/interactions': ^3.12.0
@@ -399,9 +399,9 @@ importers:
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
       '@nextui-org/drip': link:../drip
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
       '@react-aria/button': 3.6.4_react@17.0.2
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/interactions': 3.13.1_react@17.0.2
@@ -911,17 +911,6 @@ importers:
     specifiers:
       clean-package: 2.1.1
       react: ^17.0.2
-    devDependencies:
-      clean-package: 2.1.1
-      react: 17.0.2
-
-  packages/hooks/use-tv:
-    specifiers:
-      '@nextui-org/system': workspace:*
-      clean-package: 2.1.1
-      react: ^17.0.2
-    dependencies:
-      '@nextui-org/system': link:../../core/system
     devDependencies:
       clean-package: 2.1.1
       react: 17.0.2

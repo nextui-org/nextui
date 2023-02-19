@@ -5,7 +5,7 @@ import {__DEV__} from "@nextui-org/shared-utils";
 import {UseLinkProps, useLink} from "./use-link";
 import {LinkIcon} from "./link-icon";
 
-export interface LinkProps extends UseLinkProps {}
+export interface LinkProps extends Omit<UseLinkProps, "ref"> {}
 
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {

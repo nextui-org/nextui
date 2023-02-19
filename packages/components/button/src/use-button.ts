@@ -1,107 +1,54 @@
+import type {ButtonVariantProps, ButtonSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@react-types/button";
 import type {PressEvent} from "@react-types/shared";
-import type {ReactRef, NormalColors, NormalSizes, NormalWeights} from "@nextui-org/shared-utils";
-import type {HTMLNextUIProps, CSS} from "@nextui-org/system";
+import type {ReactRef} from "@nextui-org/shared-utils";
+import type {HTMLNextUIProps} from "@nextui-org/system";
 
-import {MouseEventHandler, ReactNode, useCallback, useMemo, Children} from "react";
+import {MouseEventHandler, ReactNode, useCallback} from "react";
 import {useButton as useAriaButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
-import {useHover} from "@react-aria/interactions";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {__DEV__, warn} from "@nextui-org/shared-utils";
+import {warn, clsx} from "@nextui-org/shared-utils";
+import {button} from "@nextui-org/theme";
 
-import {getColors} from "./button-utils";
 import {useButtonGroupContext} from "./button-group-context";
 
-export interface UseButtonProps extends HTMLNextUIProps<"button", AriaButtonProps> {
+export interface UseButtonProps
+  extends HTMLNextUIProps<"button", Omit<AriaButtonProps, keyof ButtonVariantProps>>,
+    Omit<ButtonVariantProps, "isFocusVisible"> {
   /**
    * the button ref.
    */
   ref?: ReactRef<HTMLButtonElement | null>;
   /**
-   * The button color.
-   * @default "default"
-   */
-  color?: NormalColors;
-  /**
-   * The button size.
-   * @default "md"
-   */
-  size?: NormalSizes;
-  /**
-   * The border weight of the border button.
-   * @default "normal"
-   */
-  borderWeight?: NormalWeights;
-  /**
-   * Whether the button should autoscale its width to fit its content.
-   * @default false
-   */
-  auto?: boolean;
-  /**
-   * Whether the button is disabled.
-   * @default false
-   */
-  disabled?: boolean;
-  /**
-   * Whether the button should be rounded.
-   * @default false
-   */
-  bordered?: boolean;
-  /**
-   * Whether the button should be light.
-   * @default false
-   */
-  light?: boolean;
-  /**
-   * Whether the button should be flat.
-   * @default false
-   */
-  flat?: boolean;
-  /**
-   * Whether the button should display a shadow.
-   * @default false
-   */
-  shadow?: boolean;
-  /**
-   * Whether the button should be rounded.
-   * @default false
-   */
-  rounded?: boolean;
-  /**
-   * Whether the button should have a ghost look.
-   * @default false
-   */
-  ghost?: boolean;
-  /**
-   * Whether the button have animations.
-   * @default true
-   */
-  animated?: boolean;
-  /**
    * Whether the button should display a ripple effect on press.
-   * @default true
+   * @default false
    */
-  ripple?: boolean;
+  disableRipple?: boolean;
 
   /**
    * The button left content.
    */
-  icon?: ReactNode;
+  iconLeft?: ReactNode;
   /**
    * The button right content.
    */
   iconRight?: ReactNode;
   /**
-   * The button left content css object.
+   * Classname or List of classes to change the styles of the avatar.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Avatar styles={{
+   *    base:"base-classes",
+   *    icon: "image-classes",
+   * }} />
+   * ```
    */
-  iconLeftCss?: CSS;
-  /**
-   * The button right content css object.
-   */
-  iconRightCss?: CSS;
+  styles?: SlotsToClasses<ButtonSlots>;
   /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
@@ -115,27 +62,20 @@ export function useButton(props: UseButtonProps) {
   const {
     ref,
     as,
-    css,
     children,
-    iconLeftCss,
-    iconRightCss,
-    autoFocus,
-    icon,
+    iconLeft,
     iconRight,
+    autoFocus,
     className,
-    auto = groupContext?.auto ?? false,
+    styles,
+    fullWidth = groupContext?.fullWidth ?? false,
     size = groupContext?.size ?? "md",
-    color = groupContext?.color ?? "default",
-    shadow = groupContext?.shadow ?? false,
-    flat = groupContext?.flat ?? false,
-    ghost = groupContext?.ghost ?? false,
-    light = groupContext?.light ?? false,
-    bordered = groupContext?.bordered ?? false,
-    borderWeight = groupContext?.borderWeight ?? "normal",
-    animated = groupContext?.animated ?? true,
-    rounded = groupContext?.rounded ?? false,
-    ripple = groupContext?.ripple ?? true,
-    disabled = groupContext?.disabled ?? false,
+    color = groupContext?.color ?? "neutral",
+    variant = groupContext?.variant ?? "solid",
+    disableAnimation = groupContext?.disableAnimation ?? false,
+    radius = groupContext?.radius ?? "lg",
+    disableRipple = groupContext?.disableRipple ?? false,
+    isDisabled = groupContext?.isDisabled ?? false,
     onClick: deprecatedOnClick,
     onPress,
     onPressStart,
@@ -145,44 +85,35 @@ export function useButton(props: UseButtonProps) {
     ...otherProps
   } = props;
 
-  const buttonRef = useDOMRef(ref);
+  const Component = as || "button";
 
-  const hasIcon = icon || iconRight;
-  const isChildLess = Children.count(children) === 0;
+  const domRef = useDOMRef(ref);
+
+  const hasIcon = iconLeft || iconRight;
   const isRightIcon = Boolean(iconRight);
-  const isGradientButtonBorder = useMemo(
-    () => color === "gradient" && (bordered || ghost),
-    [color, bordered, ghost],
-  );
 
-  /* eslint-enable @typescript-eslint/no-unused-vars */
-  if (__DEV__ && color === "gradient" && (flat || light)) {
-    warn("Using the gradient color on flat and light buttons will have no effect.", "Button");
-  }
+  const {isFocusVisible, focusProps} = useFocusRing({
+    autoFocus,
+  });
 
-  const buttonProps = {
-    auto,
+  const baseStyles = clsx(styles?.base, className);
+
+  const slots = button({
     size,
     color,
-    shadow,
-    flat,
-    ghost,
-    light,
-    bordered,
-    borderWeight,
-    animated,
-    rounded,
-    disabled,
-  };
+    variant,
+    radius,
+    fullWidth,
+    isDisabled,
+    isFocusVisible,
+    disableAnimation,
+  });
 
-  const cssColors = getColors(buttonProps) as CSS;
-
-  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, buttonRef);
+  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, domRef);
 
   const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent | Event) => {
-    if (animated && ripple && buttonRef.current) {
-      onDripClickHandler(e);
-    }
+    if (disableRipple || isDisabled || disableAnimation) return;
+    domRef.current && onDripClickHandler(e);
   };
 
   const handlePress = (e: PressEvent) => {
@@ -198,7 +129,7 @@ export function useButton(props: UseButtonProps) {
     onPress?.(e);
   };
 
-  const {buttonProps: buttonAriaProps, isPressed} = useAriaButton(
+  const {buttonProps: buttonAriaProps} = useAriaButton(
     {
       ...otherProps,
       elementType: as,
@@ -208,67 +139,26 @@ export function useButton(props: UseButtonProps) {
       onPressChange,
       onPressUp,
     } as AriaButtonProps,
-    buttonRef,
+    domRef,
   );
 
-  const {hoverProps, isHovered} = useHover({isDisabled: disabled});
-
-  const {isFocused, isFocusVisible, focusProps} = useFocusRing({
-    autoFocus,
-  });
-
-  const getButtonProps = useCallback(() => {
-    return mergeProps(buttonAriaProps, hoverProps, focusProps, otherProps, {
-      ...buttonProps,
-      bordered: buttonProps.bordered || buttonProps.ghost,
-      isFocusVisible: isFocusVisible && !buttonProps.disabled,
-      isHovered: isHovered || (buttonProps.ghost && isFocused),
-      isChildLess,
-      isPressed,
-    });
-  }, [
-    buttonProps,
-    buttonAriaProps,
-    hoverProps,
-    focusProps,
-    isFocusVisible,
-    isHovered,
-    isFocused,
-    isPressed,
-    isChildLess,
-    otherProps,
-  ]);
-
-  const state = useMemo(() => {
-    if (isPressed) return "pressed";
-    if (isHovered) return "hovered";
-
-    return disabled ? "disabled" : "ready";
-  }, [disabled, isHovered, isPressed]);
-
-  const getIconCss = useMemo<CSS | undefined>(() => {
-    if (isRightIcon) return iconRightCss;
-
-    return iconLeftCss;
-  }, [isRightIcon, iconRightCss, iconLeftCss]);
+  const getButtonProps = useCallback(
+    () => mergeProps(buttonAriaProps, focusProps, otherProps),
+    [buttonAriaProps, focusProps, otherProps],
+  );
 
   return {
-    as,
-    css,
-    state,
-    icon,
+    Component,
     children,
-    buttonRef,
-    className,
-    cssColors,
+    domRef,
+    slots,
+    styles,
+    baseStyles,
     hasIcon,
+    iconLeft,
     iconRight,
-    isFocused,
     isRightIcon,
-    isFocusVisible,
-    isGradientButtonBorder,
     dripBindings,
-    getIconCss,
     getButtonProps,
   };
 }

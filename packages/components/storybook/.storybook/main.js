@@ -3,6 +3,7 @@ module.exports = {
     "../../link/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../avatar/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../user/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../button/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [
