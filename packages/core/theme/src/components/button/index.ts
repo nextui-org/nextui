@@ -26,7 +26,7 @@ const button = tv({
     "antialiased",
     "active:scale-95",
     "overflow-hidden",
-    "gap-2",
+    "gap-3",
   ],
   variants: {
     variant: {

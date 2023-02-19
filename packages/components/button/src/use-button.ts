@@ -13,7 +13,7 @@ import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {warn, clsx} from "@nextui-org/shared-utils";
 import {button} from "@nextui-org/theme";
-import {isValidElement, cloneElement} from "react";
+import {isValidElement, cloneElement, useMemo} from "react";
 
 import {useButtonGroupContext} from "./button-group-context";
 
@@ -81,17 +81,31 @@ export function useButton(props: UseButtonProps) {
     autoFocus,
   });
 
-  const styles = button({
-    size,
-    color,
-    variant,
-    radius,
-    fullWidth,
-    isDisabled,
-    isFocusVisible,
-    disableAnimation,
-    className,
-  });
+  const styles = useMemo(
+    () =>
+      button({
+        size,
+        color,
+        variant,
+        radius,
+        fullWidth,
+        isDisabled,
+        isFocusVisible,
+        disableAnimation,
+        className,
+      }),
+    [
+      size,
+      color,
+      variant,
+      radius,
+      fullWidth,
+      isDisabled,
+      isFocusVisible,
+      disableAnimation,
+      className,
+    ],
+  );
 
   const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, domRef);
 

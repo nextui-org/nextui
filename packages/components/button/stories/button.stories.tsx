@@ -1,8 +1,8 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {button} from "@nextui-org/theme";
-// import {Loading} from "@nextui-org/loading";
 import {Notification, Camera} from "@nextui-org/shared-icons";
+import {Spinner} from "@nextui-org/spinner";
 
 import {Button, ButtonProps} from "../src";
 
@@ -70,6 +70,12 @@ IsDisabled.args = {
   isDisabled: true,
 };
 
+export const DisableRipple = Template.bind({});
+DisableRipple.args = {
+  ...defaultProps,
+  disableRipple: true,
+};
+
 export const WithIcons = Template.bind({});
 WithIcons.args = {
   ...defaultProps,
@@ -77,32 +83,15 @@ WithIcons.args = {
   rightIcon: <Camera />,
 };
 
-// export const Loadings = () => (
-//   <Grid.Container gap={2}>
-//     <Grid>
-//       <Button auto disabled color="primary" css={{px: "$13"}}>
-//         <Loading color="currentColor" size="sm" />
-//       </Button>
-//     </Grid>
-//     <Grid>
-//       <Button auto disabled color="secondary" css={{px: "$13"}}>
-//         <Loading color="currentColor" size="sm" type="spinner" />
-//       </Button>
-//     </Grid>
-//     <Grid>
-//       <Button auto disabled color="success" css={{px: "$13"}}>
-//         <Loading color="currentColor" size="sm" type="points" />
-//       </Button>
-//     </Grid>
-//     <Grid>
-//       <Button auto disabled color="warning" css={{px: "$13"}}>
-//         <Loading color="currentColor" size="sm" type="points-opacity" />
-//       </Button>
-//     </Grid>
-//     <Grid>
-//       <Button auto disabled color="error" css={{px: "$13"}}>
-//         <Loading color="currentColor" size="sm" type="spinner" />
-//       </Button>
-//     </Grid>
-//   </Grid.Container>
-// );
+export const IsLoading = Template.bind({});
+IsLoading.args = {
+  ...defaultProps,
+  color: "primary",
+  isDisabled: true,
+  children: (
+    <>
+      <Spinner color="white" size="sm" />
+      Button
+    </>
+  ),
+};

@@ -1,11 +1,11 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 
-import {Loading} from "../src";
+import {Spinner} from "../src";
 
-describe("Loading", () => {
+describe("Spinner", () => {
   it("should render correctly", () => {
-    const wrapper = render(<Loading />);
+    const wrapper = render(<Spinner />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -13,36 +13,30 @@ describe("Loading", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLDivElement>();
 
-    render(<Loading ref={ref} />);
+    render(<Spinner ref={ref} />);
     expect(ref.current).not.toBeNull();
   });
 
   it("should render with default aria-label", () => {
-    const {getByLabelText} = render(<Loading />);
+    const {getByLabelText} = render(<Spinner />);
 
     expect(getByLabelText("Loading")).toBeInTheDocument();
   });
 
-  it("should render with default aria-label for spinner", () => {
-    const {getByLabelText} = render(<Loading type="spinner" />);
+  it("should replace the default aria-label when a label is passed", () => {
+    const {getByLabelText} = render(<Spinner label="Custom label" />);
 
-    expect(getByLabelText("Loading")).toBeInTheDocument();
-  });
-
-  it("should work with text in spinner type", () => {
-    const {getByText} = render(<Loading type="spinner">Loading</Loading>);
-
-    expect(getByText("Loading")).toBeInTheDocument();
+    expect(getByLabelText("Custom label")).toBeInTheDocument();
   });
 
   it("should replace the default aria-label when a children is passed", () => {
-    const {getByLabelText} = render(<Loading>Custom label</Loading>);
+    const {getByLabelText} = render(<Spinner>Custom label</Spinner>);
 
     expect(getByLabelText("Custom label")).toBeInTheDocument();
   });
 
   it("should replace the default aria-label if aria-label is passed", () => {
-    const {getByLabelText} = render(<Loading aria-label="Custom label" />);
+    const {getByLabelText} = render(<Spinner aria-label="Custom label" />);
 
     expect(getByLabelText("Custom label")).toBeInTheDocument();
   });

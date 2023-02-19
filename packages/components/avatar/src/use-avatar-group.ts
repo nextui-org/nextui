@@ -4,7 +4,7 @@ import {avatarGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx, getValidChildren, compact} from "@nextui-org/shared-utils";
-import {cloneElement} from "react";
+import {cloneElement, useMemo} from "react";
 
 import {AvatarProps} from "./index";
 
@@ -91,7 +91,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     isDisabled,
   };
 
-  const styles = avatarGroup({className, isGrid});
+  const styles = useMemo(() => avatarGroup({className, isGrid}), [className, isGrid]);
 
   const validChildren = getValidChildren(children);
   const childrenWithinMax = max ? validChildren.slice(0, max) : validChildren;

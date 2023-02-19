@@ -383,9 +383,9 @@ importers:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/drip': workspace:*
-      '@nextui-org/loading': workspace:*
       '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/spinner': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
       '@react-aria/button': ^3.6.2
@@ -400,6 +400,7 @@ importers:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
       '@nextui-org/drip': link:../drip
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/spinner': link:../spinner
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
       '@react-aria/button': 3.6.4_react@17.0.2
@@ -407,7 +408,6 @@ importers:
       '@react-aria/interactions': 3.13.1_react@17.0.2
       '@react-aria/utils': 3.14.2_react@17.0.2
     devDependencies:
-      '@nextui-org/loading': link:../loading
       '@nextui-org/shared-icons': link:../../utilities/shared-icons
       '@react-types/button': 3.7.0_react@17.0.2
       '@react-types/shared': 3.16.0_react@17.0.2
@@ -593,21 +593,6 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
-  packages/components/loading:
-    specifiers:
-      '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/shared-utils': workspace:*
-      '@nextui-org/system': workspace:*
-      clean-package: 2.1.1
-      react: ^17.0.2
-    dependencies:
-      '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/shared-utils': link:../../utilities/shared-utils
-      '@nextui-org/system': link:../../core/system
-    devDependencies:
-      clean-package: 2.1.1
-      react: 17.0.2
-
   packages/components/pagination:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
@@ -677,6 +662,23 @@ importers:
       '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/components/spinner:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
     devDependencies:
       clean-package: 2.1.1
       react: 17.0.2
@@ -770,10 +772,10 @@ importers:
       '@nextui-org/drip': workspace:*
       '@nextui-org/image': workspace:*
       '@nextui-org/link': workspace:*
-      '@nextui-org/loading': workspace:*
       '@nextui-org/pagination': workspace:*
       '@nextui-org/radio': workspace:*
       '@nextui-org/snippet': workspace:*
+      '@nextui-org/spinner': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
       '@nextui-org/user': workspace:*
@@ -790,10 +792,10 @@ importers:
       '@nextui-org/drip': link:../../components/drip
       '@nextui-org/image': link:../../components/image
       '@nextui-org/link': link:../../components/link
-      '@nextui-org/loading': link:../../components/loading
       '@nextui-org/pagination': link:../../components/pagination
       '@nextui-org/radio': link:../../components/radio
       '@nextui-org/snippet': link:../../components/snippet
+      '@nextui-org/spinner': link:../../components/spinner
       '@nextui-org/system': link:../system
       '@nextui-org/theme': link:../theme
       '@nextui-org/user': link:../../components/user
@@ -5340,7 +5342,7 @@ packages:
       '@babel/runtime': 7.20.13
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/interactions': 3.12.0_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-stately/toggle': 3.4.2_react@17.0.2
       '@react-types/button': 3.7.0_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
@@ -5370,7 +5372,7 @@ packages:
       '@babel/runtime': 7.20.13
       '@react-aria/label': 3.4.2_react@17.0.2
       '@react-aria/toggle': 3.4.2_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-stately/checkbox': 3.3.0_react@17.0.2
       '@react-stately/toggle': 3.4.2_react@17.0.2
       '@react-types/checkbox': 3.4.0_react@17.0.2
@@ -5402,7 +5404,7 @@ packages:
       '@babel/runtime': 7.20.13
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/overlays': 3.11.0_sfoxds7t5ydpegc3knd667wn6m
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-stately/overlays': 3.4.2_react@17.0.2
       '@react-types/dialog': 3.4.5_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
@@ -5431,7 +5433,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.13
       '@react-aria/interactions': 3.12.0_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
       clsx: 1.2.1
       react: 17.0.2
@@ -5471,7 +5473,7 @@ packages:
       '@internationalized/number': 3.1.2
       '@internationalized/string': 3.0.1
       '@react-aria/ssr': 3.3.0_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
       react: 17.0.2
     dev: false
@@ -5498,7 +5500,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.20.13
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
       react: 17.0.2
     dev: false
@@ -5519,7 +5521,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.20.13
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-types/label': 3.7.1_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
       react: 17.0.2
@@ -5545,7 +5547,7 @@ packages:
       '@babel/runtime': 7.20.13
       '@react-aria/focus': 3.10.1_react@17.0.2
       '@react-aria/interactions': 3.12.0_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-types/link': 3.3.6_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
       react: 17.0.2
@@ -5582,7 +5584,7 @@ packages:
       '@react-aria/interactions': 3.12.0_react@17.0.2
       '@react-aria/overlays': 3.11.0_sfoxds7t5ydpegc3knd667wn6m
       '@react-aria/selection': 3.12.1_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-stately/collections': 3.4.4_react@17.0.2
       '@react-stately/menu': 3.4.2_react@17.0.2
       '@react-stately/tree': 3.3.4_react@17.0.2
@@ -5604,7 +5606,7 @@ packages:
       '@react-aria/i18n': 3.6.1_react@17.0.2
       '@react-aria/interactions': 3.12.0_react@17.0.2
       '@react-aria/ssr': 3.3.0_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-aria/visually-hidden': 3.5.0_react@17.0.2
       '@react-stately/overlays': 3.4.2_react@17.0.2
       '@react-types/button': 3.7.0_react@17.0.2
@@ -5644,7 +5646,7 @@ packages:
       '@react-aria/i18n': 3.6.1_react@17.0.2
       '@react-aria/interactions': 3.12.0_react@17.0.2
       '@react-aria/label': 3.4.2_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-stately/radio': 3.6.0_react@17.0.2
       '@react-types/radio': 3.3.1_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
@@ -5714,7 +5716,7 @@ packages:
       '@react-aria/interactions': 3.12.0_react@17.0.2
       '@react-aria/live-announcer': 3.1.2
       '@react-aria/selection': 3.12.1_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-stately/table': 3.5.0_react@17.0.2
       '@react-stately/virtualizer': 3.4.1_react@17.0.2
       '@react-types/checkbox': 3.4.0_react@17.0.2
@@ -5773,7 +5775,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.13
       '@react-aria/interactions': 3.12.0_react@17.0.2
-      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
       clsx: 1.2.1
       react: 17.0.2

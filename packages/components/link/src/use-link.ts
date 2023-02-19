@@ -6,6 +6,7 @@ import {useLink as useAriaLink} from "@react-aria/link";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
+import {useMemo} from "react";
 
 interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
   /**
@@ -51,10 +52,14 @@ export function useLink(originalProps: UseLinkProps) {
     otherProps.role = "link";
   }
 
-  const styles = link({
-    ...variantProps,
-    className,
-  });
+  const styles = useMemo(
+    () =>
+      link({
+        ...variantProps,
+        className,
+      }),
+    [variantProps, className],
+  );
 
   return {Component, as, styles, domRef, linkProps, showAnchorIcon, ...otherProps};
 }
