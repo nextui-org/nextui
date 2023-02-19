@@ -25,6 +25,4 @@ if (__DEV__) {
   ButtonGroup.displayName = "NextUI.ButtonGroup";
 }
 
-ButtonGroup.toString = () => ".nextui-button-group";
-
 export default ButtonGroup;
