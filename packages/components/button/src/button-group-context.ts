@@ -1,8 +1,8 @@
 import {createContext} from "@nextui-org/shared-utils";
 
-import {UseButtonProps} from "./use-button";
+import {ContextType} from "./use-button-group";
 
-export const [ButtonGroupProvider, useButtonGroupContext] = createContext<UseButtonProps>({
+export const [ButtonGroupProvider, useButtonGroupContext] = createContext<ContextType>({
   name: "ButtonGroupContext",
   strict: false,
 });

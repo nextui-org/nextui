@@ -2,14 +2,14 @@ import React from "react";
 import {render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import {Button} from "../src";
+import {ButtonGroup, Button} from "../src";
 
 describe("ButtonGroup", () => {
   it("should render correctly", () => {
     const wrapper = render(
-      <Button.Group>
+      <ButtonGroup>
         <Button>action</Button>
-      </Button.Group>,
+      </ButtonGroup>,
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
@@ -18,18 +18,18 @@ describe("ButtonGroup", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLDivElement>();
 
-    render(<Button.Group ref={ref} />);
+    render(<ButtonGroup ref={ref} />);
     expect(ref.current).not.toBeNull();
   });
 
   it("should ignore events when group disabled", () => {
     const handler = jest.fn();
     const wrapper = render(
-      <Button.Group disabled>
+      <ButtonGroup isDisabled={true}>
         <Button data-testid="button-test" onClick={handler}>
           action
         </Button>
-      </Button.Group>,
+      </ButtonGroup>,
     );
 
     let button = wrapper.getByTestId("button-test");
@@ -38,36 +38,20 @@ describe("ButtonGroup", () => {
     expect(handler).toBeCalledTimes(0);
   });
 
-  it("buttons should be displayed vertically", () => {
-    const wrapper = render(
-      <Button.Group vertical>
-        <Button>action1</Button>
-        <Button>action2</Button>
-      </Button.Group>,
-    );
-
-    expect(() => wrapper.unmount()).not.toThrow();
-  });
-
   it("should render different variants", () => {
     const wrapper = render(
-      <Button.Group>
-        <Button flat>button</Button>
-        <Button light color="warning">
+      <ButtonGroup>
+        <Button variant="flat">button</Button>
+        <Button color="warning" variant="light">
           light
         </Button>
-        <Button flat color="success">
+        <Button color="success" variant="light">
           button
         </Button>
-        <Button flat color="warning">
+        <Button color="warning" variant="bordered">
           button
         </Button>
-        <Button rounded>button</Button>
-        <Button flat>button</Button>
-        <Button shadow>button</Button>
-        <Button auto>button</Button>
-        <Button animated={false}>button</Button>
-      </Button.Group>,
+      </ButtonGroup>,
     );
 
     expect(() => wrapper.unmount()).not.toThrow();

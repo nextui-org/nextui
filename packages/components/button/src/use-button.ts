@@ -19,9 +19,9 @@ import {useButtonGroupContext} from "./button-group-context";
 
 export interface UseButtonProps
   extends HTMLNextUIProps<"button", Omit<AriaButtonProps, keyof ButtonVariantProps>>,
-    Omit<ButtonVariantProps, "isFocusVisible"> {
+    Omit<ButtonVariantProps, "isFocusVisible" | "isInGroup" | "isInVerticalGroup"> {
   /**
-   * the button ref.
+   * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLButtonElement | null>;
   /**
@@ -47,6 +47,7 @@ export interface UseButtonProps
 
 export function useButton(props: UseButtonProps) {
   const groupContext = useButtonGroupContext();
+  const isInGroup = !!groupContext;
 
   const {
     ref,
@@ -90,6 +91,7 @@ export function useButton(props: UseButtonProps) {
         radius,
         fullWidth,
         isDisabled,
+        isInGroup,
         isFocusVisible,
         disableAnimation,
         className,
@@ -101,6 +103,7 @@ export function useButton(props: UseButtonProps) {
       radius,
       fullWidth,
       isDisabled,
+      isInGroup,
       isFocusVisible,
       disableAnimation,
       className,
@@ -115,6 +118,8 @@ export function useButton(props: UseButtonProps) {
   };
 
   const handlePress = (e: PressEvent) => {
+    if (isDisabled) return;
+
     if (e.pointerType === "keyboard" || e.pointerType === "virtual") {
       handleDrip(e);
     } else if (typeof window !== "undefined" && window.event) {

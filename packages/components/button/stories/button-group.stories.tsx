@@ -1,133 +1,69 @@
-// import React from "react";
-// import {Meta} from "@storybook/react";
-// import {Grid} from "@nextui-org/grid";
+import React from "react";
+import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {button, buttonGroup} from "@nextui-org/theme";
 
-// import {Button} from "../src";
+import {Button, ButtonGroup, ButtonGroupProps} from "../src";
 
-// export default {
-//   title: "General/ButtonGroup",
-//   component: Button,
-//   decorators: [
-//     (Story) => (
-//       <Grid.Container direction="column" gap={2} justify="center">
-//         <Story />
-//       </Grid.Container>
-//     ),
-//   ],
-// } as Meta;
+export default {
+  title: "General/ButtonGroup",
+  component: ButtonGroup,
+  argTypes: {
+    variant: {
+      control: {
+        type: "select",
+        options: ["solid", "bordered", "light", "flat", "shadow", "ghost"],
+      },
+    },
+    color: {
+      control: {
+        type: "select",
+        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+      },
+    },
+    radius: {
+      control: {
+        type: "select",
+        options: ["none", "base", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["xs", "sm", "md", "lg", "xl"],
+      },
+    },
+    fullWidth: {
+      control: {
+        type: "boolean",
+      },
+    },
+    isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
+  },
+} as ComponentMeta<typeof ButtonGroup>;
 
-// export const Default = () => (
-//   <Button.Group>
-//     <Button>One</Button>
-//     <Button>Two</Button>
-//     <Button>Three</Button>
-//   </Button.Group>
-// );
+const defaultProps = {
+  ...button.defaultVariants,
+  ...buttonGroup.defaultVariants,
+};
 
-// export const Loading = () => (
-//   <Button.Group>
-//     <Button>One</Button>
-//     <Button>Two</Button>
-//     <Button>Three</Button>
-//   </Button.Group>
-// );
+const Template: ComponentStory<typeof ButtonGroup> = (args: ButtonGroupProps) => (
+  <ButtonGroup {...args}>
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </ButtonGroup>
+);
 
-// export const Variants = () => (
-//   <>
-//     <Button.Group color="success">
-//       <Button>One</Button>
-//       <Button disabled>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group color="gradient">
-//       <Button>One</Button>
-//       <Button disabled>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group color="error">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button disabled>Three</Button>
-//     </Button.Group>
-//     <Button.Group bordered color="primary">
-//       <Button disabled>Action1</Button>
-//       <Button>Action2</Button>
-//       <Button>Action3</Button>
-//     </Button.Group>
-//     <Button.Group bordered color="gradient">
-//       <Button disabled>Action1</Button>
-//       <Button>Action2</Button>
-//       <Button>Action3</Button>
-//     </Button.Group>
-//     <Button.Group flat color="warning">
-//       <Button>Action1</Button>
-//       <Button disabled>Action2</Button>
-//       <Button>Action2</Button>
-//     </Button.Group>
-//     <Button.Group color="secondary" size="sm">
-//       <Button disabled>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group light color="secondary">
-//       <Button>One</Button>
-//       <Button disabled>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group ghost color="gradient">
-//       <Button>One</Button>
-//       <Button disabled>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//   </>
-// );
-
-// export const Sizes = () => (
-//   <>
-//     <Button.Group size="xs">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//     </Button.Group>
-//     <Button.Group size="sm">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group size="md">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group size="lg">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//     <Button.Group size="xl">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//   </>
-// );
-
-// export const Vertical = () => (
-//   <>
-//     <Button.Group vertical size="sm">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//       <Button>Four</Button>
-//     </Button.Group>
-//   </>
-// );
-
-// export const Disabled = () => (
-//   <>
-//     <Button.Group disabled size="sm">
-//       <Button>One</Button>
-//       <Button>Two</Button>
-//       <Button>Three</Button>
-//     </Button.Group>
-//   </>
-// );
+export const Default = Template.bind({});
+Default.args = {
+  ...defaultProps,
+};

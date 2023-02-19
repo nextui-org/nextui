@@ -72,6 +72,9 @@ const button = tv({
     isFocusVisible: {
       true: [...ringClasses],
     },
+    isInGroup: {
+      true: "[&:not(:first-child):not(:last-child)]:rounded-none",
+    },
     disableAnimation: {
       false: "transition-transform",
       true: "!transition-none",
@@ -84,6 +87,7 @@ const button = tv({
     radius: "xl",
     fullWidth: false,
     isDisabled: false,
+    isInGroup: false,
     disableAnimation: false,
   },
   compoundVariants: [
@@ -247,6 +251,53 @@ const button = tv({
       variant: "ghost",
       disableAnimation: false,
       class: "transition-[transform,background]",
+    },
+    // isInGroup / radius
+    {
+      isInGroup: true,
+      radius: "base",
+      class: "rounded-none  first:rounded-l last:rounded-r",
+    },
+    {
+      isInGroup: true,
+      radius: "sm",
+      class: "rounded-none  first:rounded-l-sm last:rounded-r-sm",
+    },
+    {
+      isInGroup: true,
+      radius: "md",
+      class: "rounded-none  first:rounded-l-md last:rounded-r-md",
+    },
+    {
+      isInGroup: true,
+      radius: "lg",
+      class: "rounded-none  first:rounded-l-lg last:rounded-r-lg",
+    },
+    {
+      isInGroup: true,
+      radius: "xl",
+      class: "rounded-none  first:rounded-l-xl last:rounded-r-xl",
+    },
+    {
+      isInGroup: true,
+      radius: "2xl",
+      class: "rounded-none  first:rounded-l-2xl last:rounded-r-2xl",
+    },
+    {
+      isInGroup: true,
+      radius: "3xl",
+      class: "rounded-none  first:rounded-l-3xl last:rounded-r-3xl",
+    },
+    {
+      isInGroup: true,
+      radius: "full",
+      class: "rounded-none  first:rounded-l-full last:rounded-r-full",
+    },
+    // isInGroup / bordered
+    {
+      isInGroup: true,
+      variant: "bordered",
+      class: "[&:not(:first-child)]:border-l-0",
     },
   ],
 });

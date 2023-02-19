@@ -82,15 +82,17 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
 
   const Component = as || "div";
 
-  const context: ContextType = {
-    size,
-    color,
-    radius,
-    isGrid,
-    isBordered,
-    isDisabled,
-  };
-
+  const context = useMemo(
+    () => ({
+      size,
+      color,
+      radius,
+      isGrid,
+      isBordered,
+      isDisabled,
+    }),
+    [size, color, radius, isGrid, isBordered, isDisabled],
+  );
   const styles = useMemo(() => avatarGroup({className, isGrid}), [className, isGrid]);
 
   const validChildren = getValidChildren(children);

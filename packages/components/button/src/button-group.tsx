@@ -1,27 +1,22 @@
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {__DEV__} from "@nextui-org/shared-utils";
 
 import {ButtonGroupProvider} from "./button-group-context";
 import {UseButtonGroupProps, useButtonGroup} from "./use-button-group";
-import {StyledButtonGroup} from "./button-group.styles";
 
-export interface ButtonGroupProps extends UseButtonGroupProps {}
+export interface ButtonGroupProps extends Omit<UseButtonGroupProps, "ref"> {}
 
 const ButtonGroup = forwardRef<ButtonGroupProps, "div">((props, ref) => {
-  const {context, children, className, ...otherProps} = useButtonGroup(props);
-
-  const domRef = useDOMRef(ref);
+  const {Component, domRef, context, children, styles, getButtonGroupProps} = useButtonGroup({
+    ref,
+    ...props,
+  });
 
   return (
     <ButtonGroupProvider value={context}>
-      <StyledButtonGroup
-        ref={domRef}
-        className={clsx("nextui-button-group", className)}
-        {...otherProps}
-      >
+      <Component ref={domRef} className={styles} {...getButtonGroupProps()}>
         {children}
-      </StyledButtonGroup>
+      </Component>
     </ButtonGroupProvider>
   );
 });
