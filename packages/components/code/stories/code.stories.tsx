@@ -1,13 +1,42 @@
 import React from "react";
-import {Meta} from "@storybook/react";
+import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {code} from "@nextui-org/theme";
 
-import {Code} from "../src";
+import {Code, CodeProps} from "../src";
 
 export default {
   title: "Display/Code",
   component: Code,
-} as Meta;
+  argTypes: {
+    color: {
+      control: {
+        type: "select",
+        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+      },
+    },
+    radius: {
+      control: {
+        type: "select",
+        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["xs", "sm", "md", "lg", "xl"],
+      },
+    },
+  },
+} as ComponentMeta<typeof Code>;
 
-export const Default = () => <Code>npm install @nextui-org/react</Code>;
+const defaultProps = {
+  children: "npm install @nextui-org/react",
+  ...code.defaultVariants,
+};
 
-export const Block = () => <Code block>npm install @nextui-org/react</Code>;
+const Template: ComponentStory<typeof Code> = (args: CodeProps) => <Code {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  ...defaultProps,
+};

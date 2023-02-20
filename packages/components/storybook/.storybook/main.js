@@ -5,6 +5,7 @@ module.exports = {
     "../../user/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../button/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../spinner/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../code/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [
