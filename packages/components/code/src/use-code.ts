@@ -6,14 +6,12 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
-interface Props extends HTMLNextUIProps<"code">, CodeVariantProps {
+export interface UseCodeProps extends HTMLNextUIProps<"code">, CodeVariantProps {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
 }
-
-export type UseCodeProps = Props;
 
 export function useCode(originalProps: UseCodeProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, code.variantKeys);

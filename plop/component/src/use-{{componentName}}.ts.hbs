@@ -1,11 +1,38 @@
-import {HTMLNextUIProps} from "@nextui-org/system";
+import type { {{capitalize componentName}}VariantProps } from "@nextui-org/theme";
 
-export interface Use{{capitalize componentName}}Props extends HTMLNextUIProps<"div"> {}
+import {HTMLNextUIProps,mapPropsVariants} from "@nextui-org/system";
+import { {{componentName}} } from "@nextui-org/theme";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {ReactRef} from "@nextui-org/shared-utils";
+import {useMemo} from "react";
 
-export function use{{capitalize componentName}}(props: Use{{capitalize componentName}}Props) {
-  const {...otherProps} = props;
+export interface Use{{capitalize componentName}}Props extends 
+HTMLNextUIProps<"div", {{capitalize componentName}}VariantProps> {
+  /**
+   * Ref to the DOM node.
+   */
+  ref?: ReactRef<HTMLElement | null>;
+}
 
-  return {...otherProps};
+export function use{{capitalize componentName}}(originalProps: Use{{capitalize componentName}}Props) {
+  const [props, variantProps] = mapPropsVariants(originalProps, {{componentName}}.variantKeys);
+
+  const {ref, as, className, ...otherProps} = props;
+
+  const Component = as || "div";
+
+  const domRef = useDOMRef(ref);
+
+  const styles = useMemo(
+  () =>
+    {{componentName}}({
+      ...variantProps,
+      className,
+    }),
+  [variantProps, className],
+);
+
+  return {Component, as, styles, domRef, ...otherProps};
 }
 
 export type Use{{capitalize componentName}}Return = ReturnType<typeof use{{capitalize componentName}}>;

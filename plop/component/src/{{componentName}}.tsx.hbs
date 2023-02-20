@@ -1,23 +1,17 @@
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {__DEV__} from "@nextui-org/shared-utils";
 
-import { Styled{{capitalize componentName}} } from "./{{componentName}}.styles";
 import { Use{{capitalize componentName}}Props, use{{capitalize componentName}} } from "./use-{{componentName}}";
 
-export interface {{capitalize componentName}}Props extends Use{{capitalize componentName}}Props {}
+export interface {{capitalize componentName}}Props extends Omit<Use{{capitalize componentName}}Props, "ref"> {}
 
 const {{capitalize componentName}} = forwardRef<{{capitalize componentName}}Props, "div">((props, ref) => {
-  const {className, ...otherProps} =  use{{capitalize componentName}}(props);
-
-  const domRef = useDOMRef(ref);
+  const {Component, domRef, children, styles, ...otherProps} =  use{{capitalize componentName}}({ref, ...props});
 
   return (
-    <Styled{{capitalize componentName}}
-      ref={domRef}
-      className={clsx("nextui-{{componentName}}", className)}
-      {...otherProps}
-    />
+    <Component ref={domRef} className={styles} {...otherProps}>
+      {children}
+    </Component>
   );
 });
 

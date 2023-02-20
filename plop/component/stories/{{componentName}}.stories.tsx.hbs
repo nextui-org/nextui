@@ -1,11 +1,47 @@
 import React from "react";
-import {Meta} from "@storybook/react";
+import {ComponentStory, ComponentMeta} from "@storybook/react";
+import { {{componentName}} } from "@nextui-org/theme";
 
-import { {{capitalize componentName}} } from "../src";
+import { {{capitalize componentName}}, {{capitalize componentName}}Props } from "../src";
 
 export default {
   title: "{{capitalize componentName}}",
   component: {{capitalize componentName}},
-} as Meta;
+  argTypes: {
+    color: {
+      control: {
+        type: "select",
+        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+      },
+    },
+    radius: {
+      control: {
+        type: "select",
+        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["xs", "sm", "md", "lg", "xl"],
+      },
+    },
+    isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+  },
+} as ComponentMeta<typeof {{capitalize componentName}}>;
 
-export const Default = () => <{{capitalize componentName}} />;
+const defaultProps = {
+  ...code.defaultVariants,
+};
+
+const Template: ComponentStory<typeof {{capitalize componentName}}> = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;
+
+
+export const Default = Template.bind({});
+Default.args = {
+  ...defaultProps,
+};
