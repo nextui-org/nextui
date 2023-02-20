@@ -698,11 +698,11 @@ importers:
       '@storybook/addon-links': ^6.5.12
       '@storybook/addon-postcss': ^2.0.0
       '@storybook/addon-storysource': ^6.5.12
-      '@storybook/addons': ^6.5.10
+      '@storybook/addons': ^6.5.16
       '@storybook/builder-webpack5': ^6.5.12
       '@storybook/manager-webpack5': ^6.5.12
       '@storybook/react': ^6.5.12
-      '@storybook/theming': ^6.5.15
+      '@storybook/theming': ^6.5.16
       autoprefixer: ^10.4.13
       babel-loader: ^8.2.3
       concurrently: ^7.6.0
