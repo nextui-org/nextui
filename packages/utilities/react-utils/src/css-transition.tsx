@@ -1,86 +1,97 @@
-import React, {useEffect, useState} from "react";
+import type {FC, ReactNode, RefObject} from "react";
+
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import {clsx} from "@nextui-org/shared-utils";
 
-interface CSSTransitionProps {
-  visible?: boolean;
-  childrenRef?: React.RefObject<HTMLElement>;
+export interface CSSTransitionProps {
+  name?: string;
+  isVisible?: boolean;
   enterTime?: number;
   leaveTime?: number;
   clearTime?: number;
   className?: string;
-  name?: string;
   onExited?: () => void;
   onEntered?: () => void;
+  children?: ReactNode;
+  childrenRef?: RefObject<HTMLElement>;
 }
 
-export const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
-  children,
-  childrenRef,
-  visible = false,
-  enterTime = 60,
-  leaveTime = 60,
-  clearTime = 60,
-  className = "",
-  name = "transition",
-  onExited,
-  onEntered,
-  ...props
-}) => {
-  const [classes, setClasses] = useState<string>("");
-  const [renderable, setRenderable] = useState<boolean>(visible);
+const CSSTransition: FC<CSSTransitionProps> = React.memo(
+  ({
+    children,
+    onExited,
+    onEntered,
+    className,
+    childrenRef,
+    enterTime = 60,
+    leaveTime = 60,
+    clearTime = 60,
+    isVisible = false,
+    name = "transition",
+    ...otherProps
+  }) => {
+    const [classes, setClasses] = useState<string>("");
+    const [statusClassName, setStatusClassName] = useState("");
+    const [renderable, setRenderable] = useState<boolean>(isVisible);
 
-  useEffect(() => {
-    const statusClassName = visible ? "enter" : "leave";
-    const time = visible ? enterTime : leaveTime;
+    useLayoutEffect(() => {
+      const statusClassName = isVisible ? "enter" : "leave";
 
-    if (visible && !renderable) {
-      setRenderable(true);
-    }
+      if (isVisible && !renderable) setRenderable(true);
 
-    setClasses(`${name}-${statusClassName}`);
+      setClasses(`${name}-${statusClassName}`);
+      setStatusClassName(statusClassName);
 
-    // set class to active
-    const timer = setTimeout(() => {
-      setClasses(`${name}-${statusClassName} ${name}-${statusClassName}-active`);
-      if (statusClassName === "leave") {
-        onExited?.();
-      } else {
-        onEntered?.();
-      }
-      clearTimeout(timer);
-    }, time);
+      const time = isVisible ? enterTime : leaveTime;
 
-    // remove classess when animation over
-    const clearClassesTimer = setTimeout(() => {
-      if (!visible) {
-        setClasses("");
-        setRenderable(false);
-      }
-      clearTimeout(clearClassesTimer);
-    }, time + clearTime);
+      // set class to active
+      const timer = setTimeout(() => {
+        setClasses(`${name}-${statusClassName} ${name}-${statusClassName}-active`);
+        setStatusClassName(`${statusClassName}-active`);
+        if (statusClassName === "leave") {
+          onExited?.();
+        } else {
+          onEntered?.();
+        }
+        clearTimeout(timer);
+      }, time);
 
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(clearClassesTimer);
-    };
-  }, [visible, renderable]);
+      // remove classess when animation over
+      const clearClassesTimer = setTimeout(() => {
+        if (!isVisible) {
+          setClasses("");
+          setRenderable(false);
+        }
+        clearTimeout(clearClassesTimer);
+      }, time + clearTime);
 
-  // update children ref classes
-  useEffect(() => {
-    if (!childrenRef?.current) {
-      return;
-    }
-    const classesArr = classes.split(" ");
-    const refClassesArr = childrenRef.current.className.split(" ");
-    const newRefClassesArr = refClassesArr.filter((item) => !item.includes(name));
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(clearClassesTimer);
+      };
+    }, [isVisible, renderable]);
 
-    childrenRef.current.className = clsx(newRefClassesArr, classesArr);
-  }, [childrenRef, classes]);
+    // update children ref classes
+    useEffect(() => {
+      if (!childrenRef?.current) return;
 
-  if (!React.isValidElement(children) || !renderable) return null;
+      const classesArr = classes.split(" ");
+      const refClassesArr = childrenRef.current.className.split(" ");
+      const newRefClassesArr = refClassesArr.filter((item) => !item.includes(name));
 
-  return React.cloneElement(children, {
-    ...props,
-    className: clsx(children.props.className, className, !childrenRef?.current ? classes : ""),
-  });
-};
+      childrenRef.current.className = clsx(newRefClassesArr, classesArr);
+    }, [childrenRef, classes]);
+
+    if (!React.isValidElement(children) || !renderable) return null;
+
+    return React.cloneElement(children, {
+      ...otherProps,
+      "data-transition": statusClassName,
+      className: clsx(children.props.className, className, !childrenRef?.current && classes),
+    });
+  },
+);
+
+CSSTransition.displayName = "NextUI.CSSTransition";
+
+export {CSSTransition};

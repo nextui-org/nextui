@@ -35,7 +35,7 @@ export default {
 } as ComponentMeta<typeof {{capitalize componentName}}>;
 
 const defaultProps = {
-  ...code.defaultVariants,
+  ...{{componentName}}.defaultVariants,
 };
 
 const Template: ComponentStory<typeof {{capitalize componentName}}> = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;

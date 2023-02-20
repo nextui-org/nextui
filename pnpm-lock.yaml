@@ -657,6 +657,7 @@ importers:
       '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
       clean-package: 2.1.1
       react: ^17.0.2
     dependencies:
@@ -664,6 +665,7 @@ importers:
       '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
     devDependencies:
       clean-package: 2.1.1
       react: 17.0.2
@@ -737,6 +739,43 @@ importers:
       postcss: 8.4.21
       storybook-dark-mode: 1.1.2
       tailwindcss: 3.2.6_postcss@8.4.21
+
+  packages/components/tooltip:
+    specifiers:
+      '@nextui-org/aria-utils': workspace:*
+      '@nextui-org/button': workspace:*
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/react-utils': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
+      '@react-aria/focus': ^3.9.0
+      '@react-aria/overlays': ^3.11.0
+      '@react-aria/tooltip': ^3.3.4
+      '@react-aria/utils': ^3.14.0
+      '@react-stately/tooltip': ^3.2.4
+      '@react-types/overlays': ^3.6.5
+      '@react-types/tooltip': ^3.2.5
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/aria-utils': link:../../utilities/aria-utils
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/react-utils': link:../../utilities/react-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
+      '@react-aria/focus': 3.10.1_react@17.0.2
+      '@react-aria/overlays': 3.12.1_react@17.0.2
+      '@react-aria/tooltip': 3.3.4_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
+      '@react-stately/tooltip': 3.2.4_react@17.0.2
+    devDependencies:
+      '@nextui-org/button': link:../button
+      '@react-types/overlays': 3.6.5_react@17.0.2
+      '@react-types/tooltip': 3.2.5_react@17.0.2
+      clean-package: 2.1.1
+      react: 17.0.2
 
   packages/components/user:
     specifiers:
@@ -932,6 +971,7 @@ importers:
       '@react-stately/collections': ^3.4.4
       '@react-stately/tree': ^3.3.4
       '@react-types/button': ^3.6.2
+      '@react-types/overlays': ^3.6.5
       '@react-types/shared': ^3.15.0
       clean-package: 2.1.1
       react: ^17.0.2
@@ -946,6 +986,7 @@ importers:
       '@react-stately/tree': 3.4.1_react@17.0.2
     devDependencies:
       '@react-types/button': 3.7.0_react@17.0.2
+      '@react-types/overlays': 3.6.5_react@17.0.2
       '@react-types/shared': 3.16.0_react@17.0.2
       clean-package: 2.1.1
       react: 17.0.2
@@ -5745,6 +5786,21 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@react-aria/tooltip/3.3.4_react@17.0.2:
+    resolution: {integrity: sha512-KPDkDu7fquuUOOnNh9S7KfhPMwB1w9K+yLIFrYaj4iYSOLk/HH5TDkyiUQ7j5+B963D1fWlQjYFEGQ9o2KwO/Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.10.1_react@17.0.2
+      '@react-aria/interactions': 3.13.1_react@17.0.2
+      '@react-aria/utils': 3.14.2_react@17.0.2
+      '@react-stately/tooltip': 3.2.4_react@17.0.2
+      '@react-types/shared': 3.16.0_react@17.0.2
+      '@react-types/tooltip': 3.2.5_react@17.0.2
+      '@swc/helpers': 0.4.14
+      react: 17.0.2
+    dev: false
+
   /@react-aria/utils/3.14.0_react@17.0.2:
     resolution: {integrity: sha512-DHgmwNBNEhnb6DEYYAfbt99wprBqJJOBBeIpQ2g3+pxwlw4BZ+v4Qr+rDD0ZibWV0mYzt8zOhZ9StpId7iTF0Q==}
     peerDependencies:
@@ -6011,6 +6067,18 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@react-stately/tooltip/3.2.4_react@17.0.2:
+    resolution: {integrity: sha512-t7ksDRs9jKcOS25BVLM5cNCyzSCnzrin8OZ3AEmgeNxfiS58HhHbNxYk725hyGrbdpugQ03cRcJG70EZ6VgwDQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-stately/overlays': 3.4.4_react@17.0.2
+      '@react-stately/utils': 3.5.2_react@17.0.2
+      '@react-types/tooltip': 3.2.5_react@17.0.2
+      '@swc/helpers': 0.4.14
+      react: 17.0.2
+    dev: false
+
   /@react-stately/tree/3.3.4_react@17.0.2:
     resolution: {integrity: sha512-CBgXvwa9qYBsJuxrAiVgGnm48eSxLe/6OjPMwH1pWf4s383Mx73MbbN4fS0oWDeXBVgdqz5/Xg/p8nvPIvl3WQ==}
     peerDependencies:
@@ -6161,7 +6229,6 @@ packages:
     dependencies:
       '@react-types/shared': 3.16.0_react@17.0.2
       react: 17.0.2
-    dev: false
 
   /@react-types/radio/3.3.1_react@17.0.2:
     resolution: {integrity: sha512-q/x0kMvBsu6mH4bIkp/Jjrm9ff5y/p3UR0V4CmQFI7604gQd2Dt1dZMU/2HV9x70r1JfWRrDeRrVjUHVfFL5Vg==}
@@ -6205,6 +6272,15 @@ packages:
       '@react-types/shared': 3.16.0_react@17.0.2
       react: 17.0.2
     dev: false
+
+  /@react-types/tooltip/3.2.5_react@17.0.2:
+    resolution: {integrity: sha512-D4lN32JwQuA3JbCgcI26mgCkLHIj1WE8MTzf1McaasPkx7gVaqW+wfPyFwt99/Oo52TLvA/1oin78qePP67PSw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/overlays': 3.6.5_react@17.0.2
+      '@react-types/shared': 3.16.0_react@17.0.2
+      react: 17.0.2
 
   /@rushstack/eslint-patch/1.2.0:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}

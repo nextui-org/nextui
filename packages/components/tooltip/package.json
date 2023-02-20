@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/aria-utils",
+  "name": "@nextui-org/tooltip",
   "version": "2.0.0-beta.1",
-  "description": "A package for managing @react-aria nextui utils.",
+  "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
-    "aria-utils"
+    "tooltip"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,17 +19,17 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/utilities/aria-utils"
+    "directory": "packages/components/tooltip"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -37,19 +37,22 @@
     "react": ">=16.8.0"
   },
   "dependencies": {
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@react-aria/button": "^3.6.2",
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
     "@react-aria/focus": "^3.9.0",
-    "@react-aria/interactions": "^3.12.0",
-    "@react-aria/selection": "^3.11.0",
-    "@react-aria/utils": "^3.14.0",
-    "@react-stately/collections": "^3.4.4",
-    "@react-stately/tree": "^3.3.4"
+    "@react-aria/overlays": "^3.11.0",
+    "@react-aria/tooltip": "^3.3.4",
+    "@react-stately/tooltip": "^3.2.4",
+    "@react-aria/utils": "^3.14.0"
   },
   "devDependencies": {
-    "@react-types/button": "^3.6.2",
     "@react-types/overlays": "^3.6.5",
-    "@react-types/shared": "^3.15.0",
+    "@react-types/tooltip": "^3.2.5",
+    "@nextui-org/button": "workspace:*",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   },
