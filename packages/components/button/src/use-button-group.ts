@@ -1,66 +1,100 @@
-import type {UseButtonProps} from "./use-button";
+import type {ButtonProps} from "./index";
+import type {ReactRef} from "@nextui-org/shared-utils";
+import type {ButtonGroupVariantProps} from "@nextui-org/theme";
 
-import {useMemo} from "react";
-import {HTMLNextUIProps} from "@nextui-org/system";
-
-export interface UseButtonGroupProps extends HTMLNextUIProps<"div", Omit<UseButtonProps, "ref">> {
+import {buttonGroup} from "@nextui-org/theme";
+import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {useMemo, useCallback} from "react";
+export interface UseButtonGroupProps
+  extends HTMLNextUIProps<"div", Omit<ButtonProps, "ref" | "fullWidth">>,
+    ButtonGroupVariantProps {
   /**
-   * Whether the buttons should be stacked vertically.
-   * @default false
+   * Ref to the DOM node.
    */
-  vertical?: boolean;
+  ref?: ReactRef<HTMLDivElement | null>;
 }
 
-export function useButtonGroup(props: UseButtonGroupProps) {
+export type ContextType = {
+  size?: ButtonProps["size"];
+  color?: ButtonProps["color"];
+  radius?: ButtonProps["radius"];
+  variant?: ButtonProps["variant"];
+  isDisabled?: ButtonProps["isDisabled"];
+  disableAnimation?: ButtonProps["disableAnimation"];
+  disableRipple?: ButtonProps["disableRipple"];
+  fullWidth?: boolean;
+};
+
+export function useButtonGroup(originalProps: UseButtonGroupProps) {
+  const [props, variantProps] = mapPropsVariants(originalProps, buttonGroup.variantKeys);
+
   const {
-    color = "default",
+    ref,
+    as,
+    children,
+    color = "neutral",
     size = "md",
-    borderWeight = "normal",
-    disabled = false,
-    bordered = false,
-    light = false,
-    ghost = false,
-    flat = false,
-    shadow = false,
-    auto = true,
-    animated = true,
-    rounded = false,
-    ripple = true,
-    vertical = false,
+    variant = "solid",
+    radius = "xl",
+    isDisabled = false,
+    disableAnimation = false,
+    disableRipple = false,
+    className,
     ...otherProps
   } = props;
 
-  const context = useMemo<UseButtonProps>(
-    () => ({
-      disabled,
-      size,
-      color,
-      bordered,
-      light,
-      ghost,
-      flat,
-      shadow,
-      auto,
-      borderWeight,
-      animated,
-      rounded,
-      ripple,
-      isButtonGroup: true,
-    }),
-    [disabled, animated, size, ripple, color, bordered, light, ghost, flat, borderWeight],
+  const Component = as || "div";
+
+  const domRef = useDOMRef(ref);
+
+  const styles = useMemo(
+    () =>
+      buttonGroup({
+        ...variantProps,
+        className,
+      }),
+    [variantProps, className],
   );
 
-  const isGradient = color === "gradient";
+  const context = useMemo<ContextType>(
+    () => ({
+      size,
+      color,
+      variant,
+      radius,
+      isDisabled,
+      disableAnimation,
+      disableRipple,
+      fullWidth: !!originalProps?.fullWidth,
+    }),
+    [
+      size,
+      color,
+      variant,
+      radius,
+      isDisabled,
+      disableAnimation,
+      disableRipple,
+      originalProps?.fullWidth,
+    ],
+  );
 
-  // TODO: the idea is to migrate the boolean names from "disable" to "isDisabled" (v12)
+  const getButtonGroupProps = useCallback(
+    () => ({
+      role: "group",
+      ...otherProps,
+    }),
+    [otherProps],
+  );
+
   return {
+    Component,
+    children,
+    domRef,
     context,
-    size,
-    isRounded: rounded,
-    isBordered: bordered || ghost,
-    isVertical: vertical,
-    isGradient,
-    ...otherProps,
+    styles,
+    getButtonGroupProps,
   };
 }
 

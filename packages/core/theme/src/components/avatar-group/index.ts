@@ -1,7 +1,7 @@
 import {tv, VariantProps} from "tailwind-variants";
 
 /**
- * AvatarGroup wrapper tv component
+ * AvatarGroup wrapper **Tailwind Variants** component
  *
  * const styles = avatarGroup({...})
  *

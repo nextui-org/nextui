@@ -133,16 +133,20 @@ export function useAvatar(props: UseAvatarProps) {
    */
   const showFallback = (!src || !isImgLoaded) && showFallbackProp;
 
-  const slots = avatar({
-    color,
-    radius,
-    size,
-    isBordered,
-    isFocusVisible,
-    isDisabled,
-    isInGroup,
-    isInGridGroup: groupContext?.isGrid ?? false,
-  });
+  const slots = useMemo(
+    () =>
+      avatar({
+        color,
+        radius,
+        size,
+        isBordered,
+        isFocusVisible,
+        isDisabled,
+        isInGroup,
+        isInGridGroup: groupContext?.isGrid ?? false,
+      }),
+    [color, radius, size, isBordered, isFocusVisible, isDisabled, isInGroup, groupContext?.isGrid],
+  );
 
   const buttonStyles = useMemo(() => {
     if (as !== "button") return "";

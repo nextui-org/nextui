@@ -50,7 +50,7 @@ describe("Button", () => {
 
   it("should renders with left icon", () => {
     const wrapper = render(
-      <Button icon={<span data-testid="left-icon">Icon</span>}>Button</Button>,
+      <Button leftIcon={<span data-testid="left-icon">Icon</span>}>Button</Button>,
     );
 
     expect(wrapper.getByTestId("left-icon")).toBeInTheDocument();
@@ -58,7 +58,7 @@ describe("Button", () => {
 
   it("should renders with right icon", () => {
     const wrapper = render(
-      <Button iconRight={<span data-testid="right-icon">Icon</span>}>Button</Button>,
+      <Button rightIcon={<span data-testid="right-icon">Icon</span>}>Button</Button>,
     );
 
     expect(wrapper.getByTestId("right-icon")).toBeInTheDocument();

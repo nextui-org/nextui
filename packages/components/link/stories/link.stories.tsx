@@ -1,6 +1,7 @@
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import React from "react";
 import {tv, type VariantProps} from "@nextui-org/theme";
+import {link} from "@nextui-org/theme";
 
 import {Link, LinkProps} from "../src";
 
@@ -10,13 +11,13 @@ export default {
   argTypes: {
     color: {
       control: {
-        type: "radio",
-        options: ["foreground", "primary", "secondary", "success", "warning", "error"],
+        type: "select",
+        options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     size: {
       control: {
-        type: "radio",
+        type: "select",
         options: ["xs", "sm", "md", "xl"],
       },
     },
@@ -30,6 +31,10 @@ export default {
 
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
+const defaultProps = {
+  ...link.defaultVariants,
+};
+
 const Template: ComponentStory<typeof Link> = (args: LinkProps) => (
   <Link {...args} href="#">
     {text}
@@ -38,6 +43,7 @@ const Template: ComponentStory<typeof Link> = (args: LinkProps) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  ...defaultProps,
   isDisabled: false,
   color: "foreground",
   size: "md",
@@ -45,6 +51,7 @@ Default.args = {
 
 export const isUnderline = Template.bind({}) as any;
 isUnderline.args = {
+  ...defaultProps,
   isUnderline: true,
   isDisabled: false,
   size: "md",
@@ -70,6 +77,7 @@ const CustomLink = () => (
 
 export const isExternal = Template.bind({}) as any;
 isExternal.args = {
+  ...defaultProps,
   isExternal: true,
   isDisabled: false,
   showAnchorIcon: true,
@@ -80,6 +88,7 @@ isExternal.args = {
 export const isBlock = Template.bind({}) as any;
 
 isBlock.args = {
+  ...defaultProps,
   isBlock: true,
   isDisabled: false,
   size: "md",

@@ -17,9 +17,9 @@ describe("Code", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("should support block mode", () => {
-    const {container} = render(<Code block />);
+  it("should support include the code", () => {
+    const wrapper = render(<Code data-testid="code-test">npm install @nextui-org/react</Code>);
 
-    expect(container.querySelector("pre")).not.toBeNull();
+    expect(wrapper.getByTestId("code-test")).toHaveTextContent("npm install @nextui-org/react");
   });
 });

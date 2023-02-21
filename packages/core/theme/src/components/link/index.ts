@@ -3,7 +3,7 @@ import {tv, type VariantProps} from "tailwind-variants";
 import {focusVisibleClasses} from "../../utils";
 
 /**
- * Link **Tailwind Variants** component
+ * Link wrapper **Tailwind Variants** component
  *
  * @example
  * <a className={link({ color: "secondary", isBlock: true })} href="#" />
@@ -24,7 +24,7 @@ const link = tv({
       secondary: "text-secondary dark:text-secondary-dark",
       success: "text-success",
       warning: "text-warning",
-      error: "text-error",
+      danger: "text-danger",
     },
     isUnderline: {
       true: "hover:underline active:underline focus:underline underline-offset-4",
@@ -69,8 +69,8 @@ const link = tv({
     },
     {
       isBlock: true,
-      color: "error",
-      class: "hover:after:bg-error/25",
+      color: "danger",
+      class: "hover:after:bg-danger/25",
     },
   ],
   defaultVariants: {

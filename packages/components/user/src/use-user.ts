@@ -76,7 +76,7 @@ export function useUser(props: UseUserProps) {
     return isFocusable || as === "button";
   }, [isFocusable, as]);
 
-  const slots = user({isFocusVisible});
+  const slots = useMemo(() => user({isFocusVisible}), [isFocusVisible]);
 
   const baseStyles = clsx(styles?.base, className);
 

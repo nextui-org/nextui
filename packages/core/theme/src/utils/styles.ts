@@ -30,3 +30,5 @@ export const translateCenterClasses = [
   "-translate-x-1/2",
   "-translate-y-1/2",
 ];
+
+export const absoluteFullClasses = ["absolute", "inset-0"];

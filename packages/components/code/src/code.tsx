@@ -1,41 +1,22 @@
-import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {forwardRef} from "@nextui-org/system";
+import {__DEV__} from "@nextui-org/shared-utils";
 
-import {StyledCode, StyledPre} from "./code.styles";
+import {useCode, UseCodeProps} from "./use-code";
 
-export interface CodeProps extends HTMLNextUIProps<"code"> {
-  /**
-   * Whether to show a <pre/> component as a wrapper.
-   * @default false
-   */
-  block?: boolean;
-}
+export interface CodeProps extends Omit<UseCodeProps, "ref"> {}
 
 const Code = forwardRef<CodeProps, "code">((props, ref) => {
-  const {children, block = false, className, ...otherProps} = props;
-
-  const domRef = useDOMRef(ref);
-
-  if (!block) {
-    return (
-      <StyledCode ref={domRef} className={clsx("nextui-code", className)} {...otherProps}>
-        {children}
-      </StyledCode>
-    );
-  }
+  const {Component, domRef, children, styles, ...otherProps} = useCode({ref, ...props});
 
   return (
-    <StyledPre ref={domRef} className={clsx("nextui-code", className)} {...otherProps}>
-      <StyledCode>{children}</StyledCode>
-    </StyledPre>
+    <Component ref={domRef} className={styles} {...otherProps}>
+      {children}
+    </Component>
   );
 });
 
 if (__DEV__) {
   Code.displayName = "NextUI.Code";
 }
-
-Code.toString = () => ".nextui-code";
 
 export default Code;

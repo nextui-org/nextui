@@ -9,19 +9,19 @@ export default {
   argTypes: {
     color: {
       control: {
-        type: "radio",
-        options: ["neutral", "primary", "secondary", "success", "warning", "error"],
+        type: "select",
+        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
       control: {
-        type: "radio",
+        type: "select",
         options: ["none", "base", "sm", "md", "lg", "xl", "full"],
       },
     },
     size: {
       control: {
-        type: "radio",
+        type: "select",
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },

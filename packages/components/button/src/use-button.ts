@@ -1,107 +1,43 @@
+import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@react-types/button";
 import type {PressEvent} from "@react-types/shared";
-import type {ReactRef, NormalColors, NormalSizes, NormalWeights} from "@nextui-org/shared-utils";
-import type {HTMLNextUIProps, CSS} from "@nextui-org/system";
+import type {ReactRef} from "@nextui-org/shared-utils";
+import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {ReactNode} from "react";
 
-import {MouseEventHandler, ReactNode, useCallback, useMemo, Children} from "react";
+import {MouseEventHandler, useCallback} from "react";
 import {useButton as useAriaButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
-import {useHover} from "@react-aria/interactions";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {__DEV__, warn} from "@nextui-org/shared-utils";
+import {warn, clsx} from "@nextui-org/shared-utils";
+import {button} from "@nextui-org/theme";
+import {isValidElement, cloneElement, useMemo} from "react";
 
-import {getColors} from "./button-utils";
 import {useButtonGroupContext} from "./button-group-context";
 
-export interface UseButtonProps extends HTMLNextUIProps<"button", AriaButtonProps> {
+export interface UseButtonProps
+  extends HTMLNextUIProps<"button", Omit<AriaButtonProps, keyof ButtonVariantProps>>,
+    Omit<ButtonVariantProps, "isFocusVisible" | "isInGroup" | "isInVerticalGroup"> {
   /**
-   * the button ref.
+   * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLButtonElement | null>;
   /**
-   * The button color.
-   * @default "default"
-   */
-  color?: NormalColors;
-  /**
-   * The button size.
-   * @default "md"
-   */
-  size?: NormalSizes;
-  /**
-   * The border weight of the border button.
-   * @default "normal"
-   */
-  borderWeight?: NormalWeights;
-  /**
-   * Whether the button should autoscale its width to fit its content.
-   * @default false
-   */
-  auto?: boolean;
-  /**
-   * Whether the button is disabled.
-   * @default false
-   */
-  disabled?: boolean;
-  /**
-   * Whether the button should be rounded.
-   * @default false
-   */
-  bordered?: boolean;
-  /**
-   * Whether the button should be light.
-   * @default false
-   */
-  light?: boolean;
-  /**
-   * Whether the button should be flat.
-   * @default false
-   */
-  flat?: boolean;
-  /**
-   * Whether the button should display a shadow.
-   * @default false
-   */
-  shadow?: boolean;
-  /**
-   * Whether the button should be rounded.
-   * @default false
-   */
-  rounded?: boolean;
-  /**
-   * Whether the button should have a ghost look.
-   * @default false
-   */
-  ghost?: boolean;
-  /**
-   * Whether the button have animations.
-   * @default true
-   */
-  animated?: boolean;
-  /**
    * Whether the button should display a ripple effect on press.
-   * @default true
+   * @default false
    */
-  ripple?: boolean;
+  disableRipple?: boolean;
 
   /**
    * The button left content.
    */
-  icon?: ReactNode;
+  leftIcon?: ReactNode;
   /**
    * The button right content.
    */
-  iconRight?: ReactNode;
-  /**
-   * The button left content css object.
-   */
-  iconLeftCss?: CSS;
-  /**
-   * The button right content css object.
-   */
-  iconRightCss?: CSS;
+  rightIcon?: ReactNode;
   /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
@@ -111,31 +47,24 @@ export interface UseButtonProps extends HTMLNextUIProps<"button", AriaButtonProp
 
 export function useButton(props: UseButtonProps) {
   const groupContext = useButtonGroupContext();
+  const isInGroup = !!groupContext;
 
   const {
     ref,
     as,
-    css,
     children,
-    iconLeftCss,
-    iconRightCss,
+    leftIcon: leftIconProp,
+    rightIcon: rightIconProp,
     autoFocus,
-    icon,
-    iconRight,
     className,
-    auto = groupContext?.auto ?? false,
+    fullWidth = groupContext?.fullWidth ?? false,
     size = groupContext?.size ?? "md",
-    color = groupContext?.color ?? "default",
-    shadow = groupContext?.shadow ?? false,
-    flat = groupContext?.flat ?? false,
-    ghost = groupContext?.ghost ?? false,
-    light = groupContext?.light ?? false,
-    bordered = groupContext?.bordered ?? false,
-    borderWeight = groupContext?.borderWeight ?? "normal",
-    animated = groupContext?.animated ?? true,
-    rounded = groupContext?.rounded ?? false,
-    ripple = groupContext?.ripple ?? true,
-    disabled = groupContext?.disabled ?? false,
+    color = groupContext?.color ?? "neutral",
+    variant = groupContext?.variant ?? "solid",
+    disableAnimation = groupContext?.disableAnimation ?? false,
+    radius = groupContext?.radius ?? "lg",
+    disableRipple = groupContext?.disableRipple ?? false,
+    isDisabled = groupContext?.isDisabled ?? false,
     onClick: deprecatedOnClick,
     onPress,
     onPressStart,
@@ -145,47 +74,52 @@ export function useButton(props: UseButtonProps) {
     ...otherProps
   } = props;
 
-  const buttonRef = useDOMRef(ref);
+  const Component = as || "button";
 
-  const hasIcon = icon || iconRight;
-  const isChildLess = Children.count(children) === 0;
-  const isRightIcon = Boolean(iconRight);
-  const isGradientButtonBorder = useMemo(
-    () => color === "gradient" && (bordered || ghost),
-    [color, bordered, ghost],
+  const domRef = useDOMRef(ref);
+
+  const {isFocusVisible, focusProps} = useFocusRing({
+    autoFocus,
+  });
+
+  const styles = useMemo(
+    () =>
+      button({
+        size,
+        color,
+        variant,
+        radius,
+        fullWidth,
+        isDisabled,
+        isInGroup,
+        isFocusVisible,
+        disableAnimation,
+        className,
+      }),
+    [
+      size,
+      color,
+      variant,
+      radius,
+      fullWidth,
+      isDisabled,
+      isInGroup,
+      isFocusVisible,
+      disableAnimation,
+      className,
+    ],
   );
 
-  /* eslint-enable @typescript-eslint/no-unused-vars */
-  if (__DEV__ && color === "gradient" && (flat || light)) {
-    warn("Using the gradient color on flat and light buttons will have no effect.", "Button");
-  }
-
-  const buttonProps = {
-    auto,
-    size,
-    color,
-    shadow,
-    flat,
-    ghost,
-    light,
-    bordered,
-    borderWeight,
-    animated,
-    rounded,
-    disabled,
-  };
-
-  const cssColors = getColors(buttonProps) as CSS;
-
-  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, buttonRef);
+  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, domRef);
 
   const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent | Event) => {
-    if (animated && ripple && buttonRef.current) {
-      onDripClickHandler(e);
-    }
+    if (disableRipple || isDisabled || disableAnimation) return;
+    domRef.current && onDripClickHandler(e);
   };
 
   const handlePress = (e: PressEvent) => {
+    if (isDisabled) return;
+
     if (e.pointerType === "keyboard" || e.pointerType === "virtual") {
       handleDrip(e);
     } else if (typeof window !== "undefined" && window.event) {
@@ -198,7 +132,7 @@ export function useButton(props: UseButtonProps) {
     onPress?.(e);
   };
 
-  const {buttonProps: buttonAriaProps, isPressed} = useAriaButton(
+  const {buttonProps: buttonAriaProps} = useAriaButton(
     {
       ...otherProps,
       elementType: as,
@@ -208,67 +142,38 @@ export function useButton(props: UseButtonProps) {
       onPressChange,
       onPressUp,
     } as AriaButtonProps,
-    buttonRef,
+    domRef,
   );
 
-  const {hoverProps, isHovered} = useHover({isDisabled: disabled});
+  const getButtonProps = useCallback(
+    () => mergeProps(buttonAriaProps, focusProps, otherProps),
+    [buttonAriaProps, focusProps, otherProps],
+  );
 
-  const {isFocused, isFocusVisible, focusProps} = useFocusRing({
-    autoFocus,
-  });
+  const getIconClone = (icon: ReactNode) =>
+    isValidElement(icon)
+      ? cloneElement(icon, {
+          "aria-hidden": true,
+          focusable: false,
+          tabIndex: -1,
+          width: "70%",
+          height: "70%",
+          className: clsx("fill-current max-w-[24px]", icon.props.className),
+        })
+      : null;
 
-  const getButtonProps = useCallback(() => {
-    return mergeProps(buttonAriaProps, hoverProps, focusProps, otherProps, {
-      ...buttonProps,
-      bordered: buttonProps.bordered || buttonProps.ghost,
-      isFocusVisible: isFocusVisible && !buttonProps.disabled,
-      isHovered: isHovered || (buttonProps.ghost && isFocused),
-      isChildLess,
-      isPressed,
-    });
-  }, [
-    buttonProps,
-    buttonAriaProps,
-    hoverProps,
-    focusProps,
-    isFocusVisible,
-    isHovered,
-    isFocused,
-    isPressed,
-    isChildLess,
-    otherProps,
-  ]);
-
-  const state = useMemo(() => {
-    if (isPressed) return "pressed";
-    if (isHovered) return "hovered";
-
-    return disabled ? "disabled" : "ready";
-  }, [disabled, isHovered, isPressed]);
-
-  const getIconCss = useMemo<CSS | undefined>(() => {
-    if (isRightIcon) return iconRightCss;
-
-    return iconLeftCss;
-  }, [isRightIcon, iconRightCss, iconLeftCss]);
+  const leftIcon = getIconClone(leftIconProp);
+  const rightIcon = getIconClone(rightIconProp);
 
   return {
-    as,
-    css,
-    state,
-    icon,
+    Component,
     children,
-    buttonRef,
-    className,
-    cssColors,
-    hasIcon,
-    iconRight,
-    isFocused,
-    isRightIcon,
-    isFocusVisible,
-    isGradientButtonBorder,
+    domRef,
+    styles,
+    leftIcon,
+    rightIcon,
     dripBindings,
-    getIconCss,
+    disableRipple,
     getButtonProps,
   };
 }

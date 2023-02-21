@@ -3,7 +3,7 @@ import {tv, type VariantProps} from "tailwind-variants";
 import {translateCenterClasses, ringClasses} from "../../utils";
 
 /**
- * Avatar wrapper tv component
+ * Avatar wrapper **Tailwind Variants** component
  *
  * const {base, img, icon, name } = avatar({...})
  *
@@ -60,7 +60,7 @@ const avatar = tv({
     },
     color: {
       neutral: {
-        base: "bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-white",
+        base: "bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-100",
       },
       primary: {
         base: "bg-primary",
@@ -74,8 +74,8 @@ const avatar = tv({
       warning: {
         base: "bg-warning text-warning-800 dark:text-warning-800",
       },
-      error: {
-        base: "bg-error",
+      danger: {
+        base: "bg-danger",
       },
     },
     radius: {
@@ -96,6 +96,12 @@ const avatar = tv({
       },
       xl: {
         base: "rounded-xl",
+      },
+      "2xl": {
+        base: "rounded-2xl",
+      },
+      "3xl": {
+        base: "rounded-3xl",
       },
       full: {
         base: "rounded-full",
@@ -169,10 +175,10 @@ const avatar = tv({
       },
     },
     {
-      color: "error",
+      color: "danger",
       isBordered: true,
       class: {
-        base: "ring-error",
+        base: "ring-danger",
       },
     },
     {

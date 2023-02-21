@@ -50,7 +50,7 @@
     "@nextui-org/drip": "workspace:*",
     "@nextui-org/image": "workspace:*",
     "@nextui-org/link": "workspace:*",
-    "@nextui-org/loading": "workspace:*",
+    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
     "@nextui-org/radio": "workspace:*",
     "@nextui-org/snippet": "workspace:*",

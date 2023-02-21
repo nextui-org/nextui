@@ -4,7 +4,7 @@ import {Avatar} from "@nextui-org/avatar";
 
 import {UseUserProps, useUser} from "./use-user";
 
-export interface UserProps extends UseUserProps {}
+export interface UserProps extends Omit<UseUserProps, "ref"> {}
 
 const User = forwardRef<UserProps, "div">((props, ref) => {
   const {Component, domRef, name, slots, description, avatarProps, getUserProps} = useUser({
