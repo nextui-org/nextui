@@ -8,3 +8,4 @@ export * from "./drip";
 export * from "./spinner";
 export * from "./code";
 export * from "./tooltip";
+export * from "./snippet";

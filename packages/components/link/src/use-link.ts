@@ -58,7 +58,7 @@ export function useLink(originalProps: UseLinkProps) {
         ...variantProps,
         className,
       }),
-    [variantProps, className],
+    [...Object.values(variantProps), className],
   );
 
   return {Component, as, styles, domRef, linkProps, showAnchorIcon, ...otherProps};

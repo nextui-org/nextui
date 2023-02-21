@@ -151,6 +151,11 @@ module.exports = plugin(
             DEFAULT: colors.pink[500],
           },
         },
+        borderWidth: {
+          1.5: "1.5px",
+          3: "3px",
+          5: "5px",
+        },
         animation: {
           "drip-expand": "drip-expand 350ms linear",
           "spinner-ease-spin": "spinner-spin 0.8s ease infinite",

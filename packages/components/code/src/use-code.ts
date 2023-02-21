@@ -28,7 +28,7 @@ export function useCode(originalProps: UseCodeProps) {
         ...variantProps,
         className,
       }),
-    [variantProps, className],
+    [...Object.values(variantProps), className],
   );
 
   return {Component, as, styles, domRef, ...otherProps};

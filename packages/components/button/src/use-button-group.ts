@@ -54,7 +54,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
         ...variantProps,
         className,
       }),
-    [variantProps, className],
+    [...Object.values(variantProps), className],
   );
 
   const context = useMemo<ContextType>(

@@ -16,7 +16,7 @@ export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantPr
    */
   label?: string;
   /**
-   * Classname or List of classes to change the styles of the avatar.
+   * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
@@ -39,7 +39,7 @@ export function useSpinner(originalProps: UseSpinnerProps) {
 
   const domRef = useDOMRef(ref);
 
-  const slots = useMemo(() => spinner({...variantProps}), [variantProps]);
+  const slots = useMemo(() => spinner({...variantProps}), [...Object.values(variantProps)]);
 
   const baseStyles = clsx(styles?.base, className);
 

@@ -101,6 +101,30 @@ export function rootStyled<T extends As, P = {}>(component: T) {
   return Component as NextUIComponent<T, P>;
 }
 
+export const toIterator = (obj: any) => {
+  return {
+    ...obj,
+    [Symbol.iterator]: function () {
+      const keys = Object.keys(this);
+      let index = 0;
+
+      return {
+        next: () => {
+          if (index >= keys.length) {
+            return {done: true};
+          }
+          const key = keys[index];
+          const value = this[key];
+
+          index++;
+
+          return {value: {key, value}, done: false};
+        },
+      };
+    },
+  };
+};
+
 export const mapPropsVariants = <T extends Record<string, any>, K extends keyof T>(
   props: T,
   variantKeys?: K[],

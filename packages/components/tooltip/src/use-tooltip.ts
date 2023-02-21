@@ -159,9 +159,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const transitionProps = useMemo<CSSTransitionProps>(
     () => ({
-      clearTime: originalProps?.disableAnimation ? 0 : 100,
       enterTime: originalProps?.disableAnimation ? 0 : 250,
       leaveTime: originalProps?.disableAnimation ? 0 : 60,
+      clearTime: originalProps?.disableAnimation ? 0 : 60,
       isVisible: state.isOpen,
       onEntered: onEntered,
       onExited: onExited,
@@ -175,7 +175,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
         ...variantProps,
         className,
       }),
-    [variantProps, className],
+    [...Object.values(variantProps), className],
   );
 
   const getTriggerProps = useCallback(
@@ -183,7 +183,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
       ...mergeProps(triggerProps, props),
       ref: mergeRefs(triggerRef, _ref),
       onPointerEnter: () => state.open(),
-      onPointerLeave: () => !isDismissable && state.close(),
+      onPointerLeave: () => isDismissable && state.close(),
     }),
     [isDismissable, triggerRef, triggerProps],
   );

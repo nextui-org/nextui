@@ -29,7 +29,7 @@ export function use{{capitalize componentName}}(originalProps: Use{{capitalize c
       ...variantProps,
       className,
     }),
-  [variantProps, className],
+  [...Object.values(variantProps), className],
 );
 
   return {Component, styles, domRef, ...otherProps};

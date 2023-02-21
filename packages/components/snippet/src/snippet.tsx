@@ -1,26 +1,108 @@
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {Tooltip} from "@nextui-org/tooltip";
+import {ReactNode, useCallback, useMemo} from "react";
 
-import {StyledSnippet} from "./snippet.styles";
-import {UseSnippetProps, useSnippet} from "./use-snippet";
+import {useSnippet, UseSnippetProps} from "./use-snippet";
+import {SnippetCopyIcon} from "./snippet-copy-icon";
+import {SnippetCheckIcon} from "./snippet-check-icon";
 
-export interface SnippetProps extends UseSnippetProps {}
+export interface SnippetProps extends Omit<UseSnippetProps, "ref"> {}
 
 const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
-  const {className, ...otherProps} = useSnippet(props);
+  const {
+    Component,
+    domRef,
+    children,
+    slots,
+    styles,
+    copied,
+    copyIcon = <SnippetCopyIcon />,
+    checkIcon = <SnippetCheckIcon />,
+    symbolBefore,
+    disableCopy,
+    disableTooltip,
+    hideSymbol,
+    hideCopyButton,
+    tooltipProps,
+    isMultiLine,
+    getSnippetProps,
+    focusProps,
+    onCopy,
+  } = useSnippet({ref, ...props});
 
-  const domRef = useDOMRef(ref);
+  const TooltipContent = useCallback(
+    ({children}: {children?: ReactNode}) => <Tooltip {...tooltipProps}>{children}</Tooltip>,
+    [...Object.values(tooltipProps)],
+  );
+
+  const contents = useMemo(() => {
+    if (hideCopyButton) {
+      return null;
+    }
+
+    const copyButton = (
+      <button
+        className={slots.copy({
+          class: clsx(disableCopy && "opacity-50 cursor-not-allowed", styles?.copy),
+        })}
+        onClick={onCopy}
+        {...focusProps}
+      >
+        {copied ? checkIcon : copyIcon}
+      </button>
+    );
+
+    if (disableTooltip) {
+      return copyButton;
+    }
+
+    return <TooltipContent>{copyButton}</TooltipContent>;
+  }, [
+    slots,
+    styles?.copy,
+    copied,
+    checkIcon,
+    copyIcon,
+    onCopy,
+    TooltipContent,
+    disableCopy,
+    disableTooltip,
+    hideCopyButton,
+  ]);
+
+  const preContent = useMemo(() => {
+    if (isMultiLine && children && Array.isArray(children)) {
+      return (
+        <div className="flex flex-col">
+          {children.map((t, index) => (
+            <pre key={`${index}-${t}`} className={slots.pre({class: styles?.pre})}>
+              {!hideSymbol && <span className="select-none">{symbolBefore}</span>}
+              {t}
+            </pre>
+          ))}
+        </div>
+      );
+    }
+
+    return (
+      <pre className={slots.pre({class: styles?.pre})}>
+        {!hideSymbol && <span className="select-none">{symbolBefore}</span>}
+        {children}
+      </pre>
+    );
+  }, [children, hideSymbol, isMultiLine, symbolBefore, styles?.pre, slots]);
 
   return (
-    <StyledSnippet ref={domRef} className={clsx("nextui-snippet", className)} {...otherProps} />
+    <Component ref={domRef} {...getSnippetProps()}>
+      {preContent}
+      {contents}
+    </Component>
   );
 });
 
 if (__DEV__) {
   Snippet.displayName = "NextUI.Snippet";
 }
-
-Snippet.toString = () => ".nextui-snippet";
 
 export default Snippet;

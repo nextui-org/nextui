@@ -658,6 +658,9 @@ importers:
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
+      '@nextui-org/tooltip': workspace:*
+      '@nextui-org/use-clipboard': workspace:*
+      '@react-aria/focus': ^3.9.0
       clean-package: 2.1.1
       react: ^17.0.2
     dependencies:
@@ -666,6 +669,9 @@ importers:
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
+      '@nextui-org/tooltip': link:../tooltip
+      '@nextui-org/use-clipboard': link:../../hooks/use-clipboard
+      '@react-aria/focus': 3.10.1_react@17.0.2
     devDependencies:
       clean-package: 2.1.1
       react: 17.0.2
@@ -701,7 +707,7 @@ importers:
       '@storybook/addon-interactions': ^6.5.10
       '@storybook/addon-links': ^6.5.12
       '@storybook/addon-postcss': ^2.0.0
-      '@storybook/addon-storysource': ^6.5.12
+      '@storybook/addon-storysource': ^6.5.16
       '@storybook/addons': ^6.5.16
       '@storybook/builder-webpack5': ^6.5.12
       '@storybook/manager-webpack5': ^6.5.12

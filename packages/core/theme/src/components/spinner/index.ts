@@ -46,8 +46,8 @@ const spinner = tv({
     size: {
       xs: {
         base: "w-4 h-4",
-        circle1: "border-2",
-        circle2: "border-2",
+        circle1: "border-1.5",
+        circle2: "border-1.5",
         label: "translate-y-6 text-xs",
       },
       sm: {
@@ -58,14 +58,14 @@ const spinner = tv({
       },
       md: {
         base: "w-8 h-8",
-        circle1: "border-[3px]",
-        circle2: "border-[3px]",
+        circle1: "border-3",
+        circle2: "border-3",
         label: "translate-y-8 text-sm",
       },
       lg: {
         base: "w-10 h-10",
-        circle1: "border-[3px]",
-        circle2: "border-[3px]",
+        circle1: "border-3",
+        circle2: "border-3",
         label: "translate-y-10 text-base",
       },
       xl: {

@@ -29,17 +29,16 @@ export default {
   },
 } as ComponentMeta<typeof Link>;
 
-const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
+const children = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
 const defaultProps = {
   ...link.defaultVariants,
+  isDisabled: false,
+  showAnchorIcon: true,
+  children,
 };
 
-const Template: ComponentStory<typeof Link> = (args: LinkProps) => (
-  <Link {...args} href="#">
-    {text}
-  </Link>
-);
+const Template: ComponentStory<typeof Link> = (args: LinkProps) => <Link {...args} href="#" />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -79,9 +78,11 @@ export const isExternal = Template.bind({}) as any;
 isExternal.args = {
   ...defaultProps,
   isExternal: true,
-  isDisabled: false,
-  showAnchorIcon: true,
-  size: "md",
+};
+
+export const CustomAchor = Template.bind({}) as any;
+CustomAchor.args = {
+  ...defaultProps,
   anchorIcon: <CustomLink />,
 };
 

@@ -9,5 +9,8 @@ export type {AvatarGroupProps} from "./avatar-group";
 export {useAvatar} from "./use-avatar";
 export {useAvatarGroup} from "./use-avatar-group";
 
+// export misc
+export {AvatarIcon} from "./avatar-icon";
+
 // export component
 export {Avatar, AvatarGroup};

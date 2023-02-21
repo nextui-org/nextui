@@ -7,6 +7,7 @@ module.exports = {
     "../../spinner/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../code/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../tooltip/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../snippet/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [
@@ -14,7 +15,17 @@ module.exports = {
     "@storybook/addon-essentials",
     "storybook-dark-mode",
     "@storybook/addon-a11y",
-    "@storybook/addon-storysource",
+    {
+      name: '@storybook/addon-storysource',
+      options: {
+        rule: {
+          test: [/\.stories\.(js|jsx|ts|tsx)$/],
+        },
+        loaderOptions: {
+          prettierConfig: { printWidth: 80, singleQuote: false },
+        },
+      },
+    },
     {
       name: "@storybook/addon-postcss",
       options: {

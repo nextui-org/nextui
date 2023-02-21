@@ -212,6 +212,12 @@ const tooltip = tv({
       color: "danger",
       class: "text-danger",
     },
+    // size (xs) / bordered
+    {
+      size: "xs",
+      variant: "bordered",
+      class: "border-1.5",
+    },
   ],
 });
 
