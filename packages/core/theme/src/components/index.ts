@@ -9,3 +9,4 @@ export * from "./spinner";
 export * from "./code";
 export * from "./tooltip";
 export * from "./snippet";
+export * from "./chip";

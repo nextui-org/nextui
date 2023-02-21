@@ -8,6 +8,7 @@ module.exports = {
     "../../code/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../tooltip/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../snippet/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../chip/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [
