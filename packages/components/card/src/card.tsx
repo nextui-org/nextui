@@ -21,6 +21,7 @@ const Card = forwardRef<CardProps, "div", CompoundCard>((props, ref) => {
   const {
     cardRef,
     children,
+    className,
     Component,
     styles,
     isPressable,
@@ -30,15 +31,25 @@ const Card = forwardRef<CardProps, "div", CompoundCard>((props, ref) => {
     getCardProps,
   } = useCard({ref, ...props});
 
+  const {base} = styles;
+
   return (
     <Component
       ref={cardRef}
-      className={styles}
+      className={base({class: className})}
       role={isPressable ? "button" : "section"}
       tabIndex={isPressable ? 0 : -1}
       {...getCardProps()}
     >
-      {isPressable && !disableAnimation && !disableRipple && <Drip {...dripBindings} />}
+      {isPressable && !disableAnimation && !disableRipple && (
+        <Drip
+          {...dripBindings}
+          styles={{
+            base: "opacity-30 z-50",
+            svg: "text-inherit",
+          }}
+        />
+      )}
       {children}
     </Component>
   );

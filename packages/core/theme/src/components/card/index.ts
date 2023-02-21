@@ -9,10 +9,15 @@ import {focusVisibleClasses} from "../../utils";
  * <div className={card()}>A basic card</div>
  */
 const card = tv({
-  base: [
-    ...focusVisibleClasses,
-    "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto bg-white text-foreground rounded-xl box-border dark:bg-neutral-900 dark:text-foreground-dark",
-  ],
+  slots: {
+    base: [
+      ...focusVisibleClasses,
+      "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto bg-white text-foreground rounded-xl box-border dark:bg-neutral-900 dark:text-foreground-dark",
+    ],
+    body: "",
+    footer: "",
+    header: "",
+  },
   variants: {
     variant: {
       shadow: "drop-shadow-lg",

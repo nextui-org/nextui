@@ -2,7 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 import {__DEV__} from "@nextui-org/shared-utils";
 import {Drip} from "@nextui-org/drip";
 
-import {UseButtonProps, useButton} from "./use-button";
+import {useButton, UseButtonProps} from "./use-button";
 
 export interface ButtonProps extends Omit<UseButtonProps, "ref"> {}
 
@@ -31,7 +31,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
         <Drip
           {...dripBindings}
           styles={{
-            base: "opacity-30",
+            base: "opacity-30 z-10",
             svg: "text-inherit",
           }}
         />
