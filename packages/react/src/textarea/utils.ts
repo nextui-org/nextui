@@ -98,10 +98,7 @@ export const getSizingData = (node: HTMLElement): SizingData | null => {
   };
 };
 
-// TODO: use labelled tuples once they are avaiable:
-//   export type CalculatedNodeHeights = [height: number, rowHeight: number];
-// https://github.com/microsoft/TypeScript/issues/28259
-export type CalculatedNodeHeights = number[];
+export type CalculatedNodeHeights = [height: number, rowHeight: number];
 
 let hiddenTextarea: HTMLTextAreaElement | null = null;
 
