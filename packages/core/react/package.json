@@ -61,9 +61,9 @@
     "@stitches/react": ">=1.2.8"
   },
   "devDependencies": {
-    "react": "17.0.2",
+    "react": "18.2.0",
     "@stitches/react": "1.2.8",
-    "clean-package": "2.1.1"
+    "clean-package": "2.2.0"
   },
   "tsup": {
     "clean": true,

@@ -41,19 +41,19 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
-    "@react-aria/checkbox": "^3.6.0",
-    "@react-aria/focus": "^3.9.0",
-    "@react-aria/interactions": "^3.12.0",
-    "@react-aria/visually-hidden": "^3.5.0",
-    "@react-stately/checkbox": "^3.3.0",
-    "@react-stately/toggle": "^3.4.2",
-    "@react-aria/utils": "^3.14.0"
+    "@react-aria/checkbox": "^3.8.0",
+    "@react-aria/focus": "^3.11.0",
+    "@react-aria/interactions": "^3.14.0",
+    "@react-aria/visually-hidden": "^3.7.0",
+    "@react-stately/checkbox": "^3.4.0",
+    "@react-stately/toggle": "^3.5.0",
+    "@react-aria/utils": "^3.15.0"
   },
   "devDependencies": {
-    "@react-types/checkbox": "^3.4.0",
-    "@react-types/shared": "^3.15.0",
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "@react-types/checkbox": "^3.4.2",
+    "@react-types/shared": "^3.17.0",
+    "clean-package": "2.2.0",
+    "react": "^18.2.0"
   },
   "tsup": {
     "clean": true,

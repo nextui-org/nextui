@@ -44,8 +44,8 @@
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "clean-package": "2.2.0",
+    "react": "^18.2.0"
   },
   "tsup": {
     "clean": true,

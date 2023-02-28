@@ -37,8 +37,8 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "clean-package": "2.2.0",
+    "react": "^18.2.0"
   },
   "tsup": {
     "clean": true,

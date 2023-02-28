@@ -41,19 +41,19 @@
     "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@react-aria/focus": "^3.9.0",
-    "@react-aria/interactions": "^3.12.0",
-    "@react-aria/radio": "^3.4.0",
-    "@react-aria/utils": "^3.14.0",
-    "@react-aria/visually-hidden": "^3.5.0",
-    "@react-stately/radio": "^3.6.0"
+    "@react-aria/focus": "^3.11.0",
+    "@react-aria/interactions": "^3.14.0",
+    "@react-aria/radio": "^3.5.0",
+    "@react-aria/utils": "^3.15.0",
+    "@react-aria/visually-hidden": "^3.7.0",
+    "@react-stately/radio": "^3.7.0"
   },
   "devDependencies": {
     "@react-types/radio": "^3.3.0",
     "@react-types/shared": "^3.15.0",
     "@nextui-org/button": "workspace:*",
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "clean-package": "2.2.0",
+    "react": "^18.2.0"
   },
   "tsup": {
     "clean": true,

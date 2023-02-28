@@ -44,11 +44,11 @@
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "^3.9.0"
+    "@react-aria/focus": "^3.11.0"
   },
   "devDependencies": {
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "clean-package": "2.2.0",
+    "react": "^18.2.0"
   },
   "tsup": {
     "clean": true,
