@@ -15,3 +15,5 @@ export const commonColors = {
   red,
   yellow,
 };
+
+export type CommonColors = typeof commonColors;

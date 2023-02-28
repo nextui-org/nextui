@@ -723,59 +723,6 @@ importers:
       clean-package: 2.2.0
       react: 18.2.0
 
-  packages/components/storybook:
-    specifiers:
-      '@babel/core': ^7.16.7
-      '@babel/preset-env': ^7.14.5
-      '@babel/preset-react': ^7.14.5
-      '@babel/preset-typescript': ^7.14.5
-      '@nextui-org/theme': workspace:*
-      '@storybook/addon-a11y': ^6.5.12
-      '@storybook/addon-actions': ^6.5.12
-      '@storybook/addon-docs': ^6.5.10
-      '@storybook/addon-essentials': ^6.5.12
-      '@storybook/addon-interactions': ^6.5.10
-      '@storybook/addon-links': ^6.5.12
-      '@storybook/addon-postcss': ^2.0.0
-      '@storybook/addon-storysource': ^6.5.16
-      '@storybook/addons': ^6.5.16
-      '@storybook/builder-webpack5': ^6.5.12
-      '@storybook/manager-webpack5': ^6.5.12
-      '@storybook/react': ^6.5.12
-      '@storybook/theming': ^6.5.16
-      autoprefixer: ^10.4.13
-      babel-loader: ^8.2.3
-      concurrently: ^7.6.0
-      postcss: ^8.4.21
-      storybook-dark-mode: ^1.1.2
-      tailwindcss: ^3.2.4
-    dependencies:
-      '@nextui-org/theme': link:../../core/theme
-    devDependencies:
-      '@babel/core': 7.21.0
-      '@babel/preset-env': 7.20.2_@babel+core@7.21.0
-      '@babel/preset-react': 7.18.6_@babel+core@7.21.0
-      '@babel/preset-typescript': 7.21.0_@babel+core@7.21.0
-      '@storybook/addon-a11y': 6.5.16
-      '@storybook/addon-actions': 6.5.16
-      '@storybook/addon-docs': 6.5.16_@babel+core@7.21.0
-      '@storybook/addon-essentials': 6.5.16_6epg6i43rcjfozpei4jqaaefti
-      '@storybook/addon-interactions': 6.5.16
-      '@storybook/addon-links': 6.5.16
-      '@storybook/addon-postcss': 2.0.0
-      '@storybook/addon-storysource': 6.5.16
-      '@storybook/addons': 6.5.16
-      '@storybook/builder-webpack5': 6.5.16
-      '@storybook/manager-webpack5': 6.5.16
-      '@storybook/react': 6.5.16_gfzdo3ad3cmaxbni4zyiwl5zrm
-      '@storybook/theming': 6.5.16
-      autoprefixer: 10.4.13_postcss@8.4.21
-      babel-loader: 8.3.0_@babel+core@7.21.0
-      concurrently: 7.6.0
-      postcss: 8.4.21
-      storybook-dark-mode: 1.1.2
-      tailwindcss: 3.2.7_postcss@8.4.21
-
   packages/components/tooltip:
     specifiers:
       '@nextui-org/aria-utils': workspace:*
@@ -1017,6 +964,59 @@ importers:
     devDependencies:
       clean-package: 2.2.0
       react: 18.2.0
+
+  packages/storybook:
+    specifiers:
+      '@babel/core': ^7.16.7
+      '@babel/preset-env': ^7.14.5
+      '@babel/preset-react': ^7.14.5
+      '@babel/preset-typescript': ^7.14.5
+      '@nextui-org/theme': workspace:*
+      '@storybook/addon-a11y': ^6.5.12
+      '@storybook/addon-actions': ^6.5.12
+      '@storybook/addon-docs': ^6.5.10
+      '@storybook/addon-essentials': ^6.5.12
+      '@storybook/addon-interactions': ^6.5.10
+      '@storybook/addon-links': ^6.5.12
+      '@storybook/addon-postcss': ^2.0.0
+      '@storybook/addon-storysource': ^6.5.16
+      '@storybook/addons': ^6.5.16
+      '@storybook/builder-webpack5': ^6.5.12
+      '@storybook/manager-webpack5': ^6.5.12
+      '@storybook/react': ^6.5.12
+      '@storybook/theming': ^6.5.16
+      autoprefixer: ^10.4.13
+      babel-loader: ^8.2.3
+      concurrently: ^7.6.0
+      postcss: ^8.4.21
+      storybook-dark-mode: ^1.1.2
+      tailwindcss: ^3.2.4
+    dependencies:
+      '@nextui-org/theme': link:../core/theme
+    devDependencies:
+      '@babel/core': 7.21.0
+      '@babel/preset-env': 7.20.2_@babel+core@7.21.0
+      '@babel/preset-react': 7.18.6_@babel+core@7.21.0
+      '@babel/preset-typescript': 7.21.0_@babel+core@7.21.0
+      '@storybook/addon-a11y': 6.5.16
+      '@storybook/addon-actions': 6.5.16
+      '@storybook/addon-docs': 6.5.16_@babel+core@7.21.0
+      '@storybook/addon-essentials': 6.5.16_6epg6i43rcjfozpei4jqaaefti
+      '@storybook/addon-interactions': 6.5.16
+      '@storybook/addon-links': 6.5.16
+      '@storybook/addon-postcss': 2.0.0
+      '@storybook/addon-storysource': 6.5.16
+      '@storybook/addons': 6.5.16
+      '@storybook/builder-webpack5': 6.5.16
+      '@storybook/manager-webpack5': 6.5.16
+      '@storybook/react': 6.5.16_gfzdo3ad3cmaxbni4zyiwl5zrm
+      '@storybook/theming': 6.5.16
+      autoprefixer: 10.4.13_postcss@8.4.21
+      babel-loader: 8.3.0_@babel+core@7.21.0
+      concurrently: 7.6.0
+      postcss: 8.4.21
+      storybook-dark-mode: 1.1.2
+      tailwindcss: 3.2.7_postcss@8.4.21
 
   packages/utilities/aria-utils:
     specifiers:
@@ -1708,7 +1708,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.20.7_@babel+core@7.12.9
 
@@ -3379,7 +3379,7 @@ packages:
       react-dom: '>= 16.8.6'
     dependencies:
       '@babel/runtime': 7.21.0
-      clsx: 1.1.0
+      clsx: 1.2.1
       focus-lock: 0.8.1
       react-merge-refs: 1.1.0
     dev: true
