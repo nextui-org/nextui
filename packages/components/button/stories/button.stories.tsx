@@ -13,7 +13,7 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "shadow", "ghost"],
+        options: ["solid", "bordered", "light", "flat", "faded", "shadow", "ghost"],
       },
     },
     color: {

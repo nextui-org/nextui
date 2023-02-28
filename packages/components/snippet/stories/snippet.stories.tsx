@@ -57,11 +57,17 @@ export default {
         type: "boolean",
       },
     },
+    symbol: {
+      control: {
+        type: "text",
+      },
+    },
   },
 } as ComponentMeta<typeof Snippet>;
 
 const defaultProps = {
   children: "npm install @nextui-org/react",
+  symbol: "$",
   disableCopy: false,
   disableTooltip: false,
   hideCopyButton: false,

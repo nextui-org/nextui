@@ -46,8 +46,8 @@ const spinner = tv({
     size: {
       xs: {
         base: "w-4 h-4",
-        circle1: "border-1.5",
-        circle2: "border-1.5",
+        circle1: "border-2",
+        circle2: "border-2",
         label: "translate-y-6 text-xs",
       },
       sm: {

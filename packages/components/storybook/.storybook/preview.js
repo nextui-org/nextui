@@ -20,8 +20,10 @@ export const parameters = {
   },
   darkMode: {
     current: "dark",
-    darkClass: "dark",
     stylePreview: true,
+    darkClass: 'dark',
+    lightClass: 'light',
+    classTarget: 'html',
     dark: {
       ...themes.dark,
       appBg: "#161616",

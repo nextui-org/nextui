@@ -38,11 +38,16 @@
   },
   "dependencies": {
     "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*"
+    "@nextui-org/theme": "workspace:*",
+    "@react-aria/focus": "^3.9.0",
+    "@react-aria/interactions": "^3.12.0",
+    "@react-aria/utils": "^3.14.0"
   },
   "devDependencies": {
+    "@nextui-org/avatar": "workspace:*",
     "@react-types/checkbox": "^3.4.0",
     "clean-package": "2.1.1",
     "react": "^17.0.2"

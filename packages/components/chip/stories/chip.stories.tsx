@@ -1,6 +1,8 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {chip} from "@nextui-org/theme";
+import {Avatar} from "@nextui-org/avatar";
+import {CheckIcon} from "@nextui-org/shared-icons";
 
 import {Chip, ChipProps} from "../src";
 
@@ -11,7 +13,7 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "shadow"],
+        options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
       },
     },
     color: {
@@ -55,4 +57,27 @@ const Template: ComponentStory<typeof Chip> = (args: ChipProps) => <Chip {...arg
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
+};
+
+export const Closeable = Template.bind({});
+Closeable.args = {
+  ...defaultProps,
+  // eslint-disable-next-line
+  onClose: () => console.log("Close"),
+};
+
+export const CustomCloseIcon = Template.bind({});
+CustomCloseIcon.args = {
+  ...defaultProps,
+  rightContent: <CheckIcon />,
+  // eslint-disable-next-line
+  onClose: () => console.log("Close"),
+};
+
+export const WithAvatar = Template.bind({});
+WithAvatar.args = {
+  ...defaultProps,
+  variant: "flat",
+  color: "secondary",
+  leftContent: <Avatar name="JW" src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />,
 };

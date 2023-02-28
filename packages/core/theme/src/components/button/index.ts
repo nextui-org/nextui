@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {ringClasses} from "../../utils";
+import {ringClasses, colorVariants} from "../../utils";
 
 /**
  * Button wrapper **Tailwind Variants** component
@@ -34,6 +34,7 @@ const button = tv({
       bordered: "border-2 !bg-transparent",
       light: "!bg-transparent",
       flat: "",
+      faded: "border-2",
       shadow: "",
       ghost: "border-2 !bg-transparent",
     },
@@ -45,12 +46,12 @@ const button = tv({
       xl: "px-8 h-14 text-lg",
     },
     color: {
-      neutral: "bg-neutral-300 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100",
-      primary: "bg-primary text-white",
-      secondary: "bg-secondary text-white",
-      success: "bg-success text-success-800",
-      warning: "bg-warning text-warning-800",
-      danger: "bg-danger text-white",
+      neutral: colorVariants.solid.neutral,
+      primary: colorVariants.solid.primary,
+      secondary: colorVariants.solid.secondary,
+      success: colorVariants.solid.success,
+      warning: colorVariants.solid.warning,
+      danger: colorVariants.solid.danger,
     },
     radius: {
       none: "rounded-none",
@@ -95,156 +96,187 @@ const button = tv({
     {
       variant: "shadow",
       color: "neutral",
-      class: "shadow-lg shadow-neutral/40",
+      class: colorVariants.shadow.neutral,
     },
     {
       variant: "shadow",
       color: "primary",
-      class: "shadow-lg shadow-primary/40",
+      class: colorVariants.shadow.primary,
     },
     {
       variant: "shadow",
       color: "secondary",
-      class: "shadow-lg shadow-secondary/40",
+      class: colorVariants.shadow.secondary,
     },
     {
       variant: "shadow",
       color: "success",
-      class: "shadow-lg shadow-success/40",
+      class: colorVariants.shadow.success,
     },
     {
       variant: "shadow",
       color: "warning",
-      class: "shadow-lg shadow-warning/40",
+      class: colorVariants.shadow.warning,
     },
     {
       variant: "shadow",
       color: "danger",
-      class: "shadow-lg shadow-danger/40",
+      class: colorVariants.shadow.danger,
     },
     // bordered / color
     {
       variant: "bordered",
       color: "neutral",
-      class: "border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-100",
+      class: colorVariants.bordered.neutral,
     },
     {
       variant: "bordered",
       color: "primary",
-      class: "border-primary text-primary",
+      class: colorVariants.bordered.primary,
     },
     {
       variant: "bordered",
       color: "secondary",
-      class: "border-secondary text-secondary",
+      class: colorVariants.bordered.secondary,
     },
     {
       variant: "bordered",
       color: "success",
-      class: "border-success text-success",
+      class: colorVariants.bordered.success,
     },
     {
       variant: "bordered",
       color: "warning",
-      class: "border-warning text-warning",
+      class: colorVariants.bordered.warning,
     },
     {
       variant: "bordered",
       color: "danger",
-      class: "border-danger text-danger",
+      class: colorVariants.bordered.danger,
     },
     // flat / color
     {
       variant: "flat",
       color: "neutral",
-      class: "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-100",
+      class: colorVariants.flat.neutral,
     },
     {
       variant: "flat",
       color: "primary",
-      class: "bg-primary-50 dark:bg-primary-900 text-primary",
+      class: colorVariants.flat.primary,
     },
     {
       variant: "flat",
       color: "secondary",
-      class: "bg-secondary-50 dark:bg-secondary-900 text-secondary dark:text-secondary-400",
+      class: colorVariants.flat.secondary,
     },
     {
       variant: "flat",
       color: "success",
-      class: "bg-success-50 dark:bg-success-900 text-success-600 dark:text-success",
+      class: colorVariants.flat.success,
     },
     {
       variant: "flat",
       color: "warning",
-      class: "bg-warning-50 dark:bg-warning-900 text-warning-600 dark:text-warning",
+      class: colorVariants.flat.warning,
     },
     {
       variant: "flat",
       color: "danger",
-      class: "bg-danger-50 dark:bg-danger-900 text-danger dark:text-danger-400",
+      class: colorVariants.flat.danger,
+    },
+    // faded / color
+    {
+      variant: "faded",
+      color: "neutral",
+      class: colorVariants.faded.neutral,
+    },
+    {
+      variant: "faded",
+      color: "primary",
+      class: colorVariants.faded.primary,
+    },
+    {
+      variant: "faded",
+      color: "secondary",
+      class: colorVariants.faded.secondary,
+    },
+    {
+      variant: "faded",
+      color: "success",
+      class: colorVariants.faded.success,
+    },
+    {
+      variant: "faded",
+      color: "warning",
+      class: colorVariants.faded.warning,
+    },
+    {
+      variant: "faded",
+      color: "danger",
+      class: colorVariants.faded.danger,
     },
     // light / color
     {
       variant: "light",
       color: "neutral",
-      class: "text-neutral-700 dark:text-neutral-100",
+      class: colorVariants.light.neutral,
     },
     {
       variant: "light",
       color: "primary",
-      class: "text-primary",
+      class: colorVariants.light.primary,
     },
     {
       variant: "light",
       color: "secondary",
-      class: "text-secondary",
+      class: colorVariants.light.secondary,
     },
     {
       variant: "light",
       color: "success",
-      class: "text-success",
+      class: colorVariants.light.success,
     },
     {
       variant: "light",
       color: "warning",
-      class: "text-warning",
+      class: colorVariants.light.warning,
     },
     {
       variant: "light",
       color: "danger",
-      class: "text-danger",
+      class: colorVariants.light.danger,
     },
     // ghost / color
     {
       variant: "ghost",
       color: "neutral",
-      class: "border-neutral-300 dark:border-neutral-700 hover:!bg-neutral-300",
+      class: colorVariants.ghost.neutral,
     },
     {
       variant: "ghost",
       color: "primary",
-      class: "border-primary text-primary hover:text-white hover:!bg-primary",
+      class: colorVariants.ghost.primary,
     },
     {
       variant: "ghost",
       color: "secondary",
-      class: "border-secondary text-secondary hover:text-white hover:!bg-secondary",
+      class: colorVariants.ghost.secondary,
     },
     {
       variant: "ghost",
       color: "success",
-      class: "border-success text-success hover:text-white hover:!bg-success",
+      class: colorVariants.ghost.success,
     },
     {
       variant: "ghost",
       color: "warning",
-      class: "border-warning text-warning hover:text-white hover:!bg-warning",
+      class: colorVariants.ghost.warning,
     },
     {
       variant: "ghost",
       color: "danger",
-      class: "border-danger text-danger hover:text-white hover:!bg-danger",
+      class: colorVariants.ghost.danger,
     },
     // !disabledAnimation / ghost
     {

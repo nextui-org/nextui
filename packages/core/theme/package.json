@@ -18,6 +18,8 @@
   "sideEffects": false,
   "files": [
     "dist",
+    "config.js",
+    "config.d.ts",
     "plugin.js",
     "plugin.d.ts",
     "colors.js",
@@ -44,12 +46,26 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "tailwind-variants": "^0.0.30"
+    "color": "^4.2.3",
+    "color2k": "^2.0.2",
+    "deepmerge": "4.2.2",
+    "flat": "^5.0.2",
+    "lodash.foreach": "^4.5.0",
+    "lodash.get": "^4.4.2",
+    "lodash.isempty": "^4.4.0",
+    "tailwind-variants": "^0.0.30",
+    "tailwindcss": "^3.2.4"
+  },
+  "peerDependencies": {
+    "tailwindcss": "*"
   },
   "devDependencies": {
-    "@storybook/addon-storysource": "^6.5.12",
-    "clean-package": "2.1.1",
-    "tailwindcss": "^3.2.4"
+    "@types/color": "^3.0.3",
+    "@types/flat": "^5.0.2",
+    "@types/lodash.foreach": "^4.5.7",
+    "@types/lodash.get": "^4.4.7",
+    "@types/lodash.isempty": "^4.4.7",
+    "clean-package": "2.1.1"
   },
   "tsup": {
     "clean": true,

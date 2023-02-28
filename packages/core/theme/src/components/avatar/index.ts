@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {translateCenterClasses, ringClasses} from "../../utils";
+import {translateCenterClasses, ringClasses, colorVariants} from "../../utils";
 
 /**
  * Avatar wrapper **Tailwind Variants** component
@@ -60,22 +60,22 @@ const avatar = tv({
     },
     color: {
       neutral: {
-        base: "bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-100",
+        base: colorVariants.solid.neutral,
       },
       primary: {
-        base: "bg-primary",
+        base: colorVariants.solid.primary,
       },
       secondary: {
-        base: "bg-secondary",
+        base: colorVariants.solid.secondary,
       },
       success: {
-        base: "bg-success text-success-800 dark:text-success-800",
+        base: colorVariants.solid.success,
       },
       warning: {
-        base: "bg-warning text-warning-800 dark:text-warning-800",
+        base: colorVariants.solid.warning,
       },
       danger: {
-        base: "bg-danger",
+        base: colorVariants.solid.danger,
       },
     },
     radius: {

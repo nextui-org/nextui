@@ -19,9 +19,9 @@ const link = tv({
       xl: "text-xl",
     },
     color: {
-      foreground: "text-foreground dark:text-foreground-dark",
+      foreground: "text-foreground",
       primary: "text-primary",
-      secondary: "text-secondary dark:text-secondary-dark",
+      secondary: "text-secondary",
       success: "text-success",
       warning: "text-warning",
       danger: "text-danger",
@@ -45,32 +45,32 @@ const link = tv({
     {
       isBlock: true,
       color: "foreground",
-      class: "hover:after:bg-foreground/25 dark:hover:after:bg-foreground-dark/25",
+      class: "hover:after:bg-foreground/20",
     },
     {
       isBlock: true,
       color: "primary",
-      class: "hover:after:bg-primary/25",
+      class: "hover:after:bg-primary/20",
     },
     {
       isBlock: true,
       color: "secondary",
-      class: "hover:after:bg-secondary/25 dark:hover:after:bg-secondary-dark/25",
+      class: "hover:after:bg-secondary/20",
     },
     {
       isBlock: true,
       color: "success",
-      class: "hover:after:bg-success/25",
+      class: "hover:after:bg-success/20",
     },
     {
       isBlock: true,
       color: "warning",
-      class: "hover:after:bg-warning/25",
+      class: "hover:after:bg-warning/20",
     },
     {
       isBlock: true,
       color: "danger",
-      class: "hover:after:bg-danger/25",
+      class: "hover:after:bg-danger/20",
     },
   ],
   defaultVariants: {

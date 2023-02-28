@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {ringClasses} from "../../utils";
+import {ringClasses, colorVariants} from "../../utils";
 
 /**
  * Snippet wrapper **Tailwind Variants** component
@@ -34,22 +34,22 @@ const snippet = tv({
     },
     color: {
       neutral: {
-        base: "text-neutral-800 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-800",
+        base: colorVariants.flat.neutral,
       },
       primary: {
-        base: "bg-primary-50 dark:bg-primary-900 text-primary",
+        base: colorVariants.flat.primary,
       },
       secondary: {
-        base: "bg-secondary-50 dark:bg-secondary-900 text-secondary dark:text-secondary-400",
+        base: colorVariants.flat.secondary,
       },
       success: {
-        base: "bg-success-50 dark:bg-success-900 text-success-600 dark:text-success",
+        base: colorVariants.flat.success,
       },
       warning: {
-        base: "bg-warning-50 dark:bg-warning-900 text-warning-600 dark:text-warning",
+        base: colorVariants.flat.warning,
       },
       danger: {
-        base: "bg-danger-50 dark:bg-danger-900 text-danger",
+        base: colorVariants.flat.danger,
       },
     },
     size: {
@@ -120,45 +120,45 @@ const snippet = tv({
   compoundVariants: [
     // solid & shadow / color
     {
-      variant: ["solid", "shadow"],
+      variant: "solid",
       color: "neutral",
       class: {
-        base: "bg-neutral-300 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100",
+        base: colorVariants.solid.neutral,
       },
     },
     {
-      variant: ["solid", "shadow"],
+      variant: "solid",
       color: "primary",
       class: {
-        base: "bg-primary text-white",
+        base: colorVariants.solid.primary,
       },
     },
     {
-      variant: ["solid", "shadow"],
+      variant: "solid",
       color: "secondary",
       class: {
-        base: "bg-secondary text-white",
+        base: colorVariants.solid.secondary,
       },
     },
     {
-      variant: ["solid", "shadow"],
+      variant: "solid",
       color: "success",
       class: {
-        base: "bg-success text-success-800",
+        base: colorVariants.solid.success,
       },
     },
     {
-      variant: ["solid", "shadow"],
+      variant: "solid",
       color: "warning",
       class: {
-        base: "bg-warning text-warning-800",
+        base: colorVariants.solid.warning,
       },
     },
     {
-      variant: ["solid", "shadow"],
+      variant: "solid",
       color: "danger",
       class: {
-        base: "bg-danger text-white",
+        base: colorVariants.solid.danger,
       },
     },
     // shadow / color
@@ -166,42 +166,42 @@ const snippet = tv({
       variant: "shadow",
       color: "neutral",
       class: {
-        base: "shadow-lg shadow-neutral/40",
+        base: colorVariants.shadow.neutral,
       },
     },
     {
       variant: "shadow",
       color: "primary",
       class: {
-        base: "shadow-lg shadow-primary/40",
+        base: colorVariants.shadow.primary,
       },
     },
     {
       variant: "shadow",
       color: "secondary",
       class: {
-        base: "shadow-lg shadow-secondary/40",
+        base: colorVariants.shadow.secondary,
       },
     },
     {
       variant: "shadow",
       color: "success",
       class: {
-        base: "shadow-lg shadow-success/40",
+        base: colorVariants.shadow.success,
       },
     },
     {
       variant: "shadow",
       color: "warning",
       class: {
-        base: "shadow-lg shadow-warning/40",
+        base: colorVariants.shadow.warning,
       },
     },
     {
       variant: "shadow",
       color: "danger",
       class: {
-        base: "shadow-lg shadow-danger/40",
+        base: colorVariants.shadow.danger,
       },
     },
     // bordered / color
@@ -209,42 +209,42 @@ const snippet = tv({
       variant: "bordered",
       color: "neutral",
       class: {
-        base: "border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-100",
+        base: colorVariants.bordered.neutral,
       },
     },
     {
       variant: "bordered",
       color: "primary",
       class: {
-        base: "border-primary text-primary",
+        base: colorVariants.bordered.primary,
       },
     },
     {
       variant: "bordered",
       color: "secondary",
       class: {
-        base: "border-secondary text-secondary",
+        base: colorVariants.bordered.secondary,
       },
     },
     {
       variant: "bordered",
       color: "success",
       class: {
-        base: "border-success text-success",
+        base: colorVariants.bordered.success,
       },
     },
     {
       variant: "bordered",
       color: "warning",
       class: {
-        base: "border-warning text-warning",
+        base: colorVariants.bordered.warning,
       },
     },
     {
       variant: "bordered",
       color: "danger",
       class: {
-        base: "border-danger text-danger",
+        base: colorVariants.bordered.danger,
       },
     },
   ],
