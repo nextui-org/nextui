@@ -31,7 +31,7 @@ const bordered = {
 const flat = {
   neutral: "bg-neutral-100 text-neutral-contrastText",
   primary: "bg-primary-50 text-primary",
-  secondary: "bg-secondary-50 text-secondary",
+  secondary: "bg-secondary-100 text-secondary",
   success: "bg-success-50 text-success",
   warning: "bg-warning-50 text-warning",
   danger: "bg-danger-50 text-danger",

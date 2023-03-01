@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {ringClasses, colorVariants} from "../../utils";
+import {ringClasses, colorVariants} from "../utils";
 
 /**
  * Chip wrapper **Tailwind Variants** component
@@ -45,22 +45,22 @@ const chip = tv({
     },
     color: {
       neutral: {
-        base: [colorVariants.solid.neutral],
+        base: colorVariants.solid.neutral,
       },
       primary: {
-        base: [colorVariants.solid.primary, "data-[status=checked]:bg-primary-600"],
+        base: colorVariants.solid.primary,
       },
       secondary: {
-        base: [colorVariants.solid.secondary, "data-[status=checked]:bg-secondary-600"],
+        base: colorVariants.solid.secondary,
       },
       success: {
-        base: [colorVariants.solid.success, "data-[status=checked]:bg-success-600"],
+        base: colorVariants.solid.success,
       },
       warning: {
-        base: [colorVariants.solid.warning, "data-[status=checked]:bg-warning-600"],
+        base: colorVariants.solid.warning,
       },
       danger: {
-        base: [colorVariants.solid.danger, "data-[status=checked]:bg-danger-600"],
+        base: colorVariants.solid.danger,
       },
     },
     size: {

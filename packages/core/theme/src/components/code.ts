@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {colorVariants} from "../../utils";
+import {colorVariants} from "../utils";
 
 /**
  * Code wrapper **Tailwind Variants** component

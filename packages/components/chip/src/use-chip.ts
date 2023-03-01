@@ -24,7 +24,7 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    */
   rightContent?: React.ReactNode;
   /**
-   * Classname or List of classes to change the styles of the avatar.
+   * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
@@ -66,7 +66,7 @@ export function useChip(originalProps: UseChipProps) {
         ...variantProps,
         isCloseButtonFocusVisible,
       }),
-    [...Object.values(variantProps), isCloseButtonFocusVisible, className],
+    [...Object.values(variantProps), isCloseButtonFocusVisible],
   );
 
   const {pressProps: closePressProps} = usePress({

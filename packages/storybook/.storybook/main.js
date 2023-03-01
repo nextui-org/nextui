@@ -10,6 +10,7 @@ module.exports = {
     "../../components/tooltip/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/snippet/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/chip/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../components/badge/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [

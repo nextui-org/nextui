@@ -158,7 +158,11 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}) => {
             ...commonColors,
             ...resolved.colors,
           },
+          fontSize: {
+            tiny: "0.625rem",
+          },
           borderWidth: {
+            1: "1px",
             1.5: "1.5px",
             3: "3px",
             5: "5px",

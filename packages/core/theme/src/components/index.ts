@@ -10,3 +10,4 @@ export * from "./code";
 export * from "./tooltip";
 export * from "./snippet";
 export * from "./chip";
+export * from "./badge";

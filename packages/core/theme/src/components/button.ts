@@ -1,53 +1,57 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {colorVariants} from "../../utils";
+import {ringClasses, colorVariants} from "../utils";
+
 /**
- * Tooltip wrapper **Tailwind Variants** component
+ * Button wrapper **Tailwind Variants** component
  *
- * const styles = tooltip({...})
+ * const styles = button({...})
  *
  * @example
- * <div>
- *  <button>your trigger</button>
- *  <div role="tooltip" className={styles} data-transition='enter/leave'>
- *    // tooltip content
- *  </div>
- * </div>
+ * <button className={styles())}>
+ *   Button
+ * </button>
  */
-const tooltip = tv({
+const button = tv({
   base: [
+    "relative",
     "inline-flex",
-    "flex-col",
     "items-center",
     "justify-center",
     "box-border",
-    "animate-appearance-in",
-    "data-[transition=leave]:animate-appearance-out",
+    "apparance-none",
+    "outline-none",
+    "select-none",
+    "font-medium",
+    "antialiased",
+    "active:scale-95",
+    "overflow-hidden",
+    "gap-3",
   ],
   variants: {
     variant: {
       solid: "",
       bordered: "border-2 !bg-transparent",
       light: "!bg-transparent",
-      faded: "border-2",
       flat: "",
+      faded: "border-2",
       shadow: "",
+      ghost: "border-2 !bg-transparent",
+    },
+    size: {
+      xs: "px-2 h-6 text-xs",
+      sm: "px-3 h-8 text-sm",
+      md: "px-4 h-10 text-base",
+      lg: "px-6 h-12 text-md",
+      xl: "px-8 h-14 text-lg",
     },
     color: {
       neutral: colorVariants.solid.neutral,
-      foreground: colorVariants.solid.foreground,
       primary: colorVariants.solid.primary,
       secondary: colorVariants.solid.secondary,
       success: colorVariants.solid.success,
       warning: colorVariants.solid.warning,
       danger: colorVariants.solid.danger,
-    },
-    size: {
-      xs: "px-2 h-4 text-xs",
-      sm: "px-3 h-6 text-sm",
-      md: "px-4 h-8 text-base",
-      lg: "px-6 h-10 text-lg",
-      xl: "px-8 h-12 text-xl",
     },
     radius: {
       none: "rounded-none",
@@ -56,17 +60,36 @@ const tooltip = tv({
       md: "rounded-md",
       lg: "rounded-lg",
       xl: "rounded-xl",
+      "2xl": "rounded-2xl",
+      "3xl": "rounded-3xl",
       full: "rounded-full",
     },
+    fullWidth: {
+      true: "w-full",
+    },
+    isDisabled: {
+      true: "opacity-50 pointer-events-none",
+    },
+    isFocusVisible: {
+      true: [...ringClasses],
+    },
+    isInGroup: {
+      true: "[&:not(:first-child):not(:last-child)]:rounded-none",
+    },
     disableAnimation: {
-      true: "animate-none",
+      false: "transition-transform",
+      true: "!transition-none",
     },
   },
   defaultVariants: {
+    size: "md",
     variant: "solid",
     color: "neutral",
-    size: "sm",
-    radius: "lg",
+    radius: "xl",
+    fullWidth: false,
+    isDisabled: false,
+    isInGroup: false,
+    disableAnimation: false,
   },
   compoundVariants: [
     // shadow / color
@@ -74,11 +97,6 @@ const tooltip = tv({
       variant: "shadow",
       color: "neutral",
       class: colorVariants.shadow.neutral,
-    },
-    {
-      variant: "shadow",
-      color: "foreground",
-      class: colorVariants.shadow.foreground,
     },
     {
       variant: "shadow",
@@ -113,11 +131,6 @@ const tooltip = tv({
     },
     {
       variant: "bordered",
-      color: "foreground",
-      class: colorVariants.bordered.foreground,
-    },
-    {
-      variant: "bordered",
       color: "primary",
       class: colorVariants.bordered.primary,
     },
@@ -146,11 +159,6 @@ const tooltip = tv({
       variant: "flat",
       color: "neutral",
       class: colorVariants.flat.neutral,
-    },
-    {
-      variant: "flat",
-      color: "foreground",
-      class: colorVariants.flat.foreground,
     },
     {
       variant: "flat",
@@ -185,11 +193,6 @@ const tooltip = tv({
     },
     {
       variant: "faded",
-      color: "foreground",
-      class: colorVariants.faded.foreground,
-    },
-    {
-      variant: "faded",
       color: "primary",
       class: colorVariants.faded.primary,
     },
@@ -221,11 +224,6 @@ const tooltip = tv({
     },
     {
       variant: "light",
-      color: "foreground",
-      class: colorVariants.light.foreground,
-    },
-    {
-      variant: "light",
       color: "primary",
       class: colorVariants.light.primary,
     },
@@ -249,16 +247,93 @@ const tooltip = tv({
       color: "danger",
       class: colorVariants.light.danger,
     },
-    // size (xs) / bordered
+    // ghost / color
     {
-      size: "xs",
+      variant: "ghost",
+      color: "neutral",
+      class: colorVariants.ghost.neutral,
+    },
+    {
+      variant: "ghost",
+      color: "primary",
+      class: colorVariants.ghost.primary,
+    },
+    {
+      variant: "ghost",
+      color: "secondary",
+      class: colorVariants.ghost.secondary,
+    },
+    {
+      variant: "ghost",
+      color: "success",
+      class: colorVariants.ghost.success,
+    },
+    {
+      variant: "ghost",
+      color: "warning",
+      class: colorVariants.ghost.warning,
+    },
+    {
+      variant: "ghost",
+      color: "danger",
+      class: colorVariants.ghost.danger,
+    },
+    // !disabledAnimation / ghost
+    {
+      variant: "ghost",
+      disableAnimation: false,
+      class: "transition-[transform,background]",
+    },
+    // isInGroup / radius
+    {
+      isInGroup: true,
+      radius: "base",
+      class: "rounded-none  first:rounded-l last:rounded-r",
+    },
+    {
+      isInGroup: true,
+      radius: "sm",
+      class: "rounded-none  first:rounded-l-sm last:rounded-r-sm",
+    },
+    {
+      isInGroup: true,
+      radius: "md",
+      class: "rounded-none  first:rounded-l-md last:rounded-r-md",
+    },
+    {
+      isInGroup: true,
+      radius: "lg",
+      class: "rounded-none  first:rounded-l-lg last:rounded-r-lg",
+    },
+    {
+      isInGroup: true,
+      radius: "xl",
+      class: "rounded-none  first:rounded-l-xl last:rounded-r-xl",
+    },
+    {
+      isInGroup: true,
+      radius: "2xl",
+      class: "rounded-none  first:rounded-l-2xl last:rounded-r-2xl",
+    },
+    {
+      isInGroup: true,
+      radius: "3xl",
+      class: "rounded-none  first:rounded-l-3xl last:rounded-r-3xl",
+    },
+    {
+      isInGroup: true,
+      radius: "full",
+      class: "rounded-none  first:rounded-l-full last:rounded-r-full",
+    },
+    // isInGroup / bordered
+    {
+      isInGroup: true,
       variant: "bordered",
-      class: "border-2",
+      class: "[&:not(:first-child)]:border-l-0",
     },
   ],
 });
 
-export type TooltipVariantProps = VariantProps<typeof tooltip>;
-export type TooltipSlots = keyof ReturnType<typeof tooltip>;
+export type ButtonVariantProps = VariantProps<typeof button>;
 
-export {tooltip};
+export {button};

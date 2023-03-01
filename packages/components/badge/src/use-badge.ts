@@ -1,158 +1,79 @@
-import type {HTMLNextUIProps} from "@nextui-org/system";
-import type {
-  SimpleColors,
-  SimplePlacement,
-  NormalSizes,
-  NormalWeights,
-} from "@nextui-org/shared-utils";
+import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
+import {badge} from "@nextui-org/theme";
+import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
-export interface UseBadgeProps extends HTMLNextUIProps<"span"> {
+export interface UseBadgeProps extends HTMLNextUIProps<"span">, BadgeVariantProps {
+  /**
+   * Ref to the DOM node.
+   */
+  ref?: ReactRef<HTMLDivElement | null>;
+  /**
+   * The children of the badge.
+   */
+  children: React.ReactNode;
   /**
    * The content of the badge. The badge will be rendered relative to its children.
    */
   content?: string | number | React.ReactNode;
   /**
-   * The badge variation.
-   * @default "default"
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Badge styles={{
+   *    base:"base-classes", // wrapper
+   *    badge: "badge-classes",
+   * }} />
+   * ```
    */
-  variant?: "default" | "flat" | "dot" | "points" | "bordered";
-  /**
-   * The badge color.
-   * @default "default"
-   */
-  color?: SimpleColors;
-  /**
-   * The badge size.
-   * @default "md"
-   */
-  size?: NormalSizes;
-  /**
-   * The placement of the badge content.
-   * @default "top-right"
-   */
-  placement?: SimplePlacement;
-  /**
-   * The border weight for bordered badge variation.
-   * @default "normal"
-   */
-  borderWeight?: NormalWeights;
-  /**
-   * The vertical offset of the badge content.
-   */
-  verticalOffset?: string | number;
-  /**
-   * The horizontal offset of the badge content.
-   */
-  horizontalOffset?: string | number;
-  /**
-   * The wrapped shape the badge should overlap.
-   * @default "rectangle"
-   */
-  shape?: "circle" | "rectangle";
-  /**
-   * Whether the badge is invisible.
-   * @default false
-   */
-  isInvisible?: boolean;
-  /**
-   * Whether the badge corners should be squared.
-   * @default false
-   */
-  isSquared?: boolean;
-  /**
-   * Whether the badge shadow should be enabled.
-   * @default false
-   */
-  enableShadow?: boolean;
-  /**
-   * Whether the badge content animation should be disabled.
-   * @default false
-   */
-  disableAnimation?: boolean;
-  /**
-   * Whether the badge content animation should be disabled.
-   * @default false
-   */
-  disableOutline?: boolean;
+  styles?: SlotsToClasses<BadgeSlots>;
 }
 
-export function useBadge(props: UseBadgeProps) {
-  const {
-    children,
-    content,
-    size = "md",
-    color = "default",
-    variant = "default",
-    borderWeight = "normal",
-    placement = "top-right",
-    shape = "rectangle",
-    enableShadow = false,
-    verticalOffset,
-    horizontalOffset,
-    isSquared = false,
-    isInvisible = false,
-    disableOutline = false,
-    disableAnimation = false,
-    ...otherProps
-  } = props;
+export function useBadge(originalProps: UseBadgeProps) {
+  const [props, variantProps] = mapPropsVariants(originalProps, badge.variantKeys);
 
-  const asChild = content !== undefined && !!children;
+  const {as, ref, children, className, content, styles, ...otherProps} = props;
 
-  const isOneChar = useMemo(() => {
-    if (asChild && content && variant !== "points" && variant !== "dot") {
-      return String(content)?.length === 1;
-    }
-    if (children && typeof children === "string") {
-      return children.length === 1;
-    }
+  const Component = as || "span";
 
-    return false;
-  }, [asChild, children, variant, content]);
+  const domRef = useDOMRef(ref);
 
-  const badgeCss = useMemo(() => {
-    const isHOffsetNumber = typeof horizontalOffset === "number";
-    const isVOffsetNumber = typeof verticalOffset === "number";
+  const isOneChar = useMemo(() => String(content)?.length === 1, [content]);
+  const isDot = useMemo(() => String(content)?.length === 0, [content]);
 
-    if (verticalOffset && horizontalOffset) {
-      return {
-        $$badgePlacementHOffset: isHOffsetNumber ? `${horizontalOffset}px` : horizontalOffset,
-        $$badgePlacementVOffset: isVOffsetNumber ? `${verticalOffset}px` : verticalOffset,
-      };
-    }
-    if (verticalOffset) {
-      return {
-        $$badgePlacementVOffset: isVOffsetNumber ? `${verticalOffset}px` : verticalOffset,
-      };
-    }
-    if (horizontalOffset) {
-      return {
-        $$badgePlacementHOffset: isHOffsetNumber ? `${horizontalOffset}px` : horizontalOffset,
-      };
-    }
+  const baseStyles = clsx(styles?.badge, className);
 
-    return {};
-  }, [verticalOffset, horizontalOffset]);
+  const slots = useMemo(
+    () =>
+      badge({
+        ...variantProps,
+        isOneChar,
+        isDot,
+      }),
+    [...Object.values(variantProps), isOneChar, isDot],
+  );
+
+  const getBadgeProps = () => {
+    return {
+      ref: domRef,
+      className: slots.badge({class: baseStyles}),
+      "data-invisible": originalProps.isInvisible,
+      ...otherProps,
+    };
+  };
 
   return {
+    Component,
     children,
     content,
-    variant,
-    shape,
-    size,
-    color,
-    borderWeight,
-    asChild,
-    isSquared,
-    isOneChar,
-    badgeCss,
-    placement,
-    isInvisible,
-    enableShadow,
-    disableAnimation,
-    disableOutline,
-    ...otherProps,
+    slots,
+    styles,
+    getBadgeProps,
   };
 }
 

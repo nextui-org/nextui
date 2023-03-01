@@ -368,12 +368,14 @@ importers:
       '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
       clean-package: 2.2.0
       react: ^18.2.0
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
     devDependencies:
       '@nextui-org/avatar': link:../avatar
       '@nextui-org/shared-icons': link:../../utilities/shared-icons

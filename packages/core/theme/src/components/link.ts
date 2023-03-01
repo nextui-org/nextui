@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {focusVisibleClasses} from "../../utils";
+import {focusVisibleClasses} from "../utils";
 
 /**
  * Link wrapper **Tailwind Variants** component

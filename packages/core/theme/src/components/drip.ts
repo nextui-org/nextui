@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {absoluteFullClasses} from "../../utils";
+import {absoluteFullClasses} from "../utils";
 
 /**
  * Drip wrapper **Tailwind Variants** component

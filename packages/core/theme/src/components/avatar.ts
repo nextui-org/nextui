@@ -1,6 +1,6 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {translateCenterClasses, ringClasses, colorVariants} from "../../utils";
+import {translateCenterClasses, ringClasses, colorVariants} from "../utils";
 
 /**
  * Avatar wrapper **Tailwind Variants** component

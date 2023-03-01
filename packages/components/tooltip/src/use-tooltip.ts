@@ -2,7 +2,7 @@ import type {TooltipVariantProps} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {CSSTransitionProps} from "@nextui-org/react-utils";
-import type {ReactNode} from "react";
+import type {ReactNode, Ref} from "react";
 
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
@@ -179,7 +179,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
   );
 
   const getTriggerProps = useCallback(
-    (props = {}, _ref = null) => ({
+    (props = {}, _ref: Ref<any> | null | undefined = null) => ({
       ...mergeProps(triggerProps, props),
       ref: mergeRefs(triggerRef, _ref),
       onPointerEnter: () => state.open(),

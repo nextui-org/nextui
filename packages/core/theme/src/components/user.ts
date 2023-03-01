@@ -1,6 +1,6 @@
 import {tv, VariantProps} from "tailwind-variants";
 
-import {ringClasses} from "../../utils";
+import {ringClasses} from "../utils";
 
 /**
  * User wrapper **Tailwind Variants** component
