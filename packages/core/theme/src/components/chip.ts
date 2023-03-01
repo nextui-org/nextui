@@ -5,10 +5,12 @@ import {ringClasses, colorVariants} from "../utils";
 /**
  * Chip wrapper **Tailwind Variants** component
  *
- * const {base, label,closeButton} = chip({...})
+ * const {base, label, dot, closeButton} = chip({...})
  *
  * @example
  * <div className={base())}>
+ *    // left content
+ *   <svg className={dot()}/>
  *   <label className={label()}>Default</label>
  *   <svg className={closeButton()}>close button</svg>
  * </div>
@@ -17,6 +19,7 @@ const chip = tv({
   slots: {
     base: ["relative", "inline-flex", "items-center", "justify-between", "box-border"],
     label: "flex-1 text-inherit select-none font-regular",
+    dot: ["w-2", "h-2", "mr-2", "rounded-full"],
     closeButton: [
       "z-10",
       "apparance-none",
@@ -42,6 +45,7 @@ const chip = tv({
         base: "border-2",
       },
       shadow: {},
+      dot: {},
     },
     color: {
       neutral: {
@@ -100,6 +104,12 @@ const chip = tv({
       "2xl": {base: "rounded-2xl"},
       "3xl": {base: "rounded-3xl"},
       full: {base: "rounded-full"},
+    },
+    isOneChar: {
+      true: {
+        base: "px-0 justify-center",
+        label: "px-0 flex-none",
+      },
     },
     isDisabled: {
       true: {base: "opacity-50 pointer-events-none"},
@@ -335,6 +345,42 @@ const chip = tv({
       color: "danger",
       class: {
         base: colorVariants.light.danger,
+      },
+    },
+    // isOneChar / size
+    {
+      isOneChar: true,
+      size: "xs",
+      class: {
+        base: "w-4 h-4",
+      },
+    },
+    {
+      isOneChar: true,
+      size: "sm",
+      class: {
+        base: "w-5 h-5",
+      },
+    },
+    {
+      isOneChar: true,
+      size: "md",
+      class: {
+        base: "w-6 h-6",
+      },
+    },
+    {
+      isOneChar: true,
+      size: "lg",
+      class: {
+        base: "w-7 h-7",
+      },
+    },
+    {
+      isOneChar: true,
+      size: "xl",
+      class: {
+        base: "w-8 h-8",
       },
     },
   ],

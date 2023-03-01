@@ -13,6 +13,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
     children,
     slots,
     styles,
+    variant,
     isCloseable,
     leftContent,
     rightContent,
@@ -22,6 +23,14 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
     ref,
     ...props,
   });
+
+  const left = useMemo(() => {
+    if (variant === "dot" && !leftContent) {
+      return <span className={slots.dot({class: styles?.dot})} />;
+    }
+
+    return leftContent;
+  }, [leftContent, variant]);
 
   const right = useMemo(() => {
     if (isCloseable) {
@@ -35,7 +44,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
 
   return (
     <Component {...getChipProps()}>
-      {leftContent}
+      {left}
       <label className={slots.label({class: styles?.label})}>{children}</label>
       {right}
     </Component>

@@ -90,7 +90,7 @@ const SwatchSet = ({colors, isSematic = false}: SwatchSetProps) => (
 );
 
 export default {
-  title: "Theme/Colors",
+  title: "Foundation/Colors",
   component: SwatchSet,
 } as ComponentMeta<typeof SwatchSet>;
 

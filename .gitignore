@@ -20,7 +20,7 @@ types
 /build
 dist/
 storybook-static
-/packages/components/storybook/public/tailwind.css
+/packages/storybook/public/tailwind.css
 # misc
 .DS_Store
 .env

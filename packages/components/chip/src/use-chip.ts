@@ -31,6 +31,7 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    * ```ts
    * <Chip styles={{
    *    base:"base-classes",
+   *    dot: "dot-classes",
    *    label: "label-classes",
    *    closeButton: "close-button-classes",
    * }} />
@@ -60,13 +61,19 @@ export function useChip(originalProps: UseChipProps) {
 
   const {focusProps: closeFocusProps, isFocusVisible: isCloseButtonFocusVisible} = useFocusRing();
 
+  const isOneChar = useMemo(
+    () => typeof children === "string" && children?.length === 1,
+    [children],
+  );
+
   const slots = useMemo(
     () =>
       chip({
         ...variantProps,
+        isOneChar,
         isCloseButtonFocusVisible,
       }),
-    [...Object.values(variantProps), isCloseButtonFocusVisible],
+    [...Object.values(variantProps), isCloseButtonFocusVisible, isOneChar],
   );
 
   const {pressProps: closePressProps} = usePress({
@@ -103,6 +110,7 @@ export function useChip(originalProps: UseChipProps) {
     children,
     slots,
     styles,
+    variant: originalProps.variant,
     leftContent: getContentClone(leftContent),
     rightContent: getContentClone(rightContent),
     isCloseable,

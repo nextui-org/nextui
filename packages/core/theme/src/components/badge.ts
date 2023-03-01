@@ -28,7 +28,7 @@ const badge = tv({
       "items-center",
       "text-inherit",
       "select-none",
-      "font-medium",
+      "font-regular",
       "scale-100",
       "opacity-100",
       "data-[invisible=true]:scale-0",
@@ -116,7 +116,7 @@ const badge = tv({
         badge: "transition-none",
       },
       false: {
-        badge: "transition-all",
+        badge: "transition-transform-opacity",
       },
     },
     disableOutline: {
