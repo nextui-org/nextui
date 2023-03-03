@@ -1,9 +1,13 @@
+import type {ReactNode} from "react";
+
 import {forwardRef} from "@nextui-org/system";
 import {__DEV__} from "@nextui-org/shared-utils";
 
 import {UseBadgeProps, useBadge} from "./use-badge";
 
-export interface BadgeProps extends Omit<UseBadgeProps, "ref"> {}
+export interface BadgeProps extends Omit<UseBadgeProps, "ref"> {
+  children: ReactNode;
+}
 
 const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
   const {Component, children, content, slots, styles, getBadgeProps} = useBadge({ref, ...props});

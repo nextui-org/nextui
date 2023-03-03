@@ -1,3 +1,4 @@
+import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {badge} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";

@@ -1,9 +1,10 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@stitches/react": ["../../../node_modules/@stitches/react"]
-    }
+      "tailwind-variants": ["../../../node_modules/tailwind-variants"]
+    },
   },
   "include": ["src", "index.ts"]
 }

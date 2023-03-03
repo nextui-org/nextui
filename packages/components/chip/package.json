@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "react": ">=18"
   },
   "dependencies": {
     "@nextui-org/dom-utils": "workspace:*",
@@ -50,7 +50,7 @@
     "@nextui-org/avatar": "workspace:*",
     "@react-types/checkbox": "^3.4.2",
     "clean-package": "2.2.0",
-    "react": "^18.2.0"
+    "react": "^18.0.0"
   },
   "tsup": {
     "clean": true,

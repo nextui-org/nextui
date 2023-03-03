@@ -174,7 +174,7 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}) => {
   );
 };
 
-export const theme = (config: ConfigObject | ConfigFunction = {}) => {
+export const nextui = (config: ConfigObject | ConfigFunction = {}) => {
   const userLightColors = get(config, "light", {});
   const userDarkColors = get(config, "dark", {});
 

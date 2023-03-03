@@ -1,7 +1,10 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
+import {Avatar} from "@nextui-org/avatar";
 
 import {Badge} from "../src";
+
+const content = <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />;
 
 describe("Badge", () => {
   it("should render correctly", () => {
@@ -13,7 +16,7 @@ describe("Badge", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLSpanElement>();
 
-    render(<Badge ref={ref} />);
+    render(<Badge ref={ref}>{content}</Badge>);
     expect(ref.current).not.toBeNull();
   });
 
@@ -28,32 +31,6 @@ describe("Badge", () => {
     expect(wrapper.getByTestId("badge-children")).toBeTruthy();
   });
 
-  it("should not render children if variant is dot", () => {
-    const wrapper = render(
-      <Badge variant="dot">
-        <span data-testid="badge-children">new</span>
-      </Badge>,
-    );
-
-    expect(wrapper.queryAllByTestId("badge-children")).toHaveLength(0);
-  });
-
-  it("should not render children if variant is points", () => {
-    const wrapper = render(
-      <Badge variant="points">
-        <span data-testid="badge-children">new</span>
-      </Badge>,
-    );
-
-    expect(wrapper.queryAllByTestId("badge-children")).toHaveLength(0);
-  });
-
-  it("should have 3 points if variant is points", () => {
-    const wrapper = render(<Badge variant="points" />);
-
-    expect(wrapper.getAllByTestId("badge-point")).toHaveLength(3);
-  });
-
   it("should be invisible if invisible is true", () => {
     const wrapper = render(
       <Badge isInvisible content={<span data-testid="badge-content" />} data-testid="badge-root">
@@ -61,6 +38,6 @@ describe("Badge", () => {
       </Badge>,
     );
 
-    expect(wrapper.getByTestId("badge-root")).toHaveClass("nextui-badge--is-invisible");
+    expect(wrapper.getByTestId("badge-root")).toHaveAttribute("data-invisible", "true");
   });
 });

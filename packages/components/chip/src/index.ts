@@ -1,5 +1,3 @@
-import Chip from "./chip";
-
 // export types
 export type {ChipProps} from "./chip";
 
@@ -7,4 +5,4 @@ export type {ChipProps} from "./chip";
 export {useChip} from "./use-chip";
 
 // export component
-export {Chip};
+export {default as Chip} from "./chip";

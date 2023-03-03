@@ -4,9 +4,6 @@
 
 import {forwardRef as baseForwardRef} from "react";
 
-import {styled} from "./stitches.config";
-import {CSS} from "./types";
-
 export type As<Props = any> = React.ElementType<Props>;
 export type DOMElements = keyof JSX.IntrinsicElements;
 export type CapitalizedDOMElements = Capitalize<DOMElements>;
@@ -18,8 +15,9 @@ export interface NextUIProps {
   as?: As;
   /**
    * The stiches's css style object
+   * TODO: remove this prop after migrating all components to TailwindCSS
    */
-  css?: CSS;
+  css?: any;
 }
 
 export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<
@@ -94,12 +92,6 @@ export interface NextUIComponent<C extends As, P = {}>
 export type HTMLNextUIComponents = {
   [Tag in CapitalizedDOMElements]: NextUIComponent<Uncapitalize<Tag>, {}>;
 };
-
-export function rootStyled<T extends As, P = {}>(component: T) {
-  const Component = styled(component as React.ComponentType<any>, {});
-
-  return Component as NextUIComponent<T, P>;
-}
 
 export const toIterator = (obj: any) => {
   return {

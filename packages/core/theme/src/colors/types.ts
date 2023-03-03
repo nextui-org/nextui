@@ -17,6 +17,10 @@ export type BaseColors = {
   background: ColorScale;
   foreground: ColorScale;
   border: ColorScale;
+  content1: ColorScale;
+  content2: ColorScale;
+  content3: ColorScale;
+  content4: ColorScale;
 };
 
 export type SemanticColors = BaseColors & {

@@ -101,6 +101,7 @@ export function useChip(originalProps: UseChipProps) {
   const getContentClone = (content: ReactNode) =>
     isValidElement(content)
       ? cloneElement(content, {
+          // @ts-ignore
           className: clsx("w-full h-4/5", content.props.className),
         })
       : null;

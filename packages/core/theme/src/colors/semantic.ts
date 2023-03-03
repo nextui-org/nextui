@@ -18,6 +18,22 @@ const base: SemanticBaseColors = {
     border: {
       DEFAULT: "#00000026",
     },
+    content1: {
+      DEFAULT: twColors.zinc[50],
+      contrastText: readableColor(twColors.zinc[50]),
+    },
+    content2: {
+      DEFAULT: twColors.zinc[100],
+      contrastText: readableColor(twColors.zinc[100]),
+    },
+    content3: {
+      DEFAULT: twColors.zinc[200],
+      contrastText: readableColor(twColors.zinc[200]),
+    },
+    content4: {
+      DEFAULT: twColors.zinc[300],
+      contrastText: readableColor(twColors.zinc[300]),
+    },
   },
   dark: {
     background: {
@@ -28,6 +44,22 @@ const base: SemanticBaseColors = {
     },
     border: {
       DEFAULT: "#ffffff26",
+    },
+    content1: {
+      DEFAULT: twColors.zinc[900],
+      contrastText: readableColor(twColors.zinc[900]),
+    },
+    content2: {
+      DEFAULT: twColors.zinc[700],
+      contrastText: readableColor(twColors.zinc[700]),
+    },
+    content3: {
+      DEFAULT: twColors.zinc[500],
+      contrastText: readableColor(twColors.zinc[500]),
+    },
+    content4: {
+      DEFAULT: twColors.zinc[400],
+      contrastText: readableColor(twColors.zinc[400]),
     },
   },
 };
