@@ -30,7 +30,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
     }
 
     return leftContent;
-  }, [leftContent, variant]);
+  }, [slots, leftContent, variant]);
 
   const right = useMemo(() => {
     if (isCloseable) {

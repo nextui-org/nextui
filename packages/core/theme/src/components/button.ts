@@ -31,12 +31,12 @@ const button = tv({
   variants: {
     variant: {
       solid: "",
-      bordered: "border-2 !bg-transparent",
+      bordered: "border-1.5 !bg-transparent",
       light: "!bg-transparent",
       flat: "",
-      faded: "border-2",
+      faded: "border-1.5",
       shadow: "",
-      ghost: "border-2 !bg-transparent",
+      ghost: "border-1.5 !bg-transparent",
     },
     size: {
       xs: "px-2 h-6 text-xs",

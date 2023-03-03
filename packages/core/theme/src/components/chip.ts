@@ -5,21 +5,24 @@ import {ringClasses, colorVariants} from "../utils";
 /**
  * Chip wrapper **Tailwind Variants** component
  *
- * const {base, label, dot, closeButton} = chip({...})
+ * const {base, label, dot, avatar, closeButton} = chip({...})
  *
  * @example
  * <div className={base())}>
  *    // left content
+ *   <span className={avatar()}/>
  *   <svg className={dot()}/>
  *   <label className={label()}>Default</label>
  *   <svg className={closeButton()}>close button</svg>
+ *    // right content
  * </div>
  */
 const chip = tv({
   slots: {
     base: ["relative", "inline-flex", "items-center", "justify-between", "box-border"],
     label: "flex-1 text-inherit select-none font-regular",
-    dot: ["w-2", "h-2", "mr-2", "rounded-full"],
+    dot: ["w-2", "h-2", "mx-1", "rounded-full"],
+    avatar: "flex-shrink-0",
     closeButton: [
       "z-10",
       "apparance-none",
@@ -35,36 +38,38 @@ const chip = tv({
     variant: {
       solid: {},
       bordered: {
-        base: "border-2 !bg-transparent",
+        base: "border-1.5 !bg-transparent",
       },
       light: {
         base: "!bg-transparent",
       },
       flat: {},
       faded: {
-        base: "border-2",
+        base: "border-1.5",
       },
       shadow: {},
-      dot: {},
+      dot: {
+        base: "border-1.5 border-neutral text-foreground !bg-transparent",
+      },
     },
     color: {
       neutral: {
-        base: colorVariants.solid.neutral,
+        dot: "bg-neutral-400",
       },
       primary: {
-        base: colorVariants.solid.primary,
+        dot: "bg-primary",
       },
       secondary: {
-        base: colorVariants.solid.secondary,
+        dot: "bg-secondary",
       },
       success: {
-        base: colorVariants.solid.success,
+        dot: "bg-success",
       },
       warning: {
-        base: colorVariants.solid.warning,
+        dot: "bg-warning",
       },
       danger: {
-        base: colorVariants.solid.danger,
+        dot: "bg-danger",
       },
     },
     size: {
@@ -72,26 +77,31 @@ const chip = tv({
         base: "px-0.5 h-5 text-xs",
         label: "px-0.5",
         closeButton: "text-sm",
+        avatar: "w-3.5 h-3.5",
       },
       sm: {
         base: "px-1 h-6 text-sm",
         label: "px-1",
         closeButton: "text-base",
+        avatar: "w-4 h-4",
       },
       md: {
         base: "px-1 h-7 text-base",
         label: "px-1",
         closeButton: "text-lg",
+        avatar: "w-5 h-5",
       },
       lg: {
-        base: "px-1 h-8 text-lg",
+        base: "px-2 h-8 text-lg",
         label: "px-1",
         closeButton: "text-xl",
+        avatar: "w-6 h-6",
       },
       xl: {
-        base: "px-1 h-9 text-xl",
+        base: "px-2 h-9 text-xl",
         label: "px-1",
         closeButton: "text-2xl",
+        avatar: "w-7 h-7",
       },
     },
     radius: {
@@ -114,9 +124,6 @@ const chip = tv({
     isDisabled: {
       true: {base: "opacity-50 pointer-events-none"},
     },
-    fullWidth: {
-      true: {base: "w-full"},
-    },
     isCloseButtonFocusVisible: {
       true: {
         closeButton: [...ringClasses, "ring-1", "rounded-full"],
@@ -128,10 +135,52 @@ const chip = tv({
     color: "neutral",
     size: "md",
     radius: "full",
-    fullWidth: false,
     isDisabled: false,
   },
   compoundVariants: [
+    // solid / color
+    {
+      variant: "solid",
+      color: "neutral",
+      class: {
+        base: colorVariants.solid.neutral,
+      },
+    },
+    {
+      variant: "solid",
+      color: "primary",
+      class: {
+        base: colorVariants.solid.primary,
+      },
+    },
+    {
+      variant: "solid",
+      color: "secondary",
+      class: {
+        base: colorVariants.solid.secondary,
+      },
+    },
+    {
+      variant: "solid",
+      color: "success",
+      class: {
+        base: colorVariants.solid.success,
+      },
+    },
+    {
+      variant: "solid",
+      color: "warning",
+      class: {
+        base: colorVariants.solid.warning,
+      },
+    },
+    {
+      variant: "solid",
+      color: "danger",
+      class: {
+        base: colorVariants.solid.danger,
+      },
+    },
     // shadow / color
     {
       variant: "shadow",

@@ -34,11 +34,6 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
-    fullWidth: {
-      control: {
-        type: "boolean",
-      },
-    },
     isDisabled: {
       control: {
         type: "boolean",
@@ -79,5 +74,5 @@ WithAvatar.args = {
   ...defaultProps,
   variant: "flat",
   color: "secondary",
-  leftContent: <Avatar name="JW" src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />,
+  avatar: <Avatar name="JW" src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />,
 };

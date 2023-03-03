@@ -16,7 +16,12 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    */
   ref?: ReactRef<HTMLDivElement | null>;
   /**
+   * Avatar to be rendered in the left side of the chip.
+   */
+  avatar?: React.ReactNode;
+  /**
    * Element to be rendered in the left side of the chip.
+   * this props overrides the `avatar` prop.
    */
   leftContent?: React.ReactNode;
   /**
@@ -33,6 +38,7 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    *    base:"base-classes",
    *    dot: "dot-classes",
    *    label: "label-classes",
+   *    avatar: "avatar-classes",
    *    closeButton: "close-button-classes",
    * }} />
    * ```
@@ -48,8 +54,18 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
 export function useChip(originalProps: UseChipProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, chip.variantKeys);
 
-  const {ref, as, children, leftContent, rightContent, onClose, styles, className, ...otherProps} =
-    props;
+  const {
+    ref,
+    as,
+    children,
+    avatar,
+    leftContent,
+    rightContent,
+    onClose,
+    styles,
+    className,
+    ...otherProps
+  } = props;
 
   const Component = as || "div";
 
@@ -98,11 +114,20 @@ export function useChip(originalProps: UseChipProps) {
     };
   };
 
+  const getAvatarClone = (avatar: ReactNode) => {
+    if (!isValidElement(avatar)) return null;
+
+    return cloneElement(avatar, {
+      // @ts-ignore
+      className: slots.avatar({class: styles?.avatar}),
+    });
+  };
+
   const getContentClone = (content: ReactNode) =>
     isValidElement(content)
       ? cloneElement(content, {
           // @ts-ignore
-          className: clsx("w-full h-4/5", content.props.className),
+          className: clsx("max-h-[80%]", content.props.className),
         })
       : null;
 
@@ -112,7 +137,7 @@ export function useChip(originalProps: UseChipProps) {
     slots,
     styles,
     variant: originalProps.variant,
-    leftContent: getContentClone(leftContent),
+    leftContent: getAvatarClone(avatar) || getContentClone(leftContent),
     rightContent: getContentClone(rightContent),
     isCloseable,
     getCloseButtonProps,

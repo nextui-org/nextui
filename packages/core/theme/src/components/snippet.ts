@@ -29,7 +29,7 @@ const snippet = tv({
     variant: {
       flat: "",
       solid: "",
-      bordered: "border-2 !bg-transparent",
+      bordered: "border-1.5 !bg-transparent",
       shadow: "",
     },
     color: {
