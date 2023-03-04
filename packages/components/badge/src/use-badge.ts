@@ -1,4 +1,5 @@
 import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {ReactNode} from "react";
 
 import {badge} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
@@ -14,11 +15,11 @@ export interface UseBadgeProps extends HTMLNextUIProps<"span">, BadgeVariantProp
   /**
    * The children of the badge.
    */
-  children: React.ReactNode;
+  children: ReactNode;
   /**
    * The content of the badge. The badge will be rendered relative to its children.
    */
-  content?: string | number | React.ReactNode;
+  content?: string | number | ReactNode;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.

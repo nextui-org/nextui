@@ -1,76 +1,79 @@
+import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxProps} from "@react-types/checkbox";
-import type {HTMLNextUIProps, CSS} from "@nextui-org/system";
+import type {HTMLNextUIProps} from "@nextui-org/system";
 
+import {ReactNode, Ref, useCallback} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
+import {checkbox} from "@nextui-org/theme";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
-import {NormalSizes, NormalColors, SimpleColors, __DEV__, warn} from "@nextui-org/shared-utils";
+import {mergeProps} from "@react-aria/utils";
+import {useFocusableRef} from "@nextui-org/dom-utils";
+import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {
   useCheckbox as useReactAriaCheckbox,
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
 } from "@react-aria/checkbox";
+import {FocusableRef} from "@react-types/shared";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
-export interface UseCheckboxProps extends HTMLNextUIProps<"label", AriaCheckboxProps> {
+export interface UseCheckboxProps
+  extends HTMLNextUIProps<"label", Omit<AriaCheckboxProps, keyof CheckboxVariantProps>>,
+    Omit<CheckboxVariantProps, "isFocusVisible"> {
   /**
-   * The content to display as the label.
+   * Ref to the DOM node.
    */
-  label?: string;
+  ref?: Ref<HTMLElement>;
   /**
-   * The color of the checkbox.
-   * @default "default"
-   */
-  color?: NormalColors;
-  /**
-   * The color of the label.
-   * @default "default"
-   */
-  labelColor?: SimpleColors;
-  /**
-   * The size of the checkbox.
-   * @default "md"
-   */
-  size?: NormalSizes;
-  /**
-   * Whether the checkbox is rounded.
+   * Whether the checkbox is disabled.
    * @default false
    */
-  isRounded?: boolean;
+  isDisabled?: boolean;
   /**
-   * Line in the middle of the label when the `Checkbox` is checked
-   * @default false
+   * The label of the checkbox.
    */
-  lineThrough?: boolean;
+  children?: ReactNode;
   /**
-   * Whether the checkbox has animations.
-   * @default false
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Checkbox styles={{
+   *    base:"base-classes",
+   *    wrapper: "wrapper-classes",
+   *    icon: "icon-classes",
+   *    label: "label-classes",
+   * }} />
+   * ```
    */
-  disableAnimation?: boolean;
-  /**
-   * Override checkbox container CSS style
-   */
-  containerCss?: CSS;
+  styles?: SlotsToClasses<CheckboxSlots>;
 }
 
 export function useCheckbox(props: UseCheckboxProps) {
   const groupContext = useCheckboxGroupContext();
+  const isInGroup = !!groupContext;
 
   const {
-    size = groupContext?.size ?? "md",
-    color = groupContext?.color ?? "default",
-    labelColor = groupContext?.labelColor ?? "default",
-    lineThrough,
+    as,
+    ref,
     isSelected,
     value = "",
-    isRounded = false,
+    children,
     isRequired = false,
-    disableAnimation = false,
+    size = groupContext?.size ?? "md",
+    color = groupContext?.color ?? "neutral",
+    radius = groupContext?.radius ?? "sm",
+    lineThrough = groupContext?.lineThrough ?? false,
+    isDisabled = groupContext?.isDisabled ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? false,
     isIndeterminate = false,
     defaultSelected,
+    styles,
     onChange,
-    containerCss,
+    className,
     ...otherProps
   } = props;
 
@@ -89,7 +92,10 @@ export function useCheckbox(props: UseCheckboxProps) {
     }
   }
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const Component = as || "label";
+
+  const inputRef = useRef(null);
+  const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
   const ariaCheckboxProps = useMemo(() => {
     return {
@@ -103,7 +109,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     };
   }, [isIndeterminate, otherProps]);
 
-  const {inputProps} = groupContext
+  const {inputProps} = isInGroup
     ? // eslint-disable-next-line
       useReactAriaCheckboxGroupItem(
         {
@@ -128,38 +134,89 @@ export function useCheckbox(props: UseCheckboxProps) {
     isDisabled: inputProps.disabled,
   });
 
-  const {focusProps, isFocusVisible} = useFocusRing({
+  const {focusProps, isFocused, isFocusVisible} = useFocusRing({
     autoFocus: inputProps.autoFocus,
   });
 
-  const state = useMemo(() => {
-    if (isHovered) return "hovered";
+  const slots = useMemo(
+    () =>
+      checkbox({
+        color,
+        size,
+        radius,
+        lineThrough,
+        isDisabled,
+        isFocusVisible,
+        disableAnimation,
+        className,
+      }),
+    [color, size, radius, lineThrough, isDisabled, isFocusVisible, disableAnimation, className],
+  );
 
-    return isIndeterminate && inputProps.checked
-      ? "mixed"
-      : inputProps.checked
-      ? "checked"
-      : "uncheked";
-  }, [isHovered, isIndeterminate, inputProps.checked]);
+  const baseStyles = clsx(styles?.base, className);
+
+  const getBaseProps = () => {
+    return {
+      ref: domRef,
+      className: slots.base({class: baseStyles}),
+      "data-disabled": dataAttr(isDisabled),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-invalid": dataAttr(otherProps.validationState === "invalid"),
+      ...mergeProps(hoverProps, pressProps, otherProps),
+    };
+  };
+
+  const getCheckboxProps = () => {
+    return {
+      "data-hover": dataAttr(isHovered),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocused && isFocusVisible),
+      "data-indeterminate": dataAttr(isIndeterminate),
+      "data-disabled": dataAttr(isDisabled),
+      "data-invalid": dataAttr(otherProps.validationState === "invalid"),
+      "data-readonly": dataAttr(inputProps.readOnly),
+      "aria-hidden": true,
+      className: clsx(slots.wrapper({class: styles?.wrapper})),
+      ...mergeProps(hoverProps, pressProps, otherProps),
+    };
+  };
+
+  const getInputProps = () => {
+    return {
+      ref: inputRef,
+      ...mergeProps(inputProps, focusProps),
+    };
+  };
+
+  const getLabelProps = useCallback(
+    () => ({
+      "data-disabled": dataAttr(isDisabled),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-invalid": dataAttr(otherProps.validationState === "invalid"),
+      className: slots.label({class: styles?.label}),
+    }),
+    [slots, isDisabled, inputProps.checked, otherProps.validationState],
+  );
+
+  const getIconProps = useCallback(
+    () => ({
+      "data-checked": dataAttr(inputProps.checked),
+      className: slots.icon({class: styles?.icon}),
+    }),
+    [slots, inputProps.checked],
+  );
 
   return {
-    size,
-    color,
-    state,
-    labelColor,
-    isRounded,
-    lineThrough,
+    Component,
+    children,
     disableAnimation,
-    isIndeterminate,
-    isFocusVisible,
-    isHovered,
-    inputRef,
-    inputProps,
-    pressProps,
-    hoverProps,
-    focusProps,
-    containerCss,
-    ...otherProps,
+    isChecked: inputProps.checked,
+    getBaseProps,
+    getCheckboxProps,
+    getInputProps,
+    getLabelProps,
+    getIconProps,
   };
 }
 

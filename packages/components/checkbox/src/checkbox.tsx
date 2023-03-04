@@ -1,127 +1,58 @@
 import {forwardRef} from "@nextui-org/system";
-import {useFocusableRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
-import {mergeProps} from "@react-aria/utils";
+import {__DEV__} from "@nextui-org/shared-utils";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
-import {
-  StyledCheckbox,
-  StyledCheckboxContainer,
-  StyledCheckboxMask,
-  StyledCheckboxText,
-  StyledIconCheck,
-  StyledIconCheckFirstLine,
-  StyledIconCheckSecondLine,
-} from "./checkbox.styles";
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";
-import CheckboxGroup from "./checkbox-group";
 
-export interface CheckboxProps extends UseCheckboxProps {}
+export interface CheckboxProps extends Omit<UseCheckboxProps, "ref"> {}
 
-type CompoundCheckbox = {
-  Group: typeof CheckboxGroup;
-};
-
-const Checkbox = forwardRef<CheckboxProps, "label", CompoundCheckbox>((props, ref) => {
-  const {className, as, css, children, label, ...checkboxProps} = props;
-
+const Checkbox = forwardRef<CheckboxProps, "label">((props, ref) => {
   const {
-    size,
-    color,
-    state,
-    labelColor,
-    isRounded,
-    isHovered,
-    isFocusVisible,
-    lineThrough,
+    Component,
+    children,
+    isChecked,
     disableAnimation,
-    isIndeterminate,
-    inputRef,
-    inputProps,
-    pressProps,
-    hoverProps,
-    focusProps,
-    containerCss,
-    ...otherProps
-  } = useCheckbox({...checkboxProps, children: children ?? label});
-
-  const domRef = useFocusableRef(ref, inputRef);
+    getBaseProps,
+    getCheckboxProps,
+    getInputProps,
+    getIconProps,
+    getLabelProps,
+  } = useCheckbox({
+    ref,
+    ...props,
+  });
 
   return (
-    <StyledCheckbox
-      ref={domRef}
-      as={as}
-      className={clsx("nextui-checkbox", className)}
-      data-state={state}
-      {...mergeProps(hoverProps, pressProps, otherProps)}
-      css={css}
-      disableAnimation={disableAnimation}
-      isDisabled={inputProps.disabled}
-      size={size}
-    >
+    <Component {...getBaseProps()}>
       <VisuallyHidden>
-        <input
-          ref={inputRef}
-          className="nextui-checkbox-input"
-          {...mergeProps(inputProps, focusProps)}
-        />
+        <input {...getInputProps()} />
       </VisuallyHidden>
-      <StyledCheckboxContainer
-        className="nextui-checkbox-container"
-        color={color}
-        css={containerCss}
-        disableAnimation={disableAnimation}
-        isDisabled={inputProps.disabled}
-        isFocusVisible={isFocusVisible}
-        isHovered={isHovered}
-        isRounded={isRounded}
-        {...focusProps}
-      >
-        <StyledCheckboxMask
-          className="nextui-checkbox-mask"
-          disableAnimation={disableAnimation}
-          isChecked={inputProps.checked}
-          isIndeterminate={isIndeterminate}
-        >
-          <StyledIconCheck
-            className="nextui-icon-check"
-            disableAnimation={disableAnimation}
-            isChecked={inputProps.checked}
-            isIndeterminate={isIndeterminate}
-            size={size}
-          >
-            <StyledIconCheckFirstLine
-              className="nextui-icon-check-line1"
-              disableAnimation={disableAnimation}
-              isChecked={inputProps.checked}
-              isIndeterminate={isIndeterminate}
-            />
-            <StyledIconCheckSecondLine
-              className="nextui-icon-check-line2"
-              disableAnimation={disableAnimation}
-              isChecked={inputProps.checked}
-              isIndeterminate={isIndeterminate}
-            />
-          </StyledIconCheck>
-        </StyledCheckboxMask>
-      </StyledCheckboxContainer>
-      {(children || label) && (
-        <StyledCheckboxText
-          className="nextui-checkbox-text"
-          color={labelColor}
-          disableAnimation={disableAnimation}
-          isChecked={inputProps.checked}
-          isDisabled={inputProps.disabled}
-          lineThrough={lineThrough}
-        >
-          {children || label}
-        </StyledCheckboxText>
-      )}
-    </StyledCheckbox>
+      <span {...getCheckboxProps()}>
+        <svg aria-hidden="true" {...getIconProps()} role="presentation" viewBox="0 0 18 18">
+          <polyline
+            fill="none"
+            points="1 9 7 14 15 4"
+            stroke="currentColor"
+            strokeDasharray={22}
+            strokeDashoffset={isChecked ? 44 : 66}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={3}
+            style={
+              !disableAnimation
+                ? {
+                    transition: "all 350ms",
+                    transitionDelay: "200ms",
+                  }
+                : {}
+            }
+          />
+        </svg>
+      </span>
+      {children && <span {...getLabelProps()}>{children}</span>}
+    </Component>
   );
 });
-
-Checkbox.Group = CheckboxGroup;
 
 if (__DEV__) {
   Checkbox.displayName = "NextUI.Checkbox";

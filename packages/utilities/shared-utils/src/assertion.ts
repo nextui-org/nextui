@@ -35,3 +35,7 @@ export function isEmpty(value: any): boolean {
 export function isFunction<T extends Function = Function>(value: any): value is T {
   return typeof value === "function";
 }
+
+type Booleanish = boolean | "true" | "false";
+export const dataAttr = (condition: boolean | undefined) =>
+  (condition ? "true" : undefined) as Booleanish;

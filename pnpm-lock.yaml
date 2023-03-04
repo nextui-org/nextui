@@ -422,9 +422,9 @@ importers:
   packages/components/checkbox:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
       '@react-aria/checkbox': ^3.8.0
       '@react-aria/focus': ^3.11.0
       '@react-aria/interactions': ^3.14.0
@@ -438,9 +438,9 @@ importers:
       react: ^18.2.0
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
       '@react-aria/checkbox': 3.8.0_react@18.2.0
       '@react-aria/focus': 3.11.0_react@18.2.0
       '@react-aria/interactions': 3.14.0_react@18.2.0

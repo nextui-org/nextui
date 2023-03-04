@@ -1,243 +1,286 @@
-import React from "react";
-import {Meta} from "@storybook/react";
+import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {checkbox} from "@nextui-org/theme";
 
-import {Checkbox} from "../src";
+import {Checkbox, CheckboxProps} from "../src";
 
 export default {
   title: "Inputs/Checkbox",
   component: Checkbox,
-} as Meta;
+  argTypes: {
+    variant: {
+      control: {
+        type: "select",
+        options: ["solid", "bordered", "light", "flat", "faded", "shadow", "dot"],
+      },
+    },
+    color: {
+      control: {
+        type: "select",
+        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+      },
+    },
+    radius: {
+      control: {
+        type: "select",
+        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["xs", "sm", "md", "lg", "xl"],
+      },
+    },
+    isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+  },
+} as ComponentMeta<typeof Checkbox>;
 
-export const Default = () => {
-  return (
-    <Checkbox color="default" labelColor="default" size="md">
-      Option
-    </Checkbox>
-  );
+const defaultProps = {
+  ...checkbox.defaultVariants,
+  children: "Option",
 };
 
-export const Label = () => {
-  return <Checkbox color="default" label="Option" labelColor="default" size="md" />;
+const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => <Checkbox {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  ...defaultProps,
 };
 
-export const Disabled = () => (
-  <div style={{display: "flex", flexDirection: "column"}}>
-    <Checkbox defaultSelected size="xl">
-      Enabled
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected isDisabled size="xl">
-      Disabled
-    </Checkbox>
-  </div>
-);
+// export const Default = () => {
+//   return (
+//     <Checkbox color="default" labelColor="default" size="md">
+//       Option
+//     </Checkbox>
+//   );
+// };
 
-export const Sizes = () => (
-  <div style={{display: "flex", flexDirection: "column"}}>
-    <Checkbox defaultSelected size="xs">
-      mini
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected size="sm">
-      small
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected size="md">
-      medium
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected size="lg">
-      large
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected size="xl">
-      xlarge
-    </Checkbox>
-  </div>
-);
+// export const Label = () => {
+//   return <Checkbox color="default" label="Option" labelColor="default" size="md" />;
+// };
 
-export const Colors = () => (
-  <div style={{display: "flex", flexDirection: "column"}}>
-    <Checkbox defaultSelected color="primary">
-      Primary
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="secondary">
-      Secondary
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="success">
-      Success
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="warning">
-      Warning
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="error">
-      Error
-    </Checkbox>
-  </div>
-);
+// export const Disabled = () => (
+//   <div style={{display: "flex", flexDirection: "column"}}>
+//     <Checkbox defaultSelected size="xl">
+//       Enabled
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected isDisabled size="xl">
+//       Disabled
+//     </Checkbox>
+//   </div>
+// );
 
-export const LabelColors = () => (
-  <div style={{display: "flex", flexDirection: "column"}}>
-    <Checkbox defaultSelected color="primary" labelColor="primary">
-      Primary
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="secondary" labelColor="secondary">
-      Secondary
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="success" labelColor="success">
-      Success
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="warning" labelColor="warning">
-      Warning
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected color="error" labelColor="error">
-      Error
-    </Checkbox>
-  </div>
-);
+// export const Sizes = () => (
+//   <div style={{display: "flex", flexDirection: "column"}}>
+//     <Checkbox defaultSelected size="xs">
+//       mini
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected size="sm">
+//       small
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected size="md">
+//       medium
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected size="lg">
+//       large
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected size="xl">
+//       xlarge
+//     </Checkbox>
+//   </div>
+// );
 
-export const Rounded = () => (
-  <div style={{display: "flex", flexDirection: "column"}}>
-    <Checkbox defaultSelected isRounded color="primary">
-      Primary
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected isRounded color="secondary">
-      Secondary
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected isRounded color="success">
-      Success
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected isRounded color="warning">
-      Warning
-    </Checkbox>
-    <br />
-    <Checkbox defaultSelected isRounded color="error">
-      Error
-    </Checkbox>
-  </div>
-);
+// export const Colors = () => (
+//   <div style={{display: "flex", flexDirection: "column"}}>
+//     <Checkbox defaultSelected color="primary">
+//       Primary
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="secondary">
+//       Secondary
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="success">
+//       Success
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="warning">
+//       Warning
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="error">
+//       Error
+//     </Checkbox>
+//   </div>
+// );
 
-export const Indeterminate = () => {
-  return (
-    <Checkbox defaultSelected isIndeterminate color="primary" size="lg">
-      Option
-    </Checkbox>
-  );
-};
+// export const LabelColors = () => (
+//   <div style={{display: "flex", flexDirection: "column"}}>
+//     <Checkbox defaultSelected color="primary" labelColor="primary">
+//       Primary
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="secondary" labelColor="secondary">
+//       Secondary
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="success" labelColor="success">
+//       Success
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="warning" labelColor="warning">
+//       Warning
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected color="error" labelColor="error">
+//       Error
+//     </Checkbox>
+//   </div>
+// );
 
-export const LineThrough = () => {
-  return (
-    <Checkbox defaultSelected lineThrough color="primary" size="lg">
-      Option
-    </Checkbox>
-  );
-};
+// export const Rounded = () => (
+//   <div style={{display: "flex", flexDirection: "column"}}>
+//     <Checkbox defaultSelected isRounded color="primary">
+//       Primary
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected isRounded color="secondary">
+//       Secondary
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected isRounded color="success">
+//       Success
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected isRounded color="warning">
+//       Warning
+//     </Checkbox>
+//     <br />
+//     <Checkbox defaultSelected isRounded color="error">
+//       Error
+//     </Checkbox>
+//   </div>
+// );
 
-export const Controlled = () => {
-  const [selected, setSelected] = React.useState<boolean>(true);
+// export const Indeterminate = () => {
+//   return (
+//     <Checkbox defaultSelected isIndeterminate color="primary" size="lg">
+//       Option
+//     </Checkbox>
+//   );
+// };
 
-  const [groupSelected, setGroupSelected] = React.useState<string[]>(["buenos-aires", "sydney"]);
+// export const LineThrough = () => {
+//   return (
+//     <Checkbox defaultSelected lineThrough color="primary" size="lg">
+//       Option
+//     </Checkbox>
+//   );
+// };
 
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log("Checkbox ", selected);
-  }, [selected]);
+// export const Controlled = () => {
+//   const [selected, setSelected] = React.useState<boolean>(true);
 
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log("CheckboxGroup ", groupSelected);
-  }, [groupSelected]);
+//   const [groupSelected, setGroupSelected] = React.useState<string[]>(["buenos-aires", "sydney"]);
 
-  return (
-    <div style={{display: "flex", flexDirection: "row", gap: 200}}>
-      <Checkbox color="success" isSelected={selected} onChange={setSelected}>
-        Subscribe (controlled)
-      </Checkbox>
-      <Checkbox.Group
-        color="warning"
-        label="Select cities"
-        labelColor="primary"
-        value={groupSelected}
-        onChange={setGroupSelected}
-      >
-        <Checkbox color="primary" value="buenos-aires">
-          Buenos Aires
-        </Checkbox>
-        <Checkbox labelColor="warning" value="sydney">
-          Sydney
-        </Checkbox>
-        <Checkbox labelColor="error" value="london">
-          London
-        </Checkbox>
-        <Checkbox value="tokyo">Tokyo</Checkbox>
-      </Checkbox.Group>
-    </div>
-  );
-};
+//   React.useEffect(() => {
+//     // eslint-disable-next-line no-console
+//     console.log("Checkbox ", selected);
+//   }, [selected]);
 
-export const NoAnimated = () => {
-  return (
-    <div style={{display: "flex", flexDirection: "column"}}>
-      <Checkbox defaultSelected disableAnimation={true} size="md">
-        Option
-      </Checkbox>
-      <br />
-      <Checkbox defaultSelected lineThrough disableAnimation={true} size="md">
-        Option
-      </Checkbox>
-    </div>
-  );
-};
+//   React.useEffect(() => {
+//     // eslint-disable-next-line no-console
+//     console.log("CheckboxGroup ", groupSelected);
+//   }, [groupSelected]);
 
-export const Group = () => {
-  // eslint-disable-next-line no-console
-  const handleGroupChange = (value: string[]) => console.log(value);
+//   return (
+//     <div style={{display: "flex", flexDirection: "row", gap: 200}}>
+//       <Checkbox color="success" isSelected={selected} onChange={setSelected}>
+//         Subscribe (controlled)
+//       </Checkbox>
+//       <Checkbox.Group
+//         color="warning"
+//         label="Select cities"
+//         labelColor="primary"
+//         value={groupSelected}
+//         onChange={setGroupSelected}
+//       >
+//         <Checkbox color="primary" value="buenos-aires">
+//           Buenos Aires
+//         </Checkbox>
+//         <Checkbox labelColor="warning" value="sydney">
+//           Sydney
+//         </Checkbox>
+//         <Checkbox labelColor="error" value="london">
+//           London
+//         </Checkbox>
+//         <Checkbox value="tokyo">Tokyo</Checkbox>
+//       </Checkbox.Group>
+//     </div>
+//   );
+// };
 
-  return (
-    <Checkbox.Group
-      color="warning"
-      defaultValue={["buenos-aires"]}
-      label="Select cities"
-      labelColor="primary"
-      onChange={handleGroupChange}
-    >
-      <Checkbox color="primary" value="buenos-aires">
-        Buenos Aires
-      </Checkbox>
-      <Checkbox labelColor="warning" value="sydney">
-        Sydney
-      </Checkbox>
-      <Checkbox isDisabled labelColor="error" value="london">
-        London
-      </Checkbox>
-      <Checkbox value="tokyo">Tokyo</Checkbox>
-    </Checkbox.Group>
-  );
-};
+// export const NoAnimated = () => {
+//   return (
+//     <div style={{display: "flex", flexDirection: "column"}}>
+//       <Checkbox defaultSelected disableAnimation={true} size="md">
+//         Option
+//       </Checkbox>
+//       <br />
+//       <Checkbox defaultSelected lineThrough disableAnimation={true} size="md">
+//         Option
+//       </Checkbox>
+//     </div>
+//   );
+// };
 
-export const GroupRow = () => (
-  <Checkbox.Group
-    color="warning"
-    defaultValue={["1"]}
-    label="Select cities"
-    orientation="horizontal"
-  >
-    <Checkbox color="primary" value="1">
-      Buenos Aires
-    </Checkbox>
-    <Checkbox value="2">Sydney</Checkbox>
-    <Checkbox value="3">London</Checkbox>
-    <Checkbox value="4">Tokyo</Checkbox>
-  </Checkbox.Group>
-);
+// export const Group = () => {
+//   // eslint-disable-next-line no-console
+//   const handleGroupChange = (value: string[]) => console.log(value);
+
+//   return (
+//     <Checkbox.Group
+//       color="warning"
+//       defaultValue={["buenos-aires"]}
+//       label="Select cities"
+//       labelColor="primary"
+//       onChange={handleGroupChange}
+//     >
+//       <Checkbox color="primary" value="buenos-aires">
+//         Buenos Aires
+//       </Checkbox>
+//       <Checkbox labelColor="warning" value="sydney">
+//         Sydney
+//       </Checkbox>
+//       <Checkbox isDisabled labelColor="error" value="london">
+//         London
+//       </Checkbox>
+//       <Checkbox value="tokyo">Tokyo</Checkbox>
+//     </Checkbox.Group>
+//   );
+// };
+
+// export const GroupRow = () => (
+//   <Checkbox.Group
+//     color="warning"
+//     defaultValue={["1"]}
+//     label="Select cities"
+//     orientation="horizontal"
+//   >
+//     <Checkbox color="primary" value="1">
+//       Buenos Aires
+//     </Checkbox>
+//     <Checkbox value="2">Sydney</Checkbox>
+//     <Checkbox value="3">London</Checkbox>
+//     <Checkbox value="4">Tokyo</Checkbox>
+//   </Checkbox.Group>
+// );

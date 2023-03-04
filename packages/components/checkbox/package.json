@@ -39,7 +39,7 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@react-aria/checkbox": "^3.8.0",
     "@react-aria/focus": "^3.11.0",
