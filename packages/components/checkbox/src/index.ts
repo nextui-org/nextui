@@ -11,3 +11,4 @@ export type {CheckboxGroupProps} from "./checkbox-group";
 
 // export components
 export {Checkbox, CheckboxGroup};
+export * from "./checkbox-icon";

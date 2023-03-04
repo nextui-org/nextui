@@ -3,21 +3,23 @@ import type {UseCheckboxReturn} from "./use-checkbox";
 type CheckboxIconProps = Partial<ReturnType<UseCheckboxReturn["getIconProps"]>>;
 
 function CheckIcon(props: CheckboxIconProps) {
+  const {isSelected, disableAnimation, ...otherProps} = props;
+
   return (
-    <svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" {...props}>
+    <svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" {...otherProps}>
       <polyline
         fill="none"
         points="1 9 7 14 15 4"
         stroke="currentColor"
         strokeDasharray={22}
-        strokeDashoffset={props.isSelected ? 44 : 66}
+        strokeDashoffset={isSelected ? 44 : 66}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={3}
         style={
-          !props.disableAnimation
+          !disableAnimation
             ? {
-                transition: "stroke-dashoffset 250ms ease 0s",
+                transition: "stroke-dashoffset 200ms ease",
                 transitionDelay: "250ms",
               }
             : {}
@@ -28,8 +30,11 @@ function CheckIcon(props: CheckboxIconProps) {
 }
 
 function IndeterminateIcon(props: CheckboxIconProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {isSelected, disableAnimation, ...otherProps} = props;
+
   return (
-    <svg stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24" {...props}>
+    <svg stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24" {...otherProps}>
       <line x1="21" x2="3" y1="12" y2="12" />
     </svg>
   );
@@ -40,7 +45,8 @@ function IndeterminateIcon(props: CheckboxIconProps) {
  * state of a checkbox.
  */
 export function CheckboxIcon(props: CheckboxIconProps) {
-  const BaseIcon = props.isIndeterminate ? IndeterminateIcon : CheckIcon;
+  const {isIndeterminate, ...otherProps} = props;
+  const BaseIcon = isIndeterminate ? IndeterminateIcon : CheckIcon;
 
-  return <BaseIcon {...props} />;
+  return <BaseIcon {...otherProps} />;
 }

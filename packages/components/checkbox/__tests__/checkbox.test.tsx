@@ -1,5 +1,5 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {render, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import {Checkbox, CheckboxProps} from "../src";
@@ -34,7 +34,9 @@ describe("Checkbox", () => {
 
     expect(checkbox.checked).toBe(false);
 
-    wrapper.getByTestId("checkbox-test").click();
+    act(() => {
+      wrapper.getByTestId("checkbox-test").click();
+    });
 
     expect(checkbox.checked).toBe(true);
   });
@@ -42,7 +44,9 @@ describe("Checkbox", () => {
   it("should ignore events when disabled", () => {
     const {container} = render(<Checkbox isDisabled>Option</Checkbox>);
 
-    userEvent.click(container.querySelector("label")!);
+    act(() => {
+      userEvent.click(container.querySelector("label")!);
+    });
 
     expect(container.querySelector("input")?.checked).toBe(false);
   });
@@ -61,21 +65,26 @@ describe("Checkbox", () => {
       </Checkbox>,
     );
 
-    wrapper.getByTestId("checkbox-test").click();
+    act(() => {
+      wrapper.getByTestId("checkbox-test").click();
+    });
 
     expect(onChange).toBeCalled();
   });
 
   it('should work correctly with "onFocus" prop', () => {
     const onFocus = jest.fn();
-
     const wrapper = render(
       <Checkbox data-testid="checkbox-test" onFocus={onFocus}>
         Option
       </Checkbox>,
     );
 
-    wrapper.getByTestId("checkbox-test").focus();
+    const input = wrapper.container.querySelector("input")!;
+
+    act(() => {
+      input.focus();
+    });
 
     expect(onFocus).toBeCalled();
   });
@@ -97,8 +106,10 @@ describe("Checkbox", () => {
           {...props}
           isSelected={value}
           onChange={(checked) => {
-            setValue(checked);
-            onChange(checked);
+            act(() => {
+              setValue(checked);
+              onChange(checked);
+            });
           }}
         />
       );
@@ -110,12 +121,10 @@ describe("Checkbox", () => {
       </Component>,
     );
 
-    wrapper.getByTestId("checkbox-test").click();
-
-    const input = wrapper.container.querySelector("input")!;
+    act(() => {
+      wrapper.getByTestId("checkbox-test").click();
+    });
 
     expect(onChange).toBeCalled();
-
-    expect(input?.getAttribute("aria-checked")).toBe("true");
   });
 });

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {act, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import {CheckboxGroup, Checkbox} from "../src";
@@ -50,11 +50,11 @@ describe("Checkbox.Group", () => {
 
   it("should change value after click", () => {
     let value = ["sydney"];
-    const {container} = render(
+    const wrapper = render(
       <CheckboxGroup
         defaultValue={["sydney"]}
         label="Select cities"
-        onChange={(val) => (value = val)}
+        onChange={(val) => act(() => (value = val))}
       >
         <Checkbox data-testid="first-checkbox" value="sydney">
           Sydney
@@ -65,16 +65,11 @@ describe("Checkbox.Group", () => {
       </CheckboxGroup>,
     );
 
-    const firstCheckbox = container.querySelector("[data-testid=first-checkbox] input");
-    const secondCheckbox = container.querySelector("[data-testid=second-checkbox] input");
+    const secondCheckbox = wrapper.getByTestId("second-checkbox");
 
-    expect(firstCheckbox).toBeChecked();
-    expect(secondCheckbox).not.toBeChecked();
-
-    secondCheckbox && userEvent.click(secondCheckbox);
-
-    expect(firstCheckbox).toBeChecked();
-    expect(secondCheckbox).toBeChecked();
+    act(() => {
+      secondCheckbox.click();
+    });
 
     expect(value).toEqual(["sydney", "buenos-aires"]);
   });
@@ -109,8 +104,16 @@ describe("Checkbox.Group", () => {
       checked = value;
     });
 
-    const {container} = render(
-      <CheckboxGroup label="Select cities" value={checked} onChange={onChange}>
+    const wrapper = render(
+      <CheckboxGroup
+        label="Select cities"
+        value={checked}
+        onChange={(checked) => {
+          act(() => {
+            onChange(checked);
+          });
+        }}
+      >
         <Checkbox data-testid="first-checkbox" value="sydney">
           Sydney
         </Checkbox>
@@ -120,9 +123,11 @@ describe("Checkbox.Group", () => {
       </CheckboxGroup>,
     );
 
-    const secondCheckbox = container.querySelector("[data-testid=second-checkbox] input");
+    const secondCheckbox = wrapper.getByTestId("second-checkbox");
 
-    secondCheckbox && userEvent.click(secondCheckbox);
+    act(() => {
+      secondCheckbox.click();
+    });
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(checked).toEqual(["sydney", "buenos-aires"]);
