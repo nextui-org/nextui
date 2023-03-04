@@ -1,3 +1,4 @@
+import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 
@@ -7,12 +8,6 @@ export default {
   title: "Inputs/Checkbox",
   component: Checkbox,
   argTypes: {
-    variant: {
-      control: {
-        type: "select",
-        options: ["solid", "bordered", "light", "flat", "faded", "shadow", "dot"],
-      },
-    },
     color: {
       control: {
         type: "select",
@@ -29,6 +24,11 @@ export default {
       control: {
         type: "select",
         options: ["xs", "sm", "md", "lg", "xl"],
+      },
+    },
+    lineThrough: {
+      control: {
+        type: "boolean",
       },
     },
     isDisabled: {
@@ -51,197 +51,83 @@ Default.args = {
   ...defaultProps,
 };
 
-// export const Default = () => {
-//   return (
-//     <Checkbox color="default" labelColor="default" size="md">
-//       Option
-//     </Checkbox>
-//   );
-// };
+export const IsDisabled = Template.bind({});
+IsDisabled.args = {
+  ...defaultProps,
+  isDisabled: true,
+};
 
-// export const Label = () => {
-//   return <Checkbox color="default" label="Option" labelColor="default" size="md" />;
-// };
+export const DefaultSelected = Template.bind({});
+DefaultSelected.args = {
+  ...defaultProps,
+  defaultSelected: true,
+};
 
-// export const Disabled = () => (
-//   <div style={{display: "flex", flexDirection: "column"}}>
-//     <Checkbox defaultSelected size="xl">
-//       Enabled
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected isDisabled size="xl">
-//       Disabled
-//     </Checkbox>
-//   </div>
-// );
+export const AlwaysSelected = Template.bind({});
+AlwaysSelected.args = {
+  ...defaultProps,
+  isSelected: true,
+};
 
-// export const Sizes = () => (
-//   <div style={{display: "flex", flexDirection: "column"}}>
-//     <Checkbox defaultSelected size="xs">
-//       mini
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected size="sm">
-//       small
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected size="md">
-//       medium
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected size="lg">
-//       large
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected size="xl">
-//       xlarge
-//     </Checkbox>
-//   </div>
-// );
+export const IsIndeterminate = Template.bind({});
+IsIndeterminate.args = {
+  ...defaultProps,
+  isIndeterminate: true,
+};
 
-// export const Colors = () => (
-//   <div style={{display: "flex", flexDirection: "column"}}>
-//     <Checkbox defaultSelected color="primary">
-//       Primary
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="secondary">
-//       Secondary
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="success">
-//       Success
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="warning">
-//       Warning
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="error">
-//       Error
-//     </Checkbox>
-//   </div>
-// );
+export const LineThrough = Template.bind({});
+LineThrough.args = {
+  ...defaultProps,
+  lineThrough: true,
+};
 
-// export const LabelColors = () => (
-//   <div style={{display: "flex", flexDirection: "column"}}>
-//     <Checkbox defaultSelected color="primary" labelColor="primary">
-//       Primary
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="secondary" labelColor="secondary">
-//       Secondary
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="success" labelColor="success">
-//       Success
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="warning" labelColor="warning">
-//       Warning
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected color="error" labelColor="error">
-//       Error
-//     </Checkbox>
-//   </div>
-// );
+export const DisableAnimation = Template.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  disableAnimation: true,
+};
 
-// export const Rounded = () => (
-//   <div style={{display: "flex", flexDirection: "column"}}>
-//     <Checkbox defaultSelected isRounded color="primary">
-//       Primary
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected isRounded color="secondary">
-//       Secondary
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected isRounded color="success">
-//       Success
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected isRounded color="warning">
-//       Warning
-//     </Checkbox>
-//     <br />
-//     <Checkbox defaultSelected isRounded color="error">
-//       Error
-//     </Checkbox>
-//   </div>
-// );
+export const Controlled = () => {
+  const [selected, setSelected] = React.useState<boolean>(true);
 
-// export const Indeterminate = () => {
-//   return (
-//     <Checkbox defaultSelected isIndeterminate color="primary" size="lg">
-//       Option
-//     </Checkbox>
-//   );
-// };
+  // const [groupSelected, setGroupSelected] = React.useState<string[]>(["buenos-aires", "sydney"]);
 
-// export const LineThrough = () => {
-//   return (
-//     <Checkbox defaultSelected lineThrough color="primary" size="lg">
-//       Option
-//     </Checkbox>
-//   );
-// };
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("Checkbox ", selected);
+  }, [selected]);
 
-// export const Controlled = () => {
-//   const [selected, setSelected] = React.useState<boolean>(true);
+  // React.useEffect(() => {
+  //   // eslint-disable-next-line no-console
+  //   console.log("CheckboxGroup ", groupSelected);
+  // }, [groupSelected]);
 
-//   const [groupSelected, setGroupSelected] = React.useState<string[]>(["buenos-aires", "sydney"]);
-
-//   React.useEffect(() => {
-//     // eslint-disable-next-line no-console
-//     console.log("Checkbox ", selected);
-//   }, [selected]);
-
-//   React.useEffect(() => {
-//     // eslint-disable-next-line no-console
-//     console.log("CheckboxGroup ", groupSelected);
-//   }, [groupSelected]);
-
-//   return (
-//     <div style={{display: "flex", flexDirection: "row", gap: 200}}>
-//       <Checkbox color="success" isSelected={selected} onChange={setSelected}>
-//         Subscribe (controlled)
-//       </Checkbox>
-//       <Checkbox.Group
-//         color="warning"
-//         label="Select cities"
-//         labelColor="primary"
-//         value={groupSelected}
-//         onChange={setGroupSelected}
-//       >
-//         <Checkbox color="primary" value="buenos-aires">
-//           Buenos Aires
-//         </Checkbox>
-//         <Checkbox labelColor="warning" value="sydney">
-//           Sydney
-//         </Checkbox>
-//         <Checkbox labelColor="error" value="london">
-//           London
-//         </Checkbox>
-//         <Checkbox value="tokyo">Tokyo</Checkbox>
-//       </Checkbox.Group>
-//     </div>
-//   );
-// };
-
-// export const NoAnimated = () => {
-//   return (
-//     <div style={{display: "flex", flexDirection: "column"}}>
-//       <Checkbox defaultSelected disableAnimation={true} size="md">
-//         Option
-//       </Checkbox>
-//       <br />
-//       <Checkbox defaultSelected lineThrough disableAnimation={true} size="md">
-//         Option
-//       </Checkbox>
-//     </div>
-//   );
-// };
+  return (
+    <div className="flex flex-row gap-2">
+      <Checkbox isSelected={selected} onChange={setSelected} {...checkbox.defaultVariants}>
+        Subscribe (controlled)
+      </Checkbox>
+      {/* <Checkbox.Group
+        color="warning"
+        label="Select cities"
+        labelColor="primary"
+        value={groupSelected}
+        onChange={setGroupSelected}
+      >
+        <Checkbox color="primary" value="buenos-aires">
+          Buenos Aires
+        </Checkbox>
+        <Checkbox labelColor="warning" value="sydney">
+          Sydney
+        </Checkbox>
+        <Checkbox labelColor="error" value="london">
+          London
+        </Checkbox>
+        <Checkbox value="tokyo">Tokyo</Checkbox>
+      </Checkbox.Group> */}
+    </div>
+  );
+};
 
 // export const Group = () => {
 //   // eslint-disable-next-line no-console

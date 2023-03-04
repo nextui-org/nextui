@@ -1,18 +1,22 @@
 import type {ButtonProps} from "./index";
 import type {ReactRef} from "@nextui-org/shared-utils";
 import type {ButtonGroupVariantProps} from "@nextui-org/theme";
+import type {AriaButtonProps} from "@react-types/button";
 
 import {buttonGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useCallback} from "react";
-export interface UseButtonGroupProps
-  extends HTMLNextUIProps<"div", Omit<ButtonProps, "ref" | "fullWidth">>,
-    ButtonGroupVariantProps {
+interface Props extends HTMLNextUIProps<"div">, ButtonGroupVariantProps {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
+  /**
+   * Whether the buttons are disabled.
+   * @default false
+   */
+  isDisabled?: ButtonProps["isDisabled"];
 }
 
 export type ContextType = {
@@ -25,6 +29,9 @@ export type ContextType = {
   disableRipple?: ButtonProps["disableRipple"];
   fullWidth?: boolean;
 };
+
+export type UseButtonGroupProps = Props &
+  Omit<ButtonProps, "ref" | "fullWidth" | keyof AriaButtonProps>;
 
 export function useButtonGroup(originalProps: UseButtonGroupProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, buttonGroup.variantKeys);

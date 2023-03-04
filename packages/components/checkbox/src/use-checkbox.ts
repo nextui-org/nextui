@@ -6,7 +6,7 @@ import {ReactNode, Ref, useCallback} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
-import {useHover, usePress} from "@react-aria/interactions";
+import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusableRef} from "@nextui-org/dom-utils";
@@ -19,9 +19,7 @@ import {FocusableRef} from "@react-types/shared";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
-export interface UseCheckboxProps
-  extends HTMLNextUIProps<"label", Omit<AriaCheckboxProps, keyof CheckboxVariantProps>>,
-    Omit<CheckboxVariantProps, "isFocusVisible"> {
+interface Props extends HTMLNextUIProps<"label"> {
   /**
    * Ref to the DOM node.
    */
@@ -35,6 +33,10 @@ export interface UseCheckboxProps
    * The label of the checkbox.
    */
   children?: ReactNode;
+  /**
+   * The icon to be displayed when the checkbox is checked.
+   */
+  icon?: ReactNode;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -52,6 +54,10 @@ export interface UseCheckboxProps
   styles?: SlotsToClasses<CheckboxSlots>;
 }
 
+export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
+  Omit<AriaCheckboxProps, keyof CheckboxVariantProps> &
+  Omit<CheckboxVariantProps, "isFocusVisible">;
+
 export function useCheckbox(props: UseCheckboxProps) {
   const groupContext = useCheckboxGroupContext();
   const isInGroup = !!groupContext;
@@ -62,10 +68,11 @@ export function useCheckbox(props: UseCheckboxProps) {
     isSelected,
     value = "",
     children,
+    icon,
     isRequired = false,
     size = groupContext?.size ?? "md",
-    color = groupContext?.color ?? "neutral",
-    radius = groupContext?.radius ?? "sm",
+    color = groupContext?.color ?? "primary",
+    radius = groupContext?.radius ?? "md",
     lineThrough = groupContext?.lineThrough ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
@@ -98,16 +105,20 @@ export function useCheckbox(props: UseCheckboxProps) {
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
   const ariaCheckboxProps = useMemo(() => {
+    const arialabel =
+      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
+
     return {
-      ...otherProps,
       value,
       defaultSelected,
       isSelected,
+      isDisabled,
       isIndeterminate,
       isRequired,
       onChange,
+      "aria-label": arialabel,
     };
-  }, [isIndeterminate, otherProps]);
+  }, [isIndeterminate, isDisabled]);
 
   const {inputProps} = isInGroup
     ? // eslint-disable-next-line
@@ -126,11 +137,6 @@ export function useCheckbox(props: UseCheckboxProps) {
   }
 
   const {hoverProps, isHovered} = useHover({
-    isDisabled: inputProps.disabled,
-  });
-
-  // TODO: Event's propagation wasn't stopped https://github.com/adobe/react-spectrum/issues/2383
-  const {pressProps} = usePress({
     isDisabled: inputProps.disabled,
   });
 
@@ -162,11 +168,11 @@ export function useCheckbox(props: UseCheckboxProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(inputProps.checked),
       "data-invalid": dataAttr(otherProps.validationState === "invalid"),
-      ...mergeProps(hoverProps, pressProps, otherProps),
+      ...mergeProps(hoverProps, otherProps),
     };
   };
 
-  const getCheckboxProps = () => {
+  const getWrapperProps = () => {
     return {
       "data-hover": dataAttr(isHovered),
       "data-checked": dataAttr(inputProps.checked),
@@ -178,7 +184,6 @@ export function useCheckbox(props: UseCheckboxProps) {
       "data-readonly": dataAttr(inputProps.readOnly),
       "aria-hidden": true,
       className: clsx(slots.wrapper({class: styles?.wrapper})),
-      ...mergeProps(hoverProps, pressProps, otherProps),
     };
   };
 
@@ -202,18 +207,20 @@ export function useCheckbox(props: UseCheckboxProps) {
   const getIconProps = useCallback(
     () => ({
       "data-checked": dataAttr(inputProps.checked),
+      isSelected: inputProps.checked,
+      isIndeterminate: !!isIndeterminate,
+      disableAnimation: !!disableAnimation,
       className: slots.icon({class: styles?.icon}),
     }),
-    [slots, inputProps.checked],
+    [slots, inputProps.checked, isIndeterminate, disableAnimation],
   );
 
   return {
     Component,
+    icon,
     children,
-    disableAnimation,
-    isChecked: inputProps.checked,
     getBaseProps,
-    getCheckboxProps,
+    getWrapperProps,
     getInputProps,
     getLabelProps,
     getIconProps,

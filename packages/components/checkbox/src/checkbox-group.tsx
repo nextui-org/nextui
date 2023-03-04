@@ -1,46 +1,27 @@
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
-import {mergeProps} from "@react-aria/utils";
+import {__DEV__} from "@nextui-org/shared-utils";
 
 import {CheckboxGroupProvider} from "./checkbox-group-context";
-import {StyledCheckboxGroup, StyledCheckboxGroupContainer} from "./checkbox-group.styles";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
 
-export interface CheckboxGroupProps extends UseCheckboxGroupProps {}
+export interface CheckboxGroupProps extends Omit<UseCheckboxGroupProps, "ref"> {}
 
 const CheckboxGroup = forwardRef<CheckboxGroupProps, "div">((props, ref) => {
-  const domRef = useDOMRef(ref);
-
-  const {children, orientation, groupProps, labelProps, label, context, className, ...otherProps} =
-    useCheckboxGroup(props);
+  const {children, context, label, getGroupProps, getLabelProps, getWrapperProps} =
+    useCheckboxGroup({ref, ...props});
 
   return (
-    <StyledCheckboxGroup
-      ref={domRef}
-      className={clsx("nextui-checkbox-group", className)}
-      {...mergeProps(groupProps, otherProps)}
-    >
-      {label && (
-        <label className="nextui-checkbox-group-label" {...labelProps}>
-          {label}
-        </label>
-      )}
-      <StyledCheckboxGroupContainer
-        className="nextui-checkbox-group-items"
-        isRow={orientation === "horizontal"}
-        role="presentation"
-      >
+    <div {...getGroupProps()}>
+      {label && <label {...getLabelProps()}>{label}</label>}
+      <div {...getWrapperProps()}>
         <CheckboxGroupProvider value={context}>{children}</CheckboxGroupProvider>
-      </StyledCheckboxGroupContainer>
-    </StyledCheckboxGroup>
+      </div>
+    </div>
   );
 });
 
 if (__DEV__) {
   CheckboxGroup.displayName = "NextUI.CheckboxGroup";
 }
-
-CheckboxGroup.toString = () => ".nextui-checkbox-group";
 
 export default CheckboxGroup;

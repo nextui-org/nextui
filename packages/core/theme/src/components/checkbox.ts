@@ -20,7 +20,7 @@ import {ringClasses} from "../utils";
  */
 const checkbox = tv({
   slots: {
-    base: "relative inline-flex items-center justify-start cursor-pointer",
+    base: "relative max-w-fit inline-flex items-center justify-start cursor-pointer",
     wrapper: [
       "relative",
       "inline-flex",
@@ -50,7 +50,7 @@ const checkbox = tv({
       "data-[hover=true]:before:bg-neutral",
     ],
     icon: "z-10 w-4 h-3 opacity-0 data-[checked=true]:opacity-100",
-    label: "ml-1 text-foreground",
+    label: "relative ml-1 text-foreground select-none",
   },
   variants: {
     color: {
@@ -125,32 +125,48 @@ const checkbox = tv({
     },
     lineThrough: {
       true: {
-        label: "line-through",
+        label: [
+          "inline-flex",
+          "items-center",
+          "justify-center",
+          "before:content-['']",
+          "before:absolute",
+          "before:bg-foreground",
+          "before:w-0",
+          "before:h-0.5",
+          "data-[checked=true]:opacity-60",
+          "data-[checked=true]:before:w-full",
+        ],
       },
     },
     isDisabled: {
       true: {
-        base: "opacity-50 cursor-not-allowed",
+        base: "opacity-50 pointer-events-none",
       },
     },
     isFocusVisible: {
-      true: [...ringClasses],
+      true: {
+        wrapper: [...ringClasses],
+      },
     },
     disableAnimation: {
       true: {
         wrapper: "transition-none",
       },
       false: {
-        wrapper: "before:transition-background after:transition-transform-opacity",
+        wrapper:
+          "before:transition-background after:transition-transform-opacity before:!duration-250 after:!duration-250",
         icon: "transition-opacity",
+        label: "transition-opacity before:transition-width",
       },
     },
   },
   defaultVariants: {
-    color: "neutral",
+    color: "primary",
     size: "md",
     radius: "md",
     isDisabled: false,
+    lineThrough: false,
     disableAnimation: false,
   },
 });

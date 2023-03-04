@@ -2,15 +2,15 @@ import * as React from "react";
 import {render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import {Checkbox} from "../src";
+import {CheckboxGroup, Checkbox} from "../src";
 
 describe("Checkbox.Group", () => {
   it("should render correctly", () => {
     const wrapper = render(
-      <Checkbox.Group defaultValue={[]} label="Select cities">
+      <CheckboxGroup defaultValue={[]} label="Select cities">
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
-      </Checkbox.Group>,
+      </CheckboxGroup>,
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
@@ -20,10 +20,10 @@ describe("Checkbox.Group", () => {
     const ref = React.createRef<HTMLDivElement>();
 
     render(
-      <Checkbox.Group ref={ref} defaultValue={[]} label="Select cities">
+      <CheckboxGroup ref={ref} defaultValue={[]} label="Select cities">
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
-      </Checkbox.Group>,
+      </CheckboxGroup>,
     );
 
     expect(ref.current).not.toBeNull();
@@ -31,14 +31,14 @@ describe("Checkbox.Group", () => {
 
   it("should work correctly with initial value", () => {
     const {container} = render(
-      <Checkbox.Group defaultValue={["sydney"]} label="Select cities">
+      <CheckboxGroup defaultValue={["sydney"]} label="Select cities">
         <Checkbox data-testid="first-checkbox" value="sydney">
           Sydney
         </Checkbox>
         <Checkbox data-testid="second-checkbox" value="buenos-aires">
           Buenos Aires
         </Checkbox>
-      </Checkbox.Group>,
+      </CheckboxGroup>,
     );
 
     // check if the first checkbox is checked
@@ -51,7 +51,7 @@ describe("Checkbox.Group", () => {
   it("should change value after click", () => {
     let value = ["sydney"];
     const {container} = render(
-      <Checkbox.Group
+      <CheckboxGroup
         defaultValue={["sydney"]}
         label="Select cities"
         onChange={(val) => (value = val)}
@@ -62,7 +62,7 @@ describe("Checkbox.Group", () => {
         <Checkbox data-testid="second-checkbox" value="buenos-aires">
           Buenos Aires
         </Checkbox>
-      </Checkbox.Group>,
+      </CheckboxGroup>,
     );
 
     const firstCheckbox = container.querySelector("[data-testid=first-checkbox] input");
@@ -81,14 +81,14 @@ describe("Checkbox.Group", () => {
 
   it("should ignore events when disabled", () => {
     const {container} = render(
-      <Checkbox.Group isDisabled defaultValue={["sydney"]} label="Select cities">
+      <CheckboxGroup isDisabled defaultValue={["sydney"]} label="Select cities">
         <Checkbox data-testid="first-checkbox" value="sydney">
           Sydney
         </Checkbox>
         <Checkbox data-testid="second-checkbox" value="buenos-aires">
           Buenos Aires
         </Checkbox>
-      </Checkbox.Group>,
+      </CheckboxGroup>,
     );
 
     const firstCheckbox = container.querySelector("[data-testid=first-checkbox] input");
@@ -110,14 +110,14 @@ describe("Checkbox.Group", () => {
     });
 
     const {container} = render(
-      <Checkbox.Group label="Select cities" value={checked} onChange={onChange}>
+      <CheckboxGroup label="Select cities" value={checked} onChange={onChange}>
         <Checkbox data-testid="first-checkbox" value="sydney">
           Sydney
         </Checkbox>
         <Checkbox data-testid="second-checkbox" value="buenos-aires">
           Buenos Aires
         </Checkbox>
-      </Checkbox.Group>,
+      </CheckboxGroup>,
     );
 
     const secondCheckbox = container.querySelector("[data-testid=second-checkbox] input");

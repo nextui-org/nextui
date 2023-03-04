@@ -12,3 +12,4 @@ export * from "./snippet";
 export * from "./chip";
 export * from "./badge";
 export * from "./checkbox";
+export * from "./checkbox-group";

@@ -1,49 +1,48 @@
-import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
+import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {AriaCheckboxGroupProps, AriaCheckboxProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
 import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {ReactRef} from "@nextui-org/shared-utils";
 
+import {useMemo} from "react";
+import {mergeProps} from "@react-aria/utils";
+import {checkboxGroup} from "@nextui-org/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {CheckboxProps} from "./index";
 
-export interface UseCheckboxGroupProps extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
+interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
   /**
-   * The color of the checkboxes.
-   * @default "default"
+   * Ref to the DOM node.
    */
-  color?: CheckboxProps["color"];
-  /**
-   * The size of the checkboxes.
-   * @default "md"
-   */
-  size?: CheckboxProps["size"];
-  /**
-   * The radius of the checkboxes.
-   * @default "lg"
-   */
-  radius?: CheckboxProps["radius"];
-  /**
-   * Whether the checkboxes should have a line through.
-   * @default false
-   */
-  lineThrough?: CheckboxProps["lineThrough"];
-  /**
-   * Whether the checkboxes are disabled.
-   * @default false
-   */
-  isDisabled?: CheckboxProps["isDisabled"];
-  /**
-   * Whether the animation should be disabled.
-   * @default false
-   */
-  disableAnimation?: CheckboxProps["disableAnimation"];
+  ref?: ReactRef<HTMLDivElement | null>;
   /**
    * The axis the checkbox group items should align with.
    * @default "vertical"
    */
   orientation?: Orientation;
+  /**
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <CheckboxGroup styles={{
+   *    base:"base-classes",
+   *    label: "label-classes",
+   *    wrapper: "wrapper-classes", // checkboxes wrapper
+   * }} >
+   *  // checkboxes
+   * </CheckboxGroup>
+   * ```
+   */
+  styles?: SlotsToClasses<CheckboxGroupSlots>;
 }
+
+export type UseCheckboxGroupProps = Props & Omit<CheckboxProps, "ref" | keyof AriaCheckboxProps>;
 
 export type ContextType = {
   groupState: CheckboxGroupState;
@@ -57,15 +56,25 @@ export type ContextType = {
 
 export function useCheckboxGroup(props: UseCheckboxGroupProps) {
   const {
+    as,
+    ref,
+    styles,
+    children,
+    label,
     size = "md",
-    color = "neutral",
-    radius = "lg",
+    color = "primary",
+    radius = "md",
     orientation = "vertical",
     lineThrough = false,
     isDisabled = false,
     disableAnimation = false,
+    className,
     ...otherProps
   } = props;
+
+  const Component = as || "div";
+
+  const domRef = useDOMRef(ref);
 
   const groupState = useCheckboxGroupState(otherProps);
 
@@ -81,13 +90,41 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     groupState,
   };
 
+  const slots = useMemo(() => checkboxGroup(), []);
+
+  const baseStyles = clsx(styles?.base, className);
+
+  const getGroupProps = () => {
+    return {
+      ref: domRef,
+      className: slots.base({class: baseStyles}),
+      ...mergeProps(groupProps, otherProps),
+    };
+  };
+
+  const getLabelProps = () => {
+    return {
+      className: slots.label({class: styles?.label}),
+      ...labelProps,
+    };
+  };
+
+  const getWrapperProps = () => {
+    return {
+      className: slots.wrapper({class: styles?.wrapper}),
+      role: "presentation",
+      "data-orientation": orientation,
+    };
+  };
+
   return {
-    size,
-    orientation,
-    labelProps,
-    groupProps,
+    Component,
+    children,
+    label,
     context,
-    ...otherProps,
+    getGroupProps,
+    getLabelProps,
+    getWrapperProps,
   };
 }
 

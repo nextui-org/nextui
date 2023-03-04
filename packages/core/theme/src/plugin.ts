@@ -167,6 +167,10 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}) => {
             3: "3px",
             5: "5px",
           },
+          transitionDuration: {
+            0: "0ms",
+            250: "250ms",
+          },
           ...animations,
         },
       },
