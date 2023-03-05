@@ -103,6 +103,7 @@ export function useRadio(props: UseRadioProps) {
       isDisabled,
       isRequired,
       "aria-label": ariaLabel,
+      "aria-labelledby": otherProps["aria-labelledby"] || ariaLabel,
       "aria-describedby": otherProps["aria-describedby"] || ariaDescribedBy,
     };
   }, [isDisabled, isRequired]);
