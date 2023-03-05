@@ -1,63 +1,69 @@
 import type {AriaRadioProps} from "@react-types/radio";
 
+import {RadioVariantProps, RadioSlots, SlotsToClasses, radio} from "@nextui-org/theme";
+import {Ref, ReactNode, useCallback} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
-import {HTMLNextUIProps} from "@nextui-org/system";
-import {NormalSizes, SimpleColors, __DEV__, warn} from "@nextui-org/shared-utils";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {mergeProps} from "@react-aria/utils";
 
 import {useRadioGroupContext} from "./radio-group-context";
 
 interface Props extends HTMLNextUIProps<"label"> {
   /**
-   * The content to display as the label.
+   * Ref to the DOM node.
    */
-  label?: string;
+  ref?: Ref<HTMLElement>;
   /**
-   * The color of the radio.
-   * @default "default"
+   * The label of the checkbox.
    */
-  color?: SimpleColors;
-  /**
-   * The color of the label.
-   * @default "default"
-   */
-  labelColor?: SimpleColors;
-  /**
-   * The size of the radio.
-   * @default "md"
-   */
-  size?: NormalSizes;
+  children?: ReactNode;
   /**
    * The radio description text.
    */
-  description?: string;
+  description?: string | ReactNode;
   /**
-   * Whether the radio is squared.
-   * @default false
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Radio styles={{
+   *    base:"base-classes",
+   *    wrapper: "wrapper-classes",
+   *    point: "control-classes", // inner circle
+   *    label: "label-classes",
+   *    description: "description-classes",
+   * }} />
+   * ```
    */
-  isSquared?: boolean;
-  /**
-   * Whether the radio has animations.
-   * @default false
-   */
-  disableAnimation?: boolean;
+  styles?: SlotsToClasses<RadioSlots>;
 }
 
-export type UseRadioProps = Props & AriaRadioProps;
+export type UseRadioProps = Props &
+  Omit<AriaRadioProps, keyof RadioVariantProps> &
+  Omit<RadioVariantProps, "isFocusVisible">;
 
 export function useRadio(props: UseRadioProps) {
   const groupContext = useRadioGroupContext();
 
   const {
+    as,
+    ref,
+    styles,
+    children,
+    description,
     size = groupContext?.size ?? "md",
-    color = groupContext?.color ?? "default",
-    labelColor = groupContext?.labelColor ?? "default",
+    color = groupContext?.color ?? "primary",
+    radius = groupContext?.radius ?? "full",
+    isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? false,
     autoFocus = false,
-    isSquared = false,
-    isDisabled: isDisabledProp = false,
-    disableAnimation = false,
+    className,
     ...otherProps
   } = props;
 
@@ -70,55 +76,121 @@ export function useRadio(props: UseRadioProps) {
     }
   }
 
+  const Component = as || "label";
+
+  const domRef = useDOMRef(ref);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const {inputProps} = useReactAriaRadio(
-    {
-      ...otherProps,
-      ...groupContext,
-      isDisabled: isDisabledProp,
-    },
-    groupContext.groupState,
-    inputRef,
-  );
-
-  const isDisabled = useMemo(() => inputProps.disabled ?? false, [inputProps.disabled]);
+  const isDisabled = useMemo(() => !!isDisabledProp, [isDisabledProp]);
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
   const isInvalid = useMemo(
     () => groupContext.validationState === "invalid",
     [groupContext.validationState],
   );
 
+  const ariaRadioProps = useMemo(() => {
+    const arialabel =
+      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
+    const ariaDescribedBy =
+      otherProps["aria-describedby"] || typeof description === "string"
+        ? (description as string)
+        : undefined;
+
+    return {
+      isDisabled,
+      isRequired,
+      "aria-label": arialabel,
+      "aria-labelledby": otherProps["aria-labelledby"] || arialabel,
+      "aria-describedby": otherProps["aria-describedby"] || ariaDescribedBy,
+    };
+  }, [isDisabled, isRequired]);
+
+  const {inputProps} = useReactAriaRadio(
+    {
+      ...otherProps,
+      ...groupContext,
+      ...ariaRadioProps,
+    },
+    groupContext.groupState,
+    inputRef,
+  );
+
   const {hoverProps, isHovered} = useHover({isDisabled});
 
-  const {focusProps, isFocusVisible} = useFocusRing({
+  const {focusProps, isFocused, isFocusVisible} = useFocusRing({
     autoFocus,
   });
 
-  const state = useMemo(() => {
-    if (isHovered) return "hovered";
-    if (isDisabled) return "disabled";
+  const slots = useMemo(
+    () =>
+      radio({
+        color,
+        size,
+        radius,
+        isDisabled,
+        isFocusVisible,
+        disableAnimation,
+      }),
+    [color, size, radius, isDisabled, isFocusVisible, disableAnimation],
+  );
 
-    return inputProps.checked ? "checked" : "uncheked";
-  }, [isDisabled, inputProps.checked, isHovered]);
+  const baseStyles = clsx(styles?.base, className);
+
+  const getBaseProps: PropGetter = () => {
+    return {
+      ref: domRef,
+      className: slots.base({class: baseStyles}),
+      "data-disabled": dataAttr(isDisabled),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-invalid": dataAttr(isInvalid),
+      ...mergeProps(hoverProps, otherProps),
+    };
+  };
+
+  const getWrapperProps: PropGetter = () => {
+    return {
+      "data-active": dataAttr(inputProps.checked),
+      "data-hover": dataAttr(isHovered),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocused && isFocusVisible),
+      "data-disabled": dataAttr(isDisabled),
+      "data-invalid": dataAttr(isInvalid),
+      "data-readonly": dataAttr(inputProps.readOnly),
+      "aria-required": dataAttr(isRequired),
+      "aria-hidden": true,
+      className: clsx(slots.wrapper({class: styles?.wrapper})),
+    };
+  };
+
+  const getInputProps: PropGetter = () => {
+    return {
+      ref: inputRef,
+      "data-readonly": dataAttr(inputProps.readOnly),
+      ...mergeProps(inputProps, focusProps),
+    };
+  };
+
+  const getLabelProps: PropGetter = useCallback(
+    () => ({
+      "data-disabled": dataAttr(isDisabled),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-invalid": dataAttr(isInvalid),
+      className: slots.label({class: styles?.label}),
+    }),
+    [slots, isDisabled, inputProps.checked, isInvalid],
+  );
 
   return {
-    state,
-    size,
-    color,
-    labelColor,
-    inputRef,
-    isDisabled,
-    isRequired,
-    isInvalid,
-    isHovered,
-    isSquared,
-    isFocusVisible,
-    disableAnimation,
-    hoverProps,
-    focusProps,
-    inputProps,
-    ...otherProps,
+    Component,
+    children,
+    slots,
+    styles,
+    description,
+    getBaseProps,
+    getWrapperProps,
+    getInputProps,
+    getLabelProps,
   };
 }
 

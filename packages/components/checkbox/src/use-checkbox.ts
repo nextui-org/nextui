@@ -25,14 +25,14 @@ interface Props extends HTMLNextUIProps<"label"> {
    */
   ref?: Ref<HTMLElement>;
   /**
+   * The label of the checkbox.
+   */
+  children?: ReactNode;
+  /**
    * Whether the checkbox is disabled.
    * @default false
    */
   isDisabled?: boolean;
-  /**
-   * The label of the checkbox.
-   */
-  children?: ReactNode;
   /**
    * The icon to be displayed when the checkbox is checked.
    */
@@ -117,6 +117,7 @@ export function useCheckbox(props: UseCheckboxProps) {
       isRequired,
       onChange,
       "aria-label": arialabel,
+      "aria-labelledby": otherProps["aria-labelledby"] || arialabel,
     };
   }, [isIndeterminate, isDisabled]);
 
@@ -154,9 +155,8 @@ export function useCheckbox(props: UseCheckboxProps) {
         isDisabled,
         isFocusVisible,
         disableAnimation,
-        className,
       }),
-    [color, size, radius, lineThrough, isDisabled, isFocusVisible, disableAnimation, className],
+    [color, size, radius, lineThrough, isDisabled, isFocusVisible, disableAnimation],
   );
 
   const baseStyles = clsx(styles?.base, className);

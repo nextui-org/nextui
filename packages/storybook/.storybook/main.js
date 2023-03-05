@@ -12,6 +12,7 @@ module.exports = {
     "../../components/chip/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/badge/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/checkbox/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../components/radio/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [

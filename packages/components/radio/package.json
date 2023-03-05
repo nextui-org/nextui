@@ -37,8 +37,8 @@
     "react": ">=18"
   },
   "dependencies": {
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@react-aria/focus": "^3.11.0",

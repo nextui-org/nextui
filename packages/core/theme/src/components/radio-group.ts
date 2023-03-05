@@ -1,19 +1,19 @@
 import {tv} from "tailwind-variants";
 
 /**
- * CheckboxGroup wrapper **Tailwind Variants** component
+ * RadioGroup wrapper **Tailwind Variants** component
  *
- * const {base, label, wrapper} = checkboxGroup({...})
+ * const {base, label, wrapper} = radioGroup({...})
  *
  * @example
  * <div className={base())}>
  *  <label className={label()}>Label</label>
  *  <div className={wrapper()} data-orientation="vertical/horizontal">
- *     // checkboxes
+ *     // radios
  *  </div>
  * </div>
  */
-const checkboxGroup = tv({
+const radioGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
     label: "relative text-neutral-500",
@@ -21,6 +21,6 @@ const checkboxGroup = tv({
   },
 });
 
-export type CheckboxGroupSlots = keyof ReturnType<typeof checkboxGroup>;
+export type RadioGroupSlots = keyof ReturnType<typeof radioGroup>;
 
-export {checkboxGroup};
+export {radioGroup};

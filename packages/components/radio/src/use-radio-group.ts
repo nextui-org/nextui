@@ -1,67 +1,88 @@
 import type {AriaRadioGroupProps} from "@react-types/radio";
 import type {Orientation} from "@react-types/shared";
-import type {NormalSizes, SimpleColors} from "@nextui-org/shared-utils";
+import type {ReactRef} from "@nextui-org/shared-utils";
+import type {RadioGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {useMemo, HTMLAttributes} from "react";
+import {radioGroup} from "@nextui-org/theme";
+import {useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {clsx} from "@nextui-org/shared-utils";
+import {mergeProps} from "@react-aria/utils";
 
-interface Props extends HTMLNextUIProps<"div"> {
+import {RadioProps} from "./index";
+
+interface Props extends HTMLNextUIProps<"div", AriaRadioGroupProps> {
   /**
-   * The color of the radios.
-   * @default "default"
+   * Ref to the DOM node.
    */
-  color?: SimpleColors;
-  /**
-   * The color of the radios's label.
-   * @default "default"
-   */
-  labelColor?: SimpleColors;
-  /**
-   * The size of the radios.
-   * @default "md"
-   */
-  size?: NormalSizes;
+  ref?: ReactRef<HTMLDivElement | null>;
   /**
    * The axis the radio group items should align with.
    * @default "vertical"
    */
   orientation?: Orientation;
+  /**
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <RadioGroup styles={{
+   *    base:"base-classes",
+   *    label: "label-classes",
+   *    wrapper: "wrapper-classes", // radios wrapper
+   * }} >
+   *  // radios
+   * </RadioGroup>
+   * ```
+   */
+  styles?: SlotsToClasses<RadioGroupSlots>;
 }
 
-export type UseRadioGroupProps = AriaRadioGroupProps & Props;
-
-interface IRadioGroupAria {
-  /** Props for the radio group wrapper element. */
-  radioGroupProps: Omit<HTMLAttributes<HTMLElement>, "css">;
-  /** Props for the radio group's visible label (if any). */
-  labelProps: Omit<HTMLAttributes<HTMLElement>, "css">;
-}
+export type UseRadioGroupProps = Props &
+  Pick<RadioProps, "color" | "size" | "radius" | "isDisabled" | "disableAnimation">;
 
 export type ContextType = {
   groupState: RadioGroupState;
   isRequired?: UseRadioGroupProps["isRequired"];
-  color?: UseRadioGroupProps["color"];
-  labelColor?: UseRadioGroupProps["labelColor"];
-  size?: UseRadioGroupProps["size"];
   validationState?: UseRadioGroupProps["validationState"];
+  color?: RadioProps["color"];
+  size?: RadioProps["size"];
+  radius?: RadioProps["radius"];
+  isDisabled?: RadioProps["isDisabled"];
+  disableAnimation?: RadioProps["disableAnimation"];
 };
 
 export function useRadioGroup(props: UseRadioGroupProps) {
   const {
+    as,
+    ref,
+    styles,
+    children,
+    label,
     size = "md",
-    color = "default",
-    labelColor = "default",
+    color = "primary",
+    radius = "full",
+    isDisabled = false,
+    disableAnimation = false,
     orientation = "vertical",
     isRequired,
     validationState,
+    className,
     ...otherProps
   } = props;
+
+  const Component = as || "div";
+
+  const domRef = useDOMRef(ref);
 
   const otherPropsWithOrientation = useMemo<AriaRadioGroupProps>(() => {
     return {
       ...otherProps,
+      "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
       isRequired,
       orientation,
     };
@@ -69,21 +90,61 @@ export function useRadioGroup(props: UseRadioGroupProps) {
 
   const groupState = useRadioGroupState(otherPropsWithOrientation);
 
-  const {labelProps, radioGroupProps: groupProps}: IRadioGroupAria = useReactAriaRadioGroup(
+  const {labelProps, radioGroupProps: groupProps} = useReactAriaRadioGroup(
     otherPropsWithOrientation,
     groupState,
   );
 
-  const context: ContextType = {
-    size,
-    color,
-    labelColor,
-    groupState,
-    isRequired,
-    validationState,
+  const context: ContextType = useMemo(
+    () => ({
+      size,
+      color,
+      radius,
+      groupState,
+      isRequired,
+      validationState,
+      isDisabled,
+      disableAnimation,
+    }),
+    [size, color, radius, groupState, isRequired, validationState, isDisabled, disableAnimation],
+  );
+
+  const slots = useMemo(() => radioGroup(), []);
+
+  const baseStyles = clsx(styles?.base, className);
+
+  const getGroupProps: PropGetter = () => {
+    return {
+      ref: domRef,
+      className: slots.base({class: baseStyles}),
+      ...mergeProps(groupProps, otherProps),
+    };
   };
 
-  return {size, orientation, labelProps, groupProps, context, ...otherProps};
+  const getLabelProps: PropGetter = () => {
+    return {
+      className: slots.label({class: styles?.label}),
+      ...labelProps,
+    };
+  };
+
+  const getWrapperProps: PropGetter = () => {
+    return {
+      className: slots.wrapper({class: styles?.wrapper}),
+      role: "presentation",
+      "data-orientation": orientation,
+    };
+  };
+
+  return {
+    Component,
+    children,
+    label,
+    context,
+    getGroupProps,
+    getLabelProps,
+    getWrapperProps,
+  };
 }
 
 export type UseRadioGroupReturn = ReturnType<typeof useRadioGroup>;

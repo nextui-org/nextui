@@ -2,11 +2,7 @@ import type {As, RightJoinProps, PropsOf, ComponentWithAs} from "./types";
 
 import {forwardRef as baseForwardRef} from "react";
 
-export function forwardRef<
-  Props extends object,
-  Component extends As,
-  CompoundComponents extends object = {},
->(
+export function forwardRef<Props extends object, Component extends As>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
@@ -14,8 +10,7 @@ export function forwardRef<
     }
   >,
 ) {
-  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props> &
-    CompoundComponents;
+  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props>;
 }
 
 export const toIterator = (obj: any) => {

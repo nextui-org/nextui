@@ -84,7 +84,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const {labelProps, groupProps} = useReactAriaCheckboxGroup(
     {
-      "aria-label": typeof label === "string" ? label : "Checkbox Group",
+      "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
       ...otherProps,
     },
     groupState,
