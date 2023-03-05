@@ -1,6 +1,6 @@
 import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxProps} from "@react-types/checkbox";
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {ReactNode, Ref, useCallback} from "react";
 import {useMemo, useRef} from "react";
@@ -161,7 +161,7 @@ export function useCheckbox(props: UseCheckboxProps) {
 
   const baseStyles = clsx(styles?.base, className);
 
-  const getBaseProps = () => {
+  const getBaseProps: PropGetter = () => {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
@@ -172,7 +172,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     };
   };
 
-  const getWrapperProps = () => {
+  const getWrapperProps: PropGetter = () => {
     return {
       "data-hover": dataAttr(isHovered),
       "data-checked": dataAttr(inputProps.checked),
@@ -187,14 +187,14 @@ export function useCheckbox(props: UseCheckboxProps) {
     };
   };
 
-  const getInputProps = () => {
+  const getInputProps: PropGetter = () => {
     return {
       ref: inputRef,
       ...mergeProps(inputProps, focusProps),
     };
   };
 
-  const getLabelProps = useCallback(
+  const getLabelProps: PropGetter = useCallback(
     () => ({
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(inputProps.checked),
@@ -204,7 +204,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     [slots, isDisabled, inputProps.checked, otherProps.validationState],
   );
 
-  const getIconProps = useCallback(
+  const getIconProps: PropGetter = useCallback(
     () => ({
       "data-checked": dataAttr(inputProps.checked),
       isSelected: inputProps.checked,

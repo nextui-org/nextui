@@ -1,10 +1,9 @@
 import type {ButtonProps} from "./index";
 import type {ReactRef} from "@nextui-org/shared-utils";
 import type {ButtonGroupVariantProps} from "@nextui-org/theme";
-import type {AriaButtonProps} from "@react-types/button";
 
 import {buttonGroup} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useCallback} from "react";
 interface Props extends HTMLNextUIProps<"div">, ButtonGroupVariantProps {
@@ -31,7 +30,7 @@ export type ContextType = {
 };
 
 export type UseButtonGroupProps = Props &
-  Omit<ButtonProps, "ref" | "fullWidth" | keyof AriaButtonProps>;
+  Pick<ButtonProps, "size" | "color" | "radius" | "variant" | "disableAnimation" | "disableRipple">;
 
 export function useButtonGroup(originalProps: UseButtonGroupProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, buttonGroup.variantKeys);
@@ -87,7 +86,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
     ],
   );
 
-  const getButtonGroupProps = useCallback(
+  const getButtonGroupProps: PropGetter = useCallback(
     () => ({
       role: "group",
       ...otherProps,

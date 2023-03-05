@@ -2,7 +2,7 @@ import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@nextui-org/th
 import type {ReactNode} from "react";
 
 import {badge} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
@@ -59,7 +59,7 @@ export function useBadge(originalProps: UseBadgeProps) {
     [...Object.values(variantProps), isOneChar, isDot],
   );
 
-  const getBadgeProps = () => {
+  const getBadgeProps: PropGetter = () => {
     return {
       ref: domRef,
       className: slots.badge({class: baseStyles}),

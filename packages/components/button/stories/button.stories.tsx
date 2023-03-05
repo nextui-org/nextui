@@ -7,7 +7,7 @@ import {Spinner} from "@nextui-org/spinner";
 import {Button, ButtonProps} from "../src";
 
 export default {
-  title: "General/Button",
+  title: "Actions/Button",
   component: Button,
   argTypes: {
     variant: {

@@ -1,38 +1,18 @@
 import type {ReactNode} from "react";
 
 import {avatarGroup} from "@nextui-org/theme";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx, getValidChildren, compact} from "@nextui-org/shared-utils";
 import {cloneElement, useMemo} from "react";
 
 import {AvatarProps} from "./index";
 
-export interface UseAvatarGroupProps extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
-  /**
-   * The size of the avatars
-   */
-  size?: AvatarProps["size"];
-  /**
-   * The color of the avatars
-   */
-  color?: AvatarProps["color"];
-  /**
-   * The radius of the avatars
-   */
-  radius?: AvatarProps["radius"];
-  /**
-   * Whether the avatars are bordered
-   */
-  isBordered?: AvatarProps["isBordered"];
-  /**
-   * Whether the avatars are disabled
-   */
-  isDisabled?: AvatarProps["isDisabled"];
   /**
    * Whether the avatars should be displayed in a grid
    */
@@ -51,6 +31,9 @@ export interface UseAvatarGroupProps extends HTMLNextUIProps<"div"> {
    */
   renderCount?: (count: number) => ReactNode;
 }
+
+export type UseAvatarGroupProps = Props &
+  Pick<AvatarProps, "size" | "color" | "radius" | "isDisabled" | "isBordered">;
 
 export type ContextType = {
   size?: AvatarProps["size"];
@@ -74,6 +57,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     isBordered,
     isDisabled,
     isGrid,
+    renderCount,
     className,
     ...otherProps
   } = props;
@@ -82,7 +66,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
 
   const Component = as || "div";
 
-  const context = useMemo(
+  const context = useMemo<ContextType>(
     () => ({
       size,
       color,
@@ -114,14 +98,22 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     return cloneElement(child, compact(childProps));
   });
 
+  const getAvatarGroupProps: PropGetter = () => {
+    return {
+      ref: domRef,
+      className: styles,
+      role: "group",
+      ...otherProps,
+    };
+  };
+
   return {
     Component,
     context,
-    domRef,
-    styles,
     remainingCount,
     clones,
-    ...otherProps,
+    renderCount,
+    getAvatarGroupProps,
   };
 }
 

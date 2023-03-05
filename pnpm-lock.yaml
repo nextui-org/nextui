@@ -655,7 +655,6 @@ importers:
   packages/components/snippet:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
@@ -666,7 +665,6 @@ importers:
       react: ^18.2.0
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
@@ -1020,13 +1018,11 @@ importers:
     specifiers:
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
-      '@nextui-org/use-real-shape': workspace:*
       clean-package: 2.2.0
       react: ^18.2.0
     dependencies:
       '@nextui-org/shared-utils': link:../shared-utils
       '@nextui-org/system': link:../../core/system
-      '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
     devDependencies:
       clean-package: 2.2.0
       react: 18.2.0

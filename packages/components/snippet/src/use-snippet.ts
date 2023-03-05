@@ -1,7 +1,7 @@
 import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {snippet} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
@@ -106,7 +106,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     hideSymbol = false,
     onCopy: onCopyProp,
     tooltipProps = {
-      offset: 12,
+      offset: 15,
       content: "Copy to clipboard",
       size: originalProps?.size as TooltipProps["size"],
       variant: originalProps?.variant as TooltipProps["variant"],
@@ -147,7 +147,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
 
   const baseStyles = clsx(styles?.base, className);
 
-  const getSnippetProps = useCallback(
+  const getSnippetProps = useCallback<PropGetter>(
     () => ({
       className: slots.base({
         class: baseStyles,
@@ -168,6 +168,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     } else if (Array.isArray(children)) {
       value = children.join("\n");
     }
+
     copy(value);
     onCopyProp?.(value);
   }, [copy, disableCopy, onCopyProp, children]);

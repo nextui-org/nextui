@@ -1,6 +1,5 @@
 import * as React from "react";
 import {render, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 import {Snippet} from "../src";
 
@@ -70,10 +69,10 @@ describe("Snippet - Clipboard", () => {
 
     let code = "npm install @nextui-org/react";
 
-    act(() => {
-      const wrapper = render(<Snippet data-testid="code-test">{code}</Snippet>);
+    const wrapper = render(<Snippet data-testid="code-test">{code}</Snippet>);
 
-      userEvent.click(wrapper.getByRole("button"));
+    act(() => {
+      wrapper.getByRole("button").click();
       expect(navigator.clipboard.writeText).toHaveBeenCalledWith(code);
     });
   });

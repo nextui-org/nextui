@@ -3,7 +3,7 @@ import type {LinkVariantProps} from "@nextui-org/theme";
 
 import {link} from "@nextui-org/theme";
 import {useLink as useAriaLink} from "@react-aria/link";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
@@ -35,7 +35,16 @@ export type UseLinkProps = Props & AriaLinkProps;
 export function useLink(originalProps: UseLinkProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, link.variantKeys);
 
-  const {ref, as, isExternal = false, showAnchorIcon = false, className, ...otherProps} = props;
+  const {
+    ref,
+    as,
+    children,
+    anchorIcon,
+    isExternal = false,
+    showAnchorIcon = false,
+    className,
+    ...otherProps
+  } = props;
 
   const Component = as || "a";
 
@@ -61,7 +70,16 @@ export function useLink(originalProps: UseLinkProps) {
     [...Object.values(variantProps), className],
   );
 
-  return {Component, as, styles, domRef, linkProps, showAnchorIcon, ...otherProps};
+  const getLinkProps: PropGetter = () => {
+    return {
+      ref: domRef,
+      className: styles,
+      ...linkProps,
+      ...otherProps,
+    };
+  };
+
+  return {Component, children, anchorIcon, linkProps, showAnchorIcon, getLinkProps};
 }
 
 export type UseLinkReturn = ReturnType<typeof useLink>;

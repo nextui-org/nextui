@@ -86,6 +86,7 @@ const CSSTransition: FC<CSSTransitionProps> = React.memo(
 
     return React.cloneElement(children, {
       ...otherProps,
+      // @ts-ignore
       "data-transition": statusClassName,
       className: clsx(children.props.className, className, !childrenRef?.current && classes),
     });

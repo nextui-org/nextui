@@ -1,7 +1,7 @@
 import type {ChipVariantProps, ChipSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {ReactNode} from "react";
 
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
@@ -74,6 +74,7 @@ export function useChip(originalProps: UseChipProps) {
   const baseStyles = clsx(styles?.base, className);
 
   const isCloseable = !!onClose;
+  const isDotVariant = originalProps.variant === "dot";
 
   const {focusProps: closeFocusProps, isFocusVisible: isCloseButtonFocusVisible} = useFocusRing();
 
@@ -97,7 +98,7 @@ export function useChip(originalProps: UseChipProps) {
     onPress: onClose,
   });
 
-  const getChipProps = () => {
+  const getChipProps: PropGetter = () => {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
@@ -105,7 +106,7 @@ export function useChip(originalProps: UseChipProps) {
     };
   };
 
-  const getCloseButtonProps = () => {
+  const getCloseButtonProps: PropGetter = () => {
     return {
       role: "button",
       tabIndex: 0,
@@ -136,10 +137,10 @@ export function useChip(originalProps: UseChipProps) {
     children,
     slots,
     styles,
-    variant: originalProps.variant,
+    isDot: isDotVariant,
+    isCloseable,
     leftContent: getAvatarClone(avatar) || getContentClone(leftContent),
     rightContent: getContentClone(rightContent),
-    isCloseable,
     getCloseButtonProps,
     getChipProps,
   };

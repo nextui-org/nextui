@@ -1,6 +1,7 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 import {Avatar} from "@nextui-org/avatar";
+import {act} from "@testing-library/react-hooks";
 
 import {Chip} from "../src";
 
@@ -52,7 +53,9 @@ describe("Chip", () => {
     const onClose = jest.fn();
     const {getByRole} = render(<Chip onClose={onClose} />);
 
-    getByRole("button").click();
+    act(() => {
+      getByRole("button").click();
+    });
 
     expect(onClose).toHaveBeenCalled();
   });

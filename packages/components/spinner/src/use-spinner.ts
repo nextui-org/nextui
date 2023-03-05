@@ -1,6 +1,6 @@
 import type {SpinnerVariantProps, SpinnerSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {spinner} from "@nextui-org/theme";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
@@ -53,7 +53,7 @@ export function useSpinner(originalProps: UseSpinnerProps) {
     return !otherProps["aria-label"] ? "Loading" : "";
   }, [children, label, otherProps["aria-label"]]);
 
-  const getSpinnerProps = useCallback(
+  const getSpinnerProps = useCallback<PropGetter>(
     () => ({
       "aria-label": ariaLabel,
       className: slots.base({

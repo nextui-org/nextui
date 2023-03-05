@@ -26,10 +26,8 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
 
   const handleCopyResult = (value: boolean) => {
     onClearTimeout();
-    if (timeout > 0) {
-      setCopyTimeout(setTimeout(() => setCopied(false), timeout));
-      setCopied(value);
-    }
+    setCopyTimeout(setTimeout(() => setCopied(false), timeout));
+    setCopied(value);
   };
 
   const copy = (valueToCopy: any) => {

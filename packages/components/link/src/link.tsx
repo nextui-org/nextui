@@ -1,4 +1,3 @@
-import {mergeProps} from "@react-aria/utils";
 import {forwardRef} from "@nextui-org/system";
 import {__DEV__} from "@nextui-org/shared-utils";
 
@@ -10,17 +9,14 @@ export interface LinkProps extends Omit<UseLinkProps, "ref"> {}
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {
     Component,
-    domRef,
-    styles,
     children,
     showAnchorIcon,
     anchorIcon = <LinkIcon />,
-    linkProps,
-    ...otherProps
+    getLinkProps,
   } = useLink({...props, ref});
 
   return (
-    <Component ref={domRef} className={styles} {...mergeProps(linkProps, otherProps)}>
+    <Component {...getLinkProps()}>
       <>
         {children}
         {showAnchorIcon && anchorIcon}

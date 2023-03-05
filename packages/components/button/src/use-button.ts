@@ -2,7 +2,7 @@ import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@react-types/button";
 import type {PressEvent} from "@react-types/shared";
 import type {ReactRef} from "@nextui-org/shared-utils";
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
 
 import {MouseEventHandler, useCallback} from "react";
@@ -145,7 +145,7 @@ export function useButton(props: UseButtonProps) {
     domRef,
   );
 
-  const getButtonProps = useCallback(
+  const getButtonProps: PropGetter = useCallback(
     () => mergeProps(buttonAriaProps, focusProps, otherProps),
     [buttonAriaProps, focusProps, otherProps],
   );

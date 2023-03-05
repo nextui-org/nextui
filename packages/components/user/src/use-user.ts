@@ -3,7 +3,7 @@ import type {AvatarProps} from "@nextui-org/avatar";
 
 import {ReactNode, useMemo, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {user} from "@nextui-org/theme";
 import {ReactRef, clsx} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
@@ -53,7 +53,6 @@ export function useUser(props: UseUserProps) {
   const {
     as,
     ref,
-    css,
     name,
     description,
     className,
@@ -96,8 +95,9 @@ export function useUser(props: UseUserProps) {
     ];
   }, [as]);
 
-  const getUserProps = useCallback(
+  const getUserProps = useCallback<PropGetter>(
     () => ({
+      ref: domRef,
       tabIndex: canBeFocused ? 0 : -1,
       className: slots.base({
         class: clsx(baseStyles, buttonStyles),
@@ -109,9 +109,7 @@ export function useUser(props: UseUserProps) {
 
   return {
     Component,
-    domRef,
     className,
-    css,
     slots,
     name,
     description,

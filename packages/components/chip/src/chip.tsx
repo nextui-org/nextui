@@ -5,7 +5,8 @@ import {useMemo} from "react";
 
 import {UseChipProps, useChip} from "./use-chip";
 
-export interface ChipProps extends Omit<UseChipProps, "ref"> {}
+export interface ChipProps
+  extends Omit<UseChipProps, "ref" | "isOneChar" | "isCloseButtonFocusVisible"> {}
 
 const Chip = forwardRef<ChipProps, "div">((props, ref) => {
   const {
@@ -13,7 +14,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
     children,
     slots,
     styles,
-    variant,
+    isDot,
     isCloseable,
     leftContent,
     rightContent,
@@ -25,12 +26,12 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
   });
 
   const left = useMemo(() => {
-    if (variant === "dot" && !leftContent) {
+    if (isDot && !leftContent) {
       return <span className={slots.dot({class: styles?.dot})} />;
     }
 
     return leftContent;
-  }, [slots, leftContent, variant]);
+  }, [slots, leftContent, isDot]);
 
   const right = useMemo(() => {
     if (isCloseable) {

@@ -1,7 +1,7 @@
 import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {AriaCheckboxGroupProps, AriaCheckboxProps} from "@react-types/checkbox";
+import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactRef} from "@nextui-org/shared-utils";
 
 import {useMemo} from "react";
@@ -42,7 +42,11 @@ interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
   styles?: SlotsToClasses<CheckboxGroupSlots>;
 }
 
-export type UseCheckboxGroupProps = Props & Omit<CheckboxProps, "ref" | keyof AriaCheckboxProps>;
+export type UseCheckboxGroupProps = Props &
+  Pick<
+    CheckboxProps,
+    "color" | "size" | "radius" | "lineThrough" | "isDisabled" | "disableAnimation"
+  >;
 
 export type ContextType = {
   groupState: CheckboxGroupState;
@@ -86,21 +90,24 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     groupState,
   );
 
-  const context: ContextType = {
-    size,
-    color,
-    radius,
-    lineThrough,
-    isDisabled,
-    disableAnimation,
-    groupState,
-  };
+  const context = useMemo<ContextType>(
+    () => ({
+      size,
+      color,
+      radius,
+      lineThrough,
+      isDisabled,
+      disableAnimation,
+      groupState,
+    }),
+    [size, color, radius, lineThrough, isDisabled, disableAnimation, groupState],
+  );
 
   const slots = useMemo(() => checkboxGroup(), []);
 
   const baseStyles = clsx(styles?.base, className);
 
-  const getGroupProps = () => {
+  const getGroupProps: PropGetter = () => {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
@@ -108,14 +115,14 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     };
   };
 
-  const getLabelProps = () => {
+  const getLabelProps: PropGetter = () => {
     return {
       className: slots.label({class: styles?.label}),
       ...labelProps,
     };
   };
 
-  const getWrapperProps = () => {
+  const getWrapperProps: PropGetter = () => {
     return {
       className: slots.wrapper({class: styles?.wrapper}),
       role: "presentation",

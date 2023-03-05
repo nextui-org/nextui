@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
-    "@nextui-org/use-real-shape": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*"
   },
   "peerDependencies": {

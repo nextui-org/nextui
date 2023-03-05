@@ -1,7 +1,7 @@
 import type {CodeVariantProps} from "@nextui-org/theme";
 
 import {code} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
@@ -16,7 +16,7 @@ export interface UseCodeProps extends HTMLNextUIProps<"code">, CodeVariantProps 
 export function useCode(originalProps: UseCodeProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, code.variantKeys);
 
-  const {ref, as, className, ...otherProps} = props;
+  const {ref, as, children, className, ...otherProps} = props;
 
   const Component = as || "code";
 
@@ -31,7 +31,15 @@ export function useCode(originalProps: UseCodeProps) {
     [...Object.values(variantProps), className],
   );
 
-  return {Component, as, styles, domRef, ...otherProps};
+  const getCodeProps: PropGetter = () => {
+    return {
+      ref: domRef,
+      className: styles,
+      ...otherProps,
+    };
+  };
+
+  return {Component, children, getCodeProps};
 }
 
 export type UseCodeReturn = ReturnType<typeof useCode>;

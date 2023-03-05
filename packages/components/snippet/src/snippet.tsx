@@ -26,9 +26,9 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     hideCopyButton,
     tooltipProps,
     isMultiLine,
-    getSnippetProps,
     focusProps,
     onCopy,
+    getSnippetProps,
   } = useSnippet({ref, ...props});
 
   const TooltipContent = useCallback(

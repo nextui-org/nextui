@@ -7,13 +7,13 @@ import {UseUserProps, useUser} from "./use-user";
 export interface UserProps extends Omit<UseUserProps, "ref"> {}
 
 const User = forwardRef<UserProps, "div">((props, ref) => {
-  const {Component, domRef, name, slots, description, avatarProps, getUserProps} = useUser({
+  const {Component, name, slots, description, avatarProps, getUserProps} = useUser({
     ref,
     ...props,
   });
 
   return (
-    <Component ref={domRef} {...getUserProps()}>
+    <Component {...getUserProps()}>
       <Avatar {...avatarProps} />
       <div className={slots.wrapper()}>
         <span className={slots.name()}>{name}</span>

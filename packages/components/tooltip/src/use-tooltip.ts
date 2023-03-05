@@ -8,7 +8,7 @@ import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tooltip} from "@nextui-org/theme";
 import {ReactRef, mergeRefs} from "@nextui-org/shared-utils";
 import {useMemo, useRef, useState, useCallback} from "react";
@@ -178,7 +178,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     [...Object.values(variantProps), className],
   );
 
-  const getTriggerProps = useCallback(
+  const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({
       ...mergeProps(triggerProps, props),
       ref: mergeRefs(triggerRef, _ref),
@@ -188,7 +188,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     [isDismissable, triggerRef, triggerProps],
   );
 
-  const getTooltipProps = useCallback(
+  const getTooltipProps = useCallback<PropGetter>(
     () => ({
       ref: domRef,
       className: styles,

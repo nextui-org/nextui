@@ -23,7 +23,7 @@ const snippet = tv({
   slots: {
     base: "inline-flex items-center justify-between space-x-3 rounded-md",
     pre: "bg-transparent text-inherit font-mono whitespace-pre-wrap",
-    copy: "z-10 apparance-none outline-none select-none",
+    copy: "z-10 apparance-none outline-none",
   },
   variants: {
     variant: {
