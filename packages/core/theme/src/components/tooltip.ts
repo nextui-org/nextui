@@ -27,9 +27,9 @@ const tooltip = tv({
   variants: {
     variant: {
       solid: "",
-      bordered: "border-1.5 !bg-transparent",
+      bordered: "border-2 !bg-transparent",
       light: "!bg-transparent",
-      faded: "border-1.5",
+      faded: "border-2",
       flat: "",
       shadow: "",
     },
@@ -253,7 +253,7 @@ const tooltip = tv({
     {
       size: "xs",
       variant: "bordered",
-      class: "border-1",
+      class: "border-1.5",
     },
   ],
 });
