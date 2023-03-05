@@ -42,7 +42,7 @@ interface Props extends HTMLNextUIProps<"div", AriaRadioGroupProps> {
   styles?: SlotsToClasses<RadioGroupSlots>;
 }
 
-export type UseRadioGroupProps = Props &
+export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
   Pick<RadioProps, "color" | "size" | "radius" | "isDisabled" | "disableAnimation">;
 
 export type ContextType = {

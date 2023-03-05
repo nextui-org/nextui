@@ -45,7 +45,7 @@ interface Props extends HTMLNextUIProps<"label"> {
   styles?: SlotsToClasses<RadioSlots>;
 }
 
-export type UseRadioProps = Props &
+export type UseRadioProps = Omit<Props, "defaultChecked"> &
   Omit<AriaRadioProps, keyof RadioVariantProps> &
   Omit<RadioVariantProps, "isFocusVisible">;
 

@@ -1,6 +1,5 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {act, render} from "@testing-library/react";
 
 import {RadioGroup, Radio, RadioProps} from "../src";
 
@@ -15,7 +14,18 @@ describe("Radio", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("ref should be forwarded", () => {
+  it("ref should be forwarded - group", () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    render(
+      <RadioGroup ref={ref} label="Options">
+        <Radio value="1">Option 1</Radio>
+      </RadioGroup>,
+    );
+    expect(ref.current).not.toBeNull();
+  });
+
+  it("ref should be forwarded - option", () => {
     const ref = React.createRef<HTMLLabelElement>();
 
     render(
@@ -31,11 +41,13 @@ describe("Radio", () => {
   it("should work correctly with initial value", () => {
     let {container} = render(
       <RadioGroup label="Options" value="1">
-        <Radio value="1">Option 1</Radio>
+        <Radio data-testid="radio-test-1" value="1">
+          Option 1
+        </Radio>
       </RadioGroup>,
     );
 
-    expect(container.querySelector("input")?.checked).toBe(true);
+    expect(container.querySelector("[data-testid=radio-test-1] input")).toBeChecked();
 
     let wrapper = render(
       <RadioGroup defaultValue="2" label="Options">
@@ -46,14 +58,12 @@ describe("Radio", () => {
       </RadioGroup>,
     );
 
-    let radio2 = wrapper.getByTestId("radio-test-2") as HTMLInputElement;
-
-    expect(radio2?.checked).toBe(true);
+    expect(wrapper.container.querySelector("[data-testid=radio-test-2] input")).toBeChecked();
   });
 
   it("should change value after click", () => {
     const {container} = render(
-      <RadioGroup label="Options">
+      <RadioGroup defaultValue="1" label="Options">
         <Radio value="1">Option 1</Radio>
         <Radio className="radio-test-2" value="2">
           Option 1
@@ -61,14 +71,13 @@ describe("Radio", () => {
       </RadioGroup>,
     );
 
-    let radio2 = container
-      .querySelector(".radio-test-2")
-      ?.querySelector("input") as HTMLInputElement;
+    let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    // get by classname
-    userEvent.click(radio2);
+    act(() => {
+      radio2.click();
+    });
 
-    expect(radio2?.checked).toBe(true);
+    expect(radio2).toBeChecked();
   });
 
   it("should ignore events when disabled", () => {
@@ -81,19 +90,20 @@ describe("Radio", () => {
       </RadioGroup>,
     );
 
-    let radio1 = container
-      .querySelector(".radio-test-1")
-      ?.querySelector("input") as HTMLInputElement;
+    let radio1 = container.querySelector(".radio-test-1 input") as HTMLInputElement;
 
-    userEvent.click(radio1);
+    act(() => {
+      radio1.click();
+    });
 
-    expect(radio1?.checked).toBe(false);
+    expect(radio1).not.toBeChecked();
   });
 
   it('should work correctly with "onChange" prop', () => {
     const onChange = jest.fn();
+
     const {container} = render(
-      <RadioGroup label="Options" onChange={onChange}>
+      <RadioGroup defaultValue="1" label="Options" onChange={onChange}>
         <Radio value="1">Option 1</Radio>
         <Radio className="radio-test-2" value="2">
           Option 2
@@ -101,20 +111,22 @@ describe("Radio", () => {
       </RadioGroup>,
     );
 
-    let radio2 = container
-      .querySelector(".radio-test-2")
-      ?.querySelector("input") as HTMLInputElement;
+    let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    userEvent.click(radio2);
+    act(() => {
+      radio2.click();
+    });
 
     expect(onChange).toBeCalledWith("2");
-    expect(radio2?.checked).toBe(true);
+
+    expect(radio2).toBeChecked();
   });
 
   it('should work correctly with "onFocus" prop', () => {
     const onFocus = jest.fn();
+
     const {container} = render(
-      <RadioGroup label="Options" onFocus={onFocus}>
+      <RadioGroup defaultValue="1" label="Options" onFocus={onFocus}>
         <Radio value="1">Option 1</Radio>
         <Radio className="radio-test-2" value="2">
           Option 2
@@ -122,11 +134,11 @@ describe("Radio", () => {
       </RadioGroup>,
     );
 
-    let radio2 = container
-      .querySelector(".radio-test-2")
-      ?.querySelector("input") as HTMLInputElement;
+    let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    userEvent.click(radio2);
+    act(() => {
+      radio2.focus();
+    });
 
     expect(onFocus).toBeCalled();
   });
@@ -173,14 +185,14 @@ describe("Radio", () => {
 
     const {container} = render(<Component onChange={onChange} />);
 
-    let radio2 = container
-      .querySelector(".radio-test-2")
-      ?.querySelector("input") as HTMLInputElement;
+    let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    userEvent.click(radio2);
+    act(() => {
+      radio2.click();
+    });
 
     expect(onChange).toBeCalled();
 
-    expect(radio2?.checked).toBe(true);
+    expect(radio2).toBeChecked();
   });
 });

@@ -109,6 +109,12 @@ IsDisabled.args = {
   isDisabled: true,
 };
 
+export const DefaultChecked = Template.bind({});
+DefaultChecked.args = {
+  ...defaultProps,
+  defaultValue: "C",
+};
+
 export const IsRequired = Template.bind({});
 IsRequired.args = {
   ...defaultProps,
