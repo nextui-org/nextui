@@ -1,4 +1,4 @@
-const DEFAULT_TRANSITION_DURATION = "200ms";
+const DEFAULT_TRANSITION_DURATION = "250ms";
 
 export const utilities = {
   /**

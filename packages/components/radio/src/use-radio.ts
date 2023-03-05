@@ -36,6 +36,7 @@ interface Props extends HTMLNextUIProps<"label"> {
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    point: "control-classes", // inner circle
+   *    labelWrapper: "label-wrapper-classes", // this wraps the label and description
    *    label: "label-classes",
    *    description: "description-classes",
    * }} />
@@ -55,6 +56,8 @@ export function useRadio(props: UseRadioProps) {
     as,
     ref,
     styles,
+    id,
+    value,
     children,
     description,
     size = groupContext?.size ?? "md",
@@ -71,7 +74,7 @@ export function useRadio(props: UseRadioProps) {
     if ("checked" in otherProps) {
       warn('Remove props "checked" if in the Radio.Group.', "Radio");
     }
-    if (otherProps.value === undefined) {
+    if (value === undefined) {
       warn('Props "value" must be defined if in the Radio.Group.', "Radio");
     }
   }
@@ -89,7 +92,7 @@ export function useRadio(props: UseRadioProps) {
   );
 
   const ariaRadioProps = useMemo(() => {
-    const arialabel =
+    const ariaLabel =
       otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
     const ariaDescribedBy =
       otherProps["aria-describedby"] || typeof description === "string"
@@ -99,15 +102,16 @@ export function useRadio(props: UseRadioProps) {
     return {
       isDisabled,
       isRequired,
-      "aria-label": arialabel,
-      "aria-labelledby": otherProps["aria-labelledby"] || arialabel,
+      "aria-label": ariaLabel,
       "aria-describedby": otherProps["aria-describedby"] || ariaDescribedBy,
     };
   }, [isDisabled, isRequired]);
 
   const {inputProps} = useReactAriaRadio(
     {
-      ...otherProps,
+      id,
+      value,
+      children,
       ...groupContext,
       ...ariaRadioProps,
     },
@@ -127,11 +131,12 @@ export function useRadio(props: UseRadioProps) {
         color,
         size,
         radius,
+        isInvalid,
         isDisabled,
         isFocusVisible,
         disableAnimation,
       }),
-    [color, size, radius, isDisabled, isFocusVisible, disableAnimation],
+    [color, size, radius, isDisabled, isInvalid, isFocusVisible, disableAnimation],
   );
 
   const baseStyles = clsx(styles?.base, className);
@@ -151,6 +156,7 @@ export function useRadio(props: UseRadioProps) {
     return {
       "data-active": dataAttr(inputProps.checked),
       "data-hover": dataAttr(isHovered),
+      "data-hover-unchecked": dataAttr(isHovered && !inputProps.checked),
       "data-checked": dataAttr(inputProps.checked),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocused && isFocusVisible),
@@ -166,6 +172,9 @@ export function useRadio(props: UseRadioProps) {
   const getInputProps: PropGetter = () => {
     return {
       ref: inputRef,
+      required: isRequired,
+      "aria-required": dataAttr(isRequired),
+      "data-invalid": dataAttr(isInvalid),
       "data-readonly": dataAttr(inputProps.readOnly),
       ...mergeProps(inputProps, focusProps),
     };
@@ -181,6 +190,16 @@ export function useRadio(props: UseRadioProps) {
     [slots, isDisabled, inputProps.checked, isInvalid],
   );
 
+  const getControlProps: PropGetter = useCallback(
+    () => ({
+      "data-disabled": dataAttr(isDisabled),
+      "data-checked": dataAttr(inputProps.checked),
+      "data-invalid": dataAttr(isInvalid),
+      className: slots.control({class: styles?.control}),
+    }),
+    [slots, isDisabled, inputProps.checked, isInvalid],
+  );
+
   return {
     Component,
     children,
@@ -191,6 +210,7 @@ export function useRadio(props: UseRadioProps) {
     getWrapperProps,
     getInputProps,
     getLabelProps,
+    getControlProps,
   };
 }
 

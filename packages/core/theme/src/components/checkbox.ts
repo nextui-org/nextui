@@ -46,8 +46,8 @@ const checkbox = tv({
       "data-[checked=true]:after:scale-100",
       "data-[checked=true]:after:opacity-100",
       // hover
-      "hover:before:bg-neutral",
-      "data-[hover=true]:before:bg-neutral",
+      "hover:before:bg-neutral-100",
+      "data-[hover=true]:before:bg-neutral-100",
     ],
     icon: "z-10 w-4 h-3 opacity-0 data-[checked=true]:opacity-100",
     label: "relative ml-1 text-foreground select-none",
@@ -154,8 +154,7 @@ const checkbox = tv({
         wrapper: "transition-none",
       },
       false: {
-        wrapper:
-          "before:transition-background after:transition-transform-opacity before:!duration-250 after:!duration-250",
+        wrapper: ["before:transition-background", "after:transition-transform-opacity"],
         icon: "transition-opacity",
         label: "transition-opacity before:transition-width",
       },

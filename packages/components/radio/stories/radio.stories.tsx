@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {radio} from "@nextui-org/theme";
+import {radio, button} from "@nextui-org/theme";
 
 import {RadioGroup, Radio, RadioGroupProps} from "../src";
 
@@ -40,264 +40,121 @@ const defaultProps = {
   label: "Options",
 };
 
-const Template: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => (
-  <RadioGroup {...args}>
-    <Radio value="A">Option A</Radio>
-    <Radio value="B">Option B</Radio>
-    <Radio value="C">Option C</Radio>
-    <Radio value="D">Option D</Radio>
-  </RadioGroup>
-);
+const Template: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => {
+  const radioProps = args.description
+    ? {
+        a: {
+          description: "Description for Option A",
+        },
+        b: {
+          description: "Description for Option B",
+        },
+        c: {
+          description: "Description for Option C",
+        },
+        d: {
+          description: "Description for Option D",
+        },
+      }
+    : {
+        a: {},
+        b: {},
+        c: {},
+        d: {},
+      };
+
+  const items = (
+    <>
+      <Radio value="A" {...radioProps.a}>
+        Option A
+      </Radio>
+      <Radio value="B" {...radioProps.b}>
+        Option B
+      </Radio>
+      <Radio value="C" {...radioProps.c}>
+        Option C
+      </Radio>
+      <Radio value="D" {...radioProps.d}>
+        Option D
+      </Radio>
+    </>
+  );
+
+  return args.isRequired ? (
+    <form
+      className="flex flex-col items-start gap-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        alert("Submitted!");
+      }}
+    >
+      <RadioGroup {...args}>{items}</RadioGroup>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </form>
+  ) : (
+    <RadioGroup {...args}>{items}</RadioGroup>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
 };
 
-// import React from "react";
-// import {Meta} from "@storybook/react";
-// import {Button} from "@nextui-org/button";
-// import {Spacer} from "@nextui-org/spacer";
+export const IsDisabled = Template.bind({});
+IsDisabled.args = {
+  ...defaultProps,
+  isDisabled: true,
+};
 
-// import {Radio} from "../src";
+export const IsRequired = Template.bind({});
+IsRequired.args = {
+  ...defaultProps,
+  isRequired: true,
+};
 
-// export default {
-//   title: "Inputs/Radio",
-//   component: Radio,
-//   onChange: {action: "changed"},
-// } as Meta;
+export const WithDescription = Template.bind({});
+WithDescription.args = {
+  ...defaultProps,
+  description: "for",
+};
 
-// export const Default = () => (
-//   <Radio.Group label="Options">
-//     <Radio value="A">Option A</Radio>
-//     <Radio value="B">Option B</Radio>
-//     <Radio value="C">Option C</Radio>
-//     <Radio value="D">Option D</Radio>
-//   </Radio.Group>
-// );
+export const Invalid = Template.bind({});
+Invalid.args = {
+  ...defaultProps,
+  validationState: "invalid",
+  description: "for",
+};
 
-// const handleSubmit = (e: any) => {
-//   e.preventDefault();
-//   alert("Submitted!");
-// };
+export const Row = Template.bind({});
+Row.args = {
+  ...defaultProps,
+  orientation: "horizontal",
+  description: "for",
+};
 
-// export const Required = () => (
-//   <form onSubmit={handleSubmit}>
-//     <Radio.Group isRequired label="Options">
-//       <Radio value="A">Option A</Radio>
-//       <Radio value="B">Option B</Radio>
-//       <Radio value="C">Option C</Radio>
-//       <Radio value="D">Option D</Radio>
-//     </Radio.Group>
-//     <Spacer y={1} />
-//     <Button type="submit">Submit</Button>
-//   </form>
-// );
+export const Controlled = () => {
+  const [checked, setChecked] = React.useState<string>("london");
 
-// export const Disabled = () => (
-//   <Radio.Group isDisabled defaultValue="A" label="Options">
-//     <Radio description="Description for Option A" value="A">
-//       Option A
-//     </Radio>
-//     <Radio value="B">Option B</Radio>
-//     <Radio value="C">Option C</Radio>
-//     <Radio value="D">Option D</Radio>
-//   </Radio.Group>
-// );
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("checked:", checked);
+  }, [checked]);
 
-// export const Sizes = () => {
-//   return (
-//     <div style={{display: "flex", flexDirection: "row", gap: 200}}>
-//       <Radio.Group defaultValue="md" label="Sizes">
-//         <Radio size="xs" value="xs">
-//           mini
-//         </Radio>
-//         <Radio size="sm" value="sm">
-//           small
-//         </Radio>
-//         <Radio size="md" value="md">
-//           medium
-//         </Radio>
-//         <Radio size="lg" value="lg">
-//           large
-//         </Radio>
-//         <Radio size="xl" value="xl">
-//           xlarge
-//         </Radio>
-//       </Radio.Group>
-//       <Radio.Group defaultValue="md" label="Sizes">
-//         <Radio description="Description for Option mini" size="xs" value="xs">
-//           mini
-//         </Radio>
-//         <Radio description="Description for Option small" size="sm" value="sm">
-//           small
-//         </Radio>
-//         <Radio description="Description for Option medium" size="md" value="md">
-//           medium
-//         </Radio>
-//         <Radio description="Description for Option large" size="lg" value="lg">
-//           large
-//         </Radio>
-//         <Radio description="Description for Option xlarge" size="xl" value="xl">
-//           xlarge
-//         </Radio>
-//       </Radio.Group>
-//     </div>
-//   );
-// };
+  return (
+    <RadioGroup label="Select city" value={checked} onChange={setChecked}>
+      <Radio value="buenos-aires">Buenos Aires</Radio>
+      <Radio value="sydney">Sydney</Radio>
+      <Radio value="london">London</Radio>
+      <Radio value="tokyo">Tokyo</Radio>
+    </RadioGroup>
+  );
+};
 
-// export const Colors = () => {
-//   return (
-//     <Radio.Group defaultValue="primary" label="Colors">
-//       <Radio color="primary" value="primary">
-//         primary
-//       </Radio>
-//       <Radio color="secondary" value="secondary">
-//         secondary
-//       </Radio>
-//       <Radio color="success" value="success">
-//         success
-//       </Radio>
-//       <Radio color="warning" value="warning">
-//         warning
-//       </Radio>
-//       <Radio color="error" value="error">
-//         error
-//       </Radio>
-//     </Radio.Group>
-//   );
-// };
-
-// export const LabelColors = () => {
-//   return (
-//     <Radio.Group defaultValue="primary" label="Label colors">
-//       <Radio color="primary" labelColor="primary" value="primary">
-//         primary
-//       </Radio>
-//       <Radio color="secondary" labelColor="secondary" value="secondary">
-//         secondary
-//       </Radio>
-//       <Radio color="success" labelColor="success" value="success">
-//         success
-//       </Radio>
-//       <Radio color="warning" labelColor="warning" value="warning">
-//         warning
-//       </Radio>
-//       <Radio color="error" labelColor="error" value="error">
-//         error
-//       </Radio>
-//     </Radio.Group>
-//   );
-// };
-
-// export const Squared = () => (
-//   <Radio.Group defaultValue="A" label="Options">
-//     <Radio isSquared value="A">
-//       Option A
-//     </Radio>
-//     <Radio isSquared value="B">
-//       Option B
-//     </Radio>
-//     <Radio isSquared value="C">
-//       Option C
-//     </Radio>
-//     <Radio isSquared value="D">
-//       Option D
-//     </Radio>
-//   </Radio.Group>
-// );
-
-// export const Description = () => (
-//   <Radio.Group defaultValue="A" label="Options">
-//     <Radio description="Description for Option A" value="A">
-//       Option A
-//     </Radio>
-//     <Radio description="Description for Option B" value="B">
-//       Option B
-//     </Radio>
-//     <Radio description="Description for Option C" value="C">
-//       Option C
-//     </Radio>
-//     <Radio description="Description for Option D" value="D">
-//       Option D
-//     </Radio>
-//   </Radio.Group>
-// );
-
-// export const Invalid = () => (
-//   <Radio.Group defaultValue="A" label="Options" validationState="invalid">
-//     <Radio description="Description for Option A" value="A">
-//       Option A
-//     </Radio>
-//     <Radio description="Description for Option B" value="B">
-//       Option B
-//     </Radio>
-//     <Radio description="Description for Option C" value="C">
-//       Option C
-//     </Radio>
-//     <Radio description="Description for Option D" value="D">
-//       Option D
-//     </Radio>
-//   </Radio.Group>
-// );
-
-// export const Row = () => (
-//   <div style={{display: "flex", flexDirection: "column", gap: 100}}>
-//     <Radio.Group defaultValue="A" label="Options" orientation="horizontal">
-//       <Radio value="A">Option A</Radio>
-//       <Radio value="B">Option B</Radio>
-//       <Radio value="C">Option C</Radio>
-//       <Radio value="D">Option D</Radio>
-//     </Radio.Group>
-//     <Radio.Group defaultValue="A" label="Options" orientation="horizontal">
-//       <Radio description="Description for Option A" value="A">
-//         Option A
-//       </Radio>
-//       <Radio description="Description for Option B" value="B">
-//         Option B
-//       </Radio>
-//       <Radio description="Description for Option C" value="C">
-//         Option C
-//       </Radio>
-//       <Radio description="Description for Option D" value="D">
-//         Option D
-//       </Radio>
-//     </Radio.Group>
-//   </div>
-// );
-
-// export const Controlled = () => {
-//   const [checked, setChecked] = React.useState<string>("london");
-
-//   React.useEffect(() => {
-//     console.log("checked:", checked);
-//   }, [checked]);
-
-//   return (
-//     <Radio.Group label="Check cities" value={checked} onChange={(value) => setChecked(value)}>
-//       <Radio value="buenos-aires">Buenos Aires</Radio>
-//       <Radio value="sydney">Sydney</Radio>
-//       <Radio value="london">London</Radio>
-//       <Radio value="tokyo">Tokyo</Radio>
-//     </Radio.Group>
-//   );
-// };
-
-// export const DisableAnimation = () => {
-//   return (
-//     <Radio.Group defaultValue="A" label="Options">
-//       <Radio disableAnimation value="A">
-//         Option A
-//       </Radio>
-//       <Radio disableAnimation value="B">
-//         Option B
-//       </Radio>
-//       <Radio disableAnimation value="C">
-//         Option C
-//       </Radio>
-//       <Radio disableAnimation value="D">
-//         Option D
-//       </Radio>
-//     </Radio.Group>
-//   );
-// };
+export const DisableAnimation = Template.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  disableAnimation: true,
+};
