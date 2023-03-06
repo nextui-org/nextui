@@ -1,5 +1,5 @@
 {
-  "name": "next_ui_vite",
+  "name": "vite-react-typescript",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@nextui-org/react": "2.0.0-beta.1",
-    "react": "^18.0.0",
     "react": "^18.0.0"
   },
   "devDependencies": {

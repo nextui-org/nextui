@@ -38,8 +38,8 @@
     "create:pkg": "plop package",
     "create:hook": "plop hook",
     "version": "changeset version",
-    "version:dev": "changeset version --snapshot dev",
     "release": "changeset publish",
+    "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
     "postinstall": "husky install && pnpm --filter @nextui-org/theme build"
   },
