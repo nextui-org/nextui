@@ -421,10 +421,14 @@ importers:
 
   packages/components/checkbox:
     specifiers:
+      '@nextui-org/chip': workspace:*
       '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/link': workspace:*
+      '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
+      '@nextui-org/user': workspace:*
       '@react-aria/checkbox': ^3.8.0
       '@react-aria/focus': ^3.11.0
       '@react-aria/interactions': ^3.14.0
@@ -449,6 +453,10 @@ importers:
       '@react-stately/checkbox': 3.4.0_react@18.2.0
       '@react-stately/toggle': 3.5.0_react@18.2.0
     devDependencies:
+      '@nextui-org/chip': link:../chip
+      '@nextui-org/link': link:../link
+      '@nextui-org/shared-icons': link:../../utilities/shared-icons
+      '@nextui-org/user': link:../user
       '@react-types/checkbox': 3.4.2_react@18.2.0
       '@react-types/shared': 3.17.0_react@18.2.0
       clean-package: 2.2.0

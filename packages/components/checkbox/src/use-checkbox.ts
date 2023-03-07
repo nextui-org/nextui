@@ -19,6 +19,14 @@ import {FocusableRef} from "@react-types/shared";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
+export type CheckboxIconProps = {
+  "data-checked": string;
+  isSelected: boolean;
+  isIndeterminate: boolean;
+  disableAnimation: boolean;
+  className: string;
+};
+
 interface Props extends HTMLNextUIProps<"label"> {
   /**
    * Ref to the DOM node.
@@ -36,7 +44,7 @@ interface Props extends HTMLNextUIProps<"label"> {
   /**
    * The icon to be displayed when the checkbox is checked.
    */
-  icon?: ReactNode;
+  icon?: ReactNode | ((props: CheckboxIconProps) => ReactNode);
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -54,7 +62,7 @@ interface Props extends HTMLNextUIProps<"label"> {
   styles?: SlotsToClasses<CheckboxSlots>;
 }
 
-export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
+export type UseCheckboxProps = Omit<Props, "defaultChecked" | "onChange"> &
   Omit<AriaCheckboxProps, keyof CheckboxVariantProps> &
   Omit<CheckboxVariantProps, "isFocusVisible">;
 
@@ -65,11 +73,13 @@ export function useCheckbox(props: UseCheckboxProps) {
   const {
     as,
     ref,
-    isSelected,
     value = "",
     children,
     icon,
+    name,
     isRequired = false,
+    isReadOnly = false,
+    isSelected: isSelectedProp,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     radius = groupContext?.radius ?? "md",
@@ -77,6 +87,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     isDisabled = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
     isIndeterminate = false,
+    validationState,
     defaultSelected,
     styles,
     onChange,
@@ -85,7 +96,7 @@ export function useCheckbox(props: UseCheckboxProps) {
   } = props;
 
   if (groupContext && __DEV__) {
-    if (isSelected) {
+    if (isSelectedProp) {
       warn(
         "The Checkbox.Group is being used, `isSelected` will be ignored. Use the `value` of the Checkbox.Group instead.",
         "Checkbox",
@@ -105,33 +116,49 @@ export function useCheckbox(props: UseCheckboxProps) {
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
   const ariaCheckboxProps = useMemo(() => {
-    const arialabel =
-      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
-
     return {
+      name,
       value,
+      children,
       defaultSelected,
-      isSelected,
+      isSelected: isSelectedProp,
       isDisabled,
       isIndeterminate,
       isRequired,
+      isReadOnly,
+      validationState,
+      "aria-label": otherProps["aria-label"],
+      "aria-labelledby": otherProps["aria-labelledby"],
       onChange,
-      "aria-label": arialabel,
-      "aria-labelledby": otherProps["aria-labelledby"] || arialabel,
     };
-  }, [isIndeterminate, isDisabled]);
+  }, [
+    value,
+    name,
+    children,
+    isIndeterminate,
+    isDisabled,
+    isSelectedProp,
+    defaultSelected,
+    validationState,
+    otherProps["aria-label"],
+    otherProps["aria-labelledby"],
+    onChange,
+  ]);
 
   const {inputProps} = isInGroup
     ? // eslint-disable-next-line
       useReactAriaCheckboxGroupItem(
         {
           ...ariaCheckboxProps,
-          validationState: otherProps.validationState,
+          validationState,
         },
         groupContext.groupState,
         inputRef,
       )
     : useReactAriaCheckbox(ariaCheckboxProps, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
+
+  const isSelected = inputProps.checked;
+  const isInvalid = useMemo(() => validationState === "invalid", [validationState]);
 
   if (isRequired) {
     inputProps.required = true;
@@ -166,8 +193,8 @@ export function useCheckbox(props: UseCheckboxProps) {
       ref: domRef,
       className: slots.base({class: baseStyles}),
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(inputProps.checked),
-      "data-invalid": dataAttr(otherProps.validationState === "invalid"),
+      "data-checked": dataAttr(isSelected),
+      "data-invalid": dataAttr(isInvalid),
       ...mergeProps(hoverProps, otherProps),
     };
   };
@@ -175,12 +202,12 @@ export function useCheckbox(props: UseCheckboxProps) {
   const getWrapperProps: PropGetter = () => {
     return {
       "data-hover": dataAttr(isHovered),
-      "data-checked": dataAttr(inputProps.checked),
+      "data-checked": dataAttr(isSelected),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocused && isFocusVisible),
       "data-indeterminate": dataAttr(isIndeterminate),
       "data-disabled": dataAttr(isDisabled),
-      "data-invalid": dataAttr(otherProps.validationState === "invalid"),
+      "data-invalid": dataAttr(isInvalid),
       "data-readonly": dataAttr(inputProps.readOnly),
       "aria-hidden": true,
       className: clsx(slots.wrapper({class: styles?.wrapper})),
@@ -197,28 +224,32 @@ export function useCheckbox(props: UseCheckboxProps) {
   const getLabelProps: PropGetter = useCallback(
     () => ({
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(inputProps.checked),
-      "data-invalid": dataAttr(otherProps.validationState === "invalid"),
+      "data-checked": dataAttr(isSelected),
+      "data-invalid": dataAttr(isInvalid),
       className: slots.label({class: styles?.label}),
     }),
-    [slots, isDisabled, inputProps.checked, otherProps.validationState],
+    [slots, styles?.label, isDisabled, isSelected, isInvalid],
   );
 
-  const getIconProps: PropGetter = useCallback(
-    () => ({
-      "data-checked": dataAttr(inputProps.checked),
-      isSelected: inputProps.checked,
-      isIndeterminate: !!isIndeterminate,
-      disableAnimation: !!disableAnimation,
-      className: slots.icon({class: styles?.icon}),
-    }),
-    [slots, inputProps.checked, isIndeterminate, disableAnimation],
+  const getIconProps = useCallback(
+    () =>
+      ({
+        "data-checked": dataAttr(isSelected),
+        isSelected: isSelected,
+        isIndeterminate: !!isIndeterminate,
+        disableAnimation: !!disableAnimation,
+        className: slots.icon({class: styles?.icon}),
+      } as CheckboxIconProps),
+    [slots, styles?.icon, isSelected, isIndeterminate, disableAnimation],
   );
 
   return {
     Component,
     icon,
     children,
+    isSelected,
+    isDisabled,
+    isInvalid,
     getBaseProps,
     getWrapperProps,
     getInputProps,

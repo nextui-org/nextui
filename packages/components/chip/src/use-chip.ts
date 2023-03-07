@@ -37,7 +37,7 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    * <Chip styles={{
    *    base:"base-classes",
    *    dot: "dot-classes",
-   *    label: "label-classes",
+   *    content: "content-classes",
    *    avatar: "avatar-classes",
    *    closeButton: "close-button-classes",
    * }} />

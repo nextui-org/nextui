@@ -4,6 +4,11 @@ import {checkbox} from "@nextui-org/theme";
 
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
 
+import {
+  CustomWithStyles as CheckboxItemWithStyles,
+  CustomWithHooks as CheckboxItemWithHooks,
+} from "./checkbox.stories";
+
 export default {
   title: "Inputs/CheckboxGroup",
   component: CheckboxGroup,
@@ -121,25 +126,58 @@ export const Controlled = () => {
   );
 };
 
-export const Group = () => {
-  // eslint-disable-next-line no-console
-  const handleGroupChange = (value: string[]) => console.log(value);
+export const CustomWithStyles = () => {
+  const [groupSelected, setGroupSelected] = React.useState<string[]>([]);
 
   return (
-    <CheckboxGroup
-      color="warning"
-      defaultValue={["buenos-aires"]}
-      label="Select cities"
-      onChange={handleGroupChange}
-    >
-      <Checkbox color="primary" value="buenos-aires">
-        Buenos Aires
-      </Checkbox>
-      <Checkbox value="sydney">Sydney</Checkbox>
-      <Checkbox isDisabled value="london">
-        London
-      </Checkbox>
-      <Checkbox value="tokyo">Tokyo</Checkbox>
+    <>
+      <CheckboxGroup label="Select employees" value={groupSelected} onChange={setGroupSelected}>
+        <CheckboxItemWithStyles value="junior" />
+        <CheckboxItemWithStyles
+          userName="John Doe"
+          userProfile={{
+            avatar: "https://i.pravatar.cc/300?u=a042581f4e29026707d",
+            username: "johndoe",
+            url: "#",
+          }}
+          userRole="Product Designer"
+          value="johndoe"
+        />
+        <CheckboxItemWithStyles
+          userName="Zoey Lang"
+          userProfile={{
+            avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+            username: "zoeylang",
+            url: "#",
+          }}
+          userRole="Technical Writer"
+          value="zoeylang"
+        />
+        <CheckboxItemWithStyles
+          userName="William Howard"
+          userProfile={{
+            avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
+            username: "william",
+            url: "#",
+          }}
+          userRole="Sales Manager"
+          value="william"
+        />
+      </CheckboxGroup>
+      <p className="mt-4 ml-1 text-neutral-500">Selected: {groupSelected.join(", ")}</p>
+    </>
+  );
+};
+
+export const CustomWithHooks = () => {
+  return (
+    <CheckboxGroup className="gap-1" label="Select ammenities" orientation="horizontal">
+      <CheckboxItemWithHooks value="wifi">Wifi</CheckboxItemWithHooks>
+      <CheckboxItemWithHooks value="tv">TV</CheckboxItemWithHooks>
+      <CheckboxItemWithHooks value="kitchen">Kitchen</CheckboxItemWithHooks>
+      <CheckboxItemWithHooks value="parking">Parking</CheckboxItemWithHooks>
+      <CheckboxItemWithHooks value="pool">Pool</CheckboxItemWithHooks>
+      <CheckboxItemWithHooks value="gym">Gym</CheckboxItemWithHooks>
     </CheckboxGroup>
   );
 };

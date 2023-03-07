@@ -40,7 +40,7 @@ const badge = tv({
       solid: {},
       flat: {},
       faded: {
-        badge: "border-2",
+        badge: "border-1.5",
       },
       shadow: {},
     },

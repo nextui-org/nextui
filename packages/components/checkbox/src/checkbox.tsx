@@ -23,7 +23,10 @@ const Checkbox = forwardRef<CheckboxProps, "label">((props, ref) => {
     ...props,
   });
 
-  const clonedIcon = cloneElement(icon as ReactElement, getIconProps());
+  const clonedIcon =
+    typeof icon === "function"
+      ? icon(getIconProps())
+      : cloneElement(icon as ReactElement, getIconProps());
 
   return (
     <Component {...getBaseProps()}>

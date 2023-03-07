@@ -46,7 +46,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
   return (
     <Component {...getChipProps()}>
       {left}
-      <label className={slots.label({class: styles?.label})}>{children}</label>
+      <span className={slots.content({class: styles?.content})}>{children}</span>
       {right}
     </Component>
   );

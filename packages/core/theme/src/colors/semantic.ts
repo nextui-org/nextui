@@ -50,16 +50,16 @@ const base: SemanticBaseColors = {
       contrastText: readableColor(twColors.zinc[900]),
     },
     content2: {
+      DEFAULT: twColors.zinc[800],
+      contrastText: readableColor(twColors.zinc[800]),
+    },
+    content3: {
       DEFAULT: twColors.zinc[700],
       contrastText: readableColor(twColors.zinc[700]),
     },
-    content3: {
-      DEFAULT: twColors.zinc[500],
-      contrastText: readableColor(twColors.zinc[500]),
-    },
     content4: {
-      DEFAULT: twColors.zinc[400],
-      contrastText: readableColor(twColors.zinc[400]),
+      DEFAULT: twColors.zinc[600],
+      contrastText: readableColor(twColors.zinc[600]),
     },
   },
 };

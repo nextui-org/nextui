@@ -17,6 +17,7 @@ const Radio = forwardRef<RadioProps, "label">((props, ref) => {
     getWrapperProps,
     getInputProps,
     getLabelProps,
+    getLabelWrapperProps,
     getControlProps,
   } = useRadio({ref, ...props});
 
@@ -28,7 +29,7 @@ const Radio = forwardRef<RadioProps, "label">((props, ref) => {
       <span {...getWrapperProps()}>
         <span {...getControlProps()} />
       </span>
-      <div className={slots.labelWrapper({class: styles?.labelWrapper})}>
+      <div {...getLabelWrapperProps()}>
         {children && <span {...getLabelProps()}>{children}</span>}
         {description && (
           <span className={slots.description({class: styles?.description})}>{description}</span>

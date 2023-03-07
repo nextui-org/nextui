@@ -9,5 +9,8 @@ export type {RadioGroupProps} from "./radio-group";
 export {useRadio} from "./use-radio";
 export {useRadioGroup} from "./use-radio-group";
 
+// export context
+export * from "./radio-group-context";
+
 // export component
 export {Radio, RadioGroup};

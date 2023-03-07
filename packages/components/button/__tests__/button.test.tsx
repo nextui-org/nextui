@@ -1,6 +1,5 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {act, render} from "@testing-library/react";
 
 import {Button} from "../src";
 
@@ -22,7 +21,10 @@ describe("Button", () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Button onPress={onPress} />);
 
-    getByRole("button").click();
+    act(() => {
+      getByRole("button").click();
+    });
+
     expect(onPress).toHaveBeenCalled();
   });
 
@@ -32,9 +34,9 @@ describe("Button", () => {
 
     const wrapper = render(<Button onClick={onClick} />);
 
-    let button = wrapper.getByRole("button");
-
-    userEvent.click(button);
+    act(() => {
+      wrapper.getByRole("button").click();
+    });
 
     expect(spy).toHaveBeenCalled();
     spy.mockRestore();
@@ -44,7 +46,10 @@ describe("Button", () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Button disabled onPress={onPress} />);
 
-    getByRole("button").click();
+    act(() => {
+      getByRole("button").click();
+    });
+
     expect(onPress).not.toHaveBeenCalled();
   });
 

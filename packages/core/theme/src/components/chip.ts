@@ -5,22 +5,22 @@ import {ringClasses, colorVariants} from "../utils";
 /**
  * Chip wrapper **Tailwind Variants** component
  *
- * const {base, label, dot, avatar, closeButton} = chip({...})
+ * const {base, content, dot, avatar, closeButton} = chip({...})
  *
  * @example
  * <div className={base())}>
  *    // left content
  *   <span className={avatar()}/>
  *   <svg className={dot()}/>
- *   <label className={label()}>Default</label>
+ *   <span className={content()}>Default</span>
  *   <svg className={closeButton()}>close button</svg>
  *    // right content
  * </div>
  */
 const chip = tv({
   slots: {
-    base: ["relative", "inline-flex", "items-center", "justify-between", "box-border"],
-    label: "flex-1 text-inherit select-none font-regular",
+    base: ["relative", "max-w-fit", "inline-flex", "items-center", "justify-between", "box-border"],
+    content: "flex-1 text-inherit select-none font-regular",
     dot: ["w-2", "h-2", "mx-1", "rounded-full"],
     avatar: "flex-shrink-0",
     closeButton: [
@@ -38,18 +38,18 @@ const chip = tv({
     variant: {
       solid: {},
       bordered: {
-        base: "border-2 !bg-transparent",
+        base: "border-1.5 !bg-transparent",
       },
       light: {
         base: "!bg-transparent",
       },
       flat: {},
       faded: {
-        base: "border-2",
+        base: "border-1.5",
       },
       shadow: {},
       dot: {
-        base: "border-2 border-neutral text-foreground !bg-transparent",
+        base: "border-1.5 border-neutral text-foreground !bg-transparent",
       },
     },
     color: {
@@ -75,31 +75,31 @@ const chip = tv({
     size: {
       xs: {
         base: "px-0.5 h-5 text-xs",
-        label: "px-0.5",
+        content: "px-1",
         closeButton: "text-sm",
         avatar: "w-3.5 h-3.5",
       },
       sm: {
         base: "px-1 h-6 text-sm",
-        label: "px-1",
+        content: "px-1",
         closeButton: "text-base",
         avatar: "w-4 h-4",
       },
       md: {
         base: "px-1 h-7 text-base",
-        label: "px-1",
+        content: "px-2",
         closeButton: "text-lg",
         avatar: "w-5 h-5",
       },
       lg: {
         base: "px-2 h-8 text-lg",
-        label: "px-1",
+        content: "px-2",
         closeButton: "text-xl",
         avatar: "w-6 h-6",
       },
       xl: {
         base: "px-2 h-9 text-xl",
-        label: "px-1",
+        content: "px-2",
         closeButton: "text-2xl",
         avatar: "w-7 h-7",
       },
@@ -118,7 +118,7 @@ const chip = tv({
     isOneChar: {
       true: {
         base: "px-0 justify-center",
-        label: "px-0 flex-none",
+        content: "px-0 flex-none",
       },
     },
     isDisabled: {

@@ -29,7 +29,7 @@ const tooltip = tv({
       solid: "",
       bordered: "border-2 !bg-transparent",
       light: "!bg-transparent",
-      faded: "border-2",
+      faded: "border-1.5",
       flat: "",
       shadow: "",
     },

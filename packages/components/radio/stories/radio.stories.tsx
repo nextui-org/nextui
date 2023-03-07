@@ -1,8 +1,17 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {radio, button} from "@nextui-org/theme";
+import {clsx} from "@nextui-org/shared-utils";
 
-import {RadioGroup, Radio, RadioGroupProps} from "../src";
+import {
+  RadioGroup,
+  Radio,
+  RadioProps,
+  RadioGroupProps,
+  useRadio,
+  useRadioGroupContext,
+} from "../src";
 
 export default {
   title: "Inputs/RadioGroup",
@@ -141,16 +150,22 @@ Row.args = {
   description: "for",
 };
 
+export const DisableAnimation = Template.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  disableAnimation: true,
+};
+
 export const Controlled = () => {
-  const [checked, setChecked] = React.useState<string>("london");
+  const [isSelected, setIsSelected] = React.useState<string>("london");
 
   React.useEffect(() => {
     // eslint-disable-next-line no-console
-    console.log("checked:", checked);
-  }, [checked]);
+    console.log("isSelected:", isSelected);
+  }, [isSelected]);
 
   return (
-    <RadioGroup label="Select city" value={checked} onChange={setChecked}>
+    <RadioGroup label="Select city" value={isSelected} onChange={setIsSelected}>
       <Radio value="buenos-aires">Buenos Aires</Radio>
       <Radio value="sydney">Sydney</Radio>
       <Radio value="london">London</Radio>
@@ -159,8 +174,98 @@ export const Controlled = () => {
   );
 };
 
-export const DisableAnimation = Template.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+const CustomRadio = (props: RadioProps) => {
+  const {children, ...otherProps} = props;
+
+  const {groupState} = useRadioGroupContext();
+
+  const isSelected = groupState.selectedValue === otherProps.value;
+
+  return (
+    <Radio
+      {...otherProps}
+      styles={{
+        base: clsx(
+          "inline-flex bg-content1 hover:bg-content2 items-center justify-between flex-row-reverse max-w-[300px] cursor-pointer rounded-lg gap-4 p-4 border-2 border-transparent",
+          {
+            "border-primary": isSelected,
+          },
+        ),
+      }}
+    >
+      {children}
+    </Radio>
+  );
+};
+
+export const CustomWithStyles = () => {
+  return (
+    <RadioGroup label="Plans">
+      <CustomRadio description="Up to 20 items" value="free">
+        Free
+      </CustomRadio>
+      <CustomRadio description="Unlimited items. $10 per month." value="pro">
+        Pro
+      </CustomRadio>
+      <CustomRadio description="24/7 support. Contact us for pricing." value="enterprise">
+        Enterprise
+      </CustomRadio>
+    </RadioGroup>
+  );
+};
+
+const RadioCard = (props: RadioProps) => {
+  const {
+    Component,
+    children,
+    isSelected,
+    description,
+    getBaseProps,
+    getWrapperProps,
+    getInputProps,
+    getLabelProps,
+    getLabelWrapperProps,
+    getControlProps,
+  } = useRadio(props);
+
+  return (
+    <Component
+      {...getBaseProps()}
+      className={clsx(
+        "inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-neutral rounded-lg gap-4 p-4",
+        {
+          "border-primary": isSelected,
+        },
+      )}
+    >
+      <VisuallyHidden>
+        <input {...getInputProps()} />
+      </VisuallyHidden>
+      <span {...getWrapperProps()}>
+        <span {...getControlProps()} />
+      </span>
+      <div {...getLabelWrapperProps()}>
+        {children && <span {...getLabelProps()}>{children}</span>}
+        {description && (
+          <span className={clsx("text-sm text-foreground opacity-70")}>{description}</span>
+        )}
+      </div>
+    </Component>
+  );
+};
+
+export const CustomWithHooks = () => {
+  return (
+    <RadioGroup label="Plans">
+      <RadioCard description="Up to 20 items" value="free">
+        Free
+      </RadioCard>
+      <RadioCard description="Unlimited items. $10 per month." value="pro">
+        Pro
+      </RadioCard>
+      <RadioCard description="24/7 support. Contact us for pricing." value="enterprise">
+        Enterprise
+      </RadioCard>
+    </RadioGroup>
+  );
 };

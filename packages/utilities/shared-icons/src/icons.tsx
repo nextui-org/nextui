@@ -1,13 +1,13 @@
 import * as React from "react";
 
-interface IconProps {
+import {IconSvgProps} from "./types";
+interface IconProps extends IconSvgProps {
   fill?: string;
   filled?: boolean;
   size?: string | number;
   height?: string | number;
   width?: string | number;
   label?: string;
-  className?: string;
 }
 
 export const Sun: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {

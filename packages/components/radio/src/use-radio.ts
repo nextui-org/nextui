@@ -120,6 +120,8 @@ export function useRadio(props: UseRadioProps) {
     inputRef,
   );
 
+  const isSelected = useMemo(() => inputProps.checked, [inputProps.checked]);
+
   const {hoverProps, isHovered} = useHover({isDisabled});
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({
@@ -142,8 +144,9 @@ export function useRadio(props: UseRadioProps) {
 
   const baseStyles = clsx(styles?.base, className);
 
-  const getBaseProps: PropGetter = () => {
+  const getBaseProps: PropGetter = (props = {}) => {
     return {
+      ...props,
       ref: domRef,
       className: slots.base({class: baseStyles}),
       "data-disabled": dataAttr(isDisabled),
@@ -153,12 +156,13 @@ export function useRadio(props: UseRadioProps) {
     };
   };
 
-  const getWrapperProps: PropGetter = () => {
+  const getWrapperProps: PropGetter = (props = {}) => {
     return {
-      "data-active": dataAttr(inputProps.checked),
+      ...props,
+      "data-active": dataAttr(isSelected),
       "data-hover": dataAttr(isHovered),
-      "data-hover-unchecked": dataAttr(isHovered && !inputProps.checked),
-      "data-checked": dataAttr(inputProps.checked),
+      "data-hover-unchecked": dataAttr(isHovered && !isSelected),
+      "data-checked": dataAttr(isSelected),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocused && isFocusVisible),
       "data-disabled": dataAttr(isDisabled),
@@ -170,8 +174,9 @@ export function useRadio(props: UseRadioProps) {
     };
   };
 
-  const getInputProps: PropGetter = () => {
+  const getInputProps: PropGetter = (props = {}) => {
     return {
+      ...props,
       ref: inputRef,
       required: isRequired,
       "aria-required": dataAttr(isRequired),
@@ -182,23 +187,33 @@ export function useRadio(props: UseRadioProps) {
   };
 
   const getLabelProps: PropGetter = useCallback(
-    () => ({
+    (props = {}) => ({
+      ...props,
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(inputProps.checked),
+      "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
       className: slots.label({class: styles?.label}),
     }),
-    [slots, isDisabled, inputProps.checked, isInvalid],
+    [slots, styles, isDisabled, isSelected, isInvalid],
+  );
+
+  const getLabelWrapperProps: PropGetter = useCallback(
+    (props = {}) => ({
+      ...props,
+      className: slots.labelWrapper({class: styles?.labelWrapper}),
+    }),
+    [slots, styles],
   );
 
   const getControlProps: PropGetter = useCallback(
-    () => ({
+    (props = {}) => ({
+      ...props,
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(inputProps.checked),
+      "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
       className: slots.control({class: styles?.control}),
     }),
-    [slots, isDisabled, inputProps.checked, isInvalid],
+    [slots, isDisabled, isSelected, isInvalid],
   );
 
   return {
@@ -207,10 +222,15 @@ export function useRadio(props: UseRadioProps) {
     slots,
     styles,
     description,
+    isSelected,
+    isDisabled,
+    isInvalid,
+    isFocusVisible,
     getBaseProps,
     getWrapperProps,
     getInputProps,
     getLabelProps,
+    getLabelWrapperProps,
     getControlProps,
   };
 }

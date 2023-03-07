@@ -34,7 +34,7 @@ const button = tv({
       bordered: "border-2 !bg-transparent",
       light: "!bg-transparent",
       flat: "",
-      faded: "border-2",
+      faded: "border-1.5",
       shadow: "",
       ghost: "border-2 !bg-transparent",
     },

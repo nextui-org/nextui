@@ -73,7 +73,8 @@ describe("Snippet - Clipboard", () => {
 
     act(() => {
       wrapper.getByRole("button").click();
-      expect(navigator.clipboard.writeText).toHaveBeenCalledWith(code);
     });
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(code);
   });
 });
