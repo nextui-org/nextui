@@ -1,86 +1,84 @@
-import type {NormalColors, NormalSizes, NormalWeights} from "@nextui-org/shared-utils";
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {ReactNode, Ref} from "react";
+import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {
+  PaginationItemParam,
   usePagination as useBasePagination,
   UsePaginationProps as UseBasePaginationProps,
 } from "@nextui-org/use-pagination";
+import {useMemo} from "react";
+import {pagination} from "@nextui-org/theme";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
-export interface UsePaginationProps extends HTMLNextUIProps<"nav", UseBasePaginationProps> {
+export type PaginationItemRenderProps = {
+  value: PaginationItemParam;
+  index: number;
+  dotsJump: number;
+  isActive: boolean;
+  isNext: boolean;
+  isPrevious: boolean;
+  isFirst: boolean;
+  isLast: boolean;
+  isDots: boolean;
+  isBefore: boolean;
+  className: string;
+};
+
+interface Props extends HTMLNextUIProps<"ul"> {
   /**
-   * The pagination color.
-   * @default "default"
+   * Ref to the DOM node.
    */
-  color?: NormalColors;
-  /**
-   * The pagination size.
-   * @default "md"
-   */
-  size?: NormalSizes;
-  /**
-   * The border weight of the bordered pagination.
-   * @default "normal"
-   */
-  borderWeight?: NormalWeights;
-  /**
-   * Show only dots as pagination elements
-   * @default false
-   */
-  onlyDots?: boolean;
+  ref?: Ref<HTMLElement>;
   /**
    * Number of pages that are added or subtracted on the '...' button.
    * @default 5
    */
   dotsJump?: number;
   /**
-   * Whether the pagination is bordered.
-   * @default false
-   */
-  bordered?: boolean;
-  /**
-   * Whether the pagination is rounded.
-   * @default false
-   */
-  rounded?: boolean;
-  /**
-   * Whether to show a shadow effect.
-   * @default false
-   */
-  shadow?: boolean;
-  /**
-   * Whether the pagination should have animations.
-   * @default true
-   */
-  animated?: boolean;
-  /**
    * Non disable next/previous controls
    * @default false
    */
   loop?: boolean;
   /**
-   * Whether the pagination should have a margin.
-   * @default false
-   */
-  noMargin?: boolean;
-  /**
    * Whether the pagination should display controls (left/right arrows).
    * @default true
    */
-  controls?: boolean;
+  showControls?: boolean;
+  /**
+   * Render a custom pagination item.
+   * @param props Pagination item props
+   * @returns ReactNode
+   */
+  renderItem?: (props: PaginationItemRenderProps) => ReactNode;
+  /**
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Pagination styles={{
+   *    base:"base-classes",
+   *    wrapper: "wrapper-classes",
+   *    item: "item-classes",
+   *    cursor: "cursor-classes", // this is the one that moves when an item is selected
+   * }} />
+   * ```
+   */
+  styles?: SlotsToClasses<PaginationSlots>;
 }
 
-export function usePagination(props: UsePaginationProps) {
+export type UsePaginationProps = Props & UseBasePaginationProps & PaginationVariantProps;
+
+export function usePagination(originalProps: UsePaginationProps) {
+  const [props, variantProps] = mapPropsVariants(originalProps, pagination.variantKeys);
+
   const {
-    color = "default",
-    size = "md",
-    borderWeight = "normal",
-    rounded = false,
-    noMargin = false,
-    bordered = false,
-    animated = true,
-    shadow = false,
-    onlyDots = false,
-    controls = true,
+    as,
+    ref,
+    styles,
+    showControls = true,
     dotsJump = 5,
     loop = false,
     total = 1,
@@ -89,18 +87,33 @@ export function usePagination(props: UsePaginationProps) {
     siblings,
     boundaries,
     onChange,
-
+    className,
+    renderItem,
     ...otherProps
   } = props;
+
+  const Component = as || "ul";
+
+  const domRef = useDOMRef(ref);
 
   const {range, active, setPage, previous, next, first, last} = useBasePagination({
     page,
     initialPage,
-    siblings: onlyDots ? 10 : siblings,
-    boundaries: onlyDots ? 10 : boundaries,
+    siblings,
+    boundaries,
     total,
     onChange,
   });
+
+  const slots = useMemo(
+    () =>
+      pagination({
+        ...variantProps,
+      }),
+    [...Object.values(variantProps)],
+  );
+
+  const baseStyles = clsx(styles?.base, className);
 
   const onNext = () => {
     if (loop && active === total) {
@@ -118,26 +131,35 @@ export function usePagination(props: UsePaginationProps) {
     return previous();
   };
 
+  const getBaseProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ref: domRef,
+      "data-controls": dataAttr(showControls),
+      "data-loop": dataAttr(loop),
+      "data-dots-jump": dotsJump,
+      "data-total": total,
+      "data-active": active,
+      className: slots.base({class: baseStyles}),
+      ...otherProps,
+    };
+  };
+
   return {
-    color,
-    size,
-    bordered,
-    shadow,
-    onlyDots,
-    controls,
+    Component,
+    showControls,
     dotsJump,
-    animated,
-    noMargin,
-    borderWeight,
+    slots,
+    styles,
     loop,
     total,
-    active,
-    rounded,
     range,
+    active,
     setPage,
-    onNext,
     onPrevious,
-    ...otherProps,
+    onNext,
+    renderItem,
+    getBaseProps,
   };
 }
 

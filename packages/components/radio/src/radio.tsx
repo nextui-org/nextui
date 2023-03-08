@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {UseRadioProps, useRadio} from "./use-radio";
@@ -39,8 +38,6 @@ const Radio = forwardRef<RadioProps, "label">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Radio.displayName = "NextUI.Radio";
-}
+Radio.displayName = "NextUI.Radio";
 
 export default Radio;

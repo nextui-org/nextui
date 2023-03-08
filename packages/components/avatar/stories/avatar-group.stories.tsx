@@ -4,7 +4,7 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {Avatar, AvatarGroup, AvatarGroupProps} from "../src";
 
 export default {
-  title: "Display/AvatarGroup",
+  title: "Components/AvatarGroup",
   component: AvatarGroup,
   argTypes: {
     color: {

@@ -5,7 +5,7 @@ import {code} from "@nextui-org/theme";
 import {Code, CodeProps} from "../src";
 
 export default {
-  title: "Display/Code",
+  title: "Components/Code",
   component: Code,
   argTypes: {
     color: {

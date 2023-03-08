@@ -1,7 +1,6 @@
 import type {ReactNode} from "react";
 
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 import {UseBadgeProps, useBadge} from "./use-badge";
 
@@ -20,10 +19,6 @@ const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Badge.displayName = "NextUI.Badge";
-}
-
-Badge.toString = () => ".nextui-badge";
+Badge.displayName = "NextUI.Badge";
 
 export default Badge;

@@ -2,7 +2,7 @@ import {useState, useEffect, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {StyledPaginationHighlight} from "./pagination.styles";
 
@@ -58,10 +58,6 @@ const PaginationHighlight = forwardRef<PaginationHighlightProps, "div">((props, 
   );
 });
 
-if (__DEV__) {
-  PaginationHighlight.displayName = "NextUI.PaginationHighlight";
-}
-
-PaginationHighlight.toString = () => ".nextui-pagination-highlight";
+PaginationHighlight.displayName = "NextUI.PaginationHighlight";
 
 export default PaginationHighlight;

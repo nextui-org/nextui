@@ -1,7 +1,7 @@
 import {MouseEvent} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
 
 import PaginationItem from "./pagination-item";
 import {StyledPaginationIcon} from "./pagination.styles";
@@ -53,10 +53,6 @@ const PaginationIcon = forwardRef<PaginationIconProps, "svg">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  PaginationIcon.displayName = "NextUI.PaginationIcon";
-}
-
-PaginationIcon.toString = () => ".nextui-pagination-icon";
+PaginationIcon.displayName = "NextUI.PaginationIcon";
 
 export default PaginationIcon;

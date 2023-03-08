@@ -1,10 +1,11 @@
 import type {AriaRadioProps} from "@react-types/radio";
+import type {RadioVariantProps, RadioSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {RadioVariantProps, RadioSlots, SlotsToClasses, radio} from "@nextui-org/theme";
 import {Ref, ReactNode, useCallback} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
+import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";

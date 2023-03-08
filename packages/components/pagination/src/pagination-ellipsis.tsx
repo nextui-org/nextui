@@ -1,7 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useState, MouseEvent} from "react";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
 
 import PaginationItem from "./pagination-item";
 import {StyledPaginationEllipsis} from "./pagination.styles";
@@ -72,10 +72,6 @@ const PaginationEllipsis = forwardRef<PaginationEllipsisProps, "svg">((props, re
   );
 });
 
-if (__DEV__) {
-  PaginationEllipsis.displayName = "NextUI.PaginationEllipsis";
-}
-
-PaginationEllipsis.toString = () => ".nextui-pagination-ellipsis";
+PaginationEllipsis.displayName = "NextUI.PaginationEllipsis";
 
 export default PaginationEllipsis;

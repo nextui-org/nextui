@@ -31,7 +31,7 @@
     "build:storybook": "build-storybook build",
     "watch:css": "npx tailwindcss -i ./.storybook/style.css -o ./public/tailwind.css --watch",
     "watch:storybook": "start-storybook dev -p 6006",
-    "start:storybook": "pnpx serve storybook-static"
+    "start:storybook": "pnpx http-server storybook-static"
   },
   "dependencies": {
     "@nextui-org/theme": "workspace:*"

@@ -7,7 +7,7 @@ import {CheckIcon} from "@nextui-org/shared-icons";
 import {Chip, ChipProps} from "../src";
 
 export default {
-  title: "Display/Chip",
+  title: "Components/Chip",
   component: Chip,
   argTypes: {
     variant: {
@@ -52,6 +52,18 @@ const Template: ComponentStory<typeof Chip> = (args: ChipProps) => <Chip {...arg
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
+};
+
+export const LeftContent = Template.bind({});
+LeftContent.args = {
+  ...defaultProps,
+  leftContent: <span className="ml-1">🎉</span>,
+};
+
+export const RightContent = Template.bind({});
+RightContent.args = {
+  ...defaultProps,
+  rightContent: <span className="mr-1">🚀</span>,
 };
 
 export const Closeable = Template.bind({});

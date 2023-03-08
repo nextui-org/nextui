@@ -7,7 +7,7 @@ import {Spinner} from "@nextui-org/spinner";
 import {Button, ButtonProps} from "../src";
 
 export default {
-  title: "Actions/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     variant: {
@@ -81,6 +81,12 @@ WithIcons.args = {
   ...defaultProps,
   leftIcon: <Notification />,
   rightIcon: <Camera />,
+};
+
+export const IconButton = Template.bind({});
+IconButton.args = {
+  ...defaultProps,
+  children: <Notification fill="currentColor" />,
 };
 
 export const IsLoading = Template.bind({});

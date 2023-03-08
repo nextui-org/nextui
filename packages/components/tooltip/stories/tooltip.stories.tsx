@@ -6,7 +6,7 @@ import {Button} from "@nextui-org/button";
 import {Tooltip, TooltipProps} from "../src";
 
 export default {
-  title: "Display/Tooltip",
+  title: "Components/Tooltip",
   component: Tooltip,
   argTypes: {
     variant: {

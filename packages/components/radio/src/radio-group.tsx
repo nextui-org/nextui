@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 import {RadioGroupProvider} from "./radio-group-context";
 import {UseRadioGroupProps, useRadioGroup} from "./use-radio-group";
@@ -20,8 +19,6 @@ const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  RadioGroup.displayName = "NextUI.RadioGroup";
-}
+RadioGroup.displayName = "NextUI.RadioGroup";
 
 export default RadioGroup;

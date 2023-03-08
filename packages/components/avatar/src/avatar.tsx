@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
 import {AvatarIcon} from "./avatar-icon";
@@ -73,8 +72,6 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Avatar.displayName = "NextUI.Avatar";
-}
+Avatar.displayName = "NextUI.Avatar";
 
 export default Avatar;

@@ -1,7 +1,7 @@
 import type {AvatarVariantProps, AvatarSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {avatar} from "@nextui-org/theme";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx, safeText} from "@nextui-org/shared-utils";
@@ -166,7 +166,7 @@ export function useAvatar(props: UseAvatarProps) {
     return isFocusable || as === "button";
   }, [isFocusable, as]);
 
-  const getAvatarProps = useCallback(
+  const getAvatarProps = useCallback<PropGetter>(
     () => ({
       tabIndex: canBeFocused ? 0 : -1,
       className: slots.base({

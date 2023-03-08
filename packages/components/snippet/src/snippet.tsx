@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
 import {Tooltip} from "@nextui-org/tooltip";
 import {ReactNode, useCallback, useMemo} from "react";
 
@@ -101,8 +101,6 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Snippet.displayName = "NextUI.Snippet";
-}
+Snippet.displayName = "NextUI.Snippet";
 
 export default Snippet;

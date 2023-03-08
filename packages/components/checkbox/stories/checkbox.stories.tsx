@@ -17,7 +17,7 @@ import {
 } from "../src";
 
 export default {
-  title: "Inputs/Checkbox",
+  title: "Components/Checkbox",
   component: Checkbox,
   argTypes: {
     color: {
@@ -175,7 +175,7 @@ export const CustomWithStyles = (props: CustomCheckboxProps) => {
       aria-label={userName}
       styles={{
         base: clsx(
-          "inline-flex w-full max-w-md bg-content1 hover:bg-content2 items-center justify-start cursor-pointer rounded-lg gap-2 p-4 border-2 border-transparent",
+          "inline-flex w-full max-w-md bg-content1 hover:bg-content2 items-center justify-start cursor-pointer rounded-lg gap-2 p-4 border-1.5 border-transparent",
           {
             "border-primary": isChecked,
           },
@@ -207,10 +207,11 @@ export const CustomWithStyles = (props: CustomCheckboxProps) => {
 };
 
 export const CustomWithHooks = (props: CheckboxProps) => {
-  const {children, isSelected, getBaseProps, getLabelProps, getInputProps} = useCheckbox({
-    "aria-label": props["aria-label"] || "Toggle status",
-    ...props,
-  });
+  const {children, isSelected, isFocusVisible, getBaseProps, getLabelProps, getInputProps} =
+    useCheckbox({
+      "aria-label": props["aria-label"] || "Toggle status",
+      ...props,
+    });
 
   return (
     <label {...getBaseProps()}>
@@ -223,6 +224,8 @@ export const CustomWithHooks = (props: CheckboxProps) => {
         styles={{
           base: clsx("border-neutral hover:bg-neutral-200", {
             "border-primary bg-primary hover:bg-primary-600 hover:border-primary-600": isSelected,
+            "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark":
+              isFocusVisible,
           }),
           content: clsx("text-primary", {
             "text-primary-contrastText pl-1": isSelected,

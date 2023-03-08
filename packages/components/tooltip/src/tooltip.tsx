@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {warn, __DEV__} from "@nextui-org/shared-utils";
+import {warn} from "@nextui-org/shared-utils";
 import {cloneElement, Children} from "react";
 import {OverlayContainer} from "@react-aria/overlays";
 import {CSSTransition} from "@nextui-org/react-utils";
@@ -52,8 +52,6 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Tooltip.displayName = "NextUI.Tooltip";
-}
+Tooltip.displayName = "NextUI.Tooltip";
 
 export default Tooltip;

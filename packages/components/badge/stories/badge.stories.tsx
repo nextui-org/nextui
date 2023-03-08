@@ -7,7 +7,7 @@ import {CheckIcon} from "@nextui-org/shared-icons";
 import {Badge, BadgeProps} from "../src";
 
 export default {
-  title: "Display/Badge",
+  title: "Components/Badge",
   component: Badge,
   argTypes: {
     content: {

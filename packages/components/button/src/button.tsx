@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {Drip} from "@nextui-org/drip";
 
 import {UseButtonProps, useButton} from "./use-button";
@@ -40,8 +39,6 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Button.displayName = "NextUI.Button";
-}
+Button.displayName = "NextUI.Button";
 
 export default Button;

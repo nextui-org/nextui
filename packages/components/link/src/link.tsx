@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 import {UseLinkProps, useLink} from "./use-link";
 import {LinkIcon} from "./link-icon";
@@ -25,8 +24,6 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Link.displayName = "NextUI.Link";
-}
+Link.displayName = "NextUI.Link";
 
 export default Link;

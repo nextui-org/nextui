@@ -5,7 +5,7 @@ import {spinner} from "@nextui-org/theme";
 import {Spinner, SpinnerProps} from "../src";
 
 export default {
-  title: "Feedback/Spinner",
+  title: "Components/Spinner",
   component: Spinner,
   argTypes: {
     color: {

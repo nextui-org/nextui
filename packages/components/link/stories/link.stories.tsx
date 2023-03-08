@@ -6,7 +6,7 @@ import {link} from "@nextui-org/theme";
 import {Link, LinkProps} from "../src";
 
 export default {
-  title: "Navigation/Link",
+  title: "Components/Link",
   component: Link,
   argTypes: {
     color: {

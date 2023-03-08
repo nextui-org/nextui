@@ -1,4 +1,6 @@
-import {themes} from "@storybook/theming";
+import React from 'react';
+import addons from '@storybook/addons';
+import { themes } from '@storybook/theming';
 import Style from "./style";
 
 export const decorators = [
@@ -11,6 +13,7 @@ export const decorators = [
 ];
 
 export const parameters = {
+  viewMode: 'docs',
   actions: {argTypesRegex: "^on[A-Z].*"},
   controls: {
     matchers: {

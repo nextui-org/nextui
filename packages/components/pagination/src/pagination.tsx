@@ -1,93 +1,90 @@
-import type {PaginationItemParam} from "@nextui-org/use-pagination";
-
-import {useCallback} from "react";
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {PaginationItemParam} from "@nextui-org/use-pagination";
+import {useCallback} from "react";
 import {DOTS} from "@nextui-org/use-pagination";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
 
-import PaginationItem from "./pagination-item";
-import PaginationEllipsis from "./pagination-ellipsis";
-import PaginationHighlight from "./pagination-highlight";
-import PaginationIcon from "./pagination-icon";
-import {StyledPagination} from "./pagination.styles";
 import {UsePaginationProps, usePagination} from "./use-pagination";
+import PaginationItem from "./pagination-item";
 
 export interface PaginationProps extends UsePaginationProps {}
 
-const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
+const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
   const {
-    className,
-    controls,
-    animated,
-    rounded,
-    bordered,
-    shadow,
-    onlyDots,
+    Component,
+    // showControls,
     dotsJump,
-    noMargin,
     loop,
+    slots,
+    styles,
     total,
     range,
     active,
     setPage,
-    onPrevious,
-    onNext,
-    ...otherProps
-  } = usePagination(props);
-
-  const domRef = useDOMRef(ref);
+    // onPrevious,
+    // onNext,
+    renderItem: renderItemProp,
+    getBaseProps,
+  } = usePagination({ref, ...props});
 
   const renderItem = useCallback(
     (value: PaginationItemParam, index: number) => {
-      if (value === DOTS) {
-        const isBefore = index < range.indexOf(active);
+      const isBefore = index < range.indexOf(active);
 
-        return (
-          <PaginationEllipsis
-            key={`nextui-pagination-item-${value}-${index}`}
-            animated={animated}
-            bordered={bordered}
-            isBefore={isBefore}
-            onlyDots={onlyDots}
-            value={value}
-            onClick={() =>
-              isBefore
-                ? setPage(active - dotsJump >= 1 ? active - dotsJump : 1)
-                : setPage(active + dotsJump <= total ? active + dotsJump : total)
-            }
-          />
-        );
+      if (renderItemProp && typeof renderItemProp === "function") {
+        return renderItemProp({
+          value,
+          index,
+          dotsJump,
+          isDots: value === DOTS,
+          isBefore,
+          isActive: value === active,
+          isPrevious: value === active - 1,
+          isNext: value === active + 1,
+          isFirst: value === 1,
+          isLast: value === total,
+          className: slots.item({class: styles?.item}),
+        });
+      }
+
+      if (value === DOTS) {
+        return <li>...</li>;
+        //   return (
+        //     <PaginationEllipsis
+        //       key={`nextui-pagination-item-${value}-${index}`}
+        //       animated={animated}
+        //       bordered={bordered}
+        //       isBefore={isBefore}
+        //       onlyDots={onlyDots}
+        //       value={value}
+        //       onClick={() =>
+        //         isBefore
+        //           ? setPage(active - dotsJump >= 1 ? active - dotsJump : 1)
+        //           : setPage(active + dotsJump <= total ? active + dotsJump : total)
+        //       }
+        //     />
+        //   );
       }
 
       return (
         <PaginationItem
-          key={`nextui-pagination-item-${value}-${index}`}
-          active={value === active}
-          animated={animated}
-          bordered={bordered}
-          onlyDots={onlyDots}
+          key={`${value}-${index}`}
+          className={slots.item({class: styles?.item})}
+          isActive={value === active}
           value={value}
-          onClick={() => value !== active && setPage(value)}
+          onPress={() => value !== active && setPage(value)}
         >
           {value}
         </PaginationItem>
       );
     },
-    [total, onlyDots, active, bordered, animated],
+    [active, dotsJump, loop, range, renderItemProp, setPage, slots.item, styles?.item, total],
   );
 
   return (
-    <StyledPagination
-      ref={domRef}
-      bordered={bordered}
-      className={clsx("nextui-pagination", className)}
-      noMargin={noMargin}
-      onlyDots={onlyDots}
-      rounded={rounded}
-      {...otherProps}
-    >
-      {controls && (
+    <Component {...getBaseProps()}>
+      {range.map(renderItem)}
+
+      {/* {controls && (
         <PaginationIcon
           isPrev
           animated={animated}
@@ -113,15 +110,11 @@ const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
           onlyDots={onlyDots}
           onClick={onNext}
         />
-      )}
-    </StyledPagination>
+      )} */}
+    </Component>
   );
 });
 
-if (__DEV__) {
-  Pagination.displayName = "NextUI.Pagination";
-}
-
-Pagination.toString = () => ".nextui-pagination";
+Pagination.displayName = "NextUI.Pagination";
 
 export default Pagination;

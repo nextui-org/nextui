@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
 import {useMemo} from "react";
 
@@ -52,8 +51,6 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Chip.displayName = "NextUI.Chip";
-}
+Chip.displayName = "NextUI.Chip";
 
 export default Chip;

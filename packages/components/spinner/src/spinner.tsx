@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 // import {StyledLoadingContainer, StyledLoading, StyledLoadingLabel} from "./loading.styles";
 import {UseSpinnerProps, useSpinner} from "./use-spinner";
@@ -18,8 +17,6 @@ const Spinner = forwardRef<SpinnerProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Spinner.displayName = "NextUI.Loading";
-}
+Spinner.displayName = "NextUI.Loading";
 
 export default Spinner;

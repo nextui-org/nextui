@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+  @apply text-4xl font-bold !text-foreground;
+}
+
+h2 {
+  @apply text-2xl font-bold !text-foreground !border-none;
+}
+
+h3 {
+  @apply text-xl font-bold !text-neutral-600;
+}
+
+.dark .sbdocs-wrapper, .dark .sbdocs-preview  {
+  background-color: #000000;
+  color: #fff;
+}
+
+.dark .sbdocs-preview {
+  border: 1px solid #292929;
+}
+
+.dark .docblock-code-toggle {
+  background: transparent;
+  color: #d4d4d4;
+}
+
+
+.dark div:has(.docblock-code-toggle) { 
+  background: transparent;  
+}
+
+.dark .os-theme-dark  {
+  background: #161616;
+  color: #fff;
+}
+
+.dark .sbdocs-title {
+  color: #fff;
+}
+
+.dark .docblock-argstable-head {
+  background: #161616;
+}
+
+.dark .docblock-argstable-head th {
+  color: #bcbcbc;
+  border-bottom: 1px solid #292929 !important;
+}
+
+.dark .docblock-argstable-head th span {
+  color: #bcbcbc;
+}
+
+.dark tbody td {
+  background: #161616 !important;
+  color: #bcbcbc !important;
+}
+
+.dark tbody tr:first-child td:first-child {
+  border-top-left-radius: 0 !important;
+}
+
+.dark tbody tr:first-child td:last-child {
+  border-top-right-radius: 0 !important;
+}
+
+.dark tbody tr:not(:first-child) {
+  border-top: 1px solid #292929 !important;
+}

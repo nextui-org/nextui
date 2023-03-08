@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 import {ButtonGroupProvider} from "./button-group-context";
 import {UseButtonGroupProps, useButtonGroup} from "./use-button-group";
@@ -21,8 +20,6 @@ const ButtonGroup = forwardRef<ButtonGroupProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  ButtonGroup.displayName = "NextUI.ButtonGroup";
-}
+ButtonGroup.displayName = "NextUI.ButtonGroup";
 
 export default ButtonGroup;

@@ -6,7 +6,7 @@ import {avatar} from "@nextui-org/theme";
 import {Avatar, AvatarProps} from "../src";
 
 export default {
-  title: "Display/Avatar",
+  title: "Components/Avatar",
   component: Avatar,
   argTypes: {
     color: {

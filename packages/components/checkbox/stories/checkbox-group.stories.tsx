@@ -10,7 +10,7 @@ import {
 } from "./checkbox.stories";
 
 export default {
-  title: "Inputs/CheckboxGroup",
+  title: "Components/CheckboxGroup",
   component: CheckboxGroup,
   argTypes: {
     color: {
@@ -170,14 +170,25 @@ export const CustomWithStyles = () => {
 };
 
 export const CustomWithHooks = () => {
+  const [groupSelected, setGroupSelected] = React.useState<string[]>([]);
+
   return (
-    <CheckboxGroup className="gap-1" label="Select ammenities" orientation="horizontal">
-      <CheckboxItemWithHooks value="wifi">Wifi</CheckboxItemWithHooks>
-      <CheckboxItemWithHooks value="tv">TV</CheckboxItemWithHooks>
-      <CheckboxItemWithHooks value="kitchen">Kitchen</CheckboxItemWithHooks>
-      <CheckboxItemWithHooks value="parking">Parking</CheckboxItemWithHooks>
-      <CheckboxItemWithHooks value="pool">Pool</CheckboxItemWithHooks>
-      <CheckboxItemWithHooks value="gym">Gym</CheckboxItemWithHooks>
-    </CheckboxGroup>
+    <>
+      <CheckboxGroup
+        className="gap-1"
+        label="Select ammenities"
+        orientation="horizontal"
+        value={groupSelected}
+        onChange={setGroupSelected}
+      >
+        <CheckboxItemWithHooks value="wifi">Wifi</CheckboxItemWithHooks>
+        <CheckboxItemWithHooks value="tv">TV</CheckboxItemWithHooks>
+        <CheckboxItemWithHooks value="kitchen">Kitchen</CheckboxItemWithHooks>
+        <CheckboxItemWithHooks value="parking">Parking</CheckboxItemWithHooks>
+        <CheckboxItemWithHooks value="pool">Pool</CheckboxItemWithHooks>
+        <CheckboxItemWithHooks value="gym">Gym</CheckboxItemWithHooks>
+      </CheckboxGroup>
+      <p className="mt-4 ml-1 text-neutral-500">Selected: {groupSelected.join(", ")}</p>
+    </>
   );
 };

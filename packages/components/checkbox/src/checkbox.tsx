@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";
 
@@ -39,8 +38,6 @@ const Checkbox = forwardRef<CheckboxProps, "label">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  Checkbox.displayName = "NextUI.Checkbox";
-}
+Checkbox.displayName = "NextUI.Checkbox";
 
 export default Checkbox;

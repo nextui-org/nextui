@@ -1,5 +1,6 @@
 module.exports = {
   stories: [
+    './welcome.stories.mdx', // default page
     "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/link/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/avatar/stories/*.stories.@(js|jsx|ts|tsx)",
@@ -13,6 +14,7 @@ module.exports = {
     "../../components/badge/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/checkbox/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/radio/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../components/pagination/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [

@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 import {AvatarGroupProvider} from "./avatar-group-context";
 import {useAvatarGroup, UseAvatarGroupProps} from "./use-avatar-group";
@@ -30,8 +29,6 @@ const AvatarGroup = forwardRef<AvatarGroupProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  AvatarGroup.displayName = "NextUI.AvatarGroup";
-}
+AvatarGroup.displayName = "NextUI.AvatarGroup";
 
 export default AvatarGroup;

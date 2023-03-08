@@ -5,7 +5,7 @@ import {button, buttonGroup} from "@nextui-org/theme";
 import {Button, ButtonGroup, ButtonGroupProps} from "../src";
 
 export default {
-  title: "Actions/ButtonGroup",
+  title: "Components/ButtonGroup",
   component: ButtonGroup,
   argTypes: {
     variant: {

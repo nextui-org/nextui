@@ -21,7 +21,7 @@ const chip = tv({
   slots: {
     base: ["relative", "max-w-fit", "inline-flex", "items-center", "justify-between", "box-border"],
     content: "flex-1 text-inherit select-none font-regular",
-    dot: ["w-2", "h-2", "mx-1", "rounded-full"],
+    dot: ["w-2", "h-2", "ml-1", "rounded-full"],
     avatar: "flex-shrink-0",
     closeButton: [
       "z-10",
@@ -114,6 +114,12 @@ const chip = tv({
       "2xl": {base: "rounded-2xl"},
       "3xl": {base: "rounded-3xl"},
       full: {base: "rounded-full"},
+    },
+    hasLeftContent: {
+      true: {},
+    },
+    hasRightContent: {
+      true: {},
     },
     isOneChar: {
       true: {
@@ -430,6 +436,36 @@ const chip = tv({
       size: "xl",
       class: {
         base: "w-8 h-8",
+      },
+    },
+    // hasLeftContent / size
+    {
+      hasLeftContent: true,
+      size: ["xs", "sm"],
+      class: {
+        content: "pl-0.5",
+      },
+    },
+    {
+      hasLeftContent: true,
+      size: ["md", "lg", "xl"],
+      class: {
+        content: "pl-1",
+      },
+    },
+    // hasRightContent / size
+    {
+      hasRightContent: true,
+      size: ["xs", "sm"],
+      class: {
+        content: "pr-0.5",
+      },
+    },
+    {
+      hasRightContent: true,
+      size: ["md", "lg", "xl"],
+      class: {
+        content: "pr-1",
       },
     },
   ],

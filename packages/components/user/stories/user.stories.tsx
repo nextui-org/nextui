@@ -5,7 +5,7 @@ import {Link} from "@nextui-org/link";
 import {User, UserProps} from "../src";
 
 export default {
-  title: "Display/User",
+  title: "Components/User",
   component: User,
 } as ComponentMeta<typeof User>;
 

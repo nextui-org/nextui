@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 import {Avatar} from "@nextui-org/avatar";
 
 import {UseUserProps, useUser} from "./use-user";
@@ -23,8 +22,6 @@ const User = forwardRef<UserProps, "div">((props, ref) => {
   );
 });
 
-if (__DEV__) {
-  User.displayName = "NextUI.User";
-}
+User.displayName = "NextUI.User";
 
 export default User;

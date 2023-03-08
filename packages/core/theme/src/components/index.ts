@@ -15,3 +15,4 @@ export * from "./checkbox";
 export * from "./checkbox-group";
 export * from "./radio";
 export * from "./radio-group";
+export * from "./pagination";

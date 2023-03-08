@@ -9,6 +9,7 @@ import {chip} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo, isValidElement, cloneElement} from "react";
+import {PressEvent} from "@react-types/shared";
 
 export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
   /**
@@ -47,8 +48,9 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
   /**
    * Callback fired when the chip is closed. if you pass this prop,
    * the chip will display a close button (rightContent).
+   * @param e PressEvent
    */
-  onClose?: () => void;
+  onClose?: (e: PressEvent) => void;
 }
 
 export function useChip(originalProps: UseChipProps) {
@@ -83,14 +85,25 @@ export function useChip(originalProps: UseChipProps) {
     [children],
   );
 
+  const hasLeftContent = useMemo(() => !!avatar || !!leftContent, [avatar, leftContent]);
+  const hasRightContent = useMemo(() => !!rightContent || isCloseable, [rightContent, isCloseable]);
+
   const slots = useMemo(
     () =>
       chip({
         ...variantProps,
+        hasLeftContent,
+        hasRightContent,
         isOneChar,
         isCloseButtonFocusVisible,
       }),
-    [...Object.values(variantProps), isCloseButtonFocusVisible, isOneChar],
+    [
+      ...Object.values(variantProps),
+      isCloseButtonFocusVisible,
+      hasLeftContent,
+      hasRightContent,
+      isOneChar,
+    ],
   );
 
   const {pressProps: closePressProps} = usePress({

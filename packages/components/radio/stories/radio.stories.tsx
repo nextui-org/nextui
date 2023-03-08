@@ -14,7 +14,7 @@ import {
 } from "../src";
 
 export default {
-  title: "Inputs/RadioGroup",
+  title: "Components/RadioGroup",
   component: RadioGroup,
   onChange: {action: "changed"},
   argTypes: {
