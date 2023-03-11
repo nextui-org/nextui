@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {pagination} from "@nextui-org/theme";
+import {button, pagination} from "@nextui-org/theme";
 
 import {Pagination, PaginationProps} from "../src";
 
@@ -8,10 +8,25 @@ export default {
   title: "Components/Pagination",
   component: Pagination,
   argTypes: {
+    page: {
+      control: {
+        type: "number",
+      },
+    },
+    siblings: {
+      control: {
+        type: "number",
+      },
+    },
+    boundaries: {
+      control: {
+        type: "number",
+      },
+    },
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "faded", "shadow", "dot"],
+        options: ["flat", "bordered", "light", "faded"],
       },
     },
     color: {
@@ -32,6 +47,11 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
+    showShadow: {
+      control: {
+        type: "boolean",
+      },
+    },
     isDisabled: {
       control: {
         type: "boolean",
@@ -43,6 +63,8 @@ export default {
 const defaultProps = {
   ...pagination.defaultVariants,
   total: 10,
+  siblings: 1,
+  boundaries: 1,
   initialPage: 1,
 };
 
@@ -53,6 +75,55 @@ const Template: ComponentStory<typeof Pagination> = (args: PaginationProps) => (
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
+};
+
+export const WithControls = Template.bind({});
+WithControls.args = {
+  ...defaultProps,
+  showControls: true,
+};
+
+export const InitialPage = Template.bind({});
+InitialPage.args = {
+  ...defaultProps,
+  initialPage: 3,
+};
+
+export const IsEven = Template.bind({});
+IsEven.args = {
+  ...defaultProps,
+  isEven: true,
+};
+
+export const Controlled = () => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  return (
+    <div className="flex flex-col gap-5">
+      <p>Page: {currentPage}</p>
+      <Pagination
+        {...defaultProps}
+        showShadow
+        color="secondary"
+        page={currentPage}
+        onChange={setCurrentPage}
+      />
+      <div className="flex gap-2">
+        <button
+          className={button({color: "secondary", size: "sm", variant: "flat"})}
+          onClick={() => setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev))}
+        >
+          Previous
+        </button>
+        <button
+          className={button({color: "secondary", size: "sm", variant: "flat"})}
+          onClick={() => setCurrentPage((prev) => (prev < defaultProps.total ? prev + 1 : prev))}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
 };
 
 // import {Grid} from "@nextui-org/grid";

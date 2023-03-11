@@ -1,32 +1,31 @@
-import type {ReactNode, Ref} from "react";
 import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nextui-org/theme";
-
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {
-  PaginationItemParam,
-  usePagination as useBasePagination,
+import type {Timer} from "@nextui-org/shared-utils";
+import type {ReactNode, Ref} from "react";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {
   UsePaginationProps as UseBasePaginationProps,
+  PaginationItemValue,
 } from "@nextui-org/use-pagination";
-import {useMemo} from "react";
+
+import {useEffect, useRef, useMemo} from "react";
+import {mapPropsVariants} from "@nextui-org/system";
+import {usePagination as useBasePagination} from "@nextui-org/use-pagination";
 import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
 export type PaginationItemRenderProps = {
-  value: PaginationItemParam;
+  value: PaginationItemValue;
   index: number;
-  dotsJump: number;
   isActive: boolean;
-  isNext: boolean;
-  isPrevious: boolean;
   isFirst: boolean;
   isLast: boolean;
-  isDots: boolean;
-  isBefore: boolean;
+  isNext: boolean;
+  isPrevious: boolean;
   className: string;
 };
 
-interface Props extends HTMLNextUIProps<"ul"> {
+interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
   /**
    * Ref to the DOM node.
    */
@@ -61,7 +60,9 @@ interface Props extends HTMLNextUIProps<"ul"> {
    * <Pagination styles={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
+   *    prev: "prev-classes", // prev button classes
    *    item: "item-classes",
+   *    next: "next-classes", // next button classes
    *    cursor: "cursor-classes", // this is the one that moves when an item is selected
    * }} />
    * ```
@@ -71,6 +72,8 @@ interface Props extends HTMLNextUIProps<"ul"> {
 
 export type UsePaginationProps = Props & UseBasePaginationProps & PaginationVariantProps;
 
+export const CURSOR_TRANSITION_TIMEOUT = 300; // in ms
+
 export function usePagination(originalProps: UsePaginationProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, pagination.variantKeys);
 
@@ -78,11 +81,11 @@ export function usePagination(originalProps: UsePaginationProps) {
     as,
     ref,
     styles,
-    showControls = true,
     dotsJump = 5,
     loop = false,
+    showControls = false,
     total = 1,
-    initialPage,
+    initialPage = 1,
     page,
     siblings,
     boundaries,
@@ -95,20 +98,85 @@ export function usePagination(originalProps: UsePaginationProps) {
   const Component = as || "ul";
 
   const domRef = useDOMRef(ref);
+  const cursorRef = useRef<HTMLElement>(null);
+  const itemsRef = useRef<Map<number, HTMLElement>>();
 
-  const {range, active, setPage, previous, next, first, last} = useBasePagination({
+  let cursorTimer: Timer;
+
+  function getItemsRefMap() {
+    if (!itemsRef.current) {
+      // Initialize the Map on first usage.
+      itemsRef.current = new Map();
+    }
+
+    return itemsRef.current;
+  }
+
+  function getItemRef(node: HTMLElement, value: number) {
+    const map = getItemsRefMap();
+
+    if (node) {
+      map.set(value, node);
+    } else {
+      map.delete(value);
+    }
+  }
+
+  function scrollTo(value: number) {
+    const map = getItemsRefMap();
+
+    const node = map.get(value);
+
+    // clean up the cursor timer
+    clearTimeout(cursorTimer);
+
+    if (node) {
+      // get position of the item
+      const {offsetLeft} = node;
+
+      // move the cursor to the item
+      if (cursorRef.current) {
+        cursorRef.current.setAttribute("data-moving", "true");
+        cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1.1)`;
+      }
+
+      cursorTimer = setTimeout(() => {
+        // reset the scale of the cursor
+        if (cursorRef.current) {
+          cursorRef.current.setAttribute("data-moving", "false");
+          cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
+        }
+        clearTimeout(cursorTimer);
+      }, CURSOR_TRANSITION_TIMEOUT);
+    }
+  }
+
+  const {range, activePage, setPage, previous, next, first, last} = useBasePagination({
     page,
+    total,
     initialPage,
     siblings,
     boundaries,
-    total,
+    showControls,
     onChange,
   });
+
+  useEffect(() => {
+    if (activePage && !originalProps.disableAnimation) {
+      scrollTo(activePage);
+    }
+  }, [
+    activePage,
+    originalProps.disableAnimation,
+    originalProps.isEven,
+    originalProps.disableCursor,
+  ]);
 
   const slots = useMemo(
     () =>
       pagination({
         ...variantProps,
+        disableCursor: originalProps.disableCursor || originalProps.disableAnimation,
       }),
     [...Object.values(variantProps)],
   );
@@ -116,7 +184,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   const baseStyles = clsx(styles?.base, className);
 
   const onNext = () => {
-    if (loop && active === total) {
+    if (loop && activePage === total) {
       return first();
     }
 
@@ -124,7 +192,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   };
 
   const onPrevious = () => {
-    if (loop && active === 1) {
+    if (loop && activePage === 1) {
       return last();
     }
 
@@ -135,13 +203,37 @@ export function usePagination(originalProps: UsePaginationProps) {
     return {
       ...props,
       ref: domRef,
+      role: "navigation",
       "data-controls": dataAttr(showControls),
       "data-loop": dataAttr(loop),
       "data-dots-jump": dotsJump,
       "data-total": total,
-      "data-active": active,
+      "data-active-page": activePage,
       className: slots.base({class: baseStyles}),
       ...otherProps,
+    };
+  };
+
+  const getItemProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ref: (node) => getItemRef(node, props.value),
+      isActive: props.value === activePage,
+      className: slots.item({class: styles?.item}),
+      onPress: () => {
+        if (props.value !== activePage) {
+          setPage(props.value);
+        }
+      },
+    };
+  };
+
+  const getCursorProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ref: cursorRef,
+      activePage,
+      className: slots.cursor({class: styles?.cursor}),
     };
   };
 
@@ -154,12 +246,16 @@ export function usePagination(originalProps: UsePaginationProps) {
     loop,
     total,
     range,
-    active,
+    activePage,
+    disableCursor: originalProps.disableCursor,
+    disableAnimation: originalProps.disableAnimation,
     setPage,
     onPrevious,
     onNext,
     renderItem,
     getBaseProps,
+    getItemProps,
+    getCursorProps,
   };
 }
 

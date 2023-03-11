@@ -13,7 +13,6 @@ export const decorators = [
 ];
 
 export const parameters = {
-  viewMode: 'docs',
   actions: {argTypesRegex: "^on[A-Z].*"},
   controls: {
     matchers: {

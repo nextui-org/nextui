@@ -33,9 +33,6 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "dependencies": {
-    "deepmerge": "4.3.0"
-  },
   "peerDependencies": {
     "react": ">=18"
   },

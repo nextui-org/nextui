@@ -1,4 +1,13 @@
 /**
+ * This is the base styles for all elements.
+ * Is meant to be used with the `addBase` method from tailwindcss.
+ */
+export const baseStyles = {
+  color: "hsl(var(--nextui-foreground))",
+  backgroundColor: "hsl(var(--nextui-background))",
+};
+
+/**
  * focus styles when the element is focused by keyboard.
  */
 export const focusVisibleClasses = [

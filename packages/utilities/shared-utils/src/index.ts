@@ -1,5 +1,3 @@
-export {default as deepMerge} from "deepmerge";
-
 export * from "./assertion";
 export * from "./refs";
 export * from "./clsx";
@@ -13,3 +11,4 @@ export * from "./context";
 export * from "./numbers";
 export * from "./console";
 export * from "./react";
+export * from "./types";

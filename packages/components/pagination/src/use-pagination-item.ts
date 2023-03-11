@@ -3,8 +3,9 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
-import {DOTS} from "@nextui-org/use-pagination";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {PaginationItemType} from "@nextui-org/use-pagination";
+import {ringClasses} from "@nextui-org/theme";
+import {clsx, dataAttr, warn} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {usePress} from "@react-aria/interactions";
@@ -34,7 +35,7 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
    * @param e MouseEvent
    * @deprecated Use `onPress` instead.
    */
-  onClick?: () => void;
+  onClick?: HTMLNextUIProps<"li">["onClick"];
   /**
    * Callback fired when the item is clicked.
    * @param e PressEvent
@@ -52,18 +53,18 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
 const getItemAriaLabel = (page?: string | number) => {
   if (!page) return;
   switch (page) {
-    case DOTS:
+    case PaginationItemType.DOTS:
       return "dots element";
-    case "<":
+    case PaginationItemType.PREV:
       return "previous page button";
-    case ">":
+    case PaginationItemType.NEXT:
       return "next page button";
     case "first":
       return "first page button";
     case "last":
       return "last page button";
     default:
-      return `${page} item`;
+      return `pagination item ${page}`;
   }
 };
 
@@ -78,6 +79,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
     onPress,
     onClick,
     getAriaLabel = getItemAriaLabel,
+    className,
     ...otherProps
   } = props;
 
@@ -90,7 +92,9 @@ export function usePaginationItem(props: UsePaginationItemProps) {
   );
 
   const handlePress = (e: PressEvent) => {
-    onClick?.();
+    if (onClick) {
+      warn("onClick is deprecated, use onPress instead.", "PaginationItem");
+    }
     onPress?.(e);
   };
 
@@ -112,6 +116,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
       "data-active": dataAttr(isActive),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
+      className: clsx(isFocusVisible && [...ringClasses], className),
       ...mergeProps(props, pressProps, focusProps, otherProps),
     };
   };

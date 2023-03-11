@@ -1,53 +1,61 @@
 import {forwardRef} from "@nextui-org/system";
-import {PaginationItemParam} from "@nextui-org/use-pagination";
+import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {useCallback} from "react";
-import {DOTS} from "@nextui-org/use-pagination";
+import {PaginationItemType} from "@nextui-org/use-pagination";
 
 import {UsePaginationProps, usePagination} from "./use-pagination";
 import PaginationItem from "./pagination-item";
+import PaginationCursor from "./pagination-cursor";
 
-export interface PaginationProps extends UsePaginationProps {}
+export interface PaginationProps extends Omit<UsePaginationProps, "ref"> {}
 
 const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
   const {
     Component,
     // showControls,
     dotsJump,
-    loop,
+    // loop,
     slots,
     styles,
     total,
     range,
-    active,
-    setPage,
+    activePage,
+    // setPage,
     // onPrevious,
     // onNext,
+    disableCursor,
+    disableAnimation,
     renderItem: renderItemProp,
     getBaseProps,
+    getItemProps,
+    getCursorProps,
   } = usePagination({ref, ...props});
 
   const renderItem = useCallback(
-    (value: PaginationItemParam, index: number) => {
-      const isBefore = index < range.indexOf(active);
+    (value: PaginationItemValue, index: number) => {
+      // const isBefore = index < range.indexOf(activePage);
 
       if (renderItemProp && typeof renderItemProp === "function") {
         return renderItemProp({
           value,
           index,
-          dotsJump,
-          isDots: value === DOTS,
-          isBefore,
-          isActive: value === active,
-          isPrevious: value === active - 1,
-          isNext: value === active + 1,
+          isActive: value === activePage,
+          isPrevious: value === activePage - 1,
+          isNext: value === activePage + 1,
           isFirst: value === 1,
           isLast: value === total,
           className: slots.item({class: styles?.item}),
         });
       }
+      if (value === PaginationItemType.PREV) {
+        return <PaginationItem className={slots.prev({class: styles?.prev})}>{"<"}</PaginationItem>;
+      }
+      if (value === PaginationItemType.NEXT) {
+        return <PaginationItem className={slots.next({class: styles?.next})}>{">"}</PaginationItem>;
+      }
 
-      if (value === DOTS) {
-        return <li>...</li>;
+      if (value === PaginationItemType.DOTS) {
+        return <PaginationItem className={slots.item({class: styles?.item})}>...</PaginationItem>;
         //   return (
         //     <PaginationEllipsis
         //       key={`nextui-pagination-item-${value}-${index}`}
@@ -66,22 +74,17 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
       }
 
       return (
-        <PaginationItem
-          key={`${value}-${index}`}
-          className={slots.item({class: styles?.item})}
-          isActive={value === active}
-          value={value}
-          onPress={() => value !== active && setPage(value)}
-        >
+        <PaginationItem key={`${value}-${index}`} {...getItemProps({value})}>
           {value}
         </PaginationItem>
       );
     },
-    [active, dotsJump, loop, range, renderItemProp, setPage, slots.item, styles?.item, total],
+    [activePage, dotsJump, getItemProps, range, renderItemProp, slots, styles, total],
   );
 
   return (
     <Component {...getBaseProps()}>
+      {!disableCursor && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
       {range.map(renderItem)}
 
       {/* {controls && (

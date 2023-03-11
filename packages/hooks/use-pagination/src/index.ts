@@ -1,6 +1,12 @@
 import {useMemo, useCallback, useState, useEffect} from "react";
 import {range} from "@nextui-org/shared-utils";
 
+export enum PaginationItemType {
+  DOTS = "dots",
+  PREV = "prev",
+  NEXT = "next",
+}
+
 export interface UsePaginationProps {
   /**
    * The total number of pages.
@@ -26,16 +32,28 @@ export interface UsePaginationProps {
    */
   boundaries?: number;
   /**
+   * If `true`, the range will include "prev" and "next" buttons.
+   * @default false
+   */
+  showControls?: boolean;
+  /**
    * Callback fired when the page changes.
    */
   onChange?: (page: number) => void;
 }
 
-export const DOTS = "dots";
-export type PaginationItemParam = number | typeof DOTS;
+export type PaginationItemValue = number | PaginationItemType;
 
 export function usePagination(props: UsePaginationProps) {
-  const {page, total, siblings = 1, boundaries = 1, initialPage = 1, onChange} = props;
+  const {
+    page,
+    total,
+    siblings = 1,
+    boundaries = 1,
+    initialPage = 1,
+    showControls = false,
+    onChange,
+  } = props;
   const [activePage, setActivePage] = useState(page || initialPage);
 
   const onChangeActivePage = (newPage: number) => {
@@ -67,11 +85,22 @@ export function usePagination(props: UsePaginationProps) {
   const first = () => setPage(1);
   const last = () => setPage(total);
 
-  const paginationRange = useMemo((): PaginationItemParam[] => {
+  const formatRange = useCallback(
+    (range: PaginationItemValue[]) => {
+      if (showControls) {
+        return [PaginationItemType.PREV, ...range, PaginationItemType.NEXT];
+      }
+
+      return range;
+    },
+    [showControls],
+  );
+
+  const paginationRange = useMemo((): PaginationItemValue[] => {
     const totalPageNumbers = siblings * 2 + 3 + boundaries * 2;
 
     if (totalPageNumbers >= total) {
-      return range(1, total);
+      return formatRange(range(1, total));
     }
     const leftSiblingIndex = Math.max(activePage - siblings, boundaries);
     const rightSiblingIndex = Math.min(activePage + siblings, total - boundaries);
@@ -87,27 +116,35 @@ export function usePagination(props: UsePaginationProps) {
     if (!shouldShowLeftDots && shouldShowRightDots) {
       const leftItemCount = siblings * 2 + boundaries + 2;
 
-      return [...range(1, leftItemCount), DOTS, ...range(total - (boundaries - 1), total)];
+      return formatRange([
+        ...range(1, leftItemCount),
+        PaginationItemType.DOTS,
+        ...range(total - (boundaries - 1), total),
+      ]);
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
       const rightItemCount = boundaries + 1 + 2 * siblings;
 
-      return [...range(1, boundaries), DOTS, ...range(total - rightItemCount, total)];
+      return formatRange([
+        ...range(1, boundaries),
+        PaginationItemType.DOTS,
+        ...range(total - rightItemCount, total),
+      ]);
     }
 
-    return [
+    return formatRange([
       ...range(1, boundaries),
-      DOTS,
+      PaginationItemType.DOTS,
       ...range(leftSiblingIndex, rightSiblingIndex),
-      DOTS,
+      PaginationItemType.DOTS,
       ...range(total - boundaries + 1, total),
-    ];
-  }, [total, siblings, activePage]);
+    ]);
+  }, [total, activePage, siblings, boundaries, formatRange]);
 
   return {
     range: paginationRange,
-    active: activePage,
+    activePage,
     setPage,
     next,
     previous,
