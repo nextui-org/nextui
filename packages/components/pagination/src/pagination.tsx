@@ -2,6 +2,8 @@ import {forwardRef} from "@nextui-org/system";
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {useCallback} from "react";
 import {PaginationItemType} from "@nextui-org/use-pagination";
+import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@nextui-org/shared-icons";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {UsePaginationProps, usePagination} from "./use-pagination";
 import PaginationItem from "./pagination-item";
@@ -12,20 +14,19 @@ export interface PaginationProps extends Omit<UsePaginationProps, "ref"> {}
 const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
   const {
     Component,
-    // showControls,
     dotsJump,
-    // loop,
     slots,
     styles,
     total,
     range,
+    loop,
     activePage,
-    // setPage,
-    // onPrevious,
-    // onNext,
     disableCursor,
     disableAnimation,
     renderItem: renderItemProp,
+    onNext,
+    onPrevious,
+    setPage,
     getBaseProps,
     getItemProps,
     getCursorProps,
@@ -33,7 +34,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
 
   const renderItem = useCallback(
     (value: PaginationItemValue, index: number) => {
-      // const isBefore = index < range.indexOf(activePage);
+      const isBefore = index < range.indexOf(activePage);
 
       if (renderItemProp && typeof renderItemProp === "function") {
         return renderItemProp({
@@ -48,29 +49,56 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
         });
       }
       if (value === PaginationItemType.PREV) {
-        return <PaginationItem className={slots.prev({class: styles?.prev})}>{"<"}</PaginationItem>;
+        return (
+          <PaginationItem
+            className={slots.prev({
+              class: clsx(
+                styles?.prev,
+                !loop && activePage === 1 && "opacity-50 pointer-events-none",
+              ),
+            })}
+            onPress={onPrevious}
+          >
+            <ChevronIcon />
+          </PaginationItem>
+        );
       }
       if (value === PaginationItemType.NEXT) {
-        return <PaginationItem className={slots.next({class: styles?.next})}>{">"}</PaginationItem>;
+        return (
+          <PaginationItem
+            className={slots.next({
+              class: clsx(
+                styles?.next,
+                !loop && activePage === total && "opacity-50 pointer-events-none",
+              ),
+            })}
+            onPress={onNext}
+          >
+            <ChevronIcon className="rotate-180" />
+          </PaginationItem>
+        );
       }
 
       if (value === PaginationItemType.DOTS) {
-        return <PaginationItem className={slots.item({class: styles?.item})}>...</PaginationItem>;
-        //   return (
-        //     <PaginationEllipsis
-        //       key={`nextui-pagination-item-${value}-${index}`}
-        //       animated={animated}
-        //       bordered={bordered}
-        //       isBefore={isBefore}
-        //       onlyDots={onlyDots}
-        //       value={value}
-        //       onClick={() =>
-        //         isBefore
-        //           ? setPage(active - dotsJump >= 1 ? active - dotsJump : 1)
-        //           : setPage(active + dotsJump <= total ? active + dotsJump : total)
-        //       }
-        //     />
-        //   );
+        return (
+          <PaginationItem
+            className={slots.item({
+              class: clsx(styles?.item, "group"),
+            })}
+            onPress={() =>
+              isBefore
+                ? setPage(activePage - dotsJump >= 1 ? activePage - dotsJump : 1)
+                : setPage(activePage + dotsJump <= total ? activePage + dotsJump : total)
+            }
+          >
+            <EllipsisIcon className="group-hover:hidden" />
+            {isBefore ? (
+              <ForwardIcon className="hidden group-hover:block rotate-180" />
+            ) : (
+              <ForwardIcon className="hidden group-hover:block" />
+            )}
+          </PaginationItem>
+        );
       }
 
       return (
@@ -79,41 +107,13 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
         </PaginationItem>
       );
     },
-    [activePage, dotsJump, getItemProps, range, renderItemProp, slots, styles, total],
+    [activePage, dotsJump, getItemProps, loop, range, renderItemProp, slots, styles, total],
   );
 
   return (
     <Component {...getBaseProps()}>
       {!disableCursor && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
       {range.map(renderItem)}
-
-      {/* {controls && (
-        <PaginationIcon
-          isPrev
-          animated={animated}
-          bordered={bordered}
-          disabled={!loop && active === 1}
-          onlyDots={onlyDots}
-          onClick={onPrevious}
-        />
-      )}
-      <PaginationHighlight
-        active={controls ? range.indexOf(active) + 1 : range.indexOf(active)}
-        animated={animated}
-        noMargin={noMargin}
-        rounded={rounded}
-        shadow={shadow}
-      />
-      {range.map(renderItem)}
-      {controls && (
-        <PaginationIcon
-          animated={animated}
-          bordered={bordered}
-          disabled={!loop && active === total}
-          onlyDots={onlyDots}
-          onClick={onNext}
-        />
-      )} */}
     </Component>
   );
 });

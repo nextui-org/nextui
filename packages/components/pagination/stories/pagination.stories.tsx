@@ -83,6 +83,13 @@ WithControls.args = {
   showControls: true,
 };
 
+export const PaginationLoop = Template.bind({});
+PaginationLoop.args = {
+  ...defaultProps,
+  showControls: true,
+  loop: true,
+};
+
 export const InitialPage = Template.bind({});
 InitialPage.args = {
   ...defaultProps,
