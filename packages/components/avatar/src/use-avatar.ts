@@ -155,11 +155,6 @@ export function useAvatar(props: UseAvatarProps) {
     return "appearance-none outline-none border-none cursor-pointer";
   }, [as]);
 
-  const imgStyles = clsx(
-    "transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100",
-    styles?.img,
-  );
-
   const baseStyles = clsx(styles?.base, className);
 
   const canBeFocused = useMemo(() => {
@@ -177,6 +172,16 @@ export function useAvatar(props: UseAvatarProps) {
     [canBeFocused, slots, baseStyles, buttonStyles, focusProps, otherProps],
   );
 
+  const getImageProps = useCallback<PropGetter>(
+    () => ({
+      ref: imgRef,
+      src: src,
+      "data-loaded": isImgLoaded,
+      className: slots.img({class: styles?.img}),
+    }),
+    [slots, isImgLoaded, src, imgRef],
+  );
+
   return {
     Component,
     src,
@@ -191,9 +196,9 @@ export function useAvatar(props: UseAvatarProps) {
     isImgLoaded,
     showFallback,
     ignoreFallback,
-    imgStyles,
-    getAvatarProps,
     getInitials,
+    getAvatarProps,
+    getImageProps,
   };
 }
 

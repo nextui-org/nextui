@@ -13,16 +13,14 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
     icon = <AvatarIcon />,
     alt,
     domRef,
-    imgRef,
     styles,
     slots,
     name,
-    isImgLoaded,
     showFallback,
-    imgStyles,
-    getAvatarProps,
-    getInitials,
     fallback: fallbackComponent,
+    getInitials,
+    getAvatarProps,
+    getImageProps,
   } = useAvatar({
     ref,
     ...props,
@@ -58,15 +56,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
 
   return (
     <Component ref={domRef} {...getAvatarProps()}>
-      {src && (
-        <img
-          ref={imgRef}
-          alt={alt}
-          className={slots.img({class: imgStyles})}
-          data-loaded={isImgLoaded}
-          src={src}
-        />
-      )}
+      {src && <img {...getImageProps()} alt={alt} />}
       {fallback}
     </Component>
   );

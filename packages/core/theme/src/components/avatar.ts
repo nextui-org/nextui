@@ -27,7 +27,16 @@ const avatar = tv({
       "text-white",
       "z-10",
     ],
-    img: ["flex", "object-cover", "w-full", "h-full"],
+    img: [
+      "flex",
+      "object-cover",
+      "w-full",
+      "h-full",
+      "transition-opacity",
+      "!duration-500",
+      "opacity-0",
+      "data-[loaded=true]:opacity-100",
+    ],
     fallback: [...translateCenterClasses, "flex", "items-center", "justify-center"],
     name: [...translateCenterClasses, "font-semibold", "text-center", "text-inherit"],
     icon: [
