@@ -205,8 +205,9 @@ CustomWithStyles.args = {
   showShadow: true,
   styles: {
     base: "gap-0 rounded border-1 border-neutral",
-    item: "rounded-none bg-transparent",
-    cursor: "rounded-sm",
+    item: "w-8 h-8 text-sm rounded-none bg-transparent",
+    cursor:
+      "bg-gradient-to-b shadow-lg shadow-neutral from-neutral-500 to-neutral-800 dark:from-neutral-300 dark:to-neutral-100 text-white font-bold",
   },
 };
 
@@ -222,12 +223,12 @@ export const CustomWithHooks = () => {
   return (
     <div className="flex flex-col gap-2">
       <p>Active page: {activePage}</p>
-      <ul className="flex gap-2">
+      <ul className="flex gap-2 items-center">
         {range.map((page) => {
           if (page === PaginationItemType.NEXT) {
             return (
-              <li key={page} aria-label="next page">
-                <button className="w-5 h-5 bg-neutral-200 rounded-full" onClick={onNext}>
+              <li key={page} aria-label="next page" className="w-4 h-4">
+                <button className="w-full h-full bg-neutral-200 rounded-full" onClick={onNext}>
                   <ChevronIcon className="rotate-180" />
                 </button>
               </li>
@@ -236,8 +237,8 @@ export const CustomWithHooks = () => {
 
           if (page === PaginationItemType.PREV) {
             return (
-              <li key={page} aria-label="previous page">
-                <button className="w-5 h-5 bg-neutral-200 rounded-full" onClick={onPrevious}>
+              <li key={page} aria-label="previous page" className="w-4 h-4">
+                <button className="w-full h-full bg-neutral-200 rounded-full" onClick={onPrevious}>
                   <ChevronIcon />
                 </button>
               </li>
@@ -245,14 +246,18 @@ export const CustomWithHooks = () => {
           }
 
           if (page === PaginationItemType.DOTS) {
-            return <li key={page}>...</li>;
+            return (
+              <li key={page} className="w-4 h-4">
+                ...
+              </li>
+            );
           }
 
           return (
-            <li key={page} aria-label={`page ${page}`}>
+            <li key={page} aria-label={`page ${page}`} className="w-4 h-4">
               <button
                 className={cn(
-                  "w-4 h-4 bg-neutral-400  rounded-full",
+                  "w-full h-full bg-neutral-300  rounded-full",
                   activePage === page && "bg-secondary",
                 )}
                 onClick={() => setPage(page)}

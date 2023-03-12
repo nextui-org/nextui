@@ -20,7 +20,7 @@ import {colorVariants, ringClasses} from "../utils";
  */
 const pagination = tv({
   slots: {
-    base: "flex flex-wrap relative gap-1 max-w-fit",
+    base: "flex flex-wrap relative items-center gap-1 max-w-fit",
     item: "",
     prev: "",
     next: "",
