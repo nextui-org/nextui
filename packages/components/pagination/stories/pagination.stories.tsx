@@ -1,8 +1,15 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {button, pagination} from "@nextui-org/theme";
+import {button, pagination, cn} from "@nextui-org/theme";
+import {ChevronIcon} from "@nextui-org/shared-icons";
 
-import {Pagination, PaginationProps} from "../src";
+import {
+  Pagination,
+  PaginationItemRenderProps,
+  PaginationItemType,
+  PaginationProps,
+  usePagination,
+} from "../src";
 
 export default {
   title: "Components/Pagination",
@@ -96,10 +103,11 @@ InitialPage.args = {
   initialPage: 3,
 };
 
-export const IsEven = Template.bind({});
-IsEven.args = {
+export const IsCompact = Template.bind({});
+IsCompact.args = {
   ...defaultProps,
-  isEven: true,
+  showControls: true,
+  isCompact: true,
 };
 
 export const Controlled = () => {
@@ -133,162 +141,126 @@ export const Controlled = () => {
   );
 };
 
-// import {Grid} from "@nextui-org/grid";
+export const CustomItems = () => {
+  const renderItem = ({
+    ref,
+    value,
+    isActive,
+    onNext,
+    onPrevious,
+    setPage,
+    className,
+  }: PaginationItemRenderProps<HTMLButtonElement>) => {
+    if (value === PaginationItemType.NEXT) {
+      return (
+        <button className={cn(className, "bg-neutral-200")} onClick={onNext}>
+          <ChevronIcon className="rotate-180" />
+        </button>
+      );
+    }
 
-// import {Pagination} from "../src";
+    if (value === PaginationItemType.PREV) {
+      return (
+        <button className={cn(className, "bg-neutral-200")} onClick={onPrevious}>
+          <ChevronIcon />
+        </button>
+      );
+    }
 
-// export default {
-//   title: "Navigation/Pagination",
-//   component: Pagination,
-// } as Meta;
+    if (value === PaginationItemType.DOTS) {
+      return <button className={className}>...</button>;
+    }
 
-// export const Default = () => <Pagination initialPage={1} total={20} />;
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          className,
+          isActive &&
+            "bg-gradient-to-b shadow-lg from-neutral-500 to-neutral-800 dark:from-neutral-300 dark:to-neutral-100 text-white font-bold",
+        )}
+        onClick={() => setPage(value)}
+      >
+        {value}
+      </button>
+    );
+  };
 
-// export const Colors = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination color="primary" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination color="secondary" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination color="success" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination color="warning" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination color="error" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination color="gradient" total={10} />
-//     </Grid>
-//   </>
-// );
+  return (
+    <Pagination
+      {...defaultProps}
+      disableCursor
+      showControls
+      className="gap-2"
+      radius="full"
+      renderItem={renderItem}
+      variant="light"
+    />
+  );
+};
 
-// export const Sizes = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination size="xs" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination size="sm" total={5} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination initialPage={6} size="md" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination initialPage={6} size="lg" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination initialPage={6} size="xl" total={30} />
-//     </Grid>
-//   </>
-// );
+export const CustomWithStyles = Template.bind({});
+CustomWithStyles.args = {
+  ...defaultProps,
+  showShadow: true,
+  styles: {
+    base: "gap-0 rounded border-1 border-neutral",
+    item: "rounded-none bg-transparent",
+    cursor: "rounded-sm",
+  },
+};
 
-// export const Rounded = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination rounded size="xs" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded size="sm" total={5} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded initialPage={6} size="md" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded initialPage={6} size="lg" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded initialPage={6} size="xl" total={30} />
-//     </Grid>
-//   </>
-// );
+export const CustomWithHooks = () => {
+  const {activePage, range, setPage, onNext, onPrevious} = usePagination({
+    ...defaultProps,
+    total: 6,
+    showControls: true,
+    siblings: 10,
+    boundaries: 10,
+  });
 
-// export const Bordered = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination bordered initialPage={1} total={20} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination bordered rounded initialPage={1} total={20} />
-//     </Grid>
-//   </>
-// );
+  return (
+    <div className="flex flex-col gap-2">
+      <p>Active page: {activePage}</p>
+      <ul className="flex gap-2">
+        {range.map((page) => {
+          if (page === PaginationItemType.NEXT) {
+            return (
+              <li key={page} aria-label="next page">
+                <button className="w-5 h-5 bg-neutral-200 rounded-full" onClick={onNext}>
+                  <ChevronIcon className="rotate-180" />
+                </button>
+              </li>
+            );
+          }
 
-// export const Shadow = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination shadow color="primary" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded shadow color="secondary" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination shadow color="success" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded shadow color="warning" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination shadow color="error" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination rounded shadow color="gradient" total={10} />
-//     </Grid>
-//   </>
-// );
+          if (page === PaginationItemType.PREV) {
+            return (
+              <li key={page} aria-label="previous page">
+                <button className="w-5 h-5 bg-neutral-200 rounded-full" onClick={onPrevious}>
+                  <ChevronIcon />
+                </button>
+              </li>
+            );
+          }
 
-// export const OnlyDots = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination onlyDots color="primary" size="xs" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination onlyDots shadow color="secondary" size="sm" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination onlyDots color="success" size="md" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination onlyDots shadow color="warning" size="lg" total={10} />
-//     </Grid>
-//     <Grid xs={12}>
-//       <Pagination onlyDots color="error" size="xl" total={10} />
-//     </Grid>
-//   </>
-// );
+          if (page === PaginationItemType.DOTS) {
+            return <li key={page}>...</li>;
+          }
 
-// export const Loop = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination loop initialPage={1} total={6} />
-//     </Grid>
-//   </>
-// );
-
-// export const NoMargin = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination noMargin shadow color="secondary" initialPage={1} total={6} />
-//     </Grid>
-//   </>
-// );
-
-// export const NoControls = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination shadow color="success" controls={false} initialPage={1} total={20} />
-//     </Grid>
-//   </>
-// );
-
-// export const NoAnimated = () => (
-//   <>
-//     <Grid xs={12}>
-//       <Pagination animated={false} initialPage={1} total={6} />
-//     </Grid>
-//   </>
-// );
+          return (
+            <li key={page} aria-label={`page ${page}`}>
+              <button
+                className={cn(
+                  "w-4 h-4 bg-neutral-400  rounded-full",
+                  activePage === page && "bg-secondary",
+                )}
+                onClick={() => setPage(page)}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};

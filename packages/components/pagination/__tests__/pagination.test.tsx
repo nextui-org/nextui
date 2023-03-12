@@ -11,14 +11,14 @@ describe("Pagination", () => {
   });
 
   it("ref should be forwarded", () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLUListElement>();
 
     render(<Pagination ref={ref} total={10} />);
     expect(ref.current).not.toBeNull();
   });
 
   it("should render correctly with controls", () => {
-    const wrapper = render(<Pagination controls={true} total={10} />);
+    const wrapper = render(<Pagination showControls total={10} />);
 
     const nextButton = wrapper.getByLabelText("next page button");
     const prevButton = wrapper.getByLabelText("previous page button");
@@ -27,8 +27,8 @@ describe("Pagination", () => {
     expect(prevButton).not.toBeNull();
   });
 
-  it("should render correctly with no controls", () => {
-    const wrapper = render(<Pagination controls={false} total={10} />);
+  it("should render correctly without controls", () => {
+    const wrapper = render(<Pagination total={10} />);
 
     const nextButton = wrapper.queryByLabelText("next page button");
     const prevButton = wrapper.queryByLabelText("previous page button");
@@ -53,11 +53,11 @@ describe("Pagination", () => {
     expect(dots).toHaveLength(2);
   });
 
-  it("the pagination highlight should have a aria-hidden attribute", () => {
+  it("the pagination cursor should have a aria-hidden attribute", () => {
     const {container} = render(<Pagination total={10} />);
 
-    const highlight = container.querySelector(".nextui-pagination-highlight");
+    const cursor = container.querySelector("span[aria-hidden]");
 
-    expect(highlight).toHaveAttribute("aria-hidden", "true");
+    expect(cursor).toHaveAttribute("aria-hidden", "true");
   });
 });

@@ -14,15 +14,20 @@ import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
-export type PaginationItemRenderProps = {
+export type PaginationItemRenderProps<T extends HTMLElement = HTMLElement> = {
+  ref?: Ref<T>;
   value: PaginationItemValue;
   index: number;
+  activePage: number;
   isActive: boolean;
   isFirst: boolean;
   isLast: boolean;
   isNext: boolean;
   isPrevious: boolean;
   className: string;
+  onNext: () => void;
+  onPrevious: () => void;
+  setPage: (page: number) => void;
 };
 
 interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
@@ -50,7 +55,7 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    * @param props Pagination item props
    * @returns ReactNode
    */
-  renderItem?: (props: PaginationItemRenderProps) => ReactNode;
+  renderItem?: <T extends HTMLElement>(props: PaginationItemRenderProps<T>) => ReactNode;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -112,7 +117,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     return itemsRef.current;
   }
 
-  function getItemRef(node: HTMLElement, value: number) {
+  function getItemRef(node: HTMLElement | null, value: number) {
     const map = getItemsRefMap();
 
     if (node) {
@@ -168,7 +173,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   }, [
     activePage,
     originalProps.disableAnimation,
-    originalProps.isEven,
+    originalProps.isCompact,
     originalProps.disableCursor,
   ]);
 
@@ -247,6 +252,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     total,
     range,
     activePage,
+    getItemRef,
     disableCursor: originalProps.disableCursor,
     disableAnimation: originalProps.disableAnimation,
     setPage,

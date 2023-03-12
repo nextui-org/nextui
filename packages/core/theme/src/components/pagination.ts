@@ -83,7 +83,7 @@ const pagination = tv({
       xl: {},
       full: {},
     },
-    isEven: {
+    isCompact: {
       true: {
         base: "gap-0",
         item: [
@@ -91,6 +91,8 @@ const pagination = tv({
           "last-of-type:rounded-l-none",
           "[&:not(:first-of-type):not(:last-of-type)]:rounded-none",
         ],
+        prev: "!rounded-r-none",
+        next: "!rounded-l-none",
       },
     },
     isDisabled: {
@@ -124,7 +126,7 @@ const pagination = tv({
     color: "primary",
     size: "md",
     radius: "xl",
-    isEven: false,
+    isCompact: false,
     isDisabled: false,
     showShadow: false,
     disableAnimation: false,
@@ -174,9 +176,9 @@ const pagination = tv({
         cursor: colorVariants.shadow.danger,
       },
     },
-    // isEven / bordered
+    // isCompact / bordered
     {
-      isEven: true,
+      isCompact: true,
       variant: "bordered",
       class: {
         item: "[&:not(:first-of-type)]:border-l-0",
@@ -317,11 +319,23 @@ const pagination = tv({
         "outline-none",
         "items-center",
         "justify-center",
-        "bg-neutral-100",
-        "hover:bg-neutral-200",
-        "active:bg-neutral-300",
         "text-neutral-contrastText",
       ],
+    },
+    {
+      slots: ["item", "prev", "next"],
+      variant: "flat",
+      class: ["bg-neutral-100", "hover:bg-neutral-200", "active:bg-neutral-300"],
+    },
+    {
+      slots: ["item", "prev", "next"],
+      variant: "faded",
+      class: ["bg-neutral-100", "hover:bg-neutral-200", "active:bg-neutral-300"],
+    },
+    {
+      slots: ["item", "prev", "next"],
+      variant: "light",
+      class: ["hover:bg-neutral-100", "active:bg-neutral-200"],
     },
     // size
     {

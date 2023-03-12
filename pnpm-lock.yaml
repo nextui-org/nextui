@@ -835,7 +835,7 @@ importers:
       lodash.foreach: ^4.5.0
       lodash.get: ^4.4.2
       lodash.isempty: ^4.4.0
-      tailwind-variants: ^0.1.0
+      tailwind-variants: ^0.1.1
       tailwindcss: ^3.2.7
     dependencies:
       color: 4.2.3
@@ -845,7 +845,7 @@ importers:
       lodash.foreach: 4.5.0
       lodash.get: 4.4.2
       lodash.isempty: 4.4.0
-      tailwind-variants: 0.1.0_tailwindcss@3.2.7
+      tailwind-variants: 0.1.1_tailwindcss@3.2.7
       tailwindcss: 3.2.7
     devDependencies:
       '@types/color': 3.0.3
@@ -13310,8 +13310,8 @@ packages:
       strip-final-newline: 2.0.0
     dev: true
 
-  /execa/7.0.0:
-    resolution: {integrity: sha512-tQbH0pH/8LHTnwTrsKWideqi6rFB/QNUawEwrn+WHyz7PX1Tuz2u7wfTvbaNBdP5JD5LVWxNo8/A8CHNZ3bV6g==}
+  /execa/7.1.0:
+    resolution: {integrity: sha512-T6nIJO3LHxUZ6ahVRaxXz9WLEruXLqdcluA+UuTptXmLM7nDAn9lx9IfkxPyzEL21583qSt4RmL44pO71EHaJQ==}
     engines: {node: ^14.18.0 || ^16.14.0 || >=18.0.0}
     dependencies:
       cross-spawn: 7.0.3
@@ -16635,9 +16635,9 @@ packages:
       cli-truncate: 3.1.0
       commander: 10.0.0
       debug: 4.3.4
-      execa: 7.0.0
+      execa: 7.1.0
       lilconfig: 2.1.0
-      listr2: 5.0.7
+      listr2: 5.0.8
       micromatch: 4.0.5
       normalize-path: 3.0.0
       object-inspect: 1.12.3
@@ -16659,8 +16659,8 @@ packages:
       repeat-string: 1.6.1
     dev: true
 
-  /listr2/5.0.7:
-    resolution: {integrity: sha512-MD+qXHPmtivrHIDRwPYdfNkrzqDiuaKU/rfBcec3WMyMF3xylQj3jMq344OtvQxz7zaCFViRAeqlr2AFhPvXHw==}
+  /listr2/5.0.8:
+    resolution: {integrity: sha512-mC73LitKHj9w6v30nLNGPetZIlfpUniNSsxxrbaPcWOjDb92SHPzJPi/t+v1YC/lxKz/AJ9egOjww0qUuFxBpA==}
     engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
       enquirer: '>= 2.3.0 < 3'
@@ -17483,8 +17483,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /minipass/4.2.4:
-    resolution: {integrity: sha512-lwycX3cBMTvcejsHITUgYj6Gy6A7Nh4Q6h9NP4sTHY1ccJlC7yKzDmiShEHsJ16Jf1nKGDEaiHxiltsJEvk0nQ==}
+  /minipass/4.2.5:
+    resolution: {integrity: sha512-+yQl7SX3bIT83Lhb4BVorMAHVuqsskxRdlmO9kTpyukp8vsm2Sn/fUOV9xlnG8/a5JsypJzap21lz/y3FBMJ8Q==}
     engines: {node: '>=8'}
     dev: true
 
@@ -21426,8 +21426,8 @@ packages:
     resolution: {integrity: sha512-WFnDXSS4kFTZwjKg5/oZSGzBRU/l+qcbv5NVTzLUQvJ9yovDAP05h0F2+ZFW0Lw9EcgRoc2AfURUdZvnEFrXKg==}
     dev: false
 
-  /tailwind-variants/0.1.0_tailwindcss@3.2.7:
-    resolution: {integrity: sha512-c023Ia/c2HN/Q+cnY81q/XWgSd1r9sxsOA0LW+Ch4lLqgcnhOcAyGpCqt5MDtZDiiSb1SGHvaCAwwMLbPflBDg==}
+  /tailwind-variants/0.1.1_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-kW9kXmVv9ankGydv36pg9M7fwgQfN/DZ3JlqFfmuIDPRa1/psm3KbTcB4vgEBiku7VtGQBm6oy3EsTJUYJKsLg==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
@@ -21483,7 +21483,7 @@ packages:
     dependencies:
       chownr: 2.0.0
       fs-minipass: 2.1.0
-      minipass: 4.2.4
+      minipass: 4.2.5
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0

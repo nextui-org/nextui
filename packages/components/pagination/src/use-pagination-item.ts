@@ -3,7 +3,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
-import {PaginationItemType} from "@nextui-org/use-pagination";
+import {PaginationItemType, PaginationItemValue} from "@nextui-org/use-pagination";
 import {ringClasses} from "@nextui-org/theme";
 import {clsx, dataAttr, warn} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -19,7 +19,7 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
   /**
    * Value of the item.
    */
-  value?: string | number;
+  value?: PaginationItemType;
   /**
    * Whether the item is active.
    * @default false
@@ -44,10 +44,10 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
 
   /**
    * Function to get the aria-label of the item.
-   * @param page string | number
+   * @param page PaginationItemValue
    * @returns string
    */
-  getAriaLabel?: (page?: string | number) => string;
+  getAriaLabel?: (page?: PaginationItemValue) => string;
 }
 
 const getItemAriaLabel = (page?: string | number) => {
