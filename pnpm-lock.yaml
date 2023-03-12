@@ -391,7 +391,6 @@ importers:
       '@nextui-org/code': workspace:*
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/drip': workspace:*
-      '@nextui-org/image': workspace:*
       '@nextui-org/link': workspace:*
       '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
@@ -405,7 +404,6 @@ importers:
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
       '@nextui-org/drip': link:../drip
-      '@nextui-org/image': link:../image
       '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
@@ -558,27 +556,6 @@ importers:
       clean-package: 2.2.0
       react: 18.2.0
 
-  packages/components/image:
-    specifiers:
-      '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/shared-utils': workspace:*
-      '@nextui-org/system': workspace:*
-      '@nextui-org/use-real-shape': workspace:*
-      '@nextui-org/use-ref-state': workspace:*
-      '@nextui-org/use-resize': workspace:*
-      clean-package: 2.2.0
-      react: ^18.2.0
-    dependencies:
-      '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/shared-utils': link:../../utilities/shared-utils
-      '@nextui-org/system': link:../../core/system
-      '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
-      '@nextui-org/use-ref-state': link:../../hooks/use-ref-state
-      '@nextui-org/use-resize': link:../../hooks/use-resize
-    devDependencies:
-      clean-package: 2.2.0
-      react: 18.2.0
-
   packages/components/link:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
@@ -706,6 +683,23 @@ importers:
       clean-package: 2.2.0
       react: 18.2.0
 
+  packages/components/switch:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/theme': workspace:*
+      clean-package: 2.2.0
+      react: ^18.2.0
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/theme': link:../../core/theme
+    devDependencies:
+      clean-package: 2.2.0
+      react: 18.2.0
+
   packages/components/tooltip:
     specifiers:
       '@nextui-org/aria-utils': workspace:*
@@ -777,7 +771,6 @@ importers:
       '@nextui-org/checkbox': workspace:*
       '@nextui-org/code': workspace:*
       '@nextui-org/drip': workspace:*
-      '@nextui-org/image': workspace:*
       '@nextui-org/link': workspace:*
       '@nextui-org/pagination': workspace:*
       '@nextui-org/radio': workspace:*
@@ -796,7 +789,6 @@ importers:
       '@nextui-org/checkbox': link:../../components/checkbox
       '@nextui-org/code': link:../../components/code
       '@nextui-org/drip': link:../../components/drip
-      '@nextui-org/image': link:../../components/image
       '@nextui-org/link': link:../../components/link
       '@nextui-org/pagination': link:../../components/pagination
       '@nextui-org/radio': link:../../components/radio

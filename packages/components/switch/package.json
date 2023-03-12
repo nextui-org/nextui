@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/card",
+  "name": "@nextui-org/switch",
   "version": "2.0.0-beta.1",
-  "description": "Card is a container for text, photos, and actions in the context of a single subject.",
+  "description": "A switch is similar to a checkbox, but represents on/off values as opposed to selection.",
   "keywords": [
-    "card"
+    "switch"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,17 +19,17 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/card"
+    "directory": "packages/components/switch"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -38,18 +38,11 @@
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/drip": "workspace:*",
-    "@react-aria/focus": "^3.11.0",
-    "@react-aria/utils": "^3.15.0",
-    "@react-aria/interactions": "^3.14.0"
+    "@nextui-org/dom-utils": "workspace:*"
   },
   "devDependencies": {
-    "@react-types/shared": "^3.17.0",
-    "@nextui-org/code": "workspace:*",
-    "@nextui-org/link": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },
