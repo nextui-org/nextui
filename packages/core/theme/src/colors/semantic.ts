@@ -20,19 +20,19 @@ const base: SemanticBaseColors = {
     },
     content1: {
       DEFAULT: twColors.zinc[50],
-      contrastText: readableColor(twColors.zinc[50]),
+      contrastText: twColors.zinc[900],
     },
     content2: {
       DEFAULT: twColors.zinc[100],
-      contrastText: readableColor(twColors.zinc[100]),
+      contrastText: twColors.zinc[800],
     },
     content3: {
       DEFAULT: twColors.zinc[200],
-      contrastText: readableColor(twColors.zinc[200]),
+      contrastText: twColors.zinc[700],
     },
     content4: {
       DEFAULT: twColors.zinc[300],
-      contrastText: readableColor(twColors.zinc[300]),
+      contrastText: twColors.zinc[600],
     },
   },
   dark: {
@@ -47,19 +47,19 @@ const base: SemanticBaseColors = {
     },
     content1: {
       DEFAULT: twColors.zinc[900],
-      contrastText: readableColor(twColors.zinc[900]),
+      contrastText: twColors.zinc[50],
     },
     content2: {
       DEFAULT: twColors.zinc[800],
-      contrastText: readableColor(twColors.zinc[800]),
+      contrastText: twColors.zinc[100],
     },
     content3: {
       DEFAULT: twColors.zinc[700],
-      contrastText: readableColor(twColors.zinc[700]),
+      contrastText: twColors.zinc[200],
     },
     content4: {
       DEFAULT: twColors.zinc[600],
-      contrastText: readableColor(twColors.zinc[600]),
+      contrastText: twColors.zinc[300],
     },
   },
 };

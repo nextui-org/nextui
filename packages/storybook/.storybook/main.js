@@ -15,6 +15,7 @@ module.exports = {
     "../../components/checkbox/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/radio/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/pagination/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../components/switch/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [

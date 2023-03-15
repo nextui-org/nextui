@@ -33,27 +33,17 @@ export default {
   },
 } as ComponentMeta<typeof AvatarGroup>;
 
-const pics = [
-  "https://i.pravatar.cc/300?u=a042581f4e29026705d",
-  "https://i.pravatar.cc/300?u=a042581f4e29026706d",
-  "https://i.pravatar.cc/300?u=a042581f4e29026707d",
-  "https://i.pravatar.cc/300?u=a042581f4e29026709d",
-  "https://i.pravatar.cc/300?u=a042581f4f29026709d",
-  "https://i.pravatar.cc/300?u=a042581f4e29026710d",
-  "https://i.pravatar.cc/300?u=a042581f4e29026711d",
-];
-
 const Template: ComponentStory<typeof AvatarGroup> = (args: AvatarGroupProps) => (
   <AvatarGroup {...args}>
-    <Avatar src={pics[0]} />
-    <Avatar src={pics[1]} />
-    <Avatar src={pics[2]} />
-    <Avatar src={pics[3]} />
-    <Avatar src={pics[4]} />
-    <Avatar src={pics[5]} />
-    <Avatar src={pics[2]} />
-    <Avatar src={pics[3]} />
-    <Avatar src={pics[6]} />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026705d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026706d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026707d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4f29026709d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026710d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026711d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026712d" />
+    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026713d" />
   </AvatarGroup>
 );
 

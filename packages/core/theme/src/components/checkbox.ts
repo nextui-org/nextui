@@ -9,7 +9,7 @@ import {ringClasses} from "../utils";
  *
  * @example
  * <label className={base())}>
- *  // input
+ *  // hidden input
  *  <span className={wrapper()} aria-hidden="true" data-checked={checked}>
  *     <svg className={icon()}>
  *       // check icon
@@ -152,6 +152,8 @@ const checkbox = tv({
     disableAnimation: {
       true: {
         wrapper: "transition-none",
+        icon: "transition-none",
+        label: "transition-none",
       },
       false: {
         wrapper: ["before:transition-background", "after:transition-transform-opacity"],

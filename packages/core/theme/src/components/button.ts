@@ -77,8 +77,8 @@ const button = tv({
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
     disableAnimation: {
-      false: "transition-transform",
       true: "!transition-none",
+      false: "transition-transform-background",
     },
   },
   defaultVariants: {
@@ -220,32 +220,32 @@ const button = tv({
     {
       variant: "light",
       color: "neutral",
-      class: colorVariants.light.neutral,
+      class: [colorVariants.light.neutral, "hover:!bg-neutral-100"],
     },
     {
       variant: "light",
       color: "primary",
-      class: colorVariants.light.primary,
+      class: [colorVariants.light.primary, "hover:!bg-primary-50"],
     },
     {
       variant: "light",
       color: "secondary",
-      class: colorVariants.light.secondary,
+      class: [colorVariants.light.secondary, "hover:!bg-secondary-100"],
     },
     {
       variant: "light",
       color: "success",
-      class: colorVariants.light.success,
+      class: [colorVariants.light.success, "hover:!bg-success-50"],
     },
     {
       variant: "light",
       color: "warning",
-      class: colorVariants.light.warning,
+      class: [colorVariants.light.warning, "hover:!bg-warning-50"],
     },
     {
       variant: "light",
       color: "danger",
-      class: colorVariants.light.danger,
+      class: [colorVariants.light.danger, "hover:!bg-danger-50"],
     },
     // ghost / color
     {

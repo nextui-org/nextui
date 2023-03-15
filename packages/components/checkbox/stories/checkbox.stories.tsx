@@ -58,6 +58,24 @@ const defaultProps: CheckboxProps = {
 
 const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => <Checkbox {...args} />;
 
+const ControlledTemplate: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => {
+  const [selected, setSelected] = React.useState<boolean>(true);
+
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("Checkbox ", selected);
+  }, [selected]);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Checkbox isSelected={selected} onChange={setSelected} {...args}>
+        Subscribe (controlled)
+      </Checkbox>
+      <p className="text-neutral-500">Selected: {selected ? "true" : "false"}</p>
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -111,21 +129,9 @@ DisableAnimation.args = {
   disableAnimation: true,
 };
 
-export const Controlled = () => {
-  const [selected, setSelected] = React.useState<boolean>(true);
-
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log("Checkbox ", selected);
-  }, [selected]);
-
-  return (
-    <div className="flex flex-row gap-2">
-      <Checkbox isSelected={selected} onChange={setSelected} {...checkbox.defaultVariants}>
-        Subscribe (controlled)
-      </Checkbox>
-    </div>
-  );
+export const Controlled = ControlledTemplate.bind({});
+Controlled.args = {
+  ...defaultProps,
 };
 
 interface CustomCheckboxProps extends CheckboxProps {

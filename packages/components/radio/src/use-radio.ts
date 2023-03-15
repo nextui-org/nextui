@@ -1,7 +1,7 @@
 import type {AriaRadioProps} from "@react-types/radio";
 import type {RadioVariantProps, RadioSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {Ref, ReactNode, useCallback} from "react";
+import {Ref, ReactNode, useCallback, useId} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
@@ -85,6 +85,11 @@ export function useRadio(props: UseRadioProps) {
   const domRef = useDOMRef(ref);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const labelId = useId();
+  const inputGenId = useId();
+
+  const inputId = id || inputGenId;
+
   const isDisabled = useMemo(() => !!isDisabledProp, [isDisabledProp]);
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
   const isInvalid = useMemo(
@@ -101,17 +106,17 @@ export function useRadio(props: UseRadioProps) {
         : undefined;
 
     return {
+      id: inputId,
       isDisabled,
       isRequired,
       "aria-label": ariaLabel,
-      "aria-labelledby": otherProps["aria-labelledby"] || ariaLabel,
-      "aria-describedby": otherProps["aria-describedby"] || ariaDescribedBy,
+      "aria-labelledby": otherProps["aria-labelledby"] || labelId,
+      "aria-describedby": ariaDescribedBy,
     };
-  }, [isDisabled, isRequired]);
+  }, [labelId, inputId, isDisabled, isRequired]);
 
   const {inputProps} = useReactAriaRadio(
     {
-      id,
       value,
       children,
       ...groupContext,
@@ -190,6 +195,8 @@ export function useRadio(props: UseRadioProps) {
   const getLabelProps: PropGetter = useCallback(
     (props = {}) => ({
       ...props,
+      id: labelId,
+      htmlFor: inputId,
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),

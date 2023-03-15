@@ -49,7 +49,7 @@ const faded = {
 };
 
 const light = {
-  neutral: "bg-transparent text-foreground",
+  neutral: "bg-transparent text-neutral-contrastText",
   primary: "bg-transparent text-primary",
   secondary: "bg-transparent text-secondary",
   success: "bg-transparent text-success",

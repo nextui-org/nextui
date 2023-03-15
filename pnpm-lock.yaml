@@ -686,9 +686,17 @@ importers:
   packages/components/switch:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
+      '@react-aria/focus': ^3.11.0
+      '@react-aria/interactions': ^3.14.0
+      '@react-aria/switch': ^3.4.0
+      '@react-aria/utils': ^3.15.0
+      '@react-aria/visually-hidden': ^3.7.0
+      '@react-stately/toggle': ^3.5.0
+      '@react-types/shared': ^3.17.0
       clean-package: 2.2.0
       react: ^18.2.0
     dependencies:
@@ -696,7 +704,15 @@ importers:
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
+      '@react-aria/focus': 3.11.0_react@18.2.0
+      '@react-aria/interactions': 3.14.0_react@18.2.0
+      '@react-aria/switch': 3.4.0_react@18.2.0
+      '@react-aria/utils': 3.15.0_react@18.2.0
+      '@react-aria/visually-hidden': 3.7.0_react@18.2.0
+      '@react-stately/toggle': 3.5.0_react@18.2.0
+      '@react-types/shared': 3.17.0_react@18.2.0
     devDependencies:
+      '@nextui-org/shared-icons': link:../../utilities/shared-icons
       clean-package: 2.2.0
       react: 18.2.0
 
@@ -5287,6 +5303,18 @@ packages:
     dependencies:
       '@swc/helpers': 0.4.14
       react: 18.2.0
+
+  /@react-aria/switch/3.4.0_react@18.2.0:
+    resolution: {integrity: sha512-FWbjqNcY+fAjRNXVQTvOx93udhaySgXLsMNLRAVUcFm45FqTaxAhHhNGtRnVhDvzHTJY/Y+kpcGzCcW2rXzPxg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/toggle': 3.5.0_react@18.2.0
+      '@react-stately/toggle': 3.5.0_react@18.2.0
+      '@react-types/switch': 3.3.0_react@18.2.0
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
 
   /@react-aria/toggle/3.5.0_react@18.2.0:
     resolution: {integrity: sha512-K49OmHBmYW8pk0rXJU1TNRzR+PxLVvfL/ni6ifV5gcxoxV6DmFsNFj+5B/U3AMnCEQeyKQeiY6z9X7EBVX6j9Q==}

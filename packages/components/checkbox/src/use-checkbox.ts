@@ -2,7 +2,7 @@ import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-
 import type {AriaCheckboxProps} from "@react-types/checkbox";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {ReactNode, Ref, useCallback} from "react";
+import {ReactNode, Ref, useCallback, useId} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
@@ -79,6 +79,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     name,
     isRequired = false,
     isReadOnly = false,
+    autoFocus = false,
     isSelected: isSelectedProp,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
@@ -115,11 +116,19 @@ export function useCheckbox(props: UseCheckboxProps) {
   const inputRef = useRef(null);
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
+  const labelId = useId();
+  const inputId = useId();
+
   const ariaCheckboxProps = useMemo(() => {
+    const ariaLabel =
+      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
+
     return {
+      id: inputId,
       name,
       value,
       children,
+      autoFocus,
       defaultSelected,
       isSelected: isSelectedProp,
       isDisabled,
@@ -127,14 +136,17 @@ export function useCheckbox(props: UseCheckboxProps) {
       isRequired,
       isReadOnly,
       validationState,
-      "aria-label": otherProps["aria-label"],
-      "aria-labelledby": otherProps["aria-labelledby"],
+      "aria-label": ariaLabel,
+      "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       onChange,
     };
   }, [
     value,
     name,
+    inputId,
+    labelId,
     children,
+    autoFocus,
     isIndeterminate,
     isDisabled,
     isSelectedProp,
@@ -223,6 +235,8 @@ export function useCheckbox(props: UseCheckboxProps) {
 
   const getLabelProps: PropGetter = useCallback(
     () => ({
+      id: labelId,
+      htmlFor: inputProps.id || inputId,
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),

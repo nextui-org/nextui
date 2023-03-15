@@ -66,4 +66,9 @@ export const utilities = {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
+  ".transition-transform-background": {
+    "transition-property": "transform, background",
+    "transition-timing-function": "ease",
+    "transition-duration": DEFAULT_TRANSITION_DURATION,
+  },
 };

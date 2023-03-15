@@ -109,7 +109,10 @@ const pagination = tv({
       true: {},
     },
     disableAnimation: {
-      true: {},
+      true: {
+        item: "transition-none",
+        cursor: "transition-none",
+      },
       false: {
         item: "transition-background",
         cursor: ["transition-transform", "!duration-300"],

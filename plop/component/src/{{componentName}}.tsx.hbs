@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {__DEV__} from "@nextui-org/shared-utils";
 
 import { Use{{capitalize componentName}}Props, use{{capitalize componentName}} } from "./use-{{componentName}}";
 
@@ -15,8 +14,6 @@ const {{capitalize componentName}} = forwardRef<{{capitalize componentName}}Prop
   );
 });
 
-if (__DEV__) {
-  {{capitalize componentName}}.displayName = "NextUI.{{capitalize componentName}}";
-}
+{{capitalize componentName}}.displayName = "NextUI.{{capitalize componentName}}";
 
 export default {{capitalize componentName}};

@@ -107,6 +107,27 @@ const Template: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => {
   );
 };
 
+const ControlledTemplate: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => {
+  const [selectedItem, setSelectedItem] = React.useState<string>("london");
+
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("isSelected:", selectedItem);
+  }, [selectedItem]);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <RadioGroup label="Select city" value={selectedItem} onChange={setSelectedItem} {...args}>
+        <Radio value="buenos-aires">Buenos Aires</Radio>
+        <Radio value="sydney">Sydney</Radio>
+        <Radio value="london">London</Radio>
+        <Radio value="tokyo">Tokyo</Radio>
+      </RadioGroup>
+      <p className="text-neutral-500">Selected: {selectedItem}</p>
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -156,22 +177,9 @@ DisableAnimation.args = {
   disableAnimation: true,
 };
 
-export const Controlled = () => {
-  const [isSelected, setIsSelected] = React.useState<string>("london");
-
-  React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log("isSelected:", isSelected);
-  }, [isSelected]);
-
-  return (
-    <RadioGroup label="Select city" value={isSelected} onChange={setIsSelected}>
-      <Radio value="buenos-aires">Buenos Aires</Radio>
-      <Radio value="sydney">Sydney</Radio>
-      <Radio value="london">London</Radio>
-      <Radio value="tokyo">Tokyo</Radio>
-    </RadioGroup>
-  );
+export const Controlled = ControlledTemplate.bind({});
+Controlled.args = {
+  ...defaultProps,
 };
 
 const CustomRadio = (props: RadioProps) => {
