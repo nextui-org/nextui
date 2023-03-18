@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=6.2.9"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "react": "^18.0.0",
-    "framer-motion": "^6.2.9",
+    "framer-motion": "^10.6.0",
     "clean-package": "2.2.0"
   },
   "tsup": {
