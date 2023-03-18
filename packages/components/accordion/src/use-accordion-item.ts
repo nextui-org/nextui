@@ -1,14 +1,10 @@
-import type {
-  AccordionItemVariantProps,
-  AccordionItemSlots,
-  SlotsToClasses,
-} from "@nextui-org/theme";
+import type {AccordionItemSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef, callAllHandlers, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, ReactRef, callAllHandlers, dataAttr, extractProperty} from "@nextui-org/shared-utils";
 import {NodeWithProps, useAccordionItem as useBaseAccordion} from "@nextui-org/aria-utils";
 import {useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
@@ -43,9 +39,7 @@ export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
   styles?: SlotsToClasses<AccordionItemSlots>;
 }
 
-export type UseAccordionItemProps<T extends object = {}> = Props<T> &
-  AccordionItemVariantProps &
-  AccordionItemBaseProps;
+export type UseAccordionItemProps<T extends object = {}> = Props<T> & AccordionItemBaseProps;
 
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
   const groupContext = useAccordionContext();
@@ -56,11 +50,32 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     styles,
     className,
     item,
-    size = groupContext?.size ?? "md",
-    radius = groupContext?.radius ?? "lg",
-    isDisabled: isDisabledProp = false,
-    disableAnimation = groupContext?.disableAnimation ?? false,
+    size = extractProperty(
+      "size",
+      "md",
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["size"],
+    radius = extractProperty(
+      "radius",
+      "lg",
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["radius"],
+    isDisabled: isDisabledProp = extractProperty(
+      "isDisabled",
+      false,
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["isDisabled"],
+    disableAnimation = extractProperty(
+      "disableAnimation",
+      false,
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["disableAnimation"],
     onFocusChange,
+    motionProps = item.props?.motionProps ?? groupContext?.motionProps,
     ...otherProps
   } = props;
 
@@ -69,9 +84,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const domRef = useDOMRef<HTMLButtonElement>(ref);
 
   const state = groupContext?.state;
+  const isDisabled = state.disabledKeys.has(item.key) || isDisabledProp || groupContext?.isDisabled;
+  const isOpen = state.selectionManager.isSelected(item.key);
 
   const {buttonProps: buttonCompleteProps, regionProps} = useBaseAccordion(
-    {item},
+    {item, isDisabled},
     {...state, focusedKey: groupContext.focusedKey},
     domRef,
   );
@@ -81,9 +98,6 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const {isFocused, isFocusVisible, focusProps} = useFocusRing({
     autoFocus: item.props?.autoFocus,
   });
-
-  const isDisabled = state.disabledKeys.has(item.key) || isDisabledProp || groupContext?.isDisabled;
-  const isOpen = state.selectionManager.isSelected(item.key);
 
   const handleFocus = () => {
     onFocusChange?.(true);
@@ -111,6 +125,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     (props = {}) => {
       return {
         className: slots.base({class: baseStyles}),
+
         ...mergeProps(otherProps, props),
       };
     },
@@ -142,7 +157,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...mergeProps(buttonProps, props),
       };
     },
-    [domRef, isFocusVisible, isFocused, isDisabled, buttonProps, focusProps, slots, styles],
+    [domRef, isFocusVisible, isDisabled, isFocused, buttonProps, focusProps, slots, styles],
   );
 
   const getContentProps = useCallback<PropGetter>(
@@ -208,6 +223,8 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     domRef,
     isOpen,
     isDisabled,
+    disableAnimation,
+    motionProps,
     getBaseProps,
     getHeadingProps,
     getButtonProps,

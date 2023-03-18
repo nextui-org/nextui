@@ -1,15 +1,9 @@
 {
-  "name": "@nextui-org/accordion",
+  "name": "@nextui-org/framer-transitions",
   "version": "2.0.0-beta.1",
-  "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
+  "description": "A set of framer motion transitions for react",
   "keywords": [
-    "react",
-    "accordion",
-    "collapse",
-    "display",
-    "list",
-    "expand",
-    "tree view"
+    "framer-transitions"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -25,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/accordion"
+    "directory": "packages/utilities/framer-transitions"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -40,27 +34,17 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "framer-motion": ">=4.0.0"
   },
   "dependencies": {
-    "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@react-aria/accordion": "3.0.0-alpha.15",
-    "@react-aria/focus": "^3.11.0",
-    "@react-aria/utils": "^3.15.0",
-    "@react-stately/tree": "^3.5.0",
-    "framer-motion": "^6.2.9"
+    "@nextui-org/shared-utils": "workspace:*"
   },
   "devDependencies": {
-    "@react-types/accordion": "3.0.0-alpha.12",
-    "@react-types/shared": "^3.17.0",
-    "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "framer-motion": "^6.2.9",
+    "clean-package": "2.2.0"
   },
   "tsup": {
     "clean": true,

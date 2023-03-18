@@ -17,13 +17,13 @@ import {ringClasses} from "../utils";
  */
 const accordionItem = tv({
   slots: {
-    base: "py-2 border-b border-neutral",
+    base: "py-2 [&:not(:last-of-type)]:border-b border-neutral",
     heading: "",
     trigger: "py-2 flex w-full outline-none items-center",
     indicator: "rotate-0 data-[open=true]:-rotate-90",
     title: "flex-1 text-left text-foreground",
     subtitle: "",
-    content: "hidden data-[open=true]:block",
+    content: "py-2",
   },
   variants: {
     size: {
@@ -45,7 +45,9 @@ const accordionItem = tv({
       full: {},
     },
     isDisabled: {
-      true: {base: "opacity-50 pointer-events-none"},
+      true: {
+        base: "opacity-50 pointer-events-none",
+      },
     },
     isFocusVisible: {
       true: {
@@ -53,11 +55,19 @@ const accordionItem = tv({
       },
     },
     disableAnimation: {
-      true: {},
+      true: {
+        content: "hidden data-[open=true]:block",
+      },
       false: {
         indicator: "transition-transform",
       },
     },
+  },
+  defaultVariants: {
+    size: "md",
+    radius: "lg",
+    isDisabled: false,
+    disableAnimation: false,
   },
 });
 

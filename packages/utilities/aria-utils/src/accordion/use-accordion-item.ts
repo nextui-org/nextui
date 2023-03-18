@@ -14,6 +14,7 @@ import {useButton} from "@react-aria/button";
 
 export interface AccordionItemAriaProps<T> {
   item: Node<T>;
+  isDisabled?: boolean;
 }
 
 export interface AccordionItemAria {
@@ -30,12 +31,12 @@ export function useAccordionItem<T>(
   },
   ref: RefObject<HTMLButtonElement>,
 ): AccordionItemAria {
-  let {item} = props;
+  let {item, isDisabled: isDisabledProp} = props;
   let key = item.key;
   let manager = state.selectionManager;
   let buttonId = useId();
   let regionId = useId();
-  let isDisabled = state.disabledKeys.has(item.key);
+  let isDisabled = state.disabledKeys.has(item.key) || isDisabledProp;
 
   // Focus the associated DOM node when this item becomes the focusedKey
   useEffect(() => {

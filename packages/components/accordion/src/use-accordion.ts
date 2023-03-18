@@ -26,7 +26,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
-  Pick<AccordionItemProps, "size" | "radius" | "isDisabled" | "disableAnimation"> &
+  Pick<AccordionItemProps, "size" | "radius" | "isDisabled" | "disableAnimation" | "motionProps"> &
   AriaAccordionProps<T> &
   MultipleSelection;
 
@@ -37,6 +37,7 @@ export type ContextType<T extends object = {}> = {
   radius?: AccordionItemProps["radius"];
   isDisabled?: AccordionItemProps["isDisabled"];
   disableAnimation?: AccordionItemProps["disableAnimation"];
+  motionProps?: AccordionItemProps["motionProps"];
 };
 
 export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
@@ -60,6 +61,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     radius = "lg",
     isDisabled = false,
     disableAnimation = false,
+    motionProps,
     ...otherProps
   } = props;
 
@@ -121,10 +123,11 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       radius,
       focusedKey,
       state,
+      motionProps,
       isDisabled,
       disableAnimation,
     }),
-    [size, radius, state, focusedKey, isDisabled, disableAnimation],
+    [size, radius, state, focusedKey, isDisabled, disableAnimation, motionProps],
   );
 
   const getBaseProps: PropGetter = useCallback((props = {}) => {

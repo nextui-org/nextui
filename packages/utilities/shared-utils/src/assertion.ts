@@ -39,3 +39,6 @@ export function isFunction<T extends Function = Function>(value: any): value is 
 type Booleanish = boolean | "true" | "false";
 export const dataAttr = (condition: boolean | undefined) =>
   (condition ? "true" : undefined) as Booleanish;
+
+export const isNumeric = (value?: string | number) =>
+  value != null && parseInt(value.toString(), 10) > 0;

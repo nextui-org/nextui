@@ -1,7 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
-import {motion, AnimatePresence} from "framer-motion";
+import {Collapse} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
@@ -13,6 +13,8 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
     item,
     isOpen,
     isDisabled,
+    disableAnimation,
+    motionProps,
     getBaseProps,
     getHeadingProps,
     getButtonProps,
@@ -30,6 +32,18 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
     return <ChevronIcon />;
   }, [item.props?.indicator, isOpen, isDisabled]);
 
+  const content = useMemo(() => {
+    if (disableAnimation) {
+      return <div {...getContentProps()}>{item.props?.children}</div>;
+    }
+
+    return (
+      <Collapse in={isOpen} {...motionProps}>
+        <div {...getContentProps()}>{item.props?.children}</div>
+      </Collapse>
+    );
+  }, [isOpen, disableAnimation, item.props?.children, motionProps]);
+
   return (
     <Component {...getBaseProps()}>
       <h2 {...getHeadingProps()}>
@@ -39,18 +53,7 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
           {indicator && <span {...getIndicatorProps()}>{indicator}</span>}
         </button>
       </h2>
-      <AnimatePresence>
-        {isOpen ? (
-          <motion.div
-            {...getContentProps()}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            initial={{opacity: 0}}
-          >
-            {item.props?.children}
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      {content}
     </Component>
   );
 });

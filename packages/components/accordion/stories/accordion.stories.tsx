@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {accordion} from "@nextui-org/theme";
+import {accordionItem} from "@nextui-org/theme";
 
 import {Accordion, AccordionProps, AccordionItem} from "../src";
 
@@ -31,11 +31,16 @@ export default {
         type: "boolean",
       },
     },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as ComponentMeta<typeof Accordion>;
 
 const defaultProps = {
-  ...accordion.defaultVariants,
+  ...accordionItem.defaultVariants,
   selectionMode: "single",
 };
 

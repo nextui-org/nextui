@@ -2,6 +2,12 @@ type Args<T extends Function> = T extends (...args: infer R) => any ? R : never;
 
 type AnyFunction<T = any> = (...args: T[]) => any;
 
+type Extractable =
+  | {
+      [key: string]: any;
+    }
+  | undefined;
+
 /**
  * Capitalizes the first letter of a string
  * @param {string} text
@@ -27,4 +33,20 @@ export function callAll<T extends AnyFunction>(...fns: (T | undefined)[]) {
       fn?.(arg);
     });
   };
+}
+
+export function extractProperty<K extends keyof Extractable, D extends keyof Extractable>(
+  key: K | string,
+  defaultValue: D | string | boolean,
+  ...objs: Extractable[]
+) {
+  let result = defaultValue;
+
+  for (const obj of objs) {
+    if (obj && key in obj && !!obj[key]) {
+      result = obj[key];
+    }
+  }
+
+  return result as Extractable[K] | D | string | boolean;
 }
