@@ -71,6 +71,6 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint-config-next": "^11.0.0",
     "next-sitemap": "^1.6.140",
-    "typescript": "4.6.2"
+    "typescript": "^5.0.2"
   }
 }

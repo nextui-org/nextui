@@ -1,4 +1,5 @@
 import {
+  useId,
   useCallback,
   useEffect,
   KeyboardEventHandler,
@@ -8,7 +9,6 @@ import {
 } from "react";
 import {DOMAttributes, Node, LongPressEvent, PressEvent} from "@react-types/shared";
 import {focusSafely} from "@react-aria/focus";
-import {useId} from "@react-aria/utils";
 import {TreeState} from "@react-stately/tree";
 import {useButton} from "@react-aria/button";
 
