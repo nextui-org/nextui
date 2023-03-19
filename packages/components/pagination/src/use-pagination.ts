@@ -106,7 +106,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   const cursorRef = useRef<HTMLElement>(null);
   const itemsRef = useRef<Map<number, HTMLElement>>();
 
-  let cursorTimer: Timer;
+  const cursorTimer = useRef<Timer>();
 
   function getItemsRefMap() {
     if (!itemsRef.current) {
@@ -132,8 +132,8 @@ export function usePagination(originalProps: UsePaginationProps) {
 
     const node = map.get(value);
 
-    // clean up the cursor timer
-    clearTimeout(cursorTimer);
+    // clean up the previous cursor timer (if any)
+    cursorTimer.current && clearTimeout(cursorTimer.current);
 
     if (node) {
       // get position of the item
@@ -145,13 +145,13 @@ export function usePagination(originalProps: UsePaginationProps) {
         cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1.1)`;
       }
 
-      cursorTimer = setTimeout(() => {
+      cursorTimer.current = setTimeout(() => {
         // reset the scale of the cursor
         if (cursorRef.current) {
           cursorRef.current.setAttribute("data-moving", "false");
           cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
         }
-        clearTimeout(cursorTimer);
+        cursorTimer.current && clearTimeout(cursorTimer.current);
       }, CURSOR_TRANSITION_TIMEOUT);
     }
   }
