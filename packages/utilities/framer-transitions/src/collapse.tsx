@@ -6,7 +6,7 @@ import {warn, isNumeric} from "@nextui-org/shared-utils";
 import {AnimatePresence, HTMLMotionProps, motion, Variants as _Variants} from "framer-motion";
 import {forwardRef, useEffect, useState} from "react";
 
-import {TRANSITION_EASINGS, Variants, withDelay, WithTransitionConfig} from "./transition-utils";
+import {TRANSITION_EASINGS, Variants, WithTransitionConfig, withDelay} from "./transition-utils";
 
 export interface CollapseOptions {
   /**
@@ -20,20 +20,20 @@ export interface CollapseOptions {
    */
   startingHeight?: number;
   /**
-   * The y position you want the content in its collapsed state.
-   * @default -16
-   */
-  startingY?: number;
-  /**
-   * The y position you want the content in its expanded state.
-   * @default 0
-   */
-  endingY?: number;
-  /**
    * The height you want the content in its expanded state.
    * @default "auto"
    */
   endingHeight?: number | string;
+  /**
+   * The y-axis offset you want the content in its collapsed state.
+   * @default 10
+   */
+  startingY?: number;
+  /**
+   * The y-axis offset you want the content in its expanded state.
+   * @default 0
+   */
+  endingY?: number;
 }
 
 const defaultTransitions = {
@@ -46,43 +46,38 @@ const defaultTransitions = {
       duration: 0.3,
       ease: TRANSITION_EASINGS.ease,
     },
-    y: {
-      duration: 0.3,
-      ease: TRANSITION_EASINGS.ease,
-    },
   },
   enter: {
     height: {
-      duration: 0.3,
-      ease: TRANSITION_EASINGS.ease,
+      type: "spring",
+      stiffness: 300,
+      damping: 24,
     },
     opacity: {
-      duration: 0.4,
+      duration: 0.8,
       ease: TRANSITION_EASINGS.ease,
-      delay: 0.05,
     },
     y: {
-      duration: 0.4,
+      duration: 0.5,
       ease: TRANSITION_EASINGS.ease,
-      delay: 0.03,
     },
   },
 };
 
 const variants: Variants<CollapseOptions> = {
-  exit: ({animateOpacity, startingHeight, startingY, transition, transitionEnd, delay}) => ({
-    ...(animateOpacity && {opacity: isNumeric(startingHeight) ? 1 : 0}),
-    y: startingY,
-    height: startingHeight,
-    transitionEnd: transitionEnd?.exit,
-    transition: transition?.exit ?? withDelay.exit(defaultTransitions.exit, delay),
-  }),
   enter: ({animateOpacity, endingHeight, endingY, transition, transitionEnd, delay}) => ({
     ...(animateOpacity && {opacity: 1}),
     y: endingY,
     height: endingHeight,
     transitionEnd: transitionEnd?.enter,
     transition: transition?.enter ?? withDelay.enter(defaultTransitions.enter, delay),
+  }),
+  exit: ({animateOpacity, startingHeight, transition, startingY, transitionEnd, delay}) => ({
+    ...(animateOpacity && {opacity: isNumeric(startingHeight) ? 1 : 0}),
+    y: startingY,
+    height: startingHeight,
+    transitionEnd: transitionEnd?.exit,
+    transition: transition?.exit ?? withDelay.exit(defaultTransitions.exit, delay),
   }),
 };
 
@@ -99,7 +94,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props, ref) =
     animateOpacity = true,
     startingHeight = 0,
     endingHeight = "auto",
-    startingY = -16,
+    startingY = 10,
     endingY = 0,
     style,
     className,

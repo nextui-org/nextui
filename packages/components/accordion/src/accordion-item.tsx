@@ -11,6 +11,8 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
   const {
     Component,
     item,
+    styles,
+    slots,
     isOpen,
     isDisabled,
     disableAnimation,
@@ -28,6 +30,8 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
     if (typeof item.props?.indicator === "function") {
       return item.props?.indicator({indicator: <ChevronIcon />, isOpen, isDisabled});
     }
+
+    if (item.props?.indicator) return item.props?.indicator;
 
     return <ChevronIcon />;
   }, [item.props?.indicator, isOpen, isDisabled]);
@@ -48,8 +52,15 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
     <Component {...getBaseProps()}>
       <h2 {...getHeadingProps()}>
         <button {...getButtonProps()}>
-          {item.props?.title && <h3 {...getTitleProps()}>{item.props?.title}</h3>}
-          {item.props?.subtitle && <p {...getSubtitleProps()}>{item.props?.subtitle}</p>}
+          {item.props?.leftIndicator && (
+            <div className={slots.leftIndicator({class: styles?.leftIndicator})}>
+              {item.props?.leftIndicator}
+            </div>
+          )}
+          <div className={slots.titleWrapper({class: styles?.titleWrapper})}>
+            {item.props?.title && <span {...getTitleProps()}>{item.props?.title}</span>}
+            {item.props?.subtitle && <span {...getSubtitleProps()}>{item.props?.subtitle}</span>}
+          </div>
           {indicator && <span {...getIndicatorProps()}>{indicator}</span>}
         </button>
       </h2>

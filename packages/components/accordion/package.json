@@ -57,6 +57,7 @@
     "framer-motion": "^10.6.0"
   },
   "devDependencies": {
+    "@nextui-org/avatar": "workspace:*",
     "@react-types/accordion": "3.0.0-alpha.12",
     "@react-types/shared": "^3.17.0",
     "clean-package": "2.2.0",

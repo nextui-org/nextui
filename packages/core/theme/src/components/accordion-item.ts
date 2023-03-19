@@ -4,45 +4,57 @@ import {ringClasses} from "../utils";
 /**
  * AccordionItem wrapper **Tailwind Variants** component
  *
- * const {base, heading, indicator, trigger, content } = accordionItem({...})
+ * const {base, heading, indicator, trigger, leftIndicator, title, subtitle, content } = accordionItem({...})
  *
  * @example
  * <div className={base())}>
  *   <div className={heading())}>
- *    <button className={trigger())}>Trigger</button>
- *    <span className={indicator())}>Indicator</span>
+ *    <button className={trigger())}>
+ *      <div className={leftIndicator()}>
+ *         // content
+ *      </div>
+ *      <div className={titleWrapper()}>
+ *        <h3 className={title())}>Title</h3>
+ *        <span className={subtitle())}>Subtitle</span>
+ *      </div>
+ *      <span className={indicator())}>Indicator</span>
+ *    </button>
  *  </div>
  *  <div className={content())}>Content</div>
  * </div>
  */
 const accordionItem = tv({
   slots: {
-    base: "py-2 [&:not(:last-of-type)]:border-b border-neutral",
+    base: [
+      "py-2",
+      "border-neutral",
+      "[&:not(:last-of-type)]:border-b",
+      "group-[.is-splitted]:px-4",
+      "dark:group-[.is-splitted]:bg-content1",
+      "group-[.is-splitted]:shadow-lg",
+      "group-[.is-splitted]:rounded-lg",
+      "group-[.is-splitted]:border",
+      "group-[.is-splitted]:border-neutral-100",
+    ],
     heading: "",
-    trigger: "py-2 flex w-full outline-none items-center",
-    indicator: "rotate-0 data-[open=true]:-rotate-90",
-    title: "flex-1 text-left text-foreground",
-    subtitle: "",
+    trigger: "py-2 flex w-full gap-3 outline-none items-center",
+    leftIndicator: "flex-shrink-0",
+    indicator: "text-neutral-400",
+    titleWrapper: "flex-1 flex flex-col text-left",
+    title: "text-foreground text-lg",
+    subtitle: "text-sm text-neutral-500 font-normal",
     content: "py-2",
   },
   variants: {
-    size: {
-      xs: {},
-      sm: {},
-      md: {},
-      lg: {},
-      xl: {},
-    },
-    radius: {
-      none: {},
-      base: {},
-      sm: {},
-      md: {},
-      lg: {},
-      xl: {},
-      "2xl": {},
-      "3xl": {},
-      full: {},
+    isCompact: {
+      true: {
+        base: "py-1",
+        trigger: "py-1",
+        title: "text-base",
+        subtitle: "text-xs",
+        indicator: "text-base",
+        content: "py-1",
+      },
     },
     isDisabled: {
       true: {
@@ -54,6 +66,16 @@ const accordionItem = tv({
         trigger: [...ringClasses],
       },
     },
+    hideDivider: {
+      true: {
+        base: "!border-b-0",
+      },
+    },
+    hideIndicator: {
+      true: {
+        indicator: "hidden",
+      },
+    },
     disableAnimation: {
       true: {
         content: "hidden data-[open=true]:block",
@@ -62,12 +84,23 @@ const accordionItem = tv({
         indicator: "transition-transform",
       },
     },
+    disableIndicatorAnimation: {
+      true: {
+        indicator: "transition-none",
+      },
+      false: {
+        indicator: "rotate-0 data-[open=true]:-rotate-90",
+      },
+    },
   },
   defaultVariants: {
     size: "md",
     radius: "lg",
     isDisabled: false,
+    hideDivider: false,
+    hideIndicator: false,
     disableAnimation: false,
+    disableIndicatorAnimation: false,
   },
 });
 

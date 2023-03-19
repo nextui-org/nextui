@@ -13,3 +13,4 @@ export * from "./mail";
 export * from "./moon";
 export * from "./moon-filled";
 export * from "./headphones";
+export * from "./anchor";

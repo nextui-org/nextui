@@ -2,6 +2,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactRef} from "@nextui-org/shared-utils";
 import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
+import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 
 import {Key, useCallback} from "react";
 import {TreeState, useTreeState} from "@react-stately/tree";
@@ -26,17 +27,29 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
-  Pick<AccordionItemProps, "size" | "radius" | "isDisabled" | "disableAnimation" | "motionProps"> &
+  AccordionGroupVariantProps &
+  Pick<
+    AccordionItemProps,
+    | "isCompact"
+    | "isDisabled"
+    | "hideDivider"
+    | "hideIndicator"
+    | "disableAnimation"
+    | "disableIndicatorAnimation"
+    | "motionProps"
+  > &
   AriaAccordionProps<T> &
   MultipleSelection;
 
 export type ContextType<T extends object = {}> = {
   state: TreeState<T>;
   focusedKey?: Key | null;
-  size?: AccordionItemProps["size"];
-  radius?: AccordionItemProps["radius"];
+  isCompact?: AccordionItemProps["isCompact"];
   isDisabled?: AccordionItemProps["isDisabled"];
+  hideDivider?: AccordionItemProps["hideDivider"];
+  hideIndicator?: AccordionItemProps["hideIndicator"];
   disableAnimation?: AccordionItemProps["disableAnimation"];
+  disableIndicatorAnimation?: AccordionItemProps["disableAnimation"];
   motionProps?: AccordionItemProps["motionProps"];
 };
 
@@ -47,21 +60,25 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     children,
     className,
     items,
+    variant,
+    motionProps,
     expandedKeys,
-    defaultExpandedKeys,
     disabledKeys,
     selectedKeys,
+    defaultExpandedKeys,
     selectionMode = "single",
     selectionBehavior = "toggle",
     disallowEmptySelection,
     defaultSelectedKeys,
     onExpandedChange,
     onSelectionChange,
-    size = "md",
-    radius = "lg",
+    isCompact = false,
     isDisabled = false,
+    hideDivider = false,
+    hideIndicator = false,
     disableAnimation = false,
-    motionProps,
+    disableIndicatorAnimation = false,
+
     ...otherProps
   } = props;
 
@@ -74,9 +91,10 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   const styles = useMemo(
     () =>
       accordion({
+        variant,
         className,
       }),
-    [className],
+    [variant, className],
   );
 
   const commonProps = {
@@ -119,15 +137,27 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
 
   const context: ContextType<T> = useMemo(
     () => ({
-      size,
-      radius,
       focusedKey,
       state,
       motionProps,
+      isCompact,
       isDisabled,
+      hideDivider,
+      hideIndicator,
       disableAnimation,
+      disableIndicatorAnimation,
     }),
-    [size, radius, state, focusedKey, isDisabled, disableAnimation, motionProps],
+    [
+      state,
+      focusedKey,
+      isCompact,
+      isDisabled,
+      hideIndicator,
+      hideDivider,
+      disableAnimation,
+      disableIndicatorAnimation,
+      motionProps,
+    ],
   );
 
   const getBaseProps: PropGetter = useCallback((props = {}) => {

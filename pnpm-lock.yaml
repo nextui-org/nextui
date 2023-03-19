@@ -306,6 +306,7 @@ importers:
   packages/components/accordion:
     specifiers:
       '@nextui-org/aria-utils': workspace:*
+      '@nextui-org/avatar': workspace:*
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/framer-transitions': workspace:*
       '@nextui-org/shared-icons': workspace:*
@@ -335,6 +336,7 @@ importers:
       '@react-stately/tree': 3.5.0_react@18.2.0
       framer-motion: 10.6.0_react@18.2.0
     devDependencies:
+      '@nextui-org/avatar': link:../avatar
       '@react-types/accordion': 3.0.0-alpha.12_react@18.2.0
       '@react-types/shared': 3.17.0_react@18.2.0
       clean-package: 2.2.0

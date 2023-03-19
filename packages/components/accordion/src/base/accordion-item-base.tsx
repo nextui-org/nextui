@@ -1,4 +1,8 @@
-import type {AccordionItemVariantProps} from "@nextui-org/theme";
+import type {
+  AccordionItemVariantProps,
+  AccordionItemSlots,
+  SlotsToClasses,
+} from "@nextui-org/theme";
 import type {CollapseProps} from "@nextui-org/framer-transitions";
 
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
@@ -39,9 +43,33 @@ export interface Props<T extends object = {}>
    */
   indicator?: ReactNode | ((props: AccordionItemIndicatorProps) => ReactNode) | null;
   /**
+   * The accordion item left indicator, it's usually an icon or avatar.
+   */
+  leftIndicator?: ReactNode;
+  /**
    * The properties passed to the underlying `Collapse` component.
    */
   motionProps?: CollapseProps;
+  /**
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <AccordionItem styles={{
+   *    base:"base-classes",
+   *    heading: "heading-classes",
+   *    trigger: "trigger-classes",
+   *    leftIndicator: "left-indicator-classes",
+   *    indicator: "indicator-classes",
+   *    titleWrapper: "title-wrapper-classes", // this wraps the title and subtitle
+   *    title: "title-classes",
+   *    subtitle: "subtitle-classes",
+   *    content: "content-classes",
+   * }} />
+   * ```
+   */
+  styles?: SlotsToClasses<AccordionItemSlots>;
 }
 
 export type AccordionItemBaseProps<T extends object = {}> = Props<T> & AccordionItemVariantProps;

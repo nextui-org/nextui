@@ -1,5 +1,3 @@
-import type {AccordionItemSlots, SlotsToClasses} from "@nextui-org/theme";
-
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
@@ -21,22 +19,6 @@ export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
    * The item node.
    */
   item: NodeWithProps<T, AccordionItemBaseProps<T>>;
-  /**
-   * Classname or List of classes to change the styles of the element.
-   * if `className` is passed, it will be added to the base slot.
-   *
-   * @example
-   * ```ts
-   * <AccordionItem styles={{
-   *    base:"base-classes",
-   *    heading: "heading-classes",
-   *    indicator: "indicator-classes",
-   *    trigger: "trigger-classes",
-   *    content: "content-classes",
-   * }} />
-   * ```
-   */
-  styles?: SlotsToClasses<AccordionItemSlots>;
 }
 
 export type UseAccordionItemProps<T extends object = {}> = Props<T> & AccordionItemBaseProps;
@@ -47,33 +29,45 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const {
     ref,
     as,
-    styles,
-    className,
     item,
-    size = extractProperty(
-      "size",
-      "md",
+    styles = item.props?.styles,
+    className = item.props?.className,
+    isCompact = extractProperty(
+      "isCompact",
+      false,
       groupContext,
       item.props,
-    ) as AccordionItemBaseProps["size"],
-    radius = extractProperty(
-      "radius",
-      "lg",
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["radius"],
+    ) as AccordionItemBaseProps["isCompact"],
     isDisabled: isDisabledProp = extractProperty(
       "isDisabled",
       false,
       groupContext,
       item.props,
     ) as AccordionItemBaseProps["isDisabled"],
+    hideDivider = extractProperty(
+      "hideDivider",
+      false,
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["hideDivider"],
+    hideIndicator = extractProperty(
+      "hideIndicator",
+      false,
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["hideIndicator"],
     disableAnimation = extractProperty(
       "disableAnimation",
       false,
       groupContext,
       item.props,
     ) as AccordionItemBaseProps["disableAnimation"],
+    disableIndicatorAnimation = extractProperty(
+      "disableIndicatorAnimation",
+      false,
+      groupContext,
+      item.props,
+    ) as AccordionItemBaseProps["disableIndicatorAnimation"],
     onFocusChange,
     motionProps = item.props?.motionProps ?? groupContext?.motionProps,
     ...otherProps
@@ -110,13 +104,23 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const slots = useMemo(
     () =>
       accordionItem({
-        size,
-        radius,
+        isCompact,
         isDisabled,
+        hideDivider,
+        hideIndicator,
         isFocusVisible,
         disableAnimation,
+        disableIndicatorAnimation,
       }),
-    [size, radius, isDisabled, isFocusVisible, disableAnimation],
+    [
+      isCompact,
+      isDisabled,
+      hideDivider,
+      hideIndicator,
+      isFocusVisible,
+      disableAnimation,
+      disableIndicatorAnimation,
+    ],
   );
 
   const baseStyles = clsx(styles?.base, className);
@@ -125,7 +129,6 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     (props = {}) => {
       return {
         className: slots.base({class: baseStyles}),
-
         ...mergeProps(otherProps, props),
       };
     },
