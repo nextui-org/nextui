@@ -9,21 +9,13 @@ import {colorVariants} from "../utils";
  * @example
  * <div>
  *  <button>your trigger</button>
- *  <div role="tooltip" className={styles} data-transition='enter/leave'>
+ *  <div role="tooltip" className={styles}>
  *    // tooltip content
  *  </div>
  * </div>
  */
 const tooltip = tv({
-  base: [
-    "inline-flex",
-    "flex-col",
-    "items-center",
-    "justify-center",
-    "box-border",
-    "animate-appearance-in",
-    "data-[transition=leave]:animate-appearance-out",
-  ],
+  base: ["inline-flex", "flex-col", "items-center", "justify-center", "box-border"],
   variants: {
     variant: {
       solid: "",
@@ -65,7 +57,7 @@ const tooltip = tv({
   defaultVariants: {
     variant: "solid",
     color: "neutral",
-    size: "sm",
+    size: "md",
     radius: "lg",
   },
   compoundVariants: [

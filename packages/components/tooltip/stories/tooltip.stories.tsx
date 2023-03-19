@@ -81,6 +81,7 @@ export default {
 
 const defaultProps = {
   ...tooltip.defaultVariants,
+  placement: "top",
   delay: 0,
   offset: 7,
   defaultOpen: false,

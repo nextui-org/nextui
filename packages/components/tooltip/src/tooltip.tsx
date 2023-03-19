@@ -1,10 +1,12 @@
 import {forwardRef} from "@nextui-org/system";
 import {warn} from "@nextui-org/shared-utils";
-import {cloneElement, Children} from "react";
+import {cloneElement, Children, useMemo} from "react";
 import {OverlayContainer} from "@react-aria/overlays";
-import {CSSTransition} from "@nextui-org/react-utils";
+import {AnimatePresence, motion} from "framer-motion";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
+import {scale} from "./tooltip-transition";
+import {getOrigins} from "./utils";
 
 export interface TooltipProps extends Omit<UseTooltipProps, "ref"> {}
 
@@ -13,8 +15,10 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     Component,
     children,
     content,
-    mountOverlay,
-    transitionProps,
+    isOpen,
+    placement,
+    disableAnimation,
+    motionProps,
     getTriggerProps,
     getTooltipProps,
   } = useTooltip({
@@ -38,16 +42,44 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     warn("Tooltip must have only one child node. Please, check your code.");
   }
 
+  const contentComponent = useMemo(() => {
+    if (disableAnimation) {
+      return <Component {...getTooltipProps()}>{content}</Component>;
+    }
+
+    const {className, ...otherTooltipProps} = getTooltipProps();
+
+    return (
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <div {...otherTooltipProps}>
+            <motion.div
+              animate="enter"
+              exit="exit"
+              initial="exit"
+              style={{
+                ...getOrigins(placement),
+              }}
+              variants={scale}
+              {...motionProps}
+            >
+              <Component className={className}>{content}</Component>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    );
+  }, [isOpen, content, disableAnimation, children, motionProps, getTooltipProps]);
+
   return (
     <>
       {trigger}
-      {mountOverlay && (
-        <OverlayContainer>
-          <CSSTransition {...transitionProps}>
+      <OverlayContainer>
+        {/* <CSSTransition {...transitionProps}>
             <Component {...getTooltipProps()}>{content}</Component>
-          </CSSTransition>
-        </OverlayContainer>
-      )}
+          </CSSTransition> */}
+        {contentComponent}
+      </OverlayContainer>
     </>
   );
 });

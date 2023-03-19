@@ -3,7 +3,7 @@ import type {
   AccordionItemSlots,
   SlotsToClasses,
 } from "@nextui-org/theme";
-import type {CollapseProps} from "@nextui-org/framer-transitions";
+import type {CollapseTransitionProps} from "@nextui-org/framer-transitions";
 
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
 import {FocusableProps} from "@react-types/shared";
@@ -53,7 +53,7 @@ export interface Props<T extends object = {}>
   /**
    * The properties passed to the underlying `Collapse` component.
    */
-  motionProps?: CollapseProps;
+  motionProps?: CollapseTransitionProps;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.

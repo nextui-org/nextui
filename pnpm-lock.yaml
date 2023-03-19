@@ -729,6 +729,7 @@ importers:
       '@nextui-org/aria-utils': workspace:*
       '@nextui-org/button': workspace:*
       '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/framer-transitions': workspace:*
       '@nextui-org/react-utils': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
@@ -741,10 +742,12 @@ importers:
       '@react-types/overlays': ^3.7.0
       '@react-types/tooltip': ^3.3.0
       clean-package: 2.2.0
+      framer-motion: ^10.6.0
       react: ^18.2.0
     dependencies:
       '@nextui-org/aria-utils': link:../../utilities/aria-utils
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/framer-transitions': link:../../utilities/framer-transitions
       '@nextui-org/react-utils': link:../../utilities/react-utils
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
@@ -754,6 +757,7 @@ importers:
       '@react-aria/tooltip': 3.4.0_react@18.2.0
       '@react-aria/utils': 3.15.0_react@18.2.0
       '@react-stately/tooltip': 3.3.0_react@18.2.0
+      framer-motion: 10.6.0_react@18.2.0
     devDependencies:
       '@nextui-org/button': link:../button
       '@react-types/overlays': 3.7.0_react@18.2.0

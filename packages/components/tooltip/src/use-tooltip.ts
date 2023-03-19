@@ -1,8 +1,9 @@
 import type {TooltipVariantProps} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
-import type {CSSTransitionProps} from "@nextui-org/react-utils";
 import type {ReactNode, Ref} from "react";
+import type {HTMLMotionProps} from "framer-motion";
+import type {TooltipPlacement} from "./types";
 
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
@@ -11,7 +12,7 @@ import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/over
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tooltip} from "@nextui-org/theme";
 import {ReactRef, mergeRefs} from "@nextui-org/shared-utils";
-import {useMemo, useRef, useState, useCallback} from "react";
+import {useMemo, useRef, useCallback} from "react";
 
 export interface UseTooltipProps
   extends HTMLNextUIProps<"div", TooltipVariantProps>,
@@ -22,6 +23,9 @@ export interface UseTooltipProps
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * The children to render. Usually a trigger element.
+   */
   children?: ReactNode;
   /**
    * The content of the tooltip.
@@ -36,6 +40,11 @@ export interface UseTooltipProps
    * @default 0
    */
   delay?: number;
+  /**
+   * The delay time for the tooltip to hide.
+   * @default 0
+   */
+  closeDelay?: number;
   /**
    * The additional offset applied along the main axis between the element and its
    * anchor element.
@@ -56,13 +65,17 @@ export interface UseTooltipProps
    * The placement of the element with respect to its anchor element.
    * @default 'top'
    */
-  placement?: "start" | "end" | "right" | "left" | "top" | "bottom";
+  placement?: TooltipPlacement;
   /**
    * The placement padding that should be applied between the element and its
    * surrounding container.
    * @default 12
    */
   containerPadding?: number;
+  /**
+   * The properties passed to the underlying `Collapse` component.
+   */
+  motionProps?: HTMLMotionProps<"div">;
   /** Handler that is called when the overlay should close. */
   onClose?: () => void;
 }
@@ -84,6 +97,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     containerPadding = 12,
     placement: placementProp = "top",
     delay = 0,
+    closeDelay = 0,
     offset = 7,
     isDismissable = true,
     shouldCloseOnBlur = false,
@@ -91,31 +105,30 @@ export function useTooltip(originalProps: UseTooltipProps) {
     shouldCloseOnInteractOutside,
     className,
     onClose,
+    motionProps,
     ...otherProps
   } = props;
 
   const Component = as || "div";
 
-  const state = useTooltipTriggerState({delay, isDisabled, isOpen, defaultOpen, onOpenChange});
-
-  const [exited, setExited] = useState(!state.isOpen);
+  const state = useTooltipTriggerState({
+    delay,
+    isDisabled,
+    isOpen,
+    defaultOpen,
+    onOpenChange,
+  });
 
   const triggerRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLElement>(null);
   const domRef = mergeRefs(overlayRef, ref);
 
+  const immediate = closeDelay === 0;
+
   const handleClose = useCallback(() => {
     onClose?.();
-    state.close();
-  }, [state, onClose]);
-
-  const onEntered = useCallback(() => {
-    setExited(false);
-  }, []);
-
-  const onExited = useCallback(() => {
-    setExited(true);
-  }, []);
+    state.close(immediate);
+  }, [state, immediate, onClose]);
 
   const {triggerProps, tooltipProps: triggerTooltipProps} = useTooltipTrigger(
     {
@@ -128,6 +141,10 @@ export function useTooltip(originalProps: UseTooltipProps) {
   );
 
   const {tooltipProps} = useReactAriaTooltip(mergeProps(props, triggerTooltipProps), state);
+
+  tooltipProps.onPointerLeave = () => {
+    state.close(immediate);
+  };
 
   const {
     overlayProps: positionProps,
@@ -143,8 +160,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
     containerPadding,
   });
 
-  const mountOverlay = (state.isOpen || !exited) && !isDisabled;
-
   const {overlayProps} = useOverlay(
     {
       isOpen: state.isOpen,
@@ -155,18 +170,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
       shouldCloseOnInteractOutside,
     },
     overlayRef,
-  );
-
-  const transitionProps = useMemo<CSSTransitionProps>(
-    () => ({
-      enterTime: originalProps?.disableAnimation ? 0 : 250,
-      leaveTime: originalProps?.disableAnimation ? 0 : 60,
-      clearTime: originalProps?.disableAnimation ? 0 : 60,
-      isVisible: state.isOpen,
-      onEntered: onEntered,
-      onExited: onExited,
-    }),
-    [originalProps?.disableAnimation, state.isOpen],
   );
 
   const styles = useMemo(
@@ -201,8 +204,11 @@ export function useTooltip(originalProps: UseTooltipProps) {
     Component,
     content,
     children,
-    mountOverlay,
-    transitionProps,
+    placement: placementProp,
+    isOpen: state.isOpen,
+    disableAnimation: originalProps?.disableAnimation,
+    isDisabled,
+    motionProps,
     getTriggerProps,
     getTooltipProps,
   };
