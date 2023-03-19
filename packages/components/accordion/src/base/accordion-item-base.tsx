@@ -26,12 +26,16 @@ export type AccordionItemIndicatorProps = {
 };
 
 export interface Props<T extends object = {}>
-  extends Omit<ItemProps<"button", T>, "children" | keyof FocusableProps>,
+  extends Omit<ItemProps<"button", T>, "children" | "title" | keyof FocusableProps>,
     FocusableProps {
   /**
    * The content of the component.
    */
   children?: ReactNode | null;
+  /**
+   * The accordion item title.
+   */
+  title?: ReactNode | string;
   /**
    * The accordion item subtitle.
    */

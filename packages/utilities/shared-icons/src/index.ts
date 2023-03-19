@@ -14,3 +14,7 @@ export * from "./moon";
 export * from "./moon-filled";
 export * from "./headphones";
 export * from "./anchor";
+export * from "./info";
+export * from "./shield-security";
+export * from "./monitor-mobile";
+export * from "./invalid-card";

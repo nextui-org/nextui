@@ -128,17 +128,20 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const getBaseProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
+        "data-open": dataAttr(isOpen),
+        "data-disabled": dataAttr(isDisabled),
         className: slots.base({class: baseStyles}),
         ...mergeProps(otherProps, props),
       };
     },
-    [baseStyles, otherProps],
+    [baseStyles, otherProps, slots, isOpen, isDisabled],
   );
 
   const getButtonProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
         ref: domRef,
+        "data-open": dataAttr(isOpen),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focused": dataAttr(isFocused),
         "data-disabled": dataAttr(isDisabled),
@@ -160,7 +163,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...mergeProps(buttonProps, props),
       };
     },
-    [domRef, isFocusVisible, isDisabled, isFocused, buttonProps, focusProps, slots, styles],
+    [domRef, isOpen, isFocusVisible, isDisabled, isFocused, buttonProps, focusProps, slots, styles],
   );
 
   const getContentProps = useCallback<PropGetter>(
@@ -191,31 +194,37 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const getHeadingProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
+        "data-open": dataAttr(isOpen),
+        "data-disabled": dataAttr(isDisabled),
         className: slots.heading({class: styles?.heading}),
         ...props,
       };
     },
-    [slots, styles],
+    [slots, styles, isOpen, isDisabled],
   );
 
   const getTitleProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
+        "data-open": dataAttr(isOpen),
+        "data-disabled": dataAttr(isDisabled),
         className: slots.title({class: styles?.title}),
         ...props,
       };
     },
-    [slots, styles],
+    [slots, styles, isOpen, isDisabled],
   );
 
   const getSubtitleProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
+        "data-open": dataAttr(isOpen),
+        "data-disabled": dataAttr(isDisabled),
         className: slots.subtitle({class: styles?.subtitle}),
         ...props,
       };
     },
-    [slots, styles],
+    [slots, styles, isOpen, isDisabled],
   );
 
   return {

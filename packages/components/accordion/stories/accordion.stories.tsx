@@ -1,10 +1,19 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {accordionItem, link} from "@nextui-org/theme";
-import {AnchorIcon, MoonIcon, SunIcon} from "@nextui-org/shared-icons";
+import {
+  AnchorIcon,
+  MoonIcon,
+  SunIcon,
+  InfoIcon,
+  ShieldSecurityIcon,
+  MonitorMobileIcon,
+  InvalidCardIcon,
+} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 
-import {Accordion, AccordionProps, AccordionItem} from "../src";
+import {Accordion, AccordionProps, AccordionItem, Selection} from "../src";
+import {AccordionItemProps} from "../src";
 
 export default {
   title: "Components/Accordion",
@@ -19,6 +28,12 @@ export default {
     isDisabled: {
       control: {
         type: "boolean",
+      },
+    },
+    selectionMode: {
+      control: {
+        type: "select",
+        options: ["single", "multiple"],
       },
     },
     disableAnimation: {
@@ -118,7 +133,10 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
       subtitle={
         <p>
           2 issues to{" "}
-          <a className={link()} href="/?path=/story/components-accordion--with-left-indicator">
+          <a
+            className={link({size: "sm"})}
+            href="/?path=/story/components-accordion--with-left-indicator"
+          >
             fix now
           </a>
         </p>
@@ -205,6 +223,98 @@ const CustomInidicatorTemplate: ComponentStory<typeof Accordion> = (args: Accord
   </Accordion>
 );
 
+const ControlledTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["1"]));
+
+  // eslint-disable-next-line no-console
+  console.log(selectedKeys);
+
+  return (
+    <Accordion {...args} selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
+      <AccordionItem key="1" title="Accordion 1">
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem key="2" title="Accordion 2">
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem key="3" title="Accordion 3">
+        {defaultContent}
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
+  const itemStyles: AccordionItemProps["styles"] = {
+    base: "py-0 w-full",
+    title: "font-normal text-base",
+    trigger: "px-2 py-0 hover:bg-neutral-100 rounded-lg h-14 flex items-center",
+    indicator: "text-base",
+    content: "text-sm px-2",
+  };
+
+  return (
+    <Accordion
+      {...args}
+      hideDivider
+      className="p-2 flex flex-col gap-1 w-full max-w-[300px]"
+      variant="shadow"
+    >
+      <AccordionItem
+        key="1"
+        leftIndicator={<MonitorMobileIcon className="text-primary" />}
+        styles={itemStyles}
+        subtitle={
+          <p>
+            2 issues to{" "}
+            <a
+              className={link({size: "sm"})}
+              href="/?path=/story/components-accordion--custom-with-styles"
+            >
+              fix now
+            </a>
+          </p>
+        }
+        title="Connected devices"
+      >
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem
+        key="2"
+        leftIndicator={<ShieldSecurityIcon />}
+        styles={itemStyles}
+        subtitle="3 apps have read permissions"
+        title="Apps Permissions"
+      >
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem
+        key="3"
+        leftIndicator={<InfoIcon className="text-warning" />}
+        styles={{...itemStyles, subtitle: "text-warning"}}
+        subtitle="Complete your profile"
+        title="Pending tasks"
+      >
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem
+        key="4"
+        leftIndicator={<InvalidCardIcon className="text-danger" />}
+        styles={{...itemStyles, subtitle: "text-danger"}}
+        subtitle="Please, update now"
+        title={
+          <p className="flex gap-1 items-center">
+            Card expired
+            <p className="text-neutral-400 text-sm">*4812</p>
+          </p>
+        }
+      >
+        {defaultContent}
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -269,5 +379,15 @@ CustomMotion.args = {
 
 export const CustomIndicator = CustomInidicatorTemplate.bind({});
 CustomIndicator.args = {
+  ...defaultProps,
+};
+
+export const Controlled = ControlledTemplate.bind({});
+Controlled.args = {
+  ...defaultProps,
+};
+
+export const CustomWithStyles = CustomWithStylesTemplate.bind({});
+CustomWithStyles.args = {
   ...defaultProps,
 };
