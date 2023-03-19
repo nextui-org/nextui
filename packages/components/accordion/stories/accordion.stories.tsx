@@ -54,13 +54,13 @@ const defaultContent =
 
 const Template: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="1" title="Accordion 1">
+    <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="2" title="Accordion 2">
+    <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="3" title="Accordion 3">
+    <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
       {defaultContent}
     </AccordionItem>
   </Accordion>
@@ -68,11 +68,12 @@ const Template: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
 
 const TemplateWithSubtitle: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="1" subtitle="Press to expand" title="Accordion 1">
+    <AccordionItem key="1" aria-label="Accordion 1" subtitle="Press to expand" title="Accordion 1">
       {defaultContent}
     </AccordionItem>
     <AccordionItem
       key="2"
+      aria-label="Accordion 2"
       subtitle={
         <span>
           Press to expand <strong>key 2</strong>
@@ -82,7 +83,7 @@ const TemplateWithSubtitle: ComponentStory<typeof Accordion> = (args: AccordionP
     >
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="3" subtitle="Press to expand" title="Accordion 3">
+    <AccordionItem key="3" aria-label="Accordion 3" subtitle="Press to expand" title="Accordion 3">
       {defaultContent}
     </AccordionItem>
   </Accordion>
@@ -92,6 +93,7 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
   <Accordion {...args} variant="shadow">
     <AccordionItem
       key="1"
+      aria-label="Chung Miller"
       leftIndicator={
         <Avatar
           isBordered
@@ -107,6 +109,7 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
     </AccordionItem>
     <AccordionItem
       key="2"
+      aria-label="Janelle Lenard"
       leftIndicator={
         <Avatar
           isBordered
@@ -122,6 +125,7 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
     </AccordionItem>
     <AccordionItem
       key="3"
+      aria-label="Zoey Lang"
       leftIndicator={
         <Avatar
           isBordered
@@ -167,13 +171,13 @@ const VariantsTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps
     <div className="flex flex-col gap-4">
       <h3>Shadow</h3>
       <Accordion {...args} variant="shadow">
-        <AccordionItem key="1" title="Accordion 1">
+        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" title="Accordion 2">
+        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" title="Accordion 3">
+        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -181,13 +185,13 @@ const VariantsTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps
     <div className="flex flex-col gap-4">
       <h3>Bordered</h3>
       <Accordion {...args} variant="bordered">
-        <AccordionItem key="1" title="Accordion 1">
+        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" title="Accordion 2">
+        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" title="Accordion 3">
+        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -195,13 +199,13 @@ const VariantsTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps
     <div className="flex flex-col gap-4">
       <h3>Splitted</h3>
       <Accordion {...args} variant="splitted">
-        <AccordionItem key="1" title="Accordion 1">
+        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" title="Accordion 2">
+        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" title="Accordion 3">
+        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -211,13 +215,13 @@ const VariantsTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps
 
 const CustomInidicatorTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="anchor" indicator={<AnchorIcon />} title="Anchor">
+    <AccordionItem key="anchor" aria-label="Anchor" indicator={<AnchorIcon />} title="Anchor">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="moon" indicator={<MoonIcon />} title="Moon">
+    <AccordionItem key="moon" aria-label="Moon" indicator={<MoonIcon />} title="Moon">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="sun" indicator={<SunIcon />} title="Sun">
+    <AccordionItem key="sun" aria-label="Sun" indicator={<SunIcon />} title="Sun">
       {defaultContent}
     </AccordionItem>
   </Accordion>
@@ -231,13 +235,13 @@ const ControlledTemplate: ComponentStory<typeof Accordion> = (args: AccordionPro
 
   return (
     <Accordion {...args} selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
-      <AccordionItem key="1" title="Accordion 1">
+      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="2" title="Accordion 2">
+      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="3" title="Accordion 3">
+      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
         {defaultContent}
       </AccordionItem>
     </Accordion>
@@ -262,6 +266,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
     >
       <AccordionItem
         key="1"
+        aria-label="Connected devices"
         leftIndicator={<MonitorMobileIcon className="text-primary" />}
         styles={itemStyles}
         subtitle={
@@ -281,6 +286,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       </AccordionItem>
       <AccordionItem
         key="2"
+        aria-label="Apps Permissions"
         leftIndicator={<ShieldSecurityIcon />}
         styles={itemStyles}
         subtitle="3 apps have read permissions"
@@ -290,6 +296,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       </AccordionItem>
       <AccordionItem
         key="3"
+        aria-label="Pending tasks"
         leftIndicator={<InfoIcon className="text-warning" />}
         styles={{...itemStyles, subtitle: "text-warning"}}
         subtitle="Complete your profile"
@@ -299,6 +306,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       </AccordionItem>
       <AccordionItem
         key="4"
+        aria-label="Card expired"
         leftIndicator={<InvalidCardIcon className="text-danger" />}
         styles={{...itemStyles, subtitle: "text-danger"}}
         subtitle="Please, update now"

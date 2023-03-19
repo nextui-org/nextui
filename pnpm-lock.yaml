@@ -312,6 +312,7 @@ importers:
       '@nextui-org/shared-icons': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/test-utils': workspace:*
       '@nextui-org/theme': workspace:*
       '@react-aria/accordion': 3.0.0-alpha.15
       '@react-aria/focus': ^3.11.0
@@ -337,6 +338,7 @@ importers:
       framer-motion: 10.6.0_react@18.2.0
     devDependencies:
       '@nextui-org/avatar': link:../avatar
+      '@nextui-org/test-utils': link:../../utilities/test-utils
       '@react-types/accordion': 3.0.0-alpha.12_react@18.2.0
       '@react-types/shared': 3.17.0_react@18.2.0
       clean-package: 2.2.0
@@ -542,39 +544,6 @@ importers:
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
     devDependencies:
-      clean-package: 2.2.0
-      react: 18.2.0
-
-  packages/components/collapse:
-    specifiers:
-      '@nextui-org/aria-utils': workspace:*
-      '@nextui-org/dom-utils': workspace:*
-      '@nextui-org/react-utils': workspace:*
-      '@nextui-org/shared-css': workspace:*
-      '@nextui-org/shared-utils': workspace:*
-      '@nextui-org/system': workspace:*
-      '@react-aria/accordion': 3.0.0-alpha.15
-      '@react-aria/focus': ^3.11.0
-      '@react-aria/utils': ^3.15.0
-      '@react-stately/tree': ^3.5.0
-      '@react-types/accordion': 3.0.0-alpha.12
-      '@react-types/shared': ^3.15.0
-      clean-package: 2.2.0
-      react: ^18.2.0
-    dependencies:
-      '@nextui-org/aria-utils': link:../../utilities/aria-utils
-      '@nextui-org/dom-utils': link:../../utilities/dom-utils
-      '@nextui-org/react-utils': link:../../utilities/react-utils
-      '@nextui-org/shared-css': link:../../utilities/shared-css
-      '@nextui-org/shared-utils': link:../../utilities/shared-utils
-      '@nextui-org/system': link:../../core/system
-      '@react-aria/accordion': 3.0.0-alpha.15_react@18.2.0
-      '@react-aria/focus': 3.11.0_react@18.2.0
-      '@react-aria/utils': 3.15.0_react@18.2.0
-      '@react-stately/tree': 3.5.0_react@18.2.0
-    devDependencies:
-      '@react-types/accordion': 3.0.0-alpha.12_react@18.2.0
-      '@react-types/shared': 3.17.0_react@18.2.0
       clean-package: 2.2.0
       react: 18.2.0
 

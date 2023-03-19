@@ -10,9 +10,13 @@ export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {
 const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
   const {
     Component,
-    item,
     styles,
     slots,
+    indicator,
+    children,
+    title,
+    subtitle,
+    leftIndicator,
     isOpen,
     isDisabled,
     disableAnimation,
@@ -26,42 +30,42 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
     getIndicatorProps,
   } = useAccordionItem({ref, ...props});
 
-  const indicator = useMemo<ReactNode | null>(() => {
-    if (typeof item.props?.indicator === "function") {
-      return item.props?.indicator({indicator: <ChevronIcon />, isOpen, isDisabled});
+  const indicatorContent = useMemo<ReactNode | null>(() => {
+    if (typeof indicator === "function") {
+      return indicator({indicator: <ChevronIcon />, isOpen, isDisabled});
     }
 
-    if (item.props?.indicator) return item.props?.indicator;
+    if (indicator) return indicator;
 
     return <ChevronIcon />;
-  }, [item.props?.indicator, isOpen, isDisabled]);
+  }, [indicator, isOpen, isDisabled]);
 
   const content = useMemo(() => {
     if (disableAnimation) {
-      return <div {...getContentProps()}>{item.props?.children}</div>;
+      return <div {...getContentProps()}>{children}</div>;
     }
 
     return (
       <Collapse in={isOpen} {...motionProps}>
-        <div {...getContentProps()}>{item.props?.children}</div>
+        <div {...getContentProps()}>{children}</div>
       </Collapse>
     );
-  }, [isOpen, disableAnimation, item.props?.children, motionProps]);
+  }, [isOpen, disableAnimation, children, motionProps]);
 
   return (
     <Component {...getBaseProps()}>
       <h2 {...getHeadingProps()}>
         <button {...getButtonProps()}>
-          {item.props?.leftIndicator && (
+          {leftIndicator && (
             <div className={slots.leftIndicator({class: styles?.leftIndicator})}>
-              {item.props?.leftIndicator}
+              {leftIndicator}
             </div>
           )}
           <div className={slots.titleWrapper({class: styles?.titleWrapper})}>
-            {item.props?.title && <span {...getTitleProps()}>{item.props?.title}</span>}
-            {item.props?.subtitle && <span {...getSubtitleProps()}>{item.props?.subtitle}</span>}
+            {title && <span {...getTitleProps()}>{title}</span>}
+            {subtitle && <span {...getSubtitleProps()}>{subtitle}</span>}
           </div>
-          {indicator && <span {...getIndicatorProps()}>{indicator}</span>}
+          {indicatorContent && <span {...getIndicatorProps()}>{indicatorContent}</span>}
         </button>
       </h2>
       {content}

@@ -2,7 +2,7 @@ import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef, callAllHandlers, dataAttr, extractProperty} from "@nextui-org/shared-utils";
+import {clsx, ReactRef, callAllHandlers, dataAttr} from "@nextui-org/shared-utils";
 import {NodeWithProps, useAccordionItem as useBaseAccordion} from "@nextui-org/aria-utils";
 import {useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
@@ -26,52 +26,25 @@ export type UseAccordionItemProps<T extends object = {}> = Props<T> & AccordionI
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
   const groupContext = useAccordionContext();
 
+  const {ref, as, item, onFocusChange} = props;
+
   const {
-    ref,
-    as,
-    item,
-    styles = item.props?.styles,
-    className = item.props?.className,
-    isCompact = extractProperty(
-      "isCompact",
-      false,
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["isCompact"],
-    isDisabled: isDisabledProp = extractProperty(
-      "isDisabled",
-      false,
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["isDisabled"],
-    hideDivider = extractProperty(
-      "hideDivider",
-      false,
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["hideDivider"],
-    hideIndicator = extractProperty(
-      "hideIndicator",
-      false,
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["hideIndicator"],
-    disableAnimation = extractProperty(
-      "disableAnimation",
-      false,
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["disableAnimation"],
-    disableIndicatorAnimation = extractProperty(
-      "disableIndicatorAnimation",
-      false,
-      groupContext,
-      item.props,
-    ) as AccordionItemBaseProps["disableIndicatorAnimation"],
-    onFocusChange,
-    motionProps = item.props?.motionProps ?? groupContext?.motionProps,
+    styles,
+    className,
+    indicator,
+    children,
+    title,
+    subtitle,
+    leftIndicator,
+    motionProps = groupContext?.motionProps,
+    isCompact = groupContext?.isCompact ?? false,
+    isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
+    hideDivider = groupContext.hideDivider ?? false,
+    hideIndicator = groupContext.hideIndicator ?? false,
+    disableAnimation = groupContext.disableAnimation ?? false,
+    disableIndicatorAnimation = groupContext.disableIndicatorAnimation ?? false,
     ...otherProps
-  } = props;
+  } = item.props as AccordionItemBaseProps<T>;
 
   const Component = as || "div";
 
@@ -134,7 +107,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...mergeProps(otherProps, props),
       };
     },
-    [baseStyles, otherProps, slots, isOpen, isDisabled],
+    [baseStyles, otherProps, slots, item.props, isOpen, isDisabled],
   );
 
   const getButtonProps = useCallback<PropGetter>(
@@ -233,6 +206,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     slots,
     styles,
     domRef,
+    indicator,
+    children,
+    title,
+    subtitle,
+    leftIndicator,
     isOpen,
     isDisabled,
     disableAnimation,

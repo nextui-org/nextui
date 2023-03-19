@@ -78,7 +78,6 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     hideIndicator = false,
     disableAnimation = false,
     disableIndicatorAnimation = false,
-
     ...otherProps
   } = props;
 
