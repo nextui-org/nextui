@@ -1,6 +1,6 @@
-import React from 'react';
-import addons from '@storybook/addons';
-import { themes } from '@storybook/theming';
+import React from "react";
+import addons from "@storybook/addons";
+import {themes} from "@storybook/theming";
 import Style from "./style";
 
 export const decorators = [
@@ -14,6 +14,12 @@ export const decorators = [
 
 export const parameters = {
   actions: {argTypesRegex: "^on[A-Z].*"},
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order:["Foundations", "Components"],
+    },
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -23,9 +29,9 @@ export const parameters = {
   darkMode: {
     current: "dark",
     stylePreview: true,
-    darkClass: 'dark',
-    lightClass: 'light',
-    classTarget: 'html',
+    darkClass: "dark",
+    lightClass: "light",
+    classTarget: "html",
     dark: {
       ...themes.dark,
       appBg: "#161616",
@@ -36,7 +42,7 @@ export const parameters = {
     },
     light: {
       ...themes.light,
-      appBorderRadius: 14
-    }
+      appBorderRadius: 14,
+    },
   },
 };
