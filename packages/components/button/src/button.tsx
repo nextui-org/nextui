@@ -1,5 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
 import {Drip} from "@nextui-org/drip";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseButtonProps, useButton} from "./use-button";
 
@@ -11,10 +11,10 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     domRef,
     children,
     styles,
+    drips,
     leftIcon,
     rightIcon,
     disableRipple,
-    dripBindings,
     getButtonProps,
   } = useButton({
     ref,
@@ -26,15 +26,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
       {leftIcon}
       {children}
       {rightIcon}
-      {!disableRipple && (
-        <Drip
-          {...dripBindings}
-          styles={{
-            base: "opacity-30",
-            svg: "text-inherit",
-          }}
-        />
-      )}
+      {!disableRipple && <Drip drips={drips} />}
     </Component>
   );
 });

@@ -1,36 +1,51 @@
-import {PressEvent} from "@react-types/shared";
-import {MouseEvent, RefObject, useState} from "react";
+import {Timer} from "@nextui-org/shared-utils";
+import {MouseEvent, CSSProperties, useRef, useState} from "react";
 
-export function useDrip(initialValue = false, ref: RefObject<HTMLElement>) {
-  const [isVisible, setIsVisible] = useState(initialValue);
-  const [dripX, setDripX] = useState(0);
-  const [dripY, setDripY] = useState(0);
+export type DripInstance = {
+  key: number;
+  style: CSSProperties;
+  "data-drip": boolean;
+};
 
-  const onCompleted = () => {
-    setIsVisible(false);
-    setDripX(0);
-    setDripY(0);
-  };
+export function useDrip() {
+  const [drips, setDrips] = useState<DripInstance[]>([]);
+  const nextKey = useRef(0);
 
-  const onClick = (event: MouseEvent<HTMLElement> | PressEvent | Event) => {
-    if (!ref?.current) return;
-    const rect = ref.current.getBoundingClientRect?.();
+  const dripTimer = useRef<Timer>();
 
-    if (!rect) return;
+  const onClick = (event: MouseEvent<HTMLElement>) => {
+    const trigger = event.currentTarget;
 
-    setIsVisible(true);
-    if (typeof event === "object" && "clientX" in event) {
-      setDripX(event.clientX - rect.left);
-      setDripY(event.clientY - rect.top);
-    }
+    const size = Math.max(trigger.clientWidth, trigger.clientHeight);
+    const rect = trigger.getBoundingClientRect();
+    const x = event.clientX - rect.x - size / 2;
+    const y = event.clientY - rect.y - size / 2;
+
+    const dripStyle: CSSProperties = {
+      width: `${size}px`,
+      height: `${size}px`,
+      top: `${y}px`,
+      left: `${x}px`,
+    };
+
+    setDrips((prev) => [
+      ...prev,
+      {
+        key: nextKey.current,
+        style: dripStyle,
+        "data-drip": true,
+      },
+    ]);
+    nextKey.current++;
+
+    dripTimer.current = setTimeout(() => {
+      setDrips((prev) => prev.slice(1));
+    }, 340);
   };
 
   return {
-    isVisible,
-    x: dripX,
-    y: dripY,
+    drips,
     onClick,
-    onCompleted,
   };
 }
 

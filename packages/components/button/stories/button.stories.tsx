@@ -59,8 +59,27 @@ const defaultProps = {
 
 const Template: ComponentStory<typeof Button> = (args: ButtonProps) => <Button {...args} />;
 
+const StateTemplate: ComponentStory<typeof Button> = (args: ButtonProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  return (
+    <Button {...args} onPress={handleClick}>
+      {isOpen ? "Close" : "Open"}
+    </Button>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
+  ...defaultProps,
+};
+
+export const WithState = StateTemplate.bind({});
+WithState.args = {
   ...defaultProps,
 };
 

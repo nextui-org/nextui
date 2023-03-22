@@ -35,11 +35,11 @@ const tooltip = tv({
       danger: colorVariants.solid.danger,
     },
     size: {
-      xs: "px-2 h-4 text-xs",
-      sm: "px-3 h-6 text-sm",
-      md: "px-4 h-8 text-base",
-      lg: "px-6 h-10 text-lg",
-      xl: "px-8 h-12 text-xl",
+      xs: "px-2 py-0.5 text-xs",
+      sm: "px-3 py-0.5 text-sm",
+      md: "px-4 py-1 text-base",
+      lg: "px-6 py-1 text-lg",
+      xl: "px-8 py-2 text-xl",
     },
     radius: {
       none: "rounded-none",

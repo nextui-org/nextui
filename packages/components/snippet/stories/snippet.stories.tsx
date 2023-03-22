@@ -63,6 +63,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center w-screen h-screen">
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof Snippet>;
 
 const defaultProps = {

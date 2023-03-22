@@ -1,27 +1,23 @@
-import {tv, type VariantProps} from "tailwind-variants";
-
-import {absoluteFullClasses} from "../utils";
+import {tv} from "tailwind-variants";
 
 /**
  * Drip wrapper **Tailwind Variants** component
  *
- * const {base, svg} = drip({...})
+ * const styles = drip({...})
  *
  * @example
- * <div className={base())}>
- *   <svg className={svg()}>
- *    // drip svg content
- *  </svg>
- * </div>
+ * <span ref={dripRef} className={styles())} data-drip="true/false" />
  */
 const drip = tv({
-  slots: {
-    base: [...absoluteFullClasses, "overflow-hidden"],
-    svg: "absolute animate-drip-expand",
-  },
+  base: [
+    "hidden",
+    "absolute",
+    "bg-current",
+    "rounded-full",
+    "pointer-events-none",
+    'data-[drip="true"]:block',
+    'data-[drip="true"]:animate-drip-expand',
+  ],
 });
-
-export type DripVariantProps = VariantProps<typeof drip>;
-export type DripSlots = keyof ReturnType<typeof drip>;
 
 export {drip};

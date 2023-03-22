@@ -1,10 +1,10 @@
 import type {TooltipVariantProps} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
-import type {ReactNode, Ref} from "react";
 import type {HTMLMotionProps} from "framer-motion";
 import type {TooltipPlacement} from "./types";
 
+import {ReactNode, Ref, useEffect, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -12,7 +12,10 @@ import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/over
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tooltip} from "@nextui-org/theme";
 import {ReactRef, mergeRefs} from "@nextui-org/shared-utils";
+import {createDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useRef, useCallback} from "react";
+
+import {toReactAriaPlacement} from "./utils";
 
 export interface UseTooltipProps
   extends HTMLNextUIProps<"div", TooltipVariantProps>,
@@ -86,13 +89,13 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const {
     ref,
     as,
-    isOpen,
+    isOpen: isOpenProp,
     content,
     children,
     defaultOpen,
     onOpenChange,
     isDisabled,
-    trigger: triggerAction = "focus",
+    trigger: triggerAction,
     shouldFlip = true,
     containerPadding = 12,
     placement: placementProp = "top",
@@ -114,25 +117,38 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const state = useTooltipTriggerState({
     delay,
     isDisabled,
-    isOpen,
     defaultOpen,
     onOpenChange,
   });
 
   const triggerRef = useRef<HTMLElement>(null);
-  const overlayRef = useRef<HTMLElement>(null);
-  const domRef = mergeRefs(overlayRef, ref);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   const immediate = closeDelay === 0;
+  const isOpen = state.isOpen && !isDisabled;
+
+  // Sync ref with overlayRef from passed ref.
+  useImperativeHandle(ref, () =>
+    // @ts-ignore
+    createDOMRef(overlayRef),
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
     state.close(immediate);
   }, [state, immediate, onClose]);
 
+  // control open state from outside
+  useEffect(() => {
+    if (isOpenProp === undefined) return;
+
+    if (isOpenProp !== state.isOpen) {
+      isOpenProp ? state.open() : handleClose();
+    }
+  }, [isOpenProp, handleClose]);
+
   const {triggerProps, tooltipProps: triggerTooltipProps} = useTooltipTrigger(
     {
-      delay,
       isDisabled,
       trigger: triggerAction,
     },
@@ -140,20 +156,22 @@ export function useTooltip(originalProps: UseTooltipProps) {
     triggerRef,
   );
 
-  const {tooltipProps} = useReactAriaTooltip(mergeProps(props, triggerTooltipProps), state);
-
-  tooltipProps.onPointerLeave = () => {
-    state.close(immediate);
-  };
+  const {tooltipProps} = useReactAriaTooltip(
+    {
+      isOpen,
+      ...mergeProps(props, triggerTooltipProps),
+    },
+    state,
+  );
 
   const {
     overlayProps: positionProps,
     // arrowProps,
     // placement,
   } = useOverlayPosition({
-    isOpen: state.isOpen,
+    isOpen: isOpen,
     targetRef: triggerRef,
-    placement: placementProp,
+    placement: toReactAriaPlacement(placementProp),
     overlayRef,
     offset,
     shouldFlip,
@@ -162,8 +180,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const {overlayProps} = useOverlay(
     {
-      isOpen: state.isOpen,
-      isDismissable: isDismissable && state.isOpen,
+      isOpen: isOpen,
+      isDismissable: isDismissable && isOpen,
       onClose: handleClose,
       shouldCloseOnBlur,
       isKeyboardDismissDisabled,
@@ -184,7 +202,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({
       ...mergeProps(triggerProps, props),
-      ref: mergeRefs(triggerRef, _ref),
+      ref: mergeRefs(_ref, triggerRef),
       onPointerEnter: () => state.open(),
       onPointerLeave: () => isDismissable && state.close(),
     }),
@@ -193,19 +211,21 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const getTooltipProps = useCallback<PropGetter>(
     () => ({
-      ref: domRef,
+      ref: overlayRef,
       className: styles,
       ...mergeProps(tooltipProps, positionProps, overlayProps, otherProps),
     }),
-    [domRef, styles, tooltipProps, positionProps, overlayProps, otherProps],
+    [overlayRef, styles, tooltipProps, positionProps, overlayProps, otherProps],
   );
 
   return {
     Component,
     content,
     children,
+    isOpen,
+    triggerRef,
+    triggerProps,
     placement: placementProp,
-    isOpen: state.isOpen,
     disableAnimation: originalProps?.disableAnimation,
     isDisabled,
     motionProps,

@@ -1,17 +1,16 @@
 import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@react-types/button";
-import type {PressEvent} from "@react-types/shared";
-import type {ReactRef} from "@nextui-org/shared-utils";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
 
+import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {MouseEventHandler, useCallback} from "react";
 import {useButton as useAriaButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {warn, clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 
@@ -65,12 +64,8 @@ export function useButton(props: UseButtonProps) {
     radius = groupContext?.radius ?? "lg",
     disableRipple = groupContext?.disableRipple ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
-    onClick: deprecatedOnClick,
     onPress,
-    onPressStart,
-    onPressEnd,
-    onPressChange,
-    onPressUp,
+    onClick,
     ...otherProps
   } = props;
 
@@ -78,7 +73,7 @@ export function useButton(props: UseButtonProps) {
 
   const domRef = useDOMRef(ref);
 
-  const {isFocusVisible, focusProps} = useFocusRing({
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
   });
 
@@ -110,44 +105,32 @@ export function useButton(props: UseButtonProps) {
     ],
   );
 
-  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, domRef);
+  const {onClick: onDripClickHandler, drips} = useDrip();
 
-  const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent | Event) => {
+  const handleDrip = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disableRipple || isDisabled || disableAnimation) return;
     domRef.current && onDripClickHandler(e);
   };
 
-  const handlePress = (e: PressEvent) => {
-    if (isDisabled) return;
-
-    if (e.pointerType === "keyboard" || e.pointerType === "virtual") {
-      handleDrip(e);
-    } else if (typeof window !== "undefined" && window.event) {
-      handleDrip(window.event);
-    }
-    if (deprecatedOnClick) {
-      deprecatedOnClick(e as any);
-      warn("onClick is deprecated, please use onPress", "Button");
-    }
-    onPress?.(e);
-  };
-
-  const {buttonProps: buttonAriaProps} = useAriaButton(
+  const {buttonProps: ariaButtonProps} = useAriaButton(
     {
-      ...otherProps,
       elementType: as,
-      onPress: handlePress,
-      onPressStart,
-      onPressEnd,
-      onPressChange,
-      onPressUp,
+      isDisabled,
+      onPress,
+      onClick: chain(onClick, handleDrip),
+      ...otherProps,
     } as AriaButtonProps,
     domRef,
   );
 
   const getButtonProps: PropGetter = useCallback(
-    () => mergeProps(buttonAriaProps, focusProps, otherProps),
-    [buttonAriaProps, focusProps, otherProps],
+    () => ({
+      "data-disabled": dataAttr(isDisabled),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-focused": dataAttr(isFocused),
+      ...mergeProps(ariaButtonProps, focusProps, otherProps),
+    }),
+    [ariaButtonProps, focusProps, otherProps],
   );
 
   const getIconClone = (icon: ReactNode) =>
@@ -170,10 +153,10 @@ export function useButton(props: UseButtonProps) {
     Component,
     children,
     domRef,
+    drips,
     styles,
     leftIcon,
     rightIcon,
-    dripBindings,
     disableRipple,
     getButtonProps,
   };

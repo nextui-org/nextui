@@ -52,9 +52,9 @@
     "framer-motion": "^10.6.0"
   },
   "devDependencies": {
+    "@nextui-org/button": "workspace:*",
     "@react-types/overlays": "^3.7.0",
     "@react-types/tooltip": "^3.3.0",
-    "@nextui-org/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "turbo dev --filter=!@nextui-org/docs",
-    "build": "turbo build --filter=!@nextui-org/docs --filter=!@nextui-org/snippet",
+    "build": "turbo build --filter=!@nextui-org/docs",
     "build:fast": "turbo build:fast --filter=!@nextui-org/docs",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
     "build:docs": "turbo build --filter=@nextui-org/docs",
@@ -125,7 +125,7 @@
     "shelljs": "^0.8.4",
     "tsup": "6.4.0",
     "turbo": "1.6.3",
-    "typescript": "^5.0.2",
+    "typescript": "^4.9.5",
     "uuid": "^8.3.2",
     "webpack": "^5.53.0",
     "webpack-bundle-analyzer": "^4.4.2",

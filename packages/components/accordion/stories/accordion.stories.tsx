@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {accordionItem, link} from "@nextui-org/theme";
+import {accordionItem} from "@nextui-org/theme";
 import {
   AnchorIcon,
   MoonIcon,
@@ -135,14 +135,8 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
         />
       }
       subtitle={
-        <p>
-          2 issues to{" "}
-          <a
-            className={link({size: "sm"})}
-            href="/?path=/story/components-accordion--with-left-indicator"
-          >
-            fix now
-          </a>
+        <p className="flex">
+          2 issues to&nbsp;<p className="text-primary">fix now</p>
         </p>
       }
       title="Zoey Lang"
@@ -270,14 +264,8 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
         leftIndicator={<MonitorMobileIcon className="text-primary" />}
         styles={itemStyles}
         subtitle={
-          <p>
-            2 issues to{" "}
-            <a
-              className={link({size: "sm"})}
-              href="/?path=/story/components-accordion--custom-with-styles"
-            >
-              fix now
-            </a>
+          <p className="flex">
+            2 issues to&nbsp;<p className="text-primary">fix now</p>
           </p>
         }
         title="Connected devices"

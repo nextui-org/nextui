@@ -1,8 +1,9 @@
 import {forwardRef} from "@nextui-org/system";
-import {warn} from "@nextui-org/shared-utils";
-import {cloneElement, Children, useMemo} from "react";
+import {useMemo} from "react";
 import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, motion} from "framer-motion";
+import {warn} from "@nextui-org/shared-utils";
+import {Children, cloneElement} from "react";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 import {scale} from "./tooltip-transition";
@@ -42,44 +43,39 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     warn("Tooltip must have only one child node. Please, check your code.");
   }
 
-  const contentComponent = useMemo(() => {
-    if (disableAnimation) {
-      return <Component {...getTooltipProps()}>{content}</Component>;
-    }
-
+  const animatedContent = useMemo(() => {
     const {className, ...otherTooltipProps} = getTooltipProps();
 
     return (
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <div {...otherTooltipProps}>
-            <motion.div
-              animate="enter"
-              exit="exit"
-              initial="exit"
-              style={{
-                ...getOrigins(placement),
-              }}
-              variants={scale}
-              {...motionProps}
-            >
-              <Component className={className}>{content}</Component>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <div {...otherTooltipProps}>
+        <motion.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          style={{
+            ...getOrigins(placement),
+          }}
+          variants={scale}
+          {...motionProps}
+        >
+          <Component className={className}>{content}</Component>
+        </motion.div>
+      </div>
     );
-  }, [isOpen, content, disableAnimation, children, motionProps, getTooltipProps]);
+  }, [getTooltipProps, placement, motionProps, Component, content]);
 
   return (
     <>
       {trigger}
-      <OverlayContainer>
-        {/* <CSSTransition {...transitionProps}>
-            <Component {...getTooltipProps()}>{content}</Component>
-          </CSSTransition> */}
-        {contentComponent}
-      </OverlayContainer>
+      {disableAnimation && isOpen ? (
+        <OverlayContainer>
+          <Component {...getTooltipProps()}>{content}</Component>;
+        </OverlayContainer>
+      ) : (
+        <AnimatePresence initial={false}>
+          {isOpen ? <OverlayContainer>{animatedContent}</OverlayContainer> : null}
+        </AnimatePresence>
+      )}
     </>
   );
 });
