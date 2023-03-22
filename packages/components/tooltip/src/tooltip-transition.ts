@@ -1,4 +1,5 @@
 import {Variants} from "framer-motion";
+import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
 
 export const scale: Variants = {
   exit: {
@@ -24,9 +25,8 @@ export const scale: Variants = {
         duration: 0.2,
       },
       scale: {
-        type: "spring",
-        stiffness: 800,
-        damping: 35,
+        duration: 0.3,
+        ease: TRANSITION_EASINGS.softSpring,
       },
     },
   },

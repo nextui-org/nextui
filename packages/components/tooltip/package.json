@@ -48,6 +48,7 @@
     "@react-aria/overlays": "^3.13.0",
     "@react-aria/tooltip": "^3.4.0",
     "@react-stately/tooltip": "^3.3.0",
+    "@react-aria/interactions": "^3.14.0",
     "@react-aria/utils": "^3.15.0",
     "framer-motion": "^10.6.0"
   },

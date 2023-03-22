@@ -49,9 +49,8 @@ const defaultTransitions = {
   },
   enter: {
     height: {
-      type: "spring",
-      stiffness: 300,
-      damping: 24,
+      duration: 0.4,
+      ease: TRANSITION_EASINGS.softSpring,
     },
     opacity: {
       duration: 0.8,
