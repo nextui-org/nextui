@@ -41,6 +41,7 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/accordion": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/badge": "workspace:*",
     "@nextui-org/button": "workspace:*",
@@ -49,10 +50,12 @@
     "@nextui-org/code": "workspace:*",
     "@nextui-org/drip": "workspace:*",
     "@nextui-org/link": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
     "@nextui-org/radio": "workspace:*",
     "@nextui-org/snippet": "workspace:*",
+    "@nextui-org/spinner": "workspace:*",
+    "@nextui-org/switch": "workspace:*",
+    "@nextui-org/tooltip": "workspace:*",
     "@nextui-org/user": "workspace:*"
   },
   "peerDependencies": {

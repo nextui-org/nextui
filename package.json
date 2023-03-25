@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "turbo dev --filter=!@nextui-org/docs",
     "build": "turbo build --filter=!@nextui-org/docs",
-    "build:fast": "turbo build:fast --filter=!@nextui-org/docs",
+    "build:fast": "turbo build:fast --filter=!@nextui-org/docs ",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
     "build:docs": "turbo build --filter=@nextui-org/docs",
     "build:docs-meta": "node ./scripts/update-index-docs.js",
@@ -139,8 +139,6 @@
     }
   },
   "engines": {
-    "node": ">=16.x",
-    "pnpm": ">=7.x"
-  },
-  "packageManager": "pnpm@7.14.2"
+    "node": ">=16.x"
+  }
 }

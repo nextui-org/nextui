@@ -1,4 +1,25 @@
 {
   "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@nextui-org/accordion": ["./node_modules/@nextui-org/accordion/dist"],
+      "@nextui-org/avatar": ["./node_modules/@nextui-org/avatar/dist"],
+      "@nextui-org/badge": ["./node_modules/@nextui-org/badge/dist"],
+      "@nextui-org/button": ["./node_modules/@nextui-org/button/dist"],
+      "@nextui-org/card": ["./node_modules/@nextui-org/card/dist"],
+      "@nextui-org/checkbox": ["./node_modules/@nextui-org/checkbox/dist"],
+      "@nextui-org/code": ["./node_modules/@nextui-org/code/dist"],
+      "@nextui-org/drip": ["./node_modules/@nextui-org/drip/dist"],
+      "@nextui-org/link": ["./node_modules/@nextui-org/link/dist"],
+      "@nextui-org/pagination": ["./node_modules/@nextui-org/pagination/dist"],
+      "@nextui-org/radio": ["./node_modules/@nextui-org/radio/dist"],
+      "@nextui-org/snippet": ["./node_modules/@nextui-org/snippet/dist"],
+      "@nextui-org/spinner": ["./node_modules/@nextui-org/spinner/dist"],
+      "@nextui-org/switch": ["./node_modules/@nextui-org/switch/dist"],
+      "@nextui-org/tooltip": ["./node_modules/@nextui-org/tooltip/dist"],
+      "@nextui-org/user": ["./node_modules/@nextui-org/user/dist"]
+    }
+  },
   "include": ["src", "index.ts"]
 }

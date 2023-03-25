@@ -108,7 +108,6 @@ export function useSnippet(originalProps: UseSnippetProps) {
     tooltipProps = {
       offset: 15,
       content: "Copy to clipboard",
-      size: originalProps?.size as TooltipProps["size"],
       variant: originalProps?.variant as TooltipProps["variant"],
       color: originalProps?.color as TooltipProps["color"],
       isDisabled: disableCopy,
