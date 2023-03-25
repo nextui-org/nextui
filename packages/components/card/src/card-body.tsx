@@ -1,7 +1,6 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx} from "@nextui-org/shared-utils";
-import {filterDOMProps} from "@react-aria/utils";
 
 import {useCardContext} from "./card-context";
 
@@ -16,11 +15,7 @@ const CardBody = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
   const bodyStyles = clsx(styles?.body, className);
 
   return (
-    <Component
-      ref={domRef}
-      className={slots.body?.({class: bodyStyles})}
-      {...filterDOMProps(otherProps, {labelable: true})}
-    >
+    <Component ref={domRef} className={slots.body?.({class: bodyStyles})} {...otherProps}>
       {children}
     </Component>
   );

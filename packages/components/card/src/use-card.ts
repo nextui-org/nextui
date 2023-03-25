@@ -3,7 +3,7 @@ import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "
 
 import {card} from "@nextui-org/theme";
 import {MouseEvent, useCallback, useMemo} from "react";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useButton as useAriaButton} from "@react-aria/button";
@@ -51,8 +51,8 @@ export type UseCardProps = Props & PressEvents & FocusableProps & CardVariantPro
 export type ContextType = {
   slots: CardReturnType;
   styles?: SlotsToClasses<CardSlots>;
-  variant?: CardVariantProps["variant"];
   isDisabled?: CardVariantProps["isDisabled"];
+  isBordered?: CardVariantProps["isBordered"];
   isFooterBlurred?: CardVariantProps["isFooterBlurred"];
   disableAnimation?: CardVariantProps["disableAnimation"];
   fullWidth?: CardVariantProps["fullWidth"];
@@ -120,7 +120,7 @@ export function useCard(originalProps: UseCardProps) {
 
   const context = useMemo<ContextType>(
     () => ({
-      variant: originalProps.variant,
+      isBordered: originalProps.isBordered,
       isDisabled: originalProps.isDisabled,
       isFooterBlurred: originalProps.isFooterBlurred,
       disableAnimation: originalProps.disableAnimation,
@@ -131,7 +131,7 @@ export function useCard(originalProps: UseCardProps) {
     [
       slots,
       styles,
-      originalProps.variant,
+      originalProps.isBordered,
       originalProps.isDisabled,
       originalProps.isFooterBlurred,
       originalProps.disableAnimation,
@@ -153,8 +153,8 @@ export function useCard(originalProps: UseCardProps) {
         ...mergeProps(
           originalProps.isPressable ? {...buttonProps, ...focusProps} : {},
           originalProps.isHoverable ? hoverProps : {},
-          filterDOMProps(otherProps, {labelable: true}),
-          filterDOMProps(props, {labelable: true}),
+          otherProps,
+          props,
         ),
       };
     },

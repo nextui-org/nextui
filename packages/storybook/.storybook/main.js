@@ -17,6 +17,7 @@ module.exports = {
     "../../components/pagination/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/switch/stories/*.stories.@(js|jsx|ts|tsx)",
     "../../components/accordion/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../../components/card/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [

@@ -1,7 +1,6 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx} from "@nextui-org/shared-utils";
-import {filterDOMProps} from "@react-aria/utils";
 
 import {useCardContext} from "./card-context";
 
@@ -22,11 +21,7 @@ const CardFooter = forwardRef<CardFooterProps, "div">((props, ref) => {
   });
 
   return (
-    <Component
-      ref={domRef}
-      className={slots.footer?.({class: footerStyles})}
-      {...filterDOMProps(otherProps, {labelable: true})}
-    >
+    <Component ref={domRef} className={slots.footer?.({class: footerStyles})} {...otherProps}>
       {children}
     </Component>
   );

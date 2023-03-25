@@ -21,18 +21,14 @@ const card = tv({
     base: [
       "flex",
       "flex-col",
-      "m-0",
-      "p-0",
       "relative",
       "overflow-hidden",
       "w-full",
       "height-auto",
-      "bg-white",
       "text-foreground",
-      "rounded-xl",
       "box-border",
-      "dark:bg-neutral-900",
-      "dark:text-foreground-dark",
+      "dark:bg-content1",
+      "border border-neutral-100",
     ],
     header: [
       "flex",
@@ -44,6 +40,7 @@ const card = tv({
       "color-inherit",
       "p-3",
       "z-10",
+      "subpixel-antialiased",
     ],
     body: [
       "relative",
@@ -58,6 +55,7 @@ const card = tv({
       "px-3",
       "text-left",
       "overflow-y-auto",
+      "subpixel-antialiased",
     ],
     footer: [
       "w-full",
@@ -68,23 +66,70 @@ const card = tv({
       "overflow-hidden",
       "color-inherit",
       "rounded-b-xl",
+      "subpixel-antialiased",
     ],
   },
   variants: {
-    variant: {
-      shadow: {
-        base: "drop-shadow-lg",
+    shadow: {
+      none: {
+        base: "shadow-none",
       },
-      bordered: {
-        base: "border-border dark:border-border-dark",
+      sm: {
+        base: "shadow-sm",
       },
-      flat: {
-        base: "bg-neutral-100",
+      md: {
+        base: "shadow-md",
+      },
+      lg: {
+        base: "shadow-lg",
+      },
+      xl: {
+        base: "shadow-xl",
+      },
+      "2xl": {
+        base: "shadow-2xl",
+      },
+      inner: {
+        base: "shadow-inner",
+      },
+    },
+    radius: {
+      none: {
+        base: "rounded-none",
+      },
+      base: {
+        base: "rounded",
+      },
+      sm: {
+        base: "rounded-sm",
+      },
+      md: {
+        base: "rounded-md",
+      },
+      lg: {
+        base: "rounded-lg",
+      },
+      xl: {
+        base: "rounded-xl",
+      },
+      "2xl": {
+        base: "rounded-2xl",
+      },
+      "3xl": {
+        base: "rounded-3xl",
+      },
+      full: {
+        base: "rounded-full",
       },
     },
     fullWidth: {
       true: {
         base: "w-full",
+      },
+    },
+    isBordered: {
+      true: {
+        base: "border-2 border-neutral",
       },
     },
     isHoverable: {
@@ -112,50 +157,32 @@ const card = tv({
     },
     disableAnimation: {
       true: "",
-      false: {base: "!transition motion-reduce:transition-none"},
+      false: {base: "transition-transform motion-reduce:transition-none"},
     },
   },
   compoundVariants: [
     {
       isHoverable: true,
       disableAnimation: false,
-      class: "hover:-translate-y-0.5",
+      class: "hover:-translate-y-2",
     },
     {
       isPressable: true,
       disableAnimation: false,
       class: "active:scale-95",
     },
-    {
-      variant: "bordered",
-      borderWeight: "light",
-      class: "border",
-    },
-    {
-      variant: "bordered",
-      borderWeight: "normal",
-      class: "border-2",
-    },
-    {
-      variant: "bordered",
-      borderWeight: "bold",
-      class: "border-3",
-    },
-    {
-      variant: "bordered",
-      borderWeight: "extrabold",
-      class: "border-4",
-    },
-    {
-      variant: "bordered",
-      borderWeight: "black",
-      class: "border-5",
-    },
   ],
   defaultVariants: {
-    variant: "shadow",
+    radius: "xl",
+    shadow: "lg",
+    fullWidth: false,
     isHoverable: false,
     isPressable: false,
+    isFocusVisible: false,
+    isBordered: false,
+    isDisabled: false,
+    disableAnimation: false,
+    isFooterBlurred: false,
   },
 });
 
