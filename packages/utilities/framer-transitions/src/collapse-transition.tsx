@@ -46,6 +46,10 @@ const defaultTransitions = {
       duration: 0.3,
       ease: TRANSITION_EASINGS.ease,
     },
+    y: {
+      duration: 0.3,
+      ease: TRANSITION_EASINGS.ease,
+    },
   },
   enter: {
     height: {

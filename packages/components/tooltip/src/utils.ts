@@ -1,6 +1,6 @@
 import type {TooltipPlacement} from "./types";
 
-import {Placement} from "@react-types/overlays";
+import {Placement, PlacementAxis} from "@react-types/overlays";
 
 export const getOrigins = (placement: TooltipPlacement) => {
   const origins: Record<
@@ -76,4 +76,14 @@ export const toReactAriaPlacement = (placement: TooltipPlacement) => {
   };
 
   return mapPositions[placement];
+};
+
+export const getArrowPlacement = (dynamicPlacement: PlacementAxis, placement: TooltipPlacement) => {
+  if (placement.includes("-")) {
+    const [, position] = placement.split("-");
+
+    return `${dynamicPlacement}-${position}`;
+  }
+
+  return dynamicPlacement;
 };

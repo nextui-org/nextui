@@ -4,60 +4,106 @@ import {colorVariants} from "../utils";
 /**
  * Tooltip wrapper **Tailwind Variants** component
  *
- * const styles = tooltip({...})
+ * const { base, arrow } = tooltip({...})
  *
  * @example
  * <div>
  *  <button>your trigger</button>
- *  <div role="tooltip" className={styles}>
+ *  <div role="tooltip" className={base()}>
  *    // tooltip content
+ *    <span className={arrow()} data-placement="top/bottom/left/right..." /> // arrow
  *  </div>
  * </div>
  */
 const tooltip = tv({
-  base: ["inline-flex", "flex-col", "items-center", "justify-center", "box-border"],
+  slots: {
+    base: [
+      "z-10",
+      "inline-flex",
+      "flex-col",
+      "items-center",
+      "justify-center",
+      "box-border",
+      "subpixel-antialiased",
+      "px-4",
+      "py-1",
+      "text-base",
+    ],
+    arrow: [
+      "-z-10",
+      "absolute",
+      "rotate-45",
+      "bg-inherit",
+      "w-2.5",
+      "h-2.5",
+      "rounded-sm",
+      // top
+      "data-[placement=top]:-bottom-1",
+      "data-[placement=top]:-translate-x-1/2",
+      "data-[placement=top-start]:-bottom-1",
+      "data-[placement=top-start]:-translate-x-8",
+      "data-[placement=top-end]:-bottom-1",
+      "data-[placement=top-end]:translate-x-6",
+      // bottom
+      "data-[placement=bottom]:-top-1",
+      "data-[placement=bottom]:-translate-x-1/2",
+      "data-[placement=bottom-start]:-top-1",
+      "data-[placement=bottom-start]:-translate-x-8",
+      "data-[placement=bottom-end]:-top-1",
+      "data-[placement=bottom-end]:translate-x-6",
+      // left
+      "data-[placement=left]:-right-1",
+      "data-[placement=left]:-translate-y-1/2",
+      "data-[placement=left-start]:-right-1",
+      "data-[placement=left-start]:-translate-y-3",
+      "data-[placement=left-end]:-right-1",
+      "data-[placement=left-end]:translate-y-0.5",
+      // right
+      "data-[placement=right]:-left-1",
+      "data-[placement=right]:-translate-y-1/2",
+      "data-[placement=right-start]:-left-1",
+      "data-[placement=right-start]:-translate-y-3",
+      "data-[placement=right-end]:-left-1",
+      "data-[placement=right-end]:translate-y-0.5",
+    ],
+  },
   variants: {
     variant: {
-      solid: "",
-      bordered: "border-2 !bg-transparent",
-      light: "!bg-transparent",
-      faded: "border-1.5",
-      flat: "",
-      shadow: "",
+      solid: {base: ""},
+      bordered: {
+        base: "border-2 !bg-background",
+        arrow: "border-2 border-inherit !bg-background",
+      },
+      light: {base: "!bg-transparent", arrow: "hidden"},
+      faded: {base: "border-1.5", arrow: "border-1.5 border-inherit"},
+      flat: {base: ""},
+      shadow: {base: ""},
     },
     color: {
-      neutral: colorVariants.solid.neutral,
-      foreground: colorVariants.solid.foreground,
-      primary: colorVariants.solid.primary,
-      secondary: colorVariants.solid.secondary,
-      success: colorVariants.solid.success,
-      warning: colorVariants.solid.warning,
-      danger: colorVariants.solid.danger,
-    },
-    size: {
-      xs: "px-2 py-0.5 text-xs",
-      sm: "px-3 py-0.5 text-sm",
-      md: "px-4 py-1 text-base",
-      lg: "px-6 py-1 text-lg",
-      xl: "px-8 py-2 text-xl",
+      neutral: {base: colorVariants.solid.neutral},
+      foreground: {base: colorVariants.solid.foreground},
+      primary: {base: colorVariants.solid.primary},
+      secondary: {base: colorVariants.solid.secondary},
+      success: {base: colorVariants.solid.success},
+      warning: {base: colorVariants.solid.warning},
+      danger: {base: colorVariants.solid.danger},
     },
     radius: {
-      none: "rounded-none",
-      base: "rounded",
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl",
-      full: "rounded-full",
+      none: {base: "rounded-none"},
+      base: {base: "rounded"},
+      sm: {base: "rounded-sm"},
+      md: {base: "rounded-md"},
+      lg: {base: "rounded-lg"},
+      xl: {base: "rounded-xl"},
+      full: {base: "rounded-full"},
     },
     disableAnimation: {
-      true: "animate-none",
+      true: {base: "animate-none"},
     },
   },
   defaultVariants: {
     variant: "solid",
     color: "neutral",
-    size: "md",
     radius: "lg",
   },
   compoundVariants: [
@@ -65,187 +111,183 @@ const tooltip = tv({
     {
       variant: "shadow",
       color: "neutral",
-      class: colorVariants.shadow.neutral,
+      class: {
+        base: colorVariants.shadow.neutral,
+      },
     },
     {
       variant: "shadow",
       color: "foreground",
-      class: colorVariants.shadow.foreground,
+      class: {base: colorVariants.shadow.foreground},
     },
     {
       variant: "shadow",
       color: "primary",
-      class: colorVariants.shadow.primary,
+      class: {base: colorVariants.shadow.primary},
     },
     {
       variant: "shadow",
       color: "secondary",
-      class: colorVariants.shadow.secondary,
+      class: {base: colorVariants.shadow.secondary},
     },
     {
       variant: "shadow",
       color: "success",
-      class: colorVariants.shadow.success,
+      class: {base: colorVariants.shadow.success},
     },
     {
       variant: "shadow",
       color: "warning",
-      class: colorVariants.shadow.warning,
+      class: {base: colorVariants.shadow.warning},
     },
     {
       variant: "shadow",
       color: "danger",
-      class: colorVariants.shadow.danger,
+      class: {base: colorVariants.shadow.danger},
     },
     // bordered / color
     {
       variant: "bordered",
       color: "neutral",
-      class: colorVariants.bordered.neutral,
+      class: {base: colorVariants.bordered.neutral},
     },
     {
       variant: "bordered",
       color: "foreground",
-      class: colorVariants.bordered.foreground,
+      class: {base: colorVariants.bordered.foreground},
     },
     {
       variant: "bordered",
       color: "primary",
-      class: colorVariants.bordered.primary,
+      class: {base: colorVariants.bordered.primary},
     },
     {
       variant: "bordered",
       color: "secondary",
-      class: colorVariants.bordered.secondary,
+      class: {base: colorVariants.bordered.secondary},
     },
     {
       variant: "bordered",
       color: "success",
-      class: colorVariants.bordered.success,
+      class: {base: colorVariants.bordered.success},
     },
     {
       variant: "bordered",
       color: "warning",
-      class: colorVariants.bordered.warning,
+      class: {base: colorVariants.bordered.warning},
     },
     {
       variant: "bordered",
       color: "danger",
-      class: colorVariants.bordered.danger,
+      class: {base: colorVariants.bordered.danger},
     },
     // flat / color
     {
       variant: "flat",
       color: "neutral",
-      class: colorVariants.flat.neutral,
+      class: {base: colorVariants.flat.neutral},
     },
     {
       variant: "flat",
       color: "foreground",
-      class: colorVariants.flat.foreground,
+      class: {base: colorVariants.flat.foreground},
     },
     {
       variant: "flat",
       color: "primary",
-      class: colorVariants.flat.primary,
+      class: {base: colorVariants.flat.primary},
     },
     {
       variant: "flat",
       color: "secondary",
-      class: colorVariants.flat.secondary,
+      class: {base: colorVariants.flat.secondary},
     },
     {
       variant: "flat",
       color: "success",
-      class: colorVariants.flat.success,
+      class: {base: colorVariants.flat.success},
     },
     {
       variant: "flat",
       color: "warning",
-      class: colorVariants.flat.warning,
+      class: {base: colorVariants.flat.warning},
     },
     {
       variant: "flat",
       color: "danger",
-      class: colorVariants.flat.danger,
+      class: {base: colorVariants.flat.danger},
     },
     // faded / color
     {
       variant: "faded",
       color: "neutral",
-      class: colorVariants.faded.neutral,
+      class: {base: colorVariants.faded.neutral},
     },
     {
       variant: "faded",
       color: "foreground",
-      class: colorVariants.faded.foreground,
+      class: {base: colorVariants.faded.foreground},
     },
     {
       variant: "faded",
       color: "primary",
-      class: colorVariants.faded.primary,
+      class: {base: colorVariants.faded.primary},
     },
     {
       variant: "faded",
       color: "secondary",
-      class: colorVariants.faded.secondary,
+      class: {base: colorVariants.faded.secondary},
     },
     {
       variant: "faded",
       color: "success",
-      class: colorVariants.faded.success,
+      class: {base: colorVariants.faded.success},
     },
     {
       variant: "faded",
       color: "warning",
-      class: colorVariants.faded.warning,
+      class: {base: colorVariants.faded.warning},
     },
     {
       variant: "faded",
       color: "danger",
-      class: colorVariants.faded.danger,
+      class: {base: colorVariants.faded.danger},
     },
     // light / color
     {
       variant: "light",
       color: "neutral",
-      class: colorVariants.light.neutral,
+      class: {base: colorVariants.light.neutral},
     },
     {
       variant: "light",
       color: "foreground",
-      class: colorVariants.light.foreground,
+      class: {base: colorVariants.light.foreground},
     },
     {
       variant: "light",
       color: "primary",
-      class: colorVariants.light.primary,
+      class: {base: colorVariants.light.primary},
     },
     {
       variant: "light",
       color: "secondary",
-      class: colorVariants.light.secondary,
+      class: {base: colorVariants.light.secondary},
     },
     {
       variant: "light",
       color: "success",
-      class: colorVariants.light.success,
+      class: {base: colorVariants.light.success},
     },
     {
       variant: "light",
       color: "warning",
-      class: colorVariants.light.warning,
+      class: {base: colorVariants.light.warning},
     },
     {
       variant: "light",
       color: "danger",
-      class: colorVariants.light.danger,
-    },
-    // size (xs) / bordered
-    {
-      size: "xs",
-      variant: "bordered",
-      class: "border-1.5",
+      class: {base: colorVariants.light.danger},
     },
   ],
 });

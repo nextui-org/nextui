@@ -21,12 +21,6 @@ export default {
         options: ["neutral", "foreground", "primary", "secondary", "success", "warning", "danger"],
       },
     },
-    size: {
-      control: {
-        type: "select",
-        options: ["xs", "sm", "md", "lg", "xl"],
-      },
-    },
     radius: {
       control: {
         type: "select",
@@ -174,32 +168,30 @@ const VariantsTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) =>
   return (
     <div className="flex gap-2">
       <Tooltip {...args} content="Tooltip 1" variant="solid">
-        <Button color={buttonColor} size="sm">
-          Solid
-        </Button>
+        <Button color={buttonColor}>Solid</Button>
       </Tooltip>
       <Tooltip {...args} content="Tooltip 2" variant="bordered">
-        <Button color={buttonColor} size="sm" variant="bordered">
+        <Button color={buttonColor} variant="bordered">
           Bordered
         </Button>
       </Tooltip>
       <Tooltip {...args} content="Tooltip 3" variant="light">
-        <Button color={buttonColor} size="sm" variant="light">
+        <Button color={buttonColor} variant="light">
           Light
         </Button>
       </Tooltip>
       <Tooltip {...args} content="Tooltip 4" variant="flat">
-        <Button color={buttonColor} size="sm" variant="flat">
+        <Button color={buttonColor} variant="flat">
           Flat
         </Button>
       </Tooltip>
       <Tooltip {...args} content="Tooltip 5" variant="faded">
-        <Button color={buttonColor} size="sm" variant="faded">
+        <Button color={buttonColor} variant="faded">
           Faded
         </Button>
       </Tooltip>
       <Tooltip {...args} content="Tooltip 6" variant="shadow">
-        <Button color={buttonColor} size="sm" variant="shadow">
+        <Button color={buttonColor} variant="shadow">
           Shadow
         </Button>
       </Tooltip>
@@ -314,6 +306,12 @@ Default.args = {
   ...defaultProps,
 };
 
+export const WithArrow = Template.bind({});
+WithArrow.args = {
+  ...defaultProps,
+  showArrow: true,
+};
+
 export const OpenChange = OpenChangeTemplate.bind({});
 OpenChange.args = {
   ...defaultProps,
@@ -327,7 +325,6 @@ Variants.args = {
 export const Placements = PlacementsTemplate.bind({});
 Placements.args = {
   ...defaultProps,
-  size: "sm",
   color: "primary",
 };
 
@@ -395,6 +392,13 @@ export const AlwaysOpen = Template.bind({});
 AlwaysOpen.args = {
   ...defaultProps,
   isOpen: true,
+  showArrow: true,
+  content: (
+    <div className="px-1 py-2">
+      <div className="text-sm font-bold">Custom Content</div>
+      <div className="text-xs">This is a custom tooltip content</div>
+    </div>
+  ),
 };
 
 export const Disabled = Template.bind({});

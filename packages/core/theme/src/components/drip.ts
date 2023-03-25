@@ -6,18 +6,10 @@ import {tv} from "tailwind-variants";
  * const styles = drip({...})
  *
  * @example
- * <span ref={dripRef} className={styles())} data-drip="true/false" />
+ * <span ref={dripRef} className={styles())} />
  */
 const drip = tv({
-  base: [
-    "hidden",
-    "absolute",
-    "bg-current",
-    "rounded-full",
-    "pointer-events-none",
-    'data-[drip="true"]:block',
-    'data-[drip="true"]:animate-drip-expand',
-  ],
+  base: ["absolute", "will-change-transform", "bg-current", "rounded-full", "animate-drip-expand"],
 });
 
 export {drip};

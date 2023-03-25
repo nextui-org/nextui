@@ -20,8 +20,10 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     placement,
     disableAnimation,
     motionProps,
+    showArrow,
     getTriggerProps,
     getTooltipProps,
+    getArrowProps,
   } = useTooltip({
     ref,
     ...props,
@@ -43,6 +45,12 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     warn("Tooltip must have only one child node. Please, check your code.");
   }
 
+  const arrowContent = useMemo(() => {
+    if (!showArrow) return null;
+
+    return <span {...getArrowProps()} />;
+  }, [showArrow, getArrowProps]);
+
   const animatedContent = useMemo(() => {
     const {className, ...otherTooltipProps} = getTooltipProps();
 
@@ -58,18 +66,25 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
           variants={scale}
           {...motionProps}
         >
-          <Component className={className}>{content}</Component>
+          <Component className={className}>
+            {content}
+            {arrowContent}
+          </Component>
         </motion.div>
       </div>
     );
-  }, [getTooltipProps, placement, motionProps, Component, content]);
+  }, [getTooltipProps, placement, motionProps, Component, content, arrowContent]);
 
   return (
     <>
       {trigger}
       {disableAnimation && isOpen ? (
         <OverlayContainer>
-          <Component {...getTooltipProps()}>{content}</Component>;
+          <Component {...getTooltipProps()}>
+            {content}
+            {arrowContent}
+          </Component>
+          ;
         </OverlayContainer>
       ) : (
         <AnimatePresence initial={false}>

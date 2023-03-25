@@ -1,4 +1,4 @@
-import type {TooltipVariantProps} from "@nextui-org/theme";
+import type {TooltipVariantProps, SlotsToClasses, TooltipSlots} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
@@ -11,11 +11,11 @@ import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tooltip} from "@nextui-org/theme";
-import {ReactRef, mergeRefs} from "@nextui-org/shared-utils";
+import {ReactRef, mergeRefs, clsx} from "@nextui-org/shared-utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useRef, useCallback} from "react";
 
-import {toReactAriaPlacement} from "./utils";
+import {toReactAriaPlacement, getArrowPlacement} from "./utils";
 
 export interface UseTooltipProps
   extends HTMLNextUIProps<"div", TooltipVariantProps>,
@@ -39,6 +39,11 @@ export interface UseTooltipProps
    */
   isDisabled?: boolean;
   /**
+   * Whether the tooltip should have an arrow.
+   * @default false
+   */
+  showArrow?: boolean;
+  /**
    * The delay time for the tooltip to show up.
    * @default 0
    */
@@ -51,9 +56,15 @@ export interface UseTooltipProps
   /**
    * The additional offset applied along the main axis between the element and its
    * anchor element.
-   * @default 7 (px)
+   * @default 7 (px) - if `showArrow` is true the default value is 10 (px)
    */
   offset?: number;
+  /**
+   * The additional offset applied along the cross axis between the element and its
+   * anchor element.
+   * @default 0
+   */
+  crossOffset?: number;
   /**
    * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
    * there is insufficient room for it to render completely.
@@ -79,6 +90,19 @@ export interface UseTooltipProps
    * The properties passed to the underlying `Collapse` component.
    */
   motionProps?: HTMLMotionProps<"div">;
+  /**
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Tooltip styles={{
+   *    base:"base-classes",
+   *    arrow: "arrow-classes",
+   * }} />
+   * ```
+   */
+  styles?: SlotsToClasses<TooltipSlots>;
   /** Handler that is called when the overlay should close. */
   onClose?: () => void;
 }
@@ -101,7 +125,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
     placement: placementProp = "top",
     delay = 0,
     closeDelay = 0,
+    showArrow = false,
     offset = 7,
+    crossOffset = 0,
     isDismissable = true,
     shouldCloseOnBlur = false,
     isKeyboardDismissDisabled = false,
@@ -109,6 +135,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     className,
     onClose,
     motionProps,
+    styles,
     ...otherProps
   } = props;
 
@@ -166,14 +193,15 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const {
     overlayProps: positionProps,
-    // arrowProps,
-    // placement,
+    arrowProps,
+    placement,
   } = useOverlayPosition({
     isOpen: isOpen,
     targetRef: triggerRef,
     placement: toReactAriaPlacement(placementProp),
     overlayRef,
-    offset,
+    offset: showArrow ? offset + 3 : offset,
+    crossOffset,
     shouldFlip,
     containerPadding,
   });
@@ -190,14 +218,15 @@ export function useTooltip(originalProps: UseTooltipProps) {
     overlayRef,
   );
 
-  const styles = useMemo(
+  const slots = useMemo(
     () =>
       tooltip({
         ...variantProps,
-        className,
       }),
-    [...Object.values(variantProps), className],
+    [...Object.values(variantProps)],
   );
+
+  const baseStyles = clsx(styles?.base, className);
 
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({
@@ -212,10 +241,19 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const getTooltipProps = useCallback<PropGetter>(
     () => ({
       ref: overlayRef,
-      className: styles,
+      className: slots.base({class: baseStyles}),
       ...mergeProps(tooltipProps, positionProps, overlayProps, otherProps),
     }),
-    [overlayRef, styles, tooltipProps, positionProps, overlayProps, otherProps],
+    [overlayRef, slots, styles, tooltipProps, positionProps, overlayProps, otherProps],
+  );
+
+  const getArrowProps = useCallback<PropGetter>(
+    () => ({
+      className: slots.arrow({class: styles?.arrow}),
+      "data-placement": getArrowPlacement(placement, placementProp),
+      ...arrowProps,
+    }),
+    [arrowProps, placement, slots, styles],
   );
 
   return {
@@ -225,12 +263,14 @@ export function useTooltip(originalProps: UseTooltipProps) {
     isOpen,
     triggerRef,
     triggerProps,
+    showArrow,
     placement: placementProp,
     disableAnimation: originalProps?.disableAnimation,
     isDisabled,
     motionProps,
     getTriggerProps,
     getTooltipProps,
+    getArrowProps,
   };
 }
 

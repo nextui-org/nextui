@@ -14,12 +14,13 @@ import {ringClasses, colorVariants} from "../utils";
  */
 const button = tv({
   base: [
+    "z-0",
     "relative",
     "inline-flex",
     "items-center",
     "justify-center",
     "box-border",
-    "apparance-none",
+    "appearance-none",
     "outline-none",
     "select-none",
     "font-medium",
