@@ -429,6 +429,8 @@ importers:
 
   packages/components/card:
     specifiers:
+      '@nextui-org/avatar': workspace:*
+      '@nextui-org/button': workspace:*
       '@nextui-org/code': workspace:*
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/drip': workspace:*
@@ -456,6 +458,8 @@ importers:
       '@react-aria/interactions': 3.14.0_react@18.2.0
       '@react-aria/utils': 3.15.0_react@18.2.0
     devDependencies:
+      '@nextui-org/avatar': link:../avatar
+      '@nextui-org/button': link:../button
       '@nextui-org/code': link:../code
       '@nextui-org/link': link:../link
       '@react-types/shared': 3.17.0_react@18.2.0

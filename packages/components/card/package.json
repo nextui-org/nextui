@@ -52,6 +52,8 @@
     "@react-types/shared": "^3.17.0",
     "@nextui-org/code": "workspace:*",
     "@nextui-org/link": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/avatar": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

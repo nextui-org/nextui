@@ -52,7 +52,6 @@ export type ContextType = {
   slots: CardReturnType;
   styles?: SlotsToClasses<CardSlots>;
   isDisabled?: CardVariantProps["isDisabled"];
-  isBordered?: CardVariantProps["isBordered"];
   isFooterBlurred?: CardVariantProps["isFooterBlurred"];
   disableAnimation?: CardVariantProps["disableAnimation"];
   fullWidth?: CardVariantProps["fullWidth"];
@@ -120,7 +119,6 @@ export function useCard(originalProps: UseCardProps) {
 
   const context = useMemo<ContextType>(
     () => ({
-      isBordered: originalProps.isBordered,
       isDisabled: originalProps.isDisabled,
       isFooterBlurred: originalProps.isFooterBlurred,
       disableAnimation: originalProps.disableAnimation,
@@ -131,7 +129,6 @@ export function useCard(originalProps: UseCardProps) {
     [
       slots,
       styles,
-      originalProps.isBordered,
       originalProps.isDisabled,
       originalProps.isFooterBlurred,
       originalProps.disableAnimation,

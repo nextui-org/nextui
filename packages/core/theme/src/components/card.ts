@@ -25,6 +25,7 @@ const card = tv({
       "overflow-hidden",
       "w-full",
       "height-auto",
+      "outline-none",
       "text-foreground",
       "box-border",
       "dark:bg-content1",
@@ -53,6 +54,7 @@ const card = tv({
       "h-auto",
       "py-5",
       "px-3",
+      "break-words",
       "text-left",
       "overflow-y-auto",
       "subpixel-antialiased",
@@ -65,7 +67,6 @@ const card = tv({
       "items-center",
       "overflow-hidden",
       "color-inherit",
-      "rounded-b-xl",
       "subpixel-antialiased",
     ],
   },
@@ -96,30 +97,48 @@ const card = tv({
     radius: {
       none: {
         base: "rounded-none",
+        header: "rounded-t-none",
+        footer: "rounded-b-none",
       },
       base: {
         base: "rounded",
+        header: "rounded-t",
+        footer: "rounded-b",
       },
       sm: {
         base: "rounded-sm",
+        header: "rounded-t-sm",
+        footer: "rounded-b-sm",
       },
       md: {
         base: "rounded-md",
+        header: "rounded-t-md",
+        footer: "rounded-b-md",
       },
       lg: {
         base: "rounded-lg",
+        header: "rounded-t-lg",
+        footer: "rounded-b-lg",
       },
       xl: {
         base: "rounded-xl",
+        header: "rounded-t-xl",
+        footer: "rounded-b-xl",
       },
       "2xl": {
         base: "rounded-2xl",
+        header: "rounded-t-2xl",
+        footer: "rounded-b-2xl",
       },
       "3xl": {
         base: "rounded-3xl",
+        header: "rounded-t-3xl",
+        footer: "rounded-b-3xl",
       },
       full: {
         base: "rounded-full",
+        header: "rounded-t-full",
+        footer: "rounded-b-full",
       },
     },
     fullWidth: {
@@ -127,15 +146,8 @@ const card = tv({
         base: "w-full",
       },
     },
-    isBordered: {
-      true: {
-        base: "border-2 border-neutral",
-      },
-    },
     isHoverable: {
-      true: {
-        base: "hover:drop-shadow-lg",
-      },
+      true: {},
     },
     isPressable: {
       true: {base: "cursor-pointer"},
@@ -147,7 +159,7 @@ const card = tv({
     },
     isFooterBlurred: {
       true: {
-        footer: "backdrop-blur-md backdrop-saturate-[1.8]",
+        footer: "backdrop-blur-xl backdrop-saturate-200",
       },
     },
     isDisabled: {
@@ -164,7 +176,7 @@ const card = tv({
     {
       isHoverable: true,
       disableAnimation: false,
-      class: "hover:-translate-y-2",
+      class: "hover:-translate-y-1.5",
     },
     {
       isPressable: true,
@@ -179,7 +191,6 @@ const card = tv({
     isHoverable: false,
     isPressable: false,
     isFocusVisible: false,
-    isBordered: false,
     isDisabled: false,
     disableAnimation: false,
     isFooterBlurred: false,
