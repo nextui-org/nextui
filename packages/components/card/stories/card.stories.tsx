@@ -1,256 +1,216 @@
 import React from "react";
-import {styled} from "@nextui-org/system";
-import {Meta} from "@storybook/react";
-import {Text} from "@nextui-org/text";
-import {Grid} from "@nextui-org/grid";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {Link} from "@nextui-org/link";
-import {Col} from "@nextui-org/col";
-import {Row} from "@nextui-org/row";
 import {Code} from "@nextui-org/code";
+import {styled} from "@nextui-org/system";
 
-import {Card} from "../src";
+import {Card, CardProps} from "../src";
 
 export default {
   title: "General/Card",
   component: Card,
-} as Meta;
+  argTypes: {
+    variant: {
+      control: {
+        type: "radio",
+        options: ["shadow", "bordered", "flat"],
+      },
+    },
+    borderWeight: {
+      control: {
+        type: "radio",
+        options: ["light", "normal", "bold", "extrabold", "black"],
+      },
+    },
+    isPressable: {
+      control: {
+        type: "boolean",
+      },
+    },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
+    isHoverable: {
+      control: {
+        type: "boolean",
+      },
+    },
+  },
+} as ComponentMeta<typeof Card>;
 
-export const Default = () => (
-  <Card css={{w: "400px"}}>
-    <Card.Body css={{py: "$lg"}}>
-      <Text>A basic card</Text>
-    </Card.Body>
+const Template: ComponentStory<typeof Card> = (args: CardProps) => (
+  <Card {...args} className="max-w-[50%]">
+    <Card.Body>A basic card</Card.Body>
   </Card>
 );
 
-export const Hoverable = () => (
-  <Card isHoverable css={{w: "400px"}} variant="bordered">
-    <Card.Body css={{py: "$lg"}}>
-      <Text>A basic card</Text>
-    </Card.Body>
-  </Card>
-);
+export const Default = Template.bind({});
+Default.args = {
+  variant: "shadow",
+};
+
+export const Hoverable = Template.bind({});
+Hoverable.args = {
+  variant: "bordered",
+  isHoverable: true,
+};
 
 export const Variants = () => (
-  <Grid.Container gap={2}>
-    <Grid xs={4}>
+  <div className="container flex gap-2">
+    <div className="w-4/12">
       <Card>
         <Card.Body>
-          <Text>Default card. (shadow)</Text>
+          <p>Default card. (shadow)</p>
         </Card.Body>
       </Card>
-    </Grid>
-    <Grid xs={4}>
+    </div>
+    <div className="w-4/12">
       <Card variant="flat">
         <Card.Body>
-          <Text>Flat card.</Text>
+          <p>Flat card.</p>
         </Card.Body>
       </Card>
-    </Grid>
-    <Grid xs={4}>
+    </div>
+    <div className="w-4/12">
       <Card variant="bordered">
         <Card.Body>
-          <Text>Bordered card.</Text>
+          <p>Bordered card.</p>
         </Card.Body>
       </Card>
-    </Grid>
-  </Grid.Container>
+    </div>
+  </div>
 );
 
 export const WithFooter = () => (
-  <Grid.Container gap={2}>
-    <Grid xs={4}>
-      <Card css={{p: "$6"}}>
-        <Card.Header>
-          <img
-            alt="nextui logo"
-            height="34px"
-            src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-            width="34px"
-          />
-          <Grid.Container css={{pl: "$6"}}>
-            <Grid xs={12}>
-              <Text h4 css={{lineHeight: "$xs"}}>
-                Next UI
-              </Text>
-            </Grid>
-            <Grid xs={12}>
-              <Text css={{color: "$accents8"}}>nextui.org</Text>
-            </Grid>
-          </Grid.Container>
-        </Card.Header>
-        <Card.Body css={{py: "$2"}}>
-          <Text>Make beautiful websites regardless of your design experience.</Text>
-        </Card.Body>
-        <Card.Footer>
-          <Link
-            isExternal
-            color="primary"
-            href="https://github.com/nextui-org/nextui"
-            target="_blank"
-          >
-            Visit source code on GitHub.
-          </Link>
-        </Card.Footer>
-      </Card>
-    </Grid>
-  </Grid.Container>
+  <Card className="p-3 max-w-[400px]">
+    <Card.Header>
+      <img
+        alt="nextui logo"
+        height="34px"
+        src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+        width="34px"
+      />
+      <div className="flex flex-col pl-3">
+        <h4 className="pb-2">Next UI</h4>
+        <p>nextui.org</p>
+      </div>
+    </Card.Header>
+    <Card.Body className="py-2">
+      <p>Make beautiful websites regardless of your design experience.</p>
+    </Card.Body>
+    <Card.Footer>
+      <Link isExternal color="primary" href="https://github.com/nextui-org/nextui" target="_blank">
+        Visit source code on GitHub.
+      </Link>
+    </Card.Footer>
+  </Card>
 );
 
 export const AbsImageWithHeader = () => {
   return (
-    <Grid.Container gap={1} justify="center">
-      <Grid>
-        <Card css={{w: "330px"}}>
-          <Card.Header css={{position: "absolute", top: 5, zIndex: 1}}>
-            <Col>
-              <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
-                What to watch
-              </Text>
-              <Text h3 color="white">
-                Stream the Apple event
-              </Text>
-            </Col>
-          </Card.Header>
-          <Card.Image
-            alt="Apple event background"
-            autoResize={false}
-            height={440}
-            src={require("./assets/apple-event.jpeg")}
-            style={{objectFit: "cover"}}
-            width="100%"
-          />
-        </Card>
-      </Grid>
-    </Grid.Container>
+    <div className="flex justify-center gap-2">
+      <Card className="w-[330px]">
+        <Card.Header className="absolute top-5 z-10">
+          <div className="grid-cols-2">
+            <p className="text-white/75 text-sm uppercase font-bold">What to watch</p>
+            <h3 className="text-white text-xl">Stream the Apple event</h3>
+          </div>
+        </Card.Header>
+        <Card.Image
+          alt="Apple event background"
+          autoResize={false}
+          height={440}
+          src={require("./assets/apple-event.jpeg")}
+          style={{objectFit: "cover"}}
+          width="100%"
+        />
+      </Card>
+    </div>
   );
 };
 
 export const AbsImgWithHeaderFooter = () => {
   return (
-    <Grid.Container gap={2} justify="center">
-      <Grid>
-        <Card css={{w: "330px", bg: "$gray50"}}>
-          <Card.Header css={{position: "absolute", top: 5, zIndex: 1}}>
-            <Col>
-              <Text color="#9E9E9E" size={12} transform="uppercase" weight="bold">
-                New
-              </Text>
-              <Text h2 color="black">
-                HomePod mini
-              </Text>
-              <Text size={14} style={{paddingRight: "10px"}}>
-                Room-filling sound, Intelligent assistant. Smart home control. Works seamlessly with
-                iPhone. Check it out
-              </Text>
-            </Col>
-          </Card.Header>
-          <Card.Image
-            alt="Apple homedpods background"
-            autoResize={false}
-            height={440}
-            src={require("./assets/homepod.jpeg")}
-            style={{objectFit: "cover", paddingTop: "100px"}}
-            width="100%"
-          />
-          <Card.Footer css={{m: 0}}>
-            <Row>
-              <Col>
-                <Text size={12}>Available soon.</Text>
-                <Text size={12}>Get notified.</Text>
-              </Col>
-              <Col>
-                <Row justify="flex-end">
-                  <Text size={12} transform="uppercase" weight="bold">
-                    Notify Me
-                  </Text>
-                </Row>
-              </Col>
-            </Row>
-          </Card.Footer>
-        </Card>
-      </Grid>
-      <Grid>
-        <Card css={{w: "630px"}}>
-          <Card.Header css={{position: "absolute", top: 5, zIndex: 1}}>
-            <Col>
-              <Text color="#9E9E9E" size={12} transform="uppercase" weight="bold">
-                Your day your way
-              </Text>
-              <Text h3 color="white">
-                Your checklist for better sleep
-              </Text>
-            </Col>
-          </Card.Header>
-          <Card.Image
-            alt="Apple homedpods background"
-            autoResize={false}
-            height={440}
-            src={require("./assets/relaxing.jpeg")}
-            style={{objectFit: "cover"}}
-            width="100%"
-          />
-          <Card.Footer
-            isBlurred
-            css={{
-              position: "absolute",
-              bgBlur: "#0f111466",
-              borderTop: "$borderWeights$light solid $gray500",
-              bottom: 0,
-              zIndex: 1,
-            }}
-          >
-            <Row>
-              <Col>
-                <Row>
-                  <Col span={3}>
-                    <Card.Image
-                      alt="Breathing app icon"
-                      autoResize={false}
-                      height={40}
-                      src={require("./assets/breathing-app-icon.jpeg")}
-                      style={{background: "black"}}
-                      width={40}
-                    />
-                  </Col>
-                  <Col>
-                    <Text color="#d1d1d1" size={12}>
-                      Breathing App
-                    </Text>
-                    <Text color="#d1d1d1" size={12}>
-                      Get a good night&apos;s sleep.
-                    </Text>
-                  </Col>
-                </Row>
-              </Col>
-              <Col>
-                <Row justify="flex-end">
-                  <Text size={12} transform="uppercase" weight="bold">
-                    Get App
-                  </Text>
-                </Row>
-              </Col>
-            </Row>
-          </Card.Footer>
-        </Card>
-      </Grid>
-    </Grid.Container>
+    <div className="flex justify-center items-start gap-2">
+      <Card className="w-[330px] bg-neutral-100">
+        <Card.Header className="absolute top-5 z-10">
+          <div className="flex flex-col">
+            <p className="text-xs text-neutral-400 upper font-bold">New</p>
+            <h2 className="text-lg text-black">HomePod mini</h2>
+            <p className="text-xs text-foreground pr-1.5">
+              Room-filling sound, Intelligent assistant. Smart home control. Works seamlessly with
+              iPhone. Check it out
+            </p>
+          </div>
+        </Card.Header>
+        <Card.Image
+          alt="Apple homedpods background"
+          autoResize={false}
+          height={440}
+          src={require("./assets/homepod.jpeg")}
+          style={{objectFit: "cover", paddingTop: "100px"}}
+          width="100%"
+        />
+        <Card.Footer className="justify-between">
+          <div>
+            <p className="text-xs">Available soon.</p>
+            <p className="text-xs">Get notified.</p>
+          </div>
+          <div>
+            <div className="flex flex-wrap justify-end">
+              <p className="text-xs upper font-bold">Notify Me</p>
+            </div>
+          </div>
+        </Card.Footer>
+      </Card>
+      <Card className="w-[630px]">
+        <Card.Header className="absolute top-5 z-10">
+          <div className="flex flex-col">
+            <p className="text-neutral-300 upper font-bold">Your day your way</p>
+            <h3 className="text-white text-xl">Your checklist for better sleep</h3>
+          </div>
+        </Card.Header>
+        <Card.Image
+          alt="Apple homedpods background"
+          autoResize={false}
+          height={440}
+          src={require("./assets/relaxing.jpeg")}
+          style={{objectFit: "cover"}}
+          width="100%"
+        />
+        <Card.Footer isBlurred className="absolute bottom-0 z-10 border-t border-border-dark">
+          <div className="flex flex-grow items-start">
+            <div className="w-[40px] mr-2">
+              <Card.Image
+                alt="Breathing app icon"
+                autoResize={false}
+                height={40}
+                src={require("./assets/breathing-app-icon.jpeg")}
+                style={{background: "black"}}
+                width={40}
+              />
+            </div>
+            <div className="flex flex-col">
+              <p className="text-xs text-neutral-400">Breathing App</p>
+              <p className="text-xs text-neutral-400">Get a good night&apos;s sleep.</p>
+            </div>
+          </div>
+          <p className="text-white upper font-bold">Get App</p>
+        </Card.Footer>
+      </Card>
+    </div>
   );
 };
 
 export const CoverImage = () => (
-  <Grid.Container gap={2} justify="center">
-    <Grid sm={4} xs={12}>
+  <div className="gap-2 grid grid-cols-12">
+    <div className="col-span-12 sm:col-span-4">
       <Card>
-        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
-          <Col>
-            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
-              What to watch
-            </Text>
-            <Text h4 color="white">
-              Stream the Acme event
-            </Text>
-          </Col>
+        <Card.Header className="absolute z-10 top-1 flex-col !items-start">
+          <p className="text-xs text-white/75 upper font-bold">What to watch</p>
+          <h4 className="text-white font-medium text-lg">Stream the Acme event</h4>
         </Card.Header>
         <Card.Image
           alt="Card image background"
@@ -260,18 +220,12 @@ export const CoverImage = () => (
           width="100%"
         />
       </Card>
-    </Grid>
-    <Grid sm={4} xs={12}>
-      <Card css={{w: "100%"}}>
-        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
-          <Col>
-            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
-              Plant a tree
-            </Text>
-            <Text h4 color="white">
-              Contribute to the planet
-            </Text>
-          </Col>
+    </div>
+    <div className="col-span-12 sm:col-span-4">
+      <Card>
+        <Card.Header className="absolute z-10 top-1 flex-col !items-start">
+          <p className="text-xs text-white/75 upper font-bold">Plant a tree</p>
+          <h4 className="text-white font-medium text-lg">Contribute to the planet</h4>
         </Card.Header>
         <Card.Image
           alt="Card image background"
@@ -281,18 +235,12 @@ export const CoverImage = () => (
           width="100%"
         />
       </Card>
-    </Grid>
-    <Grid sm={4} xs={12}>
-      <Card css={{bg: "$black", w: "100%"}}>
-        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
-          <Col>
-            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
-              Supercharged
-            </Text>
-            <Text h4 color="white">
-              Creates beauty like a beast
-            </Text>
-          </Col>
+    </div>
+    <div className="col-span-12 sm:col-span-4">
+      <Card className="bg-black">
+        <Card.Header className="absolute z-10 top-1 flex-col !items-start">
+          <p className="text-xs text-white/75 upper font-bold">Supercharged</p>
+          <h4 className="text-white font-medium text-lg">Creates beauty like a beast</h4>
         </Card.Header>
         <Card.Image
           alt="Card image background"
@@ -302,123 +250,70 @@ export const CoverImage = () => (
           width="100%"
         />
       </Card>
-    </Grid>
-    <Grid sm={5} xs={12}>
-      <Card css={{w: "100%", h: "400px"}}>
-        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
-          <Col>
-            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
-              New
-            </Text>
-            <Text h3 color="black">
-              Acme camera
-            </Text>
-          </Col>
+    </div>
+    <div className="col-span-12 sm:col-span-5">
+      <Card className="w-full h-[400px]">
+        <Card.Header className="absolute z-10 top-1 flex-col !items-start">
+          <p className="text-xs text-white/75 upper font-bold">New</p>
+          <h3 className="text-black font-medium text-2xl">Acme camera</h3>
         </Card.Header>
-        <Card.Body css={{p: 0}}>
-          <Card.Image
-            alt="Card example background"
-            height="100%"
-            objectFit="cover"
-            src="https://nextui.org/images/card-example-6.jpeg"
-            width="100%"
-          />
-        </Card.Body>
+        <Card.Image
+          alt="Card example background"
+          height="100%"
+          objectFit="cover"
+          src="https://nextui.org/images/card-example-6.jpeg"
+          width="100%"
+        />
         <Card.Footer
           isBlurred
-          css={{
-            position: "absolute",
-            bgBlur: "#ffffff66",
-            borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-            bottom: 0,
-            zIndex: 1,
-          }}
+          className="absolute bg-white/50 bottom-0 border-t border-border-dark z-10"
         >
-          <Row>
-            <Col>
-              <Text color="#000" size={12}>
-                Available soon.
-              </Text>
-              <Text color="#000" size={12}>
-                Get notified.
-              </Text>
-            </Col>
-            <Col>
-              <Row justify="flex-end">
-                <Text css={{color: "inherit"}} size={12} transform="uppercase" weight="bold">
-                  Notify Me
-                </Text>
-              </Row>
-            </Col>
-          </Row>
+          <div>
+            <p className="text-black text-xs">Available soon.</p>
+            <p className="text-black text-xs">Get notified.</p>
+          </div>
+          <p className="text-xs upper font-bold text-inherit ml-auto">Notify Me</p>
         </Card.Footer>
       </Card>
-    </Grid>
-    <Grid sm={7} xs={12}>
-      <Card css={{w: "100%", h: "400px"}}>
-        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
-          <Col>
-            <Text color="#9E9E9E" size={12} transform="uppercase" weight="bold">
-              Your day your way
-            </Text>
-            <Text h3 color="white">
-              Your checklist for better sleep
-            </Text>
-          </Col>
+    </div>
+    <div className="col-span-12 sm:col-span-7">
+      <Card className="w-full h-[400px]">
+        <Card.Header className="absolute z-10 top-1 flex-col !items-start">
+          <p className="text-xs text-white/75 upper font-bold">Your day your way</p>
+          <h3 className="text-white font-medium text-2xl">Your checklist for better sleep</h3>
         </Card.Header>
-        <Card.Body css={{p: 0}}>
-          <Card.Image
-            alt="Relaxing app background"
-            height="100%"
-            objectFit="cover"
-            src="https://nextui.org/images/card-example-5.jpeg"
-            width="100%"
-          />
-        </Card.Body>
+        <Card.Image
+          alt="Relaxing app background"
+          height="100%"
+          objectFit="cover"
+          src="https://nextui.org/images/card-example-5.jpeg"
+          width="100%"
+        />
         <Card.Footer
           isBlurred
-          css={{
-            position: "absolute",
-            bgBlur: "#0f111466",
-            borderTop: "$borderWeights$light solid $gray700",
-            bottom: 0,
-            zIndex: 1,
-          }}
+          className="absolute bottom-0 z-10 bg-black/50 border-t border-border-dark"
         >
-          <Row>
-            <Col>
-              <Row>
-                <Col span={3}>
-                  <Card.Image
-                    alt="Breathing app icon"
-                    css={{bg: "black", br: "50%"}}
-                    height={40}
-                    src="https://nextui.org/images/breathing-app-icon.jpeg"
-                    width={40}
-                  />
-                </Col>
-                <Col>
-                  <Text color="#d1d1d1" size={12}>
-                    Breathing App
-                  </Text>
-                  <Text color="#d1d1d1" size={12}>
-                    Get a good night&apos;s sleep.
-                  </Text>
-                </Col>
-              </Row>
-            </Col>
-            <Col>
-              <Row justify="flex-end">
-                <Text css={{color: "inherit"}} size={12} transform="uppercase" weight="bold">
-                  Get App
-                </Text>
-              </Row>
-            </Col>
-          </Row>
+          <div className="flex flex-grow items-center">
+            <div className="w-[40px] mr-2">
+              <Card.Image
+                alt="Breathing app icon"
+                autoResize={false}
+                height={40}
+                src={require("./assets/breathing-app-icon.jpeg")}
+                style={{background: "black"}}
+                width={40}
+              />
+            </div>
+            <div className="flex flex-col">
+              <p className="text-xs text-neutral-400">Breathing App</p>
+              <p className="text-xs text-neutral-400">Get a good night&apos;s sleep.</p>
+            </div>
+          </div>
+          <p className="text-white upper font-bold">Get App</p>
         </Card.Footer>
       </Card>
-    </Grid>
-  </Grid.Container>
+    </div>
+  </div>
 );
 
 export const PrimaryAction = () => {
@@ -466,29 +361,26 @@ export const PrimaryAction = () => {
   ];
 
   return (
-    <Grid.Container gap={2} justify="flex-start">
+    <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
       {list.map((item, index) => (
-        <Grid key={index} sm={3} xs={6}>
-          <Card isPressable onPress={() => console.log("item pressed", item)}>
-            <Card.Body css={{p: 0}}>
-              <Card.Image
-                alt={item.title}
-                height={140}
-                objectFit="cover"
-                src={"https://nextui.org" + item.img}
-                width="100%"
-              />
-            </Card.Body>
-            <Card.Footer css={{justifyItems: "flex-start"}}>
-              <Row justify="space-between" wrap="wrap">
-                <Text b>{item.title}</Text>
-                <Text css={{color: "$accents7", fontWeight: "$semibold"}}>{item.price}</Text>
-              </Row>
-            </Card.Footer>
-          </Card>
-        </Grid>
+        // eslint-disable-next-line no-console
+        <Card key={index} isPressable onPress={() => console.log("item pressed", item)}>
+          <Card.Body className="!p-0">
+            <Card.Image
+              alt={item.title}
+              height={140}
+              src={"https://nextui.org" + item.img}
+              style={{objectFit: "cover"}}
+              width="100%"
+            />
+          </Card.Body>
+          <Card.Footer className="justify-between">
+            <strong>{item.title}</strong>
+            <p className="font-medium text-neutral-500">{item.price}</p>
+          </Card.Footer>
+        </Card>
       ))}
-    </Grid.Container>
+    </div>
   );
 };
 
@@ -533,40 +425,36 @@ export const CenterImgWithHeader = () => {
   ];
 
   return (
-    <Grid.Container gap={2} justify="center">
+    <div className="flex gap-2 justify-center flex-wrap">
       {list.map((item, index) => (
-        <Grid key={index}>
-          <Card isHoverable isPressable css={{w: "200px", h: "220px"}}>
-            <Card.Header css={{p: 0}}>
-              <Text h5 style={{paddingLeft: "24px", paddingTop: "10px"}}>
-                {item.title}
-              </Text>
+        <div key={index}>
+          <Card isHoverable isPressable className="w-[200px] h-[200px]">
+            <Card.Header className="!p-0">
+              <h5 className="pl-6 pt-2.5">{item.title}</h5>
             </Card.Header>
-            <Card.Body css={{h: "100%", jc: "center"}}>
+            <Card.Body className="h-full justify-center">
               <Card.Image alt={item.title} autoResize={false} src={item.img} width={180} />
             </Card.Body>
           </Card>
-        </Grid>
+        </div>
       ))}
-    </Grid.Container>
+    </div>
   );
 };
 
 export const WithDivider = () => (
-  <Card css={{w: "400px"}}>
-    <Card.Header>
-      <Text b>Description</Text>
+  <Card className="w-max-[400px]" variant="bordered">
+    <Card.Header className="border-b border-border dark:border-border-dark">
+      <strong>Description</strong>
     </Card.Header>
-    <Card.Divider />
     <Card.Body>
-      <Text>The Object constructor creates an object wrapper for the given value.</Text>
+      <p>The Object constructor creates an object wrapper for the given value.</p>
     </Card.Body>
-    <Card.Divider />
-    <Card.Footer>
-      <Text>
+    <Card.Footer className="border-t border-border dark:border-border-dark">
+      <p>
         When called in a non-constructor context, Object behaves identically to{" "}
         <Code>new Object()</Code>.
-      </Text>
+      </p>
     </Card.Footer>
   </Card>
 );
@@ -582,28 +470,28 @@ export const Shadows = () => {
   const shadows = ["$xs", "$sm", "$md", "$lg", "$xl"];
 
   return (
-    <Grid.Container gap={3} justify="center">
-      <Grid justify="center" xs={12}>
-        <Text b>Drop shadows</Text>
-      </Grid>
+    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 justify-center">
+      <div className="flex justify-center col-span-2 sm:col-span-5">
+        <strong>Drop shadows</strong>
+      </div>
       {shadows.map((shadow, index) => (
-        <Grid key={`${shadow}_${index}`} sm={2} xs={6}>
+        <div key={`${shadow}_${index}`}>
           <Box css={{dropShadow: shadow}}>
-            <Text>Shadow: {shadow}</Text>
+            <p>Shadow: {shadow}</p>
           </Box>
-        </Grid>
+        </div>
       ))}
-      <Grid justify="center" xs={12}>
-        <Text b>Box shadows</Text>
-      </Grid>
+      <div className="flex justify-center col-span-2 sm:col-span-5">
+        <strong>Box shadows</strong>
+      </div>
       {shadows.map((shadow, index) => (
-        <Grid key={`${shadow}_${index}`} sm={2} xs={6}>
+        <div key={`${shadow}_${index}`}>
           <Box css={{boxShadow: shadow}}>
-            <Text>Shadow: {shadow}</Text>
+            <p>Shadow: {shadow}</p>
           </Box>
-        </Grid>
+        </div>
       ))}
-    </Grid.Container>
+    </div>
   );
 };
 

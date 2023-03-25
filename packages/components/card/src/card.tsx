@@ -1,55 +1,12 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {forwardRef} from "@nextui-org/system";
+import {__DEV__} from "@nextui-org/shared-utils";
 import {Image} from "@nextui-org/image";
 import {Drip} from "@nextui-org/drip";
-import {useDOMRef} from "@nextui-org/dom-utils";
 
-import {StyledCard, StyledCardFooter, StyledCardHeader, StyledCardBody} from "./card.styles";
-import {UseCardProps, useCard} from "./use-card";
-
-const CardHeader = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
-  const {className, children, ...otherProps} = props;
-
-  const domRef = useDOMRef(ref);
-
-  return (
-    <StyledCardHeader
-      ref={domRef}
-      {...otherProps}
-      className={clsx("nextui-card-header", className)}
-    >
-      {children}
-    </StyledCardHeader>
-  );
-});
-
-const CardBody = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
-  const {className, children, ...otherProps} = props;
-
-  const domRef = useDOMRef(ref);
-
-  return (
-    <StyledCardBody ref={domRef} {...otherProps} className={clsx("nextui-card-body", className)}>
-      {children}
-    </StyledCardBody>
-  );
-});
-
-const CardFooter = forwardRef<HTMLNextUIProps & {isBlurred?: boolean}, "div">((props, ref) => {
-  const {className, children, ...otherProps} = props;
-
-  const domRef = useDOMRef(ref);
-
-  return (
-    <StyledCardFooter
-      ref={domRef}
-      {...otherProps}
-      className={clsx("nextui-card-footer", className)}
-    >
-      {children}
-    </StyledCardFooter>
-  );
-});
+import CardHeader from "./card-header";
+import {useCard, UseCardProps} from "./use-card";
+import CardBody from "./card-body";
+import CardFooter from "./card-footer";
 
 export interface CardProps extends Omit<UseCardProps, "ref"> {}
 
@@ -65,36 +22,36 @@ const Card = forwardRef<CardProps, "div", CompoundCard>((props, ref) => {
     cardRef,
     children,
     className,
-    variant,
-    isFocusVisible,
+    Component,
+    styles,
     isPressable,
-    isPressed,
     disableAnimation,
     disableRipple,
-    borderWeight,
-    isHovered,
     dripBindings,
     getCardProps,
   } = useCard({ref, ...props});
 
+  const {base} = styles;
+
   return (
-    <StyledCard
+    <Component
       ref={cardRef}
-      borderWeight={borderWeight}
-      className={clsx("nextui-card", className)}
-      disableAnimation={disableAnimation}
-      isFocusVisible={isFocusVisible}
-      isHovered={isHovered}
-      isPressable={isPressable}
-      isPressed={isPressed}
+      className={base({class: className})}
       role={isPressable ? "button" : "section"}
       tabIndex={isPressable ? 0 : -1}
-      variant={variant}
       {...getCardProps()}
     >
-      {isPressable && !disableAnimation && !disableRipple && <Drip {...dripBindings} />}
+      {isPressable && !disableAnimation && !disableRipple && (
+        <Drip
+          {...dripBindings}
+          styles={{
+            base: "opacity-30 z-50",
+            svg: "text-inherit",
+          }}
+        />
+      )}
       {children}
-    </StyledCard>
+    </Component>
   );
 });
 
