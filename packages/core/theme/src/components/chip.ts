@@ -27,7 +27,7 @@ const chip = tv({
     avatar: "flex-shrink-0",
     closeButton: [
       "z-10",
-      "apparance-none",
+      "appearance-none",
       "outline-none",
       "select-none",
       "transition-opacity",

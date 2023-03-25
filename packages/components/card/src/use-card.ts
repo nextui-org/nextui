@@ -1,14 +1,14 @@
 import type {FocusableProps, PressEvents} from "@react-types/shared";
-import type {SlotsToClasses, CardSlots, CardVariantProps} from "@nextui-org/theme";
+import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "@nextui-org/theme";
 
 import {card} from "@nextui-org/theme";
 import {MouseEvent, useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useButton as useAriaButton} from "@react-aria/button";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {callAllHandlers, clsx, ReactRef} from "@nextui-org/shared-utils";
+import {callAllHandlers, clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useDrip} from "@nextui-org/drip";
 import {AriaButtonProps} from "@react-aria/button";
@@ -19,7 +19,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   ref: ReactRef<HTMLDivElement | null>;
   /**
-   * Whether the card should show a ripple animation on press
+   * Whether the card should show a ripple animation on press, this prop is ignored if `disableAnimation` is true or `isPressable` is false.
    * @default false
    */
   disableRipple?: boolean;
@@ -47,6 +47,16 @@ export interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseCardProps = Props & PressEvents & FocusableProps & CardVariantProps;
+
+export type ContextType = {
+  slots: CardReturnType;
+  styles?: SlotsToClasses<CardSlots>;
+  variant?: CardVariantProps["variant"];
+  isDisabled?: CardVariantProps["isDisabled"];
+  isFooterBlurred?: CardVariantProps["isFooterBlurred"];
+  disableAnimation?: CardVariantProps["disableAnimation"];
+  fullWidth?: CardVariantProps["fullWidth"];
+};
 
 export function useCard(originalProps: UseCardProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, card.variantKeys);
@@ -80,9 +90,9 @@ export function useCard(originalProps: UseCardProps) {
 
   const {buttonProps, isPressed} = useAriaButton(
     {
+      onPress,
       elementType: as,
       isDisabled: !originalProps.isPressable,
-      onPress,
       onClick: callAllHandlers(onClick, handleDrip),
       allowTextSelectionOnPress,
       ...otherProps,
@@ -108,6 +118,27 @@ export function useCard(originalProps: UseCardProps) {
     [...Object.values(variantProps), isFocusVisible],
   );
 
+  const context = useMemo<ContextType>(
+    () => ({
+      variant: originalProps.variant,
+      isDisabled: originalProps.isDisabled,
+      isFooterBlurred: originalProps.isFooterBlurred,
+      disableAnimation: originalProps.disableAnimation,
+      fullWidth: originalProps.fullWidth,
+      slots,
+      styles,
+    }),
+    [
+      slots,
+      styles,
+      originalProps.variant,
+      originalProps.isDisabled,
+      originalProps.isFooterBlurred,
+      originalProps.disableAnimation,
+      originalProps.fullWidth,
+    ],
+  );
+
   const getCardProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
@@ -115,11 +146,15 @@ export function useCard(originalProps: UseCardProps) {
         className: slots.base({class: baseStyles}),
         role: originalProps.isPressable ? "button" : "section",
         tabIndex: originalProps.isPressable ? 0 : -1,
+        "data-hover": dataAttr(isHovered),
+        "data-pressed": dataAttr(isPressed),
+        "data-focus-visible": dataAttr(isFocusVisible),
+        "data-disabled": dataAttr(originalProps.isDisabled),
         ...mergeProps(
           originalProps.isPressable ? {...buttonProps, ...focusProps} : {},
           originalProps.isHoverable ? hoverProps : {},
-          otherProps,
-          props,
+          filterDOMProps(otherProps, {labelable: true}),
+          filterDOMProps(props, {labelable: true}),
         ),
       };
     },
@@ -129,6 +164,10 @@ export function useCard(originalProps: UseCardProps) {
       baseStyles,
       originalProps.isPressable,
       originalProps.isHoverable,
+      originalProps.isDisabled,
+      isHovered,
+      isPressed,
+      isFocusVisible,
       buttonProps,
       focusProps,
       hoverProps,
@@ -137,6 +176,7 @@ export function useCard(originalProps: UseCardProps) {
   );
 
   return {
+    context,
     domRef,
     Component,
     styles,
