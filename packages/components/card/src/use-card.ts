@@ -1,9 +1,10 @@
-import type {PressEvents, PressEvent, FocusableProps} from "@react-types/shared";
+import type {FocusableProps, PressEvent, PressEvents} from "@react-types/shared";
 
-import {MouseEvent, useCallback} from "react";
+import {card} from "@nextui-org/theme";
+import {MouseEvent, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
-import {usePress, useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {NormalWeights, ReactRef, warn} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
@@ -56,6 +57,7 @@ export interface UseCardProps extends HTMLNextUIProps<"div", PressEvents & Focus
 export function useCard(props: UseCardProps) {
   const {
     ref,
+    as,
     children,
     disableAnimation = false,
     disableRipple = false,
@@ -72,6 +74,7 @@ export function useCard(props: UseCardProps) {
   } = props;
 
   const cardRef = useDOMRef<HTMLDivElement>(ref);
+  const Component = as || (isPressable ? "button" : "div");
 
   const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, cardRef);
 
@@ -110,6 +113,19 @@ export function useCard(props: UseCardProps) {
     autoFocus,
   });
 
+  const styles = useMemo(
+    () =>
+      card({
+        borderWeight,
+        className,
+        disableAnimation,
+        isPressable,
+        isHoverable,
+        variant,
+      }),
+    [disableAnimation, variant, borderWeight, isPressable, isHoverable],
+  );
+
   const getCardProps = useCallback(
     (props = {}) => {
       return {
@@ -126,6 +142,8 @@ export function useCard(props: UseCardProps) {
 
   return {
     cardRef,
+    Component,
+    styles,
     variant,
     children,
     borderWeight,
