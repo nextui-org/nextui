@@ -1,22 +1,42 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
-import {focusVisibleClasses} from "../../utils";
+import {ringClasses} from "../utils";
 
 /**
  * Card **Tailwind Variants** component
  *
  * @example
- * <div className={card()}>A basic card</div>
+ * ```js
+ * const {base, header, body, footer} = card({...})
+ *
+ * <div className={card()}>
+ *    <div className={header()}>Header</div>
+ *    <div className={body()}>Body</div>
+ *    <div className={footer()}>Footer</div>
+ * </div>
+ * ```
  */
 const card = tv({
   slots: {
     base: [
-      ...focusVisibleClasses,
-      "flex flex-col m-0 p-0 relative overflow-hidden w-full height-auto bg-white text-foreground rounded-xl box-border dark:bg-neutral-900 dark:text-foreground-dark",
+      "flex",
+      "flex-col",
+      "m-0",
+      "p-0",
+      "relative",
+      "overflow-hidden",
+      "w-full",
+      "height-auto",
+      "bg-white",
+      "text-foreground",
+      "rounded-xl",
+      "box-border",
+      "dark:bg-neutral-900",
+      "dark:text-foreground-dark",
     ],
+    header: "",
     body: "",
     footer: "",
-    header: "",
   },
   variants: {
     variant: {
@@ -36,6 +56,11 @@ const card = tv({
     },
     isPressable: {
       true: "cursor-pointer",
+    },
+    isFocusVisible: {
+      true: {
+        base: [...ringClasses],
+      },
     },
     disableAnimation: {
       true: "",
@@ -82,6 +107,7 @@ const card = tv({
   defaultVariants: {
     variant: "shadow",
     isHoverable: false,
+    isPressable: false,
   },
 });
 

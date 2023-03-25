@@ -3,11 +3,11 @@ import type {AriaButtonProps} from "@react-types/button";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
 
-import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
+import {callAllHandlers, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {MouseEventHandler, useCallback} from "react";
 import {useButton as useAriaButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
-import {chain, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx} from "@nextui-org/shared-utils";
@@ -117,7 +117,7 @@ export function useButton(props: UseButtonProps) {
       elementType: as,
       isDisabled,
       onPress,
-      onClick: chain(onClick, handleDrip),
+      onClick: callAllHandlers(onClick, handleDrip),
       ...otherProps,
     } as AriaButtonProps,
     domRef,

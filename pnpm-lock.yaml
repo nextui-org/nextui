@@ -437,6 +437,7 @@ importers:
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
+      '@react-aria/button': ^3.7.0
       '@react-aria/focus': ^3.11.0
       '@react-aria/interactions': ^3.14.0
       '@react-aria/utils': ^3.15.0
@@ -450,6 +451,7 @@ importers:
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
+      '@react-aria/button': 3.7.0_react@18.2.0
       '@react-aria/focus': 3.11.0_react@18.2.0
       '@react-aria/interactions': 3.14.0_react@18.2.0
       '@react-aria/utils': 3.15.0_react@18.2.0

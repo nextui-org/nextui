@@ -5,9 +5,10 @@ import {ringClasses, colorVariants} from "../utils";
 /**
  * Chip wrapper **Tailwind Variants** component
  *
+ * @example
+ * ```js
  * const {base, content, dot, avatar, closeButton} = chip({...})
  *
- * @example
  * <div className={base())}>
  *    // left content
  *   <span className={avatar()}/>
@@ -16,6 +17,7 @@ import {ringClasses, colorVariants} from "../utils";
  *   <svg className={closeButton()}>close button</svg>
  *    // right content
  * </div>
+ * ```
  */
 const chip = tv({
   slots: {

@@ -1,111 +1,97 @@
-import type {FocusableProps, PressEvent, PressEvents} from "@react-types/shared";
+import type {FocusableProps, PressEvents} from "@react-types/shared";
+import type {SlotsToClasses, CardSlots, CardVariantProps} from "@nextui-org/theme";
 
 import {card} from "@nextui-org/theme";
 import {MouseEvent, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
-import {useHover, usePress} from "@react-aria/interactions";
-import {HTMLNextUIProps} from "@nextui-org/system";
-import {NormalWeights, ReactRef, warn} from "@nextui-org/shared-utils";
+import {useHover} from "@react-aria/interactions";
+import {useButton as useAriaButton} from "@react-aria/button";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {callAllHandlers, clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useDrip} from "@nextui-org/drip";
+import {AriaButtonProps} from "@react-aria/button";
 
-export interface UseCardProps extends HTMLNextUIProps<"div", PressEvents & FocusableProps> {
+export interface Props extends HTMLNextUIProps<"div"> {
   /**
-   * The card ref.
+   * Ref to the DOM node.
    */
   ref: ReactRef<HTMLDivElement | null>;
-  /**
-   * The card variant style.
-   * @default "shadow"
-   */
-  variant?: "shadow" | "flat" | "bordered";
-  /**
-   * The border weight of the `bordered` variant card.
-   * @default "normal"
-   */
-  borderWeight?: NormalWeights;
-  /**
-   * Whether the card should allow users to interact with the card.
-   * @default false
-   */
-  isPressable?: boolean;
-  /**
-   * Whether the card can be hovered by the user.
-   * @default false
-   */
-  isHoverable?: boolean;
   /**
    * Whether the card should show a ripple animation on press
    * @default false
    */
   disableRipple?: boolean;
-  // @deprecated - use `onPress` instead
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
-  /**
-   * Whether the card is animated.
-   * @default false
-   */
-  disableAnimation?: boolean;
+
   /**
    * Whether the card should allow text selection on press. (only for pressable cards)
    * @default true
    */
   allowTextSelectionOnPress?: boolean;
+  /**
+   * Classname or List of classes to change the styles of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Card styles={{
+   *    base:"base-classes",
+   *    header: "dot-classes",
+   *    body: "content-classes",
+   *    footer: "avatar-classes",
+   * }} />
+   * ```
+   */
+  styles?: SlotsToClasses<CardSlots>;
 }
 
-export function useCard(props: UseCardProps) {
+export type UseCardProps = Props & PressEvents & FocusableProps & CardVariantProps;
+
+export function useCard(originalProps: UseCardProps) {
+  const [props, variantProps] = mapPropsVariants(originalProps, card.variantKeys);
+
   const {
     ref,
     as,
     children,
-    disableAnimation = false,
     disableRipple = false,
-    variant = "shadow",
-    isHoverable = false,
-    borderWeight = "light",
-    isPressable = false,
-    onClick: deprecatedOnClick,
+    onClick,
     onPress,
     autoFocus,
     className,
+    styles,
     allowTextSelectionOnPress = true,
     ...otherProps
   } = props;
 
-  const cardRef = useDOMRef<HTMLDivElement>(ref);
-  const Component = as || (isPressable ? "button" : "div");
+  const domRef = useDOMRef<HTMLDivElement>(ref);
+  const Component = as || (originalProps.isPressable ? "button" : "div");
 
-  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, cardRef);
+  const baseStyles = clsx(styles?.base, className);
 
-  const handleDrip = (e: MouseEvent<HTMLDivElement> | PressEvent | Event) => {
-    if (!disableAnimation && !disableRipple && cardRef.current) {
+  const {onClick: onDripClickHandler, drips} = useDrip();
+
+  const handleDrip = (e: MouseEvent<HTMLDivElement>) => {
+    if (!originalProps.disableAnimation && !disableRipple && domRef.current) {
       onDripClickHandler(e);
     }
   };
 
-  const handlePress = (e: PressEvent) => {
-    if (e.pointerType === "keyboard" || e.pointerType === "virtual") {
-      handleDrip(e);
-    } else if (typeof window !== "undefined" && window.event) {
-      handleDrip(window.event);
-    }
-    if (deprecatedOnClick) {
-      deprecatedOnClick(e as any);
-      warn("onClick is deprecated, please use onPress", "Card");
-    }
-    onPress?.(e);
-  };
-
-  const {isPressed, pressProps} = usePress({
-    isDisabled: !isPressable,
-    onPress: handlePress,
-    allowTextSelectionOnPress,
-    ...otherProps,
-  });
+  const {buttonProps, isPressed} = useAriaButton(
+    {
+      elementType: as,
+      isDisabled: !originalProps.isPressable,
+      onPress,
+      onClick: callAllHandlers(onClick, handleDrip),
+      allowTextSelectionOnPress,
+      ...otherProps,
+    } as AriaButtonProps,
+    domRef,
+  );
 
   const {hoverProps, isHovered} = useHover({
-    isDisabled: !isHoverable,
+    isDisabled: !originalProps.isHoverable,
     ...otherProps,
   });
 
@@ -113,49 +99,57 @@ export function useCard(props: UseCardProps) {
     autoFocus,
   });
 
-  const styles = useMemo(
+  const slots = useMemo(
     () =>
       card({
-        borderWeight,
-        className,
-        disableAnimation,
-        isPressable,
-        isHoverable,
-        variant,
+        ...variantProps,
+        isFocusVisible,
       }),
-    [disableAnimation, variant, borderWeight, isPressable, isHoverable],
+    [...Object.values(variantProps), isFocusVisible],
   );
 
-  const getCardProps = useCallback(
+  const getCardProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
+        ref: domRef,
+        className: slots.base({class: baseStyles}),
+        role: originalProps.isPressable ? "button" : "section",
+        tabIndex: originalProps.isPressable ? 0 : -1,
         ...mergeProps(
-          isPressable ? {...pressProps, ...focusProps} : {},
-          isHoverable ? hoverProps : {},
+          originalProps.isPressable ? {...buttonProps, ...focusProps} : {},
+          originalProps.isHoverable ? hoverProps : {},
           otherProps,
           props,
         ),
       };
     },
-    [isPressable, isHoverable, pressProps, focusProps, hoverProps, otherProps],
+    [
+      domRef,
+      slots,
+      baseStyles,
+      originalProps.isPressable,
+      originalProps.isHoverable,
+      buttonProps,
+      focusProps,
+      hoverProps,
+      otherProps,
+    ],
   );
 
   return {
-    cardRef,
+    domRef,
     Component,
     styles,
-    variant,
     children,
-    borderWeight,
-    isPressable,
+    drips,
     isHovered,
     isPressed,
-    disableAnimation,
+    isPressable: originalProps.isPressable,
+    isHoverable: originalProps.isHoverable,
+    disableAnimation: originalProps.disableAnimation,
     disableRipple,
-    dripBindings,
     onDripClickHandler,
     isFocusVisible,
-    className,
     getCardProps,
   };
 }

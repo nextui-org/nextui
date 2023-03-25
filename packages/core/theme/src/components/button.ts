@@ -24,7 +24,7 @@ const button = tv({
     "outline-none",
     "select-none",
     "font-medium",
-    "antialiased",
+    "subpixel-antialiased",
     "active:scale-95",
     "overflow-hidden",
     "gap-3",
