@@ -53,7 +53,7 @@ const defaultTransitions = {
   },
   enter: {
     height: {
-      duration: 0.4,
+      duration: 0.6,
       ease: TRANSITION_EASINGS.softSpring,
     },
     opacity: {
@@ -61,7 +61,7 @@ const defaultTransitions = {
       ease: TRANSITION_EASINGS.ease,
     },
     y: {
-      duration: 0.5,
+      duration: 0.6,
       ease: TRANSITION_EASINGS.ease,
     },
   },

@@ -1,23 +1,9 @@
 module.exports = {
   stories: [
     './welcome.stories.mdx', // default page
+    '../../components/**/stories/**/*.stories.mdx',
+    '../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)',
     "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/link/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/avatar/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/user/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/button/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/spinner/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/code/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/tooltip/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/snippet/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/chip/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/badge/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/checkbox/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/radio/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/pagination/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/switch/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/accordion/stories/*.stories.@(js|jsx|ts|tsx)",
-    "../../components/card/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
   staticDirs: ["../public"],
   addons: [
