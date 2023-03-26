@@ -1,5 +1,19 @@
 # @nextui-org/tooltip
 
+## 0.0.0-dev-v2-20230326144453
+
+### Patch Changes
+
+- use client directive removed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230326144453
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230326144453
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230326144453
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230326144453
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230326144453
+  - @nextui-org/system@0.0.0-dev-v2-20230326144453
+  - @nextui-org/theme@0.0.0-dev-v2-20230326144453
+
 ## 0.0.0-dev-v2-20230326134624
 
 ### Patch Changes

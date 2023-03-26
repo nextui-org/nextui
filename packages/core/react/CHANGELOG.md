@@ -1,5 +1,30 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230326144453
+
+### Patch Changes
+
+- use client directive removed
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230326144453
+  - @nextui-org/accordion@0.0.0-dev-v2-20230326144453
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230326144453
+  - @nextui-org/snippet@0.0.0-dev-v2-20230326144453
+  - @nextui-org/spinner@0.0.0-dev-v2-20230326144453
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230326144453
+  - @nextui-org/avatar@0.0.0-dev-v2-20230326144453
+  - @nextui-org/button@0.0.0-dev-v2-20230326144453
+  - @nextui-org/switch@0.0.0-dev-v2-20230326144453
+  - @nextui-org/badge@0.0.0-dev-v2-20230326144453
+  - @nextui-org/radio@0.0.0-dev-v2-20230326144453
+  - @nextui-org/card@0.0.0-dev-v2-20230326144453
+  - @nextui-org/code@0.0.0-dev-v2-20230326144453
+  - @nextui-org/drip@0.0.0-dev-v2-20230326144453
+  - @nextui-org/link@0.0.0-dev-v2-20230326144453
+  - @nextui-org/user@0.0.0-dev-v2-20230326144453
+  - @nextui-org/system@0.0.0-dev-v2-20230326144453
+  - @nextui-org/theme@0.0.0-dev-v2-20230326144453
+
 ## 0.0.0-dev-v2-20230326134624
 
 ### Patch Changes
