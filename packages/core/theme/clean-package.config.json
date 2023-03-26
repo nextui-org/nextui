@@ -1,23 +1,23 @@
 {
   "replace": {
-    "main": "dist/index.cjs.js",
-    "module": "dist/index.esm.js",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
-        "import": "./dist/index.esm.js",
-        "require": "./dist/index.cjs.js"
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
       },
       "./plugin": {
         "types": "./dist/plugin.d.ts",
-        "import": "./dist/plugin.esm.js",
-        "require": "./dist/plugin.cjs.js"
+        "import": "./dist/plugin.mjs",
+        "require": "./dist/plugin.js"
       },
       "./colors": {
         "types": "./dist/colors.d.ts",
-        "import": "./dist/colors.esm.js",
-        "require": "./dist/colors.cjs.js"
+        "import": "./dist/colors.mjs",
+        "require": "./dist/colors.js"
       },
       "./package.json": "./package.json"
     }

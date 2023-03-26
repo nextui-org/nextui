@@ -1,5 +1,19 @@
 # @nextui-org/avatar
 
+## 0.0.0-dev-v2-20230326024632
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230326024632
+
+## 0.0.0-dev-v2-20230326015909
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230326015909
+
 ## 0.0.0-dev-v2-20230326015124
 
 ### Patch Changes

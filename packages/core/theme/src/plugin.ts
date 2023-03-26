@@ -49,7 +49,10 @@ const light: SchemerFn<"light"> = (colors) => {
   };
 };
 
+export type DefaultTheme = "light" | "dark";
+
 export type ConfigObject = Record<string, ColorsWithScheme<"light" | "dark">>;
+
 export type ConfigFunction = ({
   light,
   dark,
@@ -58,7 +61,22 @@ export type ConfigFunction = ({
   dark: SchemerFn<"dark">;
 }) => ConfigObject;
 
-export const resolveConfig = (config: ConfigObject | ConfigFunction = {}) => {
+export type NextUIConfig = {
+  /**
+   * The theme definitions.
+   */
+  themes?: ConfigObject | ConfigFunction;
+  /**
+   * The default theme to use.
+   * @default "light"
+   */
+  defaultTheme?: DefaultTheme;
+};
+
+export const resolveConfig = (
+  config: ConfigObject | ConfigFunction = {},
+  defaultTheme: DefaultTheme,
+) => {
   const resolved: {
     variants: {name: string; definition: string[]}[];
     utilities: Record<string, Record<string, any>>;
@@ -74,7 +92,12 @@ export const resolveConfig = (config: ConfigObject | ConfigFunction = {}) => {
   const configObject = typeof config === "function" ? config({dark, light}) : config;
 
   forEach(configObject, (colors: ColorsWithScheme<"light" | "dark">, themeName: string) => {
-    const cssSelector = `.${themeName},.theme-${themeName},[data-theme="${themeName}"]`;
+    let cssSelector = `.${themeName},.theme-${themeName},[data-theme="${themeName}"]`;
+
+    // if the theme is the default theme, add the selector to the root element
+    if (themeName === defaultTheme) {
+      cssSelector = `:root,${cssSelector}`;
+    }
 
     resolved.utilities[cssSelector] = colors[SCHEME]
       ? {
@@ -138,8 +161,8 @@ export const resolveConfig = (config: ConfigObject | ConfigFunction = {}) => {
   return resolved;
 };
 
-const corePlugin = (config: ConfigObject | ConfigFunction = {}) => {
-  const resolved = resolveConfig(config);
+const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: DefaultTheme) => {
+  const resolved = resolveConfig(config, defaultTheme);
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
@@ -185,12 +208,21 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}) => {
   );
 };
 
-export const nextui = (config: ConfigObject | ConfigFunction = {}) => {
-  const userLightColors = get(config, "light", {});
-  const userDarkColors = get(config, "dark", {});
+export const nextui = (config: NextUIConfig = {}) => {
+  const userLightColors = get(config.themes, "light", {});
+  const userDarkColors = get(config.themes, "dark", {});
 
-  return corePlugin({
-    light: deepMerge(semanticColors.light, userLightColors),
-    dark: deepMerge(semanticColors.dark, userDarkColors),
-  });
+  const defaultTheme = config.defaultTheme || "light";
+
+  return corePlugin(
+    {
+      light: deepMerge(semanticColors.light, userLightColors),
+      dark: deepMerge(semanticColors.dark, userDarkColors),
+    },
+    defaultTheme,
+  );
 };
+
+nextui({
+  defaultTheme: "light",
+});
