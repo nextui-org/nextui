@@ -21,4 +21,6 @@ const CardBody = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
   );
 });
 
+CardBody.displayName = "NextUI.CardBody";
+
 export default CardBody;

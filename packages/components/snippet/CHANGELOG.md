@@ -1,5 +1,18 @@
 # @nextui-org/snippet
 
+## 0.0.0-dev-v2-20230326182053
+
+### Patch Changes
+
+- use client directive injected after build process
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230326182053
+  - @nextui-org/use-clipboard@0.0.0-dev-v2-20230326182053
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230326182053
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230326182053
+  - @nextui-org/system@0.0.0-dev-v2-20230326182053
+  - @nextui-org/theme@0.0.0-dev-v2-20230326182053
+
 ## 0.0.0-dev-v2-20230326144453
 
 ### Patch Changes

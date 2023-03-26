@@ -435,7 +435,6 @@ importers:
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/drip': workspace:*
       '@nextui-org/link': workspace:*
-      '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/theme': workspace:*
@@ -449,7 +448,6 @@ importers:
     dependencies:
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
       '@nextui-org/drip': link:../drip
-      '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
       '@nextui-org/theme': link:../../core/theme
@@ -1092,12 +1090,6 @@ importers:
       clean-package: 2.2.0
       react: 18.2.0
 
-  packages/utilities/shared-css:
-    specifiers:
-      clean-package: 2.1.1
-    devDependencies:
-      clean-package: 2.1.1
-
   packages/utilities/shared-icons:
     specifiers:
       clean-package: 2.2.0
@@ -1725,7 +1717,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.20.2
+      '@babel/helper-plugin-utils': 7.10.4
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.21.3_@babel+core@7.12.9
 
@@ -3376,7 +3368,7 @@ packages:
       react-dom: '>= 16.8.6'
     dependencies:
       '@babel/runtime': 7.21.0
-      clsx: 1.2.1
+      clsx: 1.1.0
       focus-lock: 0.8.1
       react-merge-refs: 1.1.0
     dev: true
@@ -6250,7 +6242,7 @@ packages:
       '@storybook/store': 6.5.16
       '@storybook/theming': 6.5.16
       '@storybook/ui': 6.5.16
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/webpack': 4.41.33
       autoprefixer: 9.8.8
       babel-loader: 8.3.0_y3c3uzyfhmxjbwhc6k6hyxg3aa
@@ -6316,7 +6308,7 @@ packages:
       '@storybook/store': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@storybook/theming': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@storybook/ui': 6.5.16_biqbaboplfbrettd7655fr4n2y
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/webpack': 4.41.33
       autoprefixer: 9.8.8
       babel-loader: 8.3.0_y3c3uzyfhmxjbwhc6k6hyxg3aa
@@ -6384,7 +6376,7 @@ packages:
       '@storybook/semver': 7.3.2
       '@storybook/store': 6.5.16
       '@storybook/theming': 6.5.16
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       babel-loader: 8.3.0_qtovpurzjlo3biun26ymnwui7i
       babel-plugin-named-exports-order: 0.0.2
       browser-assert: 1.2.1
@@ -6722,7 +6714,7 @@ packages:
       '@babel/register': 7.21.0_@babel+core@7.21.3
       '@storybook/node-logger': 6.5.16
       '@storybook/semver': 7.3.2
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/pretty-hrtime': 1.0.1
       babel-loader: 8.3.0_y3c3uzyfhmxjbwhc6k6hyxg3aa
       babel-plugin-macros: 3.1.0
@@ -6790,7 +6782,7 @@ packages:
       '@babel/register': 7.21.0_@babel+core@7.21.3
       '@storybook/node-logger': 6.5.16
       '@storybook/semver': 7.3.2
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/pretty-hrtime': 1.0.1
       babel-loader: 8.3.0_y3c3uzyfhmxjbwhc6k6hyxg3aa
       babel-plugin-macros: 3.1.0
@@ -6863,7 +6855,7 @@ packages:
       '@storybook/semver': 7.3.2
       '@storybook/store': 6.5.16
       '@storybook/telemetry': 6.5.16
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/node-fetch': 2.6.2
       '@types/pretty-hrtime': 1.0.1
       '@types/webpack': 4.41.33
@@ -6937,7 +6929,7 @@ packages:
       '@storybook/semver': 7.3.2
       '@storybook/store': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@storybook/telemetry': 6.5.16_cokwgtp7adxle3mwcpacgypcw4
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/node-fetch': 2.6.2
       '@types/pretty-hrtime': 1.0.1
       '@types/webpack': 4.41.33
@@ -7157,7 +7149,7 @@ packages:
       '@storybook/node-logger': 6.5.16
       '@storybook/theming': 6.5.16
       '@storybook/ui': 6.5.16
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/webpack': 4.41.33
       babel-loader: 8.3.0_y3c3uzyfhmxjbwhc6k6hyxg3aa
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -7212,7 +7204,7 @@ packages:
       '@storybook/node-logger': 6.5.16
       '@storybook/theming': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@storybook/ui': 6.5.16_biqbaboplfbrettd7655fr4n2y
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/webpack': 4.41.33
       babel-loader: 8.3.0_y3c3uzyfhmxjbwhc6k6hyxg3aa
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -7270,7 +7262,7 @@ packages:
       '@storybook/node-logger': 6.5.16
       '@storybook/theming': 6.5.16
       '@storybook/ui': 6.5.16
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       babel-loader: 8.3.0_qtovpurzjlo3biun26ymnwui7i
       case-sensitive-paths-webpack-plugin: 2.4.0
       chalk: 4.1.2
@@ -7472,7 +7464,7 @@ packages:
       '@storybook/semver': 7.3.2
       '@storybook/store': 6.5.16
       '@types/estree': 0.0.51
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/webpack-env': 1.18.0
       acorn: 7.4.1
       acorn-jsx: 5.3.2_acorn@7.4.1
@@ -7558,7 +7550,7 @@ packages:
       '@storybook/semver': 7.3.2
       '@storybook/store': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@types/estree': 0.0.51
-      '@types/node': 16.18.20
+      '@types/node': 16.18.21
       '@types/webpack-env': 1.18.0
       acorn: 7.4.1
       acorn-jsx: 5.3.2_acorn@7.4.1
@@ -7719,7 +7711,7 @@ packages:
       fs-extra: 9.1.0
       global: 4.4.0
       isomorphic-unfetch: 3.1.0
-      nanoid: 3.3.4
+      nanoid: 3.3.6
       read-pkg-up: 7.0.1
       regenerator-runtime: 0.13.11
     transitivePeerDependencies:
@@ -7746,7 +7738,7 @@ packages:
       fs-extra: 9.1.0
       global: 4.4.0
       isomorphic-unfetch: 3.1.0
-      nanoid: 3.3.4
+      nanoid: 3.3.6
       read-pkg-up: 7.0.1
       regenerator-runtime: 0.13.11
     transitivePeerDependencies:
@@ -8363,8 +8355,8 @@ packages:
     resolution: {integrity: sha512-qjd88DrCxupx/kJD5yQgZdcYKZKSIGBVDIBE1/LTGcNm3d2Np/jxojkdePDdfnBHJc5W7vSMpbJ1aB7p/Py69A==}
     dev: true
 
-  /@types/node/16.18.20:
-    resolution: {integrity: sha512-9fH66vSJnF563exTu3y1g2IbDz1vCj01Lbqms97r8j0qzfFisT2biypSfybVv/eYrtTB74x9xQTdRU8RyMiRrg==}
+  /@types/node/16.18.21:
+    resolution: {integrity: sha512-TassPGd0AEZWA10qcNnXnSNwHlLfSth8XwUaWc3gTSDmBz/rKb613Qw5qRf6o2fdRBrLbsgeC9PMZshobkuUqg==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -8416,7 +8408,7 @@ packages:
   /@types/react-autosuggest/10.1.6:
     resolution: {integrity: sha512-yRsoW19yQzS8VDEW7bytqfGLzkZipTo8qVhqILQWcBI6hdRjN2x/o+0BQBaZ/fc4LlL3b/D6XgjMvlr0I3+2Xw==}
     dependencies:
-      '@types/react': 18.0.29
+      '@types/react': 17.0.53
     dev: true
 
   /@types/react-dom/17.0.19:
@@ -8442,7 +8434,7 @@ packages:
   /@types/react-instantsearch-dom/6.12.3:
     resolution: {integrity: sha512-HAQG74v7OzsUhdjNermd0A8c7LWRLsrMCsFCY6+7HEXK1hikeCs/Hmy6xjFhZVfFEWvpvX78vxJELafoAnuv8Q==}
     dependencies:
-      '@types/react': 18.0.29
+      '@types/react': 17.0.53
       '@types/react-instantsearch-core': 6.26.3
     dev: true
 
@@ -9754,7 +9746,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001469
+      caniuse-lite: 1.0.30001470
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -9767,7 +9759,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001469
+      caniuse-lite: 1.0.30001470
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
@@ -10322,7 +10314,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001469
+      caniuse-lite: 1.0.30001470
       electron-to-chromium: 1.4.340
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
@@ -10545,8 +10537,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001469:
-    resolution: {integrity: sha512-Rcp7221ScNqQPP3W+lVOYDyjdR6dC+neEQCttoNr5bAyz54AboB4iwpnWgyi8P4YUsPybVzT4LgWiBbI3drL4g==}
+  /caniuse-lite/1.0.30001470:
+    resolution: {integrity: sha512-065uNwY6QtHCBOExzbV6m236DDhYCCtPmQUCoQtwkVqzud8v5QPidoMr6CoMkC2nfp6nksjttqWQRRh75LqUmA==}
 
   /canvas-confetti/1.6.0:
     resolution: {integrity: sha512-ej+w/m8Jzpv9Z7W7uJZer14Ke8P2ogsjg4ZMGIuq4iqUOqY2Jq8BNW42iGmNfRwREaaEfFIczLuZZiEVSYNHAA==}
@@ -10755,13 +10747,6 @@ packages:
     engines: {node: '>= 10.0'}
     dependencies:
       source-map: 0.6.1
-    dev: true
-
-  /clean-package/2.1.1:
-    resolution: {integrity: sha512-+svGAs1RfjguW3Yi0uk1F2gu56jt0nkpFW6Gd9BDK0w7xcIokFwrQOWuRn5NO5pfTDkLCVP1ttIjvJwXaSvRsA==}
-    hasBin: true
-    dependencies:
-      dot-object: 2.1.4
     dev: true
 
   /clean-package/2.2.0:
@@ -11995,14 +11980,6 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.5.0
-    dev: true
-
-  /dot-object/2.1.4:
-    resolution: {integrity: sha512-7FXnyyCLFawNYJ+NhkqyP9Wd2yzuo+7n9pGiYpkmXCTYa8Ci2U0eUNDVg5OuO5Pm6aFXI2SWN8/N/w7SJWu1WA==}
-    hasBin: true
-    dependencies:
-      commander: 4.1.1
-      glob: 7.2.3
     dev: true
 
   /dot-prop/5.3.0:
@@ -17695,8 +17672,8 @@ packages:
     dev: true
     optional: true
 
-  /nanoid/3.3.4:
-    resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
+  /nanoid/3.3.6:
+    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -17832,7 +17809,7 @@ packages:
     dependencies:
       '@next/env': 12.3.4
       '@swc/helpers': 0.4.11
-      caniuse-lite: 1.0.30001469
+      caniuse-lite: 1.0.30001470
       postcss: 8.4.14
       react: 18.2.0
       styled-jsx: 5.0.7_react@18.2.0
@@ -19034,7 +19011,7 @@ packages:
     resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.4
+      nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
@@ -19042,7 +19019,7 @@ packages:
     resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.4
+      nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
 

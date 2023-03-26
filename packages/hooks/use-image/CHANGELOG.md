@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230326182053
+
+### Patch Changes
+
+- use client directive injected after build process
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230326182053
+
 ## 0.0.0-dev-v2-20230326144453
 
 ### Patch Changes

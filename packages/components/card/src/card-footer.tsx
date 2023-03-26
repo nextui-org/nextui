@@ -27,4 +27,6 @@ const CardFooter = forwardRef<CardFooterProps, "div">((props, ref) => {
   );
 });
 
+CardFooter.displayName = "NextUI.CardFooter";
+
 export default CardFooter;

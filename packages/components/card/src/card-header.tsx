@@ -15,12 +15,12 @@ const CardHeader = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
   const headerStyles = clsx(styles?.header, className);
 
   return (
-    <>
-      <Component ref={domRef} className={slots.header?.({class: headerStyles})} {...otherProps}>
-        {children}
-      </Component>
-    </>
+    <Component ref={domRef} className={slots.header?.({class: headerStyles})} {...otherProps}>
+      {children}
+    </Component>
   );
 });
+
+CardHeader.displayName = "NextUI.CardHeader";
 
 export default CardHeader;

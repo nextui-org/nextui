@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "turbo dev --filter=!@nextui-org/docs",
-    "build": "turbo build --filter=!@nextui-org/docs",
+    "build": "turbo build --filter=!@nextui-org/docs && pnpm add:use-client",
     "build:fast": "turbo build:fast --filter=!@nextui-org/docs ",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
     "build:docs": "turbo build --filter=@nextui-org/docs",
@@ -31,8 +31,8 @@
     "turbo:clean": "turbo clean && rimraf ./node_modules/.cache/turbo",
     "turbo:graph": "pnpm build --graph=dependency-graph.png",
     "clean": "pnpm turbo:clean && pnpm clean:node-modules && pnpm clean:lock && pnpm install",
-    "clean:pn-types": "rimraf ./node_modules/.pnpm/csstype*",
     "clean:node-modules": "rimraf ./apps/**/node_modules && rimraf ./packages/**/**/node_modules && rm -rf ./node_modules",
+    "add:use-client": "node ./scripts/add-use-client-directive.js",
     "clean:lock": "rm ./pnpm-lock.yaml",
     "create:cmp": "plop component",
     "create:pkg": "plop package",
