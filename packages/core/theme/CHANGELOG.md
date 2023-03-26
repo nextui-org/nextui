@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230326134624
+
+### Patch Changes
+
+- "use client" directive added to all components
+
 ## 0.0.0-dev-v2-20230326130503
 
 ### Patch Changes

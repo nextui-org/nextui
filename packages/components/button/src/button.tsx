@@ -1,3 +1,5 @@
+"use client";
+
 import {Drip} from "@nextui-org/drip";
 import {forwardRef} from "@nextui-org/system";
 

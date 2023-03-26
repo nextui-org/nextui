@@ -1,6 +1,7 @@
+"use client";
+
 import {forwardRef} from "@nextui-org/system";
 
-// import {StyledLoadingContainer, StyledLoading, StyledLoadingLabel} from "./loading.styles";
 import {UseSpinnerProps, useSpinner} from "./use-spinner";
 
 export interface SpinnerProps extends Omit<UseSpinnerProps, "ref"> {}

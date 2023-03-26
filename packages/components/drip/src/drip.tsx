@@ -1,3 +1,5 @@
+"use client";
+
 import type {HTMLNextUIProps} from "@nextui-org/system";
 import type {DripInstance} from "./use-drip";
 

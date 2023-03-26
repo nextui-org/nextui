@@ -1,3 +1,5 @@
+"use client";
+
 import {forwardRef} from "@nextui-org/system";
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {useCallback} from "react";

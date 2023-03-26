@@ -1,3 +1,5 @@
+"use client";
+
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";

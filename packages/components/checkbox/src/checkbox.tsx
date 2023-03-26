@@ -1,3 +1,5 @@
+"use client";
+
 import {forwardRef} from "@nextui-org/system";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";

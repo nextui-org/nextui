@@ -1,3 +1,5 @@
+"use client";
+
 import {forwardRef} from "@nextui-org/system";
 import {clsx} from "@nextui-org/shared-utils";
 import {Tooltip} from "@nextui-org/tooltip";

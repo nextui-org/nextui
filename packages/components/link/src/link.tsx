@@ -1,3 +1,5 @@
+"use client";
+
 import {forwardRef} from "@nextui-org/system";
 
 import {UseLinkProps, useLink} from "./use-link";

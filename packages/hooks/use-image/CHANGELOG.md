@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230326134624
+
+### Patch Changes
+
+- "use client" directive added to all components
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230326134624
+
 ## 0.0.0-dev-v2-20230326032643
 
 ### Patch Changes
