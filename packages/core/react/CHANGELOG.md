@@ -1,5 +1,11 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230326212854
+
+### Patch Changes
+
+- Chip component exported
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes
