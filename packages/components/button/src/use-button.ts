@@ -5,7 +5,6 @@ import type {ReactNode} from "react";
 
 import {callAllHandlers, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {MouseEventHandler, useCallback} from "react";
-import {useButton as useAriaButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
@@ -13,6 +12,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 
+import {useButton as useAriaButton} from "./use-aria-button";
 import {useButtonGroupContext} from "./button-group-context";
 
 export interface UseButtonProps
