@@ -40,7 +40,6 @@
     "react": "^18.0.0",
     "react-autosuggest": "^10.1.0",
     "react-device-detect": "^1.17.0",
-    "react": "^18.0.0",
     "react-iconly": "^2.2.2",
     "react-instantsearch-dom": "^6.12.0",
     "react-intersection-observer": "8.32.2",

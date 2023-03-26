@@ -8,6 +8,7 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@nextui-org/docs"
+    "@nextui-org/docs",
+    "@nextui-org/storybook"
   ]
 }
