@@ -1,5 +1,3 @@
-"use client";
-
 import {forwardRef} from "@nextui-org/system";
 
 import {AvatarGroupProvider} from "./avatar-group-context";

@@ -1,5 +1,3 @@
-"use client";
-
 import {forwardRef} from "@nextui-org/system";
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
 import {useMemo} from "react";

@@ -1,5 +1,3 @@
-"use client";
-
 import {forwardRef} from "@nextui-org/system";
 
 import {UseAccordionProps, useAccordion} from "./use-accordion";

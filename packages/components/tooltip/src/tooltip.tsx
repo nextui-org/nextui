@@ -1,5 +1,3 @@
-"use client";
-
 import {forwardRef} from "@nextui-org/system";
 import {useMemo} from "react";
 import {OverlayContainer} from "@react-aria/overlays";

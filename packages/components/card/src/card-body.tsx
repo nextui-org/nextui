@@ -1,5 +1,3 @@
-"use client";
-
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx} from "@nextui-org/shared-utils";

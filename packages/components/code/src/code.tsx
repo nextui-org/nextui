@@ -1,5 +1,3 @@
-"use client";
-
 import {forwardRef} from "@nextui-org/system";
 
 import {useCode, UseCodeProps} from "./use-code";
