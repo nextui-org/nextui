@@ -46,6 +46,7 @@
     "@nextui-org/badge": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/card": "workspace:*",
+    "@nextui-org/chip": "workspace:*",
     "@nextui-org/checkbox": "workspace:*",
     "@nextui-org/code": "workspace:*",
     "@nextui-org/drip": "workspace:*",

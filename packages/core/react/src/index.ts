@@ -5,6 +5,7 @@ export * from "@nextui-org/avatar";
 export * from "@nextui-org/badge";
 export * from "@nextui-org/button";
 export * from "@nextui-org/card";
+export * from "@nextui-org/chip";
 export * from "@nextui-org/checkbox";
 export * from "@nextui-org/code";
 export * from "@nextui-org/drip";

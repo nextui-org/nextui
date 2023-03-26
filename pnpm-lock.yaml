@@ -806,6 +806,7 @@ importers:
       '@nextui-org/button': workspace:*
       '@nextui-org/card': workspace:*
       '@nextui-org/checkbox': workspace:*
+      '@nextui-org/chip': workspace:*
       '@nextui-org/code': workspace:*
       '@nextui-org/drip': workspace:*
       '@nextui-org/link': workspace:*
@@ -827,6 +828,7 @@ importers:
       '@nextui-org/button': link:../../components/button
       '@nextui-org/card': link:../../components/card
       '@nextui-org/checkbox': link:../../components/checkbox
+      '@nextui-org/chip': link:../../components/chip
       '@nextui-org/code': link:../../components/code
       '@nextui-org/drip': link:../../components/drip
       '@nextui-org/link': link:../../components/link
