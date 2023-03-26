@@ -222,7 +222,3 @@ export const nextui = (config: NextUIConfig = {}) => {
     defaultTheme,
   );
 };
-
-nextui({
-  defaultTheme: "light",
-});

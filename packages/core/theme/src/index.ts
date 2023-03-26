@@ -1,6 +1,7 @@
 export * from "./components";
 export * from "./utils";
 export * from "./colors";
+export * from "./plugin";
 
 import {cn as cnBase} from "tailwind-variants";
 export {tv} from "tailwind-variants";

@@ -1,5 +1,14 @@
 # @nextui-org/button
 
+## 0.0.0-dev-v2-20230326125142
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230326125142
+  - @nextui-org/drip@0.0.0-dev-v2-20230326125142
+  - @nextui-org/spinner@0.0.0-dev-v2-20230326125142
+
 ## 0.0.0-dev-v2-20230326122446
 
 ### Patch Changes
