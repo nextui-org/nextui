@@ -1,5 +1,15 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230326122446
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/button@0.0.0-dev-v2-20230326122446
+  - @nextui-org/card@0.0.0-dev-v2-20230326032643
+  - @nextui-org/radio@0.0.0-dev-v2-20230326032643
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230326032643
+
 ## 0.0.0-dev-v2-20230326032643
 
 ### Patch Changes

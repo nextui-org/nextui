@@ -1,5 +1,11 @@
 # @nextui-org/button
 
+## 0.0.0-dev-v2-20230326122446
+
+### Patch Changes
+
+- Button onClick warning removed
+
 ## 0.0.0-dev-v2-20230326032643
 
 ### Patch Changes
