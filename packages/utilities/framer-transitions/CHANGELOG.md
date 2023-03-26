@@ -1,5 +1,14 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230326032643
+
+### Patch Changes
+
+- Calculated styled added to theme components, icon button improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230326032643
+  - @nextui-org/system@0.0.0-dev-v2-20230326032643
+
 ## 0.0.0-dev-v2-20230326015124
 
 ### Patch Changes

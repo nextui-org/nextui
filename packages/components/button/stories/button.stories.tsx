@@ -1,7 +1,7 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {button} from "@nextui-org/theme";
-import {Notification, Camera} from "@nextui-org/shared-icons";
+import {Notification, Camera, HeadphonesIcon} from "@nextui-org/shared-icons";
 import {Spinner} from "@nextui-org/spinner";
 
 import {Button, ButtonProps} from "../src";
@@ -105,7 +105,8 @@ WithIcons.args = {
 export const IconButton = Template.bind({});
 IconButton.args = {
   ...defaultProps,
-  children: <Notification fill="currentColor" />,
+  isIconButton: true,
+  children: <HeadphonesIcon className="w-5 h-5" />,
 };
 
 export const IsLoading = Template.bind({});

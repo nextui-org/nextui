@@ -1,5 +1,11 @@
 # @nextui-org/system
 
+## 0.0.0-dev-v2-20230326032643
+
+### Patch Changes
+
+- Calculated styled added to theme components, icon button improved
+
 ## 0.0.0-dev-v2-20230326015124
 
 ### Patch Changes

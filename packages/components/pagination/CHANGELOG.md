@@ -1,5 +1,18 @@
 # @nextui-org/pagination
 
+## 0.0.0-dev-v2-20230326032643
+
+### Patch Changes
+
+- Calculated styled added to theme components, icon button improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230326032643
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230326032643
+  - @nextui-org/use-pagination@0.0.0-dev-v2-20230326032643
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230326032643
+  - @nextui-org/system@0.0.0-dev-v2-20230326032643
+  - @nextui-org/theme@0.0.0-dev-v2-20230326032643
+
 ## 0.0.0-dev-v2-20230326024632
 
 ### Patch Changes

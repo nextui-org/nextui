@@ -10,7 +10,6 @@ import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx} from "@nextui-org/shared-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 
@@ -64,6 +63,7 @@ export function useButton(props: UseButtonProps) {
     radius = groupContext?.radius ?? "lg",
     disableRipple = groupContext?.disableRipple ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
+    isIconButton = groupContext?.isIconButton ?? false,
     onPress,
     onClick,
     ...otherProps
@@ -89,6 +89,7 @@ export function useButton(props: UseButtonProps) {
         isInGroup,
         isFocusVisible,
         disableAnimation,
+        isIconButton,
         className,
       }),
     [
@@ -100,6 +101,7 @@ export function useButton(props: UseButtonProps) {
       isDisabled,
       isInGroup,
       isFocusVisible,
+      isIconButton,
       disableAnimation,
       className,
     ],
@@ -140,9 +142,6 @@ export function useButton(props: UseButtonProps) {
           "aria-hidden": true,
           focusable: false,
           tabIndex: -1,
-          width: "70%",
-          height: "70%",
-          className: clsx("fill-current max-w-[24px]", icon.props.className),
         })
       : null;
 

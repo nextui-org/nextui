@@ -28,6 +28,9 @@ const button = tv({
     "active:scale-95",
     "overflow-hidden",
     "gap-3",
+    // svg icon
+    "[&>svg]:fill-current",
+    "[&>svg]:max-w-[2em]",
   ],
   variants: {
     variant: {
@@ -77,9 +80,12 @@ const button = tv({
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
+    isIconButton: {
+      true: "p-0 gap-0",
+    },
     disableAnimation: {
       true: "!transition-none",
-      false: "transition-transform-background",
+      false: "transition-transform-background motion-reduce:transition-none",
     },
   },
   defaultVariants: {
@@ -332,8 +338,42 @@ const button = tv({
       variant: "bordered",
       class: "[&:not(:first-child)]:border-l-0",
     },
+    // isIconButton / size
+    {
+      isIconButton: true,
+      size: "xs",
+      class: "w-6 h-6",
+    },
+    {
+      isIconButton: true,
+      size: "sm",
+      class: "w-8 h-8",
+    },
+    {
+      isIconButton: true,
+      size: "md",
+      class: "w-10 h-10",
+    },
+    {
+      isIconButton: true,
+      size: "lg",
+      class: "w-12 h-12",
+    },
+    {
+      isIconButton: true,
+      size: "xl",
+      class: "w-14 h-14",
+    },
   ],
 });
+
+// size: {
+//   xs: "px-2 h-6 text-xs",
+//   sm: "px-3 h-8 text-sm",
+//   md: "px-4 h-10 text-base",
+//   lg: "px-6 h-12 text-md",
+//   xl: "px-8 h-14 text-lg",
+// },
 
 export type ButtonVariantProps = VariantProps<typeof button>;
 

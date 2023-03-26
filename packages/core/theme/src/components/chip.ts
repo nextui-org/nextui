@@ -477,3 +477,7 @@ export type ChipVariantProps = VariantProps<typeof chip>;
 export type ChipSlots = keyof ReturnType<typeof chip>;
 
 export {chip};
+
+// calculated styles
+// src/components/chip/src/use-chip
+// max-h-[80%]

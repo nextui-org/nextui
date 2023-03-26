@@ -22,3 +22,7 @@ const avatarGroup = tv({
 export type AvatarGroupVariantProps = VariantProps<typeof avatarGroup>;
 
 export {avatarGroup};
+
+// calculated styles
+// src/components/avatar/src/use-avatar-group.ts
+// -ml-2 hover:-translate-x-0 ml-0
