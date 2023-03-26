@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230326202948
+
+### Patch Changes
+
+- Drip animation fixed
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230326202948
+
 ## 0.0.0-dev-v2-20230326201634
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230326202948
+
+### Patch Changes
+
+- Drip animation fixed
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230326202948
+
 ## 0.0.0-dev-v2-20230326201634
 
 ### Patch Changes
