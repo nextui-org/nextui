@@ -9,7 +9,17 @@ import {tv} from "tailwind-variants";
  * <span ref={dripRef} className={styles())} />
  */
 const drip = tv({
-  base: ["absolute", "will-change-transform", "bg-current", "rounded-full", "animate-drip-expand"],
+  base: [
+    "hidden",
+    "absolute",
+    "opacity-0",
+    "will-change-transform",
+    "bg-current",
+    "rounded-full",
+    "animate-drip-expand",
+    "data-[visible='true']:block",
+    "data-[visible='true']:opacity-20",
+  ],
 });
 
 export {drip};

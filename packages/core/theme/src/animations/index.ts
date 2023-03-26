@@ -1,6 +1,6 @@
 export const animations = {
   animation: {
-    "drip-expand": "drip-expand 350ms linear",
+    "drip-expand": "drip-expand 420ms linear",
     "spinner-ease-spin": "spinner-spin 0.8s ease infinite",
     "spinner-linear-spin": "spinner-spin 0.8s linear infinite",
     "appearance-in": "appearance-in 250ms ease-out normal both",
@@ -17,7 +17,7 @@ export const animations = {
     },
     "drip-expand": {
       "0%": {
-        opacity: "0.4",
+        opacity: "0.2",
         transform: "scale(0)",
       },
       "100%": {

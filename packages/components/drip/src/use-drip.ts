@@ -1,16 +1,14 @@
-import {Timer} from "@nextui-org/shared-utils";
 import {MouseEvent, CSSProperties, useRef, useState} from "react";
 
 export type DripInstance = {
   key: number;
   style: CSSProperties;
+  "data-visible"?: boolean;
 };
 
 export function useDrip() {
   const [drips, setDrips] = useState<DripInstance[]>([]);
   const nextKey = useRef(0);
-
-  const dripTimer = useRef<Timer>();
 
   const onClick = (event: MouseEvent<HTMLElement>) => {
     const trigger = event.currentTarget;
@@ -32,13 +30,14 @@ export function useDrip() {
       {
         key: nextKey.current,
         style: dripStyle,
+        "data-visible": true,
       },
     ]);
     nextKey.current++;
 
-    dripTimer.current = setTimeout(() => {
+    setTimeout(() => {
       setDrips((prev) => prev.slice(1));
-    }, 340);
+    }, 400);
   };
 
   return {
