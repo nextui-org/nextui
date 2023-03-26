@@ -49,7 +49,7 @@ const light: SchemerFn<"light"> = (colors) => {
   };
 };
 
-export type DefaultTheme = "light" | "dark";
+export type DefaultThemeType = "light" | "dark";
 
 export type ConfigObject = Record<string, ColorsWithScheme<"light" | "dark">>;
 
@@ -70,12 +70,13 @@ export type NextUIConfig = {
    * The default theme to use.
    * @default "light"
    */
-  defaultTheme?: DefaultTheme;
+  defaultTheme?: DefaultThemeType;
 };
 
-export const resolveConfig = (
+// @internal
+const resolveConfig = (
   config: ConfigObject | ConfigFunction = {},
-  defaultTheme: DefaultTheme,
+  defaultTheme: DefaultThemeType,
 ) => {
   const resolved: {
     variants: {name: string; definition: string[]}[];
@@ -161,7 +162,7 @@ export const resolveConfig = (
   return resolved;
 };
 
-const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: DefaultTheme) => {
+const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: DefaultThemeType) => {
   const resolved = resolveConfig(config, defaultTheme);
 
   return plugin(

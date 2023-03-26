@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230326130503
+
+### Patch Changes
+
+- resolveConfig removed from the exported files
+
 ## 0.0.0-dev-v2-20230326125142
 
 ### Patch Changes

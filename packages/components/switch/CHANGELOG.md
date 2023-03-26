@@ -1,5 +1,12 @@
 # @nextui-org/switch
 
+## 0.0.0-dev-v2-20230326130503
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230326130503
+
 ## 0.0.0-dev-v2-20230326125142
 
 ### Patch Changes
