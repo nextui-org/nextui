@@ -1,5 +1,30 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230326201634
+
+### Patch Changes
+
+- Drip animation fixed
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230326201634
+  - @nextui-org/accordion@0.0.0-dev-v2-20230326201634
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230326201634
+  - @nextui-org/snippet@0.0.0-dev-v2-20230326201634
+  - @nextui-org/spinner@0.0.0-dev-v2-20230326201634
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230326201634
+  - @nextui-org/avatar@0.0.0-dev-v2-20230326201634
+  - @nextui-org/button@0.0.0-dev-v2-20230326201634
+  - @nextui-org/switch@0.0.0-dev-v2-20230326201634
+  - @nextui-org/badge@0.0.0-dev-v2-20230326201634
+  - @nextui-org/radio@0.0.0-dev-v2-20230326201634
+  - @nextui-org/card@0.0.0-dev-v2-20230326201634
+  - @nextui-org/code@0.0.0-dev-v2-20230326201634
+  - @nextui-org/drip@0.0.0-dev-v2-20230326201634
+  - @nextui-org/link@0.0.0-dev-v2-20230326201634
+  - @nextui-org/user@0.0.0-dev-v2-20230326201634
+  - @nextui-org/system@0.0.0-dev-v2-20230326201634
+  - @nextui-org/theme@0.0.0-dev-v2-20230326201634
+
 ## 0.0.0-dev-v2-20230326182053
 
 ### Patch Changes

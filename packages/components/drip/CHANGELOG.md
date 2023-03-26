@@ -1,5 +1,16 @@
 # @nextui-org/drip
 
+## 0.0.0-dev-v2-20230326201634
+
+### Patch Changes
+
+- Drip animation fixed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230326201634
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230326201634
+  - @nextui-org/system@0.0.0-dev-v2-20230326201634
+  - @nextui-org/theme@0.0.0-dev-v2-20230326201634
+
 ## 0.0.0-dev-v2-20230326182053
 
 ### Patch Changes

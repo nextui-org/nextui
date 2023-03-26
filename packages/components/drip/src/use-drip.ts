@@ -3,7 +3,6 @@ import {MouseEvent, CSSProperties, useRef, useState} from "react";
 export type DripInstance = {
   key: number;
   style: CSSProperties;
-  "data-visible"?: boolean;
 };
 
 export function useDrip() {
@@ -30,7 +29,6 @@ export function useDrip() {
       {
         key: nextKey.current,
         style: dripStyle,
-        "data-visible": true,
       },
     ]);
     nextKey.current++;

@@ -1,5 +1,11 @@
 # @nextui-org/use-resize
 
+## 0.0.0-dev-v2-20230326201634
+
+### Patch Changes
+
+- Drip animation fixed
+
 ## 0.0.0-dev-v2-20230326182053
 
 ### Patch Changes
