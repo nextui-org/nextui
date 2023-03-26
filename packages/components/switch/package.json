@@ -54,6 +54,7 @@
     "react": "^18.0.0",
     "@nextui-org/shared-icons": "workspace:*"
   },
+  "clean-package": "../../../clean-package.config.json",
   "tsup": {
     "clean": true,
     "target": "es2019",

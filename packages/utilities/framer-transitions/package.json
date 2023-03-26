@@ -46,6 +46,7 @@
     "framer-motion": "^10.6.0",
     "clean-package": "2.2.0"
   },
+  "clean-package": "../../../clean-package.config.json",
   "tsup": {
     "clean": true,
     "target": "es2019",

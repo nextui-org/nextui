@@ -4,7 +4,16 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
     "exports": {
-      ".": {"import": "./dist/index.esm.js", "require": "./dist/index.cjs.js"},
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.esm.js",
+        "require": "./dist/index.cjs.js"
+      },
+      "./plugin": {
+        "types": "./dist/plugin.d.ts",
+        "import": "./dist/plugin.esm.js",
+        "require": "./dist/plugin.cjs.js"
+      },
       "./package.json": "./package.json"
     }
   }
