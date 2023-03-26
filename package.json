@@ -39,8 +39,8 @@
     "create:hook": "plop hook",
     "version": "changeset version",
     "release": "changeset publish",
-    "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset publish --tag dev",
+    "version:dev": "changeset version --snapshot dev-v2",
+    "release:dev": "changeset publish --tag dev-v2",
     "postinstall": "husky install && pnpm --filter @nextui-org/theme build"
   },
   "devDependencies": {
