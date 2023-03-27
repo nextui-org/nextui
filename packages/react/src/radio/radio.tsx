@@ -66,7 +66,7 @@ export const Radio = React.forwardRef((props: RadioProps, ref: ReactRef<HTMLInpu
     if (isHovered) return "is-hovered";
     if (isDisabled) return "is-disabled";
 
-    return inputProps.checked ? "checked" : "uncheked";
+    return inputProps.checked ? "checked" : "unchecked";
   }, [isDisabled, inputProps.checked, isHovered]);
 
   return (
