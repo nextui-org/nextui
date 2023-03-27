@@ -1,5 +1,18 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230327000832
+
+### Patch Changes
+
+- @nextui-org/accordion@0.0.0-dev-v2-20230327000832
+- @nextui-org/avatar@0.0.0-dev-v2-20230326233509
+- @nextui-org/badge@0.0.0-dev-v2-20230326233509
+- @nextui-org/button@0.0.0-dev-v2-20230326233509
+- @nextui-org/checkbox@0.0.0-dev-v2-20230326233509
+- @nextui-org/chip@0.0.0-dev-v2-20230327000832
+- @nextui-org/pagination@0.0.0-dev-v2-20230327000832
+- @nextui-org/switch@0.0.0-dev-v2-20230326233509
+
 ## 0.0.0-dev-v2-20230326233509
 
 ### Patch Changes

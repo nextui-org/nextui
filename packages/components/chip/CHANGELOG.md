@@ -1,5 +1,12 @@
 # @nextui-org/chip
 
+## 0.0.0-dev-v2-20230327000832
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230327000832
+
 ## 0.0.0-dev-v2-20230326233509
 
 ### Patch Changes

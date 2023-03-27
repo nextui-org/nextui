@@ -1,5 +1,11 @@
 # @nextui-org/shared-icons
 
+## 0.0.0-dev-v2-20230327000832
+
+### Patch Changes
+
+- Exports fixed
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes
