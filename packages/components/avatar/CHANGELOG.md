@@ -1,5 +1,11 @@
 # @nextui-org/avatar
 
+## 0.0.0-dev-v2-20230326233509
+
+### Patch Changes
+
+- Components snapshot
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes

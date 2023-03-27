@@ -1,5 +1,13 @@
 # @nextui-org/snippet
 
+## 0.0.0-dev-v2-20230326233509
+
+### Patch Changes
+
+- Components snapshot
+- Updated dependencies
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230326233509
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @nextui-org/button
 
+## 0.0.0-dev-v2-20230326233509
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/spinner@0.0.0-dev-v2-20230326233509
+  - @nextui-org/drip@0.0.0-dev-v2-20230326233509
+
+## 0.0.0-dev-v2-20230326232921
+
+### Patch Changes
+
+- Button Snapshot
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes
