@@ -86,7 +86,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
         ? "mixed"
         : inputProps.checked
         ? "checked"
-        : "uncheked";
+        : "unchecked";
     }, [isHovered, isIndeterminate, inputProps.checked]);
 
     return (
