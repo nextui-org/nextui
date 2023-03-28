@@ -147,7 +147,9 @@ const card = tv({
       },
     },
     isHoverable: {
-      true: {},
+      true: {
+        base: "hover:bg-content2 dark:hover:bg-content2",
+      },
     },
     isPressable: {
       true: {base: "cursor-pointer"},
@@ -169,15 +171,10 @@ const card = tv({
     },
     disableAnimation: {
       true: "",
-      false: {base: "transition-transform motion-reduce:transition-none"},
+      false: {base: "transition-transform-background motion-reduce:transition-none"},
     },
   },
   compoundVariants: [
-    {
-      isHoverable: true,
-      disableAnimation: false,
-      class: "hover:-translate-y-1.5",
-    },
     {
       isPressable: true,
       disableAnimation: false,

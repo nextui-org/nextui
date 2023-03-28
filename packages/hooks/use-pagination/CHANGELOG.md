@@ -1,5 +1,13 @@
 # @nextui-org/use-pagination
 
+## 0.0.0-dev-v2-20230328184744
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230328184744
+
 ## 0.0.0-dev-v2-20230328182900
 
 ### Patch Changes

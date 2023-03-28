@@ -1,5 +1,80 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230328190228
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230328190228
+  - @nextui-org/accordion@0.0.0-dev-v2-20230328190228
+  - @nextui-org/avatar@0.0.0-dev-v2-20230328190228
+  - @nextui-org/badge@0.0.0-dev-v2-20230328190228
+  - @nextui-org/button@0.0.0-dev-v2-20230328190228
+  - @nextui-org/card@0.0.0-dev-v2-20230328190228
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230328190228
+  - @nextui-org/chip@0.0.0-dev-v2-20230328190228
+  - @nextui-org/code@0.0.0-dev-v2-20230328190228
+  - @nextui-org/drip@0.0.0-dev-v2-20230328190228
+  - @nextui-org/link@0.0.0-dev-v2-20230328190228
+  - @nextui-org/pagination@0.0.0-dev-v2-20230328190228
+  - @nextui-org/radio@0.0.0-dev-v2-20230328190228
+  - @nextui-org/snippet@0.0.0-dev-v2-20230328190228
+  - @nextui-org/spinner@0.0.0-dev-v2-20230328190228
+  - @nextui-org/switch@0.0.0-dev-v2-20230328190228
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230328190228
+  - @nextui-org/user@0.0.0-dev-v2-20230328190228
+
+## 0.0.0-dev-v2-20230328184744
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230328184744
+  - @nextui-org/accordion@0.0.0-dev-v2-20230328184744
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230328184744
+  - @nextui-org/snippet@0.0.0-dev-v2-20230328184744
+  - @nextui-org/spinner@0.0.0-dev-v2-20230328184744
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230328184744
+  - @nextui-org/avatar@0.0.0-dev-v2-20230328184744
+  - @nextui-org/button@0.0.0-dev-v2-20230328184744
+  - @nextui-org/switch@0.0.0-dev-v2-20230328184744
+  - @nextui-org/badge@0.0.0-dev-v2-20230328184744
+  - @nextui-org/radio@0.0.0-dev-v2-20230328184744
+  - @nextui-org/card@0.0.0-dev-v2-20230328184744
+  - @nextui-org/chip@0.0.0-dev-v2-20230328184744
+  - @nextui-org/code@0.0.0-dev-v2-20230328184744
+  - @nextui-org/drip@0.0.0-dev-v2-20230328184744
+  - @nextui-org/link@0.0.0-dev-v2-20230328184744
+  - @nextui-org/user@0.0.0-dev-v2-20230328184744
+  - @nextui-org/system@0.0.0-dev-v2-20230328184744
+  - @nextui-org/theme@0.0.0-dev-v2-20230328184744
+
+## 0.0.0-dev-v2-20230328184158
+
+### Patch Changes
+
+- New snapshot to deploy previous changes
+- Updated dependencies
+  - @nextui-org/accordion@0.0.0-dev-v2-20230328184158
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230328184158
+  - @nextui-org/system@0.0.0-dev-v2-20230328184158
+  - @nextui-org/snippet@0.0.0-dev-v2-20230328184158
+  - @nextui-org/avatar@0.0.0-dev-v2-20230328184158
+  - @nextui-org/badge@0.0.0-dev-v2-20230328184158
+  - @nextui-org/button@0.0.0-dev-v2-20230328184158
+  - @nextui-org/card@0.0.0-dev-v2-20230328184158
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230328184158
+  - @nextui-org/chip@0.0.0-dev-v2-20230328184158
+  - @nextui-org/code@0.0.0-dev-v2-20230328184158
+  - @nextui-org/drip@0.0.0-dev-v2-20230328184158
+  - @nextui-org/link@0.0.0-dev-v2-20230328184158
+  - @nextui-org/pagination@0.0.0-dev-v2-20230328184158
+  - @nextui-org/radio@0.0.0-dev-v2-20230328184158
+  - @nextui-org/spinner@0.0.0-dev-v2-20230328184158
+  - @nextui-org/switch@0.0.0-dev-v2-20230328184158
+  - @nextui-org/user@0.0.0-dev-v2-20230328184158
+
 ## 0.0.0-dev-v2-20230328182900
 
 ### Patch Changes

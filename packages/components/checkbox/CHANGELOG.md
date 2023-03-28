@@ -1,5 +1,30 @@
 # @nextui-org/checkbox
 
+## 0.0.0-dev-v2-20230328190228
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230328190228
+
+## 0.0.0-dev-v2-20230328184744
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230328184744
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230328184744
+  - @nextui-org/system@0.0.0-dev-v2-20230328184744
+  - @nextui-org/theme@0.0.0-dev-v2-20230328184744
+
+## 0.0.0-dev-v2-20230328184158
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230328184158
+
 ## 0.0.0-dev-v2-20230328182900
 
 ### Patch Changes
