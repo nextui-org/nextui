@@ -140,12 +140,8 @@ const toggle = tv({
         thumb: "transition-none",
       },
       false: {
-        wrapper: "transition-background",
-        thumb: [
-          "transition",
-          "group-active:translate-x-1",
-          "data-[checked=true]:group-active:translate-x-[90%]",
-        ],
+        wrapper: "transition-background !duration-500",
+        thumb: "transition-transform !ease-soft-spring !duration-500",
         leftIcon: [
           "opacity-0",
           "scale-50",
@@ -164,7 +160,7 @@ const toggle = tv({
   },
   defaultVariants: {
     color: "primary",
-    size: "md",
+    size: "lg",
     isDisabled: false,
     disableAnimation: false,
   },

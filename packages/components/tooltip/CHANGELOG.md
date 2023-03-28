@@ -1,5 +1,19 @@
 # @nextui-org/tooltip
 
+## 0.0.0-dev-v2-20230328182900
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230328182900
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230328182900
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230328182900
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230328182900
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230328182900
+  - @nextui-org/system@0.0.0-dev-v2-20230328182900
+  - @nextui-org/theme@0.0.0-dev-v2-20230328182900
+
 ## 0.0.0-dev-v2-20230326233509
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230328182900
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230328182900
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes

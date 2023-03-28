@@ -202,6 +202,9 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: De
             0: "0ms",
             250: "250ms",
           },
+          transitionTimingFunction: {
+            "soft-spring": "cubic-bezier(0.155, 1.105, 0.295, 1.12)",
+          },
           ...animations,
         },
       },

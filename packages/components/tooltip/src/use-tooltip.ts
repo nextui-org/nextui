@@ -4,7 +4,7 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {TooltipPlacement} from "./types";
 
-import {ReactNode, Ref, useEffect, useImperativeHandle} from "react";
+import {ReactNode, Ref, useEffect, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -151,6 +151,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const triggerRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
+  const tooltipId = useId();
+
   const immediate = closeDelay === 0;
   const isOpen = state.isOpen && !isDisabled;
 
@@ -232,10 +234,11 @@ export function useTooltip(originalProps: UseTooltipProps) {
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({
       ...mergeProps(triggerProps, props),
       ref: mergeRefs(_ref, triggerRef),
+      "aria-describedby": isOpen ? tooltipId : undefined,
       onPointerEnter: () => state.open(),
       onPointerLeave: () => isDismissable && state.close(),
     }),
-    [isDismissable, triggerRef, triggerProps],
+    [triggerProps, isOpen, tooltipId, isDismissable, state],
   );
 
   const getTooltipProps = useCallback<PropGetter>(
@@ -243,8 +246,18 @@ export function useTooltip(originalProps: UseTooltipProps) {
       ref: overlayRef,
       className: slots.base({class: baseStyles}),
       ...mergeProps(tooltipProps, positionProps, overlayProps, otherProps),
+      id: tooltipId,
     }),
-    [overlayRef, slots, styles, tooltipProps, positionProps, overlayProps, otherProps],
+    [
+      baseStyles,
+      overlayProps,
+      otherProps,
+      overlayRef,
+      positionProps,
+      slots,
+      tooltipId,
+      tooltipProps,
+    ],
   );
 
   const getArrowProps = useCallback<PropGetter>(

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "0.0.0-dev-v2-20230326202948",
+  "version": "0.0.0-dev-v2-20230328182900",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -32,9 +32,6 @@
     "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
-  },
-  "dependencies": {
-    "@react-aria/ssr": "^3.5.0"
   },
   "peerDependencies": {
     "react": ">=18"

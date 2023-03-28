@@ -39,14 +39,10 @@ export interface CollapseTransitionOptions {
 const defaultTransitions = {
   exit: {
     height: {
-      duration: 0.2,
-      ease: TRANSITION_EASINGS.ease,
-    },
-    opacity: {
       duration: 0.3,
       ease: TRANSITION_EASINGS.ease,
     },
-    y: {
+    opacity: {
       duration: 0.3,
       ease: TRANSITION_EASINGS.ease,
     },
@@ -57,27 +53,21 @@ const defaultTransitions = {
       ease: TRANSITION_EASINGS.softSpring,
     },
     opacity: {
-      duration: 0.8,
-      ease: TRANSITION_EASINGS.ease,
-    },
-    y: {
-      duration: 0.6,
+      duration: 0.5,
       ease: TRANSITION_EASINGS.ease,
     },
   },
 };
 
 const variants: Variants<CollapseTransitionOptions> = {
-  enter: ({animateOpacity, endingHeight, endingY, transition, transitionEnd, delay}) => ({
+  enter: ({animateOpacity, endingHeight, transition, transitionEnd, delay}) => ({
     ...(animateOpacity && {opacity: 1}),
-    y: endingY,
     height: endingHeight,
     transitionEnd: transitionEnd?.enter,
     transition: transition?.enter ?? withDelay.enter(defaultTransitions.enter, delay),
   }),
-  exit: ({animateOpacity, startingHeight, transition, startingY, transitionEnd, delay}) => ({
+  exit: ({animateOpacity, startingHeight, transition, transitionEnd, delay}) => ({
     ...(animateOpacity && {opacity: isNumeric(startingHeight) ? 1 : 0}),
-    y: startingY,
     height: startingHeight,
     transitionEnd: transitionEnd?.exit,
     transition: transition?.exit ?? withDelay.exit(defaultTransitions.exit, delay),
@@ -98,8 +88,6 @@ export const CollapseTransition = forwardRef<HTMLDivElement, CollapseTransitionP
       animateOpacity = true,
       startingHeight = 0,
       endingHeight = "auto",
-      startingY = 10,
-      endingY = 0,
       style,
       className,
       transition,
@@ -136,8 +124,6 @@ export const CollapseTransition = forwardRef<HTMLDivElement, CollapseTransitionP
     const custom = {
       startingHeight,
       endingHeight,
-      startingY,
-      endingY,
       animateOpacity,
       transition: !mounted ? {enter: {duration: 0}} : transition,
       transitionEnd: {

@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230328182900
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230328182900
+
 ## 0.0.0-dev-v2-20230326202948
 
 ### Patch Changes

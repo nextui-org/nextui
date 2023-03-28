@@ -159,6 +159,7 @@ DisableAnimation.args = {
 export const WithThumbIcon = Template.bind({});
 WithThumbIcon.args = {
   ...defaultProps,
+  size: "xl",
   thumbIcon: (props: SwitchThumbIconProps) =>
     props.isSelected ? (
       <SunFilledIcon className={props.className} />
@@ -170,6 +171,7 @@ WithThumbIcon.args = {
 export const WithIcons = WithIconsTemplate.bind({});
 WithIcons.args = {
   ...defaultProps,
+  size: "xl",
 };
 
 export const Controlled = ControlledTemplate.bind({});

@@ -1,5 +1,17 @@
 # @nextui-org/chip
 
+## 0.0.0-dev-v2-20230328182900
+
+### Patch Changes
+
+- React aria id generation replaced by React 18 useId hook, transitions improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230328182900
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230328182900
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230328182900
+  - @nextui-org/system@0.0.0-dev-v2-20230328182900
+  - @nextui-org/theme@0.0.0-dev-v2-20230328182900
+
 ## 0.0.0-dev-v2-20230327000832
 
 ### Patch Changes
