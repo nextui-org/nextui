@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230329200753
+
+### Patch Changes
+
+- Progress component added, needless useId removed, SSR provider exported again
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230329200753
+
 ## 0.0.0-dev-v2-20230328184744
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230329200753
+
+### Patch Changes
+
+- Progress component added, needless useId removed, SSR provider exported again
+
 ## 0.0.0-dev-v2-20230328190228
 
 ### Patch Changes
