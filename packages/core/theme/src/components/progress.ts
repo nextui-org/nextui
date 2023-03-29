@@ -1,7 +1,7 @@
 import {tv, type VariantProps} from "tailwind-variants";
 
 /**
- * Card **Tailwind Variants** component
+ * Progress **Tailwind Variants** component
  *
  * @example
  * ```js
@@ -21,7 +21,7 @@ import {tv, type VariantProps} from "tailwind-variants";
 const progress = tv(
   {
     slots: {
-      base: "flex flex-col gap-2",
+      base: "flex flex-col gap-2 w-full",
       label: "",
       labelWrapper: "flex justify-between",
       value: "",
@@ -139,8 +139,8 @@ const progress = tv(
     ],
   },
   {
-    twMerge: false,
-  },
+    twMerge: false
+  }
 );
 
 export type ProgressVariantProps = VariantProps<typeof progress>;

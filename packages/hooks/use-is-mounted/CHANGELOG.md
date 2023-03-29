@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mounted
 
+## 0.0.0-dev-v2-20230329210344
+
+### Patch Changes
+
+- Progress component has now a full width class
+
 ## 0.0.0-dev-v2-20230329202119
 
 ### Patch Changes

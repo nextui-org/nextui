@@ -1,5 +1,16 @@
 # @nextui-org/spinner
 
+## 0.0.0-dev-v2-20230329210344
+
+### Patch Changes
+
+- Progress component has now a full width class
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230329210344
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230329210344
+  - @nextui-org/system@0.0.0-dev-v2-20230329210344
+  - @nextui-org/theme@0.0.0-dev-v2-20230329210344
+
 ## 0.0.0-dev-v2-20230329202119
 
 ### Patch Changes

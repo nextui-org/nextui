@@ -1,5 +1,32 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230329210344
+
+### Patch Changes
+
+- Progress component has now a full width class
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230329210344
+  - @nextui-org/accordion@0.0.0-dev-v2-20230329210344
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230329210344
+  - @nextui-org/progress@0.0.0-dev-v2-20230329210344
+  - @nextui-org/snippet@0.0.0-dev-v2-20230329210344
+  - @nextui-org/spinner@0.0.0-dev-v2-20230329210344
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230329210344
+  - @nextui-org/avatar@0.0.0-dev-v2-20230329210344
+  - @nextui-org/button@0.0.0-dev-v2-20230329210344
+  - @nextui-org/switch@0.0.0-dev-v2-20230329210344
+  - @nextui-org/badge@0.0.0-dev-v2-20230329210344
+  - @nextui-org/radio@0.0.0-dev-v2-20230329210344
+  - @nextui-org/card@0.0.0-dev-v2-20230329210344
+  - @nextui-org/chip@0.0.0-dev-v2-20230329210344
+  - @nextui-org/code@0.0.0-dev-v2-20230329210344
+  - @nextui-org/drip@0.0.0-dev-v2-20230329210344
+  - @nextui-org/link@0.0.0-dev-v2-20230329210344
+  - @nextui-org/user@0.0.0-dev-v2-20230329210344
+  - @nextui-org/system@0.0.0-dev-v2-20230329210344
+  - @nextui-org/theme@0.0.0-dev-v2-20230329210344
+
 ## 0.0.0-dev-v2-20230329203647
 
 ### Patch Changes
