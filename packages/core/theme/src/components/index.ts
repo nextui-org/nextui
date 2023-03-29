@@ -20,3 +20,4 @@ export * from "./pagination";
 export * from "./toggle";
 export * from "./accordion-item";
 export * from "./accordion";
+export * from "./progress";

@@ -1,0 +1,63 @@
+{
+  "name": "@nextui-org/progress",
+  "version": "2.0.0-beta.1",
+  "description": "Progress bars show either determinate or indeterminate progress of an operation over time.",
+  "keywords": [
+    "progress"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/progress"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "@react-aria/i18n": "^3.7.0",
+    "@react-aria/progress": "^3.4.0",
+    "@react-aria/utils": "^3.15.0"
+  },
+  "devDependencies": {
+    "@react-types/progress": "^3.3.0",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}

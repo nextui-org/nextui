@@ -9,7 +9,7 @@ import {ringClasses} from "../utils";
  * ```js
  * const {base, header, body, footer} = card({...})
  *
- * <div className={card()}>
+ * <div className={base()}>
  *    <div className={header()}>Header</div>
  *    <div className={body()}>Body</div>
  *    <div className={footer()}>Footer</div>

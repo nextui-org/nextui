@@ -4,3 +4,4 @@ export * from "./utils";
 export * from "./interactions";
 export * from "./type-utils";
 export * from "./overlays";
+export * from "./label";
