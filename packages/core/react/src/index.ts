@@ -17,3 +17,4 @@ export * from "@nextui-org/spinner";
 export * from "@nextui-org/switch";
 export * from "@nextui-org/tooltip";
 export * from "@nextui-org/user";
+export * from "@nextui-org/progress";

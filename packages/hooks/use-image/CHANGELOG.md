@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230329202119
+
+### Patch Changes
+
+- Progress component added to the main package
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230329202119
+
 ## 0.0.0-dev-v2-20230329200753
 
 ### Patch Changes

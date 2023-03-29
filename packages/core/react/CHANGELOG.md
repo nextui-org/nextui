@@ -1,5 +1,32 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230329202119
+
+### Patch Changes
+
+- Progress component added to the main package
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230329202119
+  - @nextui-org/accordion@0.0.0-dev-v2-20230329202119
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230329202119
+  - @nextui-org/progress@0.0.0-dev-v2-20230329202119
+  - @nextui-org/snippet@0.0.0-dev-v2-20230329202119
+  - @nextui-org/spinner@0.0.0-dev-v2-20230329202119
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230329202119
+  - @nextui-org/avatar@0.0.0-dev-v2-20230329202119
+  - @nextui-org/button@0.0.0-dev-v2-20230329202119
+  - @nextui-org/switch@0.0.0-dev-v2-20230329202119
+  - @nextui-org/badge@0.0.0-dev-v2-20230329202119
+  - @nextui-org/radio@0.0.0-dev-v2-20230329202119
+  - @nextui-org/card@0.0.0-dev-v2-20230329202119
+  - @nextui-org/chip@0.0.0-dev-v2-20230329202119
+  - @nextui-org/code@0.0.0-dev-v2-20230329202119
+  - @nextui-org/drip@0.0.0-dev-v2-20230329202119
+  - @nextui-org/link@0.0.0-dev-v2-20230329202119
+  - @nextui-org/user@0.0.0-dev-v2-20230329202119
+  - @nextui-org/system@0.0.0-dev-v2-20230329202119
+  - @nextui-org/theme@0.0.0-dev-v2-20230329202119
+
 ## 0.0.0-dev-v2-20230329200753
 
 ### Patch Changes
