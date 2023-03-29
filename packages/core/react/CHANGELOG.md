@@ -1,5 +1,11 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230329203647
+
+### Patch Changes
+
+- Missing progress export added
+
 ## 0.0.0-dev-v2-20230329202119
 
 ### Patch Changes
