@@ -10,8 +10,8 @@ const Progress = forwardRef<ProgressProps, "div">((props, ref) => {
     slots,
     styles,
     label,
+    percentage,
     showValueLabel,
-    barWidth,
     getProgressBarProps,
     getLabelProps,
   } = useProgress({ref, ...props});
@@ -28,11 +28,11 @@ const Progress = forwardRef<ProgressProps, "div">((props, ref) => {
           </span>
         )}
       </div>
-      <div className={slots.wrapper({class: styles?.wrapper})}>
+      <div className={slots.track({class: styles?.track})}>
         <div
           className={slots.filler({class: styles?.filler})}
           style={{
-            width: barWidth,
+            transform: `translateX(-${100 - (percentage || 0)}%)`,
           }}
         />
       </div>

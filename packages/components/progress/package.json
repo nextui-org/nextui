@@ -40,6 +40,7 @@
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/use-is-mounted": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@react-aria/i18n": "^3.7.0",

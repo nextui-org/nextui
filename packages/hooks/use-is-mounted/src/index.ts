@@ -2,10 +2,11 @@ import {useCallback, useEffect, useRef, useState} from "react";
 
 export type UseIsMountedProps = {
   rerender?: boolean;
+  delay?: number;
 };
 
 export function useIsMounted(props: UseIsMountedProps = {}) {
-  const {rerender = false} = props;
+  const {rerender = false, delay = 0} = props;
 
   const isMountedRef = useRef(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -13,9 +14,16 @@ export function useIsMounted(props: UseIsMountedProps = {}) {
   // Update the ref when the component mounts
   useEffect(() => {
     isMountedRef.current = true;
+    let timer: any = null;
 
     if (rerender) {
-      setIsMounted(true);
+      if (delay > 0) {
+        timer = setTimeout(() => {
+          setIsMounted(true);
+        }, delay);
+      } else {
+        setIsMounted(true);
+      }
     }
 
     // Update the ref when the component unmounts
@@ -23,6 +31,9 @@ export function useIsMounted(props: UseIsMountedProps = {}) {
       isMountedRef.current = false;
       if (rerender) {
         setIsMounted(false);
+      }
+      if (timer) {
+        clearTimeout(timer);
       }
     };
   }, [rerender]);

@@ -86,9 +86,6 @@ export function useRadio(props: UseRadioProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const labelId = useId();
-  const inputGenId = useId();
-
-  const inputId = id || inputGenId;
 
   const isDisabled = useMemo(() => !!isDisabledProp, [isDisabledProp]);
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
@@ -106,14 +103,14 @@ export function useRadio(props: UseRadioProps) {
         : undefined;
 
     return {
-      id: inputId,
+      id,
       isDisabled,
       isRequired,
       "aria-label": ariaLabel,
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       "aria-describedby": ariaDescribedBy,
     };
-  }, [labelId, inputId, isDisabled, isRequired]);
+  }, [labelId, id, isDisabled, isRequired]);
 
   const {inputProps} = useReactAriaRadio(
     {
@@ -196,7 +193,6 @@ export function useRadio(props: UseRadioProps) {
     (props = {}) => ({
       ...props,
       id: labelId,
-      htmlFor: inputId,
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),

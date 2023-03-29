@@ -39,11 +39,16 @@ const defaultProps = {
   value: 55,
 };
 
-const Template: ComponentStory<typeof Progress> = (args: ProgressProps) => <Progress {...args} />;
+const Template: ComponentStory<typeof Progress> = (args: ProgressProps) => (
+  <div className="max-w-[400px]">
+    <Progress {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
+  "aria-label": "Loading...",
 };
 
 export const WithLabel = Template.bind({});
@@ -57,4 +62,24 @@ WithValueLabel.args = {
   ...defaultProps,
   label: "Loading...",
   showValueLabel: true,
+};
+
+export const WithValueFormatting = Template.bind({});
+WithValueFormatting.args = {
+  ...defaultProps,
+  label: "Loading...",
+  showValueLabel: true,
+  formatOptions: {style: "currency", currency: "ARS"},
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
+  ...defaultProps,
+  isIndeterminate: true,
+};
+
+export const Striped = Template.bind({});
+Striped.args = {
+  ...defaultProps,
+  isStriped: true,
 };

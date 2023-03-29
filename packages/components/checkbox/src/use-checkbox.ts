@@ -117,14 +117,12 @@ export function useCheckbox(props: UseCheckboxProps) {
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
   const labelId = useId();
-  const inputId = useId();
 
   const ariaCheckboxProps = useMemo(() => {
     const ariaLabel =
       otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
 
     return {
-      id: inputId,
       name,
       value,
       children,
@@ -143,7 +141,6 @@ export function useCheckbox(props: UseCheckboxProps) {
   }, [
     value,
     name,
-    inputId,
     labelId,
     children,
     autoFocus,
@@ -236,7 +233,6 @@ export function useCheckbox(props: UseCheckboxProps) {
   const getLabelProps: PropGetter = useCallback(
     () => ({
       id: labelId,
-      htmlFor: inputProps.id || inputId,
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),

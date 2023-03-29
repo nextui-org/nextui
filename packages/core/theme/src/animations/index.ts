@@ -5,6 +5,8 @@ export const animations = {
     "spinner-linear-spin": "spinner-spin 0.8s linear infinite",
     "appearance-in": "appearance-in 250ms ease-out normal both",
     "appearance-out": "appearance-out 60ms ease-in normal both",
+    "indeterminate-bar":
+      "indeterminate-bar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running",
   },
   keyframes: {
     "spinner-spin": {
@@ -50,6 +52,14 @@ export const animations = {
       "100%": {
         opacity: "0",
         transform: "scale(0.85)",
+      },
+    },
+    "indeterminate-bar": {
+      "0%": {
+        transform: "translateX(-150%)",
+      },
+      "100%": {
+        transform: "translateX(200%)",
       },
     },
   },

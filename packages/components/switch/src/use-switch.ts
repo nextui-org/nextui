@@ -98,7 +98,6 @@ export function useSwitch(originalProps: UseSwitchProps) {
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
 
   const labelId = useId();
-  const inputId = useId();
 
   const ariaSwitchProps = useMemo(() => {
     const ariaLabel =
@@ -187,7 +186,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
   const getInputProps: PropGetter = () => {
     return {
       ref: inputRef,
-      id: inputProps.id || inputId,
+      id: inputProps.id,
       ...mergeProps(inputProps, focusProps),
     };
   };
@@ -207,7 +206,6 @@ export function useSwitch(originalProps: UseSwitchProps) {
   const getLabelProps: PropGetter = useCallback(
     () => ({
       id: labelId,
-      htmlFor: inputProps.id || inputId,
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       className: slots.label({class: styles?.label}),

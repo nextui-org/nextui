@@ -51,6 +51,11 @@ export const utilities = {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
+  ".transition-left": {
+    "transition-property": "left",
+    "transition-timing-function": "ease",
+    "transition-duration": DEFAULT_TRANSITION_DURATION,
+  },
   ".transition-shadow": {
     "transition-property": "box-shadow",
     "transition-timing-function": "ease",

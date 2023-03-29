@@ -5,9 +5,10 @@ import type {AriaProgressBarProps} from "@react-types/progress";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {progress} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useCallback} from "react";
+import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {useProgressBar as useAriaProgress} from "./use-aria-progress";
 
@@ -24,11 +25,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * ```ts
    * <Progress styles={{
    *    base:"base-classes",
-   *    wrapper: "wrapper-classes",
-   *    filler: "filler-classes",
    *    labelWrapper: "labelWrapper-classes",
    *    label: "label-classes",
    *    value: "value-classes",
+   *    track: "track-classes",
+   *    filler: "filler-classes",
    * }} />
    * ```
    */
@@ -52,7 +53,6 @@ export function useProgress(originalProps: UseProgressProps) {
     minValue = 0,
     maxValue = 100,
     showValueLabel = false,
-    isIndeterminate = false,
     formatOptions = {
       style: "percent",
     },
@@ -64,6 +64,11 @@ export function useProgress(originalProps: UseProgressProps) {
   const domRef = useDOMRef(ref);
 
   const baseStyles = clsx(styles?.base, className);
+  const [, isMounted] = useIsMounted({
+    rerender: true,
+    delay: 100,
+  });
+  const isIndeterminate = originalProps.isIndeterminate;
 
   const {progressBarProps, labelProps} = useAriaProgress({
     id,
@@ -72,8 +77,8 @@ export function useProgress(originalProps: UseProgressProps) {
     minValue,
     maxValue,
     valueLabel,
-    isIndeterminate,
     formatOptions,
+    isIndeterminate,
     "aria-labelledby": originalProps["aria-labelledby"],
     "aria-label": originalProps["aria-label"],
   });
@@ -86,21 +91,34 @@ export function useProgress(originalProps: UseProgressProps) {
     [...Object.values(variantProps)],
   );
 
+  const selfMounted = originalProps.disableAnimation ? true : isMounted;
+
   // Calculate the width of the progress bar as a percentage
   const percentage = useMemo(
-    () => (isIndeterminate ? undefined : ((value - minValue) / (maxValue - minValue)) * 100),
-    [isIndeterminate, value, minValue, maxValue],
+    () =>
+      isIndeterminate || !selfMounted
+        ? undefined
+        : ((value - minValue) / (maxValue - minValue)) * 100,
+    [selfMounted, isIndeterminate, value, minValue, maxValue],
   );
-
-  const barWidth = typeof percentage === "number" ? `${Math.round(percentage)}%` : undefined;
 
   const getProgressBarProps = useCallback<PropGetter>(
     (props = {}) => ({
       ref: domRef,
+      "data-indeterminate": dataAttr(isIndeterminate),
+      "data-disabled": dataAttr(originalProps.isDisabled),
       className: slots.base({class: baseStyles}),
       ...mergeProps(progressBarProps, otherProps, props),
     }),
-    [domRef, slots, baseStyles, progressBarProps, otherProps],
+    [
+      domRef,
+      slots,
+      isIndeterminate,
+      originalProps.isDisabled,
+      baseStyles,
+      progressBarProps,
+      otherProps,
+    ],
   );
 
   const getLabelProps = useCallback<PropGetter>(
@@ -117,7 +135,6 @@ export function useProgress(originalProps: UseProgressProps) {
     slots,
     styles,
     label,
-    barWidth,
     percentage,
     showValueLabel,
     getProgressBarProps,
