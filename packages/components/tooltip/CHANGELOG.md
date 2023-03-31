@@ -1,5 +1,19 @@
 # @nextui-org/tooltip
 
+## 0.0.0-dev-v2-20230331012309
+
+### Patch Changes
+
+- Fix build, circular progress exported
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230331012309
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230331012309
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230331012309
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230331012309
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230331012309
+  - @nextui-org/system@0.0.0-dev-v2-20230331012309
+  - @nextui-org/theme@0.0.0-dev-v2-20230331012309
+
 ## 0.0.0-dev-v2-20230331012031
 
 ### Patch Changes

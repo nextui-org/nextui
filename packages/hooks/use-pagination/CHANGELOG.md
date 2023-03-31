@@ -1,5 +1,13 @@
 # @nextui-org/use-pagination
 
+## 0.0.0-dev-v2-20230331012309
+
+### Patch Changes
+
+- Fix build, circular progress exported
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230331012309
+
 ## 0.0.0-dev-v2-20230331012031
 
 ### Patch Changes

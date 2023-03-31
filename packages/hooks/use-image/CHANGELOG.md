@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230331012309
+
+### Patch Changes
+
+- Fix build, circular progress exported
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230331012309
+
 ## 0.0.0-dev-v2-20230331012031
 
 ### Patch Changes

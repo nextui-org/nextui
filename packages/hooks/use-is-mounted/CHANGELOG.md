@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mounted
 
+## 0.0.0-dev-v2-20230331012309
+
+### Patch Changes
+
+- Fix build, circular progress exported
+
 ## 0.0.0-dev-v2-20230331012031
 
 ### Patch Changes
