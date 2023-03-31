@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {progress} from "@nextui-org/theme";
+import {circularProgress} from "@nextui-org/theme";
 
 import {CircularProgress, CircularProgressProps} from "../src";
 
@@ -29,8 +29,8 @@ export default {
 } as ComponentMeta<typeof CircularProgress>;
 
 const defaultProps = {
-  ...progress.defaultVariants,
-  value: 55,
+  ...circularProgress.defaultVariants,
+  value: 70,
 };
 
 const Template: ComponentStory<typeof CircularProgress> = (args: CircularProgressProps) => (

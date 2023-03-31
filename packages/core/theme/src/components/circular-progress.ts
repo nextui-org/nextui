@@ -27,7 +27,7 @@ const circularProgress = tv({
     svgWrapper: "relative block",
     svg: "z-0 relative overflow-hidden",
     circle: "h-full stroke-current",
-    value: "absolute font-semibold top-0 left-0 w-full h-full flex items-center justify-center",
+    value: "absolute font-normal top-0 left-0 w-full h-full flex items-center justify-center",
   },
   variants: {
     color: {
