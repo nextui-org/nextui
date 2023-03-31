@@ -1,5 +1,13 @@
 # @nextui-org/card
 
+## 0.0.0-dev-v2-20230331023043
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230331023043
+  - @nextui-org/drip@0.0.0-dev-v2-20230331023043
+
 ## 0.0.0-dev-v2-20230331020226
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230331023043
+
+### Patch Changes
+
+- Progress label and value size changed
+
 ## 0.0.0-dev-v2-20230331020226
 
 ### Patch Changes

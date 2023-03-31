@@ -56,7 +56,11 @@ const IntervalTemplate: ComponentStory<typeof Progress> = (args: ProgressProps) 
     return () => clearInterval(interval);
   }, []);
 
-  return <Progress {...args} value={value} />;
+  return (
+    <div className="max-w-[400px]">
+      <Progress {...args} value={value} />
+    </div>
+  );
 };
 
 export const Default = Template.bind({});

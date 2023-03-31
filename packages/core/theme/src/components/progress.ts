@@ -53,18 +53,28 @@ const progress = tv(
       },
       size: {
         xs: {
+          label: "text-xs",
+          value: "text-xs",
           track: "h-1",
         },
         sm: {
+          label: "text-sm",
+          value: "text-sm",
           track: "h-2",
         },
         md: {
+          label: "text-base",
+          value: "text-base",
           track: "h-4",
         },
         lg: {
+          label: "text-lg",
+          value: "text-lg",
           track: "h-6",
         },
         xl: {
+          label: "text-lg",
+          value: "text-lg",
           track: "h-7",
         },
       },
