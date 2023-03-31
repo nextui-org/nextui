@@ -1,5 +1,14 @@
 # @nextui-org/react-utils
 
+## 0.0.0-dev-v2-20230331012031
+
+### Patch Changes
+
+- Circular progress component added
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230331012031
+  - @nextui-org/system@0.0.0-dev-v2-20230331012031
+
 ## 0.0.0-dev-v2-20230329210344
 
 ### Patch Changes
