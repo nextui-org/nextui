@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/aria-utils",
-  "version": "0.0.0-dev-v2-20230331012309",
+  "version": "0.0.0-dev-v2-20230331020226",
   "description": "A package for managing @react-aria nextui utils.",
   "keywords": [
     "aria-utils"
@@ -38,17 +38,10 @@
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
-    "@react-aria/button": "^3.7.0",
-    "@react-aria/focus": "^3.11.0",
-    "@react-aria/interactions": "^3.14.0",
-    "@react-aria/selection": "^3.13.0",
     "@react-aria/utils": "^3.15.0",
-    "@react-stately/collections": "^3.6.0",
-    "@react-stately/tree": "^3.5.0"
+    "@react-stately/collections": "^3.6.0"
   },
   "devDependencies": {
-    "@react-types/button": "^3.7.1",
-    "@react-types/overlays": "^3.7.0",
     "@react-types/shared": "^3.17.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"

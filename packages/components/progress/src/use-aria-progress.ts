@@ -1,7 +1,7 @@
 import {AriaProgressBarProps} from "@react-types/progress";
 import {clamp, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {DOMAttributes} from "@react-types/shared";
-import {useLabel} from "@nextui-org/aria-utils";
+import {useAriaLabel} from "@nextui-org/use-aria-label";
 import {useNumberFormatter} from "@react-aria/i18n";
 
 export interface ProgressBarAria {
@@ -29,7 +29,7 @@ export function useProgressBar(props: AriaProgressBarProps): ProgressBarAria {
   } = props;
 
   const domProps = filterDOMProps(props, {labelable: true});
-  const {labelProps, fieldProps} = useLabel({
+  const {labelProps, fieldProps} = useAriaLabel({
     ...props,
     // Progress bar is not an HTML input element so it
     // shouldn't be labeled by a <label> element.

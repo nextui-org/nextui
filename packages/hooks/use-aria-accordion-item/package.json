@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/use-real-shape",
-  "version": "0.0.0-dev-v2-20230331020226",
-  "description": "Hook that returns the real dimensions of an element",
+  "name": "@nextui-org/use-aria-accordion-item",
+  "version": "2.0.0-beta.1",
+  "description": "Internal impl for react aria accordion item",
   "keywords": [
-    "use-real-shape"
+    "use-aria-accordion-item"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,27 +19,30 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/hooks/use-real-shape"
+    "directory": "packages/hooks/use-aria-accordion-item"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/dom-utils": "workspace:*"
+    "@react-aria/focus": "^3.11.0",
+    "@react-stately/tree": "^3.5.0",
+    "@react-aria/button": "^3.7.0"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
+    "@react-types/shared": "^3.17.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

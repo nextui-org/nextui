@@ -1,5 +1,16 @@
 # @nextui-org/radio
 
+## 0.0.0-dev-v2-20230331020226
+
+### Patch Changes
+
+- Build size reduced avoiding import all react aria utils
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230331020226
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230331020226
+  - @nextui-org/system@0.0.0-dev-v2-20230331020226
+  - @nextui-org/theme@0.0.0-dev-v2-20230331020226
+
 ## 0.0.0-dev-v2-20230331012309
 
 ### Patch Changes

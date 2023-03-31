@@ -24,7 +24,7 @@ export interface AccordionItemAria {
   regionProps: DOMAttributes;
 }
 
-export function useAccordionItem<T>(
+export function useAriaAccordionItem<T>(
   props: AccordionItemAriaProps<T>,
   state: TreeState<T> & {
     focusedKey?: Key | null;

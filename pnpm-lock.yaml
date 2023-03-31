@@ -468,6 +468,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-accordion-item':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-accordion-item
       '@react-aria/accordion':
         specifier: 3.0.0-alpha.15
         version: 3.0.0-alpha.15(react@18.2.0)
@@ -902,6 +905,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-label':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-label
       '@nextui-org/use-is-mounted':
         specifier: workspace:*
         version: link:../../hooks/use-is-mounted
@@ -1300,6 +1306,44 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
 
+  packages/hooks/use-aria-accordion-item:
+    dependencies:
+      '@react-aria/button':
+        specifier: ^3.7.0
+        version: 3.7.0(react@18.2.0)
+      '@react-aria/focus':
+        specifier: ^3.11.0
+        version: 3.11.0(react@18.2.0)
+      '@react-stately/tree':
+        specifier: ^3.5.0
+        version: 3.5.0(react@18.2.0)
+    devDependencies:
+      '@react-types/shared':
+        specifier: ^3.17.0
+        version: 3.17.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-label:
+    dependencies:
+      '@react-aria/utils':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+    devDependencies:
+      '@react-types/shared':
+        specifier: ^3.17.0
+        version: 3.17.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-clipboard:
     devDependencies:
       clean-package:
@@ -1484,34 +1528,13 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
-      '@react-aria/button':
-        specifier: ^3.7.0
-        version: 3.7.0(react@18.2.0)
-      '@react-aria/focus':
-        specifier: ^3.11.0
-        version: 3.11.0(react@18.2.0)
-      '@react-aria/interactions':
-        specifier: ^3.14.0
-        version: 3.14.0(react@18.2.0)
-      '@react-aria/selection':
-        specifier: ^3.13.0
-        version: 3.13.0(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.15.0
         version: 3.15.0(react@18.2.0)
       '@react-stately/collections':
         specifier: ^3.6.0
         version: 3.6.0(react@18.2.0)
-      '@react-stately/tree':
-        specifier: ^3.5.0
-        version: 3.5.0(react@18.2.0)
     devDependencies:
-      '@react-types/button':
-        specifier: ^3.7.1
-        version: 3.7.1(react@18.2.0)
-      '@react-types/overlays':
-        specifier: ^3.7.0
-        version: 3.7.0(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.17.0
         version: 3.17.0(react@18.2.0)
@@ -3881,7 +3904,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.21.0
       '@types/react': 18.0.1
-      clsx: 1.1.0
+      clsx: 1.2.1
       focus-lock: 0.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

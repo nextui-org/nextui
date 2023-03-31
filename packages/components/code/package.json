@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/code",
-  "version": "0.0.0-dev-v2-20230331012309",
+  "version": "0.0.0-dev-v2-20230331020226",
   "description": "Code is a component used to display inline code.",
   "keywords": [
     "code"

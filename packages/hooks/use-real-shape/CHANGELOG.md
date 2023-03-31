@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230331020226
+
+### Patch Changes
+
+- Build size reduced avoiding import all react aria utils
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230331020226
+
 ## 0.0.0-dev-v2-20230331012309
 
 ### Patch Changes
