@@ -94,6 +94,8 @@ WithValueFormatting.args = {
 export const Indeterminate = Template.bind({});
 Indeterminate.args = {
   ...defaultProps,
+  size: "xs",
+  radius: "none",
   isIndeterminate: true,
 };
 

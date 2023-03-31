@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230331154026
+
+### Patch Changes
+
+- Indeterminate progress animation changed
+
 ## 0.0.0-dev-v2-20230331132840
 
 ### Patch Changes
