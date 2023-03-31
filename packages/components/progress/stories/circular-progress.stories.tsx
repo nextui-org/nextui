@@ -2,22 +2,16 @@ import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {progress} from "@nextui-org/theme";
 
-import {Progress, ProgressProps} from "../src";
+import {CircularProgress, CircularProgressProps} from "../src";
 
 export default {
-  title: "Components/Progress",
-  component: Progress,
+  title: "Components/CircularProgress",
+  component: CircularProgress,
   argTypes: {
     color: {
       control: {
         type: "select",
         options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
-      },
-    },
-    radius: {
-      control: {
-        type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
       },
     },
     size: {
@@ -32,20 +26,18 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Progress>;
+} as ComponentMeta<typeof CircularProgress>;
 
 const defaultProps = {
   ...progress.defaultVariants,
   value: 55,
 };
 
-const Template: ComponentStory<typeof Progress> = (args: ProgressProps) => (
-  <div className="max-w-[400px]">
-    <Progress {...args} />
-  </div>
+const Template: ComponentStory<typeof CircularProgress> = (args: CircularProgressProps) => (
+  <CircularProgress {...args} />
 );
 
-const IntervalTemplate: ComponentStory<typeof Progress> = (args: ProgressProps) => {
+const IntervalTemplate: ComponentStory<typeof CircularProgress> = (args: CircularProgressProps) => {
   const [value, setValue] = React.useState(0);
 
   React.useEffect(() => {
@@ -56,7 +48,7 @@ const IntervalTemplate: ComponentStory<typeof Progress> = (args: ProgressProps) 
     return () => clearInterval(interval);
   }, []);
 
-  return <Progress {...args} value={value} />;
+  return <CircularProgress {...args} value={value} />;
 };
 
 export const Default = Template.bind({});
@@ -74,8 +66,8 @@ WithLabel.args = {
 export const WithValueLabel = IntervalTemplate.bind({});
 WithValueLabel.args = {
   ...defaultProps,
-  label: "Downloading...",
-  color: "success",
+  size: "lg",
+  color: "secondary",
   showValueLabel: true,
 };
 
@@ -83,18 +75,14 @@ export const WithValueFormatting = Template.bind({});
 WithValueFormatting.args = {
   ...defaultProps,
   label: "Loading...",
+  size: "xl",
+  color: "warning",
   showValueLabel: true,
-  formatOptions: {style: "currency", currency: "ARS"},
+  formatOptions: {style: "unit", unit: "kilometer"},
 };
 
 export const Indeterminate = Template.bind({});
 Indeterminate.args = {
   ...defaultProps,
   isIndeterminate: true,
-};
-
-export const Striped = Template.bind({});
-Striped.args = {
-  ...defaultProps,
-  isStriped: true,
 };

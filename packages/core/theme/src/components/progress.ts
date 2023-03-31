@@ -1,4 +1,6 @@
-import {tv, type VariantProps} from "tailwind-variants";
+import type {VariantProps} from "tailwind-variants";
+
+import {tv} from "tailwind-variants";
 
 /**
  * Progress **Tailwind Variants** component
@@ -139,8 +141,8 @@ const progress = tv(
     ],
   },
   {
-    twMerge: false
-  }
+    twMerge: false,
+  },
 );
 
 export type ProgressVariantProps = VariantProps<typeof progress>;
