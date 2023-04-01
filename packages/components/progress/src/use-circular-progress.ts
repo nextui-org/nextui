@@ -53,7 +53,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     styles,
     label,
     valueLabel,
-    value = 0,
+    value = undefined,
     minValue = 0,
     maxValue = 100,
     showValueLabel = false,
@@ -73,7 +73,8 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     delay: 100,
   });
 
-  const isIndeterminate = originalProps.isIndeterminate;
+  // default isIndeterminate to true
+  const isIndeterminate = (originalProps.isIndeterminate ?? true) && value === undefined;
 
   const {progressBarProps, labelProps} = useAriaProgress({
     id,
@@ -92,8 +93,9 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     () =>
       circularProgress({
         ...variantProps,
+        isIndeterminate,
       }),
-    [...Object.values(variantProps)],
+    [isIndeterminate, ...Object.values(variantProps)],
   );
 
   const selfMounted = originalProps.disableAnimation ? true : isMounted;
@@ -103,11 +105,18 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
   const radius = 16 - strokeWidth;
   const circumference = 2 * radius * Math.PI;
 
-  const percentage = !selfMounted
-    ? 0
-    : isIndeterminate
-    ? 0.25
-    : (value - minValue) / (maxValue - minValue);
+  const percentage = useMemo(() => {
+    if (!selfMounted) {
+      return 0;
+    }
+
+    if (isIndeterminate) {
+      return 0.25;
+    }
+
+    return value ? (value - minValue) / (maxValue - minValue) : 0;
+  }, [selfMounted, value, minValue, maxValue, isIndeterminate]);
+
   const offset = circumference - percentage * circumference;
 
   const getProgressBarProps = useCallback<PropGetter>(

@@ -30,7 +30,6 @@ export default {
 
 const defaultProps = {
   ...circularProgress.defaultVariants,
-  value: 70,
 };
 
 const Template: ComponentStory<typeof CircularProgress> = (args: CircularProgressProps) => (
@@ -43,7 +42,7 @@ const IntervalTemplate: ComponentStory<typeof CircularProgress> = (args: Circula
   React.useEffect(() => {
     const interval = setInterval(() => {
       setValue((v) => (v >= 100 ? 0 : v + 10));
-    }, 800);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);
@@ -67,6 +66,7 @@ export const WithValueLabel = IntervalTemplate.bind({});
 WithValueLabel.args = {
   ...defaultProps,
   size: "lg",
+  value: 70,
   color: "secondary",
   showValueLabel: true,
 };
@@ -76,13 +76,8 @@ WithValueFormatting.args = {
   ...defaultProps,
   label: "Loading...",
   size: "xl",
+  value: 70,
   color: "warning",
   showValueLabel: true,
   formatOptions: {style: "unit", unit: "kilometer"},
-};
-
-export const Indeterminate = Template.bind({});
-Indeterminate.args = {
-  ...defaultProps,
-  isIndeterminate: true,
 };

@@ -27,7 +27,7 @@ const circularProgress = tv({
     svgWrapper: "relative block",
     svg: "z-0 relative overflow-hidden",
     circle: "h-full stroke-current",
-    value: "absolute font-normal top-0 left-0 w-full h-full flex items-center justify-center",
+    value: "absolute font-normal inset-0 flex items-center justify-center",
   },
   variants: {
     color: {
@@ -64,16 +64,16 @@ const circularProgress = tv({
       md: {
         svg: "w-10 h-10",
         label: "text-sm",
-        value: "text-[0.6rem]",
+        value: "text-[0.55rem]",
       },
       lg: {
         svg: "w-12 h-12",
         label: "text-base",
-        value: "text-xs",
+        value: "text-[0.6rem]",
       },
       xl: {
         svg: "w-14 h-14",
-        label: "text-lg",
+        label: "text-base",
         value: "text-xs",
       },
     },
@@ -97,7 +97,6 @@ const circularProgress = tv({
   defaultVariants: {
     color: "primary",
     size: "md",
-    isIndeterminate: false,
     isDisabled: false,
     disableAnimation: false,
   },

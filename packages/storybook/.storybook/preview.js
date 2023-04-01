@@ -1,14 +1,17 @@
 import React from "react";
-import addons from "@storybook/addons";
 import {themes} from "@storybook/theming";
 import Style from "./style";
+import {Analytics} from "@vercel/analytics/react";
 
 export const decorators = [
   (Story) => (
-    <div className="bg-dark">
-      <Style />
-      <Story />
-    </div>
+    <>
+      <div className="bg-dark">
+        <Style />
+        <Story />
+      </div>
+      <Analytics />
+    </>
   ),
 ];
 
@@ -17,7 +20,7 @@ export const parameters = {
   options: {
     storySort: {
       method: "alphabetical",
-      order:["Foundations", "Components"],
+      order: ["Foundations", "Components"],
     },
   },
   controls: {

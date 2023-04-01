@@ -51,7 +51,7 @@ const IntervalTemplate: ComponentStory<typeof Progress> = (args: ProgressProps) 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setValue((v) => (v >= 100 ? 0 : v + 10));
-    }, 800);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);

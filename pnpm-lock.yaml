@@ -890,9 +890,6 @@ importers:
 
   packages/components/progress:
     dependencies:
-      '@nextui-org/aria-utils':
-        specifier: workspace:*
-        version: link:../../utilities/aria-utils
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
@@ -1081,9 +1078,6 @@ importers:
 
   packages/components/tooltip:
     dependencies:
-      '@nextui-org/aria-utils':
-        specifier: workspace:*
-        version: link:../../utilities/aria-utils
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
@@ -1446,6 +1440,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../core/theme
+      '@vercel/analytics':
+        specifier: ^0.1.6
+        version: 0.1.6(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
