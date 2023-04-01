@@ -1,17 +1,13 @@
 import React from "react";
 import {themes} from "@storybook/theming";
 import Style from "./style";
-import {Analytics} from "@vercel/analytics/react";
 
 export const decorators = [
   (Story) => (
-    <>
-      <div className="bg-dark">
-        <Style />
-        <Story />
-      </div>
-      <Analytics />
-    </>
+    <div className="bg-dark">
+      <Style />
+      <Story />
+    </div>
   ),
 ];
 

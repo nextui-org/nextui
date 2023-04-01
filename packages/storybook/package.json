@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@nextui-org/theme": "workspace:*",
-    "@vercel/analytics": "^0.1.6",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
