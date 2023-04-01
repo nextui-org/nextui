@@ -28,6 +28,8 @@ export type NavLinkProps = Props & typeof defaultProps & NativeAttrs;
 const BaseLink = styled(Link, {
   d: "flex",
   textDecoration: "none",
+  width: "100%",
+  maxW: "100%",
   "@smMax": {
     pt: 0,
     pl: 0,
@@ -66,6 +68,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   selected,
   comingSoon,
   onClick,
+  children,
 }) => {
   const router = useRouter();
   const onlyHashChange = pathname === router.pathname;
@@ -96,7 +99,8 @@ const NavLink: React.FC<NavLinkProps> = ({
         selected={selected}
         onClick={(e: any) => !comingSoon && onClick && onClick(e)}
       >
-        {title}
+        <span>{title}</span>
+        {children}
       </BaseLink>
     </NextLink>
   );
