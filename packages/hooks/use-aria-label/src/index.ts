@@ -1,3 +1,6 @@
+// based on @react-aria/use-label hook, but with useId from react 18
+// thanks to @adobe/react-spectrum for the great work ❤️
+
 import {useId} from "react";
 import {AriaLabelingProps, DOMAttributes, DOMProps, LabelableProps} from "@react-types/shared";
 import {ElementType, LabelHTMLAttributes} from "react";

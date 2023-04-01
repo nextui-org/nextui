@@ -817,6 +817,34 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/input:
+    dependencies:
+      '@nextui-org/dom-utils':
+        specifier: workspace:*
+        version: link:../../utilities/dom-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@react-aria/textfield':
+        specifier: ^3.9.0
+        version: 3.9.0(react@18.2.0)
+    devDependencies:
+      '@react-types/textfield':
+        specifier: ^3.7.0
+        version: 3.7.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/link:
     dependencies:
       '@nextui-org/dom-utils':
@@ -1322,6 +1350,28 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-aria-field:
+    dependencies:
+      '@nextui-org/use-aria-label':
+        specifier: workspace:*
+        version: link:../use-aria-label
+      '@nextui-org/use-aria-slot-id':
+        specifier: workspace:*
+        version: link:../use-aria-slot-id
+      '@react-aria/utils':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+    devDependencies:
+      '@react-types/shared':
+        specifier: ^3.15.0
+        version: 3.17.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-aria-label:
     dependencies:
       '@react-aria/utils':
@@ -1331,6 +1381,19 @@ importers:
       '@react-types/shared':
         specifier: ^3.17.0
         version: 3.17.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-slot-id:
+    dependencies:
+      '@react-aria/utils':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+    devDependencies:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -1440,9 +1503,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../core/theme
-      '@vercel/analytics':
-        specifier: ^0.1.6
-        version: 0.1.6(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -5850,6 +5910,20 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/textfield@3.9.0(react@18.2.0):
+    resolution: {integrity: sha512-plX+/RDidTpz4kfQni2mnH10g9iARC5P7oi4XBXqwrVCIqpTUNoyGLUH952wObYOI9k7lG2QG0+b+3GyrV159g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.11.0(react@18.2.0)
+      '@react-aria/label': 3.5.0(react@18.2.0)
+      '@react-aria/utils': 3.15.0(react@18.2.0)
+      '@react-types/shared': 3.17.0(react@18.2.0)
+      '@react-types/textfield': 3.7.0(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
   /@react-aria/toggle@3.5.0(react@18.2.0):
     resolution: {integrity: sha512-K49OmHBmYW8pk0rXJU1TNRzR+PxLVvfL/ni6ifV5gcxoxV6DmFsNFj+5B/U3AMnCEQeyKQeiY6z9X7EBVX6j9Q==}
     peerDependencies:
@@ -6138,6 +6212,14 @@ packages:
       '@react-types/shared': 3.17.0(react@18.2.0)
       react: 18.2.0
     dev: false
+
+  /@react-types/textfield@3.7.0(react@18.2.0):
+    resolution: {integrity: sha512-4Rqld8VZG324hecw6bqGY2gta1gm5sDhO48nyChfdmjVlFHXLDKazAcrgP76uSmUI6tffUPj3eYxQyTp5uLhyQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.17.0(react@18.2.0)
+      react: 18.2.0
 
   /@react-types/tooltip@3.3.0(react@18.2.0):
     resolution: {integrity: sha512-TMaKkjYbysZbMnY8zjI2Djh8QMHvB8LoN9EjOZX++3ZsO74CeCeOoGARh6+4c0Bu5rg4BXhNyi+y1JL3jtUEBg==}

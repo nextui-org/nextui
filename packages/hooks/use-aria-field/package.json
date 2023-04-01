@@ -1,0 +1,58 @@
+{
+  "name": "@nextui-org/use-aria-field",
+  "version": "2.0.0-beta.1",
+  "description": "Based on react-aria useField hook, provides the accessibility implementation for input fields",
+  "keywords": [
+    "use-aria-field"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/hooks/use-aria-field"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "@nextui-org/use-aria-label": "workspace:*",
+    "@nextui-org/use-aria-slot-id": "workspace:*",
+    "@react-aria/utils": "^3.15.0"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@react-types/shared": "^3.15.0",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}
