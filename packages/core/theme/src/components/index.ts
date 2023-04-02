@@ -22,3 +22,4 @@ export * from "./accordion-item";
 export * from "./accordion";
 export * from "./progress";
 export * from "./circular-progress";
+export * from "./input";

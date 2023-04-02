@@ -1,0 +1,608 @@
+import type {VariantProps} from "tailwind-variants";
+
+import {tv} from "tailwind-variants";
+
+import {ringClasses} from "../utils";
+
+/**
+ * Input wrapper **Tailwind Variants** component
+ *
+ * @example
+ * ```js
+ * const {base, label, inputWrapper, input, description, helperText} = input({...})
+ *
+ * <div className={base())}>
+ *  <label className={label()}>Label</label>
+ *  <div className={inputWrapper()}>
+ *    <input className={input()}/>
+ *  </div>
+ *  <span className={description()}>Description</span>
+ *  <span className={helperText()}>Helper text</span>
+ * </div>
+ * ```
+ */
+const input = tv({
+  slots: {
+    base: "flex flex-col gap-2",
+    label: "block text-sm font-medium text-neutral-600",
+    inputWrapper: "w-full flex flex-row items-center shadow-sm px-3 gap-3",
+    input: "w-full h-full bg-transparent outline-none placeholder:text-neutral-500",
+    description: "text-xs text-neutral-500",
+    errorMessage: "text-xs text-danger",
+  },
+  variants: {
+    variant: {
+      flat: {
+        inputWrapper: ["bg-neutral-100", "hover:bg-neutral-200", "focus-within:!bg-neutral-100"],
+      },
+      faded: {
+        inputWrapper: [
+          "bg-neutral-100",
+          "border",
+          "border-neutral-200",
+          "hover:border-neutral-400",
+        ],
+      },
+      bordered: {
+        inputWrapper: [
+          "border-2",
+          "border-neutral-200",
+          "hover:border-neutral-400",
+          "focus-within:!border-foreground",
+        ],
+      },
+      underlined: {
+        inputWrapper: [
+          "!px-1",
+          "relative",
+          "box-border",
+          "border-b-2",
+          "shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
+          "border-neutral-200",
+          "!rounded-none",
+          "hover:border-neutral-300",
+          "after:content-['']",
+          "after:w-0",
+          "after:origin-center",
+          "after:bg-foreground",
+          "after:absolute",
+          "after:left-1/2",
+          "after:-translate-x-1/2",
+          "after:-bottom-[2px]",
+          "after:h-[2px]",
+          "focus-within:after:w-full",
+        ],
+      },
+    },
+    color: {
+      neutral: {},
+      primary: {
+        label: "text-primary",
+      },
+      secondary: {
+        label: "text-secondary",
+      },
+      success: {
+        label: "text-success",
+      },
+      warning: {
+        label: "text-warning",
+      },
+      danger: {
+        label: "text-danger",
+      },
+    },
+    size: {
+      xs: {
+        label: "text-xs",
+        inputWrapper: "h-6 px-1",
+        input: "text-xs",
+      },
+      sm: {
+        label: "text-xs",
+        inputWrapper: "h-8 px-2",
+        input: "text-xs",
+      },
+      md: {
+        inputWrapper: "h-10",
+        input: "text-sm",
+      },
+      lg: {
+        inputWrapper: "h-12",
+        input: "text-base",
+      },
+      xl: {
+        inputWrapper: "h-14",
+        input: "text-md",
+      },
+    },
+    radius: {
+      none: {
+        inputWrapper: "rounded-none",
+      },
+      base: {
+        inputWrapper: "rounded",
+      },
+      sm: {
+        inputWrapper: "rounded-sm",
+      },
+      md: {
+        inputWrapper: "rounded-md",
+      },
+      lg: {
+        inputWrapper: "rounded-lg",
+      },
+      xl: {
+        inputWrapper: "rounded-xl",
+      },
+      full: {
+        inputWrapper: "rounded-full",
+      },
+    },
+    labelPosition: {
+      outside: {},
+      "outside-left": {
+        base: "flex-row items-center",
+      },
+      inside: {
+        label: "text-xs",
+        inputWrapper: "flex-col items-start justify-center gap-0",
+      },
+    },
+    fullWidth: {
+      true: {
+        base: "w-full",
+      },
+    },
+    isLabelPlaceholder: {
+      true: {
+        label: "absolute",
+      },
+    },
+    isDisabled: {
+      true: {
+        base: "opacity-50 pointer-events-none",
+      },
+    },
+    isFocusVisible: {
+      true: {},
+    },
+    isInvalid: {
+      true: {
+        label: "text-danger",
+        input: "placeholder:text-danger",
+      },
+    },
+    disableAnimation: {
+      true: {
+        inputWrapper: "transition-none",
+        label: "transition-none",
+      },
+      false: {
+        inputWrapper: "transition-background motion-reduce:transition-none",
+        label: [
+          "will-change-auto",
+          "transition-all",
+          "!duration-200",
+          "motion-reduce:transition-none",
+        ],
+      },
+    },
+  },
+  defaultVariants: {
+    variant: "flat",
+    color: "neutral",
+    size: "md",
+    radius: "xl",
+    fullWidth: true,
+    labelPosition: "outside",
+    isDisabled: false,
+    disableAnimation: false,
+  },
+  compoundVariants: [
+    // flat & faded & color
+    {
+      variant: "flat",
+      color: "primary",
+      class: {
+        inputWrapper: [
+          "bg-primary-50",
+          "hover:bg-primary-100",
+          "text-primary",
+          "focus-within:!bg-primary-50",
+          "placeholder:text-primary",
+        ],
+        input: "placeholder:text-primary",
+      },
+    },
+    {
+      variant: "flat",
+      color: "secondary",
+      class: {
+        inputWrapper: [
+          "bg-secondary-50",
+          "hover:bg-secondary-100",
+          "text-secondary",
+          "focus-within:!bg-secondary-50",
+          "placeholder:text-secondary",
+        ],
+        input: "placeholder:text-secondary",
+      },
+    },
+    {
+      variant: "flat",
+      color: "success",
+      class: {
+        inputWrapper: [
+          "bg-success-50",
+          "hover:bg-success-100",
+          "text-success",
+          "focus-within:!bg-success-50",
+          "placeholder:text-success",
+        ],
+        input: "placeholder:text-success",
+      },
+    },
+    {
+      variant: "flat",
+      color: "warning",
+      class: {
+        inputWrapper: [
+          "bg-warning-50",
+          "hover:bg-warning-100",
+          "text-warning",
+          "focus-within:!bg-warning-50",
+          "placeholder:text-warning",
+        ],
+        input: "placeholder:text-warning",
+      },
+    },
+    {
+      variant: "flat",
+      color: "danger",
+      class: {
+        inputWrapper: [
+          "bg-danger-50",
+          "hover:bg-danger-100",
+          "text-danger",
+          "focus-within:!bg-danger-50",
+          "placeholder:text-danger",
+        ],
+        input: "placeholder:text-danger",
+      },
+    },
+    // faded & color
+    {
+      variant: "faded",
+      color: "primary",
+      class: {
+        inputWrapper: "text-primary",
+        input: "placeholder:text-primary",
+      },
+    },
+    {
+      variant: "faded",
+      color: "secondary",
+      class: {
+        inputWrapper: "text-secondary",
+        input: "placeholder:text-secondary",
+      },
+    },
+    {
+      variant: "faded",
+      color: "success",
+      class: {
+        inputWrapper: "text-success",
+        input: "placeholder:text-success",
+      },
+    },
+    {
+      variant: "faded",
+      color: "warning",
+      class: {
+        inputWrapper: "text-warning",
+        input: "placeholder:text-warning",
+      },
+    },
+    {
+      variant: "faded",
+      color: "danger",
+      class: {
+        inputWrapper: "text-danger",
+        input: "placeholder:text-danger",
+      },
+    },
+    // underlined & color
+    {
+      variant: "underlined",
+      color: "primary",
+      class: {
+        inputWrapper: "after:bg-primary",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "secondary",
+      class: {
+        inputWrapper: "after:bg-secondary",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "success",
+      class: {
+        inputWrapper: "after:bg-success",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "warning",
+      class: {
+        inputWrapper: "after:bg-warning",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "danger",
+      class: {
+        inputWrapper: "after:bg-danger",
+      },
+    },
+    // bordered & color
+    {
+      variant: "bordered",
+      color: "primary",
+      class: {
+        inputWrapper: "focus-within:!border-primary",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "secondary",
+      class: {
+        inputWrapper: "focus-within:!border-secondary",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "success",
+      class: {
+        inputWrapper: "focus-within:!border-success",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "warning",
+      class: {
+        inputWrapper: "focus-within:!border-warning",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "danger",
+      class: {
+        inputWrapper: "focus-within:!border-danger",
+      },
+    },
+    // radius-full & size
+    {
+      radius: "full",
+      size: ["xs", "sm"],
+      class: {
+        inputWrapper: "px-3",
+      },
+    },
+    {
+      radius: "full",
+      size: "md",
+      class: {
+        inputWrapper: "px-4",
+      },
+    },
+    {
+      radius: "full",
+      size: "lg",
+      class: {
+        inputWrapper: "px-5",
+      },
+    },
+    {
+      radius: "full",
+      size: "xl",
+      class: {
+        inputWrapper: "px-6",
+      },
+    },
+    // !disableAnimation & variant
+    {
+      disableAnimation: false,
+      variant: ["faded", "bordered"],
+      class: {
+        inputWrapper: "transition-colors motion-reduce:transition-none",
+      },
+    },
+    {
+      disableAnimation: false,
+      variant: "underlined",
+      class: {
+        inputWrapper: "after:transition-width motion-reduce:after:transition-none",
+      },
+    },
+    // isFocusVisible & variant
+    {
+      isFocusVisible: true,
+      variant: ["flat", "faded"],
+      class: {
+        inputWrapper: [...ringClasses],
+      },
+    },
+    // isInvalid & variant
+    {
+      isInvalid: true,
+      variant: "flat",
+      class: {
+        inputWrapper: [
+          "bg-danger-50",
+          "hover:bg-danger-100",
+          "text-danger",
+          "focus-within:!bg-danger-50",
+          "placeholder:text-danger",
+        ],
+      },
+    },
+    {
+      isInvalid: true,
+      variant: "faded",
+      class: {
+        inputWrapper: "text-danger",
+      },
+    },
+    {
+      isInvalid: true,
+      variant: "bordered",
+      class: {
+        inputWrapper: "!border-danger focus-within:!border-danger",
+      },
+    },
+    {
+      isInvalid: true,
+      variant: "underlined",
+      class: {
+        inputWrapper: "after:bg-danger",
+      },
+    },
+    // size & labelPosition
+    {
+      labelPosition: "inside",
+      size: "xs",
+      class: {
+        label: "text-[0.6rem]",
+        inputWrapper: "h-10 py-1 px-2",
+      },
+    },
+    {
+      labelPosition: "inside",
+      size: "sm",
+      class: {
+        inputWrapper: "h-12 py-1.5 px-3",
+      },
+    },
+    {
+      labelPosition: "inside",
+      size: "md",
+      class: {
+        inputWrapper: "h-14 py-2",
+      },
+    },
+    {
+      labelPosition: "inside",
+      size: "lg",
+      class: {
+        label: "text-sm",
+        inputWrapper: "h-16 py-2.5 gap-1",
+      },
+    },
+    {
+      labelPosition: "inside",
+      size: "xl",
+      class: {
+        label: "text-sm",
+        inputWrapper: "h-20 p-4 gap-2",
+      },
+    },
+    // !isLabelPlaceholder & labelPosition
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      class: {
+        inputWrapper: "group",
+        label: [
+          "font-normal",
+          "text-neutral-500",
+          "group-focus-within:font-medium",
+          "group-focus-within:text-neutral-600",
+          "group-[.is-filled]:font-medium",
+          "group-[.is-filled]:text-neutral-600",
+        ],
+      },
+    },
+    // isLabelPlaceholder & labelPosition & size
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      size: "xs",
+      class: {
+        label: [
+          "text-xs",
+          "group-focus-within:text-[0.6rem]",
+          "group-focus-within:-translate-y-2",
+          "group-[.is-filled]:text-[0.6rem]",
+          "group-[.is-filled]:-translate-y-2",
+        ],
+        input: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      size: ["sm", "md"],
+      class: {
+        label: ["text-sm", "group-focus-within:text-xs", "group-[.is-filled]:text-xs"],
+        input: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      size: "sm",
+      class: {
+        label: ["group-focus-within:-translate-y-2.5", "group-[.is-filled]:-translate-y-2.5"],
+        input: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      size: "md",
+      class: {
+        label: ["group-focus-within:-translate-y-3", "group-[.is-filled]:-translate-y-3"],
+        input: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      size: "lg",
+      class: {
+        label: [
+          "text-base",
+          "group-focus-within:text-sm",
+          "group-focus-within:-translate-y-3",
+          "group-[.is-filled]:text-sm",
+          "group-[.is-filled]:-translate-y-3",
+        ],
+        input: "pt-6",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      size: "xl",
+      class: {
+        label: [
+          "text-md",
+          "group-focus-within:text-sm",
+          "group-focus-within:-translate-y-3",
+          "group-[.is-filled]:text-sm",
+          "group-[.is-filled]:-translate-y-3",
+        ],
+        input: "pt-8",
+      },
+    },
+  ],
+});
+
+export type InputVariantProps = VariantProps<typeof input>;
+export type InputSlots = keyof ReturnType<typeof input>;
+
+export {input};

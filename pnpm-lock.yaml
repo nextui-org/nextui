@@ -831,10 +831,22 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@react-aria/textfield':
-        specifier: ^3.9.0
-        version: 3.9.0(react@18.2.0)
+      '@nextui-org/use-aria-field':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-field
+      '@react-aria/focus':
+        specifier: ^3.11.0
+        version: 3.11.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+      '@react-stately/utils':
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
     devDependencies:
+      '@react-types/shared':
+        specifier: ^3.15.0
+        version: 3.17.0(react@18.2.0)
       '@react-types/textfield':
         specifier: ^3.7.0
         version: 3.7.0(react@18.2.0)
@@ -1303,8 +1315,8 @@ importers:
         specifier: ^4.4.0
         version: 4.4.0
       tailwind-variants:
-        specifier: ^0.1.1
-        version: 0.1.1(tailwindcss@3.2.7)
+        specifier: ^0.1.2
+        version: 0.1.2(tailwindcss@3.2.7)
       tailwindcss:
         specifier: ^3.2.7
         version: 3.2.7(postcss@8.4.21)(ts-node@10.9.1)
@@ -5910,20 +5922,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-aria/textfield@3.9.0(react@18.2.0):
-    resolution: {integrity: sha512-plX+/RDidTpz4kfQni2mnH10g9iARC5P7oi4XBXqwrVCIqpTUNoyGLUH952wObYOI9k7lG2QG0+b+3GyrV159g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    dependencies:
-      '@react-aria/focus': 3.11.0(react@18.2.0)
-      '@react-aria/label': 3.5.0(react@18.2.0)
-      '@react-aria/utils': 3.15.0(react@18.2.0)
-      '@react-types/shared': 3.17.0(react@18.2.0)
-      '@react-types/textfield': 3.7.0(react@18.2.0)
-      '@swc/helpers': 0.4.14
-      react: 18.2.0
-    dev: false
-
   /@react-aria/toggle@3.5.0(react@18.2.0):
     resolution: {integrity: sha512-K49OmHBmYW8pk0rXJU1TNRzR+PxLVvfL/ni6ifV5gcxoxV6DmFsNFj+5B/U3AMnCEQeyKQeiY6z9X7EBVX6j9Q==}
     peerDependencies:
@@ -6220,6 +6218,7 @@ packages:
     dependencies:
       '@react-types/shared': 3.17.0(react@18.2.0)
       react: 18.2.0
+    dev: true
 
   /@react-types/tooltip@3.3.0(react@18.2.0):
     resolution: {integrity: sha512-TMaKkjYbysZbMnY8zjI2Djh8QMHvB8LoN9EjOZX++3ZsO74CeCeOoGARh6+4c0Bu5rg4BXhNyi+y1JL3jtUEBg==}
@@ -21550,8 +21549,8 @@ packages:
     resolution: {integrity: sha512-oG3/328Y7LrfPMfkgMNxoqEk1ZQdXBxdphf9FFrreo8q0EtVIHt3bQf2IyFhQuVt8puB57lCRBNbazGhYAyz9w==}
     dev: false
 
-  /tailwind-variants@0.1.1(tailwindcss@3.2.7):
-    resolution: {integrity: sha512-kW9kXmVv9ankGydv36pg9M7fwgQfN/DZ3JlqFfmuIDPRa1/psm3KbTcB4vgEBiku7VtGQBm6oy3EsTJUYJKsLg==}
+  /tailwind-variants@0.1.2(tailwindcss@3.2.7):
+    resolution: {integrity: sha512-MOTaBS5Hg7RN/M0tlMZCUD1crDGPlHe7XsFS7+I5bc4hfwQPVuTiPiRqivW9xH/0QvtuVo8AlEwvR2uxSC3phw==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
