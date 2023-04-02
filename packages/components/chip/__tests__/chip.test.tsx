@@ -31,13 +31,13 @@ describe("Chip", () => {
     expect(wrapper.getByTestId("avatar")).not.toBeNull();
   });
 
-  it("should support leftContent", () => {
-    const wrapper = render(<Chip leftContent={<span data-testid="left-icon" />} />);
+  it("should support startContent", () => {
+    const wrapper = render(<Chip startContent={<span data-testid="left-icon" />} />);
 
     expect(wrapper.getByTestId("left-icon")).not.toBeNull();
   });
 
-  it("should support rightContent", () => {
+  it("should support endContent", () => {
     const wrapper = render(<Chip avatar={<span data-testid="close-icon" />} />);
 
     expect(wrapper.getByTestId("close-icon")).not.toBeNull();

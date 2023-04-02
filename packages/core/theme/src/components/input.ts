@@ -9,12 +9,13 @@ import {ringClasses} from "../utils";
  *
  * @example
  * ```js
- * const {base, label, inputWrapper, input, description, helperText} = input({...})
+ * const {base, label, inputWrapper, input, clearButton, description, helperText} = input({...})
  *
  * <div className={base())}>
  *  <label className={label()}>Label</label>
  *  <div className={inputWrapper()}>
  *    <input className={input()}/>
+ *    <button className={clearButton()}>Clear</button>
  *  </div>
  *  <span className={description()}>Description</span>
  *  <span className={helperText()}>Helper text</span>
@@ -25,8 +26,22 @@ const input = tv({
   slots: {
     base: "flex flex-col gap-2",
     label: "block text-sm font-medium text-neutral-600",
-    inputWrapper: "w-full flex flex-row items-center shadow-sm px-3 gap-3",
+    inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
+    innerWrapper: "inline-flex items-center w-full gap-1.5",
     input: "w-full h-full bg-transparent outline-none placeholder:text-neutral-500",
+    clearButton: [
+      "z-10",
+      "absolute",
+      "right-3",
+      "appearance-none",
+      "outline-none",
+      "select-none",
+      "opacity-0",
+      "hover:opacity-100",
+      "cursor-pointer",
+      "active:opacity-70",
+      "rounded-full",
+    ],
     description: "text-xs text-neutral-500",
     errorMessage: "text-xs text-danger",
   },
@@ -97,23 +112,28 @@ const input = tv({
         label: "text-xs",
         inputWrapper: "h-6 px-1",
         input: "text-xs",
+        clearButton: "right-2",
       },
       sm: {
         label: "text-xs",
         inputWrapper: "h-8 px-2",
         input: "text-xs",
+        clearButton: "text-lg",
       },
       md: {
         inputWrapper: "h-10",
         input: "text-sm",
+        clearButton: "text-xl",
       },
       lg: {
         inputWrapper: "h-12",
         input: "text-base",
+        clearButton: "text-xl",
       },
       xl: {
         inputWrapper: "h-14",
         input: "text-md",
+        clearButton: "text-2xl",
       },
     },
     radius: {
@@ -156,7 +176,13 @@ const input = tv({
     },
     isLabelPlaceholder: {
       true: {
-        label: "absolute",
+        label: "absolute z-10 pointer-events-none",
+      },
+    },
+    isClearable: {
+      true: {
+        input: "peer",
+        clearButton: "peer-[.is-filled]:opacity-70",
       },
     },
     isDisabled: {
@@ -167,10 +193,20 @@ const input = tv({
     isFocusVisible: {
       true: {},
     },
+    isClearButtonFocusVisible: {
+      true: {
+        clearButton: [...ringClasses],
+      },
+    },
     isInvalid: {
       true: {
         label: "text-danger",
         input: "placeholder:text-danger",
+      },
+    },
+    isRequired: {
+      true: {
+        label: "after:content-['*'] after:text-danger after:ml-0.5",
       },
     },
     disableAnimation: {
@@ -179,12 +215,19 @@ const input = tv({
         label: "transition-none",
       },
       false: {
-        inputWrapper: "transition-background motion-reduce:transition-none",
+        inputWrapper: "transition-background motion-reduce:transition-none !duration-150",
         label: [
           "will-change-auto",
           "transition-all",
           "!duration-200",
+          "!ease-[cubic-bezier(0,0,0.2,1)]",
           "motion-reduce:transition-none",
+        ],
+        clearButton: [
+          "transition-transform-opacity",
+          "motion-reduce:transition-none",
+          "translate-x-1/2",
+          "peer-[.is-filled]:translate-x-0",
         ],
       },
     },
@@ -195,7 +238,7 @@ const input = tv({
     size: "md",
     radius: "xl",
     fullWidth: true,
-    labelPosition: "outside",
+    labelPosition: "inside",
     isDisabled: false,
     disableAnimation: false,
   },
@@ -513,9 +556,8 @@ const input = tv({
     // !isLabelPlaceholder & labelPosition
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPosition: ["inside", "outside"],
       class: {
-        inputWrapper: "group",
         label: [
           "font-normal",
           "text-neutral-500",
@@ -526,7 +568,22 @@ const input = tv({
         ],
       },
     },
-    // isLabelPlaceholder & labelPosition & size
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "inside",
+      class: {
+        inputWrapper: "group",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "outside",
+      class: {
+        base: "group relative justify-end",
+        label: ["group-focus-within:left-0", "group-[.is-filled]:left-0"],
+      },
+    },
+    // isLabelPlaceholder & inside & size
     {
       isLabelPlaceholder: true,
       labelPosition: "inside",
@@ -597,6 +654,81 @@ const input = tv({
           "group-[.is-filled]:-translate-y-3",
         ],
         input: "pt-8",
+      },
+    },
+    // isLabelPlaceholder & outside & size
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "outside",
+      size: "xs",
+      class: {
+        label: [
+          "text-xs",
+          "bottom-1",
+          "left-1",
+          "group-focus-within:bottom-8",
+          "group-[.is-filled]:bottom-8",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "outside",
+      size: "sm",
+      class: {
+        label: [
+          "text-xs",
+          "bottom-2",
+          "left-2",
+          "group-focus-within:bottom-10",
+          "group-[.is-filled]:bottom-10",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "outside",
+      size: "md",
+      class: {
+        label: [
+          "text-sm",
+          "bottom-2.5",
+          "left-3",
+          "group-focus-within:bottom-12",
+          "group-[.is-filled]:bottom-12",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "outside",
+      size: "lg",
+      class: {
+        label: [
+          "text-base",
+          "bottom-3",
+          "left-3",
+          "group-focus-within:text-sm",
+          "group-[.is-filled]:bottom-sm",
+          "group-focus-within:bottom-14",
+          "group-[.is-filled]:bottom-14",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPosition: "outside",
+      size: "xl",
+      class: {
+        label: [
+          "text-base",
+          "bottom-4",
+          "left-3",
+          "group-focus-within:text-sm",
+          "group-[.is-filled]:bottom-sm",
+          "group-focus-within:bottom-16",
+          "group-[.is-filled]:bottom-16",
+        ],
       },
     },
   ],

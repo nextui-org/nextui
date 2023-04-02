@@ -54,16 +54,24 @@ Default.args = {
   ...defaultProps,
 };
 
-export const LeftContent = Template.bind({});
-LeftContent.args = {
+export const StartContent = Template.bind({});
+StartContent.args = {
   ...defaultProps,
-  leftContent: <span className="ml-1">🎉</span>,
+  startContent: (
+    <span aria-label="celebration" className="ml-1" role="img">
+      🎉
+    </span>
+  ),
 };
 
-export const RightContent = Template.bind({});
-RightContent.args = {
+export const EndContent = Template.bind({});
+EndContent.args = {
   ...defaultProps,
-  rightContent: <span className="mr-1">🚀</span>,
+  endContent: (
+    <span aria-label="rocket" className="mr-1" role="img">
+      🚀
+    </span>
+  ),
 };
 
 export const Closeable = Template.bind({});
@@ -76,7 +84,7 @@ Closeable.args = {
 export const CustomCloseIcon = Template.bind({});
 CustomCloseIcon.args = {
   ...defaultProps,
-  rightContent: <CheckIcon />,
+  endContent: <CheckIcon />,
   // eslint-disable-next-line
   onClose: () => console.log("Close"),
 };

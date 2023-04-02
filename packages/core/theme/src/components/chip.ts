@@ -36,6 +36,7 @@ const chip = tv({
       "opacity-70",
       "hover:opacity-100",
       "cursor-pointer",
+      "active:opacity-70",
     ],
   },
   variants: {
@@ -119,10 +120,10 @@ const chip = tv({
       "3xl": {base: "rounded-3xl"},
       full: {base: "rounded-full"},
     },
-    hasLeftContent: {
+    hasStartContent: {
       true: {},
     },
-    hasRightContent: {
+    hasEndContent: {
       true: {},
     },
     isOneChar: {
@@ -442,31 +443,31 @@ const chip = tv({
         base: "w-8 h-8",
       },
     },
-    // hasLeftContent / size
+    // hasStartContent / size
     {
-      hasLeftContent: true,
+      hasStartContent: true,
       size: ["xs", "sm"],
       class: {
         content: "pl-0.5",
       },
     },
     {
-      hasLeftContent: true,
+      hasStartContent: true,
       size: ["md", "lg", "xl"],
       class: {
         content: "pl-1",
       },
     },
-    // hasRightContent / size
+    // hasEndContent / size
     {
-      hasRightContent: true,
+      hasEndContent: true,
       size: ["xs", "sm"],
       class: {
         content: "pr-0.5",
       },
     },
     {
-      hasRightContent: true,
+      hasEndContent: true,
       size: ["md", "lg", "xl"],
       class: {
         content: "pr-1",

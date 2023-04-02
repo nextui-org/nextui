@@ -102,6 +102,7 @@ CustomIconNode.args = {
 export const CustomIconFunction = Template.bind({});
 CustomIconFunction.args = {
   ...defaultProps,
+  // eslint-disable-next-line react/display-name
   icon: (props: CheckboxIconProps) => <CloseIcon {...props} />,
 };
 
@@ -213,11 +214,17 @@ export const CustomWithStyles = (props: CustomCheckboxProps) => {
 };
 
 export const CustomWithHooks = (props: CheckboxProps) => {
-  const {children, isSelected, isFocusVisible, getBaseProps, getLabelProps, getInputProps} =
-    useCheckbox({
-      "aria-label": props["aria-label"] || "Toggle status",
-      ...props,
-    });
+  const {
+    children,
+    isSelected,
+    isFocusVisible,
+    getBaseProps,
+    getLabelProps,
+    getInputProps,
+  } = useCheckbox({
+    "aria-label": props["aria-label"] || "Toggle status",
+    ...props,
+  });
 
   return (
     <label {...getBaseProps()}>
@@ -226,12 +233,11 @@ export const CustomWithHooks = (props: CheckboxProps) => {
       </VisuallyHidden>
       <Chip
         color="primary"
-        leftContent={isSelected ? <CheckIcon className="ml-1" color={colors.white} /> : null}
+        startContent={isSelected ? <CheckIcon className="ml-1" color={colors.white} /> : null}
         styles={{
           base: clsx("border-neutral hover:bg-neutral-200", {
             "border-primary bg-primary hover:bg-primary-600 hover:border-primary-600": isSelected,
-            "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark":
-              isFocusVisible,
+            "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark": isFocusVisible,
           }),
           content: clsx("text-primary", {
             "text-primary-contrastText pl-1": isSelected,

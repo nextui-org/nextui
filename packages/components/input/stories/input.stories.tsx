@@ -1,6 +1,7 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
+import {MailFilledIcon} from "@nextui-org/shared-icons";
 
 import {Input, InputProps} from "../src";
 
@@ -44,6 +45,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center w-screen h-screen">
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof Input>;
 
 const defaultProps = {
@@ -52,9 +60,37 @@ const defaultProps = {
 };
 
 const Template: ComponentStory<typeof Input> = (args: InputProps) => (
-  <div className="max-w-md flex flex-row gap-4">
+  <div className="w-full max-w-[240px]">
     <Input {...args} />
-    <Input {...args} placeholder="Enter your email" />
+  </div>
+);
+
+const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="w-full max-w-xl flex flex-row items-end gap-4">
+    <Input {...args} />
+    <Input {...args} labelPosition="outside" />
+    <Input {...args} labelPosition="outside-left" />
+  </div>
+);
+
+const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="w-full max-w-xl flex flex-row items-end gap-4">
+    <Input
+      {...args}
+      placeholder="you@example.com"
+      startContent={<MailFilledIcon className="text-2xl pointer-events-none" />}
+    />
+    <Input
+      {...args}
+      label="Price"
+      placeholder="0.00"
+      startContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-gray-500 sm:text-sm">$</span>
+        </div>
+      }
+      type="number"
+    />
   </div>
 );
 
@@ -69,6 +105,37 @@ WithPlaceholder.args = {
   placeholder: "Enter your email",
 };
 
+export const Required = Template.bind({});
+Required.args = {
+  ...defaultProps,
+  isRequired: true,
+};
+
+export const LabelPosition = LabelPositionTemplate.bind({});
+LabelPosition.args = {
+  ...defaultProps,
+};
+
+export const Clearable = Template.bind({});
+Clearable.args = {
+  ...defaultProps,
+  variant: "bordered",
+  placeholder: "Enter your email",
+  defaultValue: "junior@nextui.org",
+  onClear: () => console.log("input cleared"),
+};
+
+export const StartContent = StartContentTemplate.bind({});
+StartContent.args = {
+  ...defaultProps,
+};
+
+export const LabelPositionWithPlaceholder = LabelPositionTemplate.bind({});
+LabelPositionWithPlaceholder.args = {
+  ...defaultProps,
+  placeholder: "Enter your email",
+};
+
 export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
   ...defaultProps,
@@ -79,6 +146,7 @@ export const InvalidValidationState = Template.bind({});
 InvalidValidationState.args = {
   ...defaultProps,
   variant: "bordered",
+  defaultValue: "invalid@email.com",
   validationState: "invalid",
   errorMessage: "Please enter a valid email address",
 };

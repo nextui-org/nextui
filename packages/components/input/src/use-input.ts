@@ -5,6 +5,7 @@ import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
+import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref} from "react";
@@ -18,16 +19,33 @@ export interface Props extends HTMLNextUIProps<"input"> {
    */
   ref?: Ref<HTMLInputElement>;
   /**
+   * Element to be rendered in the left side of the input.
+   */
+  startContent?: React.ReactNode;
+  /**
+   * Element to be rendered in the right side of the input.
+   * if you pass this prop and the `onClear` prop, the passed element
+   * will have the clear button props and it will be rendered instead of the
+   * default clear button.
+   */
+  endContent?: React.ReactNode;
+  /**
+   * Callback fired when the value is cleared.
+   * if you pass this prop, the clear button will be shown.
+   */
+  onClear?: () => void;
+  /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Chip styles={{
+   * <Input styles={{
    *    base:"base-classes",
    *    label: "label-classes",
    *    inputWrapper: "input-wrapper-classes",
    *    input: "input-classes",
+   *    clearButton: "clear-button-classes",
    *    description: "description-classes",
    *    helperText: "helper-text-classes",
    * }} />
@@ -50,19 +68,33 @@ export function useInput(originalProps: UseInputProps) {
     className,
     styles,
     autoFocus,
+    startContent,
+    endContent,
+    onClear,
     ...otherProps
   } = props;
 
+  const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {});
+
   const Component = as || "div";
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(styles?.base, className, !!inputValue ? "is-filled" : "");
 
   const domRef = useDOMRef<HTMLInputElement>(ref);
 
-  const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {});
+  const handleClear = () => {
+    setInputValue(undefined);
+
+    if (domRef.current) {
+      domRef.current.value = "";
+      domRef.current.focus();
+    }
+    onClear?.();
+  };
 
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useAriaTextField(
     {
       ...originalProps,
+      value: inputValue,
       onChange: chain(props.onChange, setInputValue),
     },
     domRef,
@@ -73,22 +105,43 @@ export function useInput(originalProps: UseInputProps) {
     isTextInput: true,
   });
 
+  const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
+
+  const {pressProps: clearPressProps} = usePress({
+    isDisabled: !!originalProps?.isDisabled,
+    onPress: handleClear,
+  });
+
   const isInvalid = props.validationState === "invalid";
   const labelPosition = originalProps.labelPosition || "outside";
-  const isLabelPlaceholder = !props.placeholder;
+  const isLabelPlaceholder = !props.placeholder && labelPosition !== "outside-left";
+  const isClearable = !!onClear || originalProps.isClearable;
 
   const shouldLabelBeOutside = labelPosition === "outside" || labelPosition === "outside-left";
   const shouldLabelBeInside = labelPosition === "inside";
+
+  const hasStartContent = useMemo(() => !!startContent, [startContent]);
+  const hasEndContent = useMemo(() => !!endContent || isClearable, [endContent, isClearable]);
 
   const slots = useMemo(
     () =>
       input({
         ...variantProps,
         isInvalid,
-        isLabelPlaceholder,
+        isClearable,
         isFocusVisible,
+        isLabelPlaceholder: isLabelPlaceholder && !hasStartContent,
+        isClearButtonFocusVisible,
       }),
-    [...Object.values(variantProps), isInvalid, isLabelPlaceholder, isFocusVisible],
+    [
+      ...Object.values(variantProps),
+      isInvalid,
+      isClearable,
+      isClearButtonFocusVisible,
+      isLabelPlaceholder,
+      hasStartContent,
+      isFocusVisible,
+    ],
   );
 
   const getBaseProps: PropGetter = (props = {}) => {
@@ -112,7 +165,7 @@ export function useInput(originalProps: UseInputProps) {
   const getInputProps: PropGetter = (props = {}) => {
     return {
       ref: domRef,
-      className: slots.input({class: styles?.input}),
+      className: slots.input({class: clsx(styles?.input, !!inputValue ? "is-filled" : "")}),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
@@ -124,6 +177,15 @@ export function useInput(originalProps: UseInputProps) {
     return {
       className: slots.inputWrapper({
         class: clsx(styles?.inputWrapper, !!inputValue ? "is-filled" : ""),
+      }),
+      ...props,
+    };
+  };
+
+  const getInnerWrapperProps: PropGetter = (props = {}) => {
+    return {
+      className: slots.innerWrapper({
+        class: styles?.innerWrapper,
       }),
       ...props,
     };
@@ -145,13 +207,25 @@ export function useInput(originalProps: UseInputProps) {
     };
   };
 
+  const getClearButtonProps: PropGetter = () => {
+    return {
+      role: "button",
+      tabIndex: 0,
+      className: slots.clearButton({class: styles?.clearButton}),
+      ...mergeProps(clearPressProps, clearFocusProps),
+    };
+  };
+
   return {
     Component,
     styles,
     domRef,
     label,
     description,
+    startContent,
+    endContent,
     labelPosition,
+    isClearable,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     errorMessage,
@@ -159,8 +233,10 @@ export function useInput(originalProps: UseInputProps) {
     getLabelProps,
     getInputProps,
     getInputWrapperProps,
+    getInnerWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
+    getClearButtonProps,
   };
 }
 

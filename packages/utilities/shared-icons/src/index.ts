@@ -10,6 +10,7 @@ export * from "./forward";
 export * from "./sun";
 export * from "./sun-filled";
 export * from "./mail";
+export * from "./mail-filled";
 export * from "./moon";
 export * from "./moon-filled";
 export * from "./headphones";

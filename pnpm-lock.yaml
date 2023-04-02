@@ -822,6 +822,9 @@ importers:
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -837,6 +840,12 @@ importers:
       '@react-aria/focus':
         specifier: ^3.11.0
         version: 3.11.0(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: ^3.7.0
+        version: 3.7.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.14.0
+        version: 3.14.0(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.15.0
         version: 3.15.0(react@18.2.0)

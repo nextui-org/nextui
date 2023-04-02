@@ -24,11 +24,14 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    * Element to be rendered in the left side of the chip.
    * this props overrides the `avatar` prop.
    */
-  leftContent?: React.ReactNode;
+  startContent?: React.ReactNode;
   /**
    * Element to be rendered in the right side of the chip.
+   * if you pass this prop and the `onClose` prop, the passed element
+   * will have the close button props and it will be rendered instead of the
+   * default close button.
    */
-  rightContent?: React.ReactNode;
+  endContent?: React.ReactNode;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -47,7 +50,7 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
   styles?: SlotsToClasses<ChipSlots>;
   /**
    * Callback fired when the chip is closed. if you pass this prop,
-   * the chip will display a close button (rightContent).
+   * the chip will display a close button (endContent).
    * @param e PressEvent
    */
   onClose?: (e: PressEvent) => void;
@@ -61,8 +64,8 @@ export function useChip(originalProps: UseChipProps) {
     as,
     children,
     avatar,
-    leftContent,
-    rightContent,
+    startContent,
+    endContent,
     onClose,
     styles,
     className,
@@ -80,28 +83,27 @@ export function useChip(originalProps: UseChipProps) {
 
   const {focusProps: closeFocusProps, isFocusVisible: isCloseButtonFocusVisible} = useFocusRing();
 
-  const isOneChar = useMemo(
-    () => typeof children === "string" && children?.length === 1,
-    [children],
-  );
+  const isOneChar = useMemo(() => typeof children === "string" && children?.length === 1, [
+    children,
+  ]);
 
-  const hasLeftContent = useMemo(() => !!avatar || !!leftContent, [avatar, leftContent]);
-  const hasRightContent = useMemo(() => !!rightContent || isCloseable, [rightContent, isCloseable]);
+  const hasStartContent = useMemo(() => !!avatar || !!startContent, [avatar, startContent]);
+  const hasEndContent = useMemo(() => !!endContent || isCloseable, [endContent, isCloseable]);
 
   const slots = useMemo(
     () =>
       chip({
         ...variantProps,
-        hasLeftContent,
-        hasRightContent,
+        hasStartContent,
+        hasEndContent,
         isOneChar,
         isCloseButtonFocusVisible,
       }),
     [
       ...Object.values(variantProps),
       isCloseButtonFocusVisible,
-      hasLeftContent,
-      hasRightContent,
+      hasStartContent,
+      hasEndContent,
       isOneChar,
     ],
   );
@@ -152,8 +154,8 @@ export function useChip(originalProps: UseChipProps) {
     styles,
     isDot: isDotVariant,
     isCloseable,
-    leftContent: getAvatarClone(avatar) || getContentClone(leftContent),
-    rightContent: getContentClone(rightContent),
+    startContent: getAvatarClone(avatar) || getContentClone(startContent),
+    endContent: getContentClone(endContent),
     getCloseButtonProps,
     getChipProps,
   };
