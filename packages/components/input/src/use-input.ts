@@ -13,7 +13,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 
 import {useAriaTextField} from "./use-aria-text-field";
 
-export interface Props extends HTMLNextUIProps<"input"> {
+export interface Props extends Omit<HTMLNextUIProps<"input">, "onChange"> {
   /**
    * Ref to the DOM node.
    */
@@ -71,6 +71,7 @@ export function useInput(originalProps: UseInputProps) {
     startContent,
     endContent,
     onClear,
+    onChange,
     ...otherProps
   } = props;
 
@@ -95,7 +96,7 @@ export function useInput(originalProps: UseInputProps) {
     {
       ...originalProps,
       value: inputValue,
-      onChange: chain(props.onChange, setInputValue),
+      onChange: chain(onChange, setInputValue),
     },
     domRef,
   );
@@ -120,8 +121,7 @@ export function useInput(originalProps: UseInputProps) {
   const shouldLabelBeOutside = labelPosition === "outside" || labelPosition === "outside-left";
   const shouldLabelBeInside = labelPosition === "inside";
 
-  const hasStartContent = useMemo(() => !!startContent, [startContent]);
-  const hasEndContent = useMemo(() => !!endContent || isClearable, [endContent, isClearable]);
+  const hasStartContent = !!startContent;
 
   const slots = useMemo(
     () =>

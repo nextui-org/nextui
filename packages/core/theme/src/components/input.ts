@@ -27,19 +27,20 @@ const input = tv({
     base: "flex flex-col gap-2",
     label: "block text-sm font-medium text-neutral-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
-    innerWrapper: "inline-flex items-center w-full gap-1.5",
+    innerWrapper: "inline-flex items-center w-full gap-1.5 box-border",
     input: "w-full h-full bg-transparent outline-none placeholder:text-neutral-500",
     clearButton: [
       "z-10",
+      "hidden",
       "absolute",
       "right-3",
       "appearance-none",
       "outline-none",
       "select-none",
       "opacity-0",
-      "hover:opacity-100",
+      "hover:!opacity-100",
       "cursor-pointer",
-      "active:opacity-70",
+      "active:!opacity-70",
       "rounded-full",
     ],
     description: "text-xs text-neutral-500",
@@ -112,18 +113,18 @@ const input = tv({
         label: "text-xs",
         inputWrapper: "h-6 px-1",
         input: "text-xs",
-        clearButton: "right-2",
+        clearButton: "right-2 text-sm",
       },
       sm: {
         label: "text-xs",
         inputWrapper: "h-8 px-2",
         input: "text-xs",
-        clearButton: "text-lg",
+        clearButton: "text-md",
       },
       md: {
         inputWrapper: "h-10",
         input: "text-sm",
-        clearButton: "text-xl",
+        clearButton: "text-lg",
       },
       lg: {
         inputWrapper: "h-12",
@@ -133,7 +134,7 @@ const input = tv({
       xl: {
         inputWrapper: "h-14",
         input: "text-md",
-        clearButton: "text-2xl",
+        clearButton: "text-xl right-3.5",
       },
     },
     radius: {
@@ -162,7 +163,8 @@ const input = tv({
     labelPosition: {
       outside: {},
       "outside-left": {
-        base: "flex-row items-center",
+        base: "flex-row items-center flex-wrap",
+        inputWrapper: "flex-1",
       },
       inside: {
         label: "text-xs",
@@ -181,8 +183,8 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer",
-        clearButton: "peer-[.is-filled]:opacity-70",
+        input: "peer pr-6",
+        clearButton: "peer-[.is-filled]:opacity-70 peer-[.is-filled]:block",
       },
     },
     isDisabled: {
@@ -201,7 +203,7 @@ const input = tv({
     isInvalid: {
       true: {
         label: "text-danger",
-        input: "placeholder:text-danger",
+        input: "placeholder:text-danger text-danger",
       },
     },
     isRequired: {
@@ -223,12 +225,7 @@ const input = tv({
           "!ease-[cubic-bezier(0,0,0.2,1)]",
           "motion-reduce:transition-none",
         ],
-        clearButton: [
-          "transition-transform-opacity",
-          "motion-reduce:transition-none",
-          "translate-x-1/2",
-          "peer-[.is-filled]:translate-x-0",
-        ],
+        clearButton: ["transition-opacity", "motion-reduce:transition-none"],
       },
     },
   },
@@ -484,20 +481,7 @@ const input = tv({
       isInvalid: true,
       variant: "flat",
       class: {
-        inputWrapper: [
-          "bg-danger-50",
-          "hover:bg-danger-100",
-          "text-danger",
-          "focus-within:!bg-danger-50",
-          "placeholder:text-danger",
-        ],
-      },
-    },
-    {
-      isInvalid: true,
-      variant: "faded",
-      class: {
-        inputWrapper: "text-danger",
+        inputWrapper: ["bg-danger-50", "hover:bg-danger-100", "focus-within:!bg-danger-50"],
       },
     },
     {

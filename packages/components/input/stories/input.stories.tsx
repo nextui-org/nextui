@@ -1,7 +1,12 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
-import {MailFilledIcon} from "@nextui-org/shared-icons";
+import {
+  MailFilledIcon,
+  EyeFilledIcon,
+  EyeSlashFilledIcon,
+  SearchIcon,
+} from "@nextui-org/shared-icons";
 
 import {Input, InputProps} from "../src";
 
@@ -65,6 +70,66 @@ const Template: ComponentStory<typeof Input> = (args: InputProps) => (
   </div>
 );
 
+const PasswordTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+
+  const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
+
+  return (
+    <div className="w-full max-w-[240px]">
+      <Input
+        {...args}
+        endContent={
+          <button className="focus:outline-none" type="button" onClick={togglePasswordVisibility}>
+            {isPasswordVisible ? (
+              <EyeSlashFilledIcon className="text-2xl text-neutral-400 pointer-events-none" />
+            ) : (
+              <EyeFilledIcon className="text-2xl text-neutral-400 pointer-events-none" />
+            )}
+          </button>
+        }
+        type={isPasswordVisible ? "text" : "password"}
+      />
+    </div>
+  );
+};
+
+const RegexValidationTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+  const [value, setValue] = React.useState("");
+
+  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+
+  const validationState = React.useMemo(() => {
+    if (value === "") return undefined;
+
+    return validateEmail(value) ? "valid" : "invalid";
+  }, [value]);
+
+  return (
+    <div className="w-full max-w-[240px]">
+      <Input
+        {...args}
+        errorMessage={validationState === "invalid" && "Please enter a valid email"}
+        placeholder="Enter your email"
+        validationState={validationState}
+        value={value}
+        onChange={setValue}
+      />
+    </div>
+  );
+};
+
+const ControlledTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+  const [value, setValue] = React.useState("");
+
+  return (
+    <div className="w-full flex flex-col gap-2 max-w-[240px]">
+      <Input {...args} placeholder="Enter your email" value={value} onChange={setValue} />
+      <p className="text-neutral-500 text-sm">Input value: {value}</p>
+    </div>
+  );
+};
+
 const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
   <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input {...args} />
@@ -78,7 +143,9 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) =>
     <Input
       {...args}
       placeholder="you@example.com"
-      startContent={<MailFilledIcon className="text-2xl pointer-events-none" />}
+      startContent={
+        <MailFilledIcon className="text-2xl text-neutral-400 pointer-events-none flex-shrink-0" />
+      }
     />
     <Input
       {...args}
@@ -86,10 +153,176 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) =>
       placeholder="0.00"
       startContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-gray-500 sm:text-sm">$</span>
+          <span className="text-neutral-400 text-sm">$</span>
         </div>
       }
       type="number"
+    />
+    <Input
+      {...args}
+      label="Website"
+      placeholder="nextui.org"
+      startContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">https://</span>
+        </div>
+      }
+      type="url"
+    />
+  </div>
+);
+
+const EndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="w-full max-w-xl flex flex-row items-end gap-4">
+    <Input
+      {...args}
+      endContent={
+        <MailFilledIcon className="text-2xl text-neutral-400 pointer-events-none flex-shrink-0" />
+      }
+      placeholder="you@example.com"
+    />
+    <Input
+      {...args}
+      endContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">$</span>
+        </div>
+      }
+      label="Price"
+      placeholder="0.00"
+      type="number"
+    />
+    <Input
+      {...args}
+      endContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">.org/</span>
+        </div>
+      }
+      label="Website"
+      placeholder="nextui"
+      type="url"
+    />
+  </div>
+);
+
+const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="w-full max-w-xs flex flex-col items-end gap-4">
+    <Input
+      {...args}
+      endContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">@gmail.com</span>
+        </div>
+      }
+      placeholder="nextui"
+      startContent={
+        <MailFilledIcon className="text-xl text-neutral-400 pointer-events-none flex-shrink-0" />
+      }
+    />
+    <Input
+      {...args}
+      endContent={
+        <div className="flex items-center">
+          <label className="sr-only" htmlFor="currency">
+            Currency
+          </label>
+          <select
+            className="outline-none border-0 bg-transparent text-neutral-400 text-sm"
+            id="currency"
+            name="currency"
+          >
+            <option>USD</option>
+            <option>ARS</option>
+            <option>EUR</option>
+          </select>
+        </div>
+      }
+      label="Price"
+      placeholder="0.00"
+      startContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">$</span>
+        </div>
+      }
+      type="number"
+    />
+    <Input
+      {...args}
+      endContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">.org/</span>
+        </div>
+      }
+      label="Website"
+      placeholder="nextui"
+      startContent={
+        <div className="pointer-events-none flex items-center">
+          <span className="text-neutral-400 text-sm">https://</span>
+        </div>
+      }
+      type="url"
+    />
+  </div>
+);
+
+const InputTypesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="grid grid-cols-3 gap-4">
+    <Input {...args} label="Text" placeholder="Enter your text" />
+    <Input {...args} label="Number" placeholder="Enter your number" type="number" />
+    <Input {...args} label="Password" placeholder="Enter your password" type="password" />
+    <Input {...args} label="Email" placeholder="Enter your email" type="email" />
+    <Input {...args} label="URL" placeholder="Enter your url" type="url" />
+    <Input {...args} label="Search" placeholder="Enter your search" type="search" />
+    <Input {...args} label="Tel" placeholder="Enter your phone" type="tel" />
+    <Input {...args} label="Date" placeholder="Enter your date" type="date" />
+    <Input {...args} label="Time" placeholder="Enter your time" type="time" />
+    <Input {...args} label="Month" placeholder="Enter your month" type="month" />
+    <Input {...args} label="Week" placeholder="Enter your week" type="week" />
+    <Input {...args} label="Range" placeholder="Enter your range" type="range" />
+  </div>
+);
+
+const CustomWithStylesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="w-full max-w-[340px]">
+    <Input
+      {...args}
+      endContent={
+        <div className="pointer-events-none flex items-center">
+          <kbd className="font-sans font-semibold text-slate-400">
+            <abbr className="no-underline" title="Command">
+              ⌘
+            </abbr>
+            &nbsp;K
+          </kbd>
+        </div>
+      }
+      placeholder="Quick search..."
+      startContent={
+        <SearchIcon className="text-xl text-slate-400 pointer-events-none flex-shrink-0" />
+      }
+      styles={{
+        label: "hidden",
+        inputWrapper: [
+          "bg-slate-100",
+          "border",
+          "shadow",
+          "hover:bg-slate-200",
+          "focus-within:!bg-slate-100",
+          "dark:bg-slate-900",
+          "dark:hover:bg-slate-800",
+          "dark:border-slate-800",
+          "dark:focus-within:!bg-slate-900",
+        ],
+        innerWrapper: "gap-3",
+        input: [
+          "text-base",
+          "text-slate-500",
+          "placeholder:text-slate-500",
+          "dark:text-slate-400",
+          "dark:placeholder:text-slate-400",
+        ],
+      }}
     />
   </div>
 );
@@ -111,6 +344,36 @@ Required.args = {
   isRequired: true,
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...defaultProps,
+  defaultValue: "junior@nextui.org",
+  variant: "faded",
+  isDisabled: true,
+};
+
+export const ReadOnly = Template.bind({});
+ReadOnly.args = {
+  ...defaultProps,
+  defaultValue: "junior@nextui.org",
+  variant: "bordered",
+  isReadOnly: true,
+};
+
+export const WithDescription = Template.bind({});
+WithDescription.args = {
+  ...defaultProps,
+  description: "We'll never share your email with anyone else.",
+};
+
+export const Password = PasswordTemplate.bind({});
+Password.args = {
+  ...defaultProps,
+  label: "Password",
+  placeholder: "Enter your password",
+  variant: "bordered",
+};
+
 export const LabelPosition = LabelPositionTemplate.bind({});
 LabelPosition.args = {
   ...defaultProps,
@@ -122,12 +385,28 @@ Clearable.args = {
   variant: "bordered",
   placeholder: "Enter your email",
   defaultValue: "junior@nextui.org",
+  // eslint-disable-next-line no-console
   onClear: () => console.log("input cleared"),
 };
 
 export const StartContent = StartContentTemplate.bind({});
 StartContent.args = {
   ...defaultProps,
+  labelPosition: "outside",
+};
+
+export const EndContent = EndContentTemplate.bind({});
+EndContent.args = {
+  ...defaultProps,
+  variant: "bordered",
+  labelPosition: "outside",
+};
+
+export const StartAndEndContent = StartAndEndContentTemplate.bind({});
+StartAndEndContent.args = {
+  ...defaultProps,
+  variant: "bordered",
+  labelPosition: "outside",
 };
 
 export const LabelPositionWithPlaceholder = LabelPositionTemplate.bind({});
@@ -148,5 +427,28 @@ InvalidValidationState.args = {
   variant: "bordered",
   defaultValue: "invalid@email.com",
   validationState: "invalid",
+  placeholder: "Enter your email",
   errorMessage: "Please enter a valid email address",
+};
+
+export const RegexValidation = RegexValidationTemplate.bind({});
+RegexValidation.args = {
+  ...defaultProps,
+  variant: "faded",
+};
+
+export const InputTypes = InputTypesTemplate.bind({});
+InputTypes.args = {
+  ...defaultProps,
+};
+
+export const Controlled = ControlledTemplate.bind({});
+Controlled.args = {
+  ...defaultProps,
+  variant: "bordered",
+};
+
+export const CustomWithStyles = CustomWithStylesTemplate.bind({});
+CustomWithStyles.args = {
+  ...defaultProps,
 };

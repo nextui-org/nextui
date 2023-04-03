@@ -19,3 +19,6 @@ export * from "./info";
 export * from "./shield-security";
 export * from "./monitor-mobile";
 export * from "./invalid-card";
+export * from "./eye-filled";
+export * from "./eye-slash-filled";
+export * from "./search";
