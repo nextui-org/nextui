@@ -27,7 +27,7 @@ const input = tv({
     base: "flex flex-col gap-2",
     label: "block text-sm font-medium text-neutral-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
-    innerWrapper: "inline-flex items-center w-full gap-1.5 box-border",
+    innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     input: "w-full h-full bg-transparent outline-none placeholder:text-neutral-500",
     clearButton: [
       "z-10",
@@ -70,6 +70,8 @@ const input = tv({
       underlined: {
         inputWrapper: [
           "!px-1",
+          "!pb-0",
+          "!gap-0",
           "relative",
           "box-border",
           "border-b-2",
@@ -161,10 +163,13 @@ const input = tv({
       },
     },
     labelPosition: {
-      outside: {},
+      outside: {
+        label: "text-foreground",
+      },
       "outside-left": {
         base: "flex-row items-center flex-wrap",
         inputWrapper: "flex-1",
+        label: "text-foreground",
       },
       inside: {
         label: "text-xs",
@@ -220,6 +225,7 @@ const input = tv({
         inputWrapper: "transition-background motion-reduce:transition-none !duration-150",
         label: [
           "will-change-auto",
+          "origin-top-left",
           "transition-all",
           "!duration-200",
           "!ease-[cubic-bezier(0,0,0.2,1)]",
@@ -240,7 +246,7 @@ const input = tv({
     disableAnimation: false,
   },
   compoundVariants: [
-    // flat & faded & color
+    // flat & color
     {
       variant: "flat",
       color: "primary",
@@ -316,40 +322,40 @@ const input = tv({
       variant: "faded",
       color: "primary",
       class: {
-        inputWrapper: "text-primary",
-        input: "placeholder:text-primary",
+        label: "text-primary",
+        inputWrapper: "hover:border-primary focus-within:border-primary",
       },
     },
     {
       variant: "faded",
       color: "secondary",
       class: {
-        inputWrapper: "text-secondary",
-        input: "placeholder:text-secondary",
+        label: "text-secondary",
+        inputWrapper: "hover:border-secondary focus-within:border-secondary",
       },
     },
     {
       variant: "faded",
       color: "success",
       class: {
-        inputWrapper: "text-success",
-        input: "placeholder:text-success",
+        label: "text-success",
+        inputWrapper: "hover:border-success focus-within:border-success",
       },
     },
     {
       variant: "faded",
       color: "warning",
       class: {
-        inputWrapper: "text-warning",
-        input: "placeholder:text-warning",
+        label: "text-warning",
+        inputWrapper: "hover:border-warning focus-within:border-warning",
       },
     },
     {
       variant: "faded",
       color: "danger",
       class: {
-        inputWrapper: "text-danger",
-        input: "placeholder:text-danger",
+        label: "text-danger",
+        inputWrapper: "hover:border-danger focus-within:border-danger",
       },
     },
     // underlined & color
@@ -537,7 +543,7 @@ const input = tv({
         inputWrapper: "h-20 p-4 gap-2",
       },
     },
-    // !isLabelPlaceholder & labelPosition
+    // isLabelPlaceholder & labelPosition
     {
       isLabelPlaceholder: true,
       labelPosition: ["inside", "outside"],
@@ -546,9 +552,9 @@ const input = tv({
           "font-normal",
           "text-neutral-500",
           "group-focus-within:font-medium",
-          "group-focus-within:text-neutral-600",
           "group-[.is-filled]:font-medium",
-          "group-[.is-filled]:text-neutral-600",
+          "group-focus-within:pointer-events-auto",
+          "group-[.is-filled]:pointer-events-auto",
         ],
       },
     },
@@ -557,6 +563,7 @@ const input = tv({
       labelPosition: "inside",
       class: {
         inputWrapper: "group",
+        label: ["group-focus-within:text-neutral-600", "group-[.is-filled]:text-neutral-600"],
       },
     },
     {
@@ -564,7 +571,97 @@ const input = tv({
       labelPosition: "outside",
       class: {
         base: "group relative justify-end",
-        label: ["group-focus-within:left-0", "group-[.is-filled]:left-0"],
+        label: [
+          "group-focus-within:left-0",
+          "group-[.is-filled]:left-0",
+          "group-focus-within:text-foreground",
+          "group-[.is-filled]:text-foreground",
+        ],
+      },
+    },
+    // isLabelPlaceholder & color
+    {
+      isLabelPlaceholder: true,
+      color: "primary",
+      class: {
+        label: ["group-focus-within:text-primary", "group-[.is-filled]:text-primary"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      color: "secondary",
+      class: {
+        label: ["group-focus-within:text-secondary", "group-[.is-filled]:text-secondary"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      color: "success",
+      class: {
+        label: ["group-focus-within:text-success", "group-[.is-filled]:text-success"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      color: "warning",
+      class: {
+        label: ["group-focus-within:text-warning", "group-[.is-filled]:text-warning"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      color: "danger",
+      class: {
+        label: ["group-focus-within:text-danger", "group-[.is-filled]:text-danger"],
+      },
+    },
+    // isLabelPlaceholder & underlined
+    {
+      isLabelPlaceholder: true,
+      variant: "underlined",
+      class: {
+        label: ["group-focus-within:pt-0", "group-[.is-filled]:pt-0"],
+      },
+    },
+    // isLabelPlaceholder & underlined & size
+    {
+      isLabelPlaceholder: true,
+      variant: "underlined",
+      size: "xs",
+      class: {
+        label: ["pt-2"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      variant: "underlined",
+      size: "sm",
+      class: {
+        label: ["pt-3"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      variant: "underlined",
+      size: "md",
+      class: {
+        label: ["pt-4"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      variant: "underlined",
+      size: "lg",
+      class: {
+        label: ["pt-5"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      variant: "underlined",
+      size: "xl",
+      class: {
+        label: ["pt-6"],
       },
     },
     // isLabelPlaceholder & inside & size

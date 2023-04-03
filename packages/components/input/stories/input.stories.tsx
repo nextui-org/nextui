@@ -41,7 +41,7 @@ export default {
     labelPosition: {
       control: {
         type: "select",
-        options: ["outside", "outside-left", "inside"],
+        options: ["inside", "outside", "outside-left"],
       },
     },
     isDisabled: {
@@ -67,6 +67,13 @@ const defaultProps = {
 const Template: ComponentStory<typeof Input> = (args: InputProps) => (
   <div className="w-full max-w-[240px]">
     <Input {...args} />
+  </div>
+);
+
+const MirrorTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+  <div className="w-full max-w-xl flex flex-row gap-4">
+    <Input {...args} />
+    <Input {...args} placeholder="Enter your email" />
   </div>
 );
 
@@ -131,10 +138,17 @@ const ControlledTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
 };
 
 const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
-  <div className="w-full max-w-xl flex flex-row items-end gap-4">
-    <Input {...args} />
-    <Input {...args} labelPosition="outside" />
-    <Input {...args} labelPosition="outside-left" />
+  <div className="w-full flex flex-col items-center gap-12">
+    <div className="w-full max-w-xl flex flex-row items-end gap-4">
+      <Input {...args} />
+      <Input {...args} labelPosition="outside" />
+      <Input {...args} labelPosition="outside-left" />
+    </div>
+    <div className="w-full max-w-xl flex flex-row items-end gap-4">
+      <Input {...args} placeholder="Enter your email" />
+      <Input {...args} labelPosition="outside" placeholder="Enter your email" />
+      <Input {...args} labelPosition="outside-left" placeholder="Enter your email" />
+    </div>
   </div>
 );
 
@@ -251,7 +265,7 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputPro
       {...args}
       endContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">.org/</span>
+          <span className="text-neutral-400 text-sm">.org</span>
         </div>
       }
       label="Website"
@@ -327,18 +341,12 @@ const CustomWithStylesTemplate: ComponentStory<typeof Input> = (args: InputProps
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default = MirrorTemplate.bind({});
 Default.args = {
   ...defaultProps,
 };
 
-export const WithPlaceholder = Template.bind({});
-WithPlaceholder.args = {
-  ...defaultProps,
-  placeholder: "Enter your email",
-};
-
-export const Required = Template.bind({});
+export const Required = MirrorTemplate.bind({});
 Required.args = {
   ...defaultProps,
   isRequired: true,
@@ -360,7 +368,7 @@ ReadOnly.args = {
   isReadOnly: true,
 };
 
-export const WithDescription = Template.bind({});
+export const WithDescription = MirrorTemplate.bind({});
 WithDescription.args = {
   ...defaultProps,
   description: "We'll never share your email with anyone else.",
@@ -407,12 +415,6 @@ StartAndEndContent.args = {
   ...defaultProps,
   variant: "bordered",
   labelPosition: "outside",
-};
-
-export const LabelPositionWithPlaceholder = LabelPositionTemplate.bind({});
-LabelPositionWithPlaceholder.args = {
-  ...defaultProps,
-  placeholder: "Enter your email",
 };
 
 export const WithErrorMessage = Template.bind({});

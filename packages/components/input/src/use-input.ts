@@ -174,11 +174,22 @@ export function useInput(originalProps: UseInputProps) {
   };
 
   const getInputWrapperProps: PropGetter = (props = {}) => {
+    const canFocusInput = domRef.current && !startContent && !endContent;
+
     return {
       className: slots.inputWrapper({
         class: clsx(styles?.inputWrapper, !!inputValue ? "is-filled" : ""),
       }),
+      onClick: () => {
+        if (canFocusInput) {
+          domRef.current.focus();
+        }
+      },
       ...props,
+      style: {
+        cursor: canFocusInput ? "text" : "default",
+        ...props.style,
+      },
     };
   };
 
