@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
@@ -6,9 +8,10 @@ import {
   EyeFilledIcon,
   EyeSlashFilledIcon,
   SearchIcon,
+  CloseFilledIcon,
 } from "@nextui-org/shared-icons";
 
-import {Input, InputProps} from "../src";
+import {Input, InputProps, useInput} from "../src";
 
 export default {
   title: "Components/Input",
@@ -341,6 +344,96 @@ const CustomWithStylesTemplate: ComponentStory<typeof Input> = (args: InputProps
   </div>
 );
 
+const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+  const {
+    Component,
+    label,
+    domRef,
+    description,
+    isClearable,
+    startContent,
+    endContent,
+    shouldLabelBeOutside,
+    shouldLabelBeInside,
+    errorMessage,
+    getBaseProps,
+    getLabelProps,
+    getInputProps,
+    getInnerWrapperProps,
+    getInputWrapperProps,
+    getDescriptionProps,
+    getErrorMessageProps,
+    getClearButtonProps,
+  } = useInput({
+    ...args,
+    styles: {
+      label: "text-black/50 dark:text-white/90",
+      input: [
+        "bg-transparent",
+        "text-black/90 dark:text-white/90",
+        "placeholder:text-neutral-700/50 dark:placeholder:text-white/60",
+      ],
+      innerWrapper: "bg-transparent",
+      inputWrapper: [
+        "shadow-xl",
+        "bg-neutral-200/50",
+        "dark:bg-neutral/60",
+        "backdrop-blur-xl",
+        "backdrop-saturate-200",
+        "hover:bg-neutral-200/70",
+        "focus-within:!bg-neutral-200/50",
+        "dark:hover:bg-neutral/70",
+        "dark:focus-within:!bg-neutral/60",
+        "!cursor-text",
+      ],
+    },
+  });
+
+  const labelContent = <label {...getLabelProps()}>{label}</label>;
+
+  const end = React.useMemo(() => {
+    if (isClearable) {
+      return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
+    }
+
+    return endContent;
+  }, [isClearable, getClearButtonProps]);
+
+  const innerWrapper = React.useMemo(() => {
+    if (startContent || end) {
+      return (
+        <div {...getInnerWrapperProps()}>
+          {startContent}
+          <input {...getInputProps()} />
+          {end}
+        </div>
+      );
+    }
+
+    return <input {...getInputProps()} />;
+  }, [startContent, end, getInputProps, getInnerWrapperProps]);
+
+  return (
+    <div className="w-[340px] h-[300px] px-8 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
+      <Component {...getBaseProps()}>
+        {shouldLabelBeOutside ? labelContent : null}
+        <div
+          {...getInputWrapperProps()}
+          role="button"
+          onClick={() => {
+            domRef.current?.focus();
+          }}
+        >
+          {shouldLabelBeInside ? labelContent : null}
+          {innerWrapper}
+        </div>
+        {description && <div {...getDescriptionProps()}>{description}</div>}
+        {errorMessage && <div {...getErrorMessageProps()}>{errorMessage}</div>}
+      </Component>
+    </div>
+  );
+};
+
 export const Default = MirrorTemplate.bind({});
 Default.args = {
   ...defaultProps,
@@ -453,4 +546,15 @@ Controlled.args = {
 export const CustomWithStyles = CustomWithStylesTemplate.bind({});
 CustomWithStyles.args = {
   ...defaultProps,
+};
+
+export const CustomWithHooks = CustomWithHooksTemplate.bind({});
+CustomWithHooks.args = {
+  ...defaultProps,
+  label: "Search",
+  type: "search",
+  placeholder: "Type to search...",
+  startContent: (
+    <SearchIcon className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+  ),
 };

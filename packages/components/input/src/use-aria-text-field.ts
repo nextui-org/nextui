@@ -96,6 +96,8 @@ export interface TextFieldAria<T extends TextFieldIntrinsicElements = DefaultEle
  * Provides the behavior and accessibility implementation for a text field.
  * @param props - Props for the text field.
  * @param ref - Ref to the HTML input or textarea element.
+ *
+ * @internal
  */
 export function useAriaTextField<T extends TextFieldIntrinsicElements = DefaultElementType>(
   props: AriaTextFieldOptions<T>,
