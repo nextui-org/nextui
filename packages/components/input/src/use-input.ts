@@ -9,7 +9,7 @@ import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref} from "react";
-import {chain, mergeProps} from "@react-aria/utils";
+import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 
 import {useAriaTextField} from "./use-aria-text-field";
 
@@ -169,25 +169,23 @@ export function useInput(originalProps: UseInputProps) {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
-      ...mergeProps(focusProps, inputProps, otherProps, props),
+      ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
     };
   };
 
   const getInputWrapperProps: PropGetter = (props = {}) => {
-    const canFocusInput = domRef.current && !startContent && !endContent;
-
     return {
       className: slots.inputWrapper({
         class: clsx(styles?.inputWrapper, !!inputValue ? "is-filled" : ""),
       }),
-      onClick: () => {
-        if (canFocusInput) {
-          domRef.current.focus();
+      onClick: (e: React.MouseEvent) => {
+        if (e.target === e.currentTarget) {
+          domRef.current?.focus();
         }
       },
       ...props,
       style: {
-        cursor: canFocusInput ? "text" : "default",
+        cursor: "text",
         ...props.style,
       },
     };
