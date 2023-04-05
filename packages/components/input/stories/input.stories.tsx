@@ -123,7 +123,7 @@ const RegexValidationTemplate: ComponentStory<typeof Input> = (args: InputProps)
         placeholder="Enter your email"
         validationState={validationState}
         value={value}
-        onChange={setValue}
+        onValueChange={setValue}
       />
     </div>
   );
@@ -134,7 +134,7 @@ const ControlledTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
 
   return (
     <div className="w-full flex flex-col gap-2 max-w-[240px]">
-      <Input {...args} placeholder="Enter your email" value={value} onChange={setValue} />
+      <Input {...args} placeholder="Enter your email" value={value} onValueChange={setValue} />
       <p className="text-neutral-500 text-sm">Input value: {value}</p>
     </div>
   );
@@ -432,11 +432,6 @@ const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args: InputProps)
       </Component>
     </div>
   );
-};
-
-export const Empty = Template.bind({});
-Empty.args = {
-  label: "Email",
 };
 
 export const Default = MirrorTemplate.bind({});

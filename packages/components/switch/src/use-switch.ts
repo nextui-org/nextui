@@ -7,7 +7,7 @@ import {ReactNode, Ref, useCallback, useId, useRef} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
 import {useHover} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useFocusableRef} from "@nextui-org/dom-utils";
 import {useSwitch as useReactAriaSwitch} from "@react-aria/switch";
@@ -64,10 +64,14 @@ interface Props extends HTMLNextUIProps<"label"> {
    * ```
    */
   styles?: SlotsToClasses<ToggleSlots>;
+  /**
+   * React aria onChange event.
+   */
+  onValueChange?: AriaSwitchProps["onChange"];
 }
 
-export type UseSwitchProps = Omit<Props, "defaultChecked" | "onChange"> &
-  Omit<AriaSwitchProps, keyof ToggleVariantProps> &
+export type UseSwitchProps = Omit<Props, "defaultChecked"> &
+  Omit<AriaSwitchProps, keyof ToggleVariantProps | "onChange"> &
   ToggleVariantProps;
 
 export function useSwitch(originalProps: UseSwitchProps) {
@@ -89,6 +93,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     className,
     styles,
     onChange,
+    onValueChange,
     ...otherProps
   } = props;
 
@@ -114,7 +119,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
       isReadOnly,
       "aria-label": ariaLabel,
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
-      onChange,
+      onChange: onValueChange,
     };
   }, [
     value,
@@ -127,7 +132,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     originalProps.isDisabled,
     otherProps["aria-label"],
     otherProps["aria-labelledby"],
-    onChange,
+    onValueChange,
   ]);
 
   const state = useToggleState(ariaSwitchProps);
@@ -188,6 +193,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
       ref: inputRef,
       id: inputProps.id,
       ...mergeProps(inputProps, focusProps),
+      onChange: chain(onChange, inputProps.onChange),
     };
   };
 
@@ -219,7 +225,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
         includeStateProps: false,
       },
     ) =>
-      mergeProps(
+      (mergeProps(
         {
           width: "1em",
           height: "1em",
@@ -231,7 +237,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
               isSelected: isSelected,
             }
           : {},
-      ) as unknown as SwitchThumbIconProps,
+      ) as unknown) as SwitchThumbIconProps,
     [slots, styles?.thumbIcon, isSelected, originalProps.disableAnimation],
   );
 

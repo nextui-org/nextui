@@ -14,7 +14,7 @@ import {mergeProps} from "@react-aria/utils";
 
 import {RadioProps} from "./index";
 
-interface Props extends HTMLNextUIProps<"div", AriaRadioGroupProps> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -40,10 +40,15 @@ interface Props extends HTMLNextUIProps<"div", AriaRadioGroupProps> {
    * ```
    */
   styles?: SlotsToClasses<RadioGroupSlots>;
+  /**
+   * React aria onChange event.
+   */
+  onValueChange?: AriaRadioGroupProps["onChange"];
 }
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
-  Pick<RadioProps, "color" | "size" | "radius" | "isDisabled" | "disableAnimation">;
+  Omit<AriaRadioGroupProps, "onChange"> &
+  Pick<RadioProps, "color" | "size" | "radius" | "isDisabled" | "disableAnimation" | "onChange">;
 
 export type ContextType = {
   groupState: RadioGroupState;
@@ -54,6 +59,7 @@ export type ContextType = {
   radius?: RadioProps["radius"];
   isDisabled?: RadioProps["isDisabled"];
   disableAnimation?: RadioProps["disableAnimation"];
+  onChange?: RadioProps["onChange"];
 };
 
 export function useRadioGroup(props: UseRadioGroupProps) {
@@ -72,6 +78,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     isRequired = false,
     validationState,
     className,
+    onChange,
+    onValueChange,
     ...otherProps
   } = props;
 
@@ -85,8 +93,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
       isRequired,
       orientation,
+      onChange: onValueChange,
     };
-  }, [otherProps]);
+  }, [otherProps, onValueChange]);
 
   const groupState = useRadioGroupState(otherPropsWithOrientation);
 
@@ -105,8 +114,19 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       validationState,
       isDisabled,
       disableAnimation,
+      onChange,
     }),
-    [size, color, radius, groupState, isRequired, validationState, isDisabled, disableAnimation],
+    [
+      size,
+      color,
+      radius,
+      groupState,
+      isRequired,
+      validationState,
+      isDisabled,
+      disableAnimation,
+      onChange,
+    ],
   );
 
   const slots = useMemo(() => radioGroup(), []);

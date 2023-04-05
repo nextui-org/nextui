@@ -8,12 +8,12 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref} from "react";
+import {useMemo, Ref, RefObject} from "react";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 
-import {useAriaTextField} from "./use-aria-text-field";
+import {useAriaTextField} from "./use-aria-textfield";
 
-export interface Props extends Omit<HTMLNextUIProps<"input">, "onChange"> {
+export interface Props extends HTMLNextUIProps<"input"> {
   /**
    * Ref to the DOM node.
    */
@@ -30,11 +30,6 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, "onChange"> {
    */
   endContent?: React.ReactNode;
   /**
-   * Callback fired when the value is cleared.
-   * if you pass this prop, the clear button will be shown.
-   */
-  onClear?: () => void;
-  /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -47,14 +42,23 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, "onChange"> {
    *    input: "input-classes",
    *    clearButton: "clear-button-classes",
    *    description: "description-classes",
-   *    helperText: "helper-text-classes",
+   *    errorMessage: "error-message-classes",
    * }} />
    * ```
    */
   styles?: SlotsToClasses<InputSlots>;
+  /**
+   * Callback fired when the value is cleared.
+   * if you pass this prop, the clear button will be shown.
+   */
+  onClear?: () => void;
+  /**
+   * React aria onChange event.
+   */
+  onValueChange?: AriaTextFieldProps["onChange"];
 }
 
-export type UseInputProps = Props & AriaTextFieldProps & InputVariantProps;
+export type UseInputProps = Props & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
 
 export function useInput(originalProps: UseInputProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
@@ -72,6 +76,7 @@ export function useInput(originalProps: UseInputProps) {
     endContent,
     onClear,
     onChange,
+    onValueChange,
     ...otherProps
   } = props;
 
@@ -79,8 +84,11 @@ export function useInput(originalProps: UseInputProps) {
 
   const Component = as || "div";
   const baseStyles = clsx(styles?.base, className, !!inputValue ? "is-filled" : "");
+  const isMultiline = originalProps.isMultiline;
 
-  const domRef = useDOMRef<HTMLInputElement>(ref);
+  const domRef = useDOMRef(ref) as typeof isMultiline extends "true"
+    ? RefObject<HTMLTextAreaElement>
+    : RefObject<HTMLInputElement>;
 
   const handleClear = () => {
     setInputValue(undefined);
@@ -95,8 +103,9 @@ export function useInput(originalProps: UseInputProps) {
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useAriaTextField(
     {
       ...originalProps,
+      inputElementType: isMultiline ? "textarea" : "input",
       value: inputValue,
-      onChange: chain(onChange, setInputValue),
+      onChange: chain(onValueChange, setInputValue),
     },
     domRef,
   );
@@ -115,7 +124,7 @@ export function useInput(originalProps: UseInputProps) {
 
   const isInvalid = props.validationState === "invalid";
   const labelPosition = originalProps.labelPosition || "inside";
-  const isLabelPlaceholder = !props.placeholder && labelPosition !== "outside-left";
+  const isLabelPlaceholder = !props.placeholder && labelPosition !== "outside-left" && !isMultiline;
   const isClearable = !!onClear || originalProps.isClearable;
 
   const shouldLabelBeOutside = labelPosition === "outside" || labelPosition === "outside-left";
@@ -170,6 +179,7 @@ export function useInput(originalProps: UseInputProps) {
       "data-focused": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
       ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
+      onChange: chain(inputProps.onChange, onChange),
     };
   };
 
@@ -235,6 +245,7 @@ export function useInput(originalProps: UseInputProps) {
     endContent,
     labelPosition,
     isClearable,
+    isInvalid,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     errorMessage,

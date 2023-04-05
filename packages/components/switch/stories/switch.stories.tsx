@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {toggle} from "@nextui-org/theme";
@@ -55,7 +56,7 @@ const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => 
         styles={{
           leftIcon: "text-white",
         }}
-        onChange={setIsSelected}
+        onValueChange={setIsSelected}
       />
       <p className="text-neutral-500">Selected: {isSelected ? "true" : "false"}</p>
     </div>
@@ -67,7 +68,7 @@ const ControlledTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) =>
 
   return (
     <div className="flex flex-col gap-2">
-      <Switch {...args} isSelected={isSelected} onChange={setIsSelected} />
+      <Switch {...args} isSelected={isSelected} onValueChange={setIsSelected} />
       <p className="text-neutral-500">Selected: {isSelected ? "true" : "false"}</p>
     </div>
   );
@@ -89,7 +90,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Switch> = (args: SwitchPro
             },
           ),
         }}
-        onChange={setIsSelected}
+        onValueChange={setIsSelected}
         {...args}
       >
         <div className="flex flex-col gap-1">
@@ -105,8 +106,9 @@ const CustomWithStylesTemplate: ComponentStory<typeof Switch> = (args: SwitchPro
 };
 
 const CustomWithHooksTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
-  const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} =
-    useSwitch(args);
+  const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} = useSwitch(
+    args,
+  );
 
   return (
     <div className="flex flex-col gap-2">

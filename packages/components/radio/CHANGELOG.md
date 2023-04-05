@@ -1,5 +1,27 @@
 # @nextui-org/radio
 
+## 0.0.0-dev-v2-20230405205125
+
+### Patch Changes
+
+- Native events exposed in all form elements
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230405205125
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405205125
+  - @nextui-org/system@0.0.0-dev-v2-20230405205125
+  - @nextui-org/theme@0.0.0-dev-v2-20230405205125
+
+## 0.0.0-dev-v2-20230405200614
+
+### Patch Changes
+
+- Textarea component added
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230405200614
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405200614
+  - @nextui-org/system@0.0.0-dev-v2-20230405200614
+  - @nextui-org/theme@0.0.0-dev-v2-20230405200614
+
 ## 0.0.0-dev-v2-20230405030905
 
 ### Patch Changes

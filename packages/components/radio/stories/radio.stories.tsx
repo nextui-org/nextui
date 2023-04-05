@@ -117,7 +117,12 @@ const ControlledTemplate: ComponentStory<typeof RadioGroup> = (args: RadioGroupP
 
   return (
     <div className="flex flex-col gap-2">
-      <RadioGroup label="Select city" value={selectedItem} onChange={setSelectedItem} {...args}>
+      <RadioGroup
+        label="Select city"
+        value={selectedItem}
+        onValueChange={setSelectedItem}
+        {...args}
+      >
         <Radio value="buenos-aires">Buenos Aires</Radio>
         <Radio value="sydney">Sydney</Radio>
         <Radio value="london">London</Radio>

@@ -1,5 +1,61 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230405205125
+
+### Patch Changes
+
+- Native events exposed in all form elements
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230405205125
+  - @nextui-org/accordion@0.0.0-dev-v2-20230405205125
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230405205125
+  - @nextui-org/progress@0.0.0-dev-v2-20230405205125
+  - @nextui-org/snippet@0.0.0-dev-v2-20230405205125
+  - @nextui-org/spinner@0.0.0-dev-v2-20230405205125
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230405205125
+  - @nextui-org/avatar@0.0.0-dev-v2-20230405205125
+  - @nextui-org/button@0.0.0-dev-v2-20230405205125
+  - @nextui-org/switch@0.0.0-dev-v2-20230405205125
+  - @nextui-org/badge@0.0.0-dev-v2-20230405205125
+  - @nextui-org/input@0.0.0-dev-v2-20230405205125
+  - @nextui-org/radio@0.0.0-dev-v2-20230405205125
+  - @nextui-org/card@0.0.0-dev-v2-20230405205125
+  - @nextui-org/chip@0.0.0-dev-v2-20230405205125
+  - @nextui-org/code@0.0.0-dev-v2-20230405205125
+  - @nextui-org/drip@0.0.0-dev-v2-20230405205125
+  - @nextui-org/link@0.0.0-dev-v2-20230405205125
+  - @nextui-org/user@0.0.0-dev-v2-20230405205125
+  - @nextui-org/system@0.0.0-dev-v2-20230405205125
+  - @nextui-org/theme@0.0.0-dev-v2-20230405205125
+
+## 0.0.0-dev-v2-20230405200614
+
+### Patch Changes
+
+- Textarea component added
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230405200614
+  - @nextui-org/accordion@0.0.0-dev-v2-20230405200614
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230405200614
+  - @nextui-org/progress@0.0.0-dev-v2-20230405200614
+  - @nextui-org/snippet@0.0.0-dev-v2-20230405200614
+  - @nextui-org/spinner@0.0.0-dev-v2-20230405200614
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230405200614
+  - @nextui-org/avatar@0.0.0-dev-v2-20230405200614
+  - @nextui-org/button@0.0.0-dev-v2-20230405200614
+  - @nextui-org/switch@0.0.0-dev-v2-20230405200614
+  - @nextui-org/badge@0.0.0-dev-v2-20230405200614
+  - @nextui-org/input@0.0.0-dev-v2-20230405200614
+  - @nextui-org/radio@0.0.0-dev-v2-20230405200614
+  - @nextui-org/card@0.0.0-dev-v2-20230405200614
+  - @nextui-org/chip@0.0.0-dev-v2-20230405200614
+  - @nextui-org/code@0.0.0-dev-v2-20230405200614
+  - @nextui-org/drip@0.0.0-dev-v2-20230405200614
+  - @nextui-org/link@0.0.0-dev-v2-20230405200614
+  - @nextui-org/user@0.0.0-dev-v2-20230405200614
+  - @nextui-org/system@0.0.0-dev-v2-20230405200614
+  - @nextui-org/theme@0.0.0-dev-v2-20230405200614
+
 ## 0.0.0-dev-v2-20230405030905
 
 ### Patch Changes

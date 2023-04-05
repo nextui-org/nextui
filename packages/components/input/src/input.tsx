@@ -5,7 +5,10 @@ import {useMemo} from "react";
 import {UseInputProps, useInput} from "./use-input";
 
 export interface InputProps
-  extends Omit<UseInputProps, "ref" | "isClearButtonFocusVisible" | "isLabelPlaceholder"> {}
+  extends Omit<
+    UseInputProps,
+    "ref" | "isClearButtonFocusVisible" | "isLabelPlaceholder" | "isTextarea"
+  > {}
 
 const Input = forwardRef<InputProps, "input">((props, ref) => {
   const {
@@ -59,8 +62,11 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
         {shouldLabelBeInside ? labelContent : null}
         {innerWrapper}
       </div>
-      {description && <div {...getDescriptionProps()}>{description}</div>}
-      {errorMessage && <div {...getErrorMessageProps()}>{errorMessage}</div>}
+      {errorMessage ? (
+        <div {...getErrorMessageProps()}>{errorMessage}</div>
+      ) : description ? (
+        <div {...getDescriptionProps()}>{description}</div>
+      ) : null}
     </Component>
   );
 });

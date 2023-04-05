@@ -8,7 +8,7 @@ import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
 import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusableRef} from "@nextui-org/dom-utils";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {
@@ -46,6 +46,10 @@ interface Props extends HTMLNextUIProps<"label"> {
    */
   icon?: ReactNode | ((props: CheckboxIconProps) => ReactNode);
   /**
+   * React aria onChange event.
+   */
+  onValueChange?: AriaCheckboxProps["onChange"];
+  /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -62,8 +66,8 @@ interface Props extends HTMLNextUIProps<"label"> {
   styles?: SlotsToClasses<CheckboxSlots>;
 }
 
-export type UseCheckboxProps = Omit<Props, "defaultChecked" | "onChange"> &
-  Omit<AriaCheckboxProps, keyof CheckboxVariantProps> &
+export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
+  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
   Omit<CheckboxVariantProps, "isFocusVisible">;
 
 export function useCheckbox(props: UseCheckboxProps) {
@@ -93,6 +97,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     styles,
     onChange,
     className,
+    onValueChange,
     ...otherProps
   } = props;
 
@@ -136,7 +141,7 @@ export function useCheckbox(props: UseCheckboxProps) {
       validationState,
       "aria-label": ariaLabel,
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
-      onChange,
+      onChange: onValueChange,
     };
   }, [
     value,
@@ -151,7 +156,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     validationState,
     otherProps["aria-label"],
     otherProps["aria-labelledby"],
-    onChange,
+    onValueChange,
   ]);
 
   const {inputProps} = isInGroup
@@ -227,6 +232,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     return {
       ref: inputRef,
       ...mergeProps(inputProps, focusProps),
+      onChange: chain(inputProps.onChange, onChange),
     };
   };
 

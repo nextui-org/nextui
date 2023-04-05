@@ -1,5 +1,35 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230405205125
+
+### Patch Changes
+
+- Native events exposed in all form elements
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230405205125
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230405205125
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230405205125
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230405205125
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230405205125
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405205125
+  - @nextui-org/system@0.0.0-dev-v2-20230405205125
+  - @nextui-org/theme@0.0.0-dev-v2-20230405205125
+
+## 0.0.0-dev-v2-20230405200614
+
+### Patch Changes
+
+- Textarea component added
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230405200614
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230405200614
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230405200614
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230405200614
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230405200614
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405200614
+  - @nextui-org/system@0.0.0-dev-v2-20230405200614
+  - @nextui-org/theme@0.0.0-dev-v2-20230405200614
+
 ## 0.0.0-dev-v2-20230405030905
 
 ### Patch Changes

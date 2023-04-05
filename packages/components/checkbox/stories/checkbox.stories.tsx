@@ -68,7 +68,7 @@ const ControlledTemplate: ComponentStory<typeof Checkbox> = (args: CheckboxProps
 
   return (
     <div className="flex flex-col gap-2">
-      <Checkbox isSelected={selected} onChange={setSelected} {...args}>
+      <Checkbox isSelected={selected} onValueChange={setSelected} {...args}>
         Subscribe (controlled)
       </Checkbox>
       <p className="text-neutral-500">Selected: {selected ? "true" : "false"}</p>
@@ -170,7 +170,7 @@ export const CustomWithStyles = (props: CustomCheckboxProps) => {
   const checkboxProps = !isInGroup
     ? {
         isSelected,
-        onChange: setIsSelected,
+        onValueChange: setIsSelected,
       }
     : {};
 

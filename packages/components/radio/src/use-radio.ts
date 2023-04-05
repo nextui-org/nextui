@@ -10,7 +10,7 @@ import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 
 import {useRadioGroupContext} from "./radio-group-context";
 
@@ -66,6 +66,7 @@ export function useRadio(props: UseRadioProps) {
     radius = groupContext?.radius ?? "full",
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
+    onChange = groupContext?.onChange,
     autoFocus = false,
     className,
     ...otherProps
@@ -89,10 +90,9 @@ export function useRadio(props: UseRadioProps) {
 
   const isDisabled = useMemo(() => !!isDisabledProp, [isDisabledProp]);
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
-  const isInvalid = useMemo(
-    () => groupContext.validationState === "invalid",
-    [groupContext.validationState],
-  );
+  const isInvalid = useMemo(() => groupContext.validationState === "invalid", [
+    groupContext.validationState,
+  ]);
 
   const ariaRadioProps = useMemo(() => {
     const ariaLabel =
@@ -186,6 +186,7 @@ export function useRadio(props: UseRadioProps) {
       "data-invalid": dataAttr(isInvalid),
       "data-readonly": dataAttr(inputProps.readOnly),
       ...mergeProps(inputProps, focusProps),
+      onChange: chain(inputProps.onChange, onChange),
     };
   };
 

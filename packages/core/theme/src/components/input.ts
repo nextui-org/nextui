@@ -9,7 +9,7 @@ import {ringClasses} from "../utils";
  *
  * @example
  * ```js
- * const {base, label, inputWrapper, input, clearButton, description, helperText} = input({...})
+ * const {base, label, inputWrapper, input, clearButton, description, errorMessage} = input({...})
  *
  * <div className={base())}>
  *  <label className={label()}>Label</label>
@@ -18,7 +18,7 @@ import {ringClasses} from "../utils";
  *    <button className={clearButton()}>Clear</button>
  *  </div>
  *  <span className={description()}>Description</span>
- *  <span className={helperText()}>Helper text</span>
+ *  <span className={errorMessage()}>Invalid input</span>
  * </div>
  * ```
  */
@@ -207,13 +207,19 @@ const input = tv({
     },
     isInvalid: {
       true: {
-        label: "text-danger",
+        label: "!text-danger",
         input: "placeholder:text-danger text-danger",
       },
     },
     isRequired: {
       true: {
         label: "after:content-['*'] after:text-danger after:ml-0.5",
+      },
+    },
+    isMultiline: {
+      true: {
+        inputWrapper: "!h-auto",
+        input: "resize-none",
       },
     },
     disableAnimation: {
