@@ -840,9 +840,6 @@ importers:
       '@react-aria/focus':
         specifier: ^3.11.0
         version: 3.11.0(react@18.2.0)
-      '@react-aria/i18n':
-        specifier: ^3.7.0
-        version: 3.7.0(react@18.2.0)
       '@react-aria/interactions':
         specifier: ^3.14.0
         version: 3.14.0(react@18.2.0)
@@ -1246,6 +1243,9 @@ importers:
       '@nextui-org/drip':
         specifier: workspace:*
         version: link:../../components/drip
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../../components/input
       '@nextui-org/link':
         specifier: workspace:*
         version: link:../../components/link

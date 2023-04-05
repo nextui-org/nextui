@@ -1,5 +1,88 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230405030905
+
+### Patch Changes
+
+- Fix default labelPlacement in the input
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230405030905
+  - @nextui-org/accordion@0.0.0-dev-v2-20230405030905
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230405030905
+  - @nextui-org/progress@0.0.0-dev-v2-20230405030905
+  - @nextui-org/snippet@0.0.0-dev-v2-20230405030905
+  - @nextui-org/spinner@0.0.0-dev-v2-20230405030905
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230405030905
+  - @nextui-org/avatar@0.0.0-dev-v2-20230405030905
+  - @nextui-org/button@0.0.0-dev-v2-20230405030905
+  - @nextui-org/switch@0.0.0-dev-v2-20230405030905
+  - @nextui-org/badge@0.0.0-dev-v2-20230405030905
+  - @nextui-org/input@0.0.0-dev-v2-20230405030905
+  - @nextui-org/radio@0.0.0-dev-v2-20230405030905
+  - @nextui-org/card@0.0.0-dev-v2-20230405030905
+  - @nextui-org/chip@0.0.0-dev-v2-20230405030905
+  - @nextui-org/code@0.0.0-dev-v2-20230405030905
+  - @nextui-org/drip@0.0.0-dev-v2-20230405030905
+  - @nextui-org/link@0.0.0-dev-v2-20230405030905
+  - @nextui-org/user@0.0.0-dev-v2-20230405030905
+  - @nextui-org/system@0.0.0-dev-v2-20230405030905
+  - @nextui-org/theme@0.0.0-dev-v2-20230405030905
+
+## 0.0.0-dev-v2-20230405024854
+
+### Patch Changes
+
+- Input component added to the react exports
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230405024854
+  - @nextui-org/accordion@0.0.0-dev-v2-20230405024854
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230405024854
+  - @nextui-org/progress@0.0.0-dev-v2-20230405024854
+  - @nextui-org/snippet@0.0.0-dev-v2-20230405024854
+  - @nextui-org/spinner@0.0.0-dev-v2-20230405024854
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230405024854
+  - @nextui-org/avatar@0.0.0-dev-v2-20230405024854
+  - @nextui-org/button@0.0.0-dev-v2-20230405024854
+  - @nextui-org/switch@0.0.0-dev-v2-20230405024854
+  - @nextui-org/badge@0.0.0-dev-v2-20230405024854
+  - @nextui-org/input@0.0.0-dev-v2-20230405024854
+  - @nextui-org/radio@0.0.0-dev-v2-20230405024854
+  - @nextui-org/card@0.0.0-dev-v2-20230405024854
+  - @nextui-org/chip@0.0.0-dev-v2-20230405024854
+  - @nextui-org/code@0.0.0-dev-v2-20230405024854
+  - @nextui-org/drip@0.0.0-dev-v2-20230405024854
+  - @nextui-org/link@0.0.0-dev-v2-20230405024854
+  - @nextui-org/user@0.0.0-dev-v2-20230405024854
+  - @nextui-org/system@0.0.0-dev-v2-20230405024854
+  - @nextui-org/theme@0.0.0-dev-v2-20230405024854
+
+## 0.0.0-dev-v2-20230405024536
+
+### Patch Changes
+
+- Input component created
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230405024536
+  - @nextui-org/accordion@0.0.0-dev-v2-20230405024536
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230405024536
+  - @nextui-org/progress@0.0.0-dev-v2-20230405024536
+  - @nextui-org/snippet@0.0.0-dev-v2-20230405024536
+  - @nextui-org/spinner@0.0.0-dev-v2-20230405024536
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230405024536
+  - @nextui-org/avatar@0.0.0-dev-v2-20230405024536
+  - @nextui-org/button@0.0.0-dev-v2-20230405024536
+  - @nextui-org/switch@0.0.0-dev-v2-20230405024536
+  - @nextui-org/badge@0.0.0-dev-v2-20230405024536
+  - @nextui-org/radio@0.0.0-dev-v2-20230405024536
+  - @nextui-org/card@0.0.0-dev-v2-20230405024536
+  - @nextui-org/chip@0.0.0-dev-v2-20230405024536
+  - @nextui-org/code@0.0.0-dev-v2-20230405024536
+  - @nextui-org/drip@0.0.0-dev-v2-20230405024536
+  - @nextui-org/link@0.0.0-dev-v2-20230405024536
+  - @nextui-org/user@0.0.0-dev-v2-20230405024536
+  - @nextui-org/system@0.0.0-dev-v2-20230405024536
+  - @nextui-org/theme@0.0.0-dev-v2-20230405024536
+
 ## 0.0.0-dev-v2-20230401132309
 
 ### Patch Changes

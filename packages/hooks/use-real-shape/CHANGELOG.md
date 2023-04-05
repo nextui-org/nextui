@@ -1,5 +1,29 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230405030905
+
+### Patch Changes
+
+- Fix default labelPlacement in the input
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405030905
+
+## 0.0.0-dev-v2-20230405024854
+
+### Patch Changes
+
+- Input component added to the react exports
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405024854
+
+## 0.0.0-dev-v2-20230405024536
+
+### Patch Changes
+
+- Input component created
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230405024536
+
 ## 0.0.0-dev-v2-20230401132309
 
 ### Patch Changes

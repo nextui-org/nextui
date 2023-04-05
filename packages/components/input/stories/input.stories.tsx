@@ -434,6 +434,11 @@ const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args: InputProps)
   );
 };
 
+export const Empty = Template.bind({});
+Empty.args = {
+  label: "Email",
+};
+
 export const Default = MirrorTemplate.bind({});
 Default.args = {
   ...defaultProps,

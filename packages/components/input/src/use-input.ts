@@ -114,7 +114,7 @@ export function useInput(originalProps: UseInputProps) {
   });
 
   const isInvalid = props.validationState === "invalid";
-  const labelPosition = originalProps.labelPosition || "outside";
+  const labelPosition = originalProps.labelPosition || "inside";
   const isLabelPlaceholder = !props.placeholder && labelPosition !== "outside-left";
   const isClearable = !!onClear || originalProps.isClearable;
 
