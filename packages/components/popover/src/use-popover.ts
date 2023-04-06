@@ -20,7 +20,7 @@ import {popover} from "@nextui-org/theme";
 import {chain, mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx} from "@nextui-org/shared-utils";
-import {useId, useMemo, useCallback, useImperativeHandle, useRef, useEffect} from "react";
+import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
 
 export interface Props extends HTMLNextUIProps<"div", PopoverVariantProps> {
   /**
@@ -160,15 +160,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     state.close();
   }, [state, onClose]);
 
-  // control open state from outside
-  useEffect(() => {
-    if (isOpen === undefined) return;
-
-    if (isOpen !== state.isOpen) {
-      isOpen ? state.open() : handleClose();
-    }
-  }, [isOpen, handleClose]);
-
   const slots = useMemo(
     () =>
       popover({
@@ -180,8 +171,8 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const baseStyles = clsx(styles?.base, className);
 
-  const getPopoverProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
-    ref: mergeRefs(_ref, overlayRef),
+  const getPopoverProps: PropGetter = (props = {}) => ({
+    ref: overlayRef,
     className: slots.base({class: baseStyles}),
     ...mergeProps(
       overlayTriggerProps,
@@ -223,7 +214,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     placement: placementProp,
     isOpen: state.isOpen,
     onClose: handleClose,
-    disableAnimation: originalProps.disableAnimation,
+    disableAnimation: originalProps.disableAnimation ?? false,
     motionProps,
     getPopoverProps,
     getTriggerProps,

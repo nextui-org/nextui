@@ -1,10 +1,10 @@
 import {ReactNode, useMemo, useCallback} from "react";
-import {OverlayContainer, DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {forwardRef} from "@nextui-org/system";
+import {DismissButton} from "@react-aria/overlays";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {FocusScope} from "@react-aria/focus";
 import {AnimatePresence, motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
-import {clsx} from "@nextui-org/shared-utils";
 
 import {usePopoverContext} from "./popover-context";
 
@@ -12,8 +12,8 @@ export interface PopoverContentProps {
   children: ReactNode;
 }
 
-const PopoverContent = forwardRef<PopoverContentProps, "div">((props, ref) => {
-  const {children, as, className: classNameProp, ...otherProps} = props;
+const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => {
+  const {as, children} = props;
 
   const {
     Component: OverlayComponent,
@@ -29,7 +29,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "div">((props, ref) => {
 
   const Component = as || OverlayComponent || "div";
 
-  const {className, ...otherPopoverProps} = getPopoverProps(otherProps, ref);
+  const {className, ...otherPopoverProps} = getPopoverProps();
 
   const arrowContent = useMemo(() => {
     if (!showArrow) return null;
@@ -40,15 +40,17 @@ const PopoverContent = forwardRef<PopoverContentProps, "div">((props, ref) => {
   const ContentWrapper = useCallback(
     ({children}: {children: ReactNode}) => {
       return (
-        <Component className={clsx(className, classNameProp)}>
-          <DismissButton onDismiss={onClose} />
-          {children}
-          {arrowContent}
-          <DismissButton onDismiss={onClose} />
-        </Component>
+        <FocusScope restoreFocus>
+          <Component className={className}>
+            <DismissButton onDismiss={onClose} />
+            {children}
+            {arrowContent}
+            <DismissButton onDismiss={onClose} />
+          </Component>
+        </FocusScope>
       );
     },
-    [Component, className, classNameProp, arrowContent, onClose],
+    [Component, disableAnimation, className, arrowContent, onClose],
   );
 
   const animatedContent = useMemo(() => {
@@ -73,13 +75,9 @@ const PopoverContent = forwardRef<PopoverContentProps, "div">((props, ref) => {
   return (
     <>
       {disableAnimation && isOpen ? (
-        <OverlayContainer>
-          <ContentWrapper {...otherPopoverProps}>{children}</ContentWrapper>;
-        </OverlayContainer>
+        <ContentWrapper>{children}</ContentWrapper>
       ) : (
-        <AnimatePresence initial={false}>
-          {isOpen ? <OverlayContainer>{animatedContent}</OverlayContainer> : null}
-        </AnimatePresence>
+        <AnimatePresence initial={false}>{isOpen ? animatedContent : null}</AnimatePresence>
       )}
     </>
   );
