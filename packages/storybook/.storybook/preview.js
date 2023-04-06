@@ -1,13 +1,16 @@
 import React from "react";
 import {themes} from "@storybook/theming";
+import {NextUIProvider} from "@nextui-org/react";
 import Style from "./style";
 
 export const decorators = [
   (Story) => (
-    <div className="bg-dark">
-      <Style />
-      <Story />
-    </div>
+    <NextUIProvider>
+      <div className="bg-dark">
+        <Style />
+        <Story />
+      </div>
+    </NextUIProvider>
   ),
 ];
 

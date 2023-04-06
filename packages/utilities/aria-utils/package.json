@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@react-types/shared": "^3.17.0",
+    "@react-types/overlays": "^3.7.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

@@ -39,11 +39,10 @@
   "dependencies": {
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
-    "@react-aria/focus": "^3.11.0",
     "@react-aria/overlays": "^3.13.0",
     "@react-aria/tooltip": "^3.4.0",
     "@react-stately/tooltip": "^3.3.0",

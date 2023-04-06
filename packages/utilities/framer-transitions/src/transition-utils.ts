@@ -46,6 +46,36 @@ export const TRANSITION_EASINGS = {
 } as const;
 
 export const TRANSITION_VARIANTS = {
+  scaleSpring: {
+    enter: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        opacity: {
+          easings: "easeOut",
+          duration: 0.2,
+        },
+        scale: {
+          duration: 0.3,
+          ease: TRANSITION_EASINGS.softSpring,
+        },
+      },
+    },
+    exit: {
+      scale: 0.6,
+      opacity: 0,
+      transition: {
+        opacity: {
+          duration: 0.15,
+          easings: "easeInOut",
+        },
+        scale: {
+          duration: 0.2,
+          easings: "easeInOut",
+        },
+      },
+    },
+  },
   scale: {
     enter: {scale: 1},
     exit: {scale: 0.95},

@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/react": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

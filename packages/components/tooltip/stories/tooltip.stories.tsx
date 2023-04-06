@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {ButtonVariantProps, tooltip} from "@nextui-org/theme";
+import {ButtonVariantProps, popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 
 import {Tooltip, TooltipProps} from "../src";
@@ -87,7 +87,7 @@ export default {
 } as ComponentMeta<typeof Tooltip>;
 
 const defaultProps = {
-  ...tooltip.defaultVariants,
+  ...popover.defaultVariants,
   placement: "top",
   delay: 0,
   offset: 7,

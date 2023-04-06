@@ -2,12 +2,12 @@ import {forwardRef} from "@nextui-org/system";
 import {useMemo} from "react";
 import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, motion} from "framer-motion";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {warn} from "@nextui-org/shared-utils";
 import {Children, cloneElement} from "react";
+import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
-import {scale} from "./tooltip-transition";
-import {getOrigins} from "./utils";
 
 export interface TooltipProps extends Omit<UseTooltipProps, "ref"> {}
 
@@ -61,9 +61,9 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
           exit="exit"
           initial="exit"
           style={{
-            ...getOrigins(placement),
+            ...getTransformOrigins(placement),
           }}
-          variants={scale}
+          variants={TRANSITION_VARIANTS.scaleSpring}
           {...motionProps}
         >
           <Component className={className}>

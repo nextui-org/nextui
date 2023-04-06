@@ -1,8 +1,8 @@
-import type {TooltipVariantProps, SlotsToClasses, TooltipSlots} from "@nextui-org/theme";
+import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
-import type {TooltipPlacement} from "./types";
+import type {OverlayOptions} from "@nextui-org/aria-utils";
 
 import {ReactNode, Ref, useEffect, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
@@ -10,18 +10,13 @@ import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {tooltip} from "@nextui-org/theme";
+import {popover} from "@nextui-org/theme";
 import {ReactRef, mergeRefs, clsx} from "@nextui-org/shared-utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useRef, useCallback} from "react";
+import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 
-import {toReactAriaPlacement, getArrowPlacement} from "./utils";
-
-export interface UseTooltipProps
-  extends HTMLNextUIProps<"div", TooltipVariantProps>,
-    AriaTooltipProps,
-    AriaOverlayProps,
-    OverlayTriggerProps {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -39,11 +34,6 @@ export interface UseTooltipProps
    */
   isDisabled?: boolean;
   /**
-   * Whether the tooltip should have an arrow.
-   * @default false
-   */
-  showArrow?: boolean;
-  /**
    * The delay time for the tooltip to show up.
    * @default 0
    */
@@ -54,38 +44,9 @@ export interface UseTooltipProps
    */
   closeDelay?: number;
   /**
-   * The additional offset applied along the main axis between the element and its
-   * anchor element.
-   * @default 7 (px) - if `showArrow` is true the default value is 10 (px)
-   */
-  offset?: number;
-  /**
-   * The additional offset applied along the cross axis between the element and its
-   * anchor element.
-   * @default 0
-   */
-  crossOffset?: number;
-  /**
-   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when
-   * there is insufficient room for it to render completely.
-   * @default true
-   */
-  shouldFlip?: boolean;
-  /**
    * By default, opens for both focus and hover. Can be made to open only for focus.
    */
   trigger?: "focus";
-  /**
-   * The placement of the element with respect to its anchor element.
-   * @default 'top'
-   */
-  placement?: TooltipPlacement;
-  /**
-   * The placement padding that should be applied between the element and its
-   * surrounding container.
-   * @default 12
-   */
-  containerPadding?: number;
   /**
    * The properties passed to the underlying `Collapse` component.
    */
@@ -102,13 +63,18 @@ export interface UseTooltipProps
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<TooltipSlots>;
-  /** Handler that is called when the overlay should close. */
-  onClose?: () => void;
+  styles?: SlotsToClasses<PopoverSlots>;
 }
 
+export type UseTooltipProps = Props &
+  AriaTooltipProps &
+  AriaOverlayProps &
+  OverlayTriggerProps &
+  OverlayOptions &
+  PopoverVariantProps;
+
 export function useTooltip(originalProps: UseTooltipProps) {
-  const [props, variantProps] = mapPropsVariants(originalProps, tooltip.variantKeys);
+  const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
 
   const {
     ref,
@@ -193,11 +159,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     state,
   );
 
-  const {
-    overlayProps: positionProps,
-    arrowProps,
-    placement,
-  } = useOverlayPosition({
+  const {overlayProps: positionProps, arrowProps, placement} = useOverlayPosition({
     isOpen: isOpen,
     targetRef: triggerRef,
     placement: toReactAriaPlacement(placementProp),
@@ -222,7 +184,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const slots = useMemo(
     () =>
-      tooltip({
+      popover({
         ...variantProps,
       }),
     [...Object.values(variantProps)],
@@ -266,7 +228,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
       "data-placement": getArrowPlacement(placement, placementProp),
       ...arrowProps,
     }),
-    [arrowProps, placement, slots, styles],
+    [arrowProps, placement, placementProp, slots, styles],
   );
 
   return {

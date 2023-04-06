@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/system",
-  "version": "0.0.0-dev-v2-20230405205125",
-  "description": "NextUI system primitives",
+  "name": "@nextui-org/popover",
+  "version": "2.0.0-beta.1",
+  "description": "A popover is an overlay element positioned relative to a trigger.",
   "keywords": [
-    "system"
+    "popover"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,24 +19,41 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/core/system"
+    "directory": "packages/components/popover"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
     "react": ">=18"
   },
+  "dependencies": {
+    "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "@react-aria/dialog": "^3.5.1",
+    "@react-aria/interactions": "^3.14.0",
+    "@react-aria/overlays": "^3.13.0",
+    "@react-aria/utils": "^3.15.0",
+    "@react-stately/overlays": "^3.5.0",
+    "@react-aria/focus": "^3.11.0",
+    "framer-motion": "^10.6.0"
+  },
   "devDependencies": {
+    "@nextui-org/button": "workspace:*",
+    "@react-types/overlays": "^3.7.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },
@@ -48,9 +65,5 @@
       "cjs",
       "esm"
     ]
-  },
-  "dependencies": {
-    "@react-aria/ssr": "^3.5.0",
-    "@react-aria/overlays": "^3.13.0"
   }
 }

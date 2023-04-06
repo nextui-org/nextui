@@ -2,22 +2,22 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {colorVariants} from "../utils";
+import {colorVariants, ringClasses} from "../utils";
 /**
- * Tooltip wrapper **Tailwind Variants** component
+ * Popover wrapper **Tailwind Variants** component
  *
- * const { base, arrow } = tooltip({...})
+ * const { base, arrow } = popover({...})
  *
  * @example
  * <div>
  *  <button>your trigger</button>
- *  <div role="tooltip" className={base()}>
- *    // tooltip content
+ *  <div className={base()}>
+ *    // popover content
  *    <span className={arrow()} data-placement="top/bottom/left/right..." /> // arrow
  *  </div>
  * </div>
  */
-const tooltip = tv({
+const popover = tv({
   slots: {
     base: [
       "z-10",
@@ -98,6 +98,11 @@ const tooltip = tv({
       lg: {base: "rounded-lg"},
       xl: {base: "rounded-xl"},
       full: {base: "rounded-full"},
+    },
+    isFocusVisible: {
+      true: {
+        base: [...ringClasses],
+      },
     },
     disableAnimation: {
       true: {base: "animate-none"},
@@ -294,7 +299,7 @@ const tooltip = tv({
   ],
 });
 
-export type TooltipVariantProps = VariantProps<typeof tooltip>;
-export type TooltipSlots = keyof ReturnType<typeof tooltip>;
+export type PopoverVariantProps = VariantProps<typeof popover>;
+export type PopoverSlots = keyof ReturnType<typeof popover>;
 
-export {tooltip};
+export {popover};
