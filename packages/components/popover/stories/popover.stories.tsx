@@ -2,6 +2,7 @@ import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {popover, ButtonVariantProps} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
+import {Input} from "@nextui-org/input";
 
 import {Popover, PopoverTrigger, PopoverContent, PopoverProps} from "../src";
 
@@ -102,9 +103,29 @@ const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button disableAnimation={args.disableAnimation}>Open popover</Button>
+        <Button disableAnimation={!!args.disableAnimation}>Open popover</Button>
       </PopoverTrigger>
       {content}
+    </Popover>
+  );
+};
+
+const WithTitlePropsTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+  return (
+    <Popover {...args}>
+      <PopoverTrigger>
+        <Button disableAnimation={!!args.disableAnimation}>Open popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        {(titleProps) => (
+          <div className="px-1 py-2">
+            <h3 className="text-sm font-bold" {...titleProps}>
+              Popover Content
+            </h3>
+            <div className="text-xs">This is a content of the popover</div>
+          </div>
+        )}
+      </PopoverContent>
     </Popover>
   );
 };
@@ -339,6 +360,29 @@ const OffsetTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
   </div>
 );
 
+const WithFormTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
+  <Popover {...args}>
+    <PopoverTrigger>
+      <Button>Open popover</Button>
+    </PopoverTrigger>
+    <PopoverContent>
+      {(titleProps) => (
+        <div className="px-1 py-2 w-full">
+          <p className="text-sm font-bold text-foreground" {...titleProps}>
+            Dimensions
+          </p>
+          <div className="mt-2 flex flex-col gap-2 w-full">
+            <Input defaultValue="100%" label="Width" size="sm" variant="bordered" />
+            <Input defaultValue="300px" label="Max. width" size="sm" variant="bordered" />
+            <Input defaultValue="24px" label="Height" size="sm" variant="bordered" />
+            <Input defaultValue="30px" label="Max. height" size="sm" variant="bordered" />
+          </div>
+        </div>
+      )}
+    </PopoverContent>
+  </Popover>
+);
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -348,6 +392,12 @@ export const DisableAnimation = Template.bind({});
 DisableAnimation.args = {
   ...defaultProps,
   disableAnimation: true,
+};
+
+export const TriggerForeground = Template.bind({});
+TriggerForeground.args = {
+  ...defaultProps,
+  isTriggerForeground: true,
 };
 
 export const WithArrow = Template.bind({});
@@ -377,4 +427,19 @@ export const WithOffset = OffsetTemplate.bind({});
 WithOffset.args = {
   ...defaultProps,
   color: "warning",
+};
+
+export const WithTitleProps = WithTitlePropsTemplate.bind({});
+WithTitleProps.args = {
+  ...defaultProps,
+};
+
+export const WithForm = WithFormTemplate.bind({});
+WithForm.args = {
+  ...defaultProps,
+  showArrow: true,
+  offset: 10,
+  placement: "bottom",
+  variant: "shadow",
+  className: "w-[280px] bg-white dark:bg-content1",
 };

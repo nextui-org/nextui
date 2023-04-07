@@ -59,6 +59,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * ```ts
    * <Popover styles={{
    *    base:"base-classes",
+   *    trigger: "trigger-classes",
    *    arrow: "arrow-classes",
    * }} />
    * ```
@@ -166,6 +167,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
         ...mergeProps(triggerProps, props),
+        className: slots.trigger({class: clsx(styles?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
         "aria-controls": popoverId,
         "aria-haspopup": "dialog",

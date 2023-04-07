@@ -13,7 +13,7 @@ import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 
 import {useAriaTextField} from "./use-aria-textfield";
 
-export interface Props extends HTMLNextUIProps<"input"> {
+export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
   /**
    * Ref to the DOM node.
    */

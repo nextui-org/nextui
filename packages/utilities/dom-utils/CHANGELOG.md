@@ -1,5 +1,17 @@
 # @nextui-org/dom-utils
 
+## 0.0.0-dev-v2-20230407155017
+
+### Patch Changes
+
+- Popover a11y improved, titleProps passed by render props, form auto focus added
+
+## 0.0.0-dev-v2-20230407131834
+
+### Patch Changes
+
+- Popover trigger scale down when is open
+
 ## 0.0.0-dev-v2-20230407125356
 
 ### Patch Changes

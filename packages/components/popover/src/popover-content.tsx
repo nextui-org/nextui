@@ -1,18 +1,20 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 
-import {ReactNode, useMemo, useRef} from "react";
+import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
+import {FocusScope} from "@react-aria/focus";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
+import {FocusableElement} from "@react-types/shared";
 
 import {usePopoverContext} from "./popover-context";
 
 export interface PopoverContentProps extends AriaDialogProps {
-  children: ReactNode;
+  children: ReactNode | ((titleProps: DOMAttributes<FocusableElement>) => ReactNode);
 }
 
 const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => {
@@ -33,7 +35,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
   const Component = as || OverlayComponent || "div";
 
   const dialogRef = useRef(null);
-  const {dialogProps} = useDialog(
+  const {dialogProps, titleProps} = useDialog(
     {
       role: "dialog",
     },
@@ -50,7 +52,9 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     <>
       <DismissButton onDismiss={onClose} />
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
-        {children}
+        <FocusScope contain restoreFocus>
+          {typeof children === "function" ? children(titleProps) : children}
+        </FocusScope>
         {arrowContent}
       </Component>
       <DismissButton onDismiss={onClose} />

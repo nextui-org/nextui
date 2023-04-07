@@ -9,7 +9,7 @@ import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
-export interface TooltipProps extends Omit<UseTooltipProps, "ref"> {}
+export interface TooltipProps extends Omit<UseTooltipProps, "ref" | "disableTriggerFocus"> {}
 
 const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
   const {

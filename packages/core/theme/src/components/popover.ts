@@ -6,11 +6,11 @@ import {colorVariants, ringClasses} from "../utils";
 /**
  * Popover wrapper **Tailwind Variants** component
  *
- * const { base, arrow } = popover({...})
+ * const { base, trigger, arrow } = popover({...})
  *
  * @example
  * <div>
- *  <button>your trigger</button>
+ *  <button className={trigger()} aria-expanded="true/false">your trigger</button>
  *  <div className={base()}>
  *    // popover content
  *    <span className={arrow()} data-placement="top/bottom/left/right..." /> // arrow
@@ -32,6 +32,7 @@ const popover = tv({
       "text-base",
       "!outline-none",
     ],
+    trigger: [],
     arrow: [
       "-z-10",
       "absolute",
@@ -78,9 +79,9 @@ const popover = tv({
         arrow: "border-2 border-inherit !bg-background",
       },
       light: {base: "!bg-transparent", arrow: "hidden"},
-      faded: {base: "border-1.5", arrow: "border-1.5 border-inherit"},
+      faded: {base: "border", arrow: "border border-inherit"},
       flat: {base: ""},
-      shadow: {base: ""},
+      shadow: {base: "border border-neutral-100", arrow: "border border-neutral-100"},
     },
     color: {
       neutral: {base: colorVariants.solid.neutral},
@@ -108,11 +109,19 @@ const popover = tv({
     disableAnimation: {
       true: {base: "animate-none"},
     },
+    isTriggerForeground: {
+      true: {},
+      false: {
+        trigger: ["aria-expanded:scale-95", "aria-expanded:opacity-70", "subpixel-antialiased"],
+      },
+    },
   },
   defaultVariants: {
     variant: "solid",
     color: "neutral",
-    radius: "lg",
+    radius: "xl",
+    disableAnimation: false,
+    isTriggerForeground: false,
   },
   compoundVariants: [
     // shadow / color

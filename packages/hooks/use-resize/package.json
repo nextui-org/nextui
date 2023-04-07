@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-resize",
-  "version": "0.0.0-dev-v2-20230407125356",
+  "version": "0.0.0-dev-v2-20230407155017",
   "description": "Hook that adds an event listener to the resize window event",
   "keywords": [
     "use-resize"
