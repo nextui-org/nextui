@@ -3,7 +3,7 @@ import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayPlacement} from "@nextui-org/aria-utils";
 import type {RefObject, Ref} from "react";
 
-import {useOverlayTriggerState} from "@react-stately/overlays";
+import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
 import {
   AriaPopoverProps,
@@ -24,6 +24,10 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * The controlled state of the popover.
+   */
+  state?: OverlayTriggerState;
   /**
    * A ref for the scrollable region within the overlay.
    * @default popoverRef
@@ -79,6 +83,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     ref,
     as,
     children,
+    state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
     isOpen,
@@ -114,11 +119,13 @@ export function usePopover(originalProps: UsePopoverProps) {
     createDOMRef(popoverRef),
   );
 
-  const state = useOverlayTriggerState({
+  const innerState = useOverlayTriggerState({
     isOpen,
     defaultOpen,
     onOpenChange,
   });
+
+  const state = stateProp || innerState;
 
   const {popoverProps, underlayProps, arrowProps, placement} = useReactAriaPopover(
     {

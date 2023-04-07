@@ -23,3 +23,5 @@ export * from "./accordion";
 export * from "./progress";
 export * from "./circular-progress";
 export * from "./input";
+export * from "./dropdown";
+export * from "./dropdown-item";

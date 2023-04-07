@@ -105,11 +105,11 @@ After cloning the repository, execute the following commands in the root folder:
 1. Install dependencies
 
 ```bash
-pnpm i
+pnpm i --hoist
 
 #or
 
-pnpm install
+pnpm install --hoist
 ```
 
 We use [Turbo Repo](https://turborepo.org/) for the project management.

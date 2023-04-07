@@ -509,5 +509,5 @@ WithBackdrop.args = {
   placement: "left",
   variant: "shadow",
   backdropVariant: "blur",
-  className: "w-[280px] bg-white dark:bg-content1",
+  className: "bg-white dark:bg-content1",
 };

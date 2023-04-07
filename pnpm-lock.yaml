@@ -817,6 +817,61 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/dropdown:
+    dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
+      '@nextui-org/dom-utils':
+        specifier: workspace:*
+        version: link:../../utilities/dom-utils
+      '@nextui-org/popover':
+        specifier: workspace:*
+        version: link:../popover
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@react-aria/menu':
+        specifier: ^3.9.0
+        version: 3.9.0(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+      '@react-stately/collections':
+        specifier: ^3.6.0
+        version: 3.7.0(react@18.2.0)
+      '@react-stately/menu':
+        specifier: ^3.5.1
+        version: 3.5.1(react@18.2.0)
+      '@react-stately/tree':
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
+      framer-motion:
+        specifier: ^10.11.2
+        version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
+    devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@react-types/menu':
+        specifier: ^3.9.0
+        version: 3.9.0(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.18.0
+        version: 3.18.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/input:
     dependencies:
       '@nextui-org/dom-utils':
@@ -4061,7 +4116,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.21.0
       '@types/react': 18.0.1
-      clsx: 1.1.0
+      clsx: 1.2.1
       focus-lock: 0.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -5942,6 +5997,28 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/menu@3.9.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-lIbfWzFvYE7EPOno3lVogXHlc6fzswymlpJWiMBKaB68wkfCtknIIL1cwWssiwgGU63v08H5YpQOZdxRwux2PQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/i18n': 3.7.1(react@18.2.0)
+      '@react-aria/interactions': 3.15.0(react@18.2.0)
+      '@react-aria/overlays': 3.14.0(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection': 3.14.0(react@18.2.0)
+      '@react-aria/utils': 3.16.0(react@18.2.0)
+      '@react-stately/collections': 3.7.0(react@18.2.0)
+      '@react-stately/menu': 3.5.1(react@18.2.0)
+      '@react-stately/tree': 3.6.0(react@18.2.0)
+      '@react-types/button': 3.7.2(react@18.2.0)
+      '@react-types/menu': 3.9.0(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@react-aria/overlays@3.14.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-lt4vOj44ho0LpmpaHwQ4VgX7eNfKXig9VD7cvE9u7uyECG51jqt9go19s4+/O+otX7pPrhdYlEB2FxLFJocxfw==}
     peerDependencies:
@@ -6156,6 +6233,19 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-stately/menu@3.5.1(react@18.2.0):
+    resolution: {integrity: sha512-nnuZlDBFIc3gB34kofbKDStFg9r8rijY+7ez2VWQmss72I9D7+JTn7OXJxV0oQt2lBYmNfS5W6bC9uXk3Z4dLg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-stately/overlays': 3.5.1(react@18.2.0)
+      '@react-stately/utils': 3.6.0(react@18.2.0)
+      '@react-types/menu': 3.9.0(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
   /@react-stately/overlays@3.5.1(react@18.2.0):
     resolution: {integrity: sha512-lDKqqpdaIQdJb8DS4+tT7p0TLyCeaUaFpEtWZNjyv1/nguoqYtSeRwnyPR4p/YM4AW7SJspNiTJSLQxkTMIa8w==}
     peerDependencies:
@@ -6285,6 +6375,15 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-aria/interactions': 3.15.0(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      react: 18.2.0
+
+  /@react-types/menu@3.9.0(react@18.2.0):
+    resolution: {integrity: sha512-aalUYwOkzcHn8X59vllgtH96YLqZvAr4mTj5GEs8chv5JVlmArUzcDiOymNrYZ0p9JzshzSUqxxXyCFpnnxghw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/overlays': 3.7.1(react@18.2.0)
       '@react-types/shared': 3.18.0(react@18.2.0)
       react: 18.2.0
 
