@@ -84,7 +84,6 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
             {content}
             {arrowContent}
           </Component>
-          ;
         </OverlayContainer>
       ) : (
         <AnimatePresence initial={false}>

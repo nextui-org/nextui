@@ -303,6 +303,12 @@ Default.args = {
   ...defaultProps,
 };
 
+export const DisableAnimation = Template.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  disableAnimation: true,
+};
+
 export const WithArrow = Template.bind({});
 WithArrow.args = {
   ...defaultProps,

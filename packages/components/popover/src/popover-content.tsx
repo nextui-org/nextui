@@ -1,14 +1,17 @@
-import {ReactNode, useMemo, useCallback} from "react";
+import type {AriaDialogProps} from "@react-aria/dialog";
+
+import {ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
-import {FocusScope} from "@react-aria/focus";
 import {motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
+import {useDialog} from "@react-aria/dialog";
+import {mergeProps} from "@react-aria/utils";
 
 import {usePopoverContext} from "./popover-context";
 
-export interface PopoverContentProps {
+export interface PopoverContentProps extends AriaDialogProps {
   children: ReactNode;
 }
 
@@ -17,19 +20,25 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
 
   const {
     Component: OverlayComponent,
-    isOpen,
     placement,
     showArrow,
     motionProps,
     disableAnimation,
     getPopoverProps,
     getArrowProps,
+    getDialogProps,
     onClose,
   } = usePopoverContext();
 
   const Component = as || OverlayComponent || "div";
 
-  const {style, className, ...otherPopoverProps} = getPopoverProps(otherProps);
+  const dialogRef = useRef(null);
+  const {dialogProps} = useDialog(
+    {
+      role: "dialog",
+    },
+    dialogRef,
+  );
 
   const arrowContent = useMemo(() => {
     if (!showArrow) return null;
@@ -37,42 +46,24 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     return <span {...getArrowProps()} />;
   }, [showArrow, getArrowProps]);
 
-  const ContentWrapper = useCallback(
-    ({children}: {children: ReactNode}) => {
-      return (
-        <FocusScope restoreFocus>
-          <Component className={className}>
-            <DismissButton onDismiss={onClose} />
-            {children}
-            {arrowContent}
-            <DismissButton onDismiss={onClose} />
-          </Component>
-        </FocusScope>
-      );
-    },
-    [Component, className, onClose, arrowContent],
+  const content = (
+    <>
+      <DismissButton onDismiss={onClose} />
+      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
+        {children}
+        {arrowContent}
+      </Component>
+      <DismissButton onDismiss={onClose} />
+    </>
   );
 
-  const visibility = useMemo(() => {
-    if (disableAnimation) return isOpen ? "visible" : "hidden";
-
-    return "visible";
-  }, [disableAnimation, isOpen]);
-
   return (
-    <div
-      {...otherPopoverProps}
-      style={{
-        ...style,
-        visibility,
-        outline: "none",
-      }}
-    >
+    <div {...getPopoverProps()}>
       {disableAnimation ? (
-        <ContentWrapper>{children}</ContentWrapper>
+        content
       ) : (
         <motion.div
-          animate={isOpen ? "enter" : "exit"}
+          animate="enter"
           exit="exit"
           initial="exit"
           style={{
@@ -81,7 +72,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
           variants={TRANSITION_VARIANTS.scaleSpring}
           {...motionProps}
         >
-          <ContentWrapper>{children}</ContentWrapper>
+          {content}
         </motion.div>
       )}
     </div>

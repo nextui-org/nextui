@@ -1,6 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
-import {OverlayContainer} from "@react-aria/overlays";
 import {Children, ReactNode} from "react";
+import {AnimatePresence} from "framer-motion";
+import {Overlay} from "@react-aria/overlays";
 
 import {UsePopoverProps, usePopover} from "./use-popover";
 import {PopoverProvider} from "./popover-context";
@@ -19,12 +20,16 @@ const Popover = forwardRef<PopoverProps, "div">((props, ref) => {
 
   const [trigger, content] = Children.toArray(children);
 
-  const mountOverlay = context.isOpen;
-
   return (
     <PopoverProvider value={context}>
       {trigger}
-      {mountOverlay && <OverlayContainer>{content}</OverlayContainer>}
+      {context.disableAnimation && context.isOpen ? (
+        <Overlay>{content}</Overlay>
+      ) : (
+        <AnimatePresence initial={false}>
+          {context.isOpen ? <Overlay>{content}</Overlay> : null}
+        </AnimatePresence>
+      )}
     </PopoverProvider>
   );
 });

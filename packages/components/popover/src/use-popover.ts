@@ -1,35 +1,32 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
-import type {OverlayPlacement, OverlayOptions} from "@nextui-org/aria-utils";
+import type {OverlayPlacement} from "@nextui-org/aria-utils";
 import type {RefObject, Ref} from "react";
 
 import {useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
 import {
-  AriaOverlayProps,
+  AriaPopoverProps,
   useOverlayTrigger,
-  useOverlayPosition,
-  useOverlay,
-  useModal,
+  usePopover as useReactAriaPopover,
 } from "@react-aria/overlays";
-import {useDialog} from "@react-aria/dialog";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
-import {chain, mergeProps, mergeRefs} from "@react-aria/utils";
+import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx} from "@nextui-org/shared-utils";
 import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
 
-export interface Props extends HTMLNextUIProps<"div", PopoverVariantProps> {
+export interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
    * A ref for the scrollable region within the overlay.
-   * @default overlayRef
+   * @default popoverRef
    */
   scrollRef?: RefObject<HTMLElement>;
   /**
@@ -41,6 +38,11 @@ export interface Props extends HTMLNextUIProps<"div", PopoverVariantProps> {
    * @default 'top'
    */
   placement?: OverlayPlacement;
+  /**
+   * Whether the element should render an arrow.
+   * @default false
+   */
+  showArrow?: boolean;
   /**
    * Type of overlay that is opened by the trigger.
    */
@@ -62,11 +64,12 @@ export interface Props extends HTMLNextUIProps<"div", PopoverVariantProps> {
    * ```
    */
   styles?: SlotsToClasses<PopoverSlots>;
-  /** Handler that is called when the overlay should close. */
-  onClose?: () => void;
 }
 
-export type UsePopoverProps = Props & AriaOverlayProps & OverlayTriggerProps & OverlayOptions;
+export type UsePopoverProps = Props &
+  Omit<AriaPopoverProps, "placement" | "triggerRef" | "popoverRef"> &
+  OverlayTriggerProps &
+  PopoverVariantProps;
 
 export function usePopover(originalProps: UsePopoverProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
@@ -87,29 +90,25 @@ export function usePopover(originalProps: UsePopoverProps) {
     showArrow = false,
     offset = 7,
     crossOffset = 0,
-    isDismissable = true,
-    shouldCloseOnBlur = true,
-    isKeyboardDismissDisabled = true,
-    shouldCloseOnInteractOutside,
+    isKeyboardDismissDisabled,
     motionProps,
     className,
     styles,
-    onClose,
     ...otherProps
   } = props;
 
   const Component = as || "div";
   const popoverId = useId();
 
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const domTriggerRef = useRef<HTMLElement>(null);
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
-  // Sync ref with overlayRef from passed ref.
+  // Sync ref with popoverRef from passed ref.
   useImperativeHandle(ref, () =>
     // @ts-ignore
-    createDOMRef(overlayRef),
+    createDOMRef(popoverRef),
   );
 
   const state = useOverlayTriggerState({
@@ -118,46 +117,24 @@ export function usePopover(originalProps: UsePopoverProps) {
     onOpenChange,
   });
 
-  const {triggerProps, overlayProps: overlayTriggerProps} = useOverlayTrigger(
-    {type: triggerType},
-    state,
-    triggerRef,
-  );
-
-  const {overlayProps: positionProps, arrowProps, placement} = useOverlayPosition({
-    overlayRef,
-    scrollRef,
-    isOpen: isOpen,
-    targetRef: triggerRef,
-    placement: toReactAriaPlacement(placementProp),
-    offset: showArrow ? offset + 3 : offset,
-    crossOffset,
-    shouldFlip,
-    containerPadding,
-  });
-
-  const {overlayProps} = useOverlay(
+  const {popoverProps, arrowProps, placement} = useReactAriaPopover(
     {
-      isOpen: state.isOpen,
-      onClose: chain(state.close, onClose),
-      isDismissable,
-      shouldCloseOnBlur,
+      triggerRef,
+      popoverRef,
+      placement: toReactAriaPlacement(placementProp),
+      offset: showArrow ? offset + 3 : offset,
+      scrollRef,
+      crossOffset,
+      shouldFlip,
+      containerPadding,
       isKeyboardDismissDisabled,
-      shouldCloseOnInteractOutside,
     },
-    overlayRef,
+    state,
   );
+
+  const {triggerProps} = useOverlayTrigger({type: triggerType}, state, triggerRef);
 
   const {isFocusVisible, focusProps} = useFocusRing();
-
-  const {modalProps} = useModal({isDisabled: true});
-
-  const {dialogProps} = useDialog(
-    {
-      role: "dialog",
-    },
-    overlayRef,
-  );
 
   const slots = useMemo(
     () =>
@@ -171,19 +148,18 @@ export function usePopover(originalProps: UsePopoverProps) {
   const baseStyles = clsx(styles?.base, className);
 
   const getPopoverProps: PropGetter = (props = {}) => ({
-    ref: overlayRef,
-    ...mergeProps(
-      overlayTriggerProps,
-      overlayProps,
-      modalProps,
-      dialogProps,
-      positionProps,
-      focusProps,
-      otherProps,
-      props,
-    ),
-    className: slots.base({class: clsx(baseStyles, props.className)}),
+    ref: popoverRef,
+    ...mergeProps(popoverProps, otherProps, props),
     id: popoverId,
+  });
+
+  const getDialogProps: PropGetter = (props = {}) => ({
+    className: slots.base({class: clsx(baseStyles, props.className)}),
+    ...mergeProps(focusProps, props),
+    style: {
+      // this prevent the dialog to have a default outline
+      outline: "none",
+    },
   });
 
   const getTriggerProps = useCallback<PropGetter>(
@@ -218,9 +194,11 @@ export function usePopover(originalProps: UsePopoverProps) {
     onClose: state.close,
     disableAnimation: originalProps.disableAnimation ?? false,
     motionProps,
+    focusProps,
     getPopoverProps,
     getTriggerProps,
     getArrowProps,
+    getDialogProps,
   };
 }
 
