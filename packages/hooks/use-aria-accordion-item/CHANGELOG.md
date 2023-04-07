@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-accordion-item
 
+## 0.0.0-dev-v2-20230407125356
+
+### Patch Changes
+
+- Popover component added
+
 ## 0.0.0-dev-v2-20230405205125
 
 ### Patch Changes

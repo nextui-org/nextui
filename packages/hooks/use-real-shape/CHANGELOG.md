@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230407125356
+
+### Patch Changes
+
+- Popover component added
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230407125356
+
 ## 0.0.0-dev-v2-20230405205125
 
 ### Patch Changes

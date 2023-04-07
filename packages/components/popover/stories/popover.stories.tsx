@@ -102,7 +102,7 @@ const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button>Open popover</Button>
+        <Button disableAnimation={args.disableAnimation}>Open popover</Button>
       </PopoverTrigger>
       {content}
     </Popover>

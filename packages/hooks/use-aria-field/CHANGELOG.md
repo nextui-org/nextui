@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230407125356
+
+### Patch Changes
+
+- Popover component added
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230407125356
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230407125356
+
 ## 0.0.0-dev-v2-20230405205125
 
 ### Patch Changes
