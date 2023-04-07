@@ -1,5 +1,11 @@
 # @nextui-org/use-ref-state
 
+## 0.0.0-dev-v2-20230407185204
+
+### Patch Changes
+
+- Popover backdrop added
+
 ## 0.0.0-dev-v2-20230407155017
 
 ### Patch Changes

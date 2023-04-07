@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230407185204
+
+### Patch Changes
+
+- Popover backdrop added
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230407185204
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230407185204
+
 ## 0.0.0-dev-v2-20230407155017
 
 ### Patch Changes

@@ -1,4 +1,5 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
+import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
@@ -25,10 +26,12 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     placement,
     showArrow,
     motionProps,
+    backdropVariant,
     disableAnimation,
     getPopoverProps,
     getArrowProps,
     getDialogProps,
+    getBackdropProps,
     onClose,
   } = usePopoverContext();
 
@@ -61,8 +64,29 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     </>
   );
 
+  const backdrop = useMemo(() => {
+    if (backdropVariant === "transparent") {
+      return null;
+    }
+
+    if (disableAnimation) {
+      return <div {...getBackdropProps()} />;
+    }
+
+    return (
+      <motion.div
+        animate="enter"
+        exit="exit"
+        initial="exit"
+        variants={TRANSITION_VARIANTS.fade}
+        {...(getBackdropProps() as HTMLMotionProps<"div">)}
+      />
+    );
+  }, [backdropVariant, disableAnimation, getBackdropProps]);
+
   return (
     <div {...getPopoverProps()}>
+      {backdrop}
       {disableAnimation ? (
         content
       ) : (

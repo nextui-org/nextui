@@ -20,15 +20,15 @@ const Popover = forwardRef<PopoverProps, "div">((props, ref) => {
 
   const [trigger, content] = Children.toArray(children);
 
+  const overlay = <Overlay>{content}</Overlay>;
+
   return (
     <PopoverProvider value={context}>
       {trigger}
       {context.disableAnimation && context.isOpen ? (
-        <Overlay>{content}</Overlay>
+        overlay
       ) : (
-        <AnimatePresence initial={false}>
-          {context.isOpen ? <Overlay>{content}</Overlay> : null}
-        </AnimatePresence>
+        <AnimatePresence initial={false}>{context.isOpen ? overlay : null}</AnimatePresence>
       )}
     </PopoverProvider>
   );

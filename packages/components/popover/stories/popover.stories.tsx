@@ -3,6 +3,7 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {popover, ButtonVariantProps} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
+import {Card, CardHeader, CardFooter} from "@nextui-org/card";
 
 import {Popover, PopoverTrigger, PopoverContent, PopoverProps} from "../src";
 
@@ -45,6 +46,12 @@ export default {
           "right-start",
           "right-end",
         ],
+      },
+    },
+    backdropVariant: {
+      control: {
+        type: "select",
+        options: ["transparent", "blur", "opaque"],
       },
     },
     offset: {
@@ -363,7 +370,7 @@ const OffsetTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
 const WithFormTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
   <Popover {...args}>
     <PopoverTrigger>
-      <Button>Open popover</Button>
+      <Button color="primary">Open popover</Button>
     </PopoverTrigger>
     <PopoverContent>
       {(titleProps) => (
@@ -383,6 +390,55 @@ const WithFormTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) =>
   </Popover>
 );
 
+const WithBackdropTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
+  <Card isFooterBlurred className="w-[420px] h-[400px] col-span-12 sm:col-span-7">
+    <CardHeader className="absolute z-10 top-1 flex-col items-start">
+      <p className="text-xs text-white/60 uppercase font-bold">Your day your way</p>
+      <h4 className="text-white/90 font-medium text-2xl">Your checklist for better sleep</h4>
+    </CardHeader>
+    <img
+      alt="Relaxing app background"
+      className="w-full h-full object-cover"
+      src="https://nextui.org/images/card-example-5.jpeg"
+    />
+    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-neutral-600 dark:border-neutral-100">
+      <div className="flex flex-grow gap-2 items-center">
+        <img
+          alt="Breathing app icon"
+          className="rounded-full w-10 h-11 bg-black"
+          src="https://nextui.org/images/breathing-app-icon.jpeg"
+        />
+        <div className="flex flex-col">
+          <p className="text-xs text-white/60">Breathing App</p>
+          <p className="text-xs text-white/60">Get a good night&apos;s sleep.</p>
+        </div>
+      </div>
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button color="primary" radius="full">
+            Open popover
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          {(titleProps) => (
+            <div className="px-1 py-2 w-full">
+              <p className="text-sm font-bold text-foreground" {...titleProps}>
+                Dimensions
+              </p>
+              <div className="mt-2 flex flex-col gap-2 w-full">
+                <Input defaultValue="100%" label="Width" size="sm" variant="bordered" />
+                <Input defaultValue="300px" label="Max. width" size="sm" variant="bordered" />
+                <Input defaultValue="24px" label="Height" size="sm" variant="bordered" />
+                <Input defaultValue="30px" label="Max. height" size="sm" variant="bordered" />
+              </div>
+            </div>
+          )}
+        </PopoverContent>
+      </Popover>
+    </CardFooter>
+  </Card>
+);
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -394,10 +450,10 @@ DisableAnimation.args = {
   disableAnimation: true,
 };
 
-export const TriggerForeground = Template.bind({});
-TriggerForeground.args = {
+export const WithoutScaleTrigger = Template.bind({});
+WithoutScaleTrigger.args = {
   ...defaultProps,
-  isTriggerForeground: true,
+  triggerScaleOnOpen: false,
 };
 
 export const WithArrow = Template.bind({});
@@ -437,9 +493,21 @@ WithTitleProps.args = {
 export const WithForm = WithFormTemplate.bind({});
 WithForm.args = {
   ...defaultProps,
+  isOpen: true,
   showArrow: true,
   offset: 10,
-  placement: "bottom",
+  placement: "top",
   variant: "shadow",
+  className: "w-[280px] bg-white dark:bg-content1",
+};
+
+export const WithBackdrop = WithBackdropTemplate.bind({});
+WithBackdrop.args = {
+  ...defaultProps,
+  showArrow: true,
+  offset: 10,
+  placement: "left",
+  variant: "shadow",
+  backdropVariant: "blur",
   className: "w-[280px] bg-white dark:bg-content1",
 };

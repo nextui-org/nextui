@@ -985,6 +985,9 @@ importers:
         specifier: ^10.11.2
         version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@nextui-org/card':
+        specifier: workspace:*
+        version: link:../card
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../input

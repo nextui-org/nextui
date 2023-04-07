@@ -1,5 +1,16 @@
 # @nextui-org/link
 
+## 0.0.0-dev-v2-20230407185204
+
+### Patch Changes
+
+- Popover backdrop added
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230407185204
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230407185204
+  - @nextui-org/system@0.0.0-dev-v2-20230407185204
+  - @nextui-org/theme@0.0.0-dev-v2-20230407185204
+
 ## 0.0.0-dev-v2-20230407155017
 
 ### Patch Changes

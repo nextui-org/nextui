@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230407185204
+
+### Patch Changes
+
+- Popover backdrop added
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230407185204
+
 ## 0.0.0-dev-v2-20230407155017
 
 ### Patch Changes

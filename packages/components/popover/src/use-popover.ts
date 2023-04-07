@@ -106,6 +106,8 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
+  const disableAnimation = originalProps.disableAnimation ?? false;
+
   // Sync ref with popoverRef from passed ref.
   useImperativeHandle(ref, () =>
     // @ts-ignore
@@ -118,7 +120,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     onOpenChange,
   });
 
-  const {popoverProps, arrowProps, placement} = useReactAriaPopover(
+  const {popoverProps, underlayProps, arrowProps, placement} = useReactAriaPopover(
     {
       triggerRef,
       popoverRef,
@@ -176,6 +178,16 @@ export function usePopover(originalProps: UsePopoverProps) {
     [isOpen, popoverId, state, triggerProps, triggerRef],
   );
 
+  const getBackdropProps = useCallback<PropGetter>(
+    (props = {}) => ({
+      className: slots.backdrop({class: styles?.backdrop}),
+      onClick: () => state.close(),
+      ...underlayProps,
+      ...props,
+    }),
+    [slots, styles, underlayProps],
+  );
+
   const getArrowProps = useCallback<PropGetter>(
     () => ({
       className: slots.arrow({class: styles?.arrow}),
@@ -194,9 +206,11 @@ export function usePopover(originalProps: UsePopoverProps) {
     placement: placementProp,
     isOpen: state.isOpen,
     onClose: state.close,
-    disableAnimation: originalProps.disableAnimation ?? false,
+    disableAnimation,
+    backdropVariant: originalProps.backdropVariant ?? "transparent",
     motionProps,
     focusProps,
+    getBackdropProps,
     getPopoverProps,
     getTriggerProps,
     getArrowProps,

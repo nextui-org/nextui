@@ -32,7 +32,8 @@ const popover = tv({
       "text-base",
       "!outline-none",
     ],
-    trigger: [],
+    trigger: ["z-10"],
+    backdrop: ["hidden"],
     arrow: [
       "-z-10",
       "absolute",
@@ -101,18 +102,29 @@ const popover = tv({
       xl: {base: "rounded-xl"},
       full: {base: "rounded-full"},
     },
+    backdropVariant: {
+      transparent: {},
+      opaque: {
+        backdrop: "bg-black/30 backdrop-opacity-50",
+      },
+      blur: {
+        backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/20",
+      },
+    },
     isFocusVisible: {
       true: {
         base: [...ringClasses],
       },
     },
-    disableAnimation: {
-      true: {base: "animate-none"},
-    },
-    isTriggerForeground: {
-      true: {},
-      false: {
+    triggerScaleOnOpen: {
+      true: {
         trigger: ["aria-expanded:scale-95", "aria-expanded:opacity-70", "subpixel-antialiased"],
+      },
+      false: {},
+    },
+    disableAnimation: {
+      true: {
+        base: "animate-none",
       },
     },
   },
@@ -120,8 +132,9 @@ const popover = tv({
     variant: "solid",
     color: "neutral",
     radius: "xl",
+    backdropVariant: "transparent",
     disableAnimation: false,
-    isTriggerForeground: false,
+    triggerScaleOnOpen: true,
   },
   compoundVariants: [
     // shadow / color
@@ -305,6 +318,13 @@ const popover = tv({
       variant: "light",
       color: "danger",
       class: {base: colorVariants.light.danger},
+    },
+    // backdropVariant (opaque/blur)
+    {
+      backdropVariant: ["opaque", "blur"],
+      class: {
+        backdrop: "block w-full h-full fixed inset-0 -z-30",
+      },
     },
   ],
 });

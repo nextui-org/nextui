@@ -1,5 +1,13 @@
 # @nextui-org/aria-utils
 
+## 0.0.0-dev-v2-20230407185204
+
+### Patch Changes
+
+- Popover backdrop added
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230407185204
+
 ## 0.0.0-dev-v2-20230407155017
 
 ### Patch Changes
