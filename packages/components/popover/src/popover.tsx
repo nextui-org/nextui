@@ -19,10 +19,12 @@ const Popover = forwardRef<PopoverProps, "div">((props, ref) => {
 
   const [trigger, content] = Children.toArray(children);
 
+  const mountOverlay = context.isOpen;
+
   return (
     <PopoverProvider value={context}>
       {trigger}
-      <OverlayContainer>{content}</OverlayContainer>
+      {mountOverlay && <OverlayContainer>{content}</OverlayContainer>}
     </PopoverProvider>
   );
 });

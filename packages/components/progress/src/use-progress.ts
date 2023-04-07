@@ -12,11 +12,16 @@ import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {useProgressBar as useAriaProgress} from "./use-aria-progress";
 
-export interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * Whether to show the value label.
+   * @default false
+   */
+  showValueLabel?: boolean;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.

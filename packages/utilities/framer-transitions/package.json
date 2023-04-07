@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "react": "^18.0.0",
-    "framer-motion": "^10.6.0",
+    "framer-motion": "^10.11.2",
     "clean-package": "2.2.0"
   },
   "clean-package": "../../../clean-package.config.json",

@@ -36,13 +36,13 @@
   "dependencies": {
     "@nextui-org/use-aria-label": "workspace:*",
     "@nextui-org/use-aria-slot-id": "workspace:*",
-    "@react-aria/utils": "^3.15.0"
+    "@react-aria/utils": "^3.16.0"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
-    "@react-types/shared": "^3.15.0",
+    "@react-types/shared": "^3.18.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

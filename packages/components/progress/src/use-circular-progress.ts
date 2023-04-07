@@ -22,6 +22,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
+   * Whether to show the value label.
+   * @default false
+   */
+  showValueLabel?: boolean;
+  /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
    *

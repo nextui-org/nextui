@@ -109,6 +109,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const state = useTooltipTriggerState({
     delay,
+    closeDelay,
     isDisabled,
     defaultOpen,
     onOpenChange,
@@ -173,7 +174,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const {overlayProps} = useOverlay(
     {
       isOpen: isOpen,
-      isDismissable: isDismissable && isOpen,
+      isDismissable,
       onClose: handleClose,
       shouldCloseOnBlur,
       isKeyboardDismissDisabled,

@@ -50,7 +50,7 @@
     ]
   },
   "dependencies": {
-    "@react-aria/ssr": "^3.5.0",
-    "@react-aria/overlays": "^3.13.0"
+    "@react-aria/ssr": "^3.6.0",
+    "@react-aria/overlays": "^3.14.0"
   }
 }

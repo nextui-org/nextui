@@ -30,6 +30,7 @@ const popover = tv({
       "px-4",
       "py-1",
       "text-base",
+      "!outline-none",
     ],
     arrow: [
       "-z-10",

@@ -4,6 +4,7 @@ import type {OverlayPlacement, OverlayOptions} from "@nextui-org/aria-utils";
 import type {RefObject, Ref} from "react";
 
 import {useOverlayTriggerState} from "@react-stately/overlays";
+import {useFocusRing} from "@react-aria/focus";
 import {
   AriaOverlayProps,
   useOverlayTrigger,
@@ -15,7 +16,6 @@ import {useDialog} from "@react-aria/dialog";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
-import {useFocusRing} from "@react-aria/focus";
 import {popover} from "@nextui-org/theme";
 import {chain, mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
@@ -27,6 +27,11 @@ export interface Props extends HTMLNextUIProps<"div", PopoverVariantProps> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * A ref for the scrollable region within the overlay.
+   * @default overlayRef
+   */
+  scrollRef?: RefObject<HTMLElement>;
   /**
    * The ref for the element which the overlay positions itself with respect to.
    */
@@ -40,8 +45,6 @@ export interface Props extends HTMLNextUIProps<"div", PopoverVariantProps> {
    * Type of overlay that is opened by the trigger.
    */
   triggerType?: "dialog" | "menu" | "listbox" | "tree" | "grid";
-  /** Whether the element will be auto focused. */
-  autoFocus?: boolean;
   /**
    * The properties passed to the underlying `Collapse` component.
    */
@@ -73,6 +76,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     as,
     children,
     triggerRef: triggerRefProp,
+    scrollRef,
     isOpen,
     defaultOpen,
     onOpenChange,
@@ -85,9 +89,8 @@ export function usePopover(originalProps: UsePopoverProps) {
     crossOffset = 0,
     isDismissable = true,
     shouldCloseOnBlur = true,
-    isKeyboardDismissDisabled = false,
+    isKeyboardDismissDisabled = true,
     shouldCloseOnInteractOutside,
-    autoFocus = false,
     motionProps,
     className,
     styles,
@@ -109,8 +112,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     createDOMRef(overlayRef),
   );
 
-  const {isFocusVisible, focusProps} = useFocusRing({autoFocus});
-
   const state = useOverlayTriggerState({
     isOpen,
     defaultOpen,
@@ -124,10 +125,11 @@ export function usePopover(originalProps: UsePopoverProps) {
   );
 
   const {overlayProps: positionProps, arrowProps, placement} = useOverlayPosition({
+    overlayRef,
+    scrollRef,
     isOpen: isOpen,
     targetRef: triggerRef,
     placement: toReactAriaPlacement(placementProp),
-    overlayRef,
     offset: showArrow ? offset + 3 : offset,
     crossOffset,
     shouldFlip,
@@ -136,15 +138,17 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {overlayProps} = useOverlay(
     {
-      onClose,
       isOpen: state.isOpen,
-      isDismissable: isDismissable && state.isOpen,
+      onClose: chain(state.close, onClose),
+      isDismissable,
       shouldCloseOnBlur,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside,
     },
     overlayRef,
   );
+
+  const {isFocusVisible, focusProps} = useFocusRing();
 
   const {modalProps} = useModal({isDisabled: true});
 
@@ -154,11 +158,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     },
     overlayRef,
   );
-
-  const handleClose = useCallback(() => {
-    onClose?.();
-    state.close();
-  }, [state, onClose]);
 
   const slots = useMemo(
     () =>
@@ -173,7 +172,6 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const getPopoverProps: PropGetter = (props = {}) => ({
     ref: overlayRef,
-    className: slots.base({class: baseStyles}),
     ...mergeProps(
       overlayTriggerProps,
       overlayProps,
@@ -184,17 +182,20 @@ export function usePopover(originalProps: UsePopoverProps) {
       otherProps,
       props,
     ),
+    className: slots.base({class: clsx(baseStyles, props.className)}),
     id: popoverId,
   });
 
   const getTriggerProps = useCallback<PropGetter>(
-    (props = {}, _ref: Ref<any> | null | undefined = null) => ({
-      ...mergeProps(triggerProps, props),
-      ref: mergeRefs(_ref, triggerRef),
-      "aria-describedby": isOpen ? popoverId : undefined,
-      onClick: chain(props.onClick, triggerProps.onPress),
-    }),
-    [isOpen, popoverId, triggerProps, triggerRef],
+    (props = {}, _ref: Ref<any> | null | undefined = null) => {
+      return {
+        ...mergeProps(triggerProps, props),
+        ref: mergeRefs(_ref, triggerRef),
+        "aria-controls": popoverId,
+        "aria-haspopup": "dialog",
+      };
+    },
+    [isOpen, popoverId, state, triggerProps, triggerRef],
   );
 
   const getArrowProps = useCallback<PropGetter>(
@@ -211,9 +212,10 @@ export function usePopover(originalProps: UsePopoverProps) {
     children,
     styles,
     showArrow,
+    triggerRef,
     placement: placementProp,
     isOpen: state.isOpen,
-    onClose: handleClose,
+    onClose: state.close,
     disableAnimation: originalProps.disableAnimation ?? false,
     motionProps,
     getPopoverProps,

@@ -43,12 +43,12 @@
     "@nextui-org/use-aria-label": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/i18n": "^3.7.0",
-    "@react-aria/progress": "^3.4.0",
-    "@react-aria/utils": "^3.15.0"
+    "@react-aria/i18n": "^3.7.1",
+    "@react-aria/progress": "^3.4.1",
+    "@react-aria/utils": "^3.16.0"
   },
   "devDependencies": {
-    "@react-types/progress": "^3.3.0",
+    "@react-types/progress": "^3.4.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

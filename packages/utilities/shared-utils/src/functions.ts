@@ -50,3 +50,7 @@ export function extractProperty<K extends keyof Extractable, D extends keyof Ext
 
   return result as Extractable[K] | D | string | boolean;
 }
+
+export function getUniqueID(prefix: string) {
+  return `${prefix}-${Math.floor(Math.random() * 1000000)}`;
+}

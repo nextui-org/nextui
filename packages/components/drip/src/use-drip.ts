@@ -1,13 +1,13 @@
-import {MouseEvent, CSSProperties, useRef, useState} from "react";
+import {MouseEvent, CSSProperties, useState} from "react";
+import {getUniqueID} from "@nextui-org/shared-utils";
 
 export type DripInstance = {
-  key: number;
+  key: number | string;
   style: CSSProperties;
 };
 
 export function useDrip() {
   const [drips, setDrips] = useState<DripInstance[]>([]);
-  const nextKey = useRef(0);
 
   const onClick = (event: MouseEvent<HTMLElement>) => {
     const trigger = event.currentTarget;
@@ -27,11 +27,10 @@ export function useDrip() {
     setDrips((prev) => [
       ...prev,
       {
-        key: nextKey.current,
+        key: getUniqueID("drip"),
         style: dripStyle,
       },
     ]);
-    nextKey.current++;
 
     setTimeout(() => {
       setDrips((prev) => prev.slice(1));

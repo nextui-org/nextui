@@ -42,13 +42,13 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/focus": "^3.11.0",
-    "@react-aria/interactions": "^3.14.0",
-    "@react-aria/utils": "^3.15.0"
+    "@react-aria/focus": "^3.12.0",
+    "@react-aria/interactions": "^3.15.0",
+    "@react-aria/utils": "^3.16.0"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
-    "@react-types/checkbox": "^3.4.2",
+    "@react-types/checkbox": "^3.4.3",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

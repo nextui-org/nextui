@@ -88,6 +88,11 @@ export default {
 
 const defaultProps = {
   ...popover.defaultVariants,
+  placement: "top",
+  offset: 7,
+  defaultOpen: false,
+  isDisabled: false,
+  disableAnimation: false,
 };
 
 const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
@@ -110,4 +115,11 @@ export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
   showArrow: true,
+};
+
+export const DisableAnimation = Template.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  showArrow: true,
+  disableAnimation: true,
 };

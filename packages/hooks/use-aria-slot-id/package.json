@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/utils": "^3.15.0"
+    "@react-aria/utils": "^3.16.0"
   },
   "peerDependencies": {
     "react": ">=18"

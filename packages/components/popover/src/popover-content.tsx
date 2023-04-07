@@ -3,7 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {FocusScope} from "@react-aria/focus";
-import {AnimatePresence, motion} from "framer-motion";
+import {motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {usePopoverContext} from "./popover-context";
@@ -13,7 +13,7 @@ export interface PopoverContentProps {
 }
 
 const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => {
-  const {as, children} = props;
+  const {as, children, ...otherProps} = props;
 
   const {
     Component: OverlayComponent,
@@ -29,7 +29,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
 
   const Component = as || OverlayComponent || "div";
 
-  const {className, ...otherPopoverProps} = getPopoverProps();
+  const {style, className, ...otherPopoverProps} = getPopoverProps(otherProps);
 
   const arrowContent = useMemo(() => {
     if (!showArrow) return null;
@@ -50,14 +50,29 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
         </FocusScope>
       );
     },
-    [Component, disableAnimation, className, arrowContent, onClose],
+    [Component, className, onClose, arrowContent],
   );
 
-  const animatedContent = useMemo(() => {
-    return (
-      <div {...otherPopoverProps}>
+  const visibility = useMemo(() => {
+    if (disableAnimation) return isOpen ? "visible" : "hidden";
+
+    return "visible";
+  }, [disableAnimation, isOpen]);
+
+  return (
+    <div
+      {...otherPopoverProps}
+      style={{
+        ...style,
+        visibility,
+        outline: "none",
+      }}
+    >
+      {disableAnimation ? (
+        <ContentWrapper>{children}</ContentWrapper>
+      ) : (
         <motion.div
-          animate="enter"
+          animate={isOpen ? "enter" : "exit"}
           exit="exit"
           initial="exit"
           style={{
@@ -68,18 +83,8 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
         >
           <ContentWrapper>{children}</ContentWrapper>
         </motion.div>
-      </div>
-    );
-  }, [otherPopoverProps, placement, motionProps, ContentWrapper, children]);
-
-  return (
-    <>
-      {disableAnimation && isOpen ? (
-        <ContentWrapper>{children}</ContentWrapper>
-      ) : (
-        <AnimatePresence initial={false}>{isOpen ? animatedContent : null}</AnimatePresence>
       )}
-    </>
+    </div>
   );
 });
 

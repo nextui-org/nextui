@@ -43,7 +43,7 @@
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "^3.11.0"
+    "@react-aria/focus": "^3.12.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

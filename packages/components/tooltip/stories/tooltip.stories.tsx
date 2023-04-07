@@ -107,14 +107,11 @@ const DelayTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
         Delay Open (1000ms)
       </Button>
     </Tooltip>
-    {/*
-    // TODO: Uncomment when closeDelay is deployed in react-aria 
-    // https://github.com/adobe/react-spectrum/pull/4128
-    <Tooltip {...args} closeDelay={3000} content="Tooltip 2"> 
+    <Tooltip {...args} closeDelay={2000} content="Tooltip 2">
       <Button color="success" variant="faded">
-        Delay Close (3000ms)
+        Delay Close (2000ms)
       </Button>
-    </Tooltip> */}
+    </Tooltip>
   </div>
 );
 
