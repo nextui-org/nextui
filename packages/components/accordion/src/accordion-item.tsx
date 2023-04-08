@@ -7,7 +7,7 @@ import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
 export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {}
 
-const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
+const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
   const {
     Component,
     styles,
@@ -73,6 +73,6 @@ const Accordion = forwardRef<AccordionItemProps, "div">((props, ref) => {
   );
 });
 
-Accordion.displayName = "NextUI.AccordionItem";
+AccordionItem.displayName = "NextUI.AccordionItem";
 
-export default Accordion;
+export default AccordionItem;

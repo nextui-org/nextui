@@ -2,7 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-// import {colorVariants, ringClasses} from "../utils";
 /**
  * Dropdown wrapper **Tailwind Variants** component
  *
@@ -19,13 +18,31 @@ import {tv} from "tailwind-variants";
  */
 const dropdown = tv({
   slots: {
-    base: [],
+    base: [
+      "w-full",
+      "p-1",
+      "min-w-[200px]",
+      "shadow",
+      "shadow-lg",
+      "bg-white",
+      "dark:bg-content1",
+      "border",
+      "border-neutral-100",
+    ],
+    menu: "w-full flex flex-col p-1",
     trigger: [],
     section: [],
     sectionHeading: [],
   },
-  variants: {},
-  defaultVariants: {},
+  variants: {
+    disableAnimation: {
+      true: "transition-none",
+    },
+  },
+
+  defaultVariants: {
+    disableAnimation: false,
+  },
 });
 
 export type DropdownVariantProps = VariantProps<typeof dropdown>;

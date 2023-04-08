@@ -493,7 +493,6 @@ WithTitleProps.args = {
 export const WithForm = WithFormTemplate.bind({});
 WithForm.args = {
   ...defaultProps,
-  isOpen: true,
   showArrow: true,
   offset: 10,
   placement: "top",

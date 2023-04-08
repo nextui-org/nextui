@@ -6,44 +6,94 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {AriaMenuProps} from "@react-types/menu";
 import {useTreeState} from "@react-stately/tree";
 
+import DropdownItem, {DropdownItemProps} from "./dropdown-item";
 import {useDropdownContext} from "./dropdown-context";
 
 export interface DropdownMenuProps<T = object>
   extends AriaMenuProps<T>,
     DOMProps,
-    AriaLabelingProps {}
+    AriaLabelingProps {
+  /**
+   * The dropdown items variant.
+   */
+  variant?: DropdownItemProps["variant"];
+  /**
+   * The dropdown items color.
+   */
+  color?: DropdownItemProps["color"];
+  /**
+   * Whether to disable the items animation.
+   * @default false
+   */
+  disableAnimation?: boolean;
+  /**
+   * Whether the menu should close when the menu item is selected.
+   * @default true
+   */
+  closeOnSelect?: DropdownItemProps["closeOnSelect"];
+  /**
+   * The dropdown items styles.
+   */
+  styles?: DropdownItemProps["styles"];
+}
 
-const DropdownMenu = forwardRef<DropdownMenuProps, "button">((props, ref) => {
-  const {getMenuProps} = useDropdownContext();
+const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
+  (
+    {
+      as,
+      variant,
+      color,
+      disableAnimation,
+      onAction,
+      closeOnSelect,
+      className,
+      styles,
+      ...otherProps
+    },
+    ref,
+  ) => {
+    const {getMenuProps} = useDropdownContext();
 
-  const domRef = useDOMRef(ref);
+    const Component = as || "ul";
 
-  const state = useTreeState(props);
-  const {menuProps} = useMenu(props, state, domRef);
+    const domRef = useDOMRef(ref);
 
-  return (
-    <PopoverContent>
-      <div {...getMenuProps(menuProps, domRef)}>
-        {[...state.collection].map((item) => {
-          if (item.type === "section") {
-            return <div>Section</div>;
-          }
-          let dropdownItem = (
-            <div>
-              <div>{item.rendered}</div>
-            </div>
-          );
+    const state = useTreeState(otherProps);
+    const {menuProps} = useMenu(otherProps, state, domRef);
 
-          if (item.wrapper) {
-            dropdownItem = item.wrapper(dropdownItem);
-          }
+    return (
+      <PopoverContent>
+        <Component {...getMenuProps({...menuProps, className}, domRef)}>
+          {[...state.collection].map((item) => {
+            if (item.type === "section") {
+              return <div>Section</div>;
+            }
+            let dropdownItem = (
+              <DropdownItem
+                key={item.key}
+                closeOnSelect={closeOnSelect}
+                color={color}
+                disableAnimation={disableAnimation}
+                item={item}
+                state={state}
+                styles={styles}
+                variant={variant}
+                onAction={onAction}
+                {...item.props}
+              />
+            );
 
-          return dropdownItem;
-        })}
-      </div>
-    </PopoverContent>
-  );
-});
+            if (item.wrapper) {
+              dropdownItem = item.wrapper(dropdownItem);
+            }
+
+            return dropdownItem;
+          })}
+        </Component>
+      </PopoverContent>
+    );
+  },
+);
 
 DropdownMenu.displayName = "NextUI.DropdownMenu";
 

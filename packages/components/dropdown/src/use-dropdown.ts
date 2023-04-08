@@ -11,7 +11,8 @@ import {PopoverProps} from "@nextui-org/popover";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-interface Props extends HTMLNextUIProps<"div", Omit<PopoverProps, "children">> {
+interface Props
+  extends HTMLNextUIProps<"div", Omit<PopoverProps, "children" | "color" | "variant">> {
   /**
    * Type of overlay that is opened by the trigger.
    */
@@ -43,7 +44,8 @@ interface Props extends HTMLNextUIProps<"div", Omit<PopoverProps, "children">> {
    * ```ts
    * <Dropdown styles={{
    *    trigger: "trigger-classes",
-   *    base: "base-classes", // items wrapper
+   *    base: "base-classes", // popover wrapper
+   *    menu: "menu-classes",// items wrapper
    *    section: "section-classes",
    *    sectionHeading: "sectionHeading-classes",
    * }} />
@@ -128,6 +130,7 @@ export function useDropdown(originalProps: UseDropdownProps) {
   const getMenuProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
     ...mergeProps(menuProps, props),
     ref: mergeRefs(_ref, menuRef),
+    className: slots.menu({class: clsx(styles?.menu, props.className)}),
   });
 
   return {
@@ -136,6 +139,7 @@ export function useDropdown(originalProps: UseDropdownProps) {
     closeOnSelect,
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
+    disableAnimation: originalProps.disableAnimation ?? false,
     getPopoverProps,
     getMenuTriggerProps,
     getMenuProps,
