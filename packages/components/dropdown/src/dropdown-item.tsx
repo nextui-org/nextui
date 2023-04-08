@@ -12,8 +12,11 @@ export interface DropdownItemProps<T extends object = object> extends UseDropdow
 const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
   const {
     Component,
+    slots,
+    styles,
     rendered,
     shortcut,
+    description,
     isSelectable,
     isSelected,
     isDisabled,
@@ -23,6 +26,7 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
     disableAnimation,
     getItemProps,
     getLabelProps,
+    getDescriptionProps,
     getKeyboardShortcutProps,
     getSelectedIconProps,
   } = useDropdownItem(props);
@@ -44,7 +48,14 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
   return (
     <Component {...getItemProps()}>
       {startContent}
-      <span {...getLabelProps()}>{rendered}</span>
+      {description ? (
+        <div className={slots.wrapper({class: styles?.wrapper})}>
+          <span {...getLabelProps()}>{rendered}</span>
+          <span {...getDescriptionProps()}>{description}</span>
+        </div>
+      ) : (
+        <span {...getLabelProps()}>{rendered}</span>
+      )}
       {endContent}
       {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
       {isSelectable && <span {...getSelectedIconProps()}>{selectedContent}</span>}

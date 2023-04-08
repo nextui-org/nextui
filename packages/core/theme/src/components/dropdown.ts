@@ -31,8 +31,6 @@ const dropdown = tv({
     ],
     menu: "w-full flex flex-col p-1",
     trigger: [],
-    section: [],
-    sectionHeading: [],
   },
   variants: {
     disableAnimation: {

@@ -44,8 +44,9 @@ const dropdownItem = tv({
       "outline-none",
       "cursor-pointer",
     ],
+    wrapper: "w-full flex flex-col items-start justify-center",
     title: "flex-1",
-    description: [],
+    description: ["text-xs", "text-neutral-500", "truncate", "group-hover:text-current"],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
     shortcut: [
       "px-1",

@@ -6,6 +6,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {AriaMenuProps} from "@react-types/menu";
 import {useTreeState} from "@react-stately/tree";
 
+import DropdownSection from "./dropdown-section";
 import DropdownItem, {DropdownItemProps} from "./dropdown-item";
 import {useDropdownContext} from "./dropdown-context";
 
@@ -65,23 +66,23 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
       <PopoverContent>
         <Component {...getMenuProps({...menuProps, className}, domRef)}>
           {[...state.collection].map((item) => {
+            const itemProps = {
+              key: item.key,
+              closeOnSelect,
+              color,
+              disableAnimation,
+              item,
+              state,
+              styles,
+              variant,
+              onAction,
+              ...item.props,
+            };
+
             if (item.type === "section") {
-              return <div>Section</div>;
+              return <DropdownSection {...itemProps} />;
             }
-            let dropdownItem = (
-              <DropdownItem
-                key={item.key}
-                closeOnSelect={closeOnSelect}
-                color={color}
-                disableAnimation={disableAnimation}
-                item={item}
-                state={state}
-                styles={styles}
-                variant={variant}
-                onAction={onAction}
-                {...item.props}
-              />
-            );
+            let dropdownItem = <DropdownItem {...itemProps} />;
 
             if (item.wrapper) {
               dropdownItem = item.wrapper(dropdownItem);

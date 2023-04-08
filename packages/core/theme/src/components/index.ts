@@ -25,3 +25,4 @@ export * from "./circular-progress";
 export * from "./input";
 export * from "./dropdown";
 export * from "./dropdown-item";
+export * from "./dropdown-section";

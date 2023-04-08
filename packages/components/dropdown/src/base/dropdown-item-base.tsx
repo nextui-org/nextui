@@ -63,6 +63,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    * <DropdownItem styles={{
    *    base:"base-classes",
    *    title:"label-classes",
+   *    wrapper:"wrapper-classes", // title and description wrapper
    *    description:"description-classes",
    *    selectedIcon:"selected-icon-classes",
    *    shortcut:"shortcut-classes",

@@ -862,12 +862,18 @@ importers:
         specifier: ^10.11.2
         version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
+      '@nextui-org/user':
+        specifier: workspace:*
+        version: link:../user
       '@react-types/menu':
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
