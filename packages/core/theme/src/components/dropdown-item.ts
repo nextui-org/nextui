@@ -30,6 +30,8 @@ const dropdownItem = tv({
   slots: {
     base: [
       "flex",
+      "group",
+      "gap-2",
       "items-center",
       "justify-between",
       "relative",
@@ -44,10 +46,19 @@ const dropdownItem = tv({
     ],
     title: "flex-1",
     description: [],
-    startContent: [],
-    endContent: [],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
-    shortcut: [],
+    shortcut: [
+      "px-1",
+      "py-0.5",
+      "rounded",
+      "font-sans",
+      "opacity-60",
+      "text-inherit",
+      "text-xs",
+      "border",
+      "border-neutral-200",
+      "group-hover:border-current",
+    ],
   },
   variants: {
     variant: {
@@ -88,7 +99,7 @@ const dropdownItem = tv({
           "before:left-0",
           "before:right-0",
           "before:h-px",
-          "before:bg-neutral",
+          "before:bg-neutral-200",
         ],
       },
     },

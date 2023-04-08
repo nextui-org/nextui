@@ -64,8 +64,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    *    base:"base-classes",
    *    title:"label-classes",
    *    description:"description-classes",
-   *    startContent:"startContent-classes",
-   *    endContent:"endContent-classes",
+   *    selectedIcon:"selected-icon-classes",
    *    shortcut:"shortcut-classes",
    * }} />
    * ```

@@ -2,6 +2,13 @@ import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {dropdown, popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
+import {
+  AddNoteBulkIcon,
+  CopyDocumentBulkIcon,
+  EditDocumentBulkIcon,
+  DeleteDocumentBulkIcon,
+} from "@nextui-org/shared-icons";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {
   Dropdown,
@@ -248,6 +255,80 @@ const MultipleSelectionTemplate: ComponentStory<any> = ({
   );
 };
 
+const WithShortcutTemplate: ComponentStory<any> = ({color, variant, ...args}) => (
+  <Dropdown {...args}>
+    <DropdownTrigger>
+      <Button>Trigger</Button>
+    </DropdownTrigger>
+    <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+      <DropdownItem key="new" shortcut="⌘N">
+        New file
+      </DropdownItem>
+      <DropdownItem key="copy" shortcut="⌘C">
+        Copy link
+      </DropdownItem>
+      <DropdownItem key="edit" shortcut="⌘⇧E">
+        Edit file
+      </DropdownItem>
+      <DropdownItem key="delete" showDivider className="text-danger" color="danger" shortcut="⌘⇧D">
+        Delete file
+      </DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
+);
+
+const WithStartContentTemplate: ComponentStory<any> = ({
+  color,
+  variant,
+  disableAnimation,
+  ...args
+}) => {
+  const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
+
+  return (
+    <Dropdown {...args} disableAnimation={disableAnimation}>
+      <DropdownTrigger>
+        <Button color="secondary" disableAnimation={disableAnimation} variant="flat">
+          Trigger
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+        <DropdownItem
+          key="new"
+          shortcut="⌘N"
+          startContent={<AddNoteBulkIcon className={iconClasses} />}
+        >
+          New file
+        </DropdownItem>
+        <DropdownItem
+          key="copy"
+          shortcut="⌘C"
+          startContent={<CopyDocumentBulkIcon className={iconClasses} />}
+        >
+          Copy link
+        </DropdownItem>
+        <DropdownItem
+          key="edit"
+          shortcut="⌘⇧E"
+          startContent={<EditDocumentBulkIcon className={iconClasses} />}
+        >
+          Edit file
+        </DropdownItem>
+        <DropdownItem
+          key="delete"
+          showDivider
+          className="text-danger"
+          color="danger"
+          shortcut="⌘⇧D"
+          startContent={<DeleteDocumentBulkIcon className={clsx(iconClasses, "!text-danger")} />}
+        >
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -277,4 +358,25 @@ SingleSelection.args = {
 export const MultipleSelection = MultipleSelectionTemplate.bind({});
 MultipleSelection.args = {
   ...defaultProps,
+};
+
+export const WithShortcut = WithShortcutTemplate.bind({});
+WithShortcut.args = {
+  ...defaultProps,
+};
+
+export const WithStartContent = WithStartContentTemplate.bind({});
+WithStartContent.args = {
+  ...defaultProps,
+  variant: "flat",
+  color: "secondary",
+};
+
+export const DisableAnimation = WithStartContentTemplate.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  showArrow: true,
+  variant: "flat",
+  color: "secondary",
+  disableAnimation: true,
 };

@@ -22,3 +22,4 @@ export * from "./invalid-card";
 export * from "./eye-filled";
 export * from "./eye-slash-filled";
 export * from "./search";
+export * from "./bulk";

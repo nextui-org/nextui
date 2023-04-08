@@ -13,13 +13,17 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
   const {
     Component,
     rendered,
+    shortcut,
     isSelectable,
     isSelected,
     isDisabled,
     selectedIcon,
+    startContent,
+    endContent,
     disableAnimation,
     getItemProps,
     getLabelProps,
+    getKeyboardShortcutProps,
     getSelectedIconProps,
   } = useDropdownItem(props);
 
@@ -39,7 +43,10 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
 
   return (
     <Component {...getItemProps()}>
+      {startContent}
       <span {...getLabelProps()}>{rendered}</span>
+      {endContent}
+      {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
       {isSelectable && <span {...getSelectedIconProps()}>{selectedContent}</span>}
     </Component>
   );

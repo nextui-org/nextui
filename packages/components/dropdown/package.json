@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@react-types/menu": "^3.9.0",
     "@react-types/shared": "^3.18.0",
     "clean-package": "2.2.0",

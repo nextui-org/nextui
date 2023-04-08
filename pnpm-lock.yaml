@@ -865,6 +865,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@react-types/menu':
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)

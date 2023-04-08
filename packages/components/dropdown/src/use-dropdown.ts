@@ -84,6 +84,8 @@ export function useDropdown(originalProps: UseDropdownProps) {
 
   const triggerId = useId();
 
+  const disableAnimation = originalProps.disableAnimation ?? false;
+
   const state = useMenuTriggerState({trigger, isOpen, defaultOpen, onOpenChange});
 
   const {menuTriggerProps, menuProps} = useMenuTrigger(
@@ -106,6 +108,7 @@ export function useDropdown(originalProps: UseDropdownProps) {
     state,
     placement,
     ref: popoverRef,
+    disableAnimation,
     scrollRef: menuRef,
     triggerRef: menuTriggerRef,
     ...mergeProps(otherProps, props),
@@ -139,7 +142,7 @@ export function useDropdown(originalProps: UseDropdownProps) {
     closeOnSelect,
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
-    disableAnimation: originalProps.disableAnimation ?? false,
+    disableAnimation,
     getPopoverProps,
     getMenuTriggerProps,
     getMenuProps,
