@@ -456,6 +456,7 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
           <Avatar
             isBordered
             as="button"
+            className="transition-transform"
             color="secondary"
             size="lg"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
@@ -493,6 +494,7 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
               size: "lg",
               src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
             }}
+            className="transition-transform"
             description="@tonyreichert"
             name="Tony Reichert"
           />

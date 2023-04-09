@@ -1,7 +1,5 @@
-import type {DropdownVariantProps, SlotsToClasses, DropdownSlots} from "@nextui-org/theme";
-
 import {Ref, useId} from "react";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useMenuTriggerState} from "@react-stately/menu";
 import {MenuTriggerType} from "@react-types/menu";
 import {useMenuTrigger} from "@react-aria/menu";
@@ -11,7 +9,7 @@ import {PopoverProps} from "@nextui-org/popover";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-interface Props
+export interface UseDropdownProps
   extends HTMLNextUIProps<"div", Omit<PopoverProps, "children" | "color" | "variant">> {
   /**
    * Type of overlay that is opened by the trigger.
@@ -36,33 +34,12 @@ interface Props
    * @default true
    */
   closeOnSelect?: boolean;
-  /**
-   * Classname or List of classes to change the styles of the element.
-   * if `className` is passed, it will be added to the base slot.
-   *
-   * @example
-   * ```ts
-   * <Dropdown styles={{
-   *    trigger: "trigger-classes",
-   *    base: "base-classes", // popover wrapper
-   *    menu: "menu-classes",// items wrapper
-   *    section: "section-classes",
-   *    sectionHeading: "sectionHeading-classes",
-   * }} />
-   * ```
-   */
-  styles?: SlotsToClasses<DropdownSlots>;
 }
 
-export type UseDropdownProps = Props & DropdownVariantProps;
-
-export function useDropdown(originalProps: UseDropdownProps) {
-  const [props, variantProps] = mapPropsVariants(originalProps, dropdown.variantKeys);
-
+export function useDropdown(props: UseDropdownProps) {
   const {
     as,
     triggerRef: triggerRefProp,
-    className,
     isOpen,
     defaultOpen,
     onOpenChange,
@@ -71,7 +48,9 @@ export function useDropdown(originalProps: UseDropdownProps) {
     placement = "bottom",
     isDisabled = false,
     closeOnSelect = true,
-    styles,
+    styles: stylesProp,
+    disableAnimation = false,
+    className,
     ...otherProps
   } = props;
 
@@ -83,8 +62,7 @@ export function useDropdown(originalProps: UseDropdownProps) {
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const triggerId = useId();
-
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const menuId = useId();
 
   const state = useMenuTriggerState({trigger, isOpen, defaultOpen, onOpenChange});
 
@@ -94,15 +72,13 @@ export function useDropdown(originalProps: UseDropdownProps) {
     menuTriggerRef,
   );
 
-  const slots = useMemo(
+  const styles = useMemo(
     () =>
       dropdown({
-        ...variantProps,
+        className,
       }),
-    [...Object.values(variantProps)],
+    [className],
   );
-
-  const baseStyles = clsx(styles?.base, className);
 
   const getPopoverProps: PropGetter = (props = {}) => ({
     state,
@@ -112,7 +88,12 @@ export function useDropdown(originalProps: UseDropdownProps) {
     scrollRef: menuRef,
     triggerRef: menuTriggerRef,
     ...mergeProps(otherProps, props),
-    className: slots.base({class: clsx(baseStyles, props.className)}),
+    styles: {
+      ...stylesProp,
+      ...props.styles,
+      base: clsx(styles, stylesProp?.base, props.className),
+      arrow: clsx("border border-neutral-100", stylesProp?.arrow),
+    },
   });
 
   const getMenuTriggerProps: PropGetter = (
@@ -127,13 +108,15 @@ export function useDropdown(originalProps: UseDropdownProps) {
       ...mergeProps(otherMenuTriggerProps, props),
       id: triggerId,
       ref: mergeRefs(_ref, triggerRef),
+      "aria-controls": menuId,
     };
   };
 
   const getMenuProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
     ...mergeProps(menuProps, props),
+    id: menuId,
     ref: mergeRefs(_ref, menuRef),
-    className: slots.menu({class: clsx(styles?.menu, props.className)}),
+    "aria-labelledby": triggerId,
   });
 
   return {

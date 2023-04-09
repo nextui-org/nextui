@@ -1,6 +1,6 @@
 import type {DropdownItemBaseProps} from "./base/dropdown-item-base";
 
-import {useMemo, useRef, useCallback} from "react";
+import {useMemo, useRef, useCallback, useId} from "react";
 import {dropdownItem} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
@@ -58,10 +58,12 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
 
   const {rendered, key} = item;
 
-  const isSelected = state.selectionManager.isSelected(key);
-  const isFocused = state.selectionManager.focusedKey === item.key;
   const isDisabled = state.disabledKeys.has(key) || originalProps.isDisabled;
   const isSelectable = state.selectionManager.selectionMode !== "none";
+
+  const labelId = useId();
+  const descriptionId = useId();
+  const keyboardId = useId();
 
   const {pressProps} = usePress({
     ref: domRef,
@@ -73,11 +75,17 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     autoFocus,
   });
 
-  const {menuItemProps, labelProps, descriptionProps, keyboardShortcutProps} = useMenuItem(
+  const {
+    isFocused,
+    isSelected,
+    menuItemProps,
+    labelProps,
+    descriptionProps,
+    keyboardShortcutProps,
+  } = useMenuItem(
     {
       key,
       onClose,
-      isSelected,
       isDisabled,
       "aria-label": props["aria-label"],
       closeOnSelect,
@@ -111,22 +119,27 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       props,
     ),
     "data-focused": dataAttr(isFocused),
+    "aria-labelledby": labelId,
+    "aria-describedby": [descriptionId, keyboardId].filter(Boolean).join(" ") || undefined,
     className: slots.base({class: clsx(baseStyles, props.className)}),
     onClick: chain(pressProps.onClick, onClick),
   });
 
   const getLabelProps: PropGetter = (props = {}) => ({
     ...mergeProps(labelProps, props),
+    id: labelId,
     className: slots.title({class: styles?.title}),
   });
 
   const getDescriptionProps: PropGetter = (props = {}) => ({
     ...mergeProps(descriptionProps, props),
+    id: descriptionId,
     className: slots.description({class: styles?.description}),
   });
 
   const getKeyboardShortcutProps: PropGetter = (props = {}) => ({
     ...mergeProps(keyboardShortcutProps, props),
+    id: keyboardId,
     className: slots.shortcut({class: styles?.shortcut}),
   });
 

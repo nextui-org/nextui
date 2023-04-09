@@ -5,6 +5,8 @@ import {useMenu} from "@react-aria/menu";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {AriaMenuProps} from "@react-types/menu";
 import {useTreeState} from "@react-stately/tree";
+import {dropdownMenu} from "@nextui-org/theme";
+import {useMemo} from "react";
 
 import DropdownSection from "./dropdown-section";
 import DropdownItem, {DropdownItemProps} from "./dropdown-item";
@@ -35,7 +37,7 @@ export interface DropdownMenuProps<T = object>
   /**
    * The dropdown items styles.
    */
-  styles?: DropdownItemProps["styles"];
+  itemStyles?: DropdownItemProps["styles"];
 }
 
 const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
@@ -48,7 +50,7 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
       onAction,
       closeOnSelect,
       className,
-      styles,
+      itemStyles,
       ...otherProps
     },
     ref,
@@ -62,9 +64,11 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
     const state = useTreeState(otherProps);
     const {menuProps} = useMenu(otherProps, state, domRef);
 
+    const styles = useMemo(() => dropdownMenu({className}), [className]);
+
     return (
       <PopoverContent>
-        <Component {...getMenuProps({...menuProps, className}, domRef)}>
+        <Component {...getMenuProps({...menuProps}, domRef)} className={styles}>
           {[...state.collection].map((item) => {
             const itemProps = {
               key: item.key,
@@ -73,7 +77,7 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
               disableAnimation,
               item,
               state,
-              styles,
+              styles: itemStyles,
               variant,
               onAction,
               ...item.props,

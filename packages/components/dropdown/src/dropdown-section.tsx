@@ -5,7 +5,7 @@ import {dropdownSection} from "@nextui-org/theme";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
 import {useMenuSection} from "@react-aria/menu";
-import {useMemo, Key} from "react";
+import {useMemo, Key, useId} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 
@@ -67,6 +67,8 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
   ) => {
     const {section, heading, ...styles} = stylesProp;
 
+    const headingId = useId();
+
     const Component = as || "li";
     const isFirstKey = item.key === state.collection.getFirstKey();
 
@@ -88,11 +90,11 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
         className={slots.section({class: baseStyles})}
       >
         {item.rendered && (
-          <span {...headingProps} className={slots.heading({class: heading})}>
+          <span {...headingProps} className={slots.heading({class: heading})} id={headingId}>
             {item.rendered}
           </span>
         )}
-        <ul {...groupProps}>
+        <ul {...groupProps} aria-labelledby={headingId}>
           {[...item.childNodes].map((node) => {
             let dropdownItem = (
               <DropdownItem
