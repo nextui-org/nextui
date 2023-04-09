@@ -84,7 +84,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
       const [height, rowHeight] = calculateNodeHeight(
         nodeSizingData,
-        node.value || node.placeholder || "x",
+        (isControlled && (props.value as string)) || node.value || node.placeholder || "x",
         rows || minRows,
         rows || maxRows,
       );
@@ -97,9 +97,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (!isControlled) {
-        resizeTextarea();
-      }
+      resizeTextarea();
       onChange && onChange(event);
     };
 
