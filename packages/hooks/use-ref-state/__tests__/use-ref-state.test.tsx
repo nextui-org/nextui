@@ -5,12 +5,12 @@ import {render} from "@testing-library/react";
 import {useRefState} from "../src";
 
 describe("useRefState", () => {
-  it("should work correctly", () => {
+  it("should work correctly", async () => {
     const {result} = renderHook(() => useRefState(""));
 
     expect(result.current[0]).toEqual("");
 
-    act(() => result.current[1]("test"));
+    await act(async () => await result.current[1]("test"));
 
     expect(result.current[0]).toEqual("test");
     expect(result.current[2].current).toEqual("test");
@@ -23,12 +23,12 @@ describe("useRefState", () => {
     expect(result.current[2].current).toEqual("test");
   });
 
-  it("functional update mode should be supported", () => {
+  it("functional update mode should be supported", async () => {
     const {result} = renderHook(() => useRefState(""));
 
     expect(result.current[0]).toEqual("");
 
-    act(() => result.current[1]((value) => value + "test"));
+    await act(async () => await result.current[1]((value) => value + "test"));
 
     expect(result.current[0]).toEqual("test");
     expect(result.current[2].current).toEqual("test");

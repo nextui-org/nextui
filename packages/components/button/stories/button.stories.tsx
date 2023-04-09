@@ -98,8 +98,8 @@ DisableRipple.args = {
 export const WithIcons = Template.bind({});
 WithIcons.args = {
   ...defaultProps,
-  leftIcon: <Notification />,
-  rightIcon: <Camera />,
+  startIcon: <Notification />,
+  endIcon: <Camera />,
 };
 
 export const IconButton = Template.bind({});

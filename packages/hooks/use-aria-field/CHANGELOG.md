@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230409142211
+
+### Patch Changes
+
+- Left/Right labels changed to Start/End, tests fixed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230409142211
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230409142211
+
 ## 0.0.0-dev-v2-20230409022144
 
 ### Patch Changes

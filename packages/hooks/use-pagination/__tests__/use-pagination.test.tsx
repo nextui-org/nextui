@@ -7,14 +7,14 @@ describe("usePagination", () => {
     const {result} = renderHook(() => usePagination({total: 10}));
 
     act(() => result.current.setPage(5));
-    expect(result.current.active).toBe(5);
+    expect(result.current.activePage).toBe(5);
   });
 
   it("should return correct initial state", () => {
     const {result} = renderHook(() => usePagination({total: 10}));
 
     expect(result.current.range).toStrictEqual([1, 2, 3, 4, 5, "dots", 10]);
-    expect(result.current.active).toBe(1);
+    expect(result.current.activePage).toBe(1);
   });
 
   it("should not change range length between page changes", () => {
@@ -37,7 +37,7 @@ describe("usePagination", () => {
     );
 
     expect(result.current.range).toStrictEqual([1, 2, "dots", 5, 6, 7, 8, 9, "dots", 19, 20]);
-    expect(result.current.active).toBe(7);
+    expect(result.current.activePage).toBe(7);
   });
 
   it("should work correctly with custom siblings", () => {
@@ -50,7 +50,7 @@ describe("usePagination", () => {
     );
 
     expect(result.current.range).toStrictEqual([1, "dots", 5, 6, 7, 8, 9, "dots", 20]);
-    expect(result.current.active).toBe(7);
+    expect(result.current.activePage).toBe(7);
   });
 
   it("should work correctly without siblings", () => {
@@ -63,7 +63,7 @@ describe("usePagination", () => {
     );
 
     expect(result.current.range).toStrictEqual([1, "dots", 7, "dots", 20]);
-    expect(result.current.active).toBe(7);
+    expect(result.current.activePage).toBe(7);
   });
 
   it("should work correctly with custom boundaries", () => {
@@ -76,7 +76,7 @@ describe("usePagination", () => {
     );
 
     expect(result.current.range).toStrictEqual([1, 2, "dots", 6, 7, 8, "dots", 19, 20]);
-    expect(result.current.active).toBe(7);
+    expect(result.current.activePage).toBe(7);
   });
 
   it("should work correctly without boundaries", () => {
@@ -89,7 +89,7 @@ describe("usePagination", () => {
     );
 
     expect(result.current.range).toStrictEqual(["dots", 6, 7, 8, "dots"]);
-    expect(result.current.active).toBe(7);
+    expect(result.current.activePage).toBe(7);
   });
 
   it("should call onChange function correctly", () => {

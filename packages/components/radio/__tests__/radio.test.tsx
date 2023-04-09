@@ -1,7 +1,7 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
 
-import {RadioGroup, Radio, RadioProps} from "../src";
+import {RadioGroup, Radio, RadioGroupProps} from "../src";
 
 describe("Radio", () => {
   it("should render correctly", () => {
@@ -99,11 +99,11 @@ describe("Radio", () => {
     expect(radio1).not.toBeChecked();
   });
 
-  it('should work correctly with "onChange" prop', () => {
-    const onChange = jest.fn();
+  it('should work correctly with "onValueChange" prop', () => {
+    const onValueChange = jest.fn();
 
     const {container} = render(
-      <RadioGroup defaultValue="1" label="Options" onChange={onChange}>
+      <RadioGroup defaultValue="1" label="Options" onValueChange={onValueChange}>
         <Radio value="1">Option 1</Radio>
         <Radio className="radio-test-2" value="2">
           Option 2
@@ -117,7 +117,7 @@ describe("Radio", () => {
       radio2.click();
     });
 
-    expect(onChange).toBeCalledWith("2");
+    expect(onValueChange).toBeCalledWith("2");
 
     expect(radio2).toBeChecked();
   });
@@ -161,18 +161,18 @@ describe("Radio", () => {
   });
 
   it("should work correctly with controlled value", () => {
-    const onChange = jest.fn();
+    const onValueChange = jest.fn();
 
-    const Component = ({onChange}: Omit<RadioProps, "value">) => {
+    const Component = ({onValueChange}: Omit<RadioGroupProps, "value">) => {
       const [value, setValue] = React.useState("1");
 
       return (
         <RadioGroup
           label="Options"
           value={value}
-          onChange={(next) => {
+          onValueChange={(next) => {
             setValue(next);
-            onChange?.(next as any);
+            onValueChange?.(next as any);
           }}
         >
           <Radio value="1">Option 1</Radio>
@@ -183,7 +183,7 @@ describe("Radio", () => {
       );
     };
 
-    const {container} = render(<Component onChange={onChange} />);
+    const {container} = render(<Component onValueChange={onValueChange} />);
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
@@ -191,7 +191,7 @@ describe("Radio", () => {
       radio2.click();
     });
 
-    expect(onChange).toBeCalled();
+    expect(onValueChange).toBeCalled();
 
     expect(radio2).toBeChecked();
   });

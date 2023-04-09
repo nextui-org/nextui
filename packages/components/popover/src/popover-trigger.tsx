@@ -1,7 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import React, {Children, cloneElement, useMemo} from "react";
 import {pickChildren} from "@nextui-org/shared-utils";
-import {useButton} from "@react-aria/button";
+import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
 import {mergeProps} from "@react-aria/utils";
 
@@ -36,7 +36,7 @@ const PopoverTrigger = forwardRef<PopoverTriggerProps, "button">((props, _) => {
   // validates if contains a NextUI Button as a child
   const [, triggerChildren] = pickChildren(children, Button);
 
-  const {buttonProps} = useButton({onPress}, triggerRef);
+  const {buttonProps} = useAriaButton({onPress}, triggerRef);
 
   const hasNextUIButton = useMemo<boolean>(() => {
     return triggerChildren?.[0] !== undefined;

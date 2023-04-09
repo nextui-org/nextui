@@ -77,7 +77,7 @@ describe("Switch", () => {
         <Switch
           aria-label="switch"
           isSelected={isSelected}
-          onChange={(selected) => {
+          onValueChange={(selected) => {
             onChange?.(selected);
             setIsSelected(selected);
           }}
@@ -169,32 +169,30 @@ describe("Switch", () => {
     expect(uncheckedThumbIcon).toBeInTheDocument();
   });
 
-  it('should work with "leftIcon"', () => {
+  it('should work with "startIcon"', () => {
     const wrapper = render(
-      <Switch aria-label="switch" leftIcon={<svg data-testid="left-icon" />} />,
+      <Switch aria-label="switch" startIcon={<svg data-testid="start-icon" />} />,
     );
 
-    expect(wrapper.getByTestId("left-icon")).toBeInTheDocument();
+    expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
   });
 
-  it('should work with "rightIcon"', () => {
-    const wrapper = render(
-      <Switch aria-label="switch" rightIcon={<svg data-testid="right-icon" />} />,
-    );
+  it('should work with "endIcon"', () => {
+    const wrapper = render(<Switch aria-label="switch" endIcon={<svg data-testid="end-icon" />} />);
 
-    expect(wrapper.getByTestId("right-icon")).toBeInTheDocument();
+    expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
   });
 
-  it('should work with "leftIcon" and "rightIcon"', () => {
+  it('should work with "startIcon" and "endIcon"', () => {
     const wrapper = render(
       <Switch
         aria-label="switch"
-        leftIcon={<svg data-testid="left-icon" />}
-        rightIcon={<svg data-testid="right-icon" />}
+        endIcon={<svg data-testid="end-icon" />}
+        startIcon={<svg data-testid="start-icon" />}
       />,
     );
 
-    expect(wrapper.getByTestId("left-icon")).toBeInTheDocument();
-    expect(wrapper.getByTestId("right-icon")).toBeInTheDocument();
+    expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
+    expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
   });
 });

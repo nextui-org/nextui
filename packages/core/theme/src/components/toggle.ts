@@ -7,17 +7,17 @@ import {ringClasses} from "../utils";
 /**
  * Toggle (Switch) wrapper **Tailwind Variants** component
  *
- * const {base, wrapper, thumb, thumbIcon, label} = toggle({...})
+ * const {base, wrapper, thumb, thumbIcon, label, startIcon, endIcon} = toggle({...})
  *
  * @example
  * <label className={base())}>
  *  // hidden input
  *  <span className={wrapper()} aria-hidden="true" data-checked={checked}>
- *    <svg className={leftIcon()}>...</svg>
+ *    <svg className={startIcon()}>...</svg>
  *    <span className={thumb()}>
  *      <svg className={thumbIcon()}>...</svg>
  *    </span>
- *    <svg className={rightIcon()}>...</svg>
+ *    <svg className={endIcon()}>...</svg>
  *  </span>
  *  <span className={label()}>Label</span>
  * </label>
@@ -47,8 +47,8 @@ const toggle = tv({
       "rounded-full",
       "data-[checked=true]:translate-x-full",
     ],
-    leftIcon: "z-0 absolute left-1.5 text-current",
-    rightIcon: "z-0 absolute right-1.5 text-neutral-600",
+    startIcon: "z-0 absolute left-1.5 text-current",
+    endIcon: "z-0 absolute right-1.5 text-neutral-600",
     thumbIcon: "text-black",
     label: "relative text-foreground select-none",
   },
@@ -92,37 +92,37 @@ const toggle = tv({
       xs: {
         wrapper: "px-0.5 w-7 h-4 mr-1",
         thumb: "w-3 h-3 text-[0.5rem]",
-        leftIcon: "text-[0.5rem] left-1",
-        rightIcon: "text-[0.5rem] right-1",
+        startIcon: "text-[0.5rem] left-1",
+        endIcon: "text-[0.5rem] right-1",
         right: "text-[0.5rem]",
         label: "text-xs",
       },
       sm: {
         wrapper: "w-8 h-5 mr-1",
         thumb: "w-3 h-3 text-[0.6rem]",
-        leftIcon: "text-[0.6rem] left-1",
-        rightIcon: "text-[0.6rem] right-1",
+        startIcon: "text-[0.6rem] left-1",
+        endIcon: "text-[0.6rem] right-1",
         label: "text-sm",
       },
       md: {
         wrapper: "w-10 h-6 mr-2",
         thumb: "w-4 h-4 text-xs",
-        rightIcon: "text-xs",
-        leftIcon: "text-xs",
+        endIcon: "text-xs",
+        startIcon: "text-xs",
         label: "text-base",
       },
       lg: {
         wrapper: "w-12 h-7 mr-2",
         thumb: "w-5 h-5 text-sm",
-        rightIcon: "text-sm",
-        leftIcon: "text-sm",
+        endIcon: "text-sm",
+        startIcon: "text-sm",
         label: "text-lg",
       },
       xl: {
         wrapper: "w-14 h-8 mr-2",
         thumb: "w-6 h-6 text-base",
-        rightIcon: "text-base",
-        leftIcon: "text-base",
+        endIcon: "text-base",
+        startIcon: "text-base",
         label: "text-xl",
       },
     },
@@ -142,16 +142,16 @@ const toggle = tv({
         thumb: "transition-none",
       },
       false: {
-        wrapper: "transition-background !duration-500",
+        wrapper: "transition-background",
         thumb: "transition-transform !ease-soft-spring !duration-500",
-        leftIcon: [
+        startIcon: [
           "opacity-0",
           "scale-50",
           "transition-transform-opacity",
           "data-[checked=true]:scale-100",
           "data-[checked=true]:opacity-100",
         ],
-        rightIcon: [
+        endIcon: [
           "opacity-100",
           "transition-transform-opacity",
           "data-[checked=true]:translate-x-3",

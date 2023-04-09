@@ -50,11 +50,11 @@ const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => 
     <div className="flex flex-col gap-2">
       <Switch
         {...args}
+        endIcon={<MoonFilledIcon />}
         isSelected={isSelected}
-        leftIcon={<SunFilledIcon />}
-        rightIcon={<MoonFilledIcon />}
+        startIcon={<SunFilledIcon />}
         styles={{
-          leftIcon: "text-white",
+          startIcon: "text-white",
         }}
         onValueChange={setIsSelected}
       />

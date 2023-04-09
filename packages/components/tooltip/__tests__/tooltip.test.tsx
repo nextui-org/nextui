@@ -1,5 +1,5 @@
 import * as React from "react";
-import {render, fireEvent} from "@testing-library/react";
+import {render, fireEvent, act} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 
 import {Tooltip} from "../src";
@@ -35,7 +35,7 @@ describe("Tooltip", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("should hide the tooltip when pressing the escape key", () => {
+  it("should hide the tooltip when pressing the escape key", async () => {
     const onClose = jest.fn();
 
     const wrapper = render(
@@ -46,8 +46,10 @@ describe("Tooltip", () => {
 
     const content = wrapper.getByTestId("content-test");
 
-    fireEvent.keyDown(content, {key: "Escape"});
-    expect(onClose).toHaveBeenCalledTimes(1);
+    await act(async () => {
+      await fireEvent.keyDown(content, {key: "Escape"});
+      expect(onClose).toHaveBeenCalledTimes(1);
+    });
   });
 
   it("should still hide the tooltip when pressing the escape key if isDismissable is false", () => {

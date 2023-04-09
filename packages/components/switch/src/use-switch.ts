@@ -41,13 +41,13 @@ interface Props extends HTMLNextUIProps<"label"> {
    */
   thumbIcon?: ReactNode | ((props: SwitchThumbIconProps) => ReactNode);
   /**
-   * Left icon to be displayed inside the switch.
+   * Start icon to be displayed inside the switch.
    */
-  leftIcon?: ReactNode;
+  startIcon?: ReactNode;
   /**
-   * Right icon to be displayed inside the switch.
+   * End icon to be displayed inside the switch.
    */
-  rightIcon?: ReactNode;
+  endIcon?: ReactNode;
   /**
    * Classname or List of classes to change the styles of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -84,8 +84,8 @@ export function useSwitch(originalProps: UseSwitchProps) {
     value = "",
     isReadOnly = false,
     autoFocus = false,
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     defaultSelected,
     isSelected: isSelectedProp,
     children,
@@ -241,24 +241,24 @@ export function useSwitch(originalProps: UseSwitchProps) {
     [slots, styles?.thumbIcon, isSelected, originalProps.disableAnimation],
   );
 
-  const getLeftIconProps = useCallback(
+  const getStartIconProps = useCallback(
     () => ({
       width: "1em",
       height: "1em",
       "data-checked": dataAttr(isSelected),
-      className: slots.leftIcon({class: styles?.leftIcon}),
+      className: slots.startIcon({class: styles?.startIcon}),
     }),
-    [slots, styles?.leftIcon, isSelected],
+    [slots, styles?.startIcon, isSelected],
   );
 
-  const getRightIconProps = useCallback(
+  const getEndIconProps = useCallback(
     () => ({
       width: "1em",
       height: "1em",
       "data-checked": dataAttr(isSelected),
-      className: slots.rightIcon({class: styles?.rightIcon}),
+      className: slots.endIcon({class: styles?.endIcon}),
     }),
-    [slots, styles?.rightIcon, isSelected],
+    [slots, styles?.endIcon, isSelected],
   );
 
   return {
@@ -268,8 +268,8 @@ export function useSwitch(originalProps: UseSwitchProps) {
     domRef,
     children,
     thumbIcon,
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     isHovered,
     isSelected,
     isFocused,
@@ -281,8 +281,8 @@ export function useSwitch(originalProps: UseSwitchProps) {
     getLabelProps,
     getThumbProps,
     getThumbIconProps,
-    getLeftIconProps,
-    getRightIconProps,
+    getStartIconProps,
+    getEndIconProps,
   };
 }
 

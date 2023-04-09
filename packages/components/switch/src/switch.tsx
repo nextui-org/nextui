@@ -10,8 +10,8 @@ const Switch = forwardRef<SwitchProps, "div">((props, ref) => {
   const {
     Component,
     children,
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     thumbIcon,
     getBaseProps,
     getInputProps,
@@ -19,8 +19,8 @@ const Switch = forwardRef<SwitchProps, "div">((props, ref) => {
     getThumbProps,
     getThumbIconProps,
     getLabelProps,
-    getLeftIconProps,
-    getRightIconProps,
+    getStartIconProps,
+    getEndIconProps,
   } = useSwitch({ref, ...props});
 
   const clonedThumbIcon =
@@ -28,8 +28,8 @@ const Switch = forwardRef<SwitchProps, "div">((props, ref) => {
       ? thumbIcon(getThumbIconProps({includeStateProps: true}))
       : thumbIcon && cloneElement(thumbIcon as ReactElement, getThumbIconProps());
 
-  const clonedLeftIcon = leftIcon && cloneElement(leftIcon as ReactElement, getLeftIconProps());
-  const clonedRightIcon = rightIcon && cloneElement(rightIcon as ReactElement, getRightIconProps());
+  const clonedStartIcon = startIcon && cloneElement(startIcon as ReactElement, getStartIconProps());
+  const clonedEndIcon = endIcon && cloneElement(endIcon as ReactElement, getEndIconProps());
 
   return (
     <Component {...getBaseProps()}>
@@ -37,9 +37,9 @@ const Switch = forwardRef<SwitchProps, "div">((props, ref) => {
         <input {...getInputProps()} />
       </VisuallyHidden>
       <span {...getWrapperProps()}>
-        {leftIcon && clonedLeftIcon}
+        {startIcon && clonedStartIcon}
         <span {...getThumbProps()}>{thumbIcon && clonedThumbIcon}</span>
-        {rightIcon && clonedRightIcon}
+        {endIcon && clonedEndIcon}
       </span>
       {children && <span {...getLabelProps()}>{children}</span>}
     </Component>

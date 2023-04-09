@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230409142211
+
+### Patch Changes
+
+- Left/Right labels changed to Start/End, tests fixed
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230409142211
+
 ## 0.0.0-dev-v2-20230409022144
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/switch",
-  "version": "0.0.0-dev-v2-20230409022144",
+  "version": "0.0.0-dev-v2-20230409142211",
   "description": "A switch is similar to a checkbox, but represents on/off values as opposed to selection.",
   "keywords": [
     "switch"

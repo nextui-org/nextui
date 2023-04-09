@@ -1,5 +1,13 @@
 # @nextui-org/aria-utils
 
+## 0.0.0-dev-v2-20230409142211
+
+### Patch Changes
+
+- Left/Right labels changed to Start/End, tests fixed
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230409142211
+
 ## 0.0.0-dev-v2-20230409022144
 
 ### Patch Changes

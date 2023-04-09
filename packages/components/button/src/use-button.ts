@@ -11,8 +11,8 @@ import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
+import {useAriaButton} from "@nextui-org/use-aria-button";
 
-import {useButton as useAriaButton} from "./use-aria-button";
 import {useButtonGroupContext} from "./button-group-context";
 
 export interface UseButtonProps
@@ -29,13 +29,13 @@ export interface UseButtonProps
   disableRipple?: boolean;
 
   /**
-   * The button left content.
+   * The button start content.
    */
-  leftIcon?: ReactNode;
+  startIcon?: ReactNode;
   /**
-   * The button right content.
+   * The button end content.
    */
-  rightIcon?: ReactNode;
+  endIcon?: ReactNode;
   /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
@@ -51,8 +51,8 @@ export function useButton(props: UseButtonProps) {
     ref,
     as,
     children,
-    leftIcon: leftIconProp,
-    rightIcon: rightIconProp,
+    startIcon: startIconProp,
+    endIcon: endIconProp,
     autoFocus,
     className,
     fullWidth = groupContext?.fullWidth ?? false,
@@ -145,8 +145,8 @@ export function useButton(props: UseButtonProps) {
         })
       : null;
 
-  const leftIcon = getIconClone(leftIconProp);
-  const rightIcon = getIconClone(rightIconProp);
+  const startIcon = getIconClone(startIconProp);
+  const endIcon = getIconClone(endIconProp);
 
   return {
     Component,
@@ -154,8 +154,8 @@ export function useButton(props: UseButtonProps) {
     domRef,
     drips,
     styles,
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     disableRipple,
     getButtonProps,
   };

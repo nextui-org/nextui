@@ -32,9 +32,9 @@ describe("Chip", () => {
   });
 
   it("should support startContent", () => {
-    const wrapper = render(<Chip startContent={<span data-testid="left-icon" />} />);
+    const wrapper = render(<Chip startContent={<span data-testid="start-icon" />} />);
 
-    expect(wrapper.getByTestId("left-icon")).not.toBeNull();
+    expect(wrapper.getByTestId("start-icon")).not.toBeNull();
   });
 
   it("should support endContent", () => {

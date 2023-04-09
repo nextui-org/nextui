@@ -591,6 +591,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
       '@react-aria/button':
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
@@ -637,6 +640,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
       '@react-aria/button':
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
@@ -1030,6 +1036,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
       '@react-aria/button':
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
@@ -1507,6 +1516,31 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0(react@18.2.0)
     devDependencies:
+      '@react-types/shared':
+        specifier: ^3.18.0
+        version: 3.18.0(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-button:
+    dependencies:
+      '@react-aria/focus':
+        specifier: ^3.12.0
+        version: 3.12.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+    devDependencies:
+      '@react-types/button':
+        specifier: ^3.7.2
+        version: 3.7.2(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.18.0
         version: 3.18.0(react@18.2.0)

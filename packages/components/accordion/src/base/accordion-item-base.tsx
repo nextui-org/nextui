@@ -47,9 +47,9 @@ export interface Props<T extends object = {}>
    */
   indicator?: ReactNode | ((props: AccordionItemIndicatorProps) => ReactNode) | null;
   /**
-   * The accordion item left indicator, it's usually an icon or avatar.
+   * The accordion item start content, it's usually an icon or avatar.
    */
-  leftIndicator?: ReactNode;
+  startContent?: ReactNode;
   /**
    * The properties passed to the underlying `Collapse` component.
    */
@@ -64,7 +64,7 @@ export interface Props<T extends object = {}>
    *    base:"base-classes",
    *    heading: "heading-classes",
    *    trigger: "trigger-classes",
-   *    leftIndicator: "left-indicator-classes",
+   *    startContent: "start-indicator-classes",
    *    indicator: "indicator-classes",
    *    titleWrapper: "title-wrapper-classes", // this wraps the title and subtitle
    *    title: "title-classes",

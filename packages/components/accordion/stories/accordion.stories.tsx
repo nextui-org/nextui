@@ -89,12 +89,12 @@ const TemplateWithSubtitle: ComponentStory<typeof Accordion> = (args: AccordionP
   </Accordion>
 );
 
-const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
+const TemplateWithStartContent: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
   <Accordion {...args} variant="shadow">
     <AccordionItem
       key="1"
       aria-label="Chung Miller"
-      leftIndicator={
+      startContent={
         <Avatar
           isBordered
           color="primary"
@@ -110,7 +110,7 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
     <AccordionItem
       key="2"
       aria-label="Janelle Lenard"
-      leftIndicator={
+      startContent={
         <Avatar
           isBordered
           color="success"
@@ -126,7 +126,7 @@ const TemplateWithLeftIndicator: ComponentStory<typeof Accordion> = (args: Accor
     <AccordionItem
       key="3"
       aria-label="Zoey Lang"
-      leftIndicator={
+      startContent={
         <Avatar
           isBordered
           color="warning"
@@ -261,7 +261,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="1"
         aria-label="Connected devices"
-        leftIndicator={<MonitorMobileIcon className="text-primary" />}
+        startContent={<MonitorMobileIcon className="text-primary" />}
         styles={itemStyles}
         subtitle={
           <p className="flex">
@@ -275,7 +275,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="2"
         aria-label="Apps Permissions"
-        leftIndicator={<ShieldSecurityIcon />}
+        startContent={<ShieldSecurityIcon />}
         styles={itemStyles}
         subtitle="3 apps have read permissions"
         title="Apps Permissions"
@@ -285,7 +285,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="3"
         aria-label="Pending tasks"
-        leftIndicator={<InfoIcon className="text-warning" />}
+        startContent={<InfoIcon className="text-warning" />}
         styles={{...itemStyles, subtitle: "text-warning"}}
         subtitle="Complete your profile"
         title="Pending tasks"
@@ -295,7 +295,7 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="4"
         aria-label="Card expired"
-        leftIndicator={<InvalidCardIcon className="text-danger" />}
+        startContent={<InvalidCardIcon className="text-danger" />}
         styles={{...itemStyles, subtitle: "text-danger"}}
         subtitle="Please, update now"
         title={
@@ -345,8 +345,8 @@ WithSubtitle.args = {
   ...defaultProps,
 };
 
-export const WithLeftIndicator = TemplateWithLeftIndicator.bind({});
-WithLeftIndicator.args = {
+export const WithStartContent = TemplateWithStartContent.bind({});
+WithStartContent.args = {
   ...defaultProps,
 };
 

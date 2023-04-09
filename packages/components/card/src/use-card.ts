@@ -6,7 +6,7 @@ import {MouseEvent, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
-import {useButton as useAriaButton} from "@react-aria/button";
+import {useAriaButton} from "@nextui-org/use-aria-button";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {callAllHandlers, clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";

@@ -11,8 +11,7 @@ import {
 } from "react";
 import {AriaButtonProps} from "@react-types/button";
 import {DOMAttributes} from "@react-types/shared";
-import {filterDOMProps} from "@react-aria/utils";
-import {mergeProps} from "@react-aria/utils";
+import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusable} from "@react-aria/focus";
 import {usePress} from "@react-aria/interactions";
 
@@ -24,27 +23,27 @@ export interface ButtonAria<T> {
 }
 
 // Order with overrides is important: 'button' should be default
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<"button">,
   ref: RefObject<HTMLButtonElement>,
 ): ButtonAria<ButtonHTMLAttributes<HTMLButtonElement>>;
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<"a">,
   ref: RefObject<HTMLAnchorElement>,
 ): ButtonAria<AnchorHTMLAttributes<HTMLAnchorElement>>;
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<"div">,
   ref: RefObject<HTMLDivElement>,
 ): ButtonAria<HTMLAttributes<HTMLDivElement>>;
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<"input">,
   ref: RefObject<HTMLInputElement>,
 ): ButtonAria<InputHTMLAttributes<HTMLInputElement>>;
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<"span">,
   ref: RefObject<HTMLSpanElement>,
 ): ButtonAria<HTMLAttributes<HTMLSpanElement>>;
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<ElementType>,
   ref: RefObject<Element>,
 ): ButtonAria<DOMAttributes>;
@@ -54,7 +53,7 @@ export function useButton(
  * @param props - Props to be applied to the button.
  * @param ref - A ref to a DOM element for the button.
  */
-export function useButton(
+export function useAriaButton(
   props: AriaButtonProps<ElementType>,
   ref: RefObject<any>,
 ): ButtonAria<HTMLAttributes<any>> {

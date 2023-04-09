@@ -34,13 +34,13 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   isDisabled?: boolean;
   /**
-   * The delay time for the tooltip to show up.
+   * The delay time in ms for the tooltip to show up.
    * @default 0
    */
   delay?: number;
   /**
-   * The delay time for the tooltip to hide.
-   * @default 0
+   * The delay time in ms for the tooltip to hide.
+   * @default 500
    */
   closeDelay?: number;
   /**
@@ -90,12 +90,12 @@ export function useTooltip(originalProps: UseTooltipProps) {
     containerPadding = 12,
     placement: placementProp = "top",
     delay = 0,
-    closeDelay = 0,
+    closeDelay = 500,
     showArrow = false,
     offset = 7,
     crossOffset = 0,
-    isDismissable = true,
-    shouldCloseOnBlur = false,
+    isDismissable,
+    shouldCloseOnBlur = true,
     isKeyboardDismissDisabled = false,
     shouldCloseOnInteractOutside,
     className,
@@ -112,7 +112,12 @@ export function useTooltip(originalProps: UseTooltipProps) {
     closeDelay,
     isDisabled,
     defaultOpen,
-    onOpenChange,
+    onOpenChange: (isOpen) => {
+      onOpenChange?.(isOpen);
+      if (!isOpen) {
+        onClose?.();
+      }
+    },
   });
 
   const triggerRef = useRef<HTMLElement>(null);
@@ -120,7 +125,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const tooltipId = useId();
 
-  const immediate = closeDelay === 0;
   const isOpen = state.isOpen && !isDisabled;
 
   // Sync ref with overlayRef from passed ref.
@@ -129,19 +133,14 @@ export function useTooltip(originalProps: UseTooltipProps) {
     createDOMRef(overlayRef),
   );
 
-  const handleClose = useCallback(() => {
-    onClose?.();
-    state.close(immediate);
-  }, [state, immediate, onClose]);
-
   // control open state from outside
   useEffect(() => {
     if (isOpenProp === undefined) return;
 
     if (isOpenProp !== state.isOpen) {
-      isOpenProp ? state.open() : handleClose();
+      isOpenProp ? state.open() : state.close();
     }
-  }, [isOpenProp, handleClose]);
+  }, [isOpenProp]);
 
   const {triggerProps, tooltipProps: triggerTooltipProps} = useTooltipTrigger(
     {
@@ -174,8 +173,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const {overlayProps} = useOverlay(
     {
       isOpen: isOpen,
+      onClose: state.close,
       isDismissable,
-      onClose: handleClose,
       shouldCloseOnBlur,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside,
@@ -199,9 +198,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
       ref: mergeRefs(_ref, triggerRef),
       "aria-describedby": isOpen ? tooltipId : undefined,
       onPointerEnter: () => state.open(),
-      onPointerLeave: () => isDismissable && state.close(),
+      onPointerLeave: () => state.isOpen && state.close(),
     }),
-    [triggerProps, isOpen, tooltipId, isDismissable, state],
+    [triggerProps, isOpen, tooltipId, state],
   );
 
   const getTooltipProps = useCallback<PropGetter>(

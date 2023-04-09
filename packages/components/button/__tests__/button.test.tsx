@@ -28,20 +28,6 @@ describe("Button", () => {
     expect(onPress).toHaveBeenCalled();
   });
 
-  it("should show warning message when onClick is being used", () => {
-    const onClick = jest.fn();
-    const spy = jest.spyOn(console, "warn").mockImplementation(() => {});
-
-    const wrapper = render(<Button onClick={onClick} />);
-
-    act(() => {
-      wrapper.getByRole("button").click();
-    });
-
-    expect(spy).toHaveBeenCalled();
-    spy.mockRestore();
-  });
-
   it("should ignore events when disabled", () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Button disabled onPress={onPress} />);
@@ -53,20 +39,20 @@ describe("Button", () => {
     expect(onPress).not.toHaveBeenCalled();
   });
 
-  it("should renders with left icon", () => {
+  it("should renders with start icon", () => {
     const wrapper = render(
-      <Button leftIcon={<span data-testid="left-icon">Icon</span>}>Button</Button>,
+      <Button startIcon={<span data-testid="start-icon">Icon</span>}>Button</Button>,
     );
 
-    expect(wrapper.getByTestId("left-icon")).toBeInTheDocument();
+    expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
   });
 
-  it("should renders with right icon", () => {
+  it("should renders with end icon", () => {
     const wrapper = render(
-      <Button rightIcon={<span data-testid="right-icon">Icon</span>}>Button</Button>,
+      <Button endIcon={<span data-testid="end-icon">Icon</span>}>Button</Button>,
     );
 
-    expect(wrapper.getByTestId("right-icon")).toBeInTheDocument();
+    expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
   });
 
   it("should have the proper type attribute", () => {

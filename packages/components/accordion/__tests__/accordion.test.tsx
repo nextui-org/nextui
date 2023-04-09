@@ -92,13 +92,13 @@ describe("Accordion", () => {
     expect(button).toHaveAttribute("aria-expanded", "true");
   });
 
-  it("should support leftIndicator", () => {
+  it("should support startIndicator", () => {
     const wrapper = render(
       <Accordion>
         <AccordionItem
           key="1"
           data-testid="item-1"
-          leftIndicator={<div data-testid="left-content" />}
+          startContent={<div data-testid="start-content" />}
           title="Accordion Item 1"
         >
           Accordion Item 1 description
@@ -106,7 +106,7 @@ describe("Accordion", () => {
       </Accordion>,
     );
 
-    expect(wrapper.getByTestId("left-content")).toBeInTheDocument();
+    expect(wrapper.getByTestId("start-content")).toBeInTheDocument();
   });
 
   it("arrow up & down moves focus to next/previous accordion item", async () => {

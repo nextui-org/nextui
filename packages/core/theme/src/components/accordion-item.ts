@@ -6,13 +6,13 @@ import {ringClasses} from "../utils";
 /**
  * AccordionItem wrapper **Tailwind Variants** component
  *
- * const {base, heading, indicator, trigger, leftIndicator, title, subtitle, content } = accordionItem({...})
+ * const {base, heading, indicator, trigger, startContent, title, subtitle, content } = accordionItem({...})
  *
  * @example
  * <div className={base())}>
  *   <div className={heading())}>
  *    <button className={trigger())}>
- *      <div className={leftIndicator()}>
+ *      <div className={startContent()}>
  *         // content
  *      </div>
  *      <div className={titleWrapper()}>
@@ -40,7 +40,7 @@ const accordionItem = tv({
     ],
     heading: "",
     trigger: "py-2 flex w-full gap-3 outline-none items-center",
-    leftIndicator: "flex-shrink-0",
+    startContent: "flex-shrink-0",
     indicator: "text-neutral-400",
     titleWrapper: "flex-1 flex flex-col text-left",
     title: "text-foreground text-lg",

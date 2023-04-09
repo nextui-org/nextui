@@ -64,17 +64,16 @@ describe("Snippet - Clipboard", () => {
     jest.useRealTimers();
   });
 
-  it('should copy text to clipboard when "copy" button is clicked', () => {
+  it('should copy text to clipboard when "copy" button is clicked', async () => {
     jest.spyOn(navigator.clipboard, "writeText");
 
     let code = "npm install @nextui-org/react";
 
     const wrapper = render(<Snippet data-testid="code-test">{code}</Snippet>);
 
-    act(() => {
-      wrapper.getByRole("button").click();
+    await act(async () => {
+      await wrapper.getByRole("button").click();
+      expect(navigator.clipboard.writeText).toHaveBeenCalledWith(code);
     });
-
-    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(code);
   });
 });

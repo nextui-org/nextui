@@ -332,6 +332,45 @@ const WithStartContentTemplate: ComponentStory<any> = ({
   );
 };
 
+const WithEndContentTemplate: ComponentStory<any> = ({
+  color,
+  variant,
+  disableAnimation,
+  ...args
+}) => {
+  const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0";
+
+  return (
+    <Dropdown {...args} disableAnimation={disableAnimation}>
+      <DropdownTrigger>
+        <Button color="success" disableAnimation={disableAnimation} variant="faded">
+          Trigger
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+        <DropdownItem key="new" endContent={<AddNoteBulkIcon className={iconClasses} />}>
+          New file
+        </DropdownItem>
+        <DropdownItem key="copy" endContent={<CopyDocumentBulkIcon className={iconClasses} />}>
+          Copy link
+        </DropdownItem>
+        <DropdownItem key="edit" endContent={<EditDocumentBulkIcon className={iconClasses} />}>
+          Edit file
+        </DropdownItem>
+        <DropdownItem
+          key="delete"
+          showDivider
+          className="text-danger"
+          color="danger"
+          endContent={<DeleteDocumentBulkIcon className={clsx(iconClasses, "!text-danger")} />}
+        >
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
 const WithDescriptionTemplate: ComponentStory<any> = ({
   color,
   variant,
@@ -566,6 +605,13 @@ WithStartContent.args = {
   ...defaultProps,
   variant: "flat",
   color: "secondary",
+};
+
+export const WithEndContent = WithEndContentTemplate.bind({});
+WithEndContent.args = {
+  ...defaultProps,
+  variant: "faded",
+  color: "success",
 };
 
 export const WithDescription = WithDescriptionTemplate.bind({});

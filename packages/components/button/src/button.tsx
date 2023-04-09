@@ -12,8 +12,8 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     children,
     styles,
     drips,
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     disableRipple,
     getButtonProps,
   } = useButton({
@@ -23,9 +23,9 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
 
   return (
     <Component ref={domRef} className={styles} {...getButtonProps()}>
-      {leftIcon}
+      {startIcon}
       {children}
-      {rightIcon}
+      {endIcon}
       {!disableRipple && <Drip drips={drips} />}
     </Component>
   );

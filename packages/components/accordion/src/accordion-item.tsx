@@ -16,7 +16,7 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     children,
     title,
     subtitle,
-    leftIndicator,
+    startContent,
     isOpen,
     isDisabled,
     disableAnimation,
@@ -56,10 +56,8 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     <Component {...getBaseProps()}>
       <h2 {...getHeadingProps()}>
         <button {...getButtonProps()}>
-          {leftIndicator && (
-            <div className={slots.leftIndicator({class: styles?.leftIndicator})}>
-              {leftIndicator}
-            </div>
+          {startContent && (
+            <div className={slots.startContent({class: styles?.startContent})}>{startContent}</div>
           )}
           <div className={slots.titleWrapper({class: styles?.titleWrapper})}>
             {title && <span {...getTitleProps()}>{title}</span>}
