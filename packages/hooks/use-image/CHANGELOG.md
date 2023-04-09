@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230409022144
+
+### Patch Changes
+
+- Dropdown component added
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230409022144
+
 ## 0.0.0-dev-v2-20230407185204
 
 ### Patch Changes

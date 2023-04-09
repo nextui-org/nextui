@@ -1380,6 +1380,9 @@ importers:
       '@nextui-org/drip':
         specifier: workspace:*
         version: link:../../components/drip
+      '@nextui-org/dropdown':
+        specifier: workspace:*
+        version: link:../../components/dropdown
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../../components/input

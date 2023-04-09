@@ -1,5 +1,11 @@
 # @nextui-org/dom-utils
 
+## 0.0.0-dev-v2-20230409022144
+
+### Patch Changes
+
+- Dropdown component added
+
 ## 0.0.0-dev-v2-20230407185204
 
 ### Patch Changes
