@@ -837,7 +837,6 @@ export const StyledInputContent = styled("span", {
 });
 
 export const StyledInputClearButton = styled("button", {
-  position: "absolute",
   right: 0,
   margin: 0,
   d: "inline-flex",
