@@ -1,5 +1,16 @@
 # @nextui-org/checkbox
 
+## 0.0.0-dev-v2-20230409144630
+
+### Patch Changes
+
+- Framer-motion installed as a peer depedency
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230409144630
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230409144630
+  - @nextui-org/system@0.0.0-dev-v2-20230409144630
+  - @nextui-org/theme@0.0.0-dev-v2-20230409144630
+
 ## 0.0.0-dev-v2-20230409142211
 
 ### Patch Changes

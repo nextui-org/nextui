@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/framer-transitions",
-  "version": "0.0.0-dev-v2-20230409142211",
+  "version": "0.0.0-dev-v2-20230409144630",
   "description": "A set of framer motion transitions for react",
   "keywords": [
     "framer-transitions"
@@ -34,16 +34,17 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "framer-motion": ">=6.2.8"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "framer-motion": "^10.11.2"
+    "@nextui-org/shared-utils": "workspace:*"
   },
   "devDependencies": {
     "react": "^18.0.0",
-    "clean-package": "2.2.0"
+    "clean-package": "2.2.0",
+    "framer-motion": "^10.11.2"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

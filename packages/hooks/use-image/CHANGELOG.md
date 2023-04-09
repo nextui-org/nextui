@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230409144630
+
+### Patch Changes
+
+- Framer-motion installed as a peer depedency
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230409144630
+
 ## 0.0.0-dev-v2-20230409142211
 
 ### Patch Changes

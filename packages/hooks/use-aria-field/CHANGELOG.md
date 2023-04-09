@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230409144630
+
+### Patch Changes
+
+- Framer-motion installed as a peer depedency
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230409144630
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230409144630
+
 ## 0.0.0-dev-v2-20230409142211
 
 ### Patch Changes
