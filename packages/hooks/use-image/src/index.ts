@@ -90,7 +90,7 @@ export function useImage(props: UseImageProps = {}) {
     img.onload = (event) => {
       flush();
       setStatus("loaded");
-      onLoad?.(event as unknown as ImageEvent);
+      onLoad?.((event as unknown) as ImageEvent);
     };
     img.onerror = (error) => {
       flush();

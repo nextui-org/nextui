@@ -9,6 +9,11 @@ export const animations = {
       "indeterminate-bar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running",
   },
   keyframes: {
+    shimmer: {
+      "100%": {
+        transform: "translateX(100%)",
+      },
+    },
     "spinner-spin": {
       "0%": {
         transform: "rotate(0deg)",
