@@ -26,14 +26,14 @@ export type ContextType = {
   isDisabled?: ButtonProps["isDisabled"];
   disableAnimation?: ButtonProps["disableAnimation"];
   disableRipple?: ButtonProps["disableRipple"];
-  isIconButton?: ButtonProps["isIconButton"];
+  isIconOnly?: ButtonProps["isIconOnly"];
   fullWidth?: boolean;
 };
 
 export type UseButtonGroupProps = Props &
   Pick<
     ButtonProps,
-    "size" | "color" | "radius" | "variant" | "isIconButton" | "disableAnimation" | "disableRipple"
+    "size" | "color" | "radius" | "variant" | "isIconOnly" | "disableAnimation" | "disableRipple"
   >;
 
 export function useButtonGroup(originalProps: UseButtonGroupProps) {
@@ -50,7 +50,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
     isDisabled = false,
     disableAnimation = false,
     disableRipple = false,
-    isIconButton = false,
+    isIconOnly = false,
     className,
     ...otherProps
   } = props;
@@ -74,7 +74,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
       color,
       variant,
       radius,
-      isIconButton,
+      isIconOnly,
       isDisabled,
       disableAnimation,
       disableRipple,
@@ -86,7 +86,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
       variant,
       radius,
       isDisabled,
-      isIconButton,
+      isIconOnly,
       disableAnimation,
       disableRipple,
       originalProps?.fullWidth,

@@ -105,7 +105,7 @@ WithIcons.args = {
 export const IconButton = Template.bind({});
 IconButton.args = {
   ...defaultProps,
-  isIconButton: true,
+  isIconOnly: true,
   children: <HeadphonesIcon className="w-5 h-5" />,
 };
 

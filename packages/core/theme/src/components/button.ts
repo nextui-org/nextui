@@ -82,7 +82,7 @@ const button = tv({
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
-    isIconButton: {
+    isIconOnly: {
       true: "p-0 gap-0",
     },
     disableAnimation: {
@@ -334,35 +334,35 @@ const button = tv({
       radius: "full",
       class: "rounded-none  first:rounded-l-full last:rounded-r-full",
     },
-    // isInGroup / bordered
+    // isInGroup / bordered / ghost
     {
       isInGroup: true,
-      variant: "bordered",
+      variant: ["bordered", "ghost"],
       class: "[&:not(:first-child)]:border-l-0",
     },
-    // isIconButton / size
+    // isIconOnly / size
     {
-      isIconButton: true,
+      isIconOnly: true,
       size: "xs",
       class: "w-6 h-6",
     },
     {
-      isIconButton: true,
+      isIconOnly: true,
       size: "sm",
       class: "w-8 h-8",
     },
     {
-      isIconButton: true,
+      isIconOnly: true,
       size: "md",
       class: "w-10 h-10",
     },
     {
-      isIconButton: true,
+      isIconOnly: true,
       size: "lg",
       class: "w-12 h-12",
     },
     {
-      isIconButton: true,
+      isIconOnly: true,
       size: "xl",
       class: "w-14 h-14",
     },

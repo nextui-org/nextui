@@ -63,7 +63,7 @@ export function useButton(props: UseButtonProps) {
     radius = groupContext?.radius ?? "lg",
     disableRipple = groupContext?.disableRipple ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
-    isIconButton = groupContext?.isIconButton ?? false,
+    isIconOnly = groupContext?.isIconOnly ?? false,
     onPress,
     onClick,
     ...otherProps
@@ -89,7 +89,7 @@ export function useButton(props: UseButtonProps) {
         isInGroup,
         isFocusVisible,
         disableAnimation,
-        isIconButton,
+        isIconOnly,
         className,
       }),
     [
@@ -101,7 +101,7 @@ export function useButton(props: UseButtonProps) {
       isDisabled,
       isInGroup,
       isFocusVisible,
-      isIconButton,
+      isIconOnly,
       disableAnimation,
       className,
     ],
