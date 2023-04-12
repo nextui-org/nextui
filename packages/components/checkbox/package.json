@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/checkbox",
-  "version": "0.0.0-dev-v2-20230412004701",
+  "version": "0.0.0-dev-v2-20230412124525",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
     "checkbox"

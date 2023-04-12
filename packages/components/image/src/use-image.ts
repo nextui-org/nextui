@@ -69,8 +69,6 @@ export function useImage(originalProps: UseImageProps) {
     ref,
     as,
     src,
-    width,
-    height,
     className,
     styles,
     loading,
@@ -98,12 +96,15 @@ export function useImage(originalProps: UseImageProps) {
 
   const domRef = useDOMRef(ref);
 
-  const {w, h} = useMemo(() => {
+  const {w} = useMemo(() => {
     return {
-      w: width ? (typeof width === "number" ? `${width}px` : width) : "auto",
-      h: height ? (typeof height === "number" ? `${height}px` : height) : "auto",
+      w: props.width
+        ? typeof props.width === "number"
+          ? `${props.width}px`
+          : props.width
+        : "auto",
     };
-  }, [width, height]);
+  }, [props?.width]);
 
   const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
   const showSkeleton = isLoading && !disableSkeleton;
@@ -123,8 +124,6 @@ export function useImage(originalProps: UseImageProps) {
     return {
       src,
       ref: domRef,
-      width: w,
-      height: h,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: baseStyles}),
       ...otherProps,
@@ -142,6 +141,7 @@ export function useImage(originalProps: UseImageProps) {
       className: slots.base({class: baseStyles}),
       style: {
         ...fallbackStyle,
+        maxWidth: w,
       },
     };
   }, [slots, showFallback, fallbackSrc, baseStyles]);

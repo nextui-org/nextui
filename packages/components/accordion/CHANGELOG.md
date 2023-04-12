@@ -1,5 +1,42 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230412124525
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230412124525
+
+## 0.0.0-dev-v2-20230412021924
+
+### Patch Changes
+
+- Fix blur image position
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230412021924
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230412021924
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230412021924
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230412021924
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230412021924
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230412021924
+  - @nextui-org/system@0.0.0-dev-v2-20230412021924
+  - @nextui-org/theme@0.0.0-dev-v2-20230412021924
+
+## 0.0.0-dev-v2-20230412020323
+
+### Patch Changes
+
+- Next.js image support fixed
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230412020323
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230412020323
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230412020323
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230412020323
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230412020323
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230412020323
+  - @nextui-org/system@0.0.0-dev-v2-20230412020323
+  - @nextui-org/theme@0.0.0-dev-v2-20230412020323
+
 ## 0.0.0-dev-v2-20230412004701
 
 ### Patch Changes

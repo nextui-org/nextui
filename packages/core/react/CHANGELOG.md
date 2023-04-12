@@ -1,5 +1,97 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230412124525
+
+### Patch Changes
+
+- Image blur filter improved
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230412124525
+  - @nextui-org/accordion@0.0.0-dev-v2-20230412124525
+  - @nextui-org/avatar@0.0.0-dev-v2-20230412124525
+  - @nextui-org/badge@0.0.0-dev-v2-20230412124525
+  - @nextui-org/button@0.0.0-dev-v2-20230412124525
+  - @nextui-org/card@0.0.0-dev-v2-20230412124525
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230412124525
+  - @nextui-org/chip@0.0.0-dev-v2-20230412124525
+  - @nextui-org/code@0.0.0-dev-v2-20230412124525
+  - @nextui-org/drip@0.0.0-dev-v2-20230412124525
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230412124525
+  - @nextui-org/image@0.0.0-dev-v2-20230412124525
+  - @nextui-org/input@0.0.0-dev-v2-20230412124525
+  - @nextui-org/link@0.0.0-dev-v2-20230412124525
+  - @nextui-org/pagination@0.0.0-dev-v2-20230412124525
+  - @nextui-org/popover@0.0.0-dev-v2-20230412124525
+  - @nextui-org/progress@0.0.0-dev-v2-20230412124525
+  - @nextui-org/radio@0.0.0-dev-v2-20230412124525
+  - @nextui-org/snippet@0.0.0-dev-v2-20230412124525
+  - @nextui-org/spinner@0.0.0-dev-v2-20230412124525
+  - @nextui-org/switch@0.0.0-dev-v2-20230412124525
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230412124525
+  - @nextui-org/user@0.0.0-dev-v2-20230412124525
+
+## 0.0.0-dev-v2-20230412021924
+
+### Patch Changes
+
+- Fix blur image position
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230412021924
+  - @nextui-org/accordion@0.0.0-dev-v2-20230412021924
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230412021924
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230412021924
+  - @nextui-org/progress@0.0.0-dev-v2-20230412021924
+  - @nextui-org/popover@0.0.0-dev-v2-20230412021924
+  - @nextui-org/snippet@0.0.0-dev-v2-20230412021924
+  - @nextui-org/spinner@0.0.0-dev-v2-20230412021924
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230412021924
+  - @nextui-org/avatar@0.0.0-dev-v2-20230412021924
+  - @nextui-org/button@0.0.0-dev-v2-20230412021924
+  - @nextui-org/switch@0.0.0-dev-v2-20230412021924
+  - @nextui-org/badge@0.0.0-dev-v2-20230412021924
+  - @nextui-org/image@0.0.0-dev-v2-20230412021924
+  - @nextui-org/input@0.0.0-dev-v2-20230412021924
+  - @nextui-org/radio@0.0.0-dev-v2-20230412021924
+  - @nextui-org/card@0.0.0-dev-v2-20230412021924
+  - @nextui-org/chip@0.0.0-dev-v2-20230412021924
+  - @nextui-org/code@0.0.0-dev-v2-20230412021924
+  - @nextui-org/drip@0.0.0-dev-v2-20230412021924
+  - @nextui-org/link@0.0.0-dev-v2-20230412021924
+  - @nextui-org/user@0.0.0-dev-v2-20230412021924
+  - @nextui-org/system@0.0.0-dev-v2-20230412021924
+  - @nextui-org/theme@0.0.0-dev-v2-20230412021924
+
+## 0.0.0-dev-v2-20230412020323
+
+### Patch Changes
+
+- Next.js image support fixed
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230412020323
+  - @nextui-org/accordion@0.0.0-dev-v2-20230412020323
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230412020323
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230412020323
+  - @nextui-org/progress@0.0.0-dev-v2-20230412020323
+  - @nextui-org/popover@0.0.0-dev-v2-20230412020323
+  - @nextui-org/snippet@0.0.0-dev-v2-20230412020323
+  - @nextui-org/spinner@0.0.0-dev-v2-20230412020323
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230412020323
+  - @nextui-org/avatar@0.0.0-dev-v2-20230412020323
+  - @nextui-org/button@0.0.0-dev-v2-20230412020323
+  - @nextui-org/switch@0.0.0-dev-v2-20230412020323
+  - @nextui-org/badge@0.0.0-dev-v2-20230412020323
+  - @nextui-org/image@0.0.0-dev-v2-20230412020323
+  - @nextui-org/input@0.0.0-dev-v2-20230412020323
+  - @nextui-org/radio@0.0.0-dev-v2-20230412020323
+  - @nextui-org/card@0.0.0-dev-v2-20230412020323
+  - @nextui-org/chip@0.0.0-dev-v2-20230412020323
+  - @nextui-org/code@0.0.0-dev-v2-20230412020323
+  - @nextui-org/drip@0.0.0-dev-v2-20230412020323
+  - @nextui-org/link@0.0.0-dev-v2-20230412020323
+  - @nextui-org/user@0.0.0-dev-v2-20230412020323
+  - @nextui-org/system@0.0.0-dev-v2-20230412020323
+  - @nextui-org/theme@0.0.0-dev-v2-20230412020323
+
 ## 0.0.0-dev-v2-20230412004701
 
 ### Patch Changes

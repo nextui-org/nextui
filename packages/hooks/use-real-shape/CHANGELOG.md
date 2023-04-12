@@ -1,5 +1,21 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230412021924
+
+### Patch Changes
+
+- Fix blur image position
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230412021924
+
+## 0.0.0-dev-v2-20230412020323
+
+### Patch Changes
+
+- Next.js image support fixed
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230412020323
+
 ## 0.0.0-dev-v2-20230412004701
 
 ### Patch Changes
