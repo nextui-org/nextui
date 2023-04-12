@@ -1417,6 +1417,9 @@ importers:
       '@nextui-org/dropdown':
         specifier: workspace:*
         version: link:../../components/dropdown
+      '@nextui-org/image':
+        specifier: workspace:*
+        version: link:../../components/image
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../../components/input

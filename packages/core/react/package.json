@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "0.0.0-dev-v2-20230409144630",
+  "version": "0.0.0-dev-v2-20230412004701",
   "description": "🚀 Beautiful and modern React UI library.",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -61,7 +61,8 @@
     "@nextui-org/progress": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/popover": "workspace:*",
-    "@nextui-org/dropdown": "workspace:*"
+    "@nextui-org/dropdown": "workspace:*",
+    "@nextui-org/image": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

@@ -5,19 +5,24 @@ import {tv} from "tailwind-variants";
 /**
  * Image wrapper **Tailwind Variants** component
  *
- * const {base, img, blurredImg} = image({...})
+ * const {base, img, blurredImg, zoomedWrapper} = image({...})
  *
  * @example
  * <div className={base()}>
  *    <img alt="image" className={img())} src="https://..." />
+ *      // wrap the image if you want to zoom it
+ *      <div className={zoomedWrapper()}>
+ *       <img alt="image" className={img())} src="https://..." />
+ *     </div>
  *    // duplicate it for the blur effect
  *    <img alt="image" className={blurredImg())} src="https://..." />
  * </div>
  */
 const image = tv({
   slots: {
-    base: "relative",
-    img: "",
+    base: "relative shadow-black/25",
+    zoomedWrapper: "relative overflow-hidden rounded-inherit",
+    img: "opacity-0 shadow-black/25 data-[loaded=true]:opacity-100",
     blurredImg: [
       "absolute",
       "-z-10",
@@ -27,73 +32,64 @@ const image = tv({
       "object-cover",
       "filter",
       "blur-lg",
+      "scale-105",
       "opacity-40",
-      "translate-x-1",
-      "translate-y-2",
+      "translate-y-1",
     ],
   },
   variants: {
     radius: {
+      none: {},
+      base: {},
+      sm: {},
+      md: {},
+      lg: {},
+      xl: {},
+      "2xl": {},
+      "3xl": {},
+      full: {},
+    },
+    shadow: {
       none: {
-        base: "rounded-none",
-        img: "rounded-none",
-        blurredImg: "rounded-none",
-      },
-      base: {
-        base: "rounded",
-        img: "rounded",
-        blurredImg: "rounded",
+        base: "shadow-none",
+        img: "shadow-none",
       },
       sm: {
-        base: "rounded-sm",
-        img: "rounded-sm",
-        blurredImg: "rounded-sm",
+        base: "shadow-sm",
+        img: "shadow-sm",
       },
+      base: {
+        base: "shadow",
+        img: "shadow",
+      },
+
       md: {
-        base: "rounded-md",
-        img: "rounded-md",
-        blurredImg: "rounded-md",
+        base: "shadow-md",
+        img: "shadow-md",
       },
       lg: {
-        base: "rounded-lg",
-        img: "rounded-lg",
-        blurredImg: "rounded-lg",
+        base: "shadow-lg",
+        img: "shadow-lg",
       },
       xl: {
-        base: "rounded-xl",
-        img: "rounded-xl",
-        blurredImg: "rounded-xl",
+        base: "shadow-xl",
+        img: "shadow-xl",
       },
       "2xl": {
-        base: "rounded-2xl",
-        img: "rounded-2xl",
-        blurredImg: "rounded-2xl",
+        base: "shadow-2xl",
+        img: "shadow-2xl",
       },
-      "3xl": {
-        base: "rounded-3xl",
-        img: "rounded-3xl",
-        blurredImg: "rounded-3xl",
-      },
-      full: {
-        base: "rounded-full",
-        img: "rounded-full",
-        blurredImg: "rounded-full",
+      inner: {
+        base: "shadow-inner",
+        img: "shadow-inner",
       },
     },
     isZoomed: {
       true: {
-        base: "overflow-hidden",
-        img: [
-          "object-cover",
-          "transform",
-          "hover:scale-125",
-          "transition-transform",
-          "!duration-300",
-          "motion-reduce:transition-none",
-        ],
+        img: ["object-cover", "transform", "hover:scale-125"],
       },
     },
-    isLoading: {
+    showSkeleton: {
       true: {
         base: [
           "space-y-5",
@@ -120,12 +116,70 @@ const image = tv({
         img: "opacity-0",
       },
     },
+    disableAnimation: {
+      true: {
+        img: "transition-none",
+      },
+      false: {
+        img: "transition-transform-opacity motion-reduce:transition-none !duration-300",
+      },
+    },
   },
   defaultVariants: {
+    radius: "xl",
+    shadow: "none",
     isZoomed: false,
     isBlurred: false,
-    radius: "xl",
+    showSkeleton: false,
+    disableAnimation: false,
   },
+  compoundSlots: [
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "none",
+      class: "rounded-none",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "full",
+      class: "rounded-full",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "base",
+      class: "rounded",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "sm",
+      class: "rounded-sm",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "md",
+      class: "rounded-md",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "lg",
+      class: "rounded-lg",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "xl",
+      class: "rounded-xl",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "2xl",
+      class: "rounded-2xl",
+    },
+    {
+      slots: ["base", "img", "blurredImg", "zoomedWrapper"],
+      radius: "3xl",
+      class: "rounded-3xl",
+    },
+  ],
 });
 
 export type ImageVariantProps = VariantProps<typeof image>;

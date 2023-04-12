@@ -21,3 +21,4 @@ export * from "@nextui-org/progress";
 export * from "@nextui-org/input";
 export * from "@nextui-org/popover";
 export * from "@nextui-org/dropdown";
+export * from "@nextui-org/image";

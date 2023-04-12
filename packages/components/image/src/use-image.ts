@@ -1,13 +1,15 @@
 import type {ImageVariantProps, SlotsToClasses, ImageSlots} from "@nextui-org/theme";
 
+import {ImgHTMLAttributes, useCallback} from "react";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {image} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useImage as useImageBase} from "@nextui-org/use-image";
 import {useMemo} from "react";
+type NativeImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
-export interface Props extends HTMLNextUIProps<"img"> {
+interface Props extends HTMLNextUIProps<"img"> {
   /**
    * Ref to the DOM node.
    */
@@ -18,11 +20,6 @@ export interface Props extends HTMLNextUIProps<"img"> {
    */
   isBlurred?: boolean;
   /**
-   * If `true`, the fallback logic will be skipped.
-   * @default true
-   */
-  ignoreFallback?: boolean;
-  /**
    * A fallback image.
    */
   fallbackSrc?: React.ReactNode;
@@ -30,7 +27,19 @@ export interface Props extends HTMLNextUIProps<"img"> {
    * Whether to disable the loading skeleton.
    * @default false
    */
-  disableLoadingSkeleton?: boolean;
+  disableSkeleton?: boolean;
+  /**
+   * A callback for when the image `src` has been loaded
+   */
+  onLoad?: NativeImageProps["onLoad"];
+  /**
+   * A loading strategy to use for the image.
+   */
+  loading?: NativeImageProps["loading"];
+  /**
+   * Controlled loading state.
+   */
+  isLoading?: boolean;
   /**
    * Function called when image failed to load
    */
@@ -59,50 +68,54 @@ export function useImage(originalProps: UseImageProps) {
   const {
     ref,
     as,
-    src: srcProp,
+    src,
+    width,
+    height,
     className,
     styles,
+    loading,
     isBlurred,
     fallbackSrc,
-    ignoreFallback = true,
-    disableLoadingSkeleton = false,
+    isLoading: isLoadingProp,
+    disableSkeleton = !!fallbackSrc,
     onError,
+    onLoad,
     ...otherProps
   } = props;
 
-  const imageStatus = useImageBase({src: srcProp, onError, ignoreFallback});
-  const isImgLoaded = imageStatus === "loaded";
+  const imageStatus = useImageBase({
+    src,
+    loading,
+    onError,
+    onLoad,
+    ignoreFallback: false,
+  });
+
+  const isImgLoaded = imageStatus === "loaded" && !isLoadingProp;
+  const isLoading = imageStatus === "loading" || isLoadingProp;
 
   const Component = as || "img";
 
   const domRef = useDOMRef(ref);
 
-  /**
-   * Fallback image applies under 2 conditions:
-   * - If `src` was passed and the image has not loaded or failed to load
-   * - If `src` wasn't passed
-   *
-   * In this case, we'll show either the name avatar or default avatar
-   */
-  const showFallback = (!srcProp || !isImgLoaded) && !ignoreFallback;
-  const showSkeleton = showFallback && !disableLoadingSkeleton;
+  const {w, h} = useMemo(() => {
+    return {
+      w: width ? (typeof width === "number" ? `${width}px` : width) : "auto",
+      h: height ? (typeof height === "number" ? `${height}px` : height) : "auto",
+    };
+  }, [width, height]);
+
+  const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
+  const showSkeleton = isLoading && !disableSkeleton;
 
   const slots = useMemo(
     () =>
       image({
         ...variantProps,
-        isLoading: !isImgLoaded && showSkeleton,
+        showSkeleton,
       }),
-    [...Object.values(variantProps), isImgLoaded, showSkeleton],
+    [...Object.values(variantProps), showSkeleton],
   );
-
-  const src = useMemo(() => {
-    if (showFallback) {
-      return fallbackSrc;
-    }
-
-    return srcProp;
-  }, [srcProp, isImgLoaded, ignoreFallback]);
 
   const baseStyles = clsx(className, styles?.base);
 
@@ -110,25 +123,36 @@ export function useImage(originalProps: UseImageProps) {
     return {
       src,
       ref: domRef,
+      width: w,
+      height: h,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: baseStyles}),
       ...otherProps,
     };
   };
 
-  const getWrapperProps: PropGetter = () => {
+  const getWrapperProps = useCallback<PropGetter>(() => {
+    const fallbackStyle = showFallback
+      ? {
+          backgroundImage: `url(${fallbackSrc})`,
+        }
+      : {};
+
     return {
       className: slots.base({class: baseStyles}),
+      style: {
+        ...fallbackStyle,
+      },
     };
-  };
+  }, [slots, showFallback, fallbackSrc, baseStyles]);
 
-  const getBlurredImgProps: PropGetter = () => {
+  const getBlurredImgProps = useCallback<PropGetter>(() => {
     return {
       src,
       "aria-hidden": dataAttr(true),
       className: slots.blurredImg({class: styles?.blurredImg}),
     };
-  };
+  }, [slots, src, styles?.blurredImg]);
 
   return {
     Component,
@@ -136,9 +160,8 @@ export function useImage(originalProps: UseImageProps) {
     slots,
     styles,
     isBlurred,
-    showSkeleton,
-    ignoreFallback,
-    disableLoadingSkeleton,
+    disableSkeleton,
+    fallbackSrc,
     isZoomed: originalProps.isZoomed,
     isLoading: originalProps.isLoading,
     getImgProps,
