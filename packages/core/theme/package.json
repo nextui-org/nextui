@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/theme",
-  "version": "0.0.0-dev-v2-20230412124525",
+  "version": "0.0.0-dev-v2-20230413014154",
   "description": "The default theme for NextUI components",
   "keywords": [
     "theme",
@@ -8,7 +8,7 @@
     "design",
     "ui",
     "components",
-    "styles",
+    "classNames",
     "css"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",

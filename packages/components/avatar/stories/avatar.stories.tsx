@@ -89,7 +89,7 @@ Custom.args = {
   ...defaultProps,
   icon: <Activity fill="currentColor" size={20} />,
   radius: "xl",
-  styles: {
+  classNames: {
     base: "shadow-lg bg-cyan-200 dark:bg-cyan-800",
   },
 };
@@ -97,7 +97,7 @@ Custom.args = {
 export const CustomSize = Template.bind({});
 CustomSize.args = {
   ...defaultProps,
-  styles: {
+  classNames: {
     base: "w-32 h-32 text-md",
   },
 };
@@ -107,7 +107,7 @@ CustomSizeImg.args = {
   ...defaultProps,
   src: "https://i.pravatar.cc/300?u=a042581f4e29026705d",
   name: "Junior",
-  styles: {
+  classNames: {
     base: "w-32 h-32 text-md",
   },
 };
@@ -115,7 +115,7 @@ CustomSizeImg.args = {
 export const DefaultIcon = Template.bind({});
 DefaultIcon.args = {
   ...defaultProps,
-  styles: {
+  classNames: {
     icon: "text-neutral-400",
   },
 };

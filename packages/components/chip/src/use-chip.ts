@@ -33,12 +33,12 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    */
   endContent?: React.ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Chip styles={{
+   * <Chip classNames={{
    *    base:"base-classes",
    *    dot: "dot-classes",
    *    content: "content-classes",
@@ -47,7 +47,7 @@ export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<ChipSlots>;
+  classNames?: SlotsToClasses<ChipSlots>;
   /**
    * Callback fired when the chip is closed. if you pass this prop,
    * the chip will display a close button (endContent).
@@ -67,7 +67,7 @@ export function useChip(originalProps: UseChipProps) {
     startContent,
     endContent,
     onClose,
-    styles,
+    classNames,
     className,
     ...otherProps
   } = props;
@@ -76,7 +76,7 @@ export function useChip(originalProps: UseChipProps) {
 
   const domRef = useDOMRef(ref);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const isCloseable = !!onClose;
   const isDotVariant = originalProps.variant === "dot";
@@ -125,7 +125,7 @@ export function useChip(originalProps: UseChipProps) {
     return {
       role: "button",
       tabIndex: 0,
-      className: slots.closeButton({class: styles?.closeButton}),
+      className: slots.closeButton({class: classNames?.closeButton}),
       ...mergeProps(closePressProps, closeFocusProps),
     };
   };
@@ -135,7 +135,7 @@ export function useChip(originalProps: UseChipProps) {
 
     return cloneElement(avatar, {
       // @ts-ignore
-      className: slots.avatar({class: styles?.avatar}),
+      className: slots.avatar({class: classNames?.avatar}),
     });
   };
 
@@ -151,7 +151,7 @@ export function useChip(originalProps: UseChipProps) {
     Component,
     children,
     slots,
-    styles,
+    classNames,
     isDot: isDotVariant,
     isCloseable,
     startContent: getAvatarClone(avatar) || getContentClone(startContent),

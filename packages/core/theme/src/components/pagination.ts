@@ -192,7 +192,7 @@ const pagination = tv({
     /**
      * --------------------------------------------------------
      * disableCursor
-     * the styles will be applied to the active item
+     * the classNames will be applied to the active item
      * --------------------------------------------------------
      */
     // disableCursor / color

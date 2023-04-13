@@ -5,10 +5,10 @@ import {tv} from "tailwind-variants";
 /**
  * AvatarGroup wrapper **Tailwind Variants** component
  *
- * const styles = avatarGroup({...})
+ * const classNames = avatarGroup({...})
  *
  * @example
- * <div role="group" className={styles())}>
+ * <div role="group" className={classNames())}>
  *   // avatar elements
  * </div>
  */
@@ -25,6 +25,6 @@ export type AvatarGroupVariantProps = VariantProps<typeof avatarGroup>;
 
 export {avatarGroup};
 
-// calculated styles
+// calculated classNames
 // src/components/avatar/src/use-avatar-group.ts
 // -ml-2 hover:-translate-x-0 ml-0

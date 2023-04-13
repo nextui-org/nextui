@@ -30,7 +30,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const {ref, as, item, onFocusChange} = props;
 
   const {
-    styles,
+    classNames,
     className,
     indicator,
     children,
@@ -97,7 +97,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     ],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps = useCallback<PropGetter>(
     (props = {}) => {
@@ -119,7 +119,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focused": dataAttr(isFocused),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.trigger({class: styles?.trigger}),
+        className: slots.trigger({class: classNames?.trigger}),
         onFocus: callAllHandlers(
           handleFocus,
           onFocusButton,
@@ -137,7 +137,17 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...mergeProps(buttonProps, props),
       };
     },
-    [domRef, isOpen, isFocusVisible, isDisabled, isFocused, buttonProps, focusProps, slots, styles],
+    [
+      domRef,
+      isOpen,
+      isFocusVisible,
+      isDisabled,
+      isFocused,
+      buttonProps,
+      focusProps,
+      slots,
+      classNames,
+    ],
   );
 
   const getContentProps = useCallback<PropGetter>(
@@ -145,11 +155,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.content({class: styles?.content}),
+        className: slots.content({class: classNames?.content}),
         ...mergeProps(regionProps, props),
       };
     },
-    [slots, styles, regionProps, isOpen, isDisabled],
+    [slots, classNames, regionProps, isOpen, isDisabled],
   );
 
   const getIndicatorProps = useCallback<PropGetter>(
@@ -158,11 +168,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "aria-hidden": dataAttr(true),
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.indicator({class: styles?.indicator}),
+        className: slots.indicator({class: classNames?.indicator}),
         ...props,
       };
     },
-    [slots, styles, isOpen, isDisabled],
+    [slots, classNames, isOpen, isDisabled],
   );
 
   const getHeadingProps = useCallback<PropGetter>(
@@ -170,11 +180,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.heading({class: styles?.heading}),
+        className: slots.heading({class: classNames?.heading}),
         ...props,
       };
     },
-    [slots, styles, isOpen, isDisabled],
+    [slots, classNames, isOpen, isDisabled],
   );
 
   const getTitleProps = useCallback<PropGetter>(
@@ -182,11 +192,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.title({class: styles?.title}),
+        className: slots.title({class: classNames?.title}),
         ...props,
       };
     },
-    [slots, styles, isOpen, isDisabled],
+    [slots, classNames, isOpen, isDisabled],
   );
 
   const getSubtitleProps = useCallback<PropGetter>(
@@ -194,18 +204,18 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.subtitle({class: styles?.subtitle}),
+        className: slots.subtitle({class: classNames?.subtitle}),
         ...props,
       };
     },
-    [slots, styles, isOpen, isDisabled],
+    [slots, classNames, isOpen, isDisabled],
   );
 
   return {
     Component,
     item,
     slots,
-    styles,
+    classNames,
     domRef,
     indicator,
     children,

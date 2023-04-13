@@ -242,8 +242,8 @@ const ControlledTemplate: ComponentStory<typeof Accordion> = (args: AccordionPro
   );
 };
 
-const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
-  const itemStyles: AccordionItemProps["styles"] = {
+const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
+  const itemStyles: AccordionItemProps["classNames"] = {
     base: "py-0 w-full",
     title: "font-normal text-base",
     trigger: "px-2 py-0 hover:bg-neutral-100 rounded-lg h-14 flex items-center",
@@ -261,8 +261,8 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="1"
         aria-label="Connected devices"
+        classNames={itemStyles}
         startContent={<MonitorMobileIcon className="text-primary" />}
-        styles={itemStyles}
         subtitle={
           <p className="flex">
             2 issues to&nbsp;<p className="text-primary">fix now</p>
@@ -275,8 +275,8 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="2"
         aria-label="Apps Permissions"
+        classNames={itemStyles}
         startContent={<ShieldSecurityIcon />}
-        styles={itemStyles}
         subtitle="3 apps have read permissions"
         title="Apps Permissions"
       >
@@ -285,8 +285,8 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="3"
         aria-label="Pending tasks"
+        classNames={{...itemStyles, subtitle: "text-warning"}}
         startContent={<InfoIcon className="text-warning" />}
-        styles={{...itemStyles, subtitle: "text-warning"}}
         subtitle="Complete your profile"
         title="Pending tasks"
       >
@@ -295,8 +295,8 @@ const CustomWithStylesTemplate: ComponentStory<typeof Accordion> = (args: Accord
       <AccordionItem
         key="4"
         aria-label="Card expired"
+        classNames={{...itemStyles, subtitle: "text-danger"}}
         startContent={<InvalidCardIcon className="text-danger" />}
-        styles={{...itemStyles, subtitle: "text-danger"}}
         subtitle="Please, update now"
         title={
           <p className="flex gap-1 items-center">
@@ -383,7 +383,7 @@ Controlled.args = {
   ...defaultProps,
 };
 
-export const CustomWithStyles = CustomWithStylesTemplate.bind({});
-CustomWithStyles.args = {
+export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
+CustomWithClassNames.args = {
   ...defaultProps,
 };

@@ -45,19 +45,19 @@ interface Props extends HTMLNextUIProps<"img"> {
    */
   onError?: () => void;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Image styles={{
+   * <Image classNames={{
    *    base:"base-classes", // wrapper
    *    img: "img-classes",
    *    blurredImg: "blurredImg-classes", // this is a cloned version of the img
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<ImageSlots>;
+  classNames?: SlotsToClasses<ImageSlots>;
 }
 
 export type UseImageProps = Props & ImageVariantProps;
@@ -70,7 +70,7 @@ export function useImage(originalProps: UseImageProps) {
     as,
     src,
     className,
-    styles,
+    classNames,
     loading,
     isBlurred,
     fallbackSrc,
@@ -118,7 +118,7 @@ export function useImage(originalProps: UseImageProps) {
     [...Object.values(variantProps), showSkeleton],
   );
 
-  const baseStyles = clsx(className, styles?.base);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getImgProps: PropGetter = () => {
     return {
@@ -150,15 +150,15 @@ export function useImage(originalProps: UseImageProps) {
     return {
       src,
       "aria-hidden": dataAttr(true),
-      className: slots.blurredImg({class: styles?.blurredImg}),
+      className: slots.blurredImg({class: classNames?.blurredImg}),
     };
-  }, [slots, src, styles?.blurredImg]);
+  }, [slots, src, classNames?.blurredImg]);
 
   return {
     Component,
     domRef,
     slots,
-    styles,
+    classNames,
     isBlurred,
     disableSkeleton,
     fallbackSrc,

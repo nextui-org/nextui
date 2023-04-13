@@ -30,12 +30,12 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariant
    */
   endContent?: React.ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Input styles={{
+   * <Input classNames={{
    *    base:"base-classes",
    *    label: "label-classes",
    *    inputWrapper: "input-wrapper-classes",
@@ -46,7 +46,7 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariant
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<InputSlots>;
+  classNames?: SlotsToClasses<InputSlots>;
   /**
    * Callback fired when the value is cleared.
    * if you pass this prop, the clear button will be shown.
@@ -70,7 +70,7 @@ export function useInput(originalProps: UseInputProps) {
     description,
     errorMessage,
     className,
-    styles,
+    classNames,
     autoFocus,
     startContent,
     endContent,
@@ -83,7 +83,7 @@ export function useInput(originalProps: UseInputProps) {
   const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {});
 
   const Component = as || "div";
-  const baseStyles = clsx(styles?.base, className, !!inputValue ? "is-filled" : "");
+  const baseStyles = clsx(classNames?.base, className, !!inputValue ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
 
   const domRef = useDOMRef(ref) as typeof isMultiline extends "true"
@@ -165,7 +165,7 @@ export function useInput(originalProps: UseInputProps) {
 
   const getLabelProps: PropGetter = (props = {}) => {
     return {
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
       ...labelProps,
       ...props,
     };
@@ -174,7 +174,7 @@ export function useInput(originalProps: UseInputProps) {
   const getInputProps: PropGetter = (props = {}) => {
     return {
       ref: domRef,
-      className: slots.input({class: clsx(styles?.input, !!inputValue ? "is-filled" : "")}),
+      className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
@@ -186,7 +186,7 @@ export function useInput(originalProps: UseInputProps) {
   const getInputWrapperProps: PropGetter = (props = {}) => {
     return {
       className: slots.inputWrapper({
-        class: clsx(styles?.inputWrapper, !!inputValue ? "is-filled" : ""),
+        class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
       }),
       onClick: (e: React.MouseEvent) => {
         if (e.target === e.currentTarget) {
@@ -204,7 +204,7 @@ export function useInput(originalProps: UseInputProps) {
   const getInnerWrapperProps: PropGetter = (props = {}) => {
     return {
       className: slots.innerWrapper({
-        class: styles?.innerWrapper,
+        class: classNames?.innerWrapper,
       }),
       ...props,
     };
@@ -212,7 +212,7 @@ export function useInput(originalProps: UseInputProps) {
 
   const getDescriptionProps: PropGetter = (props = {}) => {
     return {
-      className: slots.description({class: styles?.description}),
+      className: slots.description({class: classNames?.description}),
       ...descriptionProps,
       ...props,
     };
@@ -220,7 +220,7 @@ export function useInput(originalProps: UseInputProps) {
 
   const getErrorMessageProps: PropGetter = (props = {}) => {
     return {
-      className: slots.errorMessage({class: styles?.errorMessage}),
+      className: slots.errorMessage({class: classNames?.errorMessage}),
       ...errorMessageProps,
       ...props,
     };
@@ -230,14 +230,14 @@ export function useInput(originalProps: UseInputProps) {
     return {
       role: "button",
       tabIndex: 0,
-      className: slots.clearButton({class: styles?.clearButton}),
+      className: slots.clearButton({class: classNames?.clearButton}),
       ...mergeProps(clearPressProps, clearFocusProps),
     };
   };
 
   return {
     Component,
-    styles,
+    classNames,
     domRef,
     label,
     description,

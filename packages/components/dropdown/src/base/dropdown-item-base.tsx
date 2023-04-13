@@ -55,12 +55,12 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    */
   selectedIcon?: ReactNode | ((props: DropdownItemSelectedIconProps) => ReactNode) | null;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <DropdownItem styles={{
+   * <DropdownItem classNames={{
    *    base:"base-classes",
    *    title:"label-classes",
    *    wrapper:"wrapper-classes", // title and description wrapper
@@ -70,7 +70,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<DropdownItemSlots>;
+  classNames?: SlotsToClasses<DropdownItemSlots>;
 }
 
 export type DropdownItemBaseProps<T extends object = {}> = Props<T> &

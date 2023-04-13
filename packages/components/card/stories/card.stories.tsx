@@ -293,7 +293,7 @@ const PrimaryActionTemplate: ComponentStory<typeof Card> = (args: CardProps) => 
     },
   ];
 
-  type ListItem = (typeof list)[number];
+  type ListItem = typeof list[number];
 
   const handlePress = (item: ListItem) => {
     // eslint-disable-next-line no-console

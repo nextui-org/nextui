@@ -199,11 +199,11 @@ export const CustomItems = () => {
   );
 };
 
-export const CustomWithStyles = Template.bind({});
-CustomWithStyles.args = {
+export const CustomWithClassNames = Template.bind({});
+CustomWithClassNames.args = {
   ...defaultProps,
   showShadow: true,
-  styles: {
+  classNames: {
     base: "gap-0 rounded border-1 border-neutral",
     item: "w-8 h-8 text-sm rounded-none bg-transparent",
     cursor:

@@ -22,7 +22,7 @@ export function useCode(originalProps: UseCodeProps) {
 
   const domRef = useDOMRef(ref);
 
-  const styles = useMemo(
+  const classNames = useMemo(
     () =>
       code({
         ...variantProps,
@@ -34,7 +34,7 @@ export function useCode(originalProps: UseCodeProps) {
   const getCodeProps: PropGetter = () => {
     return {
       ref: domRef,
-      className: styles,
+      className: classNames,
       ...otherProps,
     };
   };

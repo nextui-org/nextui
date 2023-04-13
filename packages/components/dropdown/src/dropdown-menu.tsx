@@ -35,9 +35,9 @@ export interface DropdownMenuProps<T = object>
    */
   closeOnSelect?: DropdownItemProps["closeOnSelect"];
   /**
-   * The dropdown items styles.
+   * The dropdown items classNames.
    */
-  itemStyles?: DropdownItemProps["styles"];
+  itemStyles?: DropdownItemProps["classNames"];
 }
 
 const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
@@ -64,11 +64,11 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
     const state = useTreeState(otherProps);
     const {menuProps} = useMenu(otherProps, state, domRef);
 
-    const styles = useMemo(() => dropdownMenu({className}), [className]);
+    const classNames = useMemo(() => dropdownMenu({className}), [className]);
 
     return (
       <PopoverContent>
-        <Component {...getMenuProps({...menuProps}, domRef)} className={styles}>
+        <Component {...getMenuProps({...menuProps}, domRef)} className={classNames}>
           {[...state.collection].map((item) => {
             const itemProps = {
               key: item.key,
@@ -77,7 +77,7 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
               disableAnimation,
               item,
               state,
-              styles: itemStyles,
+              classNames: itemStyles,
               variant,
               onAction,
               ...item.props,

@@ -7,10 +7,10 @@ import {ringClasses, colorVariants} from "../utils";
 /**
  * Button wrapper **Tailwind Variants** component
  *
- * const styles = button({...})
+ * const classNames = button({...})
  *
  * @example
- * <button className={styles())}>
+ * <button className={classNames())}>
  *   Button
  * </button>
  */

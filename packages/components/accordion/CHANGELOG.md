@@ -1,5 +1,20 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230413014154
+
+### Patch Changes
+
+- Styles prop chnaged to classNames, progress label wrapper hidden when possible
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230413014154
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230413014154
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230413014154
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230413014154
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230413014154
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230413014154
+  - @nextui-org/system@0.0.0-dev-v2-20230413014154
+  - @nextui-org/theme@0.0.0-dev-v2-20230413014154
+
 ## 0.0.0-dev-v2-20230412124525
 
 ### Patch Changes

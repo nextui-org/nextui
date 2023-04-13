@@ -49,12 +49,12 @@ interface Props extends HTMLNextUIProps<"label"> {
    */
   endIcon?: ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Switch styles={{
+   * <Switch classNames={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    thumb: "thumb-classes",
@@ -63,7 +63,7 @@ interface Props extends HTMLNextUIProps<"label"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<ToggleSlots>;
+  classNames?: SlotsToClasses<ToggleSlots>;
   /**
    * React aria onChange event.
    */
@@ -91,7 +91,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     children,
     thumbIcon,
     className,
-    styles,
+    classNames,
     onChange,
     onValueChange,
     ...otherProps
@@ -154,7 +154,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     [...Object.values(variantProps), isFocusVisible],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = () => {
     return {
@@ -175,11 +175,11 @@ export function useSwitch(originalProps: UseSwitchProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-readonly": dataAttr(inputProps.readOnly),
       "aria-hidden": true,
-      className: clsx(slots.wrapper({class: styles?.wrapper})),
+      className: clsx(slots.wrapper({class: classNames?.wrapper})),
     };
   }, [
     slots,
-    styles?.wrapper,
+    classNames?.wrapper,
     isHovered,
     isSelected,
     isFocused,
@@ -204,9 +204,17 @@ export function useSwitch(originalProps: UseSwitchProps) {
       "data-focus-visible": dataAttr(isFocused && isFocusVisible),
       "data-disabled": dataAttr(isDisabled),
       "data-readonly": dataAttr(inputProps.readOnly),
-      className: slots.thumb({class: styles?.thumb}),
+      className: slots.thumb({class: classNames?.thumb}),
     }),
-    [slots, styles?.thumb, isSelected, isFocused, isFocusVisible, isDisabled, inputProps.readOnly],
+    [
+      slots,
+      classNames?.thumb,
+      isSelected,
+      isFocused,
+      isFocusVisible,
+      isDisabled,
+      inputProps.readOnly,
+    ],
   );
 
   const getLabelProps: PropGetter = useCallback(
@@ -214,9 +222,9 @@ export function useSwitch(originalProps: UseSwitchProps) {
       id: labelId,
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
     }),
-    [slots, styles?.label, isDisabled, isSelected],
+    [slots, classNames?.label, isDisabled, isSelected],
   );
 
   const getThumbIconProps = useCallback(
@@ -230,7 +238,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
           width: "1em",
           height: "1em",
           "data-checked": dataAttr(isSelected),
-          className: slots.thumbIcon({class: styles?.thumbIcon}),
+          className: slots.thumbIcon({class: classNames?.thumbIcon}),
         },
         props.includeStateProps
           ? {
@@ -238,7 +246,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
             }
           : {},
       ) as unknown) as SwitchThumbIconProps,
-    [slots, styles?.thumbIcon, isSelected, originalProps.disableAnimation],
+    [slots, classNames?.thumbIcon, isSelected, originalProps.disableAnimation],
   );
 
   const getStartIconProps = useCallback(
@@ -246,9 +254,9 @@ export function useSwitch(originalProps: UseSwitchProps) {
       width: "1em",
       height: "1em",
       "data-checked": dataAttr(isSelected),
-      className: slots.startIcon({class: styles?.startIcon}),
+      className: slots.startIcon({class: classNames?.startIcon}),
     }),
-    [slots, styles?.startIcon, isSelected],
+    [slots, classNames?.startIcon, isSelected],
   );
 
   const getEndIconProps = useCallback(
@@ -256,15 +264,15 @@ export function useSwitch(originalProps: UseSwitchProps) {
       width: "1em",
       height: "1em",
       "data-checked": dataAttr(isSelected),
-      className: slots.endIcon({class: styles?.endIcon}),
+      className: slots.endIcon({class: classNames?.endIcon}),
     }),
-    [slots, styles?.endIcon, isSelected],
+    [slots, classNames?.endIcon, isSelected],
   );
 
   return {
     Component,
     slots,
-    styles,
+    classNames,
     domRef,
     children,
     thumbIcon,

@@ -30,12 +30,12 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   allowTextSelectionOnPress?: boolean;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Card styles={{
+   * <Card classNames={{
    *    base:"base-classes",
    *    header: "dot-classes",
    *    body: "content-classes",
@@ -43,14 +43,14 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<CardSlots>;
+  classNames?: SlotsToClasses<CardSlots>;
 }
 
 export type UseCardProps = Props & PressEvents & FocusableProps & CardVariantProps;
 
 export type ContextType = {
   slots: CardReturnType;
-  styles?: SlotsToClasses<CardSlots>;
+  classNames?: SlotsToClasses<CardSlots>;
   isDisabled?: CardVariantProps["isDisabled"];
   isFooterBlurred?: CardVariantProps["isFooterBlurred"];
   disableAnimation?: CardVariantProps["disableAnimation"];
@@ -69,7 +69,7 @@ export function useCard(originalProps: UseCardProps) {
     onPress,
     autoFocus,
     className,
-    styles,
+    classNames,
     allowTextSelectionOnPress = true,
     ...otherProps
   } = props;
@@ -77,7 +77,7 @@ export function useCard(originalProps: UseCardProps) {
   const domRef = useDOMRef<HTMLDivElement>(ref);
   const Component = as || (originalProps.isPressable ? "button" : "div");
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const {onClick: onDripClickHandler, drips} = useDrip();
 
@@ -124,11 +124,11 @@ export function useCard(originalProps: UseCardProps) {
       disableAnimation: originalProps.disableAnimation,
       fullWidth: originalProps.fullWidth,
       slots,
-      styles,
+      classNames,
     }),
     [
       slots,
-      styles,
+      classNames,
       originalProps.isDisabled,
       originalProps.isFooterBlurred,
       originalProps.disableAnimation,
@@ -176,7 +176,7 @@ export function useCard(originalProps: UseCardProps) {
     context,
     domRef,
     Component,
-    styles,
+    classNames,
     children,
     drips,
     isHovered,

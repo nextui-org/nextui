@@ -33,9 +33,9 @@ export interface DropdownSectionProps<T extends object = object> extends HTMLNex
    */
   closeOnSelect?: DropdownItemProps["closeOnSelect"];
   /**
-   * The dropdown items styles.
+   * The dropdown items classNames.
    */
-  styles?: DropdownItemProps["styles"] & SlotsToClasses<DropdownSectionSlots>;
+  classNames?: DropdownItemProps["classNames"] & SlotsToClasses<DropdownSectionSlots>;
   /**
    * Shows a divider between sections
    * @default true
@@ -59,13 +59,13 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       onAction,
       closeOnSelect,
       className,
-      styles: stylesProp = {},
+      classNames: stylesProp = {},
       showDivider = true,
       ...otherProps
     },
     _,
   ) => {
-    const {section, heading, ...styles} = stylesProp;
+    const {section, heading, ...classNames} = stylesProp;
 
     const headingId = useId();
 
@@ -99,12 +99,12 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
             let dropdownItem = (
               <DropdownItem
                 key={node.key}
+                classNames={classNames}
                 closeOnSelect={closeOnSelect}
                 color={color}
                 disableAnimation={disableAnimation}
                 item={node}
                 state={state}
-                styles={styles}
                 variant={variant}
                 onAction={onAction}
                 {...node.props}

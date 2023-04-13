@@ -16,7 +16,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
     Component,
     dotsJump,
     slots,
-    styles,
+    classNames,
     total,
     range,
     loop,
@@ -52,7 +52,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
           onPrevious,
           setPage,
           ref: typeof value === "number" ? (node) => getItemRef(node, value) : undefined,
-          className: slots.item({class: styles?.item}),
+          className: slots.item({class: classNames?.item}),
         });
       }
       if (value === PaginationItemType.PREV) {
@@ -61,7 +61,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             key={key}
             className={slots.prev({
               class: clsx(
-                styles?.prev,
+                classNames?.prev,
                 !loop && activePage === 1 && "opacity-50 pointer-events-none",
               ),
             })}
@@ -78,7 +78,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             key={key}
             className={slots.next({
               class: clsx(
-                styles?.next,
+                classNames?.next,
                 !loop && activePage === total && "opacity-50 pointer-events-none",
               ),
             })}
@@ -95,7 +95,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
           <PaginationItem
             key={key}
             className={slots.item({
-              class: clsx(styles?.item, "group"),
+              class: clsx(classNames?.item, "group"),
             })}
             value={value}
             onPress={() =>
@@ -120,7 +120,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
         </PaginationItem>
       );
     },
-    [activePage, dotsJump, getItemProps, loop, range, renderItemProp, slots, styles, total],
+    [activePage, dotsJump, getItemProps, loop, range, renderItemProp, slots, classNames, total],
   );
 
   return (

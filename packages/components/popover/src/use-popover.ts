@@ -56,19 +56,19 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   motionProps?: HTMLMotionProps<"div">;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Popover styles={{
+   * <Popover classNames={{
    *    base:"base-classes",
    *    trigger: "trigger-classes",
    *    arrow: "arrow-classes",
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<PopoverSlots>;
+  classNames?: SlotsToClasses<PopoverSlots>;
 }
 
 export type UsePopoverProps = Props &
@@ -99,7 +99,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     isKeyboardDismissDisabled,
     motionProps,
     className,
-    styles,
+    classNames,
     ...otherProps
   } = props;
 
@@ -155,7 +155,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     [...Object.values(variantProps), isFocusVisible],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getPopoverProps: PropGetter = (props = {}) => ({
     ref: popoverRef,
@@ -176,7 +176,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
         ...mergeProps(triggerProps, props),
-        className: slots.trigger({class: clsx(styles?.trigger, props.className)}),
+        className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
         "aria-controls": popoverId,
         "aria-haspopup": "dialog",
@@ -187,27 +187,27 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
-      className: slots.backdrop({class: styles?.backdrop}),
+      className: slots.backdrop({class: classNames?.backdrop}),
       onClick: () => state.close(),
       ...underlayProps,
       ...props,
     }),
-    [slots, styles, underlayProps],
+    [slots, classNames, underlayProps],
   );
 
   const getArrowProps = useCallback<PropGetter>(
     () => ({
-      className: slots.arrow({class: styles?.arrow}),
+      className: slots.arrow({class: classNames?.arrow}),
       "data-placement": getArrowPlacement(placement, placementProp),
       ...arrowProps,
     }),
-    [arrowProps, placement, placementProp, slots, styles],
+    [arrowProps, placement, placementProp, slots, classNames],
   );
 
   return {
     Component,
     children,
-    styles,
+    classNames,
     showArrow,
     triggerRef,
     placement: placementProp,

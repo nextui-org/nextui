@@ -25,12 +25,12 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   orientation?: Orientation;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <RadioGroup styles={{
+   * <RadioGroup classNames={{
    *    base:"base-classes",
    *    label: "label-classes",
    *    wrapper: "wrapper-classes", // radios wrapper
@@ -39,7 +39,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    * </RadioGroup>
    * ```
    */
-  styles?: SlotsToClasses<RadioGroupSlots>;
+  classNames?: SlotsToClasses<RadioGroupSlots>;
   /**
    * React aria onChange event.
    */
@@ -66,7 +66,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
   const {
     as,
     ref,
-    styles,
+    classNames,
     children,
     label,
     size = "md",
@@ -131,7 +131,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
 
   const slots = useMemo(() => radioGroup(), []);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getGroupProps: PropGetter = () => {
     return {
@@ -143,14 +143,14 @@ export function useRadioGroup(props: UseRadioGroupProps) {
 
   const getLabelProps: PropGetter = () => {
     return {
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
       ...labelProps,
     };
   };
 
   const getWrapperProps: PropGetter = () => {
     return {
-      className: slots.wrapper({class: styles?.wrapper}),
+      className: slots.wrapper({class: classNames?.wrapper}),
       role: "presentation",
       "data-orientation": orientation,
     };

@@ -1,5 +1,5 @@
 /**
- * This is the base styles for all elements.
+ * This is the base classNames for all elements.
  * Is meant to be used with the `addBase` method from tailwindcss.
  */
 export const baseStyles = {
@@ -8,7 +8,7 @@ export const baseStyles = {
 };
 
 /**
- * focus styles when the element is focused by keyboard.
+ * focus classNames when the element is focused by keyboard.
  */
 export const focusVisibleClasses = [
   "focus:outline-0",

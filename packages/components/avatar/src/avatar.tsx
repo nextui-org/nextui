@@ -13,7 +13,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
     icon = <AvatarIcon />,
     alt,
     domRef,
-    styles,
+    classNames,
     slots,
     name,
     showFallback,
@@ -35,7 +35,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
       return (
         <div
           aria-label={ariaLabel}
-          className={slots.fallback({class: styles?.fallback})}
+          className={slots.fallback({class: classNames?.fallback})}
           role="img"
         >
           {fallbackComponent}
@@ -44,15 +44,15 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
     }
 
     return name ? (
-      <span aria-label={ariaLabel} className={slots.name({class: styles?.name})} role="img">
+      <span aria-label={ariaLabel} className={slots.name({class: classNames?.name})} role="img">
         {getInitials(name)}
       </span>
     ) : (
-      <span aria-label={ariaLabel} className={slots.icon({class: styles?.icon})} role="img">
+      <span aria-label={ariaLabel} className={slots.icon({class: classNames?.icon})} role="img">
         {icon}
       </span>
     );
-  }, [showFallback, src, fallbackComponent, name, styles]);
+  }, [showFallback, src, fallbackComponent, name, classNames]);
 
   return (
     <Component ref={domRef} {...getAvatarProps()}>

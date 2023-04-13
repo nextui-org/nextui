@@ -8,7 +8,7 @@ const CircularProgress = forwardRef<CircularProgressProps, "div">((props, ref) =
   const {
     Component,
     slots,
-    styles,
+    classNames,
     label,
     showValueLabel,
     getProgressBarProps,
@@ -21,12 +21,12 @@ const CircularProgress = forwardRef<CircularProgressProps, "div">((props, ref) =
 
   return (
     <Component {...progressBarProps}>
-      <div className={slots.svgWrapper({class: styles?.svgWrapper})}>
+      <div className={slots.svgWrapper({class: classNames?.svgWrapper})}>
         <svg {...getSvgProps()}>
           <circle {...getCircleProps()} />
         </svg>
         {showValueLabel && (
-          <span className={slots.value({class: styles?.value})}>
+          <span className={slots.value({class: classNames?.value})}>
             {progressBarProps["aria-valuetext"]}
           </span>
         )}

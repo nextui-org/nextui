@@ -55,12 +55,12 @@ export interface Props<T extends object = {}>
    */
   motionProps?: CollapseTransitionProps;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <AccordionItem styles={{
+   * <AccordionItem classNames={{
    *    base:"base-classes",
    *    heading: "heading-classes",
    *    trigger: "trigger-classes",
@@ -73,7 +73,7 @@ export interface Props<T extends object = {}>
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<AccordionItemSlots>;
+  classNames?: SlotsToClasses<AccordionItemSlots>;
 }
 
 export type AccordionItemBaseProps<T extends object = {}> = Props<T> & AccordionItemVariantProps;

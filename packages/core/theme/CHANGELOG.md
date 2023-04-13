@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230413014154
+
+### Patch Changes
+
+- Styles prop chnaged to classNames, progress label wrapper hidden when possible
+
 ## 0.0.0-dev-v2-20230412124525
 
 ### Patch Changes
@@ -112,7 +118,7 @@
 
 ### Patch Changes
 
-- CircularProgress value styles changed
+- CircularProgress value classNames changed
 
 ## 0.0.0-dev-v2-20230331023043
 

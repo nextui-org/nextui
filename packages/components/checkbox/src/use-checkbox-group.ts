@@ -25,12 +25,12 @@ interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
    */
   orientation?: Orientation;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <CheckboxGroup styles={{
+   * <CheckboxGroup classNames={{
    *    base:"base-classes",
    *    label: "label-classes",
    *    wrapper: "wrapper-classes", // checkboxes wrapper
@@ -39,7 +39,7 @@ interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
    * </CheckboxGroup>
    * ```
    */
-  styles?: SlotsToClasses<CheckboxGroupSlots>;
+  classNames?: SlotsToClasses<CheckboxGroupSlots>;
 }
 
 export type UseCheckboxGroupProps = Props &
@@ -62,7 +62,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
   const {
     as,
     ref,
-    styles,
+    classNames,
     children,
     label,
     size = "md",
@@ -105,7 +105,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const slots = useMemo(() => checkboxGroup(), []);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getGroupProps: PropGetter = () => {
     return {
@@ -117,14 +117,14 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const getLabelProps: PropGetter = () => {
     return {
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
       ...labelProps,
     };
   };
 
   const getWrapperProps: PropGetter = () => {
     return {
-      className: slots.wrapper({class: styles?.wrapper}),
+      className: slots.wrapper({class: classNames?.wrapper}),
       role: "presentation",
       "data-orientation": orientation,
     };

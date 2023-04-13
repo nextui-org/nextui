@@ -300,25 +300,11 @@ const InputTypesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
   </div>
 );
 
-const CustomWithStylesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const CustomWithClassNamesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
   <div className="w-full max-w-[340px]">
     <Input
       {...args}
-      endContent={
-        <div className="pointer-events-none flex items-center">
-          <kbd className="font-sans font-semibold text-slate-400">
-            <abbr className="no-underline" title="Command">
-              ⌘
-            </abbr>
-            &nbsp;K
-          </kbd>
-        </div>
-      }
-      placeholder="Quick search..."
-      startContent={
-        <SearchIcon className="text-xl text-slate-400 pointer-events-none flex-shrink-0" />
-      }
-      styles={{
+      classNames={{
         label: "hidden",
         inputWrapper: [
           "bg-slate-100",
@@ -340,6 +326,20 @@ const CustomWithStylesTemplate: ComponentStory<typeof Input> = (args: InputProps
           "dark:placeholder:text-slate-400",
         ],
       }}
+      endContent={
+        <div className="pointer-events-none flex items-center">
+          <kbd className="font-sans font-semibold text-slate-400">
+            <abbr className="no-underline" title="Command">
+              ⌘
+            </abbr>
+            &nbsp;K
+          </kbd>
+        </div>
+      }
+      placeholder="Quick search..."
+      startContent={
+        <SearchIcon className="text-xl text-slate-400 pointer-events-none flex-shrink-0" />
+      }
     />
   </div>
 );
@@ -366,7 +366,7 @@ const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args: InputProps)
     getClearButtonProps,
   } = useInput({
     ...args,
-    styles: {
+    classNames: {
       label: "text-black/50 dark:text-white/90",
       input: [
         "bg-transparent",
@@ -543,8 +543,8 @@ Controlled.args = {
   variant: "bordered",
 };
 
-export const CustomWithStyles = CustomWithStylesTemplate.bind({});
-CustomWithStyles.args = {
+export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
+CustomWithClassNames.args = {
   ...defaultProps,
 };
 

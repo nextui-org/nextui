@@ -197,7 +197,7 @@ const CustomRadio = (props: RadioProps) => {
   return (
     <Radio
       {...otherProps}
-      styles={{
+      classNames={{
         base: clsx(
           "inline-flex bg-content1 hover:bg-content2 items-center justify-between flex-row-reverse max-w-[300px] cursor-pointer rounded-lg gap-4 p-4 border-2 border-transparent",
           {
@@ -211,7 +211,7 @@ const CustomRadio = (props: RadioProps) => {
   );
 };
 
-export const CustomWithStyles = () => {
+export const CustomWithClassNames = () => {
   return (
     <RadioGroup label="Plans">
       <CustomRadio description="Up to 20 items" value="free">

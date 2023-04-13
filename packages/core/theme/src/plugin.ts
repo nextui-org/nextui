@@ -14,7 +14,7 @@ import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {removeDefaultKeys} from "./utils/object";
-import {baseStyles} from "./utils/styles";
+import {baseStyles} from "./utils/classes";
 
 interface MaybeNested<K extends keyof any = string, V = string> {
   [key: string]: V | MaybeNested<K, V>;
@@ -167,7 +167,7 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: De
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
-      // add base styles
+      // add base classNames
       addBase({
         [":root, [data-theme]"]: {
           ...baseStyles,

@@ -77,7 +77,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
     }),
     [size, color, radius, isGrid, isBordered, isDisabled],
   );
-  const styles = useMemo(() => avatarGroup({className, isGrid}), [className, isGrid]);
+  const classNames = useMemo(() => avatarGroup({className, isGrid}), [className, isGrid]);
 
   const validChildren = getValidChildren(children);
   const childrenWithinMax = max ? validChildren.slice(0, max) : validChildren;
@@ -101,7 +101,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps) {
   const getAvatarGroupProps: PropGetter = () => {
     return {
       ref: domRef,
-      className: styles,
+      className: classNames,
       role: "group",
       ...otherProps,
     };

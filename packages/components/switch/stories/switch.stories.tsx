@@ -50,12 +50,12 @@ const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => 
     <div className="flex flex-col gap-2">
       <Switch
         {...args}
+        classNames={{
+          startIcon: "text-white",
+        }}
         endIcon={<MoonFilledIcon />}
         isSelected={isSelected}
         startIcon={<SunFilledIcon />}
-        styles={{
-          startIcon: "text-white",
-        }}
         onValueChange={setIsSelected}
       />
       <p className="text-neutral-500">Selected: {isSelected ? "true" : "false"}</p>
@@ -74,15 +74,13 @@ const ControlledTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) =>
   );
 };
 
-const CustomWithStylesTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
+const CustomWithClassNamesTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
   const [isSelected, setIsSelected] = React.useState<boolean>(true);
 
   return (
     <div className="flex flex-col gap-2">
       <Switch
-        isSelected={isSelected}
-        size="lg"
-        styles={{
+        classNames={{
           base: clsx(
             "inline-flex flex-row-reverse w-full max-w-md bg-content1 hover:bg-content2 items-center justify-between cursor-pointer rounded-lg gap-2 p-4 border-1.5 border-transparent",
             {
@@ -90,6 +88,8 @@ const CustomWithStylesTemplate: ComponentStory<typeof Switch> = (args: SwitchPro
             },
           ),
         }}
+        isSelected={isSelected}
+        size="lg"
         onValueChange={setIsSelected}
         {...args}
       >
@@ -181,8 +181,8 @@ Controlled.args = {
   ...defaultProps,
 };
 
-export const CustomWithStyles = CustomWithStylesTemplate.bind({});
-CustomWithStyles.args = {
+export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
+CustomWithClassNames.args = {
   ...defaultProps,
 };
 

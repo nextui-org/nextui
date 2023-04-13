@@ -77,7 +77,7 @@ export function useButton(props: UseButtonProps) {
     autoFocus,
   });
 
-  const styles = useMemo(
+  const classNames = useMemo(
     () =>
       button({
         size,
@@ -153,7 +153,7 @@ export function useButton(props: UseButtonProps) {
     children,
     domRef,
     drips,
-    styles,
+    classNames,
     startIcon,
     endIcon,
     disableRipple,

@@ -10,9 +10,9 @@ const CardBody = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
   const Component = as || "div";
   const domRef = useDOMRef(ref);
 
-  const {slots, styles} = useCardContext();
+  const {slots, classNames} = useCardContext();
 
-  const bodyStyles = clsx(styles?.body, className);
+  const bodyStyles = clsx(classNames?.body, className);
 
   return (
     <Component ref={domRef} className={slots.body?.({class: bodyStyles})} {...otherProps}>

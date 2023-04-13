@@ -5,7 +5,7 @@ import {checkbox} from "@nextui-org/theme";
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
 
 import {
-  CustomWithStyles as CheckboxItemWithStyles,
+  CustomWithClassNames as CheckboxItemWithStyles,
   CustomWithHooks as CheckboxItemWithHooks,
 } from "./checkbox.stories";
 
@@ -126,7 +126,7 @@ export const Controlled = () => {
   );
 };
 
-export const CustomWithStyles = () => {
+export const CustomWithClassNames = () => {
   const [groupSelected, setGroupSelected] = React.useState<string[]>([]);
 
   return (

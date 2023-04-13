@@ -9,10 +9,13 @@ export interface BadgeProps extends Omit<UseBadgeProps, "ref"> {
 }
 
 const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
-  const {Component, children, content, slots, styles, getBadgeProps} = useBadge({ref, ...props});
+  const {Component, children, content, slots, classNames, getBadgeProps} = useBadge({
+    ref,
+    ...props,
+  });
 
   return (
-    <div className={slots.base({class: styles?.base})}>
+    <div className={slots.base({class: classNames?.base})}>
       {children}
       <Component {...getBadgeProps()}>{content}</Component>
     </div>

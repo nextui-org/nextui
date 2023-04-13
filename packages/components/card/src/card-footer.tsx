@@ -14,9 +14,9 @@ const CardFooter = forwardRef<CardFooterProps, "div">((props, ref) => {
   const Component = as || "div";
   const domRef = useDOMRef(ref);
 
-  const {slots, styles} = useCardContext();
+  const {slots, classNames} = useCardContext();
 
-  const footerStyles = clsx(styles?.body, className, {
+  const footerStyles = clsx(classNames?.body, className, {
     "backdrop-blur-xl backdrop-saturate-200": isBlurred,
   });
 

@@ -59,7 +59,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
 
   const domRef = useDOMRef(ref);
 
-  const styles = useMemo(
+  const classNames = useMemo(
     () =>
       buttonGroup({
         ...variantProps,
@@ -106,7 +106,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
     children,
     domRef,
     context,
-    styles,
+    classNames,
     getButtonGroupProps,
   };
 }

@@ -147,7 +147,7 @@ interface CustomCheckboxProps extends CheckboxProps {
   statusColor?: ChipProps["color"];
 }
 
-export const CustomWithStyles = (props: CustomCheckboxProps) => {
+export const CustomWithClassNames = (props: CustomCheckboxProps) => {
   const {
     value,
     userName = "Junior Garcia",
@@ -180,7 +180,7 @@ export const CustomWithStyles = (props: CustomCheckboxProps) => {
     <Checkbox
       {...otherProps}
       aria-label={userName}
-      styles={{
+      classNames={{
         base: clsx(
           "inline-flex w-full max-w-md bg-content1 hover:bg-content2 items-center justify-start cursor-pointer rounded-lg gap-2 p-4 border-1.5 border-transparent",
           {
@@ -232,9 +232,7 @@ export const CustomWithHooks = (props: CheckboxProps) => {
         <input {...getInputProps()} />
       </VisuallyHidden>
       <Chip
-        color="primary"
-        startContent={isSelected ? <CheckIcon className="ml-1" color={colors.white} /> : null}
-        styles={{
+        classNames={{
           base: clsx("border-neutral hover:bg-neutral-200", {
             "border-primary bg-primary hover:bg-primary-600 hover:border-primary-600": isSelected,
             "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark": isFocusVisible,
@@ -243,6 +241,8 @@ export const CustomWithHooks = (props: CheckboxProps) => {
             "text-primary-contrastText pl-1": isSelected,
           }),
         }}
+        color="primary"
+        startContent={isSelected ? <CheckIcon className="ml-1" color={colors.white} /> : null}
         variant="faded"
         {...getLabelProps()}
       >

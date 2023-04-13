@@ -57,12 +57,12 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    */
   renderItem?: <T extends HTMLElement>(props: PaginationItemRenderProps<T>) => ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Pagination styles={{
+   * <Pagination classNames={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    prev: "prev-classes", // prev button classes
@@ -72,7 +72,7 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<PaginationSlots>;
+  classNames?: SlotsToClasses<PaginationSlots>;
 }
 
 export type UsePaginationProps = Props & UseBasePaginationProps & PaginationVariantProps;
@@ -85,7 +85,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   const {
     as,
     ref,
-    styles,
+    classNames,
     dotsJump = 5,
     loop = false,
     showControls = false,
@@ -186,7 +186,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const onNext = () => {
     if (loop && activePage === total) {
@@ -224,7 +224,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: (node) => getItemRef(node, props.value),
       isActive: props.value === activePage,
-      className: slots.item({class: styles?.item}),
+      className: slots.item({class: classNames?.item}),
       onPress: () => {
         if (props.value !== activePage) {
           setPage(props.value);
@@ -238,7 +238,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: cursorRef,
       activePage,
-      className: slots.cursor({class: styles?.cursor}),
+      className: slots.cursor({class: classNames?.cursor}),
     };
   };
 
@@ -247,7 +247,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     showControls,
     dotsJump,
     slots,
-    styles,
+    classNames,
     loop,
     total,
     range,

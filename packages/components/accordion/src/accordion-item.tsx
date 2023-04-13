@@ -10,7 +10,7 @@ export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {
 const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
   const {
     Component,
-    styles,
+    classNames,
     slots,
     indicator,
     children,
@@ -57,9 +57,11 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
       <h2 {...getHeadingProps()}>
         <button {...getButtonProps()}>
           {startContent && (
-            <div className={slots.startContent({class: styles?.startContent})}>{startContent}</div>
+            <div className={slots.startContent({class: classNames?.startContent})}>
+              {startContent}
+            </div>
           )}
-          <div className={slots.titleWrapper({class: styles?.titleWrapper})}>
+          <div className={slots.titleWrapper({class: classNames?.titleWrapper})}>
             {title && <span {...getTitleProps()}>{title}</span>}
             {subtitle && <span {...getSubtitleProps()}>{subtitle}</span>}
           </div>

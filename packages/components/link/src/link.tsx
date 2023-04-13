@@ -6,13 +6,10 @@ import {LinkIcon} from "./link-icon";
 export interface LinkProps extends Omit<UseLinkProps, "ref"> {}
 
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
-  const {
-    Component,
-    children,
-    showAnchorIcon,
-    anchorIcon = <LinkIcon />,
-    getLinkProps,
-  } = useLink({...props, ref});
+  const {Component, children, showAnchorIcon, anchorIcon = <LinkIcon />, getLinkProps} = useLink({
+    ...props,
+    ref,
+  });
 
   return (
     <Component {...getLinkProps()}>

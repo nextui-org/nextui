@@ -1,5 +1,36 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230413014154
+
+### Patch Changes
+
+- Styles prop chnaged to classNames, progress label wrapper hidden when possible
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230413014154
+  - @nextui-org/accordion@0.0.0-dev-v2-20230413014154
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230413014154
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230413014154
+  - @nextui-org/progress@0.0.0-dev-v2-20230413014154
+  - @nextui-org/popover@0.0.0-dev-v2-20230413014154
+  - @nextui-org/snippet@0.0.0-dev-v2-20230413014154
+  - @nextui-org/spinner@0.0.0-dev-v2-20230413014154
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230413014154
+  - @nextui-org/avatar@0.0.0-dev-v2-20230413014154
+  - @nextui-org/button@0.0.0-dev-v2-20230413014154
+  - @nextui-org/switch@0.0.0-dev-v2-20230413014154
+  - @nextui-org/badge@0.0.0-dev-v2-20230413014154
+  - @nextui-org/image@0.0.0-dev-v2-20230413014154
+  - @nextui-org/input@0.0.0-dev-v2-20230413014154
+  - @nextui-org/radio@0.0.0-dev-v2-20230413014154
+  - @nextui-org/card@0.0.0-dev-v2-20230413014154
+  - @nextui-org/chip@0.0.0-dev-v2-20230413014154
+  - @nextui-org/code@0.0.0-dev-v2-20230413014154
+  - @nextui-org/drip@0.0.0-dev-v2-20230413014154
+  - @nextui-org/link@0.0.0-dev-v2-20230413014154
+  - @nextui-org/user@0.0.0-dev-v2-20230413014154
+  - @nextui-org/system@0.0.0-dev-v2-20230413014154
+  - @nextui-org/theme@0.0.0-dev-v2-20230413014154
+
 ## 0.0.0-dev-v2-20230412124525
 
 ### Patch Changes

@@ -8,7 +8,7 @@ const Progress = forwardRef<ProgressProps, "div">((props, ref) => {
   const {
     Component,
     slots,
-    styles,
+    classNames,
     label,
     percentage,
     showValueLabel,
@@ -17,20 +17,23 @@ const Progress = forwardRef<ProgressProps, "div">((props, ref) => {
   } = useProgress({ref, ...props});
 
   const progressBarProps = getProgressBarProps();
+  const shouldShowLabelWrapper = label || showValueLabel;
 
   return (
     <Component {...progressBarProps}>
-      <div className={slots.labelWrapper({class: styles?.labelWrapper})}>
-        {label && <span {...getLabelProps()}>{label}</span>}
-        {showValueLabel && (
-          <span className={slots.value({class: styles?.value})}>
-            {progressBarProps["aria-valuetext"]}
-          </span>
-        )}
-      </div>
-      <div className={slots.track({class: styles?.track})}>
+      {shouldShowLabelWrapper ? (
+        <div className={slots.labelWrapper({class: classNames?.labelWrapper})}>
+          {label && <span {...getLabelProps()}>{label}</span>}
+          {showValueLabel && (
+            <span className={slots.value({class: classNames?.value})}>
+              {progressBarProps["aria-valuetext"]}
+            </span>
+          )}
+        </div>
+      ) : null}
+      <div className={slots.track({class: classNames?.track})}>
         <div
-          className={slots.filler({class: styles?.filler})}
+          className={slots.filler({class: classNames?.filler})}
           style={{
             transform: `translateX(-${100 - (percentage || 0)}%)`,
           }}

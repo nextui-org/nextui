@@ -10,7 +10,7 @@ export interface DripProps extends HTMLNextUIProps<"span"> {
 const Drip = (props: DripProps) => {
   const {drips, ...otherProps} = props;
 
-  const styles = drip();
+  const classNames = drip();
 
   if (!drips || !Array.isArray(drips) || drips.length < 1) {
     return null;
@@ -19,7 +19,7 @@ const Drip = (props: DripProps) => {
   return (
     <>
       {drips.map(({key, ...dripProps}) => (
-        <span key={key} className={styles} {...otherProps} {...dripProps} />
+        <span key={key} className={classNames} {...otherProps} {...dripProps} />
       ))}
     </>
   );

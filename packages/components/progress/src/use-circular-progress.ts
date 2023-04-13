@@ -27,12 +27,12 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   showValueLabel?: boolean;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <CircularProgress styles={{
+   * <CircularProgress classNames={{
    *    base:"base-classes",
    *    labelWrapper: "labelWrapper-classes",
    *    label: "label-classes",
@@ -42,7 +42,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<CircularProgressSlots>;
+  classNames?: SlotsToClasses<CircularProgressSlots>;
 }
 
 export type UseCircularProgressProps = Props & AriaProgressBarProps & CircularProgressVariantProps;
@@ -55,7 +55,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     as,
     id,
     className,
-    styles,
+    classNames,
     label,
     valueLabel,
     value = undefined,
@@ -72,7 +72,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
 
   const domRef = useDOMRef(ref);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
   const [, isMounted] = useIsMounted({
     rerender: true,
     delay: 100,
@@ -145,10 +145,10 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
 
   const getLabelProps = useCallback<PropGetter>(
     (props = {}) => ({
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
       ...mergeProps(labelProps, props),
     }),
-    [slots, styles, labelProps],
+    [slots, classNames, labelProps],
   );
 
   const getSvgProps = useCallback<PropGetter>(
@@ -156,10 +156,10 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
       viewBox: "0 0 32 32",
       fill: "none",
       strokeWidth,
-      className: slots.svg({class: styles?.svg}),
+      className: slots.svg({class: classNames?.svg}),
       ...props,
     }),
-    [strokeWidth, slots, styles],
+    [strokeWidth, slots, classNames],
   );
 
   const getCircleProps = useCallback<PropGetter>(
@@ -171,17 +171,17 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
       strokeDasharray: `${circumference} ${circumference}`,
       strokeDashoffset: offset,
       transform: "rotate(-90 16 16)",
-      className: slots.circle({class: styles?.circle}),
+      className: slots.circle({class: classNames?.circle}),
       ...props,
     }),
-    [slots, styles, offset, circumference, radius],
+    [slots, classNames, offset, circumference, radius],
   );
 
   return {
     Component,
     domRef,
     slots,
-    styles,
+    classNames,
     label,
     showValueLabel,
     getProgressBarProps,

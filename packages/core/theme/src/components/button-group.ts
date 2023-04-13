@@ -5,10 +5,10 @@ import {tv} from "tailwind-variants";
 /**
  * ButtonGroup wrapper **Tailwind Variants** component
  *
- * const styles = buttonGroup({...})
+ * const classNames = buttonGroup({...})
  *
  * @example
- * <div role="group" className={styles())}>
+ * <div role="group" className={classNames())}>
  *   // button elements
  * </div>
  */

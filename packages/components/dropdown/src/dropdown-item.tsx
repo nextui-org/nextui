@@ -13,7 +13,7 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
   const {
     Component,
     slots,
-    styles,
+    classNames,
     rendered,
     shortcut,
     description,
@@ -49,7 +49,7 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
     <Component {...getItemProps()}>
       {startContent}
       {description ? (
-        <div className={slots.wrapper({class: styles?.wrapper})}>
+        <div className={slots.wrapper({class: classNames?.wrapper})}>
           <span {...getLabelProps()}>{rendered}</span>
           <span {...getDescriptionProps()}>{description}</span>
         </div>

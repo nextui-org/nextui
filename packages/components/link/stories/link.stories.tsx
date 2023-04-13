@@ -1,6 +1,8 @@
+import type {VariantProps} from "@nextui-org/theme";
+
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import React from "react";
-import {tv, type VariantProps} from "@nextui-org/theme";
+import {tv} from "@nextui-org/theme";
 import {link} from "@nextui-org/theme";
 
 import {Link, LinkProps} from "../src";
@@ -18,7 +20,7 @@ export default {
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "xl"],
+        options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
     isDisabled: {

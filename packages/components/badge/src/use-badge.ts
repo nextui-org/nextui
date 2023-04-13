@@ -21,24 +21,24 @@ export interface UseBadgeProps extends HTMLNextUIProps<"span">, BadgeVariantProp
    */
   content?: string | number | ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Badge styles={{
+   * <Badge classNames={{
    *    base:"base-classes", // wrapper
    *    badge: "badge-classes",
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<BadgeSlots>;
+  classNames?: SlotsToClasses<BadgeSlots>;
 }
 
 export function useBadge(originalProps: UseBadgeProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, badge.variantKeys);
 
-  const {as, ref, children, className, content, styles, ...otherProps} = props;
+  const {as, ref, children, className, content, classNames, ...otherProps} = props;
 
   const Component = as || "span";
 
@@ -47,7 +47,7 @@ export function useBadge(originalProps: UseBadgeProps) {
   const isOneChar = useMemo(() => String(content)?.length === 1, [content]);
   const isDot = useMemo(() => String(content)?.length === 0, [content]);
 
-  const baseStyles = clsx(styles?.badge, className);
+  const baseStyles = clsx(classNames?.badge, className);
 
   const slots = useMemo(
     () =>
@@ -73,7 +73,7 @@ export function useBadge(originalProps: UseBadgeProps) {
     children,
     content,
     slots,
-    styles,
+    classNames,
     getBadgeProps,
   };
 }

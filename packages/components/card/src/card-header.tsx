@@ -10,9 +10,9 @@ const CardHeader = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
 
   const domRef = useDOMRef(ref);
 
-  const {slots, styles} = useCardContext();
+  const {slots, classNames} = useCardContext();
 
-  const headerStyles = clsx(styles?.header, className);
+  const headerStyles = clsx(classNames?.header, className);
 
   return (
     <Component ref={domRef} className={slots.header?.({class: headerStyles})} {...otherProps}>

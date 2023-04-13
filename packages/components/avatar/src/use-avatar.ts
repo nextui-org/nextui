@@ -69,12 +69,12 @@ export interface UseAvatarProps
    */
   onError?: () => void;
   /**
-   * Classname or List of classes to change the styles of the avatar.
+   * Classname or List of classes to change the classNames of the avatar.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Avatar styles={{
+   * <Avatar classNames={{
    *    base:"base-classes",
    *    img: "image-classes",
    *    name: "name-classes",
@@ -83,7 +83,7 @@ export interface UseAvatarProps
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<AvatarSlots>;
+  classNames?: SlotsToClasses<AvatarSlots>;
 }
 
 export function useAvatar(props: UseAvatarProps) {
@@ -96,7 +96,7 @@ export function useAvatar(props: UseAvatarProps) {
     src,
     name,
     icon,
-    styles,
+    classNames,
     fallback,
     alt = name,
     imgRef: imgRefProp,
@@ -151,11 +151,11 @@ export function useAvatar(props: UseAvatarProps) {
   const buttonStyles = useMemo(() => {
     if (as !== "button") return "";
 
-    // reset button styles
+    // reset button classNames
     return "appearance-none outline-none border-none cursor-pointer";
   }, [as]);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const canBeFocused = useMemo(() => {
     return isFocusable || as === "button";
@@ -177,7 +177,7 @@ export function useAvatar(props: UseAvatarProps) {
       ref: imgRef,
       src: src,
       "data-loaded": isImgLoaded,
-      className: slots.img({class: styles?.img}),
+      className: slots.img({class: classNames?.img}),
     }),
     [slots, isImgLoaded, src, imgRef],
   );
@@ -191,7 +191,7 @@ export function useAvatar(props: UseAvatarProps) {
     domRef,
     imgRef,
     slots,
-    styles,
+    classNames,
     fallback,
     isImgLoaded,
     showFallback,

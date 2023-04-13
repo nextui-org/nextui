@@ -1,5 +1,11 @@
 # @nextui-org/test-utils
 
+## 0.0.0-dev-v2-20230413014154
+
+### Patch Changes
+
+- Styles prop chnaged to classNames, progress label wrapper hidden when possible
+
 ## 0.0.0-dev-v2-20230412021924
 
 ### Patch Changes

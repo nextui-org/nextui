@@ -23,12 +23,12 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   showValueLabel?: boolean;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Progress styles={{
+   * <Progress classNames={{
    *    base:"base-classes",
    *    labelWrapper: "labelWrapper-classes",
    *    label: "label-classes",
@@ -38,7 +38,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<ProgressSlots>;
+  classNames?: SlotsToClasses<ProgressSlots>;
 }
 
 export type UseProgressProps = Props & AriaProgressBarProps & ProgressVariantProps;
@@ -51,7 +51,7 @@ export function useProgress(originalProps: UseProgressProps) {
     as,
     id,
     className,
-    styles,
+    classNames,
     label,
     valueLabel,
     value = 0,
@@ -68,7 +68,7 @@ export function useProgress(originalProps: UseProgressProps) {
 
   const domRef = useDOMRef(ref);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
   const [, isMounted] = useIsMounted({
     rerender: true,
     delay: 100,
@@ -128,17 +128,17 @@ export function useProgress(originalProps: UseProgressProps) {
 
   const getLabelProps = useCallback<PropGetter>(
     (props = {}) => ({
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
       ...mergeProps(labelProps, props),
     }),
-    [slots, styles, labelProps],
+    [slots, classNames, labelProps],
   );
 
   return {
     Component,
     domRef,
     slots,
-    styles,
+    classNames,
     label,
     percentage,
     showValueLabel,

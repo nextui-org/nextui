@@ -41,7 +41,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     isVirtualized,
     selectedIcon,
     className,
-    styles,
+    classNames,
     onAction,
     autoFocus,
     onPress,
@@ -107,7 +107,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     [...Object.values(variantProps), isDisabled, isFocusVisible, disableAnimation],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
@@ -128,19 +128,19 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
   const getLabelProps: PropGetter = (props = {}) => ({
     ...mergeProps(labelProps, props),
     id: labelId,
-    className: slots.title({class: styles?.title}),
+    className: slots.title({class: classNames?.title}),
   });
 
   const getDescriptionProps: PropGetter = (props = {}) => ({
     ...mergeProps(descriptionProps, props),
     id: descriptionId,
-    className: slots.description({class: styles?.description}),
+    className: slots.description({class: classNames?.description}),
   });
 
   const getKeyboardShortcutProps: PropGetter = (props = {}) => ({
     ...mergeProps(keyboardShortcutProps, props),
     id: keyboardId,
-    className: slots.shortcut({class: styles?.shortcut}),
+    className: slots.shortcut({class: classNames?.shortcut}),
   });
 
   const getSelectedIconProps = useCallback<PropGetter>(
@@ -148,18 +148,18 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       return {
         "aria-hidden": dataAttr(true),
         "data-disabled": dataAttr(isDisabled),
-        className: slots.selectedIcon({class: styles?.selectedIcon}),
+        className: slots.selectedIcon({class: classNames?.selectedIcon}),
         ...props,
       };
     },
-    [isDisabled, slots, styles],
+    [isDisabled, slots, classNames],
   );
 
   return {
     Component,
     domRef,
     slots,
-    styles,
+    classNames,
     isSelectable,
     isSelected,
     isDisabled,

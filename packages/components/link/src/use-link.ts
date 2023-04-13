@@ -61,7 +61,7 @@ export function useLink(originalProps: UseLinkProps) {
     otherProps.role = "link";
   }
 
-  const styles = useMemo(
+  const classNames = useMemo(
     () =>
       link({
         ...variantProps,
@@ -73,7 +73,7 @@ export function useLink(originalProps: UseLinkProps) {
   const getLinkProps: PropGetter = () => {
     return {
       ref: domRef,
-      className: styles,
+      className: classNames,
       ...linkProps,
       ...otherProps,
     };

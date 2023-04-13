@@ -48,7 +48,7 @@ export function useDropdown(props: UseDropdownProps) {
     placement = "bottom",
     isDisabled = false,
     closeOnSelect = true,
-    styles: stylesProp,
+    classNames: stylesProp,
     disableAnimation = false,
     className,
     ...otherProps
@@ -72,7 +72,7 @@ export function useDropdown(props: UseDropdownProps) {
     menuTriggerRef,
   );
 
-  const styles = useMemo(
+  const classNames = useMemo(
     () =>
       dropdown({
         className,
@@ -88,10 +88,10 @@ export function useDropdown(props: UseDropdownProps) {
     scrollRef: menuRef,
     triggerRef: menuTriggerRef,
     ...mergeProps(otherProps, props),
-    styles: {
+    classNames: {
       ...stylesProp,
-      ...props.styles,
-      base: clsx(styles, stylesProp?.base, props.className),
+      ...props.classNames,
+      base: clsx(classNames, stylesProp?.base, props.className),
       arrow: clsx("border border-neutral-100", stylesProp?.arrow),
     },
   });
@@ -121,7 +121,7 @@ export function useDropdown(props: UseDropdownProps) {
 
   return {
     Component,
-    styles,
+    classNames,
     closeOnSelect,
     onClose: state.close,
     autoFocus: state.focusStrategy || true,

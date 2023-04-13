@@ -50,12 +50,12 @@ interface Props extends HTMLNextUIProps<"label"> {
    */
   onValueChange?: AriaCheckboxProps["onChange"];
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Checkbox styles={{
+   * <Checkbox classNames={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    icon: "icon-classes",
@@ -63,7 +63,7 @@ interface Props extends HTMLNextUIProps<"label"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<CheckboxSlots>;
+  classNames?: SlotsToClasses<CheckboxSlots>;
 }
 
 export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
@@ -94,7 +94,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     isIndeterminate = false,
     validationState,
     defaultSelected,
-    styles,
+    classNames,
     onChange,
     className,
     onValueChange,
@@ -200,7 +200,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     [color, size, radius, lineThrough, isDisabled, isFocusVisible, disableAnimation],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = () => {
     return {
@@ -224,7 +224,7 @@ export function useCheckbox(props: UseCheckboxProps) {
       "data-invalid": dataAttr(isInvalid),
       "data-readonly": dataAttr(inputProps.readOnly),
       "aria-hidden": true,
-      className: clsx(slots.wrapper({class: styles?.wrapper})),
+      className: clsx(slots.wrapper({class: classNames?.wrapper})),
     };
   };
 
@@ -242,9 +242,9 @@ export function useCheckbox(props: UseCheckboxProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
     }),
-    [slots, styles?.label, isDisabled, isSelected, isInvalid],
+    [slots, classNames?.label, isDisabled, isSelected, isInvalid],
   );
 
   const getIconProps = useCallback(
@@ -254,9 +254,9 @@ export function useCheckbox(props: UseCheckboxProps) {
         isSelected: isSelected,
         isIndeterminate: !!isIndeterminate,
         disableAnimation: !!disableAnimation,
-        className: slots.icon({class: styles?.icon}),
+        className: slots.icon({class: classNames?.icon}),
       } as CheckboxIconProps),
-    [slots, styles?.icon, isSelected, isIndeterminate, disableAnimation],
+    [slots, classNames?.icon, isSelected, isIndeterminate, disableAnimation],
   );
 
   return {

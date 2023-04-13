@@ -16,12 +16,12 @@ export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantPr
    */
   label?: string;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Spinner styles={{
+   * <Spinner classNames={{
    *    base:"base-classes",
    *    line1: "circle1-classes",
    *    line2: "circle2-classes",
@@ -29,19 +29,19 @@ export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantPr
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<SpinnerSlots>;
+  classNames?: SlotsToClasses<SpinnerSlots>;
 }
 
 export function useSpinner(originalProps: UseSpinnerProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, spinner.variantKeys);
 
-  const {ref, children, className, styles, label: labelProp, ...otherProps} = props;
+  const {ref, children, className, classNames, label: labelProp, ...otherProps} = props;
 
   const domRef = useDOMRef(ref);
 
   const slots = useMemo(() => spinner({...variantProps}), [...Object.values(variantProps)]);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const label = labelProp || children;
 
@@ -64,7 +64,7 @@ export function useSpinner(originalProps: UseSpinnerProps) {
     [ariaLabel, slots, baseStyles, otherProps],
   );
 
-  return {domRef, label, slots, styles, getSpinnerProps};
+  return {domRef, label, slots, classNames, getSpinnerProps};
 }
 
 export type UseSpinnerReturn = ReturnType<typeof useSpinner>;

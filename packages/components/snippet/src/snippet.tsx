@@ -15,7 +15,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     domRef,
     children,
     slots,
-    styles,
+    classNames,
     copied,
     copyIcon = <SnippetCopyIcon />,
     checkIcon = <SnippetCheckIcon />,
@@ -44,7 +44,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     const copyButton = (
       <button
         className={slots.copy({
-          class: clsx(disableCopy && "opacity-50 cursor-not-allowed", styles?.copy),
+          class: clsx(disableCopy && "opacity-50 cursor-not-allowed", classNames?.copy),
         })}
         onClick={onCopy}
         {...focusProps}
@@ -60,7 +60,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     return <TooltipContent>{copyButton}</TooltipContent>;
   }, [
     slots,
-    styles?.copy,
+    classNames?.copy,
     copied,
     checkIcon,
     copyIcon,
@@ -76,7 +76,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
       return (
         <div className="flex flex-col">
           {children.map((t, index) => (
-            <pre key={`${index}-${t}`} className={slots.pre({class: styles?.pre})}>
+            <pre key={`${index}-${t}`} className={slots.pre({class: classNames?.pre})}>
               {!hideSymbol && <span className="select-none">{symbolBefore}</span>}
               {t}
             </pre>
@@ -86,12 +86,12 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     }
 
     return (
-      <pre className={slots.pre({class: styles?.pre})}>
+      <pre className={slots.pre({class: classNames?.pre})}>
         {!hideSymbol && <span className="select-none">{symbolBefore}</span>}
         {children}
       </pre>
     );
-  }, [children, hideSymbol, isMultiLine, symbolBefore, styles?.pre, slots]);
+  }, [children, hideSymbol, isMultiLine, symbolBefore, classNames?.pre, slots]);
 
   return (
     <Component ref={domRef} {...getSnippetProps()}>

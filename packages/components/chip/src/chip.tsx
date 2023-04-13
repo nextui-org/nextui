@@ -12,7 +12,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
     Component,
     children,
     slots,
-    styles,
+    classNames,
     isDot,
     isCloseable,
     startContent,
@@ -26,7 +26,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
 
   const start = useMemo(() => {
     if (isDot && !startContent) {
-      return <span className={slots.dot({class: styles?.dot})} />;
+      return <span className={slots.dot({class: classNames?.dot})} />;
     }
 
     return startContent;
@@ -43,7 +43,7 @@ const Chip = forwardRef<ChipProps, "div">((props, ref) => {
   return (
     <Component {...getChipProps()}>
       {start}
-      <span className={slots.content({class: styles?.content})}>{children}</span>
+      <span className={slots.content({class: classNames?.content})}>{children}</span>
       {end}
     </Component>
   );

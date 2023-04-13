@@ -28,12 +28,12 @@ interface Props extends HTMLNextUIProps<"label"> {
    */
   description?: string | ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Radio styles={{
+   * <Radio classNames={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    point: "control-classes", // inner circle
@@ -43,7 +43,7 @@ interface Props extends HTMLNextUIProps<"label"> {
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<RadioSlots>;
+  classNames?: SlotsToClasses<RadioSlots>;
 }
 
 export type UseRadioProps = Omit<Props, "defaultChecked"> &
@@ -56,7 +56,7 @@ export function useRadio(props: UseRadioProps) {
   const {
     as,
     ref,
-    styles,
+    classNames,
     id,
     value,
     children,
@@ -145,7 +145,7 @@ export function useRadio(props: UseRadioProps) {
     [color, size, radius, isDisabled, isInvalid, isFocusVisible, disableAnimation],
   );
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {
@@ -173,7 +173,7 @@ export function useRadio(props: UseRadioProps) {
       "data-readonly": dataAttr(inputProps.readOnly),
       "aria-required": dataAttr(isRequired),
       "aria-hidden": true,
-      className: clsx(slots.wrapper({class: styles?.wrapper})),
+      className: clsx(slots.wrapper({class: classNames?.wrapper})),
     };
   };
 
@@ -197,17 +197,17 @@ export function useRadio(props: UseRadioProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
-      className: slots.label({class: styles?.label}),
+      className: slots.label({class: classNames?.label}),
     }),
-    [slots, styles, isDisabled, isSelected, isInvalid],
+    [slots, classNames, isDisabled, isSelected, isInvalid],
   );
 
   const getLabelWrapperProps: PropGetter = useCallback(
     (props = {}) => ({
       ...props,
-      className: slots.labelWrapper({class: styles?.labelWrapper}),
+      className: slots.labelWrapper({class: classNames?.labelWrapper}),
     }),
-    [slots, styles],
+    [slots, classNames],
   );
 
   const getControlProps: PropGetter = useCallback(
@@ -216,7 +216,7 @@ export function useRadio(props: UseRadioProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
-      className: slots.control({class: styles?.control}),
+      className: slots.control({class: classNames?.control}),
     }),
     [slots, isDisabled, isSelected, isInvalid],
   );
@@ -225,7 +225,7 @@ export function useRadio(props: UseRadioProps) {
     Component,
     children,
     slots,
-    styles,
+    classNames,
     description,
     isSelected,
     isDisabled,

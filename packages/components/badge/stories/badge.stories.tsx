@@ -62,7 +62,7 @@ const defaultProps = {
 const Template: ComponentStory<typeof Badge> = (args: BadgeProps) => (
   <Badge {...args}>
     <Avatar
-      isBordered={args.styles?.badge?.includes("bottom")}
+      isBordered={args.classNames?.badge?.includes("bottom")}
       radius={args.shape === "rectangle" ? "lg" : "full"}
       src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
     />
@@ -90,7 +90,7 @@ HorizontalOffset.args = {
   content: <CheckIcon />,
   placement: "bottom-right",
   size: "md",
-  styles: {
+  classNames: {
     badge: "p-0.5 right-[50%]",
   },
 };
@@ -103,7 +103,7 @@ VerticalOffset.args = {
   content: <CheckIcon />,
   placement: "bottom-right",
   size: "md",
-  styles: {
+  classNames: {
     badge: "p-0.5 right-[50%] bottom-[50%]",
   },
 };

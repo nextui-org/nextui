@@ -3,7 +3,7 @@ import {tv} from "tailwind-variants";
 /**
  * Dropdown Menu wrapper **Tailwind Variants** component
  *
- * const styles = dropdownMenu({...})
+ * const classNames = dropdownMenu({...})
 
  */
 const dropdownMenu = tv({

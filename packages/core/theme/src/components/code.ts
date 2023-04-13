@@ -7,10 +7,10 @@ import {colorVariants} from "../utils";
 /**
  * Code wrapper **Tailwind Variants** component
  *
- * const styles = code({...})
+ * const classNames = code({...})
  *
  * @example
- * <code className={styles)}>
+ * <code className={classNames)}>
  *   npm install @nextui-org/react
  * </code>
  */

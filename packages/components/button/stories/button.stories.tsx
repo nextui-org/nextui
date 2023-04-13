@@ -122,8 +122,8 @@ IsLoading.args = {
   ),
 };
 
-export const CustomWithStyles = Template.bind({});
-CustomWithStyles.args = {
+export const CustomWithClassNames = Template.bind({});
+CustomWithClassNames.args = {
   ...defaultProps,
   radius: "full",
   className: "bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg",

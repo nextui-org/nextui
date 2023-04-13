@@ -10,7 +10,7 @@ const Image = forwardRef<ImageProps, "img">((props, ref) => {
     Component,
     domRef,
     slots,
-    styles,
+    classNames,
     isBlurred,
     isZoomed,
     fallbackSrc,
@@ -24,7 +24,9 @@ const Image = forwardRef<ImageProps, "img">((props, ref) => {
   });
 
   const img = <Component ref={domRef} {...getImgProps()} />;
-  const zoomed = <div className={slots.zoomedWrapper({class: styles?.zoomedWrapper})}>{img}</div>;
+  const zoomed = (
+    <div className={slots.zoomedWrapper({class: classNames?.zoomedWrapper})}>{img}</div>
+  );
 
   if (isBlurred) {
     // clone element to add isBlurred prop to the cloned image

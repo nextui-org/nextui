@@ -10,7 +10,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     Component,
     domRef,
     children,
-    styles,
+    classNames,
     drips,
     startIcon,
     endIcon,
@@ -22,7 +22,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   });
 
   return (
-    <Component ref={domRef} className={styles} {...getButtonProps()}>
+    <Component ref={domRef} className={classNames} {...getButtonProps()}>
       {startIcon}
       {children}
       {endIcon}

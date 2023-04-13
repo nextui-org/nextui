@@ -6,8 +6,14 @@ import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
 export interface CheckboxGroupProps extends Omit<UseCheckboxGroupProps, "ref"> {}
 
 const CheckboxGroup = forwardRef<CheckboxGroupProps, "div">((props, ref) => {
-  const {children, context, label, getGroupProps, getLabelProps, getWrapperProps} =
-    useCheckboxGroup({ref, ...props});
+  const {
+    children,
+    context,
+    label,
+    getGroupProps,
+    getLabelProps,
+    getWrapperProps,
+  } = useCheckboxGroup({ref, ...props});
 
   return (
     <div {...getGroupProps()}>

@@ -87,7 +87,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
 
   const domRef = useDOMRef(ref);
 
-  const styles = useMemo(
+  const classNames = useMemo(
     () =>
       accordion({
         variant,
@@ -162,7 +162,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   const getBaseProps: PropGetter = useCallback((props = {}) => {
     return {
       ref: domRef,
-      className: styles,
+      className: classNames,
       "data-orientation": "vertical",
       ...mergeProps(accordionProps, otherProps, props),
     };
@@ -172,7 +172,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     isFocused && setFocusedKey(key);
   }, []);
 
-  return {Component, context, styles, state, focusedKey, getBaseProps, handleFocusChanged};
+  return {Component, context, classNames, state, focusedKey, getBaseProps, handleFocusChanged};
 }
 
 export type UseAccordionReturn = ReturnType<typeof useAccordion>;

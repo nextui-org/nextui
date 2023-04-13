@@ -39,19 +39,19 @@ export interface UseSnippetProps
    */
   checkIcon?: React.ReactNode;
   /**
-   * Classname or List of classes to change the styles of the element.
+   * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <Snippet styles={{
+   * <Snippet classNames={{
    *    base:"base-classes",
    *    pre: "pre-classes",
    *    copy: "copy-classes",
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<SnippetSlots>;
+  classNames?: SlotsToClasses<SnippetSlots>;
   /**
    * Whether the copy button should receive focus on render.
    * @default false
@@ -95,7 +95,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     as,
     children,
     symbol = "$",
-    styles,
+    classNames,
     timeout,
     copyIcon,
     checkIcon,
@@ -144,7 +144,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     return str ? `${str} ` : "";
   }, [symbol]);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getSnippetProps = useCallback<PropGetter>(
     () => ({
@@ -178,7 +178,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     domRef,
     children,
     slots,
-    styles,
+    classNames,
     copied,
     onCopy,
     copyIcon,

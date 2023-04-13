@@ -33,12 +33,12 @@ export interface UseUserProps
    */
   avatarProps?: AvatarProps;
   /**
-   * Classname or List of classes to change the styles of the avatar.
+   * Classname or List of classes to change the classNames of the avatar.
    * if `className` is passed, it will be added to the base slot.
    *
    * @example
    * ```ts
-   * <User styles={{
+   * <User classNames={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    name: "name-classes",
@@ -46,7 +46,7 @@ export interface UseUserProps
    * }} />
    * ```
    */
-  styles?: SlotsToClasses<UserSlots>;
+  classNames?: SlotsToClasses<UserSlots>;
 }
 
 export function useUser(props: UseUserProps) {
@@ -56,7 +56,7 @@ export function useUser(props: UseUserProps) {
     name,
     description,
     className,
-    styles,
+    classNames,
     isFocusable = false,
     avatarProps = {
       isFocusable: false,
@@ -77,12 +77,12 @@ export function useUser(props: UseUserProps) {
 
   const slots = useMemo(() => user({isFocusVisible}), [isFocusVisible]);
 
-  const baseStyles = clsx(styles?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const buttonStyles = useMemo(() => {
     if (as !== "button") return "";
 
-    // reset button styles
+    // reset button classNames
     return [
       "p-0",
       "m-0",
@@ -113,7 +113,7 @@ export function useUser(props: UseUserProps) {
     slots,
     name,
     description,
-    styles,
+    classNames,
     baseStyles,
     focusProps,
     avatarProps,
