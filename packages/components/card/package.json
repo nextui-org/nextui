@@ -54,6 +54,7 @@
     "@nextui-org/link": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/image": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

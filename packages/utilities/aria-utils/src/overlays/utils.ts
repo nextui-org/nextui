@@ -78,6 +78,18 @@ export const toReactAriaPlacement = (placement: OverlayPlacement) => {
   return mapPositions[placement];
 };
 
+export const toOverlayPlacement = (placement: PlacementAxis) => {
+  const mapPositions: Record<PlacementAxis, OverlayPlacement> = {
+    top: "top",
+    bottom: "bottom",
+    left: "left",
+    right: "right",
+    center: "top",
+  };
+
+  return mapPositions[placement];
+};
+
 export const getArrowPlacement = (dynamicPlacement: PlacementAxis, placement: OverlayPlacement) => {
   if (placement.includes("-")) {
     const [, position] = placement.split("-");

@@ -82,7 +82,7 @@ const popover = tv({
       light: {base: "!bg-transparent", arrow: "hidden"},
       faded: {base: "border", arrow: "border border-inherit"},
       flat: {base: ""},
-      shadow: {base: "border border-neutral-100", arrow: "border border-neutral-100"},
+      shadow: {base: ""},
     },
     color: {
       neutral: {base: colorVariants.solid.neutral},

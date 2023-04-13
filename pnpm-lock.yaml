@@ -665,6 +665,9 @@ importers:
       '@nextui-org/code':
         specifier: workspace:*
         version: link:../code
+      '@nextui-org/image':
+        specifier: workspace:*
+        version: link:../image
       '@nextui-org/link':
         specifier: workspace:*
         version: link:../link

@@ -1,8 +1,8 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
-import type {OverlayPlacement} from "@nextui-org/aria-utils";
 import type {RefObject, Ref} from "react";
 
+import {OverlayPlacement, toOverlayPlacement} from "@nextui-org/aria-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
 import {
@@ -210,7 +210,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     classNames,
     showArrow,
     triggerRef,
-    placement: placementProp,
+    placement: placement ? toOverlayPlacement(placement) : placementProp,
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,

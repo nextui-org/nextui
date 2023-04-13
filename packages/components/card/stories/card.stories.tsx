@@ -4,6 +4,7 @@ import {card} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
 import {Code} from "@nextui-org/code";
+import {Image} from "@nextui-org/image";
 
 import {Card, CardBody, CardHeader, CardFooter, CardProps} from "../src";
 
@@ -82,7 +83,7 @@ const Template: ComponentStory<typeof Card> = (args: CardProps) => (
 );
 
 const WithDividerTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
-  <Card {...args} isBordered className="max-w-md">
+  <Card {...args} className="max-w-md">
     <CardHeader className="border-b border-border dark:border-border-dark">
       <strong>Description</strong>
     </CardHeader>
@@ -101,11 +102,12 @@ const WithDividerTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
 const WithFooterTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   <Card {...args} className="p-4 max-w-md">
     <CardHeader className="flex gap-3">
-      <img
+      <Image
         alt="nextui logo"
-        height="34px"
+        height={34}
+        radius="lg"
         src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-        width="34px"
+        width={34}
       />
       <div className="flex flex-col">
         <b className="text-lg">NextUI</b>
@@ -125,16 +127,18 @@ const WithFooterTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
 
 const WithAbsImageHeaderTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   <Card {...args} className="max-w-[330px]">
-    <CardHeader className="absolute top-2 z-10">
+    <CardHeader className="absolute top-2 z-20">
       <div className="flex flex-col">
         <p className="text-white/60 text-xs uppercase font-bold">What to watch</p>
         <p className="text-white text-2xl">Stream the Apple event</p>
       </div>
     </CardHeader>
-    <img
-      alt="Apple event background"
+    <Image
+      alt="Card background"
       className="w-full h-[440px] object-cover"
+      height={440}
       src={require("./assets/apple-event.jpeg")}
+      width={330}
     />
   </Card>
 );
@@ -151,10 +155,12 @@ const WithAbsImgHeaderFooterTemplate: ComponentStory<typeof Card> = (args: CardP
         </p>
       </div>
     </CardHeader>
-    <img
-      alt="Apple homepods background"
+    <Image
+      alt="Card background"
       className="w-full h-[440px] pt-10 object-contain"
+      height={440}
       src={require("./assets/homepod.jpeg")}
+      width={300}
     />
     <CardFooter className="justify-between absolute bottom-0">
       <div>
@@ -247,6 +253,24 @@ const CoverImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
       </CardFooter>
     </Card>
   </div>
+);
+
+const CenterImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+  <Card {...args} className="max-w-fit py-4 px-0">
+    <CardHeader className="pb-0 pt-2 px-4 flex-col !items-start">
+      <p className="text-xs uppercase font-bold">Daily Mix</p>
+      <small className="text-neutral-500">12 Tracks</small>
+      <h4 className="font-bold text-lg">Frontend Radio</h4>
+    </CardHeader>
+    <CardBody className="overflow-visible py-2">
+      <Image
+        isBlurred
+        alt="Card background"
+        src={require("./assets/local-image-1.jpeg")}
+        width={300}
+      />
+    </CardBody>
+  </Card>
 );
 
 const PrimaryActionTemplate: ComponentStory<typeof Card> = (args: CardProps) => {
@@ -407,6 +431,11 @@ WithAbsImgHeaderFooter.args = {
 
 export const CoverImg = CoverImgTemplate.bind({});
 CoverImg.args = {
+  ...defaultProps,
+};
+
+export const CenterImg = CenterImgTemplate.bind({});
+CenterImg.args = {
   ...defaultProps,
 };
 

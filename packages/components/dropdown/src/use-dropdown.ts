@@ -48,7 +48,7 @@ export function useDropdown(props: UseDropdownProps) {
     placement = "bottom",
     isDisabled = false,
     closeOnSelect = true,
-    classNames: stylesProp,
+    classNames: classNamesProp,
     disableAnimation = false,
     className,
     ...otherProps
@@ -89,10 +89,10 @@ export function useDropdown(props: UseDropdownProps) {
     triggerRef: menuTriggerRef,
     ...mergeProps(otherProps, props),
     classNames: {
-      ...stylesProp,
+      ...classNamesProp,
       ...props.classNames,
-      base: clsx(classNames, stylesProp?.base, props.className),
-      arrow: clsx("border border-neutral-100", stylesProp?.arrow),
+      base: clsx(classNames, classNamesProp?.base, props.className),
+      arrow: clsx("border border-neutral-100", classNamesProp?.arrow),
     },
   });
 
