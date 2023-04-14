@@ -1,7 +1,7 @@
 import type {SemanticColors, SemanticBaseColors} from "./types";
 
 import twColors from "tailwindcss/colors";
-import {readableColor} from "color2k";
+import {readableColor, transparentize} from "color2k";
 
 import {swapColorValues} from "../utils/object";
 
@@ -96,6 +96,14 @@ export const semanticColorsLight: SemanticColors = {
     contrastText: common.white,
     DEFAULT: common.red[500],
   },
+  whiteAlpha: {
+    contrastText: common.white,
+    DEFAULT: transparentize(common.white, 0.5),
+  },
+  blackAlpha: {
+    contrastText: common.white,
+    DEFAULT: transparentize(common.black, 0.5),    
+  }
 };
 
 export const semanticColorsDark: SemanticColors = {
@@ -130,6 +138,14 @@ export const semanticColorsDark: SemanticColors = {
     contrastText: common.white,
     DEFAULT: common.red[500],
   },
+  whiteAlpha: {
+    contrastText: twColors.zinc[700],
+    DEFAULT: transparentize(common.white, 0.8),
+  },
+  blackAlpha: {
+    contrastText: twColors.zinc[700],
+    DEFAULT: transparentize(common.black, 0.8),    
+  }
 };
 
 export const semanticColors = {
