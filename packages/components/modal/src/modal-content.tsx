@@ -78,7 +78,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     <div tabIndex={-1}>
       {backdrop}
       {disableAnimation ? (
-        <div className={slots.wrapper({class: classNames?.wrapper})}>content</div>
+        <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
       ) : (
         <motion.div
           animate="enter"
