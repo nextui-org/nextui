@@ -51,7 +51,7 @@ export interface Props<T extends object = {}>
    */
   startContent?: ReactNode;
   /**
-   * The properties passed to the underlying `Collapse` component.
+   * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: CollapseTransitionProps;
   /**

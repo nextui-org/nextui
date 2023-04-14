@@ -1004,6 +1004,64 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/modal:
+    dependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/dom-utils':
+        specifier: workspace:*
+        version: link:../../utilities/dom-utils
+      '@nextui-org/framer-transitions':
+        specifier: workspace:*
+        version: link:../../utilities/framer-transitions
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
+      '@react-aria/dialog':
+        specifier: ^3.5.1
+        version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/focus':
+        specifier: ^3.12.0
+        version: 3.12.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+      '@react-aria/overlays':
+        specifier: ^3.14.0
+        version: 3.14.0(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+      '@react-stately/overlays':
+        specifier: ^3.5.1
+        version: 3.5.1(react@18.2.0)
+    devDependencies:
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
+      '@react-types/overlays':
+        specifier: ^3.7.1
+        version: 3.7.1(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      framer-motion:
+        specifier: ^10.11.2
+        version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/pagination:
     dependencies:
       '@nextui-org/dom-utils':
@@ -1067,9 +1125,6 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
-      '@react-aria/button':
-        specifier: ^3.7.1
-        version: 3.7.1(react@18.2.0)
       '@react-aria/dialog':
         specifier: ^3.5.1
         version: 3.5.1(react-dom@18.2.0)(react@18.2.0)

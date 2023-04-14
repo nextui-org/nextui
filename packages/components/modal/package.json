@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/popover",
-  "version": "0.0.0-dev-v2-20230414001416",
-  "description": "A popover is an overlay element positioned relative to a trigger.",
+  "name": "@nextui-org/modal",
+  "version": "2.0.0-beta.1",
+  "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
-    "popover"
+    "modal"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/popover"
+    "directory": "packages/components/modal"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -34,18 +34,16 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "framer-motion": ">=6.2.8"
+    "react": ">=18"
   },
   "dependencies": {
-    "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
-    "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
     "@react-aria/dialog": "^3.5.1",
     "@react-aria/interactions": "^3.15.0",
     "@react-aria/overlays": "^3.14.0",
@@ -55,10 +53,8 @@
   },
   "devDependencies": {
     "@nextui-org/input": "workspace:*",
-    "@nextui-org/card": "workspace:*",
     "framer-motion": "^10.11.2",
     "@react-types/overlays": "^3.7.1",
-    "@react-types/button": "^3.7.2",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

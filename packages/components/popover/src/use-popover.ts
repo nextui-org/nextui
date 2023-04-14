@@ -52,7 +52,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   triggerType?: "dialog" | "menu" | "listbox" | "tree" | "grid";
   /**
-   * The properties passed to the underlying `Collapse` component.
+   * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: HTMLMotionProps<"div">;
   /**

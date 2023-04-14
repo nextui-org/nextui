@@ -1,43 +1,40 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
+import {DOMAttributes, ReactNode, useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {FocusScope} from "@react-aria/focus";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
-import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
 import {FocusableElement} from "@react-types/shared";
 
-import {usePopoverContext} from "./popover-context";
+import {useModalContext} from "./modal-context";
 
-export interface PopoverContentProps extends AriaDialogProps {
+export interface ModalContentProps extends AriaDialogProps {
   children: ReactNode | ((titleProps: DOMAttributes<FocusableElement>) => ReactNode);
 }
 
-const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => {
+const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
   const {as, children, ...otherProps} = props;
 
   const {
-    Component: OverlayComponent,
-    placement,
-    showArrow,
+    Component: DialogComponent,
+    dialogRef,
+    slots,
+    classNames,
     motionProps,
     backdropVariant,
     disableAnimation,
-    getPopoverProps,
-    getArrowProps,
     getDialogProps,
     getBackdropProps,
     onClose,
-  } = usePopoverContext();
+  } = useModalContext();
 
-  const Component = as || OverlayComponent || "section";
+  const Component = as || DialogComponent || "section";
 
-  const dialogRef = useRef(null);
   const {dialogProps, titleProps} = useDialog(
     {
       role: "dialog",
@@ -45,20 +42,13 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     dialogRef,
   );
 
-  const arrowContent = useMemo(() => {
-    if (!showArrow) return null;
-
-    return <span {...getArrowProps()} />;
-  }, [showArrow, getArrowProps]);
-
   const content = (
     <>
       <DismissButton onDismiss={onClose} />
-      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
+      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
         <FocusScope contain restoreFocus>
           {typeof children === "function" ? children(titleProps) : children}
         </FocusScope>
-        {arrowContent}
       </Component>
       <DismissButton onDismiss={onClose} />
     </>
@@ -85,18 +75,16 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
   }, [backdropVariant, disableAnimation, getBackdropProps]);
 
   return (
-    <div {...getPopoverProps()}>
+    <div tabIndex={-1}>
       {backdrop}
       {disableAnimation ? (
-        content
+        <div className={slots.wrapper({class: classNames?.wrapper})}>content</div>
       ) : (
         <motion.div
           animate="enter"
+          className={slots.wrapper({class: classNames?.wrapper})}
           exit="exit"
           initial="exit"
-          style={{
-            ...getTransformOrigins(placement),
-          }}
           variants={TRANSITION_VARIANTS.scaleSpring}
           {...motionProps}
         >
@@ -107,6 +95,6 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
   );
 });
 
-PopoverContent.displayName = "NextUI.PopoverContent";
+ModalContent.displayName = "NextUI.ModalContent";
 
-export default PopoverContent;
+export default ModalContent;

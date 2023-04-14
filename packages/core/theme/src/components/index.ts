@@ -28,3 +28,4 @@ export * from "./dropdown-item";
 export * from "./dropdown-section";
 export * from "./dropdown-menu";
 export * from "./image";
+export * from "./modal";
