@@ -1,7 +1,7 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {button} from "@nextui-org/theme";
-import {Notification, Camera, HeadphonesIcon} from "@nextui-org/shared-icons";
+import {Camera, HeadphonesIcon, Notification} from "@nextui-org/shared-icons";
 import {Spinner} from "@nextui-org/spinner";
 
 import {Button, ButtonProps} from "../src";
@@ -98,8 +98,8 @@ DisableRipple.args = {
 export const WithIcons = Template.bind({});
 WithIcons.args = {
   ...defaultProps,
-  startIcon: <Notification />,
-  endIcon: <Camera />,
+  startIcon: <Notification className="fill-current" />,
+  endIcon: <Camera className="fill-current" />,
 };
 
 export const IconButton = Template.bind({});

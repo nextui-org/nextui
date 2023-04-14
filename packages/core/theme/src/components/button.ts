@@ -31,7 +31,6 @@ const button = tv({
     "overflow-hidden",
     "gap-3",
     // svg icon
-    "[&>svg]:fill-current",
     "[&>svg]:max-w-[2em]",
   ],
   variants: {

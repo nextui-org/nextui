@@ -1,5 +1,13 @@
 # @nextui-org/aria-utils
 
+## 0.0.0-dev-v2-20230414001416
+
+### Patch Changes
+
+- Button auto fill svgs class removed
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230414001416
+
 ## 0.0.0-dev-v2-20230413014154
 
 ### Patch Changes
