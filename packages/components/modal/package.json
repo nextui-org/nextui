@@ -43,6 +43,7 @@
     "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@react-aria/dialog": "^3.5.1",
     "@react-aria/interactions": "^3.15.0",
@@ -53,6 +54,8 @@
   },
   "devDependencies": {
     "@nextui-org/input": "workspace:*",
+    "@nextui-org/checkbox": "workspace:*",
+    "react-lorem-component": "0.13.0",
     "framer-motion": "^10.11.2",
     "@react-types/overlays": "^3.7.1",
     "clean-package": "2.2.0",

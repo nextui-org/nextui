@@ -1015,6 +1015,9 @@ importers:
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -1046,6 +1049,9 @@ importers:
         specifier: ^3.5.1
         version: 3.5.1(react@18.2.0)
     devDependencies:
+      '@nextui-org/checkbox':
+        specifier: workspace:*
+        version: link:../checkbox
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../input
@@ -1061,6 +1067,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-lorem-component:
+        specifier: 0.13.0
+        version: 0.13.0(react@18.2.0)
 
   packages/components/pagination:
     dependencies:
@@ -11652,6 +11661,13 @@ packages:
       sha.js: 2.4.11
     dev: true
 
+  /create-react-class@15.7.0:
+    resolution: {integrity: sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+    dev: true
+
   /create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
@@ -17170,6 +17186,13 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
+  /lorem-ipsum@1.0.6:
+    resolution: {integrity: sha512-Rx4XH8X4KSDCKAVvWGYlhAfNqdUP5ZdT4rRyf0jjrvWgtViZimDIlopWNfn/y3lGM5K4uuiAoY28TaD+7YKFrQ==}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.8
+    dev: true
+
   /loud-rejection@1.6.0:
     resolution: {integrity: sha512-RPNliZOFkqFumDhvYqOaNY4Uz9oJM2K9tC6JWsJJsNdhuONW4LQHRBpb0qf4pJApVffI5N39SwzWZJuEhfd7eQ==}
     engines: {node: '>=0.10.0'}
@@ -20073,6 +20096,18 @@ packages:
       unescape: 1.0.1
     dev: false
 
+  /react-lorem-component@0.13.0(react@18.2.0):
+    resolution: {integrity: sha512-4mWjxmcG/DJJwdxdKwXWyP2N9zohbJg/yYaC+7JffQNrKj3LYDpA/A4u/Dju1v1ZF6Jew2gbFKGb5Z6CL+UNTw==}
+    peerDependencies:
+      react: 16.x
+    dependencies:
+      create-react-class: 15.7.0
+      lorem-ipsum: 1.0.6
+      object-assign: 4.1.1
+      react: 18.2.0
+      seedable-random: 0.0.1
+    dev: true
+
   /react-markdown@6.0.2(@types/react@17.0.11)(react@18.2.0):
     resolution: {integrity: sha512-Et2AjXAsbmPP1nLQQRqmVgcqzfwcz8uQJ8VAdADs8Nk/aaUA0YeU9RDLuCtD+GwajCnm/+Iiu2KPmXzmD/M3vA==}
     peerDependencies:
@@ -20893,6 +20928,10 @@ packages:
     dependencies:
       extend-shallow: 2.0.1
       kind-of: 6.0.3
+
+  /seedable-random@0.0.1:
+    resolution: {integrity: sha512-uZWbEfz3BQdBl4QlUPELPqhInGEO1Q6zjzqrTDkd3j7mHaWWJo7h4ydr2g24a2WtTLk3imTLc8mPbBdQqdsbGw==}
+    dev: true
 
   /select@1.1.2:
     resolution: {integrity: sha512-OwpTSOfy6xSs1+pwcNrv0RBMOzI39Lp3qQKUTPVVPRjCdNa5JH/oPRiqsesIskK8TVgmRiHwO4KXlV2Li9dANA==}

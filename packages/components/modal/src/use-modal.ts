@@ -12,8 +12,10 @@ import {
   useMemo,
   useImperativeHandle,
 } from "react";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {modal} from "@nextui-org/theme";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {useAriaButton} from "@nextui-org/use-aria-button";
+import {useFocusRing} from "@react-aria/focus";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useOverlayTrigger} from "@react-aria/overlays";
 import {createDOMRef} from "@nextui-org/dom-utils";
@@ -34,7 +36,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: HTMLMotionProps<"div">;
-
+  /**
+   * Determines if the modal should have a close button in the top right corner.
+   * @default true
+   */
+  showCloseButton?: boolean;
   /**
    * Whether the animation should be disabled.
    * @default false
@@ -47,10 +53,13 @@ interface Props extends HTMLNextUIProps<"div"> {
    * @example
    * ```ts
    * <Modal classNames={{
+   *    wrapper: "wrapper-classes", // main wrapper
+   *    backdrop: "backdrop-classes",
    *    base:"base-classes",
    *    header: "header-classes",
    *    body: "body-classes",
    *    footer: "footer-classes",
+   *    closeButton: "close-button-classes",
    * }} />
    * ```
    */
@@ -73,6 +82,9 @@ export function useModal(originalProps: UseModalProps) {
     defaultOpen,
     onOpenChange,
     motionProps,
+    isDismissable = true,
+    showCloseButton = true,
+    isKeyboardDismissDisabled = false,
     ...otherProps
   } = props;
 
@@ -80,6 +92,7 @@ export function useModal(originalProps: UseModalProps) {
 
   const dialogRef = useRef<HTMLElement>(null);
   const domTriggerRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLElement>(null);
 
   const [headerMounted, setHeaderMounted] = useState(false);
   const [bodyMounted, setBodyMounted] = useState(false);
@@ -104,7 +117,20 @@ export function useModal(originalProps: UseModalProps) {
 
   const {triggerProps} = useOverlayTrigger({type: "dialog"}, state, triggerRef);
 
-  const {modalProps, underlayProps} = useModalOverlay(originalProps, state, dialogRef);
+  const {modalProps, underlayProps} = useModalOverlay(
+    {
+      isDismissable,
+      isKeyboardDismissDisabled,
+    },
+    state,
+    dialogRef,
+  );
+
+  const {buttonProps: closeButtonProps} = useAriaButton({onPress: state.close}, closeButtonRef);
+  const {
+    isFocusVisible: isCloseButtonFocusVisible,
+    focusProps: closeButtonFocusProps,
+  } = useFocusRing();
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -112,35 +138,28 @@ export function useModal(originalProps: UseModalProps) {
     () =>
       modal({
         ...variantProps,
+        isCloseButtonFocusVisible,
       }),
-    [...Object.values(variantProps)],
+    [...Object.values(variantProps), isCloseButtonFocusVisible],
   );
 
-  const getDialogProps: PropGetter = useCallback(
-    (props = {}, ref = null) => ({
-      ref: mergeRefs(ref, dialogRef),
-      ...mergeProps(modalProps, otherProps, props),
-      className: slots.base({class: clsx(baseStyles, props.className)}),
-      id: dialogId,
-      "aria-modal": true,
-      "aria-labelledby": headerMounted ? headerId : undefined,
-      "aria-describedby": bodyMounted ? bodyId : undefined,
-    }),
-    [],
-  );
+  const getDialogProps: PropGetter = (props = {}, ref = null) => ({
+    ref: mergeRefs(ref, dialogRef),
+    ...mergeProps(modalProps, otherProps, props),
+    className: slots.base({class: clsx(baseStyles, props.className)}),
+    id: dialogId,
+    "aria-modal": true,
+    "aria-labelledby": headerMounted ? headerId : undefined,
+    "aria-describedby": bodyMounted ? bodyId : undefined,
+  });
 
-  const getTriggerProps = useCallback<PropGetter>(
-    (props = {}, _ref: Ref<any> | null | undefined = null) => {
-      return {
-        ...mergeProps(triggerProps, props),
-        className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
-        ref: mergeRefs(_ref, triggerRef),
-        "aria-controls": dialogId,
-        "aria-haspopup": "dialog",
-      };
-    },
-    [isOpen, dialogId, state, triggerProps, triggerRef],
-  );
+  const getTriggerProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
+    ...mergeProps(triggerProps, props),
+    className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
+    ref: mergeRefs(_ref, triggerRef),
+    "aria-controls": dialogId,
+    "aria-haspopup": "dialog",
+  });
 
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
@@ -152,6 +171,15 @@ export function useModal(originalProps: UseModalProps) {
     [slots, classNames, underlayProps],
   );
 
+  const getCloseButtonProps: PropGetter = () => {
+    return {
+      role: "button",
+      tabIndex: 0,
+      className: slots.closeButton({class: classNames?.closeButton}),
+      ...mergeProps(closeButtonProps, closeButtonFocusProps),
+    };
+  };
+
   return {
     Component,
     slots,
@@ -161,6 +189,8 @@ export function useModal(originalProps: UseModalProps) {
     triggerRef,
     motionProps,
     classNames,
+    isDismissable,
+    showCloseButton,
     backdropVariant: originalProps.backdropVariant ?? "opaque",
     isOpen: state.isOpen,
     onClose: state.close,
@@ -170,6 +200,7 @@ export function useModal(originalProps: UseModalProps) {
     getDialogProps,
     getTriggerProps,
     getBackdropProps,
+    getCloseButtonProps,
   };
 }
 

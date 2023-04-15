@@ -10,12 +10,11 @@ import {motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
-import {FocusableElement} from "@react-types/shared";
 
 import {usePopoverContext} from "./popover-context";
 
 export interface PopoverContentProps extends AriaDialogProps {
-  children: ReactNode | ((titleProps: DOMAttributes<FocusableElement>) => ReactNode);
+  children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
 const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => {

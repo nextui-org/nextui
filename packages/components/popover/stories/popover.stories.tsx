@@ -110,7 +110,7 @@ const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button disableAnimation={!!args.disableAnimation}>Open popover</Button>
+        <Button disableAnimation={!!args.disableAnimation}>Open Popover</Button>
       </PopoverTrigger>
       {content}
     </Popover>
@@ -121,7 +121,7 @@ const WithTitlePropsTemplate: ComponentStory<typeof Popover> = (args: PopoverPro
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button disableAnimation={!!args.disableAnimation}>Open popover</Button>
+        <Button disableAnimation={!!args.disableAnimation}>Open Popover</Button>
       </PopoverTrigger>
       <PopoverContent>
         {(titleProps) => (
@@ -144,7 +144,7 @@ const OpenChangeTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) 
     <div className="flex flex-col gap-2">
       <Popover {...args} onOpenChange={(open) => setIsOpen(open)}>
         <PopoverTrigger>
-          <Button>Open popover</Button>
+          <Button>Open Popover</Button>
         </PopoverTrigger>
         <PopoverContent>
           <div className="px-1 py-2">
@@ -370,7 +370,7 @@ const OffsetTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
 const WithFormTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
   <Popover {...args}>
     <PopoverTrigger>
-      <Button color="primary">Open popover</Button>
+      <Button color="primary">Open Popover</Button>
     </PopoverTrigger>
     <PopoverContent>
       {(titleProps) => (
@@ -416,7 +416,7 @@ const WithBackdropTemplate: ComponentStory<typeof Popover> = (args: PopoverProps
       <Popover {...args}>
         <PopoverTrigger>
           <Button color="primary" radius="full">
-            Open popover
+            Open Popover
           </Button>
         </PopoverTrigger>
         <PopoverContent>
@@ -509,4 +509,22 @@ WithBackdrop.args = {
   variant: "shadow",
   backdropVariant: "blur",
   className: "bg-white dark:bg-content1",
+};
+
+export const CustomMotion = Template.bind({});
+CustomMotion.args = {
+  ...defaultProps,
+  placement: "bottom",
+  motionProps: {
+    variants: {
+      enter: {
+        opacity: 1,
+        duration: 0.2,
+      },
+      exit: {
+        opacity: 0,
+        duration: 0.1,
+      },
+    },
+  },
 };

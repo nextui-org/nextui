@@ -23,3 +23,4 @@ export * from "./eye-filled";
 export * from "./eye-slash-filled";
 export * from "./search";
 export * from "./bulk";
+export * from "./lock-filled";

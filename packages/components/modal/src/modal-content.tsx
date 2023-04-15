@@ -1,20 +1,19 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {DOMAttributes, ReactNode, useMemo} from "react";
+import {ReactNode, useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
-import {FocusScope} from "@react-aria/focus";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {CloseIcon} from "@nextui-org/shared-icons";
 import {motion} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
-import {FocusableElement} from "@react-types/shared";
 
 import {useModalContext} from "./modal-context";
 
 export interface ModalContentProps extends AriaDialogProps {
-  children: ReactNode | ((titleProps: DOMAttributes<FocusableElement>) => ReactNode);
+  children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
 const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
@@ -27,15 +26,17 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     classNames,
     motionProps,
     backdropVariant,
+    showCloseButton,
     disableAnimation,
     getDialogProps,
     getBackdropProps,
+    getCloseButtonProps,
     onClose,
   } = useModalContext();
 
   const Component = as || DialogComponent || "section";
 
-  const {dialogProps, titleProps} = useDialog(
+  const {dialogProps} = useDialog(
     {
       role: "dialog",
     },
@@ -46,9 +47,12 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     <>
       <DismissButton onDismiss={onClose} />
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
-        <FocusScope contain restoreFocus>
-          {typeof children === "function" ? children(titleProps) : children}
-        </FocusScope>
+        {showCloseButton && (
+          <button {...getCloseButtonProps()}>
+            <CloseIcon />
+          </button>
+        )}
+        {typeof children === "function" ? children(onClose) : children}
       </Component>
       <DismissButton onDismiss={onClose} />
     </>
