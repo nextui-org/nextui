@@ -14,7 +14,7 @@ export interface ModalProps extends Omit<UseModalProps, "ref"> {
   children: ReactNode[];
 }
 
-const Modal = forwardRef<ModalProps, "div">((props, ref) => {
+const Modal = forwardRef<ModalProps, "section">((props, ref) => {
   const {children, ...otherProps} = props;
   const context = useModal({ref, ...otherProps});
 

@@ -23,7 +23,7 @@ import {useOverlayTriggerState} from "@react-stately/overlays";
 import {OverlayTriggerProps} from "@react-stately/overlays";
 import {mergeRefs, mergeProps} from "@react-aria/utils";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLNextUIProps<"section"> {
   /**
    * Ref to the DOM node.
    */
@@ -35,7 +35,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
-  motionProps?: HTMLMotionProps<"div">;
+  motionProps?: HTMLMotionProps<"section">;
   /**
    * Determines if the modal should have a close button in the top right corner.
    * @default true
@@ -46,6 +46,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    * @default false
    */
   disableAnimation?: boolean;
+  /**
+   *  Callback fired when the modal is closed.
+   */
+  onClose?: () => void;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -85,6 +89,7 @@ export function useModal(originalProps: UseModalProps) {
     isDismissable = true,
     showCloseButton = true,
     isKeyboardDismissDisabled = false,
+    onClose,
     ...otherProps
   } = props;
 
@@ -112,7 +117,12 @@ export function useModal(originalProps: UseModalProps) {
   const state = useOverlayTriggerState({
     isOpen,
     defaultOpen,
-    onOpenChange,
+    onOpenChange: (isOpen) => {
+      onOpenChange?.(isOpen);
+      if (!isOpen) {
+        onClose?.();
+      }
+    },
   });
 
   const {triggerProps} = useOverlayTrigger({type: "dialog"}, state, triggerRef);
@@ -175,6 +185,7 @@ export function useModal(originalProps: UseModalProps) {
     return {
       role: "button",
       tabIndex: 0,
+      "aria-label": "Close",
       className: slots.closeButton({class: classNames?.closeButton}),
       ...mergeProps(closeButtonProps, closeButtonFocusProps),
     };

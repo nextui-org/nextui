@@ -26,7 +26,7 @@ export default {
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "full", "prose"],
+        options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "full"],
       },
     },
     radius: {
@@ -179,8 +179,47 @@ const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =
   </Modal>
 );
 
+const OpenChangeTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Modal {...args} onOpenChange={(open) => setIsOpen(open)}>
+        <ModalTrigger>
+          <Button disableAnimation={!!args.disableAnimation}>Open Modal</Button>
+        </ModalTrigger>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader>Modal Title</ModalHeader>
+              <ModalBody>
+                <Lorem size={5} />
+              </ModalBody>
+              <ModalFooter>
+                <Button onPress={onClose}>Close</Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+      <p className="text-sm">isOpen: {isOpen ? "true" : "false"}</p>
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
+  ...defaultProps,
+};
+
+export const DefaultOpen = Template.bind({});
+DefaultOpen.args = {
+  ...defaultProps,
+  defaultOpen: true,
+};
+
+export const OpenChange = OpenChangeTemplate.bind({});
+OpenChange.args = {
   ...defaultProps,
 };
 

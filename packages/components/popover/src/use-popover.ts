@@ -69,6 +69,10 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * ```
    */
   classNames?: SlotsToClasses<PopoverSlots>;
+  /**
+   *  Callback fired when the popover is closed.
+   */
+  onClose?: () => void;
 }
 
 export type UsePopoverProps = Props &
@@ -100,6 +104,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     motionProps,
     className,
     classNames,
+    onClose,
     ...otherProps
   } = props;
 
@@ -122,7 +127,12 @@ export function usePopover(originalProps: UsePopoverProps) {
   const innerState = useOverlayTriggerState({
     isOpen,
     defaultOpen,
-    onOpenChange,
+    onOpenChange: (isOpen) => {
+      onOpenChange?.(isOpen);
+      if (!isOpen) {
+        onClose?.();
+      }
+    },
   });
 
   const state = stateProp || innerState;
