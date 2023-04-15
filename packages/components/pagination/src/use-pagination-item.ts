@@ -4,11 +4,10 @@ import type {PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
 import {PaginationItemType, PaginationItemValue} from "@nextui-org/use-pagination";
-import {ringClasses} from "@nextui-org/theme";
-import {clsx, dataAttr, warn} from "@nextui-org/shared-utils";
-import {mergeProps} from "@react-aria/utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {usePress} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
 export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onClick"> {
@@ -91,19 +90,13 @@ export function usePaginationItem(props: UsePaginationItemProps) {
     [value, isActive],
   );
 
-  const handlePress = (e: PressEvent) => {
-    if (onClick) {
-      warn("onClick is deprecated, use onPress instead.", "PaginationItem");
-    }
-    onPress?.(e);
-  };
-
   const {pressProps} = usePress({
     isDisabled,
-    onPress: handlePress,
+    onPress,
   });
 
-  const {focusProps, isFocused, isFocusVisible} = useFocusRing();
+  const {focusProps, isFocused, isFocusVisible} = useFocusRing({});
+  const {isHovered, hoverProps} = useHover({isDisabled});
 
   const getItemProps: PropGetter = (props = {}) => {
     return {
@@ -113,11 +106,14 @@ export function usePaginationItem(props: UsePaginationItemProps) {
       "aria-label": ariaLabel,
       "aria-current": dataAttr(isActive),
       "aria-disabled": dataAttr(isDisabled),
+      "data-disabled": dataAttr(isDisabled),
       "data-active": dataAttr(isActive),
+      "data-focus": dataAttr(isFocused),
+      "data-hover": dataAttr(isHovered),
       "data-focus-visible": dataAttr(isFocusVisible),
-      "data-focused": dataAttr(isFocused),
-      className: clsx(isFocusVisible && [...ringClasses], className),
-      ...mergeProps(props, pressProps, focusProps, otherProps),
+      ...mergeProps(props, pressProps, focusProps, hoverProps, otherProps),
+      className: clsx(className, props.className),
+      onClick: chain(pressProps.onClick, onClick),
     };
   };
 

@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses, colorVariants} from "../utils";
+import {colorVariants} from "../utils";
 
 /**
  * Snippet wrapper **Tailwind Variants** component
@@ -25,7 +25,16 @@ const snippet = tv({
   slots: {
     base: "inline-flex items-center justify-between space-x-3 rounded-md",
     pre: "bg-transparent text-inherit font-mono whitespace-pre-wrap",
-    copy: "z-10 appearance-none outline-none",
+    copy: [
+      "z-10 appearance-none outline-none rounded-sm",
+      // focus ring
+      "data-[focus-visible=true]:outline-none",
+      "data-[focus-visible=true]:ring-1",
+      "data-[focus-visible=true]:ring-primary",
+      "data-[focus-visible=true]:ring-offset-2",
+      "data-[focus-visible=true]:ring-offset-transparent",
+      "data-[focus-visible=true]:dark:ring-offset-transparent",
+    ],
   },
   variants: {
     variant: {
@@ -99,17 +108,6 @@ const snippet = tv({
         base: "w-full",
       },
     },
-    isFocusVisible: {
-      true: {
-        copy: [
-          ...ringClasses,
-          "ring-1",
-          "rounded-sm",
-          "ring-offset-transparent",
-          "dark:ring-offset-transparent",
-        ],
-      },
-    },
   },
   defaultVariants: {
     color: "neutral",
@@ -117,7 +115,6 @@ const snippet = tv({
     size: "md",
     radius: "lg",
     fullWidth: false,
-    isFocusVisible: false,
   },
   compoundVariants: [
     // solid & shadow / color

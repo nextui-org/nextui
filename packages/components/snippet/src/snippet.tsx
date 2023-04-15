@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {clsx} from "@nextui-org/shared-utils";
 import {Tooltip} from "@nextui-org/tooltip";
 import {ReactNode, useCallback, useMemo} from "react";
 
@@ -26,9 +25,9 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     hideCopyButton,
     tooltipProps,
     isMultiLine,
-    focusProps,
     onCopy,
     getSnippetProps,
+    getCopyButtonProps,
   } = useSnippet({ref, ...props});
 
   const TooltipContent = useCallback(
@@ -41,17 +40,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
       return null;
     }
 
-    const copyButton = (
-      <button
-        className={slots.copy({
-          class: clsx(disableCopy && "opacity-50 cursor-not-allowed", classNames?.copy),
-        })}
-        onClick={onCopy}
-        {...focusProps}
-      >
-        {copied ? checkIcon : copyIcon}
-      </button>
-    );
+    const copyButton = <button {...getCopyButtonProps()}>{copied ? checkIcon : copyIcon}</button>;
 
     if (disableTooltip) {
       return copyButton;

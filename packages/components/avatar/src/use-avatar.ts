@@ -15,7 +15,7 @@ import {useAvatarGroupContext} from "./avatar-group-context";
 export interface UseAvatarProps
   extends Omit<
     HTMLNextUIProps<"span", AvatarVariantProps>,
-    "children" | "isInGroup" | "isInGridGroup" | "isFocusVisible"
+    "children" | "isInGroup" | "isInGridGroup"
   > {
   /**
    * Ref to the DOM node.

@@ -105,21 +105,6 @@ const toggle = tv({
     },
     size: {
       xs: {
-        wrapper: "px-0.5 w-7 h-4 mr-1",
-        thumb: [
-          "w-3 h-3 text-[0.5rem]",
-          //checked
-          "group-data-[checked=true]:ml-3",
-          // pressed
-          "group-data-[pressed=true]:w-4",
-          "group-data-[checked]:group-data-[pressed]:ml-2",
-        ],
-        startIcon: "text-[0.5rem] left-1",
-        endIcon: "text-[0.5rem] right-1",
-        right: "text-[0.5rem]",
-        label: "text-xs",
-      },
-      sm: {
         wrapper: "w-8 h-5 mr-1",
         thumb: [
           "w-3 h-3 text-[0.6rem]",
@@ -133,7 +118,7 @@ const toggle = tv({
         endIcon: "text-[0.6rem] right-1",
         label: "text-sm",
       },
-      md: {
+      sm: {
         wrapper: "w-10 h-6 mr-2",
         thumb: [
           "w-4 h-4 text-xs",
@@ -147,7 +132,7 @@ const toggle = tv({
         startIcon: "text-xs",
         label: "text-base",
       },
-      lg: {
+      md: {
         wrapper: "w-12 h-7 mr-2",
         thumb: [
           "w-5 h-5 text-sm",
@@ -161,7 +146,7 @@ const toggle = tv({
         startIcon: "text-sm",
         label: "text-lg",
       },
-      xl: {
+      lg: {
         wrapper: "w-14 h-8 mr-2",
         thumb: [
           "w-6 h-6 text-base",
@@ -170,6 +155,20 @@ const toggle = tv({
           // pressed
           "group-data-[pressed=true]:w-7",
           "group-data-[checked]:group-data-[pressed]:ml-5",
+        ],
+        endIcon: "text-base",
+        startIcon: "text-base",
+        label: "text-xl",
+      },
+      xl: {
+        wrapper: "w-16 h-9 mr-2",
+        thumb: [
+          "w-7 h-7 text-lg",
+          //checked
+          "group-data-[checked=true]:ml-7",
+          // pressed
+          "group-data-[pressed=true]:w-8",
+          "group-data-[checked]:group-data-[pressed]:ml-6",
         ],
         endIcon: "text-base",
         startIcon: "text-base",
@@ -207,7 +206,7 @@ const toggle = tv({
   },
   defaultVariants: {
     color: "primary",
-    size: "lg",
+    size: "md",
     isDisabled: false,
     disableAnimation: false,
   },

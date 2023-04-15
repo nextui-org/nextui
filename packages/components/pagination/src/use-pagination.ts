@@ -64,7 +64,6 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    * ```ts
    * <Pagination classNames={{
    *    base:"base-classes",
-   *    wrapper: "wrapper-classes",
    *    prev: "prev-classes", // prev button classes
    *    item: "item-classes",
    *    next: "next-classes", // next button classes
@@ -214,7 +213,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       "data-dots-jump": dotsJump,
       "data-total": total,
       "data-active-page": activePage,
-      className: slots.base({class: baseStyles}),
+      className: slots.base({class: clsx(baseStyles, props?.className)}),
       ...otherProps,
     };
   };
@@ -224,7 +223,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: (node) => getItemRef(node, props.value),
       isActive: props.value === activePage,
-      className: slots.item({class: classNames?.item}),
+      className: slots.item({class: clsx(classNames?.item, props?.className)}),
       onPress: () => {
         if (props.value !== activePage) {
           setPage(props.value);
@@ -238,7 +237,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: cursorRef,
       activePage,
-      className: slots.cursor({class: classNames?.cursor}),
+      className: slots.cursor({class: clsx(classNames?.cursor, props?.className)}),
     };
   };
 

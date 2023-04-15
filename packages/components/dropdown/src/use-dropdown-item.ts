@@ -9,7 +9,7 @@ import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useMenuItem} from "@react-aria/menu";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
-import {usePress} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 
 import {useDropdownContext} from "./dropdown-context";
 
@@ -65,10 +65,14 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
   const descriptionId = useId();
   const keyboardId = useId();
 
-  const {pressProps} = usePress({
+  const {pressProps, isPressed} = usePress({
     ref: domRef,
     isDisabled,
     onPress,
+  });
+
+  const {isHovered, hoverProps} = useHover({
+    isDisabled,
   });
 
   const {isFocusVisible, focusProps} = useFocusRing({
@@ -101,10 +105,9 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       dropdownItem({
         ...variantProps,
         isDisabled,
-        isFocusVisible,
         disableAnimation,
       }),
-    [...Object.values(variantProps), isDisabled, isFocusVisible, disableAnimation],
+    [...Object.values(variantProps), isDisabled, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -115,10 +118,16 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       menuItemProps,
       focusProps,
       pressProps,
+      hoverProps,
       filterDOMProps(otherProps, {labelable: true}),
       props,
     ),
-    "data-focused": dataAttr(isFocused),
+    "data-focus": dataAttr(isFocused),
+    "data-hover": dataAttr(isHovered),
+    "data-disabled": dataAttr(isDisabled),
+    "data-selected": dataAttr(isSelected),
+    "data-pressed": dataAttr(isPressed),
+    "data-focus-visible": dataAttr(isFocusVisible),
     "aria-labelledby": labelId,
     "aria-describedby": [descriptionId, keyboardId].filter(Boolean).join(" ") || undefined,
     className: slots.base({class: clsx(baseStyles, props.className)}),

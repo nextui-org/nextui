@@ -16,7 +16,7 @@ import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef, clsx} from "@nextui-org/shared-utils";
+import {ReactRef, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
 
 export interface Props extends HTMLNextUIProps<"div"> {
@@ -154,15 +154,14 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {triggerProps} = useOverlayTrigger({type: triggerType}, state, triggerRef);
 
-  const {isFocusVisible, focusProps} = useFocusRing();
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing();
 
   const slots = useMemo(
     () =>
       popover({
         ...variantProps,
-        isFocusVisible,
       }),
-    [...Object.values(variantProps), isFocusVisible],
+    [...Object.values(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -175,6 +174,9 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const getDialogProps: PropGetter = (props = {}) => ({
     className: slots.base({class: clsx(baseStyles, props.className)}),
+    "data-open": dataAttr(state.isOpen),
+    "data-focus": dataAttr(isFocused),
+    "data-focus-visible": dataAttr(isFocusVisible),
     ...mergeProps(focusProps, props),
     style: {
       // this prevent the dialog to have a default outline

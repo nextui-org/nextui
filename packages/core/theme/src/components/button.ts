@@ -41,7 +41,7 @@ const button = tv({
     // focus ring
     "data-[focus-visible=true]:outline-none",
     "data-[focus-visible=true]:ring-2",
-    "data-[focus-visible=true]:!ring-primary",
+    "data-[focus-visible=true]:ring-primary",
     "data-[focus-visible=true]:ring-offset-2",
     "data-[focus-visible=true]:ring-offset-background",
     "data-[focus-visible=true]:dark:ring-offset-background-dark",

@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {colorVariants, ringClasses} from "../utils";
+import {colorVariants} from "../utils";
 /**
  * Popover wrapper **Tailwind Variants** component
  *
@@ -31,6 +31,13 @@ const popover = tv({
       "py-1",
       "text-base",
       "!outline-none",
+      // focus ring
+      "data-[focus-visible=true]:outline-none",
+      "data-[focus-visible=true]:ring-2",
+      "data-[focus-visible=true]:ring-primary",
+      "data-[focus-visible=true]:ring-offset-2",
+      "data-[focus-visible=true]:ring-offset-background",
+      "data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
     trigger: ["z-10"],
     backdrop: ["hidden"],
@@ -109,11 +116,6 @@ const popover = tv({
       },
       blur: {
         backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/20",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        base: [...ringClasses],
       },
     },
     triggerScaleOnOpen: {

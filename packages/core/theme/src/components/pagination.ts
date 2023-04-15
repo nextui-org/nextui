@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {colorVariants, ringClasses} from "../utils";
+import {colorVariants} from "../utils";
 
 /**
  * Pagination wrapper **Tailwind Variants** component
@@ -23,7 +23,7 @@ import {colorVariants, ringClasses} from "../utils";
 const pagination = tv({
   slots: {
     base: "flex flex-wrap relative items-center gap-1 max-w-fit",
-    item: "",
+    item: [],
     prev: "",
     next: "",
     cursor: [
@@ -39,7 +39,12 @@ const pagination = tv({
   variants: {
     variant: {
       bordered: {
-        item: ["border-1.5", "border-neutral", "bg-transparent", "hover:bg-neutral-100"],
+        item: [
+          "border-1.5",
+          "border-neutral",
+          "bg-transparent",
+          "data-[hover=true]:bg-neutral-100",
+        ],
       },
       light: {
         item: "bg-transparent",
@@ -100,11 +105,6 @@ const pagination = tv({
     isDisabled: {
       true: {
         base: "opacity-50 pointer-events-none",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        wrapper: [...ringClasses],
       },
     },
     showShadow: {
@@ -325,22 +325,32 @@ const pagination = tv({
         "items-center",
         "justify-center",
         "text-neutral-contrastText",
+        // focus ring
+        "data-[focus-visible=true]:outline-none",
+        "data-[focus-visible=true]:ring-2",
+        "data-[focus-visible=true]:ring-primary",
+        "data-[focus-visible=true]:ring-offset-2",
+        "data-[focus-visible=true]:ring-offset-background",
+        "data-[focus-visible=true]:dark:ring-offset-background-dark",
+        // disabled
+        "data-[disabled=true]:opacity-50",
+        "data-[disabled=true]:pointer-events-none",
       ],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "flat",
-      class: ["bg-neutral-100", "hover:bg-neutral-200", "active:bg-neutral-300"],
+      class: ["bg-neutral-100", "data-[hover=true]:bg-neutral-200", "active:bg-neutral-300"],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "faded",
-      class: ["bg-neutral-100", "hover:bg-neutral-200", "active:bg-neutral-300"],
+      class: ["bg-neutral-100", "data-[hover=true]:bg-neutral-200", "active:bg-neutral-300"],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "light",
-      class: ["hover:bg-neutral-100", "active:bg-neutral-200"],
+      class: ["data-[hover=true]:bg-neutral-100", "active:bg-neutral-200"],
     },
     // size
     {

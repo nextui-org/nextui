@@ -48,7 +48,7 @@ interface Props extends HTMLNextUIProps<"label"> {
 
 export type UseRadioProps = Omit<Props, "defaultChecked"> &
   Omit<AriaRadioProps, keyof RadioVariantProps> &
-  Omit<RadioVariantProps, "isFocusVisible">;
+  RadioVariantProps;
 
 export function useRadio(props: UseRadioProps) {
   const groupContext = useRadioGroupContext();

@@ -1,15 +1,14 @@
-import type {UserVariantProps, SlotsToClasses, UserSlots} from "@nextui-org/theme";
+import type {SlotsToClasses, UserSlots} from "@nextui-org/theme";
 import type {AvatarProps} from "@nextui-org/avatar";
 
 import {ReactNode, useMemo, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {user} from "@nextui-org/theme";
-import {ReactRef, clsx} from "@nextui-org/shared-utils";
+import {ReactRef, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {mergeProps} from "@react-aria/utils";
-export interface UseUserProps
-  extends Omit<HTMLNextUIProps<"div", UserVariantProps>, "children" | "isFocusVisible"> {
+export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {
   /**
    * Ref to the DOM node.
    */
@@ -69,13 +68,13 @@ export function useUser(props: UseUserProps) {
 
   const domRef = useDOMRef(ref);
 
-  const {isFocusVisible, focusProps} = useFocusRing();
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing();
 
   const canBeFocused = useMemo(() => {
     return isFocusable || as === "button";
   }, [isFocusable, as]);
 
-  const slots = useMemo(() => user({isFocusVisible}), [isFocusVisible]);
+  const slots = useMemo(() => user(), []);
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -99,6 +98,8 @@ export function useUser(props: UseUserProps) {
     () => ({
       ref: domRef,
       tabIndex: canBeFocused ? 0 : -1,
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-focused": dataAttr(isFocused),
       className: slots.base({
         class: clsx(baseStyles, buttonStyles),
       }),

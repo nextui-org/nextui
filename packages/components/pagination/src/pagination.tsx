@@ -60,11 +60,9 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
           <PaginationItem
             key={key}
             className={slots.prev({
-              class: clsx(
-                classNames?.prev,
-                !loop && activePage === 1 && "opacity-50 pointer-events-none",
-              ),
+              class: classNames?.prev,
             })}
+            isDisabled={!loop && activePage === 1}
             value={value}
             onPress={onPrevious}
           >
@@ -77,11 +75,9 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
           <PaginationItem
             key={key}
             className={slots.next({
-              class: clsx(
-                classNames?.next,
-                !loop && activePage === total && "opacity-50 pointer-events-none",
-              ),
+              class: clsx(classNames?.next),
             })}
+            isDisabled={!loop && activePage === total}
             value={value}
             onPress={onNext}
           >

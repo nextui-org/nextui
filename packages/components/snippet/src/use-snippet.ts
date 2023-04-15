@@ -3,11 +3,13 @@ import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-or
 import {snippet} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback} from "react";
 import {TooltipProps} from "@nextui-org/tooltip";
+import {usePress} from "@react-aria/interactions";
+import {mergeProps} from "@react-aria/utils";
 export interface UseSnippetProps
   extends Omit<HTMLNextUIProps<"div">, "onCopy">,
     SnippetVariantProps {
@@ -79,6 +81,14 @@ export interface UseSnippetProps
   hideSymbol?: boolean;
   /**
    * Tooltip props.
+   * @default {
+   *  offset: 15,
+   *  delay: 1000,
+   *  content: "Copy to clipboard",
+   *  variant: snippetProps?.variant, // same as the snippet variant
+   *  color: snippetProps?.color, // same as the snippet color
+   *  isDisabled: disableCopy,
+   * }
    */
   tooltipProps?: TooltipProps;
   /**
@@ -107,6 +117,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     onCopy: onCopyProp,
     tooltipProps = {
       offset: 15,
+      delay: 1000,
       content: "Copy to clipboard",
       variant: originalProps?.variant as TooltipProps["variant"],
       color: originalProps?.color as TooltipProps["color"],
@@ -124,7 +135,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
 
   const isMultiLine = children && Array.isArray(children);
 
-  const {isFocusVisible, focusProps} = useFocusRing({
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
   });
 
@@ -132,9 +143,8 @@ export function useSnippet(originalProps: UseSnippetProps) {
     () =>
       snippet({
         ...variantProps,
-        isFocusVisible,
       }),
-    [...Object.values(variantProps), isFocusVisible],
+    [...Object.values(variantProps)],
   );
 
   const symbolBefore = useMemo(() => {
@@ -172,6 +182,33 @@ export function useSnippet(originalProps: UseSnippetProps) {
     onCopyProp?.(value);
   }, [copy, disableCopy, onCopyProp, children]);
 
+  const {isPressed: isCopyPressed, pressProps: copyButtonPressProps} = usePress({
+    isDisabled: disableCopy,
+    onPress: onCopy,
+  });
+
+  const getCopyButtonProps = useCallback<PropGetter>(
+    (props = {}) => ({
+      ...mergeProps(copyButtonPressProps, focusProps, props),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-pressed": dataAttr(isCopyPressed),
+      className: slots.copy({
+        class: clsx(disableCopy && "opacity-50 cursor-not-allowed", classNames?.copy),
+      }),
+    }),
+    [
+      slots,
+      isCopyPressed,
+      isFocusVisible,
+      isFocused,
+      disableCopy,
+      classNames?.copy,
+      copyButtonPressProps,
+      focusProps,
+    ],
+  );
+
   return {
     Component,
     as,
@@ -186,13 +223,13 @@ export function useSnippet(originalProps: UseSnippetProps) {
     symbolBefore,
     isMultiLine,
     isFocusVisible,
-    focusProps,
     hideCopyButton,
     disableCopy,
     disableTooltip,
     hideSymbol,
     tooltipProps,
     getSnippetProps,
+    getCopyButtonProps,
   };
 }
 

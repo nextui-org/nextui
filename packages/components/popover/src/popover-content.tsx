@@ -4,7 +4,6 @@ import type {HTMLMotionProps} from "framer-motion";
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
-import {FocusScope} from "@react-aria/focus";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
@@ -54,9 +53,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     <>
       <DismissButton onDismiss={onClose} />
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
-        <FocusScope contain restoreFocus>
-          {typeof children === "function" ? children(titleProps) : children}
-        </FocusScope>
+        {typeof children === "function" ? children(titleProps) : children}
         {arrowContent}
       </Component>
       <DismissButton onDismiss={onClose} />

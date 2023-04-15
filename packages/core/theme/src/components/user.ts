@@ -1,8 +1,4 @@
-import type {VariantProps} from "tailwind-variants";
-
 import {tv} from "tailwind-variants";
-
-import {ringClasses} from "../utils";
 
 /**
  * User wrapper **Tailwind Variants** component
@@ -20,21 +16,22 @@ import {ringClasses} from "../utils";
  */
 const user = tv({
   slots: {
-    base: "inline-flex items-center justify-center gap-2",
+    base: [
+      "inline-flex items-center justify-center gap-2 rounded-sm",
+      // focus ring
+      "data-[focus-visible=true]:outline-none",
+      "data-[focus-visible=true]:ring-2",
+      "data-[focus-visible=true]:ring-primary",
+      "data-[focus-visible=true]:ring-offset-2",
+      "data-[focus-visible=true]:ring-offset-background",
+      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+    ],
     wrapper: "inline-flex flex-col items-start",
     name: "text-sm text-foreground dark:text-foreground-dark",
     description: "text-xs text-neutral-500",
   },
-  variants: {
-    isFocusVisible: {
-      true: {
-        base: [...ringClasses, "rounded-sm"],
-      },
-    },
-  },
 });
 
-export type UserVariantProps = VariantProps<typeof user>;
 export type UserSlots = keyof ReturnType<typeof user>;
 
 export {user};

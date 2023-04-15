@@ -68,7 +68,7 @@ interface Props extends HTMLNextUIProps<"label"> {
 
 export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
   Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
-  Omit<CheckboxVariantProps, "isFocusVisible">;
+  CheckboxVariantProps;
 
 export function useCheckbox(props: UseCheckboxProps) {
   const groupContext = useCheckboxGroupContext();
