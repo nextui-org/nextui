@@ -2,8 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
-
 /**
  * Input wrapper **Tailwind Variants** component
  *
@@ -24,7 +22,7 @@ import {ringClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "flex flex-col gap-2",
+    base: "group flex flex-col gap-2",
     label: "block text-sm font-medium text-neutral-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
@@ -42,6 +40,13 @@ const input = tv({
       "cursor-pointer",
       "active:!opacity-70",
       "rounded-full",
+      // focus ring
+      "data-[focus-visible]:outline-none",
+      "data-[focus-visible]:ring-2",
+      "data-[focus-visible]:!ring-primary",
+      "data-[focus-visible]:ring-offset-2",
+      "data-[focus-visible]:ring-offset-background",
+      "data-[focus-visible]:dark:ring-offset-background-dark",
     ],
     description: "text-xs text-neutral-500",
     errorMessage: "text-xs text-danger",
@@ -49,21 +54,25 @@ const input = tv({
   variants: {
     variant: {
       flat: {
-        inputWrapper: ["bg-neutral-100", "hover:bg-neutral-200", "focus-within:!bg-neutral-100"],
+        inputWrapper: [
+          "bg-neutral-100",
+          "data-[hover=true]:bg-neutral-200",
+          "focus-within:!bg-neutral-100",
+        ],
       },
       faded: {
         inputWrapper: [
           "bg-neutral-100",
           "border",
           "border-neutral-200",
-          "hover:border-neutral-400",
+          "data-[hover=true]:border-neutral-400",
         ],
       },
       bordered: {
         inputWrapper: [
           "border-2",
           "border-neutral-200",
-          "hover:border-neutral-400",
+          "data-[hover=true]:border-neutral-400",
           "focus-within:!border-foreground",
         ],
       },
@@ -197,14 +206,6 @@ const input = tv({
         base: "opacity-50 pointer-events-none",
       },
     },
-    isFocusVisible: {
-      true: {},
-    },
-    isClearButtonFocusVisible: {
-      true: {
-        clearButton: [...ringClasses],
-      },
-    },
     isInvalid: {
       true: {
         label: "!text-danger",
@@ -259,7 +260,7 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-primary-50",
-          "hover:bg-primary-100",
+          "data-[hover=true]:bg-primary-100",
           "text-primary",
           "focus-within:!bg-primary-50",
           "placeholder:text-primary",
@@ -273,7 +274,7 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-secondary-50",
-          "hover:bg-secondary-100",
+          "data-[hover=true]:bg-secondary-100",
           "text-secondary",
           "focus-within:!bg-secondary-50",
           "placeholder:text-secondary",
@@ -287,7 +288,7 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-success-50",
-          "hover:bg-success-100",
+          "data-[hover=true]:bg-success-100",
           "text-success",
           "focus-within:!bg-success-50",
           "placeholder:text-success",
@@ -301,7 +302,7 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-warning-50",
-          "hover:bg-warning-100",
+          "data-[hover=true]:bg-warning-100",
           "text-warning",
           "focus-within:!bg-warning-50",
           "placeholder:text-warning",
@@ -315,7 +316,7 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-danger-50",
-          "hover:bg-danger-100",
+          "data-[hover=true]:bg-danger-100",
           "text-danger",
           "focus-within:!bg-danger-50",
           "placeholder:text-danger",
@@ -329,7 +330,7 @@ const input = tv({
       color: "primary",
       class: {
         label: "text-primary",
-        inputWrapper: "hover:border-primary focus-within:border-primary",
+        inputWrapper: "data-[hover=true]:border-primary focus-within:border-primary",
       },
     },
     {
@@ -337,7 +338,7 @@ const input = tv({
       color: "secondary",
       class: {
         label: "text-secondary",
-        inputWrapper: "hover:border-secondary focus-within:border-secondary",
+        inputWrapper: "data-[hover=true]:border-secondary focus-within:border-secondary",
       },
     },
     {
@@ -345,7 +346,7 @@ const input = tv({
       color: "success",
       class: {
         label: "text-success",
-        inputWrapper: "hover:border-success focus-within:border-success",
+        inputWrapper: "data-[hover=true]:border-success focus-within:border-success",
       },
     },
     {
@@ -353,7 +354,7 @@ const input = tv({
       color: "warning",
       class: {
         label: "text-warning",
-        inputWrapper: "hover:border-warning focus-within:border-warning",
+        inputWrapper: "data-[hover=true]:border-warning focus-within:border-warning",
       },
     },
     {
@@ -361,7 +362,7 @@ const input = tv({
       color: "danger",
       class: {
         label: "text-danger",
-        inputWrapper: "hover:border-danger focus-within:border-danger",
+        inputWrapper: "data-[hover=true]:border-danger focus-within:border-danger",
       },
     },
     // underlined & color
@@ -480,12 +481,19 @@ const input = tv({
         inputWrapper: "after:transition-width motion-reduce:after:transition-none",
       },
     },
-    // isFocusVisible & variant
+    // flat & faded
     {
-      isFocusVisible: true,
       variant: ["flat", "faded"],
       class: {
-        inputWrapper: [...ringClasses],
+        inputWrapper: [
+          // focus ring
+          "group-data-[focus-visible]:outline-none",
+          "group-data-[focus-visible]:ring-2",
+          "group-data-[focus-visible]:!ring-primary",
+          "group-data-[focus-visible]:ring-offset-2",
+          "group-data-[focus-visible]:ring-offset-background",
+          "group-data-[focus-visible]:dark:ring-offset-background-dark",
+        ],
       },
     },
     // isInvalid & variant
@@ -493,7 +501,11 @@ const input = tv({
       isInvalid: true,
       variant: "flat",
       class: {
-        inputWrapper: ["bg-danger-50", "hover:bg-danger-100", "focus-within:!bg-danger-50"],
+        inputWrapper: [
+          "bg-danger-50",
+          "data-[hover=true]:bg-danger-100",
+          "focus-within:!bg-danger-50",
+        ],
       },
     },
     {

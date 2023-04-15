@@ -2,8 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
-
 /**
  * Card **Tailwind Variants** component
  *
@@ -66,6 +64,13 @@ const modal = tv({
       "rounded-full",
       "hover:bg-neutral-100",
       "active:bg-neutral-200",
+      // focus ring
+      "data-[focus-visible]:outline-none",
+      "data-[focus-visible]:ring-2",
+      "data-[focus-visible]:!ring-primary",
+      "data-[focus-visible]:ring-offset-2",
+      "data-[focus-visible]:ring-offset-background",
+      "data-[focus-visible]:dark:ring-offset-background-dark",
     ],
   },
   variants: {
@@ -128,11 +133,6 @@ const modal = tv({
       outside: {
         wrapper: "items-start overflow-y-auto",
         base: "my-16",
-      },
-    },
-    isCloseButtonFocusVisible: {
-      true: {
-        closeButton: [...ringClasses],
       },
     },
   },

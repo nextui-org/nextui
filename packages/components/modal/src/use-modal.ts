@@ -16,7 +16,7 @@ import {modal} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useOverlayTrigger} from "@react-aria/overlays";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {useOverlayTriggerState} from "@react-stately/overlays";
@@ -148,9 +148,8 @@ export function useModal(originalProps: UseModalProps) {
     () =>
       modal({
         ...variantProps,
-        isCloseButtonFocusVisible,
       }),
-    [...Object.values(variantProps), isCloseButtonFocusVisible],
+    [...Object.values(variantProps)],
   );
 
   const getDialogProps: PropGetter = (props = {}, ref = null) => ({
@@ -158,6 +157,7 @@ export function useModal(originalProps: UseModalProps) {
     ...mergeProps(modalProps, otherProps, props),
     className: slots.base({class: clsx(baseStyles, props.className)}),
     id: dialogId,
+    "data-open": dataAttr(state.isOpen),
     "aria-modal": true,
     "aria-labelledby": headerMounted ? headerId : undefined,
     "aria-describedby": bodyMounted ? bodyId : undefined,
@@ -186,6 +186,7 @@ export function useModal(originalProps: UseModalProps) {
       role: "button",
       tabIndex: 0,
       "aria-label": "Close",
+      "data-focus-visible": dataAttr(isCloseButtonFocusVisible),
       className: slots.closeButton({class: classNames?.closeButton}),
       ...mergeProps(closeButtonProps, closeButtonFocusProps),
     };

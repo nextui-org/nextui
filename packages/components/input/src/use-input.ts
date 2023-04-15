@@ -5,7 +5,7 @@ import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {usePress} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, RefObject} from "react";
@@ -115,6 +115,8 @@ export function useInput(originalProps: UseInputProps) {
     isTextInput: true,
   });
 
+  const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
+
   const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
 
   const {pressProps: clearPressProps} = usePress({
@@ -138,19 +140,9 @@ export function useInput(originalProps: UseInputProps) {
         ...variantProps,
         isInvalid,
         isClearable,
-        isFocusVisible,
         isLabelPlaceholder: isLabelPlaceholder && !hasStartContent,
-        isClearButtonFocusVisible,
       }),
-    [
-      ...Object.values(variantProps),
-      isInvalid,
-      isClearable,
-      isClearButtonFocusVisible,
-      isLabelPlaceholder,
-      hasStartContent,
-      isFocusVisible,
-    ],
+    [...Object.values(variantProps), isInvalid, isClearable, isLabelPlaceholder, hasStartContent],
   );
 
   const getBaseProps: PropGetter = (props = {}) => {
@@ -159,6 +151,7 @@ export function useInput(originalProps: UseInputProps) {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
+
       ...props,
     };
   };
@@ -175,9 +168,6 @@ export function useInput(originalProps: UseInputProps) {
     return {
       ref: domRef,
       className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-focused": dataAttr(isFocused),
-      "data-invalid": dataAttr(isInvalid),
       ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
       onChange: chain(inputProps.onChange, onChange),
     };
@@ -185,6 +175,7 @@ export function useInput(originalProps: UseInputProps) {
 
   const getInputWrapperProps: PropGetter = (props = {}) => {
     return {
+      "data-hover": dataAttr(isHovered),
       className: slots.inputWrapper({
         class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
       }),
@@ -193,7 +184,7 @@ export function useInput(originalProps: UseInputProps) {
           domRef.current?.focus();
         }
       },
-      ...props,
+      ...mergeProps(props, hoverProps),
       style: {
         cursor: "text",
         ...props.style,
@@ -231,6 +222,7 @@ export function useInput(originalProps: UseInputProps) {
       role: "button",
       tabIndex: 0,
       className: slots.clearButton({class: classNames?.clearButton}),
+      "data-focus-visible": dataAttr(isClearButtonFocusVisible),
       ...mergeProps(clearPressProps, clearFocusProps),
     };
   };
