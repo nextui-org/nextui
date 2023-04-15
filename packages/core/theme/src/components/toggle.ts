@@ -2,17 +2,22 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
-
 /**
  * Toggle (Switch) wrapper **Tailwind Variants** component
  *
  * const {base, wrapper, thumb, thumbIcon, label, startIcon, endIcon} = toggle({...})
  *
  * @example
- * <label className={base())}>
- *  // hidden input
- *  <span className={wrapper()} aria-hidden="true" data-checked={checked}>
+ * <label
+ *    className={base())}
+ *    data-checked={checked}
+ *    data-pressed={pressed}
+ *    data-focus={focus}
+ *    data-hover={hover}
+ *    data-focus-visible={focusVisible}
+ * >
+ *  <input/> // hidden input
+ *  <span className={wrapper()} aria-hidden="true">
  *    <svg className={startIcon()}>...</svg>
  *    <span className={thumb()}>
  *      <svg className={thumbIcon()}>...</svg>
@@ -24,9 +29,9 @@ import {ringClasses} from "../utils";
  */
 const toggle = tv({
   slots: {
-    base: "relative max-w-fit inline-flex items-center justify-start cursor-pointer",
+    base:
+      "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none",
     wrapper: [
-      "group",
       "px-1",
       "relative",
       "inline-flex",
@@ -36,6 +41,13 @@ const toggle = tv({
       "overflow-hidden",
       "bg-neutral-200",
       "rounded-full",
+      // focus ring
+      "group-data-[focus-visible]:outline-none",
+      "group-data-[focus-visible]:ring-2",
+      "group-data-[focus-visible]:!ring-primary",
+      "group-data-[focus-visible]:ring-offset-2",
+      "group-data-[focus-visible]:ring-offset-background",
+      "group-data-[focus-visible]:dark:ring-offset-background-dark",
     ],
     thumb: [
       "z-10",
@@ -45,7 +57,7 @@ const toggle = tv({
       "bg-white",
       "shadow-sm",
       "rounded-full",
-      "data-[checked=true]:translate-x-full",
+      "origin-right",
     ],
     startIcon: "z-0 absolute left-1.5 text-current",
     endIcon: "z-0 absolute right-1.5 text-neutral-600",
@@ -56,42 +68,52 @@ const toggle = tv({
     color: {
       neutral: {
         wrapper: [
-          "data-[checked=true]:bg-neutral-400",
-          "data-[checked=true]:text-neutral-contrastText",
+          "group-data-[checked=true]:bg-neutral-400",
+          "group-data-[checked=true]:text-neutral-contrastText",
         ],
       },
       primary: {
         wrapper: [
-          "data-[checked=true]:bg-primary",
-          "data-[checked=true]:text-primary-contrastText",
+          "group-data-[checked=true]:bg-primary",
+          "group-data-[checked=true]:text-primary-contrastText",
         ],
       },
       secondary: {
         wrapper: [
-          "data-[checked=true]:bg-secondary",
-          "data-[checked=true]:text-secondary-contrastText",
+          "group-data-[checked=true]:bg-secondary",
+          "group-data-[checked=true]:text-secondary-contrastText",
         ],
       },
       success: {
         wrapper: [
-          "data-[checked=true]:bg-success",
-          "data-[checked=true]:text-success-contrastText",
+          "group-data-[checked=true]:bg-success",
+          "group-data-[checked=true]:text-success-contrastText",
         ],
       },
       warning: {
         wrapper: [
-          "data-[checked=true]:bg-warning",
-          "data-[checked=true]:text-warning-contrastText",
+          "group-data-[checked=true]:bg-warning",
+          "group-data-[checked=true]:text-warning-contrastText",
         ],
       },
       danger: {
-        wrapper: ["data-[checked=true]:bg-danger", "data-[checked=true]:text-danger-contrastText"],
+        wrapper: [
+          "group-data-[checked=true]:bg-danger",
+          "data-[checked=true]:text-danger-contrastText",
+        ],
       },
     },
     size: {
       xs: {
         wrapper: "px-0.5 w-7 h-4 mr-1",
-        thumb: "w-3 h-3 text-[0.5rem]",
+        thumb: [
+          "w-3 h-3 text-[0.5rem]",
+          //checked
+          "group-data-[checked=true]:ml-3",
+          // pressed
+          "group-data-[pressed=true]:w-4",
+          "group-data-[checked]:group-data-[pressed]:ml-2",
+        ],
         startIcon: "text-[0.5rem] left-1",
         endIcon: "text-[0.5rem] right-1",
         right: "text-[0.5rem]",
@@ -99,36 +121,59 @@ const toggle = tv({
       },
       sm: {
         wrapper: "w-8 h-5 mr-1",
-        thumb: "w-3 h-3 text-[0.6rem]",
+        thumb: [
+          "w-3 h-3 text-[0.6rem]",
+          //checked
+          "group-data-[checked=true]:ml-3",
+          // pressed
+          "group-data-[pressed=true]:w-4",
+          "group-data-[checked]:group-data-[pressed]:ml-2",
+        ],
         startIcon: "text-[0.6rem] left-1",
         endIcon: "text-[0.6rem] right-1",
         label: "text-sm",
       },
       md: {
         wrapper: "w-10 h-6 mr-2",
-        thumb: "w-4 h-4 text-xs",
+        thumb: [
+          "w-4 h-4 text-xs",
+          //checked
+          "group-data-[checked=true]:ml-4",
+          // pressed
+          "group-data-[pressed=true]:w-5",
+          "group-data-[checked]:group-data-[pressed]:ml-4",
+        ],
         endIcon: "text-xs",
         startIcon: "text-xs",
         label: "text-base",
       },
       lg: {
         wrapper: "w-12 h-7 mr-2",
-        thumb: "w-5 h-5 text-sm",
+        thumb: [
+          "w-5 h-5 text-sm",
+          //checked
+          "group-data-[checked=true]:ml-5",
+          // pressed
+          "group-data-[pressed=true]:w-6",
+          "group-data-[checked]:group-data-[pressed]:ml-4",
+        ],
         endIcon: "text-sm",
         startIcon: "text-sm",
         label: "text-lg",
       },
       xl: {
         wrapper: "w-14 h-8 mr-2",
-        thumb: "w-6 h-6 text-base",
+        thumb: [
+          "w-6 h-6 text-base",
+          //checked
+          "group-data-[checked=true]:ml-6",
+          // pressed
+          "group-data-[pressed=true]:w-7",
+          "group-data-[checked]:group-data-[pressed]:ml-5",
+        ],
         endIcon: "text-base",
         startIcon: "text-base",
         label: "text-xl",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        wrapper: [...ringClasses],
       },
     },
     isDisabled: {
@@ -142,20 +187,20 @@ const toggle = tv({
         thumb: "transition-none",
       },
       false: {
-        wrapper: "transition-background",
-        thumb: "transition-transform !ease-soft-spring !duration-500",
+        wrapper: "transition-background !duration-500",
+        thumb: "transition-all !ease-soft-spring !duration-500",
         startIcon: [
           "opacity-0",
           "scale-50",
           "transition-transform-opacity",
-          "data-[checked=true]:scale-100",
-          "data-[checked=true]:opacity-100",
+          "group-data-[checked=true]:scale-100",
+          "group-data-[checked=true]:opacity-100",
         ],
         endIcon: [
           "opacity-100",
           "transition-transform-opacity",
-          "data-[checked=true]:translate-x-3",
-          "data-[checked=true]:opacity-0",
+          "group-data-[checked=true]:translate-x-3",
+          "group-data-[checked=true]:opacity-0",
         ],
       },
     },

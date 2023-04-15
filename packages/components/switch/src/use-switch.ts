@@ -3,9 +3,9 @@ import type {FocusableRef} from "@react-types/shared";
 import type {AriaSwitchProps} from "@react-aria/switch";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {ReactNode, Ref, useCallback, useId, useRef} from "react";
+import {ReactNode, Ref, useCallback, useId, useRef, useState} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
 import {chain, mergeProps} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
@@ -82,7 +82,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     as,
     name,
     value = "",
-    isReadOnly = false,
+    isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     startIcon,
     endIcon,
@@ -116,7 +116,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
       defaultSelected,
       isSelected: isSelectedProp,
       isDisabled: !!originalProps.isDisabled,
-      isReadOnly,
+      isReadOnly: isReadOnlyProp,
       "aria-label": ariaLabel,
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       onChange: onValueChange,
@@ -127,6 +127,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     labelId,
     children,
     autoFocus,
+    isReadOnlyProp,
     isSelectedProp,
     defaultSelected,
     originalProps.isDisabled,
@@ -136,11 +137,37 @@ export function useSwitch(originalProps: UseSwitchProps) {
   ]);
 
   const state = useToggleState(ariaSwitchProps);
-  const {inputProps} = useReactAriaSwitch(ariaSwitchProps, state, inputRef);
+
+  const {inputProps, isPressed: isPressedKeyboard, isReadOnly} = useReactAriaSwitch(
+    ariaSwitchProps,
+    state,
+    inputRef,
+  );
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({autoFocus: inputProps.autoFocus});
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
   });
+
+  const isInteractionDisabled = ariaSwitchProps.isDisabled || isReadOnly;
+
+  // Handle press state for full label. Keyboard press state is returned by useSwitch
+  // since it is handled on the <input> element itself.
+  const [isPressed, setPressed] = useState(false);
+  const {pressProps} = usePress({
+    isDisabled: isInteractionDisabled,
+    onPressStart(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(true);
+      }
+    },
+    onPressEnd(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(false);
+      }
+    },
+  });
+
+  const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
 
   const isSelected = inputProps.checked;
   const isDisabled = inputProps.disabled;
@@ -149,80 +176,64 @@ export function useSwitch(originalProps: UseSwitchProps) {
     () =>
       toggle({
         ...variantProps,
-        isFocusVisible,
       }),
-    [...Object.values(variantProps), isFocusVisible],
+    [...Object.values(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const getBaseProps: PropGetter = () => {
+  const getBaseProps: PropGetter = (props) => {
     return {
+      ...mergeProps(hoverProps, pressProps, otherProps, props),
       ref: domRef,
-      className: slots.base({class: baseStyles}),
+      className: slots.base({class: clsx(baseStyles, props?.className)}),
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
-      ...mergeProps(hoverProps, otherProps),
+      "data-readonly": dataAttr(isReadOnly),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-hover": dataAttr(isHovered),
+      "data-pressed": dataAttr(pressed),
+      style: {
+        ...props?.style,
+        WebkitTapHighlightColor: "transparent",
+      },
     };
   };
 
-  const getWrapperProps: PropGetter = useCallback(() => {
-    return {
-      "data-hover": dataAttr(isHovered),
-      "data-checked": dataAttr(isSelected),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocused && isFocusVisible),
-      "data-disabled": dataAttr(isDisabled),
-      "data-readonly": dataAttr(inputProps.readOnly),
-      "aria-hidden": true,
-      className: clsx(slots.wrapper({class: classNames?.wrapper})),
-    };
-  }, [
-    slots,
-    classNames?.wrapper,
-    isHovered,
-    isSelected,
-    isFocused,
-    isFocusVisible,
-    isDisabled,
-    inputProps.readOnly,
-  ]);
+  const getWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        "aria-hidden": true,
+        className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props?.className)})),
+      };
+    },
+    [slots, classNames?.wrapper],
+  );
 
-  const getInputProps: PropGetter = () => {
+  const getInputProps: PropGetter = (props = {}) => {
     return {
+      ...mergeProps(inputProps, focusProps, props),
       ref: inputRef,
       id: inputProps.id,
-      ...mergeProps(inputProps, focusProps),
       onChange: chain(onChange, inputProps.onChange),
     };
   };
 
   const getThumbProps: PropGetter = useCallback(
-    () => ({
-      "data-checked": dataAttr(isSelected),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocused && isFocusVisible),
-      "data-disabled": dataAttr(isDisabled),
-      "data-readonly": dataAttr(inputProps.readOnly),
-      className: slots.thumb({class: classNames?.thumb}),
+    (props = {}) => ({
+      ...props,
+      className: slots.thumb({class: clsx(classNames?.thumb, props?.className)}),
     }),
-    [
-      slots,
-      classNames?.thumb,
-      isSelected,
-      isFocused,
-      isFocusVisible,
-      isDisabled,
-      inputProps.readOnly,
-    ],
+    [slots, classNames?.thumb],
   );
 
   const getLabelProps: PropGetter = useCallback(
-    () => ({
+    (props = {}) => ({
+      ...props,
       id: labelId,
-      "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(isSelected),
-      className: slots.label({class: classNames?.label}),
+      className: slots.label({class: clsx(classNames?.label, props?.className)}),
     }),
     [slots, classNames?.label, isDisabled, isSelected],
   );
@@ -237,8 +248,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
         {
           width: "1em",
           height: "1em",
-          "data-checked": dataAttr(isSelected),
-          className: slots.thumbIcon({class: classNames?.thumbIcon}),
+          className: slots.thumbIcon({class: clsx(classNames?.thumbIcon)}),
         },
         props.includeStateProps
           ? {
@@ -246,25 +256,25 @@ export function useSwitch(originalProps: UseSwitchProps) {
             }
           : {},
       ) as unknown) as SwitchThumbIconProps,
-    [slots, classNames?.thumbIcon, isSelected, originalProps.disableAnimation],
+    [slots, classNames?.thumbIcon, isSelected],
   );
 
-  const getStartIconProps = useCallback(
-    () => ({
+  const getStartIconProps = useCallback<PropGetter>(
+    (props = {}) => ({
       width: "1em",
       height: "1em",
-      "data-checked": dataAttr(isSelected),
-      className: slots.startIcon({class: classNames?.startIcon}),
+      ...props,
+      className: slots.startIcon({class: clsx(classNames?.startIcon, props?.className)}),
     }),
     [slots, classNames?.startIcon, isSelected],
   );
 
-  const getEndIconProps = useCallback(
-    () => ({
+  const getEndIconProps = useCallback<PropGetter>(
+    (props = {}) => ({
       width: "1em",
       height: "1em",
-      "data-checked": dataAttr(isSelected),
-      className: slots.endIcon({class: classNames?.endIcon}),
+      ...props,
+      className: slots.endIcon({class: clsx(classNames?.endIcon, props?.className)}),
     }),
     [slots, classNames?.endIcon, isSelected],
   );
@@ -280,6 +290,7 @@ export function useSwitch(originalProps: UseSwitchProps) {
     endIcon,
     isHovered,
     isSelected,
+    isPressed: pressed,
     isFocused,
     isFocusVisible,
     isDisabled,
