@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {translateCenterClasses, ringClasses, colorVariants} from "../utils";
+import {translateCenterClasses, colorVariants} from "../utils";
 
 /**
  * Avatar wrapper **Tailwind Variants** component
@@ -10,7 +10,7 @@ import {translateCenterClasses, ringClasses, colorVariants} from "../utils";
  * const {base, img, icon, name } = avatar({...})
  *
  * @example
- * <div className={base())}>
+ * <div className={base())} data-hover={true/false} data-focus={true/false} data-focus-visible={true/false}>
  *    <img className={img()} src="https://picsum.photos/200/300" alt="your avatar" />
  *    <div role="img" aria-label="your name" className={name()}>your name</div>
  *    <span role="img" aria-label="your icon" className={icon()}>your icon</span>
@@ -28,6 +28,13 @@ const avatar = tv({
       "align-middle",
       "text-white",
       "z-10",
+      // focus ring
+      "data-[focus-visible=true]:outline-none",
+      "data-[focus-visible=true]:ring-2",
+      "data-[focus-visible=true]:!ring-primary",
+      "data-[focus-visible=true]:ring-offset-2",
+      "data-[focus-visible=true]:ring-offset-background",
+      "data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
     img: [
       "flex",
@@ -128,19 +135,17 @@ const avatar = tv({
         base: "opacity-50",
       },
     },
-    isFocusVisible: {
-      true: {
-        base: [...ringClasses],
-      },
-    },
     isInGroup: {
       true: {
-        base: "-ml-2 hover:-translate-x-3 transition-transform",
+        base: [
+          "-ml-2 data-[hover=true]:-translate-x-3 transition-transform",
+          "data-[focus-visible=true]:-translate-x-3",
+        ],
       },
     },
     isInGridGroup: {
       true: {
-        base: "m-0 hover:translate-x-0",
+        base: "m-0 data-[hover=true]:translate-x-0",
       },
     },
   },
@@ -197,13 +202,6 @@ const avatar = tv({
       size: "xl",
       class: {
         base: "ring",
-      },
-    },
-    {
-      isInGroup: true,
-      isFocusVisible: true,
-      class: {
-        base: "-translate-x-3",
       },
     },
   ],

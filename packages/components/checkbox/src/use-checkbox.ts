@@ -2,11 +2,11 @@ import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-
 import type {AriaCheckboxProps} from "@react-types/checkbox";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {ReactNode, Ref, useCallback, useId} from "react";
+import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusableRef} from "@nextui-org/dom-utils";
@@ -82,14 +82,14 @@ export function useCheckbox(props: UseCheckboxProps) {
     icon,
     name,
     isRequired = false,
-    isReadOnly = false,
+    isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     radius = groupContext?.radius ?? "md",
     lineThrough = groupContext?.lineThrough ?? false,
-    isDisabled = groupContext?.isDisabled ?? false,
+    isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
     isIndeterminate = false,
     validationState,
@@ -133,11 +133,11 @@ export function useCheckbox(props: UseCheckboxProps) {
       children,
       autoFocus,
       defaultSelected,
-      isSelected: isSelectedProp,
-      isDisabled,
       isIndeterminate,
       isRequired,
-      isReadOnly,
+      isSelected: isSelectedProp,
+      isDisabled: isDisabledProp,
+      isReadOnly: isReadOnlyProp,
       validationState,
       "aria-label": ariaLabel,
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
@@ -150,7 +150,8 @@ export function useCheckbox(props: UseCheckboxProps) {
     children,
     autoFocus,
     isIndeterminate,
-    isDisabled,
+    isDisabledProp,
+    isReadOnlyProp,
     isSelectedProp,
     defaultSelected,
     validationState,
@@ -159,7 +160,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     onValueChange,
   ]);
 
-  const {inputProps} = isInGroup
+  const {inputProps, isSelected, isDisabled, isReadOnly, isPressed: isPressedKeyboard} = isInGroup
     ? // eslint-disable-next-line
       useReactAriaCheckboxGroupItem(
         {
@@ -171,8 +172,27 @@ export function useCheckbox(props: UseCheckboxProps) {
       )
     : useReactAriaCheckbox(ariaCheckboxProps, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
 
-  const isSelected = inputProps.checked;
   const isInvalid = useMemo(() => validationState === "invalid", [validationState]);
+  const isInteractionDisabled = isDisabled || isReadOnly;
+
+  // Handle press state for full label. Keyboard press state is returned by useCheckbox
+  // since it is handled on the <input> element itself.
+  const [isPressed, setPressed] = useState(false);
+  const {pressProps} = usePress({
+    isDisabled: isInteractionDisabled,
+    onPressStart(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(true);
+      }
+    },
+    onPressEnd(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(false);
+      }
+    },
+  });
+
+  const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
 
   if (isRequired) {
     inputProps.required = true;
@@ -194,10 +214,9 @@ export function useCheckbox(props: UseCheckboxProps) {
         radius,
         lineThrough,
         isDisabled,
-        isFocusVisible,
         disableAnimation,
       }),
-    [color, size, radius, lineThrough, isDisabled, isFocusVisible, disableAnimation],
+    [color, size, radius, lineThrough, isDisabled, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -209,22 +228,21 @@ export function useCheckbox(props: UseCheckboxProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
-      ...mergeProps(hoverProps, otherProps),
+      "data-hover": dataAttr(isHovered),
+      "data-focus": dataAttr(isFocused),
+      "data-pressed": dataAttr(pressed),
+      "data-readonly": dataAttr(inputProps.readOnly),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-indeterminate": dataAttr(isIndeterminate),
+      ...mergeProps(hoverProps, pressProps, otherProps),
     };
   };
 
-  const getWrapperProps: PropGetter = () => {
+  const getWrapperProps: PropGetter = (props = {}) => {
     return {
-      "data-hover": dataAttr(isHovered),
-      "data-checked": dataAttr(isSelected),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocused && isFocusVisible),
-      "data-indeterminate": dataAttr(isIndeterminate),
-      "data-disabled": dataAttr(isDisabled),
-      "data-invalid": dataAttr(isInvalid),
-      "data-readonly": dataAttr(inputProps.readOnly),
+      ...props,
       "aria-hidden": true,
-      className: clsx(slots.wrapper({class: classNames?.wrapper})),
+      className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props?.className)})),
     };
   };
 
@@ -239,9 +257,6 @@ export function useCheckbox(props: UseCheckboxProps) {
   const getLabelProps: PropGetter = useCallback(
     () => ({
       id: labelId,
-      "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(isSelected),
-      "data-invalid": dataAttr(isInvalid),
       className: slots.label({class: classNames?.label}),
     }),
     [slots, classNames?.label, isDisabled, isSelected, isInvalid],
@@ -250,7 +265,6 @@ export function useCheckbox(props: UseCheckboxProps) {
   const getIconProps = useCallback(
     () =>
       ({
-        "data-checked": dataAttr(isSelected),
         isSelected: isSelected,
         isIndeterminate: !!isIndeterminate,
         disableAnimation: !!disableAnimation,

@@ -104,7 +104,7 @@ export function useCard(originalProps: UseCardProps) {
     ...otherProps,
   });
 
-  const {isFocusVisible, focusProps} = useFocusRing({
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
   });
 
@@ -112,9 +112,8 @@ export function useCard(originalProps: UseCardProps) {
     () =>
       card({
         ...variantProps,
-        isFocusVisible,
       }),
-    [...Object.values(variantProps), isFocusVisible],
+    [...Object.values(variantProps)],
   );
 
   const context = useMemo<ContextType>(
@@ -145,6 +144,7 @@ export function useCard(originalProps: UseCardProps) {
         tabIndex: originalProps.isPressable ? 0 : -1,
         "data-hover": dataAttr(isHovered),
         "data-pressed": dataAttr(isPressed),
+        "data-focus": dataAttr(isFocused),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-disabled": dataAttr(originalProps.isDisabled),
         ...mergeProps(

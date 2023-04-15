@@ -12,6 +12,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 import {useAriaButton} from "@nextui-org/use-aria-button";
+import {useHover} from "@react-aria/interactions";
 
 import {useButtonGroupContext} from "./button-group-context";
 
@@ -87,7 +88,6 @@ export function useButton(props: UseButtonProps) {
         fullWidth,
         isDisabled,
         isInGroup,
-        isFocusVisible,
         disableAnimation,
         isIconOnly,
         className,
@@ -100,7 +100,6 @@ export function useButton(props: UseButtonProps) {
       fullWidth,
       isDisabled,
       isInGroup,
-      isFocusVisible,
       isIconOnly,
       disableAnimation,
       className,
@@ -114,7 +113,7 @@ export function useButton(props: UseButtonProps) {
     domRef.current && onDripClickHandler(e);
   };
 
-  const {buttonProps: ariaButtonProps} = useAriaButton(
+  const {buttonProps: ariaButtonProps, isPressed} = useAriaButton(
     {
       elementType: as,
       isDisabled,
@@ -124,13 +123,16 @@ export function useButton(props: UseButtonProps) {
     } as AriaButtonProps,
     domRef,
   );
+  const {isHovered, hoverProps} = useHover({isDisabled});
 
   const getButtonProps: PropGetter = useCallback(
     () => ({
       "data-disabled": dataAttr(isDisabled),
+      "data-focus": dataAttr(isFocused),
+      "data-pressed": dataAttr(isPressed),
       "data-focus-visible": dataAttr(isFocusVisible),
-      "data-focused": dataAttr(isFocused),
-      ...mergeProps(ariaButtonProps, focusProps, otherProps),
+      "data-hover": dataAttr(isHovered),
+      ...mergeProps(ariaButtonProps, focusProps, hoverProps, otherProps),
     }),
     [ariaButtonProps, focusProps, otherProps],
   );

@@ -2,7 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
 /**
  * AccordionItem wrapper **Tailwind Variants** component
  *
@@ -39,7 +38,16 @@ const accordionItem = tv({
       "group-[.is-splitted]:border-neutral-100",
     ],
     heading: "",
-    trigger: "py-2 flex w-full gap-3 outline-none items-center",
+    trigger: [
+      "py-2 flex w-full gap-3 outline-none items-center",
+      // focus ring
+      "data-[focus-visible=true]:outline-none",
+      "data-[focus-visible=true]:ring-2",
+      "data-[focus-visible=true]:!ring-primary",
+      "data-[focus-visible=true]:ring-offset-2",
+      "data-[focus-visible=true]:ring-offset-background",
+      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+    ],
     startContent: "flex-shrink-0",
     indicator: "text-neutral-400",
     titleWrapper: "flex-1 flex flex-col text-left",
@@ -61,11 +69,6 @@ const accordionItem = tv({
     isDisabled: {
       true: {
         base: "opacity-50 pointer-events-none",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        trigger: [...ringClasses],
       },
     },
     hideDivider: {

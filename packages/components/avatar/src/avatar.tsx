@@ -12,7 +12,6 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
     src,
     icon = <AvatarIcon />,
     alt,
-    domRef,
     classNames,
     slots,
     name,
@@ -55,7 +54,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   }, [showFallback, src, fallbackComponent, name, classNames]);
 
   return (
-    <Component ref={domRef} {...getAvatarProps()}>
+    <Component {...getAvatarProps()}>
       {src && <img {...getImageProps()} alt={alt} />}
       {fallback}
     </Component>

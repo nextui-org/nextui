@@ -1,10 +1,10 @@
 import type {AriaRadioProps} from "@react-types/radio";
 import type {RadioVariantProps, RadioSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {Ref, ReactNode, useCallback, useId} from "react";
+import {Ref, ReactNode, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
@@ -88,7 +88,6 @@ export function useRadio(props: UseRadioProps) {
 
   const labelId = useId();
 
-  const isDisabled = useMemo(() => !!isDisabledProp, [isDisabledProp]);
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
   const isInvalid = useMemo(() => groupContext.validationState === "invalid", [
     groupContext.validationState,
@@ -104,15 +103,15 @@ export function useRadio(props: UseRadioProps) {
 
     return {
       id,
-      isDisabled,
       isRequired,
+      isDisabled: isDisabledProp,
       "aria-label": ariaLabel,
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       "aria-describedby": ariaDescribedBy,
     };
-  }, [labelId, id, isDisabled, isRequired]);
+  }, [labelId, id, isDisabledProp, isRequired]);
 
-  const {inputProps} = useReactAriaRadio(
+  const {inputProps, isDisabled, isSelected, isPressed: isPressedKeyboard} = useReactAriaRadio(
     {
       value,
       children,
@@ -123,13 +122,34 @@ export function useRadio(props: UseRadioProps) {
     inputRef,
   );
 
-  const isSelected = useMemo(() => inputProps.checked, [inputProps.checked]);
-
-  const {hoverProps, isHovered} = useHover({isDisabled});
-
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({
     autoFocus,
   });
+
+  const interactionDisabled = isDisabled || inputProps.readOnly;
+
+  // Handle press state for full label. Keyboard press state is returned by useCheckbox
+  // since it is handled on the <input> element itself.
+  const [isPressed, setPressed] = useState(false);
+  const {pressProps} = usePress({
+    isDisabled: interactionDisabled,
+    onPressStart(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(true);
+      }
+    },
+    onPressEnd(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(false);
+      }
+    },
+  });
+
+  const {hoverProps, isHovered} = useHover({
+    isDisabled: interactionDisabled,
+  });
+
+  const pressed = interactionDisabled ? false : isPressed || isPressedKeyboard;
 
   const slots = useMemo(
     () =>
@@ -139,10 +159,9 @@ export function useRadio(props: UseRadioProps) {
         radius,
         isInvalid,
         isDisabled,
-        isFocusVisible,
         disableAnimation,
       }),
-    [color, size, radius, isDisabled, isInvalid, isFocusVisible, disableAnimation],
+    [color, size, radius, isDisabled, isInvalid, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -153,27 +172,24 @@ export function useRadio(props: UseRadioProps) {
       ref: domRef,
       className: slots.base({class: baseStyles}),
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(inputProps.checked),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-checked": dataAttr(isSelected),
       "data-invalid": dataAttr(isInvalid),
-      ...mergeProps(hoverProps, otherProps),
+      "data-hover": dataAttr(isHovered),
+      "data-pressed": dataAttr(pressed),
+      "data-hover-unchecked": dataAttr(isHovered && !isSelected),
+      "data-readonly": dataAttr(inputProps.readOnly),
+      "aria-required": dataAttr(isRequired),
+      ...mergeProps(hoverProps, pressProps, otherProps),
     };
   };
 
   const getWrapperProps: PropGetter = (props = {}) => {
     return {
       ...props,
-      "data-active": dataAttr(isSelected),
-      "data-hover": dataAttr(isHovered),
-      "data-hover-unchecked": dataAttr(isHovered && !isSelected),
-      "data-checked": dataAttr(isSelected),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocused && isFocusVisible),
-      "data-disabled": dataAttr(isDisabled),
-      "data-invalid": dataAttr(isInvalid),
-      "data-readonly": dataAttr(inputProps.readOnly),
-      "aria-required": dataAttr(isRequired),
       "aria-hidden": true,
-      className: clsx(slots.wrapper({class: classNames?.wrapper})),
+      className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props.className)})),
     };
   };
 
@@ -182,9 +198,6 @@ export function useRadio(props: UseRadioProps) {
       ...props,
       ref: inputRef,
       required: isRequired,
-      "aria-required": dataAttr(isRequired),
-      "data-invalid": dataAttr(isInvalid),
-      "data-readonly": dataAttr(inputProps.readOnly),
       ...mergeProps(inputProps, focusProps),
       onChange: chain(inputProps.onChange, onChange),
     };
@@ -194,9 +207,6 @@ export function useRadio(props: UseRadioProps) {
     (props = {}) => ({
       ...props,
       id: labelId,
-      "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(isSelected),
-      "data-invalid": dataAttr(isInvalid),
       className: slots.label({class: classNames?.label}),
     }),
     [slots, classNames, isDisabled, isSelected, isInvalid],
@@ -213,9 +223,6 @@ export function useRadio(props: UseRadioProps) {
   const getControlProps: PropGetter = useCallback(
     (props = {}) => ({
       ...props,
-      "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(isSelected),
-      "data-invalid": dataAttr(isInvalid),
       className: slots.control({class: classNames?.control}),
     }),
     [slots, isDisabled, isSelected, isInvalid],

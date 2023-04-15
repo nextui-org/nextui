@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses, colorVariants} from "../utils";
+import {colorVariants} from "../utils";
 
 /**
  * Button wrapper **Tailwind Variants** component
@@ -10,7 +10,13 @@ import {ringClasses, colorVariants} from "../utils";
  * const classNames = button({...})
  *
  * @example
- * <button className={classNames())}>
+ * <button
+ *  className={classNames())}
+ *  data-pressed={true/false}
+ *  data-hover={true/false}
+ *  data-focus={true/false}
+ *  data-focus-visible={true/false}
+ * >
  *   Button
  * </button>
  */
@@ -27,11 +33,18 @@ const button = tv({
     "select-none",
     "font-medium",
     "subpixel-antialiased",
-    "active:scale-95",
+    "data-[pressed=true]:scale-95",
     "overflow-hidden",
     "gap-3",
     // svg icon
     "[&>svg]:max-w-[2em]",
+    // focus ring
+    "data-[focus-visible=true]:outline-none",
+    "data-[focus-visible=true]:ring-2",
+    "data-[focus-visible=true]:!ring-primary",
+    "data-[focus-visible=true]:ring-offset-2",
+    "data-[focus-visible=true]:ring-offset-background",
+    "data-[focus-visible=true]:dark:ring-offset-background-dark",
   ],
   variants: {
     variant: {
@@ -75,9 +88,7 @@ const button = tv({
     isDisabled: {
       true: "opacity-50 pointer-events-none",
     },
-    isFocusVisible: {
-      true: [...ringClasses],
-    },
+
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },

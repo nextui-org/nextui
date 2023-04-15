@@ -82,7 +82,6 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         isDisabled,
         hideDivider,
         hideIndicator,
-        isFocusVisible,
         disableAnimation,
         disableIndicatorAnimation,
       }),
@@ -91,7 +90,6 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       isDisabled,
       hideDivider,
       hideIndicator,
-      isFocusVisible,
       disableAnimation,
       disableIndicatorAnimation,
     ],
@@ -116,8 +114,8 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         ref: domRef,
         "data-open": dataAttr(isOpen),
+        "data-focus": dataAttr(isFocused),
         "data-focus-visible": dataAttr(isFocusVisible),
-        "data-focused": dataAttr(isFocused),
         "data-disabled": dataAttr(isDisabled),
         className: slots.trigger({class: classNames?.trigger}),
         onFocus: callAllHandlers(

@@ -2,8 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
-
 /**
  * Card **Tailwind Variants** component
  *
@@ -32,6 +30,13 @@ const card = tv({
       "box-border",
       "dark:bg-content1",
       "border border-neutral-100",
+      // focus ring
+      "data-[focus-visible=true]:outline-none",
+      "data-[focus-visible=true]:ring-2",
+      "data-[focus-visible=true]:!ring-primary",
+      "data-[focus-visible=true]:ring-offset-2",
+      "data-[focus-visible=true]:ring-offset-background",
+      "data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
     header: [
       "flex",
@@ -149,16 +154,11 @@ const card = tv({
     },
     isHoverable: {
       true: {
-        base: "hover:bg-content2 dark:hover:bg-content2",
+        base: "data-[hover=true]:bg-content2 dark:data-[hover=true]:bg-content2",
       },
     },
     isPressable: {
       true: {base: "cursor-pointer"},
-    },
-    isFocusVisible: {
-      true: {
-        base: [...ringClasses],
-      },
     },
     isFooterBlurred: {
       true: {
@@ -179,7 +179,7 @@ const card = tv({
     {
       isPressable: true,
       disableAnimation: false,
-      class: "active:scale-95",
+      class: "data-[pressed=true]:scale-95",
     },
   ],
   defaultVariants: {
@@ -188,7 +188,6 @@ const card = tv({
     fullWidth: false,
     isHoverable: false,
     isPressable: false,
-    isFocusVisible: false,
     isDisabled: false,
     disableAnimation: false,
     isFooterBlurred: false,

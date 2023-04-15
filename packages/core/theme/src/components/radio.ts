@@ -2,15 +2,18 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
-
 /**
  * Radio wrapper **Tailwind Variants** component
  *
  * const {base, wrapper, point, labelWrapper, label, description} = radio({...})
  *
  * @example
- * <label className={base())}>
+ * <label
+ *    className={base())}
+ *    data-checked={boolean}
+ *    data-hover-unchecked={boolean}
+ *    data-focus-visible={boolean}
+ * >
  *  // input
  *  <span className={wrapper()} aria-hidden="true" data-checked={checked} data-hover-unchecked={hoverUnchecked}>
  *     <span className={point()}/>
@@ -23,7 +26,7 @@ import {ringClasses} from "../utils";
  */
 const radio = tv({
   slots: {
-    base: "relative max-w-fit inline-flex items-center justify-start cursor-pointer",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer",
     wrapper: [
       "relative",
       "inline-flex",
@@ -35,7 +38,14 @@ const radio = tv({
       "border-2",
       "box-border",
       "border-neutral",
-      "data-[hover-unchecked=true]:bg-neutral-100",
+      "group-data-[hover-unchecked=true]:bg-neutral-100",
+      // focus ring
+      "group-data-[focus-visible=true]:outline-none",
+      "group-data-[focus-visible=true]:ring-2",
+      "group-data-[focus-visible=true]:!ring-primary",
+      "group-data-[focus-visible=true]:ring-offset-2",
+      "group-data-[focus-visible=true]:ring-offset-background",
+      "group-data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
     labelWrapper: "flex flex-col ml-1",
     control: [
@@ -45,8 +55,8 @@ const radio = tv({
       "opacity-0",
       "scale-0",
       "origin-center",
-      "data-[checked=true]:opacity-100",
-      "data-[checked=true]:scale-100",
+      "group-data-[checked=true]:opacity-100",
+      "group-data-[checked=true]:scale-100",
     ],
     label: "relative text-foreground select-none",
     description: "relative text-neutral-400",
@@ -55,27 +65,27 @@ const radio = tv({
     color: {
       neutral: {
         control: "bg-neutral-500 text-neutral-contrastText",
-        wrapper: "data-[checked=true]:border-neutral-500",
+        wrapper: "group-data-[checked=true]:border-neutral-500",
       },
       primary: {
         control: "bg-primary text-primary-contrastText",
-        wrapper: "data-[checked=true]:border-primary",
+        wrapper: "group-data-[checked=true]:border-primary",
       },
       secondary: {
         control: "bg-secondary text-secondary-contrastText",
-        wrapper: "data-[checked=true]:border-secondary",
+        wrapper: "group-data-[checked=true]:border-secondary",
       },
       success: {
         control: "bg-success text-success-contrastText",
-        wrapper: "data-[checked=true]:border-success",
+        wrapper: "group-data-[checked=true]:border-success",
       },
       warning: {
         control: "bg-warning text-warning-contrastText",
-        wrapper: "data-[checked=true]:border-warning",
+        wrapper: "group-data-[checked=true]:border-warning",
       },
       danger: {
         control: "bg-danger text-danger-contrastText",
-        wrapper: "data-[checked=true]:border-danger",
+        wrapper: "group-data-[checked=true]:border-danger",
       },
     },
     size: {
@@ -156,11 +166,6 @@ const radio = tv({
         wrapper: "border-danger data-[checked=true]:border-danger",
         label: "text-danger",
         description: "text-danger-300",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        wrapper: [...ringClasses],
       },
     },
     disableAnimation: {

@@ -2,8 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {ringClasses} from "../utils";
-
 /**
  * Checkbox wrapper **Tailwind Variants** component
  *
@@ -22,7 +20,7 @@ import {ringClasses} from "../utils";
  */
 const checkbox = tv({
   slots: {
-    base: "relative max-w-fit inline-flex items-center justify-start cursor-pointer",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer",
     wrapper: [
       "relative",
       "inline-flex",
@@ -45,13 +43,20 @@ const checkbox = tv({
       "after:scale-50",
       "after:opacity-0",
       "after:origin-center",
-      "data-[checked=true]:after:scale-100",
-      "data-[checked=true]:after:opacity-100",
+      "group-data-[checked=true]:after:scale-100",
+      "group-data-[checked=true]:after:opacity-100",
       // hover
-      "hover:before:bg-neutral-100",
-      "data-[hover=true]:before:bg-neutral-100",
+      "group-data-[hover=true]:before:bg-neutral-100",
+      "group-data-[hover=true]:before:bg-neutral-100",
+      // focus ring
+      "group-data-[focus-visible=true]:outline-none",
+      "group-data-[focus-visible=true]:ring-2",
+      "group-data-[focus-visible=true]:!ring-primary",
+      "group-data-[focus-visible=true]:ring-offset-2",
+      "group-data-[focus-visible=true]:ring-offset-background",
+      "group-data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
-    icon: "z-10 w-4 h-3 opacity-0 data-[checked=true]:opacity-100",
+    icon: "z-10 w-4 h-3 opacity-0 group-data-[checked=true]:opacity-100",
     label: "relative text-foreground select-none",
   },
   variants: {
@@ -136,19 +141,14 @@ const checkbox = tv({
           "before:bg-foreground",
           "before:w-0",
           "before:h-0.5",
-          "data-[checked=true]:opacity-60",
-          "data-[checked=true]:before:w-full",
+          "group-data-[checked=true]:opacity-60",
+          "group-data-[checked=true]:before:w-full",
         ],
       },
     },
     isDisabled: {
       true: {
         base: "opacity-50 pointer-events-none",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        wrapper: [...ringClasses],
       },
     },
     disableAnimation: {

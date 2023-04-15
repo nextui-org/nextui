@@ -10,11 +10,11 @@ import {tv} from "tailwind-variants";
  * @example
  * <label
  *    className={base())}
- *    data-checked={checked}
- *    data-pressed={pressed}
- *    data-focus={focus}
- *    data-hover={hover}
- *    data-focus-visible={focusVisible}
+ *    data-checked={true/false}
+ *    data-pressed={true/false}
+ *    data-focus={true/false}
+ *    data-hover={true/false}
+ *    data-focus-visible={true/false}
  * >
  *  <input/> // hidden input
  *  <span className={wrapper()} aria-hidden="true">

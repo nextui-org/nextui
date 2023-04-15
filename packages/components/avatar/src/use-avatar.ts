@@ -4,10 +4,11 @@ import {avatar} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef, clsx, safeText} from "@nextui-org/shared-utils";
+import {ReactRef, clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback} from "react";
 import {useImage} from "@nextui-org/use-image";
+import {useHover} from "@react-aria/interactions";
 
 import {useAvatarGroupContext} from "./avatar-group-context";
 
@@ -119,7 +120,8 @@ export function useAvatar(props: UseAvatarProps) {
   const domRef = useDOMRef(ref);
   const imgRef = useDOMRef(imgRefProp);
 
-  const {isFocusVisible, focusProps} = useFocusRing();
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing();
+  const {isHovered, hoverProps} = useHover({isDisabled});
 
   const imageStatus = useImage({src, onError, ignoreFallback});
   const isImgLoaded = imageStatus === "loaded";
@@ -140,12 +142,11 @@ export function useAvatar(props: UseAvatarProps) {
         radius,
         size,
         isBordered,
-        isFocusVisible,
         isDisabled,
         isInGroup,
         isInGridGroup: groupContext?.isGrid ?? false,
       }),
-    [color, radius, size, isBordered, isFocusVisible, isDisabled, isInGroup, groupContext?.isGrid],
+    [color, radius, size, isBordered, isDisabled, isInGroup, groupContext?.isGrid],
   );
 
   const buttonStyles = useMemo(() => {
@@ -163,11 +164,15 @@ export function useAvatar(props: UseAvatarProps) {
 
   const getAvatarProps = useCallback<PropGetter>(
     () => ({
+      ref: domRef,
       tabIndex: canBeFocused ? 0 : -1,
+      "data-hover": dataAttr(isHovered),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
       className: slots.base({
         class: clsx(baseStyles, buttonStyles),
       }),
-      ...mergeProps(otherProps, canBeFocused ? focusProps : {}),
+      ...mergeProps(otherProps, hoverProps, canBeFocused ? focusProps : {}),
     }),
     [canBeFocused, slots, baseStyles, buttonStyles, focusProps, otherProps],
   );
@@ -188,7 +193,6 @@ export function useAvatar(props: UseAvatarProps) {
     alt,
     icon,
     name,
-    domRef,
     imgRef,
     slots,
     classNames,
