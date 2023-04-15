@@ -22,3 +22,4 @@ export * from "@nextui-org/input";
 export * from "@nextui-org/popover";
 export * from "@nextui-org/dropdown";
 export * from "@nextui-org/image";
+export * from "@nextui-org/modal";

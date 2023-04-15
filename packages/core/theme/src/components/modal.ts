@@ -50,7 +50,7 @@ const modal = tv({
       "outline-none",
     ],
     trigger: [],
-    backdrop: ["hidden"],
+    backdrop: ["hidden", "z-50"],
     header: "flex py-4 px-6 flex-initial text-lg font-semibold",
     body: "flex flex-1 flex-col gap-3 px-6 py-2",
     footer: "flex flex-row gap-2 px-6 py-4 justify-end",
@@ -147,7 +147,7 @@ const modal = tv({
     {
       backdropVariant: ["opaque", "blur"],
       class: {
-        backdrop: "block w-full h-full fixed inset-0 z-0",
+        backdrop: "block w-full h-full fixed inset-0",
       },
     },
   ],

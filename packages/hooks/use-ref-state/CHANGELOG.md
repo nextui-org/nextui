@@ -1,5 +1,17 @@
 # @nextui-org/use-ref-state
 
+## 0.0.0-dev-v2-20230415024831
+
+### Patch Changes
+
+- Fix modal backdrop z-index
+
+## 0.0.0-dev-v2-20230415023901
+
+### Patch Changes
+
+- Modal component added
+
 ## 0.0.0-dev-v2-20230414001416
 
 ### Patch Changes
