@@ -849,6 +849,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-is-mobile':
+        specifier: workspace:*
+        version: link:../../hooks/use-is-mobile
       '@react-aria/focus':
         specifier: ^3.12.0
         version: 3.12.0(react@18.2.0)
@@ -1726,6 +1729,19 @@ importers:
       '@nextui-org/use-safe-layout-effect':
         specifier: workspace:*
         version: link:../use-safe-layout-effect
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-is-mobile:
+    dependencies:
+      '@react-aria/ssr':
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0

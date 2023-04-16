@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/use-ssr",
-  "version": "0.0.0-dev-v2-20230416134122",
-  "description": "",
+  "name": "@nextui-org/use-is-mobile",
+  "version": "2.0.0-beta.1",
+  "description": "A hook that returns whether the device is mobile or not",
   "keywords": [
-    "use-ssr"
+    "use-is-mobile"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,19 +19,22 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/hooks/use-ssr"
+    "directory": "packages/hooks/use-is-mobile"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "@react-aria/ssr": "^3.6.0"
   },
   "peerDependencies": {
     "react": ">=18"

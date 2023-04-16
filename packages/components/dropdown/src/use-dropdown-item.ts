@@ -10,6 +10,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useMenuItem} from "@react-aria/menu";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
+import {useIsMobile} from "@nextui-org/use-is-mobile";
 
 import {useDropdownContext} from "./dropdown-context";
 
@@ -60,6 +61,8 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
 
   const isDisabled = state.disabledKeys.has(key) || originalProps.isDisabled;
   const isSelectable = state.selectionManager.selectionMode !== "none";
+
+  const isMobile = useIsMobile();
 
   const labelId = useId();
   const descriptionId = useId();
@@ -123,7 +126,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       props,
     ),
     "data-focus": dataAttr(isFocused),
-    "data-hover": dataAttr(isHovered),
+    "data-hover": dataAttr(isMobile ? isHovered || isPressed : isHovered),
     "data-disabled": dataAttr(isDisabled),
     "data-selected": dataAttr(isSelected),
     "data-pressed": dataAttr(isPressed),

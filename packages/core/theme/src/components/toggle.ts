@@ -186,8 +186,8 @@ const toggle = tv({
         thumb: "transition-none",
       },
       false: {
-        wrapper: "transition-background !duration-500",
-        thumb: "transition-all !ease-soft-spring !duration-500",
+        wrapper: "transition-background",
+        thumb: "transition-all",
         startIcon: [
           "opacity-0",
           "scale-50",

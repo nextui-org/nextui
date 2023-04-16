@@ -1,5 +1,17 @@
 # @nextui-org/shared-icons
 
+## 0.0.0-dev-v2-20230416134122
+
+### Patch Changes
+
+- Dropdown item pressed/hover state improved on mobile, switch animations changed
+
+## 0.0.0-dev-v2-20230415210725
+
+### Patch Changes
+
+- focus visible & other states are now handled by data properties
+
 ## 0.0.0-dev-v2-20230415024831
 
 ### Patch Changes

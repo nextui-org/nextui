@@ -6,6 +6,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {AriaMenuProps} from "@react-types/menu";
 import {useTreeState} from "@react-stately/tree";
 import {dropdownMenu} from "@nextui-org/theme";
+import {FocusScope} from "@react-aria/focus";
 import {useMemo} from "react";
 
 import DropdownSection from "./dropdown-section";
@@ -68,33 +69,36 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
 
     return (
       <PopoverContent>
-        <Component {...getMenuProps({...menuProps}, domRef)} className={classNames}>
-          {[...state.collection].map((item) => {
-            const itemProps = {
-              key: item.key,
-              closeOnSelect,
-              color,
-              disableAnimation,
-              item,
-              state,
-              classNames: itemStyles,
-              variant,
-              onAction,
-              ...item.props,
-            };
+        {" "}
+        <FocusScope contain restoreFocus>
+          <Component {...getMenuProps({...menuProps}, domRef)} className={classNames}>
+            {[...state.collection].map((item) => {
+              const itemProps = {
+                key: item.key,
+                closeOnSelect,
+                color,
+                disableAnimation,
+                item,
+                state,
+                classNames: itemStyles,
+                variant,
+                onAction,
+                ...item.props,
+              };
 
-            if (item.type === "section") {
-              return <DropdownSection {...itemProps} />;
-            }
-            let dropdownItem = <DropdownItem {...itemProps} />;
+              if (item.type === "section") {
+                return <DropdownSection {...itemProps} />;
+              }
+              let dropdownItem = <DropdownItem {...itemProps} />;
 
-            if (item.wrapper) {
-              dropdownItem = item.wrapper(dropdownItem);
-            }
+              if (item.wrapper) {
+                dropdownItem = item.wrapper(dropdownItem);
+              }
 
-            return dropdownItem;
-          })}
-        </Component>
+              return dropdownItem;
+            })}
+          </Component>
+        </FocusScope>
       </PopoverContent>
     );
   },
