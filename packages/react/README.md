@@ -47,6 +47,8 @@ Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full docume
 yarn add @nextui-org/react
 # or
 npm i @nextui-org/react
+# or
+pnpm add @nextui-org/react
 ```
 
 2. Setup: For NextUI to work correctly, you need to set up the `NextUIProvider` at the root of your application.
