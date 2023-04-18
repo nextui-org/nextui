@@ -147,7 +147,7 @@ const InsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =>
         <>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>
-            <Lorem size={5} />
+            <Lorem count={5} />
           </ModalBody>
           <ModalFooter>
             <Button onPress={onClose}>Close</Button>
@@ -168,7 +168,7 @@ const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =
         <>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>
-            <Lorem size={5} />
+            <Lorem count={5} />
           </ModalBody>
           <ModalFooter>
             <Button onPress={onClose}>Close</Button>
@@ -193,7 +193,7 @@ const OpenChangeTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
             <>
               <ModalHeader>Modal Title</ModalHeader>
               <ModalBody>
-                <Lorem size={5} />
+                <Lorem count={5} />
               </ModalBody>
               <ModalFooter>
                 <Button onPress={onClose}>Close</Button>

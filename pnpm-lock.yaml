@@ -1077,6 +1077,52 @@ importers:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
 
+  packages/components/navbar:
+    dependencies:
+      '@nextui-org/dom-utils':
+        specifier: workspace:*
+        version: link:../../utilities/dom-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-scroll-position':
+        specifier: workspace:*
+        version: link:../../hooks/use-scroll-position
+      '@react-aria/utils':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+    devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/dropdown':
+        specifier: workspace:*
+        version: link:../dropdown
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
+      '@nextui-org/link':
+        specifier: workspace:*
+        version: link:../link
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-lorem-component:
+        specifier: 0.13.0
+        version: 0.13.0(react@18.2.0)
+
   packages/components/pagination:
     dependencies:
       '@nextui-org/dom-utils':
@@ -1808,6 +1854,15 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-safe-layout-effect:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-scroll-position:
     devDependencies:
       clean-package:
         specifier: 2.2.0

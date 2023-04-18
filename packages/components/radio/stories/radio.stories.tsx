@@ -245,7 +245,7 @@ const RadioCard = (props: RadioProps) => {
     <Component
       {...getBaseProps()}
       className={clsx(
-        "inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-neutral rounded-lg gap-4 p-4",
+        "group inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-neutral rounded-lg gap-4 p-4",
         {
           "border-primary": isSelected,
         },
