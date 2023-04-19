@@ -4,8 +4,19 @@ import {navbar} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
 import Lorem from "react-lorem-component";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/dropdown";
+import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "@nextui-org/shared-icons";
 
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarProps} from "../src";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  NavbarProps,
+} from "../src";
 
 export default {
   title: "Components/Navbar",
@@ -57,7 +68,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
   return (
     <div
       ref={ref}
-      className="max-w-[920px] max-h-[600px] overflow-x-hidden overflow-y-scroll shadow-md relative border border-neutral"
+      className="max-w-[90%] sm:max-w-[80%] max-h-[90vh] overflow-x-hidden overflow-y-scroll shadow-md relative border border-neutral"
     >
       {children}
       <div className="flex flex-col gap-4 px-10 mt-8">
@@ -72,45 +83,272 @@ const App = React.forwardRef(({children}: any, ref: any) => {
 
 App.displayName = "App";
 
-const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => (
-  <App>
-    <Navbar {...args}>
-      <NavbarBrand>
-        <AcmeLogo />
-        <p className="font-bold hidden sm:block text-inherit">ACME</p>
-      </NavbarBrand>
-      <NavbarContent className="hidden sm:flex">
-        <NavbarItem as={Link} color="foreground" href="#">
-          Features
-        </NavbarItem>
-        <NavbarItem isActive as={Link} href="#">
-          Customers
-        </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Integrations
-        </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Pricing
-        </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Company
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent>
-        <NavbarItem as={Link} href="#">
-          Login
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
-  </App>
-);
+const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+  // for hide on scroll cases
+  const parentRef = React.useRef(null);
 
-export const Default = Template.bind({});
-Default.args = {
+  return (
+    <App ref={parentRef}>
+      <Navbar {...args} parentRef={parentRef}>
+        <NavbarBrand>
+          <AcmeLogo />
+          <p className="font-bold hidden sm:block text-inherit">ACME</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden md:flex">
+          <NavbarItem as={Link} color="foreground" href="#">
+            Features
+          </NavbarItem>
+          <NavbarItem isActive as={Link} href="#">
+            Customers
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Integrations
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Pricing
+          </NavbarItem>
+          <NavbarItem as={Link} className="hidden lg:block" color="foreground" href="#">
+            Company
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent>
+          <NavbarItem as={Link} href="#">
+            Login
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
+    </App>
+  );
+};
+
+const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+  const parentRef = React.useRef(null);
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean | undefined>(false);
+
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
+  ];
+
+  return (
+    <App ref={parentRef}>
+      <Navbar
+        isBordered
+        parentRef={parentRef}
+        position="sticky"
+        onMenuOpenChange={setIsMenuOpen}
+        {...args}
+      >
+        <NavbarContent>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+          <NavbarBrand>
+            <AcmeLogo />
+            <p className="font-bold hidden sm:block text-inherit">ACME</p>
+          </NavbarBrand>
+        </NavbarContent>
+        <NavbarContent className="hidden sm:flex">
+          <NavbarItem as={Link} color="foreground" href="#">
+            Features
+          </NavbarItem>
+          <NavbarItem isActive as={Link} href="#">
+            Customers
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Integrations
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Pricing
+          </NavbarItem>
+          <NavbarItem as={Link} className="hidden lg:block" color="foreground" href="#">
+            Company
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent>
+          <NavbarItem as={Link} href="#">
+            Login
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarMenu disableAnimation>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                }
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
+    </App>
+  );
+};
+
+const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+  const icons = {
+    chevron: <ChevronDown fill="currentColor" size={16} />,
+    scale: <Scale className="text-warning" fill="currentColor" size={30} />,
+    lock: <Lock className="text-success" fill="currentColor" size={30} />,
+    activity: <Activity className="text-secondary" fill="currentColor" size={30} />,
+    flash: <Flash className="text-primary" fill="currentColor" size={30} />,
+    server: <Server className="text-success" fill="currentColor" size={30} />,
+    user: <TagUser className="text-danger" fill="currentColor" size={30} />,
+  };
+
+  return (
+    <App>
+      <Navbar isBordered position="sticky" {...args}>
+        <NavbarBrand>
+          <AcmeLogo />
+          <p className="font-bold hidden sm:block text-inherit">ACME</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden gap-0 sm:flex">
+          <Dropdown>
+            <NavbarItem>
+              <DropdownTrigger>
+                <Button endIcon={icons.chevron} radius="full" variant="light">
+                  Features
+                </Button>
+              </DropdownTrigger>
+            </NavbarItem>
+            <DropdownMenu
+              aria-label="ACME features"
+              className="w-[340px]"
+              itemStyles={{
+                base: "gap-4",
+                wrapper: "py-3",
+              }}
+            >
+              <DropdownItem
+                key="autoscaling"
+                description="ACME scales apps to meet user demand, automagically, based on load."
+                startContent={icons.scale}
+              >
+                Autoscaling
+              </DropdownItem>
+              <DropdownItem
+                key="safe_and_sound"
+                description="A secure mission control, without the policy headache. Permissions, 2FA, and more."
+                startContent={icons.lock}
+              >
+                Safe and Sound
+              </DropdownItem>
+              <DropdownItem
+                key="usage_metrics"
+                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+                startContent={icons.activity}
+              >
+                Usage Metrics
+              </DropdownItem>
+              <DropdownItem
+                key="production_ready"
+                description="ACME runs on ACME, join us and others serving requests at web scale."
+                startContent={icons.flash}
+              >
+                Production Ready
+              </DropdownItem>
+              <DropdownItem
+                key="99_uptime"
+                description="Applications stay on the grid with high availability and high uptime guarantees."
+                startContent={icons.server}
+              >
+                +99% Uptime
+              </DropdownItem>
+              <DropdownItem
+                key="supreme_support"
+                description="Overcome any challenge with a supporting team ready to respond."
+                startContent={icons.user}
+              >
+                +Supreme Support
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          <NavbarItem isActive as={Link} className="px-4" href="#">
+            Customers
+          </NavbarItem>
+          <NavbarItem as={Link} className="px-4" color="foreground" href="#">
+            Integrations
+          </NavbarItem>
+          <NavbarItem as={Link} className="px-4" color="foreground" href="#">
+            Pricing
+          </NavbarItem>
+          <NavbarItem as={Link} className="hidden px-4 lg:block" color="foreground" href="#">
+            Company
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent>
+          <NavbarItem as={Link} href="#">
+            Login
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
+    </App>
+  );
+};
+
+export const Static = Template.bind({});
+Static.args = {
+  ...defaultProps,
+  position: "static",
+};
+
+export const Sticky = Template.bind({});
+Sticky.args = {
+  ...defaultProps,
+  position: "sticky",
+};
+
+export const Floating = Template.bind({});
+Floating.args = {
+  ...defaultProps,
+  position: "floating",
+};
+
+export const HideOnScroll = Template.bind({});
+HideOnScroll.args = {
+  ...defaultProps,
+  position: "sticky",
+  shouldHideOnScroll: true,
+};
+
+export const WithMenu = WithMenuTemplate.bind({});
+WithMenu.args = {
+  ...defaultProps,
+};
+
+export const WithDropdown = WithDropdownTemplate.bind({});
+
+WithDropdown.args = {
   ...defaultProps,
 };

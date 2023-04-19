@@ -1,7 +1,6 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {useId} from "react";
 
 import {useNavbarContext} from "./navbar-context";
 
@@ -20,8 +19,6 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
   const Component = as || "li";
   const domRef = useDOMRef(ref);
 
-  const itemId = useId();
-
   const {slots, classNames} = useNavbarContext();
 
   const styles = clsx(classNames?.item, className);
@@ -31,7 +28,6 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       ref={domRef}
       className={slots.item?.({class: styles})}
       data-active={dataAttr(isActive)}
-      id={itemId}
       {...otherProps}
     >
       {children}

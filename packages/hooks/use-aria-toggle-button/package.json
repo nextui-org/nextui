@@ -1,0 +1,59 @@
+{
+  "name": "@nextui-org/use-aria-toggle-button",
+  "version": "2.0.0-beta.1",
+  "description": "Internal hook to handle button a11y and events, this is based on react-aria button hook but without the onClick warning",
+  "keywords": [
+    "use-aria-toggle-button"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/hooks/use-aria-toggle-button"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@nextui-org/use-aria-button": "workspace:*",
+    "@react-stately/toggle": "^3.5.1",
+    "@react-aria/utils": "^3.16.0"
+  },
+  "devDependencies": {
+    "@react-types/shared": "^3.18.0",
+    "@react-types/button": "^3.7.2",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}

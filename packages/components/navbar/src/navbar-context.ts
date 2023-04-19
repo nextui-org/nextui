@@ -1,8 +1,8 @@
 import {createContext} from "@nextui-org/shared-utils";
 
-import {ContextType} from "./use-navbar";
+import {UseNavbarReturn} from "./use-navbar";
 
-export const [NavbarProvider, useNavbarContext] = createContext<ContextType>({
+export const [NavbarProvider, useNavbarContext] = createContext<UseNavbarReturn>({
   name: "NavbarContext",
   strict: true,
   errorMessage:

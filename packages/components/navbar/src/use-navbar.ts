@@ -3,10 +3,11 @@ import type {NavbarVariantProps, SlotsToClasses, NavbarSlots} from "@nextui-org/
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {navbar} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo, useState} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useScrollPosition} from "@nextui-org/use-scroll-position";
+import {useControlledState} from "@react-stately/utils";
 
 export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProps> {
   /**
@@ -20,6 +21,21 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    */
   parentRef?: React.RefObject<HTMLElement>;
   /**
+   * The height of the navbar.
+   * @default "4rem" (64px)
+   */
+  height?: number | string;
+  /**
+   * Whether the menu is open.
+   * @default false
+   */
+  isMenuOpen?: boolean;
+  /**
+   * Whether the menu should be open by default.
+   * @default false
+   */
+  isMenuDefaultOpen?: boolean;
+  /**
    * Whether the navbar should hide on scroll or not.
    * @default false
    */
@@ -29,6 +45,12 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    * @default false
    */
   disableScrollHandler?: boolean;
+  /**
+   * The event handler for the menu open state.
+   * @param isOpen boolean
+   * @returns void
+   */
+  onMenuOpenChange?: (isOpen: boolean | undefined) => void;
   /**
    * The scroll event handler for the navbar. The event fires when the navbar parent element is scrolled.
    * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
@@ -44,16 +66,15 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
    *    brand: "brand-classes",
+   *    content: "content-classes",
+   *    item: "item-classes",
+   *    menu: "menu-classes", // the one that appears when the menu is open
+   *    menuItem: "menu-item-classes",
    * }} />
    * ```
    */
   classNames?: SlotsToClasses<NavbarSlots>;
 }
-
-export type ContextType = {
-  slots: ReturnType<typeof navbar>;
-  classNames?: SlotsToClasses<NavbarSlots>;
-};
 
 export function useNavbar(originalProps: UseNavbarProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, navbar.variantKeys);
@@ -62,9 +83,13 @@ export function useNavbar(originalProps: UseNavbarProps) {
     ref,
     as,
     parentRef,
+    height = "4rem",
     shouldHideOnScroll = false,
     disableScrollHandler = false,
     onScrollPositionChange,
+    isMenuOpen: isMenuOpenProp,
+    isMenuDefaultOpen = false,
+    onMenuOpenChange = () => {},
     className,
     classNames,
     ...otherProps
@@ -74,21 +99,22 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const domRef = useDOMRef(ref);
 
-  const [isSticky, setIsSticky] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+  const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean | undefined>(
+    isMenuOpenProp,
+    isMenuDefaultOpen || false,
+    onMenuOpenChange,
+  );
 
   const slots = useMemo(
     () =>
       navbar({
         ...variantProps,
-        position: isSticky ? "sticky" : originalProps?.position,
+        hideOnScroll: shouldHideOnScroll,
       }),
-    [...Object.values(variantProps), isSticky],
+    [...Object.values(variantProps), shouldHideOnScroll],
   );
-
-  const context: ContextType = {
-    slots,
-    classNames,
-  };
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -98,7 +124,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     callback: ({prevPos, currPos}) => {
       onScrollPositionChange?.(currPos.y);
       if (shouldHideOnScroll) {
-        setIsSticky((prev) => {
+        setIsHidden((prev) => {
           const next = currPos.y > prevPos.y;
 
           return next !== prev ? next : prev;
@@ -109,16 +135,32 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const getBaseProps: PropGetter = (props = {}) => ({
     ...mergeProps(otherProps, props),
+    "data-hide": dataAttr(isHidden),
+    "data-menu-open": dataAttr(isMenuOpen),
     ref: domRef,
     className: slots.base({class: clsx(baseStyles, props?.className)}),
+    style: {
+      "--navbar-height": height,
+      ...props?.style,
+    },
   });
 
   const getWrapperProps: PropGetter = (props = {}) => ({
     ...props,
+    "data-menu-open": dataAttr(isMenuOpen),
     className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
   });
 
-  return {Component, slots, domRef, context, getBaseProps, getWrapperProps};
+  return {
+    Component,
+    slots,
+    domRef,
+    classNames,
+    isMenuOpen,
+    setIsMenuOpen,
+    getBaseProps,
+    getWrapperProps,
+  };
 }
 
 export type UseNavbarReturn = ReturnType<typeof useNavbar>;

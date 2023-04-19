@@ -9,6 +9,7 @@ import {
   AriaPopoverProps,
   useOverlayTrigger,
   usePopover as useReactAriaPopover,
+  usePreventScroll,
 } from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
@@ -47,6 +48,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * @default false
    */
   showArrow?: boolean;
+  /**
+   * Whether the scroll event should be blocked when the overlay is open.
+   * @default true
+   */
+  shouldBlockScroll?: boolean;
   /**
    * Type of overlay that is opened by the trigger.
    */
@@ -95,6 +101,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     onOpenChange,
     shouldFlip = true,
     containerPadding = 12,
+    shouldBlockScroll = true,
     placement: placementProp = "top",
     triggerType = "dialog",
     showArrow = false,
@@ -136,6 +143,10 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const state = stateProp || innerState;
+
+  usePreventScroll({
+    isDisabled: !state.isOpen || !shouldBlockScroll,
+  });
 
   const {popoverProps, underlayProps, arrowProps, placement} = useReactAriaPopover(
     {
