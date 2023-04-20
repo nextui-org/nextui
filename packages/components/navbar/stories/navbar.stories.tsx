@@ -201,7 +201,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
             </Button>
           </NavbarItem>
         </NavbarContent>
-        <NavbarMenu disableAnimation>
+        <NavbarMenu>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link

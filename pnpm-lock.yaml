@@ -1581,6 +1581,9 @@ importers:
       '@nextui-org/modal':
         specifier: workspace:*
         version: link:../../components/modal
+      '@nextui-org/navbar':
+        specifier: workspace:*
+        version: link:../../components/navbar
       '@nextui-org/pagination':
         specifier: workspace:*
         version: link:../../components/pagination

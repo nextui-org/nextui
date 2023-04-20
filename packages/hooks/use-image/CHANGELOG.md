@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230420024722
+
+### Patch Changes
+
+- Navbar component created
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230420024722
+
 ## 0.0.0-dev-v2-20230416134122
 
 ### Patch Changes

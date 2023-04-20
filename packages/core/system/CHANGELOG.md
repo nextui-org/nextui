@@ -1,5 +1,11 @@
 # @nextui-org/system
 
+## 0.0.0-dev-v2-20230420024722
+
+### Patch Changes
+
+- Navbar component created
+
 ## 0.0.0-dev-v2-20230416134122
 
 ### Patch Changes
