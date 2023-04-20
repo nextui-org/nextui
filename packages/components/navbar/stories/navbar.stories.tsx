@@ -3,9 +3,20 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {navbar} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
+import {Avatar} from "@nextui-org/avatar";
+import {Input} from "@nextui-org/input";
 import Lorem from "react-lorem-component";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/dropdown";
-import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "@nextui-org/shared-icons";
+import {
+  ChevronDown,
+  Lock,
+  Activity,
+  Flash,
+  Server,
+  TagUser,
+  Scale,
+  SearchIcon,
+} from "@nextui-org/shared-icons";
 
 import {
   Navbar,
@@ -223,7 +234,7 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
 
   return (
     <App>
-      <Navbar isBordered position="sticky" {...args}>
+      <Navbar {...args}>
         <NavbarBrand>
           <AcmeLogo />
           <p className="font-bold hidden sm:block text-inherit">ACME</p>
@@ -317,6 +328,212 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
   );
 };
 
+const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Logout",
+  ];
+
+  return (
+    <App>
+      <Navbar {...args}>
+        <NavbarMenuToggle className="sm:hidden" />
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                }
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+        <NavbarBrand>
+          <AcmeLogo />
+          <p className="font-bold text-inherit">ACME</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden gap-3 md:flex">
+          <NavbarItem as={Link} color="foreground" href="#">
+            Dashboard
+          </NavbarItem>
+          <NavbarItem isActive as={Link} color="secondary" href="#">
+            Team
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Deployments
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Activity
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Settings
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent>
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <NavbarItem>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="secondary"
+                  size="sm"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                />
+              </NavbarItem>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" color="secondary">
+              <DropdownItem key="profile" className="h-14 gap-2">
+                <p className="font-semibold">Signed in as</p>
+                <p className="font-semibold">zoey@example.com</p>
+              </DropdownItem>
+              <DropdownItem key="settings" showDivider>
+                My Settings
+              </DropdownItem>
+              <DropdownItem key="team_settings">Team Settings</DropdownItem>
+              <DropdownItem key="analytics" showDivider>
+                Analytics
+              </DropdownItem>
+              <DropdownItem key="system">System</DropdownItem>
+              <DropdownItem key="configurations">Configurations</DropdownItem>
+              <DropdownItem key="help_and_feedback" showDivider>
+                Help & Feedback
+              </DropdownItem>
+              <DropdownItem key="logout" showDivider color="danger">
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarContent>
+      </Navbar>
+    </App>
+  );
+};
+
+const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Logout",
+  ];
+
+  return (
+    <App>
+      <Navbar {...args}>
+        <NavbarMenuToggle className="sm:hidden" />
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
+                }
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+        <NavbarBrand>
+          <AcmeLogo />
+          <p className="font-bold text-inherit">ACME</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden gap-3 md:flex">
+          <NavbarItem as={Link} color="foreground" href="#">
+            Dashboard
+          </NavbarItem>
+          <NavbarItem isActive as={Link} color="secondary" href="#">
+            Team
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Deployments
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Activity
+          </NavbarItem>
+          <NavbarItem as={Link} color="foreground" href="#">
+            Settings
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent>
+          <NavbarItem className="hidden md:flex">
+            <Input
+              classNames={{
+                input: "text-base",
+              }}
+              placeholder="Search..."
+              size="xs"
+              startContent={<SearchIcon className="text-base pointer-events-none flex-shrink-0" />}
+              onClear={() => {
+                // eslint-disable-next-line no-console
+                console.log("clear");
+              }}
+            />
+          </NavbarItem>
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <NavbarItem>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="secondary"
+                  size="sm"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                />
+              </NavbarItem>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" color="secondary">
+              <DropdownItem key="profile" className="h-14 gap-2">
+                <p className="font-semibold">Signed in as</p>
+                <p className="font-semibold">zoey@example.com</p>
+              </DropdownItem>
+              <DropdownItem key="settings" showDivider>
+                My Settings
+              </DropdownItem>
+              <DropdownItem key="team_settings">Team Settings</DropdownItem>
+              <DropdownItem key="analytics" showDivider>
+                Analytics
+              </DropdownItem>
+              <DropdownItem key="system">System</DropdownItem>
+              <DropdownItem key="configurations">Configurations</DropdownItem>
+              <DropdownItem key="help_and_feedback" showDivider>
+                Help & Feedback
+              </DropdownItem>
+              <DropdownItem key="logout" showDivider color="danger">
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarContent>
+      </Navbar>
+    </App>
+  );
+};
+
 export const Static = Template.bind({});
 Static.args = {
   ...defaultProps,
@@ -348,7 +565,16 @@ WithMenu.args = {
 };
 
 export const WithDropdown = WithDropdownTemplate.bind({});
-
 WithDropdown.args = {
+  ...defaultProps,
+};
+
+export const WithAvatarUser = WithAvatarUserTemplate.bind({});
+WithAvatarUser.args = {
+  ...defaultProps,
+};
+
+export const WithSearchInput = WithSearchInputTemplate.bind({});
+WithSearchInput.args = {
   ...defaultProps,
 };

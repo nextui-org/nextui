@@ -49,7 +49,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
   const Component = as || "button";
   const domRef = useDOMRef(ref);
 
-  const {slots, classNames, setIsMenuOpen} = useNavbarContext();
+  const {slots, classNames, isMenuOpen, setIsMenuOpen} = useNavbarContext();
 
   const handleChange = (isOpen: boolean) => {
     onChange?.(isOpen);
@@ -66,7 +66,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
 
   const child = useMemo(() => {
     if (typeof icon === "function") {
-      return icon({isOpen: state.isSelected});
+      return icon({isOpen: isMenuOpen});
     }
 
     return icon || <span className={slots.toggleIcon({class: classNames?.toggleIcon})} />;
@@ -78,7 +78,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
     }
 
     return state.isSelected ? "close navigation menu" : "open navigation menu";
-  }, [srOnlyTextProp, state.isSelected]);
+  }, [srOnlyTextProp, isMenuOpen]);
 
   return (
     <Component
@@ -86,7 +86,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
       className={slots.toggle?.({class: toggleStyles})}
       data-focus-visible={dataAttr(isFocusVisible)}
       data-hover={dataAttr(isHovered)}
-      data-open={dataAttr(state.isSelected)}
+      data-open={dataAttr(isMenuOpen)}
       data-pressed={dataAttr(isPressed)}
       {...mergeProps(buttonProps, focusProps, hoverProps, otherProps)}
     >

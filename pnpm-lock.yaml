@@ -1082,6 +1082,9 @@ importers:
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
+      '@nextui-org/framer-transitions':
+        specifier: workspace:*
+        version: link:../../utilities/framer-transitions
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils

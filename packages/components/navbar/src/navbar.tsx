@@ -1,6 +1,9 @@
 import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/shared-utils";
+import {motion} from "framer-motion";
+import {mergeProps} from "@react-aria/utils";
 
+import {variants} from "./navbar-transitions";
 import {UseNavbarProps, useNavbar} from "./use-navbar";
 import {NavbarProvider} from "./navbar-context";
 import NavbarMenu from "./navbar-menu";
@@ -18,12 +21,27 @@ const Navbar = forwardRef<NavbarProps, "div">((props, ref) => {
 
   const [childrenWithoutMenu, menu] = pickChildren(children, NavbarMenu);
 
+  const content = (
+    <>
+      <header {...context.getWrapperProps()}>{childrenWithoutMenu}</header>
+      {menu}
+    </>
+  );
+
   return (
     <NavbarProvider value={context}>
-      <Component {...context.getBaseProps()}>
-        <header {...context.getWrapperProps()}>{childrenWithoutMenu}</header>
-        {menu}
-      </Component>
+      {context.shouldHideOnScroll ? (
+        <motion.nav
+          animate={context.isHidden ? "hidden" : "visible"}
+          initial={false}
+          variants={variants}
+          {...mergeProps(context.getBaseProps(), context.motionProps)}
+        >
+          {content}
+        </motion.nav>
+      ) : (
+        <Component {...context.getBaseProps()}>{content}</Component>
+      )}
     </NavbarProvider>
   );
 });

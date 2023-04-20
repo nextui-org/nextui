@@ -4,10 +4,11 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {navbar} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
-import {useMemo, useState} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {useEffect, useMemo, useRef, useState} from "react";
+import {mergeProps, useResizeObserver} from "@react-aria/utils";
 import {useScrollPosition} from "@nextui-org/use-scroll-position";
 import {useControlledState} from "@react-stately/utils";
+import {HTMLMotionProps} from "framer-motion";
 
 export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProps> {
   /**
@@ -46,6 +47,11 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    */
   disableScrollHandler?: boolean;
   /**
+   * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
+   * This motion is only available if the `shouldHideOnScroll` prop is set to `true`.
+   */
+  motionProps?: HTMLMotionProps<"nav">;
+  /**
    * The event handler for the menu open state.
    * @param isOpen boolean
    * @returns void
@@ -56,6 +62,7 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
    */
   onScrollPositionChange?: (scrollPosition: number) => void;
+
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -90,6 +97,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     isMenuOpen: isMenuOpenProp,
     isMenuDefaultOpen = false,
     onMenuOpenChange = () => {},
+    motionProps,
     className,
     classNames,
     ...otherProps
@@ -99,6 +107,9 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const domRef = useDOMRef(ref);
 
+  const prevWidth = useRef(0);
+  const navHeight = useRef(0);
+
   const [isHidden, setIsHidden] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean | undefined>(
@@ -106,6 +117,34 @@ export function useNavbar(originalProps: UseNavbarProps) {
     isMenuDefaultOpen || false,
     onMenuOpenChange,
   );
+
+  const updateWidth = () => {
+    if (domRef.current) {
+      const width = domRef.current.offsetWidth;
+
+      if (width !== prevWidth.current) {
+        prevWidth.current = width;
+      }
+    }
+  };
+
+  useResizeObserver({
+    ref: domRef,
+    onResize: () => {
+      const currentWidth = domRef.current?.offsetWidth;
+
+      if (currentWidth !== prevWidth.current) {
+        updateWidth();
+        setIsMenuOpen(false);
+      }
+    },
+  });
+
+  useEffect(() => {
+    updateWidth();
+
+    navHeight.current = domRef.current?.offsetHeight || 0;
+  }, []);
 
   const slots = useMemo(
     () =>
@@ -125,7 +164,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
       onScrollPositionChange?.(currPos.y);
       if (shouldHideOnScroll) {
         setIsHidden((prev) => {
-          const next = currPos.y > prevPos.y;
+          const next = currPos.y > prevPos.y && currPos.y > navHeight.current;
 
           return next !== prev ? next : prev;
         });
@@ -135,7 +174,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const getBaseProps: PropGetter = (props = {}) => ({
     ...mergeProps(otherProps, props),
-    "data-hide": dataAttr(isHidden),
+    "data-hidden": dataAttr(isHidden),
     "data-menu-open": dataAttr(isMenuOpen),
     ref: domRef,
     className: slots.base({class: clsx(baseStyles, props?.className)}),
@@ -153,9 +192,12 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   return {
     Component,
+    motionProps,
+    isHidden,
     slots,
     domRef,
     classNames,
+    shouldHideOnScroll,
     isMenuOpen,
     setIsMenuOpen,
     getBaseProps,

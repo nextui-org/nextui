@@ -90,6 +90,21 @@ export const toOverlayPlacement = (placement: PlacementAxis) => {
   return mapPositions[placement];
 };
 
+export const getShouldUseAxisPlacement = (
+  axisPlacement: PlacementAxis,
+  overlayPlacement: OverlayPlacement,
+) => {
+  if (overlayPlacement.includes("-")) {
+    const [position] = overlayPlacement.split("-");
+
+    if (position.includes(axisPlacement)) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 export const getArrowPlacement = (dynamicPlacement: PlacementAxis, placement: OverlayPlacement) => {
   if (placement.includes("-")) {
     const [, position] = placement.split("-");

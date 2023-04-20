@@ -49,7 +49,7 @@ const navbar = tv({
   slots: {
     base: [
       "relative",
-      "z-20",
+      "z-50",
       "w-full",
       "h-auto",
       "flex",
@@ -144,6 +144,7 @@ const navbar = tv({
       "data-[active=true]:font-semibold",
     ],
     menu: [
+      "z-50",
       "hidden",
       "px-6",
       "pt-4",
@@ -200,10 +201,10 @@ const navbar = tv({
           "sticky",
           "top-0",
           "inset-x-0",
-          "transition-transform",
-          "!duration-400",
-          "translate-y-0",
-          "data-[hide=true]:-translate-y-full",
+          // "transition-transform",
+          // "!duration-400",
+          // "translate-y-0",
+          // "data-[hide=true]:-translate-y-full",
         ],
       },
     },

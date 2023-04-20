@@ -1,8 +1,8 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
 import type {RefObject, Ref} from "react";
+import type {OverlayPlacement} from "@nextui-org/aria-utils";
 
-import {OverlayPlacement, toOverlayPlacement} from "@nextui-org/aria-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
 import {
@@ -13,7 +13,11 @@ import {
 } from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
+import {
+  toReactAriaPlacement,
+  getArrowPlacement,
+  getShouldUseAxisPlacement,
+} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
@@ -148,7 +152,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     isDisabled: !state.isOpen || !shouldBlockScroll,
   });
 
-  const {popoverProps, underlayProps, arrowProps, placement} = useReactAriaPopover(
+  const {popoverProps, underlayProps, arrowProps, placement: ariaPlacement} = useReactAriaPopover(
     {
       triggerRef,
       popoverRef,
@@ -195,6 +199,11 @@ export function usePopover(originalProps: UsePopoverProps) {
     },
   });
 
+  const placement = useMemo(
+    () => (getShouldUseAxisPlacement(ariaPlacement, placementProp) ? ariaPlacement : placementProp),
+    [ariaPlacement, placementProp],
+  );
+
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
@@ -221,10 +230,10 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getArrowProps = useCallback<PropGetter>(
     () => ({
       className: slots.arrow({class: classNames?.arrow}),
-      "data-placement": getArrowPlacement(placement, placementProp),
+      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
       ...arrowProps,
     }),
-    [arrowProps, placement, placementProp, slots, classNames],
+    [arrowProps, ariaPlacement, placementProp, slots, classNames],
   );
 
   return {
@@ -233,7 +242,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     classNames,
     showArrow,
     triggerRef,
-    placement: placement ? toOverlayPlacement(placement) : placementProp,
+    placement,
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,
