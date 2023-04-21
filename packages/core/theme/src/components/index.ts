@@ -30,3 +30,4 @@ export * from "./dropdown-menu";
 export * from "./image";
 export * from "./modal";
 export * from "./navbar";
+export * from "./table";

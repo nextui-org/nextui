@@ -3,7 +3,7 @@ import type {VariantProps} from "tailwind-variants";
 import {tv} from "tailwind-variants";
 
 /**
- * Card **Tailwind Variants** component
+ * Modal **Tailwind Variants** component
  *
  * @example
  * ```js
