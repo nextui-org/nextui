@@ -1,5 +1,12 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230421004240
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230421004240
+
 ## 0.0.0-dev-v2-20230420135820
 
 ### Patch Changes

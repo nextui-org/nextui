@@ -62,6 +62,7 @@ const navbar = tv({
     wrapper: [
       "flex",
       "flex-row",
+      "relative",
       "flex-nowrap",
       "items-center",
       "justify-between",
@@ -197,15 +198,7 @@ const navbar = tv({
     },
     hideOnScroll: {
       true: {
-        base: [
-          "sticky",
-          "top-0",
-          "inset-x-0",
-          // "transition-transform",
-          // "!duration-400",
-          // "translate-y-0",
-          // "data-[hide=true]:-translate-y-full",
-        ],
+        base: ["sticky", "top-0", "inset-x-0"],
       },
     },
     isBordered: {
@@ -234,17 +227,37 @@ const navbar = tv({
       isBlurred: true,
       position: ["static", "sticky"],
       class: {
-        base:
-          "backdrop-blur-xl backdrop-saturate-200 bg-background/50 data-[menu-open=true]:bg-background",
+        base: [
+          "before:content-['']",
+          "before:block",
+          "before:z-[-1]",
+          "before:absolute",
+          "before:-top-px",
+          "before:inset-0",
+          "before:backdrop-blur",
+          "before:backdrop-saturate-150",
+          "before:bg-background/50",
+          "data-[menu-open=true]:before:bg-background",
+        ],
       },
     },
     {
       isBlurred: true,
       position: "floating",
       class: {
-        base: "bg-gradient-to-b from-background to-background/50",
-        wrapper:
-          "backdrop-blur-xl backdrop-saturate-200 bg-background/50 data-[menu-open=true]:bg-background",
+        base: "bg-gradient-to-b from-background to-transparent",
+        wrapper: [
+          "before:content-['']",
+          "before:block",
+          "before:z-[-1]",
+          "before:absolute",
+          "before:-top-px",
+          "before:inset-0",
+          "before:backdrop-blur",
+          "before:backdrop-saturate-150",
+          "before:bg-background/50",
+          "data-[menu-open=true]:before:bg-background",
+        ],
       },
     },
   ],
