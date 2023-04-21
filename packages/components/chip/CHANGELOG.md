@@ -1,5 +1,17 @@
 # @nextui-org/chip
 
+## 0.0.0-dev-v2-20230420134926
+
+### Patch Changes
+
+- Modal structure change, now is controlled by the useDisclosure modal
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230420134926
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230420134926
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230420134926
+  - @nextui-org/system@0.0.0-dev-v2-20230420134926
+  - @nextui-org/theme@0.0.0-dev-v2-20230420134926
+
 ## 0.0.0-dev-v2-20230420024722
 
 ### Patch Changes

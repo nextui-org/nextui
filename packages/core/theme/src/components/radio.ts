@@ -64,27 +64,27 @@ const radio = tv({
   variants: {
     color: {
       neutral: {
-        control: "bg-neutral-500 text-neutral-contrastText",
+        control: "bg-neutral-500 text-neutral-foreground",
         wrapper: "group-data-[checked=true]:border-neutral-500",
       },
       primary: {
-        control: "bg-primary text-primary-contrastText",
+        control: "bg-primary text-primary-foreground",
         wrapper: "group-data-[checked=true]:border-primary",
       },
       secondary: {
-        control: "bg-secondary text-secondary-contrastText",
+        control: "bg-secondary text-secondary-foreground",
         wrapper: "group-data-[checked=true]:border-secondary",
       },
       success: {
-        control: "bg-success text-success-contrastText",
+        control: "bg-success text-success-foreground",
         wrapper: "group-data-[checked=true]:border-success",
       },
       warning: {
-        control: "bg-warning text-warning-contrastText",
+        control: "bg-warning text-warning-foreground",
         wrapper: "group-data-[checked=true]:border-warning",
       },
       danger: {
-        control: "bg-danger text-danger-contrastText",
+        control: "bg-danger text-danger-foreground",
         wrapper: "group-data-[checked=true]:border-danger",
       },
     },
@@ -162,7 +162,7 @@ const radio = tv({
     },
     isInvalid: {
       true: {
-        control: "bg-danger text-danger-contrastText",
+        control: "bg-danger text-danger-foreground",
         wrapper: "border-danger data-[checked=true]:border-danger",
         label: "text-danger",
         description: "text-danger-300",

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/modal",
-  "version": "0.0.0-dev-v2-20230420024722",
+  "version": "0.0.0-dev-v2-20230420135820",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"
@@ -39,9 +39,9 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/use-disclosure": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
@@ -55,6 +55,7 @@
   "devDependencies": {
     "@nextui-org/input": "workspace:*",
     "@nextui-org/checkbox": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "react-lorem-component": "0.13.0",
     "framer-motion": "^10.11.2",
     "@react-types/overlays": "^3.7.1",

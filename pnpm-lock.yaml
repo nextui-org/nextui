@@ -1012,9 +1012,6 @@ importers:
 
   packages/components/modal:
     dependencies:
-      '@nextui-org/button':
-        specifier: workspace:*
-        version: link:../button
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
@@ -1036,6 +1033,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-disclosure':
+        specifier: workspace:*
+        version: link:../../hooks/use-disclosure
       '@react-aria/dialog':
         specifier: ^3.5.1
         version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
@@ -1055,6 +1055,9 @@ importers:
         specifier: ^3.5.1
         version: 3.5.1(react@18.2.0)
     devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
       '@nextui-org/checkbox':
         specifier: workspace:*
         version: link:../checkbox
@@ -1816,7 +1819,39 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-callback-ref:
+    dependencies:
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../use-safe-layout-effect
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-clipboard:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-disclosure:
+    dependencies:
+      '@nextui-org/use-callback-ref':
+        specifier: workspace:*
+        version: link:../use-callback-ref
+      '@react-aria/utils':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+      '@react-stately/utils':
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0

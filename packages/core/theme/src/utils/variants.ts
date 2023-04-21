@@ -1,20 +1,20 @@
 const solid = {
-  neutral: "bg-neutral text-neutral-contrastText",
-  primary: "bg-primary text-primary-contrastText",
-  secondary: "bg-secondary text-secondary-contrastText",
-  success: "bg-success text-success-contrastText",
-  warning: "bg-warning text-warning-contrastText",
-  danger: "bg-danger text-danger-contrastText",
+  neutral: "bg-neutral text-neutral-foreground",
+  primary: "bg-primary text-primary-foreground",
+  secondary: "bg-secondary text-secondary-foreground",
+  success: "bg-success text-success-foreground",
+  warning: "bg-warning text-warning-foreground",
+  danger: "bg-danger text-danger-foreground",
   foreground: "bg-foreground text-background",
 };
 
 const shadow = {
-  neutral: "shadow-lg shadow-neutral/50 bg-neutral text-neutral-contrastText",
-  primary: "shadow-lg shadow-primary/40 bg-primary text-primary-contrastText",
-  secondary: "shadow-lg shadow-secondary/40 bg-secondary text-secondary-contrastText",
-  success: "shadow-lg shadow-success/40 bg-success text-success-contrastText",
-  warning: "shadow-lg shadow-warning/40 bg-warning text-warning-contrastText",
-  danger: "shadow-lg shadow-danger/40 bg-danger text-danger-contrastText",
+  neutral: "shadow-lg shadow-neutral/50 bg-neutral text-neutral-foreground",
+  primary: "shadow-lg shadow-primary/40 bg-primary text-primary-foreground",
+  secondary: "shadow-lg shadow-secondary/40 bg-secondary text-secondary-foreground",
+  success: "shadow-lg shadow-success/40 bg-success text-success-foreground",
+  warning: "shadow-lg shadow-warning/40 bg-warning text-warning-foreground",
+  danger: "shadow-lg shadow-danger/40 bg-danger text-danger-foreground",
   foreground: "shadow-lg shadow-foreground/40 bg-foreground text-background",
 };
 
@@ -29,7 +29,7 @@ const bordered = {
 };
 
 const flat = {
-  neutral: "bg-neutral-100 text-neutral-contrastText",
+  neutral: "bg-neutral-100 text-neutral-foreground",
   primary: "bg-primary-50 text-primary",
   secondary: "bg-secondary-100 text-secondary",
   success: "bg-success-50 text-success",
@@ -39,7 +39,7 @@ const flat = {
 };
 
 const faded = {
-  neutral: "border-neutral bg-neutral-100 text-neutral-contrastText",
+  neutral: "border-neutral bg-neutral-100 text-neutral-foreground",
   primary: "border-neutral bg-neutral-100 text-primary",
   secondary: "border-neutral bg-neutral-100 text-secondary",
   success: "border-neutral bg-neutral-100 text-success",
@@ -49,7 +49,7 @@ const faded = {
 };
 
 const light = {
-  neutral: "bg-transparent text-neutral-contrastText",
+  neutral: "bg-transparent text-neutral-foreground",
   primary: "bg-transparent text-primary",
   secondary: "bg-transparent text-secondary",
   success: "bg-transparent text-success",
@@ -59,13 +59,12 @@ const light = {
 };
 
 const ghost = {
-  neutral: "border-neutral text-neutral-contrastText hover:!bg-neutral",
-  primary: "border-primary text-primary hover:!text-primary-contrastText hover:!bg-primary",
-  secondary:
-    "border-secondary text-secondary hover:text-secondary-contrastText hover:!bg-secondary",
-  success: "border-success text-success hover:!text-success-contrastText hover:!bg-success",
-  warning: "border-warning text-warning hover:!text-warning-contrastText hover:!bg-warning",
-  danger: "border-danger text-danger hover:!text-danger-contrastText hover:!bg-danger",
+  neutral: "border-neutral text-neutral-foreground hover:!bg-neutral",
+  primary: "border-primary text-primary hover:!text-primary-foreground hover:!bg-primary",
+  secondary: "border-secondary text-secondary hover:text-secondary-foreground hover:!bg-secondary",
+  success: "border-success text-success hover:!text-success-foreground hover:!bg-success",
+  warning: "border-warning text-warning hover:!text-warning-foreground hover:!bg-warning",
+  danger: "border-danger text-danger hover:!text-danger-foreground hover:!bg-danger",
   foreground: "border-foreground text-foreground hover:!bg-foreground",
 };
 

@@ -157,13 +157,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
 
   return (
     <App ref={parentRef}>
-      <Navbar
-        isBordered
-        parentRef={parentRef}
-        position="sticky"
-        onMenuOpenChange={setIsMenuOpen}
-        {...args}
-      >
+      <Navbar parentRef={parentRef} position="sticky" onMenuOpenChange={setIsMenuOpen} {...args}>
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}

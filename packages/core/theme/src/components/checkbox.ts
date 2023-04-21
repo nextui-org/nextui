@@ -62,22 +62,22 @@ const checkbox = tv({
   variants: {
     color: {
       neutral: {
-        wrapper: "after:bg-neutral after:text-neutral-contrastText text-neutral-contrastText",
+        wrapper: "after:bg-neutral after:text-neutral-foreground text-neutral-foreground",
       },
       primary: {
-        wrapper: "after:bg-primary after:text-primary-contrastText text-primary-contrastText",
+        wrapper: "after:bg-primary after:text-primary-foreground text-primary-foreground",
       },
       secondary: {
-        wrapper: "after:bg-secondary after:text-secondary-contrastText text-secondary-contrastText",
+        wrapper: "after:bg-secondary after:text-secondary-foreground text-secondary-foreground",
       },
       success: {
-        wrapper: "after:bg-success after:text-success-contrastText text-success-contrastText",
+        wrapper: "after:bg-success after:text-success-foreground text-success-foreground",
       },
       warning: {
-        wrapper: "after:bg-warning after:text-warning-contrastText text-warning-contrastText",
+        wrapper: "after:bg-warning after:text-warning-foreground text-warning-foreground",
       },
       danger: {
-        wrapper: "after:bg-danger after:text-danger-contrastText text-danger-contrastText",
+        wrapper: "after:bg-danger after:text-danger-foreground text-danger-foreground",
       },
     },
     size: {

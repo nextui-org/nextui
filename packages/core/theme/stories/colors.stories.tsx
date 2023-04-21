@@ -177,22 +177,22 @@ SemanticColors.args = {
         {
           color: "content1",
           className: "bg-content1",
-          textClassName: "text-content1-contrastText",
+          textClassName: "text-content1-foreground",
         },
         {
           color: "content2",
           className: "bg-content2",
-          textClassName: "text-content2-contrastText",
+          textClassName: "text-content2-foreground",
         },
         {
           color: "content3",
           className: "bg-content3",
-          textClassName: "text-content3-contrastText",
+          textClassName: "text-content3-foreground",
         },
         {
           color: "content4",
           className: "bg-content4",
-          textClassName: "text-content4-contrastText",
+          textClassName: "text-content4-foreground",
         },
       ],
     },
@@ -202,32 +202,32 @@ SemanticColors.args = {
         {
           color: "neutral",
           className: "bg-neutral",
-          textClassName: "text-neutral-contrastText",
+          textClassName: "text-neutral-foreground",
         },
         {
           color: "primary",
           className: "bg-primary",
-          textClassName: "text-primary-contrastText",
+          textClassName: "text-primary-foreground",
         },
         {
           color: "secondary",
           className: "bg-secondary",
-          textClassName: "text-secondary-contrastText",
+          textClassName: "text-secondary-foreground",
         },
         {
           color: "success",
           className: "bg-success",
-          textClassName: "text-success-contrastText",
+          textClassName: "text-success-foreground",
         },
         {
           color: "warning",
           className: "bg-warning",
-          textClassName: "text-warning-contrastText",
+          textClassName: "text-warning-foreground",
         },
         {
           color: "danger",
           className: "bg-danger",
-          textClassName: "text-danger-contrastText",
+          textClassName: "text-danger-foreground",
         },
       ],
     },
@@ -262,7 +262,7 @@ SemanticColors.args = {
         {
           color: "neutral-500",
           className: "bg-neutral-500",
-          textClassName: "text-neutral-contrastText",
+          textClassName: "text-neutral-foreground",
         },
         {
           color: "neutral-600",
@@ -317,7 +317,7 @@ SemanticColors.args = {
         {
           color: "primary-500",
           className: "bg-primary-500",
-          textClassName: "text-primary-contrastText",
+          textClassName: "text-primary-foreground",
         },
         {
           color: "primary-600",
@@ -372,7 +372,7 @@ SemanticColors.args = {
         {
           color: "secondary-500",
           className: "bg-secondary-500",
-          textClassName: "text-secondary-contrastText",
+          textClassName: "text-secondary-foreground",
         },
         {
           color: "secondary-600",
@@ -427,7 +427,7 @@ SemanticColors.args = {
         {
           color: "success-500",
           className: "bg-success-500",
-          textClassName: "text-success-contrastText",
+          textClassName: "text-success-foreground",
         },
         {
           color: "success-600",
@@ -482,7 +482,7 @@ SemanticColors.args = {
         {
           color: "warning-500",
           className: "bg-warning-500",
-          textClassName: "text-warning-contrastText",
+          textClassName: "text-warning-foreground",
         },
         {
           color: "warning-600",
@@ -537,7 +537,7 @@ SemanticColors.args = {
         {
           color: "danger-500",
           className: "bg-danger-500",
-          textClassName: "text-danger-contrastText",
+          textClassName: "text-danger-foreground",
         },
         {
           color: "danger-600",

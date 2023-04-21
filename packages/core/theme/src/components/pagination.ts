@@ -203,7 +203,7 @@ const pagination = tv({
         item: [
           "data-[active=true]:bg-neutral-400",
           "data-[active=true]:border-neutral-400",
-          "data-[active=true]:text-neutral-contrastText",
+          "data-[active=true]:text-neutral-foreground",
         ],
       },
     },
@@ -214,7 +214,7 @@ const pagination = tv({
         item: [
           "data-[active=true]:bg-primary",
           "data-[active=true]:border-primary",
-          "data-[active=true]:text-primary-contrastText",
+          "data-[active=true]:text-primary-foreground",
         ],
       },
     },
@@ -225,7 +225,7 @@ const pagination = tv({
         item: [
           "data-[active=true]:bg-secondary",
           "data-[active=true]:border-secondary",
-          "data-[active=true]:text-secondary-contrastText",
+          "data-[active=true]:text-secondary-foreground",
         ],
       },
     },
@@ -236,7 +236,7 @@ const pagination = tv({
         item: [
           "data-[active=true]:bg-success",
           "data-[active=true]:border-success",
-          "data-[active=true]:text-success-contrastText",
+          "data-[active=true]:text-success-foreground",
         ],
       },
     },
@@ -247,7 +247,7 @@ const pagination = tv({
         item: [
           "data-[active=true]:bg-warning",
           "data-[active=true]:border-warning",
-          "data-[active=true]:text-warning-contrastText",
+          "data-[active=true]:text-warning-foreground",
         ],
       },
     },
@@ -258,7 +258,7 @@ const pagination = tv({
         item: [
           "data-[active=true]:bg-danger",
           "data-[active=true]:border-danger",
-          "data-[active=true]:text-danger-contrastText",
+          "data-[active=true]:text-danger-foreground",
         ],
       },
     },
@@ -324,7 +324,7 @@ const pagination = tv({
         "outline-none",
         "items-center",
         "justify-center",
-        "text-neutral-contrastText",
+        "text-neutral-foreground",
         // focus ring
         "data-[focus-visible=true]:outline-none",
         "data-[focus-visible=true]:ring-2",

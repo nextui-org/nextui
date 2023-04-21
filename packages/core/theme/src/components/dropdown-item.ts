@@ -130,42 +130,42 @@ const dropdownItem = tv({
       variant: "solid",
       color: "neutral",
       class: {
-        base: "data-[hover=true]:bg-neutral data-[hover=true]:text-neutral-contrastText",
+        base: "data-[hover=true]:bg-neutral data-[hover=true]:text-neutral-foreground",
       },
     },
     {
       variant: "solid",
       color: "primary",
       class: {
-        base: "data-[hover=true]:bg-primary data-[hover=true]:text-primary-contrastText",
+        base: "data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
       },
     },
     {
       variant: "solid",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-contrastText",
+        base: "data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
       },
     },
     {
       variant: "solid",
       color: "success",
       class: {
-        base: "data-[hover=true]:bg-success data-[hover=true]:text-success-contrastText",
+        base: "data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
       },
     },
     {
       variant: "solid",
       color: "warning",
       class: {
-        base: "data-[hover=true]:bg-warning data-[hover=true]:text-warning-contrastText",
+        base: "data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
       },
     },
     {
       variant: "solid",
       color: "danger",
       class: {
-        base: "data-[hover=true]:bg-danger data-[hover=true]:text-danger-contrastText",
+        base: "data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
       },
     },
     // shadow / color
@@ -174,7 +174,7 @@ const dropdownItem = tv({
       color: "neutral",
       class: {
         base:
-          "data-[hover=true]:shadow-neutral/50 data-[hover=true]:bg-neutral data-[hover=true]:text-neutral-contrastText",
+          "data-[hover=true]:shadow-neutral/50 data-[hover=true]:bg-neutral data-[hover=true]:text-neutral-foreground",
       },
     },
     {
@@ -182,7 +182,7 @@ const dropdownItem = tv({
       color: "primary",
       class: {
         base:
-          "data-[hover=true]:shadow-primary/30 data-[hover=true]:bg-primary data-[hover=true]:text-primary-contrastText",
+          "data-[hover=true]:shadow-primary/30 data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
       },
     },
     {
@@ -190,7 +190,7 @@ const dropdownItem = tv({
       color: "secondary",
       class: {
         base:
-          "data-[hover=true]:shadow-secondary/30 data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-contrastText",
+          "data-[hover=true]:shadow-secondary/30 data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
       },
     },
     {
@@ -198,7 +198,7 @@ const dropdownItem = tv({
       color: "success",
       class: {
         base:
-          "data-[hover=true]:shadow-success/30 data-[hover=true]:bg-success data-[hover=true]:text-success-contrastText",
+          "data-[hover=true]:shadow-success/30 data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
       },
     },
     {
@@ -206,7 +206,7 @@ const dropdownItem = tv({
       color: "warning",
       class: {
         base:
-          "data-[hover=true]:shadow-warning/30 data-[hover=true]:bg-warning data-[hover=true]:text-warning-contrastText",
+          "data-[hover=true]:shadow-warning/30 data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
       },
     },
     {
@@ -214,7 +214,7 @@ const dropdownItem = tv({
       color: "danger",
       class: {
         base:
-          "data-[hover=true]:shadow-danger/30 data-[hover=true]:bg-danger data-[hover=true]:text-danger-contrastText",
+          "data-[hover=true]:shadow-danger/30 data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
       },
     },
     // bordered / color
@@ -265,7 +265,7 @@ const dropdownItem = tv({
       variant: "flat",
       color: "neutral",
       class: {
-        base: "data-[hover=true]:bg-neutral-100 data-[hover=true]:text-neutral-contrastText",
+        base: "data-[hover=true]:bg-neutral-100 data-[hover=true]:text-neutral-foreground",
       },
     },
     {
@@ -308,7 +308,7 @@ const dropdownItem = tv({
       variant: "faded",
       color: "neutral",
       class: {
-        base: "data-[hover=true]:text-neutral-contrastText",
+        base: "data-[hover=true]:text-neutral-foreground",
       },
     },
     {

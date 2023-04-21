@@ -9,7 +9,7 @@ export type ColorScale = Partial<{
   700: string;
   800: string;
   900: string;
-  contrastText: string;
+  foreground: string;
   DEFAULT: string;
 }>;
 

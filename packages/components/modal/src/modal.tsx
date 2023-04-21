@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {Children, ReactNode} from "react";
+import {ReactNode} from "react";
 import {AnimatePresence} from "framer-motion";
 import {Overlay} from "@react-aria/overlays";
 
@@ -8,23 +8,19 @@ import {ModalProvider} from "./modal-context";
 
 export interface ModalProps extends Omit<UseModalProps, "ref"> {
   /**
-   * The content of the popover. It is usually the `ModalTrigger`,
-   * and `ModalContent`
+   * The content of the modal. Usually the ModalContent
    */
-  children: ReactNode[];
+  children: ReactNode;
 }
 
 const Modal = forwardRef<ModalProps, "section">((props, ref) => {
   const {children, ...otherProps} = props;
   const context = useModal({ref, ...otherProps});
 
-  const [trigger, content] = Children.toArray(children);
-
-  const overlay = <Overlay>{content}</Overlay>;
+  const overlay = <Overlay>{children}</Overlay>;
 
   return (
     <ModalProvider value={context}>
-      {trigger}
       {context.disableAnimation && context.isOpen ? (
         overlay
       ) : (

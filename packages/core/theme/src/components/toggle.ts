@@ -69,37 +69,37 @@ const toggle = tv({
       neutral: {
         wrapper: [
           "group-data-[checked=true]:bg-neutral-400",
-          "group-data-[checked=true]:text-neutral-contrastText",
+          "group-data-[checked=true]:text-neutral-foreground",
         ],
       },
       primary: {
         wrapper: [
           "group-data-[checked=true]:bg-primary",
-          "group-data-[checked=true]:text-primary-contrastText",
+          "group-data-[checked=true]:text-primary-foreground",
         ],
       },
       secondary: {
         wrapper: [
           "group-data-[checked=true]:bg-secondary",
-          "group-data-[checked=true]:text-secondary-contrastText",
+          "group-data-[checked=true]:text-secondary-foreground",
         ],
       },
       success: {
         wrapper: [
           "group-data-[checked=true]:bg-success",
-          "group-data-[checked=true]:text-success-contrastText",
+          "group-data-[checked=true]:text-success-foreground",
         ],
       },
       warning: {
         wrapper: [
           "group-data-[checked=true]:bg-warning",
-          "group-data-[checked=true]:text-warning-contrastText",
+          "group-data-[checked=true]:text-warning-foreground",
         ],
       },
       danger: {
         wrapper: [
           "group-data-[checked=true]:bg-danger",
-          "data-[checked=true]:text-danger-contrastText",
+          "data-[checked=true]:text-danger-foreground",
         ],
       },
     },

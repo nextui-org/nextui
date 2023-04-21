@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230420134926
+
+### Patch Changes
+
+- Modal structure change, now is controlled by the useDisclosure modal
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230420134926
+
 ## 0.0.0-dev-v2-20230420024722
 
 ### Patch Changes

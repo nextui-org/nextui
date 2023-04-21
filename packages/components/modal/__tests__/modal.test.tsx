@@ -1,15 +1,12 @@
 import * as React from "react";
 import {act, render, fireEvent} from "@testing-library/react";
 
-import {Modal, ModalTrigger, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../src";
+import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../src";
 
 describe("Modal", () => {
   it("should render correctly", () => {
     const wrapper = render(
-      <Modal>
-        <ModalTrigger>
-          <button>Open Modal</button>
-        </ModalTrigger>
+      <Modal isOpen>
         <ModalContent>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>
@@ -25,10 +22,7 @@ describe("Modal", () => {
     const ref = React.createRef<HTMLElement>();
 
     render(
-      <Modal ref={ref}>
-        <ModalTrigger>
-          <button>Open Modal</button>
-        </ModalTrigger>
+      <Modal ref={ref} isOpen>
         <ModalContent>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>
@@ -42,9 +36,6 @@ describe("Modal", () => {
   test("should have the proper 'aria' attributes", () => {
     const {getByRole, getByText} = render(
       <Modal isOpen>
-        <ModalTrigger>
-          <button>Open Modal</button>
-        </ModalTrigger>
         <ModalContent>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>
@@ -72,9 +63,6 @@ describe("Modal", () => {
 
     const {getByLabelText} = render(
       <Modal isOpen onClose={onClose}>
-        <ModalTrigger>
-          <button>Open Modal</button>
-        </ModalTrigger>
         <ModalContent>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>
@@ -97,9 +85,6 @@ describe("Modal", () => {
 
     const wrapper = render(
       <Modal isOpen onClose={onClose}>
-        <ModalTrigger>
-          <button>Open Modal</button>
-        </ModalTrigger>
         <ModalContent>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>

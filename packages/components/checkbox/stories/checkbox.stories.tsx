@@ -238,7 +238,7 @@ export const CustomWithHooks = (props: CheckboxProps) => {
             "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark": isFocusVisible,
           }),
           content: clsx("text-primary", {
-            "text-primary-contrastText pl-1": isSelected,
+            "text-primary-foreground pl-1": isSelected,
           }),
         }}
         color="primary"

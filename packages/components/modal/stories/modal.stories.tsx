@@ -12,11 +12,11 @@ import Lorem from "react-lorem-component";
 import {
   Modal,
   ModalContent,
-  ModalTrigger,
   ModalHeader,
   ModalBody,
   ModalFooter,
   ModalProps,
+  useDisclosure,
 } from "../src";
 
 export default {
@@ -128,23 +128,27 @@ const content = (
   </ModalContent>
 );
 
-const Template: ComponentStory<typeof Modal> = (args: ModalProps) => (
-  <Modal {...args}>
-    <ModalTrigger>
-      <Button disableAnimation={!!args.disableAnimation}>Open Modal</Button>
-    </ModalTrigger>
-    {content}
-  </Modal>
-);
+const Template: ComponentStory<typeof Modal> = (args: ModalProps) => {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure({defaultOpen: args.defaultOpen});
 
-const InsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => (
-  <Modal {...args}>
-    <ModalTrigger>
-      <Button disableAnimation={!!args.disableAnimation}>Open Modal</Button>
-    </ModalTrigger>
-    <ModalContent>
-      {(onClose) => (
-        <>
+  return (
+    <>
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Modal {...args} isOpen={isOpen} onOpenChange={onOpenChange}>
+        {content}
+      </Modal>
+    </>
+  );
+};
+
+const InsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+
+  return (
+    <>
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Modal {...args} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>
             <Lorem count={5} />
@@ -152,20 +156,20 @@ const InsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =>
           <ModalFooter>
             <Button onPress={onClose}>Close</Button>
           </ModalFooter>
-        </>
-      )}
-    </ModalContent>
-  </Modal>
-);
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
 
-const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => (
-  <Modal {...args} scrollBehavior="outside">
-    <ModalTrigger>
-      <Button disableAnimation={!!args.disableAnimation}>Open Modal</Button>
-    </ModalTrigger>
-    <ModalContent>
-      {(onClose) => (
-        <>
+const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+
+  return (
+    <>
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Modal {...args} isOpen={isOpen} scrollBehavior="outside" onOpenChange={onOpenChange}>
+        <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>
             <Lorem count={5} />
@@ -173,33 +177,26 @@ const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =
           <ModalFooter>
             <Button onPress={onClose}>Close</Button>
           </ModalFooter>
-        </>
-      )}
-    </ModalContent>
-  </Modal>
-);
-
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
 const OpenChangeTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
 
   return (
     <div className="flex flex-col gap-2">
-      <Modal {...args} onOpenChange={(open) => setIsOpen(open)}>
-        <ModalTrigger>
-          <Button disableAnimation={!!args.disableAnimation}>Open Modal</Button>
-        </ModalTrigger>
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Modal {...args} isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader>Modal Title</ModalHeader>
-              <ModalBody>
-                <Lorem count={5} />
-              </ModalBody>
-              <ModalFooter>
-                <Button onPress={onClose}>Close</Button>
-              </ModalFooter>
-            </>
-          )}
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalBody>
+            <Lorem count={5} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onPress={onClose}>Close</Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
       <p className="text-sm">isOpen: {isOpen ? "true" : "false"}</p>
@@ -246,9 +243,11 @@ CustomMotion.args = {
     variants: {
       enter: {
         opacity: 1,
+        y: 0,
         duration: 0.3,
       },
       exit: {
+        y: 20,
         opacity: 0,
         duration: 0.3,
       },
