@@ -8,39 +8,68 @@ export default {
   title: "Components/Spacer",
   component: Spacer,
   argTypes: {
-    color: {
+    x: {
       control: {
-        type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        type: "number",
       },
     },
-    radius: {
+    y: {
       control: {
-        type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+        type: "number",
       },
     },
-    size: {
-      control: {
-        type: "select",
-        options: ["xs", "sm", "md", "lg", "xl"],
-      },
-    },
-    isDisabled: {
+    isInline: {
       control: {
         type: "boolean",
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center w-screen h-screen">
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof Spacer>;
 
 const defaultProps = {
   ...spacer.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Spacer> = (args: SpacerProps) => <Spacer {...args} />;
+const content = (
+  <div className="flex flex-col w-[300px] h-[100px] bg-primary rounded-xl shadow-lg" />
+);
 
-export const Default = Template.bind({});
-Default.args = {
+const VerticalTemplate: ComponentStory<typeof Spacer> = (args: SpacerProps) => (
+  <div className="flex flex-col">
+    {content}
+    <Spacer {...args} />
+    {content}
+    <Spacer {...args} />
+    {content}
+  </div>
+);
+
+const HorizontalTemplate: ComponentStory<typeof Spacer> = (args: SpacerProps) => (
+  <div className="flex flex-row">
+    {content}
+    <Spacer {...args} />
+    {content}
+    <Spacer {...args} />
+    {content}
+  </div>
+);
+
+export const Vertical = VerticalTemplate.bind({});
+Vertical.args = {
   ...defaultProps,
+  y: 1,
+};
+
+export const Horizontal = HorizontalTemplate.bind({});
+Horizontal.args = {
+  ...defaultProps,
+  x: 1,
+  isInline: true,
 };
