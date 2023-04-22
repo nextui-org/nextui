@@ -226,7 +226,7 @@ export function useCheckbox(props: UseCheckboxProps) {
       ref: domRef,
       className: slots.base({class: baseStyles}),
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(isSelected),
+      "data-checked": dataAttr(isSelected || isIndeterminate),
       "data-invalid": dataAttr(isInvalid),
       "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),

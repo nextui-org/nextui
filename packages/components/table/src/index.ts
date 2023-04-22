@@ -1,5 +1,3 @@
-import Table from "./table";
-
 // export types
 export type {TableProps} from "./table";
 
@@ -7,4 +5,5 @@ export type {TableProps} from "./table";
 export {useTable} from "./use-table";
 
 // export component
-export {Table};
+export {default as Table} from "./table";
+export * from "./base";

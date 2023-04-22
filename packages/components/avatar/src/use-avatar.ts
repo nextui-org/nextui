@@ -124,6 +124,7 @@ export function useAvatar(props: UseAvatarProps) {
   const {isHovered, hoverProps} = useHover({isDisabled});
 
   const imageStatus = useImage({src, onError, ignoreFallback});
+
   const isImgLoaded = imageStatus === "loaded";
 
   /**
@@ -149,13 +150,6 @@ export function useAvatar(props: UseAvatarProps) {
     [color, radius, size, isBordered, isDisabled, isInGroup, groupContext?.isGrid],
   );
 
-  const buttonStyles = useMemo(() => {
-    if (as !== "button") return "";
-
-    // reset button classNames
-    return "appearance-none outline-none border-none cursor-pointer";
-  }, [as]);
-
   const baseStyles = clsx(classNames?.base, className);
 
   const canBeFocused = useMemo(() => {
@@ -163,25 +157,25 @@ export function useAvatar(props: UseAvatarProps) {
   }, [isFocusable, as]);
 
   const getAvatarProps = useCallback<PropGetter>(
-    () => ({
+    (props = {}) => ({
       ref: domRef,
       tabIndex: canBeFocused ? 0 : -1,
       "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
       className: slots.base({
-        class: clsx(baseStyles, buttonStyles),
+        class: clsx(baseStyles, props?.className),
       }),
       ...mergeProps(otherProps, hoverProps, canBeFocused ? focusProps : {}),
     }),
-    [canBeFocused, slots, baseStyles, buttonStyles, focusProps, otherProps],
+    [canBeFocused, slots, baseStyles, focusProps, otherProps],
   );
 
   const getImageProps = useCallback<PropGetter>(
     () => ({
       ref: imgRef,
       src: src,
-      "data-loaded": isImgLoaded,
+      "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
     }),
     [slots, isImgLoaded, src, imgRef],

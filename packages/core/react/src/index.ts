@@ -24,3 +24,5 @@ export * from "@nextui-org/dropdown";
 export * from "@nextui-org/image";
 export * from "@nextui-org/modal";
 export * from "@nextui-org/navbar";
+export * from "@nextui-org/table";
+export * from "@nextui-org/spacer";

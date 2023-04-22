@@ -78,22 +78,6 @@ export function useUser(props: UseUserProps) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const buttonStyles = useMemo(() => {
-    if (as !== "button") return "";
-
-    // reset button classNames
-    return [
-      "p-0",
-      "m-0",
-      "bg-none",
-      "radius-none",
-      "appearance-none",
-      "outline-none",
-      "border-none",
-      "cursor-pointer",
-    ];
-  }, [as]);
-
   const getUserProps = useCallback<PropGetter>(
     () => ({
       ref: domRef,
@@ -101,7 +85,7 @@ export function useUser(props: UseUserProps) {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
       className: slots.base({
-        class: clsx(baseStyles, buttonStyles),
+        class: baseStyles,
       }),
       ...mergeProps(otherProps, canBeFocused ? focusProps : {}),
     }),

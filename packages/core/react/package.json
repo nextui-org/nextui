@@ -64,7 +64,9 @@
     "@nextui-org/dropdown": "workspace:*",
     "@nextui-org/image": "workspace:*",
     "@nextui-org/modal": "workspace:*",
-    "@nextui-org/navbar": "workspace:*"
+    "@nextui-org/navbar": "workspace:*",
+    "@nextui-org/table": "workspace:*",
+    "@nextui-org/spacer": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

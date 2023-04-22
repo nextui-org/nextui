@@ -2,6 +2,15 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+const focusRing = [
+  "data-[focus-visible=true]:outline-none",
+  "data-[focus-visible=true]:ring-2",
+  "data-[focus-visible=true]:ring-primary",
+  "data-[focus-visible=true]:ring-offset-2",
+  "data-[focus-visible=true]:ring-offset-background",
+  "data-[focus-visible=true]:dark:ring-offset-background-dark",
+];
+
 /**
  * Table **Tailwind Variants** component
  *
@@ -39,17 +48,169 @@ import {tv} from "tailwind-variants";
  */
 const table = tv({
   slots: {
-    base: "",
-    table: "group",
+    base: "p-4 border border-neutral-100",
+    table: "",
     thead: "",
     tbody: "",
-    tr: "",
-    th: "",
-    td: "",
+    tr: ["group", "outline-none", ...focusRing],
+    th: [
+      "px-3",
+      "h-10",
+      "text-left",
+      "align-middle",
+      "bg-neutral-100",
+      "text-neutral-500",
+      "text-xs",
+      "font-semibold",
+      "first:rounded-l-lg",
+      "last:rounded-r-lg",
+      "outline-none",
+      ...focusRing,
+    ],
+    td: [
+      "py-2",
+      "px-3",
+      "relative",
+      "align-middle",
+      "whitespace-normal",
+      "text-base",
+      "font-normal",
+      "outline-none",
+      ...focusRing,
+      // before content for selection
+      "before:content-['']",
+      "before:absolute",
+      "before:-z-[1]",
+      "before:inset-0",
+      "before:opacity-0",
+      "data-[selected=true]:before:opacity-100",
+      // disabled
+      "group-data-[disabled=true]:text-neutral-300",
+    ],
     tfoot: "",
   },
-  variants: {},
-  defaultVariants: {},
+  variants: {
+    color: {
+      neutral: {
+        td:
+          "before:bg-neutral-200 dark:before:bg-neutral-100 data-[selected=true]:text-neutral-foreground",
+      },
+      primary: {
+        td: "before:bg-primary-50 data-[selected=true]:text-primary",
+      },
+      secondary: {
+        td: "before:bg-secondary-100 data-[selected=true]:text-secondary",
+      },
+      success: {
+        td: "before:bg-success-50 data-[selected=true]:text-success",
+      },
+      warning: {
+        td: "before:bg-warning-50 data-[selected=true]:text-warning",
+      },
+      danger: {
+        td: "before:bg-danger-50 data-[selected=true]:text-danger",
+      },
+    },
+    layout: {
+      auto: {
+        table: "table-auto",
+      },
+      fixed: {
+        table: "table-fixed",
+      },
+    },
+    radius: {
+      none: {
+        base: "rounded-none",
+      },
+      base: {
+        base: "rounded",
+      },
+      sm: {
+        base: "rounded-sm",
+      },
+      md: {
+        base: "rounded-md",
+      },
+      lg: {
+        base: "rounded-lg",
+      },
+      xl: {
+        base: "rounded-xl",
+      },
+      "2xl": {
+        base: "rounded-2xl",
+      },
+    },
+    shadow: {
+      none: {
+        base: "shadow-none",
+      },
+      sm: {
+        base: "shadow-sm",
+      },
+      md: {
+        base: "shadow-md",
+      },
+      lg: {
+        base: "shadow-lg",
+      },
+      xl: {
+        base: "shadow-xl",
+      },
+      "2xl": {
+        base: "shadow-2xl",
+      },
+      inner: {
+        base: "shadow-inner",
+      },
+    },
+    isStriped: {
+      true: {
+        td: [
+          "group-data-[odd=true]:before:bg-neutral-100",
+          "group-data-[odd=true]:before:opacity-100",
+        ],
+      },
+    },
+    isSelectable: {
+      true: {
+        tr: "cursor-default",
+        td: ["group-data-[hover=true]:before:opacity-70"],
+      },
+    },
+    isMultiSelectable: {
+      true: {
+        td: [
+          // first
+          "group-data-[first=true]:first:before:rounded-tl-lg",
+          "group-data-[first=true]:last:before:rounded-tr-lg",
+          // middle
+          "group-data-[middle=true]:before:rounded-none",
+          // last
+          "group-data-[last=true]:first:before:rounded-bl-lg",
+          "group-data-[last=true]:last:before:rounded-br-lg",
+        ],
+      },
+      false: {
+        td: ["first:before:rounded-l-lg", "last:before:rounded-r-lg"],
+      },
+    },
+    fullWidth: {
+      true: {
+        base: "w-full",
+        table: "w-full",
+      },
+    },
+  },
+  defaultVariants: {
+    layout: "auto",
+    shadow: "lg",
+    radius: "xl",
+    color: "neutral",
+    isStriped: false,
+    fullWidth: true,
+  },
 });
 
 export type TableVariantProps = VariantProps<typeof table>;

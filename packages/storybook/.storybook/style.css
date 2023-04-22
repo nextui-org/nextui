@@ -55,19 +55,19 @@ h3 {
   color: #bcbcbc;
 }
 
-.dark tbody td {
+.dark #docs-root tbody td {
   background: #161616 !important;
   color: #bcbcbc !important;
 }
 
-.dark tbody tr:first-child td:first-child {
+.dark #docs-root tbody tr:first-child td:first-child {
   border-top-left-radius: 0 !important;
 }
 
-.dark tbody tr:first-child td:last-child {
+.dark #docs-root tbody tr:first-child td:last-child {
   border-top-right-radius: 0 !important;
 }
 
-.dark tbody tr:not(:first-child) {
+.dark #docs-root tbody tr:not(:first-child) {
   border-top: 1px solid #292929 !important;
 }
