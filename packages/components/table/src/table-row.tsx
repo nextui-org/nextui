@@ -22,6 +22,7 @@ const TableRow = forwardRef<TableRowProps, "tr">((props, ref) => {
   const {as, className, children, node, ...otherProps} = props;
 
   const Component = as || "tr";
+
   const domRef = useDOMRef(ref);
 
   const {slots, state, isSelectable, classNames} = useTableContext();

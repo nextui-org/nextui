@@ -179,7 +179,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getPopoverProps: PropGetter = (props = {}) => ({
     ref: popoverRef,

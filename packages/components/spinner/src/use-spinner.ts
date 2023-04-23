@@ -41,7 +41,7 @@ export function useSpinner(originalProps: UseSpinnerProps) {
 
   const slots = useMemo(() => spinner({...variantProps}), [...Object.values(variantProps)]);
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const label = labelProp || children;
 

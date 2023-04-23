@@ -5,6 +5,7 @@ export * from "./avatar";
 export * from "./close";
 export * from "./close-filled";
 export * from "./chevron";
+export * from "./chevron-down";
 export * from "./ellipsis";
 export * from "./forward";
 export * from "./sun";

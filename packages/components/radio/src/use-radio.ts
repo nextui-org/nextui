@@ -164,7 +164,7 @@ export function useRadio(props: UseRadioProps) {
     [color, size, radius, isDisabled, isInvalid, disableAnimation],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {

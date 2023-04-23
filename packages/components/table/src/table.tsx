@@ -14,43 +14,57 @@ export interface TableProps
   extends Omit<UseTableProps, "ref" | "isSelectable" | "isMultiSelectable"> {}
 
 const Table = forwardRef<TableProps, "table">((props, ref) => {
-  const {Component, collection, context, removeWrapper, getBaseProps, getTableProps} = useTable({
+  const {
+    BaseComponent,
+    Component,
+    collection,
+    context,
+    topContent,
+    bottomContent,
+    removeWrapper,
+    getBaseProps,
+    getTableProps,
+  } = useTable({
     ref,
     ...props,
   });
 
-  const Wrapper = useCallback(
+  const BaseWrapper = useCallback(
     ({children}: {children: JSX.Element}) => {
       if (removeWrapper) {
         return children;
       }
 
-      return <div {...getBaseProps()}>{children}</div>;
+      return <BaseComponent {...getBaseProps()}>{children}</BaseComponent>;
     },
     [removeWrapper, getBaseProps],
   );
 
   return (
     <TableProvider value={context}>
-      <Wrapper>
-        <Component {...getTableProps()}>
-          <TableRowGroup>
-            {collection.headerRows.map((headerRow) => (
-              <TableHeaderRow key={headerRow?.key} node={headerRow}>
-                {[...headerRow.childNodes].map((column) =>
-                  column?.props?.isSelectionCell ? (
-                    <TableSelectAllCheckbox key={column?.key} node={column} />
-                  ) : (
-                    <TableColumnHeader key={column?.key} node={column} />
-                  ),
-                )}
-              </TableHeaderRow>
-            ))}
-            <Spacer as="tr" y={0.4} />
-          </TableRowGroup>
-          <TableBody />
-        </Component>
-      </Wrapper>
+      <BaseWrapper>
+        <>
+          {topContent}
+          <Component {...getTableProps()}>
+            <TableRowGroup>
+              {collection.headerRows.map((headerRow) => (
+                <TableHeaderRow key={headerRow?.key} node={headerRow}>
+                  {[...headerRow.childNodes].map((column) =>
+                    column?.props?.isSelectionCell ? (
+                      <TableSelectAllCheckbox key={column?.key} node={column} />
+                    ) : (
+                      <TableColumnHeader key={column?.key} node={column} />
+                    ),
+                  )}
+                </TableHeaderRow>
+              ))}
+              <Spacer as="tr" y={0.4} />
+            </TableRowGroup>
+            <TableBody />
+          </Component>
+          {bottomContent}
+        </>
+      </BaseWrapper>
     </TableProvider>
   );
 });

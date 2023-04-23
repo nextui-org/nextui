@@ -131,7 +131,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
 
   const slots = useMemo(() => radioGroup(), []);
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getGroupProps: PropGetter = () => {
     return {

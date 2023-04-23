@@ -2,11 +2,13 @@ import type {GridNode} from "@react-types/grid";
 
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableColumnHeader} from "@react-aria/table";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {useFocusRing} from "@react-aria/focus";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
+import {useHover} from "@react-aria/interactions";
 
 import {useTableContext} from "./table-context";
 
@@ -30,43 +32,36 @@ const TableColumnHeader = forwardRef<TableColumnHeaderProps, "th">((props, ref) 
   const thStyles = clsx(classNames?.th, className, node.props?.className);
 
   const {isFocusVisible, focusProps} = useFocusRing();
+  const {isHovered, hoverProps} = useHover({});
   const {hideHeader, ...columnProps} = node.props;
 
-  let arrowIcon = state.sortDescriptor?.direction === "ascending" ? "▲" : "▼";
+  const allowsSorting = columnProps.allowsSorting;
 
   return (
     <Component
       ref={domRef}
       colSpan={node.colspan}
-      data-focus-visible={isFocusVisible}
+      data-focus-visible={dataAttr(isFocusVisible)}
+      data-hover={dataAttr(isHovered)}
+      data-sortable={dataAttr(allowsSorting)}
       {...mergeProps(
         columnHeaderProps,
         focusProps,
         filterDOMProps(columnProps, {labelable: true}),
+        allowsSorting ? hoverProps : {},
         otherProps,
       )}
       className={slots.th?.({class: thStyles})}
     >
       {hideHeader ? <VisuallyHidden>{node.rendered}</VisuallyHidden> : node.rendered}
-      {columnProps.allowsSorting && (
-        <span
+      {allowsSorting && (
+        <ChevronDownIcon
           aria-hidden="true"
-          style={{
-            padding: "0 2px",
-            visibility: state.sortDescriptor?.column === node.key ? "visible" : "hidden",
-          }}
-        >
-          {arrowIcon}
-        </span>
-        // <TableSortIcon
-        //   ascending={state.sortDescriptor?.direction === "ascending"}
-        //   css={{
-        //     position: "absolute",
-        //     m: "0 $2",
-        //     bottom: `calc(50% - ${ICON_SIZE / 2}px)`,
-        //   }}
-        //   visible={state.sortDescriptor?.column === column.key}
-        // />
+          className={slots.sortIcon?.({class: classNames?.sortIcon})}
+          data-direction={state.sortDescriptor?.direction}
+          data-visible={dataAttr(state.sortDescriptor?.column === node.key)}
+          strokeWidth={3}
+        />
       )}
     </Component>
   );

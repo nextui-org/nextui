@@ -77,7 +77,7 @@ export function useCard(originalProps: UseCardProps) {
   const domRef = useDOMRef<HTMLDivElement>(ref);
   const Component = as || (originalProps.isPressable ? "button" : "div");
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const {onClick: onDripClickHandler, drips} = useDrip();
 

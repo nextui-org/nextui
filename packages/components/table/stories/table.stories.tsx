@@ -3,8 +3,11 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
 import {Chip, ChipProps} from "@nextui-org/chip";
+import {Button} from "@nextui-org/button";
+import {Spinner} from "@nextui-org/spinner";
 import {Tooltip} from "@nextui-org/tooltip";
 import {EditIcon, DeleteIcon, EyeIcon} from "@nextui-org/shared-icons";
+import {useAsyncList} from "@react-stately/data";
 
 import {Table, TableHeader, TableColumn, TableBody, TableCell, TableRow, TableProps} from "../src";
 
@@ -104,6 +107,13 @@ const columns = [
   },
 ];
 
+type SWCharacter = {
+  name: string;
+  height: string;
+  mass: string;
+  birth_year: string;
+};
+
 const isObject = (target: unknown) => target && typeof target === "object";
 
 const getKeyValue = (obj: any, key: Key) => {
@@ -142,6 +152,17 @@ const StaticTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
         <TableCell>Vacation</TableCell>
       </TableRow>
     </TableBody>
+  </Table>
+);
+
+const EmptyTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+  <Table aria-label="Example empty table" {...args}>
+    <TableHeader>
+      <TableColumn>NAME</TableColumn>
+      <TableColumn>ROLE</TableColumn>
+      <TableColumn>STATUS</TableColumn>
+    </TableHeader>
+    <TableBody renderEmptyState={() => "No rows to display."}>{[]}</TableBody>
   </Table>
 );
 
@@ -220,14 +241,16 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
     },
   ];
 
+  type User = typeof users[0];
+
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
     paused: "danger",
     vacation: "warning",
   };
 
-  const renderCell = React.useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
+  const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
+    const cellValue = user[columnKey as keyof User];
 
     switch (columnKey) {
       case "name":
@@ -253,7 +276,6 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
             {cellValue}
           </Chip>
         );
-
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
@@ -299,6 +321,125 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
+const SortableTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+  let list = useAsyncList<SWCharacter>({
+    async load({signal}) {
+      let res = await fetch(`https://swapi.py4e.com/api/people/?search`, {
+        signal,
+      });
+      let json = await res.json();
+
+      return {
+        items: json.results,
+      };
+    },
+    async sort({items, sortDescriptor}) {
+      return {
+        items: items.sort((a, b) => {
+          let first = a[sortDescriptor.column!];
+          let second = b[sortDescriptor.column!];
+          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
+
+          if (sortDescriptor.direction === "descending") {
+            cmp *= -1;
+          }
+
+          return cmp;
+        }),
+      };
+    },
+  });
+
+  return (
+    <Table
+      aria-label="Example table with client side sorting"
+      sortDescriptor={list.sortDescriptor}
+      onSortChange={list.sort}
+      {...args}
+    >
+      <TableHeader>
+        <TableColumn key="name" allowsSorting>
+          Name
+        </TableColumn>
+        <TableColumn key="height" allowsSorting>
+          Height
+        </TableColumn>
+        <TableColumn key="mass" allowsSorting>
+          Mass
+        </TableColumn>
+        <TableColumn key="birth_year" allowsSorting>
+          Birth year
+        </TableColumn>
+      </TableHeader>
+      <TableBody items={list.items}>
+        {(item) => (
+          <TableRow key={item.name}>
+            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  );
+};
+
+const LoadMoreTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+  const [page, setPage] = React.useState(1);
+
+  let list = useAsyncList<SWCharacter>({
+    async load({signal, cursor}) {
+      if (cursor) {
+        // write this /^http:\/\//i using RegExp
+        const regex = "/^http:///i";
+
+        cursor = cursor.replace(regex, "https://");
+
+        setPage((prev) => prev + 1);
+      }
+
+      let res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
+      let json = await res.json();
+
+      return {
+        items: json.results,
+        cursor: json.next,
+      };
+    },
+  });
+
+  const hasMore = page < 9;
+
+  return (
+    <Table
+      aria-label="Example table with client side sorting"
+      bottomContent={
+        hasMore ? (
+          <Button isDisabled={list.isLoading} variant="flat" onPress={list.loadMore}>
+            {list.isLoading && <Spinner color="white" size="sm" />}
+            Load More
+          </Button>
+        ) : null
+      }
+      sortDescriptor={list.sortDescriptor}
+      onSortChange={list.sort}
+      {...args}
+    >
+      <TableHeader>
+        <TableColumn key="name">Name</TableColumn>
+        <TableColumn key="height">Height</TableColumn>
+        <TableColumn key="mass">Mass</TableColumn>
+        <TableColumn key="birth_year">Birth year</TableColumn>
+      </TableHeader>
+      <TableBody items={list.items}>
+        {(item) => (
+          <TableRow key={item.name}>
+            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  );
+};
+
 export const Static = StaticTemplate.bind({});
 Static.args = {
   ...defaultProps,
@@ -307,6 +448,17 @@ Static.args = {
 export const Dynamic = DynamicTemplate.bind({});
 Dynamic.args = {
   ...defaultProps,
+};
+
+export const EmptyState = EmptyTemplate.bind({});
+EmptyState.args = {
+  ...defaultProps,
+};
+
+export const NoHeader = StaticTemplate.bind({});
+NoHeader.args = {
+  ...defaultProps,
+  hideHeader: true,
 };
 
 export const CustomCells = CustomCellTemplate.bind({});
@@ -358,6 +510,17 @@ DisallowEmptySelection.args = {
   color: "primary",
   defaultSelectedKeys: ["2"],
   selectionMode: "multiple",
+};
+
+export const Sortable = SortableTemplate.bind({});
+Sortable.args = {
+  ...defaultProps,
+};
+
+export const LoadMore = LoadMoreTemplate.bind({});
+LoadMore.args = {
+  ...defaultProps,
+  className: "max-w-3xl max-h-auto",
 };
 
 export const DisableAnimation = StaticTemplate.bind({});

@@ -155,7 +155,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     [...Object.values(variantProps), shouldHideOnScroll],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   useScrollPosition({
     elementRef: parentRef,

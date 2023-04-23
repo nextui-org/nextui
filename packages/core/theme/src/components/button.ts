@@ -27,6 +27,7 @@ const button = tv({
     "inline-flex",
     "items-center",
     "justify-center",
+    "max-w-fit",
     "box-border",
     "appearance-none",
     "outline-none",

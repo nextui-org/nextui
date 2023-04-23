@@ -190,7 +190,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({

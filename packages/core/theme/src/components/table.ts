@@ -48,12 +48,13 @@ const focusRing = [
  */
 const table = tv({
   slots: {
-    base: "p-4 border border-neutral-100",
+    base: "flex flex-col items-center p-4 gap-4 border border-neutral-100 overflow-auto",
     table: "",
     thead: "",
     tbody: "",
     tr: ["group", "outline-none", ...focusRing],
     th: [
+      "group",
       "px-3",
       "h-10",
       "text-left",
@@ -65,6 +66,9 @@ const table = tv({
       "first:rounded-l-lg",
       "last:rounded-r-lg",
       "outline-none",
+      "data-[sortable=true]:transition-colors",
+      "data-[sortable=true]:cursor-pointer",
+      "data-[hover=true]:text-neutral-400",
       ...focusRing,
     ],
     td: [
@@ -88,6 +92,19 @@ const table = tv({
       "group-data-[disabled=true]:text-neutral-300",
     ],
     tfoot: "",
+    sortIcon: [
+      "ml-2",
+      "mb-px",
+      "opacity-0",
+      "text-inherit",
+      "inline-block",
+      "transition-transform-opacity",
+      "data-[visible=true]:opacity-100",
+      "group-data-[hover=true]:opacity-100",
+      "data-[direction=descending]:rotate-0",
+      "data-[direction=ascending]:rotate-180",
+    ],
+    emptyWrapper: "text-neutral-300 align-middle text-center h-36",
   },
   variants: {
     color: {
@@ -165,6 +182,11 @@ const table = tv({
         base: "shadow-inner",
       },
     },
+    hideHeader: {
+      true: {
+        thead: "hidden",
+      },
+    },
     isStriped: {
       true: {
         td: [
@@ -208,6 +230,7 @@ const table = tv({
     shadow: "lg",
     radius: "xl",
     color: "neutral",
+    hideHeader: false,
     isStriped: false,
     fullWidth: true,
   },

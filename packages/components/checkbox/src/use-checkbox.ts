@@ -219,7 +219,7 @@ export function useCheckbox(props: UseCheckboxProps) {
     [color, size, radius, lineThrough, isDisabled, disableAnimation],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getBaseProps: PropGetter = () => {
     return {

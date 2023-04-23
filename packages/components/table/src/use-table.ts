@@ -23,32 +23,28 @@ interface Props extends HTMLNextUIProps<"table"> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
-  /** The elements that make up the table. Includes the TableHeader, TableBody, Columns, and Rows. */
+  /*
+   * The elements that make up the table. Includes the TableHeader, TableBody, Columns, and Rows.
+   */
   children?: ReactNode;
   /**
-   * Whether the table container should not be rendered.
+   * A custom wrapper component for the table.
+   * @default "div"
+   */
+  BaseComponent?: React.ComponentType<any>;
+  /**
+   * A property to include a component in the top of the table.
+   */
+  topContent?: ReactNode;
+  /**
+   * A property to include a component in the bottom of the table.
+   */
+  bottomContent?: ReactNode;
+  /**
+   * Whether the table base container should not be rendered.
    * @default false
    */
   removeWrapper?: boolean;
-  /**
-   * Classname or List of classes to change the classNames of the element.
-   * if `className` is passed, it will be added to the base slot.
-   *
-   * @example
-   * ```ts
-   * <Table classNames={{
-   *    base:"base-classes", // table wrapper
-   *    table: "table-classes",
-   *    thead: "thead-classes",
-   *    tbody: "tbody-classes",
-   *    tr: "tr-classes",
-   *    th: "th-classes",
-   *    td: "td-classes",
-   *    tfoot: "tfoot-classes",
-   * }} />
-   * ```
-   */
-  classNames?: SlotsToClasses<TableSlots>;
   /**
    * How multiple selection should behave in the collection.
    * The selection behavior for the table. If selectionMode is `"none"`, this will be `null`.
@@ -70,6 +66,27 @@ interface Props extends HTMLNextUIProps<"table"> {
   onRowAction?: (key: Key) => void;
   /** Handler that is called when a user performs an action on the cell. */
   onCellAction?: (key: Key) => void;
+  /**
+   * Classname or List of classes to change the classNames of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <Table classNames={{
+   *    base:"base-classes", // table wrapper
+   *    table: "table-classes",
+   *    thead: "thead-classes",
+   *    tbody: "tbody-classes",
+   *    tr: "tr-classes",
+   *    th: "th-classes",
+   *    td: "td-classes",
+   *    tfoot: "tfoot-classes",
+   *    sortIcon: "sort-icon-classes",
+   *    emptyWrapper: "empty-wrapper-classes",
+   * }} />
+   * ```
+   */
+  classNames?: SlotsToClasses<TableSlots>;
 }
 
 export type UseTableProps<T = object> = Props &
@@ -108,6 +125,9 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     disabledBehavior = "selection",
     showSelectionCheckboxes = selectionMode === "multiple" && selectionBehavior !== "replace",
     disableAnimation = false,
+    BaseComponent = "div",
+    topContent,
+    bottomContent,
     onRowAction,
     onCellAction,
     ...otherProps
@@ -140,7 +160,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     [...Object.values(variantProps), isSelectable, isMultiSelectable],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const context = useMemo<ContextType<T>>(
     () => ({
@@ -190,11 +210,14 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
   });
 
   return {
+    BaseComponent,
     Component,
     children,
     state,
     collection,
     context,
+    topContent,
+    bottomContent,
     removeWrapper,
     selectionMode,
     getBaseProps,

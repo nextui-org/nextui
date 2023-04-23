@@ -113,7 +113,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     [...Object.values(variantProps), isDisabled, disableAnimation],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,

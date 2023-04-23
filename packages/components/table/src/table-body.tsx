@@ -1,23 +1,26 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {useTableRowGroup} from "@react-aria/table";
 import {useMemo} from "react";
+import {filterDOMProps, mergeProps} from "@react-aria/utils";
 
 import TableRow from "./table-row";
 import TableCell from "./table-cell";
-import TableRowGroup from "./table-row-group";
 import TableCheckboxCell from "./table-checkbox-cell";
 import {useTableContext} from "./table-context";
 
 const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
-  const {as: asProp, className, ...otherProps} = props;
+  const {as, className, ...otherProps} = props;
 
-  const as = asProp || "tbody";
+  const Component = as || "tbody";
   const domRef = useDOMRef(ref);
 
   const {slots, collection, classNames} = useTableContext();
+  const {rowGroupProps} = useTableRowGroup();
 
   const tbodyStyles = clsx(classNames?.tbody, className);
+  const bodyProps = collection.body.props;
 
   const renderRows = useMemo(() => {
     return [...collection.body.childNodes].map((row) => (
@@ -33,15 +36,32 @@ const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
     ));
   }, [collection.body.childNodes]);
 
+  let emptyState;
+
+  if (collection.size === 0 && bodyProps.renderEmptyState) {
+    emptyState = (
+      <tr role="row">
+        <td
+          className={slots?.emptyWrapper({class: classNames?.emptyWrapper})}
+          colSpan={collection.columnCount}
+          role="gridcell"
+        >
+          {bodyProps.renderEmptyState()}
+        </td>
+      </tr>
+    );
+  }
+
   return (
-    <TableRowGroup
+    <Component
       ref={domRef}
-      as={as}
-      {...otherProps}
+      {...mergeProps(rowGroupProps, filterDOMProps(bodyProps, {labelable: true}), otherProps)}
       className={slots.tbody?.({class: tbodyStyles})}
+      data-empty={dataAttr(collection.size === 0)}
     >
       {renderRows}
-    </TableRowGroup>
+      {emptyState}
+    </Component>
   );
 });
 

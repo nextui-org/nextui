@@ -142,7 +142,7 @@ export function useModal(originalProps: UseModalProps) {
     focusProps: closeButtonFocusProps,
   } = useFocusRing();
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const slots = useMemo(
     () =>

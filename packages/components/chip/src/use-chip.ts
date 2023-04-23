@@ -76,7 +76,7 @@ export function useChip(originalProps: UseChipProps) {
 
   const domRef = useDOMRef(ref);
 
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = clsx(className, classNames?.base);
 
   const isCloseable = !!onClose;
   const isDotVariant = originalProps.variant === "dot";

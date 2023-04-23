@@ -1481,6 +1481,9 @@ importers:
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -1512,18 +1515,27 @@ importers:
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
       '@nextui-org/chip':
         specifier: workspace:*
         version: link:../chip
-      '@nextui-org/shared-icons':
+      '@nextui-org/pagination':
         specifier: workspace:*
-        version: link:../../utilities/shared-icons
+        version: link:../pagination
+      '@nextui-org/spinner':
+        specifier: workspace:*
+        version: link:../spinner
       '@nextui-org/tooltip':
         specifier: workspace:*
         version: link:../tooltip
       '@nextui-org/user':
         specifier: workspace:*
         version: link:../user
+      '@react-stately/data':
+        specifier: ^3.9.1
+        version: 3.9.1(react@18.2.0)
       '@react-types/grid':
         specifier: ^3.1.7
         version: 3.1.7(react@18.2.0)
@@ -6701,6 +6713,16 @@ packages:
       '@swc/helpers': 0.4.14
       react: 18.2.0
     dev: false
+
+  /@react-stately/data@3.9.1(react@18.2.0):
+    resolution: {integrity: sha512-UClgI8jQTF3hVR/WLa2ht7Gjd2x2PRnYycDmfY+mfbd+ONBD7rX/m3KWGgrR8AvO05qSpQoSlab8D+cfLXvgWA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: true
 
   /@react-stately/grid@3.6.0(react@18.2.0):
     resolution: {integrity: sha512-Sq/ivfq9Kskghoe6rYh2PfhB9/jBGfoj8wUZ4bqHcalTrBjfUvkcWMSFosibYPNZFDkA7r00bbJPDJVf1VLhuw==}
