@@ -1496,6 +1496,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-is-sticky':
+        specifier: workspace:*
+        version: link:../../hooks/use-is-sticky
       '@react-aria/focus':
         specifier: ^3.12.0
         version: 3.12.0(react@18.2.0)
@@ -1530,6 +1533,9 @@ importers:
       '@nextui-org/tooltip':
         specifier: workspace:*
         version: link:../tooltip
+      '@nextui-org/use-infinite-scroll':
+        specifier: workspace:*
+        version: link:../../hooks/use-infinite-scroll
       '@nextui-org/user':
         specifier: workspace:*
         version: link:../user
@@ -1977,6 +1983,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-infinite-scroll:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-is-mobile:
     dependencies:
       '@react-aria/ssr':
@@ -1995,6 +2010,15 @@ importers:
       react-dom:
         specifier: '>=16.8.0'
         version: 18.2.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-is-sticky:
     devDependencies:
       clean-package:
         specifier: 2.2.0

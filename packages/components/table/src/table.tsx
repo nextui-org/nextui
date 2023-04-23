@@ -58,7 +58,7 @@ const Table = forwardRef<TableProps, "table">((props, ref) => {
                   )}
                 </TableHeaderRow>
               ))}
-              <Spacer as="tr" y={0.4} />
+              <Spacer as="tr" y={1} />
             </TableRowGroup>
             <TableBody />
           </Component>

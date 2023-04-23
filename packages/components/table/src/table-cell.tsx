@@ -31,7 +31,7 @@ const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
 
   const {gridCellProps} = useTableCell({node}, state, domRef);
 
-  const tdStyles = clsx(classNames?.thead, className, node.props?.className);
+  const tdStyles = clsx(classNames?.td, className, node.props?.className);
   const {isFocusVisible, focusProps} = useFocusRing();
   const isRowSelected = state.selectionManager.isSelected(rowKey);
 

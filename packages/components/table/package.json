@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/table",
-  "version": "2.0.0-beta.1",
+  "version": "0.0.0-dev-v2-20230423212921",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"
@@ -56,6 +56,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
+    "@nextui-org/use-infinite-scroll": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
     "@nextui-org/user": "workspace:*",
     "@react-stately/data": "^3.9.1",

@@ -33,11 +33,15 @@ interface Props extends HTMLNextUIProps<"table"> {
    */
   BaseComponent?: React.ComponentType<any>;
   /**
-   * A property to include a component in the top of the table.
+   * Ref to the container element.
+   */
+  baseRef?: ReactRef<HTMLElement | null>;
+  /**
+   * Provides content to include a component in the top of the table.
    */
   topContent?: ReactNode;
   /**
-   * A property to include a component in the bottom of the table.
+   * Provides content to include a component in the bottom of the table.
    */
   bottomContent?: ReactNode;
   /**
@@ -116,6 +120,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
   const {
     ref,
     as,
+    baseRef,
     children,
     className,
     classNames,
@@ -136,6 +141,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
   const Component = as || "table";
 
   const domRef = useDOMRef(ref);
+  const domBaseRef = useDOMRef(baseRef);
 
   const state = useTableState({
     ...originalProps,
@@ -183,13 +189,13 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       state,
       collection,
       isSelectable,
-      disableAnimation,
-      originalProps?.color,
       classNames,
       selectionMode,
       selectionBehavior,
       disabledBehavior,
       showSelectionCheckboxes,
+      disableAnimation,
+      originalProps?.color,
       onRowAction,
       onCellAction,
     ],
@@ -198,6 +204,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
   const getBaseProps: PropGetter = useCallback(
     (props) => ({
       ...props,
+      ref: domBaseRef,
       className: slots.base({class: clsx(baseStyles, props?.className)}),
     }),
     [baseStyles, slots],

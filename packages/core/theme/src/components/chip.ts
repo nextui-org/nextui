@@ -43,10 +43,10 @@ const chip = tv({
     variant: {
       solid: {},
       bordered: {
-        base: "border-1.5 !bg-transparent",
+        base: "border-1.5 bg-transparent",
       },
       light: {
-        base: "!bg-transparent",
+        base: "bg-transparent",
       },
       flat: {},
       faded: {
@@ -54,7 +54,7 @@ const chip = tv({
       },
       shadow: {},
       dot: {
-        base: "border-1.5 border-neutral text-foreground !bg-transparent",
+        base: "border-1.5 border-neutral text-foreground bg-transparent",
       },
     },
     color: {

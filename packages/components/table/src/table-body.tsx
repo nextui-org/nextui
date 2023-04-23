@@ -22,6 +22,9 @@ const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
   const tbodyStyles = clsx(classNames?.tbody, className);
   const bodyProps = collection.body.props;
 
+  const isLoading =
+    bodyProps?.loadingState === "loading" || bodyProps?.loadingState === "loadingMore";
+
   const renderRows = useMemo(() => {
     return [...collection.body.childNodes].map((row) => (
       <TableRow key={row.key} node={row}>
@@ -36,17 +39,32 @@ const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
     ));
   }, [collection.body.childNodes]);
 
-  let emptyState;
+  let emptyContent;
+  let loadingContent;
 
-  if (collection.size === 0 && bodyProps.renderEmptyState) {
-    emptyState = (
+  if (collection.size === 0 && bodyProps.emptyContent) {
+    emptyContent = (
       <tr role="row">
         <td
           className={slots?.emptyWrapper({class: classNames?.emptyWrapper})}
           colSpan={collection.columnCount}
           role="gridcell"
         >
-          {bodyProps.renderEmptyState()}
+          {bodyProps.emptyContent}
+        </td>
+      </tr>
+    );
+  }
+
+  if (isLoading && bodyProps.loadingContent) {
+    loadingContent = (
+      <tr role="row">
+        <td
+          className={slots?.loadingWrapper({class: classNames?.loadingWrapper})}
+          colSpan={collection.columnCount}
+          role="gridcell"
+        >
+          {bodyProps.loadingContent}
         </td>
       </tr>
     );
@@ -58,9 +76,11 @@ const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
       {...mergeProps(rowGroupProps, filterDOMProps(bodyProps, {labelable: true}), otherProps)}
       className={slots.tbody?.({class: tbodyStyles})}
       data-empty={dataAttr(collection.size === 0)}
+      data-loading={dataAttr(isLoading)}
     >
       {renderRows}
-      {emptyState}
+      {loadingContent}
+      {emptyContent}
     </Component>
   );
 });

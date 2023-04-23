@@ -37,7 +37,7 @@ const base: SemanticBaseColors = {
   },
   dark: {
     background: {
-      DEFAULT: "#0B0B0C",
+      DEFAULT: "#000000",
     },
     foreground: {
       DEFAULT: "#ECEDEE",

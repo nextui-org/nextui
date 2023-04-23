@@ -2,7 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseSpinnerProps, useSpinner} from "./use-spinner";
 
-export interface SpinnerProps extends Omit<UseSpinnerProps, "ref"> {}
+export interface SpinnerProps extends UseSpinnerProps {}
 
 const Spinner = forwardRef<SpinnerProps, "div">((props, ref) => {
   const {domRef, slots, classNames, label, getSpinnerProps} = useSpinner({ref, ...props});
@@ -16,6 +16,6 @@ const Spinner = forwardRef<SpinnerProps, "div">((props, ref) => {
   );
 });
 
-Spinner.displayName = "NextUI.Loading";
+Spinner.displayName = "NextUI.Spinner";
 
 export default Spinner;

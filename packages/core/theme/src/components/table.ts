@@ -48,9 +48,19 @@ const focusRing = [
  */
 const table = tv({
   slots: {
-    base: "flex flex-col items-center p-4 gap-4 border border-neutral-100 overflow-auto",
-    table: "",
-    thead: "",
+    base: [
+      "p-4",
+      "flex",
+      "flex-col",
+      "relative",
+      "justify-between",
+      "gap-4",
+      "border",
+      "border-neutral-100",
+      "overflow-auto",
+    ],
+    table: "min-w-full h-auto",
+    thead: "[&>tr]:first:rounded-lg",
     tbody: "",
     tr: ["group", "outline-none", ...focusRing],
     th: [
@@ -77,7 +87,7 @@ const table = tv({
       "relative",
       "align-middle",
       "whitespace-normal",
-      "text-base",
+      "text-sm",
       "font-normal",
       "outline-none",
       ...focusRing,
@@ -101,10 +111,10 @@ const table = tv({
       "transition-transform-opacity",
       "data-[visible=true]:opacity-100",
       "group-data-[hover=true]:opacity-100",
-      "data-[direction=descending]:rotate-0",
       "data-[direction=ascending]:rotate-180",
     ],
-    emptyWrapper: "text-neutral-300 align-middle text-center h-36",
+    emptyWrapper: "text-neutral-400 align-middle text-center h-40",
+    loadingWrapper: "absolute inset-0 flex items-center justify-center",
   },
   variants: {
     color: {
@@ -193,6 +203,11 @@ const table = tv({
           "group-data-[odd=true]:before:bg-neutral-100",
           "group-data-[odd=true]:before:opacity-100",
         ],
+      },
+    },
+    isHeaderSticky: {
+      true: {
+        thead: "sticky top-0 z-10 [&>tr]:first:shadow",
       },
     },
     isSelectable: {

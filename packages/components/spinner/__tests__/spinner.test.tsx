@@ -11,7 +11,7 @@ describe("Spinner", () => {
   });
 
   it("ref should be forwarded", () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLElement>();
 
     render(<Spinner ref={ref} />);
     expect(ref.current).not.toBeNull();

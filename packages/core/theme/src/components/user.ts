@@ -27,7 +27,7 @@ const user = tv({
       "data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
     wrapper: "inline-flex flex-col items-start",
-    name: "text-sm text-foreground dark:text-foreground-dark",
+    name: "text-sm text-inherit",
     description: "text-xs text-neutral-400",
   },
 });

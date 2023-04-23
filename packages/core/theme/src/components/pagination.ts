@@ -333,7 +333,7 @@ const pagination = tv({
         "data-[focus-visible=true]:ring-offset-background",
         "data-[focus-visible=true]:dark:ring-offset-background-dark",
         // disabled
-        "data-[disabled=true]:opacity-50",
+        "data-[disabled=true]:text-neutral-300",
         "data-[disabled=true]:pointer-events-none",
       ],
     },

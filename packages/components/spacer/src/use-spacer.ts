@@ -6,6 +6,8 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
+import {spacing, Space} from "./utils";
+
 export interface UseSpacerProps extends HTMLNextUIProps<"span", SpacerVariantProps> {
   /**
    * Ref to the DOM node.
@@ -14,17 +16,21 @@ export interface UseSpacerProps extends HTMLNextUIProps<"span", SpacerVariantPro
   /**
    * The x-axis margin.
    * @default 1
+   *
+   * @see https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale
    */
-  x?: number;
+  x?: Space;
   /**
    * The y-axis margin.
    * @default 1
+   *
+   * @see https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale
    */
-  y?: number;
+  y?: Space;
 }
 
-export const getMargin = (num: number): string => {
-  return `calc(${num * 15.25}pt + 1px * ${num - 1})`;
+export const getMargin = (value: Space) => {
+  return spacing[value] ?? value;
 };
 
 export function useSpacer(originalProps: UseSpacerProps) {

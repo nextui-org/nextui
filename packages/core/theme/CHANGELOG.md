@@ -1,5 +1,17 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230423212921
+
+### Patch Changes
+
+- Table improvements
+
+## 0.0.0-dev-v2-20230423211529
+
+### Patch Changes
+
+- Table component addded
+
 ## 0.0.0-dev-v2-20230421004240
 
 ### Patch Changes

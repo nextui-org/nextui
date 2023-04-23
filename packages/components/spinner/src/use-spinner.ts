@@ -10,7 +10,7 @@ export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantPr
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLDivElement | null>;
+  ref?: ReactRef<HTMLElement | null>;
   /**
    * Spinner label, in case you passed it will be used as `aria-label`.
    */
