@@ -125,6 +125,7 @@ const navbar = tv({
       "group-data-[open=true]:after:-rotate-45",
     ],
     brand: [
+      "w-full",
       "flex",
       "flex-row",
       "flex-nowrap",
@@ -136,7 +137,18 @@ const navbar = tv({
       "whitespace-nowrap",
       "box-border",
     ],
-    content: ["flex", "h-full", "flex-row", "flex-nowrap", "items-center", "gap-4"],
+    content: [
+      "flex",
+      "w-full",
+      "h-full",
+      "flex-row",
+      "flex-nowrap",
+      "items-center",
+      "gap-4",
+      "data-[justify=start]:justify-start",
+      "data-[justify=center]:justify-center",
+      "data-[justify=end]:justify-end",
+    ],
     item: [
       "text-base",
       "whitespace-nowrap",

@@ -27,7 +27,6 @@ const button = tv({
     "inline-flex",
     "items-center",
     "justify-center",
-    "max-w-fit",
     "box-border",
     "appearance-none",
     "outline-none",
@@ -36,7 +35,7 @@ const button = tv({
     "subpixel-antialiased",
     "data-[pressed=true]:scale-95",
     "overflow-hidden",
-    "gap-3",
+    "gap-1.5",
     // svg icon
     "[&>svg]:max-w-[2em]",
     // focus ring

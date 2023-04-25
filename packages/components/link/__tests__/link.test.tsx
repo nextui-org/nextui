@@ -33,14 +33,14 @@ describe("Link", () => {
     expect(container.querySelector("svg")).not.toBeNull();
   });
 
-  it('should have target="_blank" and rel="noopener" when "isExternal" is true', () => {
+  it('should have target="_blank" and rel="noopener noreferrer" when "isExternal" is true', () => {
     const {container} = render(
       <Link isExternal href="#">
         Link
       </Link>,
     );
 
-    expect(container.querySelector("a")?.rel).toBe("noopener");
+    expect(container.querySelector("a")?.rel).toBe("noopener noreferrer");
     expect(container.querySelector("a")?.target).toBe("_blank");
   });
 

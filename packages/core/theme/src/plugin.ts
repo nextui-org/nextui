@@ -4,7 +4,7 @@
  */
 
 import Color from "color";
-import plugin from "tailwindcss/plugin";
+import plugin from "tailwindcss/plugin.js";
 import forEach from "lodash.foreach";
 import flatten from "flat";
 import get from "lodash.get";

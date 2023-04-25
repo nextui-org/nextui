@@ -74,7 +74,6 @@
     "@types/react": "^18.0.1",
     "@types/react-dom": "^18.0.0",
     "@types/shelljs": "^0.8.9",
-    "@types/styled-jsx": "^2.2.8",
     "@types/testing-library__jest-dom": "5.14.5",
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^5.42.0",

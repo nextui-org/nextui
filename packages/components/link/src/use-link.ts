@@ -5,8 +5,10 @@ import {link} from "@nextui-org/theme";
 import {useLink as useAriaLink} from "@react-aria/link";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef} from "@nextui-org/shared-utils";
+import {useFocusRing} from "@react-aria/focus";
+import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
+import {mergeProps} from "@react-aria/utils";
 
 interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
   /**
@@ -42,6 +44,7 @@ export function useLink(originalProps: UseLinkProps) {
     anchorIcon,
     isExternal = false,
     showAnchorIcon = false,
+    autoFocus = false,
     className,
     ...otherProps
   } = props;
@@ -52,8 +55,12 @@ export function useLink(originalProps: UseLinkProps) {
 
   const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
 
+  const {isFocused, isFocusVisible, focusProps} = useFocusRing({
+    autoFocus,
+  });
+
   if (isExternal) {
-    otherProps.rel = otherProps.rel ?? "noopener";
+    otherProps.rel = otherProps.rel ?? "noopener noreferrer";
     otherProps.target = otherProps.target ?? "_blank";
   }
 
@@ -70,12 +77,13 @@ export function useLink(originalProps: UseLinkProps) {
     [...Object.values(variantProps), className],
   );
 
-  const getLinkProps: PropGetter = () => {
+  const getLinkProps: PropGetter = (props = {}) => {
     return {
       ref: domRef,
       className: classNames,
-      ...linkProps,
-      ...otherProps,
+      "data-focused": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      ...mergeProps(focusProps, linkProps, otherProps, props),
     };
   };
 

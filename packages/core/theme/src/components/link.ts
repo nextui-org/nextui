@@ -2,8 +2,6 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {focusVisibleClasses} from "../utils";
-
 /**
  * Link wrapper **Tailwind Variants** component
  *
@@ -11,7 +9,15 @@ import {focusVisibleClasses} from "../utils";
  * <a className={link({ color: "secondary", isBlock: true })} href="#" />
  */
 const link = tv({
-  base: [...focusVisibleClasses, "relative inline-flex items-center [&_svg]:ml-1"],
+  base: [
+    "relative inline-flex items-center outline-none", // focus ring
+    "data-[focus-visible=true]:outline-none",
+    "data-[focus-visible=true]:ring-2",
+    "data-[focus-visible=true]:ring-primary",
+    "data-[focus-visible=true]:ring-offset-2",
+    "data-[focus-visible=true]:ring-offset-background",
+    "data-[focus-visible=true]:dark:ring-offset-background-dark",
+  ],
   variants: {
     size: {
       xs: "text-xs",
@@ -28,13 +34,27 @@ const link = tv({
       warning: "text-warning",
       danger: "text-danger",
     },
-    isUnderline: {
-      true: "hover:underline active:underline focus:underline underline-offset-4",
-      false: "no-underline",
+    underline: {
+      none: "no-underline",
+      hover: "hover:underline",
+      always: "underline",
+      active: "active:underline",
+      focus: "focus:underline",
     },
     isBlock: {
-      true:
-        "px-2 py-1 hover:after:opacity-100 after:content-[' '] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute",
+      true: [
+        "px-2",
+        "py-1",
+        "hover:after:opacity-100",
+        "after:content-['']",
+        "after:inset-0",
+        "after:opacity-0",
+        "after:w-full",
+        "after:h-full",
+        "after:rounded-xl",
+        "after:transition-background",
+        "after:absolute",
+      ],
       false: "hover:opacity-80 transition-opacity",
     },
     isDisabled: {
@@ -75,12 +95,16 @@ const link = tv({
       color: "danger",
       class: "hover:after:bg-danger/20",
     },
+    {
+      underline: ["hover", "always", "active", "focus"],
+      class: "underline-offset-4",
+    },
   ],
   defaultVariants: {
     color: "primary",
     size: "md",
     isBlock: false,
-    isUnderline: false,
+    underline: "none",
     isDisabled: false,
     disableAnimation: false,
   },

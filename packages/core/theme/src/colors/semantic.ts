@@ -1,6 +1,6 @@
 import type {SemanticColors, SemanticBaseColors} from "./types";
 
-import twColors from "tailwindcss/colors";
+import twColors from "tailwindcss/colors.js";
 import {readableColor} from "color2k";
 
 import {swapColorValues} from "../utils/object";
@@ -16,7 +16,7 @@ const base: SemanticBaseColors = {
       DEFAULT: "#11181C",
     },
     border: {
-      DEFAULT: "#00000026",
+      DEFAULT: twColors.zinc[300],
     },
     content1: {
       DEFAULT: twColors.zinc[50],
@@ -43,7 +43,7 @@ const base: SemanticBaseColors = {
       DEFAULT: "#ECEDEE",
     },
     border: {
-      DEFAULT: "#ffffff26",
+      DEFAULT: twColors.zinc[700],
     },
     content1: {
       DEFAULT: twColors.zinc[900],

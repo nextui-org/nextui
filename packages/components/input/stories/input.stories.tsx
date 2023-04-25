@@ -144,8 +144,8 @@ const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) =
   <div className="w-full flex flex-col items-center gap-12">
     <div className="w-full max-w-xl flex flex-row items-end gap-4">
       <Input {...args} />
-      <Input {...args} labelPosition="outside" />
-      <Input {...args} labelPosition="outside-left" />
+      <Input {...args} labelPosition="inside" />
+      <Input {...args} labelPosition="inside" />
     </div>
     <div className="w-full max-w-xl flex flex-row items-end gap-4">
       <Input {...args} placeholder="Enter your email" />

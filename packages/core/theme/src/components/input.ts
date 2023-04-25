@@ -22,7 +22,7 @@ import {tv} from "tailwind-variants";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col gap-2",
+    base: "group flex flex-col data-[has-elements=true]:gap-2",
     label: "block text-sm font-medium text-neutral-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
@@ -246,7 +246,7 @@ const input = tv({
     variant: "flat",
     color: "neutral",
     size: "md",
-    radius: "xl",
+    radius: "lg",
     fullWidth: true,
     labelPosition: "inside",
     isDisabled: false,

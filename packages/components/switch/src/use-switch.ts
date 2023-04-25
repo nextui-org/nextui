@@ -74,7 +74,7 @@ export type UseSwitchProps = Omit<Props, "defaultChecked"> &
   Omit<AriaSwitchProps, keyof ToggleVariantProps | "onChange"> &
   ToggleVariantProps;
 
-export function useSwitch(originalProps: UseSwitchProps) {
+export function useSwitch(originalProps: UseSwitchProps = {}) {
   const [props, variantProps] = mapPropsVariants(originalProps, toggle.variantKeys);
 
   const {

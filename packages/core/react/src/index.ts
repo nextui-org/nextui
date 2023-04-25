@@ -26,3 +26,4 @@ export * from "@nextui-org/modal";
 export * from "@nextui-org/navbar";
 export * from "@nextui-org/table";
 export * from "@nextui-org/spacer";
+export * from "@nextui-org/divider";

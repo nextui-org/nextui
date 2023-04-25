@@ -82,7 +82,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
       className="max-w-[90%] sm:max-w-[80%] max-h-[90vh] overflow-x-hidden overflow-y-scroll shadow-md relative border border-neutral"
     >
       {children}
-      <div className="flex flex-col gap-4 px-10 mt-8">
+      <div className="max-w-5xl flex flex-col gap-4 px-10 mt-8">
         <h1>Lorem ipsum dolor sit ame</h1>
         {[1, 2, 3, 4, 5, 6, 7].map((i) => (
           <Lorem key={i} className="mb-5 text-lg" count={1} sentenceUpperBound={40} />
@@ -122,7 +122,7 @@ const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
             Company
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent justify="end">
           <NavbarItem as={Link} href="#">
             Login
           </NavbarItem>
@@ -185,7 +185,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
             Company
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent justify="end">
           <NavbarItem as={Link} href="#">
             Login
           </NavbarItem>
@@ -307,7 +307,7 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
             Company
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent justify="end">
           <NavbarItem as={Link} href="#">
             Login
           </NavbarItem>
@@ -376,7 +376,7 @@ const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps
             Settings
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent justify="end">
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <NavbarItem>
@@ -451,11 +451,12 @@ const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProp
             </NavbarMenuItem>
           ))}
         </NavbarMenu>
-        <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">ACME</p>
-        </NavbarBrand>
-        <NavbarContent className="hidden gap-3 md:flex">
+
+        <NavbarContent className="hidden gap-3 md:flex" justify="start">
+          <NavbarBrand>
+            <AcmeLogo />
+            <p className="font-bold text-inherit">ACME</p>
+          </NavbarBrand>
           <NavbarItem as={Link} color="foreground" href="#">
             Dashboard
           </NavbarItem>
@@ -472,7 +473,7 @@ const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProp
             Settings
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent justify="end">
           <NavbarItem className="hidden md:flex">
             <Input
               classNames={{

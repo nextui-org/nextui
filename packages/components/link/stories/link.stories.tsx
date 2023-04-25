@@ -23,6 +23,12 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
+    underline: {
+      control: {
+        type: "select",
+        options: ["none", "hover", "always", "active", "focus"],
+      },
+    },
     isDisabled: {
       control: {
         type: "boolean",
@@ -50,10 +56,10 @@ Default.args = {
   size: "md",
 };
 
-export const isUnderline = Template.bind({}) as any;
-isUnderline.args = {
+export const Underline = Template.bind({}) as any;
+Underline.args = {
   ...defaultProps,
-  isUnderline: true,
+  underline: "always",
   isDisabled: false,
   size: "md",
 };

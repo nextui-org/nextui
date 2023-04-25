@@ -128,6 +128,7 @@ export function useInput(originalProps: UseInputProps) {
   const labelPosition = originalProps.labelPosition || "inside";
   const isLabelPlaceholder = !props.placeholder && labelPosition !== "outside-left" && !isMultiline;
   const isClearable = !!onClear || originalProps.isClearable;
+  const hasElements = !!label || !!description || !!errorMessage;
 
   const shouldLabelBeOutside = labelPosition === "outside" || labelPosition === "outside-left";
   const shouldLabelBeInside = labelPosition === "inside";
@@ -151,7 +152,7 @@ export function useInput(originalProps: UseInputProps) {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-focused": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
-
+      "data-has-elements": dataAttr(hasElements),
       ...props,
     };
   };
