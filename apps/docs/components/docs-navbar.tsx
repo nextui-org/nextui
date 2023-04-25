@@ -10,6 +10,7 @@ import {
   Input,
   Link,
   Button,
+  Kbd,
 } from "@nextui-org/react";
 
 import {NextUILogo, ThemeSwitch} from "@/components";
@@ -74,9 +75,9 @@ export const DocsNavbar = () => {
             classNames={{
               input: "text-sm",
             }}
+            endContent={<Kbd keys={["command"]}>K</Kbd>}
             labelPosition="outside"
             placeholder="Search..."
-            onClear={() => {}}
           />
         </NavbarItem>
         <NavbarItem>

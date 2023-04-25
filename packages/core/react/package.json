@@ -67,7 +67,8 @@
     "@nextui-org/navbar": "workspace:*",
     "@nextui-org/table": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
-    "@nextui-org/divider": "workspace:*"
+    "@nextui-org/divider": "workspace:*",
+    "@nextui-org/kbd": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

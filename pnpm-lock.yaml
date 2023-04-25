@@ -1621,6 +1621,9 @@ importers:
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../../components/input
+      '@nextui-org/kbd':
+        specifier: workspace:*
+        version: link:../../components/kbd
       '@nextui-org/link':
         specifier: workspace:*
         version: link:../../components/link
