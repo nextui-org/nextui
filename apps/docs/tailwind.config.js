@@ -1,5 +1,8 @@
 const { nextui } = require("@nextui-org/theme/dist/plugin");
 
+// get tailwindcss default config
+const defaultConfig = require("tailwindcss/defaultConfig");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,7 +11,11 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "../../packages/core/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
+  darkMode: "class",
   theme: {
+    fontFamily: {
+      sans: ["Inter", ...defaultConfig.theme.fontFamily.sans],
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

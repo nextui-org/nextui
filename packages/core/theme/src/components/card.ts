@@ -28,6 +28,7 @@ const card = tv({
       "outline-none",
       "text-foreground",
       "box-border",
+      "bg-background",
       "dark:bg-content1",
       "border border-neutral-100",
       // focus ring
@@ -162,7 +163,7 @@ const card = tv({
     },
     isFooterBlurred: {
       true: {
-        footer: "backdrop-blur-xl backdrop-saturate-200",
+        footer: "bg-background/10 backdrop-blur backdrop-saturate-150",
       },
     },
     isDisabled: {

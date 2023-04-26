@@ -272,6 +272,9 @@ importers:
       '@nextui-org/react':
         specifier: workspace:*
         version: link:../../packages/core/react
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../packages/utilities/shared-icons
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../packages/core/theme

@@ -35,6 +35,9 @@ const pagination = tv({
       "origin-center",
       "left-0",
     ],
+    forwardIcon: "hidden group-hover:block data-[before=true]:rotate-180",
+    ellipsis: "group-hover:hidden",
+    chevronNext: "rotate-180",
   },
   variants: {
     variant: {

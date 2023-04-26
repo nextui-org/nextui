@@ -28,3 +28,4 @@ export * from "./lock-filled";
 export * from "./edit";
 export * from "./delete";
 export * from "./eye";
+export * from "./arrow-right";

@@ -3,7 +3,7 @@ import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {useCallback} from "react";
 import {PaginationItemType} from "@nextui-org/use-pagination";
 import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@nextui-org/shared-icons";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
 import {UsePaginationProps, usePagination} from "./use-pagination";
 import PaginationItem from "./pagination-item";
@@ -81,7 +81,11 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             value={value}
             onPress={onNext}
           >
-            <ChevronIcon className="rotate-180" />
+            <ChevronIcon
+              className={slots.chevronNext({
+                class: classNames?.chevronNext,
+              })}
+            />
           </PaginationItem>
         );
       }
@@ -100,12 +104,11 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
                 : setPage(activePage + dotsJump <= total ? activePage + dotsJump : total)
             }
           >
-            <EllipsisIcon className="group-hover:hidden" />
-            {isBefore ? (
-              <ForwardIcon className="hidden group-hover:block rotate-180" />
-            ) : (
-              <ForwardIcon className="hidden group-hover:block" />
-            )}
+            <EllipsisIcon className={slots?.ellipsis({class: classNames?.ellipsis})} />
+            <ForwardIcon
+              className={slots?.forwardIcon({class: classNames?.forwardIcon})}
+              data-before={dataAttr(isBefore)}
+            />
           </PaginationItem>
         );
       }

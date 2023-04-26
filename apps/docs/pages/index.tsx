@@ -1,9 +1,10 @@
 import {DefaultLayout} from "@/layouts";
+import {Hero} from "@/components";
 
 const IndexPage = () => {
   return (
     <DefaultLayout>
-      <p>Welcome to NextUI v2</p>
+      <Hero />
     </DefaultLayout>
   );
 };

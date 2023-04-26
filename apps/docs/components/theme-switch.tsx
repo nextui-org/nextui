@@ -14,6 +14,7 @@ export const ThemeSwitch: FC<{}> = () => {
   };
 
   const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} = useSwitch({
+    isSelected: theme === "light",
     onChange,
   });
 

@@ -23,6 +23,7 @@ import {colorVariants} from "../utils";
 const button = tv({
   base: [
     "z-0",
+    "group",
     "relative",
     "inline-flex",
     "items-center",

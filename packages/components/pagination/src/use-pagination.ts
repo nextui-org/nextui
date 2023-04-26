@@ -68,6 +68,9 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    *    item: "item-classes",
    *    next: "next-classes", // next button classes
    *    cursor: "cursor-classes", // this is the one that moves when an item is selected
+   *    forwardIcon: "forward-icon-classes", // forward icon
+   *    ellipsis: "ellipsis-classes", // ellipsis icon
+   *    chevronNext: "chevron-next-classes", // chevron next icon
    * }} />
    * ```
    */
