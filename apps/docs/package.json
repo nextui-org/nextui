@@ -13,6 +13,7 @@
     "@nextui-org/react": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "next": "13.3.0",
     "next-themes": "^0.2.1",
     "react": "^18.0.0",

@@ -275,6 +275,9 @@ importers:
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../packages/utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../packages/utilities/shared-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../packages/core/theme
@@ -1494,6 +1497,61 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/tabs:
+    dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
+      '@nextui-org/dom-utils':
+        specifier: workspace:*
+        version: link:../../utilities/dom-utils
+      '@nextui-org/framer-transitions':
+        specifier: workspace:*
+        version: link:../../utilities/framer-transitions
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@react-aria/focus':
+        specifier: ^3.12.0
+        version: 3.12.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.15.0
+        version: 3.15.0(react@18.2.0)
+      '@react-aria/tabs':
+        specifier: ^3.5.0
+        version: 3.5.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+      '@react-stately/tabs':
+        specifier: ^3.4.0
+        version: 3.4.0(react@18.2.0)
+    devDependencies:
+      '@react-types/shared':
+        specifier: ^3.18.0
+        version: 3.18.0(react@18.2.0)
+      '@react-types/tabs':
+        specifier: ^3.2.1
+        version: 3.2.1(react@18.2.0)
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      framer-motion:
+        specifier: ^10.11.2
+        version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-lorem-component:
+        specifier: 0.13.0
+        version: 0.13.0(react@18.2.0)
+
   packages/components/tooltip:
     dependencies:
       '@nextui-org/aria-utils':
@@ -1666,6 +1724,9 @@ importers:
       '@nextui-org/table':
         specifier: workspace:*
         version: link:../../components/table
+      '@nextui-org/tabs':
+        specifier: workspace:*
+        version: link:../../components/tabs
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../theme
@@ -6252,6 +6313,24 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@react-aria/tabs@3.5.0(react@18.2.0):
+    resolution: {integrity: sha512-QnCoNHDmeRoPWLHsr1Q81RN/KymwU79XS/zHguhZ3fx59je9bswUDG77NjylcPRXoOEOZ18gZ+Y7reBVRhNEog==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.12.0(react@18.2.0)
+      '@react-aria/i18n': 3.7.1(react@18.2.0)
+      '@react-aria/interactions': 3.15.0(react@18.2.0)
+      '@react-aria/selection': 3.14.0(react@18.2.0)
+      '@react-aria/utils': 3.16.0(react@18.2.0)
+      '@react-stately/list': 3.8.0(react@18.2.0)
+      '@react-stately/tabs': 3.4.0(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      '@react-types/tabs': 3.2.1(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
   /@react-aria/toggle@3.6.0(react@18.2.0):
     resolution: {integrity: sha512-W6xncx5zzqCaPU2XsgjWnACHL3WBpxphYLvF5XlICRg0nZVjGPIWPDDUGyDoPsSUeGMW2vxtFY6erKXtcy4Kgw==}
     peerDependencies:
@@ -6383,6 +6462,19 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-stately/list@3.8.0(react@18.2.0):
+    resolution: {integrity: sha512-eJ1iUFnXPZi5MGW2h/RdNTrKtq4HLoAlFAQbC4eSPlET6VDeFsX9NkKhE/A111ia24DnWCqJB5zH20EvNbOxxA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-stately/collections': 3.7.0(react@18.2.0)
+      '@react-stately/selection': 3.13.0(react@18.2.0)
+      '@react-stately/utils': 3.6.0(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
   /@react-stately/menu@3.5.1(react@18.2.0):
     resolution: {integrity: sha512-nnuZlDBFIc3gB34kofbKDStFg9r8rijY+7ez2VWQmss72I9D7+JTn7OXJxV0oQt2lBYmNfS5W6bC9uXk3Z4dLg==}
     peerDependencies:
@@ -6442,6 +6534,19 @@ packages:
       '@react-types/grid': 3.1.7(react@18.2.0)
       '@react-types/shared': 3.18.0(react@18.2.0)
       '@react-types/table': 3.6.0(react@18.2.0)
+      '@swc/helpers': 0.4.14
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/tabs@3.4.0(react@18.2.0):
+    resolution: {integrity: sha512-GeU0cykAEsyTf2tWC7JZqqLrgxPT1WriCmu9QAswJ7Dev1PkPvwDy3CEhJ3QDklTlhiLXLZOooyHh37lZTjRdg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-stately/list': 3.8.0(react@18.2.0)
+      '@react-stately/utils': 3.6.0(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      '@react-types/tabs': 3.2.1(react@18.2.0)
       '@swc/helpers': 0.4.14
       react: 18.2.0
     dev: false
@@ -6628,6 +6733,14 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/grid': 3.1.7(react@18.2.0)
+      '@react-types/shared': 3.18.0(react@18.2.0)
+      react: 18.2.0
+
+  /@react-types/tabs@3.2.1(react@18.2.0):
+    resolution: {integrity: sha512-KgvhrYvISQUq540iuNc3bRvOCfLvaeqpB5VwDYR8amG1FVWHklCW8xx8Uz63SVkOvNtExYCrlw63M/OnjRUzOw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
       '@react-types/shared': 3.18.0(react@18.2.0)
       react: 18.2.0
 

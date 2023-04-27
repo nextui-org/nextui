@@ -1,11 +1,16 @@
-import {useState} from "react";
+import {useState, FC} from "react";
 import {Card, CardHeader, Button, Avatar, CardBody, CardFooter} from "@nextui-org/react";
+import {clsx} from "@nextui-org/shared-utils";
 
-export const UserTwitterCard = () => {
+interface UserTwitterCardProps {
+  className?: string;
+}
+
+export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
   const [isFollowed, setIsFollowed] = useState(false);
 
   return (
-    <Card className="max-w-[300px]">
+    <Card className={clsx("max-w-[300px]", className)}>
       <CardHeader className="justify-between">
         <div className="flex gap-5">
           <Avatar isBordered radius="full" size="md" src="/avatars/avatar-1.png" />

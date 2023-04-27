@@ -11,14 +11,7 @@ export interface LogoProps extends IconSvgProps {
   className?: string;
 }
 
-export const NextUILogo: React.FC<LogoProps> = ({
-  auto = true,
-  size,
-  width,
-  height,
-  small,
-  ...props
-}) => {
+export const NextUILogo: React.FC<LogoProps> = ({auto, size, width, height, small, ...props}) => {
   const Small = () => (
     <svg
       className="data-[auto=true]:sm:hidden block text-foreground"

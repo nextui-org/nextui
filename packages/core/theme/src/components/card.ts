@@ -163,7 +163,17 @@ const card = tv({
     },
     isFooterBlurred: {
       true: {
-        footer: "bg-background/10 backdrop-blur backdrop-saturate-150",
+        footer: [
+          "before:content-['']",
+          "before:block",
+          "before:z-[-1]",
+          "before:absolute",
+          "before:-top-px",
+          "before:inset-0",
+          "before:bg-background/10",
+          "before:backdrop-blur",
+          "before:backdrop-saturate-150",
+        ],
       },
     },
     isDisabled: {

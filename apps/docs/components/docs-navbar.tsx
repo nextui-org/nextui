@@ -58,7 +58,7 @@ export const DocsNavbar = () => {
     <Navbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3">
-          <NextUILogo />
+          <NextUILogo auto />
           <Dropdown placement="bottom-start">
             <DropdownTrigger>
               <Button

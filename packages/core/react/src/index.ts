@@ -28,3 +28,4 @@ export * from "@nextui-org/table";
 export * from "@nextui-org/spacer";
 export * from "@nextui-org/divider";
 export * from "@nextui-org/kbd";
+export * from "@nextui-org/tabs";

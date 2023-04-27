@@ -28,10 +28,28 @@ module.exports = {
         '0%': { transform: 'scale(1)' },
         '50%': { transform: 'scale(1.2)' },
         '100%': { transform: 'scale(1)' },
+      },
+      levitate: {
+        "0%": {
+          transform: "translateY(0)",
+        },
+        "30%": {
+          transform: "translateY(-10px)",
+        },
+        "50%": {
+          transform: "translateY(4px)",
+        },
+        "70%": {
+          transform: "translateY(-15px)",
+        },
+        "100%": {
+          transform: "translateY(0)",
+        },
       }
     },
     animation: {
       'heartbeat': 'heartbeat 1s ease-in-out infinite',
+      'levitate': 'levitate 5s ease infinite',
     }
   },
   plugins: [nextui()],
