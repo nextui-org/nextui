@@ -75,6 +75,10 @@ const tabs = tv({
       solid: {
         cursor: "inset-0",
       },
+      light: {
+        tabList: "bg-transparent",
+        cursor: "inset-0",
+      },
       underlined: {
         tabList: "bg-transparent",
         cursor: "h-[2px] w-[80%] bottom-0 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
@@ -177,9 +181,9 @@ const tabs = tv({
     /**
      * Variants & Colors
      */
-    // solid + bordered && color
+    // solid + bordered + light && color
     {
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       color: "neutral",
       class: {
         cursor: ["bg-background", "dark:bg-neutral"],
@@ -187,7 +191,7 @@ const tabs = tv({
       },
     },
     {
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       color: "primary",
       class: {
         cursor: colorVariants.solid.primary,
@@ -195,7 +199,7 @@ const tabs = tv({
       },
     },
     {
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       color: "secondary",
       class: {
         cursor: colorVariants.solid.secondary,
@@ -203,7 +207,7 @@ const tabs = tv({
       },
     },
     {
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       color: "success",
       class: {
         cursor: colorVariants.solid.success,
@@ -211,7 +215,7 @@ const tabs = tv({
       },
     },
     {
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       color: "warning",
       class: {
         cursor: colorVariants.solid.warning,
@@ -219,7 +223,7 @@ const tabs = tv({
       },
     },
     {
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       color: "danger",
       class: {
         cursor: colorVariants.solid.danger,
@@ -300,7 +304,7 @@ const tabs = tv({
     {
       disableAnimation: true,
       color: "neutral",
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       class: {
         tab: "data-[selected=true]:bg-neutral data-[selected=true]:text-neutral-foreground",
       },
@@ -308,7 +312,7 @@ const tabs = tv({
     {
       disableAnimation: true,
       color: "primary",
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       class: {
         tab: "data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground",
       },
@@ -316,7 +320,7 @@ const tabs = tv({
     {
       disableAnimation: true,
       color: "secondary",
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       class: {
         tab: "data-[selected=true]:bg-secondary data-[selected=true]:text-secondary-foreground",
       },
@@ -324,7 +328,7 @@ const tabs = tv({
     {
       disableAnimation: true,
       color: "success",
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       class: {
         tab: "data-[selected=true]:bg-success data-[selected=true]:text-success-foreground",
       },
@@ -332,7 +336,7 @@ const tabs = tv({
     {
       disableAnimation: true,
       color: "warning",
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       class: {
         tab: "data-[selected=true]:bg-warning data-[selected=true]:text-warning-foreground",
       },
@@ -340,7 +344,7 @@ const tabs = tv({
     {
       disableAnimation: true,
       color: "danger",
-      variant: ["solid", "bordered"],
+      variant: ["solid", "bordered", "light"],
       class: {
         tab: "data-[selected=true]:bg-danger data-[selected=true]:text-danger-foreground",
       },

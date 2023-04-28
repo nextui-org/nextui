@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/switch",
-  "version": "0.0.0-dev-v2-20230428031422",
+  "version": "0.0.0-dev-v2-20230428210058",
   "description": "A switch is similar to a checkbox, but represents on/off values as opposed to selection.",
   "keywords": [
     "switch"
@@ -54,13 +54,5 @@
     "react": "^18.0.0",
     "@nextui-org/shared-icons": "workspace:*"
   },
-  "clean-package": "../../../clean-package.config.json",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "clean-package": "../../../clean-package.config.json"
 }

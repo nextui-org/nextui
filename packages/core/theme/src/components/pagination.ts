@@ -42,19 +42,14 @@ const pagination = tv({
   variants: {
     variant: {
       bordered: {
-        item: [
-          "border-2.5",
-          "border-neutral",
-          "bg-transparent",
-          "data-[hover=true]:bg-neutral-100",
-        ],
+        item: ["border-2", "border-neutral", "bg-transparent", "data-[hover=true]:bg-neutral-100"],
       },
       light: {
         item: "bg-transparent",
       },
       flat: {},
       faded: {
-        item: "border-2.5",
+        item: "border-2",
       },
     },
     color: {

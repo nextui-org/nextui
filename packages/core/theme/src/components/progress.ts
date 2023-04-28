@@ -27,7 +27,7 @@ const progress = tv(
       label: "",
       labelWrapper: "flex justify-between",
       value: "",
-      track: "z-0 relative bg-neutral-200 overflow-hidden",
+      track: "z-0 relative bg-neutral-300/50 overflow-hidden",
       filler: "h-full",
     },
     variants: {

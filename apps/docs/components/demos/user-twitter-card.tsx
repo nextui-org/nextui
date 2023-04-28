@@ -15,7 +15,7 @@ export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
         <div className="flex gap-5">
           <Avatar isBordered radius="full" size="md" src="/avatars/avatar-1.png" />
           <div className="flex flex-col items-start justify-center">
-            <h4 className="text-base font-semibold leading-none text-neutral-600">Zoey Lang</h4>
+            <h4 className="text-sm font-semibold leading-none text-neutral-600">Zoey Lang</h4>
             <h5 className="text-sm tracking-tight text-neutral-400">@zoeylang</h5>
           </div>
         </div>

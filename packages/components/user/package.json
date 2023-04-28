@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/user",
-  "version": "0.0.0-dev-v2-20230428031422",
+  "version": "0.0.0-dev-v2-20230428210058",
   "description": "Flexible User Profile Component.",
   "keywords": [
     "user"
@@ -50,13 +50,5 @@
     "@nextui-org/link": "workspace:*",
     "react": "^18.0.0"
   },
-  "clean-package": "../../../clean-package.config.json",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "clean-package": "../../../clean-package.config.json"
 }

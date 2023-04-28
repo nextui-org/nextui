@@ -22,6 +22,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
+   * The stroke of the circle and tracker
+   * @default 2
+   */
+  strokeWidth?: number;
+  /**
    * Whether to show the value label.
    * @default false
    */
@@ -37,8 +42,9 @@ export interface Props extends HTMLNextUIProps<"div"> {
    *    labelWrapper: "labelWrapper-classes",
    *    label: "label-classes",
    *    value: "value-classes",
-   *    svg: "svg-classes",
-   *    circle: "circle-classes",
+   *    svg: "svg-classes", // the svg wrapper
+   *    track: "track-classes", // the circle of the background
+   *    circle: "circle-classes", // the circle of the progress
    * }} />
    * ```
    */
@@ -61,6 +67,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     value = undefined,
     minValue = 0,
     maxValue = 100,
+    strokeWidth: strokeWidthProp,
     showValueLabel = false,
     formatOptions = {
       style: "percent",
@@ -106,7 +113,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
   const selfMounted = originalProps.disableAnimation ? true : isMounted;
 
   const center = 16;
-  const strokeWidth = originalProps.size === "xs" ? 2 : 3;
+  const strokeWidth = strokeWidthProp || originalProps.size === "xs" ? 2 : 3;
   const radius = 16 - strokeWidth;
   const circumference = 2 * radius * Math.PI;
 
@@ -171,10 +178,27 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
       strokeDasharray: `${circumference} ${circumference}`,
       strokeDashoffset: offset,
       transform: "rotate(-90 16 16)",
+      strokeLinecap: "round",
       className: slots.circle({class: classNames?.circle}),
       ...props,
     }),
     [slots, classNames, offset, circumference, radius],
+  );
+
+  const getTrackProps = useCallback<PropGetter>(
+    (props = {}) => ({
+      cx: center,
+      cy: center,
+      r: radius,
+      role: "presentation",
+      strokeDasharray: `${circumference} ${circumference}`,
+      strokeDashoffset: 0,
+      transform: "rotate(-90 16 16)",
+      strokeLinecap: "round",
+      className: slots.track({class: classNames?.track}),
+      ...props,
+    }),
+    [slots, classNames, circumference, radius],
   );
 
   return {
@@ -188,6 +212,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     getLabelProps,
     getSvgProps,
     getCircleProps,
+    getTrackProps,
   };
 }
 

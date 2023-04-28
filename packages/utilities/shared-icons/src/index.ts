@@ -28,6 +28,7 @@ export * from "./edit";
 export * from "./delete";
 export * from "./eye";
 export * from "./arrow-right";
+export * from "./link";
 
 // sets
 export * from "./bulk";

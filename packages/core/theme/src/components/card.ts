@@ -161,6 +161,22 @@ const card = tv({
     isPressable: {
       true: {base: "cursor-pointer"},
     },
+    isBlurred: {
+      true: {
+        base: [
+          "bg-transparent",
+          "dark:bg-transparent",
+          "before:bg-background/10",
+          "before:content-['']",
+          "before:block",
+          "before:z-[-1]",
+          "before:absolute",
+          "before:inset-0",
+          "before:backdrop-blur-md",
+          "before:backdrop-saturate-200",
+        ],
+      },
+    },
     isFooterBlurred: {
       true: {
         footer: [

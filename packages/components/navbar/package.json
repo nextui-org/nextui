@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/navbar",
-  "version": "0.0.0-dev-v2-20230428031422",
+  "version": "0.0.0-dev-v2-20230428210058",
   "description": "A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse and more.",
   "keywords": [
     "navbar"
@@ -63,13 +63,5 @@
     "react": "^18.0.0",
     "react-lorem-component": "0.13.0"
   },
-  "clean-package": "../../../clean-package.config.json",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "clean-package": "../../../clean-package.config.json"
 }

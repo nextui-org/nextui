@@ -1,5 +1,21 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230428210058
+
+### Patch Changes
+
+- Use client added to utilities
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230428210058
+
+## 0.0.0-dev-v2-20230428203230
+
+### Patch Changes
+
+- Use client directive added to support next.js app directory
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230428203230
+
 ## 0.0.0-dev-v2-20230428031422
 
 ### Patch Changes

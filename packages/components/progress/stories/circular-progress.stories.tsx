@@ -1,6 +1,8 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {circularProgress} from "@nextui-org/theme";
+import {Card, CardBody, CardFooter} from "@nextui-org/card";
+import {Chip} from "@nextui-org/chip";
 
 import {CircularProgress, CircularProgressProps} from "../src";
 
@@ -50,6 +52,36 @@ const IntervalTemplate: ComponentStory<typeof CircularProgress> = (args: Circula
   return <CircularProgress {...args} value={value} />;
 };
 
+const CustomClassnamesTemplate: ComponentStory<typeof CircularProgress> = (
+  args: CircularProgressProps,
+) => (
+  <Card className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
+    <CardBody className="justify-center items-center pb-0">
+      <CircularProgress
+        {...args}
+        classNames={{
+          svg: "w-36 h-36 drop-shadow-md",
+          circle: "stroke-white",
+          track: "stroke-white/10",
+          value: "text-3xl font-semibold text-white",
+        }}
+        strokeWidth={4}
+      />
+    </CardBody>
+    <CardFooter className="justify-center items-center pt-0">
+      <Chip
+        classNames={{
+          base: "border-1 border-white/30",
+          content: "text-white/80 text-sm font-semibold",
+        }}
+        variant="bordered"
+      >
+        2800 Data points
+      </Chip>
+    </CardFooter>
+  </Card>
+);
+
 export const Default = Template.bind({});
 Default.args = {
   ...defaultProps,
@@ -80,4 +112,13 @@ WithValueFormatting.args = {
   color: "warning",
   showValueLabel: true,
   formatOptions: {style: "unit", unit: "kilometer"},
+};
+
+export const CustomClassnames = CustomClassnamesTemplate.bind({});
+CustomClassnames.args = {
+  ...defaultProps,
+  size: "xl",
+  strokeWidth: 4,
+  value: 70,
+  showValueLabel: true,
 };

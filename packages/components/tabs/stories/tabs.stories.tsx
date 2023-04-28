@@ -23,7 +23,7 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "underlined", "bordered"],
+        options: ["solid", "underlined", "bordered", "light"],
       },
     },
     color: {

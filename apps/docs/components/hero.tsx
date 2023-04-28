@@ -10,6 +10,8 @@ import {
   Switch,
   Spinner,
   Pagination,
+  Tabs,
+  TabItem,
 } from "@nextui-org/react";
 import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
@@ -41,7 +43,8 @@ const FloatingComponents: React.FC = () => {
     <div className="flex flex-col gap-4">
       <Switch
         classNames={{
-          base: "relative top-[140px] left-[240px] animate-[levitate_13s_ease_infinite_1s_reverse]",
+          base: "relative top-[80px] left-[240px] animate-[levitate_13s_ease_infinite_1s_reverse]",
+          wrapper: "shadow-sm",
           startIcon: "text-white",
         }}
         endIcon={<MoonFilledIcon />}
@@ -51,9 +54,20 @@ const FloatingComponents: React.FC = () => {
         onChange={onChange}
       />
 
+      <Input
+        className="relative top-[140px] left-[240px] animate-[levitate_10s_ease_infinite] w-[200px]"
+        color="secondary"
+        defaultValue="NextUI"
+        label="Input"
+        labelPosition="outside"
+        radius="xl"
+        variant="bordered"
+        onClear={() => {}}
+      />
+
       <Card
         isFooterBlurred
-        className="relative h-[120px] animate-[levitate_12s_ease_infinite_1s] left-[80px] top-[40px] z-0 max-w-fit"
+        className="relative top-[-40px] left-[80px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         radius="2xl"
       >
         <Image
@@ -67,32 +81,35 @@ const FloatingComponents: React.FC = () => {
         </CardFooter>
       </Card>
 
-      <Input
-        className="relative animate-[levitate_10s_ease_infinite] -left-[144px] top-[0px] w-[200px]"
-        color="secondary"
-        defaultValue="NextUI"
-        label="Input"
-        labelPosition="outside"
-        radius="xl"
-        variant="bordered"
-        onClear={() => {}}
-      />
+      <Tabs
+        aria-label="Floating tabs example"
+        className="relative -left-[144px] top-[-80px] animate-[levitate_17s_ease_infinite_1s]"
+        classNames={{
+          tabList: "max-w-[200px] bg-content1 shadow-sm",
+        }}
+        radius="full"
+        size="xs"
+      >
+        <TabItem key="notes" title="Notes" />
+        <TabItem key="tasks" title="Tasks" />
+        <TabItem key="files" title="Files" />
+      </Tabs>
 
-      <UserTwitterCard className="animate-[levitate_16s_ease_infinite] relative border-none -left-[240px] top-[20px]" />
+      <UserTwitterCard className="relative -left-[240px] top-[-80px] animate-[levitate_16s_ease_infinite] border-none" />
 
-      <Card className="animate-[levitate_18s_ease_infinite] relative left-[90px] -top-[140px] right-8 shadow-lg z-10 max-w-fit border-none">
+      <Card className="relative left-[90px] -top-[220px] animate-[levitate_18s_ease_infinite] right-8 shadow-lg z-10 max-w-fit border-none">
         <CardBody>
           <NextUILogo small size={60} />
         </CardBody>
       </Card>
 
-      <div className="relative z-10 -top-[230px] -right-[200px] animate-[levitate_14s_ease_infinite_1s]">
+      <div className="relative z-10 -top-[310px] -right-[200px] animate-[levitate_14s_ease_infinite_1s]">
         <Pagination
           isCompact
           showControls
           showShadow
           classNames={{
-            base: "shadow-lg rounded-xl",
+            base: "shadow-sm rounded-xl",
             item: "bg-background dark:bg-content1",
             prev: "bg-background dark:bg-content1",
             next: "bg-background dark:bg-content1",
@@ -111,7 +128,7 @@ const FloatingComponents: React.FC = () => {
         placement="top"
       >
         <Button
-          className="relative -left-[120px] -top-[80px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
+          className="relative -left-[120px] -top-[180px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
           color="secondary"
           size="sm"
           variant="flat"
@@ -120,7 +137,7 @@ const FloatingComponents: React.FC = () => {
         </Button>
       </Tooltip>
 
-      <Card className="relative animate-[levitate_16s_ease_infinite] left-[220px] -top-[260px] right-8 shadow-lg z-10 max-w-fit border-none">
+      <Card className="relative left-[220px] -top-[320px] animate-[levitate_16s_ease_infinite] right-8 shadow-lg z-10 max-w-fit border-none">
         <CardBody>
           <Spinner color="secondary" size="xl" />
         </CardBody>
@@ -128,7 +145,7 @@ const FloatingComponents: React.FC = () => {
 
       <Card
         isFooterBlurred
-        className="relative animate-[levitate_12s_ease_infinite_1s] left-10 -top-[300px] z-0 max-w-fit"
+        className="relative left-10 -top-[380px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         radius="2xl"
       >
         <Image className="object-cover" height={200} src="/images/hero-card.jpeg" width={200} />
@@ -145,7 +162,7 @@ const FloatingComponents: React.FC = () => {
 
 export const Hero = () => {
   return (
-    <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(90vh_-_64px)] max-h-[800px]">
+    <section className="flex relative  w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] max-h-[800px]">
       <div className="flex flex-col gap-6 w-1/2">
         <div>
           <h1 className="text-5xl tracking-tight inline font-semibold">Make&nbsp;</h1>

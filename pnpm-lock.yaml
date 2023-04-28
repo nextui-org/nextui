@@ -926,6 +926,9 @@ importers:
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -1232,6 +1235,12 @@ importers:
         specifier: ^3.16.0
         version: 3.16.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/card':
+        specifier: workspace:*
+        version: link:../card
+      '@nextui-org/chip':
+        specifier: workspace:*
+        version: link:../chip
       '@react-types/progress':
         specifier: ^3.4.0
         version: 3.4.0(react@18.2.0)
