@@ -1533,6 +1533,21 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/card':
+        specifier: workspace:*
+        version: link:../card
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       '@react-types/shared':
         specifier: ^3.18.0
         version: 3.18.0(react@18.2.0)

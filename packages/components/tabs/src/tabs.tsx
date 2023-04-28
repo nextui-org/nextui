@@ -1,17 +1,14 @@
-import {forwardRef} from "@nextui-org/system";
-import {AriaTabProps} from "@react-aria/tabs";
+import {forwardRef, ForwardedRef, ReactElement, Ref} from "react";
 
 import {TabsProvider} from "./tabs-context";
 import {UseTabsProps, useTabs} from "./use-tabs";
 import TabItem from "./tab-item";
 import TabPanel from "./tab-panel";
 
-interface Props extends Omit<UseTabsProps, "ref"> {}
+interface Props<T> extends Omit<UseTabsProps<T>, "ref"> {}
 
-export type TabsProps = Props & AriaTabProps;
-
-const Tabs = forwardRef<TabsProps, "div">((props, ref) => {
-  const {Component, state, context, getBaseProps, getTabListProps} = useTabs({ref, ...props});
+function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+  const {Component, state, context, getBaseProps, getTabListProps} = useTabs<T>({ref, ...props});
 
   return (
     <TabsProvider value={context}>
@@ -25,8 +22,11 @@ const Tabs = forwardRef<TabsProps, "div">((props, ref) => {
       <TabPanel key={state.selectedItem?.key} />
     </TabsProvider>
   );
-});
+}
+
+export type TabsProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+
+// forwardRef doesn't support generic parameters, so cast the result to the correct type
+export default forwardRef(Tabs) as <T = object>(props: TabsProps<T>) => ReactElement;
 
 Tabs.displayName = "NextUI.Tabs";
-
-export default Tabs;

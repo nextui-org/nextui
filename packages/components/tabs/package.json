@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tabs",
-  "version": "2.0.0-beta.1",
+  "version": "0.0.0-dev-v2-20230428031422",
   "description": "Tabs organize content into multiple sections and allow users to navigate between them.",
   "keywords": [
     "tabs"
@@ -54,6 +54,11 @@
     "framer-motion": "^10.11.2",
     "@react-types/shared": "^3.18.0",
     "react-lorem-component": "0.13.0",
+    "@nextui-org/card": "workspace:*",
+    "@nextui-org/input": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@react-types/tabs": "^3.2.1",
     "clean-package": "2.2.0",
     "react": "^18.0.0"

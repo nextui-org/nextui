@@ -23,9 +23,12 @@ export * from "./invalid-card";
 export * from "./eye-filled";
 export * from "./eye-slash-filled";
 export * from "./search";
-export * from "./bulk";
 export * from "./lock-filled";
 export * from "./edit";
 export * from "./delete";
 export * from "./eye";
 export * from "./arrow-right";
+
+// sets
+export * from "./bulk";
+export * from "./bold";

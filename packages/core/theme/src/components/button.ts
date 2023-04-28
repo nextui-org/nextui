@@ -53,7 +53,7 @@ const button = tv({
       bordered: "border-2 !bg-transparent",
       light: "!bg-transparent",
       flat: "",
-      faded: "border-1.5",
+      faded: "border-2.5",
       shadow: "",
       ghost: "border-2 !bg-transparent",
     },

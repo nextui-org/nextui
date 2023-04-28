@@ -42,7 +42,8 @@ export const TRANSITION_EASINGS = {
   easeIn: [0.4, 0, 1, 1],
   easeOut: [0, 0, 0.2, 1],
   easeInOut: [0.4, 0, 0.2, 1],
-  softSpring: [0.155, 1.105, 0.295, 1.12],
+  spring: [0.155, 1.105, 0.295, 1.12],
+  softSpring: [0.16, 1.11, 0.3, 1.02],
 } as const;
 
 export const TRANSITION_VARIANTS = {
@@ -57,7 +58,7 @@ export const TRANSITION_VARIANTS = {
         },
         scale: {
           duration: 0.3,
-          ease: TRANSITION_EASINGS.softSpring,
+          ease: TRANSITION_EASINGS.spring,
         },
       },
     },

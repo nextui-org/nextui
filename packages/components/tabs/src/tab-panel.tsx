@@ -3,7 +3,7 @@ import type {AriaTabPanelProps} from "@react-aria/tabs";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx} from "@nextui-org/shared-utils";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useTabPanel} from "@react-aria/tabs";
 import {useFocusRing} from "@react-aria/focus";
 
@@ -38,12 +38,7 @@ const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
       ref={domRef}
       data-focus={isFocused}
       data-focus-visible={isFocusVisible}
-      {...mergeProps(
-        tabPanelProps,
-        focusProps,
-        filterDOMProps(selectedItem.props, {labelable: true}),
-        otherProps,
-      )}
+      {...mergeProps(tabPanelProps, focusProps, otherProps)}
       aria-labelledby={`${tabPanelId}-${state.selectedItem?.key}`}
       className={slots.panel?.({class: tabPanelStyles})}
       id={tabPanelId}

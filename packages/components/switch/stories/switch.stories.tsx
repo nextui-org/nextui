@@ -82,7 +82,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Switch> = (args: Switc
       <Switch
         classNames={{
           base: clsx(
-            "inline-flex flex-row-reverse w-full max-w-md bg-content1 hover:bg-content2 items-center justify-between cursor-pointer rounded-lg gap-2 p-4 border-1.5 border-transparent",
+            "inline-flex flex-row-reverse w-full max-w-md bg-content1 hover:bg-content2 items-center justify-between cursor-pointer rounded-lg gap-2 p-4 border-2.5 border-transparent",
             {
               "border-primary": isSelected,
             },

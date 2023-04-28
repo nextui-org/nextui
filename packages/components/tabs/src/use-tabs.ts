@@ -4,20 +4,18 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
-import {useMemo, ReactNode, useId} from "react";
+import {useMemo, useId} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
-import {AriaTabListOptions, useTabList} from "@react-aria/tabs";
+import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {CollectionProps} from "@nextui-org/aria-utils";
+import {CollectionChildren} from "@react-types/shared";
 
-export interface Props extends HTMLNextUIProps<"div"> {
+export interface Props extends Omit<HTMLNextUIProps<"div">, "children"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
-  /*
-   * The list of `TabItem` elements.
-   */
-  children?: ReactNode | ReactNode[];
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -25,7 +23,8 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * @example
    * ```ts
    * <Tabs classNames={{
-   *    base:"base-classes", // table wrapper
+   *    base:"base-classes", // main wrapper (tabs + panels)
+   *    tabList: "tab-list-classes", // tabs wrapper
    *    tab: "tab-classes", // tab item
    *    panel: "panel-classes", // tab panel
    * }} />
@@ -34,29 +33,35 @@ export interface Props extends HTMLNextUIProps<"div"> {
   classNames?: SlotsToClasses<TabsSlots>;
 }
 
-export type UseTabsProps<T = object> = Props &
+export type UseTabsProps<T> = Props &
   TabsVariantProps &
-  TabListStateOptions<T> &
-  AriaTabListOptions<T>;
+  Omit<TabListStateOptions<T>, "children"> &
+  Omit<AriaTabListProps<T>, "children" | "orientation"> &
+  CollectionProps<T>;
 
 export type ContextType<T = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
   tabPanelId: string;
   classNames?: SlotsToClasses<TabsSlots>;
+  disableAnimation?: boolean;
+  isDisabled?: boolean;
 };
 
 export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, tabs.variantKeys);
 
-  const {ref, as, className, classNames, ...otherProps} = props;
+  const {ref, as, className, children, classNames, ...otherProps} = props;
 
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
 
-  const state = useTabListState(otherProps);
-  const {tabListProps} = useTabList(otherProps, state, domRef);
+  const state = useTabListState<T>({
+    children: children as CollectionChildren<T>,
+    ...otherProps,
+  });
+  const {tabListProps} = useTabList<T>(otherProps, state, domRef);
 
   const tabListId = useId();
   const tabPanelId = useId();
@@ -78,8 +83,17 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       slots,
       tabPanelId,
       classNames,
+      isDisabled: originalProps?.isDisabled,
+      disableAnimation: originalProps?.disableAnimation,
     }),
-    [state, slots, tabPanelId, classNames],
+    [
+      state,
+      slots,
+      tabPanelId,
+      originalProps?.disableAnimation,
+      originalProps?.isDisabled,
+      classNames,
+    ],
   );
 
   const getBaseProps: PropGetter = (props) => ({

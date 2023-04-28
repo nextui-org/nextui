@@ -22,38 +22,57 @@ export interface TabItemProps<T = object> extends HTMLNextUIProps<"div"> {
  * @internal
  */
 const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
-  const {as, className, item, style, onClick, ...otherProps} = props;
+  const {className, as, item, style, onClick, ...otherProps} = props;
 
   const {key} = item;
 
-  const Component = as || "div";
   const domRef = useDOMRef(ref);
 
-  const {slots, state, tabPanelId, classNames} = useTabsContext();
+  const Component = as || "div";
 
-  const {tabProps, isSelected, isDisabled, isPressed} = useTab({key}, state, domRef);
+  const {
+    slots,
+    state,
+    tabPanelId,
+    isDisabled: isDisabledProp,
+    disableAnimation,
+    classNames,
+  } = useTabsContext();
+
+  const {tabProps, isSelected, isDisabled: isDisabledItem, isPressed} = useTab(
+    {key},
+    state,
+    domRef,
+  );
+
+  const isDisabled = isDisabledProp || isDisabledItem;
+
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
   const {hoverProps, isHovered} = useHover({
     isDisabled,
   });
 
-  const tabStyles = clsx(classNames?.tab, className, item.props?.className);
+  const tabStyles = clsx(classNames?.tab, className);
 
   return (
     <Component
       ref={domRef}
+      data-disabled={dataAttr(isDisabledItem)}
       data-focus={dataAttr(isFocused)}
       data-focus-visible={dataAttr(isFocusVisible)}
       data-hover={dataAttr(isHovered)}
-      data-hover-unselected={dataAttr(isHovered && !isSelected)}
+      data-hover-unselected={dataAttr((isHovered || isPressed) && !isSelected)}
       data-pressed={dataAttr(isPressed)}
       data-selected={dataAttr(isSelected)}
       {...mergeProps(
         tabProps,
-        focusProps,
-        hoverProps,
-        filterDOMProps(item.props, {labelable: true}),
-        otherProps,
+        !isDisabled
+          ? {
+              ...focusProps,
+              ...hoverProps,
+            }
+          : {},
+        filterDOMProps(otherProps, {labelable: true}),
       )}
       aria-controls={tabPanelId}
       className={slots.tab?.({class: tabStyles})}
@@ -64,7 +83,7 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
       }}
       onClick={chain(onClick, tabProps.onClick)}
     >
-      {isSelected && (
+      {isSelected && !disableAnimation ? (
         <motion.span
           className={slots.cursor({class: classNames?.cursor})}
           layoutDependency={false}
@@ -74,7 +93,7 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
             duration: 0.6,
           }}
         />
-      )}
+      ) : null}
       <div
         className={slots.tabContent({
           class: classNames?.tabContent,

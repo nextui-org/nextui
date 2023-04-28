@@ -1,5 +1,11 @@
 # @nextui-org/use-clipboard
 
+## 0.0.0-dev-v2-20230428031422
+
+### Patch Changes
+
+- Tabs component added
+
 ## 0.0.0-dev-v2-20230425031000
 
 ### Patch Changes

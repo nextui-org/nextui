@@ -182,7 +182,7 @@ export const CustomWithClassNames = (props: CustomCheckboxProps) => {
       aria-label={userName}
       classNames={{
         base: clsx(
-          "inline-flex w-full max-w-md bg-content1 hover:bg-content2 items-center justify-start cursor-pointer rounded-lg gap-2 p-4 border-1.5 border-transparent",
+          "inline-flex w-full max-w-md bg-content1 hover:bg-content2 items-center justify-start cursor-pointer rounded-lg gap-2 p-4 border-2.5 border-transparent",
           {
             "border-primary": isChecked,
           },

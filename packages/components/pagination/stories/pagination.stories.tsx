@@ -204,7 +204,7 @@ CustomWithClassNames.args = {
   ...defaultProps,
   showShadow: true,
   classNames: {
-    base: "gap-0 rounded border-1 border-neutral",
+    base: "gap-0 rounded border-2 border-neutral",
     item: "w-8 h-8 text-sm rounded-none bg-transparent",
     cursor:
       "bg-gradient-to-b shadow-lg shadow-neutral from-neutral-500 to-neutral-800 dark:from-neutral-300 dark:to-neutral-100 text-white font-bold",

@@ -1,7 +1,18 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {tabs} from "@nextui-org/theme";
+import {button, link, tabs} from "@nextui-org/theme";
 import Lorem from "react-lorem-component";
+import {Input} from "@nextui-org/input";
+import {Button} from "@nextui-org/button";
+import {Card, CardBody} from "@nextui-org/card";
+import {
+  AlignVerticallyBoldIcon,
+  AlignHorizontallyBoldIcon,
+  AlignBottomBoldIcon,
+  AlignLeftBoldIcon,
+  AlignRightBoldIcon,
+  AlignTopBoldIcon,
+} from "@nextui-org/shared-icons";
 
 import {Tabs, TabItem, TabsProps} from "../src";
 
@@ -9,6 +20,12 @@ export default {
   title: "Components/Tabs",
   component: Tabs,
   argTypes: {
+    variant: {
+      control: {
+        type: "select",
+        options: ["solid", "underlined", "bordered"],
+      },
+    },
     color: {
       control: {
         type: "select",
@@ -32,6 +49,11 @@ export default {
         type: "boolean",
       },
     },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as ComponentMeta<typeof Tabs>;
 
@@ -39,7 +61,7 @@ const defaultProps = {
   ...tabs.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Tabs> = (args: TabsProps) => (
+const StaticTemplate: ComponentStory<any> = (args: TabsProps) => (
   <Tabs aria-label="Tabs example" {...args}>
     <TabItem key="world" title="World">
       <Lorem count={1} sentenceUpperBound={20} />
@@ -59,7 +81,233 @@ const Template: ComponentStory<typeof Tabs> = (args: TabsProps) => (
   </Tabs>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const WithIconsTemplate: ComponentStory<any> = (args: TabsProps) => (
+  <Tabs
+    aria-label="Tabs example"
+    {...args}
+    classNames={{
+      tab: "text-lg",
+    }}
+  >
+    <TabItem key="align-left" title={<AlignLeftBoldIcon />} />
+    <TabItem key="align-vertically" title={<AlignVerticallyBoldIcon />} />
+    <TabItem key="align-right" title={<AlignRightBoldIcon />} />
+    <TabItem key="align-top" title={<AlignTopBoldIcon />} />
+    <TabItem key="align-horizontally" title={<AlignHorizontallyBoldIcon />} />
+    <TabItem key="align-bottom" title={<AlignBottomBoldIcon />} />
+  </Tabs>
+);
+
+const ControlledTemplate: ComponentStory<any> = (args: TabsProps) => {
+  const [selected, setSelected] = React.useState<React.Key>("world");
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Tabs
+        aria-label="Tabs example"
+        {...args}
+        selectedKey={selected}
+        onSelectionChange={setSelected}
+      >
+        <TabItem key="world" title="World">
+          <Lorem count={1} sentenceUpperBound={20} />
+        </TabItem>
+        <TabItem key="ny" title="N.Y">
+          <Lorem count={1} sentenceUpperBound={30} />
+        </TabItem>
+        <TabItem key="business" title="Business">
+          <Lorem count={1} sentenceUpperBound={10} />
+        </TabItem>
+        <TabItem key="arts" title="Arts">
+          <Lorem count={1} sentenceUpperBound={50} />
+        </TabItem>
+        <TabItem key="science" title="Science">
+          <Lorem count={1} sentenceUpperBound={24} />
+        </TabItem>
+      </Tabs>
+
+      <p className="text-neutral-500">Selected: {selected}</p>
+
+      <div className="flex gap-2 justify-start">
+        <button
+          className={button({color: "secondary", variant: "flat"})}
+          onClick={() => setSelected("arts")}
+        >
+          Select &quot;Arts&quot;
+        </button>
+        <button
+          className={button({color: "secondary", variant: "flat"})}
+          onClick={() => setSelected("science")}
+        >
+          Select &quot;Science&quot;
+        </button>
+      </div>
+    </div>
+  );
+};
+
+type Item = {
+  id: string;
+  label: string;
+  content?: React.ReactNode;
+};
+
+const DynamicTemplate: ComponentStory<any> = (args: TabsProps<Item>) => {
+  let tabs: Item[] = [
+    {
+      id: "world",
+      label: "World",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+      id: "ny",
+      label: "N.Y.",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam id libero rutrum aliquam. Sed eget nunc vitae nisl aliquam aliquet. Sed vitae nisl eget nunc aliquam aliquet. Sed eget nunc vitae nisl aliquam aliquet. Sed vitae nisl eget nunc aliquam aliquet. Sed eget nunc vitae nisl aliquam aliquet. ",
+    },
+    {
+      id: "business",
+      label: "Business",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam id libero rutrum aliquam. Sed eget nunc vitae nisl aliquam aliquet.",
+    },
+    {
+      id: "arts",
+      label: "Arts",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam id libero rutrum aliquam. Sed eget nunc vitae nisl aliquam aliquet. Sed vitae nisl eget nunc aliquam aliquet. Sed eget nunc vitae nisl aliquam aliquet. Sed vitae nisl eget nunc aliquam aliquet. Sed eget nunc vitae nisl aliquam aliquet. ",
+    },
+    {
+      id: "science",
+      label: "Science",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam id libero rutrum aliquam. Sed eget nunc vitae nisl aliquam aliquet. Sed vitae nisl eget nunc aliquam aliquet. Sed eget nunc vitae nisl aliquam aliquet. Sed vitae nisl eget nunc aliquam aliquet. Sed eget nunc vitae nisl aliquam aliquet. ",
+    },
+  ];
+
+  return (
+    <Tabs aria-label="Dynamic tabs" {...args} items={tabs}>
+      {(item) => (
+        <TabItem key={item.id} title={item.label}>
+          {item.content}
+        </TabItem>
+      )}
+    </Tabs>
+  );
+};
+
+const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
+  const [selected, setSelected] = React.useState<React.Key>("login");
+
+  return (
+    <div className="flex flex-col justify-center items-center w-full h-screen">
+      <Card className="w-full w-[340px] h-[400px]">
+        <CardBody>
+          <Tabs
+            aria-label="Tabs form"
+            {...args}
+            selectedKey={selected}
+            onSelectionChange={setSelected}
+          >
+            <TabItem key="login" title="Login">
+              <form className="flex flex-col gap-4">
+                <Input isRequired label="Email" placeholder="Enter your email" type="email" />
+                <Input
+                  isRequired
+                  label="Password"
+                  placeholder="Enter your password"
+                  type="password"
+                />
+                <p className="text-center text-sm">
+                  Need to create an account?&nbsp;
+                  <button className={link({size: "sm"})} onClick={() => setSelected("sign-up")}>
+                    Sign up
+                  </button>
+                </p>
+                <div className="flex gap-2 justify-end">
+                  <Button fullWidth color="primary">
+                    Login
+                  </Button>
+                </div>
+              </form>
+            </TabItem>
+            <TabItem key="sign-up" title="Sign up">
+              <form className="flex flex-col gap-4 h-[300px]">
+                <Input isRequired label="Name" placeholder="Enter your name" type="password" />
+                <Input isRequired label="Email" placeholder="Enter your email" type="email" />
+                <Input
+                  isRequired
+                  label="Password"
+                  placeholder="Enter your password"
+                  type="password"
+                />
+                <p className="text-center text-sm">
+                  Already have an account?&nbsp;
+                  <button className={link({size: "sm"})} onClick={() => setSelected("login")}>
+                    Login
+                  </button>
+                </p>
+                <div className="flex gap-2 justify-end">
+                  <Button fullWidth color="primary">
+                    Sign up
+                  </Button>
+                </div>
+              </form>
+            </TabItem>
+          </Tabs>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
+
+export const Static = StaticTemplate.bind({});
+Static.args = {
   ...defaultProps,
+};
+
+export const Dynamic = DynamicTemplate.bind({});
+Dynamic.args = {
+  ...defaultProps,
+};
+
+export const Controlled = ControlledTemplate.bind({});
+Controlled.args = {
+  ...defaultProps,
+};
+
+export const WithIcons = WithIconsTemplate.bind({});
+WithIcons.args = {
+  ...defaultProps,
+};
+
+export const WithForm = WithFormTemplate.bind({});
+WithForm.args = {
+  ...defaultProps,
+  fullWidth: true,
+  variant: "underlined",
+};
+
+export const ManualKeyboardActivation = StaticTemplate.bind({});
+ManualKeyboardActivation.args = {
+  ...defaultProps,
+  keyboardActivation: "manual",
+};
+
+export const DisabledItems = StaticTemplate.bind({});
+DisabledItems.args = {
+  ...defaultProps,
+  disabledKeys: ["ny", "arts"],
+};
+
+export const Disabled = StaticTemplate.bind({});
+Disabled.args = {
+  ...defaultProps,
+  isDisabled: true,
+};
+
+export const DisableAnimation = StaticTemplate.bind({});
+DisableAnimation.args = {
+  ...defaultProps,
+  disableAnimation: true,
 };
