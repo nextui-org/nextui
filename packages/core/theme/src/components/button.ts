@@ -61,7 +61,7 @@ const button = tv({
       xs: "px-2 h-6 text-xs",
       sm: "px-3 h-8 text-sm",
       md: "px-4 h-10 text-base",
-      lg: "px-6 h-12 text-md",
+      lg: "px-6 h-12 text-base",
       xl: "px-8 h-14 text-lg",
     },
     color: {
