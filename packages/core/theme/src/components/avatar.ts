@@ -73,7 +73,7 @@ const avatar = tv({
         base: "w-12 h-12 text-sm",
       },
       xl: {
-        base: "w-16 h-16 text-md",
+        base: "w-16 h-16 text-base",
       },
     },
     color: {

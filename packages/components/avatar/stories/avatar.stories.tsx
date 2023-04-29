@@ -98,7 +98,7 @@ export const CustomSize = Template.bind({});
 CustomSize.args = {
   ...defaultProps,
   classNames: {
-    base: "w-32 h-32 text-md",
+    base: "w-32 h-32 text-base",
   },
 };
 
@@ -108,7 +108,7 @@ CustomSizeImg.args = {
   src: "https://i.pravatar.cc/300?u=a042581f4e29026705d",
   name: "Junior",
   classNames: {
-    base: "w-32 h-32 text-md",
+    base: "w-32 h-32 text-base",
   },
 };
 

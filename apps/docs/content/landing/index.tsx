@@ -18,13 +18,13 @@ export default {
     {
       title: "Themeable",
       description:
-        "Provides a simple way to customize default themes, you can change the colors, fonts, breakpoints and everything you need.",
+        "Provides a plugin to customize default themes, you can change all semantic tokens or create an entire new theme.",
       icon: <MagicIcon className="text-pink-500" />,
     },
     {
       title: "Fast",
       description:
-        "Avoids unnecessary styles props at runtime, making it more performant than other UI libraries.",
+        "Built on top of Tailwind CSS, which means no runtime styles, and no unnecessary classes in your bundle.",
       icon: <FlashIcon className="text-pink-500" />,
     },
     {

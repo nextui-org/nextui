@@ -29,25 +29,26 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({features, ...props}) 
   };
 
   return (
-    <div className="flex gap-2" {...props}>
+    <div className="grid grid-cols-4 gap-4" {...props}>
       {features.map((feat: Feature, index: number) => (
-        <div key={`${feat.title}_${index}`}>
-          <Card
-            isBlurred
-            className="border-none before:bg-white/5 before:backdrop-blur-lg before:backdrop-saturate-[1.8]"
-            isPressable={!!feat.href}
-            onPress={() => handleClick(feat)}
-          >
-            <CardHeader>
-              <div>{feat.icon}</div>
-              <p>{feat.title}</p>
-              {feat.isExternal && <LinkIcon className="text-white" height={18} width={18} />}
-            </CardHeader>
-            <CardBody>
-              <p>{feat.description}</p>
-            </CardBody>
-          </Card>
-        </div>
+        <Card
+          key={`${feat.title}_${index}`}
+          isBlurred
+          className="border-none before:bg-white/5 before:backdrop-blur-lg before:backdrop-saturate-[1.8]"
+          isPressable={!!feat.href}
+          onPress={() => handleClick(feat)}
+        >
+          <CardHeader className="gap-2 pb-0">
+            <div className="flex justify-center p-2 rounded-full items-center bg-secondary-100 text-pink-500">
+              {feat.icon}
+            </div>
+            <p className="text-base font-semibold">{feat.title}</p>
+            {feat.isExternal && <LinkIcon className="text-white" height={18} width={18} />}
+          </CardHeader>
+          <CardBody>
+            <p className="font-light text-base text-neutral-700">{feat.description}</p>
+          </CardBody>
+        </Card>
       ))}
     </div>
   );

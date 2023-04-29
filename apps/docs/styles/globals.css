@@ -5,4 +5,9 @@
 
 html {
   overflow-y: scroll !important;
+  height: 100vh;
+}
+
+body, #__next {
+  height: 100%;
 }

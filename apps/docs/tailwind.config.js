@@ -14,7 +14,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans: ["Inter", ...defaultConfig.theme.fontFamily.sans],
+      sans: [ "Inter var, sans-serif",{
+        fontFeatureSettings:'"cv02","cv03","cv04","cv11"',
+      }, ...defaultConfig.theme.fontFamily.sans],
     },
     extend: {
       backgroundImage: {

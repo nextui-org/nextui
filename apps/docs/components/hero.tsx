@@ -40,10 +40,11 @@ const FloatingComponents: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col relative w-1/2">
       <Switch
         classNames={{
-          base: "relative top-[80px] left-[240px] animate-[levitate_13s_ease_infinite_1s_reverse]",
+          base:
+            "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
           wrapper: "shadow-sm",
           startIcon: "text-white",
         }}
@@ -55,7 +56,7 @@ const FloatingComponents: React.FC = () => {
       />
 
       <Input
-        className="relative top-[140px] left-[240px] animate-[levitate_10s_ease_infinite] w-[200px]"
+        className="absolute -top-[130px] -right-[120px] animate-[levitate_10s_ease_infinite] w-[200px]"
         color="secondary"
         defaultValue="NextUI"
         label="Input"
@@ -67,7 +68,7 @@ const FloatingComponents: React.FC = () => {
 
       <Card
         isFooterBlurred
-        className="relative top-[-40px] left-[80px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+        className="absolute -top-[260px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         radius="2xl"
       >
         <Image
@@ -83,9 +84,11 @@ const FloatingComponents: React.FC = () => {
 
       <Tabs
         aria-label="Floating tabs example"
-        className="relative -left-[144px] top-[-80px] animate-[levitate_17s_ease_infinite_1s]"
+        className=""
         classNames={{
+          base: "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s]",
           tabList: "max-w-[200px] bg-content1 shadow-sm",
+          panel: "hidden",
         }}
         radius="full"
         size="xs"
@@ -95,15 +98,15 @@ const FloatingComponents: React.FC = () => {
         <TabItem key="files" title="Files" />
       </Tabs>
 
-      <UserTwitterCard className="relative -left-[240px] top-[-80px] animate-[levitate_16s_ease_infinite] border-none" />
+      <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
-      <Card className="relative left-[90px] -top-[220px] animate-[levitate_18s_ease_infinite] right-8 shadow-lg z-10 max-w-fit border-none">
+      <Card className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
         <CardBody>
           <NextUILogo small size={60} />
         </CardBody>
       </Card>
 
-      <div className="relative z-10 -top-[310px] -right-[200px] animate-[levitate_14s_ease_infinite_1s]">
+      <div className="absolute z-10 -top-[40px] -right-[230px] animate-[levitate_14s_ease_infinite_1s]">
         <Pagination
           isCompact
           showControls
@@ -128,7 +131,7 @@ const FloatingComponents: React.FC = () => {
         placement="top"
       >
         <Button
-          className="relative -left-[120px] -top-[180px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
+          className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
           color="secondary"
           size="sm"
           variant="flat"
@@ -137,7 +140,7 @@ const FloatingComponents: React.FC = () => {
         </Button>
       </Tooltip>
 
-      <Card className="relative left-[220px] -top-[320px] animate-[levitate_16s_ease_infinite] right-8 shadow-lg z-10 max-w-fit border-none">
+      <Card className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
         <CardBody>
           <Spinner color="secondary" size="xl" />
         </CardBody>
@@ -145,7 +148,7 @@ const FloatingComponents: React.FC = () => {
 
       <Card
         isFooterBlurred
-        className="relative left-10 -top-[380px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+        className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         radius="2xl"
       >
         <Image className="object-cover" height={200} src="/images/hero-card.jpeg" width={200} />
@@ -162,7 +165,7 @@ const FloatingComponents: React.FC = () => {
 
 export const Hero = () => {
   return (
-    <section className="flex relative  w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] max-h-[800px]">
+    <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
       <div className="flex flex-col gap-6 w-1/2">
         <div>
           <h1 className="text-5xl tracking-tight inline font-semibold">Make&nbsp;</h1>
@@ -195,10 +198,10 @@ export const Hero = () => {
           </Button>
         </div>
       </div>
-      <div className="relative h-full">
-        <FloatingComponents />
-      </div>
-      <DynamicLopperBG className="absolute -top-1/2 -z-50" />
+
+      <FloatingComponents />
+
+      <DynamicLopperBG className="absolute translate-y-[10%] -z-50" />
     </section>
   );
 };

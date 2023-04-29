@@ -80,7 +80,7 @@ const badge = tv({
         badge: "px-1 text-sm",
       },
       xl: {
-        badge: "px-1 text-md",
+        badge: "px-1 text-base",
       },
     },
     placement: {

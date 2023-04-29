@@ -130,7 +130,7 @@ const input = tv({
         label: "text-xs",
         inputWrapper: "h-8 px-2",
         input: "text-xs",
-        clearButton: "text-md",
+        clearButton: "text-base",
       },
       md: {
         inputWrapper: "h-10",
@@ -144,7 +144,7 @@ const input = tv({
       },
       xl: {
         inputWrapper: "h-14",
-        input: "text-md",
+        input: "text-base",
         clearButton: "text-xl right-3.5",
       },
     },
@@ -746,7 +746,7 @@ const input = tv({
       size: "xl",
       class: {
         label: [
-          "text-md",
+          "text-base",
           "group-focus-within:text-sm",
           "group-focus-within:-translate-y-3",
           "group-[.is-filled]:text-sm",

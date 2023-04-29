@@ -75,7 +75,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     [...Object.values(variantProps), className],
   );
 
-  const tabListStyles = clsx(className, classNames?.tabList);
+  const baseStyles = clsx(className, classNames?.base);
 
   const context = useMemo<ContextType<T>>(
     () => ({
@@ -97,13 +97,13 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   );
 
   const getBaseProps: PropGetter = (props) => ({
-    className: slots.base({class: clsx(classNames?.base, props?.className)}),
+    className: slots.base({class: clsx(baseStyles, props?.className)}),
     ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
   });
 
   const getTabListProps: PropGetter = (props) => ({
     ref: domRef,
-    className: slots.tabList({class: clsx(tabListStyles, props?.className)}),
+    className: slots.tabList({class: clsx(classNames?.tabList, props?.className)}),
     ...mergeProps(tabListProps, props),
     id: tabListId,
   });
