@@ -17,6 +17,7 @@ import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-
 import {useTheme} from "next-themes";
 import dynamic from "next/dynamic";
 
+import {title, subtitle} from "@/components/primitives";
 import {NextUILogo} from "@/components";
 import {GithubIcon} from "@/components/icons";
 import {UserTwitterCard} from "@/components/demos";
@@ -166,17 +167,13 @@ const FloatingComponents: React.FC = () => {
 export const Hero = () => {
   return (
     <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
-      <div className="flex flex-col gap-6 w-1/2">
+      <div className="flex flex-col gap-6 w-1/2 xl:mt-10">
         <div>
-          <h1 className="text-5xl tracking-tight inline font-semibold">Make&nbsp;</h1>
-          <h1 className="text-5xl tracking-tight inline font-semibold bg-clip-text text-transparent bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]">
-            beautiful&nbsp;
-          </h1>
-          <h1 className="text-5xl tracking-tight inline font-semibold">
-            websites regardless of your design experience.
-          </h1>
+          <h1 className={title()}>Make&nbsp;</h1>
+          <h1 className={title({color: "violet"})}>beautiful&nbsp;</h1>
+          <h1 className={title()}>websites regardless of your design experience.</h1>
         </div>
-        <h4 className="text-xl font-light text-neutral-500">
+        <h4 className={subtitle({fullWidth: true})}>
           Beautiful, fast and modern React UI library.
         </h4>
         <div className="flex items-center gap-4">
