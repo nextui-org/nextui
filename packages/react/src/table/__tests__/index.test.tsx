@@ -94,6 +94,79 @@ describe("Table", () => {
     expect(cells.length).toBe(2 * STITCHES_FACTOR);
   });
 
+  it("should trigger an on row action when onRowAction is defined and an action has been performed", () => {
+    const onRowActionMock = jest.fn();
+    const wrapper = mount(
+      <Table
+        aria-label="Table with selection"
+        onRowAction={(key) => onRowActionMock(key)}
+        selectionMode="single"
+      >
+        <Table.Header>
+          <Table.Column>Foo</Table.Column>
+          <Table.Column>Bar</Table.Column>
+          <Table.Column>Baz</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Foo 1</Table.Cell>
+            <Table.Cell>Bar 1</Table.Cell>
+            <Table.Cell>Baz 1</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>,
+    );
+    const table = wrapper.find('[role="grid"]').first();
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
+    const rows = bodyRowGroup.find('[role="row"]');
+
+    rows.first().getDOMNode().dispatchEvent(
+      new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+      }),
+    );
+
+    expect(onRowActionMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("should trigger an on cell action when onCellAction is defined and an action has been performed", () => {
+    const onCellActionMock = jest.fn();
+    const wrapper = mount(
+      <Table
+        aria-label="Table with selection"
+        onCellAction={(key) => onCellActionMock(key)}
+        selectionMode="multiple"
+      >
+        <Table.Header>
+          <Table.Column>Foo</Table.Column>
+          <Table.Column>Bar</Table.Column>
+          <Table.Column>Baz</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Foo 1</Table.Cell>
+            <Table.Cell>Bar 1</Table.Cell>
+            <Table.Cell>Baz 1</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>,
+    );
+    const table = wrapper.find('[role="grid"]').first();
+    const bodyRowGroup = table.find('[role="rowgroup"]').at(1 * STITCHES_FACTOR);
+    const rows = bodyRowGroup.find('[role="row"]');
+    const bodyFirstCell = rows.first().find('[role="rowheader"]').first();
+
+    bodyFirstCell.getDOMNode().dispatchEvent(
+      new MouseEvent("click", {
+        view: window,
+        bubbles: true,
+      }),
+    );
+
+    expect(onCellActionMock).toHaveBeenCalledTimes(1);
+  });
+
   it("should render a table with selection", () => {
     const wrapper = mount(
       <Table aria-label="Table with selection" selectionMode="multiple">

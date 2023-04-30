@@ -1,7 +1,7 @@
 import type {CSS} from "../theme/stitches.config";
 
 import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
-import {useTable} from "@react-aria/table";
+import {AriaTableProps, useTable} from "@react-aria/table";
 import {useTableState, TableStateProps} from "@react-stately/table";
 import {SelectionMode, SelectionBehavior, CollectionChildren} from "@react-types/shared";
 import {mergeProps} from "@react-aria/utils";
@@ -48,7 +48,9 @@ type NativeAttrs = Omit<React.TableHTMLAttributes<unknown>, keyof Props<object>>
 export type TableProps<T = object> = Props<T> &
   NativeAttrs &
   Omit<TableVariantsProps, "isMultiple" | "shadow" | "hasPagination"> &
-  TableContainerVariantsProps & {css?: CSS; containerCss?: CSS};
+  TableContainerVariantsProps &
+  {css?: CSS; containerCss?: CSS} &
+  Pick<AriaTableProps<T>, "onRowAction" | "onCellAction">;
 
 const defaultProps = {
   animated: true,
