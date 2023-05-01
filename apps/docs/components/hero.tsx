@@ -17,6 +17,7 @@ import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-
 import {useTheme} from "next-themes";
 import dynamic from "next/dynamic";
 
+import {useMediaQuery} from "@/hooks/use-media-query";
 import {title, subtitle} from "@/components/primitives";
 import {NextUILogo} from "@/components";
 import {GithubIcon} from "@/components/icons";
@@ -36,7 +37,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   };
 
   return (
-    <div className="flex flex-col relative w-1/2">
+    <div className="hidden lg:flex flex-col relative  w-1/2">
       <Switch
         classNames={{
           base:
@@ -160,6 +161,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
 
 export const Hero = () => {
   const [mounted, setMounted] = useState(false);
+  const isTablet = useMediaQuery(1024);
 
   useEffect(() => {
     setMounted(true);
@@ -167,7 +169,7 @@ export const Hero = () => {
 
   return (
     <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
-      <div className="flex flex-col gap-6 w-1/2 xl:mt-10">
+      <div className="flex flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
         <div>
           <h1 className={title()}>Make&nbsp;</h1>
           <h1 className={title({color: "violet"})}>beautiful&nbsp;</h1>
@@ -196,7 +198,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <FloatingComponents mounted={mounted} />
+      {!isTablet && <FloatingComponents mounted={mounted} />}
 
       <DynamicLopperBG
         className="absolute translate-y-[10%] -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity"

@@ -2,7 +2,7 @@ import {tv, VariantProps} from "tailwind-variants";
 
 export const shopCartStyles = tv({
   slots: {
-    wrapper: "overflow-visible h-[240px] dark:border-none",
+    wrapper: "overflow-visible h-auto lg:h-[240px] dark:border-none",
     imageWrapper: [
       "flex-none",
       "w-full",
@@ -92,7 +92,7 @@ export const shopCartStyles = tv({
         wrapper: "rounded-3xl",
         contentWrapper: "ml-3",
         imageWrapper: [
-          "scale-[1.3]",
+          "lg:scale-[1.3]",
           "before:rounded-3xl",
           "before:from-[#870172] before:to-[#18000E]",
           "shadow-lg",
@@ -118,7 +118,7 @@ export const shopCartStyles = tv({
         wrapper: "rounded-md",
         contentWrapper: "ml-3",
         imageWrapper: [
-          "scale-[1.3]",
+          "lg:scale-[1.3]",
           "before:rounded-md",
           "before:from-[#323232] before:to-[#000000]",
           "shadow-xl",

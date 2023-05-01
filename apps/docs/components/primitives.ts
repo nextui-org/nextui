@@ -5,7 +5,7 @@ export const titleWrapper = tv({
 });
 
 export const title = tv({
-  base: "text-5xl tracking-tight inline font-semibold",
+  base: "tracking-tight inline font-semibold",
   variants: {
     color: {
       violet: "from-[#FF1CF7] to-[#b249f8]",
@@ -16,9 +16,9 @@ export const title = tv({
       pink: "from-[#FF4ECD] to-[#F21361]",
     },
     size: {
-      sm: "text-3xl",
-      md: "text-5xl",
-      lg: "text-6xl",
+      sm: "text-2xl lg:text-3xl",
+      md: "text-4xl lg:text-5xl",
+      lg: "text-5xl lg:text-6xl",
     },
     fullWidth: {
       true: "w-full block",
@@ -45,5 +45,5 @@ export const subtitle = tv({
 });
 
 export const sectionWrapper = tv({
-  base: "relative z-10 flex flex-col gap-2 w-full my-56",
+  base: "relative z-10 flex flex-col gap-2 w-full mt-56 pb-20",
 });

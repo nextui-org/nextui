@@ -1,5 +1,5 @@
 import {DefaultLayout} from "@/layouts";
-import {Hero, FeaturesGrid, CustomThemes} from "@/components";
+import {Hero, FeaturesGrid, CustomThemes, A11yOtb} from "@/components";
 import landingContent from "@/content/landing";
 
 const IndexPage = () => {
@@ -8,6 +8,7 @@ const IndexPage = () => {
       <Hero />
       <FeaturesGrid features={landingContent.topFeatures} />
       <CustomThemes />
+      <A11yOtb />
     </DefaultLayout>
   );
 };

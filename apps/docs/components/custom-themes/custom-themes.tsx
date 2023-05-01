@@ -190,7 +190,7 @@ export const CustomThemes = () => {
   const [selectedTheme, setSelectedTheme] = useState<Theme>(themesTabs[0].id as Theme);
 
   return (
-    <section className={sectionWrapper({class: "pb-56"})}>
+    <section className={sectionWrapper()}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>
@@ -205,11 +205,11 @@ export const CustomThemes = () => {
             themes or create your own.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <CustomThemesExample selectedTheme={selectedTheme} onChangeTheme={setSelectedTheme} />
           <CodeWindow
             showWindowIcons
-            className="max-h-[440px] mt-12"
+            className="max-h-[440px] min-h-[390px] mt-12"
             highlightLines={get(codeHighlights, selectedTheme)}
             language="jsx"
             title="tailwind.config.js"
