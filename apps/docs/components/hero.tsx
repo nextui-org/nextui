@@ -201,7 +201,7 @@ export const Hero = () => {
       {!isTablet && <FloatingComponents mounted={mounted} />}
 
       <DynamicLopperBG
-        className="absolute translate-y-[10%] -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity"
+        className="absolute translate-y-[5%] -translate-x-[10%] md:translate-x-0 md:translate-y-[10%] -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity"
         data-mounted={mounted}
       />
     </section>
