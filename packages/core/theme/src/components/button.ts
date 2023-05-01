@@ -49,13 +49,13 @@ const button = tv({
   ],
   variants: {
     variant: {
-      solid: "",
-      bordered: "border-2 !bg-transparent",
-      light: "!bg-transparent",
-      flat: "",
-      faded: "border-2",
-      shadow: "",
-      ghost: "border-2 !bg-transparent",
+      solid: "!border-0",
+      bordered: "!bg-transparent",
+      light: "!border-0 !bg-transparent",
+      flat: "!border-0",
+      faded: "",
+      shadow: "!border-0",
+      ghost: "!bg-transparent",
     },
     size: {
       xs: "px-2 h-6 text-xs",
@@ -83,6 +83,14 @@ const button = tv({
       "3xl": "rounded-3xl",
       full: "rounded-full",
     },
+    borderWidth: {
+      none: "border-0",
+      light: "border",
+      normal: "border-2",
+      bold: "border-[3px]",
+      extrabold: "border-4",
+      black: "border-[5px]",
+    },
     fullWidth: {
       true: "w-full",
     },
@@ -105,6 +113,7 @@ const button = tv({
     variant: "solid",
     color: "neutral",
     radius: "xl",
+    borderWidth: "normal",
     fullWidth: false,
     isDisabled: false,
     isInGroup: false,
