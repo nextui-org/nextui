@@ -58,16 +58,20 @@ const CarbonAd: React.FC<unknown> = () => {
 
     const loadAdProvider = async () => {
       if (shouldShowEthicalAds) {
-        const ethicalads = await loadEthicalAds();
+        try {
+          const ethicalads = await loadEthicalAds();
 
-        // @ts-ignore
-        ethicalads.wait.then((placements) => {
-          if (placements.length) {
-            setShowEthicalAds(true);
-          } else {
-            loadCarbonAds();
-          }
-        });
+          // @ts-ignore
+          ethicalads.wait.then((placements) => {
+            if (placements.length) {
+              setShowEthicalAds(true);
+            } else {
+              loadCarbonAds();
+            }
+          });
+        } catch (error) {
+          loadCarbonAds();
+        }
       } else {
         loadCarbonAds();
       }
