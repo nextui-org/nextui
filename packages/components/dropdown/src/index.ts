@@ -1,4 +1,4 @@
-import {Section as DropdownSection} from "@react-stately/collections";
+import {BaseSection as DropdownSection} from "@nextui-org/aria-utils";
 
 import Dropdown from "./dropdown";
 import DropdownTrigger from "./dropdown-trigger";

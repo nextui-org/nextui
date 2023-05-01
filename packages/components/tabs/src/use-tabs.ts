@@ -17,6 +17,11 @@ export interface Props extends Omit<HTMLNextUIProps<"div">, "children"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
+   * Whether the cursor should be hidden.
+   * @default false
+   */
+  disableCursor?: boolean;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -43,6 +48,7 @@ export type ContextType<T = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
   tabPanelId: string;
+  disableCursor?: boolean;
   classNames?: SlotsToClasses<TabsSlots>;
   disableAnimation?: boolean;
   isDisabled?: boolean;
@@ -51,7 +57,7 @@ export type ContextType<T = object> = {
 export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, tabs.variantKeys);
 
-  const {ref, as, className, children, classNames, ...otherProps} = props;
+  const {ref, as, className, children, classNames, disableCursor, ...otherProps} = props;
 
   const Component = as || "div";
 
@@ -83,6 +89,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       slots,
       tabPanelId,
       classNames,
+      disableCursor,
       isDisabled: originalProps?.isDisabled,
       disableAnimation: originalProps?.disableAnimation,
     }),
@@ -90,6 +97,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       state,
       slots,
       tabPanelId,
+      disableCursor,
       originalProps?.disableAnimation,
       originalProps?.isDisabled,
       classNames,

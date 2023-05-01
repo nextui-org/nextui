@@ -26,7 +26,7 @@ const input = tv({
     label: "block text-sm font-medium text-neutral-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    input: "w-full h-full bg-transparent outline-none placeholder:text-neutral-500",
+    input: "w-full h-full !bg-transparent outline-none placeholder:text-neutral-500",
     clearButton: [
       "z-10",
       "hidden",

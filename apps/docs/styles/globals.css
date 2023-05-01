@@ -2,12 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
   overflow-y: scroll !important;
   height: 100vh;
 }
 
-body, #__next {
+body,
+#__next {
   height: 100%;
+}
+
+/**
+* ----------------------------------------
+* Code block styles
+* ----------------------------------------
+*/
+
+@layer components {
+  .code-block .token.parameter {
+    @apply text-code-foreground;
+  }
+
+  .code-block .token.tag,
+  .code-block .token.selector,
+  .code-block .token.selector .class,
+  .code-block .token.function {
+    @apply text-code-syntax1;
+  }
+
+  .code-block .token.script.language-javascript {
+    @apply text-code-foreground;
+  }
+
+  .code-block .token.class-name {
+    @apply text-code-syntax5;
+  }
+
+  .code-block .token.attr-value,
+  .code-block .token.class,
+  .code-block .token.string,
+  .code-block .token.number,
+  .code-block .token.unit,
+  .code-block .token.color {
+    @apply text-code-syntax2;
+  }
+
+  .code-block .token.keyword,
+  .code-block .token.rule,
+  .code-block .token.operator,
+  .code-block .token.pseudo-class,
+  .code-block .token.important {
+    @apply text-code-syntax3;
+  }
+
+  .code-block .token.attr-name {
+    @apply text-code-syntax6;
+  }
+
+  .code-block .token.punctuation,
+  .code-block .token.module,
+  .code-block .token.property {
+    @apply text-code-syntax4;
+  }
+
+  .code-block .token.comment {
+    @apply text-code-comment;
+  }
+
+  .code-block .token.atapply .token:not(.rule):not(.important) {
+    color: inherit;
+  }
+
+  .code-block .language-shell .token:not(.comment) {
+    color: inherit;
+  }
+
+  .code-block .language-css .token.function {
+    color: inherit;
+  }
+
+  .code-block .token.deleted:not(.prefix),
+  .code-block .token.inserted:not(.prefix) {
+    @apply block px-4 mx-auto;
+  }
+
+  .code-block .token.deleted:not(.prefix) {
+    @apply text-code-removed;
+  }
+
+  .code-block .token.inserted:not(.prefix) {
+    @apply text-code-added;
+  }
+
+  .code-block .token.deleted.prefix,
+  .code-block .token.inserted.prefix {
+    @apply select-none;
+  }
+
+  /* Styles for highlighted word */
+  .code-block .highlight-word {
+    @apply inline-block text-code-highlighted-word1-bg shadow-highlighted bg-code-highlighted-word1-bg;
+  }
+
+  .code-block .highlight-word .token {
+    color: inherit;
+  }
+
+  .code-block .highlight-word.on {
+    @apply transition-all cursor-pointer;
+  }
+
+  .code-block .token.deleted .highlight-word {
+    @apply text-code-highlighted-word2-text bg-code-highlighted-word2-bg
+  }
+
+  .code-block .token.deleted .highlight-word.on {
+    @apply bg-code-highlighted-word2-bg-active;
+  }
+
+  .code-block .token.inserted .highlight-word {
+    @apply bg-code-highlighted-word3-bg;
+  }
+
+  .code-block .token.inserted .highlight-word.on {
+    @apply bg-code-highlighted-word3-bg-active;
+  }
+
+  /* Line numbers */
+  .code-block[data-line-numbers="true"] .highlight-line::before {
+    @apply text-code-line-number;
+    content: attr(data-line);
+    position: absolute;
+    left: -5px;
+    top: 0;
+  }
+
+  /* Styles for highlighted lines */
+  .code-block .highlight-line {
+    @apply transition-colors;
+  }
+
+  .code-block .highlight-line * {
+    @apply transition-colors;
+  }
+
+  .code-block .highlight-line[data-highlighted="false"] {
+    @apply text-code-faded-line
+  }
+
+  .code-block .highlight-line[data-highlighted="false"] * {
+    @apply text-code-faded-line
+  }
+
+  /* Typewriter styles */
+  .code-block .typewriter {
+    @apply opacity-0;
+  }
 }

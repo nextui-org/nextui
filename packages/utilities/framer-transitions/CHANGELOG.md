@@ -1,5 +1,23 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230429213333
+
+### Patch Changes
+
+- Tailwind variants upgraded, dropdown section moved to the local aria package
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230429213333
+  - @nextui-org/system@0.0.0-dev-v2-20230429213333
+
+## 0.0.0-dev-v2-20230429140802
+
+### Patch Changes
+
+- Custom themes support
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230429140802
+  - @nextui-org/system@0.0.0-dev-v2-20230429140802
+
 ## 0.0.0-dev-v2-20230428210058
 
 ### Patch Changes

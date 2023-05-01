@@ -37,6 +37,12 @@ interface Props extends HTMLNextUIProps<"img"> {
    */
   loading?: NativeImageProps["loading"];
   /**
+   * Whether to remove the wrapper element. This will cause the image to be rendered as a direct child of the parent element.
+   * If you set this prop as `true` neither the skeleton nor the zoom effect will work.
+   * @default false
+   */
+  removeWrapper?: boolean;
+  /**
    * Controlled loading state.
    */
   isLoading?: boolean;
@@ -76,6 +82,7 @@ export function useImage(originalProps: UseImageProps) {
     fallbackSrc,
     isLoading: isLoadingProp,
     disableSkeleton = !!fallbackSrc,
+    removeWrapper = false,
     onError,
     onLoad,
     ...otherProps
@@ -120,12 +127,12 @@ export function useImage(originalProps: UseImageProps) {
 
   const baseStyles = clsx(className, classNames?.base);
 
-  const getImgProps: PropGetter = () => {
+  const getImgProps: PropGetter = (props = {}) => {
     return {
       src,
       ref: domRef,
       "data-loaded": dataAttr(isImgLoaded),
-      className: slots.img({class: baseStyles}),
+      className: slots.img({class: clsx(baseStyles, props?.className)}),
       ...otherProps,
     };
   };
@@ -138,13 +145,13 @@ export function useImage(originalProps: UseImageProps) {
       : {};
 
     return {
-      className: slots.base({class: baseStyles}),
+      className: slots.base({class: classNames?.base}),
       style: {
         ...fallbackStyle,
         maxWidth: w,
       },
     };
-  }, [slots, showFallback, fallbackSrc, baseStyles]);
+  }, [slots, showFallback, fallbackSrc, classNames?.base]);
 
   const getBlurredImgProps = useCallback<PropGetter>(() => {
     return {
@@ -162,6 +169,7 @@ export function useImage(originalProps: UseImageProps) {
     isBlurred,
     disableSkeleton,
     fallbackSrc,
+    removeWrapper,
     isZoomed: originalProps.isZoomed,
     isLoading: originalProps.isLoading,
     getImgProps,

@@ -8,6 +8,7 @@ import plugin from "tailwindcss/plugin.js";
 import forEach from "lodash.foreach";
 import flatten from "flat";
 import get from "lodash.get";
+import omit from "lodash.omit";
 import deepMerge from "deepmerge";
 
 import {semanticColors, commonColors} from "./colors";
@@ -21,7 +22,7 @@ interface MaybeNested<K extends keyof any = string, V = string> {
 }
 
 const SCHEME = Symbol("color-scheme");
-const VAR_PREFIX = "nextui";
+const DEFAULT_PREFIX = "nextui";
 
 export type Colors = MaybeNested<string, string>;
 
@@ -63,6 +64,11 @@ export type ConfigFunction = ({
 
 export type NextUIConfig = {
   /**
+   * The prefix for the css variables.
+   * @default "nextui"
+   */
+  prefix?: string;
+  /**
    * The theme definitions.
    */
   themes?: ConfigObject | ConfigFunction;
@@ -77,6 +83,7 @@ export type NextUIConfig = {
 const resolveConfig = (
   config: ConfigObject | ConfigFunction = {},
   defaultTheme: DefaultThemeType,
+  prefix: string,
 ) => {
   const resolved: {
     variants: {name: string; definition: string[]}[];
@@ -93,7 +100,7 @@ const resolveConfig = (
   const configObject = typeof config === "function" ? config({dark, light}) : config;
 
   forEach(configObject, (colors: ColorsWithScheme<"light" | "dark">, themeName: string) => {
-    let cssSelector = `.${themeName},.theme-${themeName},[data-theme="${themeName}"]`;
+    let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
 
     // if the theme is the default theme, add the selector to the root element
     if (themeName === defaultTheme) {
@@ -116,8 +123,8 @@ const resolveConfig = (
 
     // resolved.variants
     resolved.variants.push({
-      name: `theme-${themeName}`,
-      definition: [`&.${themeName}`, `&.theme-${themeName}`, `&[data-theme='${themeName}']`],
+      name: themeName,
+      definition: [`&.${themeName}`, `&[data-theme='${themeName}']`],
     });
 
     forEach(flatColors, (colorValue, colorName) => {
@@ -127,8 +134,8 @@ const resolveConfig = (
       try {
         // const [h, s, l, defaultAlphaValue] = parseToHsla(colorValue);
         const [h, s, l, defaultAlphaValue] = Color(colorValue).hsl().round().array();
-        const nextuiColorVariable = `--${VAR_PREFIX}-${colorName}`;
-        const nextuiOpacityVariable = `--${VAR_PREFIX}-${colorName}-opacity`;
+        const nextuiColorVariable = `--${prefix}-${colorName}`;
+        const nextuiOpacityVariable = `--${prefix}-${colorName}-opacity`;
 
         // set the css variable in "@layer utilities"
         resolved.utilities[cssSelector]![nextuiColorVariable] = `${h} ${s}% ${l}%`;
@@ -162,8 +169,12 @@ const resolveConfig = (
   return resolved;
 };
 
-const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: DefaultThemeType) => {
-  const resolved = resolveConfig(config, defaultTheme);
+const corePlugin = (
+  config: ConfigObject | ConfigFunction = {},
+  defaultTheme: DefaultThemeType,
+  prefix: string,
+) => {
+  const resolved = resolveConfig(config, defaultTheme, prefix);
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
@@ -175,7 +186,7 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: De
       });
       // add the css variables to "@layer utilities"
       addUtilities({...resolved.utilities, ...utilities});
-      // add the theme as variant e.g. "theme-[name]:text-2xl"
+      // add the theme as variant e.g. "[theme-name]:text-2xl"
       resolved.variants.forEach((variant) => {
         addVariant(variant.name, variant.definition);
       });
@@ -218,16 +229,25 @@ const corePlugin = (config: ConfigObject | ConfigFunction = {}, defaultTheme: De
 };
 
 export const nextui = (config: NextUIConfig = {}) => {
-  const userLightColors = get(config.themes, "light", {});
-  const userDarkColors = get(config.themes, "dark", {});
+  const themeObject =
+    typeof config.themes === "function" ? config.themes({dark, light}) : config.themes;
+
+  const userLightColors = get(themeObject, "light", {});
+  const userDarkColors = get(themeObject, "dark", {});
 
   const defaultTheme = config.defaultTheme || "light";
+  const defaultPrefix = config.prefix || DEFAULT_PREFIX;
+
+  // get other themes from the config different from light and dark
+  const otherThemes = omit(themeObject, ["light", "dark"]) || {};
 
   return corePlugin(
     {
       light: deepMerge(semanticColors.light, userLightColors),
       dark: deepMerge(semanticColors.dark, userDarkColors),
+      ...otherThemes,
     },
     defaultTheme,
+    defaultPrefix,
   );
 };

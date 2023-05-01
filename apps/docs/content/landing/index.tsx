@@ -89,4 +89,74 @@ export default {
   //     icon: <Magic fill="#FF4ECD" />,
   //   },
   // ]
+  themingCode: `const { nextui } = require("@nextui-org/react");
+
+module.exports = {
+  // ...
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          primary: "#0072f5",
+        },
+        dark: {
+          primary: "#0072f5",
+        },
+      },
+    }),
+  ],
+};
+
+module.exports = {
+  // ...
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          primary: "#7828c8",
+        },
+        dark: {
+          primary: "#9353d3",
+        },
+      },
+    }),
+  ],
+};
+
+module.exports = {
+  // ...
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          primary: "#FFFFFF",
+        },
+        dark: {
+          primary: "#000000",
+        },
+      },
+    }),
+  ],
+};
+
+module.exports = {
+  // ...
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          primary: "#FFD34E",
+          secondary: "#EE457E",
+          background:"#F4E8D1"
+        },
+        dark: {
+          primary: "#FFD34E",
+          secondary: "#EE457E",
+          background: "#E1CA9E"
+        },
+      },
+    }),
+  ],
+};
+`,
 };

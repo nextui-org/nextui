@@ -1,5 +1,29 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230429213333
+
+### Patch Changes
+
+- Tailwind variants upgraded, dropdown section moved to the local aria package
+
+## 0.0.0-dev-v2-20230429144144
+
+### Patch Changes
+
+- Theme custom prefix supported, theme variants simplified
+
+## 0.0.0-dev-v2-20230429142755
+
+### Patch Changes
+
+- Support custom function themes
+
+## 0.0.0-dev-v2-20230429140802
+
+### Patch Changes
+
+- Custom themes support
+
 ## 0.0.0-dev-v2-20230428210058
 
 ### Patch Changes

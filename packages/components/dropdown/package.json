@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/dropdown",
-  "version": "0.0.0-dev-v2-20230428210058",
+  "version": "0.0.0-dev-v2-20230429213333",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"
@@ -47,7 +47,6 @@
     "@nextui-org/use-is-mobile": "workspace:*",
     "@react-aria/menu": "^3.9.0",
     "@react-aria/utils": "^3.16.0",
-    "@react-stately/collections": "^3.6.0",
     "@react-stately/menu": "^3.5.1",
     "@react-stately/tree": "^3.6.0",
     "@react-aria/focus": "^3.12.0",

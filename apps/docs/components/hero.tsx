@@ -23,18 +23,13 @@ import {GithubIcon} from "@/components/icons";
 import {UserTwitterCard} from "@/components/demos";
 
 const DynamicLopperBG = dynamic(() => import("./looper-bg").then((mod) => mod.LooperBg), {
-  ssr: true,
+  ssr: false,
 });
 
-const FloatingComponents: React.FC = () => {
+const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   const {theme, setTheme} = useTheme();
-  const [mounted, setMounted] = useState(false);
 
   const isSelected = theme === "dark" && mounted;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const onChange = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -73,7 +68,7 @@ const FloatingComponents: React.FC = () => {
         radius="2xl"
       >
         <Image
-          className="object-cover -translate-y-6 h-[120%]"
+          className="object-cover -translate-y-12 h-[100%]"
           src="/images/card-example-6.jpeg"
           width={120}
         />
@@ -89,7 +84,6 @@ const FloatingComponents: React.FC = () => {
         classNames={{
           base: "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s]",
           tabList: "max-w-[200px] bg-content1 shadow-sm",
-          panel: "hidden",
         }}
         radius="full"
         size="xs"
@@ -165,6 +159,12 @@ const FloatingComponents: React.FC = () => {
 };
 
 export const Hero = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
       <div className="flex flex-col gap-6 w-1/2 xl:mt-10">
@@ -196,9 +196,12 @@ export const Hero = () => {
         </div>
       </div>
 
-      <FloatingComponents />
+      <FloatingComponents mounted={mounted} />
 
-      <DynamicLopperBG className="absolute translate-y-[10%] -z-50" />
+      <DynamicLopperBG
+        className="absolute translate-y-[10%] -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity"
+        data-mounted={mounted}
+      />
     </section>
   );
 };

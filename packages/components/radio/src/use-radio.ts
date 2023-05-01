@@ -36,7 +36,7 @@ interface Props extends HTMLNextUIProps<"label"> {
    * <Radio classNames={{
    *    base:"base-classes",
    *    wrapper: "wrapper-classes",
-   *    point: "control-classes", // inner circle
+   *    control: "control-classes", // inner circle
    *    labelWrapper: "label-wrapper-classes", // this wraps the label and description
    *    label: "label-classes",
    *    description: "description-classes",

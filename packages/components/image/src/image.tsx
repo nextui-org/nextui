@@ -14,6 +14,7 @@ const Image = forwardRef<ImageProps, "img">((props, ref) => {
     isBlurred,
     isZoomed,
     fallbackSrc,
+    removeWrapper,
     disableSkeleton,
     getImgProps,
     getWrapperProps,
@@ -24,6 +25,11 @@ const Image = forwardRef<ImageProps, "img">((props, ref) => {
   });
 
   const img = <Component ref={domRef} {...getImgProps()} />;
+
+  if (removeWrapper) {
+    return img;
+  }
+
   const zoomed = (
     <div className={slots.zoomedWrapper({class: classNames?.zoomedWrapper})}>{img}</div>
   );

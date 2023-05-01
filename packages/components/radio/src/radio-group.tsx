@@ -3,7 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {RadioGroupProvider} from "./radio-group-context";
 import {UseRadioGroupProps, useRadioGroup} from "./use-radio-group";
 
-export interface RadioGroupProps extends Omit<UseRadioGroupProps, "ref"> {}
+export interface RadioGroupProps extends Omit<UseRadioGroupProps, "ref" | "defaultChecked"> {}
 
 const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
   const {

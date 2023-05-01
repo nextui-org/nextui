@@ -6,3 +6,6 @@ export * from "./heart";
 export * from "./magic";
 export * from "./flash";
 export * from "./devices";
+export * from "./palette";
+export * from "./gaming-console";
+export * from "./star";

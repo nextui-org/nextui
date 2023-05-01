@@ -17,7 +17,7 @@ import {tv} from "tailwind-variants";
 const user = tv({
   slots: {
     base: [
-      "inline-flex items-center justify-center gap-2 rounded-sm",
+      "inline-flex items-center justify-center gap-2 rounded-sm outline-none",
       // focus ring
       "data-[focus-visible=true]:outline-none",
       "data-[focus-visible=true]:ring-2",

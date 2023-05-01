@@ -34,6 +34,7 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
     slots,
     state,
     tabPanelId,
+    disableCursor,
     isDisabled: isDisabledProp,
     disableAnimation,
     classNames,
@@ -53,6 +54,8 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
   });
 
   const tabStyles = clsx(classNames?.tab, className);
+
+  const ariaControls = item?.props.children ? `${tabPanelId}-${key}` : undefined;
 
   return (
     <Component
@@ -74,7 +77,7 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
           : {},
         filterDOMProps(otherProps, {labelable: true}),
       )}
-      aria-controls={tabPanelId}
+      aria-controls={ariaControls}
       className={slots.tab?.({class: tabStyles})}
       id={`${tabPanelId}-${key}`}
       style={{
@@ -83,7 +86,7 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
       }}
       onClick={chain(onClick, tabProps.onClick)}
     >
-      {isSelected && !disableAnimation ? (
+      {isSelected && !disableAnimation && !disableCursor ? (
         <motion.span
           className={slots.cursor({class: classNames?.cursor})}
           layoutDependency={false}

@@ -36,7 +36,7 @@ export const title = tv({
 });
 
 export const subtitle = tv({
-  base: "w-full md:w-1/2 text-xl font-light text-neutral-500 block max-w-full",
+  base: "w-full md:w-1/2 my-2 text-xl font-light text-neutral-500 block max-w-full",
   variants: {
     fullWidth: {
       true: "!w-full",
@@ -45,5 +45,5 @@ export const subtitle = tv({
 });
 
 export const sectionWrapper = tv({
-  base: "z-10 flex flex-col gap-2 w-full my-56",
+  base: "relative z-10 flex flex-col gap-2 w-full my-56",
 });

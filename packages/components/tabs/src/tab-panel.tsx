@@ -33,6 +33,10 @@ const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
 
   const tabPanelStyles = clsx(classNames?.panel, className, selectedItem.props?.className);
 
+  if (!content) {
+    return null;
+  }
+
   return (
     <Component
       ref={domRef}
