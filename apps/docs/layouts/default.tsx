@@ -10,7 +10,7 @@ export const DefaultLayout: FC<DefaultLayoutProps> = ({children}) => {
   return (
     <>
       <DocsNavbar />
-      <main className="container mx-auto max-w-7xl px-6 overflow-x-hidden lg:overflow-x-visible">
+      <main className="container mx-auto max-w-7xl px-6 overflow-x-hidden lg:overflow-x-visible overflow-y-scroll">
         {children}
       </main>
     </>

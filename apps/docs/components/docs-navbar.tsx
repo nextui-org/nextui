@@ -129,7 +129,7 @@ export const DocsNavbar = () => {
           className="sm:hidden"
         />
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu disableAnimation>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
