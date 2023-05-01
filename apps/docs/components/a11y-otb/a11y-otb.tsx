@@ -9,7 +9,6 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import {motion, useInView} from "framer-motion";
-import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
 import {clsx} from "@nextui-org/shared-utils";
 import {
   AddNoteBulkIcon,
@@ -22,6 +21,7 @@ import {useRef} from "react";
 
 import {FeaturesGrid} from "../features-grid";
 
+import {TRANSITION_EASINGS} from "@/utils/transitions";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {IconSvgProps} from "@/types";
 

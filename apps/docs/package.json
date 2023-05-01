@@ -12,7 +12,6 @@
     "@nextui-org/react": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@react-aria/visually-hidden": "^3.8.0",
