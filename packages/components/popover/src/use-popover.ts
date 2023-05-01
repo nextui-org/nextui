@@ -156,6 +156,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     {
       triggerRef,
       popoverRef,
+      isNonModal: true,
       placement: toReactAriaPlacement(placementProp),
       offset: showArrow ? offset + 3 : offset,
       scrollRef,

@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230501173002
+
+### Patch Changes
+
+- Popover overflow fixed
+
 ## 0.0.0-dev-v2-20230429213333
 
 ### Patch Changes

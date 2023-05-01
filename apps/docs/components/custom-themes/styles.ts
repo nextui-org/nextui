@@ -42,26 +42,8 @@ export const shopCartStyles = tv({
       "!duration-300",
     ],
     contentWrapper: "flex flex-col justify-center transition-all h-full h-[200px]",
-    title: [
-      "relative",
-      "w-full",
-      "flex-none",
-      "text-xl",
-      "font-semibold",
-      "text-foreground",
-      "transition-all",
-      "will-change-auto",
-      "!duration-500",
-    ],
-    description: [
-      "my-2",
-      "w-full",
-      "text-base",
-      "text-neutral-500",
-      "transition-all",
-      "will-change-auto",
-      "!duration-500",
-    ],
+    title: ["relative", "w-full", "flex-none", "text-xl", "font-semibold", "text-foreground"],
+    description: ["my-2", "w-full", "text-base", "text-neutral-500"],
     price: "relative text-lg font-semibold text-foreground",
     previousPrice: "relative line-through font-semibold text-neutral-400 ml-3",
     percentOff: "relative font-normal text-success ml-3",
@@ -82,6 +64,7 @@ export const shopCartStyles = tv({
   variants: {
     theme: {
       nextui: {
+        card: "py-5",
         imageWrapper: ["before:rounded-2xl", "before:from-[#010187] before:to-[#18000E]"],
         sizeOption: [
           "group-data-[checked=true]:bg-primary",

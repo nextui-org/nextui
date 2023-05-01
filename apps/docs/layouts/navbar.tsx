@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {
-  Navbar,
+  Navbar as NextUINavbar,
   NavbarContent,
   NavbarMenu,
   NavbarMenuItem,
@@ -21,7 +21,7 @@ import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {NextUILogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 
-export const DocsNavbar = () => {
+export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
 
   const menuItems = [
@@ -55,7 +55,7 @@ export const DocsNavbar = () => {
   );
 
   return (
-    <Navbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
+    <NextUINavbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3">
           <NextUILogo auto />
@@ -144,6 +144,6 @@ export const DocsNavbar = () => {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
-    </Navbar>
+    </NextUINavbar>
   );
 };

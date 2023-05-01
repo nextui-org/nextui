@@ -3,13 +3,20 @@
 @tailwind utilities;
 
 html {
-  overflow-y: scroll !important;
   height: 100vh;
+  padding: 0px !important;
+  scroll-padding-top: 64px;
 }
 
-body,
-#__next {
+body, #__next {
   height: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  #app-container {
+    height: 100dvh;
+    overflow-x: hidden;
+  }
 }
 
 /**
@@ -113,7 +120,7 @@ body,
   }
 
   .code-block .token.deleted .highlight-word {
-    @apply text-code-highlighted-word2-text bg-code-highlighted-word2-bg
+    @apply text-code-highlighted-word2-text bg-code-highlighted-word2-bg;
   }
 
   .code-block .token.deleted .highlight-word.on {
@@ -147,11 +154,11 @@ body,
   }
 
   .code-block .highlight-line[data-highlighted="false"] {
-    @apply text-code-faded-line
+    @apply text-code-faded-line;
   }
 
   .code-block .highlight-line[data-highlighted="false"] * {
-    @apply text-code-faded-line
+    @apply text-code-faded-line;
   }
 
   /* Typewriter styles */

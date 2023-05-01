@@ -9,3 +9,5 @@ export * from "./devices";
 export * from "./palette";
 export * from "./gaming-console";
 export * from "./star";
+export * from "./two-tone";
+export * from "./bold";

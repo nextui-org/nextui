@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-clipboard",
-  "version": "0.0.0-dev-v2-20230429213333",
+  "version": "0.0.0-dev-v2-20230501173002",
   "description": "Wrapper around navigator.clipboard with feedback timeout",
   "keywords": [
     "use-clipboard"

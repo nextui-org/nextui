@@ -1,5 +1,19 @@
 # @nextui-org/navbar
 
+## 0.0.0-dev-v2-20230501173002
+
+### Patch Changes
+
+- Popover overflow fixed
+- Updated dependencies
+  - @nextui-org/use-aria-toggle-button@0.0.0-dev-v2-20230501173002
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230501173002
+  - @nextui-org/use-scroll-position@0.0.0-dev-v2-20230501173002
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230501173002
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230501173002
+  - @nextui-org/system@0.0.0-dev-v2-20230501173002
+  - @nextui-org/theme@0.0.0-dev-v2-20230501173002
+
 ## 0.0.0-dev-v2-20230429213333
 
 ### Patch Changes

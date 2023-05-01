@@ -1,6 +1,7 @@
 import {ReactNode, FC} from "react";
 
-import {DocsNavbar} from "@/components";
+import {Head} from "./head";
+import {Navbar} from "./navbar";
 
 export interface DefaultLayoutProps {
   children: ReactNode;
@@ -8,11 +9,10 @@ export interface DefaultLayoutProps {
 
 export const DefaultLayout: FC<DefaultLayoutProps> = ({children}) => {
   return (
-    <>
-      <DocsNavbar />
-      <main className="container mx-auto max-w-7xl px-6 overflow-x-hidden lg:overflow-x-visible overflow-y-scroll">
-        {children}
-      </main>
-    </>
+    <div id="app-container">
+      <Head />
+      <Navbar />
+      <main className="container mx-auto max-w-7xl px-6">{children}</main>
+    </div>
   );
 };

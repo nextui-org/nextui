@@ -1,5 +1,13 @@
 # @nextui-org/use-disclosure
 
+## 0.0.0-dev-v2-20230501173002
+
+### Patch Changes
+
+- Popover overflow fixed
+- Updated dependencies
+  - @nextui-org/use-callback-ref@0.0.0-dev-v2-20230501173002
+
 ## 0.0.0-dev-v2-20230429213333
 
 ### Patch Changes

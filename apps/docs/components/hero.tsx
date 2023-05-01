@@ -13,19 +13,15 @@ import {
   Tabs,
   TabItem,
 } from "@nextui-org/react";
+import {clsx} from "@nextui-org/shared-utils";
 import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
-import dynamic from "next/dynamic";
 
 import {useMediaQuery} from "@/hooks/use-media-query";
 import {title, subtitle} from "@/components/primitives";
 import {NextUILogo} from "@/components";
 import {GithubIcon} from "@/components/icons";
 import {UserTwitterCard} from "@/components/demos";
-
-const DynamicLopperBG = dynamic(() => import("./looper-bg").then((mod) => mod.LooperBg), {
-  ssr: false,
-});
 
 const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   const {theme, setTheme} = useTheme();
@@ -168,7 +164,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
+    <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100dvh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
       <div className="flex flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
         <div>
           <h1 className={title()}>Make&nbsp;</h1>
@@ -200,8 +196,16 @@ export const Hero = () => {
 
       {!isTablet && <FloatingComponents mounted={mounted} />}
 
-      <DynamicLopperBG
-        className="absolute translate-y-[5%] -translate-x-[10%] md:translate-x-0 md:translate-y-[10%] -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity"
+      <div
+        className={clsx(
+          "absolute -top-20 lg:top-10 w-screen h-screen -z-50 opacity-0",
+          "data-[mounted=true]:opacity-100 transition-opacity",
+          "bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')]",
+          "after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[-1]",
+          isTablet
+            ? "after:bg-gradient-to-l after:from-transparent after:to-white dark:after:to-black"
+            : "after:bg-gradient-to-r after:from-transparent after:to-white dark:after:to-black after:z-[-1]",
+        )}
         data-mounted={mounted}
       />
     </section>

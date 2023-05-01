@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import {
   Button,
+  Image,
   Link as NextUILink,
   Dropdown,
   DropdownSection,
@@ -8,7 +9,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-import {motion, useInView} from "framer-motion";
+import {useInView} from "framer-motion";
 import {clsx} from "@nextui-org/shared-utils";
 import {
   AddNoteBulkIcon,
@@ -21,69 +22,43 @@ import {useRef} from "react";
 
 import {FeaturesGrid} from "../features-grid";
 
-import {TRANSITION_EASINGS} from "@/utils/transitions";
+import {
+  KeyboardBoldIcon,
+  MouseCircleBoldIcon,
+  SquaresBoldIcon,
+  FatrowsBoldIcon,
+  EyeBoldIcon,
+  KeyboardOpenBoldIcon,
+} from "@/components/icons";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
-import {IconSvgProps} from "@/types";
+import {useIsMobile} from "@/hooks/use-media-query";
 
 const a11yItems = [
-  "Keyboard navigation",
-  "Managed focus",
-  "Collision aware",
-  "Alignment control",
-  "Screen reader support",
-  "Typehead support",
+  {
+    title: "Keyboard navigation",
+    icon: <KeyboardBoldIcon />,
+  },
+  {
+    title: "Managed focus",
+    icon: <MouseCircleBoldIcon />,
+  },
+  {
+    title: "Collision aware",
+    icon: <SquaresBoldIcon />,
+  },
+  {
+    title: "Alignment control",
+    icon: <FatrowsBoldIcon />,
+  },
+  {
+    title: "Screen reader support",
+    icon: <EyeBoldIcon />,
+  },
+  {
+    title: "Typehead support",
+    icon: <KeyboardOpenBoldIcon />,
+  },
 ];
-
-const MotionTickBoldIcon = ({
-  size = 24,
-  delay = 0,
-  width,
-  height,
-}: IconSvgProps & {
-  delay?: number;
-}) => {
-  const ref = useRef<any>(null);
-  const isInView = useInView(ref, {
-    margin: "10px",
-    once: true,
-  });
-
-  const variants = {
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: delay,
-        easing: TRANSITION_EASINGS.spring,
-      },
-    },
-    hidden: {
-      scale: 0,
-      opacity: 0,
-    },
-  };
-
-  return (
-    <motion.svg
-      ref={ref as any}
-      animate={isInView ? "visible" : "hidden"}
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      height={size || height}
-      initial={false}
-      role="presentation"
-      variants={variants}
-      viewBox="0 0 24 24"
-      width={size || width}
-    >
-      <path
-        d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z"
-        fill="currentColor"
-      />
-    </motion.svg>
-  );
-};
 
 const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0";
 
@@ -92,6 +67,8 @@ export const A11yOtb = () => {
   const isInView = useInView(ref, {
     margin: "-10px",
   });
+
+  const isMobile = useIsMobile();
 
   return (
     <section className={sectionWrapper({class: "pb-56"})}>
@@ -118,21 +95,18 @@ export const A11yOtb = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="flex flex-col mt-8 gap-6">
+          <div className="flex flex-col mt-20 gap-6">
             <FeaturesGrid
               classNames={{
                 base: "grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4",
                 header: "pb-3",
-                iconWrapper: "bg-neutral-100 text-neutral-400",
+                iconWrapper: "bg-neutral-100 dark:bg-transparent text-neutral-500/50",
               }}
-              features={a11yItems.map((item, index) => ({
-                title: item,
-                icon: <MotionTickBoldIcon delay={index * 0.2} />,
-              }))}
+              features={a11yItems}
             />
             <Button
               as={Link}
-              className="max-w-fit text-neutral-600"
+              className="max-w-fit text-neutral-400 bg-neutral-100/50"
               color="neutral"
               href="/docs/theme/customize-theme"
               radius="full"
@@ -144,18 +118,24 @@ export const A11yOtb = () => {
           </div>
           <div
             ref={ref}
-            className="w-full h-full min-h-[390px] bg-gradient-to-r rounded-xl flex pt-8 items-start justify-center from-[#4ADE80] to-[#06B6D4]"
+            className="relative w-full h-full min-h-[200px] lg:min-h-[390px] bg-gradient-to-r rounded-xl flex lg:pt-8 items-center lg:items-start justify-center from-[#4ADE80] to-[#06B6D4]"
           >
             {isInView && (
-              <Dropdown isOpen className="shadow-xl" placement="bottom" shouldFlip={false}>
+              <Dropdown
+                defaultOpen
+                className="shadow-xl"
+                placement="bottom"
+                shouldBlockScroll={isMobile}
+                shouldFlip={isMobile}
+              >
                 <DropdownTrigger>
                   <Button color="success" variant="flat">
-                    Actions
+                    {isMobile ? "Click me" : "Actions"}
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu
                   aria-label="Actions"
-                  closeOnSelect={false}
+                  closeOnSelect={true}
                   color="neutral"
                   variant="flat"
                 >
@@ -204,6 +184,9 @@ export const A11yOtb = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className="absolute hidden dark:block dark:opacity-80 -bottom-[10%] -left-[0%] -z-[1]">
+        <Image removeWrapper alt="a11y background" className="h-full" src="/gradients/green.svg" />
       </div>
     </section>
   );
