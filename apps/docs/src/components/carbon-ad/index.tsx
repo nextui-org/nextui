@@ -166,7 +166,8 @@ const CarbonAd: React.FC<unknown> = () => {
 
             .ea-container .ea-type-image .ea-text {
               width: 100%;
-              padding-top: ${theme?.space?.sm?.value};
+              text-align: left !important;
+              padding-top: ${theme?.space?.xs?.value};
               padding-left: ${theme?.space?.md?.value};
               padding-right: ${theme?.space?.md?.value};
             }
