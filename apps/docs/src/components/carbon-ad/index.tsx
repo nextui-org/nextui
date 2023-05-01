@@ -1,4 +1,5 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
+import Script from "next/script";
 import {loadScript} from "@utils/scripts";
 import {useTheme} from "@nextui-org/react";
 import {isProd} from "@utils/index";
@@ -6,35 +7,179 @@ import useIsMounted from "@hooks/use-is-mounted";
 
 import carbonOptimize from "./carbon-optimize";
 
+const ADS_PROVIDER_RATIO = 0.5;
+
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
   const {theme, isDark} = useTheme();
+  const [showEthicalAds, setShowEthicalAds] = React.useState(false);
+
   const isMounted = useIsMounted();
 
-  useEffect(() => {
-    // The isolation logic of carbonads is flawed.
-    // Once the script starts loading, it will asynchronous resolve, with no way to stop it.
-    // This leads to duplication of the ad. To solve the issue, we debounce the load action.
-    const load =
-      isMounted &&
-      setTimeout(() => {
-        const script = loadScript(
-          "https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg",
-          ref.current,
-        );
+  const loadEthicalAds = useCallback(() => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
 
-        script.id = "_carbonads_js";
-        carbonOptimize.init();
-      });
+      script.src = "https://media.ethicalads.io/media/client/ethicalads.min.js";
+      script.async = true;
+      script.onload = () => {
+        // @ts-ignore
+        resolve(window.ethicalads);
+      };
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      };
+    });
+  }, []);
+
+  useEffect(() => {
+    const shouldShowEthicalAds = Math.random() < ADS_PROVIDER_RATIO;
+
+    let loadCarbon: any = null;
+
+    const loadCarbonAds = () => {
+      // The isolation logic of carbonads is flawed.
+      // Once the script starts loading, it will asynchronous resolve, with no way to stop it.
+      // This leads to duplication of the ad. To solve the issue, we debounce the load action.
+      loadCarbon =
+        isMounted &&
+        setTimeout(() => {
+          const script = loadScript(
+            "https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg",
+            ref.current,
+          );
+
+          script.id = "_carbonads_js";
+          carbonOptimize.init();
+        });
+    };
+
+    const loadAdProvider = async () => {
+      if (shouldShowEthicalAds) {
+        const ethicalads = await loadEthicalAds();
+
+        // @ts-ignore
+        ethicalads.wait.then((placements) => {
+          if (placements.length) {
+            setShowEthicalAds(true);
+          } else {
+            loadCarbonAds();
+          }
+        });
+      } else {
+        loadCarbonAds();
+      }
+    };
+
+    loadAdProvider();
 
     return () => {
-      load && clearTimeout(load);
+      loadCarbon && clearTimeout(loadCarbon);
     };
-  }, [isMounted]);
+  }, [isMounted, isDark]);
 
   if (!isProd) return null;
 
-  return (
+  return showEthicalAds ? (
+    <>
+      <Script async src="https://media.ethicalads.io/media/client/ethicalads.min.js" />
+      <div className="ea-container horizontal" data-ea-publisher="nextuiorg" data-ea-type="image" />
+      <style global jsx>
+        {`
+          .ea-container {
+            width: 100%;
+            z-index: 100;
+            padding: 1.2rem 1rem;
+            min-height: 132px;
+            border-radius: ${theme?.radii?.lg?.value};
+            background-color: ${!isDark ? "#363449" : "#111"};
+            box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
+            position: relative;
+          }
+          .ea-container .ea-type-image {
+            width: 100%;
+          }
+          .ea-container .ea-type-image .ea-content {
+            width: 100%;
+            height: 100% !important;
+            max-width: 100% !important;
+            display: flex;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+          }
+
+          .ea-container .ea-type-image .ea-callout {
+            display: flex !important;
+            max-width: 100% !important;
+            justify-content: flex-end !important;
+            position: absolute;
+            bottom: 0;
+            right: 1rem;
+          }
+
+          .ea-container .ea-type-image .ea-callout a,
+          .ea-container .ea-type-image .ea-callout a .ea-headline,
+          .ea-container .ea-type-image .ea-callout a .ea-cta {
+            color: ${!isDark
+              ? "var(--nextui-colors-accents2)"
+              : "var(--nextui-colors-accents4)"} !important;
+          }
+
+          [data-ea-publisher].loaded .ea-content a strong {
+            color: ${!isDark
+              ? "var(--nextui-colors-accents2)"
+              : "var(--nextui-colors-accents6)"} !important;
+          }
+
+          .ea-container .ea-type-image .ea-content a {
+            display: block;
+            line-height: 1;
+            max-width: 130px;
+            width: 100%;
+          }
+
+          .ea-container .ea-type-image .ea-text {
+            width: 100%;
+            padding-top: ${theme?.space?.sm?.value};
+            padding-left: ${theme?.space?.md?.value};
+            padding-right: ${theme?.space?.md?.value};
+          }
+
+          .ea-container .ea-type-image .ea-text a {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            font-size: 1rem;
+            width: 100%;
+            color: ${!isDark ? "var(--nextui-colors-accents6)" : "var(--nextui-colors-accents5)"};
+          }
+
+          .ea-container .ea-type-image .ea-text .ea-body {
+            color: ${!isDark ? "var(--nextui-colors-accents6)" : "var(--nextui-colors-accents7)"};
+          }
+
+          .ea-container .ea-type-image img {
+            display: block;
+            max-width: 100% !important;
+            width: 100%;
+            border-radius: ${theme?.radii?.md?.value};
+            border: 0px;
+            margin: 0px;
+          }
+
+          @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
+            .ea-container .ea-type-image .ea-text a {
+              font-size: 0.9rem;
+            }
+          }
+        `}
+      </style>
+    </>
+  ) : (
     <div className="carbon-ad-container">
       <span ref={ref} id="carbon-ad">
         <style global jsx>
