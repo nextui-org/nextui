@@ -123,6 +123,9 @@ const CarbonAd: React.FC<unknown> = () => {
             .ea-container .ea-type-image {
               width: 100%;
             }
+            .ea-container .ea-pixel {
+              display: none !important;
+            }
             .ea-container .ea-type-image .ea-content {
               width: 100%;
               height: 100% !important;
