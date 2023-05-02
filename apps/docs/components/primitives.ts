@@ -9,11 +9,12 @@ export const title = tv({
   variants: {
     color: {
       violet: "from-[#FF1CF7] to-[#b249f8]",
-      yellow: "from-[#f36534] to-[#F69F27]",
+      yellow: "from-[#FF705B] to-[#FFB457]",
       blue: "from-[#5EA2EF] to-[#0072F5]",
       cyan: "from-[#00b7fa] to-[#01cfea]",
       green: "from-[#6FEE8D] to-[#17c964]",
       pink: "from-[#FF4ECD] to-[#F21361]",
+      foreground: "dark:from-[#FFFFFF] dark:to-[#4B4B4B]",
     },
     size: {
       sm: "text-2xl lg:text-3xl",
@@ -29,7 +30,7 @@ export const title = tv({
   },
   compoundVariants: [
     {
-      color: ["violet", "yellow", "blue", "cyan", "green", "pink"],
+      color: ["violet", "yellow", "blue", "cyan", "green", "pink", "foreground"],
       class: "bg-clip-text text-transparent bg-gradient-to-b",
     },
   ],
@@ -45,5 +46,5 @@ export const subtitle = tv({
 });
 
 export const sectionWrapper = tv({
-  base: "relative z-10 flex flex-col gap-2 w-full mt-56 pb-20",
+  base: "relative z-10 flex flex-col gap-2 w-full pb-20",
 });

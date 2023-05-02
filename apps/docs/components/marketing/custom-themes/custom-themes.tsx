@@ -190,7 +190,7 @@ export const CustomThemes = () => {
   const [selectedTheme, setSelectedTheme] = useState<Theme>(themesTabs[0].id as Theme);
 
   return (
-    <section className={sectionWrapper()}>
+    <section className={sectionWrapper({class: "mt-56"})}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>

@@ -11,3 +11,4 @@ export * from "./gaming-console";
 export * from "./star";
 export * from "./two-tone";
 export * from "./bold";
+export * from "./linear";

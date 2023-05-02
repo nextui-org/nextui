@@ -37,8 +37,6 @@ const button = tv({
     "data-[pressed=true]:scale-95",
     "overflow-hidden",
     "gap-1.5",
-    // svg icon
-    "[&>svg]:max-w-[2em]",
     // focus ring
     "data-[focus-visible=true]:outline-none",
     "data-[focus-visible=true]:ring-2",
@@ -50,12 +48,12 @@ const button = tv({
   variants: {
     variant: {
       solid: "",
-      bordered: "border-2 !bg-transparent",
-      light: "!bg-transparent",
+      bordered: "border-2 bg-transparent",
+      light: "bg-transparent",
       flat: "",
       faded: "border-2",
       shadow: "",
-      ghost: "border-2 !bg-transparent",
+      ghost: "border-2 bg-transparent",
     },
     size: {
       xs: "px-2 h-6 text-xs",
@@ -65,12 +63,12 @@ const button = tv({
       xl: "px-8 h-14 text-lg",
     },
     color: {
-      neutral: colorVariants.solid.neutral,
-      primary: colorVariants.solid.primary,
-      secondary: colorVariants.solid.secondary,
-      success: colorVariants.solid.success,
-      warning: colorVariants.solid.warning,
-      danger: colorVariants.solid.danger,
+      neutral: "",
+      primary: "",
+      secondary: "",
+      success: "",
+      warning: "",
+      danger: "",
     },
     radius: {
       none: "rounded-none",
@@ -94,6 +92,7 @@ const button = tv({
     },
     isIconOnly: {
       true: "p-0 gap-0",
+      false: "[&>svg]:max-w-[2em]",
     },
     disableAnimation: {
       true: "!transition-none",
@@ -111,6 +110,37 @@ const button = tv({
     disableAnimation: false,
   },
   compoundVariants: [
+    // solid / color
+    {
+      variant: "solid",
+      color: "neutral",
+      class: colorVariants.solid.neutral,
+    },
+    {
+      variant: "solid",
+      color: "primary",
+      class: colorVariants.solid.primary,
+    },
+    {
+      variant: "solid",
+      color: "secondary",
+      class: colorVariants.solid.secondary,
+    },
+    {
+      variant: "solid",
+      color: "success",
+      class: colorVariants.solid.success,
+    },
+    {
+      variant: "solid",
+      color: "warning",
+      class: colorVariants.solid.warning,
+    },
+    {
+      variant: "solid",
+      color: "danger",
+      class: colorVariants.solid.danger,
+    },
     // shadow / color
     {
       variant: "shadow",
@@ -239,32 +269,32 @@ const button = tv({
     {
       variant: "light",
       color: "neutral",
-      class: [colorVariants.light.neutral, "hover:!bg-neutral-100"],
+      class: [colorVariants.light.neutral, "data-[hover=true]:bg-neutral-100"],
     },
     {
       variant: "light",
       color: "primary",
-      class: [colorVariants.light.primary, "hover:!bg-primary-50"],
+      class: [colorVariants.light.primary, "data-[hover=true]:bg-primary-50"],
     },
     {
       variant: "light",
       color: "secondary",
-      class: [colorVariants.light.secondary, "hover:!bg-secondary-100"],
+      class: [colorVariants.light.secondary, "data-[hover=true]:bg-secondary-100"],
     },
     {
       variant: "light",
       color: "success",
-      class: [colorVariants.light.success, "hover:!bg-success-50"],
+      class: [colorVariants.light.success, "data-[hover=true]:bg-success-50"],
     },
     {
       variant: "light",
       color: "warning",
-      class: [colorVariants.light.warning, "hover:!bg-warning-50"],
+      class: [colorVariants.light.warning, "data-[hover=true]:bg-warning-50"],
     },
     {
       variant: "light",
       color: "danger",
-      class: [colorVariants.light.danger, "hover:!bg-danger-50"],
+      class: [colorVariants.light.danger, "data-[hover=true]:bg-danger-50"],
     },
     // ghost / color
     {

@@ -5,6 +5,7 @@
 html {
   height: 100vh;
   padding: 0px !important;
+  overflow-x: hidden;
   scroll-padding-top: 64px;
 }
 

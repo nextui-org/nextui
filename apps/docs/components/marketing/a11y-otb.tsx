@@ -20,7 +20,7 @@ import {
 import Link from "next/link";
 import {useRef} from "react";
 
-import {FeaturesGrid} from "../features-grid";
+import {FeaturesGrid} from "./features-grid";
 
 import {
   KeyboardBoldIcon,
@@ -71,7 +71,7 @@ export const A11yOtb = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className={sectionWrapper({class: "pb-56"})}>
+    <section className={sectionWrapper({class: "mt-44"})}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>
@@ -95,7 +95,7 @@ export const A11yOtb = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="flex flex-col mt-20 gap-6">
+          <div className="flex flex-col mt-16 gap-6">
             <FeaturesGrid
               classNames={{
                 base: "grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4",
@@ -118,7 +118,7 @@ export const A11yOtb = () => {
           </div>
           <div
             ref={ref}
-            className="relative w-full h-full min-h-[200px] lg:min-h-[390px] bg-gradient-to-r rounded-xl flex lg:pt-8 items-center lg:items-start justify-center from-[#4ADE80] to-[#06B6D4]"
+            className="relative w-full h-full min-h-[200px] lg:min-h-[390px] bg-gradient-to-r rounded-2xl flex lg:pt-8 items-center lg:items-start justify-center from-[#4ADE80] to-[#06B6D4]"
           >
             {isInView && (
               <Dropdown

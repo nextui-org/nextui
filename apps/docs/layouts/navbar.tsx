@@ -41,6 +41,7 @@ export const Navbar = () => {
     <Input
       aria-label="Search"
       classNames={{
+        inputWrapper: "bg-neutral-400/20 dark:bg-neutral-500/20",
         input: "text-sm",
       }}
       endContent={
@@ -55,7 +56,12 @@ export const Navbar = () => {
   );
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
+    <NextUINavbar
+      className="z-[100001]" // this overleaps the marketing dropdown
+      maxWidth="xl"
+      position="sticky"
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3">
           <NextUILogo auto />
@@ -99,13 +105,13 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal href="https://twitter.com/getnextui">
-            <TwitterIcon className="text-neutral-400" />
+            <TwitterIcon className="text-neutral-500 dark:text-neutral-400" />
           </Link>
           <Link isExternal href="https://discord.gg/9b6yyZKmH4">
-            <DiscordIcon className="text-neutral-400" />
+            <DiscordIcon className="text-neutral-500 dark:text-neutral-400" />
           </Link>
           <Link isExternal href="https://github.com/nextui-org/nextui">
-            <GithubIcon className="text-neutral-400" />
+            <GithubIcon className="text-neutral-500 dark:text-neutral-400" />
           </Link>
           <ThemeSwitch />
         </NavbarItem>
@@ -114,7 +120,7 @@ export const Navbar = () => {
           <Button
             isExternal
             as={Link}
-            className="group text-sm font-normal text-neutral-600"
+            className="group text-sm font-normal text-neutral-600 bg-neutral-400/20 dark:bg-neutral-500/20"
             href="https://patreon.com/jrgarciadev"
             startIcon={
               <HeartFilledIcon className="text-danger group-data-[hover=true]:animate-heartbeat" />
