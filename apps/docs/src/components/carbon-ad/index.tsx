@@ -7,7 +7,7 @@ import useIsMounted from "@hooks/use-is-mounted";
 
 import carbonOptimize from "./carbon-optimize";
 
-const ADS_PROVIDER_RATIO = 0.5;
+const EA_PROVIDER_RATIO = 0.2;
 
 const CarbonAd: React.FC<unknown> = () => {
   const carbonRef = React.useRef(null);
@@ -40,7 +40,7 @@ const CarbonAd: React.FC<unknown> = () => {
   }, []);
 
   useEffect(() => {
-    const shouldShowEthicalAds = Math.random() < ADS_PROVIDER_RATIO;
+    const shouldShowEthicalAds = Math.random() < EA_PROVIDER_RATIO;
 
     let loadCarbon: any = null;
 
