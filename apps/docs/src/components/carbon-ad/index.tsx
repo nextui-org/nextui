@@ -7,7 +7,7 @@ import useIsMounted from "@hooks/use-is-mounted";
 
 import carbonOptimize from "./carbon-optimize";
 
-const ADS_PROVIDER_RATIO = 0.1;
+const ADS_PROVIDER_RATIO = 0.5;
 
 const CarbonAd: React.FC<unknown> = () => {
   const carbonRef = React.useRef(null);
