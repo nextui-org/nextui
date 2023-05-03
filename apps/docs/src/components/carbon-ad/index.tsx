@@ -4,6 +4,7 @@ import {loadScript} from "@utils/scripts";
 import {useTheme} from "@nextui-org/react";
 import {isProd} from "@utils/index";
 import useIsMounted from "@hooks/use-is-mounted";
+import {isEmpty, filter} from "lodash";
 
 import carbonOptimize from "./carbon-optimize";
 
@@ -72,10 +73,9 @@ const CarbonAd: React.FC<unknown> = () => {
 
             return;
           }
-
           // @ts-ignore
           ethicalads.wait.then((placements) => {
-            if (!placements.length) {
+            if (isEmpty(filter(placements, Boolean))) {
               loadCarbonAds();
             } else {
               setShowEthicalAds(true);
@@ -94,7 +94,7 @@ const CarbonAd: React.FC<unknown> = () => {
     return () => {
       loadCarbon && clearTimeout(loadCarbon);
     };
-  }, [isMounted, isDark]);
+  }, [isMounted]);
 
   if (!isProd) return null;
 
@@ -152,6 +152,8 @@ const CarbonAd: React.FC<unknown> = () => {
               color: ${!isDark
                 ? "var(--nextui-colors-accents2)"
                 : "var(--nextui-colors-accents4)"} !important;
+              font-weight: 600 !important;
+              font-size: 9px !important;
             }
 
             [data-ea-publisher].loaded .ea-content a strong {
