@@ -1,5 +1,12 @@
 import {DefaultLayout} from "@/layouts";
-import {Hero, FeaturesGrid, CustomThemes, A11yOtb, DarkMode} from "@/components/marketing";
+import {
+  Hero,
+  FeaturesGrid,
+  CustomThemes,
+  A11yOtb,
+  DarkMode,
+  Customization,
+} from "@/components/marketing";
 import landingContent from "@/content/landing";
 
 const IndexPage = () => {
@@ -10,6 +17,7 @@ const IndexPage = () => {
       <CustomThemes />
       <A11yOtb />
       <DarkMode />
+      <Customization />
     </DefaultLayout>
   );
 };

@@ -17,6 +17,7 @@ const styles = tv({
     color: {
       orange: "from-[#FFB457] to-[#FF705B]",
       green: "from-[#4ADE80] to-[#06B6D4]",
+      pink: "from-[#FF72E1] to-[#F54C7A]",
     },
     radius: {
       none: "rounded-none",

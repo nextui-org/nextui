@@ -22,7 +22,7 @@ export const WindowActions: React.FC<WindowActionsProps> = ({title, className, .
   return (
     <div
       className={clsx(
-        "flex items-center absolute top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full",
+        "flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full",
         className,
       )}
       {...props}

@@ -39,7 +39,7 @@ export const DarkMode = () => {
           </div>
           <CodeWindow
             showWindowIcons
-            className="min-h-[300px] h-auto"
+            className="min-h-[320px] h-auto"
             highlightLines="7-9"
             language="jsx"
             title="_app.tsx"
@@ -60,9 +60,6 @@ export const DarkMode = () => {
           </Button>
         </div>
       </div>
-      {/* <div className="absolute hidden dark:block dark:opacity-80 -bottom-[10%] -left-[0%] -z-[1]">
-        <Image removeWrapper alt="a11y background" className="h-full" src="/gradients/green.svg" />
-      </div> */}
     </section>
   );
 };

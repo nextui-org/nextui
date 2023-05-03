@@ -142,7 +142,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
   // TODO reset theme
 
   const classes = `language-${language}`;
-  const codeClasses = clsx("absolute w-full", showWindowIcons ? "top-8" : "top-0");
+  const codeClasses = clsx("absolute w-full px-4 pb-6", showWindowIcons ? "top-10" : "top-0");
 
   if (mode === "typewriter") {
     return <CodeTypewriter className={classes} css={css} value={result} {...props} />;
@@ -151,12 +151,12 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
   return (
     <Pre
       ref={forwardedRef}
-      className={clsx("code-block", classes, showWindowIcons ? "pt-8" : "", className)}
+      className={clsx("code-block", classes, className)}
       data-line-numbers={showLineNumbers}
       {...props}
     >
-      <code className={clsx(classes, codeClasses)} dangerouslySetInnerHTML={{__html: result}} />
       {showWindowIcons && <WindowActions title={title} />}
+      <code className={clsx(classes, codeClasses)} dangerouslySetInnerHTML={{__html: result}} />
     </Pre>
   );
 });
