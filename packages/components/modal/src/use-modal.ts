@@ -47,6 +47,11 @@ interface Props extends HTMLNextUIProps<"section"> {
    */
   disableAnimation?: boolean;
   /**
+   * The container element in which the overlay portal will be placed.
+   * @default document.body
+   */
+  portalContainer?: Element;
+  /**
    *  Callback fired when the modal is closed.
    */
   onClose?: () => void;
@@ -88,6 +93,7 @@ export function useModal(originalProps: UseModalProps) {
     motionProps,
     isDismissable = true,
     showCloseButton = true,
+    portalContainer,
     isKeyboardDismissDisabled = false,
     onClose,
     ...otherProps
@@ -203,6 +209,7 @@ export function useModal(originalProps: UseModalProps) {
     classNames,
     isDismissable,
     showCloseButton,
+    portalContainer,
     backdropVariant: originalProps.backdropVariant ?? "opaque",
     isOpen: state.isOpen,
     onClose: state.close,

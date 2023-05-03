@@ -2,7 +2,7 @@ import {tv, VariantProps} from "tailwind-variants";
 
 export const shopCartStyles = tv({
   slots: {
-    wrapper: "overflow-visible h-auto lg:h-[240px] dark:border-none",
+    wrapper: "overflow-visible h-auto lg:h-[240px] dark:border-transparent",
     imageWrapper: [
       "flex-none",
       "w-full",

@@ -52,6 +52,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   motionProps?: HTMLMotionProps<"div">;
   /**
+   * The container element in which the overlay portal will be placed.
+   * @default document.body
+   */
+  portalContainer?: Element;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -96,6 +101,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     crossOffset = 0,
     isDismissable,
     shouldCloseOnBlur = true,
+    portalContainer,
     isKeyboardDismissDisabled = false,
     shouldCloseOnInteractOutside,
     className,
@@ -239,6 +245,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     triggerRef,
     triggerProps,
     showArrow,
+    portalContainer,
     placement: placementProp,
     disableAnimation: originalProps?.disableAnimation,
     isDisabled,

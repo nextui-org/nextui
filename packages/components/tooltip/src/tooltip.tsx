@@ -17,6 +17,7 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     children,
     content,
     isOpen,
+    portalContainer,
     placement,
     disableAnimation,
     motionProps,
@@ -79,7 +80,7 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
     <>
       {trigger}
       {disableAnimation && isOpen ? (
-        <OverlayContainer>
+        <OverlayContainer portalContainer={portalContainer}>
           <Component {...getTooltipProps()}>
             {content}
             {arrowContent}
@@ -87,7 +88,9 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
         </OverlayContainer>
       ) : (
         <AnimatePresence initial={false}>
-          {isOpen ? <OverlayContainer>{animatedContent}</OverlayContainer> : null}
+          {isOpen ? (
+            <OverlayContainer portalContainer={portalContainer}>{animatedContent}</OverlayContainer>
+          ) : null}
         </AnimatePresence>
       )}
     </>

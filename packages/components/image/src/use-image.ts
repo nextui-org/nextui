@@ -109,7 +109,7 @@ export function useImage(originalProps: UseImageProps) {
         ? typeof props.width === "number"
           ? `${props.width}px`
           : props.width
-        : "auto",
+        : "fit-content",
     };
   }, [props?.width]);
 

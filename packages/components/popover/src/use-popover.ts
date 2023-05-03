@@ -66,6 +66,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   motionProps?: HTMLMotionProps<"div">;
   /**
+   * The container element in which the overlay portal will be placed.
+   * @default document.body
+   */
+  portalContainer?: Element;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -106,6 +111,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     shouldFlip = true,
     containerPadding = 12,
     shouldBlockScroll = true,
+    portalContainer,
     placement: placementProp = "top",
     triggerType = "dialog",
     showArrow = false,
@@ -244,6 +250,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     showArrow,
     triggerRef,
     placement,
+    portalContainer,
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,

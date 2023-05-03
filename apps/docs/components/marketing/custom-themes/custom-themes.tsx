@@ -209,7 +209,7 @@ export const CustomThemes = () => {
           <CustomThemesExample selectedTheme={selectedTheme} onChangeTheme={setSelectedTheme} />
           <CodeWindow
             showWindowIcons
-            className="max-h-[440px] min-h-[390px] mt-12"
+            className="max-h-[440px] min-h-[390px]"
             highlightLines={get(codeHighlights, selectedTheme)}
             language="jsx"
             title="tailwind.config.js"

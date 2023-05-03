@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -20,9 +20,13 @@ import {ChevronDownIcon} from "@nextui-org/shared-icons";
 
 import {NextUILogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
+import useIsMounted from "@/hooks/use-is-mounted";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
+
+  const ref = useRef(null);
+  const isMounted = useIsMounted();
 
   const menuItems = [
     "Profile",
@@ -57,7 +61,8 @@ export const Navbar = () => {
 
   return (
     <NextUINavbar
-      className="z-[100001]" // this overleaps the marketing dropdown
+      ref={ref}
+      className="z-[100001]"
       maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}
@@ -65,27 +70,29 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3">
           <NextUILogo auto />
-          <Dropdown placement="bottom-start">
-            <DropdownTrigger>
-              <Button
-                className="hidden sm:flex gap-0.5"
-                endIcon={<ChevronDownIcon className="text-xs" />}
-                radius="full"
-                size="xs"
-                variant="flat"
+          {isMounted && ref.current && (
+            <Dropdown placement="bottom-start" portalContainer={ref.current}>
+              <DropdownTrigger>
+                <Button
+                  className="hidden sm:flex gap-0.5"
+                  endIcon={<ChevronDownIcon className="text-xs" />}
+                  radius="full"
+                  size="xs"
+                  variant="flat"
+                >
+                  v2.0.0
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu
+                aria-label="NextUI versions"
+                defaultSelectedKeys={["v2"]}
+                selectionMode="single"
               >
-                v2.0.0
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              aria-label="NextUI versions"
-              defaultSelectedKeys={["v2"]}
-              selectionMode="single"
-            >
-              <DropdownItem key="v2">v2.0.0</DropdownItem>
-              <DropdownItem key="v1">v1.0.0</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+                <DropdownItem key="v2">v2.0.0</DropdownItem>
+                <DropdownItem key="v1">v1.0.0</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          )}
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="hidden lg:flex" justify="center">

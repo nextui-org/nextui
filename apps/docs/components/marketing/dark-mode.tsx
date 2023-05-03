@@ -1,12 +1,12 @@
 /* eslint-disable react/display-name */
-import {Button, Code} from "@nextui-org/react";
-import Link from "next/link";
+import {Code, Button, Link} from "@nextui-org/react";
 
 import {MusicPlayer} from "@/components/demos";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {ThemeSwitch} from "@/components/theme-switch";
 import {CodeWindow} from "@/components/code-window";
 import landingContent from "@/content/landing";
+import {GradientBox} from "@/components";
 
 export const DarkMode = () => {
   return (
@@ -26,8 +26,8 @@ export const DarkMode = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="flex flex-col gap-6">
-            <div className="relative w-full h-auto lg:h-[400px] bg-gradient-to-tr rounded-2xl flex py-12 px-8 items-center justify-center from-[#FFB457] to-[#FF705B]">
+          <div className="flex flex-col justify-center gap-6">
+            <GradientBox isCentered className="py-12 px-8" color="orange" to="top-right">
               <MusicPlayer />
               <ThemeSwitch
                 classNames={{
@@ -35,26 +35,29 @@ export const DarkMode = () => {
                   wrapper: "!text-white/70 dark:!text-black/70",
                 }}
               />
-            </div>
-            <Button
-              as={Link}
-              className="max-w-fit text-warning-300 bg-warning-50/50"
-              color="warning"
-              href="/docs/theme/customize-theme"
-              radius="full"
-              size="sm"
-              variant="flat"
-            >
-              Learn more
-            </Button>
+            </GradientBox>
           </div>
           <CodeWindow
             showWindowIcons
-            className="h-[400px]"
+            className="min-h-[300px] h-auto"
+            highlightLines="7-9"
             language="jsx"
             title="_app.tsx"
             value={landingContent.darkModeCode}
           />
+        </div>
+        <div className="flex w-1/2 justify-start">
+          <Button
+            as={Link}
+            className="max-w-fit"
+            color="warning"
+            href="/docs/theme/customize-theme"
+            radius="full"
+            size="sm"
+            variant="flat"
+          >
+            Learn more
+          </Button>
         </div>
       </div>
       {/* <div className="absolute hidden dark:block dark:opacity-80 -bottom-[10%] -left-[0%] -z-[1]">

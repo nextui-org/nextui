@@ -1,5 +1,6 @@
-import {Card, CardBody, Button, Image, Progress} from "@nextui-org/react";
-import {useState} from "react";
+import {Card, CardBody, Button, Image, Progress, CardProps} from "@nextui-org/react";
+import {useState, FC} from "react";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {
   PauseCircleBoldIcon,
@@ -10,19 +11,22 @@ import {
   HeartLinearIcon,
 } from "@/components/icons";
 
-export const MusicPlayer = () => {
+export interface MusicPlayerProps extends CardProps {}
+
+export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) => {
   const [liked, setLiked] = useState(false);
 
   return (
     <Card
       isBlurred
-      className="border-none dark:bg-background/40 bg-background/40"
+      className={clsx("border-none dark:bg-background/40 bg-background/40", className)}
       radius="2xl"
       shadow="2xl"
+      {...otherProps}
     >
       <CardBody>
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="relative basis-full md:basis-2/4">
+        <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
+          <div className="relative col-span-6 md:col-span-4">
             <Image
               className="object-cover"
               classNames={{
@@ -31,20 +35,20 @@ export const MusicPlayer = () => {
               height={200}
               shadow="lg"
               src="/images/album-cover.png"
-              width={200}
+              width="100%"
             />
           </div>
 
-          <div className="basis-full md:basis-3/4 flex flex-col gap-2">
+          <div className="flex flex-col col-span-6 md:col-span-8">
             <div className="flex justify-between items-start">
               <div className="flex flex-col gap-0">
                 <h3 className="font-semibold text-foreground/90">Daily Mix</h3>
                 <p className="text-sm text-foreground/80">12 Tracks</p>
-                <h1 className="text-lg font-medium">Frontend Radio</h1>
+                <h1 className="text-lg font-medium mt-2">Frontend Radio</h1>
               </div>
               <Button
                 isIconOnly
-                className="text-neutral-900/60 data-[hover]:bg-foreground/10 -translate-y-2"
+                className="text-neutral-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
                 radius="full"
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
@@ -56,11 +60,11 @@ export const MusicPlayer = () => {
               </Button>
             </div>
 
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col mt-3 gap-1">
               <Progress
                 classNames={{
                   filler: "bg-white",
-                  track: "bg-neutral-500/40",
+                  track: "bg-neutral-500/30",
                 }}
                 color="neutral"
                 size="sm"
@@ -95,7 +99,7 @@ export const MusicPlayer = () => {
                 radius="full"
                 variant="light"
               >
-                <PauseCircleBoldIcon className="drop-shadow-xl" size={54} />
+                <PauseCircleBoldIcon size={54} />
               </Button>
               <Button
                 isIconOnly

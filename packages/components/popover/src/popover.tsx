@@ -20,7 +20,7 @@ const Popover = forwardRef<PopoverProps, "div">((props, ref) => {
 
   const [trigger, content] = Children.toArray(children);
 
-  const overlay = <Overlay>{content}</Overlay>;
+  const overlay = <Overlay portalContainer={context.portalContainer}>{content}</Overlay>;
 
   return (
     <PopoverProvider value={context}>

@@ -22,6 +22,7 @@ import {useRef} from "react";
 
 import {FeaturesGrid} from "./features-grid";
 
+import {GradientBox} from "@/components";
 import {
   KeyboardBoldIcon,
   MouseCircleBoldIcon,
@@ -106,8 +107,8 @@ export const A11yOtb = () => {
             />
             <Button
               as={Link}
-              className="max-w-fit text-neutral-400 bg-neutral-100/50"
-              color="neutral"
+              className="max-w-fit"
+              color="success"
               href="/docs/theme/customize-theme"
               radius="full"
               size="sm"
@@ -116,15 +117,18 @@ export const A11yOtb = () => {
               Learn more
             </Button>
           </div>
-          <div
+          <GradientBox
             ref={ref}
-            className="relative w-full h-full min-h-[200px] lg:min-h-[390px] bg-gradient-to-r rounded-2xl flex lg:pt-8 items-center lg:items-start justify-center from-[#4ADE80] to-[#06B6D4]"
+            className="h-full min-h-[200px] lg:min-h-[390px] lg:pt-8 items-center lg:items-start justify-center"
+            color="green"
+            to="right"
           >
-            {isInView && (
+            {isInView && ref.current && (
               <Dropdown
                 defaultOpen
                 className="shadow-xl"
                 placement="bottom"
+                portalContainer={ref.current}
                 shouldBlockScroll={isMobile}
                 shouldFlip={isMobile}
               >
@@ -182,7 +186,7 @@ export const A11yOtb = () => {
                 </DropdownMenu>
               </Dropdown>
             )}
-          </div>
+          </GradientBox>
         </div>
       </div>
       <div className="absolute hidden dark:block dark:opacity-80 -bottom-[10%] -left-[0%] -z-[1]">
