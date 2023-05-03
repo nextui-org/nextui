@@ -46,5 +46,5 @@ export const subtitle = tv({
 });
 
 export const sectionWrapper = tv({
-  base: "relative z-10 flex flex-col gap-2 w-full pb-20",
+  base: "relative z-10 flex flex-col gap-2 w-full",
 });

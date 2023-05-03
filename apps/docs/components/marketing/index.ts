@@ -4,3 +4,4 @@ export * from "./custom-themes";
 export * from "./features-grid";
 export * from "./dark-mode";
 export * from "./customization";
+export * from "./last-but-not-least";

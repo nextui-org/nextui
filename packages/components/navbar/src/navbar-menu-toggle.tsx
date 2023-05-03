@@ -43,6 +43,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
     onChange,
     autoFocus,
     srOnlyText: srOnlyTextProp,
+    style,
     ...otherProps
   } = props;
 
@@ -89,6 +90,10 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
       data-open={dataAttr(isMenuOpen)}
       data-pressed={dataAttr(isPressed)}
       {...mergeProps(buttonProps, focusProps, hoverProps, otherProps)}
+      style={{
+        ...style,
+        WebkitTapHighlightColor: "transparent",
+      }}
     >
       <span className={slots.srOnly()}>{srOnlyText}</span>
       {child}

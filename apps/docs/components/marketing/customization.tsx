@@ -9,7 +9,7 @@ import {CustomButton} from "@/components/demos";
 
 export const Customization = () => {
   return (
-    <section className={sectionWrapper({class: "mt-44"})}>
+    <section className={sectionWrapper({class: "mt-16 lg:mt-44"})}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>
@@ -34,7 +34,7 @@ export const Customization = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <CodeWindow
             showWindowIcons
-            className="min-h-[300px] h-auto"
+            className="min-h-[320px] h-auto"
             language="jsx"
             title="custom-button.tsx"
             value={landingContent.customizationCode}
@@ -63,9 +63,6 @@ export const Customization = () => {
           </Button>
         </div>
       </div>
-      {/* <div className="absolute hidden dark:block dark:opacity-80 -bottom-[10%] -left-[0%] -z-[1]">
-        <Image removeWrapper alt="a11y background" className="h-full" src="/gradients/green.svg" />
-      </div> */}
     </section>
   );
 };

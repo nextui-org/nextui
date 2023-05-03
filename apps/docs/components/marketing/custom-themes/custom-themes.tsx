@@ -10,8 +10,9 @@ import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primit
 import {PaletteIcon, MagicIcon, GamingConsoleIcon, StarIcon} from "@/components/icons";
 import {NextUILogo, CodeWindow} from "@/components";
 import landingContent from "@/content/landing";
+import {useIsMobile} from "@/hooks/use-media-query";
 
-const themesTabs = [
+const themesTabs = (isMobile: boolean) => [
   {
     id: "nextui",
     title: () => <p className="group-data-[selected=true]:text-primary">NextUI</p>,
@@ -19,28 +20,39 @@ const themesTabs = [
       <NextUILogo
         small
         className="text-neutral-400 group-data-[selected=true]:text-primary"
-        size={44}
+        size={isMobile ? 34 : 44}
       />
     ),
   },
   {
     id: "modern",
     title: () => <p className="group-data-[selected=true]:text-secondary">Modern</p>,
-    icon: () => <PaletteIcon className="group-data-[selected=true]:text-secondary" size={44} />,
+    icon: () => (
+      <PaletteIcon
+        className="group-data-[selected=true]:text-secondary"
+        size={isMobile ? 34 : 44}
+      />
+    ),
   },
   {
     id: "elegant",
     title: () => <p className="group-data-[selected=true]:text-foreground">Elegant</p>,
-    icon: () => <MagicIcon size={44} />,
+    icon: () => <MagicIcon size={isMobile ? 34 : 44} />,
   },
   {
     id: "retro",
     title: () => <p className="group-data-[selected=true]:text-warning">Retro</p>,
-    icon: () => <GamingConsoleIcon className="group-data-[selected=true]:text-warning" size={44} />,
+    icon: () => (
+      <GamingConsoleIcon
+        className="group-data-[selected=true]:text-warning"
+        size={isMobile ? 34 : 44}
+      />
+    ),
   },
 ];
 
 type Theme = "nextui" | "modern" | "elegant" | "retro";
+type Tab = {id: string; title: () => JSX.Element; icon: () => JSX.Element};
 
 const itemSizes = ["xs", "s", "m", "l", "xl"];
 
@@ -52,9 +64,11 @@ const codeHighlights = {
 };
 
 const CustomThemesExample = ({
+  tabs,
   selectedTheme,
   onChangeTheme,
 }: {
+  tabs: Tab[];
   selectedTheme: Theme;
   onChangeTheme: (theme: Theme) => void;
 }) => {
@@ -79,12 +93,12 @@ const CustomThemesExample = ({
         disableCursor
         aria-label="Custom themes tabs"
         classNames={{
-          base: "max-w-[50%]",
-          tab: "h-auto data-[selected=true]:bg-transparent",
-          tabList: "max-w-1/2 justify-start gap-4",
+          base: "w-full md:max-w-[50%]",
+          tab: "px-0 md:px-3 h-auto data-[selected=true]:bg-transparent",
+          tabList: "w-full md:max-w-1/2 justify-start gap-0 md:gap-4",
           tabContent: "text-neutral-400 text-base",
         }}
-        items={themesTabs}
+        items={tabs}
         variant="light"
         onSelectionChange={onSelectionChange}
       >
@@ -187,10 +201,13 @@ const CustomThemesExample = ({
 };
 
 export const CustomThemes = () => {
-  const [selectedTheme, setSelectedTheme] = useState<Theme>(themesTabs[0].id as Theme);
+  const isMobile = useIsMobile();
+
+  const tabs = themesTabs(isMobile);
+  const [selectedTheme, setSelectedTheme] = useState<Theme>(tabs[0].id as Theme);
 
   return (
-    <section className={sectionWrapper({class: "mt-56"})}>
+    <section className={sectionWrapper({class: "mt-24 lg:mt-56"})}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>
@@ -206,7 +223,11 @@ export const CustomThemes = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <CustomThemesExample selectedTheme={selectedTheme} onChangeTheme={setSelectedTheme} />
+          <CustomThemesExample
+            selectedTheme={selectedTheme}
+            tabs={tabs}
+            onChangeTheme={setSelectedTheme}
+          />
           <CodeWindow
             showWindowIcons
             className="max-h-[440px] min-h-[390px]"

@@ -10,9 +10,10 @@ const styles = tv({
     card:
       "dark:border-transparent before:bg-white/5 before:backdrop-blur-lg before:backdrop-saturate-[1.8]",
     header: "gap-2 pb-0",
-    iconWrapper: "flex justify-center p-2 rounded-full items-center bg-secondary-100 text-pink-500",
+    iconWrapper:
+      "flex justify-center p-2 rounded-full items-center bg-secondary-100/80 text-pink-500",
     title: "text-base font-semibold",
-    description: "font-light text-base text-neutral-700",
+    description: "font-light text-base text-neutral-500",
   },
 });
 
@@ -21,7 +22,7 @@ export type FeaturesGridSlots = keyof ReturnType<typeof styles>;
 export interface Feature extends LinkProps {
   title: string;
   icon: ReactNode;
-  description?: string;
+  description?: string | ReactNode;
 }
 
 interface FeaturesGridProps {

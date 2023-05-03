@@ -74,6 +74,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
             radius="2xl"
           >
             <Image
+              alt="Professional camera"
               className="object-cover -translate-y-12 h-[100%]"
               src="/images/card-example-6.jpeg"
               width={120}
@@ -153,7 +154,13 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
             className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
             radius="2xl"
           >
-            <Image className="object-cover" height={200} src="/images/hero-card.jpeg" width={200} />
+            <Image
+              alt="Woman listing to music"
+              className="object-cover"
+              height={200}
+              src="/images/hero-card.jpeg"
+              width={200}
+            />
             <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
               <p className="text-xs text-white/80">Available soon.</p>
               <Button color="secondary" radius="full" size="xs" variant="flat">

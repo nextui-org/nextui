@@ -72,7 +72,7 @@ export const A11yOtb = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className={sectionWrapper({class: "mt-44"})}>
+    <section className={sectionWrapper({class: "z-20 mt-16 lg:mt-44"})}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>
@@ -96,7 +96,7 @@ export const A11yOtb = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="flex flex-col mt-16 gap-6">
+          <div className="flex flex-col mt-8 lg:mt-16 gap-6">
             <FeaturesGrid
               classNames={{
                 base: "grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4",
@@ -125,8 +125,8 @@ export const A11yOtb = () => {
           >
             {isInView && ref.current && (
               <Dropdown
-                defaultOpen
                 className="shadow-xl"
+                defaultOpen={!isMobile}
                 placement="bottom"
                 portalContainer={ref.current}
                 shouldBlockScroll={isMobile}
@@ -189,8 +189,13 @@ export const A11yOtb = () => {
           </GradientBox>
         </div>
       </div>
-      <div className="absolute hidden dark:block dark:opacity-80 -bottom-[10%] -left-[0%] -z-[1]">
-        <Image removeWrapper alt="a11y background" className="h-full" src="/gradients/green.svg" />
+      <div className="absolute hidden dark:block h-full dark:opacity-70 -bottom-[10%] left-[20%] z-[-10]">
+        <Image
+          removeWrapper
+          alt="a11y background"
+          className="h-full z-[-10]"
+          src="/gradients/green.svg"
+        />
       </div>
     </section>
   );

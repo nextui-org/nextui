@@ -67,6 +67,7 @@ export function useButton(props: UseButtonProps) {
     isIconOnly = groupContext?.isIconOnly ?? false,
     onPress,
     onClick,
+    style,
     ...otherProps
   } = props;
 
@@ -126,15 +127,31 @@ export function useButton(props: UseButtonProps) {
   const {isHovered, hoverProps} = useHover({isDisabled});
 
   const getButtonProps: PropGetter = useCallback(
-    () => ({
+    (props = {}) => ({
       "data-disabled": dataAttr(isDisabled),
       "data-focus": dataAttr(isFocused),
       "data-pressed": dataAttr(isPressed),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hover": dataAttr(isHovered),
-      ...mergeProps(ariaButtonProps, focusProps, hoverProps, otherProps),
+      ...mergeProps(ariaButtonProps, focusProps, hoverProps, otherProps, props),
+      style: {
+        ...style,
+        ...props?.style,
+        WebkitTapHighlightColor: "transparent",
+      },
     }),
-    [ariaButtonProps, focusProps, otherProps],
+    [
+      style,
+      isDisabled,
+      isFocused,
+      isPressed,
+      isFocusVisible,
+      isHovered,
+      ariaButtonProps,
+      focusProps,
+      hoverProps,
+      otherProps,
+    ],
   );
 
   const getIconClone = (icon: ReactNode) =>

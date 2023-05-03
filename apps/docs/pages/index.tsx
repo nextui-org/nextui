@@ -6,6 +6,7 @@ import {
   A11yOtb,
   DarkMode,
   Customization,
+  LastButNotLeast,
 } from "@/components/marketing";
 import landingContent from "@/content/landing";
 
@@ -18,6 +19,7 @@ const IndexPage = () => {
       <A11yOtb />
       <DarkMode />
       <Customization />
+      <LastButNotLeast />
     </DefaultLayout>
   );
 };

@@ -10,7 +10,7 @@ import {GradientBox} from "@/components";
 
 export const DarkMode = () => {
   return (
-    <section className={sectionWrapper({class: "mt-44"})}>
+    <section className={sectionWrapper({class: "mt-16 lg:mt-44"})}>
       <div className="flex flex-col gap-8">
         <div>
           <div className={titleWrapper()}>
@@ -27,7 +27,7 @@ export const DarkMode = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="flex flex-col justify-center gap-6">
-            <GradientBox isCentered className="py-12 px-8" color="orange" to="top-right">
+            <GradientBox isCentered className="py-12 px-4 lg:px-8" color="orange" to="top-right">
               <MusicPlayer />
               <ThemeSwitch
                 classNames={{
@@ -39,7 +39,7 @@ export const DarkMode = () => {
           </div>
           <CodeWindow
             showWindowIcons
-            className="min-h-[320px] h-auto"
+            className="min-h-[340px] h-auto"
             highlightLines="7-9"
             language="jsx"
             title="_app.tsx"

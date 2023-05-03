@@ -94,6 +94,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     classNames,
     onChange,
     onValueChange,
+    style,
     ...otherProps
   } = props;
 
@@ -195,6 +196,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(pressed),
       style: {
+        ...style,
         ...props?.style,
         WebkitTapHighlightColor: "transparent",
       },

@@ -20,7 +20,7 @@ export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
           </div>
         </div>
         <Button
-          className={isFollowed ? "bg-foreground text-foreground border-neutral-400" : ""}
+          className={isFollowed ? "bg-transparent text-foreground border-neutral-200" : ""}
           color="primary"
           radius="full"
           size="sm"
