@@ -12,6 +12,8 @@ import {
   Customization,
   LastButNotLeast,
   Support,
+  InstallBanner,
+  Community,
 } from "@/components/marketing";
 import landingContent from "@/content/landing";
 import {getSponsors, Sponsor} from "@/libs/sponsors";
@@ -31,7 +33,10 @@ const IndexPage: FC<Props> = ({sponsors}) => {
       <Customization />
       <LastButNotLeast />
       <Support sponsors={sponsors} />
-      <Spacer y={48} />
+      <Spacer y={24} />
+      <InstallBanner />
+      <Community />
+      <Spacer y={24} />
     </DefaultLayout>
   );
 };

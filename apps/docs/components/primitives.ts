@@ -17,8 +17,8 @@ export const title = tv({
       foreground: "dark:from-[#FFFFFF] dark:to-[#4B4B4B]",
     },
     size: {
-      sm: "text-2xl lg:text-3xl",
-      md: "text-3xl lg:text-5xl",
+      sm: "text-3xl lg:text-4xl",
+      md: "text-[32px] lg:text-5xl",
       lg: "text-4xl lg:text-6xl",
     },
     fullWidth: {
@@ -47,4 +47,20 @@ export const subtitle = tv({
 
 export const sectionWrapper = tv({
   base: "relative z-10 flex flex-col gap-2 w-full",
+  variants: {
+    isBlurred: {
+      true: [
+        "bg-transparent",
+        "dark:bg-transparent",
+        "before:bg-background/10",
+        "before:content-['']",
+        "before:block",
+        "before:z-[-1]",
+        "before:absolute",
+        "before:inset-0",
+        "before:backdrop-blur-md",
+        "before:backdrop-saturate-200",
+      ],
+    },
+  },
 });

@@ -6,3 +6,5 @@ export * from "./dark-mode";
 export * from "./customization";
 export * from "./last-but-not-least";
 export * from "./support";
+export * from "./install-banner";
+export * from "./community";

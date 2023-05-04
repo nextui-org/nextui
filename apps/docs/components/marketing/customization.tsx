@@ -12,7 +12,7 @@ export const Customization = () => {
     <section className={sectionWrapper({class: "mt-16 lg:mt-44"})}>
       <div className="flex flex-col gap-8">
         <div>
-          <div className={titleWrapper()}>
+          <div className={titleWrapper({class: "inline md:block"})}>
             <h1 className={title({size: "lg"})}>Customization made</h1>
             <div>
               <h1 className={title({size: "lg", color: "pink"})}>easy.</h1>

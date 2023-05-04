@@ -18,12 +18,12 @@ import {useTheme} from "next-themes";
 import {useInView} from "framer-motion";
 import {useRef} from "react";
 
-import {useMediaQuery} from "@/hooks/use-media-query";
+import {useIsMobile, useMediaQuery} from "@/hooks/use-media-query";
 import {title, subtitle} from "@/components/primitives";
 import {NextUILogo} from "@/components";
 import {GithubIcon} from "@/components/icons";
 import {UserTwitterCard} from "@/components/demos";
-import useIsMounted from "@/hooks/use-is-mounted";
+import {useIsMounted} from "@/hooks/use-is-mounted";
 
 const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   const {theme, setTheme} = useTheme();
@@ -176,21 +176,24 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
 
 export const Hero = () => {
   const isTablet = useMediaQuery(1024);
+  const isMobile = useIsMobile();
 
   const isMounted = useIsMounted();
 
   return (
     <section className="flex relative w-full flex-nowrap justify-between items-center h-[calc(100dvh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
       <div className="flex flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
-        <div>
-          <h1 className={title()}>Make&nbsp;</h1>
-          <h1 className={title({color: "violet"})}>beautiful&nbsp;</h1>
+        <div className="text-center leading-8 md:leading-10 md:text-left">
+          <div className="inline-block">
+            <h1 className={title()}>Make&nbsp;</h1>
+            <h1 className={title({color: "violet", size: "md"})}>beautiful&nbsp;</h1>
+          </div>
           <h1 className={title()}>websites regardless of your design experience.</h1>
         </div>
-        <h4 className={subtitle({fullWidth: true})}>
+        <h4 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
           Beautiful, fast and modern React UI library.
         </h4>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             color="primary"
             endIcon={
@@ -199,12 +202,19 @@ export const Hero = () => {
                 strokeWidth={2}
               />
             }
+            fullWidth={isMobile}
             radius="full"
             size="lg"
           >
             Get Started
           </Button>
-          <Button radius="full" size="lg" startIcon={<GithubIcon />} variant="bordered">
+          <Button
+            fullWidth={isMobile}
+            radius="full"
+            size="lg"
+            startIcon={<GithubIcon />}
+            variant="bordered"
+          >
             Github
           </Button>
         </div>

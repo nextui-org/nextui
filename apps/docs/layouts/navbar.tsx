@@ -20,7 +20,7 @@ import {ChevronDownIcon} from "@nextui-org/shared-icons";
 
 import {NextUILogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
-import useIsMounted from "@/hooks/use-is-mounted";
+import {useIsMounted} from "@/hooks/use-is-mounted";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);

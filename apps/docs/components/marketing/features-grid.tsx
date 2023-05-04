@@ -10,6 +10,7 @@ const styles = tv({
     card:
       "dark:border-transparent before:bg-white/5 before:backdrop-blur-lg before:backdrop-saturate-[1.8]",
     header: "gap-2 pb-0",
+    body: "",
     iconWrapper:
       "flex justify-center p-2 rounded-full items-center bg-secondary-100/80 text-pink-500",
     title: "text-base font-semibold",
@@ -64,7 +65,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({features, classNames,
             {feat.isExternal && <LinkIcon className="text-white" height={18} width={18} />}
           </CardHeader>
           {feat.description && (
-            <CardBody>
+            <CardBody className={slots.body({class: classNames?.body})}>
               <p className={slots.description({class: classNames?.description})}>
                 {feat.description}
               </p>

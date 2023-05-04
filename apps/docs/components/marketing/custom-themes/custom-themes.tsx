@@ -238,7 +238,7 @@ export const CustomThemes = () => {
           />
         </div>
       </div>
-      <div className="hidden dark:block absolute -bottom-[25%] -left-[30%] -z-[1]">
+      <div className="h-full dark:md:block absolute hidden -bottom-[10%] -left-[15%] -z-[1]">
         <Image
           removeWrapper
           alt="custom themes background"

@@ -9,6 +9,7 @@ import {FeaturesGrid} from "@/components/marketing";
 import {OpenCollectiveIcon, PatreonIcon, HeartBoldIcon, PlusLinearIcon} from "@/components/icons";
 import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@/libs/sponsors";
 import {SonarPulse} from "@/components/sonar-pulse";
+import {useIsMobile} from "@/hooks/use-media-query";
 
 export interface SupportProps {
   sponsors: Sponsor[];
@@ -43,25 +44,25 @@ const getSponsorName = (sponsor: Sponsor) => {
   return sponsor.name.slice(0, 2).toUpperCase();
 };
 
-const getSponsorSize = (sponsor: Sponsor) => {
+const getSponsorSize = (sponsor: Sponsor, isMobile: boolean) => {
   let size: AvatarProps["size"] = "md";
   const tier = sponsor.tier || getTier(sponsor.totalAmountDonated);
 
   switch (tier) {
     case SPONSOR_TIERS.BRONZE:
-      size = "md";
+      size = isMobile ? "sm" : "md";
       break;
     case SPONSOR_TIERS.SILVER:
-      size = "md";
+      size = isMobile ? "sm" : "md";
       break;
     case SPONSOR_TIERS.GOLD:
-      size = "xl";
+      size = isMobile ? "lg" : "xl";
       break;
     case SPONSOR_TIERS.PLATINUM:
-      size = "xl";
+      size = isMobile ? "lg" : "xl";
       break;
     default:
-      size = "md";
+      size = isMobile ? "sm" : "md";
   }
 
   return size;
@@ -90,6 +91,7 @@ const getSponsorAvatarStyles = (index: number, sponsors: Sponsor[] = []) => {
 
 export const Support: FC<SupportProps> = ({sponsors = []}) => {
   const sonarRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const isInView = useInView(sonarRef, {
     margin: "110px",
@@ -119,7 +121,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
             className="absolute cursor-pointer"
             color={getSponsorColor(sponsor) as AvatarProps["color"]}
             name={getSponsorName(sponsor)}
-            size={getSponsorSize(sponsor)}
+            size={getSponsorSize(sponsor, isMobile)}
             src={sponsor.image}
             style={getSponsorAvatarStyles(index, sponsors)}
             onClick={() =>
@@ -129,15 +131,15 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
         ))}
       </div>
     );
-  }, [sponsors]);
+  }, [isMobile, sponsors]);
 
   return (
     <section className={sectionWrapper({class: "flex flex-col items-center mt-16 lg:mt-44"})}>
       <div className="max-w-4xl flex flex-col gap-8">
         <div>
-          <div className={titleWrapper({class: "items-center"})}>
-            <div className="inline-flex items-center">
-              <h1 className={title({size: "lg"})}>Support NextUI</h1>&nbsp;&nbsp;
+          <div className={titleWrapper({class: "text-center items-center"})}>
+            <div className="flex md:inline-flex flex-col md:flex-row items-center">
+              <h1 className={title({size: "lg"})}>Support NextUI&nbsp;</h1>
               <HeartBoldIcon
                 className="text-pink-500 animate-heartbeat"
                 size={50}
@@ -150,9 +152,8 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
           <p
             className={subtitle({class: "md:w-full text-center flex justify-center items-center"})}
           >
-            If you run a business that intends to use NextUI in a revenue-generating product, or if
-            you&apos;re a freelancer and NextUI saves you time in your work, or you&apos;re just
-            using it in a fun project, your contributions will help to make NextUI better.
+            Using NextUI in a profit-making product, as a freelancer, or for fun projects? Your
+            contributions will help to make NextUI better.
           </p>
           <Spacer y={12} />
           <FeaturesGrid
@@ -161,7 +162,10 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
             }}
             features={supportAccounts}
           />
-          <div ref={sonarRef} className="relative mt-40 w-full flex items-center justify-center">
+          <div
+            ref={sonarRef}
+            className="relative mt-32 md:mt-60 w-full flex items-center justify-center"
+          >
             {isInView && (
               <SonarPulse
                 circlesCount={SONAR_PULSE_CIRCLES_COUNT}

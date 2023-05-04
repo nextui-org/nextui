@@ -98,8 +98,8 @@ module.exports = {
     animation: {
       heartbeat: "heartbeat 1s ease-in-out infinite",
       levitate: "levitate 5s ease infinite",
-      "expand": "expand 6s ease-out infinite",
-      "expand-opacity": "expand-opacity 6s linear infinite",
+      "expand": "expand 6s ease-out infinite both",
+      "expand-opacity": "expand-opacity 6s linear infinite both",
     },
   },
   plugins: [

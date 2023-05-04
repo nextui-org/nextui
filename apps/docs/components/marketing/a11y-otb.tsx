@@ -189,7 +189,7 @@ export const A11yOtb = () => {
           </GradientBox>
         </div>
       </div>
-      <div className="absolute hidden dark:block h-full dark:opacity-70 -bottom-[10%] left-[20%] z-[-10]">
+      <div className="absolute hidden dark:md:block h-full dark:opacity-70 -bottom-[10%] left-[20%] z-[-10]">
         <Image
           removeWrapper
           alt="a11y background"
