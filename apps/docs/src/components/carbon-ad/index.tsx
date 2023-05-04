@@ -4,7 +4,6 @@ import {loadScript} from "@utils/scripts";
 import {useTheme} from "@nextui-org/react";
 import {isProd} from "@utils/index";
 import useIsMounted from "@hooks/use-is-mounted";
-import {isEmpty, filter} from "lodash";
 
 import carbonOptimize from "./carbon-optimize";
 
@@ -75,7 +74,7 @@ const CarbonAd: React.FC<unknown> = () => {
           }
           // @ts-ignore
           ethicalads.wait.then((placements) => {
-            if (isEmpty(filter(placements, Boolean))) {
+            if (!placements.length) {
               loadCarbonAds();
             } else {
               setShowEthicalAds(true);
@@ -104,6 +103,7 @@ const CarbonAd: React.FC<unknown> = () => {
         <Script async src="https://media.ethicalads.io/media/client/ethicalads.min.js" />
         <div
           className="ea-container horizontal"
+          data-ea-campaign-types="paid|publisher-house|community"
           data-ea-publisher="nextuiorg"
           data-ea-type="image"
         />
