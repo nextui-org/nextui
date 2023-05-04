@@ -24,8 +24,8 @@ export const SPONSOR_TIER_BY_AMOUNT = {
 };
 
 export const SPONSOR_COLORS = {
-  [SPONSOR_TIERS.BACKER]: "default",
-  [SPONSOR_TIERS.BRONZE]: "default",
+  [SPONSOR_TIERS.BACKER]: "neutral",
+  [SPONSOR_TIERS.BRONZE]: "neutral",
   [SPONSOR_TIERS.SILVER]: "primary",
   [SPONSOR_TIERS.GOLD]: "warning",
   [SPONSOR_TIERS.PLATINUM]: "secondary",
