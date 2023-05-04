@@ -134,7 +134,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
   }, [isMobile, sponsors]);
 
   return (
-    <section className={sectionWrapper({class: "flex flex-col items-center mt-16 lg:mt-44"})}>
+    <section className={sectionWrapper({class: "flex flex-col items-center z-20 mt-16 lg:mt-44"})}>
       <div className="max-w-4xl flex flex-col gap-8">
         <div>
           <div className={titleWrapper({class: "text-center items-center"})}>
