@@ -293,6 +293,9 @@ importers:
       canvas-confetti:
         specifier: ^1.4.0
         version: 1.4.0
+      color2k:
+        specifier: ^2.0.2
+        version: 2.0.2
       framer-motion:
         specifier: ^10.11.2
         version: 10.11.2(react-dom@18.2.0)(react@18.2.0)

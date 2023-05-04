@@ -19,7 +19,9 @@ export const LastButNotLeast = () => {
               <h1 className={title({size: "lg", color: "pink"})}>least.</h1>
             </div>
           </div>
-          <p className={subtitle({class: "md:w-full flex justify-center items-center"})}>
+          <p
+            className={subtitle({class: "md:w-full text-center flex justify-center items-center"})}
+          >
             A fully-featured React UI library.
           </p>
         </div>

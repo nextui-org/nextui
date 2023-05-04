@@ -1,3 +1,7 @@
+import {FC} from "react";
+import {GetStaticProps} from "next";
+import {Spacer} from "@nextui-org/react";
+
 import {DefaultLayout} from "@/layouts";
 import {
   Hero,
@@ -7,10 +11,16 @@ import {
   DarkMode,
   Customization,
   LastButNotLeast,
+  Support,
 } from "@/components/marketing";
 import landingContent from "@/content/landing";
+import {getSponsors, Sponsor} from "@/libs/sponsors";
 
-const IndexPage = () => {
+interface Props {
+  sponsors: Sponsor[];
+}
+
+const IndexPage: FC<Props> = ({sponsors}) => {
   return (
     <DefaultLayout>
       <Hero />
@@ -20,8 +30,20 @@ const IndexPage = () => {
       <DarkMode />
       <Customization />
       <LastButNotLeast />
+      <Support sponsors={sponsors} />
+      <Spacer y={48} />
     </DefaultLayout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const sponsors = await getSponsors();
+
+  return {
+    props: {
+      sponsors,
+    },
+  };
 };
 
 export default IndexPage;

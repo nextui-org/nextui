@@ -75,10 +75,31 @@ module.exports = {
           transform: "translateY(0)",
         },
       },
+      expand: {
+        "0%": {transform: "scale(1)"},
+        "50%": {transform: "scale(1.2)"},
+        "100%": {transform: "scale(1)"},
+      },
+      "expand-opacity": {
+        "0%": {
+          opacity: 0,
+          transform: "scale(1)",
+        },
+        "50%": {
+          opacity: 1,
+          transform: "scale(1.3)",
+        },
+        "100%": {
+          opacity: 0,
+          transform: "scale(1.295)",
+        },
+      },
     },
     animation: {
       heartbeat: "heartbeat 1s ease-in-out infinite",
       levitate: "levitate 5s ease infinite",
+      "expand": "expand 6s ease-out infinite",
+      "expand-opacity": "expand-opacity 6s linear infinite",
     },
   },
   plugins: [

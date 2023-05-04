@@ -6,3 +6,4 @@ export * from "./maximize";
 export * from "./code-document";
 export * from "./html-logo";
 export * from "./cubes";
+export * from "./plus";

@@ -29,7 +29,8 @@
     "refractor": "3.3.1",
     "rehype": "11.0.0",
     "rehype-parse": "7.0.1",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "color2k": "^2.0.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.194",

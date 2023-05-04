@@ -63,6 +63,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
 
             <div className="flex flex-col mt-3 gap-1">
               <Progress
+                aria-label="Music progress"
                 classNames={{
                   filler: "bg-white",
                   track: "bg-neutral-500/30",
