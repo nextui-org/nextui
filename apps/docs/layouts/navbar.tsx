@@ -17,16 +17,21 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import {useRouter} from "next/router";
+import {includes} from "lodash";
 
 import {NextUILogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
+import {isActive} from "@/utils/links";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
 
   const ref = useRef(null);
   const isMounted = useIsMounted();
+
+  const router = useRouter();
 
   const menuItems = [
     "Profile",
@@ -96,13 +101,36 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="hidden lg:flex" justify="center">
-        <NavbarItem as={Link} color="foreground" href="#">
+        <NavbarItem
+          as={Link}
+          className="data-[active=true]:text-primary"
+          color="foreground"
+          href="/docs/guide/getting-started"
+          isActive={
+            !!(
+              isActive(router.pathname, "/docs/[[...slug]]") &&
+              !includes(router.asPath, "components")
+            )
+          }
+        >
           Docs
         </NavbarItem>
-        <NavbarItem isActive as={Link} href="#">
+        <NavbarItem
+          as={Link}
+          className="data-[active=true]:text-primary"
+          color="foreground"
+          href="/docs/components/avatar"
+          isActive={includes(router.asPath, "components")}
+        >
           Components
         </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
+        <NavbarItem
+          as={Link}
+          className="data-[active=true]:text-primary"
+          color="foreground"
+          href="/figma"
+          isActive={router.asPath === "/figma"}
+        >
           Figma
         </NavbarItem>
       </NavbarContent>

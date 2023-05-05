@@ -23,17 +23,14 @@ import {colorVariants} from "../utils";
  */
 const snippet = tv({
   slots: {
-    base: "inline-flex items-center justify-between space-x-3 rounded-md",
+    base: "inline-flex items-center justify-between rounded-md",
     pre: "bg-transparent text-inherit font-mono whitespace-pre-wrap",
-    copy: [
-      "z-10 appearance-none outline-none rounded-sm",
-      // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-1",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-transparent",
-      "data-[focus-visible=true]:dark:ring-offset-transparent",
+    copyButton: ["group", "relative", "z-10", "text-inherit", "data-[hover=true]:bg-transparent"],
+    copyIcon: [
+      "absolute text-inherit opacity-100 scale-100 group-data-[copied=true]:opacity-0 group-data-[copied=true]:scale-50",
+    ],
+    checkIcon: [
+      "absolute text-inherit opacity-0 scale-50 group-data-[copied=true]:opacity-100 group-data-[copied=true]:scale-100",
     ],
   },
   variants: {
@@ -108,6 +105,13 @@ const snippet = tv({
         base: "w-full",
       },
     },
+    disableAnimation: {
+      true: {},
+      false: {
+        copyIcon: "transition-transform-opacity",
+        checkIcon: "transition-transform-opacity",
+      },
+    },
   },
   defaultVariants: {
     color: "neutral",
@@ -115,6 +119,7 @@ const snippet = tv({
     size: "md",
     radius: "lg",
     fullWidth: false,
+    disableAnimation: false,
   },
   compoundVariants: [
     // solid & shadow / color

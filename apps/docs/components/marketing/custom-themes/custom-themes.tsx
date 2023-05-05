@@ -232,6 +232,7 @@ export const CustomThemes = () => {
             showWindowIcons
             className="max-h-[440px] min-h-[390px]"
             highlightLines={get(codeHighlights, selectedTheme)}
+            isScrollable={false}
             language="jsx"
             title="tailwind.config.js"
             value={landingContent.themingCode}

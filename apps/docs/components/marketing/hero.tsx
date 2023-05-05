@@ -186,7 +186,7 @@ export const Hero = () => {
         <div className="text-center leading-8 md:leading-10 md:text-left">
           <div className="inline-block">
             <h1 className={title()}>Make&nbsp;</h1>
-            <h1 className={title({color: "violet", size: "md"})}>beautiful&nbsp;</h1>
+            <h1 className={title({color: "violet"})}>beautiful&nbsp;</h1>
           </div>
           <h1 className={title()}>websites regardless of your design experience.</h1>
         </div>

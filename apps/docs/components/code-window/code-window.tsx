@@ -4,7 +4,13 @@ import rangeParser from "parse-numeric-range";
 
 import CodeBlock, {CodeBlockProps} from "./code-block";
 
-export const CodeWindow: React.FC<CodeBlockProps> = ({highlightLines, ...props}) => {
+import {CopyButton} from "@/components";
+
+export interface CodeWindowProps extends CodeBlockProps {
+  showCopy?: boolean;
+}
+
+export const CodeWindow: React.FC<CodeWindowProps> = ({highlightLines, showCopy, ...props}) => {
   const wrapperRef = React.useRef<HTMLPreElement>(null);
 
   React.useEffect(() => {
@@ -80,5 +86,10 @@ export const CodeWindow: React.FC<CodeBlockProps> = ({highlightLines, ...props})
     );
   }, [highlightLines]);
 
-  return <CodeBlock ref={wrapperRef} {...props} />;
+  return (
+    <div className="relative">
+      <CodeBlock ref={wrapperRef} {...props} />
+      {showCopy && <CopyButton value={props.value} />}
+    </div>
+  );
 };

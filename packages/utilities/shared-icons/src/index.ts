@@ -33,3 +33,4 @@ export * from "./link";
 // sets
 export * from "./bulk";
 export * from "./bold";
+export * from "./linear";

@@ -10,3 +10,4 @@ export * from "./next";
 export * from "./previous";
 export * from "./repeat-one";
 export * from "./shuffle";
+export * from "./info";

@@ -1,10 +1,10 @@
+import {ReactNode, useCallback, useMemo, cloneElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Tooltip} from "@nextui-org/tooltip";
-import {ReactNode, useCallback, useMemo} from "react";
+import {CopyLinearIcon, CheckLinearIcon} from "@nextui-org/shared-icons";
+import {Button} from "@nextui-org/button";
 
 import {useSnippet, UseSnippetProps} from "./use-snippet";
-import {SnippetCopyIcon} from "./snippet-copy-icon";
-import {SnippetCheckIcon} from "./snippet-check-icon";
 
 export interface SnippetProps extends Omit<UseSnippetProps, "ref"> {}
 
@@ -16,8 +16,8 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     slots,
     classNames,
     copied,
-    copyIcon = <SnippetCopyIcon />,
-    checkIcon = <SnippetCheckIcon />,
+    copyIcon = <CopyLinearIcon />,
+    checkIcon = <CheckLinearIcon />,
     symbolBefore,
     disableCopy,
     disableTooltip,
@@ -31,7 +31,11 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
   } = useSnippet({ref, ...props});
 
   const TooltipContent = useCallback(
-    ({children}: {children?: ReactNode}) => <Tooltip {...tooltipProps}>{children}</Tooltip>,
+    ({children}: {children?: ReactNode}) => (
+      <Tooltip {...tooltipProps} isDisabled={copied || tooltipProps.isDisabled}>
+        {children}
+      </Tooltip>
+    ),
     [...Object.values(tooltipProps)],
   );
 
@@ -40,7 +44,15 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
       return null;
     }
 
-    const copyButton = <button {...getCopyButtonProps()}>{copied ? checkIcon : copyIcon}</button>;
+    const clonedCheckIcon = checkIcon && cloneElement(checkIcon, {className: slots.checkIcon()});
+    const clonedCopyIcon = copyIcon && cloneElement(copyIcon, {className: slots.copyIcon()});
+
+    const copyButton = (
+      <Button {...getCopyButtonProps()}>
+        {clonedCheckIcon}
+        {clonedCopyIcon}
+      </Button>
+    );
 
     if (disableTooltip) {
       return copyButton;
@@ -49,7 +61,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     return <TooltipContent>{copyButton}</TooltipContent>;
   }, [
     slots,
-    classNames?.copy,
+    classNames?.copyButton,
     copied,
     checkIcon,
     copyIcon,

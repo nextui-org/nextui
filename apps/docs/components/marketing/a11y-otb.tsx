@@ -8,6 +8,7 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
+  Tooltip,
 } from "@nextui-org/react";
 import {useInView} from "framer-motion";
 import {clsx} from "@nextui-org/shared-utils";
@@ -18,11 +19,12 @@ import {
   DeleteDocumentBulkIcon,
 } from "@nextui-org/shared-icons";
 import Link from "next/link";
-import {useRef} from "react";
+import {useRef, useState} from "react";
 
 import {FeaturesGrid} from "./features-grid";
 
-import {GradientBox} from "@/components";
+import landingContent from "@/content/landing";
+import {GradientBox, DemoCodeModal} from "@/components";
 import {
   KeyboardBoldIcon,
   MouseCircleBoldIcon,
@@ -30,6 +32,7 @@ import {
   FatrowsBoldIcon,
   EyeBoldIcon,
   KeyboardOpenBoldIcon,
+  InfoBoldIcon,
 } from "@/components/icons";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {useIsMobile} from "@/hooks/use-media-query";
@@ -64,6 +67,8 @@ const a11yItems = [
 const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0";
 
 export const A11yOtb = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const ref = useRef<any>(null);
   const isInView = useInView(ref, {
     margin: "-10px",
@@ -119,10 +124,21 @@ export const A11yOtb = () => {
           </div>
           <GradientBox
             ref={ref}
-            className="h-full min-h-[200px] lg:min-h-[390px] lg:pt-8 items-center lg:items-start justify-center"
+            className="h-full min-h-[200px] lg:min-h-[390px] max-h-[300px] lg:pt-8 items-center lg:items-start justify-center"
             color="green"
             to="right"
           >
+            <Tooltip className="text-xs px-2" content="Show code" placement="top">
+              <Button
+                isIconOnly
+                className="absolute top-1 right-1 text-success-50 data-[hover]:bg-foreground/10"
+                radius="full"
+                variant="light"
+                onPress={() => setIsModalOpen(true)}
+              >
+                <InfoBoldIcon className="rotate-180" />
+              </Button>
+            </Tooltip>
             {isInView && ref.current && (
               <Dropdown
                 className="shadow-xl"
@@ -197,6 +213,13 @@ export const A11yOtb = () => {
           src="/gradients/green.svg"
         />
       </div>
+
+      <DemoCodeModal
+        code={landingContent.a11yExampleCode}
+        isOpen={isModalOpen}
+        title="Dropdown"
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

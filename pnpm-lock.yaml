@@ -281,6 +281,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../packages/core/theme
+      '@nextui-org/use-clipboard':
+        specifier: workspace:*
+        version: link:../../packages/hooks/use-clipboard
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../packages/hooks/use-is-mobile
@@ -1339,11 +1342,39 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/components/snippet:
+  packages/components/skeleton:
     dependencies:
       '@nextui-org/dom-utils':
         specifier: workspace:*
         version: link:../../utilities/dom-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/components/snippet:
+    dependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/dom-utils':
+        specifier: workspace:*
+        version: link:../../utilities/dom-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -1362,9 +1393,6 @@ importers:
       '@react-aria/focus':
         specifier: ^3.12.0
         version: 3.12.0(react@18.2.0)
-      '@react-aria/interactions':
-        specifier: ^3.15.0
-        version: 3.15.0(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.16.0
         version: 3.16.0(react@18.2.0)
@@ -1769,6 +1797,9 @@ importers:
       '@nextui-org/radio':
         specifier: workspace:*
         version: link:../../components/radio
+      '@nextui-org/skeleton':
+        specifier: workspace:*
+        version: link:../../components/skeleton
       '@nextui-org/snippet':
         specifier: workspace:*
         version: link:../../components/snippet

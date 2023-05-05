@@ -140,7 +140,6 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
   result = hastToHtml(result);
 
   // TODO reset theme
-
   const classes = `language-${language}`;
   const codeClasses = clsx("absolute w-full px-4 pb-6", showWindowIcons ? "top-10" : "top-0");
 

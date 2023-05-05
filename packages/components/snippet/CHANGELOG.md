@@ -1,5 +1,20 @@
 # @nextui-org/snippet
 
+## 0.0.0-dev-v2-20230505232443
+
+### Patch Changes
+
+- New componente skeleton, snippet improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230505232443
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230505232443
+  - @nextui-org/use-clipboard@0.0.0-dev-v2-20230505232443
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230505232443
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230505232443
+  - @nextui-org/button@0.0.0-dev-v2-20230505232443
+  - @nextui-org/system@0.0.0-dev-v2-20230505232443
+  - @nextui-org/theme@0.0.0-dev-v2-20230505232443
+
 ## 0.0.0-dev-v2-20230501173002
 
 ### Patch Changes

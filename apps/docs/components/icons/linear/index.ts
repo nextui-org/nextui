@@ -8,3 +8,5 @@ export * from "./html-logo";
 export * from "./cubes";
 export * from "./plus";
 export * from "./note";
+export * from "./copy";
+export * from "./check";

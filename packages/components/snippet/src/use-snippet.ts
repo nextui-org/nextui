@@ -6,10 +6,9 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useFocusRing} from "@react-aria/focus";
-import {useMemo, useCallback} from "react";
+import {useMemo, useCallback, ReactElement} from "react";
 import {TooltipProps} from "@nextui-org/tooltip";
-import {usePress} from "@react-aria/interactions";
-import {mergeProps} from "@react-aria/utils";
+import {ButtonProps} from "@nextui-org/button";
 export interface UseSnippetProps
   extends Omit<HTMLNextUIProps<"div">, "onCopy">,
     SnippetVariantProps {
@@ -35,11 +34,11 @@ export interface UseSnippetProps
   /*
    * Snippet copy icon.
    */
-  copyIcon?: React.ReactNode;
+  copyIcon?: ReactElement;
   /*
    * Snippet copy icon. This icon will be shown when the text is copied.
    */
-  checkIcon?: React.ReactNode;
+  checkIcon?: ReactElement;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -49,7 +48,9 @@ export interface UseSnippetProps
    * <Snippet classNames={{
    *    base:"base-classes",
    *    pre: "pre-classes",
-   *    copy: "copy-classes",
+   *    copyButton: "copy-classes", // copy button classes
+   *    copyIcon: "copy-classes", // copy icon classes
+   *    checkIcon: "check-classes", // check icon classes
    * }} />
    * ```
    */
@@ -81,6 +82,7 @@ export interface UseSnippetProps
   hideSymbol?: boolean;
   /**
    * Tooltip props.
+   * @see [Tooltip](https://nextui.org/components/tooltip) for more details.
    * @default {
    *  offset: 15,
    *  delay: 1000,
@@ -91,6 +93,19 @@ export interface UseSnippetProps
    * }
    */
   tooltipProps?: TooltipProps;
+  /**
+   * Copy button props.
+   * @see [Button](https://nextui.org/components/button) for more details.
+   * @default {
+   *   isDisabled: disableCopy,
+   *   onPress: onCopy
+   *   size:"sm",
+   *   radius: "lg",
+   *   variant:"light",
+   *   isIconOnly: true,
+   * }
+   */
+  copyButtonProps?: ButtonProps;
   /**
    * Callback when the text is copied.
    */
@@ -123,6 +138,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
       color: originalProps?.color as TooltipProps["color"],
       isDisabled: disableCopy,
     },
+    copyButtonProps,
     className,
     ...otherProps
   } = props;
@@ -182,29 +198,33 @@ export function useSnippet(originalProps: UseSnippetProps) {
     onCopyProp?.(value);
   }, [copy, disableCopy, onCopyProp, children]);
 
-  const {isPressed: isCopyPressed, pressProps: copyButtonPressProps} = usePress({
+  const defaultCopyButtonProps: ButtonProps = {
+    "aria-label": "Copy to clipboard",
+    size: "sm",
+    variant: "light",
+    radius: "lg",
     isDisabled: disableCopy,
     onPress: onCopy,
-  });
+    isIconOnly: true,
+    ...copyButtonProps,
+  };
 
-  const getCopyButtonProps = useCallback<PropGetter>(
-    (props = {}) => ({
-      ...mergeProps(copyButtonPressProps, focusProps, props),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-pressed": dataAttr(isCopyPressed),
-      className: slots.copy({
-        class: clsx(disableCopy && "opacity-50 cursor-not-allowed", classNames?.copy),
-      }),
-    }),
+  const getCopyButtonProps = useCallback(
+    () =>
+      ({
+        ...defaultCopyButtonProps,
+        "data-copied": dataAttr(copied),
+        className: slots.copyButton({
+          class: clsx(classNames?.copyButton),
+        }),
+      } as ButtonProps),
     [
       slots,
-      isCopyPressed,
       isFocusVisible,
       isFocused,
       disableCopy,
-      classNames?.copy,
-      copyButtonPressProps,
+      classNames?.copyButton,
+      defaultCopyButtonProps,
       focusProps,
     ],
   );

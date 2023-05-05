@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/snippet",
-  "version": "0.0.0-dev-v2-20230501173002",
+  "version": "0.0.0-dev-v2-20230505232443",
   "description": "Display a snippet of copyable code for the command line.",
   "keywords": [
     "snippet"
@@ -39,12 +39,13 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
     "@react-aria/focus": "^3.12.0",
-    "@react-aria/interactions": "^3.15.0",
     "@react-aria/utils": "^3.16.0"
   },
   "devDependencies": {

@@ -35,3 +35,4 @@ export * from "./spacer";
 export * from "./divider";
 export * from "./kbd";
 export * from "./tabs";
+export * from "./skeleton";

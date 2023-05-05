@@ -1,7 +1,6 @@
 import {FC, useMemo, useRef} from "react";
 import {Avatar, AvatarProps, Button, Spacer, Tooltip} from "@nextui-org/react";
 import {clamp, get} from "lodash";
-import {useInView} from "framer-motion";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 
@@ -93,10 +92,6 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
   const sonarRef = useRef(null);
   const isMobile = useIsMobile();
 
-  const isInView = useInView(sonarRef, {
-    margin: "110px",
-  });
-
   const handleExternalLinkClick = (href: string) => {
     if (!href) return;
     window.open(href, "_blank");
@@ -118,7 +113,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
           <Avatar
             key={`${sponsor.MemberId}-${index}`}
             isBordered
-            className="absolute cursor-pointer"
+            className="absolute cursor-pointer bg-transparent before:bg-white/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200"
             color={getSponsorColor(sponsor) as AvatarProps["color"]}
             name={getSponsorName(sponsor)}
             size={getSponsorSize(sponsor, isMobile)}
@@ -166,37 +161,35 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
             ref={sonarRef}
             className="relative mt-32 md:mt-60 w-full flex items-center justify-center"
           >
-            {isInView && (
-              <SonarPulse
-                circlesCount={SONAR_PULSE_CIRCLES_COUNT}
-                color="#7928CA"
-                icon={
-                  <Tooltip
-                    showArrow
-                    color="secondary"
-                    content={"Become a sponsor"}
-                    offset={10}
-                    radius="xl"
+            <SonarPulse
+              circlesCount={SONAR_PULSE_CIRCLES_COUNT}
+              color="#7928CA"
+              icon={
+                <Tooltip
+                  showArrow
+                  color="secondary"
+                  content={"Become a sponsor"}
+                  offset={10}
+                  radius="xl"
+                >
+                  <Button
+                    isIconOnly
+                    className="z-50 w-auto h-auto bg-gradient-to-b from-[#FF1CF7] to-[#7928CA]"
+                    radius="full"
+                    onPress={() => handleExternalLinkClick(supportAccounts[0].href)}
                   >
-                    <Button
-                      isIconOnly
-                      className="z-50 w-auto h-auto bg-gradient-to-b from-[#FF1CF7] to-[#7928CA]"
-                      radius="full"
-                      onPress={() => handleExternalLinkClick(supportAccounts[0].href)}
-                    >
-                      <PlusLinearIcon
-                        className="flex items-center justify-center rounded-full text-white"
-                        size={54}
-                      />
-                    </Button>
-                  </Tooltip>
-                }
-                playState="running"
-                size={SONAR_PULSE_SIZE}
-              >
-                {renderSponsors}
-              </SonarPulse>
-            )}
+                    <PlusLinearIcon
+                      className="flex items-center justify-center rounded-full text-white"
+                      size={54}
+                    />
+                  </Button>
+                </Tooltip>
+              }
+              playState="running"
+              size={SONAR_PULSE_SIZE}
+            >
+              {renderSponsors}
+            </SonarPulse>
           </div>
         </div>
       </div>

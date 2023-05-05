@@ -62,13 +62,13 @@ interface Props extends HTMLNextUIProps<"section"> {
    * @example
    * ```ts
    * <Modal classNames={{
-   *    wrapper: "wrapper-classes", // main wrapper
+   *    wrapper: "wrapper-classes", // main modal wrapper
    *    backdrop: "backdrop-classes",
-   *    base:"base-classes",
-   *    header: "header-classes",
-   *    body: "body-classes",
-   *    footer: "footer-classes",
-   *    closeButton: "close-button-classes",
+   *    base:"base-classes", // modal content wrapper
+   *    header: "header-classes", // modal header
+   *    body: "body-classes", // modal body
+   *    footer: "footer-classes", // modal footer
+   *    closeButton: "close-button-classes", // modal close button
    * }} />
    * ```
    */
