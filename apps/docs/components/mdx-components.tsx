@@ -13,74 +13,28 @@ import * as Components from "@nextui-org/react";
 
 import {VirtualAnchor} from "@/components";
 
-// const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
-//   return (
-//     <div className="docs-table-container">
-//       <table className="docs-table">{children}</table>
-//       <style jsx>{`
-//         .docs-table-container {
-//           overflow-x: auto;
-//           overflow-y: hidden;
-//         }
-//         .docs-table {
-//           border-collapse: separate;
-//           border-spacing: 0;
-//           width: 100%;
-//         }
-//       `}</style>
-//     </div>
-//   );
-// };
-// const Thead: React.FC<{children?: React.ReactNode}> = ({children}) => {
-//   const {theme} = useTheme();
+const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
+  return (
+    <div className="overflow-x-auto overflow-y-hidden">
+      <table className="border-collapse border-spacing-0 w-full">{children}</table>
+    </div>
+  );
+};
 
-//   return (
-//     <thead className="docs-thead">
-//       {children}
-//       <style jsx>{`
-//         :global(.docs-tr) {
-//           height: 2.875rem;
-//         }
-//         :global(.docs-thead th) {
-//           background: ${theme?.colors?.accents0?.value};
-//           color: ${theme?.colors?.accents7?.value};
-//           font-size: 0.8rem;
-//           font-weight: 600;
-//           text-align: left;
-//           padding: 0 ${theme?.space?.lg?.value} 0 0;
-//         }
-//         :global(.docs-thead th:nth-child(1)) {
-//           padding-left: 1rem;
-//           border-radius: ${theme?.radii?.lg?.value} 0 0 ${theme?.radii?.lg?.value};
-//         }
-//         :global(.docs-thead th:last-child) {
-//           border-radius: 0 ${theme?.radii?.lg?.value} ${theme?.radii?.lg?.value} 0;
-//         }
-//       `}</style>
-//     </thead>
-//   );
-// };
-// const Trow: React.FC<{children?: React.ReactNode}> = ({children}) => {
-//   return <tr className="docs-tr">{children}</tr>;
-// };
-// const Tcol: React.FC<{children?: React.ReactNode}> = ({children}) => {
-//   const {theme} = useTheme();
+const Thead: React.FC<{children?: React.ReactNode}> = ({children}) => {
+  return (
+    <thead className="[&>tr]:h-12 [&>tr>th]:bg-neutral-300 [&>tr>th]:text-neutral-400 [&>tr>th]:text-sm [&>tr>th]:text-left [&>tr>th]:px-4">
+      {children}
+    </thead>
+  );
+};
+const Trow: React.FC<{children?: React.ReactNode}> = ({children}) => {
+  return <tr>{children}</tr>;
+};
 
-//   return (
-//     <td className="docs-col">
-//       {children}
-//       <style jsx>{`
-//         :global(.docs-col) {
-//           font-size: 0.9rem;
-//           padding: ${theme?.space?.sm?.value};
-//         }
-//         :global(strong) {
-//           font-weight: 500;
-//         }
-//       `}</style>
-//     </td>
-//   );
-// };
+const Tcol: React.FC<{children?: React.ReactNode}> = ({children}) => {
+  return <td className="text-sm p-2">{children}</td>;
+};
 
 export interface LinkedHeadingProps {
   as: keyof JSX.IntrinsicElements;
@@ -98,30 +52,18 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, classNa
       data-name={props.children}
       {...props}
     >
-      {linked ? <VirtualAnchor>{props.children}</VirtualAnchor> : <>{props.children}</>}
+      {linked ? (
+        <VirtualAnchor className={className}>{props.children}</VirtualAnchor>
+      ) : (
+        <>{props.children}</>
+      )}
     </Component>
   );
 };
 
-// const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
-//   const {theme} = useTheme();
-
-//   return (
-//     <ul className="mdx-ul">
-//       {children}
-//       <style jsx>
-//         {`
-//           ul {
-//             list-style-type: disc;
-//           }
-//           :global(.mdx-ul strong) {
-//             color: ${theme?.colors.code.value};
-//           }
-//         `}
-//       </style>
-//     </ul>
-//   );
-// };
+const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
+  return <ul className="list-disc">{children}</ul>;
+};
 
 // // @ts-ignore
 const Paragraph = ({children}: {children?: React.ReactNode}) => {
@@ -158,23 +100,22 @@ export const MDXComponents = ({
     <LinkedHeading as="h1" className="text-5xl mb-6" linked={false} {...props} />
   ),
   h2: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h2" className="text-4xl leading-7" {...props} />
+    <LinkedHeading as="h2" className="text-xl" {...props} />
   ),
   h3: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h3" className="text-3xl leading-6" {...props} />
+    <LinkedHeading as="h3" className="text-lg" {...props} />
   ),
   h4: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h4" className="text-2xl leading-4" {...props} />
+    <LinkedHeading as="h4" className="text-base" {...props} />
   ),
   p: Paragraph,
-  hr: () => <hr className="my-8" />,
-  // table: Table,
-  // thead: Thead,
-  // tr: Trow,
-  // td: Tcol,
+  table: Table,
+  thead: Thead,
+  tr: Trow,
+  td: Tcol,
   // Playground,
   // CarbonAd,
   code: Code,
-  // ul: List,
+  ul: List,
   // Block,
 } as unknown) as Record<string, React.ReactNode>;

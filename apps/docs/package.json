@@ -18,6 +18,7 @@
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
     "@react-aria/focus": "^3.12.0",
+    "@react-aria/ssr": "^3.6.0",
     "@react-aria/interactions": "^3.15.0",
     "@react-aria/selection": "^3.14.0",
     "@react-aria/utils": "^3.16.0",

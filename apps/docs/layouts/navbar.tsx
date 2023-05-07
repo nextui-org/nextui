@@ -17,6 +17,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import NextLink from "next/link";
 import {useRouter} from "next/router";
 import {includes} from "lodash";
 
@@ -74,7 +75,9 @@ export const Navbar = () => {
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3">
-          <NextUILogo auto />
+          <NextLink href="/">
+            <NextUILogo auto />
+          </NextLink>
           {isMounted && ref.current && (
             <Dropdown placement="bottom-start" portalContainer={ref.current}>
               <DropdownTrigger>

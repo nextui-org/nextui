@@ -1,6 +1,6 @@
 ---
-title: 'Avatar'
-description: 'The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.'
+title: "Avatar"
+description: "The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon."
 url: https://nextui.org/docs/components/avatar
 ---
 
@@ -9,5 +9,68 @@ url: https://nextui.org/docs/components/avatar
 The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.
 
 ```jsx
-import { Avatar } from '@nextui-org/react';
+import {Avatar} from "@nextui-org/react";
 ```
+
+## Usage
+
+### Default
+
+<Avatar name="JW" color="danger" />
+<Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026705d" />
+
+### With text
+
+<Avatar name="JW" color="danger" />
+
+### Disabled
+
+<Avatar
+  src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
+  color="secondary"
+  isBordered
+  isDisabled
+/>
+
+### Bordered
+
+<Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026709d" color="secondary" isBordered />
+
+### With icon
+
+### With fallback
+
+#### Icon fallback
+
+#### Initials fallback
+
+#### Custom fallback
+
+### Custom
+
+## Slots
+
+## Available Slots
+
+1. **base**: Avatar wrapper, it includes styles for focus ring, position, and general appearance.
+2. **img**: Image element within the avatar, it includes styles for opacity transition and size.
+3. **fallback**: Fallback content when the image fails to load or is not provided, it includes styles for centering the content.
+4. **name**: Initials displayed when the image is not provided or fails to load, it includes styles for font, text alignment, and inheritance.
+5. **icon**: Icon element within the avatar, it includes styles for centering the content, text inheritance, and size.
+
+## Props
+
+| Attribute    | Type                                                                         | Description                                                                  | Default   |
+| ------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
+| color        | "neutral" \| "primary" \| "secondary" \| "success" \| "warning" \| "danger"  | Sets the avatar background color.                                            | "neutral" |
+| radius       | "none" \| "base" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "full" | Sets the avatar border radius.                                               | "full"    |
+| size         | "xs" \| "sm" \| "md" \| "lg" \| "xl"                                         | Sets the avatar size.                                                        | "md"      |
+| name         | string                                                                       | Displays the initials if the image is not provided or fails to load.         | -         |
+| src          | string                                                                       | The source URL of the image to be displayed.                                 | -         |
+| isBordered   | boolean                                                                      | If `true`, adds a border around the avatar.                                  | false     |
+| isDisabled   | boolean                                                                      | If `true`, disables the avatar and applies a disabled styling.               | false     |
+| isFocusable  | boolean                                                                      | If `true`, makes the avatar focusable for keyboard navigation.               | false     |
+| icon         | node                                                                         | Displays a custom icon inside the avatar.                                    | -         |
+| classNames   | object                                                                       | Allows to set custom class names for the avatar base, icon, or text.         | -         |
+| showFallback | boolean                                                                      | If `true`, shows the fallback icon or initials when the image fails to load. | false     |
+| fallback     | node                                                                         | A custom fallback component to display when the image fails to load.         | -         |

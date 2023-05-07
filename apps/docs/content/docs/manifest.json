@@ -5,7 +5,6 @@
       "title": "Guide",
       "defaultOpen": true,
       "keywords": "guide, getting started, start, nextui",
-      "iconSrc": "/paper.svg",
       "routes": [
         {
           "key": "getting-started",
@@ -26,7 +25,6 @@
       "key": "theme",
       "title": "Theme",
       "keywords": "themeable, theme, customize, palette",
-      "iconSrc": "/category.svg",
       "defaultOpen": true,
       "routes": [
         {
@@ -65,7 +63,6 @@
     {
       "key": "layout",
       "title": "Layout",
-      "iconSrc": "/layout.svg",
       "keywords": "layout, container, grid, spacer, flex",
       "defaultOpen": true,
       "routes": [
@@ -93,7 +90,6 @@
       "key": "components",
       "title": "Components",
       "keywords": "components, btn, button, input, modal",
-      "iconSrc": "/components.svg",
       "defaultOpen": true,
       "routes": [
         {

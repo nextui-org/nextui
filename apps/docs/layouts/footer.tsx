@@ -1,12 +1,25 @@
+import {FC} from "react";
 import {Link} from "@nextui-org/react";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {VercelCallout} from "@/components";
 
-export const Footer = () => {
+export interface FooterProps {
+  align?: "left" | "center" | "right";
+  className?: string;
+}
+
+export const Footer: FC<FooterProps> = ({align = "center", className}) => {
   return (
-    <div className="container mx-auto max-w-7xl pb-12">
-      <div className="flex flex-col justify-center items-center">
-        <p className="text-sm text-neutral-400 flex items-center justify-center">
+    <div className={clsx("container mx-auto max-w-7xl pb-12", className)}>
+      <div
+        className={clsx("flex flex-col justify-center", {
+          "items-start": align === "left",
+          "items-center": align === "center",
+          "items-end": align === "right",
+        })}
+      >
+        <p className="text-sm text-neutral-400">
           Created&nbsp;by&nbsp;
           <Link isExternal className="text-sm" href="https://jrgarciadev.com">
             Junior Garcia

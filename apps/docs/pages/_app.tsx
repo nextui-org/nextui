@@ -11,12 +11,12 @@ import "../styles/globals.css";
 
 const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
-      <NextUIProvider>
+    <NextUIProvider>
+      <ThemeProvider attribute="class" defaultTheme="dark">
         <Component {...pageProps} />
         {__PROD__ && <Analytics />}
-      </NextUIProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </NextUIProvider>
   );
 };
 

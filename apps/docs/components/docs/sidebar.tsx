@@ -10,17 +10,14 @@ import {useSelectableCollection, useSelectableItem} from "@react-aria/selection"
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {SpacerProps, Spacer, Link as NextUILink} from "@nextui-org/react";
-import Image from "next/image";
 import Link from "next/link";
 import {isEmpty} from "lodash";
-import {useTheme} from "next-themes";
 import {useRouter} from "next/router";
 
 import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
-import {useIsMounted} from "@/hooks/use-is-mounted";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
   slug?: string;
@@ -52,12 +49,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const {item, state, level = 1, spaceLeft = 0} = props;
   const {key, rendered, childNodes} = item;
 
-  const {theme} = useTheme();
-
-  const isDark = theme === "dark";
   const router = useRouter();
-
-  const isMounted = useIsMounted();
 
   const paths = item.props.path
     ? getRoutePaths(item.props.path, item.props?.tag)
@@ -92,13 +84,9 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
-  if (!isMounted) {
-    return null;
-  }
-
   return (
     <li
-      {...mergeProps(focusProps, itemProps, pressProps)}
+      {...mergeProps(focusProps, itemProps)}
       ref={ref}
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
@@ -116,29 +104,17 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       data-focused={isFocused}
       role="treeitem"
     >
-      <div className="flex items-center gap-3 cursor-pointer">
+      <div className="flex items-center gap-3 cursor-pointer" {...pressProps}>
         <Spacer x={spaceLeft} />
-        {item.props.iconSrc && (
-          <Image
-            alt={`${item.props.title} icon`}
-            className="category-image"
-            height={24}
-            src={`/sidebar-icons/${item.props.iconSrc.replace(
-              ".svg",
-              isDark ? "-dark.svg" : "-light.svg",
-            )}`}
-            width={24}
-          />
-        )}
         {hasChildNodes ? (
-          <>
+          <span className="flex items-center gap-3">
             <span>{rendered}</span>
             <ChevronIcon
               className={clsx("transition-transform", {
                 "-rotate-90": isExpanded,
               })}
             />
-          </>
+          </span>
         ) : (
           <NextUILink
             as={Link}
@@ -158,7 +134,6 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             )}
             color="foreground"
             href={paths.pathname}
-            isDisabled={item.props?.comingSoon}
           >
             {rendered}
           </NextUILink>
@@ -239,18 +214,20 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag}) => {
   }, [] as string[]);
 
   return (
-    <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
-      {(route) => (
-        <Item
-          childItems={route.routes}
-          slug={slug}
-          tag={tag}
-          {...route}
-          key={route.key || route.title}
-        >
-          {route.title}
-        </Item>
-      )}
-    </Tree>
+    <div className="sticky top-20 h-[calc(100vh-121px)]">
+      <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
+        {(route) => (
+          <Item
+            childItems={route.routes}
+            slug={slug}
+            tag={tag}
+            {...route}
+            key={route.key || route.title}
+          >
+            {route.title}
+          </Item>
+        )}
+      </Tree>
+    </div>
   );
 };

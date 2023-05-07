@@ -1,11 +1,13 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Link} from "@nextui-org/react";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {LinkCircleLinearIcon} from "@/components/icons";
 
 export interface Props {
   pure?: boolean;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export const virtualAnchorEncode = (text?: string) => {
@@ -14,7 +16,7 @@ export const virtualAnchorEncode = (text?: string) => {
   return text.toLowerCase().replace(/ /g, "-");
 };
 
-export const VirtualAnchor: React.FC<Props> = ({children, pure}) => {
+export const VirtualAnchor: React.FC<Props> = ({children, className, pure}) => {
   const ref = useRef<HTMLAnchorElement>(null);
   const [id, setId] = useState<string | undefined>();
 
@@ -25,7 +27,7 @@ export const VirtualAnchor: React.FC<Props> = ({children, pure}) => {
 
   return (
     <span ref={ref} className="relative text-inherit">
-      <Link className="text-inherit" href={`#${id}`}>
+      <Link className={clsx("text-inherit", className)} href={`#${id}`}>
         {children}
       </Link>
       <span
