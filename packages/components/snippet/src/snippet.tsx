@@ -12,6 +12,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
   const {
     Component,
     domRef,
+    preRef,
     children,
     slots,
     classNames,
@@ -89,7 +90,7 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
     }
 
     return (
-      <pre className={slots.pre({class: classNames?.pre})}>
+      <pre ref={preRef} className={slots.pre({class: classNames?.pre})}>
         {!hideSymbol && (
           <span className={slots.symbol({class: classNames?.symbol})}>{symbolBefore}</span>
         )}

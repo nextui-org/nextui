@@ -1,5 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {LinkIcon} from "@nextui-org/shared-icons";
+import {linkAnchorClasses} from "@nextui-org/theme";
 
 import {UseLinkProps, useLink} from "./use-link";
 
@@ -10,7 +11,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
     Component,
     children,
     showAnchorIcon,
-    anchorIcon = <LinkIcon className="flex mx-1 text-current self-center" />,
+    anchorIcon = <LinkIcon className={linkAnchorClasses} />,
     getLinkProps,
   } = useLink({
     ...props,

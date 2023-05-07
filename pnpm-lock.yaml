@@ -302,6 +302,9 @@ importers:
       '@react-aria/selection':
         specifier: ^3.14.0
         version: 3.14.0(react@18.2.0)
+      '@react-aria/ssr':
+        specifier: ^3.6.0
+        version: 3.6.0(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.16.0
         version: 3.16.0(react@18.2.0)

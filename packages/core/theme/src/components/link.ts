@@ -68,7 +68,7 @@ const link = tv({
     {
       isBlock: true,
       color: "foreground",
-      class: "hover:after:bg-foreground/20",
+      class: "hover:after:bg-foreground/10",
     },
     {
       isBlock: true,
@@ -110,8 +110,7 @@ const link = tv({
   },
 });
 
-// icon calculated classes
-// "flex mx-1 text-current self-center"
+export const linkAnchorClasses = "flex mx-1 text-current self-center";
 
 export type LinkVariantProps = VariantProps<typeof link>;
 

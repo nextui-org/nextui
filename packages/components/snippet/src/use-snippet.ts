@@ -6,7 +6,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useFocusRing} from "@react-aria/focus";
-import {useMemo, useCallback, ReactElement} from "react";
+import {useMemo, useCallback, ReactElement, useRef} from "react";
 import {TooltipProps} from "@nextui-org/tooltip";
 import {ButtonProps} from "@nextui-org/button";
 export interface UseSnippetProps
@@ -148,6 +148,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
+  const preRef = useRef<HTMLPreElement>(null);
 
   const {copy, copied} = useClipboard({timeout});
 
@@ -188,6 +189,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     if (disableCopy) {
       return;
     }
+
     let value = "";
 
     if (typeof children === "string") {
@@ -196,8 +198,10 @@ export function useSnippet(originalProps: UseSnippetProps) {
       value = children.join("\n");
     }
 
-    copy(value);
-    onCopyProp?.(value);
+    const valueToCopy = value || preRef.current?.textContent || "";
+
+    copy(valueToCopy);
+    onCopyProp?.(valueToCopy);
   }, [copy, disableCopy, onCopyProp, children]);
 
   const defaultCopyButtonProps: ButtonProps = {
@@ -235,6 +239,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     Component,
     as,
     domRef,
+    preRef,
     children,
     slots,
     classNames,
