@@ -59,11 +59,6 @@
           "key": "utilities",
           "title": "Utilities",
           "path": "/docs/theme/utilities.mdx"
-        },
-        {
-          "key": "media",
-          "title": "Media",
-          "path": "/docs/theme/media.mdx"
         }
       ]
     },
@@ -138,10 +133,10 @@
           "path": "/docs/components/table.mdx"
         },
         {
-          "key": "collapse",
-          "title": "Collapse",
+          "key": "accordion",
+          "title": "Accordion",
           "keywords": "collapse, accordion, expand, reveal",
-          "path": "/docs/components/collapse.mdx"
+          "path": "/docs/components/accordion.mdx"
         },
         {
           "key": "navbar",
@@ -160,11 +155,6 @@
           "title": "Input",
           "keywords": "text input, input, textarea",
           "path": "/docs/components/input.mdx"
-        },
-        {
-          "key": "autocomplete",
-          "title": "Autocomplete",
-          "comingSoon": true
         },
         {
           "key": "textarea",
@@ -188,7 +178,7 @@
           "key": "radio-group",
           "title": "Radio Group",
           "keywords": "check, radio, select",
-          "path": "/docs/components/radio.mdx"
+          "path": "/docs/components/radio-group.mdx"
         },
         {
           "key": "popover",
@@ -215,11 +205,6 @@
           "path": "/docs/components/progress.mdx"
         },
         {
-          "key": "select",
-          "title": "Select",
-          "comingSoon": true
-        },
-        {
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog, backdrop",
@@ -229,7 +214,7 @@
           "key": "spinner",
           "title": "Spinner",
           "keywords": "loading, spinner, loadable, progress",
-          "path": "/docs/components/loading.mdx"
+          "path": "/docs/components/spinner.mdx"
         },
         {
           "key": "switch",

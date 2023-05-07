@@ -25,6 +25,7 @@ const getRouteContext = (
       return ctx;
     }
     if (route.path === path) {
+      // @ts-expect-error
       ctx.route = {
         ...currentRoute,
         title:

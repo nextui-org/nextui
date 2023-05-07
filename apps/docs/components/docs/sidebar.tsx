@@ -146,6 +146,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
               "opacity-60",
               {
                 "opacity-100": isSelected,
+                "pointer-events-none": item.props?.comingSoon,
               },
               "before:mr-4",
               "before:content-['']",
@@ -157,6 +158,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             )}
             color="foreground"
             href={paths.pathname}
+            isDisabled={item.props?.comingSoon}
           >
             {rendered}
           </NextUILink>
@@ -237,9 +239,15 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag}) => {
   }, [] as string[]);
 
   return (
-    <Tree defaultExpandedKeys={expandedKeys} items={routes}>
+    <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
       {(route) => (
-        <Item childItems={route.routes} slug={slug} tag={tag} {...route}>
+        <Item
+          childItems={route.routes}
+          slug={slug}
+          tag={tag}
+          {...route}
+          key={route.key || route.title}
+        >
           {route.title}
         </Item>
       )}
