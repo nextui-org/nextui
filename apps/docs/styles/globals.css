@@ -9,7 +9,8 @@ html {
   scroll-padding-top: 64px;
 }
 
-body, #__next {
+body,
+#__next {
   height: 100%;
 }
 
@@ -20,13 +21,12 @@ body, #__next {
   }
 }
 
-/**
-* ----------------------------------------
-* Code block styles
-* ----------------------------------------
-*/
-
 @layer components {
+  /**
+  * ----------------------------------------
+  * Code block styles
+  * ----------------------------------------
+  */
   .code-block .token.parameter {
     @apply text-code-foreground;
   }
@@ -165,5 +165,47 @@ body, #__next {
   /* Typewriter styles */
   .code-block .typewriter {
     @apply opacity-0;
+  }
+
+  /**
+  * ----------------------------------------
+  * Code snippet styles
+  * ----------------------------------------
+  */
+  .token.string {
+    @apply text-code-string;
+  }
+  .token.builtin {
+    @apply text-code-class;
+  }
+  .token.punctuation {
+    @apply text-code-punctuation;
+  }
+  .token.number {
+    @apply text-code-number;
+  }
+  .token.class-name {
+    @apply text-code-class;
+  }
+  .token.comment {
+    @apply text-code-comment;
+  }
+  .token.plain-text {
+    @apply text-code-foreground;
+  }
+  .token.module, .token.keyword {
+    @apply text-code-keyword;
+  }
+  .token.function {
+    @apply text-code-function;
+  }
+  .token.tag {
+    @apply text-code-tag;
+  }
+  .token.attr-name {
+    @apply text-code-attr-name;
+  }
+  .token.language-javascript {
+    @apply text-code-language-javascript;
   }
 }

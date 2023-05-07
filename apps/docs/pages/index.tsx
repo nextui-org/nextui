@@ -16,7 +16,7 @@ import {
   Community,
 } from "@/components/marketing";
 import landingContent from "@/content/landing";
-import {getSponsors, Sponsor} from "@/libs/sponsors";
+import {getSponsors, Sponsor} from "@/libs/docs/sponsors";
 
 interface Props {
   sponsors: Sponsor[];

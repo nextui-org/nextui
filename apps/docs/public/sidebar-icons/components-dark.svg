@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1.43" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="gray"/>
+    </linearGradient>
+  </defs>
+  <g id="vuesax_bold_toggle-off-circle" data-name="vuesax/bold/toggle-off-circle" transform="translate(-108 -256)">
+    <g id="toggle-off-circle">
+      <path id="Vector" d="M11.86,0H8.14a8.14,8.14,0,1,0,0,16.28h3.72A8.14,8.14,0,1,0,11.86,0ZM8.14,12.56a4.42,4.42,0,1,1,4.42-4.42A4.421,4.421,0,0,1,8.14,12.56Z" transform="translate(110 259.86)" fill="url(#linear-gradient)"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(132 280) rotate(180)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

@@ -10,3 +10,4 @@ export * from "./plus";
 export * from "./note";
 export * from "./copy";
 export * from "./check";
+export * from "./link-circle";

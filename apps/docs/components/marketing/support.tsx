@@ -6,7 +6,7 @@ import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 
 import {FeaturesGrid} from "@/components/marketing";
 import {OpenCollectiveIcon, PatreonIcon, HeartBoldIcon, PlusLinearIcon} from "@/components/icons";
-import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@/libs/sponsors";
+import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@/libs/docs/sponsors";
 import {SonarPulse} from "@/components/sonar-pulse";
 import {useIsMobile} from "@/hooks/use-media-query";
 

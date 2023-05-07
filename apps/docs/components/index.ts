@@ -6,3 +6,5 @@ export * from "./gradient-box";
 export * from "./vercel-callout";
 export * from "./copy-button";
 export * from "./demo-code-modal";
+export * from "./mdx-components";
+export * from "./virtual-anchor";
