@@ -75,10 +75,12 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
   const preContent = useMemo(() => {
     if (isMultiLine && children && Array.isArray(children)) {
       return (
-        <div className="flex flex-col">
+        <div className={slots.content({class: classNames?.content})}>
           {children.map((t, index) => (
             <pre key={`${index}-${t}`} className={slots.pre({class: classNames?.pre})}>
-              {!hideSymbol && <span className="select-none">{symbolBefore}</span>}
+              {!hideSymbol && (
+                <span className={slots.symbol({class: classNames?.symbol})}>{symbolBefore}</span>
+              )}
               {t}
             </pre>
           ))}
@@ -88,7 +90,9 @@ const Snippet = forwardRef<SnippetProps, "div">((props, ref) => {
 
     return (
       <pre className={slots.pre({class: classNames?.pre})}>
-        {!hideSymbol && <span className="select-none">{symbolBefore}</span>}
+        {!hideSymbol && (
+          <span className={slots.symbol({class: classNames?.symbol})}>{symbolBefore}</span>
+        )}
         {children}
       </pre>
     );

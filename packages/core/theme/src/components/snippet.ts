@@ -7,16 +7,17 @@ import {colorVariants} from "../utils";
 /**
  * Snippet wrapper **Tailwind Variants** component
  *
- * const {base, pre, copy} = snippet({...})
+ * const {base, content, pre, copy} = snippet({...})
  *
  * @example
  * <div className={base())}>
  *   <pre className={pre()}>
  *      // code snippet
+ *      <div className={content()}>...</div>
  *   </pre>
  *   <button className={copy()}>
  *    <svg>
- *    // copy icon
+ *    // copy icon / check icon
  *    </svg>
  *  </button>
  * </div>
@@ -25,6 +26,8 @@ const snippet = tv({
   slots: {
     base: "inline-flex items-center justify-between rounded-md",
     pre: "bg-transparent text-inherit font-mono whitespace-pre-wrap",
+    content: "flex flex-col",
+    symbol: "select-none",
     copyButton: ["group", "relative", "z-10", "text-inherit", "data-[hover=true]:bg-transparent"],
     copyIcon: [
       "absolute text-inherit opacity-100 scale-100 group-data-[copied=true]:opacity-0 group-data-[copied=true]:scale-50",

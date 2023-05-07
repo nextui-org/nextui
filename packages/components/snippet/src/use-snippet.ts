@@ -51,6 +51,8 @@ export interface UseSnippetProps
    *    copyButton: "copy-classes", // copy button classes
    *    copyIcon: "copy-classes", // copy icon classes
    *    checkIcon: "check-classes", // check icon classes
+   *    content: "content-classes", // content when is multiline
+   *    symbol: "symbol-classes", // symbol classes
    * }} />
    * ```
    */
