@@ -1,10 +1,4 @@
 {
   "extends": "../../../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "tailwind-variants": ["../../../node_modules/tailwind-variants"]
-    }
-  },
   "include": ["src", "index.ts"]
 }
