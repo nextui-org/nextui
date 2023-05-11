@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230511041421
+
+### Patch Changes
+
+- Components improvements
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230511041421
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230511041421
+
 ## 0.0.0-dev-v2-20230505232443
 
 ### Patch Changes
