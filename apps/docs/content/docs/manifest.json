@@ -7,17 +7,16 @@
       "keywords": "guide, getting started, start, nextui",
       "routes": [
         {
-          "key": "getting-started",
-          "title": "Getting Started",
-          "keywords": "getting started, start, nextui",
-          "path": "/docs/guide/getting-started.mdx"
+          "key": "introduction",
+          "title": "Introduction",
+          "keywords": "introduction, nextui",
+          "path": "/docs/guide/introduction.mdx"
         },
         {
-          "key": "nextui-plus-nextjs",
-          "title": "NextUI + Next.js",
-          "keywords": "next, nextjs, nextui",
-          "path": "/docs/guide/nextui-plus-nextjs.mdx",
-          "updated": true
+          "key": "installation",
+          "title": "Installation",
+          "keywords": "getting started, installation, start, nextui",
+          "path": "/docs/guide/installation.mdx"
         }
       ]
     },

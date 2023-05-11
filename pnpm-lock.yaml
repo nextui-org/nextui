@@ -390,6 +390,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.18.0
         version: 3.18.0(react@18.2.0)
+      '@tailwindcss/typography':
+        specifier: ^0.5.9
+        version: 0.5.9(tailwindcss@3.2.7)
       '@types/canvas-confetti':
         specifier: ^1.4.2
         version: 1.4.2
@@ -1163,7 +1166,7 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0(react@18.2.0)
       framer-motion:
-        specifier: '>=6.2.8'
+        specifier: '>=4.0.0'
         version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -1882,7 +1885,7 @@ importers:
         specifier: workspace:*
         version: link:../../components/user
       framer-motion:
-        specifier: '>=6.2.8'
+        specifier: '>=4.0.0'
         version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       clean-package:
@@ -8611,6 +8614,18 @@ packages:
       '@jest/create-cache-key-function': 27.5.1
       '@swc/core': 1.3.35
       jsonc-parser: 3.2.0
+    dev: true
+
+  /@tailwindcss/typography@0.5.9(tailwindcss@3.2.7):
+    resolution: {integrity: sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 3.2.7(postcss@8.4.21)(ts-node@10.9.1)
     dev: true
 
   /@testing-library/dom@8.1.0:
@@ -17155,6 +17170,10 @@ packages:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
 
+  /lodash.castarray@4.4.0:
+    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
+    dev: true
+
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
@@ -19419,6 +19438,14 @@ packages:
     dependencies:
       postcss: 8.4.21
       postcss-value-parser: 4.2.0
+    dev: true
+
+  /postcss-selector-parser@6.0.10:
+    resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
+    engines: {node: '>=4'}
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
     dev: true
 
   /postcss-selector-parser@6.0.12:

@@ -7,15 +7,17 @@ export function removeFromLast<T>(path: string, key: string): string | T {
 export interface Heading {
   text: string;
   id: string;
+  level: string;
 }
 
 export function getHeadings(): Heading[] {
   const headings = document.getElementsByClassName("linked-heading") as HTMLCollection;
 
-  return Array.from(headings).map((e) => {
+  return Array.from(headings).map((h) => {
     return {
-      id: e.id,
-      text: e.getAttribute("data-name"),
+      id: h.id,
+      text: h.getAttribute("data-name"),
+      level: h.getAttribute("data-level"),
     };
   }) as Heading[];
 }

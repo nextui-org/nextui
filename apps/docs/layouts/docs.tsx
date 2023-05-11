@@ -1,5 +1,5 @@
 import {FC, useEffect, useState} from "react";
-import {Link as NextUILink} from "@nextui-org/react";
+import {Link as NextUILink, Image} from "@nextui-org/react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -52,12 +52,12 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
       <Head {...meta} />
       <Navbar />
       <main className="container mx-auto max-w-7xl min-h-[calc(100dvh_-_64px_-_108px)] px-6 mb-12">
-        <div className="grid grid-cols-12">
-          <div className="hidden lg:block lg:col-span-3 mt-8 pr-4">
+        <div className="flex">
+          <div className="hidden relative lg:block lg:w-[30%] mt-8 pr-4">
             <DocsSidebar routes={routes} slug={slug} tag={tag} />
           </div>
-          <div className="col-span-12 lg:col-span-9 xl:col-span-7 mt-10">
-            {children}
+          <div className="w-full xl:px-12 mt-10">
+            <div className="w-full prose prose-neutral">{children}</div>
             <FooterNav nextRoute={nextRoute} prevRoute={prevRoute} tag={tag} />
             <footer>
               {tag ? (
@@ -71,12 +71,36 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
               )}
             </footer>
           </div>
-          <div className="hidden xl:flex xl:col-span-2 mt-8 justify-end pl-4">
+          <div className="hidden xl:flex xl:w-[30%] mt-8 pl-8">
             <DocsToc headings={headings} />
           </div>
         </div>
       </main>
       <Footer align="right" />
+
+      <div
+        aria-hidden="true"
+        className="fixed hidden dark:md:block dark:opacity-70 -bottom-[40%] -left-[20%] z-[-10]"
+      >
+        <Image
+          removeWrapper
+          alt="docs left background"
+          className="z-[-10]"
+          src="/gradients/docs-left.svg"
+        />
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="fixed hidden dark:md:block dark:opacity-70 -top-[60%] -right-[45%] z-[-10] rotate-12"
+      >
+        <Image
+          removeWrapper
+          alt="docs right background"
+          className="z-[-10]"
+          src="/gradients/docs-right.svg"
+        />
+      </div>
     </div>
   );
 };

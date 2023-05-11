@@ -4,9 +4,8 @@ import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@r
 import {BaseItem} from "@nextui-org/aria-utils";
 import React, {useRef, useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {mergeProps} from "@react-aria/utils";
 import {TreeState, useTreeState} from "@react-stately/tree";
-import {useSelectableCollection, useSelectableItem} from "@react-aria/selection";
+import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {SpacerProps, Spacer, Link as NextUILink} from "@nextui-org/react";
@@ -61,18 +60,13 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const isExpanded = state.expandedKeys.has(key);
   const isSelected = state.selectionManager.isSelected(key) || paths.pathname === item.props.slug;
 
-  const ref = useRef<HTMLLIElement>(null);
-
-  const {itemProps} = useSelectableItem({
-    selectionManager: state.selectionManager,
-    key: item.key,
-    ref,
-  });
+  const ref = useRef<any>(null);
 
   const hasChildNodes = !isEmpty([...childNodes]);
 
+  const Component = hasChildNodes ? "ul" : "li";
+
   const {pressProps} = usePress({
-    ...itemProps,
     onPress: () => {
       if (hasChildNodes) {
         state.toggleKey(item.key);
@@ -85,8 +79,8 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
   return (
-    <li
-      {...mergeProps(focusProps, itemProps)}
+    <Component
+      {...focusProps}
       ref={ref}
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
@@ -120,6 +114,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             as={Link}
             className={clsx(
               "opacity-60",
+              "dark:font-light",
               {
                 "opacity-100": isSelected,
                 "pointer-events-none": item.props?.comingSoon,
@@ -155,7 +150,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
           })}
         </div>
       )}
-    </li>
+    </Component>
   );
 }
 
@@ -214,7 +209,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag}) => {
   }, [] as string[]);
 
   return (
-    <div className="sticky top-20 h-[calc(100vh-121px)]">
+    <div className="sticky top-20 mt-2 z-0 h-[calc(100vh-121px)]">
       <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
         {(route) => (
           <Item

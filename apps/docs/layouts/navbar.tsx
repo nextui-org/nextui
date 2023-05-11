@@ -74,7 +74,7 @@ export const Navbar = () => {
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3">
+        <NavbarBrand className="gap-3 max-w-fit">
           <NextLink href="/">
             <NextUILogo auto />
           </NextLink>
@@ -102,44 +102,46 @@ export const Navbar = () => {
             </Dropdown>
           )}
         </NavbarBrand>
+        <div className="hidden lg:flex gap-4 ml-10 justify-start">
+          <NavbarItem
+            as={Link}
+            className="data-[active=true]:text-primary"
+            color="foreground"
+            href="/docs/guide/introduction"
+            isActive={
+              !!(
+                isActive(router.pathname, "/docs/[[...slug]]") &&
+                !includes(router.asPath, "components")
+              )
+            }
+          >
+            Docs
+          </NavbarItem>
+          <NavbarItem
+            as={Link}
+            className="data-[active=true]:text-primary"
+            color="foreground"
+            href="/docs/components/avatar"
+            isActive={includes(router.asPath, "components")}
+          >
+            Components
+          </NavbarItem>
+          <NavbarItem
+            as={Link}
+            className="data-[active=true]:text-primary"
+            color="foreground"
+            href="/figma"
+            isActive={router.asPath === "/figma"}
+          >
+            Figma
+          </NavbarItem>
+        </div>
       </NavbarContent>
-      <NavbarContent className="hidden lg:flex" justify="center">
-        <NavbarItem
-          as={Link}
-          className="data-[active=true]:text-primary"
-          color="foreground"
-          href="/docs/guide/getting-started"
-          isActive={
-            !!(
-              isActive(router.pathname, "/docs/[[...slug]]") &&
-              !includes(router.asPath, "components")
-            )
-          }
-        >
-          Docs
-        </NavbarItem>
-        <NavbarItem
-          as={Link}
-          className="data-[active=true]:text-primary"
-          color="foreground"
-          href="/docs/components/avatar"
-          isActive={includes(router.asPath, "components")}
-        >
-          Components
-        </NavbarItem>
-        <NavbarItem
-          as={Link}
-          className="data-[active=true]:text-primary"
-          color="foreground"
-          href="/figma"
-          isActive={router.asPath === "/figma"}
-        >
-          Figma
-        </NavbarItem>
-      </NavbarContent>
+
       <NavbarContent className="flex w-full sm:hidden" justify="center">
         <NavbarItem>{searchInput}</NavbarItem>
       </NavbarContent>
+
       <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal href="https://twitter.com/getnextui">

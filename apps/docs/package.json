@@ -18,9 +18,9 @@
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
     "@react-aria/focus": "^3.12.0",
-    "@react-aria/ssr": "^3.6.0",
     "@react-aria/interactions": "^3.15.0",
     "@react-aria/selection": "^3.14.0",
+    "@react-aria/ssr": "^3.6.0",
     "@react-aria/utils": "^3.16.0",
     "@react-aria/virtualizer": "^3.8.0",
     "@react-aria/visually-hidden": "^3.8.0",
@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@react-types/shared": "^3.18.0",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
     "@types/lodash": "^4.14.194",
     "@types/node": "18.16.0",

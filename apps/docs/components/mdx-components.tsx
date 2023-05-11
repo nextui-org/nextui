@@ -11,6 +11,7 @@
 import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
 
+import * as DocsComponents from "@/components/docs/components";
 import {VirtualAnchor} from "@/components";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
@@ -43,47 +44,71 @@ export interface LinkedHeadingProps {
   className?: string;
 }
 
+const linkedLevels: Record<string, number> = {
+  h1: 0,
+  h2: 1,
+  h3: 2,
+  h4: 3,
+};
+
 const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, className, ...props}) => {
   const Component = as;
 
+  const level = linkedLevels[as] || 1;
+
   return (
     <Component
-      className={clsx({"linked-heading": linked}, "font-semibold", className)}
+      className={clsx({"linked-heading": linked}, linked ? {} : className)}
+      data-level={level}
       data-name={props.children}
       {...props}
     >
-      {linked ? (
-        <VirtualAnchor className={className}>{props.children}</VirtualAnchor>
-      ) : (
-        <>{props.children}</>
-      )}
+      {linked ? <VirtualAnchor>{props.children}</VirtualAnchor> : <>{props.children}</>}
     </Component>
   );
 };
 
 const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
-  return <ul className="list-disc">{children}</ul>;
-};
-
-// // @ts-ignore
-const Paragraph = ({children}: {children?: React.ReactNode}) => {
-  return <p>{children}</p>;
+  return (
+    <ul className="list-disc flex flex-col gap-2 ml-4 mt-2 [&>li>strong]:text-pink-500 dark:[&>li>strong]:text-cyan-600">
+      {children}
+    </ul>
+  );
 };
 
 const Code = ({children, className}: {children?: React.ReactNode; className?: string}) => {
+  const isMultiline =
+    Array.isArray(children) && !!children.find((child) => String(child).includes("\n\n"));
+
   return (
     <Components.Snippet
       disableTooltip
       fullWidth
       hideSymbol
       classNames={{
-        base: clsx("bg-code-background text-code-foreground my-6", className),
+        base: clsx(
+          "bg-code-background text-code-foreground",
+          {
+            "items-start": isMultiline,
+          },
+          className,
+        ),
         pre: "font-light text-sm",
-        copyButton: "text-lg text-code-foreground/50",
+        copyButton: "text-lg text-code-foreground/50 -mr-2",
       }}
     >
       <div>{children}</div>
     </Components.Snippet>
+  );
+};
+
+const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => {
+  const isExternal = href?.startsWith("http");
+
+  return (
+    <Components.Link showAnchorIcon href={href} isExternal={isExternal}>
+      {children}
+    </Components.Link>
   );
 };
 
@@ -93,22 +118,22 @@ export const MDXComponents = ({
    */
   ...Components,
   /**
+   * Docs components
+   */
+  ...DocsComponents,
+  /**
    * Markdown components
    */
   // ...Icons,
-  h1: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h1" className="text-5xl mb-6" linked={false} {...props} />
+  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <LinkedHeading as="h1" linked={false} {...props} />
   ),
-  h2: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h2" className="text-xl" {...props} />
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h2" {...props} />,
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h3" {...props} />,
+  h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h4" {...props} />,
+  strong: (props: React.HTMLAttributes<HTMLElement>) => (
+    <strong className="font-medium" {...props} />
   ),
-  h3: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h3" className="text-lg" {...props} />
-  ),
-  h4: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h4" className="text-base" {...props} />
-  ),
-  p: Paragraph,
   table: Table,
   thead: Thead,
   tr: Trow,
@@ -117,5 +142,12 @@ export const MDXComponents = ({
   // CarbonAd,
   code: Code,
   ul: List,
+  a: (props: React.HTMLAttributes<HTMLAnchorElement>) => <Link {...props} />,
+  blockquote: (props: Omit<React.HTMLAttributes<HTMLElement>, "color">) => (
+    <DocsComponents.Blockquote {...props} />
+  ),
+  inlineCode: (props: Omit<React.HTMLAttributes<HTMLElement>, "color">) => (
+    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx" {...props} />
+  ),
   // Block,
 } as unknown) as Record<string, React.ReactNode>;

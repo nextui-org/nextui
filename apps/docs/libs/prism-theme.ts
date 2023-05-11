@@ -1,33 +1,36 @@
 import {PrismTheme} from "prism-react-renderer";
-import {commonColors} from "@nextui-org/react";
 
 const codeTheme: PrismTheme = {
   plain: {
-    backgroundColor: "var(--nextui-colors-codeBackground)",
+    backgroundColor: "hsl(var(--nextui-code-background))",
     color: "#F4F4F4",
     fontWeight: "500",
     fontStyle: "normal",
-    fontFamily: "$mono",
-    fontSize: "$xs",
     textRendering: "geometricPrecision",
   },
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata"],
       style: {
-        color: "var(--nextui-colors-codeComment)",
+        color: "#71717a",
       },
     },
     {
       types: ["symbol", "text"],
       style: {
-        color: "var(--nextui-colors-white)",
+        color: "#F4F4F4",
       },
     },
     {
       types: ["punctuation"],
       style: {
-        color: commonColors.green[500],
+        color: "#17c964",
+      },
+    },
+    {
+      types: ["property"],
+      style: {
+        color: "#17c964",
       },
     },
     {
@@ -49,12 +52,6 @@ const codeTheme: PrismTheme = {
       },
     },
     {
-      types: ["property", "function"],
-      style: {
-        color: "var(--nextui-colors-success)",
-      },
-    },
-    {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
         color: "#E06C75",
@@ -63,7 +60,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["attr-name"],
       style: {
-        color: "var(--nextui-colors-yellow600)",
+        color: "#c4841d",
       },
     },
     {
@@ -96,7 +93,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["language-javascript", "script"],
       style: {
-        color: "var(--nextui-colors-success)",
+        color: "#17c964",
       },
     },
     {

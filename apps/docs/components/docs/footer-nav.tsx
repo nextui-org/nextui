@@ -14,7 +14,7 @@ export interface FooterNavProps {
 
 export const FooterNav: React.FC<FooterNavProps> = ({tag, prevRoute, nextRoute}) => {
   return (
-    <div className="flex justify-between py-44">
+    <div className="flex w-full justify-between py-20">
       {prevRoute ? (
         <Link
           isBlock

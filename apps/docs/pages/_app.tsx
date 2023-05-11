@@ -21,6 +21,7 @@ const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
 };
 
 const sans = Inter({
+  variable: "--font-sans",
   adjustFontFallback: true,
   display: "optional",
   fallback: [

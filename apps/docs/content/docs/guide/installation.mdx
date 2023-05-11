@@ -1,0 +1,88 @@
+---
+title: Installation
+description: Get started with NextUI in the official documentation, and learn more about all our features!
+url: https://nextui.org/docs/getting-started
+---
+
+# Installation
+
+Requirements:
+
+- [React 18](https://reactjs.org/) or later
+- [Tailwind CSS 3](https://tailwindcss.com/) or later
+- [Framer Motion 4](https://www.framer.com/motion/) or later
+
+<Divider />
+
+<Spacer y={4}/>
+
+To install NextUI, run one of the following commands in your terminal:
+
+<PackageManagers
+  commands={{
+    npm: 'npm i @nextui-org/react framer-motion',
+    yarn: 'yarn add @nextui-org/react framer-motion',
+    pnpm: 'pnpm add @nextui-org/react framer-motion',
+  }}
+/>
+
+<Spacer y={4}/>
+
+After installing NextUI, you need do the following steps to complete the installation:
+
+
+### 1. Setup Tailwind CSS
+
+NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+[installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add 
+the following code to your `tailwind.config.js` file:
+
+```js
+// tailwind.config.js
+
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [nextui()]
+}
+```
+
+### 2. Setup Provider
+
+To ensure proper functioning of React Aria, NextUI utilizes the [React Aria SSRProvider](https://react-spectrum.adobe.com/react-aria/SSRProvider.html) and [Overlay provider](https://react-spectrum.adobe.com/react-aria/useOverlayTrigger.html#example) internally. 
+Therefore, it is essential to incorporate the `NextUIProvider` at the `root` of your application.
+
+```jsx
+import * as React from 'react'
+
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react'
+
+function App() {
+  // 2. Wrap NextUIProvider at the root of your app
+  return (
+    <NextUIProvider>
+      <YourApplication />
+    </NextUIProvider>
+  )
+}
+```
+
+<Blockquote
+ color="warning"
+>
+  Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please use <Link href="https://v1.nextui.org/docs/getting-started" isExternal>version 1 of NextUI</Link>.
+</Blockquote>
+
+## Framework Guides
+
+NextUI UI is compatible with your preferred framework. We have compiled comprehensive, step-by-step tutorials for the following frameworks:
