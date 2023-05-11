@@ -33,7 +33,7 @@
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "7.1.2",
     "lodash": "^4.17.21",
-    "next": "13.3.2",
+    "next": "13.4.1",
     "next-mdx-remote": "^3.0.2",
     "next-themes": "^0.2.1",
     "parse-numeric-range": "1.2.0",

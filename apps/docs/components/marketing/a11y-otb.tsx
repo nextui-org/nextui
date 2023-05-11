@@ -71,7 +71,7 @@ export const A11yOtb = () => {
 
   const ref = useRef<any>(null);
   const isInView = useInView(ref, {
-    margin: "-10px",
+    margin: "-300px",
   });
 
   const isMobile = useIsMobile();
