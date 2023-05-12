@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useMemo, useState} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import CSSTransition from "../utils/css-transition";
 import {isChildElement} from "../utils/collections";
 import {CSS} from "../theme/stitches.config";
@@ -23,12 +22,6 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  className: "",
-  visible: false,
-  rebound: false,
-};
-
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
 
 export type ModalWrapperProps = Props & NativeAttrs & ModalVariantsProps & {css?: CSS};
@@ -36,12 +29,12 @@ export type ModalWrapperProps = Props & NativeAttrs & ModalVariantsProps & {css?
 const preClass = "nextui-modal";
 
 const ModalWrapper: React.FC<ModalWrapperProps> = ({
-  className,
+  className = "",
   children,
-  visible,
+  visible = false,
   fullScreen,
   closeButton,
-  rebound,
+  rebound = false,
   animated,
   onCloseButtonClick,
   scroll,
@@ -162,4 +155,4 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
 
 ModalWrapper.toString = () => ".nextui-modal-wrapper";
 
-export default withDefaults(ModalWrapper, defaultProps);
+export default ModalWrapper;

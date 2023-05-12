@@ -1,6 +1,5 @@
 import React from "react";
 import {styled, CSS} from "@nextui-org/react";
-import withDefaults from "@utils/with-defaults";
 
 export interface Props {
   width?: number;
@@ -9,14 +8,9 @@ export interface Props {
   css?: CSS;
 }
 
-const defaultProps = {
-  width: 1371,
-  height: 1352,
-};
-
 const StyledSvg = styled("svg", {});
 
-const LooperBG: React.FC<Props> = ({width, height, ...props}) => {
+const LooperBG: React.FC<Props> = ({width = 1371, height = 1352, ...props}) => {
   return (
     <StyledSvg
       fill="none"
@@ -1273,4 +1267,4 @@ const LooperBG: React.FC<Props> = ({width, height, ...props}) => {
   );
 };
 
-export default withDefaults(LooperBG, defaultProps);
+export default LooperBG;

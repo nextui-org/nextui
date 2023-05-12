@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   visible?: boolean;
@@ -11,25 +10,14 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  visible: false,
-  enterTime: 60,
-  leaveTime: 60,
-  clearTime: 60,
-  className: "",
-  name: "transition",
-};
-
-export type CSSTransitionProps = Props & typeof defaultProps;
-
-const CSSTransition: React.FC<CSSTransitionProps> = ({
-  children,
-  className,
-  visible,
-  enterTime,
-  leaveTime,
-  clearTime,
-  name,
+const CSSTransition: React.FC<Props> = ({
+  visible = false,
+  enterTime = 60,
+  leaveTime = 60,
+  clearTime = 60,
+  className = "",
+  name = "transition",
+  children = null,
   ...props
 }) => {
   const [classes, setClasses] = useState<string>("");
@@ -73,4 +61,4 @@ const CSSTransition: React.FC<CSSTransitionProps> = ({
   });
 };
 
-export default withDefaults(CSSTransition, defaultProps);
+export default CSSTransition;

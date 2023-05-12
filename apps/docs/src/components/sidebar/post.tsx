@@ -1,6 +1,5 @@
 import React, {useRef, useEffect, useMemo} from "react";
 import cn from "classnames";
-import withDefaults from "@utils/with-defaults";
 import {Badge} from "@components";
 import {useTheme, Spacer} from "@nextui-org/react";
 
@@ -14,16 +13,11 @@ export interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  level: 1,
-  isMobile: false,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
 
-export type PostProps = Props & typeof defaultProps & NativeAttrs;
+export type PostProps = Props & NativeAttrs;
 
-const Post: React.FC<PostProps> = ({isMobile, route, level = 1, onClick}) => {
+const Post: React.FC<PostProps> = ({isMobile = false, route, level = 1, onClick}) => {
   const selectedRef = useRef<HTMLDivElement>(null);
   const ref = route.selected ? selectedRef : null;
   const {theme, isDark} = useTheme();
@@ -108,4 +102,4 @@ const Post: React.FC<PostProps> = ({isMobile, route, level = 1, onClick}) => {
 
 const MemoPost = React.memo(Post);
 
-export default withDefaults(MemoPost, defaultProps);
+export default MemoPost;

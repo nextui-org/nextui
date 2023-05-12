@@ -14,7 +14,6 @@ import ButtonDrip from "../utils/drip";
 import {NormalColors} from "../utils/prop-types";
 import clsx from "../utils/clsx";
 import useDrip from "../use-drip";
-import withDefaults from "../utils/with-defaults";
 import {useDOMRef} from "../utils/dom";
 import {__DEV__} from "../utils/assertion";
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
@@ -44,18 +43,6 @@ export interface Props extends AriaButtonProps {
   iconLeftCss?: CSS;
   iconRightCss?: CSS;
 }
-
-const defaultProps = {
-  ghost: false,
-  bordered: false,
-  ripple: true,
-  animated: true,
-  disabled: false,
-  autoFocus: false,
-  auto: false,
-  className: "",
-  type: "button",
-};
 
 interface IFocusRingAria extends FocusRingAria {
   focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof ButtonProps>;
@@ -90,18 +77,18 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   const {
     flat,
     children,
-    disabled,
-    animated,
-    light,
-    ripple,
-    bordered,
-    auto,
+    disabled = false,
+    animated = true,
+    light = false,
+    ripple = true,
+    bordered = false,
+    auto = false,
     borderWeight,
     icon,
     iconRight,
-    ghost,
-    autoFocus,
-    className,
+    ghost = false,
+    autoFocus = false,
+    className = "",
     ...otherProps
   } = filteredProps;
 
@@ -235,4 +222,4 @@ if (__DEV__) {
 
 Button.toString = () => ".nextui-button";
 
-export default withDefaults(Button, defaultProps) as ButtonComponent<HTMLElement, ButtonProps>;
+export default Button as ButtonComponent<HTMLElement, ButtonProps>;

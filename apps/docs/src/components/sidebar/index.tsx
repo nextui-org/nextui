@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 import {Route, addTagToSlug} from "@lib/docs/page";
 import {removeFromLast} from "@utils/index";
 import {useIsMobile} from "@hooks/use-media-query";
@@ -18,15 +17,9 @@ export interface Props {
   onPostClick?: (route: Route) => void;
 }
 
-const defaultProps = {
-  level: 1,
-  tag: "",
-  slug: "",
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type SidebarProps = Props & typeof defaultProps & NativeAttrs;
+export type SidebarProps = Props & NativeAttrs;
 
 function getCategoryPath(routes: Route[]): string {
   const route = routes.find((r) => r.path);
@@ -34,7 +27,7 @@ function getCategoryPath(routes: Route[]): string {
   return route && route.path ? removeFromLast(route.path, "/") : "";
 }
 
-const Sidebar: React.FC<SidebarProps> = ({routes, level, tag, slug, onPostClick}) => {
+const Sidebar: React.FC<SidebarProps> = ({routes, level = 1, tag = "", slug = "", onPostClick}) => {
   const isMobile = useIsMobile();
 
   return (
@@ -43,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({routes, level, tag, slug, onPostClick}
         if (routes) {
           const pathname = getCategoryPath(routes);
           const categorySelected = slug.startsWith(pathname);
-          const opened = categorySelected || isMobile ? false : open;
+          const opened = !!(categorySelected || isMobile ? false : open);
 
           if (heading) {
             return (
@@ -112,4 +105,4 @@ const Sidebar: React.FC<SidebarProps> = ({routes, level, tag, slug, onPostClick}
 
 const MemoSidebar = React.memo(Sidebar);
 
-export default withDefaults(MemoSidebar, defaultProps);
+export default MemoSidebar;

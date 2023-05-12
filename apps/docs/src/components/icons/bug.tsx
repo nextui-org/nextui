@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   width?: number;
@@ -8,12 +7,7 @@ interface Props {
   fill?: string;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-};
-
-const Bug: React.FC<Props> = ({size, fill, width, height, ...props}) => {
+const Bug: React.FC<Props> = ({size, fill, width = 24, height = 24, ...props}) => {
   return (
     <svg
       height={size || height}
@@ -32,4 +26,4 @@ const Bug: React.FC<Props> = ({size, fill, width, height, ...props}) => {
 
 const MemoBug = React.memo(Bug);
 
-export default withDefaults(MemoBug, defaultProps);
+export default MemoBug;

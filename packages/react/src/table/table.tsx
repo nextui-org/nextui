@@ -8,7 +8,6 @@ import {mergeProps} from "@react-aria/utils";
 
 import {Spacer} from "../index";
 import {pickSingleChild} from "../utils/collections";
-import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 import {useDOMRef} from "../utils/dom";
 
@@ -50,24 +49,17 @@ export type TableProps<T = object> = Props<T> &
   Omit<TableVariantsProps, "isMultiple" | "shadow" | "hasPagination"> &
   TableContainerVariantsProps & {css?: CSS; containerCss?: CSS};
 
-const defaultProps = {
-  animated: true,
-  hideLoading: false,
-  selectionMode: "none",
-  selectionBehavior: "toggle",
-};
-
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (tableProps, ref: React.Ref<HTMLTableElement | null>) => {
     const {
       css,
-      selectionMode,
-      selectionBehavior,
-      hideLoading,
+      selectionMode = "none",
+      selectionBehavior = "toggle",
+      hideLoading = false,
       children,
       shadow,
       color,
-      animated,
+      animated = true,
       borderWeight,
       bordered,
       hoverable,
@@ -202,4 +194,4 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
 Table.displayName = "NextUI.Table";
 Table.toString = () => ".nextui-table";
 
-export default withDefaults(Table, defaultProps) as TableComponent<HTMLTableElement, TableProps>;
+export default Table as TableComponent<HTMLTableElement, TableProps>;

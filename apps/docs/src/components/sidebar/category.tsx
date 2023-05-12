@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect} from "react";
 import cn from "classnames";
 import Image from "next/image";
-import withDefaults from "@utils/with-defaults";
 import {useTheme} from "@nextui-org/react";
 import {Badge} from "@components";
 
@@ -18,25 +17,18 @@ export interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  level: 1,
-  isMobile: false,
-  selected: false,
-  opened: false,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
 
-export type CategoryProps = Props & typeof defaultProps & NativeAttrs;
+export type CategoryProps = Props & NativeAttrs;
 
 const Category: React.FC<CategoryProps> = ({
-  isMobile,
+  isMobile = false,
   level = 1,
   title,
-  selected,
+  selected = false,
   iconUrl,
   updated,
-  opened,
+  opened = false,
   children,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -186,4 +178,4 @@ const Category: React.FC<CategoryProps> = ({
 
 const MemoCategory = React.memo(Category);
 
-export default withDefaults(MemoCategory, defaultProps);
+export default MemoCategory;

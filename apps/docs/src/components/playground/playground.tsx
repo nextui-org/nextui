@@ -1,7 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import {Loading} from "@nextui-org/react";
-import withDefaults from "@utils/with-defaults";
 import {SandpackFiles, SandpackPredefinedTemplate, SandpackHighlightedLines} from "@components";
 import {Box} from "@primitives";
 import {isEmpty} from "lodash";
@@ -49,44 +48,28 @@ interface Props {
   template?: SandpackPredefinedTemplate;
   highlightedLines?: SandpackHighlightedLines;
   code?: string;
+  readonly bindings?: Record<string, any>;
 }
 
-const defaultProps = {
-  desc: "",
-  title: "",
-  code: "",
-  files: {},
-  showEditor: true,
-  asIframe: false,
-  showSandpackPreview: false,
-  initialEditorOpen: false,
-  showWindowActions: false,
-  removeEntryContainer: false,
-  enableResize: false,
-  previewHeight: "auto",
-  overflow: "visible",
-  bindings: {},
-};
-
-export type PlaygroundProps = Props & typeof defaultProps;
+export type PlaygroundProps = Props;
 
 const Playground: React.FC<PlaygroundProps> = ({
-  title: inputTitle,
-  code: inputCode,
-  initialEditorOpen,
-  showEditor,
+  title: inputTitle = "",
+  code: inputCode = "",
+  initialEditorOpen = false,
+  showEditor = true,
   highlightedLines,
-  showSandpackPreview,
-  showWindowActions,
+  showSandpackPreview = false,
+  showWindowActions = false,
   iframeInitialWidth,
-  removeEntryContainer,
-  enableResize,
-  files,
+  removeEntryContainer = false,
+  enableResize = false,
+  files = {},
   iframeSrc,
-  asIframe,
-  overflow,
-  previewHeight,
-  desc,
+  asIframe = false,
+  overflow = "visible",
+  previewHeight = "auto",
+  desc = "",
 }) => {
   const isSanpackEditor = !isEmpty(files);
 
@@ -198,4 +181,4 @@ const Playground: React.FC<PlaygroundProps> = ({
 
 const MemoPlayground = React.memo(Playground);
 
-export default withDefaults(MemoPlayground, defaultProps);
+export default MemoPlayground;

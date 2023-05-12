@@ -11,7 +11,6 @@ import {
   Grid,
   CSS,
 } from "@nextui-org/react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   avatarUrl?: string;
@@ -19,14 +18,10 @@ interface Props {
   onClick?: () => void;
 }
 
-const defaultProps = {
-  avatarUrl: "/avatars/avatar-2.png",
-};
-
 export type UserTwitterCardProps = Props & {css?: CSS};
 
 const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
-  avatarUrl,
+  avatarUrl = "/avatars/avatar-2.png",
   avatarProps,
   css,
   onClick,
@@ -121,4 +116,4 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
   );
 };
 
-export default withDefaults(UserTwitterCard, defaultProps);
+export default UserTwitterCard;

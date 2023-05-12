@@ -37,7 +37,7 @@ import {Props, FormElement, defaultProps} from "./input-props";
 import InputPassword from "./input-password";
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
-export type InputProps = Props & typeof defaultProps & NativeAttrs & {css?: CSS};
+export type InputProps = Props & NativeAttrs & {css?: CSS};
 
 const simulateChangeEvent = (
   el: FormElement,
@@ -53,8 +53,13 @@ const simulateChangeEvent = (
 const preClass = "nextui-input";
 
 const Input = React.forwardRef<FormElement, InputProps>(
-  (
-    {
+  (forwardProps: InputProps, ref: React.Ref<FormElement | null>) => {
+    const propsWithDefaults = {
+      ...defaultProps,
+      ...forwardProps,
+    };
+
+    const {
       as: Component = "input",
       label,
       labelPlaceholder,
@@ -94,9 +99,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
       rounded,
       css,
       ...props
-    },
-    ref: React.Ref<FormElement | null>,
-  ) => {
+    } = propsWithDefaults;
+
     const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
     useImperativeHandle(ref, () => inputRef.current);
@@ -388,13 +392,9 @@ type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Password: typeof InputPassword;
 };
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs & {css?: CSS};
+type ComponentProps = Props & NativeAttrs & {css?: CSS};
 
 Input.displayName = "NextUI.Input";
-
-Input.defaultProps = defaultProps;
 
 Input.toString = () => ".nextui-input";
 

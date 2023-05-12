@@ -3,7 +3,6 @@ import type {VariantProps, CSS} from "../theme/stitches.config";
 import React from "react";
 
 import {styled} from "../theme/stitches.config";
-import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 
 interface Props {
@@ -12,10 +11,6 @@ interface Props {
   className?: string;
   children?: React.ReactNode;
 }
-
-const defaultProps = {
-  className: "",
-};
 
 export const StyledButtonIcon = styled("span", {
   dflex: "center",
@@ -109,12 +104,11 @@ export const StyledButtonIcon = styled("span", {
 type ButtonIconVariants = VariantProps<typeof StyledButtonIcon>;
 
 export type ButtonIconProps = Props &
-  typeof defaultProps &
   ButtonIconVariants & {
     css?: CSS;
   };
 
-const ButtonIcon: React.FC<ButtonIconProps> = ({children, className, css, ...props}) => {
+const ButtonIcon: React.FC<ButtonIconProps> = ({children, className = "", css, ...props}) => {
   return (
     <StyledButtonIcon
       className={clsx(
@@ -137,4 +131,4 @@ ButtonIcon.toString = () => ".nextui-button-icon";
 
 const MemoButtonIcon = React.memo(ButtonIcon);
 
-export default withDefaults(MemoButtonIcon, defaultProps);
+export default MemoButtonIcon;

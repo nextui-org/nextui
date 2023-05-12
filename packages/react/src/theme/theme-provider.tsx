@@ -3,7 +3,6 @@ import {SSRProvider} from "@react-aria/ssr";
 import {OverlayProvider} from "@react-aria/overlays";
 
 import CssBaseline from "../css-baseline";
-import withDefaults from "../utils/with-defaults";
 import deepMerge from "../utils/deep-merge";
 import {copyObject} from "../utils/object";
 import useSSR from "../use-ssr";
@@ -18,15 +17,11 @@ export interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  disableBaseline: false,
-};
-
-export type ThemeProviderProps = Props & typeof defaultProps;
+export type ThemeProviderProps = Props;
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({
   theme: userTheme,
-  disableBaseline,
+  disableBaseline = false,
   children,
 }) => {
   const {isBrowser} = useSSR();
@@ -104,4 +99,4 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
   );
 };
 
-export default withDefaults(ThemeProvider, defaultProps);
+export default ThemeProvider;

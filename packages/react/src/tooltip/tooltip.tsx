@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {useEffect, useRef, useState} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import useClickAway from "../use-click-away";
 import {Placement, TriggerTypes} from "../utils/prop-types";
 
@@ -35,54 +34,37 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  initialVisible: false,
-  hideArrow: false,
-  animated: true,
-  shadow: true,
-  rounded: false,
-  keepMounted: false,
-  isDisabled: false,
-  trigger: "hover" as TriggerTypes,
-  enterDelay: 0,
-  leaveDelay: 0,
-  className: "",
-  portalClassName: "",
-  onVisibleChange: (() => {}) as TooltipOnVisibleChange,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
 
 export type TooltipProps = Props &
-  typeof defaultProps &
   NativeAttrs &
   Pick<TooltipContentVariantsProps, "color" | "contentColor"> &
   Pick<TooltipContentProps, "css">;
 
 const Tooltip: React.FC<TooltipProps> = ({
   children,
-  initialVisible,
+  initialVisible = false,
   content,
   offset,
   placement,
-  portalClassName,
-  enterDelay,
-  leaveDelay,
-  trigger,
-  rounded,
-  animated,
-  shadow,
-  className,
+  portalClassName = "",
+  enterDelay = 0,
+  leaveDelay = 0,
+  trigger = "hover" as TriggerTypes,
+  rounded = false,
+  animated = true,
+  shadow = true,
+  className = "",
   color,
   contentColor,
-  onVisibleChange,
-  hideArrow,
+  onVisibleChange = (() => {}) as TooltipOnVisibleChange,
+  hideArrow = false,
   css,
   triggerCss,
   onClick,
-  keepMounted,
+  keepMounted = false,
   visible: customVisible,
-  isDisabled,
+  isDisabled = false,
   ...props
 }) => {
   const timer = useRef<number>();
@@ -163,4 +145,4 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 Tooltip.toString = () => ".nextui-tooltip";
 
-export default withDefaults(Tooltip, defaultProps);
+export default Tooltip;

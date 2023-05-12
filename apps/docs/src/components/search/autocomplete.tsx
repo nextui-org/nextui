@@ -18,7 +18,6 @@ import {AutocompleteProvided} from "react-instantsearch-core";
 import {VisualState, useKBar} from "kbar";
 import useIsMounted from "@hooks/use-is-mounted";
 import usePortal from "@hooks/use-portal";
-import withDeaults from "@utils/with-defaults";
 
 import Blockholder from "../blockholder";
 import Keyboard from "../keyboard";
@@ -30,11 +29,7 @@ interface Props extends AutocompleteProvided {
   offsetTop?: number;
 }
 
-const defaultProps = {
-  offsetTop: 0,
-};
-
-const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
+const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop = 0}) => {
   const [value, setValue] = React.useState("");
   const [isFocused, setIsFocused] = React.useState(false);
   const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
@@ -482,4 +477,4 @@ const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
 
 const MemoAutocomplete = React.memo(Autocomplete);
 
-export default connectAutoComplete(withDeaults(MemoAutocomplete, defaultProps));
+export default connectAutoComplete(MemoAutocomplete);

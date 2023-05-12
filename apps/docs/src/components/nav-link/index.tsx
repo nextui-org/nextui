@@ -14,16 +14,9 @@ export interface Props {
   color?: string;
 }
 
-const defaultProps = {
-  href: "",
-  pathname: "",
-  title: "",
-  selected: false,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type NavLinkProps = Props & typeof defaultProps & NativeAttrs;
+export type NavLinkProps = Props & NativeAttrs;
 
 const BaseLink = styled(Link, {
   d: "flex",
@@ -59,11 +52,11 @@ const BaseLink = styled(Link, {
 });
 
 const NavLink: React.FC<NavLinkProps> = ({
-  href,
-  pathname,
-  title,
+  href = "",
+  pathname = "",
+  title = "",
   color,
-  selected,
+  selected = false,
   comingSoon,
   onClick,
 }) => {

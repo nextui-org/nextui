@@ -1,6 +1,5 @@
 import React from "react";
 import {Grid, GridProps, Text, Row, CSS} from "@nextui-org/react";
-import withDefaults from "@utils/with-defaults";
 import {useRouter} from "next/router";
 import {LinkIcon} from "@components";
 
@@ -25,17 +24,11 @@ interface Props {
 
 export type FeaturesGridProps = Props & GridProps;
 
-const defaultProps = {
-  xs: 12,
-  sm: 4,
-  lg: 3,
-};
-
 const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   features,
-  xs,
-  sm,
-  lg,
+  xs = 12,
+  sm = 4,
+  lg = 3,
   css,
 
   itemCss,
@@ -95,4 +88,4 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   );
 };
 
-export default withDefaults(FeaturesGrid, defaultProps);
+export default FeaturesGrid;

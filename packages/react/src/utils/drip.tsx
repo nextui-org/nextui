@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from "react";
 
 import {styled, keyframes, VariantProps} from "../theme/stitches.config";
-import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 
 interface Props {
@@ -12,13 +11,6 @@ interface Props {
   color?: string;
   className?: string;
 }
-
-const defaultProps = {
-  visible: false,
-  x: 0,
-  y: 0,
-  className: "",
-};
 
 const expand = keyframes({
   "0%": {
@@ -54,9 +46,17 @@ export const StyledDrip = styled("div", {
 
 type DripVariants = VariantProps<typeof StyledDrip>;
 
-export type DripProps = Props & typeof defaultProps & DripVariants;
+export type DripProps = Props & DripVariants;
 
-const Drip: React.FC<DripProps> = ({visible, x, y, color, onCompleted, className, ...props}) => {
+const Drip: React.FC<DripProps> = ({
+  visible = false,
+  x = 0,
+  y = 0,
+  color,
+  onCompleted,
+  className = "",
+  ...props
+}) => {
   const dripRef = useRef<HTMLDivElement>(null);
   const top = Number.isNaN(+y) ? 0 : y - 10;
   const left = Number.isNaN(+x) ? 0 : x - 10;
@@ -90,4 +90,4 @@ const Drip: React.FC<DripProps> = ({visible, x, y, color, onCompleted, className
 
 const MemoDrip = React.memo<DripProps>(Drip);
 
-export default withDefaults(MemoDrip, defaultProps);
+export default MemoDrip;

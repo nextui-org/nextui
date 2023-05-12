@@ -9,7 +9,6 @@ import CSSTransition from "../utils/css-transition";
 import useClickAnyWhere from "../use-click-anywhere";
 import {Placement} from "../utils/prop-types";
 import clsx from "../utils/clsx";
-import withDefaults from "../utils/with-defaults";
 
 import {
   StyledTooltipContent,
@@ -38,13 +37,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  placement: "top" as Placement,
-  offset: 12,
-  className: "",
-};
-
-export type TooltipContentProps = Props & typeof defaultProps & TooltipContentVariantsProps;
+export type TooltipContentProps = Props & TooltipContentVariantsProps;
 
 const preClass = "nextui-tooltip";
 
@@ -52,11 +45,11 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
   children,
   parent,
   visible,
-  offset,
-  placement,
+  offset = 12,
+  placement = "top" as Placement,
   rounded: _rounded,
   animated,
-  className,
+  className = "",
   hideArrow,
   css,
   ...props
@@ -146,4 +139,4 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
 
 TooltipContent.toString = () => ".nextui-tooltip-content";
 
-export default withDefaults(TooltipContent, defaultProps);
+export default TooltipContent;

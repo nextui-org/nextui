@@ -1,13 +1,8 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 import {IconProps, Icon} from "./index";
 
-const defaultProps = {
-  fill: "#ffffff",
-};
-
-const Play: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
+const Play: React.FC<IconProps> = ({fill = "#ffffff", filled, size, height, width, ...props}) => {
   return (
     <Icon
       fill={filled ? fill : "none"}
@@ -25,4 +20,4 @@ const Play: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}
   );
 };
 
-export default withDefaults(Play, defaultProps);
+export default Play;

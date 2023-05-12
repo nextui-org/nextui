@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 import {useTheme} from "@nextui-org/react";
 import useIsMounted from "@hooks/use-is-mounted";
 
@@ -11,17 +10,11 @@ interface Props {
   className?: string;
 }
 
-const defaultProps = {
-  width: 721,
-  height: 424,
-  className: "",
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ImageBrowserProps = Props & typeof defaultProps & NativeAttrs;
+export type ImageBrowserProps = Props & NativeAttrs;
 
-const ImageBrowser: React.FC<Props> = ({width, height, className, ...props}) => {
+const ImageBrowser: React.FC<Props> = ({width = 721, height = 424, className = "", ...props}) => {
   const isMounted = useIsMounted();
   const {isDark} = useTheme();
   const {firstWindow, secondWindow} = React.useMemo(() => {
@@ -710,4 +703,4 @@ const ImageBrowser: React.FC<Props> = ({width, height, className, ...props}) => 
   );
 };
 
-export default withDefaults(ImageBrowser, defaultProps);
+export default ImageBrowser;

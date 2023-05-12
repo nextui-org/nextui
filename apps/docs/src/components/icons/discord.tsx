@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   width?: number;
@@ -8,12 +7,7 @@ interface Props {
   fill?: string;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-};
-
-const Discord: React.FC<Props> = ({size, fill, width, height, ...props}) => {
+const Discord: React.FC<Props> = ({size, fill, width = 24, height = 24, ...props}) => {
   return (
     <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <path
@@ -26,4 +20,4 @@ const Discord: React.FC<Props> = ({size, fill, width, height, ...props}) => {
 
 const MemoDiscord = React.memo(Discord);
 
-export default withDefaults(MemoDiscord, defaultProps);
+export default MemoDiscord;

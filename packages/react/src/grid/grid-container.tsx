@@ -4,7 +4,6 @@ import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
 import {Wrap} from "../utils/prop-types";
 import clsx from "../utils/clsx";
-import withDefaults from "../utils/with-defaults";
 
 import GridBasicItem, {GridItemProps} from "./grid-item";
 
@@ -16,16 +15,10 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  gap: 0,
-  wrap: "wrap" as Wrap,
-  className: "",
-};
-
-export type GridContainerProps = Props & Partial<typeof defaultProps> & GridItemProps;
+export type GridContainerProps = Props & GridItemProps;
 
 const GridContainer = React.forwardRef<HTMLDivElement, GridContainerProps>(
-  ({gap, wrap, css, children, className, ...props}, ref) => {
+  ({gap = 0, wrap = "wrap" as Wrap, css, children, className = "", ...props}, ref) => {
     const gapUnit = useMemo(() => {
       return `calc(${gap} * $space$3)`;
     }, [gap]);
@@ -58,7 +51,4 @@ type GridContainerComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 >;
 
-export default withDefaults(GridContainer, defaultProps) as GridContainerComponent<
-  HTMLDivElement,
-  GridContainerProps
->;
+export default GridContainer as GridContainerComponent<HTMLDivElement, GridContainerProps>;

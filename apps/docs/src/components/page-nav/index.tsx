@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 import {Route, addTagToSlug} from "@lib/docs/page";
 import NextLink from "next/link";
 import {useTheme, styled, Container, Link} from "@nextui-org/react";
@@ -12,8 +11,6 @@ export interface PageNavProps {
   prevRoute?: Route;
   nextRoute?: Route;
 }
-
-const defaultProps = {};
 
 const StyledLink = styled(Link, {
   "&.page-nav__link": {
@@ -59,4 +56,4 @@ const PageNav: React.FC<PageNavProps> = ({tag, prevRoute, nextRoute}) => {
   );
 };
 
-export default withDefaults(PageNav, defaultProps);
+export default PageNav;

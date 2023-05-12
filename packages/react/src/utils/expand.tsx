@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 
 import {styled, CSS} from "../theme/stitches.config";
-import withDefaults from "../utils/with-defaults";
 import useRealShape from "../use-real-shape";
 
 interface Props {
@@ -11,12 +10,6 @@ interface Props {
   css?: CSS;
   children?: React.ReactNode;
 }
-
-const defaultProps = {
-  isExpanded: false,
-  animated: true,
-  delay: 200,
-};
 
 const StyledExpand = styled("div", {
   p: 0,
@@ -33,9 +26,15 @@ const StyledExpand = styled("div", {
   },
 });
 
-export type ExpandProps = Props & typeof defaultProps;
+export type ExpandProps = Props;
 
-const Expand: React.FC<ExpandProps> = ({isExpanded, delay, animated, css, children}) => {
+const Expand: React.FC<ExpandProps> = ({
+  isExpanded = false,
+  delay = 200,
+  animated = true,
+  css,
+  children,
+}) => {
   const [height, setHeight] = useState<string>(isExpanded ? "auto" : "0");
   const [selfExpanded, setSelfExpanded] = useState<boolean>(isExpanded);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -99,4 +98,4 @@ const Expand: React.FC<ExpandProps> = ({isExpanded, delay, animated, css, childr
   );
 };
 
-export default withDefaults(Expand, defaultProps);
+export default Expand;

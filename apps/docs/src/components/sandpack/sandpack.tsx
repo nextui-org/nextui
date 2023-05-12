@@ -7,7 +7,6 @@ import {
   SandpackPreview,
 } from "@codesandbox/sandpack-react";
 import {Grid} from "@nextui-org/react";
-import withDefaults from "@utils/with-defaults";
 import useLocalStorage from "@hooks/use-local-storage";
 
 import {getHighlightedLines, getFileName} from "./utils";
@@ -34,30 +33,19 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  files: {},
-  showPreview: true,
-  showEditor: true,
-  showOpenInCodeSandbox: true,
-  removeEntryContainer: false,
-  showReportBug: true,
-  showCopyCode: true,
-  template: "react",
-};
-
-export type SandpackProps = Props & typeof defaultProps;
+export type SandpackProps = Props;
 
 const Sandpack: React.FC<SandpackProps> = ({
-  files,
+  files = {},
   children,
   highlightedLines,
-  showPreview,
-  showEditor,
-  showReportBug,
-  showOpenInCodeSandbox,
-  removeEntryContainer,
-  showCopyCode,
-  template,
+  showPreview = true,
+  showEditor = true,
+  showReportBug = true,
+  showOpenInCodeSandbox = true,
+  removeEntryContainer = false,
+  showCopyCode = true,
+  template = "react",
 }) => {
   // once the user select a template we store it in local storage
   const [currentTemplate, setCurrentTemplate] = useLocalStorage<SandpackPredefinedTemplate>(
@@ -203,4 +191,4 @@ const Sandpack: React.FC<SandpackProps> = ({
   );
 };
 
-export default withDefaults(Sandpack, defaultProps);
+export default Sandpack;

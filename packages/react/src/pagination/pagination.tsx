@@ -31,47 +31,28 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  shadow: false,
-  controls: true,
-  bordered: false,
-  initialPage: 1,
-  siblings: 1,
-  boundaries: 1,
-  dotsJump: 5,
-  total: 1,
-  loop: false,
-  animated: true,
-  onlyDots: false,
-  noMargin: false,
-  rounded: false,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type PaginationProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  PaginationVariantsProps & {css?: CSS};
+export type PaginationProps = Props & NativeAttrs & PaginationVariantsProps & {css?: CSS};
 
 const preClass = "nextui-pagination";
 
 const Pagination: React.FC<PaginationProps> = ({
   page,
-  initialPage,
-  onlyDots,
-  total,
-  loop,
-  siblings,
-  boundaries,
-  shadow,
-  animated,
-  bordered,
-  dotsJump,
-  controls,
-  noMargin,
+  initialPage = 1,
+  onlyDots = false,
+  total = 1,
+  loop = false,
+  siblings = 1,
+  boundaries = 1,
+  shadow = false,
+  animated = true,
+  bordered = false,
+  dotsJump = 5,
+  controls = true,
+  noMargin = false,
   onChange,
-  rounded,
+  rounded = false,
   ...props
 }) => {
   const {range, active, setPage, previous, next, first, last} = usePagination({
@@ -185,12 +166,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
 type MemoPaginationComponent<P = {}> = React.NamedExoticComponent<P>;
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs &
-  PaginationVariantsProps & {css?: CSS};
-
-Pagination.defaultProps = defaultProps;
+type ComponentProps = Props & NativeAttrs & PaginationVariantsProps & {css?: CSS};
 
 if (__DEV__) {
   Pagination.displayName = "NextUI.Pagination";

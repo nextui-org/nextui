@@ -30,14 +30,8 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  size: "lg",
-  squared: false,
-  bordered: false,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type UserProps = Props & typeof defaultProps & NativeAttrs & {css?: CSS};
+export type UserProps = Props & NativeAttrs & {css?: CSS};
 
 interface IFocusRingAria extends FocusRingAria {
   focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof UserProps>;
@@ -55,9 +49,9 @@ export const User = React.forwardRef((props: UserProps, ref: ReactRef<HTMLDivEle
     children,
     altText,
     color,
-    squared,
-    bordered,
-    size,
+    squared = false,
+    bordered = false,
+    size = "lg",
     description,
     zoomed,
     pointer,
@@ -121,8 +115,6 @@ User.toString = () => ".nextui-user";
 type UserComponent<P = {}> = React.NamedExoticComponent<P> & {
   Link: typeof UserLink;
 };
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs & {css?: CSS};
+type ComponentProps = Props & NativeAttrs & {css?: CSS};
 
 export default User as UserComponent<ComponentProps>;

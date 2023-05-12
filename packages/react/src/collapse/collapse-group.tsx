@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import useCurrentState from "../use-current-state";
 import {setChildrenIndex} from "../utils/collections";
 import {CSS} from "../theme/stitches.config";
@@ -18,16 +17,12 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  accordion: true,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type CollapseGroupProps = Props & NativeAttrs & CollapseGroupVariantsProps & {css?: CSS};
 
 const CollapseGroup: React.FC<CollapseGroupProps> = ({
-  children,
+  children = true,
   accordion,
   animated,
   divider,
@@ -77,4 +72,4 @@ const CollapseGroup: React.FC<CollapseGroupProps> = ({
 
 CollapseGroup.toString = () => ".nextui-collapse-group";
 
-export default withDefaults(CollapseGroup, defaultProps);
+export default CollapseGroup;

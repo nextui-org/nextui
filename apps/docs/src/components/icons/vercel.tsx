@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 import {Icon} from "./index";
 
@@ -10,13 +9,13 @@ interface Props {
   className?: string;
 }
 
-const defaultProps = {
-  height: 44,
-  fill: "currentColor",
-  className: "",
-};
-
-const Vercel: React.FC<Props> = ({fill, width, height, className, ...props}) => {
+const Vercel: React.FC<Props> = ({
+  fill = "currentColor",
+  width,
+  height = 44,
+  className = "",
+  ...props
+}) => {
   return (
     <Icon
       className={className}
@@ -35,4 +34,4 @@ const Vercel: React.FC<Props> = ({fill, width, height, className, ...props}) => 
   );
 };
 
-export default withDefaults(Vercel, defaultProps);
+export default Vercel;

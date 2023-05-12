@@ -4,7 +4,6 @@ import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
 import {BreakpointsValue, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
 import clsx from "../utils/clsx";
-import withDefaults from "../utils/with-defaults";
 
 import {StyledGridItem, GridItemVariantProps} from "./grid.styles";
 
@@ -24,21 +23,9 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  xs: false as BreakpointsValue,
-  sm: false as BreakpointsValue,
-  md: false as BreakpointsValue,
-  lg: false as BreakpointsValue,
-  xl: false as BreakpointsValue,
-  className: "",
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type GridItemProps = Props &
-  Partial<typeof defaultProps> &
-  NativeAttrs &
-  GridItemVariantProps;
+export type GridItemProps = Props & NativeAttrs & GridItemVariantProps;
 
 const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
   const display = val === 0 ? "none" : "inherit";
@@ -66,18 +53,18 @@ const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
 const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(
   (
     {
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
+      xs = false as BreakpointsValue,
+      sm = false as BreakpointsValue,
+      md = false as BreakpointsValue,
+      lg = false as BreakpointsValue,
+      xl = false as BreakpointsValue,
       css,
       justify,
       direction,
       alignItems,
       alignContent,
       children,
-      className,
+      className = "",
       ...props
     },
     ref,
@@ -153,7 +140,4 @@ type GridItemComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 >;
 
-export default withDefaults(GridItem, defaultProps) as GridItemComponent<
-  HTMLDivElement,
-  GridItemProps
->;
+export default GridItem as GridItemComponent<HTMLDivElement, GridItemProps>;

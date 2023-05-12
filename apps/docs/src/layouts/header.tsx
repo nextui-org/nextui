@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import withDefaults from "@utils/with-defaults";
 import {toCapitalize} from "@utils/index";
 import {TWITTER_USER_NAME, SITE_URL} from "@lib/constants";
 import {useTheme} from "@nextui-org/react";
@@ -12,11 +11,6 @@ export interface HeaderProps {
   url?: string;
 }
 
-const defaultProps = {
-  description: "Make beautiful websites regardless of your design experience.",
-  image: "/twitter-cards/nextui.jpeg",
-};
-
 if (global.document) {
   const info = [`Let's make the Web prettier 🚀`];
 
@@ -26,7 +20,12 @@ if (global.document) {
   }
 }
 
-const Header: React.FC<HeaderProps> = ({title, description, image, url}) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  description = "Make beautiful websites regardless of your design experience.",
+  image = "/twitter-cards/nextui.jpeg",
+  url,
+}) => {
   const {theme, isDark} = useTheme();
 
   let pageTitle = title ? `${toCapitalize(title)} | ` : "";
@@ -75,4 +74,4 @@ const Header: React.FC<HeaderProps> = ({title, description, image, url}) => {
   );
 };
 
-export default withDefaults(Header, defaultProps);
+export default Header;

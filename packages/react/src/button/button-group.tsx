@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {CSS} from "../theme/stitches.config";
 import {NormalSizes, NormalColors, NormalWeights} from "../utils/prop-types";
 
@@ -24,24 +23,15 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  borderWeight: "normal" as NormalWeights | undefined,
-  size: "md" as NormalSizes,
-  color: "default" as NormalColors,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ButtonGroupProps = Props &
-  ButtonGroupVariantsProps &
-  NativeAttrs &
-  typeof defaultProps & {css?: CSS};
+export type ButtonGroupProps = Props & ButtonGroupVariantsProps & NativeAttrs & {css?: CSS};
 
 const ButtonGroup: React.FC<ButtonGroupProps> = (groupProps) => {
   const {
     disabled,
-    size,
-    color,
+    size = "md" as NormalSizes,
+    color = "default" as NormalColors,
     bordered,
     ghost,
     light,
@@ -51,7 +41,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (groupProps) => {
     animated,
     rounded,
     ripple,
-    borderWeight,
+    borderWeight = "normal" as NormalWeights | undefined,
     children,
     ...props
   } = groupProps;
@@ -94,4 +84,4 @@ ButtonGroup.toString = () => ".nextui-button-group";
 
 const MemoButtonGroup = React.memo(ButtonGroup);
 
-export default withDefaults(MemoButtonGroup, defaultProps);
+export default MemoButtonGroup;

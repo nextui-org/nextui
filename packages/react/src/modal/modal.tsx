@@ -31,21 +31,9 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  width: "400px",
-  className: "",
-  preventClose: false,
-  fullScreen: false,
-  closeButton: false,
-  animated: true,
-  blur: false,
-  scroll: false,
-  noPadding: false,
-};
-
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
 
-export type ModalProps = Props & NativeAttrs & Partial<typeof defaultProps> & ModalWrapperProps;
+export type ModalProps = Props & NativeAttrs & ModalWrapperProps;
 
 const Modal: React.FC<ModalProps> = ({
   children,
@@ -53,13 +41,15 @@ const Modal: React.FC<ModalProps> = ({
   onOpen,
   open,
   autoMargin,
-  width: wrapperWidth,
-  className,
-  preventClose,
-  blur,
-  animated,
-  fullScreen,
-  noPadding,
+  width: wrapperWidth = "400px",
+  className = "",
+  preventClose = false,
+  blur = false,
+  animated = true,
+  fullScreen = false,
+  noPadding = false,
+  closeButton = false,
+  scroll = false,
   ...props
 }) => {
   const portal = usePortal("modal");
@@ -143,8 +133,10 @@ const Modal: React.FC<ModalProps> = ({
         <ModalWrapper
           animated={animated}
           className={className}
+          closeButton={closeButton}
           fullScreen={fullScreen}
           rebound={rebound}
+          scroll={scroll}
           visible={visible}
           onCloseButtonClick={closeModal}
           {...props}
@@ -168,7 +160,5 @@ if (__DEV__) {
 }
 
 Modal.toString = () => ".nextui-modal";
-
-Modal.defaultProps = defaultProps;
 
 export default Modal as ModalComponent<ModalProps>;

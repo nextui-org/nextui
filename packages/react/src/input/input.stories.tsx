@@ -160,7 +160,7 @@ export const NoAnimated = () => (
     <Spacer y={1.5} />
     <Input animated={false} labelPlaceholder="Default" />
     <Spacer y={1.5} />
-    <Input underlined animated={false} color="primary" labelPlaceholder="Primary" />
+    <Input animated={false} color="primary" labelPlaceholder="Primary" />
     <Spacer y={1.5} />
     <Input animated={false} labelPlaceholder="Secondary" status="secondary" />
     <Spacer y={1.5} />

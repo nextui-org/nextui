@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   width?: number;
@@ -9,13 +8,14 @@ interface Props {
   className?: string;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-  className: "",
-};
-
-const Github: React.FC<Props> = ({size, fill, width, height, className, ...props}) => {
+const Github: React.FC<Props> = ({
+  size,
+  fill,
+  width = 24,
+  height = 24,
+  className = "",
+  ...props
+}) => {
   return (
     <svg
       className={className}
@@ -36,4 +36,4 @@ const Github: React.FC<Props> = ({size, fill, width, height, className, ...props
 
 const MemoGithub = React.memo(Github);
 
-export default withDefaults(MemoGithub, defaultProps);
+export default MemoGithub;

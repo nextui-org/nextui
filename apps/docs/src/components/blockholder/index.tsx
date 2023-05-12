@@ -1,7 +1,5 @@
 import React from "react";
 
-import withDefaults from "../../utils/with-defaults";
-
 export interface Props {
   className?: string;
   width?: string;
@@ -9,14 +7,13 @@ export interface Props {
   alt?: string;
 }
 
-const defaultProps = {
-  className: "",
-  width: "100%",
-  height: "100%",
-  alt: "block placeholder",
-};
-
-const PlaceholderBlock: React.FC<Props> = ({className, width, height, alt, ...props}) => {
+const PlaceholderBlock: React.FC<Props> = ({
+  className = "",
+  width = "100%",
+  height = "100%",
+  alt = "block placeholder",
+  ...props
+}) => {
   return (
     <div className={className} style={{width, height}} {...props}>
       <img
@@ -44,4 +41,4 @@ const PlaceholderBlock: React.FC<Props> = ({className, width, height, alt, ...pr
   );
 };
 
-export default withDefaults(PlaceholderBlock, defaultProps);
+export default PlaceholderBlock;

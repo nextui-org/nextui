@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {useMemo} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {DividerAlign, SimpleColors} from "../utils/prop-types";
 import {getMargin} from "../utils/dimensions";
 
@@ -19,21 +18,14 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  x: 0,
-  y: 0,
-  height: 1,
-  align: "center" as DividerAlign,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type DividerProps = Props & DividerVariantsProps & NativeAttrs;
 
 const Divider: React.FC<DividerProps> = ({
-  height,
-  x,
-  y,
-  align,
+  height = 1,
+  x = 0,
+  y = 0,
+  align = "center" as DividerAlign,
   children,
   textColor,
   css,
@@ -78,4 +70,4 @@ Divider.toString = () => ".nextui-divider";
 
 const MemoDivider = React.memo(Divider);
 
-export default withDefaults(MemoDivider, defaultProps);
+export default MemoDivider;

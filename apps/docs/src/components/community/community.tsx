@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import {Grid, Text, Row, Spacer} from "@nextui-org/react";
 import {Twitter, Discord, Github} from "@components";
 import {Title, Subtitle} from "@primitives";
-import withDefaults from "@utils/with-defaults";
 
 import {StyledCommunityCard} from "./styles";
 
@@ -13,17 +12,15 @@ export interface CommunityProps {
   discord?: string;
 }
 
-const defaultProps = {
-  twitter: "https://twitter.com/getnextui",
-  github: "https://github.com/nextui-org/nextui",
-  discord: "https://discord.gg/9b6yyZKmH4",
-};
-
 const DynamicLopperBG = dynamic(() => import("../looper-bg"), {
   ssr: false,
 });
 
-const Community: React.FC<CommunityProps> = ({twitter, github, discord}) => {
+const Community: React.FC<CommunityProps> = ({
+  twitter = "https://twitter.com/getnextui",
+  github = "https://github.com/nextui-org/nextui",
+  discord = "https://discord.gg/9b6yyZKmH4",
+}) => {
   return (
     <Grid.Container css={{position: "relative"}} gap={2} justify="center">
       <Grid css={{mb: "$10"}} direction="column" xs={12}>
@@ -90,4 +87,4 @@ const Community: React.FC<CommunityProps> = ({twitter, github, discord}) => {
   );
 };
 
-export default withDefaults(Community, defaultProps);
+export default Community;
