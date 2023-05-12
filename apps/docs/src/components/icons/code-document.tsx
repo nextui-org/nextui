@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   width?: number;
@@ -9,13 +8,14 @@ interface Props {
   filled?: boolean;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-  filled: true,
-};
-
-const CodeDocument: React.FC<Props> = ({size, fill, width, height, filled, ...props}) => {
+const CodeDocument: React.FC<Props> = ({
+  size,
+  fill,
+  width = 24,
+  height = 24,
+  filled = true,
+  ...props
+}) => {
   if (filled) {
     return (
       <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
@@ -58,4 +58,4 @@ const CodeDocument: React.FC<Props> = ({size, fill, width, height, filled, ...pr
 
 const MemoCodeDocument = React.memo(CodeDocument);
 
-export default withDefaults(MemoCodeDocument, defaultProps);
+export default MemoCodeDocument;

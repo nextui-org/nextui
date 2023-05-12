@@ -3,7 +3,6 @@ import {LivePreview, LiveProvider, LiveError} from "react-live";
 import NextLink from "next/link";
 import {useMediaQuery} from "@hooks/use-media-query";
 import {validateEmail, isProd} from "@utils/index";
-import withDefaults from "@utils/with-defaults";
 import {motion, useTransform, useMotionValue} from "framer-motion";
 import {InView} from "react-intersection-observer";
 import {Box} from "@primitives";
@@ -30,13 +29,6 @@ export interface Props {
   enableResize?: boolean;
   overflow?: "auto" | "visible" | "hidden";
 }
-
-const defaultProps = {
-  showEditor: true,
-  enableResize: false,
-  showWindowActions: false,
-  height: "auto",
-};
 
 const WindowIframe = Components.styled("iframe", {
   // reset styles
@@ -208,16 +200,16 @@ const MIN_WIDTH = 400;
 
 const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
   code,
-  showEditor,
+  showEditor = true,
   initialEditorOpen,
   iframeInitialWidth,
   noInline,
   overflow,
-  showWindowActions,
-  enableResize,
+  showWindowActions = false,
+  enableResize = false,
   iframeSrc,
   iframeTitle,
-  height,
+  height = "auto",
   css,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -332,4 +324,4 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
   );
 };
 
-export default withDefaults(DynamicLive, defaultProps);
+export default DynamicLive;

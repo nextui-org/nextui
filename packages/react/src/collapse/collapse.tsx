@@ -8,7 +8,6 @@ import Expand from "../utils/expand";
 import {CSS} from "../theme/stitches.config";
 import useKeyboard, {KeyCode} from "../use-keyboard";
 import clsx from "../utils/clsx";
-import withDefaults from "../utils/with-defaults";
 
 import CollapseGroup from "./collapse-group";
 import {useCollapseContext} from "./collapse-context";
@@ -43,23 +42,9 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  shadow: false,
-  divider: true,
-  bordered: false,
-  showArrow: true,
-  animated: true,
-  disabled: false,
-  preventDefault: true,
-  expanded: false,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type CollapseProps = Props &
-  typeof defaultProps &
-  CollapseVariantsProps &
-  NativeAttrs & {css?: CSS};
+export type CollapseProps = Props & CollapseVariantsProps & NativeAttrs & {css?: CSS};
 
 const preClass = "nextui-collapse";
 
@@ -67,18 +52,18 @@ const Collapse: React.FC<CollapseProps> = ({
   children,
   title,
   subtitle,
-  expanded,
-  shadow,
+  expanded = false,
+  shadow = false,
   className,
-  divider,
+  divider = true,
   arrowIcon,
-  showArrow,
-  disabled,
+  showArrow = true,
+  disabled = false,
   onChange,
-  bordered,
+  bordered = false,
   contentLeft,
-  preventDefault,
-  animated: animatedProp,
+  preventDefault = true,
+  animated: animatedProp = true,
   borderWeight,
   index,
   ...props
@@ -214,9 +199,6 @@ type CollapseComponent<P = {}> = React.FC<P> & {
   Group: typeof CollapseGroup;
 };
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  CollapseVariantsProps &
-  NativeAttrs & {css?: CSS};
+type ComponentProps = Props & CollapseVariantsProps & NativeAttrs & {css?: CSS};
 
-export default withDefaults(Collapse, defaultProps) as CollapseComponent<ComponentProps>;
+export default Collapse as CollapseComponent<ComponentProps>;

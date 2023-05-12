@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useState} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {warn} from "../utils/console";
 import useKeyboard, {KeyCode} from "../use-keyboard";
 import {CSS} from "../theme/stitches.config";
@@ -43,37 +42,25 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  disabled: false,
-  bordered: false,
-  shadow: false,
-  squared: false,
-  animated: true,
-  preventDefault: true,
-  initialChecked: false,
-};
-
 type NativeAttrs = Omit<React.LabelHTMLAttributes<unknown>, keyof Props>;
-export type SwitchProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  SwitchContainerVariantsProps & {css?: CSS};
+
+export type SwitchProps = Props & NativeAttrs & SwitchContainerVariantsProps & {css?: CSS};
 
 const preClass = "nextui-switch";
 
 const Switch: React.FC<SwitchProps> = ({
-  initialChecked,
+  initialChecked = false,
   checked,
-  disabled,
+  disabled = false,
   onChange,
-  squared,
-  bordered,
-  shadow,
+  squared = false,
+  bordered = false,
+  shadow = false,
   icon,
   iconOn,
   iconOff,
-  animated,
-  preventDefault,
+  animated = true,
+  preventDefault = true,
   name,
   ...props
 }) => {
@@ -142,10 +129,10 @@ const Switch: React.FC<SwitchProps> = ({
         className={clsx(`${preClass}-input`)}
         data-state={getState}
         disabled={disabled}
+        name={name}
         tabIndex={-1}
         type="checkbox"
         onChange={changeHandle}
-        name={name}
       />
       <StyledSwitch
         animated={animated}
@@ -175,4 +162,4 @@ Switch.toString = () => ".nextui-switch";
 
 const MemoSwitch = React.memo(Switch);
 
-export default withDefaults(MemoSwitch, defaultProps);
+export default MemoSwitch;

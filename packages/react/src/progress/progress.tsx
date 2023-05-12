@@ -3,7 +3,6 @@ import type {CSS} from "../theme/stitches.config";
 import React, {useMemo} from "react";
 
 import CSSTransition from "../utils/css-transition";
-import withDefaults from "../utils/with-defaults";
 import {valueToPercent} from "../utils/numbers";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
@@ -22,33 +21,23 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  striped: false,
-  animated: true,
-  shadow: false,
-  indeterminated: false,
-  value: 0,
-  min: 0,
-  max: 100,
-};
-
 type NativeAttrs = Omit<
   Partial<React.ProgressHTMLAttributes<unknown> & React.HTMLAttributes<unknown>>,
   keyof Props
 >;
 
-export type ProgressProps = Props & typeof defaultProps & NativeAttrs & ProgressVariantsProps;
+export type ProgressProps = Props & NativeAttrs & ProgressVariantsProps;
 
 const preClass = "nextui-progress";
 
 const Progress: React.FC<ProgressProps> = ({
-  value: valueProp,
-  max,
-  min,
-  striped,
-  animated,
-  shadow,
-  indeterminated,
+  value: valueProp = 0,
+  max = 100,
+  min = 0,
+  striped = false,
+  animated = true,
+  shadow = false,
+  indeterminated = false,
   css,
   ...props
 }) => {
@@ -110,4 +99,4 @@ Progress.toString = () => ".nextui-progress";
 
 const MemoProgress = React.memo(Progress);
 
-export default withDefaults(MemoProgress, defaultProps);
+export default MemoProgress;

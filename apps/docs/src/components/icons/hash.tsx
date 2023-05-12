@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   width?: number;
@@ -8,12 +7,7 @@ interface Props {
   fill?: string;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-};
-
-const Hash: React.FC<Props> = ({size, fill, width, height, ...props}) => {
+const Hash: React.FC<Props> = ({size, fill, width = 24, height = 24, ...props}) => {
   return (
     <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <g transform="translate(-684 -252)">
@@ -63,4 +57,4 @@ const Hash: React.FC<Props> = ({size, fill, width, height, ...props}) => {
 
 const MemoHash = React.memo(Hash);
 
-export default withDefaults(MemoHash, defaultProps);
+export default MemoHash;

@@ -1,5 +1,4 @@
 import React from "react";
-import withDefaults from "@utils/with-defaults";
 import {Anchor} from "@components";
 import ReactMarkdown from "react-markdown";
 import {kebabCase, isString} from "lodash";
@@ -9,13 +8,9 @@ interface Props {
   desc?: React.ReactNode | string;
 }
 
-const defaultProps = {
-  desc: "",
-};
+export type TitleProps = Props;
 
-export type TitleProps = Props & typeof defaultProps;
-
-const Title: React.FC<TitleProps> = ({title, desc}) => {
+const Title: React.FC<TitleProps> = ({title, desc = ""}) => {
   return (
     <>
       <h3
@@ -52,4 +47,4 @@ const Title: React.FC<TitleProps> = ({title, desc}) => {
 
 const MemoTitle = React.memo(Title);
 
-export default withDefaults(MemoTitle, defaultProps);
+export default MemoTitle;

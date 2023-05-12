@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {useRef, useImperativeHandle, useLayoutEffect} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import Input from "../input";
 import useResize from "../use-resize";
 import {warn} from "../utils/console";
@@ -27,18 +26,11 @@ interface Props {
   onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
 }
 
-const defaultProps = {
-  minRows: 3,
-  maxRows: 6,
-  cacheMeasurements: true,
-  initialValue: "",
-};
-
 type NativeAttrs = Omit<React.TextareaHTMLAttributes<any>, keyof Props | keyof InputProps>;
 
 type BaseAttrs = Omit<InputProps, ExcludedInputProps>;
 
-export type TextareaProps = Props & typeof defaultProps & NativeAttrs & BaseAttrs & {css?: CSS};
+export type TextareaProps = Props & NativeAttrs & BaseAttrs & {css?: CSS};
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (textareaProps, ref: React.Ref<HTMLTextAreaElement | null>) => {
@@ -46,8 +38,17 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const heightRef = React.useRef<number>(0);
     const measurementsCacheRef = React.useRef<SizingData>();
 
-    const {cacheMeasurements, rows, maxRows, minRows, onChange, onHeightChange, css, ...props} =
-      textareaProps;
+    const {
+      cacheMeasurements = true,
+      rows,
+      maxRows = 6,
+      minRows = 3,
+      initialValue = "",
+      onChange,
+      onHeightChange,
+      css,
+      ...props
+    } = textareaProps;
 
     Object.keys(props).forEach((propNameKey: any) => {
       if (excludedInputPropsForTextarea.indexOf(propNameKey) > -1) {
@@ -110,7 +111,16 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       useResize(resizeTextarea);
     }
 
-    return <Input ref={textareaRef} as="textarea" css={css} onChange={handleChange} {...props} />;
+    return (
+      <Input
+        ref={textareaRef}
+        as="textarea"
+        css={css}
+        initialValue={initialValue}
+        onChange={handleChange}
+        {...props}
+      />
+    );
   },
 );
 
@@ -120,4 +130,4 @@ if (__DEV__) {
 
 Textarea.toString = () => ".nextui-textarea";
 
-export default withDefaults(Textarea, defaultProps);
+export default Textarea;

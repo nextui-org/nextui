@@ -1,6 +1,5 @@
 import React, {useImperativeHandle, useMemo, useRef, useState} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
@@ -24,15 +23,16 @@ const passwordDefaultProps = {
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof PasswordProps>;
-export type InputPasswordProps = PasswordProps &
-  typeof passwordDefaultProps &
-  NativeAttrs & {css?: CSS};
+export type InputPasswordProps = PasswordProps & NativeAttrs & {css?: CSS};
 
 const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
-  (
-    {hideToggle, visibleIcon, hiddenIcon, children, ...props},
-    ref: React.Ref<HTMLInputElement | null>,
-  ) => {
+  (forwardProps: InputPasswordProps, ref: React.Ref<HTMLInputElement | null>) => {
+    const propsWithDefaults = {
+      ...passwordDefaultProps,
+      ...forwardProps,
+    };
+    const {hideToggle, visibleIcon, hiddenIcon, children, ...props} = propsWithDefaults;
+
     const inputRef = useRef<HTMLInputElement>(null);
     const [visible, setVisible] = useState<boolean>(false);
 
@@ -73,4 +73,4 @@ if (__DEV__) {
 
 InputPassword.toString = () => ".nextui-input-password";
 
-export default withDefaults(InputPassword, passwordDefaultProps);
+export default InputPassword;

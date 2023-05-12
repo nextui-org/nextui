@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React from "react";
 
-import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -15,15 +14,10 @@ interface Props {
   className?: string;
 }
 
-const defaultProps = {
-  opacity: 0.5,
-  className: "",
-};
-
-export type ImageSkeletonProps = Props & typeof defaultProps & ImageSkeletonVariantsProps;
+export type ImageSkeletonProps = Props & ImageSkeletonVariantsProps;
 
 const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
-  ({opacity, css, className, ...props}) => {
+  ({opacity = 0.5, css, className = "", ...props}) => {
     return (
       <StyledImageSkeleton
         className={clsx("nextui-image-skeleton", className)}
@@ -40,4 +34,4 @@ if (__DEV__) {
 
 ImageSkeleton.toString = () => ".nextui-image-skeleton";
 
-export default withDefaults(ImageSkeleton, defaultProps);
+export default ImageSkeleton;

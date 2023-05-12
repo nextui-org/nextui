@@ -1,6 +1,5 @@
 import * as React from "react";
 import cn from "classnames";
-import withDefaults from "@utils/with-defaults";
 import {styled, CSS} from "@nextui-org/react";
 
 export interface FixedProps {
@@ -10,12 +9,6 @@ export interface FixedProps {
   css?: CSS;
   children?: React.ReactNode;
 }
-
-const defaultProps = {
-  offset: 0,
-  shadow: false,
-  className: "",
-};
 
 const StyledFixed = styled("div", {
   background: "transparent",
@@ -30,7 +23,13 @@ const StyledFixed = styled("div", {
   },
 });
 
-const Fixed: React.FC<FixedProps> = ({offset, children, shadow, className, css}) => {
+const Fixed: React.FC<FixedProps> = ({
+  offset = 0,
+  children,
+  shadow = false,
+  className = "",
+  css,
+}) => {
   return (
     <StyledFixed
       className={cn(className, {shadow})}
@@ -44,4 +43,4 @@ const Fixed: React.FC<FixedProps> = ({offset, children, shadow, className, css})
 
 const MemoFixed = React.memo(Fixed);
 
-export default withDefaults(MemoFixed, defaultProps);
+export default MemoFixed;

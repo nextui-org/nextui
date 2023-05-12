@@ -1,20 +1,15 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 export interface Props {
   title: string;
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  title: "Heading",
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type HeadingProps = Props & typeof defaultProps & NativeAttrs;
+export type HeadingProps = Props & NativeAttrs;
 
-const Heading: React.FC<HeadingProps> = ({title, children}) => {
+const Heading: React.FC<HeadingProps> = ({title = "Heading", children}) => {
   return (
     <div className="heading">
       <h4>{title}</h4>
@@ -31,4 +26,4 @@ const Heading: React.FC<HeadingProps> = ({title, children}) => {
 
 const MemoHeading = React.memo(Heading);
 
-export default withDefaults(MemoHeading, defaultProps);
+export default MemoHeading;

@@ -27,42 +27,28 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  gap: 2,
-  xs: false,
-  sm: false,
-  md: false,
-  lg: false,
-  xl: false,
-  responsive: true,
-  fluid: false,
-  wrap: "wrap" as Wrap,
-  as: "div" as keyof JSX.IntrinsicElements,
-  display: "block" as Display,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
+export type ContainerProps = Props & NativeAttrs;
 
 const Container = React.forwardRef<HTMLElement, ContainerProps>((containerProps, ref) => {
   const {
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
-    wrap,
-    gap,
-    as,
-    display,
+    xs = false,
+    sm = false,
+    md = false,
+    lg = false,
+    xl = false,
+    wrap = "wrap" as Wrap,
+    gap = 2,
+    as = "div" as keyof JSX.IntrinsicElements,
+    display = "block" as Display,
     justify,
     direction,
     alignItems,
     alignContent,
     children,
-    responsive,
-    fluid,
+    responsive = true,
+    fluid = false,
     css,
     ...otherProps
   } = containerProps;
@@ -111,12 +97,8 @@ Container.displayName = "NextUI.Container";
 
 Container.toString = () => ".nextui-container";
 
-type ComponentProps = Omit<Props, keyof typeof defaultProps> &
-  Partial<typeof defaultProps> &
-  NativeAttrs;
+type ComponentProps = Props & NativeAttrs;
 
 type MemoContainerComponent<P = {}> = React.NamedExoticComponent<P>;
-
-Container.defaultProps = defaultProps;
 
 export default React.memo(Container) as MemoContainerComponent<ComponentProps>;

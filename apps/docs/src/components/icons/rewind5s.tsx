@@ -1,13 +1,8 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 import {IconProps, Icon} from "./index";
 
-const defualtProps = {
-  fill: "currentColor",
-};
-
-const Rewind5s: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+const Rewind5s: React.FC<IconProps> = ({fill = "currentColor", size, height, width, ...props}) => {
   return (
     <Icon
       fill="none"
@@ -29,4 +24,4 @@ const Rewind5s: React.FC<IconProps> = ({fill, size, height, width, ...props}) =>
   );
 };
 
-export default withDefaults(Rewind5s, defualtProps);
+export default Rewind5s;

@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 import {NextUITheme, useTheme} from "@nextui-org/react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   plain?: number | boolean;
@@ -10,13 +9,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  plain: false,
-  height: 30,
-  radius: "10px",
-};
-
-export type ExampleBlockProps = Props & typeof defaultProps;
+export type ExampleBlockProps = Props;
 
 const getBackground = (plain: number | boolean, theme?: NextUITheme) => {
   if (typeof plain !== "number") return theme?.colors?.primary?.value;
@@ -34,10 +27,10 @@ const getBackground = (plain: number | boolean, theme?: NextUITheme) => {
 
 const ExampleBlock: React.FC<ExampleBlockProps> = ({
   children,
-  plain,
+  plain = false,
   width,
-  height,
-  radius,
+  height = 30,
+  radius = "10px",
   ...props
 }) => {
   const {theme} = useTheme();
@@ -66,4 +59,4 @@ const ExampleBlock: React.FC<ExampleBlockProps> = ({
 
 const ExampleBlockMemo = React.memo(ExampleBlock);
 
-export default withDefaults(ExampleBlockMemo, defaultProps);
+export default ExampleBlockMemo;

@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 interface Props {
   width?: number;
@@ -9,12 +8,7 @@ interface Props {
   className?: string;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-};
-
-const Search: React.FC<Props> = ({size, fill, width, height, ...props}) => {
+const Search: React.FC<Props> = ({size, fill, width = 24, height = 24, ...props}) => {
   return (
     <svg fill="none" height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <path
@@ -30,4 +24,4 @@ const Search: React.FC<Props> = ({size, fill, width, height, ...props}) => {
 
 const MemoSearch = React.memo(Search);
 
-export default withDefaults(MemoSearch, defaultProps);
+export default MemoSearch;

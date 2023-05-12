@@ -1,13 +1,14 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 
 import {IconProps, Icon} from "./index";
 
-const defaultProps = {
-  fill: "currentColor",
-};
-
-const PreviousTrack: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+const PreviousTrack: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <Icon
       fill="none"
@@ -25,4 +26,4 @@ const PreviousTrack: React.FC<IconProps> = ({fill, size, height, width, ...props
   );
 };
 
-export default withDefaults(PreviousTrack, defaultProps);
+export default PreviousTrack;

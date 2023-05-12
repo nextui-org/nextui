@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {useMemo} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {NormalSizes, NormalLoaders} from "../utils/prop-types";
 
 import {
@@ -22,26 +21,18 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  size: "md" as NormalSizes,
-  type: "default" as NormalLoaders,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type LoadingProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  LoadingContainerVariantsProps & {css?: CSS};
+export type LoadingProps = Props & NativeAttrs & LoadingContainerVariantsProps & {css?: CSS};
 
 const preClass = "nextui-loading";
 
 const Loading: React.FC<LoadingProps> = ({
   children,
-  size,
+  size = "md" as NormalSizes,
   gradientBackground,
   loadingCss,
-  type,
+  type = "default" as NormalLoaders,
   ...props
 }) => {
   const ariaLabel = children ? "" : "Loading";
@@ -82,4 +73,4 @@ Loading.toString = () => ".nextui-loading";
 
 const MemoLoading = React.memo(Loading);
 
-export default withDefaults(MemoLoading, defaultProps);
+export default MemoLoading;

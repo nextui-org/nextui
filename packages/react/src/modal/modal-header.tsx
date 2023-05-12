@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {useContext, useMemo} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {Justify} from "../utils/prop-types";
 import cslx from "../utils/clsx";
 
@@ -18,23 +17,17 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  className: "",
-  justify: "center" as Justify,
-  autoMargin: true,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ModalHeaderProps = Props & typeof defaultProps & NativeAttrs & ModalHeaderVariantsProps;
+export type ModalHeaderProps = Props & NativeAttrs & ModalHeaderVariantsProps;
 
 const preClass = "nextui-modal-header";
 
 const ModalHeader: React.FC<ModalHeaderProps> = ({
   children,
-  className,
-  justify,
-  autoMargin: autoMarginProp,
+  className = "",
+  justify = "center" as Justify,
+  autoMargin: autoMarginProp = true,
   css,
   ...props
 }) => {
@@ -68,4 +61,4 @@ ModalHeader.toString = () => ".nextui-modal-header";
 
 const MemoModalHeader = React.memo(ModalHeader);
 
-export default withDefaults(MemoModalHeader, defaultProps);
+export default MemoModalHeader;

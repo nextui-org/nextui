@@ -1,7 +1,6 @@
 import React from "react";
 import {usePortal, useTheme} from "@nextui-org/react";
 import cn from "classnames";
-import withDefaults from "@utils/with-defaults";
 import {Route} from "@lib/docs/page";
 import {createPortal} from "react-dom";
 import {Sidebar} from "@components";
@@ -14,12 +13,13 @@ interface Props {
   onClose?: () => void;
 }
 
-const defaultProps = {
-  opened: false,
-  detached: false,
-};
-
-const MobileNavigation: React.FC<Props> = ({opened, detached, hasNotify, routes, onClose}) => {
+const MobileNavigation: React.FC<Props> = ({
+  opened = false,
+  detached = false,
+  hasNotify,
+  routes,
+  onClose,
+}) => {
   const portal = usePortal("mobile-navigation");
 
   const {isDark} = useTheme();
@@ -115,4 +115,4 @@ const MobileNavigation: React.FC<Props> = ({opened, detached, hasNotify, routes,
 
 const MemoMobileNavigation = React.memo(MobileNavigation);
 
-export default withDefaults(MemoMobileNavigation, defaultProps);
+export default MemoMobileNavigation;

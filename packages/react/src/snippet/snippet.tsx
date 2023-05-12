@@ -1,7 +1,6 @@
 import React, {useMemo, useState, useRef} from "react";
 
 import Tooltip from "../tooltip";
-import withDefaults from "../utils/with-defaults";
 import {CopyTypes, TooltipColors} from "../utils/prop-types";
 import {CSS} from "../theme/stitches.config";
 import useClipboard from "../use-clipboard";
@@ -27,21 +26,9 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  symbol: "$",
-  showTooltip: true,
-  copy: "default" as CopyTypes,
-  tooltipColor: "default" as TooltipColors | string,
-  tooltipCopyText: "Copy",
-  tooltipCopiedText: "Copied",
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type SnippetProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  SnippetVariantsProps & {css?: CSS};
+export type SnippetProps = Props & NativeAttrs & SnippetVariantsProps & {css?: CSS};
 
 const textArrayToString = (text: string[]): string => {
   return text.reduce((pre, current) => {
@@ -54,13 +41,13 @@ const textArrayToString = (text: string[]): string => {
 const Snippet: React.FC<SnippetProps> = ({
   bordered,
   children,
-  symbol,
-  showTooltip,
+  symbol = "$",
+  showTooltip = true,
   text,
-  tooltipCopyText,
-  tooltipCopiedText,
-  tooltipColor,
-  copy: copyType,
+  tooltipCopyText = "Copy",
+  tooltipCopiedText = "Copied",
+  tooltipColor = "default" as TooltipColors,
+  copy: copyType = "default" as CopyTypes,
   ...props
 }) => {
   const [copied, setCopied] = useState(false);
@@ -99,7 +86,7 @@ const Snippet: React.FC<SnippetProps> = ({
   };
 
   return (
-    <StyledSnippet {...props}>
+    <StyledSnippet bordered={bordered} {...props}>
       {isMultiLine ? (
         (text as string[]).map((t, index) => (
           <StyledSnippetPre
@@ -160,4 +147,4 @@ Snippet.toString = () => ".nextui-snippet";
 
 const MemoSnippet = React.memo(Snippet);
 
-export default withDefaults(MemoSnippet, defaultProps);
+export default MemoSnippet;

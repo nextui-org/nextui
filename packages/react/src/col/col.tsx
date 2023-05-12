@@ -2,8 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React from "react";
 
-import withDefaults from "../utils/with-defaults";
-
 import StyledCol, {ColVariantsProps} from "./col.styles";
 
 interface Props {
@@ -14,16 +12,11 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  span: 12,
-  offset: 0,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ColProps = Props & typeof defaultProps & ColVariantsProps & NativeAttrs;
+export type ColProps = Props & ColVariantsProps & NativeAttrs;
 
-const Col: React.FC<ColProps> = ({children, span, offset, css, ...props}) => {
+const Col: React.FC<ColProps> = ({children, span = 12, offset = 0, css, ...props}) => {
   return (
     <StyledCol
       css={{
@@ -42,4 +35,4 @@ Col.toString = () => ".nextui-column";
 
 const MemoCol = React.memo(Col);
 
-export default withDefaults(MemoCol, defaultProps);
+export default MemoCol;

@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import withDefaults from "./with-defaults";
-
 interface Props {
   width?: number;
   height?: number;
@@ -11,14 +9,15 @@ interface Props {
   className?: string;
 }
 
-const defaultProps = {
-  width: 24,
-  height: 24,
-  plain: false,
-  className: "",
-};
-
-const Close: React.FC<Props> = ({size, fill, plain, width, height, className, ...props}) => {
+const Close: React.FC<Props> = ({
+  size,
+  fill,
+  plain = false,
+  width = 24,
+  height = 24,
+  className = "",
+  ...props
+}) => {
   if (plain) {
     return (
       <svg
@@ -56,4 +55,4 @@ const Close: React.FC<Props> = ({size, fill, plain, width, height, className, ..
 
 const MemoClose = React.memo(Close);
 
-export default withDefaults(MemoClose, defaultProps);
+export default MemoClose;

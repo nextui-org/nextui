@@ -1,5 +1,4 @@
 import React, {useMemo} from "react";
-import withDefaults from "@utils/with-defaults";
 import {NextUITheme, useTheme} from "@nextui-org/react";
 import {addColorAlpha} from "@utils/index";
 
@@ -14,17 +13,8 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  command: false,
-  shift: false,
-  option: false,
-  ctrl: false,
-  small: false,
-  className: "",
-};
-
 type NativeAttrs = Omit<React.KeygenHTMLAttributes<unknown>, keyof Props>;
-export type KeyboardProps = Props & typeof defaultProps & NativeAttrs;
+export type KeyboardProps = Props & NativeAttrs;
 
 type CustomLayout = {
   padding: number | string;
@@ -48,13 +38,13 @@ const getLayout = (small: boolean, theme?: NextUITheme): CustomLayout => {
 };
 
 const Keyboard: React.FC<KeyboardProps> = ({
-  command,
-  shift,
-  option,
-  ctrl,
-  small,
+  command = false,
+  shift = false,
+  option = false,
+  ctrl = false,
+  small = false,
   children,
-  className,
+  className = "",
   onClick,
   ...props
 }) => {
@@ -109,4 +99,4 @@ const Keyboard: React.FC<KeyboardProps> = ({
 
 const MemoKeyboard = React.memo(Keyboard);
 
-export default withDefaults(MemoKeyboard, defaultProps);
+export default MemoKeyboard;

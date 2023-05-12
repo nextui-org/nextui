@@ -1,5 +1,4 @@
 import * as React from "react";
-import withDefaults from "@utils/with-defaults";
 import {useTheme} from "@nextui-org/react";
 
 interface Props {
@@ -8,12 +7,7 @@ interface Props {
   fill?: string;
 }
 
-const defaultProps = {
-  width: 84.14,
-  height: 11.404,
-};
-
-const SearchByAlgolia: React.FC<Props> = ({fill, width, height, ...props}) => {
+const SearchByAlgolia: React.FC<Props> = ({fill, width = 84.14, height = 11.404, ...props}) => {
   const {theme} = useTheme();
 
   return (
@@ -39,4 +33,4 @@ const SearchByAlgolia: React.FC<Props> = ({fill, width, height, ...props}) => {
 
 const MemoSearchByAlgolia = React.memo(SearchByAlgolia);
 
-export default withDefaults(MemoSearchByAlgolia, defaultProps);
+export default MemoSearchByAlgolia;

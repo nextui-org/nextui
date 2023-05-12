@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {MouseEvent, useCallback, useMemo} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import CSSTransition from "../utils/css-transition";
 import useCurrentState from "../use-current-state";
 import cslx from "../utils/clsx";
@@ -31,34 +30,24 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  onClick: () => {},
-  visible: false,
-  blur: false,
-  animated: true,
-  preventDefault: true,
-  opacity: 0.5,
-  className: "",
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type BackdropProps = Props & typeof defaultProps & NativeAttrs & BackdropVariantsProps;
+export type BackdropProps = Props & NativeAttrs & BackdropVariantsProps;
 
 const preClass = "nextui-backdrop";
 
 const Backdrop: React.FC<BackdropProps> = React.memo(
   ({
     children,
-    onClick,
+    onClick = () => {},
     onKeyPress,
-    visible,
+    visible = false,
     maxWidth,
-    blur,
-    animated,
-    opacity,
-    preventDefault,
-    className,
+    blur = false,
+    animated = true,
+    opacity = 0.5,
+    preventDefault = true,
+    className = "",
     css,
     ...props
   }) => {
@@ -154,4 +143,4 @@ if (__DEV__) {
 
 Backdrop.toString = () => ".nextui-backdrop";
 
-export default withDefaults(Backdrop, defaultProps);
+export default Backdrop;

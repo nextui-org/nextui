@@ -2,7 +2,6 @@ import type {CSS} from "../theme/stitches.config";
 
 import React, {useMemo, useContext} from "react";
 
-import withDefaults from "../utils/with-defaults";
 import {Justify} from "../utils/prop-types";
 import cslx from "../utils/clsx";
 
@@ -18,22 +17,16 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const defaultProps = {
-  className: "",
-  justify: "flex-end" as Justify,
-  autoMargin: true,
-};
-
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ModalFooterProps = Props & typeof defaultProps & NativeAttrs & ModalFooterVariantsProps;
+export type ModalFooterProps = Props & NativeAttrs & ModalFooterVariantsProps;
 
 const preClass = "nextui-modal-footer";
 
 const ModalFooter: React.FC<ModalFooterProps> = ({
   children,
-  className,
-  justify,
-  autoMargin: autoMarginProp,
+  className = "",
+  justify = "flex-end" as Justify,
+  autoMargin: autoMarginProp = true,
   css,
   ...props
 }) => {
@@ -67,4 +60,4 @@ ModalFooter.toString = () => ".nextui-modal-footer";
 
 const MemoModalFooter = React.memo(ModalFooter);
 
-export default withDefaults(MemoModalFooter, defaultProps);
+export default MemoModalFooter;

@@ -2,7 +2,6 @@ import React, {useMemo} from "react";
 
 import {DOTS} from "../use-pagination";
 import clsx from "../utils/clsx";
-import withDefaults from "../utils/with-defaults";
 import {CSS} from "../theme/stitches.config";
 
 import {
@@ -23,10 +22,6 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
 }
-
-const defaultProps = {
-  preserveContent: false,
-};
 
 const getItemAriaLabel = (page?: string | number) => {
   if (!page) return;
@@ -61,7 +56,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
   bordered,
   onClick,
   onlyDots,
-  preserveContent,
+  preserveContent = false,
   ...props
 }) => {
   const ariaLabel = useMemo(
@@ -104,4 +99,4 @@ const PaginationItem: React.FC<PaginationItemProps> = ({
 
 PaginationItem.toString = () => ".nextui-pagination-item";
 
-export default withDefaults(PaginationItem, defaultProps);
+export default PaginationItem;
