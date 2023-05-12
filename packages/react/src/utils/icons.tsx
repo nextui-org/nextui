@@ -12,7 +12,14 @@ interface IconProps {
   label?: string;
 }
 
-export const Sun: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
+export const Sun: React.FC<IconProps> = ({
+  fill = "currentColor",
+  filled,
+  size,
+  height,
+  width,
+  ...props
+}) => {
   if (filled) {
     return (
       <svg
@@ -53,7 +60,13 @@ export const Sun: React.FC<IconProps> = ({fill, filled, size, height, width, ...
   );
 };
 
-export const Mail: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Mail: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg height={size || height || 24} viewBox="0 0 24 24" width={size || width || 24} {...props}>
       <g fill="none" stroke={fill} strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}>
@@ -64,7 +77,14 @@ export const Mail: React.FC<IconProps> = ({fill, size, height, width, ...props})
   );
 };
 
-export const Moon: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
+export const Moon: React.FC<IconProps> = ({
+  fill = "currentColor",
+  filled,
+  size,
+  height,
+  width,
+  ...props
+}) => {
   if (filled) {
     return (
       <svg
@@ -95,7 +115,13 @@ export const Moon: React.FC<IconProps> = ({fill, filled, size, height, width, ..
   );
 };
 
-export const Lock: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Lock: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   const color = fill;
 
   return (
@@ -143,7 +169,13 @@ export const Lock: React.FC<IconProps> = ({fill, size, height, width, ...props})
   );
 };
 
-export const Unlock: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Unlock: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   const color = fill;
 
   return (
@@ -191,7 +223,13 @@ export const Unlock: React.FC<IconProps> = ({fill, size, height, width, ...props
   );
 };
 
-export const Password: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Password: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg height={size || height || 24} viewBox="0 0 24 24" width={size || width || 24} {...props}>
       <g fill={fill}>
@@ -202,7 +240,13 @@ export const Password: React.FC<IconProps> = ({fill, size, height, width, ...pro
   );
 };
 
-export const Notification: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Notification: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -222,7 +266,13 @@ export const Notification: React.FC<IconProps> = ({fill, size, height, width, ..
   );
 };
 
-export const User: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const User: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       data-name="Iconly/Curved/Profile"
@@ -250,7 +300,13 @@ export const User: React.FC<IconProps> = ({fill, size, height, width, ...props})
   );
 };
 
-export const VolumeUp: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const VolumeUp: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -270,7 +326,13 @@ export const VolumeUp: React.FC<IconProps> = ({fill, size, height, width, ...pro
   );
 };
 
-export const Camera: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Camera: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -290,7 +352,13 @@ export const Camera: React.FC<IconProps> = ({fill, size, height, width, ...props
   );
 };
 
-export const Activity: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Activity: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       data-name="Iconly/Curved/Activity"
@@ -316,7 +384,13 @@ export const Activity: React.FC<IconProps> = ({fill, size, height, width, ...pro
   );
 };
 
-export const Plus: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Plus: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       height={size || height || 24}
@@ -333,7 +407,13 @@ export const Plus: React.FC<IconProps> = ({fill, size, height, width, ...props})
   );
 };
 
-export const Minus: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Minus: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       height={size || height || 24}
@@ -354,7 +434,13 @@ export const Minus: React.FC<IconProps> = ({fill, size, height, width, ...props}
   );
 };
 
-export const Eye: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Eye: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -382,7 +468,13 @@ export const Eye: React.FC<IconProps> = ({fill, size, height, width, ...props}) 
   );
 };
 
-export const Edit: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Edit: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -420,7 +512,13 @@ export const Edit: React.FC<IconProps> = ({fill, size, height, width, ...props})
   );
 };
 
-export const Delete: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const Delete: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -469,7 +567,13 @@ export const Delete: React.FC<IconProps> = ({fill, size, height, width, ...props
   );
 };
 
-export const ChevronDown: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const ChevronDown: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -491,7 +595,13 @@ export const ChevronDown: React.FC<IconProps> = ({fill, size, height, width, ...
   );
 };
 
-export const ChevronDownBold: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const ChevronDownBold: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -509,7 +619,13 @@ export const ChevronDownBold: React.FC<IconProps> = ({fill, size, height, width,
   );
 };
 
-export const NewFile: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const NewFile: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -578,7 +694,13 @@ export const NewFile: React.FC<IconProps> = ({fill, size, height, width, ...prop
   );
 };
 
-export const AddNoteBulk: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const AddNoteBulk: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -601,7 +723,13 @@ export const AddNoteBulk: React.FC<IconProps> = ({fill, size, height, width, ...
   );
 };
 
-export const CopyDocumentBulk: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const CopyDocumentBulk: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -628,7 +756,13 @@ export const CopyDocumentBulk: React.FC<IconProps> = ({fill, size, height, width
   );
 };
 
-export const EditDocumentBulk: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const EditDocumentBulk: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -651,7 +785,13 @@ export const EditDocumentBulk: React.FC<IconProps> = ({fill, size, height, width
   );
 };
 
-export const DeleteDocumentBulk: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+export const DeleteDocumentBulk: React.FC<IconProps> = ({
+  fill = "currentColor",
+  size,
+  height,
+  width,
+  ...props
+}) => {
   return (
     <svg
       fill="none"
@@ -840,7 +980,13 @@ export const Scale: React.FC<IconProps> = ({
   );
 };
 
-export const Search: React.FC<IconProps> = ({size, fill, width = 24, height = 24, ...props}) => {
+export const Search: React.FC<IconProps> = ({
+  size,
+  fill = "currentColor",
+  width = 24,
+  height = 24,
+  ...props
+}) => {
   return (
     <svg fill="none" height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
       <path
