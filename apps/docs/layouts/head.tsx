@@ -1,7 +1,6 @@
 import React from "react";
 import NextHead from "next/head";
 import {useTheme} from "next-themes";
-import capitalize from "lodash/capitalize";
 
 import {TWITTER_USER_NAME, SITE_URL} from "@/libs/constants";
 
@@ -30,7 +29,7 @@ export const Head: React.FC<HeaderProps> = ({
   const {theme} = useTheme();
 
   const isDark = theme === "dark";
-  let pageTitle = title ? `${capitalize(title)} | ` : "";
+  let pageTitle = title ? `${title} | ` : "";
 
   pageTitle += "NextUI - Beautiful, fast and modern React UI Library";
 

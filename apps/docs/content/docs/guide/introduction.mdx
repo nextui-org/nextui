@@ -1,7 +1,7 @@
 ---
 title: Introduction
 description: NextUI is a UI library for React that helps you build beautiful and accessible user interfaces. Created on top of Tailwind CSS and React Aria.
-url: https://nextui.org/docs/introduction
+url: https://nextui.org/docs/guide/introduction
 ---
 
 # Introduction
@@ -15,6 +15,8 @@ NextUI is a UI library for React that helps you build beautiful and accessible u
 [Tailwind CSS](https://tailwindcss.com/) and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html).
 
 NextUI's primary goal is to streamline the development process, offering a beautiful and adaptable system design for an enhanced user experience.
+
+------
 
 ## FAQ
 
@@ -32,6 +34,12 @@ style overrides, etc.
 a complete solution for building accessible and customizable user interfaces. Since NextUI is built upon TailwindCSS,
  you can utilize all TailwindCSS classes within your NextUI components, ensuring optimal compiled CSS size.
 
+### How NextUI deals with TailwindCSS classes conflicts?
+
+We created a TailwindCSS utility library called [tailwind-variants](https://www.tailwind-variants.org/) that automatically
+handle TailwindCSS class conflicts. This ensures your custom classes will consistently override the default ones, eliminating any duplication.
+
+
 ### Does NextUI use runtime CSS?
 
 No, NextUI version 2 employs TailwindCSS JIT, which generates CSS at build time, eliminating the need for 
@@ -47,7 +55,7 @@ NextUI is specifically designed for React and is built on top of React Aria. As 
 tailored for React applications. However, you can still use the CSS part of NextUI with other frameworks or 
 libraries, but you will lose the benefits of React Aria and pre-built accessible components that come with NextUI.
 
-<Divider />
+------
 
 ## Community
 

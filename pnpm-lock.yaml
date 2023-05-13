@@ -1647,6 +1647,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-is-mounted':
+        specifier: workspace:*
+        version: link:../../hooks/use-is-mounted
       '@react-aria/focus':
         specifier: ^3.12.0
         version: 3.12.0(react@18.2.0)

@@ -1,22 +1,23 @@
 ---
-title: Installation
-description: Get started with NextUI in the official documentation, and learn more about all our features!
-url: https://nextui.org/docs/guide/installation
+title: Vite
+description: How to use NextUI with Vite
+url: https://nextui.org/docs/frameworks/vite
 ---
 
-# Installation
+# Vite
 
 Requirements:
 
+- [Vite 2](https://vitejs.dev/) or later
 - [React 18](https://reactjs.org/) or later
-- [Tailwind CSS 3](https://tailwindcss.com/) or later
+- [Tailwind CSS 3](https://tailwindcss.com/docs/guides/vite#react) or later
 - [Framer Motion 4](https://www.framer.com/motion/) or later
 
 ------
 
-<Spacer y={4}/>
+## Installation
 
-To install NextUI, run one of the following commands in your terminal:
+In your Vite React project, run one of the following command to install NextUI:
 
 <PackageManagers
   commands={{
@@ -26,15 +27,16 @@ To install NextUI, run one of the following commands in your terminal:
   }}
 />
 
+
 <Spacer y={4}/>
 
 After installing NextUI, you need do the following steps to complete the installation:
 
 
-## Tailwind CSS Setup
+### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
-[installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add 
+[installation guide](https://tailwindcss.com/docs/guides/vite#react) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
 
@@ -56,28 +58,30 @@ module.exports = {
 }
 ```
 
-## Provider Setup
+### Provider Setup
 
-To ensure proper functioning of React Aria, NextUI utilizes the [React Aria SSRProvider](https://react-spectrum.adobe.com/react-aria/SSRProvider.html) and [Overlay provider](https://react-spectrum.adobe.com/react-aria/useOverlayTrigger.html#example) internally. 
-Therefore, it is essential to incorporate the `NextUIProvider` at the `root` of your application.
+After installing NextUI, you need to set up the `NextUIProvider` at the `root` of your application.
+
+Go to the src directory and inside `main.jsx` or `main.tsx`, wrap `NextUIProvider` around App:
 
 ```jsx
-import * as React from 'react'
-
-// 1. import `NextUIProvider` component
+// main.tsx or main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import { NextUIProvider } from '@nextui-org/react'
+import App from './App'
+import './index.css'
 
-function App() {
-  // 2. Wrap NextUIProvider at the root of your app
-  return (
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
     <NextUIProvider>
-      <YourApplication />
+      <App />
     </NextUIProvider>
-  )
-}
+  </React.StrictMode>,
+)
 ```
 
-## Setup pnpm (optional)
+### Setup pnpm (optional)
 
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
@@ -96,9 +100,3 @@ After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensur
 >
   Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please use <Link href="https://v1.nextui.org/docs/getting-started" isExternal>version 1 of NextUI</Link>.
 </Blockquote>
-
-## Framework Guides
-
-NextUI UI is compatible with your preferred framework. We have compiled comprehensive, step-by-step tutorials for the following frameworks:
-
-<Frameworks />

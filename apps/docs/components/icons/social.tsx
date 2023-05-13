@@ -175,6 +175,7 @@ export const AdobeIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em"
 const YarnIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
   return (
     <svg
+      aria-hidden="true"
       fill="currentColor"
       focusable="false"
       height={height}
@@ -192,6 +193,7 @@ const YarnIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...pro
 const PnpmIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
   return (
     <svg
+      aria-hidden="true"
       fill="currentColor"
       focusable="false"
       height={height}
@@ -208,6 +210,171 @@ const PnpmIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...pro
   );
 };
 
+const AstroIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
+  return (
+    <svg aria-hidden="true" fill="none" focusable="false" height={height} width={width} {...props}>
+      <path
+        clipRule="evenodd"
+        d="M16.986 23.22c-3.498 0-6.986 1.694-6.986 1.694s5.924-16.1 5.937-16.131c.181-.476.457-.783.844-.783h7.11c.386 0 .673.307.843.783l5.936 16.131s-2.843-1.695-6.985-1.695l-2.637-8.14c-.1-.395-.387-.662-.713-.662-.325 0-.614.268-.712.661l-2.637 8.141zm-.572 6.477h.001-.001zM15.3 24.378c-.532 1.751-.16 4.168 1.115 5.319l.017-.061a1.42 1.42 0 00.03-.116c.16-.73.762-1.195 1.524-1.173.741.021 1.135.392 1.25 1.22.042.307.046.62.05.933l.001.098c.01.707.195 1.361.585 1.952a3.4 3.4 0 001.515 1.279l-.018-.06a4.332 4.332 0 00-.03-.1c-.488-1.476-.137-2.49 1.16-3.356l.398-.261c.293-.19.585-.38.867-.586 1.022-.747 1.665-1.732 1.817-3.007a3.404 3.404 0 00-.162-1.547c-.076.045-.148.09-.218.134-.15.094-.29.182-.437.253-1.897.921-3.902 1.035-5.944.73-1.322-.197-2.599-.547-3.52-1.651z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+  );
+};
+
+const NewNextJSIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
+  return (
+    <svg aria-hidden="true" fill="none" focusable="false" height={height} width={width} {...props}>
+      <mask
+        height="26"
+        id="nextjs-white_svg__a"
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: "alpha",
+        }}
+        width="26"
+        x="7"
+        y="7"
+      >
+        <path
+          d="M20 33c7.18 0 13-5.82 13-13S27.18 7 20 7 7 12.82 7 20s5.82 13 13 13z"
+          fill="#000"
+        />
+      </mask>
+      <g mask="url(#nextjs-white_svg__a)">
+        <path
+          d="M20 32.567c6.94 0 12.567-5.627 12.567-12.567S26.94 7.433 20 7.433 7.433 13.06 7.433 20 13.06 32.567 20 32.567z"
+          fill="#000"
+          stroke="#fff"
+          strokeWidth="0.867"
+        />
+        <path
+          d="M28.596 29.753L16.987 14.8H14.8v10.396h1.75v-8.174l10.672 13.789c.482-.322.94-.676 1.374-1.058z"
+          fill="url(#nextjs-white_svg__b)"
+        />
+        <path d="M25.344 14.8h-1.733v10.4h1.733V14.8z" fill="url(#nextjs-white_svg__c)" />
+      </g>
+      <defs>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id="nextjs-white_svg__b"
+          x1="22.744"
+          x2="27.872"
+          y1="23.828"
+          y2="30.183"
+        >
+          <stop stopColor="#fff" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id="nextjs-white_svg__c"
+          x1="24.478"
+          x2="24.449"
+          y1="14.8"
+          y2="22.438"
+        >
+          <stop stopColor="#fff" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+const RemixIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height={height}
+      viewBox="0 0 40 40"
+      width={width}
+      {...props}
+    >
+      <path
+        d="M29.397 26.388c.213 2.733.213 4.014.213 5.412h-6.322c0-.305.005-.583.01-.866.018-.878.036-1.794-.107-3.643-.188-2.708-1.354-3.31-3.497-3.31H9.75v-4.926h10.244c2.708 0 4.063-.823 4.063-3.005 0-1.917-1.355-3.08-4.063-3.08H9.75V8.15h11.373c6.13 0 9.177 2.896 9.177 7.521 0 3.46-2.144 5.716-5.04 6.092 2.445.489 3.874 1.88 4.137 4.625z"
+        fill="currentColor"
+      />
+      <path
+        d="M9.75 31.8v-3.672h6.685c1.116 0 1.359.828 1.359 1.322v2.35H9.75z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+const ViteIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height={height}
+      viewBox="0 0 40 40"
+      width={width}
+      {...props}
+    >
+      <path
+        d="M31.881 11.61L20.886 31.563a.593.593 0 01-1.04.004L8.633 11.611c-.251-.446.125-.987.624-.897l11.007 1.997a.59.59 0 00.212 0l10.777-1.994c.497-.092.875.445.628.893z"
+        fill="url(#vite_svg__paint0_linear_41_6732)"
+      />
+      <path
+        d="M25.506 8.096l-8.137 1.618a.302.302 0 00-.241.28l-.5 8.578a.3.3 0 00.365.314l2.265-.531c.212-.05.404.14.36.356l-.673 3.345a.3.3 0 00.38.35l1.399-.43a.3.3 0 01.38.35l-1.07 5.255c-.067.328.364.507.543.226l.12-.189 6.63-13.428c.111-.225-.08-.481-.323-.433l-2.332.456a.301.301 0 01-.344-.381l1.522-5.355a.301.301 0 00-.345-.381z"
+        fill="url(#vite_svg__paint1_linear_41_6732)"
+      />
+      <defs>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id="vite_svg__paint0_linear_41_6732"
+          x1="8.359"
+          x2="22.306"
+          y1="10.001"
+          y2="28.665"
+        >
+          <stop stopColor="#41D1FF" />
+          <stop offset="1" stopColor="#BD34FE" />
+        </linearGradient>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id="vite_svg__paint1_linear_41_6732"
+          x1="19.631"
+          x2="22.178"
+          y1="8.535"
+          y2="25.757"
+        >
+          <stop stopColor="#FFEA83" />
+          <stop offset="0.083" stopColor="#FFDD35" />
+          <stop offset="1" stopColor="#FFA800" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+const StorybookIcon: React.FC<IconSvgProps> = ({width = "1em", height = "1em", ...props}) => {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height={height}
+      viewBox="0 0 512 512"
+      width={width}
+      {...props}
+    >
+      <g>
+        <path
+          d="M356.5,5.2L353.9,63c-0.1,3.2,3.7,5.2,6.3,3.2l22.6-17.1L401.9,64c2.5,1.7,5.8,0,6-3l-2.2-58.8l28.4-2.2   c14.7-1,27.3,10.8,27.3,25.6v460.8c0,14.7-12.3,26.3-26.9,25.6L91.1,496.6c-13.3-0.6-24.1-11.3-24.5-24.7l-16-422.3   c-0.8-14.2,9.9-26.3,24.1-27.1L356.2,4.7L356.5,5.2z M291,198.4c0,10,67.4,5.1,76.6-1.7c0-68.2-36.7-104.3-103.6-104.3   c-67.2,0-104.5,36.8-104.5,91.6c0,94.9,128,96.6,128,148.4c0,15-6.8,23.5-22.4,23.5c-20.5,0-28.8-10.4-27.7-46.1   c0-7.7-77.8-10.3-80.4,0c-5.7,86,47.6,110.9,108.7,110.9c59.6,0,106.1-31.7,106.1-89.1c0-101.7-130.1-99-130.1-149.3   c0-20.7,15.4-23.4,24.1-23.4c9.7,0,26.7,1.5,25.4,39.8L291,198.4z"
+          fill="currentColor"
+        />
+      </g>
+    </svg>
+  );
+};
+
 export {
   TwitterIcon,
   DiscordIcon,
@@ -220,4 +387,9 @@ export {
   NpmSmallIcon,
   PnpmIcon,
   YarnIcon,
+  AstroIcon,
+  RemixIcon,
+  ViteIcon,
+  NewNextJSIcon,
+  StorybookIcon,
 };

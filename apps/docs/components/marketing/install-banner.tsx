@@ -14,14 +14,14 @@ const bannerSuggestions = [
     description:
       "Make beautiful, modern, and fast websites/applications regardless of your design experience.",
     icon: <NoteLinearIcon className="text-pink-500" />,
-    href: "/docs/guide/getting-started",
+    href: "/docs/guide/installation",
   },
   {
     title: "NextUI + Next.js",
     description:
       "NextUI is totally compatible with Next.js you just need to customize the _app.jsx entry file to load the provider.",
     icon: <NextJsIcon className="text-pink-500" />,
-    href: "/docs/guide/nextui-plus-nextjs",
+    href: "/docs/frameworks/nextjs",
   },
 ];
 

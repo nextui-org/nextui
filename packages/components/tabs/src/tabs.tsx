@@ -1,4 +1,5 @@
-import {forwardRef, ForwardedRef, ReactElement, Ref} from "react";
+import {forwardRef, ForwardedRef, ReactElement, Ref, useId} from "react";
+import {LayoutGroup} from "framer-motion";
 
 import {TabsProvider} from "./tabs-context";
 import {UseTabsProps, useTabs} from "./use-tabs";
@@ -10,13 +11,25 @@ interface Props<T> extends Omit<UseTabsProps<T>, "ref"> {}
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {Component, state, context, getBaseProps, getTabListProps} = useTabs<T>({ref, ...props});
 
+  const layoutId = useId();
+
+  const layoutGroupEnabled = !props.disableAnimation && !props.disableCursor;
+
   return (
     <TabsProvider value={context}>
       <div {...getBaseProps()}>
         <Component {...getTabListProps()}>
-          {[...state.collection].map((item) => (
-            <TabItem key={item.key} item={item} {...item.props} />
-          ))}
+          {layoutGroupEnabled ? (
+            <LayoutGroup id={layoutId}>
+              {[...state.collection].map((item) => (
+                <TabItem key={item.key} item={item} {...item.props} />
+              ))}
+            </LayoutGroup>
+          ) : (
+            [...state.collection].map((item) => (
+              <TabItem key={item.key} item={item} {...item.props} />
+            ))
+          )}
         </Component>
       </div>
       <TabPanel key={state.selectedItem?.key} />

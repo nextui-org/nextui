@@ -6,12 +6,12 @@ const blockquote = tv({
 
   variants: {
     color: {
-      neutral: "border-neutral-100 bg-neutral-50",
-      primary: "border-primary-200 bg-primary-50",
-      secondary: "border-secondary-200 bg-secondary-50",
-      success: "border-success-200 bg-success-50",
-      warning: "border-warning-200 bg-warning-50",
-      danger: "border-danger-200 bg-danger-50",
+      neutral: "border-neutral-100 bg-neutral-50/20",
+      primary: "border-primary-100 bg-primary-50/20",
+      secondary: "border-secondary-100 bg-secondary-50/20",
+      success: "border-success-100 bg-success-50/20",
+      warning: "border-warning-100 bg-warning-50/20",
+      danger: "border-danger-100 bg-danger-50/20",
     },
   },
   defaultVariants: {

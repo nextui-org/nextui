@@ -8,6 +8,7 @@ import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
 import {motion} from "framer-motion";
 import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
+import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {useTabsContext} from "./tabs-context";
 
@@ -57,6 +58,10 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
 
   const ariaControls = item?.props.children ? `${tabPanelId}-${key}` : undefined;
 
+  const [, isMounted] = useIsMounted({
+    rerender: true,
+  });
+
   return (
     <Component
       ref={domRef}
@@ -86,11 +91,11 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
       }}
       onClick={chain(onClick, tabProps.onClick)}
     >
-      {isSelected && !disableAnimation && !disableCursor ? (
+      {isSelected && !disableAnimation && !disableCursor && isMounted ? (
         <motion.span
           className={slots.cursor({class: classNames?.cursor})}
           layoutDependency={false}
-          layoutId="tab-item-cursor"
+          layoutId="cursor"
           transition={{
             ease: TRANSITION_EASINGS.softSpring,
             duration: 0.6,

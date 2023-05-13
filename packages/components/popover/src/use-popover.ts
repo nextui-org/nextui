@@ -1,28 +1,20 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
 import type {RefObject, Ref} from "react";
-import type {OverlayPlacement} from "@nextui-org/aria-utils";
 
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {
-  AriaPopoverProps,
-  useOverlayTrigger,
-  usePopover as useReactAriaPopover,
-  usePreventScroll,
-} from "@react-aria/overlays";
+import {useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {
-  toReactAriaPlacement,
-  getArrowPlacement,
-  getShouldUseAxisPlacement,
-} from "@nextui-org/aria-utils";
+import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {ReactRef, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
+
+import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
 export interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -34,24 +26,9 @@ export interface Props extends HTMLNextUIProps<"div"> {
    */
   state?: OverlayTriggerState;
   /**
-   * A ref for the scrollable region within the overlay.
-   * @default popoverRef
-   */
-  scrollRef?: RefObject<HTMLElement>;
-  /**
    * The ref for the element which the overlay positions itself with respect to.
    */
   triggerRef?: RefObject<HTMLElement>;
-  /**
-   * The placement of the element with respect to its anchor element.
-   * @default 'top'
-   */
-  placement?: OverlayPlacement;
-  /**
-   * Whether the element should render an arrow.
-   * @default false
-   */
-  showArrow?: boolean;
   /**
    * Whether the scroll event should be blocked when the overlay is open.
    * @default true
@@ -91,7 +68,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UsePopoverProps = Props &
-  Omit<AriaPopoverProps, "placement" | "triggerRef" | "popoverRef"> &
+  Omit<ReactAriaPopoverProps, "triggerRef" | "popoverRef"> &
   OverlayTriggerProps &
   PopoverVariantProps;
 
@@ -162,9 +139,8 @@ export function usePopover(originalProps: UsePopoverProps) {
     {
       triggerRef,
       popoverRef,
-      isNonModal: true,
-      placement: toReactAriaPlacement(placementProp),
-      offset: showArrow ? offset + 3 : offset,
+      placement: placementProp,
+      offset: offset,
       scrollRef,
       crossOffset,
       shouldFlip,

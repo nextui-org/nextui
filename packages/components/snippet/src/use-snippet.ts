@@ -63,6 +63,10 @@ export interface UseSnippetProps
    */
   autoFocus?: boolean;
   /**
+   * The code string to copy. if `codeString` is passed, it will be copied instead of the children.
+   */
+  codeString?: string;
+  /**
    * Whether to hide the tooltip.
    * @default false
    */
@@ -126,6 +130,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     timeout,
     copyIcon,
     checkIcon,
+    codeString,
     disableCopy = false,
     disableTooltip = false,
     hideCopyButton = false,
@@ -198,11 +203,11 @@ export function useSnippet(originalProps: UseSnippetProps) {
       value = children.join("\n");
     }
 
-    const valueToCopy = value || preRef.current?.textContent || "";
+    const valueToCopy = codeString || value || preRef.current?.textContent || "";
 
     copy(valueToCopy);
     onCopyProp?.(valueToCopy);
-  }, [copy, disableCopy, onCopyProp, children]);
+  }, [copy, codeString, disableCopy, onCopyProp, children]);
 
   const defaultCopyButtonProps: ButtonProps = {
     "aria-label": "Copy to clipboard",

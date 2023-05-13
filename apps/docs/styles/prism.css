@@ -7,11 +7,14 @@
   @apply text-code-foreground;
 }
 
-.code-block .token.tag,
 .code-block .token.selector,
 .code-block .token.selector .class,
 .code-block .token.function {
   @apply text-code-syntax1;
+}
+
+.code-block .token.tag {
+  @apply text-code-tag
 }
 
 .code-block .token.script.language-javascript {

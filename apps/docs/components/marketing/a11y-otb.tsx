@@ -70,11 +70,14 @@ export const A11yOtb = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ref = useRef<any>(null);
-  const isInView = useInView(ref, {
-    margin: "-300px",
-  });
 
   const isMobile = useIsMobile();
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(() => !isMobile);
+
+  const isInView = useInView(ref, {
+    margin: isMobile ? "0px" : "-300px",
+  });
 
   return (
     <section className={sectionWrapper({class: "z-20 mt-16 lg:mt-44"})}>
@@ -139,14 +142,16 @@ export const A11yOtb = () => {
                 <InfoBoldIcon className="rotate-180" />
               </Button>
             </Tooltip>
-            {isInView && ref.current && (
+            {ref.current && (
               <Dropdown
                 className="shadow-xl"
-                defaultOpen={!isMobile}
+                closeOnSelect={true}
+                isOpen={isDropdownOpen && isInView}
                 placement="bottom"
                 portalContainer={ref.current}
                 shouldBlockScroll={isMobile}
                 shouldFlip={isMobile}
+                onOpenChange={(open) => setIsDropdownOpen(open)}
               >
                 <DropdownTrigger>
                   <Button color="success" variant="flat">

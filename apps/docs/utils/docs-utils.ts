@@ -15,7 +15,7 @@ export function getHeadings(): Heading[] {
 
   return Array.from(headings).map((h) => {
     return {
-      id: h.id,
+      id: h.getAttribute("data-id"),
       text: h.getAttribute("data-name"),
       level: h.getAttribute("data-level"),
     };

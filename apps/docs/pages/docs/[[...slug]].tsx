@@ -99,12 +99,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     doc = content.toString();
     meta = data;
   }
-  const mdxSource = await serialize(doc, {
-    mdxOptions: {
-      remarkPlugins: [require("remark-autolink-headings"), require("remark-slug")],
-      rehypePlugins: [require("@mapbox/rehype-prism")],
-    },
-  });
+
+  const mdxSource = await serialize(doc);
 
   const routes = manifest.routes.map((route: any) => {
     if (route.icon) {

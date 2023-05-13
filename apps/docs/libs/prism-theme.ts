@@ -4,7 +4,8 @@ const codeTheme: PrismTheme = {
   plain: {
     backgroundColor: "hsl(var(--nextui-code-background))",
     color: "#F4F4F4",
-    fontWeight: "500",
+    fontWeight: "400",
+    fontSize: "14px",
     fontStyle: "normal",
     textRendering: "geometricPrecision",
   },
@@ -24,13 +25,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["punctuation"],
       style: {
-        color: "#17c964",
-      },
-    },
-    {
-      types: ["property"],
-      style: {
-        color: "#17c964",
+        color: "#a2e9c1",
       },
     },
     {
@@ -52,6 +47,12 @@ const codeTheme: PrismTheme = {
       },
     },
     {
+      types: ["property", "function"],
+      style: {
+        color: "#61AFEF",
+      },
+    },
+    {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
         color: "#E06C75",
@@ -60,7 +61,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["attr-name"],
       style: {
-        color: "#c4841d",
+        color: "#f9c97c",
       },
     },
     {
@@ -70,7 +71,6 @@ const codeTheme: PrismTheme = {
         "entity",
         "url",
         "attr-value",
-        "keyword",
         "control",
         "directive",
         "unit",
@@ -93,7 +93,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["language-javascript", "script"],
       style: {
-        color: "#17c964",
+        color: "#a2e9c1",
       },
     },
     {
@@ -115,7 +115,7 @@ const codeTheme: PrismTheme = {
       },
     },
     {
-      types: ["important", "primitive"],
+      types: ["important", "primitive", "keyword"],
       style: {
         color: "#c678dd",
       },

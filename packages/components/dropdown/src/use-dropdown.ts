@@ -50,6 +50,7 @@ export function useDropdown(props: UseDropdownProps) {
     closeOnSelect = true,
     classNames: classNamesProp,
     disableAnimation = false,
+    onClose,
     className,
     ...otherProps
   } = props;
@@ -64,7 +65,17 @@ export function useDropdown(props: UseDropdownProps) {
   const triggerId = useId();
   const menuId = useId();
 
-  const state = useMenuTriggerState({trigger, isOpen, defaultOpen, onOpenChange});
+  const state = useMenuTriggerState({
+    trigger,
+    isOpen,
+    defaultOpen,
+    onOpenChange: (isOpen) => {
+      onOpenChange?.(isOpen);
+      if (!isOpen) {
+        onClose?.();
+      }
+    },
+  });
 
   const {menuTriggerProps, menuProps} = useMenuTrigger(
     {type, trigger, isDisabled},

@@ -10,9 +10,11 @@
 // import Block from "../templates/example-block";
 import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
+import {Language} from "prism-react-renderer";
 
 import * as DocsComponents from "@/components/docs/components";
-import {VirtualAnchor} from "@/components";
+import {Codeblock} from "@/components/docs/components/codeblock";
+import {VirtualAnchor, virtualAnchorEncode} from "@/components";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
@@ -24,7 +26,17 @@ const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
 
 const Thead: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
-    <thead className="[&>tr]:h-12 [&>tr>th]:bg-neutral-300 [&>tr>th]:text-neutral-400 [&>tr>th]:text-sm [&>tr>th]:text-left [&>tr>th]:px-4">
+    <thead
+      className={clsx(
+        "[&>tr]:h-12 [&>tr>th]:bg-neutral-100/50",
+        "[&>tr>th]:align-middle",
+        "[&>tr>th]:py-0",
+        "[&>tr>th]:text-neutral-500 [&>tr>th]:text-xs",
+        "[&>tr>th]:text-left [&>tr>th]:pl-2",
+        "[&>tr>th:first-child]:rounded-l-lg",
+        "[&>tr>th:last-child]:rounded-r-lg",
+      )}
+    >
       {children}
     </thead>
   );
@@ -56,11 +68,15 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, classNa
 
   const level = linkedLevels[as] || 1;
 
+  const id = virtualAnchorEncode(props.children as string);
+
   return (
     <Component
       className={clsx({"linked-heading": linked}, linked ? {} : className)}
+      data-id={id}
       data-level={level}
       data-name={props.children}
+      id={id}
       {...props}
     >
       {linked ? <VirtualAnchor>{props.children}</VirtualAnchor> : <>{props.children}</>}
@@ -76,9 +92,18 @@ const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
   );
 };
 
-const Code = ({children, className}: {children?: React.ReactNode; className?: string}) => {
-  const isMultiline =
-    Array.isArray(children) && !!children.find((child) => String(child).includes("\n\n"));
+const Code = ({
+  className,
+  children,
+  metastring,
+}: {
+  children?: React.ReactNode;
+  metastring?: string;
+  className?: string;
+}) => {
+  const isMultiLine = (children as string).split("\n").length > 2;
+  const language = (className?.replace(/language-/, "") ?? "jsx") as Language;
+  const codeString = String(children).trim();
 
   return (
     <Components.Snippet
@@ -87,17 +112,18 @@ const Code = ({children, className}: {children?: React.ReactNode; className?: st
       hideSymbol
       classNames={{
         base: clsx(
-          "bg-code-background text-code-foreground",
+          "px-0 bg-code-background text-code-foreground",
           {
-            "items-start": isMultiline,
+            "items-start": isMultiLine,
           },
           className,
         ),
-        pre: "font-light text-sm",
-        copyButton: "text-lg text-code-foreground/50 -mr-2",
+        pre: "font-light w-full text-sm",
+        copyButton: "text-lg text-code-foreground/50 mr-2",
       }}
+      codeString={codeString}
     >
-      <div>{children}</div>
+      <Codeblock codeString={codeString} language={language} metastring={metastring} />
     </Components.Snippet>
   );
 };
@@ -109,6 +135,14 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
     <Components.Link showAnchorIcon href={href} isExternal={isExternal}>
       {children}
     </Components.Link>
+  );
+};
+
+const InlineCode = ({children}: {children?: React.ReactNode}) => {
+  return (
+    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx">
+      {children}
+    </Components.Code>
   );
 };
 
@@ -146,8 +180,7 @@ export const MDXComponents = ({
   blockquote: (props: Omit<React.HTMLAttributes<HTMLElement>, "color">) => (
     <DocsComponents.Blockquote {...props} />
   ),
-  inlineCode: (props: Omit<React.HTMLAttributes<HTMLElement>, "color">) => (
-    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx" {...props} />
-  ),
+  inlineCode: InlineCode,
+  InlineCode,
   // Block,
 } as unknown) as Record<string, React.ReactNode>;

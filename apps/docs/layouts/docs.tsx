@@ -52,11 +52,11 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
       <Head {...meta} />
       <Navbar />
       <main className="container mx-auto max-w-7xl min-h-[calc(100dvh_-_64px_-_108px)] px-6 mb-12">
-        <div className="flex">
-          <div className="hidden relative lg:block lg:w-[30%] mt-8 pr-4">
+        <div className="flex xl:gap-12">
+          <div className="hidden relative lg:block lg:w-[30%] mt-8 pr-8">
             <DocsSidebar routes={routes} slug={slug} tag={tag} />
           </div>
-          <div className="w-full xl:px-12 mt-10">
+          <div className="w-full mt-10">
             <div className="w-full prose prose-neutral">{children}</div>
             <FooterNav nextRoute={nextRoute} prevRoute={prevRoute} tag={tag} />
             <footer>
@@ -92,7 +92,7 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
 
       <div
         aria-hidden="true"
-        className="fixed hidden dark:md:block dark:opacity-70 -top-[60%] -right-[45%] z-[-10] rotate-12"
+        className="fixed hidden dark:md:block dark:opacity-70 -top-[80%] -right-[60%] 2xl:-top-[60%] 2xl:-right-[45%] z-[-10] rotate-12"
       >
         <Image
           removeWrapper

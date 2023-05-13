@@ -1,6 +1,6 @@
 import {Button, Link} from "@nextui-org/react";
 
-import {GithubIcon, NpmIcon, AdobeIcon} from "@/components/icons";
+import {GithubIcon, NpmIcon, AdobeIcon, StorybookIcon} from "@/components/icons";
 import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
 
 export interface ComponentLinksProps {
@@ -47,6 +47,18 @@ export const ComponentLinks = ({component, reactAria}: ComponentLinksProps) => {
         variant="flat"
       >
         {`@nextui-org/${component}`}
+      </Button>
+
+      <Button
+        isExternal
+        as={Link}
+        className="text-neutral-700 font-normal"
+        href={`https://storiesv2.nextui.org/?path=/story/components-${component}`}
+        size="sm"
+        startIcon={<StorybookIcon className="text-lg text-[#ff4785]" />}
+        variant="flat"
+      >
+        Storybook
       </Button>
 
       {reactAria && (

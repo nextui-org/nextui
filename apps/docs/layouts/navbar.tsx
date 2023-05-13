@@ -78,7 +78,7 @@ export const Navbar = () => {
           <NextLink href="/">
             <NextUILogo auto />
           </NextLink>
-          {isMounted && ref.current && (
+          {isMounted && ref.current ? (
             <Dropdown placement="bottom-start" portalContainer={ref.current}>
               <DropdownTrigger>
                 <Button
@@ -100,6 +100,8 @@ export const Navbar = () => {
                 <DropdownItem key="v1">v1.0.0</DropdownItem>
               </DropdownMenu>
             </Dropdown>
+          ) : (
+            <div className="w-[66px]" />
           )}
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 ml-10 justify-start">

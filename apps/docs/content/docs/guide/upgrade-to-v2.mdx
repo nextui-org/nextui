@@ -1,0 +1,158 @@
+---
+title: Upgrade to v2
+description: Upgrade from NextUI v1 to v2
+url: https://nextui.org/docs/guide/upgrade-to-v2
+---
+
+
+# Upgrade to v2
+
+## Installation
+
+Requirements:
+
+- [React 18](https://reactjs.org/) or later
+- [Tailwind CSS 3](https://tailwindcss.com/) or later
+- [Framer Motion 4](https://www.framer.com/motion/) or later
+
+----- 
+
+### Upgrade React version
+
+NextUI v2 requires React 18 or later. To upgrade React, run the following command:
+
+<PackageManagers
+  commands={{
+    npm: 'npm i react@latest react-dom@latest',
+    yarn: 'yarn add react@latest react-dom@latest',
+    pnpm: 'pnpm add react@latest react-dom@latest',
+  }}
+/>
+
+
+### Install Framer motion
+
+In v2, NextUI now requires `framer-motion` as a dependency. To install both, use the following command:
+
+<PackageManagers
+  commands={{
+    npm: 'npm i framer-motion',
+    yarn: 'yarn add framer-motion',
+    pnpm: 'pnpm add framer-motion',
+  }}
+/>
+
+### TailwindCSS Setup
+
+NextUI v2 now uses Tailwind CSS. Add the NextUI plugin to your `tailwind.config.js` file:
+
+```js {9, 13-14}
+// tailwind.config.js
+const { nextui } = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [nextui()]
+}
+```
+
+### Provider Setup
+
+The provider setup is essentially the same as v1.
+
+### Setup pnpm (optional)
+
+If you are using pnpm, you need to add the following code to your `.npmrc` file:
+
+```bash
+# .npmrc
+strict-peer-dependencies=false
+enable-pre-post-scripts=true
+public-hoist-pattern[]=*@nextui-org/theme*
+```
+
+After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+
+
+## Next.js upgrade steps
+
+Make sure to follow the previous steps since they are required to upgrade to v2.
+
+### Pages Directory Setup
+
+Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
+
+```jsx
+// pages/_app.js
+import { NextUIProvider } from '@nextui-org/react'
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp;
+```
+
+<Blockquote
+ color="neutral"
+>
+  Make sure to remove all properties from the previous <InlineCode>NextUIProvider</InlineCode> component. Since now the <InlineCode>theme</InlineCode> is handled by the <InlineCode>nextui</InlineCode> Tailwind plugin.
+</Blockquote>
+
+### App Directory Setup
+
+Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
+
+```jsx
+// app/providers.tsx
+'use client'
+
+import { NextUIProvider } from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
+
+```jsx
+// app/layout.tsx
+import { Providers } from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+
+<Blockquote
+ color="neutral"
+>
+  Please visit the <Link href="https://github.com/nextui-org/nextui/releases/tag/v2.0.0" showAnchorIcon isExternal>Release Notes</Link> for more information about the new features and breaking changes.
+</Blockquote>
+

@@ -35,7 +35,8 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
     <Tabs
       aria-label="NextUI installation commands"
       classNames={{
-        base: "mt-4",
+        base: "group mt-4",
+        tabList: "h-10",
       }}
       variant="underlined"
     >
