@@ -1,5 +1,6 @@
 import {useRef, useState} from "react";
 import {
+  link,
   Navbar as NextUINavbar,
   NavbarContent,
   NavbarMenu,
@@ -17,6 +18,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {useRouter} from "next/router";
 import {includes} from "lodash";
@@ -105,37 +107,49 @@ export const Navbar = () => {
           )}
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 ml-10 justify-start">
-          <NavbarItem
-            as={Link}
-            className="data-[active=true]:text-primary"
-            color="foreground"
-            href="/docs/guide/introduction"
-            isActive={
-              !!(
-                isActive(router.pathname, "/docs/[[...slug]]") &&
-                !includes(router.asPath, "components")
-              )
-            }
-          >
-            Docs
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                link({color: "foreground"}),
+                "data-[active=true]:text-primary data-[active=true]:font-medium",
+              )}
+              color="foreground"
+              data-active={
+                !!(
+                  isActive(router.pathname, "/docs/[[...slug]]") &&
+                  !includes(router.asPath, "components")
+                )
+              }
+              href="/docs/guide/introduction"
+            >
+              Docs
+            </NextLink>
           </NavbarItem>
-          <NavbarItem
-            as={Link}
-            className="data-[active=true]:text-primary"
-            color="foreground"
-            href="/docs/components/avatar"
-            isActive={includes(router.asPath, "components")}
-          >
-            Components
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                link({color: "foreground"}),
+                "data-[active=true]:text-primary data-[active=true]:font-medium",
+              )}
+              color="foreground"
+              data-active={includes(router.asPath, "components")}
+              href="/docs/components/avatar"
+            >
+              Components
+            </NextLink>
           </NavbarItem>
-          <NavbarItem
-            as={Link}
-            className="data-[active=true]:text-primary"
-            color="foreground"
-            href="/figma"
-            isActive={router.asPath === "/figma"}
-          >
-            Figma
+          <NavbarItem>
+            <NextLink
+              className={clsx(
+                link({color: "foreground"}),
+                "data-[active=true]:text-primary data-[active=true]:font-medium",
+              )}
+              color="foreground"
+              data-active={router.asPath === "/figma"}
+              href="/figma"
+            >
+              Figma
+            </NextLink>
           </NavbarItem>
         </div>
       </NavbarContent>
