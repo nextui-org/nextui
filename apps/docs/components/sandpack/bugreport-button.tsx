@@ -35,7 +35,7 @@ export const BugReportButton = () => {
         title="Report a bug"
         variant="light"
       >
-        <BugIcon className="text-code-foreground/50" height={16} width={16} />
+        <BugIcon className="text-zinc-500" height={16} width={16} />
       </Button>
     </Tooltip>
   );

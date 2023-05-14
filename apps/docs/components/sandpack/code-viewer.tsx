@@ -115,7 +115,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
         {isExpandable && (
           <div className="w-full absolute bottom-0 py-1 px-4 flex items-center justify-end bg-gradient-to-b from-code-background/30 to-black/40 dark:to-black h-10">
             <button
-              className="text-sm transition-colors text-code-foreground/50 hover:text-code-foreground/80"
+              className="text-sm font-sans transition-colors text-code-foreground/50 hover:text-code-foreground/80"
               onClick={handleExpand}
             >
               {isExpanded ? "Show less" : "Show more"}

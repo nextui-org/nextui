@@ -112,7 +112,7 @@ const Code = ({
           className,
         ),
         pre: "font-light w-full text-sm",
-        copyButton: "text-lg text-code-foreground/50 mr-2",
+        copyButton: "text-lg text-zinc-500 mr-2",
       }}
       codeString={codeString}
     >

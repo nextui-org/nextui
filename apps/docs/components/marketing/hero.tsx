@@ -20,7 +20,6 @@ import {useInView} from "framer-motion";
 import {useRef} from "react";
 import NextLink from "next/link";
 
-import {useIsMobile, useMediaQuery} from "@/hooks/use-media-query";
 import {title, subtitle} from "@/components/primitives";
 import {NextUILogo} from "@/components";
 import {GithubIcon} from "@/components/icons";
@@ -177,9 +176,6 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
 };
 
 export const Hero = () => {
-  const isTablet = useMediaQuery(1024);
-  const isMobile = useIsMobile();
-
   const isMounted = useIsMounted();
 
   return (
@@ -198,6 +194,7 @@ export const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}
+            className="w-full md:w-auto"
             color="primary"
             endIcon={
               <ArrowRightIcon
@@ -205,7 +202,6 @@ export const Hero = () => {
                 strokeWidth={2}
               />
             }
-            fullWidth={isMobile}
             href="/docs/guide/introduction"
             radius="full"
             size="lg"
@@ -215,7 +211,7 @@ export const Hero = () => {
           <Button
             isExternal
             as={Link}
-            fullWidth={isMobile}
+            className="w-full md:w-auto"
             href="https://github.com/nextui-org/nextui"
             radius="full"
             size="lg"
@@ -227,7 +223,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      {!isTablet && <FloatingComponents mounted={isMounted} />}
+      <FloatingComponents mounted={isMounted} />
 
       <div
         className={clsx(
@@ -235,9 +231,7 @@ export const Hero = () => {
           "data-[mounted=true]:opacity-100 transition-opacity",
           "bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')]",
           "after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[-1]",
-          isTablet
-            ? "after:bg-gradient-to-l after:from-transparent after:to-white dark:after:to-black"
-            : "after:bg-gradient-to-r after:from-transparent after:to-white dark:after:to-black after:z-[-1]",
+          "after:bg-gradient-to-r after:from-transparent after:to-white dark:after:to-black after:z-[-1]",
         )}
         data-mounted={isMounted}
       />
