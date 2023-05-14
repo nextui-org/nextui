@@ -1,7 +1,6 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
 
-
 // Check the environment variable
 if (process.env.IS_VERCEL_ENV !== "true") {
   console.log("Skipping preinstall script because IS_VERCEL_ENV is not set to 'true'.");
