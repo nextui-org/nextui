@@ -1,6 +1,10 @@
 const fs = require("fs");
+const path = require("path");
 const execSync = require("child_process").execSync;
 
+// Get the root and local tsconfig files
+const rootTsConfigPath = path.resolve(process.cwd(), "../../tsconfig.json");
+const localTsConfigPath = path.resolve(process.cwd(), "./tsconfig.json");
 
 // Check the environment variable
 if (process.env.IS_VERCEL_ENV !== "true") {
@@ -34,5 +38,51 @@ fs.readFile("./package.json", "utf8", function (err, data) {
     if (err) {
       console.log("Error writing file:", err);
     }
+  });
+});
+
+// Modify local tsconfig.json file to extend the root tsconfig.json file
+fs.readFile(rootTsConfigPath, "utf8", function (err, rootData) {
+  if (err) {
+    console.log("Error reading root tsconfig.json file:", err);
+    return;
+  }
+
+  fs.readFile(localTsConfigPath, "utf8", function (err, localData) {
+    if (err) {
+      console.log("Error reading local tsconfig.json file:", err);
+      return;
+    }
+
+    // Parse the tsconfig files and merge them
+    let rootTsConfig = JSON.parse(rootData);
+    let localTsConfig = JSON.parse(localData);
+
+    // Remove "extends" from the local config
+    delete localTsConfig.extends;
+
+    // Merge "compilerOptions", "include", and "exclude"
+    let mergedTsConfig = {
+      ...rootTsConfig,
+      ...localTsConfig,
+      compilerOptions: {
+        ...rootTsConfig.compilerOptions,
+        ...localTsConfig.compilerOptions,
+      },
+      include: [...(rootTsConfig.include || []), ...(localTsConfig.include || [])],
+      exclude: [...(rootTsConfig.exclude || []), ...(localTsConfig.exclude || [])],
+    };
+
+    // Write the changes back to the local tsconfig.json file
+    fs.writeFile(
+      localTsConfigPath,
+      JSON.stringify(mergedTsConfig, null, 2),
+      "utf8",
+      function (err) {
+        if (err) {
+          console.log("Error writing file:", err);
+        }
+      },
+    );
   });
 });
