@@ -4,15 +4,18 @@ import {Spinner} from "@nextui-org/react";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 
-const DynamicReactLive = dynamic(() => import("./react-live").then((m) => m.ReactLive), {
-  ssr: false,
-  // eslint-disable-next-line react/display-name
-  loading: () => (
-    <div>
-      <Spinner />
-    </div>
-  ),
-});
+const DynamicReactLiveDemo = dynamic(
+  () => import("./react-live-demo").then((m) => m.ReactLiveDemo),
+  {
+    ssr: false,
+    // eslint-disable-next-line react/display-name
+    loading: () => (
+      <div>
+        <Spinner />
+      </div>
+    ),
+  },
+);
 
 const DynamicSandpack = dynamic(() => import("../../../sandpack").then((m) => m.Sandpack), {
   ssr: false,
@@ -60,7 +63,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   return (
     <div className="flex flex-col gap-4">
       {showPreview && (
-        <DynamicReactLive
+        <DynamicReactLiveDemo
           code={code}
           enableResize={enableResize || asIframe}
           height={previewHeight}

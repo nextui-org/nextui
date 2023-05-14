@@ -4,7 +4,7 @@ import * as Components from "@nextui-org/react";
 
 import {BgGridContainer} from "@/components/bg-grid-container";
 
-export interface ReactLiveProps {
+export interface ReactLiveDemoProps {
   code: string;
   height?: string | number;
   noInline?: boolean;
@@ -20,7 +20,7 @@ export const scope = {
   ...Components,
 } as Record<string, unknown>;
 
-export const ReactLive: React.FC<ReactLiveProps> = ({code, noInline}) => {
+export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({code, noInline}) => {
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope}>
       <BgGridContainer>

@@ -1,5 +1,5 @@
 import {FileCode} from "./types";
-import {scope} from "./react-live";
+import {scope} from "./react-live-demo";
 import {transformCode, joinCode, getFileName} from "./utils";
 
 import {SandpackProps} from "@/components/sandpack";
