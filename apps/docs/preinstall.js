@@ -1,13 +1,9 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
 
-const {loadEnvConfig} = require("@next/env");
-
-// Load the environment variables
-const {combinedEnv} = loadEnvConfig(process.cwd());
 
 // Check the environment variable
-if (combinedEnv.IS_VERCEL_ENV !== "true") {
+if (process.env.IS_VERCEL_ENV !== "true") {
   console.log("Skipping preinstall script because IS_VERCEL_ENV is not set to 'true'.");
   process.exit(0);
 }
