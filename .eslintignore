@@ -21,3 +21,4 @@ build
 !plopfile.js
 !react-shim.js
 !tsup.config.ts
+apps/docs/preinstall.js

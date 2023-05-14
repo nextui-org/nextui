@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preinstall": "node preinstall.js"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.6.4",
@@ -34,6 +35,7 @@
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "7.1.2",
     "lodash": "^4.17.21",
+    "mini-svg-data-uri": "^1.4.3",
     "next": "13.4.1",
     "next-mdx-remote": "^3.0.2",
     "next-themes": "^0.2.1",
@@ -45,7 +47,6 @@
     "react-live": "^4.1.0",
     "refractor": "3.3.1",
     "rehype": "11.0.0",
-    "mini-svg-data-uri": "^1.4.3",
     "rehype-parse": "7.0.1",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
@@ -54,6 +55,7 @@
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
+    "@next/env": "^13.4.2",
     "@react-types/shared": "^3.18.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",

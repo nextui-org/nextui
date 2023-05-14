@@ -399,6 +399,9 @@ importers:
         specifier: ^1.1.7
         version: 1.1.7
     devDependencies:
+      '@next/env':
+        specifier: ^13.4.2
+        version: 13.4.2
       '@react-types/shared':
         specifier: ^3.18.0
         version: 3.18.0(react@18.2.0)
@@ -437,7 +440,7 @@ importers:
         version: 11.0.0(eslint-import-resolver-typescript@2.4.0)(eslint@7.29.0)(next@13.4.1)(typescript@4.9.5)
       next-sitemap:
         specifier: ^4.0.7
-        version: 4.0.7(@next/env@13.4.1)(next@13.4.1)
+        version: 4.0.7(@next/env@13.4.2)(next@13.4.1)
       postcss:
         specifier: ^8.4.21
         version: 8.4.21
@@ -5365,6 +5368,10 @@ packages:
 
   /@next/env@13.4.1:
     resolution: {integrity: sha512-eD6WCBMFjLFooLM19SIhSkWBHtaFrZFfg2Cxnyl3vS3DAdFRfnx5TY2RxlkuKXdIRCC0ySbtK9JXXt8qLCqzZg==}
+
+  /@next/env@13.4.2:
+    resolution: {integrity: sha512-Wqvo7lDeS0KGwtwg9TT9wKQ8raelmUxt+TQKWvG/xKfcmDXNOtCuaszcfCF8JzlBG1q0VhpI6CKaRMbVPMDWgw==}
+    dev: true
 
   /@next/eslint-plugin-next@11.0.0:
     resolution: {integrity: sha512-fPZ0904yY1box6bRpR9rJqIkNxJdvzzxH7doXS+cdjyBAdptMR7wj3mcx1hEikBHzWduU8BOXBvRg2hWc09YDQ==}
@@ -18272,7 +18279,7 @@ packages:
       - supports-color
     dev: false
 
-  /next-sitemap@4.0.7(@next/env@13.4.1)(next@13.4.1):
+  /next-sitemap@4.0.7(@next/env@13.4.2)(next@13.4.1):
     resolution: {integrity: sha512-S2g5IwJeO0+ecmFq981fb+Mw9YWmntOuN/qTCxclSkUibOJ8qKIOye0vn6NEJ1S4tKhbY+MTYKgJpNdFZYxLoA==}
     engines: {node: '>=14.18'}
     hasBin: true
@@ -18281,7 +18288,7 @@ packages:
       next: '*'
     dependencies:
       '@corex/deepmerge': 4.0.43
-      '@next/env': 13.4.1
+      '@next/env': 13.4.2
       minimist: 1.2.8
       next: 13.4.1(@babel/core@7.12.9)(react-dom@18.2.0)(react@18.2.0)
     dev: true
