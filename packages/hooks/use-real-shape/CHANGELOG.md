@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230514151437
+
+### Patch Changes
+
+- New snapshot
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230514151437
+
 ## 0.0.0-dev-v2-20230511041421
 
 ### Patch Changes

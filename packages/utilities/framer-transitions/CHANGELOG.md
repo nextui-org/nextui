@@ -1,5 +1,14 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230514151437
+
+### Patch Changes
+
+- New snapshot
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230514151437
+  - @nextui-org/system@0.0.0-dev-v2-20230514151437
+
 ## 0.0.0-dev-v2-20230511041421
 
 ### Patch Changes
