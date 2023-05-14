@@ -52,11 +52,11 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
       <Head {...meta} />
       <Navbar />
       <main className="container mx-auto max-w-7xl min-h-[calc(100dvh_-_64px_-_108px)] px-6 mb-12">
-        <div className="flex xl:gap-12">
-          <div className="hidden relative lg:block lg:w-[30%] mt-8 pr-8">
+        <div className="grid grid-cols-12">
+          <div className="hidden relative lg:block lg:col-span-2 mt-8 pr-4">
             <DocsSidebar routes={routes} slug={slug} tag={tag} />
           </div>
-          <div className="w-full mt-10">
+          <div className="col-span-12 lg:col-span-10 xl:col-span-8 lg:px-12 mt-10">
             <div className="w-full prose prose-neutral">{children}</div>
             <FooterNav nextRoute={nextRoute} prevRoute={prevRoute} tag={tag} />
             <footer>
@@ -71,7 +71,7 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
               )}
             </footer>
           </div>
-          <div className="hidden xl:flex xl:w-[30%] mt-8 pl-8">
+          <div className="hidden xl:flex xl:col-span-2 mt-8 pl-4">
             <DocsToc headings={headings} />
           </div>
         </div>

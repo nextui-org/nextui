@@ -23,6 +23,7 @@ import {
 import {MDXComponents} from "@/components";
 import {useDocsRoute} from "@/hooks/use-docs-route";
 import {__PROD__, __PREVIEW__} from "@/utils";
+import * as componentsContent from "@/content/components";
 
 interface DocsPageProps {
   routes: Route[];
@@ -33,7 +34,7 @@ interface DocsPageProps {
 
 const scope = {
   // Markdown content
-  // ...componentsContent,
+  ...componentsContent,
 };
 
 const DocsPage: FC<DocsPageProps> = ({routes, currentRoute, source, meta}) => {

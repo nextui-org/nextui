@@ -5,10 +5,10 @@ export const CopyLinearIcon = ({size = 24, width, height, ...props}: IconSvgProp
     aria-hidden="true"
     fill="none"
     focusable="false"
-    height={size || height}
+    height={height || size}
     role="presentation"
     viewBox="0 0 24 24"
-    width={size || width}
+    width={width || size}
     {...props}
   >
     <path

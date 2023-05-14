@@ -14,3 +14,4 @@ export * from "./link-circle";
 export * from "./paperclip";
 export * from "./link-squared";
 export * from "./link";
+export * from "./rotate-right";

@@ -1,17 +1,9 @@
 /* eslint-disable react/display-name */
-// /* eslint-disable react/display-name */
-// import * as React from "react";
-// import {styled, useTheme} from "@nextui-org/react";
-// import cn from "classnames";
-
-// import Playground from "../playground";
-// import Codeblock from "../codeblock";
-// import CarbonAd from "../carbon-ad";
-// import Block from "../templates/example-block";
 import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
 import {Language} from "prism-react-renderer";
 
+import {Sandpack} from "@/components/sandpack";
 import * as DocsComponents from "@/components/docs/components";
 import {Codeblock} from "@/components/docs/components/codeblock";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components";
@@ -28,7 +20,7 @@ const Thead: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
     <thead
       className={clsx(
-        "[&>tr]:h-12 [&>tr>th]:bg-neutral-100/50",
+        "[&>tr]:h-12 [&>tr>th]:bg-neutral-100",
         "[&>tr>th]:align-middle",
         "[&>tr>th]:py-0",
         "[&>tr>th]:text-neutral-500 [&>tr>th]:text-xs",
@@ -155,6 +147,7 @@ export const MDXComponents = ({
    * Docs components
    */
   ...DocsComponents,
+  Sandpack,
   /**
    * Markdown components
    */

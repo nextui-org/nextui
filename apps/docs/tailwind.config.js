@@ -1,5 +1,8 @@
 const {nextui} = require("@nextui-org/theme/plugin");
 const {commonColors} = require("@nextui-org/theme/colors");
+const svgToDataUri = require('mini-svg-data-uri')
+const plugin = require('tailwindcss/plugin')
+const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
 
 // get tailwindcss default config
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -12,42 +15,43 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./libs/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/components/**/*.{js,ts,jsx,tsx,mdx}",
     "../../packages/core/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "code-foreground": "#F4F4F4",
-        "code-syntax1": "#61AFEF",
-        "code-syntax2": "#98C379",
-        "code-syntax3": "#c678dd",
-        "code-syntax4": "#d4d4d8",
-        "code-syntax5": "#E5C07B",
-        "code-syntax6": "#F5A524",
-        "code-removed": '#f871a0',
-        "code-string": "#98C379",
-        "code-class": "#91B4D5",
-        "code-punctuation": '#a2e9c1',
-        "code-number": "#E5C07B",
-        "code-added": '#74dfa2',
-        "code-line-number": '#d4d4d8',
-        "code-faded-line": '#71717a',
-        "code-comment": '#71717a',
-        "code-keyword": "#c678dd",
-        "code-function": "#61AFEF",
-        "code-tag": "#E06C75",
-        "code-attr-name": "#91B4D5",
-        "code-language-javascript": "#91B4D5",
-        "code-highlighted-word1-bg": '#7828c8',
-        "code-highlighted-word1-bg-active": '#6020a0',
-        "code-highlighted-word1-text": '#301050',
-        "code-highlighted-word2-bg": '#fdd0df',
-        "code-highlighted-word2-bg-active": '#f31260',
-        "code-highlighted-word2-text": '#faa0bf',
-        "code-highlighted-word3-bg": '#74dfa2',
-        "code-highlighted-word3-bg-active": '#74dfa2',
-        "code-highlighted-word3-text": '#d1f4e0',
+        "code-foreground": 'rgb(var(--code-foreground) / <alpha-value>)',
+        "code-syntax1": 'rgb(var(--code-syntax1) / <alpha-value>)',
+        "code-syntax2": 'rgb(var(--code-syntax2) / <alpha-value>)',
+        "code-syntax3": 'rgb(var(--code-syntax3) / <alpha-value>)',
+        "code-syntax4": 'rgb(var(--code-syntax4) / <alpha-value>)',
+        "code-syntax5": 'rgb(var(--code-syntax5) / <alpha-value>)',
+        "code-syntax6": 'rgb(var(--code-syntax6) / <alpha-value>)',
+        "code-removed": 'rgb(var(--code-removed) / <alpha-value>)',
+        "code-string": 'rgb(var(--code-string) / <alpha-value>)',
+        "code-class": 'rgb(var(--code-class) / <alpha-value>)',
+        "code-punctuation": 'rgb(var(--code-punctuation) / <alpha-value>)',
+        "code-number": 'rgb(var(--code-number) / <alpha-value>)',
+        "code-added": 'rgb(var(--code-added) / <alpha-value>)',
+        "code-line-number": 'rgb(var(--code-line-number) / <alpha-value>)',
+        "code-faded-line": 'rgb(var(--code-faded-line) / <alpha-value>)',
+        "code-comment": 'rgb(var(--code-comment) / <alpha-value>)',
+        "code-keyword": 'rgb(var(--code-keyword) / <alpha-value>)',
+        "code-function": 'rgb(var(--code-function) / <alpha-value>)',
+        "code-tag": 'rgb(var(--code-tag) / <alpha-value>)',
+        "code-attr-name": 'rgb(var(--code-attr-name) / <alpha-value>)',
+        "code-language-javascript": 'rgb(var(--code-language-javascript) / <alpha-value>)',
+        "code-highlighted-word1-bg": 'rgb(var(--code-highlighted-word1-bg) / <alpha-value>)',
+        "code-highlighted-word1-bg-active": 'rgb(var(--code-highlighted-word1-bg-active) / <alpha-value>)',
+        "code-highlighted-word1-text": 'rgb(var(--code-highlighted-word1-text) / <alpha-value>)',
+        "code-highlighted-word2-bg": 'rgb(var(--code-highlighted-word2-bg) / <alpha-value>)',
+        "code-highlighted-word2-bg-active": 'rgb(var(--code-highlighted-word2-bg-active) / <alpha-value>)',
+        "code-highlighted-word2-text": 'rgb(var(--code-highlighted-word2-text) / <alpha-value>)',
+        "code-highlighted-word3-bg": 'rgb(var(--code-highlighted-word3-bg) / <alpha-value>)',
+        "code-highlighted-word3-bg-active": 'rgb(var(--code-highlighted-word3-bg-active) / <alpha-value>)',
+        "code-highlighted-word3-text": 'rgb(var(--code-highlighted-word3-text) / <alpha-value>)',
       },
       boxShadow: {
         highlighted: `${commonColors.purple[500]} 1px 0 0, ${commonColors.purple[500]} -1px 0 0`,
@@ -90,6 +94,7 @@ module.exports = {
               ...theme("fontSize.2xl")[1],
             },
             "h3 a" :{
+              fontSize: '1.25rem !important',
               fontWeight: theme("fontWeight.medium"),
             },
             "h2 small, h3 small, h4 small": {
@@ -163,6 +168,7 @@ module.exports = {
             pre: {
               display: "flex",
               backgroundColor: "transparent",
+              fontWeight: theme("fontWeight.light"),
               padding: 0,
               margin: 0,
             },
@@ -250,56 +256,57 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        heartbeat: {
+          "0%": {transform: "scale(1)"},
+          "50%": {transform: "scale(1.2)"},
+          "100%": {transform: "scale(1)"},
+        },
+        levitate: {
+          "0%": {
+            transform: "translateY(0)",
+          },
+          "30%": {
+            transform: "translateY(-10px)",
+          },
+          "50%": {
+            transform: "translateY(4px)",
+          },
+          "70%": {
+            transform: "translateY(-15px)",
+          },
+          "100%": {
+            transform: "translateY(0)",
+          },
+        },
+        expand: {
+          "0%": {transform: "scale(1)"},
+          "50%": {transform: "scale(1.2)"},
+          "100%": {transform: "scale(1)"},
+        },
+        "expand-opacity": {
+          "0%": {
+            opacity: 0,
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: 1,
+            transform: "scale(1.3)",
+          },
+          "100%": {
+            opacity: 0,
+            transform: "scale(1.295)",
+          },
+        },
+      },
+      animation: {
+        heartbeat: "heartbeat 1s ease-in-out infinite",
+        levitate: "levitate 5s ease infinite",
+        expand: "expand 6s ease-out infinite both",
+        "expand-opacity": "expand-opacity 6s linear infinite both",
+      },
     },
-    keyframes: {
-      heartbeat: {
-        "0%": {transform: "scale(1)"},
-        "50%": {transform: "scale(1.2)"},
-        "100%": {transform: "scale(1)"},
-      },
-      levitate: {
-        "0%": {
-          transform: "translateY(0)",
-        },
-        "30%": {
-          transform: "translateY(-10px)",
-        },
-        "50%": {
-          transform: "translateY(4px)",
-        },
-        "70%": {
-          transform: "translateY(-15px)",
-        },
-        "100%": {
-          transform: "translateY(0)",
-        },
-      },
-      expand: {
-        "0%": {transform: "scale(1)"},
-        "50%": {transform: "scale(1.2)"},
-        "100%": {transform: "scale(1)"},
-      },
-      "expand-opacity": {
-        "0%": {
-          opacity: 0,
-          transform: "scale(1)",
-        },
-        "50%": {
-          opacity: 1,
-          transform: "scale(1.3)",
-        },
-        "100%": {
-          opacity: 0,
-          transform: "scale(1.295)",
-        },
-      },
-    },
-    animation: {
-      heartbeat: "heartbeat 1s ease-in-out infinite",
-      levitate: "levitate 5s ease infinite",
-      expand: "expand 6s ease-out infinite both",
-      "expand-opacity": "expand-opacity 6s linear infinite both",
-    },
+   
   },
   plugins: [
     nextui({
@@ -309,12 +316,24 @@ module.exports = {
           "code-mdx": "#ff4ecd",
         },
         dark: {
-          "code-background": "#111111",
+          "code-background": "#0B0B0B",
           "code-mdx": "#06B7DB",
         },
       },
     }),
     require("tailwind-scrollbar-hide"),
     require("@tailwindcss/typography"),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'bg-grid': (value) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+        },
+        { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
+      )
+    }),
   ],
 };

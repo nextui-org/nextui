@@ -19,48 +19,88 @@ NextUI exports 3 avatar-related components:
 - **AvatarIcon**: The default icon used as fallback when the image fails to load.
 
 ```jsx
-import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
+import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/react";
 ```
 
 ## Usage
 
-### Default
+<CodeDemo title="Usage" files={avatarContent.usage} />
 
-<Avatar name="JW" color="danger" />
-<Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026705d" />
+### Sizes
 
-### With text
-
-<Avatar name="JW" color="danger" />
+<CodeDemo title="Sizes" files={avatarContent.sizes} />
 
 ### Disabled
 
-<Avatar
-  src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
-  color="secondary"
-  isBordered
-  isDisabled
-/>
+<CodeDemo title="Disabled" files={avatarContent.disabled} />
 
 ### Bordered
 
-<Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026709d" color="secondary" isBordered />
+<CodeDemo title="Bordered" files={avatarContent.bordered} />
 
-### With icon
+### Radius
 
-### With fallback
+<CodeDemo title="Sizes" files={avatarContent.radius} />
 
-#### Icon fallback
+### Colors
 
-#### Initials fallback
+<CodeDemo title="Colors" files={avatarContent.colors} />
 
-#### Custom fallback
+### Avatar Fallbacks
 
-### Custom
+If there is an error loading the `src` of the avatar, there are 2 fallbacks:
+
+- If there's a `name` prop, we use it to generate the initials and a random, accessible background color.
+- If there's no `name` prop, we use a default avatar.
+
+If the `showFallback` is not passed, the fallbacks will not be displayed.
+
+<CodeDemo title="Avatar Fallbacks" files={avatarContent.fallbacks} />
+
+### Custom Fallback
+
+You can also provide a custom fallback component to be displayed when the `src` fails to load.
+
+<CodeDemo title="Custom Fallback" files={avatarContent.customFallback} />
+
+### Custom intials logic
+
+It is possible to customize the logic used to generate the initials by passing a function to the `getInitials` prop.
+By default we merge the first characters of each word in the `name` prop.
+
+## Avatar Group
+
+<CodeDemo title="Avatar Group" files={avatarContent.group} />
+
+### Group Disabled
+
+<CodeDemo title="Group Disabled" files={avatarContent.groupDisabled} />
+
+### Group Max Count
+
+You can limit the number of avatars displayed by passing the `max` prop to the `AvatarGroup` component.
+
+<CodeDemo title="Group Max Count" files={avatarContent.groupMax} />
+
+### Group Total Count
+
+You can display the total number of avatars by passing the `total` prop to the `AvatarGroup` component.
+
+<CodeDemo title="Group Total Count" files={avatarContent.groupTotal} />
+
+### Group Custom count
+
+NextUI provides a `renderCount` prop to customize the count displayed when the `total` prop is passed.
+
+<CodeDemo title="Group Custom count" files={avatarContent.groupCustomCount} />
+
+### Group Grid
+
+By passing the `isGrid` prop to the `AvatarGroup` component, the avatars will be displayed in a grid layout.
+
+<CodeDemo title="Usage" files={avatarContent.groupGrid} />
 
 ## Slots
-
-## Available Slots
 
 1. **base**: Avatar wrapper, it includes styles for focus ring, position, and general appearance.
 2. **img**: Image element within the avatar, it includes styles for opacity transition and size.
@@ -68,7 +108,13 @@ import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
 4. **name**: Initials displayed when the image is not provided or fails to load, it includes styles for font, text alignment, and inheritance.
 5. **icon**: Icon element within the avatar, it includes styles for centering the content, text inheritance, and size.
 
-## Props
+### Custom Avatar
+
+You can customize any part of the avatar by using the `classNames` prop, each `slot` has its own `className`.
+
+<CodeDemo title="Custom Avatar" files={avatarContent.custom} />
+
+## Avatar Props
 
 | Attribute    | Type                                                         | Description                                                                  | Default   |
 | ------------ | ------------------------------------------------------------ | ---------------------------------------------------------------------------- | --------- |
@@ -84,3 +130,17 @@ import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
 | showFallback | `boolean`                                                    | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
 | fallback     | `ReactNode`                                                  | A custom fallback component to display when the image fails to load.         | -         |
 | classNames   | `base` `img` `fallback` `name` `icon`                        | Allows to set custom class names for the avatar slots.                       | -         |
+
+## Avatar Group Props
+
+| Attribute   | Type                           | Description                                         | Default |
+| ----------- | ------------------------------ | --------------------------------------------------- | ------- |
+| isGrid      | `boolean`                      | Whether the avatars should be displayed in a grid   | `false` |
+| max         | `number`                       | The maximum number of visible avatars               | `5`     |
+| total       | `number`                       | Control the number of avatar not visible            | -       |
+| renderCount | `(count: number) => ReactNode` | This allows you to render a custom count component. | -       |
+| size        | `AvatarProps['size']`          | Size of the avatars                                 | -       |
+| color       | `AvatarProps['color']`         | Color of the avatars                                | -       |
+| radius      | `AvatarProps['radius']`        | Radius of the avatars                               | -       |
+| isDisabled  | `boolean`                      | Whether the avatars are disabled                    | -       |
+| isBordered  | `boolean`                      | Whether the avatars have a border                   | -       |

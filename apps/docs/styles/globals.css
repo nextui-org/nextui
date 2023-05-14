@@ -22,3 +22,42 @@ body,
     overflow-x: hidden;
   }
 }
+
+
+@layer base {
+  :root {
+    /* code colors */
+    --code-foreground: 244 244 244;
+    /* landing code window colors */
+    --code-syntax1: 97 175 239;
+    --code-syntax2: 152 195 121;
+    --code-syntax3: 198 120 221;
+    --code-syntax4: 212 212 216;
+    --code-syntax5: 229 192 123;
+    --code-syntax6: 245 165 36;
+    --code-removed: 248 113 160;
+    --code-highlighted-word1-bg: 120 40 200;
+    --code-highlighted-word1-bg-active: 96 32 160;
+    --code-highlighted-word1-text: 48 16 80;
+    --code-highlighted-word2-bg: 253 208 223;
+    --code-highlighted-word2-bg-active: 243 18 96;
+    --code-highlighted-word2-text: 250 160 191;
+    --code-highlighted-word3-bg: 116 223 162;
+    --code-highlighted-word3-bg-active: 116 223 162;
+    --code-highlighted-word3-text: 209 244 224;
+    /* sandpack + prism */
+    --code-string: 152 195 121;
+    --code-class: 145 180 213;
+    --code-punctuation: 220 220 220;
+    --code-number: 229 192 123;
+    --code-added: 116 223 162;
+    --code-line-number: 212 212 216;
+    --code-faded-line: 113 113 122;
+    --code-comment: 113 113 122;
+    --code-keyword: 198 120 221;
+    --code-function: 97 175 239;
+    --code-tag: 224 108 117;
+    --code-attr-name: 145 180 213;
+    --code-language-javascript: 145 180 213;
+  }
+}

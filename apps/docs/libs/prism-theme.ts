@@ -13,25 +13,25 @@ const codeTheme: PrismTheme = {
     {
       types: ["comment", "prolog", "doctype", "cdata"],
       style: {
-        color: "#71717a",
+        color: "rgb(var(--code-comment))",
       },
     },
     {
       types: ["symbol", "text"],
       style: {
-        color: "#F4F4F4",
+        color: "rgb(var(--code-foreground))",
       },
     },
     {
       types: ["punctuation"],
       style: {
-        color: "#a2e9c1",
+        color: "rgb(var(--code-punctuation))",
       },
     },
     {
       types: ["function"],
       style: {
-        color: "#61AFEF",
+        color: "rgb(var(--code-function))",
       },
     },
     {
@@ -43,25 +43,25 @@ const codeTheme: PrismTheme = {
     {
       types: ["tag", "operator", "number"],
       style: {
-        color: "#E5C07B",
+        color: "rgb(var(--code-number))",
       },
     },
     {
       types: ["property", "function"],
       style: {
-        color: "#61AFEF",
+        color: "rgb(var(--code-function))",
       },
     },
     {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: "#E06C75",
+        color: "rgb(var(--code-tag))",
       },
     },
     {
       types: ["attr-name"],
       style: {
-        color: "#f9c97c",
+        color: "rgb(var(--code-attr-name))",
       },
     },
     {
@@ -81,7 +81,7 @@ const codeTheme: PrismTheme = {
         "variable",
       ],
       style: {
-        color: "#98C379",
+        color: "rgb(var(--code-string))",
       },
     },
     {
@@ -93,7 +93,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["language-javascript", "script"],
       style: {
-        color: "#a2e9c1",
+        color: "rgb(var(--code-function))",
       },
     },
     {
@@ -117,7 +117,7 @@ const codeTheme: PrismTheme = {
     {
       types: ["important", "primitive", "keyword"],
       style: {
-        color: "#c678dd",
+        color: "rgb(var(--code-keyword))",
       },
     },
   ],

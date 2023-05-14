@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.6.4",
     "@mapbox/rehype-prism": "^0.6.0",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/react": "workspace:*",
@@ -41,11 +42,14 @@
     "querystring": "^0.2.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-live": "^4.1.0",
     "refractor": "3.3.1",
     "rehype": "11.0.0",
+    "mini-svg-data-uri": "^1.4.3",
     "rehype-parse": "7.0.1",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
+    "scroll-into-view-if-needed": "2.2.29",
     "shelljs": "^0.8.4",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
