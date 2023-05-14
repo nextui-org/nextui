@@ -11,12 +11,14 @@ import {
   Pagination,
   Tabs,
   TabItem,
+  Link,
 } from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
 import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
 import {useInView} from "framer-motion";
 import {useRef} from "react";
+import NextLink from "next/link";
 
 import {useIsMobile, useMediaQuery} from "@/hooks/use-media-query";
 import {title, subtitle} from "@/components/primitives";
@@ -195,6 +197,7 @@ export const Hero = () => {
         </h4>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
+            as={NextLink}
             color="primary"
             endIcon={
               <ArrowRightIcon
@@ -203,13 +206,17 @@ export const Hero = () => {
               />
             }
             fullWidth={isMobile}
+            href="/docs/guide/introduction"
             radius="full"
             size="lg"
           >
             Get Started
           </Button>
           <Button
+            isExternal
+            as={Link}
             fullWidth={isMobile}
+            href="https://github.com/nextui-org/nextui"
             radius="full"
             size="lg"
             startIcon={<GithubIcon />}

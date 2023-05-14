@@ -15,7 +15,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./libs/**/*.{js,ts,jsx,tsx,mdx}",
-    "./content/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/**/*.{js,ts,jsx,tsx,mdx}",
     "../../packages/core/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",

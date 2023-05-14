@@ -2,6 +2,7 @@
 import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
 import {Language} from "prism-react-renderer";
+import NextImage from "next/image";
 
 import {Sandpack} from "@/components/sandpack";
 import * as DocsComponents from "@/components/docs/components";
@@ -139,6 +140,10 @@ const InlineCode = ({children}: {children?: React.ReactNode}) => {
 };
 
 export const MDXComponents = ({
+  /**
+   * Next.js components
+   */
+  NextImage,
   /**
    * NextUI components
    */

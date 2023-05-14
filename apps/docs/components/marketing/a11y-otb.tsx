@@ -19,7 +19,7 @@ import {
   DeleteDocumentBulkIcon,
 } from "@nextui-org/shared-icons";
 import Link from "next/link";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 import {FeaturesGrid} from "./features-grid";
 
@@ -68,16 +68,19 @@ const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0
 
 export const A11yOtb = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const ref = useRef<any>(null);
 
   const isMobile = useIsMobile();
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(() => !isMobile);
-
   const isInView = useInView(ref, {
     margin: isMobile ? "0px" : "-300px",
   });
+
+  useEffect(() => {
+    setIsDropdownOpen(!isMobile && isInView);
+  }, [isMobile, isInView]);
 
   return (
     <section className={sectionWrapper({class: "z-20 mt-16 lg:mt-44"})}>
@@ -146,7 +149,7 @@ export const A11yOtb = () => {
               <Dropdown
                 className="shadow-xl"
                 closeOnSelect={true}
-                isOpen={isDropdownOpen && isInView}
+                isOpen={isDropdownOpen}
                 placement="bottom"
                 portalContainer={ref.current}
                 shouldBlockScroll={isMobile}
