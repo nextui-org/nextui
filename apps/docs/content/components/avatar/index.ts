@@ -13,6 +13,8 @@ import groupTotal from "./group-total";
 import groupGrid from "./group-grid";
 import groupCustomCount from "./group-custom-count";
 import custom from "./custom";
+import customImpl from "./custom-impl";
+import groupCustomImpl from "./group-custom-impl";
 
 export const avatarContent = {
   usage,
@@ -30,4 +32,6 @@ export const avatarContent = {
   groupDisabled,
   groupCustomCount,
   custom,
+  customImpl,
+  groupCustomImpl,
 };

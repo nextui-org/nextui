@@ -63,6 +63,13 @@ You can also provide a custom fallback component to be displayed when the `src` 
 
 <CodeDemo title="Custom Fallback" files={avatarContent.customFallback} />
 
+### Custom Implementation
+
+In case you need to customize the avatar even further, you can use the `useAvatar` hook to create your own implementation.
+
+<CodeDemo showPreview={false} title="Custom implementation" files={avatarContent.customImpl} />
+
+
 ### Custom intials logic
 
 It is possible to customize the logic used to generate the initials by passing a function to the `getInitials` prop.
@@ -100,6 +107,13 @@ By passing the `isGrid` prop to the `AvatarGroup` component, the avatars will be
 
 <CodeDemo title="Usage" files={avatarContent.groupGrid} />
 
+### Group Custom Implementation 
+
+In case you need to customize the avatar group even further, you can use the `useAvatarGroup` hook and the
+`AvatarGroupProvider` to create your own implementation.
+
+<CodeDemo showPreview={false} title="Custom implementation" files={avatarContent.groupCustomImpl} />
+
 ## Slots
 
 1. **base**: Avatar wrapper, it includes styles for focus ring, position, and general appearance.
@@ -108,11 +122,12 @@ By passing the `isGrid` prop to the `AvatarGroup` component, the avatars will be
 4. **name**: Initials displayed when the image is not provided or fails to load, it includes styles for font, text alignment, and inheritance.
 5. **icon**: Icon element within the avatar, it includes styles for centering the content, text inheritance, and size.
 
-### Custom Avatar
+### Custom Avatar Styles
 
 You can customize any part of the avatar by using the `classNames` prop, each `slot` has its own `className`.
 
 <CodeDemo title="Custom Avatar" files={avatarContent.custom} />
+
 
 ## Avatar Props
 
@@ -135,12 +150,12 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 
 | Attribute   | Type                           | Description                                         | Default |
 | ----------- | ------------------------------ | --------------------------------------------------- | ------- |
-| isGrid      | `boolean`                      | Whether the avatars should be displayed in a grid   | `false` |
 | max         | `number`                       | The maximum number of visible avatars               | `5`     |
 | total       | `number`                       | Control the number of avatar not visible            | -       |
-| renderCount | `(count: number) => ReactNode` | This allows you to render a custom count component. | -       |
 | size        | `AvatarProps['size']`          | Size of the avatars                                 | -       |
 | color       | `AvatarProps['color']`         | Color of the avatars                                | -       |
 | radius      | `AvatarProps['radius']`        | Radius of the avatars                               | -       |
+| isGrid      | `boolean`                      | Whether the avatars should be displayed in a grid   | `false` |
 | isDisabled  | `boolean`                      | Whether the avatars are disabled                    | -       |
 | isBordered  | `boolean`                      | Whether the avatars have a border                   | -       |
+| renderCount | `(count: number) => ReactNode` | This allows you to render a custom count component. | -       |

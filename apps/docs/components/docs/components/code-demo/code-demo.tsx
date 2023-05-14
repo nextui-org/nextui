@@ -29,6 +29,7 @@ interface CodeDemoProps extends UseCodeDemoProps {
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
   enableResize?: boolean;
+  showPreview?: boolean;
   showWindowActions?: boolean;
   iframeSrc?: string;
   asIframe?: boolean;
@@ -41,6 +42,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   files = {},
   component,
   showEditor = true,
+  showPreview = true,
   asIframe = false,
   showSandpackPreview = false,
   showWindowActions = false,
@@ -57,21 +59,24 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
 
   return (
     <div className="flex flex-col gap-4">
-      <DynamicReactLive
-        code={code}
-        enableResize={enableResize || asIframe}
-        height={previewHeight}
-        iframeInitialWidth={iframeInitialWidth}
-        iframeSrc={iframeSrc}
-        iframeTitle={component}
-        noInline={noInline}
-        overflow={overflow}
-        showWindowActions={showWindowActions || asIframe}
-      />
+      {showPreview && (
+        <DynamicReactLive
+          code={code}
+          enableResize={enableResize || asIframe}
+          height={previewHeight}
+          iframeInitialWidth={iframeInitialWidth}
+          iframeSrc={iframeSrc}
+          iframeTitle={component}
+          noInline={noInline}
+          overflow={overflow}
+          showWindowActions={showWindowActions || asIframe}
+        />
+      )}
       <DynamicSandpack
         files={files}
         highlightedLines={highlightedLines}
         showEditor={showEditor}
+        showOpenInCodeSandbox={showPreview}
         showPreview={showSandpackPreview}
       />
     </div>

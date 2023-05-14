@@ -12,5 +12,8 @@ export {useAvatarGroup} from "./use-avatar-group";
 // export misc
 export {AvatarIcon} from "./avatar-icon";
 
+// export context
+export * from "./avatar-group-context";
+
 // export component
 export {Avatar, AvatarGroup};

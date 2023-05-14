@@ -19,7 +19,7 @@ export interface UseSandpackProps {
 
 export const useSandpack = ({
   files = {},
-  template = "react",
+  template = "vite-react",
   highlightedLines,
 }: UseSandpackProps) => {
   // once the user select a template we store it in local storage
