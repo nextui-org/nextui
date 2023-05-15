@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230515031033
+
+### Patch Changes
+
+- Button spinner added
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230515031033
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230515031033
+
 ## 0.0.0-dev-v2-20230514151437
 
 ### Patch Changes

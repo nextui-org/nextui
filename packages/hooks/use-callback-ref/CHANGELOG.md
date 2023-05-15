@@ -1,5 +1,13 @@
 # @nextui-org/use-callback-ref
 
+## 0.0.0-dev-v2-20230515031033
+
+### Patch Changes
+
+- Button spinner added
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230515031033
+
 ## 0.0.0-dev-v2-20230514151437
 
 ### Patch Changes

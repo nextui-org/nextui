@@ -1,5 +1,16 @@
 # @nextui-org/radio
 
+## 0.0.0-dev-v2-20230515031033
+
+### Patch Changes
+
+- Button spinner added
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230515031033
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230515031033
+  - @nextui-org/system@0.0.0-dev-v2-20230515031033
+  - @nextui-org/theme@0.0.0-dev-v2-20230515031033
+
 ## 0.0.0-dev-v2-20230514151437
 
 ### Patch Changes
