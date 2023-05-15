@@ -50,7 +50,6 @@
     "@react-aria/focus": "^3.12.0"
   },
   "devDependencies": {
-    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@react-types/shared": "^3.18.0",
     "@react-types/button": "^3.7.2",

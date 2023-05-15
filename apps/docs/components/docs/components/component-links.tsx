@@ -5,10 +5,10 @@ import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
 
 export interface ComponentLinksProps {
   component: string;
-  reactAria?: string;
+  reactAriaHook?: string;
 }
 
-export const ComponentLinks = ({component, reactAria}: ComponentLinksProps) => {
+export const ComponentLinks = ({component, reactAriaHook}: ComponentLinksProps) => {
   if (!component) {
     return null;
   }
@@ -18,8 +18,47 @@ export const ComponentLinks = ({component, reactAria}: ComponentLinksProps) => {
       <Button
         isExternal
         as={Link}
-        className="text-neutral-700 font-normal"
+        className="text-neutral-700"
+        href={`https://storiesv2.nextui.org/?path=/story/components-${component}`}
+        radius="md"
+        size="sm"
+        startIcon={<StorybookIcon className="text-lg text-[#ff4785]" />}
+        variant="flat"
+      >
+        Storybook
+      </Button>
+      <Button
+        isExternal
+        as={Link}
+        className="text-neutral-700"
+        href={`https://www.npmjs.com/package/@nextui-org/${component}`}
+        radius="md"
+        size="sm"
+        startIcon={<NpmIcon className="text-2xl text-[#E53E3E]" />}
+        variant="flat"
+      >
+        {`@nextui-org/${component}`}
+      </Button>
+      {reactAriaHook && (
+        <Button
+          isExternal
+          as={Link}
+          className="text-neutral-700"
+          href={`https://react-spectrum.adobe.com/react-aria/${reactAriaHook}.html`}
+          radius="md"
+          size="sm"
+          startIcon={<AdobeIcon className="text-lg text-[#E1251B]" />}
+          variant="flat"
+        >
+          React Aria
+        </Button>
+      )}
+      <Button
+        isExternal
+        as={Link}
+        className="text-neutral-700"
         href={`${COMPONENT_PATH}/${component}`}
+        radius="md"
         size="sm"
         startIcon={<GithubIcon />}
         variant="flat"
@@ -29,51 +68,15 @@ export const ComponentLinks = ({component, reactAria}: ComponentLinksProps) => {
       <Button
         isExternal
         as={Link}
-        className="text-neutral-700 font-normal"
+        className="text-neutral-700"
         href={`${COMPONENT_THEME_PATH}/${component}.ts`}
+        radius="md"
         size="sm"
         startIcon={<GithubIcon />}
         variant="flat"
       >
         Styles source
       </Button>
-      <Button
-        isExternal
-        as={Link}
-        className="text-neutral-700 font-normal"
-        href={`https://www.npmjs.com/package/@nextui-org/${component}`}
-        size="sm"
-        startIcon={<NpmIcon className="text-2xl text-[#E53E3E]" />}
-        variant="flat"
-      >
-        {`@nextui-org/${component}`}
-      </Button>
-
-      <Button
-        isExternal
-        as={Link}
-        className="text-neutral-700 font-normal"
-        href={`https://storiesv2.nextui.org/?path=/story/components-${component}`}
-        size="sm"
-        startIcon={<StorybookIcon className="text-lg text-[#ff4785]" />}
-        variant="flat"
-      >
-        Storybook
-      </Button>
-
-      {reactAria && (
-        <Button
-          isExternal
-          as={Link}
-          className="text-neutral-700 font-normal"
-          href={reactAria}
-          size="sm"
-          startIcon={<AdobeIcon />}
-          variant="flat"
-        >
-          React Aria
-        </Button>
-      )}
     </div>
   );
 };

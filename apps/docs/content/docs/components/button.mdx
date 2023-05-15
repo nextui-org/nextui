@@ -8,6 +8,49 @@ url: https://nextui.org/docs/components/button
 
 Buttons allow users to perform actions and choose with a single tap.
 
+<ComponentLinks component="button" reactAriaHook="useButton" />
+
+## Import
+
+NextUI exports 2 button-related components:
+
+- **Button**: The main component to display a button.
+- **ButtonGroup**: A wrapper component to display a group of buttons.
+
 ```jsx
-import { Button } from "@nextui-org/react";
+import { Button, ButtonGroup } from "@nextui-org/react";
 ```
+
+## Usage
+
+<CodeDemo title="Usage" files={buttonContent.usage} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={buttonContent.sizes} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={buttonContent.disabled} />
+
+### Radius
+
+<CodeDemo title="Radius" files={buttonContent.radius} />
+
+### Colors
+
+<CodeDemo title="Colors" files={buttonContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={buttonContent.variants} />
+
+### Loading
+
+Pass the `isLoading` prop to display a [Spinner](/docs/components/spinner) component inside the button.
+
+<CodeDemo title="Loading" files={buttonContent.loading} />
+
+You can also customize the loading spinner by passing the a custom component to the `spinner` prop.
+
+<CodeDemo title="Custom Loading" files={buttonContent.loadingCustom} />

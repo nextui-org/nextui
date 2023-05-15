@@ -78,6 +78,10 @@ const spinner = tv({
       },
     },
     color: {
+      current: {
+        circle1: "border-b-current",
+        circle2: "border-b-current",
+      },
       white: {
         circle1: "border-b-white",
         circle2: "border-b-white",

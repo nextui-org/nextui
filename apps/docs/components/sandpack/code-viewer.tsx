@@ -92,7 +92,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
     return (
       <>
         <div
-          className={clsx("overflow-scroll h-full", {
+          className={clsx("scrollbar-hide overflow-scroll h-full", {
             "pb-10": isExpandable,
           })}
         >

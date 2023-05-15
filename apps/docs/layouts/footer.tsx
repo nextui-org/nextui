@@ -13,10 +13,10 @@ export const Footer: FC<FooterProps> = ({align = "center", className}) => {
   return (
     <div className={clsx("container mx-auto max-w-7xl pb-12", className)}>
       <div
-        className={clsx("flex flex-col justify-center", {
-          "items-start": align === "left",
-          "items-center": align === "center",
-          "items-end": align === "right",
+        className={clsx("flex flex-col justify-center items-center gap-1", {
+          "md:items-start": align === "left",
+          "md:items-center": align === "center",
+          "md:items-end": align === "right",
         })}
       >
         <p className="text-sm text-neutral-400">

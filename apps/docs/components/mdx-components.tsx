@@ -125,7 +125,7 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
   const isExternal = href?.startsWith("http");
 
   return (
-    <Components.Link showAnchorIcon href={href} isExternal={isExternal}>
+    <Components.Link href={href} isExternal={isExternal} showAnchorIcon={isExternal}>
       {children}
     </Components.Link>
   );

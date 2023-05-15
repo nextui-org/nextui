@@ -32,11 +32,11 @@ const button = tv({
     "appearance-none",
     "outline-none",
     "select-none",
-    "font-medium",
+    "font-normal",
     "subpixel-antialiased",
     "data-[pressed=true]:scale-95",
     "overflow-hidden",
-    "gap-1.5",
+    "gap-2",
     // focus ring
     "data-[focus-visible=true]:outline-none",
     "data-[focus-visible=true]:ring-2",
@@ -87,6 +87,9 @@ const button = tv({
     isDisabled: {
       true: "opacity-50 pointer-events-none",
     },
+    isLoading: {
+      true: "opacity-50 pointer-events-none",
+    },
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
@@ -106,6 +109,7 @@ const button = tv({
     radius: "xl",
     fullWidth: false,
     isDisabled: false,
+    isLoading: false,
     isInGroup: false,
     disableAnimation: false,
   },

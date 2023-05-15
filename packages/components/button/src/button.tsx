@@ -1,4 +1,5 @@
 import {Drip} from "@nextui-org/drip";
+import {Spinner} from "@nextui-org/spinner";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseButtonProps, useButton} from "./use-button";
@@ -12,8 +13,12 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     children,
     classNames,
     drips,
+    spinnerSize,
+    spinner = <Spinner color="current" size={spinnerSize} />,
+    spinnerPlacement,
     startIcon,
     endIcon,
+    isLoading,
     disableRipple,
     getButtonProps,
   } = useButton({
@@ -24,7 +29,9 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   return (
     <Component ref={domRef} className={classNames} {...getButtonProps()}>
       {startIcon}
+      {isLoading && spinnerPlacement === "start" && spinner}
       {children}
+      {isLoading && spinnerPlacement === "end" && spinner}
       {endIcon}
       {!disableRipple && <Drip drips={drips} />}
     </Component>

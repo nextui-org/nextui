@@ -32,8 +32,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
       size="xs"
       onSelectionChange={handleToggle}
     >
-      <TabItem key="vite-react-ts" title={<TypescriptIcon className="text-lg text-[#007acc]" />} />
-      <TabItem key="vite-react" title={<JavascriptIcon className="text-lg  text-[#f0db4f]" />} />
+      <TabItem key="vite-react-ts" title={<TypescriptIcon className="text-lg text-[#93adcb]" />} />
+      <TabItem key="vite-react" title={<JavascriptIcon className="text-lg  text-[#dbbe82]" />} />
     </Tabs>
   );
 };

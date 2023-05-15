@@ -40,7 +40,7 @@ import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/react";
 
 ### Radius
 
-<CodeDemo title="Sizes" files={avatarContent.radius} />
+<CodeDemo title="Radius" files={avatarContent.radius} />
 
 ### Colors
 
@@ -127,6 +127,22 @@ In case you need to customize the avatar group even further, you can use the `us
 You can customize any part of the avatar by using the `classNames` prop, each `slot` has its own `className`.
 
 <CodeDemo title="Custom Avatar" files={avatarContent.custom} />
+
+## Data Attributes
+
+Avatar has the following attributes on the root element:
+
+- <Code>data-hover</Code> :
+
+  When the avatar is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+
+- <Code>data-focus</Code> : 
+  
+  When the avatar is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html), it is applied when `isFocusable` is `true` or when the `as` property is assigned as `button`.
+
+- <Code>data-focus-visible</Code> :
+  
+  When the avatar is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html), it is applied when `isFocusable` is `true` or when the `as` property is assigned as `button`.
 
 
 ## Avatar Props

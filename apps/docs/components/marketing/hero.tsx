@@ -16,8 +16,6 @@ import {
 import {clsx} from "@nextui-org/shared-utils";
 import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
-import {useInView} from "framer-motion";
-import {useRef} from "react";
 import NextLink from "next/link";
 
 import {title, subtitle} from "@/components/primitives";
@@ -29,11 +27,6 @@ import {useIsMounted} from "@/hooks/use-is-mounted";
 const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   const {theme, setTheme} = useTheme();
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    margin: "280px",
-  });
-
   const isSelected = theme === "dark" && mounted;
 
   const onChange = () => {
@@ -41,136 +34,133 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   };
 
   return (
-    <div ref={ref} className="hidden lg:flex flex-col relative  w-1/2">
-      {!isInView ? null : (
-        <>
-          <Switch
-            classNames={{
-              base:
-                "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
-              wrapper: "shadow-sm",
-              startIcon: "text-white",
-            }}
-            endIcon={<MoonFilledIcon />}
-            isSelected={isSelected}
-            size="xl"
-            startIcon={<SunFilledIcon />}
-            onChange={onChange}
+    <div className="hidden lg:flex flex-col relative  w-1/2">
+      <>
+        <Switch
+          classNames={{
+            base:
+              "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
+            wrapper: "shadow-sm",
+            startIcon: "text-white",
+          }}
+          endIcon={<MoonFilledIcon />}
+          isSelected={isSelected}
+          size="xl"
+          startIcon={<SunFilledIcon />}
+          onChange={onChange}
+        />
+
+        <Input
+          className="absolute -top-[130px] -right-[120px] animate-[levitate_10s_ease_infinite] w-[200px]"
+          color="secondary"
+          defaultValue="NextUI"
+          label="Input"
+          labelPosition="outside"
+          radius="xl"
+          variant="bordered"
+          onClear={() => {}}
+        />
+
+        <Card
+          isFooterBlurred
+          className="absolute -top-[260px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+          radius="2xl"
+        >
+          <Image
+            alt="Professional camera"
+            className="object-cover -translate-y-12 h-[100%]"
+            src="/images/card-example-6.jpeg"
+            width={120}
           />
+          <CardFooter className="before:bg-black/10 before:border before:border-white/20 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
+            <p className="text-xs font-semibold text-white/80">Camera</p>
+            <p className="text-xs font-semibold text-white/80">$525</p>
+          </CardFooter>
+        </Card>
 
-          <Input
-            className="absolute -top-[130px] -right-[120px] animate-[levitate_10s_ease_infinite] w-[200px]"
-            color="secondary"
-            defaultValue="NextUI"
-            label="Input"
-            labelPosition="outside"
-            radius="xl"
-            variant="bordered"
-            onClear={() => {}}
-          />
+        <Tabs
+          aria-label="Floating tabs example"
+          className=""
+          classNames={{
+            base: "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s]",
+            tabList: "max-w-[200px] bg-content1 shadow-sm",
+          }}
+          radius="full"
+          size="xs"
+        >
+          <TabItem key="notes" title="Notes" />
+          <TabItem key="tasks" title="Tasks" />
+          <TabItem key="files" title="Files" />
+        </Tabs>
 
-          <Card
-            isFooterBlurred
-            className="absolute -top-[260px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
-            radius="2xl"
-          >
-            <Image
-              alt="Professional camera"
-              className="object-cover -translate-y-12 h-[100%]"
-              src="/images/card-example-6.jpeg"
-              width={120}
-            />
-            <CardFooter className="before:bg-black/10 before:border before:border-white/20 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
-              <p className="text-xs font-semibold text-white/80">Camera</p>
-              <p className="text-xs font-semibold text-white/80">$525</p>
-            </CardFooter>
-          </Card>
+        <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
-          <Tabs
-            aria-label="Floating tabs example"
-            className=""
+        <Card className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
+          <CardBody>
+            <NextUILogo small size={60} />
+          </CardBody>
+        </Card>
+
+        <div className="absolute z-10 -top-[40px] -right-[230px] animate-[levitate_14s_ease_infinite_1s]">
+          <Pagination
+            isCompact
+            showControls
+            showShadow
             classNames={{
-              base:
-                "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s]",
-              tabList: "max-w-[200px] bg-content1 shadow-sm",
+              base: "shadow-sm rounded-xl",
+              item: "bg-background dark:bg-content1",
+              prev: "bg-background dark:bg-content1",
+              next: "bg-background dark:bg-content1",
             }}
-            radius="full"
-            size="xs"
-          >
-            <TabItem key="notes" title="Notes" />
-            <TabItem key="tasks" title="Tasks" />
-            <TabItem key="files" title="Files" />
-          </Tabs>
+            initialPage={6}
+            total={10}
+          />
+        </div>
 
-          <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
-
-          <Card className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
-            <CardBody>
-              <NextUILogo small size={60} />
-            </CardBody>
-          </Card>
-
-          <div className="absolute z-10 -top-[40px] -right-[230px] animate-[levitate_14s_ease_infinite_1s]">
-            <Pagination
-              isCompact
-              showControls
-              showShadow
-              classNames={{
-                base: "shadow-sm rounded-xl",
-                item: "bg-background dark:bg-content1",
-                prev: "bg-background dark:bg-content1",
-                next: "bg-background dark:bg-content1",
-              }}
-              initialPage={6}
-              total={10}
-            />
-          </div>
-
-          <Tooltip
-            isOpen
-            showArrow
-            className="text-sm animate-[levitate_14s_ease_infinite]"
+        <Tooltip
+          isOpen
+          showArrow
+          className="text-sm animate-[levitate_14s_ease_infinite]"
+          color="secondary"
+          content="Developers love Next.js"
+          placement="top"
+        >
+          <Button
+            className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
             color="secondary"
-            content="Developers love Next.js"
-            placement="top"
+            size="sm"
+            variant="flat"
           >
-            <Button
-              className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
-              color="secondary"
-              size="sm"
-              variant="flat"
-            >
-              Tooltip
+            Tooltip
+          </Button>
+        </Tooltip>
+
+        <Card className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
+          <CardBody>
+            <Spinner color="secondary" size="xl" />
+          </CardBody>
+        </Card>
+
+        <Card
+          isFooterBlurred
+          className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+          radius="2xl"
+        >
+          <Image
+            alt="Woman listing to music"
+            className="object-cover"
+            height={200}
+            src="/images/hero-card.jpeg"
+            width={200}
+          />
+          <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
+            <p className="text-xs text-white/80">Available soon.</p>
+            <Button color="secondary" radius="full" size="xs" variant="flat">
+              Notify me
             </Button>
-          </Tooltip>
-
-          <Card className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
-            <CardBody>
-              <Spinner color="secondary" size="xl" />
-            </CardBody>
-          </Card>
-
-          <Card
-            isFooterBlurred
-            className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
-            radius="2xl"
-          >
-            <Image
-              alt="Woman listing to music"
-              className="object-cover"
-              height={200}
-              src="/images/hero-card.jpeg"
-              width={200}
-            />
-            <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
-              <p className="text-xs text-white/80">Available soon.</p>
-              <Button color="secondary" radius="full" size="xs" variant="flat">
-                Notify me
-              </Button>
-            </CardFooter>
-          </Card>
-        </>
-      )}
+          </CardFooter>
+        </Card>
+      </>
     </div>
   );
 };

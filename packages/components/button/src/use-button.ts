@@ -13,6 +13,7 @@ import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useHover} from "@react-aria/interactions";
+import {SpinnerProps} from "@nextui-org/spinner";
 
 import {useButtonGroupContext} from "./button-group-context";
 
@@ -28,7 +29,6 @@ export interface UseButtonProps
    * @default false
    */
   disableRipple?: boolean;
-
   /**
    * The button start content.
    */
@@ -37,6 +37,16 @@ export interface UseButtonProps
    * The button end content.
    */
   endIcon?: ReactNode;
+  /**
+   * Spinner to display when loading.
+   * @see https://nextui.org/components/spinner
+   */
+  spinner?: ReactNode;
+  /**
+   * The spinner placement.
+   * @default "start"
+   */
+  spinnerPlacement?: "start" | "end";
   /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
@@ -56,15 +66,18 @@ export function useButton(props: UseButtonProps) {
     endIcon: endIconProp,
     autoFocus,
     className,
+    spinner,
     fullWidth = groupContext?.fullWidth ?? false,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "neutral",
     variant = groupContext?.variant ?? "solid",
     disableAnimation = groupContext?.disableAnimation ?? false,
-    radius = groupContext?.radius ?? "lg",
+    radius = groupContext?.radius ?? "xl",
     disableRipple = groupContext?.disableRipple ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
     isIconOnly = groupContext?.isIconOnly ?? false,
+    isLoading = false,
+    spinnerPlacement = "start",
     onPress,
     onClick,
     style,
@@ -91,6 +104,7 @@ export function useButton(props: UseButtonProps) {
         isInGroup,
         disableAnimation,
         isIconOnly,
+        isLoading,
         className,
       }),
     [
@@ -101,6 +115,7 @@ export function useButton(props: UseButtonProps) {
       fullWidth,
       isDisabled,
       isInGroup,
+      isLoading,
       isIconOnly,
       disableAnimation,
       className,
@@ -133,6 +148,7 @@ export function useButton(props: UseButtonProps) {
       "data-pressed": dataAttr(isPressed),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hover": dataAttr(isHovered),
+      "data-loading": dataAttr(isLoading),
       ...mergeProps(ariaButtonProps, focusProps, hoverProps, otherProps, props),
       style: {
         ...style,
@@ -142,6 +158,7 @@ export function useButton(props: UseButtonProps) {
     }),
     [
       style,
+      isLoading,
       isDisabled,
       isFocused,
       isPressed,
@@ -167,14 +184,22 @@ export function useButton(props: UseButtonProps) {
   const startIcon = getIconClone(startIconProp);
   const endIcon = getIconClone(endIconProp);
 
+  const spinnerSize = useMemo(() => {
+    return (size === "xs" || size === "sm" ? "xs" : "sm") as SpinnerProps["size"];
+  }, [size]);
+
   return {
     Component,
     children,
     domRef,
     drips,
+    spinner,
     classNames,
     startIcon,
     endIcon,
+    isLoading,
+    spinnerPlacement,
+    spinnerSize,
     disableRipple,
     getButtonProps,
   };

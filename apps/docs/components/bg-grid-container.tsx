@@ -16,9 +16,10 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
   return (
     <div
       className={clsx(
-        "relative overflow-hidden flex items-center border border-neutral-400/50 dark:border-neutral-100/50 px-4 py-8 rounded-lg",
+        "relative overflow-y-hidden flex items-center border border-neutral-400/50 dark:border-neutral-100/50 px-4 py-8 rounded-lg",
         "bg-transparent",
         "dark:bg-transparent",
+        "before:w-full",
         "before:bg-background/10",
         "before:content-['']",
         "before:block",

@@ -2,7 +2,6 @@ import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {button} from "@nextui-org/theme";
 import {Camera, HeadphonesIcon, Notification} from "@nextui-org/shared-icons";
-import {Spinner} from "@nextui-org/spinner";
 
 import {Button, ButtonProps} from "../src";
 
@@ -34,12 +33,23 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
+    spinnerPlacement: {
+      control: {
+        type: "select",
+        options: ["start", "end"],
+      },
+    },
     fullWidth: {
       control: {
         type: "boolean",
       },
     },
     isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+    isLoading: {
       control: {
         type: "boolean",
       },
@@ -54,6 +64,7 @@ export default {
 
 const defaultProps = {
   children: "Button",
+  spinnerPlacement: "start",
   ...button.defaultVariants,
 };
 
@@ -113,13 +124,7 @@ export const IsLoading = Template.bind({});
 IsLoading.args = {
   ...defaultProps,
   color: "primary",
-  isDisabled: true,
-  children: (
-    <>
-      <Spinner color="white" size="sm" />
-      Button
-    </>
-  ),
+  isLoading: true,
 };
 
 export const CustomWithClassNames = Template.bind({});
