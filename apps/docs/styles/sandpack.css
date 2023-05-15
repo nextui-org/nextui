@@ -1,0 +1,59 @@
+.sp-wrapper {
+  --sp-colors-fg-active: #F4F4F4;
+  --sp-colors-fg-default: #757678;
+  --sp-colors-bg-active: #A258DF2b;
+  --sp-colors-accent: #7828c8;
+  --sp-font-size: 14px;
+  --sp-space-1: 4px;
+  --sp-space-2: 8px;
+  --sp-space-3: 12px;
+  --sp-space-4: 16px;
+  --sp-space-5: 20px;
+  --sp-space-6: 24px;
+  --sp-space-7: 28px;
+  --sp-space-8: 32px;
+  --sp-border-radius: 4px;
+}
+.sp-stack {
+  height: 100%;
+}
+.cm-editor {
+  width: 100%;
+}
+.sp-cm {
+  max-height: 100%;
+  overflow: scroll;
+}
+.cm-scroller::-webkit-scrollbar {
+  width: 0px
+}
+.sp-tab-button {
+  display: block;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: inherit;
+  padding: 0 var(--sp-space-2);
+  color: var(--sp-colors-fg-default) !important;
+  height: 40px;
+  border: 0;
+  outline: none;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.15s ease-out;
+  white-space: nowrap;
+}
+.sp-tab-button[data-active='true'] {
+  color: var(--sp-colors-fg-active) !important;
+  border-bottom: 1px solid var(--sp-colors-accent) !important;
+}
+.sp-tab-button:hover {
+  color: var(--sp-colors-fg-active) !important;
+  background: var(--sp-colors-bg-active);
+}
+.sp-tab-button:focus {
+  outline: none;
+}
+.sp-tab-button:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--sp-colors-accent);
+}

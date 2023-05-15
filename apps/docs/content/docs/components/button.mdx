@@ -10,6 +10,8 @@ Buttons allow users to perform actions and choose with a single tap.
 
 <ComponentLinks component="button" reactAriaHook="useButton" />
 
+---
+
 ## Import
 
 NextUI exports 2 button-related components:
@@ -18,7 +20,7 @@ NextUI exports 2 button-related components:
 - **ButtonGroup**: A wrapper component to display a group of buttons.
 
 ```jsx
-import { Button, ButtonGroup } from "@nextui-org/react";
+import {Button, ButtonGroup} from "@nextui-org/react";
 ```
 
 ## Usage
@@ -54,3 +56,100 @@ Pass the `isLoading` prop to display a [Spinner](/docs/components/spinner) compo
 You can also customize the loading spinner by passing the a custom component to the `spinner` prop.
 
 <CodeDemo title="Custom Loading" files={buttonContent.loadingCustom} />
+
+### With Icons
+
+You can add icons to the `Button` by passing the `startIcon` or `endIcon` props.
+
+<CodeDemo title="With Icons" files={buttonContent.icons} />
+
+### Icon Only
+
+You can also display a button without text by passing the `isIconOnly` prop and the desired icon as `children`.
+
+<CodeDemo title="With Icons" files={buttonContent.iconOnly} />
+
+### Custom Styles
+
+You can customize any part of the avatar by using the `className` prop.
+
+<CodeDemo title="Custom Styles" files={buttonContent.customStyles} />
+
+> Custom class names will override the default ones thanks to [Tailwind Merge](https://github.com/dcastil/tailwind-merge) library. It
+> means that you don't need to worry about class conflicts.
+
+### Custom Implementation
+
+You can also use the `useButton` hook to create your own button component.
+
+<CodeDemo showPreview={false} title="Custom Implementation" files={buttonContent.customImpl} />
+
+## Button Group
+
+<CodeDemo title="Button Group" files={buttonContent.group} />
+
+### Group Disabled
+
+The `ButtonGroup` component also accepts the `isDisabled` prop to disable all buttons inside it.
+
+<CodeDemo title="Group Disabled" files={buttonContent.groupDisabled} />
+
+### Group Use case
+
+A common use case for the `ButtonGroup` component is to display a group of two buttons one for the selected value and another for the `dropdown`.
+
+<CodeDemo title="Group Use case" files={buttonContent.groupUseCase} />
+
+> See the [Dropdown](/docs/components/dropdown) component for more details.
+
+## Data Attributes
+
+Button has the following attributes on the `root` element:
+
+- **data-hover**:
+  When the button is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus**:
+  When the button is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the button is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the button is disabled. Based on `isDisabled` prop.
+- **data-pressed**:
+  When the button is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-loading**:
+  When the button is loading. Based on `isLoading` prop.
+
+## Button Props
+
+| Attribute        | Type                                                                          | Description                                                  | Default   |
+| ---------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
+| children         | `ReactNode`                                                                   | The content to display in the button.                        | -         |
+| variant          | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost`  | The button appearance style.                                 | `solid`   |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                          | The button size.                                             | `md`      |
+| color            | ``neutral` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The button color theme.                                      | `neutral` |
+| radius           | ``none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | The button border radius.                                    | `xl`      |
+| startIcon        | `ReactNode`                                                                   | The button start content.                                    | -         |
+| endIcon          | `ReactNode`                                                                   | The button end content.                                      | -         |
+| spinner          | `ReactNode`                                                                   | Spinner to display when loading.                             | -         |
+| spinnerPlacement | `start` \| `end`                                                              | The spinner placement.                                       | `start`   |
+| fullWidth        | `boolean`                                                                     | Whether the button should take the full width of its parent. | `false`   |
+| isIconOnly       | `boolean`                                                                     | Whether the button should have the same width and height.    | `false`   |
+| isDisabled       | `boolean`                                                                     | Whether the button is disabled.                              | `false`   |
+| isLoading        | `boolean`                                                                     | Whether the button is loading.                               | `false`   |
+| disableRipple    | `boolean`                                                                     | Whether the button should display a ripple effect on press.  | `false`   |
+| disableAnimation | `boolean`                                                                     | Whether the button should display animations.                | `false`   |
+
+### Button Events
+
+| Attribute     | Type                           | Description                                                                                                     | Default |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- | ------- |
+| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      | -       |
+| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 | -       |
+| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     | -       |
+| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    | -       |
+| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. | -       |
+| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                           | -       |
+| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                          | -       |
+| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                 | -       |
+
+## Button Group Props

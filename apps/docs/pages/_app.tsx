@@ -8,6 +8,7 @@ import {AppProps} from "next/app";
 
 import {__PROD__} from "@/utils";
 import "../styles/globals.css";
+import "../styles/sandpack.css";
 
 const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   return (

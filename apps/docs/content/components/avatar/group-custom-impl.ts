@@ -32,10 +32,10 @@ export default AvatarGroup;`;
 
 const AppTs = `import {forwardRef} from "react";
 
-import {useAvatarGroup, AvatarGroupProvider, UseAvatarGroupProps} from "@nextui-org/react";
+import {useAvatarGroup, AvatarGroupProvider, AvatarGroupProps as BaseAvatarGroupProps} from "@nextui-org/react";
 import Avatar from "./avatar"; // your custom avatar or nextui avatar
 
-export interface AvatarGroupProps extends Omit<UseAvatarGroupProps, "ref"> {}
+export interface AvatarGroupProps extends BaseAvatarGroupProps {}
 
 const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
   const {

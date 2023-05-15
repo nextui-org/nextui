@@ -167,6 +167,7 @@ module.exports = {
             },
             pre: {
               display: "flex",
+              fontSize: theme("fontSize.sm")[0],
               backgroundColor: "transparent",
               fontWeight: theme("fontWeight.light"),
               padding: 0,
@@ -208,6 +209,12 @@ module.exports = {
             blockquote: {
               fontWeight: theme("fontWeight.light"),
               fontStyle: "font-normal",
+            },
+            'blockquote p:first-of-type::before': {
+              content: '',
+            },
+            'blockquote p:last-of-type::after': {
+              content: '',
             },
           },
         },

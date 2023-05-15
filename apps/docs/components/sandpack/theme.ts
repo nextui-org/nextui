@@ -32,7 +32,7 @@ export const nextuiTheme: SandpackTheme = {
     body: "Inter var",
     mono:
       'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-    size: "16px",
+    size: "14px",
     lineHeight: "1.5rem",
   },
 };

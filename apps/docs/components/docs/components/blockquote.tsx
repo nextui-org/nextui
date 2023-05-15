@@ -2,7 +2,7 @@ import {FC} from "react";
 import {tv, VariantProps} from "tailwind-variants";
 
 const blockquote = tv({
-  base: "border pl-4 bg-neutral-50 my-6 py-3 rounded-xl [&>p]:mt-0",
+  base: "border pl-4 bg-neutral-50 my-6 py-3 rounded-xl [&>p]:m-0",
 
   variants: {
     color: {

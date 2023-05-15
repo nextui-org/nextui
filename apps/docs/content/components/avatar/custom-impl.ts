@@ -3,9 +3,8 @@ import { useMemo } from "react";
 
 import { AvatarIcon, useAvatar } from "@nextui-org/react";
 
-const Avatar = forwardRef((props, ref) => {
+const MyAvatar = forwardRef((props, ref) => {
   const {
-    Component,
     src,
     icon = <AvatarIcon />,
     alt,
@@ -51,26 +50,25 @@ const Avatar = forwardRef((props, ref) => {
   }, [showFallback, src, fallbackComponent, name, classNames]);
 
   return (
-    <Component {...getAvatarProps()}>
+    <div {...getAvatarProps()}>
       {src && <img {...getImageProps()} alt={alt} />}
       {fallback}
-    </Component>
+    </div>
   );
 });
 
-Avatar.displayName = "Avatar";
+Avatar.displayName = "MyAvatar";
 
-export default Avatar;`;
+export default MyAvatar;`;
 
-const AppTs = `import { forwardRef,useMemo } from "react";
+const AppTs = `import { forwardRef, useMemo } from "react";
 
-import { AvatarIcon, useAvatar, UseAvatarProps } from "@nextui-org/react";
+import { AvatarIcon, useAvatar, AvatarProps as BaseAvatarProps } from "@nextui-org/react";
 
-export interface AvatarProps extends Omit<UseAvatarProps, "ref"> {}
+export interface AvatarProps extends BaseAvatarProps {}
 
-const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
+const MyAvatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const {
-    Component,
     src,
     icon = <AvatarIcon />,
     alt,
@@ -116,16 +114,16 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   }, [showFallback, src, fallbackComponent, name, classNames]);
 
   return (
-    <Component {...getAvatarProps()}>
+    <div {...getAvatarProps()}>
       {src && <img {...getImageProps()} alt={alt} />}
       {fallback}
-    </Component>
+    </div>
   );
 });
 
-Avatar.displayName = "Avatar";
+Avatar.displayName = "MyAvatar";
 
-export default Avatar;`;
+export default MyAvatar;`;
 
 const react = {
   "/App.jsx": App,

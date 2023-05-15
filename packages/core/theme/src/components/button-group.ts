@@ -13,7 +13,7 @@ import {tv} from "tailwind-variants";
  * </div>
  */
 const buttonGroup = tv({
-  base: "inline-flex items-center justify-center h-auto w-max-content",
+  base: "inline-flex items-center justify-center h-auto",
   variants: {
     fullWidth: {
       true: "w-full",

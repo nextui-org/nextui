@@ -16,9 +16,10 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
   return (
     <div
       className={clsx(
-        "relative overflow-y-hidden flex items-center border border-neutral-400/50 dark:border-neutral-100/50 px-4 py-8 rounded-lg",
+        "relative overflow-y-hidden flex items-center border border-neutral-400/50 dark:border-neutral-100/50 px-2 py-4 rounded-lg",
+        "overflow-hidden",
+        // blur effect
         "bg-transparent",
-        "dark:bg-transparent",
         "before:w-full",
         "before:bg-background/10",
         "before:content-['']",
@@ -31,7 +32,9 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
         className,
       )}
     >
-      {children}
+      <div className="max-w-full py-4 px-2 w-full h-full scrollbar-hide overflow-x-scroll">
+        {children}
+      </div>
       <div
         className={clsx(
           "absolute z-[-1] inset-0 bg-grid-zinc-600/25 [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.6))]",

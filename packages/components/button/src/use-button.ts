@@ -19,7 +19,7 @@ import {useButtonGroupContext} from "./button-group-context";
 
 export interface UseButtonProps
   extends HTMLNextUIProps<"button", Omit<AriaButtonProps, keyof ButtonVariantProps>>,
-    Omit<ButtonVariantProps, "isInGroup" | "isInVerticalGroup"> {
+    Omit<ButtonVariantProps, "isInGroup"> {
   /**
    * Ref to the DOM node.
    */

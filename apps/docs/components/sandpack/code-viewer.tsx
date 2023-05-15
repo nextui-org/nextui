@@ -8,7 +8,6 @@ import {
   useActiveCode,
   SandpackStack,
 } from "@codesandbox/sandpack-react";
-import {clsx} from "@nextui-org/shared-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 
 import {getId} from "./utils";
@@ -91,13 +90,10 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
 
     return (
       <>
-        <div
-          className={clsx("scrollbar-hide overflow-scroll h-full", {
-            "pb-10": isExpandable,
-          })}
-        >
+        <div className="h-full">
           <SandpackStack>
             {shouldShowTabs ? <FileTabs /> : null}
+            {/* <div className="scrollbar-hide overflow-scroll"> */}
             <CodeEditor
               key={internalKey}
               ref={ref}
@@ -110,10 +106,11 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
               showReadOnly={false}
               wrapContent={wrapContent}
             />
+            {/* </div> */}
           </SandpackStack>
         </div>
         {isExpandable && (
-          <div className="w-full absolute bottom-0 py-1 px-4 flex items-center justify-end bg-gradient-to-b from-code-background/30 to-black/40 dark:to-black h-10">
+          <div className="w-full absolute bottom-0 py-1 px-4 flex items-center justify-end bg-gradient-to-b from-code-background/5 to-black/40 dark:to-black/50 h-10">
             <button
               className="text-sm font-sans transition-colors text-code-foreground/50 hover:text-code-foreground/80"
               onClick={handleExpand}

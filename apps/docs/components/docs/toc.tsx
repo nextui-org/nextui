@@ -31,7 +31,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
   const firstId = headings[0].id;
 
   return (
-    <div className="sticky w-full flex flex-col gap-4 text-left top-20 h-[calc(100vh-121px)]">
+    <div className="sticky w-full flex flex-col gap-4 text-left top-20 h-[calc(100vh-121px)] overflow-y-scroll scrollbar-hide">
       <p className="text-sm">On this page</p>
       <ul className="scrollbar-hide flex flex-col gap-2">
         {headings.map((heading, i) => (

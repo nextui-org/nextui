@@ -10,6 +10,8 @@ The Avatar component is used to represent a user, and displays the profile pictu
 
 <ComponentLinks component="avatar" />
 
+---
+
 ## Import
 
 NextUI exports 3 avatar-related components:
@@ -19,7 +21,7 @@ NextUI exports 3 avatar-related components:
 - **AvatarIcon**: The default icon used as fallback when the image fails to load.
 
 ```jsx
-import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/react";
+import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
 ```
 
 ## Usage
@@ -69,7 +71,6 @@ In case you need to customize the avatar even further, you can use the `useAvata
 
 <CodeDemo showPreview={false} title="Custom implementation" files={avatarContent.customImpl} />
 
-
 ### Custom intials logic
 
 It is possible to customize the logic used to generate the initials by passing a function to the `getInitials` prop.
@@ -107,7 +108,7 @@ By passing the `isGrid` prop to the `AvatarGroup` component, the avatars will be
 
 <CodeDemo title="Usage" files={avatarContent.groupGrid} />
 
-### Group Custom Implementation 
+### Group Custom Implementation
 
 In case you need to customize the avatar group even further, you can use the `useAvatarGroup` hook and the
 `AvatarGroupProvider` to create your own implementation.
@@ -130,37 +131,31 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 
 ## Data Attributes
 
-Avatar has the following attributes on the root element:
+Avatar has the following attributes on the `root` element:
 
-- <Code>data-hover</Code> :
-
+- **data-hover**:
   When the avatar is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
-
-- <Code>data-focus</Code> : 
-  
+- **data-focus**:
   When the avatar is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html), it is applied when `isFocusable` is `true` or when the `as` property is assigned as `button`.
-
-- <Code>data-focus-visible</Code> :
-  
+- **data-focus-visible**:
   When the avatar is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html), it is applied when `isFocusable` is `true` or when the `as` property is assigned as `button`.
-
 
 ## Avatar Props
 
-| Attribute    | Type                                                         | Description                                                                  | Default   |
-| ------------ | ------------------------------------------------------------ | ---------------------------------------------------------------------------- | --------- |
-| src          | `string`                                                     | The source URL of the image to be displayed.                                 | -         |
-| color        | `neutral` `primary` `secondary` `success` `warning` `danger` | Sets the avatar background color.                                            | `neutral` |
-| radius       | `none` `base` `sm` `md` `lg` `xl` `2xl` `3xl` `full`         | Sets the avatar border radius.                                               | `full`    |
-| size         | `xs` `sm` `md` `lg` `xl`                                     | Sets the avatar size.                                                        | `md`      |
-| name         | `string`                                                     | Displays the initials if the image is not provided or fails to load.         | -         |
-| icon         | `ReactNode`                                                  | Displays a custom icon inside the avatar.                                    | -         |
-| isBordered   | `boolean`                                                    | If `true`, adds a border around the avatar.                                  | `false`   |
-| isDisabled   | `boolean`                                                    | If `true`, disables the avatar and applies a disabled styling.               | `false`   |
-| isFocusable  | `boolean`                                                    | If `true`, makes the avatar focusable for keyboard navigation.               | `false`   |
-| showFallback | `boolean`                                                    | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
-| fallback     | `ReactNode`                                                  | A custom fallback component to display when the image fails to load.         | -         |
-| classNames   | `base` `img` `fallback` `name` `icon`                        | Allows to set custom class names for the avatar slots.                       | -         |
+| Attribute    | Type                                                                         | Description                                                                  | Default   |
+| ------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
+| src          | `string`                                                                     | The source URL of the image to be displayed.                                 | -         |
+| color        | `neutral` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | Sets the avatar background color.                                            | `neutral` |
+| radius       | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | Sets the avatar border radius.                                               | `full`    |
+| size         | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                         | Sets the avatar size.                                                        | `md`      |
+| name         | `string`                                                                     | Displays the initials if the image is not provided or fails to load.         | -         |
+| icon         | `ReactNode`                                                                  | Displays a custom icon inside the avatar.                                    | -         |
+| isBordered   | `boolean`                                                                    | If `true`, adds a border around the avatar.                                  | `false`   |
+| isDisabled   | `boolean`                                                                    | If `true`, disables the avatar and applies a disabled styling.               | `false`   |
+| isFocusable  | `boolean`                                                                    | If `true`, makes the avatar focusable for keyboard navigation.               | `false`   |
+| showFallback | `boolean`                                                                    | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
+| fallback     | `ReactNode`                                                                  | A custom fallback component to display when the image fails to load.         | -         |
+| classNames   | `base` \| `img` \| `fallback` \| `name` \| `icon`                            | Allows to set custom class names for the avatar slots.                       | -         |
 
 ## Avatar Group Props
 
