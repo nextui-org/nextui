@@ -24,7 +24,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({code, noInline}) =>
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope}>
       <BgGridContainer>
-        <LivePreview className="live-preview w-fit" />
+        <LivePreview className="live-preview w-fit not-prose" />
         <LiveError />
       </BgGridContainer>
     </LiveProvider>

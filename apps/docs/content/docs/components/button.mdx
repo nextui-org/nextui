@@ -153,3 +153,13 @@ Button has the following attributes on the `root` element:
 | onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                 | -       |
 
 ## Button Group Props
+
+| Attribute  | Type                                                                          | Description                                     | Default   |
+| ---------- | ----------------------------------------------------------------------------- | ----------------------------------------------- | --------- |
+| children   | `ReactNode` \| `ReactNode[]`                                                  | The buttons to display.                         | -         |
+| variant    | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost`  | The buttons appearance style.                   | `solid`   |
+| size       | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                          | The buttons size.                               | `md`      |
+| color      | ``neutral` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The buttons color theme.                        | `neutral` |
+| radius     | ``none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | The buttons border radius.                      | `xl`      |
+| fullWidth  | `boolean`                                                                     | Whether the buttons should take the full width. | `false`   |
+| isDisabled | `boolean`                                                                     | Whether the buttons are disabled.               | `false`   |

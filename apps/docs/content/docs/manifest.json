@@ -116,12 +116,6 @@
           "path": "/docs/components/button.mdx"
         },
         {
-          "key": "button-group",
-          "title": "Button Group",
-          "keywords": "btn, button, btn group, button group, group",
-          "path": "/docs/components/button-group.mdx"
-        },
-        {
           "key": "card",
           "title": "Card",
           "keywords": "card, content, action, media",

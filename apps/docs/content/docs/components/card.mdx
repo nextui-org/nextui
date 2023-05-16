@@ -8,6 +8,40 @@ url: https://nextui.org/docs/components/card
 
 Card is a container for text, photos, and actions in the context of a single subject.
 
+<ComponentLinks component="card" />
+
+---
+
+## Import
+
+NextUI exports 4 card-related components:
+
+- **Card**: The main component to display a card.
+- **CardHeader**: Commonly used for the title of a card.
+- **CardBody**: The content of the card.
+- **CardFooter**: Commonly used for actions.
+
+
 ```jsx
-import { Card } from '@nextui-org/react';
+import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
 ```
+
+## Usage
+
+<CodeDemo title="Usage" files={cardContent.usage} />
+
+### With Divider 
+
+<CodeDemo title="With Divider" files={cardContent.divider} />
+
+> See the [Divider](/docs/components/divider) component for more details.
+
+### With Image
+
+<CodeDemo title="With Image" files={cardContent.image} />
+
+### Composition
+
+You can use other NextUI components inside the card to compose a more complex card. 
+
+<CodeDemo title="Composition" files={cardContent.composition} />
