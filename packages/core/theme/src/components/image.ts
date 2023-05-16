@@ -20,9 +20,9 @@ import {tv} from "tailwind-variants";
  */
 const image = tv({
   slots: {
-    base: "relative shadow-black/25",
+    base: "relative shadow-black/5",
     zoomedWrapper: "relative overflow-hidden rounded-inherit",
-    img: "relative z-10 opacity-0 shadow-black/25 data-[loaded=true]:opacity-100",
+    img: "relative z-10 opacity-0 shadow-black/5 data-[loaded=true]:opacity-100",
     blurredImg: [
       "absolute",
       "z-0",
