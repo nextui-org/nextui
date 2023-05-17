@@ -2,7 +2,7 @@
 import {useMemo, useState} from "react";
 import {Tabs, TabItem, Card, CardBody, Image, Button, RadioGroup, Radio} from "@nextui-org/react";
 import get from "lodash/get";
-import Link from "next/link";
+import NextLink from "next/link";
 
 import {shopCartStyles} from "./styles";
 
@@ -186,7 +186,7 @@ const CustomThemesExample = ({
         </CardBody>
       </Card>
       <Button
-        as={Link}
+        as={NextLink}
         className="max-w-fit"
         color="primary"
         href="/docs/theme/customize-theme"

@@ -55,11 +55,9 @@ const navbar = tv({
       "flex",
       "items-center",
       "justify-center",
-      "shadow-lg",
-      "shadow-neutral-300/40",
-      "dark:border-b",
+      "border-b",
+      "border-neutral-200",
       "dark:border-neutral-100",
-      "dark:shadow-none",
     ],
     wrapper: [
       "flex",
@@ -186,8 +184,9 @@ const navbar = tv({
       sticky: {},
       floating: {
         base: "shadow-none border-b-0",
-        wrapper: "mt-4 mx-8 shadow-md border border-neutral-100 rounded-xl",
-        menu: "mt-5 mx-8 border border-neutral-100 rounded-xl max-w-[calc(100%_-_4rem)]",
+        wrapper: "mt-4 mx-8 shadow-md border border-neutral-200 dark:border-neutral-100 rounded-xl",
+        menu:
+          "mt-5 mx-8 border border-neutral-200 dark:border-neutral-100 rounded-xl max-w-[calc(100%_-_4rem)]",
       },
     },
     maxWidth: {
@@ -250,7 +249,8 @@ const navbar = tv({
           "before:inset-0",
           "before:backdrop-blur",
           "before:backdrop-saturate-150",
-          "before:bg-background/50",
+          "before:bg-background/80",
+          "dark:before:bg-background/50",
           "data-[menu-open=true]:before:bg-background",
         ],
       },

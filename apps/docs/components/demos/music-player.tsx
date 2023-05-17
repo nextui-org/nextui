@@ -19,7 +19,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
   return (
     <Card
       isBlurred
-      className={clsx("border-none dark:bg-background/40 bg-background/40", className)}
+      className={clsx("border-none dark:bg-black/40 bg-background/60", className)}
       radius="2xl"
       shadow="2xl"
       {...otherProps}
@@ -65,7 +65,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               <Progress
                 aria-label="Music progress"
                 classNames={{
-                  filler: "bg-white",
+                  filler: "bg-neutral-800 dark:bg-white",
                   track: "bg-neutral-500/30",
                 }}
                 color="neutral"

@@ -1,6 +1,6 @@
 ---
-title: 'Card'
-description: 'Card is a container for text, photos, and actions in the context of a single subject.'
+title: "Card"
+description: "Card is a container for text, photos, and actions in the context of a single subject."
 url: https://nextui.org/docs/components/card
 ---
 
@@ -21,7 +21,6 @@ NextUI exports 4 card-related components:
 - **CardBody**: The content of the card.
 - **CardFooter**: Commonly used for actions.
 
-
 ```jsx
 import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
 ```
@@ -30,7 +29,7 @@ import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
 
 <CodeDemo title="Usage" files={cardContent.usage} />
 
-### With Divider 
+### With Divider
 
 <CodeDemo title="With Divider" files={cardContent.divider} />
 
@@ -40,11 +39,23 @@ import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
 
 <CodeDemo title="With Image" files={cardContent.image} />
 
+### Blurred Footer
+
+You can pass the `isFooterBlurred` prop to the card to blur the footer.
+
+<CodeDemo title="Blurred Footer" files={cardContent.blurredFooter} />
+
 ### Composition
 
-You can use other NextUI components inside the card to compose a more complex card. 
+You can use other NextUI components inside the card to compose a more complex card.
 
 <CodeDemo title="Composition" files={cardContent.composition} />
+
+### Blurred Card
+
+You can pass the `isBlurred` prop to the card to blur the card.
+
+<CodeDemo title="Blurred Card" files={cardContent.blurred} />
 
 ### Primary Action
 
@@ -52,3 +63,43 @@ If you pass the `isPressable` prop to the card, it will be rendered as a button.
 
 <CodeDemo title="Primary Action" files={cardContent.primaryAction} />
 
+> **Note** that the used callback function is `onPress` instead of `onClick`. Please see the [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html#usepress) component for more details.
+
+### Cover Image
+
+You can use `Image` component as the cover of the card by taking it out of the `CardBody` component.
+
+<CodeDemo title="Cover Image" files={cardContent.coverImage} />
+
+## Data Attributes
+
+Card has the following attributes on the `root` element:
+
+- **data-hover**:
+  When the card is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus**:
+  When the card is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the card is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the card is disabled. Based on `isDisabled` prop.
+- **data-pressed**:
+  When the card is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+
+  ## Card Props
+
+  | Attribute                 | Type                                                                          | Description                                                                   | Default |
+  | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
+  | children                  | `ReactNode` \| `ReactNode[]`                                                  | Usually the Card parts, `CardHeader`, `CardBody` and `CardFooter`.            | -       |
+  | shadow                    | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`            | The card shadow.                                                              | `md`    |
+  | radius                    | ``none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | The card border radius.                                                       | `xl`    |
+  | fullWidth                 | `boolean`                                                                     | Whether the card should take the full width of its parent.                    | `false` |
+  | isHoverable               | `boolean`                                                                     | Whether the card should change the background on hover.                       | `false` |
+  | isPressable               | `boolean`                                                                     | Whether the card should allow to be pressed.                                  | `false` |
+  | isBlurred                 | `boolean`                                                                     | Whether the card background should be blurred.                                | `false` |
+  | isFooterBlurred           | `boolean`                                                                     | Whether the card footer background should be blurred.                         | `false` |
+  | isDisabled                | `boolean`                                                                     | Whether the card should be disabled. The press events will be ignored.        | `false` |
+  | disableAnimation          | `boolean`                                                                     | Whether to disable the animation.                                             | `false` |
+  | disableRipple             | `boolean`                                                                     | Whether to disable ripple effect. Only when `isPressable` is true.            | `false` |
+  | allowTextSelectionOnPress | `boolean`                                                                     | Whether to allow text selection on pressing. Only when `isPressable` is true. | `false` |
+  | classNames                | `base` \| `header` \| `body` \| `footer`                                      | Allows to set custom class names for the card slots.                          | -       |

@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
-import {Code, Button, Link, Tooltip} from "@nextui-org/react";
+import {Code, Button, Tooltip} from "@nextui-org/react";
 import {useState} from "react";
+import NextLink from "next/link";
 
 import {MusicPlayer} from "@/components/demos";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
@@ -65,10 +66,10 @@ export const DarkMode = () => {
         </div>
         <div className="flex w-1/2 justify-start">
           <Button
-            as={Link}
+            as={NextLink}
             className="max-w-fit"
             color="warning"
-            href="/docs/theme/customize-theme"
+            href="/docs/theme/dark-mode"
             radius="full"
             size="sm"
             variant="flat"

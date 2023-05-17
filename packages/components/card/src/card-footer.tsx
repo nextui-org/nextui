@@ -4,21 +4,17 @@ import {clsx} from "@nextui-org/shared-utils";
 
 import {useCardContext} from "./card-context";
 
-export interface CardFooterProps extends HTMLNextUIProps<"div"> {
-  isBlurred?: boolean;
-}
+export interface CardFooterProps extends HTMLNextUIProps<"div"> {}
 
 const CardFooter = forwardRef<CardFooterProps, "div">((props, ref) => {
-  const {as, className, children, isBlurred, ...otherProps} = props;
+  const {as, className, children, ...otherProps} = props;
 
   const Component = as || "div";
   const domRef = useDOMRef(ref);
 
   const {slots, classNames} = useCardContext();
 
-  const footerStyles = clsx(classNames?.body, className, {
-    "backdrop-blur-xl backdrop-saturate-200": isBlurred,
-  });
+  const footerStyles = clsx(classNames?.body, className);
 
   return (
     <Component ref={domRef} className={slots.footer?.({class: footerStyles})} {...otherProps}>

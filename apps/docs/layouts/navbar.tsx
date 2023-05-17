@@ -161,13 +161,13 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal href="https://twitter.com/getnextui">
-            <TwitterIcon className="text-neutral-500 dark:text-neutral-400" />
+            <TwitterIcon className="text-neutral-600 dark:text-neutral-500" />
           </Link>
           <Link isExternal href="https://discord.gg/9b6yyZKmH4">
-            <DiscordIcon className="text-neutral-500 dark:text-neutral-400" />
+            <DiscordIcon className="text-neutral-600 dark:text-neutral-500" />
           </Link>
           <Link isExternal href="https://github.com/nextui-org/nextui">
-            <GithubIcon className="text-neutral-500 dark:text-neutral-400" />
+            <GithubIcon className="text-neutral-600 dark:text-neutral-500" />
           </Link>
           <ThemeSwitch />
         </NavbarItem>

@@ -51,7 +51,7 @@ export default function App() {
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="lg"
-              radius="2xl"
+              radius="xl"
               width="100%"
               alt={item.title}
               className="w-full h-[140px] object-cover"

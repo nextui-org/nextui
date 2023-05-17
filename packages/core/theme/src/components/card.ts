@@ -164,32 +164,16 @@ const card = tv({
     isBlurred: {
       true: {
         base: [
-          "bg-transparent",
-          "dark:bg-transparent",
-          "before:bg-background/10",
-          "before:content-['']",
-          "before:block",
-          "before:z-[-1]",
-          "before:absolute",
-          "before:inset-0",
-          "before:backdrop-blur-md",
-          "before:backdrop-saturate-200",
+          "bg-background/80",
+          "dark:bg-background/20",
+          "backdrop-blur-md",
+          "backdrop-saturate-150",
         ],
       },
     },
     isFooterBlurred: {
       true: {
-        footer: [
-          "before:content-['']",
-          "before:block",
-          "before:z-[-1]",
-          "before:absolute",
-          "before:-top-px",
-          "before:inset-0",
-          "before:bg-background/10",
-          "before:backdrop-blur",
-          "before:backdrop-saturate-150",
-        ],
+        footer: ["bg-background/10", "backdrop-blur", "backdrop-saturate-150"],
       },
     },
     isDisabled: {

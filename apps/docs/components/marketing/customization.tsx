@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 import {Button, Link} from "@nextui-org/react";
+import NextLink from "next/link";
 
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {CodeWindow} from "@/components/code-window";
@@ -52,7 +53,7 @@ export const Customization = () => {
         </div>
         <div className="flex w-1/2 justify-start">
           <Button
-            as={Link}
+            as={NextLink}
             className="max-w-fit bg-pink-100 text-pink-500 dark:bg-pink-900 dark:text-pink-300"
             href="/docs/theme/customize-theme"
             radius="full"
