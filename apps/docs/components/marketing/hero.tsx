@@ -23,18 +23,21 @@ import {NextUILogo} from "@/components";
 import {GithubIcon} from "@/components/icons";
 import {UserTwitterCard} from "@/components/demos";
 import {useIsMounted} from "@/hooks/use-is-mounted";
+import {useMediaQuery} from "@/hooks/use-media-query";
 
 const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   const {theme, setTheme} = useTheme();
 
   const isSelected = theme === "dark" && mounted;
 
+  const isTablet = useMediaQuery(1024);
+
   const onChange = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
   return (
-    <div className="hidden lg:flex flex-col relative  w-1/2">
+    <div className="hidden lg:flex flex-col relative w-1/2">
       <>
         <Switch
           classNames={{
@@ -118,11 +121,11 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
         </div>
 
         <Tooltip
-          isOpen
           showArrow
           className="text-sm animate-[levitate_14s_ease_infinite]"
           color="secondary"
           content="Developers love Next.js"
+          isOpen={!isTablet}
           placement="top"
         >
           <Button
