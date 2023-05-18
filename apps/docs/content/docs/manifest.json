@@ -104,16 +104,16 @@
       "defaultOpen": true,
       "routes": [
         {
-          "key": "accordion",
-          "title": "Accordion",
-          "keywords": "collapse, accordion, expand, reveal",
-          "path": "/docs/components/accordion.mdx"
-        },
-        {
           "key": "avatar",
           "title": "Avatar",
           "keywords": "avatar, avatar group, group",
           "path": "/docs/components/avatar.mdx"
+        },
+        {
+          "key": "accordion",
+          "title": "Accordion",
+          "keywords": "collapse, accordion, expand, reveal",
+          "path": "/docs/components/accordion.mdx"
         },
         {
           "key": "badge",
