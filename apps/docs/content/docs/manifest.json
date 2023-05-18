@@ -146,10 +146,10 @@
           "path": "/docs/components/chip.mdx"
         },
         {
-          "key": "circularprogress",
+          "key": "circular-progress",
           "title": "Circular Progress",
           "keywords": "circular progress, loading indicator, activity sign, process display",
-          "path": "/docs/components/circularprogress.mdx"
+          "path": "/docs/components/circular-progress.mdx"
         },
         {
           "key": "code",
@@ -224,7 +224,7 @@
           "path": "/docs/components/progress.mdx"
         },
         {
-          "key": "radiogroup",
+          "key": "radio-group",
           "title": "Radio Group",
           "keywords": "radio group, selection set, option selection, exclusive choices",
           "path": "/docs/components/radio-group.mdx"
