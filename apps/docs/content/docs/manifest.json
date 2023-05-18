@@ -100,145 +100,193 @@
     {
       "key": "components",
       "title": "Components",
-      "keywords": "components, btn, button, input, modal",
+      "keywords": "interface elements, interactive components, UI components, widgets",
       "defaultOpen": true,
       "routes": [
         {
           "key": "avatar",
           "title": "Avatar",
-          "keywords": "avatar, avatar group, group",
+          "keywords": "avatar, profile picture, user representation, identity",
           "path": "/docs/components/avatar.mdx"
         },
         {
           "key": "accordion",
           "title": "Accordion",
-          "keywords": "collapse, accordion, expand, reveal",
+          "keywords": "accordion, collapse, expandable sections, content hiding",
           "path": "/docs/components/accordion.mdx"
         },
         {
           "key": "badge",
           "title": "Badge",
-          "keywords": "badge, status, display, count, highlight",
+          "keywords": "badge, markers, status indication, count display",
           "path": "/docs/components/badge.mdx"
         },
         {
           "key": "button",
           "title": "Button",
-          "keywords": "button, btn, buttons, action",
+          "keywords": "button, interactive, action trigger, click events",
           "path": "/docs/components/button.mdx"
         },
         {
           "key": "card",
           "title": "Card",
-          "keywords": "card, content, action, media",
+          "keywords": "card, content container, informational blocks, media holder",
           "path": "/docs/components/card.mdx"
         },
         {
           "key": "checkbox",
           "title": "Checkbox",
-          "keywords": "check, radio, selectable, checkbox, box",
+          "keywords": "checkbox, binary choice, selection control, toggle",
           "path": "/docs/components/checkbox.mdx"
         },
         {
-          "key": "checkbox-group",
-          "title": "Checkbox Group",
-          "keywords": "check, radio, selectable, checkbox, box, group, items",
-          "path": "/docs/components/checkbox-group.mdx"
+          "key": "chip",
+          "title": "Chip",
+          "keywords": "chip, tag, label, small actionable entity",
+          "path": "/docs/components/chip.mdx"
+        },
+        {
+          "key": "circularprogress",
+          "title": "Circular Progress",
+          "keywords": "circular progress, loading indicator, activity sign, process display",
+          "path": "/docs/components/circularprogress.mdx"
+        },
+        {
+          "key": "code",
+          "title": "Code",
+          "keywords": "code, code snippet, inline code, coding",
+          "path": "/docs/components/code.mdx"
+        },
+        {
+          "key": "divider",
+          "title": "Divider",
+          "keywords": "divider, boundary, separator, section divider",
+          "path": "/docs/components/divider.mdx"
         },
         {
           "key": "dropdown",
           "title": "Dropdown",
-          "keywords": "dropdown, select, selectable, menu",
+          "keywords": "dropdown, menu, selection, option list",
           "path": "/docs/components/dropdown.mdx"
         },
         {
           "key": "image",
           "title": "Image",
-          "keywords": "Image, Next.js Image, image component",
+          "keywords": "image, media, picture, photo, graphic display",
           "path": "/docs/components/image.mdx"
         },
         {
           "key": "input",
           "title": "Input",
-          "keywords": "text input, input, textarea",
+          "keywords": "input, text box, form field, data entry",
           "path": "/docs/components/input.mdx"
+        },
+        {
+          "key": "kbd",
+          "title": "Kbd",
+          "keywords": "keyboard input, shortcut, keys, user input display",
+          "path": "/docs/components/kbd.mdx"
         },
         {
           "key": "link",
           "title": "Link",
-          "keywords": "link, navigation, href, next link",
+          "keywords": "link, navigation, href, web page connection",
           "path": "/docs/components/link.mdx"
         },
         {
           "key": "modal",
           "title": "Modal",
-          "keywords": "modal, dialog, backdrop",
+          "keywords": "modal, dialog box, popup, overlay, content focus",
           "path": "/docs/components/modal.mdx"
         },
         {
           "key": "navbar",
           "title": "Navbar",
-          "keywords": "navbar, nav, navbar, navigation, menu, header",
+          "keywords": "navbar, navigation, top menu, website header",
           "path": "/docs/components/navbar.mdx"
         },
         {
           "key": "pagination",
           "title": "Pagination",
-          "keywords": "pagination, paginate, table pagination, pages, navigate",
+          "keywords": "pagination, page navigation, content division, browsing control",
           "path": "/docs/components/pagination.mdx"
         },
         {
           "key": "popover",
           "title": "Popover",
-          "keywords": "popover, tooltip, tooltip, popover, popover",
+          "keywords": "popover, tooltip, floating content, additional information",
           "path": "/docs/components/popover.mdx"
         },
         {
           "key": "progress",
           "title": "Progress",
-          "keywords": "progress, bar, task, display, activity",
+          "keywords": "progress, progress bar, task status, loading indicator",
           "path": "/docs/components/progress.mdx"
         },
         {
-          "key": "radio-group",
+          "key": "radiogroup",
           "title": "Radio Group",
-          "keywords": "check, radio, select",
+          "keywords": "radio group, selection set, option selection, exclusive choices",
           "path": "/docs/components/radio-group.mdx"
+        },
+        {
+          "key": "skeleton",
+          "title": "Skeleton",
+          "keywords": "skeleton, loading state, placeholder, content preview",
+          "path": "/docs/components/skeleton.mdx"
+        },
+        {
+          "key": "snippet",
+          "title": "Snippet",
+          "keywords": "snippet, code block, programming, code example",
+          "path": "/docs/components/snippet.mdx"
+        },
+        {
+          "key": "spacer",
+          "title": "Spacer",
+          "keywords": "spacer, padding, margin, whitespace, gap",
+          "path": "/docs/components/spacer.mdx"
         },
         {
           "key": "spinner",
           "title": "Spinner",
-          "keywords": "loading, spinner, loadable, progress",
+          "keywords": "spinner, loading, activity indicator, processing signal",
           "path": "/docs/components/spinner.mdx"
         },
         {
           "key": "switch",
           "title": "Switch",
-          "keywords": "toggle, switch",
+          "keywords": "switch, toggle, binary input, on/off control",
           "path": "/docs/components/switch.mdx"
         },
         {
           "key": "table",
           "title": "Table",
-          "keywords": "table, data table, grid, data grid",
+          "keywords": "table, data display, grid, spreadsheet",
           "path": "/docs/components/table.mdx"
+        },
+        {
+          "key": "tabs",
+          "title": "Tabs",
+          "keywords": "tabs, section navigation, categorized content, tabbed interface",
+          "path": "/docs/components/tabs.mdx"
         },
         {
           "key": "textarea",
           "title": "Textarea",
-          "keywords": "textarea, input, text input, large text input",
+          "keywords": "textarea, multi-line text input, large text field, form control",
           "path": "/docs/components/textarea.mdx"
         },
         {
           "key": "tooltip",
           "title": "Tooltip",
-          "keywords": "tool, popover, tooltip, hoverable",
+          "keywords": "tooltip, hint, descriptive message, hover info",
           "path": "/docs/components/tooltip.mdx"
         },
         {
           "key": "user",
           "title": "User",
-          "keywords": "user, avatar, name, initials",
+          "keywords": "user, account, user profile, identity",
           "path": "/docs/components/user.mdx"
         }
       ]
