@@ -104,10 +104,22 @@
       "defaultOpen": true,
       "routes": [
         {
+          "key": "accordion",
+          "title": "Accordion",
+          "keywords": "collapse, accordion, expand, reveal",
+          "path": "/docs/components/accordion.mdx"
+        },
+        {
           "key": "avatar",
           "title": "Avatar",
           "keywords": "avatar, avatar group, group",
           "path": "/docs/components/avatar.mdx"
+        },
+        {
+          "key": "badge",
+          "title": "Badge",
+          "keywords": "badge, status, display, count, highlight",
+          "path": "/docs/components/badge.mdx"
         },
         {
           "key": "button",
@@ -122,48 +134,6 @@
           "path": "/docs/components/card.mdx"
         },
         {
-          "key": "pagination",
-          "title": "Pagination",
-          "keywords": "pagination, paginate, table pagination, pages, navigate",
-          "path": "/docs/components/pagination.mdx"
-        },
-        {
-          "key": "table",
-          "title": "Table",
-          "keywords": "table, data table, grid, data grid",
-          "path": "/docs/components/table.mdx"
-        },
-        {
-          "key": "accordion",
-          "title": "Accordion",
-          "keywords": "collapse, accordion, expand, reveal",
-          "path": "/docs/components/accordion.mdx"
-        },
-        {
-          "key": "navbar",
-          "title": "Navbar",
-          "keywords": "navbar, nav, navbar, navigation, menu, header",
-          "path": "/docs/components/navbar.mdx"
-        },
-        {
-          "key": "badge",
-          "title": "Badge",
-          "keywords": "badge, status, display, count, highlight",
-          "path": "/docs/components/badge.mdx"
-        },
-        {
-          "key": "input",
-          "title": "Input",
-          "keywords": "text input, input, textarea",
-          "path": "/docs/components/input.mdx"
-        },
-        {
-          "key": "textarea",
-          "title": "Textarea",
-          "keywords": "textarea, input, text input, large text input",
-          "path": "/docs/components/textarea.mdx"
-        },
-        {
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "check, radio, selectable, checkbox, box",
@@ -176,10 +146,46 @@
           "path": "/docs/components/checkbox-group.mdx"
         },
         {
-          "key": "radio-group",
-          "title": "Radio Group",
-          "keywords": "check, radio, select",
-          "path": "/docs/components/radio-group.mdx"
+          "key": "dropdown",
+          "title": "Dropdown",
+          "keywords": "dropdown, select, selectable, menu",
+          "path": "/docs/components/dropdown.mdx"
+        },
+        {
+          "key": "image",
+          "title": "Image",
+          "keywords": "Image, Next.js Image, image component",
+          "path": "/docs/components/image.mdx"
+        },
+        {
+          "key": "input",
+          "title": "Input",
+          "keywords": "text input, input, textarea",
+          "path": "/docs/components/input.mdx"
+        },
+        {
+          "key": "link",
+          "title": "Link",
+          "keywords": "link, navigation, href, next link",
+          "path": "/docs/components/link.mdx"
+        },
+        {
+          "key": "modal",
+          "title": "Modal",
+          "keywords": "modal, dialog, backdrop",
+          "path": "/docs/components/modal.mdx"
+        },
+        {
+          "key": "navbar",
+          "title": "Navbar",
+          "keywords": "navbar, nav, navbar, navigation, menu, header",
+          "path": "/docs/components/navbar.mdx"
+        },
+        {
+          "key": "pagination",
+          "title": "Pagination",
+          "keywords": "pagination, paginate, table pagination, pages, navigate",
+          "path": "/docs/components/pagination.mdx"
         },
         {
           "key": "popover",
@@ -188,28 +194,16 @@
           "path": "/docs/components/popover.mdx"
         },
         {
-          "key": "tooltip",
-          "title": "Tooltip",
-          "keywords": "tool, popover, tooltip, hoverable",
-          "path": "/docs/components/tooltip.mdx"
-        },
-        {
-          "key": "dropdown",
-          "title": "Dropdown",
-          "keywords": "dropdown, select, selectable, menu",
-          "path": "/docs/components/dropdown.mdx"
-        },
-        {
           "key": "progress",
           "title": "Progress",
           "keywords": "progress, bar, task, display, activity",
           "path": "/docs/components/progress.mdx"
         },
         {
-          "key": "modal",
-          "title": "Modal",
-          "keywords": "modal, dialog, backdrop",
-          "path": "/docs/components/modal.mdx"
+          "key": "radio-group",
+          "title": "Radio Group",
+          "keywords": "check, radio, select",
+          "path": "/docs/components/radio-group.mdx"
         },
         {
           "key": "spinner",
@@ -224,22 +218,28 @@
           "path": "/docs/components/switch.mdx"
         },
         {
-          "key": "link",
-          "title": "Link",
-          "keywords": "link, navigation, href, next link",
-          "path": "/docs/components/link.mdx"
+          "key": "table",
+          "title": "Table",
+          "keywords": "table, data table, grid, data grid",
+          "path": "/docs/components/table.mdx"
+        },
+        {
+          "key": "textarea",
+          "title": "Textarea",
+          "keywords": "textarea, input, text input, large text input",
+          "path": "/docs/components/textarea.mdx"
+        },
+        {
+          "key": "tooltip",
+          "title": "Tooltip",
+          "keywords": "tool, popover, tooltip, hoverable",
+          "path": "/docs/components/tooltip.mdx"
         },
         {
           "key": "user",
           "title": "User",
-          "keywords": "User, avatar, name, initials",
+          "keywords": "user, avatar, name, initials",
           "path": "/docs/components/user.mdx"
-        },
-        {
-          "key": "image",
-          "title": "Image",
-          "keywords": "Image, Next.js Image, image component",
-          "path": "/docs/components/image.mdx"
         }
       ]
     }

@@ -4,7 +4,7 @@ import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 
-import {Key, useCallback} from "react";
+import React, {Key, useCallback} from "react";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {useAccordion as useReactAriaAccordion} from "@react-aria/accordion";
 import {mergeProps} from "@react-aria/utils";
@@ -24,6 +24,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    * @default "toggle"
    */
   selectionBehavior?: SelectionBehavior;
+  /**
+   * The accordion items classNames.
+   */
+  itemStyles?: AccordionItemProps["classNames"];
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
@@ -78,6 +82,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     hideIndicator = false,
     disableAnimation = false,
     disableIndicatorAnimation = false,
+    itemStyles,
     ...otherProps
   } = props;
 
@@ -96,8 +101,28 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     [variant, className],
   );
 
+  // TODO: Remove this once the issue is fixed.
+  let treeChildren: any = [];
+
+  /**
+   * This is a workaround for rendering ReactNode children in the AccordionItem.
+   * @see https://github.com/adobe/react-spectrum/issues/3882
+   */
+  React.Children.map(children, (child) => {
+    if (React.isValidElement(child) && typeof child.props?.children !== "string") {
+      const clonedChild = React.cloneElement(child, {
+        // @ts-ignore
+        hasChildItems: false,
+      });
+
+      treeChildren.push(clonedChild);
+    } else {
+      treeChildren.push(child);
+    }
+  });
+
   const commonProps = {
-    children,
+    children: treeChildren,
     items,
   };
 
@@ -172,7 +197,16 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     isFocused && setFocusedKey(key);
   }, []);
 
-  return {Component, context, classNames, state, focusedKey, getBaseProps, handleFocusChanged};
+  return {
+    Component,
+    context,
+    classNames,
+    state,
+    focusedKey,
+    getBaseProps,
+    handleFocusChanged,
+    itemStyles,
+  };
 }
 
 export type UseAccordionReturn = ReturnType<typeof useAccordion>;

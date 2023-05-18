@@ -6,7 +6,7 @@ import {clsx, ReactRef, callAllHandlers, dataAttr} from "@nextui-org/shared-util
 import {NodeWithProps} from "@nextui-org/aria-utils";
 import {useAriaAccordionItem} from "@nextui-org/use-aria-accordion-item";
 import {useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {filterDOMProps, mergeProps} from "@react-aria/utils";
 
 import {AccordionItemBaseProps} from "./base/accordion-item-base";
 import {useAccordionContext} from "./accordion-context";
@@ -45,7 +45,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     disableAnimation = groupContext.disableAnimation ?? false,
     disableIndicatorAnimation = groupContext.disableIndicatorAnimation ?? false,
     ...otherProps
-  } = item.props as AccordionItemBaseProps<T>;
+  } = props;
 
   const Component = as || "div";
 
@@ -103,7 +103,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
         className: slots.base({class: baseStyles}),
-        ...mergeProps(otherProps, props),
+        ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
       };
     },
     [baseStyles, otherProps, slots, item.props, isOpen, isDisabled],

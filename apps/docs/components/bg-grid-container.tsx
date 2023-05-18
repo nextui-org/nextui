@@ -37,7 +37,7 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
       </div>
       <div
         className={clsx(
-          "absolute z-[-1] inset-0 bg-grid-zinc-600/25 [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.6))]",
+          "absolute z-[-1] inset-0 bg-grid-zinc-300/25 [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.6))]",
           "dark:bg-grid-zinc-500/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]",
         )}
         style={{backgroundPosition: "10px 10px"}}

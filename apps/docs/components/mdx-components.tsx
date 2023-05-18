@@ -180,5 +180,9 @@ export const MDXComponents = ({
   ),
   inlineCode: InlineCode,
   InlineCode,
+  kbd: (props: React.HTMLAttributes<HTMLElement>) => (
+    <Components.Kbd {...props} className="py-0.5 px-1.5" />
+  ),
+
   // Block,
 } as unknown) as Record<string, React.ReactNode>;

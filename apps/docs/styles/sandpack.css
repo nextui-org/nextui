@@ -57,3 +57,7 @@
 .sp-tab-button:focus-visible {
   box-shadow: inset 0 0 0 2px var(--sp-colors-accent);
 }
+
+.sp-highlight {
+  @apply relative z-10 before:content-[''] before:w-full before:h-full before:absolute before:z-[-1] before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background before:border-l-2 border-l-white/80 dark:before:border-l-white/50;
+}

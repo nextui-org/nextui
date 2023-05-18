@@ -1,5 +1,33 @@
 # @nextui-org/dropdown
 
+## 0.0.0-dev-v2-20230518012432
+
+### Patch Changes
+
+- Some styled were unified in a single file
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230518012432
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230518012432
+  - @nextui-org/use-is-mobile@0.0.0-dev-v2-20230518012432
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230518012432
+  - @nextui-org/popover@0.0.0-dev-v2-20230518012432
+  - @nextui-org/system@0.0.0-dev-v2-20230518012432
+  - @nextui-org/theme@0.0.0-dev-v2-20230518012432
+
+## 0.0.0-dev-v2-20230517170742
+
+### Patch Changes
+
+- Fix build
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230517170742
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230517170742
+  - @nextui-org/use-is-mobile@0.0.0-dev-v2-20230517170742
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230517170742
+  - @nextui-org/popover@0.0.0-dev-v2-20230517170742
+  - @nextui-org/system@0.0.0-dev-v2-20230517170742
+  - @nextui-org/theme@0.0.0-dev-v2-20230517170742
+
 ## 0.0.0-dev-v2-20230515031033
 
 ### Patch Changes

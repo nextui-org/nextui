@@ -5,7 +5,7 @@ import type {
 } from "@nextui-org/theme";
 import type {CollapseTransitionProps} from "@nextui-org/framer-transitions";
 
-import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
+import {ItemProps, BaseItem} from "@nextui-org/aria-utils";
 import {FocusableProps} from "@react-types/shared";
 import {ReactNode} from "react";
 

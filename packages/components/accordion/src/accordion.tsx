@@ -7,7 +7,7 @@ import AccordionItem from "./accordion-item";
 export interface AccordionProps extends Omit<UseAccordionProps, "ref"> {}
 
 const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
-  const {Component, context, state, getBaseProps, handleFocusChanged} = useAccordion({
+  const {Component, context, state, getBaseProps, handleFocusChanged, itemStyles} = useAccordion({
     ref,
     ...props,
   });
@@ -20,6 +20,8 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
             key={item.key}
             item={item}
             onFocusChange={(isFocused) => handleFocusChanged(isFocused, item.key)}
+            {...item.props}
+            classNames={{...itemStyles, ...(item.props.classNames || {})}}
           />
         ))}
       </AccordionProvider>

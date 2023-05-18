@@ -1,5 +1,17 @@
 # @nextui-org/system
 
+## 0.0.0-dev-v2-20230518012432
+
+### Patch Changes
+
+- Some styled were unified in a single file
+
+## 0.0.0-dev-v2-20230517170742
+
+### Patch Changes
+
+- Fix build
+
 ## 0.0.0-dev-v2-20230515031033
 
 ### Patch Changes

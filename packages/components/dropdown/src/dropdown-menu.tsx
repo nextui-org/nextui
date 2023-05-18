@@ -69,7 +69,6 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
 
     return (
       <PopoverContent>
-        {" "}
         <FocusScope contain restoreFocus>
           <Component {...getMenuProps({...menuProps}, domRef)} className={classNames}>
             {[...state.collection].map((item) => {
