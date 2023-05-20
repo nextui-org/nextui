@@ -4,7 +4,7 @@
       <h1 align="center">NextUI</h1>
   </a>
 
-  <p>English | <a href="./README.zh-CN.md">简体中文</a></p>
+  <p><a href="./README.md">English</a> | 简体中文</p>
 </p>
 
 </br>
@@ -30,31 +30,31 @@
   </a>
 </p>
 
-> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
+> **注释:** 这是一个社区项目，与无关 [Vercel](https://vercel.com), 但确实从中获得了一些灵感。
 
-> **Warning 🚧:** This project is still in development, it might have bugs and breaking changes so it is not recommended to use it in production.
+> **警告 🚧:** 这个项目仍在开发中，它可能有错误和破坏性的更改，所以不建议在生产中使用它。
 
-## Getting Started
+## 入门
 
-Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextui.org/guide</a> to get started with NextUI.
+访问 <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextui.org/guide</a> 开始使用 NextUI。
 
-## Documentation
+## 文档
 
-Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
+访问 [https://nextui.org/docs](https://nextui.org/docs) 以查看完整的文档。
 
-## Quick Start
+## 快速入门
 
-1. Installation: Inside your React project directory, install NextUI by running either of the following:
+1. 安装：在您的 React 项目目录中，通过运行以下任一命令来安装 NextUI：
 
 ```bash
 yarn add @nextui-org/react
-# or
+# 或
 npm i @nextui-org/react
 ```
 
-2. Setup: For NextUI to work correctly, you need to set up the `NextUIProvider` at the root of your application.
+2. 设置：为了使 NextUI 正常工作，您需要在应用程序的根目录下设置 `NextUIProvider`。
 
-Go to the root of your application and do this:
+转到应用程序的根目录并执行此操作:
 
 ```jsx
 import { NextUIProvider } from '@nextui-org/react';
@@ -66,9 +66,9 @@ const Application = () => (
 );
 ```
 
-3. Using NextUI components:
-   - Once NextUI is installed you can use any of the components as follows~
-   - NextUI uses [tree-shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) so the unused modules will not be included in the bundle durin the build process and each component is exported separately.
+3. 使用 NextUI 组件：
+   - 安装 NextUI 后，您可以按如下方式使用任何组件~
+   - NextUI 使用 [tree-shaking](https://developer.mozilla.org/zh-CN/docs/Glossary/Tree_shaking)，因此在构建过程中未使用的模块不会包含在包中，并且每个组件单独导出。
 
 ```jsx
 import { Button } from '@nextui-org/react';
@@ -76,7 +76,7 @@ import { Button } from '@nextui-org/react';
 const Component = () => <Button>Click me</Button>;
 ```
 
-4. NextUI allows to manually import components if you need. E.g.
+4. 如果需要，NextUI 允许手动导入组件，例如：
 
 ```jsx
 import Button from '@nextui-org/react/button';
@@ -84,23 +84,23 @@ import Button from '@nextui-org/react/button';
 const Component = () => <Button>Click me</Button>;
 ```
 
-### Community
+### 社区
 
-We're excited to see the community adopt NextUI, raise issues, and provide feedback.
-Whether it's a feature request, bug report, or a project to showcase, please get involved!
+我们很高兴看到社区采用 NextUI、提出问题并提供反馈。
+无论是功能请求、错误报告还是要展示的项目，请参与进来！
 
 - [Discord](https://discord.gg/9b6yyZKmH4)
 - [Twitter](https://twitter.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
 
-## Contributing
+## 贡献
 
-Contributions are always welcome!
+贡献总是受欢迎的！
 
-See [CONTRIBUTING.md](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) for ways to get started.
+看 [CONTRIBUTING.md](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) 了解入门方法。
 
-Please adhere to this project's [CODE_OF_CONDUCT](https://github.com/nextui-org/nextui/blob/main/CODE_OF_CONDUCT.md).
+请遵守本项目的 [CODE_OF_CONDUCT](https://github.com/nextui-org/nextui/blob/main/CODE_OF_CONDUCT.md)。
 
-## License
+## 开源许可
 
 [MIT](https://choosealicense.com/licenses/mit/)
