@@ -1,5 +1,19 @@
 # @nextui-org/navbar
 
+## 0.0.0-dev-v2-20230521141624
+
+### Patch Changes
+
+- Badge improved
+- Updated dependencies
+  - @nextui-org/use-aria-toggle-button@0.0.0-dev-v2-20230521141624
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230521141624
+  - @nextui-org/use-scroll-position@0.0.0-dev-v2-20230521141624
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230521141624
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230521141624
+  - @nextui-org/system@0.0.0-dev-v2-20230521141624
+  - @nextui-org/theme@0.0.0-dev-v2-20230521141624
+
 ## 0.0.0-dev-v2-20230518012432
 
 ### Patch Changes

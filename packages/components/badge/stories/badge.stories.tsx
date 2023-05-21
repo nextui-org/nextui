@@ -3,6 +3,8 @@ import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {badge} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";
 import {CheckIcon} from "@nextui-org/shared-icons";
+import {Switch} from "@nextui-org/switch";
+import {Notification, CartIcon} from "@nextui-org/shared-icons";
 
 import {Badge, BadgeProps} from "../src";
 
@@ -51,6 +53,16 @@ export default {
         options: ["top-right", "top-left", "bottom-right", "bottom-left"],
       },
     },
+    isInvisible: {
+      control: {
+        type: "boolean",
+      },
+    },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as ComponentMeta<typeof Badge>;
 
@@ -68,6 +80,37 @@ const Template: ComponentStory<typeof Badge> = (args: BadgeProps) => (
     />
   </Badge>
 );
+
+const ShapesTemplate: ComponentStory<typeof Badge> = (args: BadgeProps) => (
+  <div className="flex gap-4 items-center">
+    <Badge {...args} shape="rectangle">
+      <Avatar isBordered radius="lg" src="https://i.pravatar.cc/150?u=a042f81f4e29026024d" />
+    </Badge>
+    <Badge {...args} shape="circle">
+      <Avatar isBordered radius="full" src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
+    </Badge>
+  </div>
+);
+
+const InvisibleTemplate: ComponentStory<typeof Badge> = (args: BadgeProps) => {
+  const [isInvisible, setIsInvisible] = React.useState(false);
+
+  return (
+    <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
+        <Badge {...args} color="danger" content={5} isInvisible={isInvisible} shape="circle">
+          <Notification className="fill-current" size={30} />
+        </Badge>
+        <Badge {...args} color="danger" content={50} isInvisible={isInvisible} shape="circle">
+          <CartIcon size={30} />
+        </Badge>
+      </div>
+      <Switch isSelected={!isInvisible} onValueChange={(value) => setIsInvisible(!value)}>
+        Show badge
+      </Switch>
+    </div>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {
@@ -106,4 +149,16 @@ VerticalOffset.args = {
   classNames: {
     badge: "p-0.5 right-[50%] bottom-[50%]",
   },
+};
+
+export const Shapes = ShapesTemplate.bind({});
+Shapes.args = {
+  ...defaultProps,
+  color: "danger",
+};
+
+export const Invisible = InvisibleTemplate.bind({});
+Invisible.args = {
+  ...defaultProps,
+  color: "danger",
 };

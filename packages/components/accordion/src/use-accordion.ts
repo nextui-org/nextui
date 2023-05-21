@@ -204,6 +204,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     state,
     focusedKey,
     getBaseProps,
+    disableAnimation,
     handleFocusChanged,
     itemStyles,
   };

@@ -116,7 +116,7 @@ const toggle = tv({
         ],
         startIcon: "text-[0.6rem] left-1",
         endIcon: "text-[0.6rem] right-1",
-        label: "text-sm",
+        label: "text-xs",
       },
       sm: {
         wrapper: "w-10 h-6 mr-2",
@@ -130,7 +130,7 @@ const toggle = tv({
         ],
         endIcon: "text-xs",
         startIcon: "text-xs",
-        label: "text-base",
+        label: "text-sm",
       },
       md: {
         wrapper: "w-12 h-7 mr-2",
@@ -144,7 +144,7 @@ const toggle = tv({
         ],
         endIcon: "text-sm",
         startIcon: "text-sm",
-        label: "text-lg",
+        label: "text-base",
       },
       lg: {
         wrapper: "w-14 h-8 mr-2",
@@ -158,7 +158,7 @@ const toggle = tv({
         ],
         endIcon: "text-base",
         startIcon: "text-base",
-        label: "text-xl",
+        label: "text-lg",
       },
       xl: {
         wrapper: "w-16 h-9 mr-2",
@@ -172,7 +172,7 @@ const toggle = tv({
         ],
         endIcon: "text-base",
         startIcon: "text-base",
-        label: "text-xl",
+        label: "text-lg",
       },
     },
     isDisabled: {

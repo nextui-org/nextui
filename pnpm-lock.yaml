@@ -573,6 +573,9 @@ importers:
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
+      '@nextui-org/switch':
+        specifier: workspace:*
+        version: link:../switch
       clean-package:
         specifier: 2.2.0
         version: 2.2.0

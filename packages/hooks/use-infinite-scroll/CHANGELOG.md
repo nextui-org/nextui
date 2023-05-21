@@ -1,5 +1,11 @@
 # @nextui-org/use-infinite-scroll
 
+## 0.0.0-dev-v2-20230521141624
+
+### Patch Changes
+
+- Badge improved
+
 ## 0.0.0-dev-v2-20230518012432
 
 ### Patch Changes

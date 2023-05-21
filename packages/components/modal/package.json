@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/modal",
-  "version": "0.0.0-dev-v2-20230518012432",
+  "version": "0.0.0-dev-v2-20230521141624",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"
@@ -34,7 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "framer-motion": ">=4.0.0"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",

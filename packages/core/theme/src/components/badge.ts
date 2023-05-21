@@ -33,6 +33,7 @@ const badge = tv({
       "font-regular",
       "scale-100",
       "opacity-100",
+      "subpixel-antialiased",
       "data-[invisible=true]:scale-0",
       "data-[invisible=true]:opacity-0",
     ],
@@ -118,7 +119,7 @@ const badge = tv({
         badge: "transition-none",
       },
       false: {
-        badge: "transition-transform-opacity",
+        badge: "transition-transform-opacity !ease-soft-spring !duration-300",
       },
     },
     disableOutline: {
@@ -377,28 +378,28 @@ const badge = tv({
       placement: "top-right",
       shape: "circle",
       class: {
-        badge: "top-[15%] right-[15%] translate-x-1/2 -translate-y-1/2",
+        badge: "top-[10%] right-[10%] translate-x-1/2 -translate-y-1/2",
       },
     },
     {
       placement: "top-left",
       shape: "circle",
       class: {
-        badge: "top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2",
+        badge: "top-[10%] left-[10%] -translate-x-1/2 -translate-y-1/2",
       },
     },
     {
       placement: "bottom-right",
       shape: "circle",
       class: {
-        badge: "bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2",
+        badge: "bottom-[10%] right-[10%] translate-x-1/2 translate-y-1/2",
       },
     },
     {
       placement: "bottom-left",
       shape: "circle",
       class: {
-        badge: "bottom-[15%] left-[15%] -translate-x-1/2 translate-y-1/2",
+        badge: "bottom-[10%] left-[10%] -translate-x-1/2 translate-y-1/2",
       },
     },
   ],

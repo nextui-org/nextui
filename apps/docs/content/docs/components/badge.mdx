@@ -8,6 +8,88 @@ url: https://nextui.org/docs/components/badge
 
 Badges are used as a small numerical value or status descriptor for UI elements.
 
+<ComponentLinks component="badge" />
+
+---
+
+## Import
+
 ```jsx
-import { Badge } from "@nextui-org/react";
+import {Badge} from "@nextui-org/react";
 ```
+
+## Usage
+
+<CodeDemo title="Usage" files={badgeContent.usage} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={badgeContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={badgeContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={badgeContent.variants} />
+
+### Radius
+
+<CodeDemo title="Radius" files={badgeContent.radius} />
+
+### Placements
+
+<CodeDemo title="Placements" files={badgeContent.placements} />
+
+### Shapes
+
+For a better positioning, you can use the `shape` property to define the shape of the badge.
+
+<CodeDemo title="Shapes" files={badgeContent.shapes} />
+
+### Badge Visibility
+
+You can control the visibility of the badge by using the `isInvisible` property.
+
+<CodeDemo title="Badge visibility" files={badgeContent.visibility} />
+
+### Content Examples
+
+<CodeDemo title="Content examples" files={badgeContent.contentExamples} />
+
+### Disable Outline
+
+By default, the badge has an outline, you can disable it by using the `disableOutline` property.
+
+<CodeDemo title="Disable outline" files={badgeContent.disableOutline} />
+
+### Accessibility
+
+It's not advisable to depend on the badge's content for accurate announcement.
+Instead, consider supplying a comprehensive description, such as using `aria-label`.
+
+<CodeDemo title="Accessibility" files={badgeContent.a11y} />
+
+<Spacer y={8} />
+
+## API
+
+### Badge Props
+
+| Attribute        | Type                                                                        | Description                                                                    | Default     |
+| ---------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------- |
+| children \*      | `ReactNode`                                                                 | The wrapped component.                                                         | -           |
+| content          | `string` \| `number` \| `ReactNode`                                         | The content of the badge. The badge will be rendered relative to its children. | -           |
+| variant          | `solid` \| `flat` \| `faded` \| `shadow`                                    | The variant style of the badge.                                                | `solid`     |
+| color            | `neutral` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the badge.                                                        | `neutral`   |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the badge.                                                         | `md`        |
+| radius           | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                  | The radius of the badge.                                                       | `full`      |
+| shape            | `circle` \| `rectangle`                                                     | The shape of the badge.                                                        | `rectangle` |
+| placement        | `top-right` \| `top-left` \| `bottom-right` \| `bottom-left`                | The placement of the badge.                                                    | `top-right` |
+| disableOutline   | `boolean`                                                                     | If `true`, the badge will not have an outline.                                 | `false`     |
+| disableAnimation | `boolean`                                                                     | If `true`, the badge will not have an animation.                               | `false`     |
+| isInvisible      | `boolean`                                                                     | If `true`, the badge will be invisible.                                        | `false`     |
+| isOneChar        | `boolean`                                                                     | If `true`, the badge will have the same width and height.                      | `false`     |
+| isDot            | `boolean`                                                                     | If `true`, the badge will have smaller dimensions.                             | `false`     |
+| classNames       | `Record<"base"｜"badge", string>`                                         | Allows to set custom class names for the badge slots.                          | -           |

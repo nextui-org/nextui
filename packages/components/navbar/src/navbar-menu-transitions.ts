@@ -2,26 +2,38 @@ import {Variants} from "framer-motion";
 
 export const menuVariants: Variants = {
   open: {
-    transition: {staggerChildren: 0.07, delayChildren: 0.15},
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 0.7,
+      delayChildren: 0.15,
+      staggerChildren: 0.05,
+    },
   },
   closed: {
-    transition: {staggerChildren: 0.05, staggerDirection: -1},
+    transition: {
+      type: "spring",
+      bounce: 0,
+      duration: 0.3,
+    },
   },
 };
 
 export const menuItemVariants: Variants = {
   open: {
-    y: 0,
     opacity: 1,
+    y: 0,
     transition: {
-      y: {stiffness: 1000, velocity: -100},
+      type: "spring",
+      stiffness: 300,
+      damping: 24,
     },
   },
   closed: {
-    y: 50,
     opacity: 0,
+    y: 20,
     transition: {
-      y: {stiffness: 1000},
+      duration: 0.2,
     },
   },
 };

@@ -50,6 +50,7 @@ const NavbarMenu = forwardRef<NavbarMenuProps, "ul">((props, ref) => {
   return (
     <motion.ul
       ref={domRef}
+      layoutScroll
       animate={isMenuOpen ? "open" : "closed"}
       className={slots.menu?.({class: styles})}
       data-open={dataAttr(isMenuOpen)}

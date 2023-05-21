@@ -49,11 +49,11 @@ const defaultTransitions = {
   },
   enter: {
     height: {
-      duration: 0.6,
+      duration: 0.4,
       ease: TRANSITION_EASINGS.spring,
     },
     opacity: {
-      duration: 0.5,
+      duration: 0.3,
       ease: TRANSITION_EASINGS.ease,
     },
   },

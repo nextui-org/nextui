@@ -183,6 +183,7 @@ module.exports = {
               minWidth: "100%",
             },
             table: {
+              marginTop: '0px',
               fontSize: theme("fontSize.sm")[0],
               lineHeight: theme("fontSize.sm")[1].lineHeight,
             },

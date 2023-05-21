@@ -1,5 +1,14 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230521141624
+
+### Patch Changes
+
+- Badge improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230521141624
+  - @nextui-org/system@0.0.0-dev-v2-20230521141624
+
 ## 0.0.0-dev-v2-20230518012432
 
 ### Patch Changes

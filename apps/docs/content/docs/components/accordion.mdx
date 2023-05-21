@@ -128,7 +128,7 @@ Here's an example of how to customize the accordion styles:
 
 ## Accessibility
 
-- Keyboard event support for <kbd>Space</kbd>, <kbd>Enter</kbd>, <kbg>Arrow Up</kbg>, <kbd>Arrow Down</kbd> and <kbd>Home</kbd> / <kbd>End</kbd> keys.
+- Keyboard event support for <kbd>Space</kbd>, <kbd>Enter</kbd>, <kbd>Arrow Up</kbd>, <kbd>Arrow Down</kbd> and <kbd>Home</kbd> / <kbd>End</kbd> keys.
 - Keyboard focus management and cross browser normalization.
 - `aria-expanded` attribute for the accordion item.
 - `aria-disabled` attribute for the accordion item.
@@ -138,22 +138,22 @@ Here's an example of how to customize the accordion styles:
 
 ### Accordion Item Props
 
-| Attribute                 | Type                                                                       | Description                                                                                           | Default |
-| ------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
-| indicator                 | `ReactNode` \| [IndicatorProps](#accordion-item-indicator-props) \| `null` | The accordion item `expanded` indicator, usually an arrow icon.                                       |         |
-| children                  | `ReactNode` \| `string`                                                    | The content of the component.                                                                         |         |
-| title                     | `ReactNode` \| `string`                                                    | The accordion item title.                                                                             |         |
-| subtitle                  | `ReactNode` \| `string`                                                    | The accordion item subtitle.                                                                          |         |
-| startContent              | `ReactNode`                                                                | The accordion item start content, usually an icon or avatar.                                          |         |
-| motionProps               | [CollapseTransitionProps](#collapse-transition-props)                      | The props to modify the framer motion animation. Use the `variants` API to create your own animation. |         |
-| isCompact                 | `boolean`                                                                  | Whether the AccordionItem is compact.                                                                 |         |
-| isOpen                    | `boolean`                                                                  | The current open status.                                                                              |         |
-| isDisabled                | `boolean`                                                                  | The current disabled status.                                                                          | `false` |
-| hideDivider               | `boolean`                                                                  | Whether the AccordionItem divider is hidden.                                                          | `false` |
-| hideIndicator             | `boolean`                                                                  | Whether the AccordionItem indicator is hidden.                                                        | `false` |
-| disableAnimation          | `boolean`                                                                  | Whether the AccordionItem animation is disabled.                                                      | `false` |
-| disableIndicatorAnimation | `boolean`                                                                  | Whether the AccordionItem indicator animation is disabled.                                            | `false` |
-| classNames                | [AccordionItemClassnames](#accordiom-item-classnames)                      | Allows to set custom class names for the accordion item slots.                                        | -       |
+| Attribute                 | Type                                              | Description                                                                                           | Default |
+| ------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
+| children                  | `ReactNode` \| `string`                           | The content of the component.                                                                         |         |
+| title                     | `ReactNode` \| `string`                           | The accordion item title.                                                                             |         |
+| subtitle                  | `ReactNode` \| `string`                           | The accordion item subtitle.                                                                          |         |
+| indicator                 | [IndicatorProps](#accordion-item-indicator-props) | The accordion item `expanded` indicator, usually an arrow icon.                                       |         |
+| startContent              | `ReactNode`                                       | The accordion item start content, usually an icon or avatar.                                          |         |
+| motionProps               | [MotionProps](#motion-props)                      | The props to modify the framer motion animation. Use the `variants` API to create your own animation. |         |
+| isOpen                    | `boolean`                                         | The current open status. (controlled)                                                                 |         |
+| isCompact                 | `boolean`                                         | Whether the AccordionItem is compact.                                                                 | `false` |
+| isDisabled                | `boolean`                                         | The current disabled status.                                                                          | `false` |
+| hideDivider               | `boolean`                                         | Whether the AccordionItem divider is hidden.                                                          | `false` |
+| hideIndicator             | `boolean`                                         | Whether the AccordionItem indicator is hidden.                                                        | `false` |
+| disableAnimation          | `boolean`                                         | Whether the AccordionItem animation is disabled.                                                      | `false` |
+| disableIndicatorAnimation | `boolean`                                         | Whether the AccordionItem indicator animation is disabled.                                            | `false` |
+| classNames                | [Classnames](#accordiom-item-classnames)          | Allows to set custom class names for the accordion item slots.                                        | -       |
 
 ### Accordion Item Events
 
@@ -167,26 +167,26 @@ Here's an example of how to customize the accordion styles:
 
 ### Accordion Props
 
-| Attribute                 | Type                                                  | Description                                                                                             | Default  |
-| ------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------- |
-| children                  | `ReactNode` \| `ReactNode[]`                          | The contents of the collection. Usually the array of `AccordionItem`                                    |          |
-| variant                   | `light` \| `shadow` \| `bordered` \| `splitted`       | The accordion appearance style.                                                                         | `light`  |
-| selectionMode             | `none` \| `single` \| `multiple`                      | The type of selection that is allowed in the collection.                                                |          |
-| selectionBehavior         | `toggle` \| `replace`                                 | The accordion selection behavior.                                                                       | `toggle` |
-| isCompact                 | `boolean`                                             | Whether the Accordion should be smaller.                                                                |          |
-| isDisabled                | `boolean`                                             | Whether the Accordion is disabled.                                                                      |          |
-| hideDivider               | `boolean`                                             | Whether the Accordion divider is hidden.                                                                |          |
-| hideIndicator             | `boolean`                                             | Whether the Accordion indicator is hidden.                                                              |          |
-| disableAnimation          | `boolean`                                             | Whether the Accordion animation is disabled.                                                            |          |
-| disableIndicatorAnimation | `boolean`                                             | Whether the Accordion indicator animation is disabled.                                                  |          |
-| disallowEmptySelection    | `boolean`                                             | Whether the collection allows empty selection.                                                          |          |
-| fullWidth                 | `boolean`                                             | Whether the accordion should take up the full width of its parent container.                            | `true`   |
-| motionProps               | `MotionProps`                                         | The motion properties of the Accordion.                                                                 |          |
-| disabledKeys              | `React.Key[]`                                         | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. |          |
-| itemStyles                | [AccordionItemClassnames](#accordiom-item-classnames) | The accordion items classNames.                                                                         |          |
-| selectedKeys              | `all` \| `React.Key[]`                                | The currently selected keys in the collection (controlled).                                             |          |
-| defaultSelectedKeys       | `all` \| `React.Key[]`                                | The initial selected keys in the collection (uncontrolled).                                             |          |
-| disabledKeys              | `React.Key[]`                                         | The currently disabled keys in the collection (controlled).                                             |          |
+| Attribute                 | Type                                            | Description                                                                                             | Default  |
+| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------- |
+| children                  | `ReactNode` \| `ReactNode[]`                    | The contents of the collection. Usually the array of `AccordionItem`                                    |          |
+| variant                   | `light` \| `shadow` \| `bordered` \| `splitted` | The accordion appearance style.                                                                         | `light`  |
+| selectionMode             | `none` \| `single` \| `multiple`                | The type of selection that is allowed in the collection.                                                |          |
+| selectionBehavior         | `toggle` \| `replace`                           | The accordion selection behavior.                                                                       | `toggle` |
+| isCompact                 | `boolean`                                       | Whether all Accordion items should be smaller.                                                                |  `false`        |
+| isDisabled                | `boolean`                                       | Whether the Accordion items are disabled.                                                                      |          |
+| hideDivider               | `boolean`                                       | Whether the Accordion items divider is hidden.                                                                |          |
+| hideIndicator             | `boolean`                                       | Whether the Accordion items indicator is hidden.                                                              |          |
+| disableAnimation          | `boolean`                                       | Whether the Accordion items open/close animation is disabled.                                                            |          |
+| disableIndicatorAnimation | `boolean`                                       | Whether the Accordion items indicator animation is disabled.                                                  |          |
+| disallowEmptySelection    | `boolean`                                       | Whether the collection allows empty selection.                                                          |          |
+| fullWidth                 | `boolean`                                       | Whether the accordion should take up the full width of its parent container.                            | `true`   |
+| motionProps               | `MotionProps`                                   | The motion properties of the Accordion.                                                                 |          |
+| disabledKeys              | `React.Key[]`                                   | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. |          |
+| itemStyles                | [Classnames](#accordiom-item-classnames)        | The accordion items classNames.                                                                         |          |
+| selectedKeys              | `all` \| `React.Key[]`                          | The currently selected keys in the collection (controlled).                                             |          |
+| defaultSelectedKeys       | `all` \| `React.Key[]`                          | The initial selected keys in the collection (uncontrolled).                                             |          |
+| disabledKeys              | `React.Key[]`                                   | The currently disabled keys in the collection (controlled).                                             |          |
 
 ### Accordion Events
 
@@ -216,6 +216,8 @@ export type AccordionItemIndicatorProps = {
    */
   isDisabled?: boolean;
 };
+
+type indicator?: ReactNode | ((props: AccordionItemIndicatorProps) => ReactNode) | null;
 ```
 
 ### Accordion Item classNames
@@ -234,10 +236,10 @@ export type AccordionItemClassnames = {
 };
 ```
 
-#### Collapse Transition Props
+#### Motion Props
 
 ```ts
-export type CollapseTransitionProps = {
+export type MotionProps = {
   /**
    * If `true`, the opacity of the content will be animated
    * @default true
