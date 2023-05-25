@@ -685,3 +685,21 @@ export const CustomCells = () => {
 export const NoAnimated = () => {
   return <BaseTable animated={false} color="secondary" selectionMode="multiple" />;
 };
+
+export const TableWithOnRowAction = () => {
+  return (
+    <BaseTable
+      selectionMode="single"
+      onRowAction={(key) => alert(`Opening row item ${key}`)}
+    />
+  );
+};
+
+export const TableWithOnCellAction = () => {
+  return (
+    <BaseTable
+      selectionMode="single"
+      onCellAction={(key) => alert(`Opening cell item ${key}`)}
+    />
+  );
+};

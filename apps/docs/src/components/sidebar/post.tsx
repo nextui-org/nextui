@@ -50,23 +50,24 @@ const Post: React.FC<PostProps> = ({isMobile, route, level = 1, onClick}) => {
 
   return (
     <div ref={ref} className={cn("link", `level-${level}`, {disabled: route?.comingSoon})}>
-      <NavLink {...route} color={linkColor} onClick={onClick} />
-      <Spacer inline x={0.2} />
-      {route?.newPost && (
-        <Badge className="post__new-badge" type="primary">
-          New
-        </Badge>
-      )}
-      {route?.updated && (
-        <Badge className="post__new-badge" type="secondary">
-          Updated
-        </Badge>
-      )}
-      {route?.comingSoon && (
-        <Badge className="post__coming-soon-badge" type="disabled">
-          Coming soon
-        </Badge>
-      )}
+      <NavLink {...route} color={linkColor} onClick={onClick}>
+        <Spacer inline x={0.2} />
+        {route?.newPost && (
+          <Badge className="post__new-badge" type="primary">
+            New
+          </Badge>
+        )}
+        {route?.updated && (
+          <Badge className="post__new-badge" type="secondary">
+            Updated
+          </Badge>
+        )}
+        {route?.comingSoon && (
+          <Badge className="post__coming-soon-badge" type="disabled">
+            Coming soon
+          </Badge>
+        )}
+      </NavLink>
       <style jsx>{`
         .link {
           margin: 18px 0;

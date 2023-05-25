@@ -23,14 +23,14 @@ function usePrefersReducedMotion() {
     if (mediaQueryList.addEventListener) {
       mediaQueryList.addEventListener("change", listener);
     } else {
-      mediaQueryList.addListener(listener);
+      mediaQueryList.addEventListener("change", listener);
     }
 
     return () => {
       if (mediaQueryList.removeEventListener) {
         mediaQueryList.removeEventListener("change", listener);
       } else {
-        mediaQueryList.removeListener(listener);
+        mediaQueryList.removeEventListener("change", listener);
       }
     };
   }, []);
