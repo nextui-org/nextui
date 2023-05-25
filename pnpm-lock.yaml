@@ -1905,6 +1905,9 @@ importers:
       '@nextui-org/user':
         specifier: workspace:*
         version: link:../../components/user
+      '@react-aria/visually-hidden':
+        specifier: ^3.8.0
+        version: 3.8.0(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
@@ -4620,7 +4623,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.21.5
       '@types/react': 18.0.1
-      clsx: 1.1.0
+      clsx: 1.2.1
       focus-lock: 0.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

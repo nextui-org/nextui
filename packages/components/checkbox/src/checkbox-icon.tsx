@@ -15,12 +15,11 @@ function CheckIcon(props: CheckboxIconProps) {
         strokeDashoffset={isSelected ? 44 : 66}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={3}
+        strokeWidth={2}
         style={
           !disableAnimation
             ? {
-                transition: "stroke-dashoffset 200ms ease",
-                transitionDelay: "250ms",
+                transition: "stroke-dashoffset 250ms linear",
               }
             : {}
         }

@@ -87,7 +87,7 @@ export interface UseAvatarProps
   classNames?: SlotsToClasses<AvatarSlots>;
 }
 
-export function useAvatar(props: UseAvatarProps) {
+export function useAvatar(props: UseAvatarProps = {}) {
   const groupContext = useAvatarGroupContext();
   const isInGroup = !!groupContext;
 

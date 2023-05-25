@@ -120,23 +120,25 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
           />
         </div>
 
-        <Tooltip
-          showArrow
-          className="text-sm animate-[levitate_14s_ease_infinite]"
-          color="secondary"
-          content="Developers love Next.js"
-          isOpen={!isTablet}
-          placement="top"
-        >
-          <Button
-            className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
+        {mounted && (
+          <Tooltip
+            showArrow
+            className="text-sm animate-[levitate_14s_ease_infinite]"
             color="secondary"
-            size="sm"
-            variant="flat"
+            content="Developers love Next.js"
+            isOpen={!isTablet}
+            placement="top"
           >
-            Tooltip
-          </Button>
-        </Tooltip>
+            <Button
+              className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
+              color="secondary"
+              size="sm"
+              variant="flat"
+            >
+              Tooltip
+            </Button>
+          </Tooltip>
+        )}
 
         <Card className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
           <CardBody>

@@ -140,6 +140,12 @@
           "path": "/docs/components/checkbox.mdx"
         },
         {
+          "key": "checkbox-group",
+          "title": "Checkbox Group",
+          "keywords": "checkbox group, binary choice, selection control, toggle",
+          "path": "/docs/components/checkbox-group.mdx"
+        },
+        {
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",

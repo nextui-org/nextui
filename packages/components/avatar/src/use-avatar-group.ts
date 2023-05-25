@@ -44,7 +44,7 @@ export type ContextType = {
   isDisabled?: AvatarProps["isDisabled"];
 };
 
-export function useAvatarGroup(props: UseAvatarGroupProps) {
+export function useAvatarGroup(props: UseAvatarGroupProps = {}) {
   const {
     as,
     ref,

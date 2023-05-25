@@ -104,4 +104,14 @@ You can use `Image` component as the cover of the card by taking it out of the `
 | disableAnimation          | `boolean`                                                                     | Whether to disable the animation.                                             | `false` |
 | disableRipple             | `boolean`                                                                     | Whether to disable ripple effect. Only when `isPressable` is true.            | `false` |
 | allowTextSelectionOnPress | `boolean`                                                                     | Whether to allow text selection on pressing. Only when `isPressable` is true. | `false` |
-| classNames                | `base` \| `header` \| `body` \| `footer`                                      | Allows to set custom class names for the card slots.                          | -       |
+| classNames                | `Record<"base"｜ "header"｜ "body"｜ "footer", string>`                       | Allows to set custom class names for the card slots.                          | -       |
+
+### Card Events
+
+| Attribute     | Type                           | Description                                                                                                             |
+| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| onPress       | `(e: PressEvent) => void`      | Handler that is called when the press is released over the target.                                                      |
+| onPressStart  | `(e: PressEvent) => void`      | Handler that is called when a press interaction starts.                                                                 |
+| onPressEnd    | `(e: PressEvent) => void`      | Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target.     |
+| onPressChange | `(isPressed: boolean) => void` | Handler that is called when the press state changes.                                                                    |
+| onPressUp     | `(e: PressEvent) => void`      | Handler that is called when a press is released over the target, regardless of whether it started on the target or not. |

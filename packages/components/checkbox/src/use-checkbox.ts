@@ -70,7 +70,7 @@ export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
   Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
   CheckboxVariantProps;
 
-export function useCheckbox(props: UseCheckboxProps) {
+export function useCheckbox(props: UseCheckboxProps = {}) {
   const groupContext = useCheckboxGroupContext();
   const isInGroup = !!groupContext;
 

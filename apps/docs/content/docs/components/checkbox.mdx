@@ -6,9 +6,146 @@ url: https://nextui.org/docs/components/checkbox
 
 # Checkbox
 
-Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected. Checkbox implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useCheckbox.html" rel="noreferrer" target="_blank">
-@react-aria/checkbox</a>
+Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
+
+<ComponentLinks component="checkbox" reactAriaHook="useCheckbox" />
+
+---
+
+## Import
 
 ```jsx
-import { Checkbox } from "@nextui-org/react";
+import {Checkbox} from "@nextui-org/react";
+```
+
+## Usage
+
+<CodeDemo title="Usage" files={checkboxContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={checkboxContent.disabled} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={checkboxContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={checkboxContent.colors} />
+
+### Radius
+
+<CodeDemo title="Radius" files={checkboxContent.radius} />
+
+### Indeterminate
+
+The `isIndeterminate` prop sets a `Checkbox` to an indeterminate state, overriding its appearance and maintaining it until set to `false`, regardless of user interaction.
+
+<CodeDemo title="Indeterminate" files={checkboxContent.indeterminate} />
+
+### Line Through
+
+<CodeDemo title="Line Through" files={checkboxContent.lineThrough} />
+
+### Custom Check Icon
+
+<CodeDemo title="Custom Check Icon" files={checkboxContent.customCheckIcon} />
+
+### Controlled Checkbox
+
+<CodeDemo title="Controlled Checkbox" files={checkboxContent.controlled} />
+
+## Slots
+
+- **base**: Checkbox wrapper, it handles alignment, placement, and general appearance.
+- **wrapper**: An inner container that includes styles for relative positioning, flex properties, overflow handling and managing hover and selected states.
+- **icon**: Icon within the checkbox, controlling size, visibility, and changes when checked.
+- **label**: The text associated with the checkbox.
+
+### Custom Styles
+
+<CodeDemo title="Custom Styles" files={checkboxContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the checkbox even further, you can use the `useCheckbox` hook to create your own implementation.
+
+<CodeDemo title="Custom Implementation" files={checkboxContent.customImplementation} />
+
+> Note: We used [Tailwind Variants](https://www.tailwind-variants.org/) to implement the styles above, you can use any other library such as [clsx](https://www.npmjs.com/package/clsx) to achieve the same result.
+
+## Data Attributes
+
+`Checkbox` has the following attributes on the `root` element:
+
+- **data-checked**:
+  When the checkbox is checked. Based on `isSelected` prop.
+- **data-pressed**:
+  When the checkbox is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-invalid**:
+  When the checkbox is invalid. Based on `validationState` prop.
+- **data-readonly**:
+  When the checkbox is readonly. Based on `isReadOnly` prop.
+- **data-indeterminate**:
+  When the checkbox is indeterminate. Based on `isIndeterminate` prop.
+- **data-hover**:
+  When the checkbox is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus**:
+  When the checkbox is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the checkbox is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the checkbox is disabled. Based on `isDisabled` prop.
+- **data-pressed**:
+  When the checkbox is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-loading**:
+  When the checkbox is loading. Based on `isLoading` prop.
+
+## API
+
+### Checkbox Props
+
+| Attribute        | Type                                                                        | Description                                                                                                                        | Default   |
+| ---------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| children         | `ReactNode`                                                                 | The label of the checkbox.                                                                                                         | -         |
+| icon             | [CheckboxIconProps](#checkbox-icon-props)                                   | The icon to be displayed when the checkbox is checked.                                                                             | -         |
+| value            | `string`                                                                    | The value of the input element, used when submitting an HTML form.                                                                 |           |
+| name             | `string`                                                                    | The name of the input element, used when submitting an HTML form.                                                                  |           |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the checkbox.                                                                                                          | `md`      |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the checkbox.                                                                                                         | `primary` |
+| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`          | The radius of the checkbox.                                                                                                        | `md`      |
+| lineThrough      | `boolean`                                                                   | Whether the label should be crossed out.                                                                                           | `false`   |
+| isSelected       | `boolean`                                                                   | Whether the element should be selected (controlled).                                                                               |           |
+| defaultSelected  | `boolean`                                                                   | Whether the element should be selected (uncontrolled).                                                                             |           |
+| validationState  | `valid` \| `invalid`                                                        | Whether the input should display its "valid" or "invalid" visual styling.                                                          | `false`   |
+| isDisabled       | `boolean`                                                                   | Whether the checkbox is disabled.                                                                                                  | `false`   |
+| isRequired       | `boolean`                                                                   | Whether user input is required on the input before form submission.                                                                | `false`   |
+| isReadOnly       | `boolean`                                                                   | Whether the input can be selected but not changed by the user.                                                                     |           |
+| isDisabled       | `boolean`                                                                   | Whether the input is disabled.                                                                                                     |           |
+| isIndeterminate  | `boolean`                                                                   | Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction.              |           |
+| disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                                                                          | `false`   |
+| classNames       | `Record<"base"｜ "wrapper"｜ "icon"｜ "label", string>`                     | Classname or List of classes to change the classNames of the element. if `className` is passed, it will be added to the base slot. | -         |
+
+### Checkbox Events
+
+| Attribute     | Type                                   | Description                                                                                                                                              | Default |
+| ------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| onChange      | `React.ChangeEvent <HTMLInputElement>` | Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing `event.target.checked` (boolean). |
+| onValueChange | `(isSelected: boolean) => void`        | Handler that is called when the element's selection state changes.                                                                                       | -       |
+
+### Types
+
+#### Checkbox Icon Props
+
+```ts
+type IconProps = {
+  "data-checked": string;
+  isSelected: boolean;
+  isIndeterminate: boolean;
+  disableAnimation: boolean;
+  className: string;
+};
+
+type CheckboxIconProps = ReactNode | ((props: IconProps) => ReactNode);
 ```
