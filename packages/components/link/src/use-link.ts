@@ -64,14 +64,6 @@ export function useLink(originalProps: UseLinkProps) {
     otherProps.target = otherProps.target ?? "_blank";
   }
 
-  /**  
-   *  if (as !== "a") {
-   *    otherProps.role = "link";
-   *  }
-   *  This logic handled by @react-aria/link.
-   *  See: https://github.com/adobe/react-spectrum/blob/5a3315f560071087cacf846bd2a86d8f47692446/packages/%40react-aria/link/src/useLink.ts#L55
-   */
-
   const classNames = useMemo(
     () =>
       link({
