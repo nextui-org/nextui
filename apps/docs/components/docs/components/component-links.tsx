@@ -5,10 +5,11 @@ import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
 
 export interface ComponentLinksProps {
   component: string;
+  storybook?: string;
   reactAriaHook?: string;
 }
 
-export const ComponentLinks = ({component, reactAriaHook}: ComponentLinksProps) => {
+export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentLinksProps) => {
   if (!component) {
     return null;
   }
@@ -19,7 +20,7 @@ export const ComponentLinks = ({component, reactAriaHook}: ComponentLinksProps) 
         isExternal
         as={Link}
         className="text-neutral-700"
-        href={`https://storiesv2.nextui.org/?path=/story/components-${component}`}
+        href={`https://storiesv2.nextui.org/?path=/story/components-${storybook || component}`}
         radius="md"
         size="sm"
         startIcon={<StorybookIcon className="text-lg text-[#ff4785]" />}

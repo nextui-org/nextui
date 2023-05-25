@@ -92,7 +92,7 @@ export function useButton(props: UseButtonProps) {
     autoFocus,
   });
 
-  const classNames = useMemo(
+  const styles = useMemo(
     () =>
       button({
         size,
@@ -194,7 +194,7 @@ export function useButton(props: UseButtonProps) {
     domRef,
     drips,
     spinner,
-    classNames,
+    styles,
     startIcon,
     endIcon,
     isLoading,

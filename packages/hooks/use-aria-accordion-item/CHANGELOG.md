@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-accordion-item
 
+## 0.0.0-dev-v2-20230525214932
+
+### Patch Changes
+
+- Checkbox styles improved
+
 ## 0.0.0-dev-v2-20230521141624
 
 ### Patch Changes

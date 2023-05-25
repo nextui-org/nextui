@@ -85,7 +85,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col gap-3 outline-none",
+        "flex flex-col gap-3 outline-none w-full",
         // focus ring
         "data-[focus-visible=true]:outline-none",
         "data-[focus-visible=true]:ring-2",
@@ -113,6 +113,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
           <NextUILink
             as={Link}
             className={clsx(
+              "w-full",
               "opacity-60",
               "dark:font-light",
               {

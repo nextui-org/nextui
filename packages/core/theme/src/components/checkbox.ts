@@ -158,7 +158,12 @@ const checkbox = tv({
         label: "transition-none",
       },
       false: {
-        wrapper: ["before:transition-background", "after:transition-transform-opacity"],
+        wrapper: [
+          "before:transition-background",
+          "after:transition-transform-opacity",
+          "after:!ease-linear",
+          "after:!duration-200",
+        ],
         icon: "transition-opacity",
         label: "transition-opacity before:transition-width",
       },

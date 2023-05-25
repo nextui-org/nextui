@@ -41,6 +41,8 @@
     "next-themes": "^0.2.1",
     "parse-numeric-range": "1.2.0",
     "prism-react-renderer": "^1.2.1",
+    "nprogress": "^0.2.0",
+    "mitt": "3.0.0",
     "querystring": "^0.2.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -57,6 +59,7 @@
   "devDependencies": {
     "@next/env": "^13.4.2",
     "@react-types/shared": "^3.18.0",
+    "@types/nprogress": "^0.2.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
     "@types/lodash": "^4.14.194",

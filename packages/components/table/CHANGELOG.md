@@ -1,5 +1,19 @@
 # @nextui-org/table
 
+## 0.0.0-dev-v2-20230525214932
+
+### Patch Changes
+
+- Checkbox styles improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230525214932
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230525214932
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230525214932
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230525214932
+  - @nextui-org/spacer@0.0.0-dev-v2-20230525214932
+  - @nextui-org/system@0.0.0-dev-v2-20230525214932
+  - @nextui-org/theme@0.0.0-dev-v2-20230525214932
+
 ## 0.0.0-dev-v2-20230521141624
 
 ### Patch Changes

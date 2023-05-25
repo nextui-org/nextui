@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import 'prism.css';
+@import 'nprogress.css';
 
 html {
   height: 100vh;

@@ -1,0 +1,14 @@
+#nprogress {
+  @apply pointer-events-none;
+}
+
+#nprogress .bar {
+  @apply bg-secondary fixed z-[9999999] top-0 left-0 w-full h-0.5;
+}
+
+#nprogress .peg {
+  @apply block absolute right-0 w-24 h-full opacity-100;
+  box-shadow: 0 0 10px #7828c8, 0 0 5px #7828c8;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}

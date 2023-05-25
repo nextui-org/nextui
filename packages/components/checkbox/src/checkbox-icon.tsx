@@ -17,9 +17,9 @@ function CheckIcon(props: CheckboxIconProps) {
         strokeLinejoin="round"
         strokeWidth={2}
         style={
-          !disableAnimation
+          !disableAnimation && isSelected
             ? {
-                transition: "stroke-dashoffset 250ms linear",
+                transition: "stroke-dashoffset 250ms linear 0.2s",
               }
             : {}
         }

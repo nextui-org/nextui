@@ -57,7 +57,7 @@ module.exports = {
         highlighted: `${commonColors.purple[500]} 1px 0 0, ${commonColors.purple[500]} -1px 0 0`,
       },
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
         serif: defaultTheme.fontFamily.serif,
         mono: defaultTheme.fontFamily.mono,
       },
@@ -176,7 +176,7 @@ module.exports = {
             p: {
               marginTop: `${12 / 14}em`,
               marginBottom: `${12 / 14}em`,
-              fontWeight: theme("fontWeight.light"),
+              fontWeight: theme("fontWeight.normal"),
             },
             "pre code": {
               flex: "none",

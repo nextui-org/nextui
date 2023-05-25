@@ -22,17 +22,25 @@
 }
 .sp-cm {
   max-height: 100%;
-  overflow: scroll;
+  overflow: hidden;
 }
+
+.cm-scroller {
+  overflow: hidden;
+  max-height: 600px;
+}
+
+.sp-code-viewer.is-expanded .cm-scroller {
+  overflow: auto;
+  padding-bottom: 50px;
+}
+
 .cm-scroller::-webkit-scrollbar {
   width: 0px
 }
 .sp-tab-button {
-  display: block;
-  background: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  @apply block !font-sans bg-transparent appearance-none;
+
   font-size: inherit;
   padding: 0 var(--sp-space-2);
   color: var(--sp-colors-fg-default) !important;

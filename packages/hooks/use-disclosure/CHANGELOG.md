@@ -1,5 +1,13 @@
 # @nextui-org/use-disclosure
 
+## 0.0.0-dev-v2-20230525214932
+
+### Patch Changes
+
+- Checkbox styles improved
+- Updated dependencies
+  - @nextui-org/use-callback-ref@0.0.0-dev-v2-20230525214932
+
 ## 0.0.0-dev-v2-20230521141624
 
 ### Patch Changes

@@ -4,3 +4,4 @@ export * from "./card";
 export * from "./accordion";
 export * from "./badge";
 export * from "./checkbox";
+export * from "./checkbox-group";

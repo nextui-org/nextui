@@ -1,14 +1,31 @@
 import React from "react";
-import {Inter} from "next/font/google";
+import {DM_Sans} from "next/font/google";
 import {Analytics} from "@vercel/analytics/react";
 import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider} from "next-themes";
 import {NextPage} from "next";
 import {AppProps} from "next/app";
+import {debounce} from "lodash";
+import NProgress from "nprogress";
 
+import RouterEvents from "@/libs/router-events";
 import {__PROD__} from "@/utils";
 import "../styles/globals.css";
 import "../styles/sandpack.css";
+
+NProgress.configure({parent: "#app-container"});
+
+const start = debounce(NProgress.start, 100);
+
+RouterEvents.on("routeChangeStart", start);
+RouterEvents.on("routeChangeComplete", () => {
+  start.cancel();
+  NProgress.done();
+});
+RouterEvents.on("routeChangeError", () => {
+  start.cancel();
+  NProgress.done();
+});
 
 const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   return (
@@ -21,7 +38,7 @@ const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   );
 };
 
-const sans = Inter({
+const sans = DM_Sans({
   variable: "--font-sans",
   adjustFontFallback: true,
   display: "optional",
@@ -44,7 +61,7 @@ const sans = Inter({
   preload: true,
   style: "normal",
   subsets: ["latin"],
-  weight: "variable",
+  weight: ["400", "500", "700"],
 });
 
 export const fonts = {

@@ -8,7 +8,9 @@ import {
   useActiveCode,
   SandpackStack,
 } from "@codesandbox/sandpack-react";
+import {Button} from "@nextui-org/react";
 import scrollIntoView from "scroll-into-view-if-needed";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {getId} from "./utils";
 import {Decorators} from "./types";
@@ -31,6 +33,8 @@ export interface CodeViewerProps {
   initMode?: SandpackInitMode;
   containerRef?: React.RefObject<HTMLDivElement>;
 }
+
+const INITIAL_HEIGHT = "200px";
 
 export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
   (
@@ -55,12 +59,12 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
     const shouldShowTabs = showTabs ?? sandpack.visibleFilesFromProps.length > 1;
 
     const lineCount = lineCountRef.current[activeFile];
-    const isExpandable = lineCount > 13 || isExpanded;
+    const isExpandable = lineCount > 7 || isExpanded;
     const isAppFile = activeFile.includes("App");
 
     React.useEffect(() => {
       if (containerRef && containerRef?.current !== null && isExpandable) {
-        containerRef.current.style.height = "350px";
+        containerRef.current.style.height = INITIAL_HEIGHT;
       }
     }, [containerRef]);
 
@@ -78,7 +82,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
         if (nextIsExpanded) {
           container.style.height = "auto";
         } else {
-          container.style.height = "350px";
+          container.style.height = INITIAL_HEIGHT;
           scrollIntoView(container, {
             behavior: "smooth",
             scrollMode: "if-needed",
@@ -93,30 +97,43 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
         <div className="h-full">
           <SandpackStack>
             {shouldShowTabs ? <FileTabs /> : null}
-            {/* <div className="scrollbar-hide overflow-scroll"> */}
-            <CodeEditor
-              key={internalKey}
-              ref={ref}
-              readOnly
-              code={propCode || code}
-              decorators={isAppFile ? decorators : []}
-              filePath={activeFile}
-              initMode={initMode || sandpack.initMode}
-              showLineNumbers={showLineNumbers}
-              showReadOnly={false}
-              wrapContent={wrapContent}
-            />
-            {/* </div> */}
+            <div
+              className={clsx("sp-code-viewer", {
+                "is-expanded": isExpanded,
+              })}
+            >
+              <CodeEditor
+                key={internalKey}
+                ref={ref}
+                readOnly
+                code={propCode || code}
+                decorators={isAppFile ? decorators : []}
+                filePath={activeFile}
+                initMode={initMode || sandpack.initMode}
+                showLineNumbers={showLineNumbers}
+                showReadOnly={false}
+                wrapContent={wrapContent}
+              />
+            </div>
           </SandpackStack>
         </div>
         {isExpandable && (
-          <div className="w-full absolute bottom-0 py-1 px-4 flex items-center justify-end bg-gradient-to-b from-code-background/5 to-black/40 dark:to-black/50 h-10">
-            <button
-              className="text-sm font-medium font-sans transition-colors text-code-foreground/50 hover:text-code-foreground/80"
+          <div
+            className={clsx(
+              "w-full absolute py-1 px-4 flex items-center justify-center bg-gradient-to-t from-code-background to-code-background/10 dark:to-code-background/50",
+              {"h-10 bottom-0 pb-2": isExpanded},
+              {"h-full inset-0": !isExpanded},
+            )}
+          >
+            <Button
+              className="bg-[#2a2838] shadow-md dark:bg-zinc-800 !transition-all text-zinc-300 dark:text-zinc-400 hover:!text-zinc-200"
+              radius="full"
+              size="sm"
+              variant="flat"
               onClick={handleExpand}
             >
               {isExpanded ? "Show less" : "Show more"}
-            </button>
+            </Button>
           </div>
         )}
       </>
