@@ -60,7 +60,7 @@ export default function App() {
           clearable
           color="success"
           initialValue="getnextui"
-          helperText="Excelent username"
+          helperText="Excellent username"
           type="test"
           label="Username"
           placeholder="Enter your username"
