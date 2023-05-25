@@ -40,7 +40,7 @@ const kbd = tv({
       "inline-block",
       "space-x-0.5",
       "font-sans",
-      "font-medium",
+      "font-normal",
       "text-center",
       "text-sm",
       "border",
