@@ -7,3 +7,4 @@ export * from "./checkbox";
 export * from "./checkbox-group";
 export * from "./chip";
 export * from "./circular-progress";
+export * from "./code";
