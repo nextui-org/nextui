@@ -20,7 +20,7 @@ body,
 
 @media screen and (max-width: 640px) {
   #app-container {
-    height: 100dvh;
+    height: 100vh;
     overflow-x: hidden;
   }
 }

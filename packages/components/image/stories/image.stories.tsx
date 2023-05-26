@@ -112,7 +112,8 @@ AnimatedLoad.args = {
   ...defaultProps,
   width: 300,
   radius: "xl",
-  src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  src:
+    "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
 };
 
 export const Fallback = LoadingTemplate.bind({});
@@ -120,7 +121,8 @@ Fallback.args = {
   ...defaultProps,
   width: 300,
   radius: "xl",
-  src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  src:
+    "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
   fallbackSrc: "https://via.placeholder.com/300x450",
 };
 
@@ -128,7 +130,9 @@ export const Skeleton = LoadingTemplate.bind({});
 Skeleton.args = {
   ...defaultProps,
   width: 300,
+  height: 450,
   radius: "xl",
-  src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+  src:
+    "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
   disableSkeleton: false,
 };

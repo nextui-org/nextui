@@ -126,7 +126,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
             )}
           >
             <Button
-              className="bg-[#2a2838] shadow-md dark:bg-zinc-800 !transition-all text-zinc-300 dark:text-zinc-400 hover:!text-zinc-200"
+              className="bg-[#2a2838] shadow-md font-sans dark:bg-zinc-800 text-zinc-300 dark:text-zinc-400 hover:!text-zinc-200"
               radius="full"
               size="sm"
               variant="flat"
