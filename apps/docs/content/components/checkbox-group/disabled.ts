@@ -3,6 +3,7 @@ const App = `import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 export default function App() {
   return (
     <CheckboxGroup
+      isDisabled
       label="Select cities"
       defaultValue={["buenos-aires", "london"]}
     >

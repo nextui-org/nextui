@@ -4,7 +4,9 @@ export default function App() {
   return (
     <CheckboxGroup
       label="Select cities"
-      defaultValue={["buenos-aires", "london"]}
+      orientation="horizontal"
+      color="secondary"
+      defaultValue={["buenos-aires", "san-francisco"]}
     >
       <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       <Checkbox value="sydney">Sydney</Checkbox>

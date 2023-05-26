@@ -20,3 +20,60 @@ import {CheckboxGroup, Checkbox} from "@nextui-org/react";
 
 <CodeDemo title="Usage" files={checkboxGroupContent.usage} />
 
+### Disabled
+
+<CodeDemo title="Disabled" files={checkboxGroupContent.disabled} />
+
+### Horizontal
+
+<CodeDemo title="Horizontal" files={checkboxGroupContent.horizontal} />
+
+### Controlled
+
+<CodeDemo title="Controlled" files={checkboxGroupContent.controlled} />
+
+## Slots
+
+- **base**: Checkbox group root wrapper, it wraps the label and the wrapper.
+- **wrapper**: Checkbox group wrapper, it wraps all checkboxes.
+- **label**: Checkbox group label, it is placed before the wrapper.
+
+### Custom Styles
+
+<CodeDemo title="Custom Styles" files={checkboxGroupContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the checkbox even further, you can use the `useCheckboxGroup` hook to create your own implementation.
+
+<CodeDemo title="Custom Implementation" files={checkboxGroupContent.customImplementation} />
+
+> Note: We used [Tailwind Variants](https://www.tailwind-variants.org/) to implement the styles above, you can use any other library such as [clsx](https://www.npmjs.com/package/clsx) to achieve the same result.
+
+## API
+
+### Checkbox Group Props
+
+| Attribute        | Type                                                                        | Description                                                                | Default    |
+| ---------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------- |
+| children         | `ReactNode[]` \| `ReactNode[]`                                              | The checkboxes items.                                                      | -          |
+| value            | `string[]`                                                                  | The current selected values. (controlled).                                 |            |
+| orientation      | `vertical` \| `horizontal`                                                  | The axis the checkbox group items should align with.                       | `vertical` |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the checkboxes.                                               | `primary`  |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the checkboxes.                                                | `md`       |
+| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`          | The radius of the checkboxes.                                              | `md`       |
+| lineThrough      | `boolean`                                                                   | Whether the checkboxes label should be crossed out.                        | `false`    |
+| defaultValue     | `string[]`                                                                  | The default selected values. (uncontrolled).                               |            |
+| validationState  | `valid` \| `invalid`                                                        | Whether the inputs should display its "valid" or "invalid" visual styling. | `false`    |
+| isDisabled       | `boolean`                                                                   | Whether the checkbox group is disabled.                                    | `false`    |
+| isRequired       | `boolean`                                                                   | Whether user checkboxes are required on the input before form submission.  | `false`    |
+| isReadOnly       | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.        |            |
+| isDisabled       | `boolean`                                                                   | Whether the checkbox group is disabled.                                    |            |
+| disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                  | `false`    |
+| classNames       | `Record<"base"｜ "wrapper"｜ "label", string>`                              | Allows to set custom class names for the checkbox group slots.             | -          |
+
+### Checkbox Group Events
+
+| Attribute | Type                          | Description                                    |
+| --------- | ----------------------------- | ---------------------------------------------- |
+| onChange  | `((value: string[]) => void)` | Handler that is called when the value changes. |

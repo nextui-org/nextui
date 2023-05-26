@@ -10,7 +10,7 @@ import {tv} from "tailwind-variants";
  * @example
  * <label className={base())}>
  *  // hidden input
- *  <span className={wrapper()} aria-hidden="true" data-checked={checked}>
+ *  <span className={wrapper()} aria-hidden="true" data-selected={selected}>
  *     <svg className={icon()}>
  *       // check icon
  *     </svg>
@@ -43,8 +43,8 @@ const checkbox = tv({
       "after:scale-50",
       "after:opacity-0",
       "after:origin-center",
-      "group-data-[checked=true]:after:scale-100",
-      "group-data-[checked=true]:after:opacity-100",
+      "group-data-[selected=true]:after:scale-100",
+      "group-data-[selected=true]:after:opacity-100",
       // hover
       "group-data-[hover=true]:before:bg-neutral-100",
       "group-data-[hover=true]:before:bg-neutral-100",
@@ -56,7 +56,7 @@ const checkbox = tv({
       "group-data-[focus-visible=true]:ring-offset-background",
       "group-data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
-    icon: "z-10 w-4 h-3 opacity-0 group-data-[checked=true]:opacity-100",
+    icon: "z-10 w-4 h-3 opacity-0 group-data-[selected=true]:opacity-100",
     label: "relative text-foreground select-none",
   },
   variants: {
@@ -141,8 +141,8 @@ const checkbox = tv({
           "before:bg-foreground",
           "before:w-0",
           "before:h-0.5",
-          "group-data-[checked=true]:opacity-60",
-          "group-data-[checked=true]:before:w-full",
+          "group-data-[selected=true]:opacity-60",
+          "group-data-[selected=true]:before:w-full",
         ],
       },
     },

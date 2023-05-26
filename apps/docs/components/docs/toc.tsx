@@ -13,8 +13,8 @@ export interface DocsTocProps {
 const paddingLeftByLevel: Record<string, string> = {
   1: "pl-0",
   2: "pl-3",
-  3: "pl-6",
-  4: "pl-9",
+  3: "pl-3",
+  4: "pl-3",
 };
 
 export const DocsToc: FC<DocsTocProps> = ({headings}) => {

@@ -176,7 +176,7 @@ export const CustomWithHooks = () => {
     <>
       <CheckboxGroup
         className="gap-1"
-        label="Select ammenities"
+        label="Select amenities"
         orientation="horizontal"
         value={groupSelected}
         onChange={setGroupSelected}

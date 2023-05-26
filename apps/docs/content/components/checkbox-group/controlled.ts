@@ -1,16 +1,18 @@
 const App = `import { CheckboxGroup, Checkbox } from "@nextui-org/react";
 
 export default function App() {
+  const [selected, setSelected] = React.useState(["buenos-aires", "sydney"]);
+
   return (
     <CheckboxGroup
       label="Select cities"
-      defaultValue={["buenos-aires", "london"]}
+      color="warning"
+      value={selected}
+      onChange={setSelected}
     >
       <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       <Checkbox value="sydney">Sydney</Checkbox>
       <Checkbox value="san-francisco">San Francisco</Checkbox>
-      <Checkbox value="london">London</Checkbox>
-      <Checkbox value="tokyo">Tokyo</Checkbox>
     </CheckboxGroup>
   );
 }`;
