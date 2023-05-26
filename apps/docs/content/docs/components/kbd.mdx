@@ -1,0 +1,72 @@
+---
+title: "Keyboard Key"
+description: "Keyboard key is a component to display which key or combination of keys performs a given action."
+url: https://nextui.org/docs/components/kbd
+---
+
+# Keyboard Key
+
+Keyboard key is a component to display which key or combination of keys performs a given action.
+
+<ComponentLinks component="kbd" />
+
+---
+
+```jsx
+import {Kbd} from "@nextui-org/react";
+```
+
+## Usage
+
+<CodeDemo title="Usage" files={kbdContent.usage} />
+
+### Keys
+
+<CodeDemo title="Keys" files={kbdContent.keys} />
+
+> **Note**: Check the [API](#keyboard-keys) section to see all available keys.
+
+## Slots
+
+- **base**: Kbd wrapper, it handles alignment, placement, and general appearance.
+- **abbr**: The `keys` wrapper that handles the appearance of the keys.
+- **content**: The children wrapper that handles the appearance of the content.
+
+## Accessibility
+
+- Each command `key` has a `title` attribute that describes the action that the key performs.
+
+## API
+
+| Attribute  | Type                                                   | Description                                              | Default |
+| ---------- | ------------------------------------------------------ | -------------------------------------------------------- | ------- |
+| children   | `ReactNode`                                            | The content of the keyboard key.                         | -       |
+| keys       | [KbdKey](#keyboard-keys) \| [KbdKey[]](#keyboard-keys) | The keys of the keyboard key.                            | -       |
+| classNames | `Record<"base"｜ "abbr"｜ "content", string>`          | Allows to set custom class names for the checkbox slots. | -       |
+
+### Keyboard Keys
+
+List of supported keys.
+
+```ts
+type KbdKey =
+  | "command"
+  | "shift"
+  | "ctrl"
+  | "option"
+  | "enter"
+  | "delete"
+  | "escape"
+  | "tab"
+  | "capslock"
+  | "up"
+  | "right"
+  | "down"
+  | "left"
+  | "pageup"
+  | "pagedown"
+  | "home"
+  | "end"
+  | "help"
+  | "space";
+```

@@ -15,7 +15,7 @@ import {colorVariants} from "../utils";
  * </code>
  */
 const code = tv({
-  base: ["px-2", "py-1", "h-fit", "font-mono", "inline-block", "whitespace-nowrap"],
+  base: ["px-2", "py-1", "h-fit", "font-mono", "font-normal", "inline-block", "whitespace-nowrap"],
   variants: {
     color: {
       neutral: colorVariants.flat.neutral,
