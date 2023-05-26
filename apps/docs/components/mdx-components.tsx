@@ -39,7 +39,11 @@ const Trow: React.FC<{children?: React.ReactNode}> = ({children}) => {
 };
 
 const Tcol: React.FC<{children?: React.ReactNode}> = ({children}) => {
-  return <td className="text-sm p-2 max-w-[200px] break-normal">{children}</td>;
+  return (
+    <td className="text-sm p-2 max-w-[200px] overflow-auto whitespace-normal break-normal">
+      {children}
+    </td>
+  );
 };
 
 export interface LinkedHeadingProps {
