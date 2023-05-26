@@ -10,3 +10,4 @@ export * from "./circular-progress";
 export * from "./code";
 export * from "./divider";
 export * from "./kbd";
+export * from "./spacer";

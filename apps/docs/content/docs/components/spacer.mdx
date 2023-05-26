@@ -1,0 +1,40 @@
+---
+title: "Spacer"
+description: "Spacer is a component used to add space between components."
+url: https://nextui.org/docs/components/spacer
+---
+
+# Spacer
+
+Spacer is a component used to add space between components.
+
+<ComponentLinks component="spacer" />
+
+---
+
+```jsx
+import {Spacer} from "@nextui-org/react";
+```
+
+## Usage
+
+<CodeDemo title="Usage" files={spacerContent.usage} />
+
+> **Note**: The `x` and `y` values are based on [Tailwind Spacing Scale](https://tailwindcss.com/docs/space)
+
+## API
+
+### Spacer Props
+
+| Attribute | Type             | Description      | Default |
+| --------- | ---------------- | ---------------- | ------- |
+| x         | [Space](#spaces) | The x axis space | `1`     |
+| y         | [Space](#spaces) | The y axis space | `1`     |
+
+### Spaces
+
+```ts
+type Space = 0 | "px" | 2 | 1 | 0.5 | 1.5 | 2.5 | 3 | 3.5 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 16 | 20 | 24 | 28 | 32 | 36 | 40 | 44 | 48 | 52 | 56 | 60 | 64 | 72 | 80 | 96;
+```
+
+
