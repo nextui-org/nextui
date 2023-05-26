@@ -20,6 +20,8 @@ import {CircularProgress} from "@nextui-org/react";
 
 <CodeDemo title="Usage" files={circularProgressContent.usage} />
 
+> **Note**: Make sure to pass the `aria-label` prop when the `label` prop is not provided. This is required for accessibility.
+
 ### Sizes
 
 <CodeDemo title="Sizes" files={circularProgressContent.sizes} />
@@ -66,6 +68,22 @@ option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs
   highlightedLines="9-12"
 />
 
+## Data Attributes
+
+`CircularProgress` has the following attributes on the `root` element:
+
+- **data-indeterminate**:
+  Indicates whether the progress is indeterminate.
+- **data-disabled**:
+  Indicates whether the progress is disabled. Based on `isDisabled` prop.
+
+## Accessibility
+
+- Exposed to assistive technology as a progress bar via ARIA.
+- Labeling support for accessibility.
+- Internationalized number formatting as a percentage or value.
+- Determinate and indeterminate progress support.
+
 ## API
 
 ### Circular Progress Props
@@ -83,4 +101,5 @@ option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs
 | isIndeterminate  | `boolean`                                                                                                               | Whether the progress is indeterminate.                     | `true`               |
 | showValueLabel   | `boolean`                                                                                                               | Whether to show the value label.                           | `true`               |
 | strokeWidth      | `number`                                                                                                                | The width of the progress stroke.                          | `2`                  |
+| isDisabled       | `boolean`                                                                                                               | Whether the progress is disabled.                          | `false`              |
 | disableAnimation | `boolean`                                                                                                               | Whether to disable the animation.                          | `false`              |
