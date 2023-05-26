@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230526220125
+
+### Patch Changes
+
+- New snapshot
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230526220125
+
 ## 0.0.0-dev-v2-20230525214932
 
 ### Patch Changes

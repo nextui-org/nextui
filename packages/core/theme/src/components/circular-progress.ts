@@ -7,12 +7,13 @@ import {tv} from "tailwind-variants";
  *
  * @example
  * ```js
- * const {base, svgWrapper, svg, circle, value, label} = circularProgress({...})
+ * const {base, svgWrapper, svg, indicator, value, label} = circularProgress({...})
  *
  * <div className={base()} aria-label="progress" role="progressbar" aria-valuenow={value} aria-valuemin={min} aria-valuemax={max}>
  *   <div className={svgWrapper()}>
  *      <svg className={svg()}>
- *        <circle className={circle()} style={{width: `${value}%`}} />
+ *        <circle className={track()} />
+ *        <circle className={indicator()} />
  *      </svg>
  *      <span className={value()}>{value}</span>
  *   </div>
@@ -27,7 +28,7 @@ const circularProgress = tv({
     svgWrapper: "relative block",
     svg: "z-0 relative overflow-hidden",
     track: "h-full stroke-neutral-300/50",
-    circle: "h-full stroke-current",
+    indicator: "h-full stroke-current",
     value: "absolute font-normal inset-0 flex items-center justify-center",
   },
   variants: {
@@ -91,7 +92,7 @@ const circularProgress = tv({
     disableAnimation: {
       true: {},
       false: {
-        circle: "transition-all !duration-500",
+        indicator: "transition-all !duration-500",
       },
     },
   },

@@ -1,0 +1,86 @@
+---
+title: "Circular Progress"
+description: "Circular progress indicators are utilized to indicate an undetermined wait period or visually represent the duration of a process."
+url: https://nextui.org/docs/components/circular-progress
+---
+
+# Circular Progress
+
+Circular progress indicators are utilized to indicate an undetermined wait period or visually represent the duration of a process.
+
+<ComponentLinks component="progress" storybook="circularprogress" reactAriaHook="useProgressBar" />
+
+---
+
+```jsx
+import {CircularProgress} from "@nextui-org/react";
+```
+
+## Usage
+
+<CodeDemo title="Usage" files={circularProgressContent.usage} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={circularProgressContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={circularProgressContent.colors} />
+
+### With Label
+
+<CodeDemo title="With Label" files={circularProgressContent.label} />
+
+### With Value
+
+<CodeDemo title="With Value" files={circularProgressContent.value} />
+
+### Value Formatting
+
+Values are formatted as a percentage by default, but this can be modified by using the
+`formatOptions` prop to specify a different format. `formatOptions` is compatible with the
+option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) and is applied based on the current locale.
+
+<CodeDemo
+  title="Value Formatting"
+  files={circularProgressContent.valueFormatting}
+  highlightedLines="10"
+/>
+
+## Slots
+
+- **base**: The base slot of the circular progress, it is the main container.
+- **svgWrapper**: The wrapper of the svg circles and the value label.
+- **svg**: The svg element of the circles.
+- **track**: The track is the background circle of the circular progress.
+- **indicator**: The indicator is the one that is filled according to the `value`.
+- **value**: The value content.
+- **label**: The label content.
+
+### Custom Styles
+
+<CodeDemo
+  title="Custom Styles"
+  files={circularProgressContent.customStyles}
+  highlightedLines="9-12"
+/>
+
+## API
+
+### Circular Progress Props
+
+| Attribute        | Type                                                                                                                    | Description                                                | Default              |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------- |
+| label            | `ReactNode`                                                                                                             | The content to display as the label.                       | -                    |
+| value            | `number`                                                                                                                | The current value (controlled).                            | -                    |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                                                    | The size of the indicator.                                 | `md`                 |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                             | The color of the indicator.                                | `primary`            |
+| minValue         | `number`                                                                                                                | The smallest value allowed for the input.                  | `0`                  |
+| maxValue         | `number`                                                                                                                | The largest value allowed for the input.                   | `100`                |
+| valueLabel       | `ReactNode`                                                                                                             | The content to display as the value's label (e.g. 1 of 4). | -                    |
+| formatOptions    | [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | The options to format the value.                           | `{style: 'percent'}` |
+| isIndeterminate  | `boolean`                                                                                                               | Whether the progress is indeterminate.                     | `true`               |
+| showValueLabel   | `boolean`                                                                                                               | Whether to show the value label.                           | `true`               |
+| strokeWidth      | `number`                                                                                                                | The width of the progress stroke.                          | `2`                  |
+| disableAnimation | `boolean`                                                                                                               | Whether to disable the animation.                          | `false`              |

@@ -14,7 +14,7 @@ const CircularProgress = forwardRef<CircularProgressProps, "div">((props, ref) =
     getProgressBarProps,
     getLabelProps,
     getSvgProps,
-    getCircleProps,
+    getIndicatorProps,
     getTrackProps,
   } = useCircularProgress({ref, ...props});
 
@@ -25,7 +25,7 @@ const CircularProgress = forwardRef<CircularProgressProps, "div">((props, ref) =
       <div className={slots.svgWrapper({class: classNames?.svgWrapper})}>
         <svg {...getSvgProps()}>
           <circle {...getTrackProps()} />
-          <circle {...getCircleProps()} />
+          <circle {...getIndicatorProps()} />
         </svg>
         {showValueLabel && (
           <span className={slots.value({class: classNames?.value})}>

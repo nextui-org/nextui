@@ -1,5 +1,18 @@
 # @nextui-org/progress
 
+## 0.0.0-dev-v2-20230526220125
+
+### Patch Changes
+
+- New snapshot
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230526220125
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230526220125
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230526220125
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230526220125
+  - @nextui-org/system@0.0.0-dev-v2-20230526220125
+  - @nextui-org/theme@0.0.0-dev-v2-20230526220125
+
 ## 0.0.0-dev-v2-20230525214932
 
 ### Patch Changes

@@ -24,7 +24,7 @@ import {ringClasses, colorVariants} from "../utils";
 const chip = tv({
   slots: {
     base: ["relative", "max-w-fit", "inline-flex", "items-center", "justify-between", "box-border"],
-    content: "flex-1 text-inherit select-none font-regular",
+    content: "flex-1 text-inherit select-none font-normal",
     dot: ["w-2", "h-2", "ml-1", "rounded-full"],
     avatar: "flex-shrink-0",
     closeButton: [
@@ -91,19 +91,19 @@ const chip = tv({
         avatar: "w-4 h-4",
       },
       md: {
-        base: "px-1 h-7 text-base",
+        base: "px-1 h-7 text-sm",
         content: "px-2",
         closeButton: "text-lg",
         avatar: "w-5 h-5",
       },
       lg: {
-        base: "px-2 h-8 text-lg",
+        base: "px-2 h-8 text-base",
         content: "px-2",
         closeButton: "text-xl",
         avatar: "w-6 h-6",
       },
       xl: {
-        base: "px-2 h-9 text-xl",
+        base: "px-2 h-9 text-lg",
         content: "px-2",
         closeButton: "text-2xl",
         avatar: "w-7 h-7",

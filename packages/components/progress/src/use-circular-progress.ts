@@ -39,12 +39,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * ```ts
    * <CircularProgress classNames={{
    *    base:"base-classes",
-   *    labelWrapper: "labelWrapper-classes",
    *    label: "label-classes",
    *    value: "value-classes",
    *    svg: "svg-classes", // the svg wrapper
    *    track: "track-classes", // the circle of the background
-   *    circle: "circle-classes", // the circle of the progress
+   *    indicator: "indicator-classes", // the circle of the progress
    * }} />
    * ```
    */
@@ -169,7 +168,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     [strokeWidth, slots, classNames],
   );
 
-  const getCircleProps = useCallback<PropGetter>(
+  const getIndicatorProps = useCallback<PropGetter>(
     (props = {}) => ({
       cx: center,
       cy: center,
@@ -179,7 +178,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
       strokeDashoffset: offset,
       transform: "rotate(-90 16 16)",
       strokeLinecap: "round",
-      className: slots.circle({class: classNames?.circle}),
+      className: slots.indicator({class: classNames?.indicator}),
       ...props,
     }),
     [slots, classNames, offset, circumference, radius],
@@ -211,7 +210,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     getProgressBarProps,
     getLabelProps,
     getSvgProps,
-    getCircleProps,
+    getIndicatorProps,
     getTrackProps,
   };
 }

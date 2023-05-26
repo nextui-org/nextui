@@ -1,5 +1,11 @@
 # @nextui-org/use-scroll-position
 
+## 0.0.0-dev-v2-20230526220125
+
+### Patch Changes
+
+- New snapshot
+
 ## 0.0.0-dev-v2-20230525214932
 
 ### Patch Changes

@@ -1,0 +1,94 @@
+---
+title: "Chip"
+description: "A Chip is a small block of essential information that represent an input, attribute, or action."
+url: https://nextui.org/docs/components/chip
+---
+
+# Chip
+
+A Chip is a small block of essential information that represent an input, attribute, or action
+
+<ComponentLinks component="chip" />
+
+---
+
+```jsx
+import {Chip} from "@nextui-org/react";
+```
+
+## Usage
+
+<CodeDemo title="Usage" files={chipContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={chipContent.disabled} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={chipContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={chipContent.colors} />
+
+### Radius
+
+<CodeDemo title="Radius" files={chipContent.radius} />
+
+### Variants
+
+<CodeDemo title="Variants" files={chipContent.variants} />
+
+### Start & End Content
+
+<CodeDemo title="Start & End Content" files={chipContent.startEndContent} />
+
+### With Close Button
+
+If you pass the `onClose` prop, the close button will be visible. You can override t he close icon by passing the `endContent` prop.
+
+<CodeDemo title="With Close Button" files={chipContent.closeButton} />
+
+### With Avatar
+
+<CodeDemo title="With Avatar" files={chipContent.avatar} />
+
+### List of Chips
+
+<CodeDemo title="List of Chips" files={chipContent.list} />
+
+## Slots
+
+- **base**: The base slot of the chip, it is the container of the chip.
+- **content**: The content slot of the chip, it is the container of the chip children.
+- **dot**: Small dot on the left side of the chip. It is visible when the `variant=dot` prop is passed.
+- **avatar**: Avatar classes of the chip. It is visible when the `avatar` prop is passed.
+- **closeButton**: Close button classes of the chip. It is visible when the `onClose` prop is passed.
+
+### Custom Styles
+
+<CodeDemo title="Custom Styles" files={chipContent.customStyles} />
+
+## API
+
+### Chip Props
+
+| Attribute    | Type                                                                         | Description                                                                                                                  | Default   |
+| ------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------- |
+| children     | `ReactNode`                                                                  | The content of the chip.                                                                                                     | -         |
+| variant      | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost` | The chip appearance style.                                                                                                   | `solid`   |
+| size         | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                         | The size of the chip.                                                                                                        | `md`      |
+| color        | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The color of the chip.                                                                                                       | `neutral` |
+| radius       | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`           | The radius of the chip.                                                                                                      | `full`    |
+| avatar       | `ReactNode`                                                                  | Avatar to be rendered in the left side of the chip.                                                                          | -         |
+| startContent | `ReactNode`                                                                  | Element to be rendered in the left side of the chip. This prop overrides the `avatar` prop.                                  | -         |
+| endContent   | `ReactNode`                                                                  | Element to be rendered in the right side of the chip. This prop overrides the default close button when `onClose` is passed. | -         |
+| isDisabled   | `boolean`                                                                    | Whether the chip is disabled.                                                                                                | `false`   |
+| classNames   | `Record<"base"｜ "content"｜ "dot"｜ "avatar"｜ "closeButton", string>`      | Allows to set custom class names for the chip slots.                                                                         | -         |
+
+### Chip Events
+
+| Attribute | Type                      | Description                                                                                                                        |
+| --------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| onClose   | `(e: PressEvent) => void` | Handler that is called when the close button is pressed. If you pass this prop, the chip will display a close button (endContent). |

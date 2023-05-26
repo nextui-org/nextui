@@ -61,7 +61,7 @@ const CustomClassnamesTemplate: ComponentStory<typeof CircularProgress> = (
         {...args}
         classNames={{
           svg: "w-36 h-36 drop-shadow-md",
-          circle: "stroke-white",
+          indicator: "stroke-white",
           track: "stroke-white/10",
           value: "text-3xl font-semibold text-white",
         }}

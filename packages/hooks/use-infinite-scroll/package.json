@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-infinite-scroll",
-  "version": "0.0.0-dev-v2-20230525214932",
+  "version": "0.0.0-dev-v2-20230526220125",
   "description": "A hook for handling infinity scroll based on the IntersectionObserver API",
   "keywords": [
     "use-infinite-scroll"
