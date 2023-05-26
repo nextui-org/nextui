@@ -1,0 +1,42 @@
+---
+title: "Divider"
+description: "Divider is a component that separates content in a page."
+url: https://nextui.org/docs/components/code
+---
+
+# Divider
+
+Divider is a component that separates content in a page.
+
+<ComponentLinks component="divider" reactAriaHook="useSeparator" />
+
+---
+
+```jsx
+import {Divider} from "@nextui-org/react";
+```
+
+## Usage
+
+<CodeDemo title="Usage" files={dividerContent.usage} />
+
+## Data Attributes
+
+`Checkbox` has the following attributes on the `root` element:
+
+- **data-orientation**:
+  The orientation of the divider. Based on `orientation` prop.
+
+## Accessibility
+
+- Separator role is added to the divider.
+- Support for horizontal and vertical orientation.
+- Support for HTML `<hr>` element or a custom element type.
+
+## API
+
+### Divider Props
+
+| Attribute   | Type                       | Description                     | Default      |
+| ----------- | -------------------------- | ------------------------------- | ------------ |
+| orientation | `horizontal` \| `vertical` | The orientation of the divider. | `horizontal` |

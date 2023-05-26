@@ -8,3 +8,4 @@ export * from "./checkbox-group";
 export * from "./chip";
 export * from "./circular-progress";
 export * from "./code";
+export * from "./divider";
