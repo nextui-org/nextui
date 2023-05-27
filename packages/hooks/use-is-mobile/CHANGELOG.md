@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mobile
 
+## 0.0.0-dev-v2-20230527145118
+
+### Patch Changes
+
+- Neutral color renamed to Default
+
 ## 0.0.0-dev-v2-20230527131721
 
 ### Patch Changes

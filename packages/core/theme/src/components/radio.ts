@@ -37,8 +37,8 @@ const radio = tv({
       "border-solid",
       "border-2",
       "box-border",
-      "border-neutral",
-      "group-data-[hover-unchecked=true]:bg-neutral-100",
+      "border-default",
+      "group-data-[hover-unchecked=true]:bg-default-100",
       // focus ring
       "group-data-[focus-visible=true]:outline-none",
       "group-data-[focus-visible=true]:ring-2",
@@ -59,13 +59,13 @@ const radio = tv({
       "group-data-[checked=true]:scale-100",
     ],
     label: "relative text-foreground select-none",
-    description: "relative text-neutral-400",
+    description: "relative text-default-400",
   },
   variants: {
     color: {
-      neutral: {
-        control: "bg-neutral-500 text-neutral-foreground",
-        wrapper: "group-data-[checked=true]:border-neutral-500",
+      default: {
+        control: "bg-default-500 text-default-foreground",
+        wrapper: "group-data-[checked=true]:border-default-500",
       },
       primary: {
         control: "bg-primary text-primary-foreground",
@@ -202,7 +202,7 @@ const radio = tv({
 const radioGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
-    label: "relative text-neutral-500",
+    label: "relative text-default-500",
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row ",
   },
 });

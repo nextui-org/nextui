@@ -24,7 +24,7 @@ export type BaseColors = {
 };
 
 export type SemanticColors = BaseColors & {
-  neutral: ColorScale;
+  default: ColorScale;
   primary: ColorScale;
   secondary: ColorScale;
   success: ColorScale;

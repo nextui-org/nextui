@@ -71,7 +71,7 @@ export default function App() {
         className="z-0 w-full h-full object-cover"
         src="/images/card-example-5.jpeg"
       />
-      <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-neutral-600 dark:border-neutral-100">
+      <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-default-600 dark:border-default-100">
         <div className="flex flex-grow gap-2 items-center">
           <img
             alt="Breathing app icon"

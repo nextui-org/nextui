@@ -49,7 +49,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </div>
               <Button
                 isIconOnly
-                className="text-neutral-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
+                className="text-default-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
                 radius="full"
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
@@ -65,10 +65,10 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               <Progress
                 aria-label="Music progress"
                 classNames={{
-                  filler: "bg-neutral-800 dark:bg-white",
-                  track: "bg-neutral-500/30",
+                  filler: "bg-default-800 dark:bg-white",
+                  track: "bg-default-500/30",
                 }}
-                color="neutral"
+                color="default"
                 size="sm"
                 value={33}
               />

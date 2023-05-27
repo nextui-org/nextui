@@ -220,7 +220,7 @@ import {
   DeleteDocumentBulkIcon,
 } from "@nextui-org/shared-icons";
 
-const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0";
+const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
 export const Example = () => {
   return (
@@ -233,7 +233,7 @@ export const Example = () => {
       <DropdownMenu
         closeOnSelect
         aria-label="Actions"
-        color="neutral"
+        color="default"
         variant="flat"
       >
         <DropdownSection title="Actions">
@@ -334,7 +334,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </div>
               <Button
                 isIconOnly
-                className="text-neutral-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
+                className="text-default-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
                 radius="full"
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
@@ -351,9 +351,9 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
                 aria-label="Music progress"
                 classNames={{
                   filler: "bg-white",
-                  track: "bg-neutral-500/30",
+                  track: "bg-default-500/30",
                 }}
-                color="neutral"
+                color="default"
                 size="sm"
                 value={33}
               />

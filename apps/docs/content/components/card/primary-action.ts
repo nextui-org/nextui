@@ -60,7 +60,7 @@ export default function App() {
           </CardBody>
           <CardFooter className="text-sm justify-between">
             <b>{item.title}</b>
-            <p className="text-neutral-500">{item.price}</p>
+            <p className="text-default-500">{item.price}</p>
           </CardFooter>
         </Card>
       ))}

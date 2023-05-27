@@ -16,7 +16,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -164,7 +164,7 @@ export const CustomWithClassNames = () => {
           value="william"
         />
       </CheckboxGroup>
-      <p className="mt-4 ml-1 text-neutral-500">Selected: {groupSelected.join(", ")}</p>
+      <p className="mt-4 ml-1 text-default-500">Selected: {groupSelected.join(", ")}</p>
     </>
   );
 };
@@ -188,7 +188,7 @@ export const CustomWithHooks = () => {
         <CheckboxItemWithHooks value="pool">Pool</CheckboxItemWithHooks>
         <CheckboxItemWithHooks value="gym">Gym</CheckboxItemWithHooks>
       </CheckboxGroup>
-      <p className="mt-4 ml-1 text-neutral-500">Selected: {groupSelected.join(", ")}</p>
+      <p className="mt-4 ml-1 text-default-500">Selected: {groupSelected.join(", ")}</p>
     </>
   );
 };

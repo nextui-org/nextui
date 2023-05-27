@@ -66,7 +66,7 @@ const base: SemanticBaseColors = {
 
 export const semanticColorsLight: SemanticColors = {
   ...base.light,
-  neutral: {
+  default: {
     ...twColors.zinc,
     foreground: readableColor(twColors.zinc[300]),
     DEFAULT: twColors.zinc[300],
@@ -100,7 +100,7 @@ export const semanticColorsLight: SemanticColors = {
 
 export const semanticColorsDark: SemanticColors = {
   ...base.dark,
-  neutral: {
+  default: {
     ...swapColorValues(twColors.zinc),
     foreground: readableColor(twColors.zinc[700]),
     DEFAULT: twColors.zinc[700],

@@ -8,7 +8,7 @@ export default function App() {
       <Checkbox isSelected={isSelected} onValueChange={setIsSelected}>
         Subscribe (controlled)
       </Checkbox>
-      <p className="text-neutral-500">
+      <p className="text-default-500">
         Selected: {isSelected ? "true" : "false"}
       </p>
     </div>

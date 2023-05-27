@@ -87,7 +87,7 @@ const content = (
           <Input
             autoFocus
             endContent={
-              <MailFilledIcon className="text-2xl text-neutral-400 pointer-events-none flex-shrink-0" />
+              <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
             }
             label="Email"
             placeholder="Enter your email"
@@ -95,7 +95,7 @@ const content = (
           />
           <Input
             endContent={
-              <LockFilledIcon className="text-2xl text-neutral-400 pointer-events-none flex-shrink-0" />
+              <LockFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
             }
             label="Password"
             placeholder="Enter your password"

@@ -103,7 +103,7 @@ export function useDropdown(props: UseDropdownProps) {
       ...classNamesProp,
       ...props.classNames,
       base: clsx(classNames, classNamesProp?.base, props.className),
-      arrow: clsx("border border-neutral-100", classNamesProp?.arrow),
+      arrow: clsx("border border-default-100", classNamesProp?.arrow),
     },
   });
 

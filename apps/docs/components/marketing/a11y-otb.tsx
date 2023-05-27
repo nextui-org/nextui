@@ -64,7 +64,7 @@ const a11yItems = [
   },
 ];
 
-const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0";
+const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
 export const A11yOtb = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -97,7 +97,7 @@ export const A11yOtb = () => {
             NextUI components are built on top of&nbsp;
             <NextUILink
               isExternal
-              className="text-xl text-neutral-500 font-light [&>svg]:ml-1"
+              className="text-xl text-default-500 font-light [&>svg]:ml-1"
               href="https://react-spectrum.adobe.com/react-aria/"
               underline="always"
             >
@@ -112,7 +112,7 @@ export const A11yOtb = () => {
               classNames={{
                 base: "grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4",
                 header: "pb-3",
-                iconWrapper: "bg-neutral-100 dark:bg-transparent text-neutral-500/50",
+                iconWrapper: "bg-default-100 dark:bg-transparent text-default-500/50",
               }}
               features={a11yItems}
             />
@@ -164,7 +164,7 @@ export const A11yOtb = () => {
                 <DropdownMenu
                   aria-label="Actions"
                   closeOnSelect={true}
-                  color="neutral"
+                  color="default"
                   variant="flat"
                 >
                   <DropdownSection title="Actions">

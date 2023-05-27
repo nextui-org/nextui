@@ -23,10 +23,10 @@ import {tv} from "tailwind-variants";
 const input = tv({
   slots: {
     base: "group flex flex-col data-[has-elements=true]:gap-2",
-    label: "block text-sm font-medium text-neutral-600",
+    label: "block text-sm font-medium text-default-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    input: "w-full h-full !bg-transparent outline-none placeholder:text-neutral-500",
+    input: "w-full h-full !bg-transparent outline-none placeholder:text-default-500",
     clearButton: [
       "z-10",
       "hidden",
@@ -48,31 +48,31 @@ const input = tv({
       "data-[focus-visible]:ring-offset-background",
       "data-[focus-visible]:dark:ring-offset-background-dark",
     ],
-    description: "text-xs text-neutral-500",
+    description: "text-xs text-default-500",
     errorMessage: "text-xs text-danger",
   },
   variants: {
     variant: {
       flat: {
         inputWrapper: [
-          "bg-neutral-100",
-          "data-[hover=true]:bg-neutral-200",
-          "focus-within:!bg-neutral-100",
+          "bg-default-100",
+          "data-[hover=true]:bg-default-200",
+          "focus-within:!bg-default-100",
         ],
       },
       faded: {
         inputWrapper: [
-          "bg-neutral-100",
+          "bg-default-100",
           "border",
-          "border-neutral-200",
-          "data-[hover=true]:border-neutral-400",
+          "border-default-200",
+          "data-[hover=true]:border-default-400",
         ],
       },
       bordered: {
         inputWrapper: [
           "border-2",
-          "border-neutral-200",
-          "data-[hover=true]:border-neutral-400",
+          "border-default-200",
+          "data-[hover=true]:border-default-400",
           "focus-within:!border-foreground",
         ],
       },
@@ -85,9 +85,9 @@ const input = tv({
           "box-border",
           "border-b-2",
           "shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
-          "border-neutral-200",
+          "border-default-200",
           "!rounded-none",
-          "hover:border-neutral-300",
+          "hover:border-default-300",
           "after:content-['']",
           "after:w-0",
           "after:origin-center",
@@ -102,7 +102,7 @@ const input = tv({
       },
     },
     color: {
-      neutral: {},
+      default: {},
       primary: {
         label: "text-primary",
       },
@@ -244,7 +244,7 @@ const input = tv({
   },
   defaultVariants: {
     variant: "flat",
-    color: "neutral",
+    color: "default",
     size: "md",
     radius: "lg",
     fullWidth: true,
@@ -568,7 +568,7 @@ const input = tv({
       class: {
         label: [
           "font-normal",
-          "text-neutral-500",
+          "text-default-500",
           "group-focus-within:font-medium",
           "group-[.is-filled]:font-medium",
           "group-focus-within:pointer-events-auto",
@@ -581,7 +581,7 @@ const input = tv({
       labelPosition: "inside",
       class: {
         inputWrapper: "group",
-        label: ["group-focus-within:text-neutral-600", "group-[.is-filled]:text-neutral-600"],
+        label: ["group-focus-within:text-default-600", "group-[.is-filled]:text-default-600"],
       },
     },
     {

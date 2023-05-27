@@ -42,7 +42,7 @@ const pagination = tv({
   variants: {
     variant: {
       bordered: {
-        item: ["border-2", "border-neutral", "bg-transparent", "data-[hover=true]:bg-neutral-100"],
+        item: ["border-2", "border-default", "bg-transparent", "data-[hover=true]:bg-default-100"],
       },
       light: {
         item: "bg-transparent",
@@ -53,8 +53,8 @@ const pagination = tv({
       },
     },
     color: {
-      neutral: {
-        cursor: colorVariants.solid.neutral,
+      default: {
+        cursor: colorVariants.solid.default,
       },
       primary: {
         cursor: colorVariants.solid.primary,
@@ -139,9 +139,9 @@ const pagination = tv({
     // showShadow / color
     {
       showShadow: true,
-      color: "neutral",
+      color: "default",
       class: {
-        cursor: colorVariants.shadow.neutral,
+        cursor: colorVariants.shadow.default,
       },
     },
     {
@@ -196,12 +196,12 @@ const pagination = tv({
     // disableCursor / color
     {
       disableCursor: true,
-      color: "neutral",
+      color: "default",
       class: {
         item: [
-          "data-[active=true]:bg-neutral-400",
-          "data-[active=true]:border-neutral-400",
-          "data-[active=true]:text-neutral-foreground",
+          "data-[active=true]:bg-default-400",
+          "data-[active=true]:border-default-400",
+          "data-[active=true]:text-default-foreground",
         ],
       },
     },
@@ -264,9 +264,9 @@ const pagination = tv({
     {
       disableCursor: true,
       showShadow: true,
-      color: "neutral",
+      color: "default",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-neutral/50"],
+        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-default/50"],
       },
     },
     {
@@ -322,7 +322,7 @@ const pagination = tv({
         "outline-none",
         "items-center",
         "justify-center",
-        "text-neutral-foreground",
+        "text-default-foreground",
         // focus ring
         "data-[focus-visible=true]:outline-none",
         "data-[focus-visible=true]:ring-2",
@@ -331,24 +331,24 @@ const pagination = tv({
         "data-[focus-visible=true]:ring-offset-background",
         "data-[focus-visible=true]:dark:ring-offset-background-dark",
         // disabled
-        "data-[disabled=true]:text-neutral-300",
+        "data-[disabled=true]:text-default-300",
         "data-[disabled=true]:pointer-events-none",
       ],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "flat",
-      class: ["bg-neutral-100", "data-[hover=true]:bg-neutral-200", "active:bg-neutral-300"],
+      class: ["bg-default-100", "data-[hover=true]:bg-default-200", "active:bg-default-300"],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "faded",
-      class: ["bg-neutral-100", "data-[hover=true]:bg-neutral-200", "active:bg-neutral-300"],
+      class: ["bg-default-100", "data-[hover=true]:bg-default-200", "active:bg-default-300"],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "light",
-      class: ["data-[hover=true]:bg-neutral-100", "active:bg-neutral-200"],
+      class: ["data-[hover=true]:bg-default-100", "active:bg-default-200"],
     },
     // size
     {

@@ -35,7 +35,7 @@ const checkbox = tv({
       "before:border-solid",
       "before:border-2",
       "before:box-border",
-      "before:border-neutral",
+      "before:border-default",
       // after
       "after:content-['']",
       "after:absolute",
@@ -46,8 +46,8 @@ const checkbox = tv({
       "group-data-[selected=true]:after:scale-100",
       "group-data-[selected=true]:after:opacity-100",
       // hover
-      "group-data-[hover=true]:before:bg-neutral-100",
-      "group-data-[hover=true]:before:bg-neutral-100",
+      "group-data-[hover=true]:before:bg-default-100",
+      "group-data-[hover=true]:before:bg-default-100",
       // focus ring
       "group-data-[focus-visible=true]:outline-none",
       "group-data-[focus-visible=true]:ring-2",
@@ -61,8 +61,8 @@ const checkbox = tv({
   },
   variants: {
     color: {
-      neutral: {
-        wrapper: "after:bg-neutral after:text-neutral-foreground text-neutral-foreground",
+      default: {
+        wrapper: "after:bg-default after:text-default-foreground text-default-foreground",
       },
       primary: {
         wrapper: "after:bg-primary after:text-primary-foreground text-primary-foreground",
@@ -195,7 +195,7 @@ const checkbox = tv({
 const checkboxGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
-    label: "relative text-neutral-500",
+    label: "relative text-default-500",
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row ",
   },
 });

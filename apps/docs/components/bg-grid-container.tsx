@@ -16,7 +16,7 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
   return (
     <div
       className={clsx(
-        "relative overflow-y-hidden flex items-center border border-neutral-400/50 dark:border-neutral-100/50 px-2 py-4 rounded-lg",
+        "relative overflow-y-hidden flex items-center border border-default-400/50 dark:border-default-100/50 px-2 py-4 rounded-lg",
         "overflow-hidden",
         // blur effect
         "bg-transparent",

@@ -44,8 +44,8 @@ const snippet = tv({
       shadow: "",
     },
     color: {
-      neutral: {
-        base: colorVariants.flat.neutral,
+      default: {
+        base: colorVariants.flat.default,
       },
       primary: {
         base: colorVariants.flat.primary,
@@ -117,7 +117,7 @@ const snippet = tv({
     },
   },
   defaultVariants: {
-    color: "neutral",
+    color: "default",
     variant: "flat",
     size: "md",
     radius: "lg",
@@ -128,9 +128,9 @@ const snippet = tv({
     // solid & shadow / color
     {
       variant: "solid",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.solid.neutral,
+        base: colorVariants.solid.default,
       },
     },
     {
@@ -171,9 +171,9 @@ const snippet = tv({
     // shadow / color
     {
       variant: "shadow",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.shadow.neutral,
+        base: colorVariants.shadow.default,
       },
     },
     {
@@ -214,9 +214,9 @@ const snippet = tv({
     // bordered / color
     {
       variant: "bordered",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.bordered.neutral,
+        base: colorVariants.bordered.default,
       },
     },
     {

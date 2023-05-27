@@ -27,14 +27,14 @@ const circularProgress = tv({
     label: "",
     svgWrapper: "relative block",
     svg: "z-0 relative overflow-hidden",
-    track: "h-full stroke-neutral-300/50",
+    track: "h-full stroke-default-300/50",
     indicator: "h-full stroke-current",
     value: "absolute font-normal inset-0 flex items-center justify-center",
   },
   variants: {
     color: {
-      neutral: {
-        svg: "text-neutral-400",
+      default: {
+        svg: "text-default-400",
       },
       primary: {
         svg: "text-primary",

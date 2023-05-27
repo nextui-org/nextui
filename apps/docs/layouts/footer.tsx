@@ -19,7 +19,7 @@ export const Footer: FC<FooterProps> = ({align = "center", className}) => {
           "md:items-end": align === "right",
         })}
       >
-        <p className="text-sm text-neutral-400">
+        <p className="text-sm text-default-400">
           Created&nbsp;by&nbsp;
           <Link isExternal className="text-sm" href="https://jrgarciadev.com">
             Junior Garcia

@@ -192,7 +192,7 @@ export default function App() {
   const itemStyles = {
     base: "py-0 w-full",
     title: "font-normal text-base",
-    trigger: "px-2 py-0 hover:bg-neutral-100 rounded-lg h-14 flex items-center",
+    trigger: "px-2 py-0 hover:bg-default-100 rounded-lg h-14 flex items-center",
     indicator: "text-base",
     content: "text-sm px-2",
   };
@@ -249,7 +249,7 @@ export default function App() {
         title={
           <p className="flex gap-1 items-center">
             Card expired
-            <p className="text-neutral-400 text-sm">*4812</p>
+            <p className="text-default-400 text-sm">*4812</p>
           </p>
         }
       >

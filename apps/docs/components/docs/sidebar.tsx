@@ -123,7 +123,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
               "before:mr-4",
               "before:content-['']",
               "before:block",
-              "before:bg-neutral-300",
+              "before:bg-default-300",
               "before:w-1",
               "before:h-1",
               "before:rounded-full",

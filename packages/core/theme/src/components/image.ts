@@ -105,7 +105,7 @@ const image = tv({
           "before:bg-gradient-to-r",
           "before:from-transparent",
           "before:via-content4",
-          "dark:before:via-neutral-700/10",
+          "dark:before:via-default-700/10",
           "before:to-transparent",
           //after
           "after:absolute",

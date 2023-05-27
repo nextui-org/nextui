@@ -15,7 +15,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     size: {
@@ -58,7 +58,7 @@ const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => 
         startIcon={<SunFilledIcon />}
         onValueChange={setIsSelected}
       />
-      <p className="text-neutral-500">Selected: {isSelected ? "true" : "false"}</p>
+      <p className="text-default-500">Selected: {isSelected ? "true" : "false"}</p>
     </div>
   );
 };
@@ -69,7 +69,7 @@ const ControlledTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) =>
   return (
     <div className="flex flex-col gap-2">
       <Switch {...args} isSelected={isSelected} onValueChange={setIsSelected} />
-      <p className="text-neutral-500">Selected: {isSelected ? "true" : "false"}</p>
+      <p className="text-default-500">Selected: {isSelected ? "true" : "false"}</p>
     </div>
   );
 };
@@ -95,12 +95,12 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Switch> = (args: Switc
       >
         <div className="flex flex-col gap-1">
           <p className="text-base">Enable early access</p>
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-default-400">
             Get access to new features before they are released.
           </p>
         </div>
       </Switch>
-      <p className="text-neutral-500">Selected: {isSelected ? "true" : "false"}</p>
+      <p className="text-default-500">Selected: {isSelected ? "true" : "false"}</p>
     </div>
   );
 };
@@ -122,14 +122,14 @@ const CustomWithHooksTemplate: ComponentStory<typeof Switch> = (args: SwitchProp
             class: [
               "w-8 h-8",
               "flex items-center justify-center",
-              "rounded-lg bg-neutral-100 hover:bg-neutral-200",
+              "rounded-lg bg-default-100 hover:bg-default-200",
             ],
           })}
         >
           {isSelected ? <SunFilledIcon /> : <MoonFilledIcon />}
         </div>
       </Component>
-      <p className="text-neutral-500 select-none">Lights: {isSelected ? "on" : "off"}</p>
+      <p className="text-default-500 select-none">Lights: {isSelected ? "on" : "off"}</p>
     </div>
   );
 };

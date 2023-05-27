@@ -56,7 +56,7 @@ const table = tv({
       "justify-between",
       "gap-4",
       "border",
-      "border-neutral-100",
+      "border-default-100",
       "overflow-auto",
     ],
     table: "min-w-full h-auto",
@@ -69,8 +69,8 @@ const table = tv({
       "h-10",
       "text-left",
       "align-middle",
-      "bg-neutral-100",
-      "text-neutral-500",
+      "bg-default-100",
+      "text-default-500",
       "text-xs",
       "font-semibold",
       "first:rounded-l-lg",
@@ -78,7 +78,7 @@ const table = tv({
       "outline-none",
       "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
-      "data-[hover=true]:text-neutral-400",
+      "data-[hover=true]:text-default-400",
       ...focusRing,
     ],
     td: [
@@ -99,7 +99,7 @@ const table = tv({
       "before:opacity-0",
       "data-[selected=true]:before:opacity-100",
       // disabled
-      "group-data-[disabled=true]:text-neutral-300",
+      "group-data-[disabled=true]:text-default-300",
     ],
     tfoot: "",
     sortIcon: [
@@ -113,14 +113,14 @@ const table = tv({
       "group-data-[hover=true]:opacity-100",
       "data-[direction=ascending]:rotate-180",
     ],
-    emptyWrapper: "text-neutral-400 align-middle text-center h-40",
+    emptyWrapper: "text-default-400 align-middle text-center h-40",
     loadingWrapper: "absolute inset-0 flex items-center justify-center",
   },
   variants: {
     color: {
-      neutral: {
+      default: {
         td:
-          "before:bg-neutral-200 dark:before:bg-neutral-100 data-[selected=true]:text-neutral-foreground",
+          "before:bg-default-200 dark:before:bg-default-100 data-[selected=true]:text-default-foreground",
       },
       primary: {
         td: "before:bg-primary-50 data-[selected=true]:text-primary",
@@ -200,7 +200,7 @@ const table = tv({
     isStriped: {
       true: {
         td: [
-          "group-data-[odd=true]:before:bg-neutral-100",
+          "group-data-[odd=true]:before:bg-default-100",
           "group-data-[odd=true]:before:opacity-100",
         ],
       },
@@ -244,7 +244,7 @@ const table = tv({
     layout: "auto",
     shadow: "lg",
     radius: "xl",
-    color: "neutral",
+    color: "default",
     hideHeader: false,
     isStriped: false,
     fullWidth: true,

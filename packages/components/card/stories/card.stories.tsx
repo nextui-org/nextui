@@ -111,7 +111,7 @@ const WithFooterTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
       />
       <div className="flex flex-col">
         <b className="text-lg">NextUI</b>
-        <p className="text-neutral-500">nextui.org</p>
+        <p className="text-default-500">nextui.org</p>
       </div>
     </CardHeader>
     <CardBody className="py-2">
@@ -237,7 +237,7 @@ const CoverImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
         className="w-full h-full object-cover"
         src="https://nextui.org/images/card-example-5.jpeg"
       />
-      <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-neutral-600 dark:border-neutral-100">
+      <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-default-600 dark:border-default-100">
         <div className="flex flex-grow gap-2 items-center">
           <img
             alt="Breathing app icon"
@@ -259,7 +259,7 @@ const CenterImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   <Card {...args} className="max-w-fit py-4 px-0">
     <CardHeader className="pb-0 pt-2 px-4 flex-col !items-start">
       <p className="text-xs uppercase font-bold">Daily Mix</p>
-      <small className="text-neutral-500">12 Tracks</small>
+      <small className="text-default-500">12 Tracks</small>
       <h4 className="font-bold text-lg">Frontend Radio</h4>
     </CardHeader>
     <CardBody className="overflow-visible py-2">
@@ -338,7 +338,7 @@ const PrimaryActionTemplate: ComponentStory<typeof Card> = (args: CardProps) => 
           </CardBody>
           <CardFooter className="justify-between">
             <b>{item.title}</b>
-            <p className="text-neutral-500">{item.price}</p>
+            <p className="text-default-500">{item.price}</p>
           </CardFooter>
         </Card>
       ))}

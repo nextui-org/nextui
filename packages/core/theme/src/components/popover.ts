@@ -92,7 +92,7 @@ const popover = tv({
       shadow: {base: ""},
     },
     color: {
-      neutral: {base: colorVariants.solid.neutral},
+      default: {base: colorVariants.solid.default},
       foreground: {base: colorVariants.solid.foreground},
       primary: {base: colorVariants.solid.primary},
       secondary: {base: colorVariants.solid.secondary},
@@ -132,7 +132,7 @@ const popover = tv({
   },
   defaultVariants: {
     variant: "solid",
-    color: "neutral",
+    color: "default",
     radius: "xl",
     backdropVariant: "transparent",
     disableAnimation: false,
@@ -142,9 +142,9 @@ const popover = tv({
     // shadow / color
     {
       variant: "shadow",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.shadow.neutral,
+        base: colorVariants.shadow.default,
       },
     },
     {
@@ -180,8 +180,8 @@ const popover = tv({
     // bordered / color
     {
       variant: "bordered",
-      color: "neutral",
-      class: {base: colorVariants.bordered.neutral},
+      color: "default",
+      class: {base: colorVariants.bordered.default},
     },
     {
       variant: "bordered",
@@ -216,8 +216,8 @@ const popover = tv({
     // flat / color
     {
       variant: "flat",
-      color: "neutral",
-      class: {base: colorVariants.flat.neutral},
+      color: "default",
+      class: {base: colorVariants.flat.default},
     },
     {
       variant: "flat",
@@ -252,8 +252,8 @@ const popover = tv({
     // faded / color
     {
       variant: "faded",
-      color: "neutral",
-      class: {base: colorVariants.faded.neutral},
+      color: "default",
+      class: {base: colorVariants.faded.default},
     },
     {
       variant: "faded",
@@ -288,8 +288,8 @@ const popover = tv({
     // light / color
     {
       variant: "light",
-      color: "neutral",
-      class: {base: colorVariants.light.neutral},
+      color: "default",
+      class: {base: colorVariants.light.default},
     },
     {
       variant: "light",

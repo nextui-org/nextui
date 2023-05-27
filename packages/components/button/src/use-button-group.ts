@@ -43,7 +43,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
     ref,
     as,
     children,
-    color = "neutral",
+    color = "default",
     size = "md",
     variant = "solid",
     radius = "xl",

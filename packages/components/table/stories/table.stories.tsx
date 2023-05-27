@@ -20,7 +20,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     layout: {
@@ -262,7 +262,7 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize">{cellValue}</p>
-            <p className="text-bold text-sm capitalize text-neutral-400">{user.team}</p>
+            <p className="text-bold text-sm capitalize text-default-400">{user.team}</p>
           </div>
         );
       case "status":
@@ -275,12 +275,12 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
         return (
           <div className="relative flex items-center gap-2">
             <Tooltip content="Details">
-              <span className="text-lg text-neutral-400 cursor-pointer active:opacity-50">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EyeIcon />
               </span>
             </Tooltip>
             <Tooltip content="Edit user">
-              <span className="text-lg text-neutral-400 cursor-pointer active:opacity-50">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EditIcon />
               </span>
             </Tooltip>

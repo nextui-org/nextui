@@ -59,25 +59,6 @@ module.exports = {
 
 After installing NextUI, you need to set up the `NextUIProvider` at the `root` of your application.
 
-### Pages Directory Setup 
-
-Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
-
-```jsx
-// pages/_app.js
-import { NextUIProvider } from '@nextui-org/react'
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <NextUIProvider>
-      <Component {...pageProps} />
-    </NextUIProvider>
-  )
-}
-
-export default MyApp;
-```
-
 ### App directory Setup
 
 Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
@@ -123,9 +104,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 Now you can import any NextUI component directly in your Server Components without needing to use
 the `use client;` directive:
 
-```jsx
+```jsx {2}
 // app/page.tsx
-import { Button } from '@nextui-org/react'
+import { Button } from '@nextui-org/button'
 
 export default function Page() {
   return (
@@ -134,6 +115,29 @@ export default function Page() {
     </div>
   )
 }
+```
+
+> **Important 🚨**: Note that you need to import the components from their own package, not from `@nextui-org/react`. 
+
+<Spacer y={8} />
+
+### Pages Directory Setup 
+
+Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
+
+```jsx
+// pages/_app.js
+import { NextUIProvider } from '@nextui-org/react'
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp;
 ```
 
 ### Setup pnpm (optional)

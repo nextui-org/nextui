@@ -24,7 +24,7 @@ import {colorVariants} from "../utils";
 const tabs = tv({
   slots: {
     base: "inline-block",
-    tabList: ["flex", "items-center", "gap-2", "bg-neutral-100", "p-1"],
+    tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1"],
     tab: [
       "z-0",
       "w-full",
@@ -54,7 +54,7 @@ const tabs = tv({
       "z-10",
       "text-inherit",
       "transition-colors",
-      "text-neutral-500",
+      "text-default-500",
       "group-data-[selected=true]:text-foreground",
     ],
     cursor: ["absolute", "z-0", "bg-white", "shadow-md"],
@@ -84,12 +84,12 @@ const tabs = tv({
         cursor: "h-[2px] w-[80%] bottom-0 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
-        tabList: "bg-transparent border-2 border-neutral-200 shadow-sm",
+        tabList: "bg-transparent border-2 border-default-200 shadow-sm",
         cursor: "inset-0",
       },
     },
     color: {
-      neutral: {},
+      default: {},
       primary: {},
       secondary: {},
       success: {},
@@ -170,7 +170,7 @@ const tabs = tv({
   },
   defaultVariants: {
     radius: "xl",
-    color: "neutral",
+    color: "default",
     variant: "solid",
     size: "md",
     fullWidth: false,
@@ -184,10 +184,10 @@ const tabs = tv({
     // solid + bordered + light && color
     {
       variant: ["solid", "bordered", "light"],
-      color: "neutral",
+      color: "default",
       class: {
-        cursor: ["bg-background", "dark:bg-neutral"],
-        tabContent: "group-data-[selected=true]:text-neutral-foreground",
+        cursor: ["bg-background", "dark:bg-default"],
+        tabContent: "group-data-[selected=true]:text-default-foreground",
       },
     },
     {
@@ -233,7 +233,7 @@ const tabs = tv({
     // underlined && color
     {
       variant: "underlined",
-      color: "neutral",
+      color: "default",
       class: {
         cursor: "bg-foreground",
         tabContent: "group-data-[selected=true]:text-foreground",
@@ -303,10 +303,10 @@ const tabs = tv({
     // disableAnimation && color && solid/bordered
     {
       disableAnimation: true,
-      color: "neutral",
+      color: "default",
       variant: ["solid", "bordered", "light"],
       class: {
-        tab: "data-[selected=true]:bg-neutral data-[selected=true]:text-neutral-foreground",
+        tab: "data-[selected=true]:bg-default data-[selected=true]:text-default-foreground",
       },
     },
     {
@@ -352,7 +352,7 @@ const tabs = tv({
     // disableAnimation && color && underlined
     {
       disableAnimation: true,
-      color: "neutral",
+      color: "default",
       variant: "underlined",
       class: {
         tab: "data-[selected=true]:after:bg-foreground",

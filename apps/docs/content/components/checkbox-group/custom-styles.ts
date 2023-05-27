@@ -26,7 +26,7 @@ export const CustomCheckbox = ({ user, statusColor, value }) => {
           name={user.name}
         />
         <div className="flex flex-col items-end gap-1">
-          <span className="text-xs text-neutral-500">{user.role}</span>
+          <span className="text-xs text-default-500">{user.role}</span>
           <Chip color={statusColor} size="xs" variant="flat">
             {user.status}
           </Chip>
@@ -101,7 +101,7 @@ export default function App() {
           statusColor="secondary"
         />
       </CheckboxGroup>
-      <p className="mt-4 ml-1 text-neutral-500">
+      <p className="mt-4 ml-1 text-default-500">
         Selected: {groupSelected.join(", ")}
       </p>
     </div>

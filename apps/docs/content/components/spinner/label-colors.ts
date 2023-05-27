@@ -3,7 +3,7 @@ const App = `import { Spinner } from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex gap-4">
-      <Spinner label="Neutral" color="neutral" labelColor="foreground"/>
+      <Spinner label="default" color="default" labelColor="foreground"/>
       <Spinner label="Primary" color="primary" labelColor="primary"/>
       <Spinner label="Secondary" color="secondary" labelColor="secondary"/>
       <Spinner label="Success" color="secondary" labelColor="success"/>

@@ -23,7 +23,7 @@ export const Customization = () => {
             NextUI is based on{" "}
             <Link
               isExternal
-              className="text-xl text-neutral-500 font-light [&>svg]:ml-1"
+              className="text-xl text-default-500 font-light [&>svg]:ml-1"
               href="https://tailwind-variants.org"
               underline="always"
             >

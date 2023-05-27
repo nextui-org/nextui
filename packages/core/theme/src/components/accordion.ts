@@ -17,8 +17,8 @@ const accordion = tv({
   variants: {
     variant: {
       light: "",
-      shadow: "px-4 shadow-lg rounded-xl bg-background dark:bg-content1 border border-neutral-100",
-      bordered: "px-4 border border-neutral rounded-lg",
+      shadow: "px-4 shadow-lg rounded-xl bg-background dark:bg-content1 border border-default-100",
+      bordered: "px-4 border border-default rounded-lg",
       splitted: "group is-splitted flex flex-col gap-2", // the classNames are applied in the accordion-item component
     },
     fullWidth: {
@@ -56,7 +56,7 @@ const accordion = tv({
 const accordionItem = tv({
   slots: {
     base: [
-      "border-neutral",
+      "border-default",
       "[&:not(:last-of-type)]:border-b",
       "group-[.is-splitted]:px-4",
       "group-[.is-splitted]:bg-background",
@@ -64,7 +64,7 @@ const accordionItem = tv({
       "group-[.is-splitted]:shadow-lg",
       "group-[.is-splitted]:rounded-lg",
       "group-[.is-splitted]:border",
-      "group-[.is-splitted]:border-neutral-100",
+      "group-[.is-splitted]:border-default-100",
     ],
     heading: "",
     trigger: [
@@ -78,10 +78,10 @@ const accordionItem = tv({
       "data-[focus-visible=true]:dark:ring-offset-background-dark",
     ],
     startContent: "flex-shrink-0",
-    indicator: "text-neutral-400",
+    indicator: "text-default-400",
     titleWrapper: "flex-1 flex flex-col text-left",
     title: "text-foreground text-lg",
-    subtitle: "text-sm text-neutral-500 font-normal",
+    subtitle: "text-sm text-default-500 font-normal",
     content: "py-2",
   },
   variants: {

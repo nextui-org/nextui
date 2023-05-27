@@ -56,8 +56,8 @@ const navbar = tv({
       "items-center",
       "justify-center",
       "border-b",
-      "border-neutral-200",
-      "dark:border-neutral-100",
+      "border-default-200",
+      "dark:border-default-100",
     ],
     wrapper: [
       "flex",
@@ -184,9 +184,9 @@ const navbar = tv({
       sticky: {},
       floating: {
         base: "shadow-none border-b-0",
-        wrapper: "mt-4 mx-8 shadow-md border border-neutral-200 dark:border-neutral-100 rounded-xl",
+        wrapper: "mt-4 mx-8 shadow-md border border-default-200 dark:border-default-100 rounded-xl",
         menu:
-          "mt-5 mx-8 border border-neutral-200 dark:border-neutral-100 rounded-xl max-w-[calc(100%_-_4rem)]",
+          "mt-5 mx-8 border border-default-200 dark:border-default-100 rounded-xl max-w-[calc(100%_-_4rem)]",
       },
     },
     maxWidth: {

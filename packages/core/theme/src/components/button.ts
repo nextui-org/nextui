@@ -63,7 +63,7 @@ const button = tv({
       xl: "px-8 h-14 text-lg",
     },
     color: {
-      neutral: "",
+      default: "",
       primary: "",
       secondary: "",
       success: "",
@@ -105,7 +105,7 @@ const button = tv({
   defaultVariants: {
     size: "md",
     variant: "solid",
-    color: "neutral",
+    color: "default",
     radius: "xl",
     fullWidth: false,
     isDisabled: false,
@@ -117,8 +117,8 @@ const button = tv({
     // solid / color
     {
       variant: "solid",
-      color: "neutral",
-      class: colorVariants.solid.neutral,
+      color: "default",
+      class: colorVariants.solid.default,
     },
     {
       variant: "solid",
@@ -148,8 +148,8 @@ const button = tv({
     // shadow / color
     {
       variant: "shadow",
-      color: "neutral",
-      class: colorVariants.shadow.neutral,
+      color: "default",
+      class: colorVariants.shadow.default,
     },
     {
       variant: "shadow",
@@ -179,8 +179,8 @@ const button = tv({
     // bordered / color
     {
       variant: "bordered",
-      color: "neutral",
-      class: colorVariants.bordered.neutral,
+      color: "default",
+      class: colorVariants.bordered.default,
     },
     {
       variant: "bordered",
@@ -210,8 +210,8 @@ const button = tv({
     // flat / color
     {
       variant: "flat",
-      color: "neutral",
-      class: colorVariants.flat.neutral,
+      color: "default",
+      class: colorVariants.flat.default,
     },
     {
       variant: "flat",
@@ -241,8 +241,8 @@ const button = tv({
     // faded / color
     {
       variant: "faded",
-      color: "neutral",
-      class: colorVariants.faded.neutral,
+      color: "default",
+      class: colorVariants.faded.default,
     },
     {
       variant: "faded",
@@ -272,8 +272,8 @@ const button = tv({
     // light / color
     {
       variant: "light",
-      color: "neutral",
-      class: [colorVariants.light.neutral, "data-[hover=true]:bg-neutral-100"],
+      color: "default",
+      class: [colorVariants.light.default, "data-[hover=true]:bg-default-100"],
     },
     {
       variant: "light",
@@ -303,8 +303,8 @@ const button = tv({
     // ghost / color
     {
       variant: "ghost",
-      color: "neutral",
-      class: colorVariants.ghost.neutral,
+      color: "default",
+      class: colorVariants.ghost.default,
     },
     {
       variant: "ghost",

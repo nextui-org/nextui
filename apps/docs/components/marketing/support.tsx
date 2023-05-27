@@ -70,7 +70,7 @@ const getSponsorSize = (sponsor: Sponsor, isMobile: boolean) => {
 const getSponsorColor = (sponsor: Sponsor) => {
   const tier = sponsor.tier || getTier(sponsor.totalAmountDonated);
 
-  return SPONSOR_COLORS[tier] || "neutral";
+  return SPONSOR_COLORS[tier] || "default";
 };
 
 const getSponsorAvatarStyles = (index: number, sponsors: Sponsor[] = []) => {

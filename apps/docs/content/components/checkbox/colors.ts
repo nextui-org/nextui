@@ -3,7 +3,7 @@ const App = `import { Checkbox } from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex gap-4">
-      <Checkbox defaultSelected color="neutral">Neutral</Checkbox>
+      <Checkbox defaultSelected color="default">default</Checkbox>
       <Checkbox defaultSelected color="primary">Primary</Checkbox>
       <Checkbox defaultSelected color="secondary">Secondary</Checkbox>
       <Checkbox defaultSelected color="success">Success</Checkbox>

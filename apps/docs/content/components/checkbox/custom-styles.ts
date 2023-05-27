@@ -38,7 +38,7 @@ export default function App() {
           name={user.name}
         />
         <div className="flex flex-col items-end gap-1">
-          <span className="text-xs text-neutral-500">{user.role}</span>
+          <span className="text-xs text-default-500">{user.role}</span>
           <Chip color="secondary" size="xs" variant="flat">
             {user.status}
           </Chip>

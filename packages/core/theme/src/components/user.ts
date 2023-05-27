@@ -28,7 +28,7 @@ const user = tv({
     ],
     wrapper: "inline-flex flex-col items-start",
     name: "text-sm text-inherit",
-    description: "text-xs text-neutral-400",
+    description: "text-xs text-default-400",
   },
 });
 

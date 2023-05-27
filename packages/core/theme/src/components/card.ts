@@ -29,7 +29,7 @@ const card = tv({
       "box-border",
       "bg-background",
       "dark:bg-content1",
-      "border border-neutral-100",
+      "border border-default-100",
       // focus ring
       "data-[focus-visible=true]:outline-none",
       "data-[focus-visible=true]:ring-2",

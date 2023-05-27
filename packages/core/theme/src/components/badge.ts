@@ -48,8 +48,8 @@ const badge = tv({
       shadow: {},
     },
     color: {
-      neutral: {
-        badge: colorVariants.solid.neutral,
+      default: {
+        badge: colorVariants.solid.default,
       },
       primary: {
         badge: colorVariants.solid.primary,
@@ -133,7 +133,7 @@ const badge = tv({
   },
   defaultVariants: {
     variant: "solid",
-    color: "neutral",
+    color: "default",
     size: "md",
     radius: "full",
     shape: "rectangle",
@@ -146,9 +146,9 @@ const badge = tv({
     // shadow / color
     {
       variant: "shadow",
-      color: "neutral",
+      color: "default",
       class: {
-        badge: colorVariants.shadow.neutral,
+        badge: colorVariants.shadow.default,
       },
     },
     {
@@ -189,9 +189,9 @@ const badge = tv({
     // flat / color
     {
       variant: "flat",
-      color: "neutral",
+      color: "default",
       class: {
-        badge: colorVariants.flat.neutral,
+        badge: colorVariants.flat.default,
       },
     },
     {
@@ -232,9 +232,9 @@ const badge = tv({
     // faded / color
     {
       variant: "faded",
-      color: "neutral",
+      color: "default",
       class: {
-        badge: colorVariants.faded.neutral,
+        badge: colorVariants.faded.default,
       },
     },
     {

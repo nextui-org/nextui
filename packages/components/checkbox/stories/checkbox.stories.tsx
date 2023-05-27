@@ -23,7 +23,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -71,7 +71,7 @@ const ControlledTemplate: ComponentStory<typeof Checkbox> = (args: CheckboxProps
       <Checkbox isSelected={selected} onValueChange={setSelected} {...args}>
         Subscribe (controlled)
       </Checkbox>
-      <p className="text-neutral-500">Selected: {selected ? "true" : "false"}</p>
+      <p className="text-default-500">Selected: {selected ? "true" : "false"}</p>
     </div>
   );
 };
@@ -203,7 +203,7 @@ export const CustomWithClassNames = (props: CustomCheckboxProps) => {
           name={userName}
         />
         <div className="flex flex-col items-end gap-1">
-          <span className="text-xs text-neutral-500">{userRole}</span>
+          <span className="text-xs text-default-500">{userRole}</span>
           <Chip color={statusColor} size="xs" variant="flat">
             {status}
           </Chip>
@@ -233,7 +233,7 @@ export const CustomWithHooks = (props: CheckboxProps) => {
       </VisuallyHidden>
       <Chip
         classNames={{
-          base: clsx("border-neutral hover:bg-neutral-200", {
+          base: clsx("border-default hover:bg-default-200", {
             "border-primary bg-primary hover:bg-primary-600 hover:border-primary-600": isSelected,
             "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark": isFocusVisible,
           }),

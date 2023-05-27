@@ -26,7 +26,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -92,9 +92,9 @@ const PasswordTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
         endContent={
           <button className="focus:outline-none" type="button" onClick={togglePasswordVisibility}>
             {isPasswordVisible ? (
-              <EyeSlashFilledIcon className="text-2xl text-neutral-400 pointer-events-none" />
+              <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
             ) : (
-              <EyeFilledIcon className="text-2xl text-neutral-400 pointer-events-none" />
+              <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
             )}
           </button>
         }
@@ -135,7 +135,7 @@ const ControlledTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
   return (
     <div className="w-full flex flex-col gap-2 max-w-[240px]">
       <Input {...args} placeholder="Enter your email" value={value} onValueChange={setValue} />
-      <p className="text-neutral-500 text-sm">Input value: {value}</p>
+      <p className="text-default-500 text-sm">Input value: {value}</p>
     </div>
   );
 };
@@ -161,7 +161,7 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) =>
       {...args}
       placeholder="you@example.com"
       startContent={
-        <MailFilledIcon className="text-2xl text-neutral-400 pointer-events-none flex-shrink-0" />
+        <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
       }
     />
     <Input
@@ -170,7 +170,7 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) =>
       placeholder="0.00"
       startContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">$</span>
+          <span className="text-default-400 text-sm">$</span>
         </div>
       }
       type="number"
@@ -181,7 +181,7 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) =>
       placeholder="nextui.org"
       startContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">https://</span>
+          <span className="text-default-400 text-sm">https://</span>
         </div>
       }
       type="url"
@@ -194,7 +194,7 @@ const EndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
     <Input
       {...args}
       endContent={
-        <MailFilledIcon className="text-2xl text-neutral-400 pointer-events-none flex-shrink-0" />
+        <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
       }
       placeholder="you@example.com"
     />
@@ -202,7 +202,7 @@ const EndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
       {...args}
       endContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">$</span>
+          <span className="text-default-400 text-sm">$</span>
         </div>
       }
       label="Price"
@@ -213,7 +213,7 @@ const EndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
       {...args}
       endContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">.org/</span>
+          <span className="text-default-400 text-sm">.org/</span>
         </div>
       }
       label="Website"
@@ -229,12 +229,12 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputPro
       {...args}
       endContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">@gmail.com</span>
+          <span className="text-default-400 text-sm">@gmail.com</span>
         </div>
       }
       placeholder="nextui"
       startContent={
-        <MailFilledIcon className="text-xl text-neutral-400 pointer-events-none flex-shrink-0" />
+        <MailFilledIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
       }
     />
     <Input
@@ -245,7 +245,7 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputPro
             Currency
           </label>
           <select
-            className="outline-none border-0 bg-transparent text-neutral-400 text-sm"
+            className="outline-none border-0 bg-transparent text-default-400 text-sm"
             id="currency"
             name="currency"
           >
@@ -259,7 +259,7 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputPro
       placeholder="0.00"
       startContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">$</span>
+          <span className="text-default-400 text-sm">$</span>
         </div>
       }
       type="number"
@@ -268,14 +268,14 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputPro
       {...args}
       endContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">.org</span>
+          <span className="text-default-400 text-sm">.org</span>
         </div>
       }
       label="Website"
       placeholder="nextui"
       startContent={
         <div className="pointer-events-none flex items-center">
-          <span className="text-neutral-400 text-sm">https://</span>
+          <span className="text-default-400 text-sm">https://</span>
         </div>
       }
       type="url"
@@ -371,19 +371,19 @@ const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args: InputProps)
       input: [
         "bg-transparent",
         "text-black/90 dark:text-white/90",
-        "placeholder:text-neutral-700/50 dark:placeholder:text-white/60",
+        "placeholder:text-default-700/50 dark:placeholder:text-white/60",
       ],
       innerWrapper: "bg-transparent",
       inputWrapper: [
         "shadow-xl",
-        "bg-neutral-200/50",
-        "dark:bg-neutral/60",
+        "bg-default-200/50",
+        "dark:bg-default/60",
         "backdrop-blur-xl",
         "backdrop-saturate-200",
-        "hover:bg-neutral-200/70",
-        "focus-within:!bg-neutral-200/50",
-        "dark:hover:bg-neutral/70",
-        "dark:focus-within:!bg-neutral/60",
+        "hover:bg-default-200/70",
+        "focus-within:!bg-default-200/50",
+        "dark:hover:bg-default/70",
+        "dark:focus-within:!bg-default/60",
         "!cursor-text",
       ],
     },

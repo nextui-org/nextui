@@ -35,7 +35,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -338,7 +338,7 @@ const WithEndContentTemplate: ComponentStory<any> = ({
   disableAnimation,
   ...args
 }) => {
-  const iconClasses = "text-2xl text-neutral-500 pointer-events-none flex-shrink-0";
+  const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
     <Dropdown {...args} disableAnimation={disableAnimation}>

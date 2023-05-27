@@ -19,7 +19,7 @@ export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentL
       <Button
         isExternal
         as={Link}
-        className="text-neutral-700"
+        className="text-default-700"
         href={`https://storiesv2.nextui.org/?path=/story/components-${storybook || component}`}
         radius="md"
         size="sm"
@@ -31,7 +31,7 @@ export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentL
       <Button
         isExternal
         as={Link}
-        className="text-neutral-700"
+        className="text-default-700"
         href={`https://www.npmjs.com/package/@nextui-org/${component}`}
         radius="md"
         size="sm"
@@ -44,7 +44,7 @@ export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentL
         <Button
           isExternal
           as={Link}
-          className="text-neutral-700"
+          className="text-default-700"
           href={`https://react-spectrum.adobe.com/react-aria/${reactAriaHook}.html`}
           radius="md"
           size="sm"
@@ -57,7 +57,7 @@ export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentL
       <Button
         isExternal
         as={Link}
-        className="text-neutral-700"
+        className="text-default-700"
         href={`${COMPONENT_PATH}/${component}`}
         radius="md"
         size="sm"
@@ -69,7 +69,7 @@ export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentL
       <Button
         isExternal
         as={Link}
-        className="text-neutral-700"
+        className="text-default-700"
         href={`${COMPONENT_THEME_PATH}/${component}.ts`}
         radius="md"
         size="sm"

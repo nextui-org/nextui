@@ -21,7 +21,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -128,7 +128,7 @@ const ControlledTemplate: ComponentStory<typeof RadioGroup> = (args: RadioGroupP
         <Radio value="london">London</Radio>
         <Radio value="tokyo">Tokyo</Radio>
       </RadioGroup>
-      <p className="text-neutral-500">Selected: {selectedItem}</p>
+      <p className="text-default-500">Selected: {selectedItem}</p>
     </div>
   );
 };
@@ -245,7 +245,7 @@ const RadioCard = (props: RadioProps) => {
     <Component
       {...getBaseProps()}
       className={clsx(
-        "group inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-neutral rounded-lg gap-4 p-4",
+        "group inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
         {
           "border-primary": isSelected,
         },

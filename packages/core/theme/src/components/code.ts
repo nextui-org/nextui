@@ -18,7 +18,7 @@ const code = tv({
   base: ["px-2", "py-1", "h-fit", "font-mono", "font-normal", "inline-block", "whitespace-nowrap"],
   variants: {
     color: {
-      neutral: colorVariants.flat.neutral,
+      default: colorVariants.flat.default,
       primary: colorVariants.flat.primary,
       secondary: colorVariants.flat.secondary,
       success: colorVariants.flat.success,
@@ -43,7 +43,7 @@ const code = tv({
     },
   },
   defaultVariants: {
-    color: "neutral",
+    color: "default",
     size: "sm",
     radius: "lg",
   },

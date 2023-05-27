@@ -3,8 +3,8 @@ const App = `import { Button } from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex gap-4 items-center">
-      <Button color="neutral">
-        Neutral
+      <Button color="default">
+        default
       </Button>
       <Button color="primary">
         Primary

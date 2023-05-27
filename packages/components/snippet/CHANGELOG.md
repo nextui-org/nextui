@@ -1,5 +1,20 @@
 # @nextui-org/snippet
 
+## 0.0.0-dev-v2-20230527145118
+
+### Patch Changes
+
+- Neutral color renamed to Default
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230527145118
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230527145118
+  - @nextui-org/use-clipboard@0.0.0-dev-v2-20230527145118
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230527145118
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230527145118
+  - @nextui-org/button@0.0.0-dev-v2-20230527145118
+  - @nextui-org/system@0.0.0-dev-v2-20230527145118
+  - @nextui-org/theme@0.0.0-dev-v2-20230527145118
+
 ## 0.0.0-dev-v2-20230527131721
 
 ### Patch Changes

@@ -12,7 +12,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -116,7 +116,7 @@ export const DefaultIcon = Template.bind({});
 DefaultIcon.args = {
   ...defaultProps,
   classNames: {
-    icon: "text-neutral-400",
+    icon: "text-default-400",
   },
 };
 
@@ -141,7 +141,7 @@ CustomFallback.args = {
   src: "https://images.unsplash.com/broken",
   showFallback: true,
   fallback: (
-    <Camera className="animate-pulse w-6 h-6 text-neutral-500" fill="currentColor" size={20} />
+    <Camera className="animate-pulse w-6 h-6 text-default-500" fill="currentColor" size={20} />
   ),
 };
 

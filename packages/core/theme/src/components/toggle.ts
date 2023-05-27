@@ -39,7 +39,7 @@ const toggle = tv({
       "justify-start",
       "flex-shrink-0",
       "overflow-hidden",
-      "bg-neutral-200",
+      "bg-default-200",
       "rounded-full",
       // focus ring
       "group-data-[focus-visible]:outline-none",
@@ -60,16 +60,16 @@ const toggle = tv({
       "origin-right",
     ],
     startIcon: "z-0 absolute left-1.5 text-current",
-    endIcon: "z-0 absolute right-1.5 text-neutral-600",
+    endIcon: "z-0 absolute right-1.5 text-default-600",
     thumbIcon: "text-black",
     label: "relative text-foreground select-none",
   },
   variants: {
     color: {
-      neutral: {
+      default: {
         wrapper: [
-          "group-data-[checked=true]:bg-neutral-400",
-          "group-data-[checked=true]:text-neutral-foreground",
+          "group-data-[checked=true]:bg-default-400",
+          "group-data-[checked=true]:text-default-foreground",
         ],
       },
       primary: {

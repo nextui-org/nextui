@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230527145118
+
+### Patch Changes
+
+- Neutral color renamed to Default
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230527145118
+
 ## 0.0.0-dev-v2-20230527131721
 
 ### Patch Changes

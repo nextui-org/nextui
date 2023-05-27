@@ -77,8 +77,8 @@ const avatar = tv({
       },
     },
     color: {
-      neutral: {
-        base: colorVariants.solid.neutral,
+      default: {
+        base: colorVariants.solid.default,
       },
       primary: {
         base: colorVariants.solid.primary,
@@ -151,15 +151,15 @@ const avatar = tv({
   },
   defaultVariants: {
     size: "md",
-    color: "neutral",
+    color: "default",
     radius: "full",
   },
   compoundVariants: [
     {
-      color: "neutral",
+      color: "default",
       isBordered: true,
       class: {
-        base: "ring-neutral",
+        base: "ring-default",
       },
     },
     {

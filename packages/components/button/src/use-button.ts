@@ -69,7 +69,7 @@ export function useButton(props: UseButtonProps) {
     spinner,
     fullWidth = groupContext?.fullWidth ?? false,
     size = groupContext?.size ?? "md",
-    color = groupContext?.color ?? "neutral",
+    color = groupContext?.color ?? "default",
     variant = groupContext?.variant ?? "solid",
     disableAnimation = groupContext?.disableAnimation ?? false,
     radius = groupContext?.radius ?? "xl",

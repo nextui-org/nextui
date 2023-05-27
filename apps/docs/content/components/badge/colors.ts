@@ -3,7 +3,7 @@ const App = `import { Badge, Avatar } from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex gap-3 items-center">
-      <Badge content="5" color="neutral">
+      <Badge content="5" color="default">
         <Avatar
           radius="lg"
           src="https://i.pravatar.cc/150?u=a042f81f4e29026024d"

@@ -29,7 +29,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -126,7 +126,7 @@ const ControlledTemplate: ComponentStory<any> = (args: TabsProps) => {
         </TabItem>
       </Tabs>
 
-      <p className="text-neutral-500">Selected: {selected}</p>
+      <p className="text-default-500">Selected: {selected}</p>
 
       <div className="flex gap-2 justify-start">
         <button

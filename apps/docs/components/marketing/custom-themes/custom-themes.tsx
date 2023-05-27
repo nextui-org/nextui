@@ -19,7 +19,7 @@ const themesTabs = (isMobile: boolean) => [
     icon: () => (
       <NextUILogo
         small
-        className="text-neutral-400 group-data-[selected=true]:text-primary"
+        className="text-default-400 group-data-[selected=true]:text-primary"
         size={isMobile ? 34 : 44}
       />
     ),
@@ -96,7 +96,7 @@ const CustomThemesExample = ({
           base: "w-full md:max-w-[50%]",
           tab: "px-0 md:px-3 h-auto data-[selected=true]:bg-transparent",
           tabList: "w-full md:max-w-1/2 justify-start gap-0 md:gap-4",
-          tabContent: "text-neutral-400 text-base",
+          tabContent: "text-default-400 text-base",
         }}
         items={tabs}
         variant="light"

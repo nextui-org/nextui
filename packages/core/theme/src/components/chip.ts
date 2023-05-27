@@ -54,12 +54,12 @@ const chip = tv({
       },
       shadow: {},
       dot: {
-        base: "border-2 border-neutral text-foreground bg-transparent",
+        base: "border-2 border-default text-foreground bg-transparent",
       },
     },
     color: {
-      neutral: {
-        dot: "bg-neutral-400",
+      default: {
+        dot: "bg-default-400",
       },
       primary: {
         dot: "bg-primary",
@@ -143,7 +143,7 @@ const chip = tv({
   },
   defaultVariants: {
     variant: "solid",
-    color: "neutral",
+    color: "default",
     size: "md",
     radius: "full",
     isDisabled: false,
@@ -152,9 +152,9 @@ const chip = tv({
     // solid / color
     {
       variant: "solid",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.solid.neutral,
+        base: colorVariants.solid.default,
       },
     },
     {
@@ -195,9 +195,9 @@ const chip = tv({
     // shadow / color
     {
       variant: "shadow",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.shadow.neutral,
+        base: colorVariants.shadow.default,
       },
     },
     {
@@ -238,9 +238,9 @@ const chip = tv({
     // bordered / color
     {
       variant: "bordered",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.bordered.neutral,
+        base: colorVariants.bordered.default,
       },
     },
     {
@@ -281,9 +281,9 @@ const chip = tv({
     // flat / color
     {
       variant: "flat",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.flat.neutral,
+        base: colorVariants.flat.default,
       },
     },
     {
@@ -324,9 +324,9 @@ const chip = tv({
     // faded / color
     {
       variant: "faded",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.faded.neutral,
+        base: colorVariants.faded.default,
       },
     },
     {
@@ -367,9 +367,9 @@ const chip = tv({
     // light / color
     {
       variant: "light",
-      color: "neutral",
+      color: "default",
       class: {
-        base: colorVariants.light.neutral,
+        base: colorVariants.light.default,
       },
     },
     {

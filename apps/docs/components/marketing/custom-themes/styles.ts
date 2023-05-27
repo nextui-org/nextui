@@ -43,9 +43,9 @@ export const shopCartStyles = tv({
     ],
     contentWrapper: "flex flex-col justify-center transition-all h-full h-[200px]",
     title: ["relative", "w-full", "flex-none", "text-xl", "font-semibold", "text-foreground"],
-    description: ["my-2", "w-full", "text-base", "text-neutral-500"],
+    description: ["my-2", "w-full", "text-base", "text-default-500"],
     price: "relative text-lg font-semibold text-foreground",
-    previousPrice: "relative line-through font-semibold text-neutral-400 ml-3",
+    previousPrice: "relative line-through font-semibold text-default-400 ml-3",
     percentOff: "relative font-normal text-success ml-3",
     sizeOption: [
       "w-8",
@@ -59,7 +59,7 @@ export const shopCartStyles = tv({
     ],
     buyButton: ["text-sm", "font-normal"],
     addToBagButton: ["text-sm", "font-normal"],
-    starButton: "absolute top-3 right-3 text-neutral-400 data-[liked=true]:text-warning",
+    starButton: "absolute top-3 right-3 text-default-400 data-[liked=true]:text-warning",
   },
   variants: {
     theme: {
@@ -115,7 +115,7 @@ export const shopCartStyles = tv({
         ],
         price: "font-mono font-thin",
         previousPrice: "font-mono font-light ml-2",
-        percentOff: "text-neutral-500 font-mono text-sm",
+        percentOff: "text-default-500 font-mono text-sm",
         buyButton: ["bg-foreground", "text-background", "text-sm", "font-normal", "rounded-sm"],
         addToBagButton: [
           "border-foreground",

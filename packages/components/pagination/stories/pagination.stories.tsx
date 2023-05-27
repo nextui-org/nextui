@@ -39,7 +39,7 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
     radius: {
@@ -153,7 +153,7 @@ export const CustomItems = () => {
   }: PaginationItemRenderProps<HTMLButtonElement>) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-neutral-200")} onClick={onNext}>
+        <button className={cn(className, "bg-default-200")} onClick={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -161,7 +161,7 @@ export const CustomItems = () => {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-neutral-200")} onClick={onPrevious}>
+        <button className={cn(className, "bg-default-200")} onClick={onPrevious}>
           <ChevronIcon />
         </button>
       );
@@ -177,7 +177,7 @@ export const CustomItems = () => {
         className={cn(
           className,
           isActive &&
-            "bg-gradient-to-b shadow-lg from-neutral-500 to-neutral-800 dark:from-neutral-300 dark:to-neutral-100 text-white font-bold",
+            "bg-gradient-to-b shadow-lg from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",
         )}
         onClick={() => setPage(value)}
       >
@@ -204,10 +204,10 @@ CustomWithClassNames.args = {
   ...defaultProps,
   showShadow: true,
   classNames: {
-    base: "gap-0 rounded border-2 border-neutral",
+    base: "gap-0 rounded border-2 border-default",
     item: "w-8 h-8 text-sm rounded-none bg-transparent",
     cursor:
-      "bg-gradient-to-b shadow-lg shadow-neutral from-neutral-500 to-neutral-800 dark:from-neutral-300 dark:to-neutral-100 text-white font-bold",
+      "bg-gradient-to-b shadow-lg shadow-default from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",
   },
 };
 
@@ -228,7 +228,7 @@ export const CustomWithHooks = () => {
           if (page === PaginationItemType.NEXT) {
             return (
               <li key={page} aria-label="next page" className="w-4 h-4">
-                <button className="w-full h-full bg-neutral-200 rounded-full" onClick={onNext}>
+                <button className="w-full h-full bg-default-200 rounded-full" onClick={onNext}>
                   <ChevronIcon className="rotate-180" />
                 </button>
               </li>
@@ -238,7 +238,7 @@ export const CustomWithHooks = () => {
           if (page === PaginationItemType.PREV) {
             return (
               <li key={page} aria-label="previous page" className="w-4 h-4">
-                <button className="w-full h-full bg-neutral-200 rounded-full" onClick={onPrevious}>
+                <button className="w-full h-full bg-default-200 rounded-full" onClick={onPrevious}>
                   <ChevronIcon />
                 </button>
               </li>
@@ -257,7 +257,7 @@ export const CustomWithHooks = () => {
             <li key={page} aria-label={`page ${page}`} className="w-4 h-4">
               <button
                 className={cn(
-                  "w-full h-full bg-neutral-300  rounded-full",
+                  "w-full h-full bg-default-300  rounded-full",
                   activePage === page && "bg-secondary",
                 )}
                 onClick={() => setPage(page)}

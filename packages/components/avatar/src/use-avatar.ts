@@ -101,7 +101,7 @@ export function useAvatar(props: UseAvatarProps = {}) {
     fallback,
     alt = name,
     imgRef: imgRefProp,
-    color = groupContext?.color ?? "neutral",
+    color = groupContext?.color ?? "default",
     radius = groupContext?.radius ?? "full",
     size = groupContext?.size ?? "md",
     isBordered = groupContext?.isBordered ?? false,

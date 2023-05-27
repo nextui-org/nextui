@@ -87,9 +87,9 @@ const spinner = tv({
         circle1: "border-b-white",
         circle2: "border-b-white",
       },
-      neutral: {
-        circle1: "border-b-neutral",
-        circle2: "border-b-neutral",
+      default: {
+        circle1: "border-b-default",
+        circle2: "border-b-default",
       },
       primary: {
         circle1: "border-b-primary",

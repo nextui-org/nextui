@@ -26,7 +26,7 @@ const dropdown = tv({
     "bg-white",
     "dark:bg-content1",
     "border",
-    "border-neutral-100",
+    "border-default-100",
   ],
 });
 
@@ -79,7 +79,7 @@ const dropdownItem = tv({
     ],
     wrapper: "w-full flex flex-col items-start justify-center",
     title: "flex-1",
-    description: ["text-xs", "w-full", "text-neutral-500", "group-hover:text-current"],
+    description: ["text-xs", "w-full", "text-default-500", "group-hover:text-current"],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
     shortcut: [
       "px-1",
@@ -90,7 +90,7 @@ const dropdownItem = tv({
       "text-inherit",
       "text-xs",
       "border",
-      "border-neutral-200",
+      "border-default-200",
       "group-hover:border-current",
     ],
   },
@@ -106,7 +106,7 @@ const dropdownItem = tv({
         base: "bg-transparent",
       },
       faded: {
-        base: "border border-transparent hover:border-neutral data-[hover=true]:bg-neutral-100",
+        base: "border border-transparent hover:border-default data-[hover=true]:bg-default-100",
       },
       flat: {
         base: "",
@@ -116,7 +116,7 @@ const dropdownItem = tv({
       },
     },
     color: {
-      neutral: {},
+      default: {},
       primary: {},
       secondary: {},
       success: {},
@@ -133,7 +133,7 @@ const dropdownItem = tv({
           "before:left-0",
           "before:right-0",
           "before:h-px",
-          "before:bg-neutral-200",
+          "before:bg-default-200",
         ],
       },
     },
@@ -149,16 +149,16 @@ const dropdownItem = tv({
   },
   defaultVariants: {
     variant: "solid",
-    color: "neutral",
+    color: "default",
     disableAnimation: false,
   },
   compoundVariants: [
     // solid / color
     {
       variant: "solid",
-      color: "neutral",
+      color: "default",
       class: {
-        base: "data-[hover=true]:bg-neutral data-[hover=true]:text-neutral-foreground",
+        base: "data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
       },
     },
     {
@@ -199,10 +199,10 @@ const dropdownItem = tv({
     // shadow / color
     {
       variant: "shadow",
-      color: "neutral",
+      color: "default",
       class: {
         base:
-          "data-[hover=true]:shadow-neutral/50 data-[hover=true]:bg-neutral data-[hover=true]:text-neutral-foreground",
+          "data-[hover=true]:shadow-default/50 data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
       },
     },
     {
@@ -248,9 +248,9 @@ const dropdownItem = tv({
     // bordered / color
     {
       variant: "bordered",
-      color: "neutral",
+      color: "default",
       class: {
-        base: "data-[hover=true]:border-neutral",
+        base: "data-[hover=true]:border-default",
       },
     },
     {
@@ -291,9 +291,9 @@ const dropdownItem = tv({
     // flat / color
     {
       variant: "flat",
-      color: "neutral",
+      color: "default",
       class: {
-        base: "data-[hover=true]:bg-neutral-100 data-[hover=true]:text-neutral-foreground",
+        base: "data-[hover=true]:bg-default-100 data-[hover=true]:text-default-foreground",
       },
     },
     {
@@ -334,9 +334,9 @@ const dropdownItem = tv({
     // faded / color
     {
       variant: "faded",
-      color: "neutral",
+      color: "default",
       class: {
-        base: "data-[hover=true]:text-neutral-foreground",
+        base: "data-[hover=true]:text-default-foreground",
       },
     },
     {
@@ -377,9 +377,9 @@ const dropdownItem = tv({
     // light / color
     {
       variant: "light",
-      color: "neutral",
+      color: "default",
       class: {
-        base: "data-[hover=true]:text-neutral-500",
+        base: "data-[hover=true]:text-default-500",
       },
     },
     {
@@ -437,7 +437,7 @@ const dropdownItem = tv({
 const dropdownSection = tv({
   slots: {
     section: "relative mb-2",
-    heading: "pl-1 text-xs text-neutral-500",
+    heading: "pl-1 text-xs text-default-500",
   },
   variants: {
     showDivider: {
@@ -450,7 +450,7 @@ const dropdownSection = tv({
           "before:left-0",
           "before:right-0",
           "before:h-px",
-          "before:bg-neutral-200",
+          "before:bg-default-200",
         ],
       },
     },

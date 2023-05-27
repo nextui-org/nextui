@@ -154,7 +154,7 @@ export default function App() {
   return (
     <Card
       isBlurred
-      className="border-none bg-white/20 dark:bg-neutral-100/50 max-w-[610px]"
+      className="border-none bg-white/20 dark:bg-default-100/50 max-w-[610px]"
       radius="2xl"
       shadow="lg"
     >
@@ -180,7 +180,7 @@ export default function App() {
               </div>
               <Button
                 isIconOnly
-                className="text-neutral-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
+                className="text-default-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
                 radius="full"
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
@@ -196,10 +196,10 @@ export default function App() {
               <Progress
                 aria-label="Music progress"
                 classNames={{
-                  filler: "bg-neutral-500 dark:bg-white",
-                  track: "bg-neutral-500/30",
+                  filler: "bg-default-500 dark:bg-white",
+                  track: "bg-default-500/30",
                 }}
-                color="neutral"
+                color="default"
                 size="sm"
                 value={33}
               />

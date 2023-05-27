@@ -22,8 +22,8 @@ import { CheckIcon } from './CheckIcon.jsx'
 
 const checkbox = tv({
   slots: {
-    base: "border-neutral hover:bg-neutral-200",
-    content: "text-neutral-500"
+    base: "border-default hover:bg-default-200",
+    content: "text-default-500"
   },
   variants: {
     isSelected: {
@@ -97,7 +97,7 @@ export default function App() {
         <CustomCheckbox value="pool">Pool</CustomCheckbox>
         <CustomCheckbox value="gym">Gym</CustomCheckbox>
       </CheckboxGroup>
-      <p className="mt-4 ml-1 text-neutral-500">
+      <p className="mt-4 ml-1 text-default-500">
         Selected: {groupSelected.join(", ")}
       </p>
     </div>

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tooltip",
-  "version": "0.0.0-dev-v2-20230527131721",
+  "version": "0.0.0-dev-v2-20230527145118",
   "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
     "tooltip"

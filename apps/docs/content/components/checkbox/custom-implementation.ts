@@ -22,8 +22,8 @@ import { CheckIcon } from './CheckIcon.jsx'
 
 const checkbox = tv({
   slots: {
-    base: "border-neutral hover:bg-neutral-200",
-    content: "text-neutral-500"
+    base: "border-default hover:bg-default-200",
+    content: "text-default-500"
   },
   variants: {
     isSelected: {
