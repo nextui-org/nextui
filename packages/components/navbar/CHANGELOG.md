@@ -1,5 +1,19 @@
 # @nextui-org/navbar
 
+## 0.0.0-dev-v2-20230527131721
+
+### Patch Changes
+
+- New snapshot
+- Updated dependencies
+  - @nextui-org/use-aria-toggle-button@0.0.0-dev-v2-20230527131721
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230527131721
+  - @nextui-org/use-scroll-position@0.0.0-dev-v2-20230527131721
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230527131721
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230527131721
+  - @nextui-org/system@0.0.0-dev-v2-20230527131721
+  - @nextui-org/theme@0.0.0-dev-v2-20230527131721
+
 ## 0.0.0-dev-v2-20230526220125
 
 ### Patch Changes

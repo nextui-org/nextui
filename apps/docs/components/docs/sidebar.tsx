@@ -8,7 +8,7 @@ import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {SpacerProps, Spacer, Link as NextUILink} from "@nextui-org/react";
+import {SpacerProps, Spacer, Link as NextUILink, cn} from "@nextui-org/react";
 import Link from "next/link";
 import {isEmpty} from "lodash";
 import {useRouter} from "next/router";
@@ -198,9 +198,10 @@ export interface DocsSidebarProps {
   routes?: Route[];
   tag?: string;
   slug?: string;
+  className?: string;
 }
 
-export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag}) => {
+export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}) => {
   const expandedKeys = routes?.reduce((keys, route) => {
     if (route.defaultOpen) {
       keys.push(route.key);
@@ -210,7 +211,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag}) => {
   }, [] as string[]);
 
   return (
-    <div className="sticky top-20 mt-2 z-0 h-[calc(100vh-121px)]">
+    <div className={cn("lg:sticky lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
       <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
         {(route) => (
           <Item

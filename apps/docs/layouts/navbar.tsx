@@ -1,10 +1,9 @@
-import {useRef, useState} from "react";
+import {useRef, useState, FC, ReactNode} from "react";
 import {
   link,
   Navbar as NextUINavbar,
   NavbarContent,
   NavbarMenu,
-  NavbarMenuItem,
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
@@ -17,37 +16,38 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from "@nextui-org/react";
+import dynamic from "next/dynamic";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {useRouter} from "next/router";
 import {includes} from "lodash";
 
+import {Route} from "@/libs/docs/page";
 import {NextUILogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {isActive} from "@/utils/links";
 
-export const Navbar = () => {
+export interface NavbarProps {
+  routes: Route[];
+  tag?: string;
+  slug?: string;
+  children?: ReactNode;
+}
+
+const DocsSidebar = dynamic(
+  () => import("@/components/docs/sidebar").then((mod) => mod.DocsSidebar),
+  {ssr: false},
+);
+
+export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
 
   const ref = useRef(null);
   const isMounted = useIsMounted();
 
   const router = useRouter();
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   const searchInput = (
     <Input
@@ -191,20 +191,10 @@ export const Navbar = () => {
           className="sm:hidden"
         />
       </NavbarContent>
+
       <NavbarMenu disableAnimation>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <DocsSidebar routes={routes} slug={slug} tag={tag} />
+        {children}
       </NavbarMenu>
     </NextUINavbar>
   );

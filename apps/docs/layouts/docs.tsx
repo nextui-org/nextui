@@ -50,7 +50,7 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
   return (
     <div id="app-container">
       <Head {...meta} />
-      <Navbar />
+      <Navbar routes={routes} slug={slug} tag={tag} />
       <main className="container mx-auto max-w-7xl min-h-[calc(100vh_-_64px_-_108px)] px-6 mb-12">
         <div className="grid grid-cols-12">
           <div className="hidden relative lg:block lg:col-span-2 mt-8 pr-4">
