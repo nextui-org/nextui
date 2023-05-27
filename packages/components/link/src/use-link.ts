@@ -7,7 +7,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
-import {useMemo} from "react";
+import {useMemo, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
