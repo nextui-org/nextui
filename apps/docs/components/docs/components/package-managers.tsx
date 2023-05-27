@@ -1,4 +1,4 @@
-import {Tabs, TabItem, Snippet} from "@nextui-org/react";
+import {Tabs, Tab, Snippet} from "@nextui-org/react";
 
 import {Codeblock} from "./codeblock";
 
@@ -44,7 +44,7 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
         if (!commands[name]) return null;
 
         return (
-          <TabItem
+          <Tab
             key={name}
             title={
               <div className="flex items-center space-x-2">
@@ -65,7 +65,7 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
             >
               <Codeblock codeString={commands[name] as string} language="bash" />
             </Snippet>
-          </TabItem>
+          </Tab>
         );
       })}
     </Tabs>

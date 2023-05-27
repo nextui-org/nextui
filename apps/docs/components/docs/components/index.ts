@@ -4,3 +4,4 @@ export * from "./blockquote";
 export * from "./community";
 export * from "./frameworks";
 export * from "./code-demo";
+export * from "./import-tabs";

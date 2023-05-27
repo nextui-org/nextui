@@ -10,7 +10,7 @@ import {
   Spinner,
   Pagination,
   Tabs,
-  TabItem,
+  Tab,
   Link,
 } from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
@@ -91,9 +91,9 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
           radius="full"
           size="xs"
         >
-          <TabItem key="notes" title="Notes" />
-          <TabItem key="tasks" title="Tasks" />
-          <TabItem key="files" title="Files" />
+          <Tab key="notes" title="Notes" />
+          <Tab key="tasks" title="Tasks" />
+          <Tab key="files" title="Files" />
         </Tabs>
 
         <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />

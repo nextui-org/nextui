@@ -22,7 +22,7 @@ export interface TabItemProps<T = object> extends HTMLNextUIProps<"div"> {
 /**
  * @internal
  */
-const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
+const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
   const {className, as, item, style, onClick, ...otherProps} = props;
 
   const {key} = item;
@@ -113,6 +113,6 @@ const TabItem = forwardRef<TabItemProps, "div">((props, ref) => {
   );
 });
 
-TabItem.displayName = "NextUI.TabItem";
+Tab.displayName = "NextUI.Tab";
 
-export default TabItem;
+export default Tab;

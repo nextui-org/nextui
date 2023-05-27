@@ -15,6 +15,12 @@ export default {
         options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
       },
     },
+    size: {
+      control: {
+        type: "select",
+        options: ["xs", "sm", "md", "lg", "xl"],
+      },
+    },
     color: {
       control: {
         type: "select",

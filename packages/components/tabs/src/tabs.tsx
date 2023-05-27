@@ -3,7 +3,7 @@ import {LayoutGroup} from "framer-motion";
 
 import {TabsProvider} from "./tabs-context";
 import {UseTabsProps, useTabs} from "./use-tabs";
-import TabItem from "./tab-item";
+import Tab from "./tab";
 import TabPanel from "./tab-panel";
 
 interface Props<T> extends Omit<UseTabsProps<T>, "ref"> {}
@@ -22,13 +22,11 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
           {layoutGroupEnabled ? (
             <LayoutGroup id={layoutId}>
               {[...state.collection].map((item) => (
-                <TabItem key={item.key} item={item} {...item.props} />
+                <Tab key={item.key} item={item} {...item.props} />
               ))}
             </LayoutGroup>
           ) : (
-            [...state.collection].map((item) => (
-              <TabItem key={item.key} item={item} {...item.props} />
-            ))
+            [...state.collection].map((item) => <Tab key={item.key} item={item} {...item.props} />)
           )}
         </Component>
       </div>

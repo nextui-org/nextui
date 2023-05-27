@@ -84,13 +84,13 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
 
-```jsx
+```jsx {6,8,10}
 // app/layout.tsx
 import { Providers } from "./providers";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className='dark'>
       <body>
         <Providers>
           {children}
@@ -100,6 +100,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   );
 }
 ```
+
+> **Note**: NextUI automatically add two themes `light` and `dark` to your application. You can use any 
+of them by adding the `dark`/`light` class to the `html` tag. See the [theme docs](/docs/theme/customize-theme) for more details.
 
 Now you can import any NextUI component directly in your Server Components without needing to use
 the `use client;` directive:
@@ -117,7 +120,7 @@ export default function Page() {
 }
 ```
 
-> **Important 🚨**: Note that you need to import the components from their own package, not from `@nextui-org/react`. 
+> **Important 🚨**: Note that you need to import the component from the individual package, not the from `@nextui-org/react`. 
 
 <Spacer y={8} />
 

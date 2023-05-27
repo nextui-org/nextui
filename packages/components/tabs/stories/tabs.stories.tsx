@@ -14,7 +14,7 @@ import {
   AlignTopBoldIcon,
 } from "@nextui-org/shared-icons";
 
-import {Tabs, TabItem, TabsProps} from "../src";
+import {Tabs, Tab, TabsProps} from "../src";
 
 export default {
   title: "Components/Tabs",
@@ -63,21 +63,21 @@ const defaultProps = {
 
 const StaticTemplate: ComponentStory<any> = (args: TabsProps) => (
   <Tabs aria-label="Tabs example" {...args}>
-    <TabItem key="world" title="World">
+    <Tab key="world" title="World">
       <Lorem count={1} sentenceUpperBound={20} />
-    </TabItem>
-    <TabItem key="ny" title="N.Y">
+    </Tab>
+    <Tab key="ny" title="N.Y">
       <Lorem count={1} sentenceUpperBound={30} />
-    </TabItem>
-    <TabItem key="business" title="Business">
+    </Tab>
+    <Tab key="business" title="Business">
       <Lorem count={1} sentenceUpperBound={10} />
-    </TabItem>
-    <TabItem key="arts" title="Arts">
+    </Tab>
+    <Tab key="arts" title="Arts">
       <Lorem count={1} sentenceUpperBound={50} />
-    </TabItem>
-    <TabItem key="science" title="Science">
+    </Tab>
+    <Tab key="science" title="Science">
       <Lorem count={1} sentenceUpperBound={24} />
-    </TabItem>
+    </Tab>
   </Tabs>
 );
 
@@ -89,12 +89,12 @@ const WithIconsTemplate: ComponentStory<any> = (args: TabsProps) => (
       tab: "text-lg",
     }}
   >
-    <TabItem key="align-left" title={<AlignLeftBoldIcon />} />
-    <TabItem key="align-vertically" title={<AlignVerticallyBoldIcon />} />
-    <TabItem key="align-right" title={<AlignRightBoldIcon />} />
-    <TabItem key="align-top" title={<AlignTopBoldIcon />} />
-    <TabItem key="align-horizontally" title={<AlignHorizontallyBoldIcon />} />
-    <TabItem key="align-bottom" title={<AlignBottomBoldIcon />} />
+    <Tab key="align-left" title={<AlignLeftBoldIcon />} />
+    <Tab key="align-vertically" title={<AlignVerticallyBoldIcon />} />
+    <Tab key="align-right" title={<AlignRightBoldIcon />} />
+    <Tab key="align-top" title={<AlignTopBoldIcon />} />
+    <Tab key="align-horizontally" title={<AlignHorizontallyBoldIcon />} />
+    <Tab key="align-bottom" title={<AlignBottomBoldIcon />} />
   </Tabs>
 );
 
@@ -109,21 +109,21 @@ const ControlledTemplate: ComponentStory<any> = (args: TabsProps) => {
         selectedKey={selected}
         onSelectionChange={setSelected}
       >
-        <TabItem key="world" title="World">
+        <Tab key="world" title="World">
           <Lorem count={1} sentenceUpperBound={20} />
-        </TabItem>
-        <TabItem key="ny" title="N.Y">
+        </Tab>
+        <Tab key="ny" title="N.Y">
           <Lorem count={1} sentenceUpperBound={30} />
-        </TabItem>
-        <TabItem key="business" title="Business">
+        </Tab>
+        <Tab key="business" title="Business">
           <Lorem count={1} sentenceUpperBound={10} />
-        </TabItem>
-        <TabItem key="arts" title="Arts">
+        </Tab>
+        <Tab key="arts" title="Arts">
           <Lorem count={1} sentenceUpperBound={50} />
-        </TabItem>
-        <TabItem key="science" title="Science">
+        </Tab>
+        <Tab key="science" title="Science">
           <Lorem count={1} sentenceUpperBound={24} />
-        </TabItem>
+        </Tab>
       </Tabs>
 
       <p className="text-default-500">Selected: {selected}</p>
@@ -188,9 +188,9 @@ const DynamicTemplate: ComponentStory<any> = (args: TabsProps<Item>) => {
   return (
     <Tabs aria-label="Dynamic tabs" {...args} items={tabs}>
       {(item) => (
-        <TabItem key={item.id} title={item.label}>
+        <Tab key={item.id} title={item.label}>
           {item.content}
-        </TabItem>
+        </Tab>
       )}
     </Tabs>
   );
@@ -209,7 +209,7 @@ const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
             selectedKey={selected}
             onSelectionChange={setSelected}
           >
-            <TabItem key="login" title="Login">
+            <Tab key="login" title="Login">
               <form className="flex flex-col gap-4">
                 <Input isRequired label="Email" placeholder="Enter your email" type="email" />
                 <Input
@@ -230,8 +230,8 @@ const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
                   </Button>
                 </div>
               </form>
-            </TabItem>
-            <TabItem key="sign-up" title="Sign up">
+            </Tab>
+            <Tab key="sign-up" title="Sign up">
               <form className="flex flex-col gap-4 h-[300px]">
                 <Input isRequired label="Name" placeholder="Enter your name" type="password" />
                 <Input isRequired label="Email" placeholder="Enter your email" type="email" />
@@ -253,7 +253,7 @@ const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
                   </Button>
                 </div>
               </form>
-            </TabItem>
+            </Tab>
           </Tabs>
         </CardBody>
       </Card>

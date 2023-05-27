@@ -1,5 +1,5 @@
 import React from "react";
-import {Tabs, TabItem} from "@nextui-org/react";
+import {Tabs, Tab} from "@nextui-org/react";
 import {SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
 
 import {TypescriptIcon, JavascriptIcon} from "@/components/icons";
@@ -32,8 +32,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
       size="xs"
       onSelectionChange={handleToggle}
     >
-      <TabItem key="vite-react-ts" title={<TypescriptIcon className="text-lg text-[#93adcb]" />} />
-      <TabItem key="vite-react" title={<JavascriptIcon className="text-lg  text-[#dbbe82]" />} />
+      <Tab key="vite-react-ts" title={<TypescriptIcon className="text-lg text-[#93adcb]" />} />
+      <Tab key="vite-react" title={<JavascriptIcon className="text-lg  text-[#dbbe82]" />} />
     </Tabs>
   );
 };

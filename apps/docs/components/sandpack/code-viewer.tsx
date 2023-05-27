@@ -24,6 +24,7 @@ export interface CodeViewerProps {
   decorators?: Decorators;
   code?: string;
   wrapContent?: boolean;
+  defaultExpanded?: boolean;
   /**
    * This provides a way to control how some components are going to
    * be initialized on the page. The CodeEditor and the Preview components
@@ -38,14 +39,23 @@ const INITIAL_HEIGHT = "200px";
 
 export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
   (
-    {showTabs, code: propCode, decorators, initMode, showLineNumbers, wrapContent, containerRef},
+    {
+      showTabs,
+      code: propCode,
+      decorators,
+      initMode,
+      defaultExpanded = false,
+      showLineNumbers,
+      wrapContent,
+      containerRef,
+    },
     ref,
   ) => {
     const {sandpack} = useSandpack();
     const {code} = useActiveCode();
 
     const {activeFile} = sandpack;
-    const [isExpanded, setIsExpanded] = React.useState(false);
+    const [isExpanded, setIsExpanded] = React.useState(defaultExpanded);
     const id = React.useId();
     // hack to make sure we re-render the code editor and change current file
     // TODO: open an issue on sandpack-react
@@ -71,6 +81,14 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
     React.useEffect(() => {
       setInternalKey(getId());
     }, [propCode, code]);
+
+    React.useEffect(() => {
+      if (defaultExpanded && containerRef && containerRef?.current !== null) {
+        const container = containerRef?.current;
+
+        container.style.height = "auto";
+      }
+    }, [defaultExpanded]);
 
     const handleExpand = () => {
       const nextIsExpanded = !isExpanded;

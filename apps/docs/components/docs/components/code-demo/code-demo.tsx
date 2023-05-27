@@ -33,6 +33,7 @@ interface CodeDemoProps extends UseCodeDemoProps {
   initialEditorOpen?: boolean;
   enableResize?: boolean;
   showPreview?: boolean;
+  defaultExpanded?: boolean;
   showWindowActions?: boolean;
   iframeSrc?: string;
   asIframe?: boolean;
@@ -50,6 +51,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showSandpackPreview = false,
   showWindowActions = false,
   enableResize = false,
+  defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
   highlightedLines,
@@ -76,6 +78,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         />
       )}
       <DynamicSandpack
+        defaultExpanded={defaultExpanded}
         files={files}
         highlightedLines={highlightedLines}
         showEditor={showEditor}

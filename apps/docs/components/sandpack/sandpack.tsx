@@ -15,6 +15,7 @@ export interface SandpackProps extends UseSandpackProps {
   showEditor?: boolean;
   showCopyCode?: boolean;
   showReportBug?: boolean;
+  defaultExpanded?: boolean;
   showOpenInCodeSandbox?: boolean;
   children?: React.ReactNode;
 }
@@ -25,6 +26,7 @@ export const Sandpack: FC<SandpackProps> = ({
   highlightedLines,
   showPreview = false,
   showEditor = true,
+  defaultExpanded = false,
   showOpenInCodeSandbox = true,
   showReportBug = true,
   showCopyCode = true,
@@ -66,6 +68,7 @@ export const Sandpack: FC<SandpackProps> = ({
               <SandpackCodeViewer
                 containerRef={editorContainerRef}
                 decorators={decorators}
+                defaultExpanded={defaultExpanded}
                 showTabs={showTabs}
               />
             )}

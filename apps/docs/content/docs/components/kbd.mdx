@@ -14,9 +14,12 @@ Keyboard key is a component to display which key or combination of keys performs
 
 ## Import
 
-```jsx
-import {Kbd} from "@nextui-org/react";
-```
+<ImportTabs
+  commands={{
+    global: 'import {Kbd} from "@nextui-org/react";',
+    individual: 'import {Kbd} from "@nextui-org/kbd";',
+  }}
+/>
 
 ## Usage
 
@@ -39,6 +42,8 @@ import {Kbd} from "@nextui-org/react";
 - Each command `key` has a `title` attribute that describes the action that the key performs.
 
 ## API
+
+### Keyboard Key Props
 
 | Attribute  | Type                                                   | Description                                              | Default |
 | ---------- | ------------------------------------------------------ | -------------------------------------------------------- | ------- |

@@ -1,6 +1,5 @@
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
 import {ReactNode} from "react";
-
 interface Props<T extends object = {}> extends Omit<ItemProps<"div", T>, "children" | "title"> {
   /**
    * The content of the component.

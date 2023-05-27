@@ -9,4 +9,4 @@ export {useTabs} from "./use-tabs";
 
 // export components
 export {Tabs};
-export {default as TabItem} from "./base/tab-item-base";
+export {default as Tab} from "./base/tab-item-base";

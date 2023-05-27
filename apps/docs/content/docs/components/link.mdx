@@ -8,6 +8,84 @@ url: https://nextui.org/docs/components/link
 
 Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an `<a>`
 
-```jsx
-import { Link } from "@nextui-org/react";
-```
+<ComponentLinks component="link" reactAriaHook="useLink" />
+
+-----
+
+## Import
+
+<ImportTabs
+  commands={{
+    global: 'import {Link} from "@nextui-org/react";',
+    individual: 'import {Link} from "@nextui-org/link";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={linkContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={linkContent.disabled} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={linkContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={linkContent.colors} />
+
+### Underline
+
+<CodeDemo title="Underline" files={linkContent.underline} />
+
+### External
+
+If you pass the `isExternal` prop, the link will have the `target="_blank"` and `rel="noopener noreferrer"` attributes.
+
+<CodeDemo title="External" files={linkContent.external} />
+
+### Custom Anchor Icon
+
+<CodeDemo title="Custom Anchor Icon" files={linkContent.customAnchorIcon} />
+
+### Block Link
+
+If you pass the `isBlock` prop, the link will be rendered as a block element with a `hover` effect.
+
+<CodeDemo title="Block Link" files={linkContent.block} />
+
+
+### Usage with Next.js 
+
+<CodeDemo
+  showPreview={false}
+  defaultExpanded={true}
+  title="Usage with Next.js "
+  files={linkContent.nextjs}
+/>
+
+### Custom Implementation
+
+In case you need to customize the link even further, you can use the `useLink` hook to create your own implementation.
+
+<CodeDemo showPreview={false} title="Custom implementation" files={linkContent.customImpl} />
+
+
+## Data Attributes
+
+`Link` has the following attributes on the `root` element:
+
+- **data-focus**:
+  When the checkbox is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the checkbox is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+## Accessibility
+
+- Support for mouse, touch, and keyboard interactions.
+- Support for navigation links via `<a>` elements or custom element types via ARIA.
+- Support for disabled links.
+- Keyboard users may activate links using the <kbd>Enter</kbd> key.

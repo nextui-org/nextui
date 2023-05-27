@@ -3,7 +3,7 @@ import {act, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
-import {Tabs, TabItem} from "../src";
+import {Tabs, Tab} from "../src";
 
 type Item = {
   id: string;
@@ -33,15 +33,15 @@ describe("Tabs", () => {
   it("should render correctly (static)", () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test">
-        <TabItem key="item1" title="Item 1">
+        <Tab key="item1" title="Item 1">
           <div>Content 1</div>
-        </TabItem>
-        <TabItem key="item2" title="Item 2">
+        </Tab>
+        <Tab key="item2" title="Item 2">
           <div>Content 2</div>
-        </TabItem>
-        <TabItem key="item3" title="Item 3">
+        </Tab>
+        <Tab key="item3" title="Item 3">
           <div>Content 3</div>
-        </TabItem>
+        </Tab>
       </Tabs>,
     );
 
@@ -52,9 +52,9 @@ describe("Tabs", () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test" items={tabs}>
         {(item) => (
-          <TabItem key={item.id} title={item.label}>
+          <Tab key={item.id} title={item.label}>
             <div>{item.content}</div>
-          </TabItem>
+          </Tab>
         )}
       </Tabs>,
     );
@@ -67,15 +67,15 @@ describe("Tabs", () => {
 
     render(
       <Tabs ref={ref} aria-label="Tabs static test">
-        <TabItem key="item1" title="Item 1">
+        <Tab key="item1" title="Item 1">
           <div>Content 1</div>
-        </TabItem>
-        <TabItem key="item2" title="Item 2">
+        </Tab>
+        <Tab key="item2" title="Item 2">
           <div>Content 2</div>
-        </TabItem>
-        <TabItem key="item3" title="Item 3">
+        </Tab>
+        <Tab key="item3" title="Item 3">
           <div>Content 3</div>
-        </TabItem>
+        </Tab>
       </Tabs>,
     );
     expect(ref.current).not.toBeNull();
@@ -84,15 +84,15 @@ describe("Tabs", () => {
   test("should select the correct tab with keyboard navigation", async () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test">
-        <TabItem key="item1" data-testid="item1" title="Item 1">
+        <Tab key="item1" data-testid="item1" title="Item 1">
           <div>Content 1</div>
-        </TabItem>
-        <TabItem key="item2" data-testid="item2" title="Item 2">
+        </Tab>
+        <Tab key="item2" data-testid="item2" title="Item 2">
           <div>Content 2</div>
-        </TabItem>
-        <TabItem key="item3" data-testid="item3" title="Item 3">
+        </Tab>
+        <Tab key="item3" data-testid="item3" title="Item 3">
           <div>Content 3</div>
-        </TabItem>
+        </Tab>
       </Tabs>,
     );
 
@@ -136,15 +136,15 @@ describe("Tabs", () => {
   test("should focus the correct tab with manual keyboard navigation", async () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test" keyboardActivation="manual">
-        <TabItem key="item1" data-testid="item1" title="Item 1">
+        <Tab key="item1" data-testid="item1" title="Item 1">
           <div>Content 1</div>
-        </TabItem>
-        <TabItem key="item2" data-testid="item2" title="Item 2">
+        </Tab>
+        <Tab key="item2" data-testid="item2" title="Item 2">
           <div>Content 2</div>
-        </TabItem>
-        <TabItem key="item3" data-testid="item3" title="Item 3">
+        </Tab>
+        <Tab key="item3" data-testid="item3" title="Item 3">
           <div>Content 3</div>
-        </TabItem>
+        </Tab>
       </Tabs>,
     );
 
@@ -186,15 +186,15 @@ describe("Tabs", () => {
   it("it should work with defaultSelectedKey", () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test" defaultSelectedKey="item2">
-        <TabItem key="item1" title="Item 1">
+        <Tab key="item1" title="Item 1">
           <div>Content 1</div>
-        </TabItem>
-        <TabItem key="item2" data-testid="item2" title="Item 2">
+        </Tab>
+        <Tab key="item2" data-testid="item2" title="Item 2">
           <div>Content 2</div>
-        </TabItem>
-        <TabItem key="item3" title="Item 3">
+        </Tab>
+        <Tab key="item3" title="Item 3">
           <div>Content 3</div>
-        </TabItem>
+        </Tab>
       </Tabs>,
     );
 
@@ -206,15 +206,15 @@ describe("Tabs", () => {
   it("should not select a tab when disabled", async () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test" disabledKeys={["item2"]}>
-        <TabItem key="item1" title="Item 1">
+        <Tab key="item1" title="Item 1">
           <div>Content 1</div>
-        </TabItem>
-        <TabItem key="item2" data-testid="item2" title="Item 2">
+        </Tab>
+        <Tab key="item2" data-testid="item2" title="Item 2">
           <div>Content 2</div>
-        </TabItem>
-        <TabItem key="item3" title="Item 3">
+        </Tab>
+        <Tab key="item3" title="Item 3">
           <div>Content 3</div>
-        </TabItem>
+        </Tab>
       </Tabs>,
     );
 

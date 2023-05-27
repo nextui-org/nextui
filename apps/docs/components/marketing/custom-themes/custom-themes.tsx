@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import {useMemo, useState} from "react";
-import {Tabs, TabItem, Card, CardBody, Image, Button, RadioGroup, Radio} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardBody, Image, Button, RadioGroup, Radio} from "@nextui-org/react";
 import get from "lodash/get";
 import NextLink from "next/link";
 
@@ -103,7 +103,7 @@ const CustomThemesExample = ({
         onSelectionChange={onSelectionChange}
       >
         {(item) => (
-          <TabItem
+          <Tab
             key={item.id}
             title={
               <div className="flex flex-col justify-center items-center gap-2">

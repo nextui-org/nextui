@@ -91,6 +91,13 @@ const popover = tv({
       flat: {base: ""},
       shadow: {base: ""},
     },
+    size: {
+      xs: {base: "text-xs"},
+      sm: {base: "text-sm"},
+      md: {base: "text-base"},
+      lg: {base: "text-lg"},
+      xl: {base: "text-xl"},
+    },
     color: {
       default: {base: colorVariants.solid.default},
       foreground: {base: colorVariants.solid.foreground},
@@ -134,6 +141,7 @@ const popover = tv({
     variant: "solid",
     color: "default",
     radius: "xl",
+    size: "md",
     backdropVariant: "transparent",
     disableAnimation: false,
     triggerScaleOnOpen: true,
