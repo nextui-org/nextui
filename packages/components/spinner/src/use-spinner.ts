@@ -23,8 +23,9 @@ export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantPr
    * ```ts
    * <Spinner classNames={{
    *    base:"base-classes",
-   *    line1: "circle1-classes",
-   *    line2: "circle2-classes",
+   *    wrapper: "wrapper-classes",
+   *    circle1: "circle1-classes",
+   *    circle2: "circle2-classes",
    *    label: "label-classes"
    * }} />
    * ```

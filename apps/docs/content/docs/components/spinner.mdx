@@ -1,13 +1,61 @@
 ---
-title: 'Loading'
-description: 'Loaders express an unspecified wait time or display the length of a process.'
-url: https://nextui.org/docs/components/loading
+title: "Spinner"
+description: "Spinner express an unspecified wait time or display the length of a process."
+url: https://nextui.org/docs/components/spinner
 ---
 
-# Loading
+# Spinner
 
-Loaders express an unspecified wait time or display the length of a process.
+Spinner express an unspecified wait time or display the length of a process.
+
+<ComponentLinks component="spinner" />
+
+---
+
+## Import
 
 ```jsx
-import { Loading } from '@nextui-org/react';
+import {Spinner} from "@nextui-org/react";
 ```
+
+## Usage
+
+<CodeDemo title="Usage" files={spinnerContent.usage} />
+
+> **Note**: Spinner adds `Loading` as `aria-label` by default. This is required for accessibility. You can change it by passing a `label` or `aria-label` prop.
+
+### Sizes
+
+<CodeDemo title="Sizes" files={spinnerContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={spinnerContent.colors} />
+
+### With Label
+
+<CodeDemo title="With Label" files={spinnerContent.label} />
+
+### Label colors
+
+<CodeDemo title="Label colors" files={spinnerContent.labelColors} />
+
+## Slots
+
+- **base**: The base slot of the spinner, it wraps the circles and the label.
+- **wrapper**: The wrapper of the circles.
+- **circle1**: The first circle of the spinner.
+- **circle2**: The second circle of the spinner.
+- **label**: The label content.
+
+## API
+
+### Circular Progress Props
+
+| Attribute  | Type                                                                        | Description                                              | Default   |
+| ---------- | --------------------------------------------------------------------------- | -------------------------------------------------------- | --------- |
+| label      | `string`                                                                    | The content to display as the label.                     | -         |
+| size       | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the spinner circles.                         | `md`      |
+| color      | `neutral` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the spinner circles.                        | `primary` |
+| labelColor | `neutral` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the spinner circles.                        | `neutral` |
+| classNames | `Record<"base"｜"wrapper"｜"circle1"｜"circle2"｜"label", string>`          | Allows to set custom class names for the spinner slots. | -         |

@@ -11,3 +11,4 @@ export * from "./code";
 export * from "./divider";
 export * from "./kbd";
 export * from "./spacer";
+export * from "./spinner";

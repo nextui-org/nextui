@@ -16,7 +16,8 @@ import {tv} from "tailwind-variants";
  */
 const spinner = tv({
   slots: {
-    base: "inline-flex flex-col items-center justify-center relative",
+    base: "inline-flex flex-col gap-2 items-center justify-center",
+    wrapper: "relative",
     circle1: [
       "absolute",
       "w-full",
@@ -47,34 +48,34 @@ const spinner = tv({
   variants: {
     size: {
       xs: {
-        base: "w-4 h-4",
+        wrapper: "w-4 h-4",
         circle1: "border-2",
         circle2: "border-2",
-        label: "translate-y-6 text-xs",
+        label: "text-xs",
       },
       sm: {
-        base: "w-5 h-5",
+        wrapper: "w-5 h-5",
         circle1: "border-2",
         circle2: "border-2",
-        label: "translate-y-6 text-xs",
+        label: "text-xs",
       },
       md: {
-        base: "w-8 h-8",
+        wrapper: "w-8 h-8",
         circle1: "border-3",
         circle2: "border-3",
-        label: "translate-y-8 text-sm",
+        label: "text-sm",
       },
       lg: {
-        base: "w-10 h-10",
+        wrapper: "w-10 h-10",
         circle1: "border-3",
         circle2: "border-3",
-        label: "translate-y-10 text-base",
+        label: "text-base",
       },
       xl: {
-        base: "w-12 h-12",
+        wrapper: "w-12 h-12",
         circle1: "border-4",
         circle2: "border-4",
-        label: "translate-y-12 text-lg",
+        label: "text-lg",
       },
     },
     color: {
@@ -112,8 +113,8 @@ const spinner = tv({
       },
     },
     labelColor: {
-      neutral: {
-        label: "text-neutral",
+      foreground: {
+        label: "text-foreground",
       },
       primary: {
         label: "text-primary",
@@ -135,6 +136,7 @@ const spinner = tv({
   defaultVariants: {
     size: "md",
     color: "primary",
+    labelColor: "foreground",
   },
 });
 
