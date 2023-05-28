@@ -45,7 +45,7 @@ export const ImportTabs = ({commands}: ImportTabsProps) => {
               classNames={{
                 base: "bg-code-background text-code-foreground",
                 pre: "font-light text-base",
-                copyButton: "text-lg text-code-foreground/50",
+                copyButton: "text-lg text-default-400",
               }}
             >
               <Codeblock codeString={commands[key] as string} language="jsx" />
