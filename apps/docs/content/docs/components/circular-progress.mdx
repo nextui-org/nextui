@@ -88,6 +88,7 @@ option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs
 - Labeling support for accessibility.
 - Internationalized number formatting as a percentage or value.
 - Determinate and indeterminate progress support.
+- Exposes the `aria-valuenow`, `aria-valuemin`, `aria-valuemax` and `aria-valuetext` attributes.
 
 ## API
 
@@ -96,12 +97,12 @@ option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs
 | Attribute        | Type                                                                                                                    | Description                                                       | Default              |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------- |
 | label            | `ReactNode`                                                                                                             | The content to display as the label.                              | -                    |
-| value            | `number`                                                                                                                | The current value (controlled).                                   | -                    |
 | size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                                                    | The size of the indicator.                                        | `md`                 |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                             | The color of the indicator.                                       | `primary`            |
+| value            | `number`                                                                                                                | The current value (controlled).                                   | -                    |
+| valueLabel       | `ReactNode`                                                                                                             | The content to display as the value's label (e.g. 1 of 4).        | -                    |
 | minValue         | `number`                                                                                                                | The smallest value allowed for the input.                         | `0`                  |
 | maxValue         | `number`                                                                                                                | The largest value allowed for the input.                          | `100`                |
-| valueLabel       | `ReactNode`                                                                                                             | The content to display as the value's label (e.g. 1 of 4).        | -                    |
 | formatOptions    | [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | The options to format the value.                                  | `{style: 'percent'}` |
 | isIndeterminate  | `boolean`                                                                                                               | Whether the progress is indeterminate.                            | `true`               |
 | showValueLabel   | `boolean`                                                                                                               | Whether to show the value label.                                  | `true`               |

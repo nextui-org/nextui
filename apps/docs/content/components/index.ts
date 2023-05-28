@@ -13,3 +13,4 @@ export * from "./kbd";
 export * from "./spacer";
 export * from "./spinner";
 export * from "./link";
+export * from "./progress";

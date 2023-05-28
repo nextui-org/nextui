@@ -34,7 +34,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    label: "label-classes",
    *    value: "value-classes",
    *    track: "track-classes",
-   *    filler: "filler-classes",
+   *    indicator: "indicator-classes",
    * }} />
    * ```
    */

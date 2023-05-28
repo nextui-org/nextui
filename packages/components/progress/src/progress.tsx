@@ -33,7 +33,7 @@ const Progress = forwardRef<ProgressProps, "div">((props, ref) => {
       ) : null}
       <div className={slots.track({class: classNames?.track})}>
         <div
-          className={slots.filler({class: classNames?.filler})}
+          className={slots.indicator({class: classNames?.indicator})}
           style={{
             transform: `translateX(-${100 - (percentage || 0)}%)`,
           }}

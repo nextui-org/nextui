@@ -1,5 +1,14 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230528022407
+
+### Patch Changes
+
+- Progress API improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230528022407
+  - @nextui-org/system@0.0.0-dev-v2-20230528022407
+
 ## 0.0.0-dev-v2-20230527161625
 
 ### Patch Changes

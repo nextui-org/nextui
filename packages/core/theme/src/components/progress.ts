@@ -7,7 +7,7 @@ import {tv} from "tailwind-variants";
  *
  * @example
  * ```js
- * const {base, labelWrapper, label, value, track, filler} = progress({...})
+ * const {base, labelWrapper, label, value, track, indicator} = progress({...})
  *
  * <div className={base()} aria-label="progress" role="progressbar" aria-valuenow={value} aria-valuemin={min} aria-valuemax={max}>
  *   <div className={labelWrapper()}>
@@ -15,7 +15,7 @@ import {tv} from "tailwind-variants";
  *      <span className={value()}>{value}</span>
  *   </div>
  *   <div className={track()}>
- *     <div className={filler()} style={{width: `${value}%`}} />
+ *     <div className={indicator()} style={{width: `${value}%`}} />
  *   </div>
  * </div>
  * ```
@@ -28,27 +28,27 @@ const progress = tv(
       labelWrapper: "flex justify-between",
       value: "",
       track: "z-0 relative bg-default-300/50 overflow-hidden",
-      filler: "h-full",
+      indicator: "h-full",
     },
     variants: {
       color: {
         default: {
-          filler: "bg-default-400",
+          indicator: "bg-default-400",
         },
         primary: {
-          filler: "bg-primary",
+          indicator: "bg-primary",
         },
         secondary: {
-          filler: "bg-secondary",
+          indicator: "bg-secondary",
         },
         success: {
-          filler: "bg-success",
+          indicator: "bg-success",
         },
         warning: {
-          filler: "bg-warning",
+          indicator: "bg-warning",
         },
         danger: {
-          filler: "bg-danger",
+          indicator: "bg-danger",
         },
       },
       size: {
@@ -81,41 +81,41 @@ const progress = tv(
       radius: {
         none: {
           track: "rounded-none",
-          filler: "rounded-none",
+          indicator: "rounded-none",
         },
         base: {
           track: "rounded",
-          filler: "rounded",
+          indicator: "rounded",
         },
         sm: {
           track: "rounded-sm",
-          filler: "rounded-sm",
+          indicator: "rounded-sm",
         },
         md: {
           track: "rounded-md",
-          filler: "rounded-md",
+          indicator: "rounded-md",
         },
         lg: {
           track: "rounded-lg",
-          filler: "rounded-lg",
+          indicator: "rounded-lg",
         },
         xl: {
           track: "rounded-xl",
-          filler: "rounded-xl",
+          indicator: "rounded-xl",
         },
         full: {
           track: "rounded-full",
-          filler: "rounded-full",
+          indicator: "rounded-full",
         },
       },
       isStriped: {
         true: {
-          filler: "bg-stripe-gradient bg-[length:1.25rem_1.25rem]",
+          indicator: "bg-stripe-gradient bg-[length:1.25rem_1.25rem]",
         },
       },
       isIndeterminate: {
         true: {
-          filler: ["absolute", "w-full", "origin-left", "animate-indeterminate-bar"],
+          indicator: ["absolute", "w-full", "origin-left", "animate-indeterminate-bar"],
         },
       },
       isDisabled: {
@@ -126,7 +126,7 @@ const progress = tv(
       disableAnimation: {
         true: {},
         false: {
-          filler: "transition-transform !duration-500",
+          indicator: "transition-transform !duration-500",
         },
       },
     },
@@ -145,7 +145,7 @@ const progress = tv(
         disableAnimation: true,
         isIndeterminate: false,
         class: {
-          filler: "!transition-none motion-reduce:transition-none",
+          indicator: "!transition-none motion-reduce:transition-none",
         },
       },
     ],
