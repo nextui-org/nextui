@@ -8,7 +8,7 @@ import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {SpacerProps, Spacer, Link as NextUILink, cn} from "@nextui-org/react";
+import {SpacerProps, Spacer, Link as NextUILink, cn, Chip} from "@nextui-org/react";
 import Link from "next/link";
 import {isEmpty} from "lodash";
 import {useRouter} from "next/router";
@@ -56,6 +56,8 @@ function TreeItem<T>(props: TreeItemProps<T>) {
         pagePath: "",
         pathname: "",
       };
+
+  const isNew = item.props?.newPost;
 
   const isExpanded = state.expandedKeys.has(key);
   const isSelected = state.selectionManager.isSelected(key) || paths.pathname === item.props.slug;
@@ -114,12 +116,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             as={Link}
             className={clsx(
               "w-full",
-              "opacity-60",
               "dark:font-light",
-              {
-                "opacity-100": isSelected,
-                "pointer-events-none": item.props?.comingSoon,
-              },
               "before:mr-4",
               "before:content-['']",
               "before:block",
@@ -131,7 +128,24 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             color="foreground"
             href={paths.pathname}
           >
-            {rendered}
+            <span
+              className={clsx("opacity-60", {
+                "opacity-100": isSelected,
+                "pointer-events-none": item.props?.comingSoon,
+              })}
+            >
+              {rendered}
+            </span>
+            {isNew && (
+              <Chip className="ml-2" color="primary" size="xs" variant="flat">
+                New
+              </Chip>
+            )}
+            {item.props?.comingSoon && (
+              <Chip className="ml-2" color="default" size="xs" variant="flat">
+                Coming soon
+              </Chip>
+            )}
           </NextUILink>
         )}
       </div>

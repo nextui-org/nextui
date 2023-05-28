@@ -16,7 +16,7 @@ Skeleton is a placeholder to show a loading state and the expected shape of a co
 
 <ImportTabs
   commands={{
-    global: 'import {Skeleton} from "@nextui-org/react";',
+    main: 'import {Skeleton} from "@nextui-org/react";',
     individual: 'import {Skeleton} from "@nextui-org/skeleton";',
   }}
 />
@@ -27,14 +27,36 @@ Skeleton is a placeholder to show a loading state and the expected shape of a co
 
 ### Standalone
 
-Skeleton takes the shape of its `children` component by default, but you can also use 
+Skeleton takes the shape of its `children` component by default, but you can also use
 it as a standalone component.
 
 <CodeDemo title="Standalone" files={skeletonContent.standalone} />
-
 
 ### Loaded State
 
 You can use the `isLoaded` prop to stop the skeleton animation and show the children component.
 
 <CodeDemo title="Loaded State" files={skeletonContent.loaded} />
+
+## Slots
+
+- **base**: The base slot of the skeleton, it contains the `before` and `after` pseudo elements to create the animation.
+- **content**: The wrapped component to show the skeleton shape. It is visible only when the `isLoaded` prop is `true`.
+
+## Data Attributes
+
+`Skeleton` has the following attributes on the `root` element:
+
+- **data-loaded**:
+  Indicates the loaded state of the skeleton. Based on the `isLoaded` prop.
+
+## API
+
+### Skeleton Props
+
+| Attribute        | Type                                | Description                                              | Default |
+| ---------------- | ----------------------------------- | -------------------------------------------------------- | ------- |
+| children         | `ReactNode`                         | The content of the skeleton.                             | -       |
+| isLoaded         | `boolean`                           | Whether the skeleton is loaded.                          | `false` |
+| disableAnimation | `boolean`                           | Whether to disable the animations.                       | `false` |
+| classNames       | `Record<"base"｜"content", string>` | Allows to set custom class names for the skeleton slots. | -       |

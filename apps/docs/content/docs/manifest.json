@@ -149,7 +149,8 @@
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",
-          "path": "/docs/components/chip.mdx"
+          "path": "/docs/components/chip.mdx",
+          "newPost": true
         },
         {
           "key": "circular-progress",
@@ -167,7 +168,8 @@
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",
-          "path": "/docs/components/divider.mdx"
+          "path": "/docs/components/divider.mdx",
+          "newPost": true
         },
         {
           "key": "dropdown",
@@ -191,7 +193,8 @@
           "key": "kbd",
           "title": "Kbd",
           "keywords": "keyboard input, shortcut, keys, user input display",
-          "path": "/docs/components/kbd.mdx"
+          "path": "/docs/components/kbd.mdx",
+          "newPost": true
         },
         {
           "key": "link",
@@ -239,13 +242,15 @@
           "key": "skeleton",
           "title": "Skeleton",
           "keywords": "skeleton, loading state, placeholder, content preview",
-          "path": "/docs/components/skeleton.mdx"
+          "path": "/docs/components/skeleton.mdx",
+          "newPost": true
         },
         {
           "key": "snippet",
           "title": "Snippet",
           "keywords": "snippet, code block, programming, code example",
-          "path": "/docs/components/snippet.mdx"
+          "path": "/docs/components/snippet.mdx",
+          "newPost": true
         },
         {
           "key": "spacer",

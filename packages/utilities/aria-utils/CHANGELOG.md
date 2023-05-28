@@ -1,5 +1,13 @@
 # @nextui-org/aria-utils
 
+## 0.0.0-dev-v2-20230528153341
+
+### Patch Changes
+
+- Navbar toggle menu state fixed
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230528153341
+
 ## 0.0.0-dev-v2-20230528041548
 
 ### Patch Changes

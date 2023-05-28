@@ -1,5 +1,13 @@
 # @nextui-org/use-disclosure
 
+## 0.0.0-dev-v2-20230528153341
+
+### Patch Changes
+
+- Navbar toggle menu state fixed
+- Updated dependencies
+  - @nextui-org/use-callback-ref@0.0.0-dev-v2-20230528153341
+
 ## 0.0.0-dev-v2-20230528041548
 
 ### Patch Changes

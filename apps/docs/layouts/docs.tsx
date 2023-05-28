@@ -56,7 +56,7 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
           <div className="hidden relative lg:block lg:col-span-2 mt-8 pr-4">
             <DocsSidebar routes={routes} slug={slug} tag={tag} />
           </div>
-          <div className="col-span-12 lg:col-span-10 xl:col-span-8 lg:px-12 mt-10">
+          <div className="col-span-12 lg:col-span-10 xl:col-span-8 lg:px-16 mt-10">
             <div className="w-full prose prose-neutral">{children}</div>
             <FooterNav nextRoute={nextRoute} prevRoute={prevRoute} tag={tag} />
             <footer>

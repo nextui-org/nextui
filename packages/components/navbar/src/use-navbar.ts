@@ -95,7 +95,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     disableScrollHandler = false,
     onScrollPositionChange,
     isMenuOpen: isMenuOpenProp,
-    isMenuDefaultOpen = false,
+    isMenuDefaultOpen,
     onMenuOpenChange = () => {},
     motionProps,
     className,
@@ -114,7 +114,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean | undefined>(
     isMenuOpenProp,
-    isMenuDefaultOpen || false,
+    isMenuDefaultOpen,
     onMenuOpenChange,
   );
 

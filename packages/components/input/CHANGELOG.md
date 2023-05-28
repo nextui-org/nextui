@@ -1,5 +1,18 @@
 # @nextui-org/input
 
+## 0.0.0-dev-v2-20230528153341
+
+### Patch Changes
+
+- Navbar toggle menu state fixed
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230528153341
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230528153341
+  - @nextui-org/use-aria-field@0.0.0-dev-v2-20230528153341
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230528153341
+  - @nextui-org/system@0.0.0-dev-v2-20230528153341
+  - @nextui-org/theme@0.0.0-dev-v2-20230528153341
+
 ## 0.0.0-dev-v2-20230528041548
 
 ### Patch Changes

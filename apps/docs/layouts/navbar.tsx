@@ -28,6 +28,7 @@ import {NextUILogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {isActive} from "@/utils/links";
+import RouterEvents from "@/libs/router-events";
 
 export interface NavbarProps {
   routes: Route[];
@@ -67,10 +68,15 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     />
   );
 
+  RouterEvents.on("routeChangeStart", () => {
+    if (isMenuOpen) setIsMenuOpen(false);
+  });
+
   return (
     <NextUINavbar
       ref={ref}
       className="z-[100001]"
+      isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}

@@ -57,7 +57,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
     setIsMenuOpen(isOpen);
   };
 
-  const state = useToggleState({...otherProps, onChange: handleChange});
+  const state = useToggleState({...otherProps, isSelected: isMenuOpen, onChange: handleChange});
 
   const {buttonProps, isPressed} = useAriaToggleButton(props, state, domRef);
   const {isFocusVisible, focusProps} = useFocusRing({autoFocus});
