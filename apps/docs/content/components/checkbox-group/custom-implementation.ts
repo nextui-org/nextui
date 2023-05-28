@@ -17,8 +17,8 @@ const CheckIcon = `export const CheckIcon = (props) =>
     </svg>
   );`;
 
-const CustomCheckbox = `import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
-import { CheckIcon } from './CheckIcon.jsx'
+const CustomCheckbox = `import {useCheckbox, Chip, VisuallyHidden, tv} from "@nextui-org/react";
+import {CheckIcon} from './CheckIcon.jsx'
 
 const checkbox = tv({
   slots: {
@@ -75,8 +75,8 @@ export const CustomCheckbox = (props) => {
   );
 }`;
 
-const App = `import { CheckboxGroup } from "@nextui-org/react";
-import { CustomCheckbox } from "./CustomCheckbox";
+const App = `import {CheckboxGroup} from "@nextui-org/react";
+import {CustomCheckbox} from "./CustomCheckbox";
 
 export default function App() {
   const [groupSelected, setGroupSelected] = React.useState([]);

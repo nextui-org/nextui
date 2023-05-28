@@ -10,7 +10,7 @@ Links allow users to click their way from page to page. This component is styled
 
 <ComponentLinks component="link" reactAriaHook="useLink" />
 
------
+---
 
 ## Import
 
@@ -57,8 +57,13 @@ If you pass the `isBlock` prop, the link will be rendered as a block element wit
 
 <CodeDemo title="Block Link" files={linkContent.block} />
 
+### Polymorphic Component
 
-### Usage with Next.js 
+NextUI components expose a `as` prop that allows you to customize the React element type that is used to render the component.
+
+<CodeDemo title="Polymorphic Component" files={linkContent.polymorphic} />
+
+### Usage with Next.js
 
 <CodeDemo
   showPreview={false}
@@ -73,15 +78,14 @@ In case you need to customize the link even further, you can use the `useLink` h
 
 <CodeDemo showPreview={false} title="Custom implementation" files={linkContent.customImpl} />
 
-
 ## Data Attributes
 
 `Link` has the following attributes on the `root` element:
 
 - **data-focus**:
-  When the checkbox is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+  When the link is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html)
 - **data-focus-visible**:
-  When the checkbox is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+  When the link is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html)
 
 ## Accessibility
 
@@ -89,3 +93,33 @@ In case you need to customize the link even further, you can use the `useLink` h
 - Support for navigation links via `<a>` elements or custom element types via ARIA.
 - Support for disabled links.
 - Keyboard users may activate links using the <kbd>Enter</kbd> key.
+
+## API
+
+### Link Props
+
+| Attribute        | Type                                                                           | Description                                                       | Default   |
+| ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | --------- |
+| href             | `string`                                                                       | The URL to link to.                                               | -         |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                           | The size of the link.                                             | `md`      |
+| color            | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the link.                                            | `primary` |
+| underline        | `none` \| `hover` \| `always` \| `active` \| `focus`                           | The underline of the link.                                        | `none`    |
+| isExternal       | `boolean`                                                                      | Whether the link should open in a new tab.                        | `false`   |
+| showAnchorIcon   | `boolean`                                                                      | Whether to show the anchor icon.                                  | `false`   |
+| anchorIcon       | `ReactNode`                                                                    | The anchor icon.                                                  | -         |
+| isBlock          | `boolean`                                                                      | Whether the link should be rendered as block with a hover effect. | `false`   |
+| isDisabled       | `boolean`                                                                      | Whether the link is disabled.                                     | `false`   |
+| disableAnimation | `boolean`                                                                      | Whether to disable link and block animations.                     | `false`   |
+
+### Link Events
+
+| Attribute     | Type                           | Description                                                                                                     | Default |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- | ------- |
+| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      | -       |
+| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 | -       |
+| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     | -       |
+| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    | -       |
+| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. | -       |
+| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                           | -       |
+| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                          | -       |
+| onClick       | `MouseEventHandler`            | The native link click event handler (**Deprecated**) use **onPress** instead.                                   | -       |

@@ -1,4 +1,4 @@
-const App = `import { CircularProgress } from "@nextui-org/react";
+const App = `import {CircularProgress} from "@nextui-org/react";
 
 export default function App() {
   const [value, setValue] = React.useState(0);

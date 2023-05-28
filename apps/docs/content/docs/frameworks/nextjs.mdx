@@ -71,7 +71,7 @@ Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't e
 // app/providers.tsx
 'use client'
 
-import { NextUIProvider } from '@nextui-org/react'
+import {NextUIProvider} from '@nextui-org/react'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
@@ -86,7 +86,7 @@ Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
 
 ```jsx {6,8,10}
 // app/layout.tsx
-import { Providers } from "./providers";
+import {Providers} from "./providers";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
@@ -109,7 +109,7 @@ the `use client;` directive:
 
 ```jsx {2}
 // app/page.tsx
-import { Button } from '@nextui-org/button'
+import {Button} from '@nextui-org/button'
 
 export default function Page() {
   return (
@@ -130,7 +130,7 @@ Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wr
 
 ```jsx
 // pages/_app.js
-import { NextUIProvider } from '@nextui-org/react'
+import {NextUIProvider} from '@nextui-org/react'
 
 function MyApp({ Component, pageProps }) {
   return (

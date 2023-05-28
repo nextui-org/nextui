@@ -1,4 +1,4 @@
-const App = `import { CheckboxGroup, Checkbox } from "@nextui-org/react";
+const App = `import {CheckboxGroup, Checkbox} from "@nextui-org/react";
 
 export default function App() {
   const [selected, setSelected] = React.useState(["buenos-aires", "sydney"]);

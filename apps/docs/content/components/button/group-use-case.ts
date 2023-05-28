@@ -4,8 +4,8 @@ const ChevronDownIcon = `export const ChevronDownIcon = () => (
   </svg>
 );`;
 
-const App = `import { Button, ButtonGroup, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
-import { ChevronDownIcon } from './ChevronDownIcon';
+const App = `import {Button, ButtonGroup, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react";
+import {ChevronDownIcon} from './ChevronDownIcon';
 
 export default function App() {
   const [selectedOption, setSelectedOption] = React.useState(new Set(["merge"]));

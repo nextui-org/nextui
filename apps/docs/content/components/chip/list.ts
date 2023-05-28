@@ -1,4 +1,4 @@
-const App = `import { Chip } from "@nextui-org/react";
+const App = `import {Chip} from "@nextui-org/react";
 
 const initialFruits = ["Apple", "Banana", "Cherry", "Watermelon", "Orange"]
 

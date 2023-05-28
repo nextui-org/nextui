@@ -18,8 +18,8 @@ export const NotificationIcon = `export const NotificationIcon = ({size, height,
   );
 };`;
 
-const App = `import { Badge, Button } from "@nextui-org/react";
-import { NotificationIcon } from "./NotificationIcon";
+const App = `import {Badge, Button} from "@nextui-org/react";
+import {NotificationIcon} from "./NotificationIcon";
 
 export default function App() {
   return (

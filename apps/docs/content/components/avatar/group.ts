@@ -1,4 +1,4 @@
-const App = `import { Avatar, AvatarGroup } from "@nextui-org/react";
+const App = `import {Avatar, AvatarGroup} from "@nextui-org/react";
 
 export default function App() {
   return (

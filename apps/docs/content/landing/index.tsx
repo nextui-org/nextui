@@ -181,7 +181,7 @@ const Application = ({Component, pageProps}) => {
 export default Application;  
 `,
   customizationCode: `import React from 'react';
-import { Button } from '@nextui-org/react';
+import {Button} from '@nextui-org/react';
 import confetti from 'canvas-confetti';
 
 const CustomButton = () => {

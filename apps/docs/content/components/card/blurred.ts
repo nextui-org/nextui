@@ -140,13 +140,13 @@ const ShuffleIcon = `export const ShuffleIcon = ({size = 24, width, height, ...p
   </svg>
 );`;
 
-const App = `import { Card, CardFooter, Image, Button, Progress } from "@nextui-org/react";
-import { HeartIcon } from "./HeartIcon";
-import { PauseCircleIcon } from "./PauseCircleIcon";
-import { NextIcon } from "./NextIcon";
-import { PreviousIcon } from "./PreviousIcon";
-import { RepeatOneIcon } from "./RepeatOneIcon";
-import { ShuffleIcon } from "./ShuffleIcon";
+const App = `import {Card, CardFooter, Image, Button, Progress} from "@nextui-org/react";
+import {HeartIcon} from "./HeartIcon";
+import {PauseCircleIcon} from "./PauseCircleIcon";
+import {NextIcon} from "./NextIcon";
+import {PreviousIcon} from "./PreviousIcon";
+import {RepeatOneIcon} from "./RepeatOneIcon";
+import {ShuffleIcon} from "./ShuffleIcon";
 
 export default function App() {
   const [liked, setLiked] = React.useState(false);

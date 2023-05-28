@@ -8,6 +8,7 @@ import customAnchorIcon from "./custom-anchor-icon";
 import block from "./block";
 import nextjs from "./nextjs";
 import customImpl from "./custom-impl";
+import polymorphic from "./polymorphic";
 
 export const linkContent = {
   usage,
@@ -20,4 +21,5 @@ export const linkContent = {
   block,
   nextjs,
   customImpl,
+  polymorphic,
 };

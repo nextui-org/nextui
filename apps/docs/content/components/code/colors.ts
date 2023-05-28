@@ -1,4 +1,4 @@
-const App = `import { Code } from "@nextui-org/react";
+const App = `import {Code} from "@nextui-org/react";
 
 export default function App() {
   return (

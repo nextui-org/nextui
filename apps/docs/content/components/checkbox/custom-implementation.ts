@@ -17,8 +17,8 @@ const CheckIcon = `export const CheckIcon = (props) =>
     </svg>
   );`;
 
-const App = `import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
-import { CheckIcon } from './CheckIcon.jsx'
+const App = `import {useCheckbox, Chip, VisuallyHidden, tv} from "@nextui-org/react";
+import {CheckIcon} from './CheckIcon.jsx'
 
 const checkbox = tv({
   slots: {

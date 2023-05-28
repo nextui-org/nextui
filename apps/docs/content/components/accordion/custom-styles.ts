@@ -182,11 +182,11 @@ const InvalidCardIcon = `export const InvalidCardIcon = (props) => (
   </svg>
 );`;
 
-const App = `import { Accordion, AccordionItem } from "@nextui-org/react";
-import { MonitorMobileIcon } from "./MonitorMobileIcon";
-import { ShieldSecurityIcon } from "./ShieldSecurityIcon";
-import { InfoIcon } from "./InfoIcon";
-import { InvalidCardIcon } from "./InvalidCardIcon";
+const App = `import {Accordion, AccordionItem} from "@nextui-org/react";
+import {MonitorMobileIcon} from "./MonitorMobileIcon";
+import {ShieldSecurityIcon} from "./ShieldSecurityIcon";
+import {InfoIcon} from "./InfoIcon";
+import {InvalidCardIcon} from "./InvalidCardIcon";
 
 export default function App() {
   const itemStyles = {

@@ -52,9 +52,9 @@ const PlusIcon = `export const PlusIcon = ({ size, height, width, ...props }) =>
   );
 };`;
 
-const App = `import { Checkbox } from "@nextui-org/react";
-import { HeartIcon } from './HeartIcon.jsx';  
-import { PlusIcon } from './PlusIcon.jsx';
+const App = `import {Checkbox} from "@nextui-org/react";
+import {HeartIcon} from './HeartIcon.jsx';  
+import {PlusIcon} from './PlusIcon.jsx';
 
 export default function App() {
   return (

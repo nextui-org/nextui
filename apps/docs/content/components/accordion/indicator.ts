@@ -71,10 +71,10 @@ const SunIcon = `export const SunIcon = (props) => (
   </svg>
 );`;
 
-const App = `import { Accordion, AccordionItem } from "@nextui-org/react";
-import { AnchorIcon } from './AnchorIcon';
-import { MoonIcon } from './MoonIcon';
-import { SunIcon } from './SunIcon';
+const App = `import {Accordion, AccordionItem} from "@nextui-org/react";
+import {AnchorIcon} from './AnchorIcon';
+import {MoonIcon} from './MoonIcon';
+import {SunIcon} from './SunIcon';
 
 export default function App() {
   const defaultContent =

@@ -1,6 +1,6 @@
-const App = `import { forwardRef } from "react";
+const App = `import {forwardRef} from "react";
 
-import { useButton, Drip, Spinner } from "@nextui-org/react";
+import {useButton, Drip, Spinner} from "@nextui-org/react";
 
 const MyButton = forwardRef((props, ref) => {
   const {
@@ -37,9 +37,9 @@ MyButton.displayName = "MyButton";
 
 export default MyButton;`;
 
-const AppTs = `import { forwardRef } from "react";
+const AppTs = `import {forwardRef} from "react";
 
-import { useButton, Drip, Spinner, ButtonProps as BaseButtonProps } from "@nextui-org/react";
+import {useButton, Drip, Spinner, ButtonProps as BaseButtonProps} from "@nextui-org/react";
 
 export interface ButtonProps extends BaseButtonProps {}
 

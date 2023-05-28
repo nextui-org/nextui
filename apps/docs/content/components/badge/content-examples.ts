@@ -44,9 +44,9 @@ export const CheckIcon = `export const CheckIcon = ({
   );
 };`;
 
-const App = `import { Badge, Avatar } from "@nextui-org/react";
-import { NotificationIcon } from "./NotificationIcon";
-import { CheckIcon } from "./CheckIcon";
+const App = `import {Badge, Avatar} from "@nextui-org/react";
+import {NotificationIcon} from "./NotificationIcon";
+import {CheckIcon} from "./CheckIcon";
 
 export default function App() {
   return (

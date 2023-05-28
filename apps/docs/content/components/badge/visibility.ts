@@ -48,9 +48,9 @@ export const CartIcon = `export const CartIcon = ({ size, height, width, ...prop
   );
 };`;
 
-const App = `import { Badge, Avatar, Switch } from "@nextui-org/react";
-import { NotificationIcon } from "./NotificationIcon";
-import { CartIcon } from "./CartIcon";
+const App = `import {Badge, Avatar, Switch} from "@nextui-org/react";
+import {NotificationIcon} from "./NotificationIcon";
+import {CartIcon} from "./CartIcon";
 
 export default function App() {
   const [isInvisible, setIsInvisible] = React.useState(false);

@@ -53,7 +53,10 @@ export function useLink(originalProps: UseLinkProps) {
 
   const domRef = useDOMRef(ref);
 
-  const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
+  const {linkProps} = useAriaLink(
+    {...otherProps, isDisabled: originalProps.isDisabled, elementType: `${as}`},
+    domRef,
+  );
 
   const {isFocused, isFocusVisible, focusProps} = useFocusRing({
     autoFocus,
