@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230528041548
+
+### Patch Changes
+
+- Skeleton styles improved
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230528041548
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230528041548
+
 ## 0.0.0-dev-v2-20230528022407
 
 ### Patch Changes

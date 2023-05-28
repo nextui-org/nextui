@@ -1,0 +1,40 @@
+---
+title: "Skeleton"
+description: "Skeleton is a placeholder to show a loading state and the expected shape of a component."
+url: https://nextui.org/docs/components/user
+---
+
+# Skeleton
+
+Skeleton is a placeholder to show a loading state and the expected shape of a component.
+
+<ComponentLinks component="skeleton" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    global: 'import {Skeleton} from "@nextui-org/react";',
+    individual: 'import {Skeleton} from "@nextui-org/skeleton";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={skeletonContent.usage} />
+
+### Standalone
+
+Skeleton takes the shape of its `children` component by default, but you can also use 
+it as a standalone component.
+
+<CodeDemo title="Standalone" files={skeletonContent.standalone} />
+
+
+### Loaded State
+
+You can use the `isLoaded` prop to stop the skeleton animation and show the children component.
+
+<CodeDemo title="Loaded State" files={skeletonContent.loaded} />

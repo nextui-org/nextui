@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230528041548
+
+### Patch Changes
+
+- Skeleton styles improved
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230528041548
+
 ## 0.0.0-dev-v2-20230528022407
 
 ### Patch Changes

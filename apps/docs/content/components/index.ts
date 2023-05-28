@@ -15,3 +15,4 @@ export * from "./spinner";
 export * from "./link";
 export * from "./progress";
 export * from "./user";
+export * from "./skeleton";

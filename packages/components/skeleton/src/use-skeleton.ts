@@ -45,7 +45,7 @@ export function useSkeleton(originalProps: UseSkeletonProps) {
       skeleton({
         ...variantProps,
       }),
-    [...Object.values(variantProps)],
+    [...Object.values(variantProps), children],
   );
 
   const baseStyles = clsx(className, classNames?.base);

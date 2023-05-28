@@ -1,5 +1,11 @@
 # @nextui-org/shared-icons
 
+## 0.0.0-dev-v2-20230528041548
+
+### Patch Changes
+
+- Skeleton styles improved
+
 ## 0.0.0-dev-v2-20230528022407
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @nextui-org/skeleton
 
+## 0.0.0-dev-v2-20230528041548
+
+### Patch Changes
+
+- Skeleton styles improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230528041548
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230528041548
+  - @nextui-org/system@0.0.0-dev-v2-20230528041548
+  - @nextui-org/theme@0.0.0-dev-v2-20230528041548
+
 ## 0.0.0-dev-v2-20230528022407
 
 ### Patch Changes
