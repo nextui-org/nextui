@@ -7,7 +7,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
-import {useMemo} from "react";
+import {useMemo, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
@@ -46,6 +46,10 @@ export function useLink(originalProps: UseLinkProps) {
     showAnchorIcon = false,
     autoFocus = false,
     className,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onClick,
     ...otherProps
   } = props;
 
@@ -54,7 +58,16 @@ export function useLink(originalProps: UseLinkProps) {
   const domRef = useDOMRef(ref);
 
   const {linkProps} = useAriaLink(
-    {...otherProps, isDisabled: originalProps.isDisabled, elementType: `${as}`},
+    {
+      ...otherProps,
+      onPress,
+      onPressStart,
+      onPressEnd,
+      // @ts-ignore React Aria Link does accept onClick as a prop but it's not in the types
+      onClick,
+      isDisabled: originalProps.isDisabled,
+      elementType: `${as}`,
+    },
     domRef,
   );
 
@@ -76,15 +89,15 @@ export function useLink(originalProps: UseLinkProps) {
     [...Object.values(variantProps), className],
   );
 
-  const getLinkProps: PropGetter = (props = {}) => {
+  const getLinkProps: PropGetter = useCallback(() => {
     return {
       ref: domRef,
       className: classNames,
       "data-focused": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
-      ...mergeProps(focusProps, linkProps, otherProps, props),
+      ...mergeProps(focusProps, linkProps, otherProps),
     };
-  };
+  }, [classNames, isFocused, isFocusVisible, focusProps, linkProps, otherProps]);
 
   return {Component, children, anchorIcon, showAnchorIcon, getLinkProps};
 }
