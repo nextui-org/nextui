@@ -1,12 +1,60 @@
 ---
-title: 'User'
-description: 'Flexible User Profile Component'
+title: "User"
+description: "Display user information with avatar and name."
 url: https://nextui.org/docs/components/user
 ---
+
 # User
 
-Flexible User Profile Component.
+Display user information with avatar and name.
 
-```jsx
-import {User} from '@nextui-org/react';
-```
+<ComponentLinks component="user" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    global: 'import {User} from "@nextui-org/react";',
+    individual: 'import {User} from "@nextui-org/user";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={userContent.usage} />
+
+> **Note**: See the [Avatar](/docs/components/avatar) component for more details about `avatarProps`.
+
+### Link Description
+
+<CodeDemo title="Link Description" files={userContent.linkDescription} />
+
+## Slots
+
+- **base**: The base slot of the user, it is the main container.
+- **wrapper**: The name and description wrapper.
+- **name**: The name of the user.
+- **description**: The description of the user.
+
+## Data Attributes
+
+`User` has the following attributes on the `root` element only when `isFocusable` is `true`:
+
+- **data-focus**:
+  When the user is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html)
+- **data-focus-visible**:
+  When the user is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html)
+
+## API
+
+### User Props
+
+| Attribute   | Type                                                          | Description                                                                                | Default |
+| ----------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------- |
+| name        | `string`                                                      | The name of the user.                                                                      | -       |
+| description | `ReactNode`                                                   | The description component.                                                                 | -       |
+| isFocusable | `boolean`                                                     | Whether the user is focusable. This is useful when using `Dropdown` or similar components. | `false` |
+| avatarProps | [AvatarProps](/docs/components/avatar#avatar-props)           | The avatar component props. The `name` is passed by default.                               | -       |
+| classNames  | `Record<"base"｜ "wrapper"｜ "name"｜ "description", string>` | Allows to set custom class names for the user slots.                                       | -       |
