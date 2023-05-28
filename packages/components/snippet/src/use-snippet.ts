@@ -195,22 +195,30 @@ export function useSnippet(originalProps: UseSnippetProps) {
       return;
     }
 
-    let value = "";
+    let stringValue = "";
 
     if (typeof children === "string") {
-      value = children;
+      stringValue = children;
     } else if (Array.isArray(children)) {
-      value = children.join("\n");
+      children.forEach((child) => {
+        // @ts-ignore
+        const childString = typeof child === "string" ? child : child?.props?.children?.toString();
+
+        if (childString) {
+          stringValue += childString + "\n";
+        }
+      });
     }
 
-    const valueToCopy = codeString || value || preRef.current?.textContent || "";
+    const valueToCopy = codeString || stringValue || preRef.current?.textContent || "";
 
     copy(valueToCopy);
     onCopyProp?.(valueToCopy);
   }, [copy, codeString, disableCopy, onCopyProp, children]);
 
   const defaultCopyButtonProps: ButtonProps = {
-    "aria-label": "Copy to clipboard",
+    "aria-label":
+      typeof tooltipProps.content === "string" ? tooltipProps.content : "Copy to clipboard",
     size: "sm",
     variant: "light",
     radius: "lg",

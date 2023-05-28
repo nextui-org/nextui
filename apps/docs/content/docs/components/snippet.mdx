@@ -1,0 +1,103 @@
+---
+title: "Snippet"
+description: "Snippet is a component that can be used to display inline or multiline code snippets."
+url: https://nextui.org/docs/components/code
+---
+
+# Snippet
+
+Snippet is a component that can be used to display inline or multiline code snippets.
+
+<ComponentLinks component="snippet" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Snippet} from "@nextui-org/react";',
+    individual: 'import {Snippet} from "@nextui-org/snippet";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Snippet" files={snippetContent.usage} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={snippetContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={snippetContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={snippetContent.variants} />
+
+### Custom Symbol
+
+<CodeDemo title="Custom Symbol" files={snippetContent.symbol} />
+
+### Without Copy
+
+You can hide the copy button by setting the `hideCopyButton` property to `true`.
+
+<CodeDemo title="Without Copy" files={snippetContent.withoutCopy} />
+
+### Custom Tooltip
+
+You can customize the tooltip by using the `tooltipProps` property.
+
+<CodeDemo title="Custom Tooltip" highlightedLines="7-10" files={snippetContent.customTooltip} />
+
+> **Note**: For more information about the `Tootlip` props, please visit the [Tooltip](/docs/components/tooltip) page.
+
+### Multiline
+
+<CodeDemo title="Multiline" files={snippetContent.multiline} />
+
+### Custom Icons
+
+You can customize the copy and copied icons by using the `copyIcon` and `checkIcon` properties.
+
+<CodeDemo title="Custom Icons" highlightedLines="9-10" files={snippetContent.customIcons} />
+
+## Slots
+
+- **base**: The base slot of the snippet, it is the main container.
+- **content**: This is the wrapper of the `<pre/>` slot.
+- **pre**: The `<pre/>` slot of the snippet. It is used to wrap the code.
+- **symbol**: The symbol wrapper slot.
+- **copyButton**: The copy button slot.
+- **copyIcon**: The copy icon slot.
+- **checkIcon**: The check icon slot.
+
+## API
+
+### Snippet Props
+
+| Attribute        | Type                                                                            | Description                                                                                    | Default |
+| ---------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------- |
+| children         | `ReactNode` \| `ReactNode[]`                                                    | The content of the snippet.                                                                    | -       |
+| symbol           | `string` \| `ReactNode`                                                         | The symbol to show before the snippet.                                                         | `$`     |
+| timeout          | `number`                                                                        | he time in milliseconds to wait before resetting the clipboard.                                | `2000`  |
+| codeString       | `string`                                                                        | The code string to copy. if `codeString` is passed, it will be copied instead of the children. | -       |
+| tooltipProps     | [TooltipProps](/docs/components/tooltip#tooltip-props)                          | The props of the tooltip.                                                                      | -       |
+| copyIcon         | `ReactNode`                                                                     | The copy icon.                                                                                 | -       |
+| checkIcon        | `ReactNode`                                                                     | The check icon.                                                                                | -       |
+| disableTooltip   | `boolean`                                                                       | Whether to disable the tooltip.                                                                | `false` |
+| disableCopy      | `boolean`                                                                       | Whether to disable the copy button.                                                            | `false` |
+| hideCopyButton   | `boolean`                                                                       | Whether to hide the copy button.                                                               | `false` |
+| hideSymbol       | `boolean`                                                                       | Whether to hide the symbol.                                                                    | `false` |
+| copyButtonProps  | [ButtonProps](/docs/components/button#button-props)                             | The props of the copy button.                                                                  | -       |
+| disableAnimation | `boolean`                                                                       | Whether to disable the animations.                                                             | `false` |
+| classNames       | `Record<"base"｜"content"｜"pre"｜"symbol"｜"copyButton"｜"checkIcon", string>` | Allows to set custom class names for the skeleton slots.                                       | -       |
+
+### Snippet Events
+
+| Attribute | Type                                   | Description                                     |
+| --------- | -------------------------------------- | ----------------------------------------------- |
+| onCopy    | `(value: string ｜ string[]) => void;` | Handler that is called when the code is copied. |

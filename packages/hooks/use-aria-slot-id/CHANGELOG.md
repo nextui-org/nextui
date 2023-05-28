@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-slot-id
 
+## 0.0.0-dev-v2-20230528191554
+
+### Patch Changes
+
+- Snippet multiline copy fixed and styles improved
+
 ## 0.0.0-dev-v2-20230528153341
 
 ### Patch Changes

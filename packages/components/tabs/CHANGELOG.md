@@ -1,5 +1,19 @@
 # @nextui-org/tabs
 
+## 0.0.0-dev-v2-20230528191554
+
+### Patch Changes
+
+- Snippet multiline copy fixed and styles improved
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230528191554
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230528191554
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230528191554
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230528191554
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230528191554
+  - @nextui-org/system@0.0.0-dev-v2-20230528191554
+  - @nextui-org/theme@0.0.0-dev-v2-20230528191554
+
 ## 0.0.0-dev-v2-20230528153341
 
 ### Patch Changes

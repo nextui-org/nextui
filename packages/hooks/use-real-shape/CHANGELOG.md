@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230528191554
+
+### Patch Changes
+
+- Snippet multiline copy fixed and styles improved
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230528191554
+
 ## 0.0.0-dev-v2-20230528153341
 
 ### Patch Changes

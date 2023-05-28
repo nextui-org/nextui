@@ -24,11 +24,19 @@ import {colorVariants} from "../utils";
  */
 const snippet = tv({
   slots: {
-    base: "inline-flex items-center justify-between rounded-md",
-    pre: "bg-transparent text-inherit font-mono whitespace-pre-wrap",
+    base: "inline-flex items-center justify-between h-fit rounded-md",
+    pre: "bg-transparent text-inherit font-mono font-normal inline-block whitespace-nowrap",
     content: "flex flex-col",
     symbol: "select-none",
-    copyButton: ["group", "relative", "z-10", "text-inherit", "data-[hover=true]:bg-transparent"],
+    copyButton: [
+      "group",
+      "relative",
+      "z-10",
+      "ml-2",
+      "text-lg",
+      "text-inherit",
+      "data-[hover=true]:bg-transparent",
+    ],
     copyIcon: [
       "absolute text-inherit opacity-100 scale-100 group-data-[copied=true]:opacity-0 group-data-[copied=true]:scale-50",
     ],
@@ -71,13 +79,13 @@ const snippet = tv({
         base: "px-2 py-1 text-sm",
       },
       md: {
-        base: "px-3 py-1.5 text-base",
+        base: "px-3 py-1.5 text-sm",
       },
       lg: {
-        base: "px-4 py-2 text-lg",
+        base: "px-4 py-2 text-base",
       },
       xl: {
-        base: "px-4 py-2 text-xl",
+        base: "px-4 py-2 text-lg",
       },
     },
     radius: {
