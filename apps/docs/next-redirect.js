@@ -33,22 +33,42 @@ async function redirect() {
     ...getComponentsRoute(componentsName),
     {
       source: "/docs",
-      destination: "/docs/guide/getting-started",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/intro",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/intro",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/installation",
+      destination: "/docs/guide/installation",
       permanent: true,
     },
     {
       source: "/docs/getting-started",
-      destination: "/docs/guide/getting-started",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/introduction",
+      destination: "/docs/guide/introduction",
       permanent: true,
     },
     {
       source: "/guide",
-      destination: "/docs/guide/getting-started",
+      destination: "/docs/guide/introduction",
       permanent: true,
     },
     {
       source: "/learn",
-      destination: "/docs/guide/getting-started",
+      destination: "/docs/guide/introduction",
       permanent: true,
     },
     {

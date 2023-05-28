@@ -3,7 +3,7 @@ const nextConfig = {
   transpilePackages: ['@nextui-org/react', '@nextui-org/theme'],
   swcMinify: true,
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
-  // redirects: require("./next-redirect"), TODO: enable this once we have the docs structure done
+  redirects: require("./next-redirect"), 
   eslint: {
     ignoreDuringBuilds: true,
   },
