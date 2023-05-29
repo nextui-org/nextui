@@ -1,5 +1,16 @@
 # @nextui-org/switch
 
+## 0.0.0-dev-v2-20230529224901
+
+### Patch Changes
+
+- Input styles changed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230529224901
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230529224901
+  - @nextui-org/system@0.0.0-dev-v2-20230529224901
+  - @nextui-org/theme@0.0.0-dev-v2-20230529224901
+
 ## 0.0.0-dev-v2-20230528191554
 
 ### Patch Changes

@@ -52,7 +52,7 @@ export const Head: React.FC<HeaderProps> = ({
       <meta content={isDark ? "#000000" : "#FFFFFF"} name="theme-color" />
       <meta
         key="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+        content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         name="viewport"
       />
       <link href="/favicon.ico" rel="icon" />

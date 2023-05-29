@@ -65,7 +65,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               <Progress
                 aria-label="Music progress"
                 classNames={{
-                  filler: "bg-default-800 dark:bg-white",
+                  indicator: "bg-default-800 dark:bg-white",
                   track: "bg-default-500/30",
                 }}
                 color="default"

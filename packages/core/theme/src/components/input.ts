@@ -26,7 +26,7 @@ const input = tv({
     label: "block text-sm font-medium text-default-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    input: "w-full h-full !bg-transparent outline-none placeholder:text-default-500",
+    input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-default-500",
     clearButton: [
       "z-10",
       "hidden",
@@ -57,7 +57,7 @@ const input = tv({
         inputWrapper: [
           "bg-default-100",
           "data-[hover=true]:bg-default-200",
-          "focus-within:!bg-default-100",
+          "group-data-[focused=true]:bg-default-100",
         ],
       },
       faded: {
@@ -73,7 +73,7 @@ const input = tv({
           "border-2",
           "border-default-200",
           "data-[hover=true]:border-default-400",
-          "focus-within:!border-foreground",
+          "group-data-[focused=true]:border-foreground",
         ],
       },
       underlined: {
@@ -97,7 +97,7 @@ const input = tv({
           "after:-translate-x-1/2",
           "after:-bottom-[2px]",
           "after:h-[2px]",
-          "focus-within:after:w-full",
+          "group-data-[focused=true]:after:w-full",
         ],
       },
     },
@@ -262,7 +262,7 @@ const input = tv({
           "bg-primary-50",
           "data-[hover=true]:bg-primary-100",
           "text-primary",
-          "focus-within:!bg-primary-50",
+          "group-data-[focused=true]:bg-primary-50",
           "placeholder:text-primary",
         ],
         input: "placeholder:text-primary",
@@ -274,9 +274,9 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-secondary-50",
-          "data-[hover=true]:bg-secondary-100",
           "text-secondary",
-          "focus-within:!bg-secondary-50",
+          "data-[hover=true]:bg-secondary-100",
+          "group-data-[focused=true]:bg-secondary-50",
           "placeholder:text-secondary",
         ],
         input: "placeholder:text-secondary",
@@ -290,7 +290,7 @@ const input = tv({
           "bg-success-50",
           "data-[hover=true]:bg-success-100",
           "text-success",
-          "focus-within:!bg-success-50",
+          "group-data-[focused=true]:bg-success-50",
           "placeholder:text-success",
         ],
         input: "placeholder:text-success",
@@ -304,7 +304,7 @@ const input = tv({
           "bg-warning-50",
           "data-[hover=true]:bg-warning-100",
           "text-warning",
-          "focus-within:!bg-warning-50",
+          "group-data-[focused=true]:bg-warning-50",
           "placeholder:text-warning",
         ],
         input: "placeholder:text-warning",
@@ -318,7 +318,7 @@ const input = tv({
           "bg-danger-50",
           "data-[hover=true]:bg-danger-100",
           "text-danger",
-          "focus-within:!bg-danger-50",
+          "group-data-[focused=true]:bg-danger-50",
           "placeholder:text-danger",
         ],
         input: "placeholder:text-danger",
@@ -406,35 +406,35 @@ const input = tv({
       variant: "bordered",
       color: "primary",
       class: {
-        inputWrapper: "focus-within:!border-primary",
+        inputWrapper: "group-data-[focused=true]:border-primary",
       },
     },
     {
       variant: "bordered",
       color: "secondary",
       class: {
-        inputWrapper: "focus-within:!border-secondary",
+        inputWrapper: "group-data-[focused=true]:border-secondary",
       },
     },
     {
       variant: "bordered",
       color: "success",
       class: {
-        inputWrapper: "focus-within:!border-success",
+        inputWrapper: "group-data-[focused=true]:border-success",
       },
     },
     {
       variant: "bordered",
       color: "warning",
       class: {
-        inputWrapper: "focus-within:!border-warning",
+        inputWrapper: "group-data-[focused=true]:border-warning",
       },
     },
     {
       variant: "bordered",
       color: "danger",
       class: {
-        inputWrapper: "focus-within:!border-danger",
+        inputWrapper: "group-data-[focused=true]:border-danger",
       },
     },
     // radius-full & size
@@ -504,7 +504,7 @@ const input = tv({
         inputWrapper: [
           "bg-danger-50",
           "data-[hover=true]:bg-danger-100",
-          "focus-within:!bg-danger-50",
+          "group-data-[focused=true]:bg-danger-50",
         ],
       },
     },
@@ -512,7 +512,7 @@ const input = tv({
       isInvalid: true,
       variant: "bordered",
       class: {
-        inputWrapper: "!border-danger focus-within:!border-danger",
+        inputWrapper: "!border-danger group-data-[focused=true]:border-danger",
       },
     },
     {

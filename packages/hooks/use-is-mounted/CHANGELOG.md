@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mounted
 
+## 0.0.0-dev-v2-20230529224901
+
+### Patch Changes
+
+- Input styles changed
+
 ## 0.0.0-dev-v2-20230528191554
 
 ### Patch Changes

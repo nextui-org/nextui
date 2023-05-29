@@ -57,7 +57,7 @@ const MyAvatar = forwardRef((props, ref) => {
   );
 });
 
-Avatar.displayName = "MyAvatar";
+MyAvatar.displayName = "MyAvatar";
 
 export default MyAvatar;`;
 

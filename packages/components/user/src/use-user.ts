@@ -83,7 +83,7 @@ export function useUser(props: UseUserProps) {
       ref: domRef,
       tabIndex: canBeFocused ? 0 : -1,
       "data-focus-visible": dataAttr(isFocusVisible),
-      "data-focused": dataAttr(isFocused),
+      "data-focus": dataAttr(isFocused),
       className: slots.base({
         class: baseStyles,
       }),

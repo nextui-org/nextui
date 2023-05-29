@@ -35,7 +35,7 @@ Input is a component that allows users to enter text. It can be used to get user
 
 ### Required
 
-If you pass the `isRequired` property to the input, it will have a `danger` asterisk at 
+If you pass the `isRequired` property to the input, it will have a `danger` asterisk at
 the end of the label and the input will be required.
 
 <CodeDemo title="Required" files={inputContent.required} />
@@ -62,7 +62,6 @@ You can change the position of the label by setting the `labelPosition` property
 
 <CodeDemo title="Label Positions" files={inputContent.labelPositions} />
 
-
 ### With Description
 
 You can add a description to the input by passing the `description` property.
@@ -77,10 +76,10 @@ You can use the `type` property to change the input type to `password`.
 
 ### Clear Button
 
-If you pass the `isClearable` property to the input, it will have a clear button at the 
+If you pass the `isClearable` property to the input, it will have a clear button at the
 end of the input, it will be visible when the input has a value.
 
-<CodeDemo title="Clear Button"  highlightedLines="6" files={inputContent.clearButton} />
+<CodeDemo title="Clear Button" highlightedLines="6" files={inputContent.clearButton} />
 
 ### Start & End Content
 
@@ -93,3 +92,105 @@ You can use the `startContent` and `endContent` properties to add content to the
 You can combine the `validationState="invalid"` and `errorMessage` properties to show an invalid input.
 
 <CodeDemo title="With Error Message" files={inputContent.errorMessage} />
+
+Example with `regex` email validation:
+
+<CodeDemo title="With Regex Validation" files={inputContent.regexValidation} />
+
+### Controlled
+
+You can use the `value` and `onValueChange` properties to control the input value.
+
+<CodeDemo title="Controlled" files={inputContent.controlled} />
+
+> **Note**: NextUI `Input` also supports native events like `onChange`, useful for form libraries
+> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+## Slots
+
+- **base**: Input wrapper, it handles alignment, placement, and general appearance.
+- **label**: Label of the input, it is the one that is displayed above, inside or left of the input.
+- **inputWrapper**: Wraps the `label` (when it is inside) and the `innerWrapper`.
+- **innerWrapper**: Wraps the `input`, the `startContent` and the `endContent`.
+- **input**: The input element.
+- **clearButton**: The clear button, it is at the end of the input.
+- **description**: The description of the input.
+- **errorMessage**: The error message of the input.
+
+### Custom Styles
+
+<CodeDemo title="Custom Styles" highlightedLines="14-32" files={inputContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the input even further, you can use the `useInput` hook to create your own implementation.
+
+<CodeDemo
+  showPreview={false}
+  showOpenInCodeSandbox={true}
+  title="Custom Implementation"
+  files={inputContent.customImpl}
+/>
+
+## Data Attributes
+
+`Input` has the following attributes on the `root` element:
+
+- **data-invalid**:
+  When the input is invalid. Based on `validationState` prop.
+- **data-required**:
+  When the input is required. Based on `isRequired` prop.
+- **data-readonly**:
+  When the input is readonly. Based on `isReadOnly` prop.
+- **data-hover**:
+  When the input is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus**:
+  When the input is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the input is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the input is disabled. Based on `isDisabled` prop.
+
+## Accessibility
+
+- Built with a native `<input>` element
+- Visual and ARIA labeling support
+- Change, clipboard, composition, selection, and input event support
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for description and error message help text linked to the input via ARIA
+
+## API
+
+### Input Props
+
+| Attribute        | Type                                                                                                                               | Description                                                                                    | Default   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
+| children         | `ReactNode`                                                                                                                        | The content of the input.                                                                      | -         |
+| variant          | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                    | The variant of the input.                                                                      | `flat`    |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                                                               | The size of the input.                                                                         | `md`      |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                        | The color of the input.                                                                        | `default` |
+| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                                                                 | The radius of the input.                                                                       | `lg`      |
+| label            | `ReactNode`                                                                                                                        | The content to display as the label.                                                           | -         |
+| value            | `string`                                                                                                                           | The current value of the input (controlled).                                                   | -         |
+| defaultValue     | `string`                                                                                                                           | The default value of the input (uncontrolled).                                                 | -         |
+| placeholder      | `string`                                                                                                                           | The placeholder of the input.                                                                  | -         |
+| description      | `ReactNode`                                                                                                                        | A description for the input. Provides a hint such as specific requirements for what to choose. | -         |
+| errorMessage     | `ReactNode`                                                                                                                        | An error message for the input.                                                                | -         |
+| labelPosition    | `inside` \| `outside` \| `outside-left`                                                                                            | The position of the label.                                                                     | `inside`  |
+| fullWidth        | `boolean`                                                                                                                          | Whether the input should take up the width of its parent.                                      | `true`    |
+| validationState  | `valid` \| `invalid`                                                                                                               | Whether the input should display its "valid" or "invalid" visual styling.                      | -         |
+| isRequired       | `boolean`                                                                                                                          | Whether user input is required on the input before form submission.                            | `false`   |
+| isReadOnly       | `boolean`                                                                                                                          | Whether the input can be selected but not changed by the user.                                 |           |
+| isDisabled       | `boolean`                                                                                                                          | Whether the input is disabled.                                                                 | `false`   |
+| startContent     | `ReactNode`                                                                                                                        | Element to be rendered in the left side of the input.                                          | -         |
+| endContent       | `ReactNode`                                                                                                                        | Element to be rendered in the right side of the input.                                         | -         |
+| disableAnimation | `boolean`                                                                                                                          | Whether the input should be animated.                                                          | `false`   |
+| classNames       | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input" ｜ "clearButton" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the checkbox slots.                                       | -         |
+
+### Input Events
+
+| Attribute     | Type                                   | Description                                                                                                                         |
+| ------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| onChange      | `React.ChangeEvent <HTMLInputElement>` | Handler that is called when the element's value changes. You can pull out the new value by accessing `event.target.value` (string). |
+| onValueChange | `(value: string) => void`        | Handler that is called when the element's value changes.                                                                            |
+| onClear       | `() => void`                           | Handler that is called when the clear button is clicked.                                                                            |

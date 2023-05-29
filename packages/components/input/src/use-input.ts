@@ -150,8 +150,12 @@ export function useInput(originalProps: UseInputProps) {
     return {
       className: slots.base({class: baseStyles}),
       "data-focus-visible": dataAttr(isFocusVisible),
-      "data-focused": dataAttr(isFocused),
+      "data-readonly": dataAttr(originalProps.isReadOnly),
+      "data-focus": dataAttr(isFocused),
+      "data-hover": dataAttr(isHovered),
+      "data-required": dataAttr(originalProps.isRequired),
       "data-invalid": dataAttr(isInvalid),
+      "data-disabled": dataAttr(originalProps.isDisabled),
       "data-has-elements": dataAttr(hasElements),
       ...props,
     };
@@ -195,35 +199,36 @@ export function useInput(originalProps: UseInputProps) {
 
   const getInnerWrapperProps: PropGetter = (props = {}) => {
     return {
-      className: slots.innerWrapper({
-        class: classNames?.innerWrapper,
-      }),
       ...props,
+      className: slots.innerWrapper({
+        class: clsx(classNames?.innerWrapper, props?.className),
+      }),
     };
   };
 
   const getDescriptionProps: PropGetter = (props = {}) => {
     return {
-      className: slots.description({class: classNames?.description}),
-      ...descriptionProps,
       ...props,
+      ...descriptionProps,
+      className: slots.description({class: clsx(classNames?.description, props?.className)}),
     };
   };
 
   const getErrorMessageProps: PropGetter = (props = {}) => {
     return {
-      className: slots.errorMessage({class: classNames?.errorMessage}),
-      ...errorMessageProps,
       ...props,
+      ...errorMessageProps,
+      className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
     };
   };
 
-  const getClearButtonProps: PropGetter = () => {
+  const getClearButtonProps: PropGetter = (props = {}) => {
     return {
+      ...props,
       role: "button",
       tabIndex: 0,
-      className: slots.clearButton({class: classNames?.clearButton}),
       "data-focus-visible": dataAttr(isClearButtonFocusVisible),
+      className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
       ...mergeProps(clearPressProps, clearFocusProps),
     };
   };

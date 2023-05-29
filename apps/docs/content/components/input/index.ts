@@ -12,6 +12,10 @@ import password from "./password";
 import clearButton from "./clear-button";
 import startEndContent from "./start-end-content";
 import errorMessage from "./error-message";
+import regexValidation from "./regex-validation";
+import controlled from "./controlled";
+import customStyles from "./custom-styles";
+import customImpl from "./custom-impl";
 
 export const inputContent = {
   usage,
@@ -28,4 +32,8 @@ export const inputContent = {
   clearButton,
   startEndContent,
   errorMessage,
+  regexValidation,
+  controlled,
+  customStyles,
+  customImpl,
 };

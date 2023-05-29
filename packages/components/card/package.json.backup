@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/progress",
+  "name": "@nextui-org/card",
   "version": "0.0.0-dev-v2-20230529224901",
-  "description": "Progress bars show either determinate or indeterminate progress of an operation over time.",
+  "description": "Card is a container for text, photos, and actions in the context of a single subject.",
   "keywords": [
-    "progress"
+    "card"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,17 +19,17 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/progress"
+    "directory": "packages/components/card"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
-    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -37,20 +37,24 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/use-is-mounted": "workspace:*",
-    "@nextui-org/use-aria-label": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/i18n": "^3.7.1",
-    "@react-aria/progress": "^3.4.1",
-    "@react-aria/utils": "^3.16.0"
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/drip": "workspace:*",
+    "@react-aria/focus": "^3.12.0",
+    "@react-aria/utils": "^3.16.0",
+    "@react-aria/interactions": "^3.15.0",
+    "@react-aria/button": "^3.7.1"
   },
   "devDependencies": {
-    "@nextui-org/card": "workspace:*",
-    "@nextui-org/chip": "workspace:*",
-    "@react-types/progress": "^3.4.0",
+    "@react-types/shared": "^3.18.0",
+    "@nextui-org/code": "workspace:*",
+    "@nextui-org/link": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/image": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },
