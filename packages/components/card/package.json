@@ -8,7 +8,7 @@
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -58,15 +58,5 @@
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },
-  "clean-package": "../../../clean-package.config.json",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
-  }
+  "clean-package": "../../../clean-package.config.json"
 }

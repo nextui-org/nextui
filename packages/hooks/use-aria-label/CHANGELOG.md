@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-label
 
+## 0.0.0-dev-v2-20230529230229
+
+### Patch Changes
+
+- Card package force publish
+
 ## 0.0.0-dev-v2-20230529224901
 
 ### Patch Changes

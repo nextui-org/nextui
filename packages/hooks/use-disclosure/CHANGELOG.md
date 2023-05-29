@@ -1,5 +1,13 @@
 # @nextui-org/use-disclosure
 
+## 0.0.0-dev-v2-20230529230229
+
+### Patch Changes
+
+- Card package force publish
+- Updated dependencies
+  - @nextui-org/use-callback-ref@0.0.0-dev-v2-20230529230229
+
 ## 0.0.0-dev-v2-20230529224901
 
 ### Patch Changes
