@@ -17,3 +17,4 @@ export * from "./progress";
 export * from "./user";
 export * from "./skeleton";
 export * from "./snippet";
+export * from "./input";

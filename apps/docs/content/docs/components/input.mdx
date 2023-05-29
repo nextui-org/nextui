@@ -1,13 +1,95 @@
 ---
-title: 'Input'
-description: 'Inputs fields are used to get the user input in a text field.'
+title: "Input"
+description: "Input is a component that allows users to enter text. It can be used to get user inputs in forms, search fields, and more."
 url: https://nextui.org/docs/components/input
 ---
 
 # Input
 
-Inputs fields are used to get the user input in a text field.
+Input is a component that allows users to enter text. It can be used to get user inputs in forms, search fields, and more.
 
-```jsx
-import {Input} from '@nextui-org/react';
-```
+<ComponentLinks component="input" reactAriaHook="useTextField" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Input} from "@nextui-org/react";',
+    individual: 'import {Input} from "@nextui-org/input";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Snippet" files={inputContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={inputContent.disabled} />
+
+### Read Only
+
+<CodeDemo title="Read Only" files={inputContent.readOnly} />
+
+### Required
+
+If you pass the `isRequired` property to the input, it will have a `danger` asterisk at 
+the end of the label and the input will be required.
+
+<CodeDemo title="Required" files={inputContent.required} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={inputContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={inputContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={inputContent.variants} />
+
+### Radius
+
+<CodeDemo title="Radius" files={inputContent.radius} />
+
+### Label Positions
+
+You can change the position of the label by setting the `labelPosition` property to `inside`, `outside` or `outside-left`.
+
+<CodeDemo title="Label Positions" files={inputContent.labelPositions} />
+
+
+### With Description
+
+You can add a description to the input by passing the `description` property.
+
+<CodeDemo title="With Description" files={inputContent.description} />
+
+### Password Input
+
+You can use the `type` property to change the input type to `password`.
+
+<CodeDemo title="Password Input" highlightedLines="24" files={inputContent.password} />
+
+### Clear Button
+
+If you pass the `isClearable` property to the input, it will have a clear button at the 
+end of the input, it will be visible when the input has a value.
+
+<CodeDemo title="Clear Button"  highlightedLines="6" files={inputContent.clearButton} />
+
+### Start & End Content
+
+You can use the `startContent` and `endContent` properties to add content to the start and end of the input.
+
+<CodeDemo title="Start and End Content" files={inputContent.startEndContent} />
+
+### With Error Message
+
+You can combine the `validationState="invalid"` and `errorMessage` properties to show an invalid input.
+
+<CodeDemo title="With Error Message" files={inputContent.errorMessage} />
