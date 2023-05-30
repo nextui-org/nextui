@@ -1,6 +1,6 @@
 ---
-title: 'Textarea'
-description: 'Textarea component is a multi-line Input which allows you to write large texts.'
+title: "Textarea"
+description: "Textarea component is a multi-line Input which allows you to write large texts."
 url: https://nextui.org/docs/components/textarea
 ---
 
@@ -8,6 +8,19 @@ url: https://nextui.org/docs/components/textarea
 
 Textarea component is a multi-line Input which allows you to write large texts.
 
-```jsx
-import {Textarea} from '@nextui-org/react';
-```
+<ComponentLinks component="input" storybook="textarea" reactAriaHook="useTextField" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Textarea} from "@nextui-org/react";',
+    individual: 'import {Textarea} from "@nextui-org/input";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={textareaContent.usage} />

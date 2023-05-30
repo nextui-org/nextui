@@ -280,7 +280,8 @@
           "key": "tabs",
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
-          "path": "/docs/components/tabs.mdx"
+          "path": "/docs/components/tabs.mdx",
+          "newPost": true
         },
         {
           "key": "textarea",
