@@ -23,7 +23,11 @@ export const VirtualAnchor: React.FC<Props> = ({children}) => {
   }, [ref.current]);
 
   return (
-    <Link ref={ref} className="relative flex items-center gap-1 group text-inherit" href={`#${id}`}>
+    <Link
+      ref={ref}
+      className="relative w-fit flex items-center gap-1 group text-inherit"
+      href={`#${id}`}
+    >
       {children}
       <span className="opacity-0 transition-opacity group-hover:opacity-100">
         <LinkLinearIcon size={20} strokeWidth="2" />

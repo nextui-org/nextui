@@ -16,7 +16,17 @@ Requirements:
 
 ------
 
-## Installation
+To use NextUI in your Next.js project, you need to follow the steps below, depending on your project structure.
+
+## App directory Setup
+
+Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
+As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
+directly in your React Server Components (RSC).
+
+<Steps>
+
+### Installation
 
 In your Next.js project, run one of the following command to install NextUI:
 
@@ -28,9 +38,6 @@ In your Next.js project, run one of the following command to install NextUI:
     pnpm: 'pnpm add @nextui-org/react framer-motion',
   }}
 />
-
-
-<Spacer y={4}/>
 
 ### Tailwind CSS Setup
 
@@ -57,13 +64,7 @@ module.exports = {
 }
 ```
 
-After installing NextUI, you need to set up the `NextUIProvider` at the `root` of your application.
-
-### App directory Setup
-
-Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
-As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
-directly in your React Server Components (RSC).
+### Setup Provider
 
 Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
 
@@ -81,6 +82,8 @@ export function Providers({children}: { children: React.ReactNode }) {
   )
 }
 ```
+
+### Add Provider to Root
 
 Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
 
@@ -104,6 +107,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 > **Note**: NextUI automatically add two themes `light` and `dark` to your application. You can use any 
 of them by adding the `dark`/`light` class to the `html` tag. See the [theme docs](/docs/theme/customize-theme) for more details.
 
+
+### Use NextUI Components
+
 Now you can import any NextUI component directly in your Server Components without needing to use
 the `use client;` directive:
 
@@ -122,9 +128,64 @@ export default function Page() {
 
 > **Important 🚨**: Note that you need to import the component from the individual package, not the from `@nextui-org/react`. 
 
+### Setup pnpm (optional)
+
+If you are using pnpm, you need to add the following code to your `.npmrc` file:
+
+```bash
+public-hoist-pattern[]=*@nextui-org/theme*
+```
+
+After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+
+
+</Steps>
+
 <Spacer y={8} />
 
-### Pages Directory Setup 
+## Pages Directory Setup 
+
+<Steps>
+
+### Installation
+
+In your Next.js project, run one of the following command to install NextUI:
+
+
+<PackageManagers
+  commands={{
+    npm: 'npm i @nextui-org/react framer-motion',
+    yarn: 'yarn add @nextui-org/react framer-motion',
+    pnpm: 'pnpm add @nextui-org/react framer-motion',
+  }}
+/>
+
+### Tailwind CSS Setup
+
+NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
+the following code to your `tailwind.config.js` file:
+
+
+```js {8,13-14}
+// tailwind.config.js
+const { nextui } = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [nextui()]
+}
+```
+
+### Setup Provider
 
 Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
 
@@ -143,6 +204,22 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
+### Use NextUI Components
+
+Now you can import any NextUI component wherever you want:
+
+```jsx
+import {Button} from '@nextui-org/react'
+
+export default function Page() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}
+```
+
 ### Setup pnpm (optional)
 
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
@@ -152,6 +229,8 @@ public-hoist-pattern[]=*@nextui-org/theme*
 ```
 
 After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+
+</Steps>
 
 <Blockquote
  color="warning"

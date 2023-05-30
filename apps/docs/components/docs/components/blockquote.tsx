@@ -3,7 +3,6 @@ import {tv, VariantProps} from "tailwind-variants";
 
 const blockquote = tv({
   base: "border pl-4 bg-default-50 my-6 py-3 rounded-xl [&>p]:m-0",
-
   variants: {
     color: {
       default: "border-default-100 bg-default-50/20",

@@ -1,5 +1,11 @@
 # @nextui-org/use-ref-state
 
+## 0.0.0-dev-v2-20230530022806
+
+### Patch Changes
+
+- Input styles changed
+
 ## 0.0.0-dev-v2-20230529230229
 
 ### Patch Changes

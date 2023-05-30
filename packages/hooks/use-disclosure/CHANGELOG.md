@@ -1,5 +1,13 @@
 # @nextui-org/use-disclosure
 
+## 0.0.0-dev-v2-20230530022806
+
+### Patch Changes
+
+- Input styles changed
+- Updated dependencies
+  - @nextui-org/use-callback-ref@0.0.0-dev-v2-20230530022806
+
 ## 0.0.0-dev-v2-20230529230229
 
 ### Patch Changes

@@ -129,8 +129,9 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             href={paths.pathname}
           >
             <span
-              className={clsx("opacity-60", {
+              className={clsx({
                 "opacity-100": isSelected,
+                "opacity-60": !isSelected,
                 "pointer-events-none": item.props?.comingSoon,
               })}
             >

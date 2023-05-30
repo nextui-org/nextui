@@ -1,7 +1,8 @@
-import {FC} from "react";
+import {FC, useRef, useEffect} from "react";
 import {clsx} from "@nextui-org/shared-utils";
 import {Divider, Spacer} from "@nextui-org/react";
 import {ChevronCircleTopLinearIcon} from "@nextui-org/shared-icons";
+import scrollIntoView from "scroll-into-view-if-needed";
 
 import {Heading} from "@/utils/docs-utils";
 import {useScrollSpy} from "@/hooks/use-scroll-spy";
@@ -18,6 +19,8 @@ const paddingLeftByLevel: Record<string, string> = {
 };
 
 export const DocsToc: FC<DocsTocProps> = ({headings}) => {
+  const tocRef = useRef<HTMLDivElement>(null);
+
   const activeId = useScrollSpy(
     headings.map(({id}) => `[id="${id}"]`),
     {
@@ -25,13 +28,31 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
     },
   );
 
+  useEffect(() => {
+    if (!activeId) return;
+    const anchor = tocRef.current?.querySelector(`li > a[href="#${activeId}"]`);
+
+    if (anchor) {
+      scrollIntoView(anchor, {
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+        scrollMode: "always",
+        boundary: tocRef.current,
+      });
+    }
+  }, [activeId]);
+
   if (headings.length <= 0) return null;
 
   const activeIndex = headings.findIndex(({id}) => id == activeId);
   const firstId = headings[0].id;
 
   return (
-    <div className="sticky w-full flex flex-col gap-4 text-left top-20 h-[calc(100vh-121px)] overflow-y-scroll scrollbar-hide">
+    <div
+      ref={tocRef}
+      className="sticky w-full flex flex-col gap-4 text-left top-20 pb-20 h-[calc(100vh-121px)] scrollbar-hide overflow-y-scroll"
+    >
       <p className="text-sm">On this page</p>
       <ul className="scrollbar-hide flex flex-col gap-2">
         {headings.map((heading, i) => (

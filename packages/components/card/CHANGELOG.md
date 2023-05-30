@@ -1,5 +1,18 @@
 # @nextui-org/card
 
+## 0.0.0-dev-v2-20230530022806
+
+### Patch Changes
+
+- Input styles changed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230530022806
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230530022806
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230530022806
+  - @nextui-org/drip@0.0.0-dev-v2-20230530022806
+  - @nextui-org/system@0.0.0-dev-v2-20230530022806
+  - @nextui-org/theme@0.0.0-dev-v2-20230530022806
+
 ## 0.0.0-dev-v2-20230529230229
 
 ### Patch Changes

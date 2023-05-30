@@ -76,7 +76,7 @@ export function Codeblock({
                       "px-2": showLines,
                     },
                     {
-                      "before:content-[''] before:w-full before:h-full before:absolute before:z-0 before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background before:border-l-2 border-l-white/80 dark:before:border-l-white/50": shouldHighlightLine(
+                      "before:content-[''] before:w-full before:h-full before:absolute before:z-0 before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background": shouldHighlightLine(
                         i,
                       ),
                     },

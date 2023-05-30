@@ -187,6 +187,11 @@ export const MDXComponents = ({
   kbd: (props: React.HTMLAttributes<HTMLElement>) => (
     <Components.Kbd {...props} className="py-0.5 px-1.5" />
   ),
-
+  Steps: ({...props}) => (
+    <div
+      className="[&>h3]:step [&>h3>a]:pt-0.5 mb-12 ml-4 border-l border-default-100 pl-[1.625rem] [counter-reset:step]"
+      {...props}
+    />
+  ),
   // Block,
 } as unknown) as Record<string, React.ReactNode>;
