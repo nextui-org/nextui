@@ -25,7 +25,7 @@ import {includes} from "lodash";
 import {SearchIcon} from "@nextui-org/shared-icons";
 
 import {Route} from "@/libs/docs/page";
-import {SmallLogo, LargeLogo, ThemeSwitch} from "@/components";
+import {LargeLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {isActive} from "@/utils/links";
@@ -66,7 +66,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       labelPosition="outside"
       placeholder="Search..."
       startContent={
-        <SearchIcon className="text-base text-slate-400 pointer-events-none flex-shrink-0" />
+        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
       }
       type="search"
     />
@@ -89,7 +89,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-3" href="/">
             <LargeLogo className="h-5 md:h-6" />
-            <SmallLogo className="md:hidden" />
           </NextLink>
           {isMounted && ref.current ? (
             <Dropdown placement="bottom-start" portalContainer={ref.current}>
