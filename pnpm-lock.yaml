@@ -338,18 +338,9 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
-      hast-util-has-property:
-        specifier: ^2.0.1
-        version: 2.0.1
-      hast-util-heading-rank:
-        specifier: ^2.1.1
-        version: 2.1.1
       hast-util-to-html:
         specifier: 7.1.2
         version: 7.1.2
-      hast-util-to-string:
-        specifier: ^2.0.0
-        version: 2.0.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -416,9 +407,6 @@ importers:
       tailwind-scrollbar-hide:
         specifier: ^1.1.7
         version: 1.1.7
-      unist-util-visit:
-        specifier: ^4.1.2
-        version: 4.1.2
     devDependencies:
       '@next/env':
         specifier: ^13.4.2
