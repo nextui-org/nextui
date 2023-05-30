@@ -55,7 +55,8 @@
     "remark-slug": "^6.0.0",
     "scroll-into-view-if-needed": "2.2.29",
     "shelljs": "^0.8.4",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "unified": "^9.2.2"
   },
   "devDependencies": {
     "@next/env": "^13.4.2",
