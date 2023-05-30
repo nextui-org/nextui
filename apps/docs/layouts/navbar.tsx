@@ -22,9 +22,10 @@ import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {useRouter} from "next/router";
 import {includes} from "lodash";
+import {SearchIcon} from "@nextui-org/shared-icons";
 
 import {Route} from "@/libs/docs/page";
-import {NextUILogo, ThemeSwitch} from "@/components";
+import {SmallLogo, LargeLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {isActive} from "@/utils/links";
@@ -64,6 +65,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       }
       labelPosition="outside"
       placeholder="Search..."
+      startContent={
+        <SearchIcon className="text-base text-slate-400 pointer-events-none flex-shrink-0" />
+      }
       type="search"
     />
   );
@@ -83,8 +87,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
-          <NextLink href="/">
-            <NextUILogo auto />
+          <NextLink className="flex justify-start items-center gap-3" href="/">
+            <LargeLogo className="h-5 md:h-6" />
+            <SmallLogo className="md:hidden" />
           </NextLink>
           {isMounted && ref.current ? (
             <Dropdown placement="bottom-start" portalContainer={ref.current}>
@@ -162,8 +167,11 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         </div>
       </NavbarContent>
 
-      <NavbarContent className="flex w-full sm:hidden" justify="center">
-        <NavbarItem>{searchInput}</NavbarItem>
+      <NavbarContent className="flex w-full gap-2 sm:hidden" justify="end">
+        <Link isExternal href="https://github.com/nextui-org/nextui">
+          <GithubIcon className="text-default-600 dark:text-default-500" />
+        </Link>
+        <ThemeSwitch />
       </NavbarContent>
 
       <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
@@ -201,6 +209,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       </NavbarContent>
 
       <NavbarMenu disableAnimation>
+        {searchInput}
         <DocsSidebar routes={routes} slug={slug} tag={tag} />
         {children}
       </NavbarMenu>
