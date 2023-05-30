@@ -6,25 +6,23 @@
 @import 'nprogress.css';
 
 html {
-  height: 100vh;
   font-size: 16px;
   padding: 0px !important;
   overflow-x: hidden;
   scroll-padding-top: 64px;
 }
 
-body,
-#__next {
-  height: 100%;
+body {
+  min-height: 100vh;
 }
-
+/* 
 @media screen and (max-width: 640px) {
   #app-container {
     height: 100vh;
     overflow-x: hidden;
   }
 }
-
+ */
 
 @layer base {
   :root {

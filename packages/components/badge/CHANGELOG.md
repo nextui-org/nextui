@@ -1,5 +1,16 @@
 # @nextui-org/badge
 
+## 0.0.0-dev-v2-20230530213135
+
+### Patch Changes
+
+- Input styles changed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230530213135
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230530213135
+  - @nextui-org/system@0.0.0-dev-v2-20230530213135
+  - @nextui-org/theme@0.0.0-dev-v2-20230530213135
+
 ## 0.0.0-dev-v2-20230530022806
 
 ### Patch Changes

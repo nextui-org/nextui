@@ -4,16 +4,16 @@ import {Divider, Spacer} from "@nextui-org/react";
 import {ChevronCircleTopLinearIcon} from "@nextui-org/shared-icons";
 import scrollIntoView from "scroll-into-view-if-needed";
 
-import {Heading} from "@/utils/docs-utils";
+import {Heading} from "@/libs/docs/utils";
 import {useScrollSpy} from "@/hooks/use-scroll-spy";
 
 export interface DocsTocProps {
   headings: Heading[];
 }
 
-const paddingLeftByLevel: Record<string, string> = {
+const paddingLeftByLevel: Record<number, string> = {
   1: "pl-0",
-  2: "pl-3",
+  2: "pl-0",
   3: "pl-3",
   4: "pl-3",
 };
@@ -43,8 +43,6 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
     }
   }, [activeId]);
 
-  if (headings.length <= 0) return null;
-
   const activeIndex = headings.findIndex(({id}) => id == activeId);
   const firstId = headings[0].id;
 
@@ -59,16 +57,16 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
           <li
             key={i}
             className={clsx(
+              "transition-colors",
               "flex items-center text-sm font-normal text-foreground/30",
               "data-[active=true]:text-foreground/80",
-              "data-[active=true]:font-medium",
               "before:content-['']",
               "before:opacity-0",
               "data-[active=true]:before:opacity-100",
               "before:transition-opacity",
-              "before:mr-3",
-              "before:block",
-              "before:bg-default-300",
+              "before:-ml-3",
+              "before:absolute",
+              "before:bg-default-400",
               "before:w-1",
               "before:h-1",
               "before:rounded-full",

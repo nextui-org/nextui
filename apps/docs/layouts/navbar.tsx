@@ -17,7 +17,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import dynamic from "next/dynamic";
-import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {useRouter} from "next/router";
@@ -105,7 +105,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                 selectionMode="single"
               >
                 <DropdownItem key="v2">v2.0.0</DropdownItem>
-                <DropdownItem key="v1">v1.0.0</DropdownItem>
+                <DropdownItem key="v1" endContent={<LinkIcon />}>
+                  v1.0.0
+                </DropdownItem>
               </DropdownMenu>
             </Dropdown>
           ) : (

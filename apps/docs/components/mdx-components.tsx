@@ -48,6 +48,7 @@ const Tcol: React.FC<{children?: React.ReactNode}> = ({children}) => {
 
 export interface LinkedHeadingProps {
   as: keyof JSX.IntrinsicElements;
+  id?: string;
   linked?: boolean;
   children?: React.ReactNode;
   className?: string;
@@ -60,12 +61,18 @@ const linkedLevels: Record<string, number> = {
   h4: 3,
 };
 
-const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, className, ...props}) => {
+const LinkedHeading: React.FC<LinkedHeadingProps> = ({
+  as,
+  linked = true,
+  id: idProp,
+  className,
+  ...props
+}) => {
   const Component = as;
 
   const level = linkedLevels[as] || 1;
 
-  const id = virtualAnchorEncode(props.children as string);
+  let id = idProp || virtualAnchorEncode(props.children as string);
 
   return (
     <Component
@@ -76,7 +83,7 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, classNa
       id={id}
       {...props}
     >
-      {linked ? <VirtualAnchor>{props.children}</VirtualAnchor> : <>{props.children}</>}
+      {linked ? <VirtualAnchor id={id}>{props.children}</VirtualAnchor> : <>{props.children}</>}
     </Component>
   );
 };
@@ -189,7 +196,7 @@ export const MDXComponents = ({
   ),
   Steps: ({...props}) => (
     <div
-      className="[&>h3]:step [&>h3>a]:pt-0.5 mb-12 ml-4 border-l border-default-100 pl-[1.625rem] [counter-reset:step]"
+      className="[&>h3]:step [&>h3>a]:pt-0.5 mb-12 ml-4 relative border-l border-default-100 pl-[1.625rem] [counter-reset:step]"
       {...props}
     />
   ),

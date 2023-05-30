@@ -7,9 +7,10 @@ import {MDXRemote, MDXRemoteSerializeResult} from "next-mdx-remote";
 import {GetStaticProps, GetStaticPaths} from "next";
 import matter from "gray-matter";
 import {serialize} from "next-mdx-remote/serialize";
+import rehypeSlugPlugin from "rehype-slug";
 
 import {MetaProps} from "@/libs/docs/meta";
-import {getSlug} from "@/libs/docs/utils";
+import {getSlug, extractHeadings, Heading} from "@/libs/docs/utils";
 import {DocsLayout} from "@/layouts/docs";
 import {
   Route,
@@ -28,6 +29,7 @@ import * as componentsContent from "@/content/components";
 interface DocsPageProps {
   routes: Route[];
   currentRoute?: Route;
+  headings?: Heading[];
   source?: MDXRemoteSerializeResult;
   meta?: MetaProps;
 }
@@ -37,7 +39,7 @@ const scope = {
   ...componentsContent,
 };
 
-const DocsPage: FC<DocsPageProps> = ({routes, currentRoute, source, meta}) => {
+const DocsPage: FC<DocsPageProps> = ({routes, currentRoute, headings, source, meta}) => {
   const {route, prevRoute, nextRoute} = useDocsRoute(routes, currentRoute);
   const {query} = useRouter();
   const {tag, slug} = getSlug(query);
@@ -45,6 +47,7 @@ const DocsPage: FC<DocsPageProps> = ({routes, currentRoute, source, meta}) => {
   return (
     <DocsLayout
       currentRoute={route}
+      headings={headings}
       meta={meta}
       nextRoute={nextRoute}
       prevRoute={prevRoute}
@@ -101,7 +104,11 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     meta = data;
   }
 
-  const mdxSource = await serialize(doc);
+  const mdxSource = await serialize(doc, {
+    mdxOptions: {
+      rehypePlugins: [rehypeSlugPlugin as any],
+    },
+  });
 
   const routes = manifest.routes.map((route: any) => {
     if (route.icon) {
@@ -118,6 +125,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     props: {
       routes,
       meta,
+      headings: extractHeadings(mdxSource.compiledSource),
       source: mdxSource,
       currentRoute: route,
     },

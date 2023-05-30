@@ -56,9 +56,9 @@ const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
       ) : (
         <span {...getLabelProps()}>{rendered}</span>
       )}
-      {endContent}
       {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
       {isSelectable && <span {...getSelectedIconProps()}>{selectedContent}</span>}
+      {endContent}
     </Component>
   );
 });

@@ -1,5 +1,20 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230530213135
+
+### Patch Changes
+
+- Input styles changed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230530213135
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230530213135
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230530213135
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230530213135
+  - @nextui-org/use-disclosure@0.0.0-dev-v2-20230530213135
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230530213135
+  - @nextui-org/system@0.0.0-dev-v2-20230530213135
+  - @nextui-org/theme@0.0.0-dev-v2-20230530213135
+
 ## 0.0.0-dev-v2-20230530022806
 
 ### Patch Changes

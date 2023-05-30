@@ -1,6 +1,7 @@
 import {ParsedUrlQuery} from "querystring";
 
 export type SlugParams = ParsedUrlQuery | undefined;
+export type Heading = {level: number; text: string; id: string};
 
 export interface SlugResponse {
   slug: string;
@@ -24,4 +25,20 @@ export function getSlug(params: SlugParams): SlugResponse {
   }
 
   return {slug: `/docs/${slug.join("/")}`};
+}
+
+export function extractHeadings(compiledSource: string): Heading[] {
+  const regex = /mdx\("(h\d)",[a-z]\(\{},{id:"(.*?)"\}\),"([^"]*?)"/g;
+  let match;
+  const headings = [];
+
+  while ((match = regex.exec(compiledSource)) !== null) {
+    const [, level, id, text] = match;
+    // Check if text is ending with "),mdx", if so, remove it.
+    let cleanedText = text.endsWith('"),mdx') ? text.slice(0, -6) : text;
+
+    headings.push({level: parseInt(level.replace("h", "")), text: cleanedText, id});
+  }
+
+  return headings;
 }

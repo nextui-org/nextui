@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from "react";
+import {FC} from "react";
 import {Link as NextUILink, Image} from "@nextui-org/react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -9,10 +9,11 @@ import {Footer} from "./footer";
 
 import {Route} from "@/libs/docs/page";
 import {MetaProps} from "@/libs/docs/meta";
-import {Heading, getHeadings} from "@/utils/docs-utils";
+import {Heading} from "@/libs/docs/utils";
 import {FooterNav, DocsToc} from "@/components/docs";
 import {GITHUB_URL, REPO_NAME} from "@/libs/github/constants";
 import {CONTENT_PATH, TAG} from "@/libs/docs/config";
+
 export interface DocsLayoutProps {
   routes: Route[];
   currentRoute?: Route;
@@ -21,6 +22,7 @@ export interface DocsLayoutProps {
   meta?: MetaProps;
   tag?: string;
   slug?: string;
+  headings?: Heading[];
   children?: React.ReactNode;
 }
 
@@ -35,16 +37,11 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
   currentRoute,
   prevRoute,
   nextRoute,
+  headings,
   tag,
   slug,
   meta,
 }) => {
-  const [headings, setHeadings] = useState<Heading[]>([]);
-
-  useEffect(() => {
-    setHeadings(getHeadings());
-  }, [routes]);
-
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
 
   return (
@@ -71,9 +68,11 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
               )}
             </footer>
           </div>
-          <div className="hidden xl:flex xl:col-span-2 mt-8 pl-4">
-            <DocsToc headings={headings} />
-          </div>
+          {headings && headings.length > 0 && (
+            <div className="hidden xl:flex xl:col-span-2 mt-8 pl-4">
+              <DocsToc headings={headings} />
+            </div>
+          )}
         </div>
       </main>
       <Footer align="right" />
