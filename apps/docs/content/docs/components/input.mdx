@@ -56,9 +56,9 @@ the end of the label and the input will be required.
 
 <CodeDemo title="Radius" files={inputContent.radius} />
 
-### Label Positions
+### Label Placements
 
-You can change the position of the label by setting the `labelPosition` property to `inside`, `outside` or `outside-left`.
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
 
 <CodeDemo title="Label Positions" files={inputContent.labelPositions} />
 
@@ -153,11 +153,11 @@ In case you need to customize the input even further, you can use the `useInput`
 
 ## Accessibility
 
-- Built with a native `<input>` element
-- Visual and ARIA labeling support
-- Change, clipboard, composition, selection, and input event support
-- Required and invalid states exposed to assistive technology via ARIA
-- Support for description and error message help text linked to the input via ARIA
+- Built with a native `<input>` element.
+- Visual and ARIA labeling support.
+- Change, clipboard, composition, selection, and input event support.
+- Required and invalid states exposed to assistive technology via ARIA.
+- Support for description and error message help text linked to the input via ARIA.
 
 ## API
 
@@ -176,9 +176,10 @@ In case you need to customize the input even further, you can use the `useInput`
 | placeholder      | `string`                                                                                                                           | The placeholder of the input.                                                                  | -         |
 | description      | `ReactNode`                                                                                                                        | A description for the input. Provides a hint such as specific requirements for what to choose. | -         |
 | errorMessage     | `ReactNode`                                                                                                                        | An error message for the input.                                                                | -         |
-| labelPosition    | `inside` \| `outside` \| `outside-left`                                                                                            | The position of the label.                                                                     | `inside`  |
+| labelPlacement   | `inside` \| `outside` \| `outside-left`                                                                                            | The position of the label.                                                                     | `inside`  |
 | fullWidth        | `boolean`                                                                                                                          | Whether the input should take up the width of its parent.                                      | `true`    |
 | validationState  | `valid` \| `invalid`                                                                                                               | Whether the input should display its "valid" or "invalid" visual styling.                      | -         |
+| isClearable      | `boolean`                                                                                                                          | Whether the input should have a clear button.                                                  | `false`   |
 | isRequired       | `boolean`                                                                                                                          | Whether user input is required on the input before form submission.                            | `false`   |
 | isReadOnly       | `boolean`                                                                                                                          | Whether the input can be selected but not changed by the user.                                 |           |
 | isDisabled       | `boolean`                                                                                                                          | Whether the input is disabled.                                                                 | `false`   |

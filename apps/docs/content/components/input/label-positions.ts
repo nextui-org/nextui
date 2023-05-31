@@ -15,7 +15,7 @@ export default function App() {
             key={position}
             type="email"
             label="Email"
-            labelPosition={position}
+            labelPlacement={position}
           />
         ))}
       </div>
@@ -25,7 +25,7 @@ export default function App() {
             key={position}
             type="email"
             label="Email"
-            labelPosition={position}
+            labelPlacement={position}
             placeholder="Enter your email"
           />
         ))}

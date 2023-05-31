@@ -41,7 +41,7 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
-    labelPosition: {
+    labelPlacement: {
       control: {
         type: "select",
         options: ["inside", "outside", "outside-left"],
@@ -144,13 +144,13 @@ const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) =
   <div className="w-full flex flex-col items-center gap-12">
     <div className="w-full max-w-xl flex flex-row items-end gap-4">
       <Input {...args} />
-      <Input {...args} labelPosition="inside" />
-      <Input {...args} labelPosition="inside" />
+      <Input {...args} labelPlacement="inside" />
+      <Input {...args} labelPlacement="inside" />
     </div>
     <div className="w-full max-w-xl flex flex-row items-end gap-4">
       <Input {...args} placeholder="Enter your email" />
-      <Input {...args} labelPosition="outside" placeholder="Enter your email" />
-      <Input {...args} labelPosition="outside-left" placeholder="Enter your email" />
+      <Input {...args} labelPlacement="outside" placeholder="Enter your email" />
+      <Input {...args} labelPlacement="outside-left" placeholder="Enter your email" />
     </div>
   </div>
 );
@@ -493,21 +493,21 @@ Clearable.args = {
 export const StartContent = StartContentTemplate.bind({});
 StartContent.args = {
   ...defaultProps,
-  labelPosition: "outside",
+  labelPlacement: "outside",
 };
 
 export const EndContent = EndContentTemplate.bind({});
 EndContent.args = {
   ...defaultProps,
   variant: "bordered",
-  labelPosition: "outside",
+  labelPlacement: "outside",
 };
 
 export const StartAndEndContent = StartAndEndContentTemplate.bind({});
 StartAndEndContent.args = {
   ...defaultProps,
   variant: "bordered",
-  labelPosition: "outside",
+  labelPlacement: "outside",
 };
 
 export const WithErrorMessage = Template.bind({});

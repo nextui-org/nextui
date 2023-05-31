@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-field",
-  "version": "0.0.0-dev-v2-20230530213135",
+  "version": "0.0.0-dev-v2-20230531020353",
   "description": "Based on react-aria useField hook, provides the accessibility implementation for input fields",
   "keywords": [
     "use-aria-field"

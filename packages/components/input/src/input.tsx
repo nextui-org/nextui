@@ -5,10 +5,7 @@ import {useMemo} from "react";
 import {UseInputProps, useInput} from "./use-input";
 
 export interface InputProps
-  extends Omit<
-    UseInputProps,
-    "ref" | "isClearButtonFocusVisible" | "isLabelPlaceholder" | "isTextarea"
-  > {}
+  extends Omit<UseInputProps, "ref" | "isLabelPlaceholder" | "isMultiline"> {}
 
 const Input = forwardRef<InputProps, "input">((props, ref) => {
   const {

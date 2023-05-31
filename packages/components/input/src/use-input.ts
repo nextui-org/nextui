@@ -125,13 +125,14 @@ export function useInput(originalProps: UseInputProps) {
   });
 
   const isInvalid = props.validationState === "invalid";
-  const labelPosition = originalProps.labelPosition || "inside";
-  const isLabelPlaceholder = !props.placeholder && labelPosition !== "outside-left" && !isMultiline;
+  const labelPlacement = originalProps.labelPlacement || "inside";
+  const isLabelPlaceholder =
+    !props.placeholder && labelPlacement !== "outside-left" && !isMultiline;
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
 
-  const shouldLabelBeOutside = labelPosition === "outside" || labelPosition === "outside-left";
-  const shouldLabelBeInside = labelPosition === "inside";
+  const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
+  const shouldLabelBeInside = labelPlacement === "inside";
 
   const hasStartContent = !!startContent;
 
@@ -241,7 +242,7 @@ export function useInput(originalProps: UseInputProps) {
     description,
     startContent,
     endContent,
-    labelPosition,
+    labelPlacement,
     isClearable,
     isInvalid,
     shouldLabelBeOutside,

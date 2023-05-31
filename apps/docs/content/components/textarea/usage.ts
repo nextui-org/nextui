@@ -4,6 +4,7 @@ export default function App() {
   return (
     <Textarea
       label="Description"
+      labelPlacement="outside"
       placeholder="Enter your description"
       className="max-w-xs"
     />

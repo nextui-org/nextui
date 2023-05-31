@@ -53,30 +53,33 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
     >
       <p className="text-sm">On this page</p>
       <ul className="scrollbar-hide flex flex-col gap-2">
-        {headings.map((heading, i) => (
-          <li
-            key={i}
-            className={clsx(
-              "transition-colors",
-              "flex items-center text-sm font-normal text-foreground/30",
-              "data-[active=true]:text-foreground/80",
-              "before:content-['']",
-              "before:opacity-0",
-              "data-[active=true]:before:opacity-100",
-              "before:transition-opacity",
-              "before:-ml-3",
-              "before:absolute",
-              "before:bg-default-400",
-              "before:w-1",
-              "before:h-1",
-              "before:rounded-full",
-              paddingLeftByLevel[heading.level],
-            )}
-            data-active={activeId == heading.id}
-          >
-            <a href={`#${heading.id}`}>{heading.text}</a>
-          </li>
-        ))}
+        {headings.map(
+          (heading, i) =>
+            heading.level > 1 && (
+              <li
+                key={i}
+                className={clsx(
+                  "transition-colors",
+                  "flex items-center text-sm font-normal text-foreground/30",
+                  "data-[active=true]:text-foreground/80",
+                  "before:content-['']",
+                  "before:opacity-0",
+                  "data-[active=true]:before:opacity-100",
+                  "before:transition-opacity",
+                  "before:-ml-3",
+                  "before:absolute",
+                  "before:bg-default-400",
+                  "before:w-1",
+                  "before:h-1",
+                  "before:rounded-full",
+                  paddingLeftByLevel[heading.level],
+                )}
+                data-active={activeId == heading.id}
+              >
+                <a href={`#${heading.id}`}>{heading.text}</a>
+              </li>
+            ),
+        )}
         <li
           className="mt-2 opacity-0 data-[visible=true]:opacity-100 transition-opacity"
           data-visible={activeIndex >= 2}

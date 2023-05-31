@@ -32,7 +32,7 @@ export default {
         options: ["xs", "sm", "md", "lg", "xl"],
       },
     },
-    labelPosition: {
+    labelPlacement: {
       control: {
         type: "select",
         options: ["inside", "outside", "outside-left"],

@@ -32,7 +32,7 @@ export interface TextAreaProps extends Omit<UseInputProps, "ref" | OmittedInputP
   minRows?: number;
   /**
    * Maximum number of rows up to which the textarea can grow
-   * @default 6
+   * @default 8
    */
   maxRows?: number;
   /**

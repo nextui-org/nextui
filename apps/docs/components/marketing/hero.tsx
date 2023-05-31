@@ -58,7 +58,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
           color="secondary"
           defaultValue="NextUI"
           label="Input"
-          labelPosition="outside"
+          labelPlacement="outside"
           radius="xl"
           variant="bordered"
           onClear={() => {}}

@@ -171,7 +171,7 @@ const input = tv({
         inputWrapper: "rounded-full",
       },
     },
-    labelPosition: {
+    labelPlacement: {
       outside: {
         label: "text-foreground",
       },
@@ -220,7 +220,7 @@ const input = tv({
     isMultiline: {
       true: {
         inputWrapper: "!h-auto",
-        input: "resize-none",
+        input: "resize-none py-2",
       },
     },
     disableAnimation: {
@@ -248,7 +248,7 @@ const input = tv({
     size: "md",
     radius: "lg",
     fullWidth: true,
-    labelPosition: "inside",
+    labelPlacement: "inside",
     isDisabled: false,
     disableAnimation: false,
   },
@@ -522,9 +522,9 @@ const input = tv({
         inputWrapper: "after:bg-danger",
       },
     },
-    // size & labelPosition
+    // size & labelPlacement
     {
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "xs",
       class: {
         label: "text-[0.6rem]",
@@ -532,21 +532,21 @@ const input = tv({
       },
     },
     {
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "sm",
       class: {
         inputWrapper: "h-12 py-1.5 px-3",
       },
     },
     {
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "md",
       class: {
         inputWrapper: "h-14 py-2",
       },
     },
     {
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "lg",
       class: {
         label: "text-sm",
@@ -554,17 +554,17 @@ const input = tv({
       },
     },
     {
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "xl",
       class: {
         label: "text-sm",
         inputWrapper: "h-20 p-4 gap-2",
       },
     },
-    // isLabelPlaceholder & labelPosition
+    // isLabelPlaceholder & labelPlacement
     {
       isLabelPlaceholder: true,
-      labelPosition: ["inside", "outside"],
+      labelPlacement: ["inside", "outside"],
       class: {
         label: [
           "font-normal",
@@ -578,7 +578,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       class: {
         inputWrapper: "group",
         label: ["group-focus-within:text-default-600", "group-[.is-filled]:text-default-600"],
@@ -586,7 +586,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "outside",
+      labelPlacement: "outside",
       class: {
         base: "group relative justify-end",
         label: [
@@ -685,7 +685,7 @@ const input = tv({
     // isLabelPlaceholder & inside & size
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "xs",
       class: {
         label: [
@@ -700,7 +700,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
         label: ["text-sm", "group-focus-within:text-xs", "group-[.is-filled]:text-xs"],
@@ -709,7 +709,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "sm",
       class: {
         label: ["group-focus-within:-translate-y-2.5", "group-[.is-filled]:-translate-y-2.5"],
@@ -718,7 +718,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "md",
       class: {
         label: ["group-focus-within:-translate-y-3", "group-[.is-filled]:-translate-y-3"],
@@ -727,7 +727,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "lg",
       class: {
         label: [
@@ -742,7 +742,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "inside",
+      labelPlacement: "inside",
       size: "xl",
       class: {
         label: [
@@ -758,7 +758,7 @@ const input = tv({
     // isLabelPlaceholder & outside & size
     {
       isLabelPlaceholder: true,
-      labelPosition: "outside",
+      labelPlacement: "outside",
       size: "xs",
       class: {
         label: [
@@ -772,7 +772,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "outside",
+      labelPlacement: "outside",
       size: "sm",
       class: {
         label: [
@@ -786,7 +786,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "outside",
+      labelPlacement: "outside",
       size: "md",
       class: {
         label: [
@@ -800,7 +800,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "outside",
+      labelPlacement: "outside",
       size: "lg",
       class: {
         label: [
@@ -816,7 +816,7 @@ const input = tv({
     },
     {
       isLabelPlaceholder: true,
-      labelPosition: "outside",
+      labelPlacement: "outside",
       size: "xl",
       class: {
         label: [

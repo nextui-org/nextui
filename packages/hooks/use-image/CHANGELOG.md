@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230531020353
+
+### Patch Changes
+
+- Textarea & Input styles changed
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230531020353
+
 ## 0.0.0-dev-v2-20230530213135
 
 ### Patch Changes

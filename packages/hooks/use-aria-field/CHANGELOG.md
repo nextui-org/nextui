@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230531020353
+
+### Patch Changes
+
+- Textarea & Input styles changed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230531020353
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230531020353
+
 ## 0.0.0-dev-v2-20230530213135
 
 ### Patch Changes

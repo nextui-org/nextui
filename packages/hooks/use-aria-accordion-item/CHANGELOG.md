@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-accordion-item
 
+## 0.0.0-dev-v2-20230531020353
+
+### Patch Changes
+
+- Textarea & Input styles changed
+
 ## 0.0.0-dev-v2-20230530213135
 
 ### Patch Changes

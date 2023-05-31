@@ -27,7 +27,7 @@ export default function App() {
           type="email"
           label="Email"
           placeholder="you@example.com"
-          labelPosition="outside"
+          labelPlacement="outside"
           startContent={
             <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
@@ -36,7 +36,7 @@ export default function App() {
           type="number"
           label="Price"
           placeholder="0.00"
-          labelPosition="outside"
+          labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-sm">$</span>
@@ -47,7 +47,7 @@ export default function App() {
           type="url"
           label="Website"
           placeholder="nextui.org"
-          labelPosition="outside"
+          labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-sm">https://</span>
@@ -60,7 +60,7 @@ export default function App() {
           type="email"
           label="Email"
           placeholder="you@example.com"
-          labelPosition="outside"
+          labelPlacement="outside"
           endContent={
             <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
@@ -69,7 +69,7 @@ export default function App() {
           type="number"
           label="Price"
           placeholder="0.00"
-          labelPosition="outside"
+          labelPlacement="outside"
           endContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-sm">$</span>
@@ -80,7 +80,7 @@ export default function App() {
           type="url"
           label="Website"
           placeholder="nextui"
-          labelPosition="outside"
+          labelPlacement="outside"
           endContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-sm">.org/</span>
@@ -92,7 +92,7 @@ export default function App() {
         <Input
           label="Email"
           placeholder="nextui"
-          labelPosition="outside"
+          labelPlacement="outside"
           startContent={
             <MailFilledIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
           }
@@ -105,7 +105,7 @@ export default function App() {
         <Input
           label="Price"
           placeholder="0.00"
-          labelPosition="outside"
+          labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-sm">$</span>
@@ -133,7 +133,7 @@ export default function App() {
           type="url"
           label="Website"
           placeholder="nextui"
-          labelPosition="outside"
+          labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-sm">https://</span>

@@ -1,5 +1,20 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230531020353
+
+### Patch Changes
+
+- Textarea & Input styles changed
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230531020353
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230531020353
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230531020353
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230531020353
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230531020353
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230531020353
+  - @nextui-org/system@0.0.0-dev-v2-20230531020353
+  - @nextui-org/theme@0.0.0-dev-v2-20230531020353
+
 ## 0.0.0-dev-v2-20230530213135
 
 ### Patch Changes

@@ -63,7 +63,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           K
         </Kbd>
       }
-      labelPosition="outside"
+      labelPlacement="outside"
       placeholder="Search..."
       startContent={
         <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
