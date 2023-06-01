@@ -4,7 +4,7 @@ export default function App() {
   return (
     <div className="flex gap-4 items-center">
       <Button color="default">
-        default
+        Default
       </Button>
       <Button color="primary">
         Primary
