@@ -1,5 +1,20 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230601002458
+
+### Patch Changes
+
+- Button icon only styles fixed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230601002458
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230601002458
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230601002458
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230601002458
+  - @nextui-org/use-disclosure@0.0.0-dev-v2-20230601002458
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230601002458
+  - @nextui-org/system@0.0.0-dev-v2-20230601002458
+  - @nextui-org/theme@0.0.0-dev-v2-20230601002458
+
 ## 0.0.0-dev-v2-20230601001842
 
 ### Patch Changes

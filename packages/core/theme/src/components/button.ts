@@ -93,7 +93,7 @@ const button = tv({
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
     isIconOnly: {
-      true: "p-0 gap-0",
+      true: "p-0 gap-0 min-w-fit",
       false: "[&>svg]:max-w-[2em]",
     },
     disableAnimation: {

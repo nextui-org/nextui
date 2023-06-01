@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-slot-id
 
+## 0.0.0-dev-v2-20230601002458
+
+### Patch Changes
+
+- Button icon only styles fixed
+
 ## 0.0.0-dev-v2-20230601001842
 
 ### Patch Changes

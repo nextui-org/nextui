@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230601002458
+
+### Patch Changes
+
+- Button icon only styles fixed
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230601002458
+
 ## 0.0.0-dev-v2-20230601001842
 
 ### Patch Changes

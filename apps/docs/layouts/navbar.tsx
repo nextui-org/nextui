@@ -122,7 +122,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               </DropdownMenu>
             </Dropdown>
           ) : (
-            <div className="w-[65px]" />
+            <div className="w-[80px]" />
           )}
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 ml-10 justify-start">
