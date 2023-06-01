@@ -195,7 +195,7 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
     <ul
       {...collectionProps}
       ref={ref}
-      className="flex flex-col gap-4 scrollbar-hide overflow-y-scroll max-h-[calc(100vh_-_64px)] pb-28"
+      className="flex flex-col gap-4 scrollbar-hide lg:overflow-y-scroll lg:max-h-[calc(100vh_-_64px)] pb-28"
       role="tree"
     >
       {[...state.collection].map((item) => {

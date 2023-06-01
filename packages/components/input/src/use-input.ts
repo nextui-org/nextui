@@ -13,7 +13,7 @@ import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 
 import {useAriaTextField} from "./use-aria-textfield";
 
-export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
+export interface Props extends HTMLNextUIProps<"input"> {
   /**
    * Ref to the DOM node.
    */
@@ -58,7 +58,7 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariant
   onValueChange?: AriaTextFieldProps["onChange"];
 }
 
-export type UseInputProps = Props & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
+export type UseInputProps = Props & InputVariantProps & Omit<AriaTextFieldProps, "onChange">;
 
 export function useInput(originalProps: UseInputProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);

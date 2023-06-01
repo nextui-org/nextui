@@ -1,5 +1,18 @@
 # @nextui-org/card
 
+## 0.0.0-dev-v2-20230601001842
+
+### Patch Changes
+
+- Button and spinner styles fixed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230601001842
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230601001842
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230601001842
+  - @nextui-org/drip@0.0.0-dev-v2-20230601001842
+  - @nextui-org/system@0.0.0-dev-v2-20230601001842
+  - @nextui-org/theme@0.0.0-dev-v2-20230601001842
+
 ## 0.0.0-dev-v2-20230531020353
 
 ### Patch Changes

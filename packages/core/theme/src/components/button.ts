@@ -36,7 +36,6 @@ const button = tv({
     "subpixel-antialiased",
     "data-[pressed=true]:scale-95",
     "overflow-hidden",
-    "gap-2",
     // focus ring
     "data-[focus-visible=true]:outline-none",
     "data-[focus-visible=true]:ring-2",
@@ -56,11 +55,11 @@ const button = tv({
       ghost: "border-2 bg-transparent",
     },
     size: {
-      xs: "px-2 h-6 text-xs",
-      sm: "px-3 h-8 text-sm",
-      md: "px-4 h-10 text-sm",
-      lg: "px-6 h-12 text-base",
-      xl: "px-8 h-14 text-lg",
+      xs: "px-2 min-w-[5rem] h-6 text-xs gap-1",
+      sm: "px-3 min-w-[6rem] h-8 text-sm gap-2",
+      md: "px-4 min-w-[7rem] h-10 text-sm gap-2",
+      lg: "px-6 min-w-[8rem] h-12 text-base gap-3",
+      xl: "px-8 min-w-[10rem] h-14 text-lg gap-3",
     },
     color: {
       default: "",

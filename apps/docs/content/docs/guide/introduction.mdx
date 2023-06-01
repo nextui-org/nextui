@@ -8,8 +8,15 @@ url: https://nextui.org/docs/guide/introduction
 
 Welcome to the NextUI documentation!
 
-<NextImage priority src="/nextui-banner.png" quality={100} width={500} height={500} alt="NextUI banner" className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg" />
-
+<NextImage
+  priority
+  src="/nextui-banner.png"
+  quality={100}
+  width={500}
+  height={500}
+  alt="NextUI banner"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
 
 ## What is NextUI?
 
@@ -18,7 +25,7 @@ NextUI is a UI library for React that helps you build beautiful and accessible u
 
 NextUI's primary goal is to streamline the development process, offering a beautiful and adaptable system design for an enhanced user experience.
 
------
+---
 
 ## FAQ
 
@@ -30,55 +37,81 @@ NextUI's primary goal is to streamline the development process, offering a beaut
 
 ### How is NextUI different from TailwindCSS?
 
-- **TailwindCSS**: 
-<p className="text-default-500">
-  Tailwind CSS is a CSS Framework that provides atomic CSS classes to help you style components,
-  leaving you to handle lots of other things like accessibility, component composition, keyboard navigation,
-  style overrides, etc.
-</p>  
+- **TailwindCSS**:
 
-- **NextUI**: 
-<p className="text-default-500">
-  NextUI is a UI library for React that combines the power of TailwindCSS with React Aria to provide
-  a complete solution for building accessible and customizable user interfaces. Since NextUI is built upon TailwindCSS,
-  you can utilize all TailwindCSS classes within your NextUI components, ensuring optimal compiled CSS size.
-</p>
+  <p className="text-default-500">
+    Tailwind CSS is a CSS Framework that provides atomic CSS classes to help you style components,
+    leaving you to handle lots of other things like accessibility, component composition, keyboard
+    navigation, style overrides, etc.
+  </p>
+
+- **NextUI**:
+  <p className="text-default-500">
+    NextUI is a UI library for React that combines the power of TailwindCSS with React Aria to
+    provide a complete components (logic and styles) for building accessible and customizable user
+    interfaces. Since NextUI uses TailwindCSS as its style engine, you can use all TailwindCSS
+    classes within your NextUI components, ensuring optimal compiled CSS size.
+  </p>
 
 ### How is NextUI different from TailwindCSS components libraries?
 
 <p className="text-default-500">
-TailwindCSS components libraries such as <Link isExternal href="https://tailwindui.com/">TailwindUI</Link>, <Link isExternal href="https://flowbite.com/">Flowbite</Link>, or <Link isExternal href="https://preline.co/">Preline</Link>, just to name a few, only 
-offer a curated selection of TailwindCSS classes to style your components. They don't provide any React specific components, logic, props, composition, or accessibility features. In contrast
-to these libraries, NextUI is a complete UI library for React that provides a set of accessible and customizable components, hooks, and utilities.
+  TailwindCSS components libraries such as{" "}
+  <Link isExternal showAnchorIcon href="https://tailwindui.com/">
+    TailwindUI
+  </Link>
+  , <Link isExternal showAnchorIcon href="https://flowbite.com/">
+    Flowbite
+  </Link>, or 
+  <Link isExternal showAnchorIcon href="https://preline.co/">
+    Preline
+  </Link>, just to name a few, only offer a curated selection of TailwindCSS classes to style your components.
+  They don't provide any React specific components, logic, props, composition, or accessibility features.<br/>
+  <Spacer y={2}/>
+  In contrast to these libraries, NextUI is a complete UI library that provides a set of accessible and
+  customizable components, hooks, and utilities.
 </p>
 
 ### How NextUI deals with TailwindCSS classes conflicts?
 
 <p className="text-default-500">
-We created a TailwindCSS utility library called <Link isExternal href="https://www.tailwind-variants.org/">tailwind-variants</Link> that automatically
-handle TailwindCSS class conflicts. This ensures your custom classes will consistently override the default ones, eliminating any duplication.
+  We created a TailwindCSS utility library called{" "}
+  <Link isExternal showAnchorIcon href="https://www.tailwind-variants.org/">
+    tailwind-variants
+  </Link>{" "}
+  that automatically handle TailwindCSS class conflicts. This ensures your custom classes will
+  consistently override the default ones, eliminating any duplication.
 </p>
 
 ### Does NextUI use runtime CSS?
 
 <p className="text-default-500">
-No, NextUI version 2 employs TailwindCSS JIT, which generates CSS at build time, eliminating the need for
-runtime CSS. This means that NextUI is fully compatible with the latest React and Next.js versions.
+  No, As NextUI uses TailwindCSS as its style engine, it generates CSS at build time, eliminating
+  the need for runtime CSS. This means that NextUI is fully compatible with the latest React and
+  Next.js versions.
 </p>
 
 ### Does NextUI support TypeScript?
 
 <p className="text-default-500">
-Yes, NextUI is written in TypeScript and has full support for it.
+  Yes, NextUI is written in TypeScript and has full support for it.
 </p>
 
-### Can I use NextUI with other front-end frameworks or libraries?
+### Can I use NextUI with other front-end frameworks or libraries, such as Vue or Angular?
 
 <p className="text-default-500">
-NextUI is specifically designed for React and is built on top of React Aria. As a result, it is primarily
-tailored for React applications. However, you can still use the CSS part of NextUI with other frameworks or
-libraries, but you will lose the benefits of React Aria and pre-built accessible components that come with NextUI.
+  No, NextUI is specifically designed for React as it is built on top of React Aria. However, you
+  can still use the NextUI components styling part with other frameworks or libraries.
 </p>
+
+### Why NextUI uses Framer Motion?
+
+<p className="text-default-500">
+  We use <Link href="https://www.framer.com/motion" isExternal showAnchorIcon>Framer Motion</Link> to animate some components due to 
+  the complexity of the animations and their physics-based nature. Framer Motion allows us to
+  handle these animations in a more straightforward and performant way in addition it is
+  well tested and production ready.
+</p>  
 
 ---
 

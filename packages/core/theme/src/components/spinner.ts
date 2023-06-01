@@ -16,8 +16,8 @@ import {tv} from "tailwind-variants";
  */
 const spinner = tv({
   slots: {
-    base: "inline-flex flex-col gap-2 items-center justify-center",
-    wrapper: "relative",
+    base: "relative inline-flex flex-col gap-2 items-center justify-center",
+    wrapper: "relative flex",
     circle1: [
       "absolute",
       "w-full",

@@ -1,5 +1,19 @@
 # @nextui-org/tabs
 
+## 0.0.0-dev-v2-20230601001842
+
+### Patch Changes
+
+- Button and spinner styles fixed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230601001842
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230601001842
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230601001842
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230601001842
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230601001842
+  - @nextui-org/system@0.0.0-dev-v2-20230601001842
+  - @nextui-org/theme@0.0.0-dev-v2-20230601001842
+
 ## 0.0.0-dev-v2-20230531020353
 
 ### Patch Changes

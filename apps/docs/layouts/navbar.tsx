@@ -23,6 +23,7 @@ import NextLink from "next/link";
 import {useRouter} from "next/router";
 import {includes} from "lodash";
 import {SearchIcon} from "@nextui-org/shared-icons";
+import {motion, AnimatePresence} from "framer-motion";
 
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, ThemeSwitch} from "@/components";
@@ -90,19 +91,25 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           <NextLink className="flex justify-start items-center gap-3" href="/">
             <LargeLogo className="h-5 md:h-6" />
           </NextLink>
-          {isMounted && ref.current ? (
+          {ref.current ? (
             <Dropdown placement="bottom-start" portalContainer={ref.current}>
-              <DropdownTrigger>
-                <Button
-                  className="hidden sm:flex gap-0.5"
-                  endIcon={<ChevronDownIcon className="text-xs" />}
-                  radius="full"
-                  size="xs"
-                  variant="flat"
-                >
-                  v2.0.0
-                </Button>
-              </DropdownTrigger>
+              <AnimatePresence>
+                {isMounted && (
+                  <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
+                    <DropdownTrigger>
+                      <Button
+                        className="hidden w-[65px] sm:flex gap-0.5"
+                        endIcon={<ChevronDownIcon className="text-xs" />}
+                        radius="full"
+                        size="xs"
+                        variant="flat"
+                      >
+                        v2.0.0
+                      </Button>
+                    </DropdownTrigger>
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <DropdownMenu
                 aria-label="NextUI versions"
                 defaultSelectedKeys={["v2"]}
@@ -115,7 +122,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               </DropdownMenu>
             </Dropdown>
           ) : (
-            <div className="w-[66px]" />
+            <div className="w-[65px]" />
           )}
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 ml-10 justify-start">
@@ -166,7 +173,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         </div>
       </NavbarContent>
 
-      <NavbarContent className="flex w-full gap-2 sm:hidden" justify="end">
+      <NavbarContent className="flex w-full gap-3 sm:hidden" justify="end">
         <Link isExternal href="https://github.com/nextui-org/nextui">
           <GithubIcon className="text-default-600 dark:text-default-500" />
         </Link>

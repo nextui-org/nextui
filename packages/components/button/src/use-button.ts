@@ -185,7 +185,15 @@ export function useButton(props: UseButtonProps) {
   const endIcon = getIconClone(endIconProp);
 
   const spinnerSize = useMemo(() => {
-    return (size === "xs" || size === "sm" ? "xs" : "sm") as SpinnerProps["size"];
+    const buttonSpinnerSizeMap: Record<string, SpinnerProps["size"]> = {
+      xs: "xs",
+      sm: "xs",
+      md: "sm",
+      lg: "sm",
+      xl: "sm",
+    };
+
+    return buttonSpinnerSizeMap[size];
   }, [size]);
 
   return {

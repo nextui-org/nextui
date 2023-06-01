@@ -1,4 +1,4 @@
-import {FC, useState, useEffect} from "react";
+import {FC} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SwitchProps, useSwitch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
@@ -13,7 +13,6 @@ export interface ThemeSwitchProps {
 
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
   const {theme, setTheme} = useTheme();
-  const [mounted, setMounted] = useState(false);
 
   const onChange = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -23,14 +22,6 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
     isSelected: theme === "light",
     onChange,
   });
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return <div className="w-6 h-6" />;
-  }
 
   return (
     <Component
