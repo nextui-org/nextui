@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tabs",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "Tabs organize content into multiple sections and allow users to navigate between them.",
   "keywords": [
     "tabs"
@@ -45,22 +45,22 @@
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
-    "@react-aria/focus": "^3.12.0",
-    "@react-aria/interactions": "^3.15.0",
-    "@react-aria/tabs": "^3.5.0",
-    "@react-aria/utils": "^3.16.0",
-    "@react-stately/tabs": "^3.4.0"
+    "@react-aria/focus": "^3.12.1",
+    "@react-aria/interactions": "^3.15.1",
+    "@react-aria/tabs": "^3.6.0",
+    "@react-aria/utils": "^3.17.0",
+    "@react-stately/tabs": "^3.4.1",
+    "@react-types/shared": "^3.18.1",
+    "@react-types/tabs": "^3.3.0"
   },
   "devDependencies": {
-    "framer-motion": "^10.11.2",
-    "@react-types/shared": "^3.18.0",
+    "framer-motion": "^10.12.16",
     "react-lorem-component": "0.13.0",
     "@nextui-org/card": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "@react-types/tabs": "^3.2.1",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

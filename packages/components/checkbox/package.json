@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/checkbox",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
     "checkbox"
@@ -41,21 +41,21 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
-    "@react-aria/checkbox": "^3.9.0",
-    "@react-aria/focus": "^3.12.0",
-    "@react-aria/interactions": "^3.15.0",
-    "@react-aria/visually-hidden": "^3.8.0",
-    "@react-stately/checkbox": "^3.4.1",
-    "@react-stately/toggle": "^3.5.1",
-    "@react-aria/utils": "^3.16.0"
+    "@react-aria/checkbox": "^3.9.1",
+    "@react-aria/focus": "^3.12.1",
+    "@react-aria/interactions": "^3.15.1",
+    "@react-aria/visually-hidden": "^3.8.1",
+    "@react-stately/checkbox": "^3.4.2",
+    "@react-stately/toggle": "^3.5.2",
+    "@react-aria/utils": "^3.17.0",
+    "@react-types/checkbox": "^3.4.4",
+    "@react-types/shared": "^3.18.1"
   },
   "devDependencies": {
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/user": "workspace:*",
     "@nextui-org/link": "workspace:*",
-    "@react-types/checkbox": "^3.4.3",
-    "@react-types/shared": "^3.18.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

@@ -24,18 +24,31 @@ Next.js 13 introduces a new `app/` directory structure. By default it uses Serve
 As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
 directly in your React Server Components (RSC).
 
-<Steps>
+### create-next-app 
 
-### Installation
-
-In your Next.js project, run one of the following command to install NextUI:
-
+If you are starting a new project, you can run one of the following command to create a Next.js project pre-configured with NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
+    npm: 'npx create-next-app --e https://github.com/nextui-org/next-app-template',
+    yarn: 'yarn create next-app --e https://github.com/nextui-org/next-app-template',
+    pnpm: 'pnpx create next-app --e https://github.com/nextui-org/next-app-template'
+  }}
+/>
+
+### Manual Installation
+
+<Steps>
+
+### Add dependencies
+
+In your Next.js project, run one of the following command to install NextUI:
+
+<PackageManagers
+  commands={{
+    npm: 'npm i @nextui-org/react@dev-v2 framer-motion',
+    yarn: 'yarn add @nextui-org/react@dev-v2 framer-motion',
+    pnpm: 'pnpm add @nextui-org/react@dev-v2 framer-motion',
   }}
 />
 
@@ -145,18 +158,33 @@ After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 ## Pages Directory Setup 
 
-<Steps>
+If you are using the `/pages` Next.js project structure, you need to follow the steps below.
 
-### Installation
+### create-next-app 
 
-In your Next.js project, run one of the following command to install NextUI:
-
+If you are starting a new project, you can run one of the following command to create a Next.js project pre-configured with NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
+    npm: 'npx create-next-app --e https://github.com/nextui-org/next-pages-template',
+    yarn: 'yarn create next-app --e https://github.com/nextui-org/next-pages-template',
+    pnpm: 'pnpx create next-app --e https://github.com/nextui-org/next-pages-template'
+  }}
+/>
+
+### Manual Installation
+
+<Steps>
+
+### Add dependencies
+
+In your Next.js project, run one of the following command to install NextUI:
+
+<PackageManagers
+  commands={{
+    npm: 'npm i @nextui-org/react@dev-v2 framer-motion',
+    yarn: 'yarn add @nextui-org/react@dev-v2 framer-motion',
+    pnpm: 'pnpm add @nextui-org/react@dev-v2 framer-motion',
   }}
 />
 

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/kbd",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "The keyboard key components indicates which key or set of keys used to execute a specificv  action",
   "keywords": [
     "kbd"
@@ -41,7 +41,7 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
-    "@react-aria/utils": "^3.16.0"
+    "@react-aria/utils": "^3.17.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

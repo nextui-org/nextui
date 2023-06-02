@@ -27,7 +27,7 @@
     "@react-aria/virtualizer": "^3.8.0",
     "@react-aria/visually-hidden": "^3.8.0",
     "@react-stately/layout": "^3.12.0",
-    "@react-stately/tree": "^3.6.0",
+    "@react-stately/tree": "^3.6.1",
     "@vercel/analytics": "^0.1.11",
     "canvas-confetti": "^1.4.0",
     "color2k": "^2.0.2",

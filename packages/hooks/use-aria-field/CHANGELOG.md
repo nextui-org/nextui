@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230601153241
+
+### Patch Changes
+
+- React aria packages upgraded, types moved to dependencies
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230601153241
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230601153241
+
 ## 0.0.0-dev-v2-20230601002458
 
 ### Patch Changes

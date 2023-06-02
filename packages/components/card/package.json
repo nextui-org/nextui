@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/card",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "Card is a container for text, photos, and actions in the context of a single subject.",
   "keywords": [
     "card"
@@ -43,13 +43,13 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/drip": "workspace:*",
-    "@react-aria/focus": "^3.12.0",
-    "@react-aria/utils": "^3.16.0",
-    "@react-aria/interactions": "^3.15.0",
-    "@react-aria/button": "^3.7.1"
+    "@react-aria/focus": "^3.12.1",
+    "@react-aria/utils": "^3.17.0",
+    "@react-aria/interactions": "^3.15.1",
+    "@react-aria/button": "^3.7.2",
+    "@react-types/shared": "^3.18.1"
   },
   "devDependencies": {
-    "@react-types/shared": "^3.18.0",
     "@nextui-org/code": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/button": "workspace:*",

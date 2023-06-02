@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/user",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "Flexible User Profile Component.",
   "keywords": [
     "user"
@@ -42,8 +42,8 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
-    "@react-aria/focus": "^3.12.0",
-    "@react-aria/utils": "^3.16.0"
+    "@react-aria/focus": "^3.12.1",
+    "@react-aria/utils": "^3.17.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

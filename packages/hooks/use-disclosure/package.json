@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-disclosure",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "The hook in charge of managing modals",
   "keywords": [
     "use-disclosure"
@@ -39,7 +39,7 @@
   "dependencies": {
     "@nextui-org/use-callback-ref": "workspace:*",
     "@react-stately/utils": "^3.6.0",
-    "@react-aria/utils": "^3.16.0"
+    "@react-aria/utils": "^3.17.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

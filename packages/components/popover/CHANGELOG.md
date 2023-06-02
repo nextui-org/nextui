@@ -1,5 +1,20 @@
 # @nextui-org/popover
 
+## 0.0.0-dev-v2-20230601153241
+
+### Patch Changes
+
+- React aria packages upgraded, types moved to dependencies
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230601153241
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230601153241
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230601153241
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230601153241
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230601153241
+  - @nextui-org/button@0.0.0-dev-v2-20230601153241
+  - @nextui-org/system@0.0.0-dev-v2-20230601153241
+  - @nextui-org/theme@0.0.0-dev-v2-20230601153241
+
 ## 0.0.0-dev-v2-20230601002458
 
 ### Patch Changes

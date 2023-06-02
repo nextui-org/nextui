@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230601153241
+
+### Patch Changes
+
+- React aria packages upgraded, types moved to dependencies
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230601153241
+
 ## 0.0.0-dev-v2-20230601002458
 
 ### Patch Changes

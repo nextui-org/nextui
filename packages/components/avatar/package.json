@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/avatar",
-  "version": "0.0.0-dev-v2-20230601002458",
+  "version": "0.0.0-dev-v2-20230601153241",
   "description": "The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.",
   "keywords": [
     "avatar"
@@ -42,9 +42,9 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/use-image": "workspace:*",
-    "@react-aria/interactions": "^3.15.0",
-    "@react-aria/focus": "^3.12.0",
-    "@react-aria/utils": "^3.16.0"
+    "@react-aria/interactions": "^3.15.1",
+    "@react-aria/focus": "^3.12.1",
+    "@react-aria/utils": "^3.17.0"
   },
   "devDependencies": {
     "@nextui-org/shared-icons": "workspace:*",
