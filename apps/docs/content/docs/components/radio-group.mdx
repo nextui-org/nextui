@@ -1,13 +1,41 @@
 ---
 title: 'Radio'
-description: 'Radios are used when only one choice may be selected in a series of options.'
+description: 'Radio Group allow users to select a single option from a list of mutually exclusive options'
 url: https://nextui.org/docs/components/radio
 ---
 
-# Radio
+# Radio group
 
-Radios allow users to select a single option from a list of mutually exclusive options. All possible options are exposed up front for users to compare. Radio implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useRadioGroup.html" rel="noreferrer" target="_blank">@react-aria/radio</a>
+Radio Group allow users to select a single option from a list of mutually exclusive options. 
 
-```jsx
-import {RadioGroup, Radio} from '@nextui-org/react';
-```
+<ComponentLinks component="radiogroup" reactAriaHook="useRadioGroup" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {RadioGroup, Radio} from "@nextui-org/react";',
+    individual: 'import {RadioGroup, Radio} from "@nextui-org/radio";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={radioGroupContent.usage} />
+
+### Disabled 
+
+<CodeDemo title="Disabled" files={radioGroupContent.disabled} />
+
+
+### Horizontal
+
+<CodeDemo title="Horizontal" files={radioGroupContent.horizontal} />
+
+### Controlled
+
+You can use the `value` and `onValueChange` properties to control the input value.
+
+<CodeDemo title="Controlled" files={radioGroupContent.controlled} />

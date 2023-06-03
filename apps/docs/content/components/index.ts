@@ -20,3 +20,4 @@ export * from "./snippet";
 export * from "./input";
 export * from "./textarea";
 export * from "./image";
+export * from "./radio-group";

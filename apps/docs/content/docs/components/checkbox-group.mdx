@@ -12,6 +12,13 @@ A CheckboxGroup allows users to select one or more items from a list of choices.
 
 ---
 
+## Import
+
+NextUI exports 2 checkbox-related components:
+
+- **CheckboxGroup**: The root component, it wraps the label and the wrapper.
+- **Checkbox**: The checkbox component.
+
 <ImportTabs
   commands={{
     main: 'import {CheckboxGroup, Checkbox} from "@nextui-org/react";',
@@ -32,6 +39,8 @@ A CheckboxGroup allows users to select one or more items from a list of choices.
 <CodeDemo title="Horizontal" files={checkboxGroupContent.horizontal} />
 
 ### Controlled
+
+You can use the `value` and `onValueChange` properties to control the input value.
 
 <CodeDemo title="Controlled" files={checkboxGroupContent.controlled} />
 
