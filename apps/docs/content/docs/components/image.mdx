@@ -1,13 +1,12 @@
 ---
-title: 'Image'
-description: 'The Image component is used to display images with support for fallback.'
+title: "Image"
+description: "The Image component is used to display images with support for fallback."
 url: https://nextui.org/docs/components/image
 ---
 
 # Image
 
 The Image component is used to display images with support for fallback.
-
 
 <ComponentLinks component="image" />
 
@@ -40,8 +39,66 @@ You can use the `isZoomed` prop make the image zoomed when hovered.
 
 ### Animated Loading
 
-Image component has a built-in loading animation, it displays an opacity animation when the image loads.
+Image component has a built-in `skeleton` animation to indicate the image is loading and an
+`opacity` animation when the image loads.
 
-<CodeDemo displayMode="in-view" title="Animated Loading" files={imageContent.loading} />
+<CodeDemo displayMode="visible" title="Animated Loading" files={imageContent.loading} />
 
-> **Note**: The `URL` uses `https://app.requestly.io/delay` to simulate a slow network. 
+> **Note**: The `URL` uses `https://app.requestly.io/delay` to simulate a slow network.
+
+### Image with fallback
+
+You can use the `fallbackSrc` prop to display a fallback image when:
+
+- The `fallbackSrc` prop is provided.
+- The image provided in `src` is still loading.
+- The image provided in `src` fails to load.
+- The image provided in `src` is not found.
+
+<CodeDemo displayMode="visible" title="Image with fallback" files={imageContent.fallback} />
+
+### With Next.js Image
+
+Next.js provides an optimized [Image](https://nextjs.org/docs/app/api-reference/components/image) component,
+you can use it with NextUI `Image` component as well.
+
+<CodeDemo showPreview={false} title="With Next.js Image" files={imageContent.nextjs} />
+
+> **Note**: NextUI's `Image` component is `client-side`, using hooks like `useState` for loading states
+> and animations. Use Next.js `Image` alone if these features aren't required.
+
+## Slots
+
+- **base**: Image wrapper, it handles alignment, placement, and general appearance.
+- **img**: Slot for the image element.
+- **zoomedWrapper**: The wrapper slot for the zoomed image it avoids the image content to overflow the parent container.
+- **blurredImg**: The wrapper slot for the duplicated blurred image.
+
+## API
+
+### Image Props
+
+| Attribute       | Type                                                                         | Description                                                                                                                                                                                                 | Default |
+| --------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| src             | `string`                                                                     | The image source.                                                                                                                                                                                           | -       |
+| srcSet          | `string`                                                                     | The image srcSet.                                                                                                                                                                                           | -       |
+| sizes           | `string`                                                                     | The image sizes.                                                                                                                                                                                            | -       |
+| alt             | `string`                                                                     | The image alt.                                                                                                                                                                                              | -       |
+| width           | `number`                                                                     | The image width.                                                                                                                                                                                            | -       |
+| height          | `number`                                                                     | The image height.                                                                                                                                                                                           | -       |
+| radius          | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | The image border radius.                                                                                                                                                                                    | `xl`    |
+| shadow          | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`           | The image shadow.                                                                                                                                                                                           | `none`  |
+| loading         | `eager` \| `lazy`                                                            | A loading strategy to use for the image.                                                                                                                                                                    | -       |
+| fallbackSrc     | `string`                                                                     | The fallback image source.                                                                                                                                                                                  | -       |
+| isBlurred       | `boolean`                                                                    | Whether the image should have a duplicated blurred image at the background.                                                                                                                                 | `false` |
+| isZoomed        | `boolean`                                                                    | Whether the image should be zoomed when hovered.                                                                                                                                                            | `false` |
+| removeWrapper   | `boolean`                                                                    | Whether to remove the wrapper element. This will cause the image to be rendered as a direct child of the parent element. If you set this prop as `true` neither the skeleton nor the zoom effect will work. | `false` |
+| disableSkeleton | `boolean`                                                                    | Whether the image should disable the skeleton animation while loading.                                                                                                                                      | `false` |
+| classNames      | `Record<"base"｜ "img"｜ "zoomedWrapper"｜ "blurredImg", string>`            | Allows to set custom class names for the image slots.                                                                                                                                                       | -       |
+
+### Card Events
+
+| Attribute | Type                                  | Description                                          |
+| --------- | ------------------------------------- | ---------------------------------------------------- |
+| onLoad    | `ReactEventHandler<HTMLImageElement>` | Handler that is called when the image load.          |
+| onError   | `() => void`                          | Handler that is called when the image fails to load. |

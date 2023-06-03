@@ -63,7 +63,6 @@ const image = tv({
         base: "shadow",
         img: "shadow",
       },
-
       md: {
         base: "shadow-md",
         img: "shadow-md",

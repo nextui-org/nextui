@@ -5,7 +5,8 @@ export default function App() {
     <Image
       isZoomed
       width={240}
-      src="/images/fruit-1.jpeg"
+      alt="NextUI Fruit Image with Zoom"
+      src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
     />
   );
 }`;

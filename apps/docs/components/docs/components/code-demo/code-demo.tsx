@@ -35,7 +35,7 @@ interface CodeDemoProps extends UseCodeDemoProps {
   enableResize?: boolean;
   showPreview?: boolean;
   showOpenInCodeSandbox?: boolean;
-  displayMode?: "always" | "in-view";
+  displayMode?: "always" | "visible";
   defaultExpanded?: boolean;
   showWindowActions?: boolean;
   iframeSrc?: string;
@@ -64,7 +64,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   iframeSrc,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, {once: true});
 
   const {noInline, code} = useCodeDemo({
     files,
@@ -89,7 +89,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
 
     if (displayMode === "always") return content;
 
-    if (displayMode === "in-view") return isInView ? content : null;
+    if (displayMode === "visible") return isInView ? content : null;
   }, [displayMode, showPreview, isInView]);
 
   return (
