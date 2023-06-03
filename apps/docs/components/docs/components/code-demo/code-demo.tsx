@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
 import {Spinner} from "@nextui-org/react";
+import {useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 
@@ -34,6 +35,7 @@ interface CodeDemoProps extends UseCodeDemoProps {
   enableResize?: boolean;
   showPreview?: boolean;
   showOpenInCodeSandbox?: boolean;
+  displayMode?: "always" | "in-view";
   defaultExpanded?: boolean;
   showWindowActions?: boolean;
   iframeSrc?: string;
@@ -56,29 +58,43 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
+  displayMode = "always",
   highlightedLines,
   iframeInitialWidth,
   iframeSrc,
 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
   const {noInline, code} = useCodeDemo({
     files,
   });
 
+  const previewContent = useMemo(() => {
+    if (!showPreview) return null;
+
+    const content = (
+      <DynamicReactLiveDemo
+        code={code}
+        enableResize={enableResize || asIframe}
+        height={previewHeight}
+        iframeInitialWidth={iframeInitialWidth}
+        iframeSrc={iframeSrc}
+        iframeTitle={component}
+        noInline={noInline}
+        overflow={overflow}
+        showWindowActions={showWindowActions || asIframe}
+      />
+    );
+
+    if (displayMode === "always") return content;
+
+    if (displayMode === "in-view") return isInView ? content : null;
+  }, [displayMode, showPreview, isInView]);
+
   return (
-    <div className="flex flex-col gap-4">
-      {showPreview && (
-        <DynamicReactLiveDemo
-          code={code}
-          enableResize={enableResize || asIframe}
-          height={previewHeight}
-          iframeInitialWidth={iframeInitialWidth}
-          iframeSrc={iframeSrc}
-          iframeTitle={component}
-          noInline={noInline}
-          overflow={overflow}
-          showWindowActions={showWindowActions || asIframe}
-        />
-      )}
+    <div ref={ref} className="flex flex-col gap-4">
+      {previewContent}
       <DynamicSandpack
         defaultExpanded={defaultExpanded}
         files={files}
