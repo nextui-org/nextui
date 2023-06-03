@@ -19,3 +19,4 @@ export * from "./skeleton";
 export * from "./snippet";
 export * from "./input";
 export * from "./textarea";
+export * from "./image";

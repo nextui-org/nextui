@@ -98,6 +98,7 @@ export function useImage(originalProps: UseImageProps) {
 
   const isImgLoaded = imageStatus === "loaded" && !isLoadingProp;
   const isLoading = imageStatus === "loading" || isLoadingProp;
+  const isZoomed = originalProps.isZoomed;
 
   const Component = as || "img";
 
@@ -115,6 +116,9 @@ export function useImage(originalProps: UseImageProps) {
 
   const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
   const showSkeleton = isLoading && !disableSkeleton;
+  const showWrapper = removeWrapper
+    ? false
+    : isBlurred || isZoomed || !disableSkeleton || fallbackSrc;
 
   const slots = useMemo(
     () =>
@@ -128,11 +132,13 @@ export function useImage(originalProps: UseImageProps) {
   const baseStyles = clsx(className, classNames?.base);
 
   const getImgProps: PropGetter = (props = {}) => {
+    const imgStyles = clsx(showWrapper ? classNames?.img : baseStyles, props?.className);
+
     return {
       src,
       ref: domRef,
       "data-loaded": dataAttr(isImgLoaded),
-      className: slots.img({class: clsx(baseStyles, props?.className)}),
+      className: slots.img({class: imgStyles}),
       ...otherProps,
     };
   };
@@ -170,8 +176,8 @@ export function useImage(originalProps: UseImageProps) {
     disableSkeleton,
     fallbackSrc,
     removeWrapper,
-    isZoomed: originalProps.isZoomed,
-    isLoading: originalProps.isLoading,
+    isZoomed,
+    isLoading,
     getImgProps,
     getWrapperProps,
     getBlurredImgProps,

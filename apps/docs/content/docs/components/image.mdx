@@ -1,13 +1,45 @@
 ---
 title: 'Image'
-description: 'The Image component is used to display images'
+description: 'The Image component is used to display images with support for fallback.'
 url: https://nextui.org/docs/components/image
 ---
 
 # Image
 
-The Image component is used to display images.
+The Image component is used to display images with support for fallback.
 
-```jsx
-import {Image} from '@nextui-org/react';
-```
+
+<ComponentLinks component="image" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Image} from "@nextui-org/react";',
+    individual: 'import {Image} from "@nextui-org/image";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={imageContent.usage} />
+
+### Blurred
+
+You can use the `isBlurred` prop to duplicate the image and blur it to create a blurred effect.
+
+<CodeDemo title="Blurred" files={imageContent.blurred} />
+
+### Zoomed
+
+You can use the `isZoomed` prop make the image zoomed when hovered.
+
+<CodeDemo title="Zoomed" files={imageContent.zoomed} />
+
+### Animated Loading
+
+Image component has a built-in loading animation, it displays an opacity animation when the image loads.
+
+<CodeDemo title="Animated Loading" files={imageContent.loaded} />
