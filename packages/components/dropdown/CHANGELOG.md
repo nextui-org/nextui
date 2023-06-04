@@ -1,5 +1,19 @@
 # @nextui-org/dropdown
 
+## 0.0.0-dev-v2-20230604204500
+
+### Patch Changes
+
+- Switch API changed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230604204500
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230604204500
+  - @nextui-org/use-is-mobile@0.0.0-dev-v2-20230604204500
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230604204500
+  - @nextui-org/popover@0.0.0-dev-v2-20230604204500
+  - @nextui-org/system@0.0.0-dev-v2-20230604204500
+  - @nextui-org/theme@0.0.0-dev-v2-20230604204500
+
 ## 0.0.0-dev-v2-20230604191549
 
 ### Patch Changes

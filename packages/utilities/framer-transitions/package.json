@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/framer-transitions",
-  "version": "0.0.0-dev-v2-20230604191549",
+  "version": "0.0.0-dev-v2-20230604204500",
   "description": "A set of framer motion transitions for react",
   "keywords": [
     "framer-transitions"

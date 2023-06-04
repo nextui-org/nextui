@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-button
 
+## 0.0.0-dev-v2-20230604204500
+
+### Patch Changes
+
+- Switch API changed
+
 ## 0.0.0-dev-v2-20230604191549
 
 ### Patch Changes

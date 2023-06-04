@@ -1,14 +1,160 @@
 ---
-title: 'Switch'
-description: 'The Switch component is used as an alternative for the Checkbox component. You can switch between enabled or disabled states.'
+title: "Switch"
+description: "The Switch component is used as an alternative between checked and not checked states."
 url: https://nextui.org/docs/components/switch
 ---
 
 # Switch
 
-The Switch component is used as an alternative for the [Checkbox](https://nextui.org/docs/components/checkbox)
-component. You can switch between enabled or disabled states.
+The Switch component is used as an alternative between checked and not checked states.
 
-```jsx
-import {Switch} from '@nextui-org/react';
+<ComponentLinks component="switch" styles="toggle" reactAriaHook="useSwitch" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Switch} from "@nextui-org/react";',
+    individual: 'import {Switch} from "@nextui-org/switch";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={switchContent.usage} />
+
+### With Label
+
+<CodeDemo title="With Label" files={switchContent.label} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={switchContent.disabled} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={switchContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={switchContent.colors} />
+
+### With Thumb Icon
+
+<CodeDemo title="With Thumb Icon" files={switchContent.thumbIcon} />
+
+### With Icons
+
+You can also add icons to start and end of the switch by using `startContent` and `endContent` props.
+
+<CodeDemo title="With Icons" files={switchContent.icons} highlightedLines="11-12" />
+
+### Controlled
+
+<CodeDemo title="Controlled" files={switchContent.controlled} />
+
+> **Note**: NextUI `Switch` also supports native events like `onChange`, useful for form libraries
+> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+## Slots
+
+- **base**: Base slot for the switch. It is the main wrapper.
+- **wrapper**: The wrapper of the start icon, end icon and thumb.
+- **thumb**: The thumb element of the switch. It is the circle element.
+- **label**: The label slot of the switch.
+- **startContent**:The icon slot at the start of the switch.
+- **endContent**: The icon slot at the end of the switch.
+- **thumbIcon**: The icon slot inside the thumb.
+
+### Custom Styles
+
+You can customize the `Switch` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={switchContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the switch even further, you can use the `useSwitch` hook to create your own implementation.
+
+<CodeDemo title="Custom Implementation" files={switchContent.customImpl} />
+
+<Spacer y={4} />{" "}
+
+## Data Attributes
+
+`Switch` has the following attributes on the `root` element:
+
+- **data-selected**:
+  When the switch is checked. Based on `isSelected` prop.
+- **data-pressed**:
+  When the switch is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-readonly**:
+  When the switch is readonly. Based on `isReadOnly` prop.
+- **data-hover**:
+  When the switch is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus**:
+  When the switch is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the switch is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the switch is disabled. Based on `isDisabled` prop.
+
+<Spacer y={4} />{" "}
+
+## Accessibility
+
+- Built with a native HTML `<input>` element.
+- Full support for browser features like form autofill.
+- Keyboard focus management and cross browser normalization.
+- Keyboard event support for <kbd>Tab</kbd> and <kbd>Space</kbd> keys.
+- Labeling support for assistive technology.
+- Exposed as a switch to assistive technology via ARIA
+
+<Spacer y={4} />{" "}
+
+## API
+
+### Switch Props
+
+| Attribute        | Type                                                                                                       | Description                                                         | Default   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------- |
+| children         | `ReactNode`                                                                                                | The label of the switch.                                            | -         |
+| value            | `string`                                                                                                   | The value of the input element, used when submitting an HTML form.  | -         |
+| name             | `string`                                                                                                   | The name of the input element, used when submitting an HTML form.   | -         |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                                       | The size of the switch.                                             | `md`      |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                | The color of the switch.                                            | `primary` |
+| thumbIcon        | [ThumbIconProps](#switch-icon-props)                                                                       | The icon to be displayed when the switch is checked.                | -         |
+| startContent     | `ReactNode`                                                                                                | The icon to be displayed at the start of the switch.                | -         |
+| endContent       | `ReactNode`                                                                                                | The icon to be displayed at the end of the switch.                  | -         |
+| isSelected       | `boolean`                                                                                                  | Whether the element should be selected (controlled).                | -         |
+| defaultSelected  | `boolean`                                                                                                  | Whether the element should be selected (uncontrolled).              | -         |
+| isRequired       | `boolean`                                                                                                  | Whether user input is required on the input before form submission. | `false`   |
+| isReadOnly       | `boolean`                                                                                                  | Whether the input can be selected but not changed by the user.      | -         |
+| isDisabled       | `boolean`                                                                                                  | Whether the switch is disabled.                                     | `false`   |
+| disableAnimation | `boolean`                                                                                                  | Whether the animation should be disabled.                           | `false`   |
+| classNames       | `Record<"base"｜ "wrapper"｜ "thumb"｜ "label" ｜ "startContent" ｜ "endContent" ｜ "thumbIcon" , string>` | Allows to set custom class names for the switch slots.              | -         |
+
+### Switch Events
+
+| Attribute     | Type                                  | Description                                                                                                                                              |
+| ------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing `event.target.checked` (boolean). |
+| onValueChange | `(isSelected: boolean) => void`       | Handler that is called when the element's selection state changes.                                                                                       |
+
+### Types
+
+#### Switch Icon Props
+
+```ts
+type IconProps = {
+  "data-checked": string;
+  width: string;
+  height: string;
+  isSelected: boolean;
+  className: string;
+};
+
+type CheckboxIconProps = ReactNode | ((props: IconProps) => ReactNode);
 ```

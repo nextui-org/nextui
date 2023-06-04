@@ -43,11 +43,11 @@ interface Props extends HTMLNextUIProps<"label"> {
   /**
    * Start icon to be displayed inside the switch.
    */
-  startIcon?: ReactNode;
+  startContent?: ReactNode;
   /**
    * End icon to be displayed inside the switch.
    */
-  endIcon?: ReactNode;
+  endContent?: ReactNode;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -84,8 +84,8 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     value = "",
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
-    startIcon,
-    endIcon,
+    startContent,
+    endContent,
     defaultSelected,
     isSelected: isSelectedProp,
     children,
@@ -189,7 +189,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, props?.className)}),
       "data-disabled": dataAttr(isDisabled),
-      "data-checked": dataAttr(isSelected),
+      "data-selected": dataAttr(isSelected),
       "data-readonly": dataAttr(isReadOnly),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
@@ -261,24 +261,24 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     [slots, classNames?.thumbIcon, isSelected],
   );
 
-  const getStartIconProps = useCallback<PropGetter>(
+  const getStartContentProps = useCallback<PropGetter>(
     (props = {}) => ({
       width: "1em",
       height: "1em",
       ...props,
-      className: slots.startIcon({class: clsx(classNames?.startIcon, props?.className)}),
+      className: slots.startContent({class: clsx(classNames?.startContent, props?.className)}),
     }),
-    [slots, classNames?.startIcon, isSelected],
+    [slots, classNames?.startContent, isSelected],
   );
 
-  const getEndIconProps = useCallback<PropGetter>(
+  const getEndContentProps = useCallback<PropGetter>(
     (props = {}) => ({
       width: "1em",
       height: "1em",
       ...props,
-      className: slots.endIcon({class: clsx(classNames?.endIcon, props?.className)}),
+      className: slots.endContent({class: clsx(classNames?.endContent, props?.className)}),
     }),
-    [slots, classNames?.endIcon, isSelected],
+    [slots, classNames?.endContent, isSelected],
   );
 
   return {
@@ -288,8 +288,8 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     domRef,
     children,
     thumbIcon,
-    startIcon,
-    endIcon,
+    startContent,
+    endContent,
     isHovered,
     isSelected,
     isPressed: pressed,
@@ -302,8 +302,8 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     getLabelProps,
     getThumbProps,
     getThumbIconProps,
-    getStartIconProps,
-    getEndIconProps,
+    getStartContentProps,
+    getEndContentProps,
   };
 }
 

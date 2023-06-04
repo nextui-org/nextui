@@ -6,7 +6,7 @@ import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SunFilledIcon, MoonFilledIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 
-import {Switch, SwitchProps, SwitchThumbIconProps, useSwitch} from "../src";
+import {Switch, SwitchProps, SwitchthumbIconProps, useSwitch} from "../src";
 
 export default {
   title: "Components/Switch",
@@ -51,11 +51,11 @@ const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => 
       <Switch
         {...args}
         classNames={{
-          startIcon: "text-white",
+          startContent: "text-white",
         }}
-        endIcon={<MoonFilledIcon />}
+        endContent={<MoonFilledIcon />}
         isSelected={isSelected}
-        startIcon={<SunFilledIcon />}
+        startContent={<SunFilledIcon />}
         onValueChange={setIsSelected}
       />
       <p className="text-default-500">Selected: {isSelected ? "true" : "false"}</p>
@@ -158,11 +158,11 @@ DisableAnimation.args = {
   disableAnimation: true,
 };
 
-export const WithThumbIcon = Template.bind({});
-WithThumbIcon.args = {
+export const WiththumbIcon = Template.bind({});
+WiththumbIcon.args = {
   ...defaultProps,
   size: "xl",
-  thumbIcon: (props: SwitchThumbIconProps) =>
+  thumbIcon: (props: SwitchthumbIconProps) =>
     props.isSelected ? (
       <SunFilledIcon className={props.className} />
     ) : (

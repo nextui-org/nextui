@@ -53,7 +53,6 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 ## Slots
 
 - RadioGroup Slots
-
   - **base**: Radio group root wrapper, it wraps the label and the wrapper.
   - **wrapper**: Radio group wrapper, it wraps all Radios.
   - **label**: Radio group label, it is placed before the wrapper.
@@ -70,6 +69,8 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 
 ### Custom Styles
 
+You can customize the `RadioGroup` and `Radio` component by passing custom Tailwind CSS classes to the component slots.
+
 <CodeDemo title="Custom Styles" files={radioGroupContent.customStyles} />
 
 ### Custom Implementation
@@ -77,6 +78,8 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 In case you need to customize the radio group even further, you can use the `useRadio` hook to create your own implementation.
 
 <CodeDemo title="Custom Implementation" files={radioGroupContent.customImpl} />
+
+<Spacer y={4}/>  
 
 ## Data Attributes
 
@@ -106,6 +109,8 @@ In case you need to customize the radio group even further, you can use the `use
   - **data-disabled**:
     When the radio is disabled. Based on `isDisabled` prop.
 
+<Spacer y={4}/>  
+
 ## Accessibility
 
 - Radio groups are exposed to assistive technology via ARIA.
@@ -114,6 +119,8 @@ In case you need to customize the radio group even further, you can use the `use
 - Keyboard event support for arrows keys.
 - Keyboard focus management and cross browser normalization.
 - Group and radio labeling support for assistive technology.
+
+<Spacer y={4}/>  
 
 ## API
 

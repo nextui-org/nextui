@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230604204500
+
+### Patch Changes
+
+- Switch API changed
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230604204500
+
 ## 0.0.0-dev-v2-20230604191549
 
 ### Patch Changes

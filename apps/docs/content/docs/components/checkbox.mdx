@@ -71,6 +71,8 @@ The `isIndeterminate` prop sets a `Checkbox` to an indeterminate state, overridi
 
 ### Custom Styles
 
+You can customize the `Checkbox` component by passing custom Tailwind CSS classes to the component slots.
+
 <CodeDemo title="Custom Styles" files={checkboxContent.customStyles} />
 
 ### Custom Implementation
@@ -80,6 +82,8 @@ In case you need to customize the checkbox even further, you can use the `useChe
 <CodeDemo title="Custom Implementation" files={checkboxContent.customImplementation} />
 
 > **Note**: We used [Tailwind Variants](https://www.tailwind-variants.org/) to implement the styles above, you can use any other library such as [clsx](https://www.npmjs.com/package/clsx) to achieve the same result.
+
+<Spacer y={4} />{" "}
 
 ## Data Attributes
 
@@ -106,6 +110,8 @@ In case you need to customize the checkbox even further, you can use the `useChe
 - **data-loading**:
   When the checkbox is loading. Based on `isLoading` prop.
 
+<Spacer y={4} />{" "}
+
 ## Accessibility
 
 - Built with a native HTML `<input>` element.
@@ -114,6 +120,8 @@ In case you need to customize the checkbox even further, you can use the `useChe
 - Keyboard event support for <kbd>Tab</kbd> and <kbd>Space</kbd> keys.
 - Labeling support for assistive technology.
 - Indeterminate state support.
+
+<Spacer y={4} />
 
 ## API
 
@@ -141,10 +149,10 @@ In case you need to customize the checkbox even further, you can use the `useChe
 
 ### Checkbox Events
 
-| Attribute     | Type                                   | Description                                                                                                                                              |
-| ------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `React.ChangeEvent <HTMLInputElement>` | Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing `event.target.checked` (boolean). |
-| onValueChange | `(isSelected: boolean) => void`        | Handler that is called when the element's selection state changes.                                                                                       |
+| Attribute     | Type                                  | Description                                                                                                                                              |
+| ------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing `event.target.checked` (boolean). |
+| onValueChange | `(isSelected: boolean) => void`       | Handler that is called when the element's selection state changes.                                                                                       |
 
 ### Types
 

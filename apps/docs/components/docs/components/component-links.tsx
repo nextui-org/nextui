@@ -5,11 +5,17 @@ import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
 
 export interface ComponentLinksProps {
   component: string;
+  styles?: string;
   storybook?: string;
   reactAriaHook?: string;
 }
 
-export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentLinksProps) => {
+export const ComponentLinks = ({
+  component,
+  storybook,
+  styles,
+  reactAriaHook,
+}: ComponentLinksProps) => {
   if (!component) {
     return null;
   }
@@ -70,7 +76,7 @@ export const ComponentLinks = ({component, storybook, reactAriaHook}: ComponentL
         isExternal
         as={Link}
         className="text-default-700"
-        href={`${COMPONENT_THEME_PATH}/${component}.ts`}
+        href={`${COMPONENT_THEME_PATH}/${styles || component}.ts`}
         radius="md"
         size="sm"
         startIcon={<GithubIcon />}

@@ -148,9 +148,9 @@ describe("Switch", () => {
       }),
     );
 
-    const checkedThumbIcon = container.querySelector("[data-testid=checked-thumb-icon]");
+    const checkedthumbIcon = container.querySelector("[data-testid=checked-thumb-icon]");
 
-    expect(checkedThumbIcon).toBeInTheDocument();
+    expect(checkedthumbIcon).toBeInTheDocument();
 
     act(() => {
       checkbox.click();
@@ -164,31 +164,33 @@ describe("Switch", () => {
       }),
     );
 
-    const uncheckedThumbIcon = container.querySelector("[data-testid=unchecked-thumb-icon]");
+    const uncheckedthumbIcon = container.querySelector("[data-testid=unchecked-thumb-icon]");
 
-    expect(uncheckedThumbIcon).toBeInTheDocument();
+    expect(uncheckedthumbIcon).toBeInTheDocument();
   });
 
-  it('should work with "startIcon"', () => {
+  it('should work with "startContent"', () => {
     const wrapper = render(
-      <Switch aria-label="switch" startIcon={<svg data-testid="start-icon" />} />,
+      <Switch aria-label="switch" startContent={<svg data-testid="start-icon" />} />,
     );
 
     expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
   });
 
-  it('should work with "endIcon"', () => {
-    const wrapper = render(<Switch aria-label="switch" endIcon={<svg data-testid="end-icon" />} />);
+  it('should work with "endContent"', () => {
+    const wrapper = render(
+      <Switch aria-label="switch" endContent={<svg data-testid="end-icon" />} />,
+    );
 
     expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
   });
 
-  it('should work with "startIcon" and "endIcon"', () => {
+  it('should work with "startContent" and "endContent"', () => {
     const wrapper = render(
       <Switch
         aria-label="switch"
-        endIcon={<svg data-testid="end-icon" />}
-        startIcon={<svg data-testid="start-icon" />}
+        endContent={<svg data-testid="end-icon" />}
+        startContent={<svg data-testid="start-icon" />}
       />,
     );
 

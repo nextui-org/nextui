@@ -1,6 +1,6 @@
 import React, {useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
-import {Spinner} from "@nextui-org/react";
+import {Skeleton} from "@nextui-org/react";
 import {useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
@@ -10,22 +10,14 @@ const DynamicReactLiveDemo = dynamic(
   {
     ssr: false,
     // eslint-disable-next-line react/display-name
-    loading: () => (
-      <div>
-        <Spinner />
-      </div>
-    ),
+    loading: () => <Skeleton className="w-full h-24 rounded-xl" />,
   },
 );
 
 const DynamicSandpack = dynamic(() => import("../../../sandpack").then((m) => m.Sandpack), {
   ssr: false,
   // eslint-disable-next-line react/display-name
-  loading: () => (
-    <div>
-      <Spinner />
-    </div>
-  ),
+  loading: () => <Skeleton className="w-full h-32 rounded-xl" />,
 });
 
 interface CodeDemoProps extends UseCodeDemoProps {

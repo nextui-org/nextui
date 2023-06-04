@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230604204500
+
+### Patch Changes
+
+- Switch API changed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230604204500
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230604204500
+
 ## 0.0.0-dev-v2-20230604191549
 
 ### Patch Changes
