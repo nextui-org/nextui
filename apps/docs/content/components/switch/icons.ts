@@ -41,7 +41,7 @@ export default function App() {
     <Switch
       defaultSelected
       size="lg"
-      color="secondary"
+      color="success"
       startContent={<SunIcon />}
       endContent={<MoonIcon />}
     >
