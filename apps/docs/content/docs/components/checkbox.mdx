@@ -55,9 +55,12 @@ The `isIndeterminate` prop sets a `Checkbox` to an indeterminate state, overridi
 
 <CodeDemo title="Custom Check Icon" files={checkboxContent.customCheckIcon} />
 
-### Controlled Checkbox
+### Controlled
 
 <CodeDemo title="Controlled Checkbox" files={checkboxContent.controlled} />
+
+> **Note**: NextUI `Checkbox` also supports native events like `onChange`, useful for form libraries
+> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
 ## Slots
 
@@ -100,8 +103,6 @@ In case you need to customize the checkbox even further, you can use the `useChe
   When the checkbox is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
 - **data-disabled**:
   When the checkbox is disabled. Based on `isDisabled` prop.
-- **data-pressed**:
-  When the checkbox is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
 - **data-loading**:
   When the checkbox is loading. Based on `isLoading` prop.
 

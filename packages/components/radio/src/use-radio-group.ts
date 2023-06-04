@@ -76,6 +76,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
+    errorMessage,
+    description,
     validationState,
     className,
     onChange,
@@ -99,10 +101,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
 
   const groupState = useRadioGroupState(otherPropsWithOrientation);
 
-  const {labelProps, radioGroupProps: groupProps} = useReactAriaRadioGroup(
-    otherPropsWithOrientation,
-    groupState,
-  );
+  const {
+    labelProps,
+    radioGroupProps: groupProps,
+    errorMessageProps,
+    descriptionProps,
+  } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
 
   const context: ContextType = useMemo(
     () => ({
@@ -156,14 +160,34 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     };
   };
 
+  const getDescriptionProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ...descriptionProps,
+      className: slots.description({class: clsx(classNames?.description, props?.className)}),
+    };
+  };
+
+  const getErrorMessageProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ...errorMessageProps,
+      className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
+    };
+  };
+
   return {
     Component,
     children,
     label,
     context,
+    errorMessage,
+    description,
     getGroupProps,
     getLabelProps,
     getWrapperProps,
+    getDescriptionProps,
+    getErrorMessageProps,
   };
 }
 

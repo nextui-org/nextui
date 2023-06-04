@@ -159,21 +159,26 @@ IsRequired.args = {
 export const WithDescription = Template.bind({});
 WithDescription.args = {
   ...defaultProps,
-  description: "for",
+  description: "Please select an option",
 };
 
 export const Invalid = Template.bind({});
 Invalid.args = {
   ...defaultProps,
   validationState: "invalid",
-  description: "for",
+};
+
+export const WithErrorMessage = Template.bind({});
+WithErrorMessage.args = {
+  ...defaultProps,
+  validationState: "invalid",
+  errorMessage: "The selected option is invalid",
 };
 
 export const Row = Template.bind({});
 Row.args = {
   ...defaultProps,
   orientation: "horizontal",
-  description: "for",
 };
 
 export const DisableAnimation = Template.bind({});

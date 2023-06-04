@@ -196,7 +196,9 @@ const checkboxGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
     label: "relative text-default-500",
-    wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row ",
+    wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
+    description: "text-xs text-default-400",
+    errorMessage: "text-xs text-danger",
   },
 });
 

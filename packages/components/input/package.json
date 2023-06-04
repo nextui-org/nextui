@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/input",
-  "version": "0.0.0-dev-v2-20230601153241",
+  "version": "0.0.0-dev-v2-20230604191549",
   "description": "The input component is designed for capturing user input within a text field.",
   "keywords": [
     "input"

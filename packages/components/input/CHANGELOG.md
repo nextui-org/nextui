@@ -1,5 +1,18 @@
 # @nextui-org/input
 
+## 0.0.0-dev-v2-20230604191549
+
+### Patch Changes
+
+- Radio and Checkbox group error message and description added
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230604191549
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230604191549
+  - @nextui-org/use-aria-field@0.0.0-dev-v2-20230604191549
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230604191549
+  - @nextui-org/system@0.0.0-dev-v2-20230604191549
+  - @nextui-org/theme@0.0.0-dev-v2-20230604191549
+
 ## 0.0.0-dev-v2-20230601153241
 
 ### Patch Changes

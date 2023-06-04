@@ -40,7 +40,7 @@ NextUI exports 2 checkbox-related components:
 
 ### Controlled
 
-You can use the `value` and `onValueChange` properties to control the input value.
+You can use the `value` and `onValueChange` properties to control the checkbox input value.
 
 <CodeDemo title="Controlled" files={checkboxGroupContent.controlled} />
 
@@ -49,6 +49,8 @@ You can use the `value` and `onValueChange` properties to control the input valu
 - **base**: Checkbox group root wrapper, it wraps the label and the wrapper.
 - **wrapper**: Checkbox group wrapper, it wraps all checkboxes.
 - **label**: Checkbox group label, it is placed before the wrapper.
+- **description**: The description of the checkbox group.
+- **errorMessage**: The error message of the checkbox group.
 
 ### Custom Styles
 
@@ -69,18 +71,20 @@ In case you need to customize the checkbox even further, you can use the `useChe
 | Attribute        | Type                                                                        | Description                                                                | Default    |
 | ---------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------- |
 | children         | `ReactNode[]` \| `ReactNode[]`                                              | The checkboxes items.                                                      | -          |
-| value            | `string[]`                                                                  | The current selected values. (controlled).                                 |            |
 | orientation      | `vertical` \| `horizontal`                                                  | The axis the checkbox group items should align with.                       | `vertical` |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the checkboxes.                                               | `primary`  |
 | size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the checkboxes.                                                | `md`       |
 | radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`          | The radius of the checkboxes.                                              | `md`       |
+| name             | `string`                                                                    | The name of the CheckboxGroup, used when submitting an HTML form.          | -          |
+| value            | `string[]`                                                                  | The current selected values. (controlled).                                 | -          |
 | lineThrough      | `boolean`                                                                   | Whether the checkboxes label should be crossed out.                        | `false`    |
-| defaultValue     | `string[]`                                                                  | The default selected values. (uncontrolled).                               |            |
+| defaultValue     | `string[]`                                                                  | The default selected values. (uncontrolled).                               | -          |
 | validationState  | `valid` \| `invalid`                                                        | Whether the inputs should display its "valid" or "invalid" visual styling. | `false`    |
+| description      | `ReactNode`                                                                 | The checkbox group description.                                            | -          |
+| errorMessage     | `ReactNode`                                                                 | The checkbox group error message.                                          | -          |
 | isDisabled       | `boolean`                                                                   | Whether the checkbox group is disabled.                                    | `false`    |
 | isRequired       | `boolean`                                                                   | Whether user checkboxes are required on the input before form submission.  | `false`    |
-| isReadOnly       | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.        |            |
-| isDisabled       | `boolean`                                                                   | Whether the checkbox group is disabled.                                    |            |
+| isReadOnly       | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.        | -          |
 | disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                  | `false`    |
 | classNames       | `Record<"base"｜ "wrapper"｜ "label", string>`                              | Allows to set custom class names for the checkbox group slots.             | -          |
 

@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mounted
 
+## 0.0.0-dev-v2-20230604191549
+
+### Patch Changes
+
+- Radio and Checkbox group error message and description added
+
 ## 0.0.0-dev-v2-20230601153241
 
 ### Patch Changes

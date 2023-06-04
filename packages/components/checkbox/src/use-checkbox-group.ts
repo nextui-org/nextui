@@ -72,6 +72,8 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     lineThrough = false,
     isDisabled = false,
     disableAnimation = false,
+    description,
+    errorMessage,
     className,
     ...otherProps
   } = props;
@@ -82,7 +84,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const groupState = useCheckboxGroupState(otherProps);
 
-  const {labelProps, groupProps} = useReactAriaCheckboxGroup(
+  const {labelProps, groupProps, descriptionProps, errorMessageProps} = useReactAriaCheckboxGroup(
     {
       "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
       ...otherProps,
@@ -130,14 +132,34 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     };
   };
 
+  const getDescriptionProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ...descriptionProps,
+      className: slots.description({class: clsx(classNames?.description, props?.className)}),
+    };
+  };
+
+  const getErrorMessageProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      ...errorMessageProps,
+      className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
+    };
+  };
+
   return {
     Component,
     children,
     label,
     context,
+    description,
+    errorMessage,
     getGroupProps,
     getLabelProps,
     getWrapperProps,
+    getDescriptionProps,
+    getErrorMessageProps,
   };
 }
 

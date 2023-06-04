@@ -11,9 +11,13 @@ const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
     children,
     label,
     context,
+    description,
+    errorMessage,
     getGroupProps,
     getLabelProps,
     getWrapperProps,
+    getDescriptionProps,
+    getErrorMessageProps,
   } = useRadioGroup({ref, ...props});
 
   return (
@@ -22,6 +26,11 @@ const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
       <div {...getWrapperProps()}>
         <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
       </div>
+      {errorMessage ? (
+        <div {...getErrorMessageProps()}>{errorMessage}</div>
+      ) : description ? (
+        <div {...getDescriptionProps()}>{description}</div>
+      ) : null}
     </Component>
   );
 });

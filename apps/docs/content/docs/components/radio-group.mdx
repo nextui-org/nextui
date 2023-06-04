@@ -1,12 +1,12 @@
 ---
-title: 'Radio'
-description: 'Radio Group allow users to select a single option from a list of mutually exclusive options'
+title: "Radio"
+description: "Radio Group allow users to select a single option from a list of mutually exclusive options"
 url: https://nextui.org/docs/components/radio
 ---
 
 # Radio group
 
-Radio Group allow users to select a single option from a list of mutually exclusive options. 
+Radio Group allow users to select a single option from a list of mutually exclusive options.
 
 <ComponentLinks component="radiogroup" reactAriaHook="useRadioGroup" />
 
@@ -25,10 +25,17 @@ Radio Group allow users to select a single option from a list of mutually exclus
 
 <CodeDemo title="Usage" files={radioGroupContent.usage} />
 
-### Disabled 
+### Disabled
 
 <CodeDemo title="Disabled" files={radioGroupContent.disabled} />
 
+### Default Value
+
+<CodeDemo title="Default Value" files={radioGroupContent.defaultValue} />
+
+### With Description
+
+<CodeDemo title="With Description" files={radioGroupContent.withDescription} />
 
 ### Horizontal
 
@@ -36,6 +43,122 @@ Radio Group allow users to select a single option from a list of mutually exclus
 
 ### Controlled
 
-You can use the `value` and `onValueChange` properties to control the input value.
+You can use the `value` and `onValueChange` properties to control the radio input value.
 
 <CodeDemo title="Controlled" files={radioGroupContent.controlled} />
+
+> **Note**: NextUI `Radio` also supports native events like `onChange`, useful for form libraries
+> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+## Slots
+
+- RadioGroup Slots
+
+  - **base**: Radio group root wrapper, it wraps the label and the wrapper.
+  - **wrapper**: Radio group wrapper, it wraps all Radios.
+  - **label**: Radio group label, it is placed before the wrapper.
+  - **description**: Description slot for the radio group.
+  - **errorMessage**: Error message slot for the radio group.
+
+- Radio Slots
+  - **base**: Radio root wrapper, it wraps all elements.
+  - **wrapper**: Radio wrapper, it wraps the control element.
+  - **labelWrapper**: Label and description wrapper.
+  - **label**: Label slot for the radio.
+  - **control**: Control element, it is the circle element.
+  - **description**: Description slot for the radio.
+
+### Custom Styles
+
+<CodeDemo title="Custom Styles" files={radioGroupContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the radio group even further, you can use the `useRadio` hook to create your own implementation.
+
+<CodeDemo title="Custom Implementation" files={radioGroupContent.customImpl} />
+
+## Data Attributes
+
+- RadioGroup has the following attributes on the `root` element:
+
+  - **data-orientation**:
+    The orientation of the radio group. Based on `orientation` prop.
+
+- Radio has the following attributes on the `root` element:
+
+  - **data-selected**:
+    When the radio is checked. Based on `isSelected` prop.
+  - **data-pressed**:
+    When the radio is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html).
+  - **data-invalid**:
+    When the radio is invalid. Based on `validationState` prop.
+  - **data-readonly**:
+    When the radio is readonly. Based on `isReadOnly` prop.
+  - **data-hover-unselected**:
+    When the radio is being hovered and unchecked. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html).
+  - **data-hover**:
+    When the radio is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html).
+  - **data-focus**:
+    When the radio is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+  - **data-focus-visible**:
+    When the radio is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+  - **data-disabled**:
+    When the radio is disabled. Based on `isDisabled` prop.
+
+## Accessibility
+
+- Radio groups are exposed to assistive technology via ARIA.
+- Each radio is built with a native HTML `<input>` element, which can be optionally visually hidden to allow custom styling.
+- Full support for browser features like form autofill.
+- Keyboard event support for arrows keys.
+- Keyboard focus management and cross browser normalization.
+- Group and radio labeling support for assistive technology.
+
+## API
+
+### RadioGroup Props
+
+| Attribute        | Type                                                                        | Description                                                                                                                                                       | Default    |
+| ---------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| children         | `ReactNode` \| `ReactNode[]`                                                | The list of radio elements.                                                                                                                                       | -          |
+| label            | `ReactNode`                                                                 | The label of the radio group.                                                                                                                                     | -          |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the radios.                                                                                                                                           | `md`       |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the radios.                                                                                                                                          | `primary`  |
+| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`          | The radius of the radios.                                                                                                                                         | `full`     |
+| orientation      | `horizontal` \| `vertical`                                                  | The orientation of the radio group.                                                                                                                               | `vertical` |
+| name             | `string`                                                                    | The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons). | -          |
+| value            | `string[]`                                                                  | The current selected value. (controlled).                                                                                                                         | -          |
+| defaultValue     | `string[]`                                                                  | The default selected value. (uncontrolled).                                                                                                                       | -          |
+| validationState  | `valid` \| `invalid`                                                        | Whether the inputs should display its "valid" or "invalid" visual styling.                                                                                        | `false`    |
+| description      | `ReactNode`                                                                 | Radio group description .                                                                                                                                         | -          |
+| errorMessage     | `ReactNode`                                                                 | Radio group error message.                                                                                                                                        | -          |
+| isDisabled       | `boolean`                                                                   | Whether the radio group is disabled.                                                                                                                              | `false`    |
+| isRequired       | `boolean`                                                                   | Whether user checkboxes are required on the input before form submission.                                                                                         | `false`    |
+| isReadOnly       | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.                                                                                               | -          |
+| disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                                                                                                         | `false`    |
+| classNames       | `Record<"base"｜ "wrapper"｜ "label", string>`                              | Allows to set custom class names for the radio group slots.                                                                                                       | -          |
+
+### RadioGroup Events
+
+| Attribute     | Type                                  | Description                                                                                                                         |
+| ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's value changes. You can pull out the new value by accessing `event.target.value` (string). |
+| onValueChange | `((value: string) => void)`           | Handler that is called when the value changes.                                                                                      |
+
+### Radio Props
+
+| Attribute        | Type                                                                                           | Description                                                                                    | Default   |
+| ---------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
+| children         | `ReactNode`                                                                                    | The label of the radio.                                                                        | -         |
+| label            | `ReactNode`                                                                                    | The label of the radio.                                                                        | -         |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                           | The size of the radio.                                                                         | `md`      |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                    | The color of the radio.                                                                        | `primary` |
+| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                             | The radius of the radio.                                                                       | `lg`      |
+| description      | `ReactNode`                                                                                    | A description for the field. Provides a hint such as specific requirements for what to choose. | -         |
+| isDisabled       | `boolean`                                                                                      | Whether the radio is disabled.                                                                 | `false`   |
+| isRequired       | `boolean`                                                                                      | Whether user checkboxes are required on the input before form submission.                      | `false`   |
+| isReadOnly       | `boolean`                                                                                      | Whether the checkboxes can be selected but not changed by the user.                            | -         |
+| isInvalid        | `boolean`                                                                                      | Whether the radio is invalid. This is based on the radio groupo `validationState` prop.        | `false`   |
+| disableAnimation | `boolean`                                                                                      | Whether the animation should be disabled.                                                      | `false`   |
+| classNames       | `Record<"base"｜ "wrapper"｜ "labelWrapper" ｜ "label" ｜ "control" ｜ "description", string>` | Allows to set custom class names for the radio slots.                                          | -         |

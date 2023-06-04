@@ -10,12 +10,12 @@ import {tv} from "tailwind-variants";
  * @example
  * <label
  *    className={base())}
- *    data-checked={boolean}
- *    data-hover-unchecked={boolean}
+ *    data-selected={boolean}
+ *    data-hover-unselected={boolean}
  *    data-focus-visible={boolean}
  * >
  *  // input
- *  <span className={wrapper()} aria-hidden="true" data-checked={checked} data-hover-unchecked={hoverUnchecked}>
+ *  <span className={wrapper()} aria-hidden="true" data-selected={selected} data-hover-unselected={hoverUnchecked}>
  *     <span className={point()}/>
  *  </span>
  *  <div className={labelWrapper()}>
@@ -38,7 +38,7 @@ const radio = tv({
       "border-2",
       "box-border",
       "border-default",
-      "group-data-[hover-unchecked=true]:bg-default-100",
+      "group-data-[hover-unselected=true]:bg-default-100",
       // focus ring
       "group-data-[focus-visible=true]:outline-none",
       "group-data-[focus-visible=true]:ring-2",
@@ -55,8 +55,8 @@ const radio = tv({
       "opacity-0",
       "scale-0",
       "origin-center",
-      "group-data-[checked=true]:opacity-100",
-      "group-data-[checked=true]:scale-100",
+      "group-data-[selected=true]:opacity-100",
+      "group-data-[selected=true]:scale-100",
     ],
     label: "relative text-foreground select-none",
     description: "relative text-default-400",
@@ -65,27 +65,27 @@ const radio = tv({
     color: {
       default: {
         control: "bg-default-500 text-default-foreground",
-        wrapper: "group-data-[checked=true]:border-default-500",
+        wrapper: "group-data-[selected=true]:border-default-500",
       },
       primary: {
         control: "bg-primary text-primary-foreground",
-        wrapper: "group-data-[checked=true]:border-primary",
+        wrapper: "group-data-[selected=true]:border-primary",
       },
       secondary: {
         control: "bg-secondary text-secondary-foreground",
-        wrapper: "group-data-[checked=true]:border-secondary",
+        wrapper: "group-data-[selected=true]:border-secondary",
       },
       success: {
         control: "bg-success text-success-foreground",
-        wrapper: "group-data-[checked=true]:border-success",
+        wrapper: "group-data-[selected=true]:border-success",
       },
       warning: {
         control: "bg-warning text-warning-foreground",
-        wrapper: "group-data-[checked=true]:border-warning",
+        wrapper: "group-data-[selected=true]:border-warning",
       },
       danger: {
         control: "bg-danger text-danger-foreground",
-        wrapper: "group-data-[checked=true]:border-danger",
+        wrapper: "group-data-[selected=true]:border-danger",
       },
     },
     size: {
@@ -163,7 +163,7 @@ const radio = tv({
     isInvalid: {
       true: {
         control: "bg-danger text-danger-foreground",
-        wrapper: "border-danger data-[checked=true]:border-danger",
+        wrapper: "border-danger data-[selected=true]:border-danger",
         label: "text-danger",
         description: "text-danger-300",
       },
@@ -203,7 +203,9 @@ const radioGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
     label: "relative text-default-500",
-    wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row ",
+    wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
+    description: "text-xs text-default-400",
+    errorMessage: "text-xs text-danger",
   },
 });
 

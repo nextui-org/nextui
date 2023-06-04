@@ -93,6 +93,25 @@ LineThrough.args = {
   lineThrough: true,
 };
 
+export const WithDescription = Template.bind({});
+WithDescription.args = {
+  ...defaultProps,
+  description: "Select the cities you want to visit",
+};
+
+export const Invalid = Template.bind({});
+Invalid.args = {
+  ...defaultProps,
+  validationState: "invalid",
+};
+
+export const WithErrorMessage = Template.bind({});
+WithErrorMessage.args = {
+  ...defaultProps,
+  validationState: "invalid",
+  errorMessage: "The selected cities cannot be visited at the same time",
+};
+
 export const DisableAnimation = Template.bind({});
 DisableAnimation.args = {
   label: "Select cities",

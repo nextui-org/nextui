@@ -48,7 +48,7 @@ const input = tv({
       "data-[focus-visible]:ring-offset-background",
       "data-[focus-visible]:dark:ring-offset-background-dark",
     ],
-    description: "text-xs text-default-500",
+    description: "text-xs text-default-400",
     errorMessage: "text-xs text-danger",
   },
   variants: {
