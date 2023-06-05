@@ -89,7 +89,7 @@ import {NextUIProvider} from '@nextui-org/react'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
+    <NextUIProvider locale="en">
       {children}
     </NextUIProvider>
   )
@@ -222,7 +222,7 @@ import {NextUIProvider} from '@nextui-org/react'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NextUIProvider>
+    <NextUIProvider locale="en">
       <Component {...pageProps} />
     </NextUIProvider>
   )
