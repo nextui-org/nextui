@@ -29,7 +29,7 @@ RouterEvents.on("routeChangeError", () => {
 
 const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   return (
-    <NextUIProvider>
+    <NextUIProvider locale="en">
       <ThemeProvider attribute="class" defaultTheme="dark">
         <Component {...pageProps} />
         {__PROD__ && <Analytics />}
