@@ -25,7 +25,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     slots,
     classNames,
     motionProps,
-    backdropVariant,
+    backdrop,
     showCloseButton,
     disableAnimation,
     getDialogProps,
@@ -58,8 +58,8 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     </>
   );
 
-  const backdrop = useMemo(() => {
-    if (backdropVariant === "transparent") {
+  const backdropContent = useMemo(() => {
+    if (backdrop === "transparent") {
       return null;
     }
 
@@ -76,11 +76,11 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
         {...(getBackdropProps() as HTMLMotionProps<"div">)}
       />
     );
-  }, [backdropVariant, disableAnimation, getBackdropProps]);
+  }, [backdrop, disableAnimation, getBackdropProps]);
 
   return (
     <div tabIndex={-1}>
-      {backdrop}
+      {backdropContent}
       {disableAnimation ? (
         <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
       ) : (

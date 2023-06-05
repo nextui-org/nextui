@@ -63,7 +63,7 @@ export default {
         ],
       },
     },
-    backdropVariant: {
+    backdrop: {
       control: {
         type: "select",
         options: ["transparent", "blur", "opaque"],

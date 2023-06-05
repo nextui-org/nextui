@@ -1,5 +1,20 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230605023127
+
+### Patch Changes
+
+- Popover and Tooltip API simplified
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230605023127
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230605023127
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230605023127
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230605023127
+  - @nextui-org/use-disclosure@0.0.0-dev-v2-20230605023127
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230605023127
+  - @nextui-org/system@0.0.0-dev-v2-20230605023127
+  - @nextui-org/theme@0.0.0-dev-v2-20230605023127
+
 ## 0.0.0-dev-v2-20230604204500
 
 ### Patch Changes

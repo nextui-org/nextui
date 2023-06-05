@@ -35,7 +35,7 @@ export default {
         options: ["none", "base", "sm", "md", "lg", "xl"],
       },
     },
-    backdropVariant: {
+    backdrop: {
       control: {
         type: "select",
         options: ["transparent", "blur", "opaque"],

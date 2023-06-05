@@ -63,7 +63,7 @@ const input = tv({
       faded: {
         inputWrapper: [
           "bg-default-100",
-          "border",
+          "border-2",
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],

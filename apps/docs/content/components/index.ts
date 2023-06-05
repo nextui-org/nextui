@@ -22,3 +22,4 @@ export * from "./textarea";
 export * from "./image";
 export * from "./radio-group";
 export * from "./switch";
+export * from "./popover";

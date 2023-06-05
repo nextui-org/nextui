@@ -55,7 +55,7 @@ export default {
         ],
       },
     },
-    backdropVariant: {
+    backdrop: {
       control: {
         type: "select",
         options: ["transparent", "blur", "opaque"],
@@ -161,70 +161,6 @@ const OpenChangeTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) 
         </PopoverContent>
       </Popover>
       <p className="text-sm">isOpen: {isOpen ? "true" : "false"}</p>
-    </div>
-  );
-};
-
-const VariantsTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => {
-  const buttonColor = args.color as ButtonVariantProps["color"];
-
-  const content = (
-    <PopoverContent>
-      <div className="px-1 py-2">
-        <div className="text-sm font-bold">Popover Content</div>
-        <div className="text-xs">This is a content of the popover</div>
-      </div>
-    </PopoverContent>
-  );
-
-  return (
-    <div className="flex gap-2">
-      <Popover {...args} variant="solid">
-        <PopoverTrigger>
-          <Button color={buttonColor}>Solid</Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
-      <Popover {...args} variant="bordered">
-        <PopoverTrigger>
-          <Button color={buttonColor} variant="bordered">
-            Bordered
-          </Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
-      <Popover {...args} variant="light">
-        <PopoverTrigger>
-          <Button color={buttonColor} variant="light">
-            Light
-          </Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
-      <Popover {...args} variant="flat">
-        <PopoverTrigger>
-          <Button color={buttonColor} variant="flat">
-            Flat
-          </Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
-      <Popover {...args} variant="faded">
-        <PopoverTrigger>
-          <Button color={buttonColor} variant="faded">
-            Faded
-          </Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
-      <Popover {...args} variant="shadow">
-        <PopoverTrigger>
-          <Button color={buttonColor} variant="shadow">
-            Shadow
-          </Button>
-        </PopoverTrigger>
-        {content}
-      </Popover>
     </div>
   );
 };
@@ -474,12 +410,6 @@ OpenChange.args = {
   ...defaultProps,
 };
 
-export const Variants = VariantsTemplate.bind({});
-Variants.args = {
-  ...defaultProps,
-  color: "primary",
-};
-
 export const Placements = PlacementsTemplate.bind({});
 Placements.args = {
   ...defaultProps,
@@ -503,7 +433,6 @@ WithForm.args = {
   showArrow: true,
   offset: 10,
   placement: "top",
-  variant: "shadow",
   className: "w-[280px] bg-white dark:bg-content1",
 };
 
@@ -513,8 +442,7 @@ WithBackdrop.args = {
   showArrow: true,
   offset: 10,
   placement: "left",
-  variant: "shadow",
-  backdropVariant: "blur",
+  backdrop: "blur",
   className: "bg-white dark:bg-content1",
 };
 

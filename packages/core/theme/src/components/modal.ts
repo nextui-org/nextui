@@ -116,10 +116,10 @@ const modal = tv({
       "2xl": {base: "rounded-2xl"},
       "3xl": {base: "rounded-3xl"},
     },
-    backdropVariant: {
+    backdrop: {
       transparent: {},
       opaque: {
-        backdrop: "bg-black/30 backdrop-opacity-50",
+        backdrop: "bg-black/50 backdrop-opacity-50",
       },
       blur: {
         backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/20",
@@ -139,13 +139,13 @@ const modal = tv({
   defaultVariants: {
     size: "md",
     radius: "lg",
-    backdropVariant: "blur",
+    backdrop: "blur",
     scrollBehavior: "inside",
   },
   compoundVariants: [
-    // backdropVariant (opaque/blur)
+    // backdrop (opaque/blur)
     {
-      backdropVariant: ["opaque", "blur"],
+      backdrop: ["opaque", "blur"],
       class: {
         backdrop: "block w-full h-full fixed inset-0",
       },

@@ -21,15 +21,17 @@
   width: 100%;
   font-size: 14px;
 }
+
 .sp-cm {
   max-height: 100%;
   overflow: hidden;
 }
-
 .cm-scroller {
   overflow: hidden;
   max-height: 600px;
 }
+
+
 
 .sp-code-viewer.is-expanded .cm-scroller {
   overflow: auto;

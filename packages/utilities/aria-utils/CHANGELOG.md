@@ -1,5 +1,13 @@
 # @nextui-org/aria-utils
 
+## 0.0.0-dev-v2-20230605023127
+
+### Patch Changes
+
+- Popover and Tooltip API simplified
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230605023127
+
 ## 0.0.0-dev-v2-20230604204500
 
 ### Patch Changes

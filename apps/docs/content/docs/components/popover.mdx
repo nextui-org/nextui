@@ -6,8 +6,84 @@ url: https://nextui.org/docs/components/tooltip
 
 # Popover
 
-Popover is a **non-modal** dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something. Popover implementation is based on [@react-aria/overlays](https://react-spectrum.adobe.com/react-aria/useOverlay.html).
+Popover is a **non-modal** dialog that floats around its disclosure. It's commonly used for displaying 
+additional rich content on top of something.
 
-```jsx
-import {Popover} from '@nextui-org/react';
-```
+<ComponentLinks component="popover" reactAriaHook="usePopover" />
+
+---
+
+## Import
+
+NextUI exports 4 popover-related components:
+
+- **Popover**: The main component to display a popover.
+- **PopoverTrigger**: The component that triggers the popover.
+- **PopoverContent**: The component that contains the popover content.
+
+
+<ImportTabs
+  commands={{
+    main: 'import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";',
+    individual: 'import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/popover";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={popoverContent.usage} />
+
+### With Arrow
+
+<CodeDemo title="With Arrow" files={popoverContent.arrow} />
+
+### Offset
+
+<CodeDemo title="Offset" files={popoverContent.offset} />
+
+### Open Callback
+
+Popover provides an `onOpenChange` callback to handle the open event.
+
+<CodeDemo title="Open Callback" files={popoverContent.openCallback} />
+
+### Placements
+
+<CodeDemo title="Placements" files={popoverContent.placements} />
+
+### Colors
+
+<CodeDemo title="Colors" files={popoverContent.colors} />
+
+### Title Props
+
+To be sure that the popover exposes the correct title to assistive technologies, you should use the
+`titleProps` prop on the `PopoverContent` component. To use this prop, you must pass a function as a child.
+
+<CodeDemo title="Title Props" files={popoverContent.titleProps} />
+
+### With Form
+
+The `Popover` handles the focus within the popover content. It means that you can use the popover with
+form elements without any problem. the focus returns to the trigger when the popover closes.
+
+<CodeDemo title="With Form" files={popoverContent.withForm} />
+
+
+> **Note**: The first `Input` component is focused when the popover opens because it has the `autoFocus` prop.
+
+### Backdrop
+
+The `Popover` component has a `backdrop` prop to show a backdrop behind the popover. The backdrop can be
+either `transparent`, `opaque` or `blur`. The default value is `transparent`.
+
+<CodeDemo title="Backdrop" files={popoverContent.backdrop} />
+
+
+### Custom Motion
+
+Popover offers a `motionProps` property to customize the `enter` / `exit` animation.
+
+<CodeDemo title="Custom Motion" files={popoverContent.customMotion} />
+
+> Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).

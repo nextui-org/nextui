@@ -106,7 +106,7 @@ const dropdownItem = tv({
         base: "bg-transparent",
       },
       faded: {
-        base: "border border-transparent hover:border-default data-[hover=true]:bg-default-100",
+        base: "border-2 border-transparent hover:border-default data-[hover=true]:bg-default-100",
       },
       flat: {
         base: "",

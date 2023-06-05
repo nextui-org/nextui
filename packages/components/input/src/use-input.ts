@@ -58,7 +58,9 @@ export interface Props extends HTMLNextUIProps<"input"> {
   onValueChange?: AriaTextFieldProps["onChange"];
 }
 
-export type UseInputProps = Props & InputVariantProps & Omit<AriaTextFieldProps, "onChange">;
+export type UseInputProps = Omit<Props, keyof InputVariantProps> &
+  Omit<AriaTextFieldProps, "onChange"> &
+  InputVariantProps;
 
 export function useInput(originalProps: UseInputProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);

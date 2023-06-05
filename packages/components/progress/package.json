@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/progress",
-  "version": "0.0.0-dev-v2-20230604204500",
+  "version": "0.0.0-dev-v2-20230605023127",
   "description": "Progress bars show either determinate or indeterminate progress of an operation over time.",
   "keywords": [
     "progress"

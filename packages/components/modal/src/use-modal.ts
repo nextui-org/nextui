@@ -210,7 +210,7 @@ export function useModal(originalProps: UseModalProps) {
     isDismissable,
     showCloseButton,
     portalContainer,
-    backdropVariant: originalProps.backdropVariant ?? "opaque",
+    backdrop: originalProps.backdrop ?? "opaque",
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,

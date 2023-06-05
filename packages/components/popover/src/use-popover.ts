@@ -171,11 +171,11 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
-    className: slots.base({class: clsx(baseStyles, props.className)}),
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
     "data-focus-visible": dataAttr(isFocusVisible),
     ...mergeProps(focusProps, props),
+    className: slots.base({class: clsx(baseStyles, props.className)}),
     style: {
       // this prevent the dialog to have a default outline
       outline: "none",
@@ -230,7 +230,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,
-    backdropVariant: originalProps.backdropVariant ?? "transparent",
+    backdrop: originalProps.backdrop ?? "transparent",
     motionProps,
     focusProps,
     getBackdropProps,

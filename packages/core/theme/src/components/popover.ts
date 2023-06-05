@@ -30,7 +30,8 @@ const popover = tv({
       "px-4",
       "py-1",
       "text-base",
-      "!outline-none",
+      "outline-none",
+      "box-border",
       // focus ring
       "data-[focus-visible=true]:outline-none",
       "data-[focus-visible=true]:ring-2",
@@ -80,17 +81,6 @@ const popover = tv({
     ],
   },
   variants: {
-    variant: {
-      solid: {base: ""},
-      bordered: {
-        base: "border-2 !bg-background",
-        arrow: "border-2 border-inherit !bg-background",
-      },
-      light: {base: "!bg-transparent", arrow: "hidden"},
-      faded: {base: "border", arrow: "border border-inherit"},
-      flat: {base: ""},
-      shadow: {base: ""},
-    },
     size: {
       xs: {base: "text-xs"},
       sm: {base: "text-sm"},
@@ -99,13 +89,27 @@ const popover = tv({
       xl: {base: "text-xl"},
     },
     color: {
-      default: {base: colorVariants.solid.default},
-      foreground: {base: colorVariants.solid.foreground},
-      primary: {base: colorVariants.solid.primary},
-      secondary: {base: colorVariants.solid.secondary},
-      success: {base: colorVariants.solid.success},
-      warning: {base: colorVariants.solid.warning},
-      danger: {base: colorVariants.solid.danger},
+      default: {
+        base: "bg-background dark:bg-content1",
+      },
+      foreground: {
+        base: colorVariants.solid.foreground,
+      },
+      primary: {
+        base: colorVariants.solid.primary,
+      },
+      secondary: {
+        base: colorVariants.solid.secondary,
+      },
+      success: {
+        base: colorVariants.solid.success,
+      },
+      warning: {
+        base: colorVariants.solid.warning,
+      },
+      danger: {
+        base: colorVariants.solid.danger,
+      },
     },
     radius: {
       none: {base: "rounded-none"},
@@ -116,10 +120,33 @@ const popover = tv({
       xl: {base: "rounded-xl"},
       full: {base: "rounded-full"},
     },
-    backdropVariant: {
+    shadow: {
+      none: {
+        base: "shadow-none",
+      },
+      sm: {
+        base: "shadow-sm",
+      },
+      md: {
+        base: "shadow-md",
+      },
+      lg: {
+        base: "shadow-lg",
+      },
+      xl: {
+        base: "shadow-xl",
+      },
+      "2xl": {
+        base: "shadow-2xl",
+      },
+      inner: {
+        base: "shadow-inner",
+      },
+    },
+    backdrop: {
       transparent: {},
       opaque: {
-        backdrop: "bg-black/30 backdrop-opacity-50",
+        backdrop: "bg-black/50 backdrop-opacity-50",
       },
       blur: {
         backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/20",
@@ -138,200 +165,18 @@ const popover = tv({
     },
   },
   defaultVariants: {
-    variant: "solid",
     color: "default",
     radius: "xl",
     size: "md",
-    backdropVariant: "transparent",
+    shadow: "lg",
+    backdrop: "transparent",
     disableAnimation: false,
     triggerScaleOnOpen: true,
   },
   compoundVariants: [
-    // shadow / color
+    // backdrop (opaque/blur)
     {
-      variant: "shadow",
-      color: "default",
-      class: {
-        base: colorVariants.shadow.default,
-      },
-    },
-    {
-      variant: "shadow",
-      color: "foreground",
-      class: {base: colorVariants.shadow.foreground},
-    },
-    {
-      variant: "shadow",
-      color: "primary",
-      class: {base: colorVariants.shadow.primary},
-    },
-    {
-      variant: "shadow",
-      color: "secondary",
-      class: {base: colorVariants.shadow.secondary},
-    },
-    {
-      variant: "shadow",
-      color: "success",
-      class: {base: colorVariants.shadow.success},
-    },
-    {
-      variant: "shadow",
-      color: "warning",
-      class: {base: colorVariants.shadow.warning},
-    },
-    {
-      variant: "shadow",
-      color: "danger",
-      class: {base: colorVariants.shadow.danger},
-    },
-    // bordered / color
-    {
-      variant: "bordered",
-      color: "default",
-      class: {base: colorVariants.bordered.default},
-    },
-    {
-      variant: "bordered",
-      color: "foreground",
-      class: {base: colorVariants.bordered.foreground},
-    },
-    {
-      variant: "bordered",
-      color: "primary",
-      class: {base: colorVariants.bordered.primary},
-    },
-    {
-      variant: "bordered",
-      color: "secondary",
-      class: {base: colorVariants.bordered.secondary},
-    },
-    {
-      variant: "bordered",
-      color: "success",
-      class: {base: colorVariants.bordered.success},
-    },
-    {
-      variant: "bordered",
-      color: "warning",
-      class: {base: colorVariants.bordered.warning},
-    },
-    {
-      variant: "bordered",
-      color: "danger",
-      class: {base: colorVariants.bordered.danger},
-    },
-    // flat / color
-    {
-      variant: "flat",
-      color: "default",
-      class: {base: colorVariants.flat.default},
-    },
-    {
-      variant: "flat",
-      color: "foreground",
-      class: {base: colorVariants.flat.foreground},
-    },
-    {
-      variant: "flat",
-      color: "primary",
-      class: {base: colorVariants.flat.primary},
-    },
-    {
-      variant: "flat",
-      color: "secondary",
-      class: {base: colorVariants.flat.secondary},
-    },
-    {
-      variant: "flat",
-      color: "success",
-      class: {base: colorVariants.flat.success},
-    },
-    {
-      variant: "flat",
-      color: "warning",
-      class: {base: colorVariants.flat.warning},
-    },
-    {
-      variant: "flat",
-      color: "danger",
-      class: {base: colorVariants.flat.danger},
-    },
-    // faded / color
-    {
-      variant: "faded",
-      color: "default",
-      class: {base: colorVariants.faded.default},
-    },
-    {
-      variant: "faded",
-      color: "foreground",
-      class: {base: colorVariants.faded.foreground},
-    },
-    {
-      variant: "faded",
-      color: "primary",
-      class: {base: colorVariants.faded.primary},
-    },
-    {
-      variant: "faded",
-      color: "secondary",
-      class: {base: colorVariants.faded.secondary},
-    },
-    {
-      variant: "faded",
-      color: "success",
-      class: {base: colorVariants.faded.success},
-    },
-    {
-      variant: "faded",
-      color: "warning",
-      class: {base: colorVariants.faded.warning},
-    },
-    {
-      variant: "faded",
-      color: "danger",
-      class: {base: colorVariants.faded.danger},
-    },
-    // light / color
-    {
-      variant: "light",
-      color: "default",
-      class: {base: colorVariants.light.default},
-    },
-    {
-      variant: "light",
-      color: "foreground",
-      class: {base: colorVariants.light.foreground},
-    },
-    {
-      variant: "light",
-      color: "primary",
-      class: {base: colorVariants.light.primary},
-    },
-    {
-      variant: "light",
-      color: "secondary",
-      class: {base: colorVariants.light.secondary},
-    },
-    {
-      variant: "light",
-      color: "success",
-      class: {base: colorVariants.light.success},
-    },
-    {
-      variant: "light",
-      color: "warning",
-      class: {base: colorVariants.light.warning},
-    },
-    {
-      variant: "light",
-      color: "danger",
-      class: {base: colorVariants.light.danger},
-    },
-    // backdropVariant (opaque/blur)
-    {
-      backdropVariant: ["opaque", "blur"],
+      backdrop: ["opaque", "blur"],
       class: {
         backdrop: "block w-full h-full fixed inset-0 -z-30",
       },

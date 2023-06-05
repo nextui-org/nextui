@@ -24,7 +24,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     placement,
     showArrow,
     motionProps,
-    backdropVariant,
+    backdrop,
     disableAnimation,
     getPopoverProps,
     getArrowProps,
@@ -60,8 +60,8 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
     </>
   );
 
-  const backdrop = useMemo(() => {
-    if (backdropVariant === "transparent") {
+  const backdropContent = useMemo(() => {
+    if (backdrop === "transparent") {
       return null;
     }
 
@@ -78,11 +78,11 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
         {...(getBackdropProps() as HTMLMotionProps<"div">)}
       />
     );
-  }, [backdropVariant, disableAnimation, getBackdropProps]);
+  }, [backdrop, disableAnimation, getBackdropProps]);
 
   return (
     <div {...getPopoverProps()}>
-      {backdrop}
+      {backdropContent}
       {disableAnimation ? (
         content
       ) : (

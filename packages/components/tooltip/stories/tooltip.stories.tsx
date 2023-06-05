@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {ButtonVariantProps, popover} from "@nextui-org/theme";
+import {popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 
 import {Tooltip, TooltipProps} from "../src";
@@ -165,43 +165,6 @@ const MultipleTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) =>
   </div>
 );
 
-const VariantsTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => {
-  const buttonColor = args.color as ButtonVariantProps["color"];
-
-  return (
-    <div className="flex gap-2">
-      <Tooltip {...args} content="Tooltip 1" variant="solid">
-        <Button color={buttonColor}>Solid</Button>
-      </Tooltip>
-      <Tooltip {...args} content="Tooltip 2" variant="bordered">
-        <Button color={buttonColor} variant="bordered">
-          Bordered
-        </Button>
-      </Tooltip>
-      <Tooltip {...args} content="Tooltip 3" variant="light">
-        <Button color={buttonColor} variant="light">
-          Light
-        </Button>
-      </Tooltip>
-      <Tooltip {...args} content="Tooltip 4" variant="flat">
-        <Button color={buttonColor} variant="flat">
-          Flat
-        </Button>
-      </Tooltip>
-      <Tooltip {...args} content="Tooltip 5" variant="faded">
-        <Button color={buttonColor} variant="faded">
-          Faded
-        </Button>
-      </Tooltip>
-      <Tooltip {...args} content="Tooltip 6" variant="shadow">
-        <Button color={buttonColor} variant="shadow">
-          Shadow
-        </Button>
-      </Tooltip>
-    </div>
-  );
-};
-
 const PlacementsTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => {
   return (
     <div className="inline-grid grid-cols-3 gap-4">
@@ -323,11 +286,6 @@ WithArrow.args = {
 
 export const OpenChange = OpenChangeTemplate.bind({});
 OpenChange.args = {
-  ...defaultProps,
-};
-
-export const Variants = VariantsTemplate.bind({});
-Variants.args = {
   ...defaultProps,
 };
 

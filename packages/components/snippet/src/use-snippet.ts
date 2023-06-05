@@ -93,7 +93,6 @@ export interface UseSnippetProps
    *  offset: 15,
    *  delay: 1000,
    *  content: "Copy to clipboard",
-   *  variant: snippetProps?.variant, // same as the snippet variant
    *  color: snippetProps?.color, // same as the snippet color
    *  isDisabled: disableCopy,
    * }
@@ -141,7 +140,6 @@ export function useSnippet(originalProps: UseSnippetProps) {
       offset: 15,
       delay: 1000,
       content: "Copy to clipboard",
-      variant: originalProps?.variant as TooltipProps["variant"],
       color: originalProps?.color as TooltipProps["color"],
       isDisabled: disableCopy,
     },
