@@ -5,7 +5,7 @@ import Style from "./style";
 
 export const decorators = [
   (Story) => (
-    <NextUIProvider>
+    <NextUIProvider locale="en">
       <div className="bg-dark">
         <Style />
         <Story />
