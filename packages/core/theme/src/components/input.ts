@@ -31,7 +31,9 @@ const input = tv({
       "z-10",
       "hidden",
       "absolute",
-      "right-3",
+      "right-1",
+      "bottom-1",
+      "p-2",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -197,7 +199,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6",
+        input: "peer pr-7",
         clearButton: "peer-[.is-filled]:opacity-70 peer-[.is-filled]:block",
       },
     },
