@@ -25,7 +25,7 @@ const chip = tv({
   slots: {
     base: ["relative", "max-w-fit", "inline-flex", "items-center", "justify-between", "box-border"],
     content: "flex-1 text-inherit font-normal",
-    dot: ["w-2", "h-2", "ml-1", "rounded-full"],
+    dot: ["w-2", "h-2", "ml-1", "rtl:ml-0", "rtl:mr-1", "rounded-full"],
     avatar: "flex-shrink-0",
     closeButton: [
       "z-10",

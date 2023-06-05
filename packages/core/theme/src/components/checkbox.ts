@@ -82,27 +82,27 @@ const checkbox = tv({
     },
     size: {
       xs: {
-        wrapper: "w-3.5 h-3.5 mr-1",
+        wrapper: "w-3.5 h-3.5 mr-1 rtl:mr-0 rtl:ml-1",
         label: "text-xs",
         icon: "w-3 h-2",
       },
       sm: {
-        wrapper: "w-4 h-4 mr-1",
+        wrapper: "w-4 h-4 mr-1 rtl:mr-0 rtl:ml-1",
         label: "text-sm",
         icon: "w-3 h-2",
       },
       md: {
-        wrapper: "w-5 h-5 mr-2",
+        wrapper: "w-5 h-5 mr-2 rtl:mr-0 rtl:ml-2",
         label: "text-base",
         icon: "w-4 h-3",
       },
       lg: {
-        wrapper: "w-6 h-6 mr-2",
+        wrapper: "w-6 h-6 mr-2 rtl:mr-0 rtl:ml-2",
         label: "text-lg",
         icon: "w-5 h-4",
       },
       xl: {
-        wrapper: "w-7 h-7 mr-2",
+        wrapper: "w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2",
         label: "text-xl",
         icon: "w-6 h-5",
       },

@@ -80,7 +80,7 @@ const accordionItem = tv({
     ],
     startContent: "flex-shrink-0",
     indicator: "text-default-400",
-    titleWrapper: "flex-1 flex flex-col text-left",
+    titleWrapper: "flex-1 flex flex-col text-start",
     title: "text-foreground text-lg",
     subtitle: "text-sm text-default-500 font-normal",
     content: "py-2",

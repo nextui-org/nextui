@@ -335,42 +335,50 @@ const button = tv({
     {
       isInGroup: true,
       radius: "base",
-      class: "rounded-none  first:rounded-l last:rounded-r",
+      class:
+        "rounded-none first:rounded-l last:rounded-r first:rtl:rounded-l-none first:rtl:rounded-r last:rtl:rounded-r-none last:rtl:rounded-l",
     },
     {
       isInGroup: true,
       radius: "sm",
-      class: "rounded-none  first:rounded-l-sm last:rounded-r-sm",
+      class:
+        "rounded-none first:rounded-l-sm last:rounded-r-sm first:rtl:rounded-l-none first:rtl:rounded-r-sm last:rtl:rounded-r-none last:rtl:rounded-l-sm",
     },
     {
       isInGroup: true,
       radius: "md",
-      class: "rounded-none  first:rounded-l-md last:rounded-r-md",
+      class:
+        "rounded-none first:rounded-l-md last:rounded-r-md first:rtl:rounded-l-none first:rtl:rounded-r-md last:rtl:rounded-r-none last:rtl:rounded-l-md",
     },
     {
       isInGroup: true,
       radius: "lg",
-      class: "rounded-none  first:rounded-l-lg last:rounded-r-lg",
+      class:
+        "rounded-none first:rounded-l-lg last:rounded-r-lg first:rtl:rounded-l-none first:rtl:rounded-r-lg last:rtl:rounded-r-none last:rtl:rounded-l-lg",
     },
     {
       isInGroup: true,
       radius: "xl",
-      class: "rounded-none  first:rounded-l-xl last:rounded-r-xl",
+      class:
+        "rounded-none first:rounded-l-xl last:rounded-r-xl first:rtl:rounded-l-none first:rtl:rounded-r-xl last:rtl:rounded-r-none last:rtl:rounded-l-xl",
     },
     {
       isInGroup: true,
       radius: "2xl",
-      class: "rounded-none  first:rounded-l-2xl last:rounded-r-2xl",
+      class:
+        "rounded-none first:rounded-l-2xl last:rounded-r-2xl first:rtl:rounded-l-none first:rtl:rounded-r-2xl last:rtl:rounded-r-none last:rtl:rounded-l-2xl",
     },
     {
       isInGroup: true,
       radius: "3xl",
-      class: "rounded-none  first:rounded-l-3xl last:rounded-r-3xl",
+      class:
+        "rounded-none first:rounded-l-3xl last:rounded-r-3xl first:rtl:rounded-l-none first:rtl:rounded-r-3xl last:rtl:rounded-r-none last:rtl:rounded-l-3xl",
     },
     {
       isInGroup: true,
       radius: "full",
-      class: "rounded-none  first:rounded-l-full last:rounded-r-full",
+      class:
+        "rounded-none first:rounded-l-full last:rounded-r-full first:rtl:rounded-l-none first:rtl:rounded-r-full last:rtl:rounded-r-none last:rtl:rounded-l-full",
     },
     // isInGroup / bordered / ghost
     {

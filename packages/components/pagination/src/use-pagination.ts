@@ -268,6 +268,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ref: domRef,
       role: "navigation",
       "data-slot": "base",
+      dir: "ltr",
       "data-controls": dataAttr(showControls),
       "data-loop": dataAttr(loop),
       "data-dots-jump": dotsJump,

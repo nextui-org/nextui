@@ -62,7 +62,7 @@ const card = tv({
       "align-items-inherit",
       "h-auto",
       "break-words",
-      "text-left",
+      "text-start",
       "overflow-y-auto",
       "subpixel-antialiased",
     ],

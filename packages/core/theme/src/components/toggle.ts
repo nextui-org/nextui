@@ -119,7 +119,7 @@ const toggle = tv({
         label: "text-xs",
       },
       sm: {
-        wrapper: "w-10 h-6 mr-2",
+        wrapper: "w-10 h-6 mr-2 rtl:mr-0 rtl:ml-2",
         thumb: [
           "w-4 h-4 text-xs",
           //selected
@@ -133,7 +133,7 @@ const toggle = tv({
         label: "text-sm",
       },
       md: {
-        wrapper: "w-12 h-7 mr-2",
+        wrapper: "w-12 h-7 mr-2 rtl:mr-0 rtl:ml-2",
         thumb: [
           "w-5 h-5 text-sm",
           //selected
@@ -147,7 +147,7 @@ const toggle = tv({
         label: "text-base",
       },
       lg: {
-        wrapper: "w-14 h-8 mr-2",
+        wrapper: "w-14 h-8 mr-2 rtl:mr-0 rtl:ml-2",
         thumb: [
           "w-6 h-6 text-base",
           //selected
@@ -161,7 +161,7 @@ const toggle = tv({
         label: "text-lg",
       },
       xl: {
-        wrapper: "w-16 h-9 mr-2",
+        wrapper: "w-16 h-9 mr-2 rtl:mr-0 rtl:ml-2",
         thumb: [
           "w-7 h-7 text-lg",
           //selected
