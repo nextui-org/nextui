@@ -5,7 +5,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-2">
-      <Popover onOpenChange={(open) => setIsOpen(open)}>
+      <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)}>
         <PopoverTrigger>
           <Button>Open Popover</Button>
         </PopoverTrigger>

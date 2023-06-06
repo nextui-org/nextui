@@ -12,7 +12,7 @@ export default function App() {
             Dimensions
           </p>
           <div className="mt-2 flex flex-col gap-2 w-full">
-            <Input autoFocus defaultValue="100%" label="Width" size="sm" variant="bordered" />
+            <Input defaultValue="100%" label="Width" size="sm" variant="bordered" />
             <Input defaultValue="300px" label="Max. width" size="sm" variant="bordered" />
             <Input defaultValue="24px" label="Height" size="sm" variant="bordered" />
             <Input defaultValue="30px" label="Max. height" size="sm" variant="bordered" />
@@ -33,7 +33,7 @@ export default function App() {
           backdrop={backdrop}
         >
           <PopoverTrigger>
-            <Button variant="flat" color="secondary">
+            <Button variant="flat" color="warning">
               {backdrop.charAt(0).toUpperCase() + backdrop.slice(1)}
             </Button>
           </PopoverTrigger>

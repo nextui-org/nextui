@@ -6,10 +6,11 @@ import {colorVariants} from "../utils";
 /**
  * Popover wrapper **Tailwind Variants** component
  *
- * const { base, trigger, arrow } = popover({...})
+ * const { base, trigger, backdrop, arrow } = popover({...})
  *
  * @example
  * <div>
+ *  <div className={backdrop()} />
  *  <button className={trigger()} aria-expanded="true/false">your trigger</button>
  *  <div className={base()}>
  *    // popover content

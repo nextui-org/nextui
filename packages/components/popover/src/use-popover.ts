@@ -56,6 +56,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * <Popover classNames={{
    *    base:"base-classes",
    *    trigger: "trigger-classes",
+   *    backdrop: "backdrop-classes",
    *    arrow: "arrow-classes",
    * }} />
    * ```

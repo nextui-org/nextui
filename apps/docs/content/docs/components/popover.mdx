@@ -47,13 +47,17 @@ Popover provides an `onOpenChange` callback to handle the open event.
 
 <CodeDemo title="Open Callback" files={popoverContent.openCallback} />
 
+### Colors
+
+<CodeDemo title="Colors" files={popoverContent.colors} />
+
 ### Placements
 
 <CodeDemo title="Placements" files={popoverContent.placements} />
 
-### Colors
+### Controlled
 
-<CodeDemo title="Colors" files={popoverContent.colors} />
+<CodeDemo title="Controlled" files={popoverContent.controlled} />
 
 ### Title Props
 
@@ -70,7 +74,7 @@ form elements without any problem. the focus returns to the trigger when the pop
 <CodeDemo title="With Form" files={popoverContent.withForm} />
 
 
-> **Note**: The first `Input` component is focused when the popover opens because it has the `autoFocus` prop.
+> **Note**: You can add the `autoFocus` prop to the first `Input` component to focus it when the popover opens.
 
 ### Backdrop
 
@@ -87,3 +91,23 @@ Popover offers a `motionProps` property to customize the `enter` / `exit` animat
 <CodeDemo title="Custom Motion" files={popoverContent.customMotion} />
 
 > Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
+
+
+### Custom Trigger
+
+<CodeDemo title="Custom Trigger" files={popoverContent.customTrigger} />
+
+## Slots
+
+- **base**: The main popover slot, it wraps the popover content. 
+- **trigger**: The popover trigger slot, it has small styles to ensure the trigger works correctly.
+- **backdrop**: The backdrop slot, it contains the backdrop styles.
+- **arrow**: The arrow slot, it wraps the popover arrow, the placement of the arrow is based on the popover placement, e.g. `data-[placement=top]:...`.
+
+
+
+### Custom Styles
+
+You can customize the `Popover` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={popoverContent.customStyles} />
