@@ -84,7 +84,7 @@ const tabs = tv({
         cursor: "h-[2px] w-[80%] bottom-0 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
-        tabList: "bg-transparent border-2 border-default-200 shadow-sm",
+        tabList: "bg-transparent border-1 border-default-200 shadow-sm",
         cursor: "inset-0",
       },
     },

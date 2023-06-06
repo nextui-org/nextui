@@ -44,12 +44,12 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
             base:
               "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
             wrapper: "shadow-sm",
-            startIcon: "text-white",
+            startContent: "text-white",
           }}
-          endIcon={<MoonFilledIcon />}
+          endContent={<MoonFilledIcon />}
           isSelected={isSelected}
           size="xl"
-          startIcon={<SunFilledIcon />}
+          startContent={<SunFilledIcon />}
           onChange={onChange}
         />
 
@@ -71,7 +71,9 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
         >
           <Image
             alt="Professional camera"
-            className="object-cover -translate-y-12 h-[100%]"
+            classNames={{
+              img: "object-cover -translate-y-12 h-[100%]",
+            }}
             src="/images/card-example-6.jpeg"
             width={120}
           />

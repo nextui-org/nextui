@@ -28,8 +28,11 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
     },
   );
 
+  const activeIndex = headings.findIndex(({id}) => id == activeId);
+  const firstId = headings[0].id;
+
   useEffect(() => {
-    if (!activeId) return;
+    if (!activeId || activeIndex < 2) return;
     const anchor = tocRef.current?.querySelector(`li > a[href="#${activeId}"]`);
 
     if (anchor) {
@@ -41,10 +44,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
         boundary: tocRef.current,
       });
     }
-  }, [activeId]);
-
-  const activeIndex = headings.findIndex(({id}) => id == activeId);
-  const firstId = headings[0].id;
+  }, [activeId, activeIndex]);
 
   return (
     <div

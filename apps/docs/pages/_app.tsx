@@ -1,5 +1,5 @@
 import React from "react";
-import {DM_Sans} from "next/font/google";
+// import {DM_Sans} from "next/font/google";
 import {Analytics} from "@vercel/analytics/react";
 import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider} from "next-themes";
@@ -38,34 +38,34 @@ const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
   );
 };
 
-const sans = DM_Sans({
-  variable: "--font-sans",
-  adjustFontFallback: true,
-  display: "optional",
-  fallback: [
-    "ui-sans-serif",
-    "system-ui",
-    "-apple-system",
-    "BlinkMacSystemFont",
-    '"Segoe UI"',
-    "Roboto",
-    '"Helvetica Neue"',
-    "Arial",
-    '"Noto Sans"',
-    "sans-serif",
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
-    '"Noto Color Emoji"',
-  ],
-  preload: true,
-  style: "normal",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
+// const sans = DM_Sans({
+//   variable: "--font-sans",
+//   adjustFontFallback: true,
+//   display: "optional",
+//   fallback: [
+//     "ui-sans-serif",
+//     "system-ui",
+//     "-apple-system",
+//     "BlinkMacSystemFont",
+//     '"Segoe UI"',
+//     "Roboto",
+//     '"Helvetica Neue"',
+//     "Arial",
+//     '"Noto Sans"',
+//     "sans-serif",
+//     '"Apple Color Emoji"',
+//     '"Segoe UI Emoji"',
+//     '"Segoe UI Symbol"',
+//     '"Noto Color Emoji"',
+//   ],
+//   preload: true,
+//   style: "normal",
+//   subsets: ["latin"],
+//   weight: ["400", "500", "700"],
+// });
 
-export const fonts = {
-  sans: sans.style.fontFamily,
-};
+// export const fonts = {
+//   sans: sans.style.fontFamily,
+// };
 
 export default Application;

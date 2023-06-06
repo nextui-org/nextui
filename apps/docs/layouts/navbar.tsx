@@ -125,7 +125,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <div className="w-[80px]" />
           )}
         </NavbarBrand>
-        <div className="hidden lg:flex gap-4 ml-10 justify-start">
+        <div className="hidden lg:flex gap-4 justify-start">
           <NavbarItem>
             <NextLink
               className={clsx(

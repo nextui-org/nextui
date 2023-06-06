@@ -1,5 +1,19 @@
 # @nextui-org/tabs
 
+## 0.0.0-dev-v2-20230606020717
+
+### Patch Changes
+
+- Types fixed, borders changed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230606020717
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230606020717
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230606020717
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230606020717
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230606020717
+  - @nextui-org/system@0.0.0-dev-v2-20230606020717
+  - @nextui-org/theme@0.0.0-dev-v2-20230606020717
+
 ## 0.0.0-dev-v2-20230605023127
 
 ### Patch Changes

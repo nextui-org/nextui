@@ -1,5 +1,44 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230606020717
+
+### Patch Changes
+
+- Types fixed, borders changed
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230606020717
+  - @nextui-org/accordion@0.0.0-dev-v2-20230606020717
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230606020717
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230606020717
+  - @nextui-org/progress@0.0.0-dev-v2-20230606020717
+  - @nextui-org/skeleton@0.0.0-dev-v2-20230606020717
+  - @nextui-org/divider@0.0.0-dev-v2-20230606020717
+  - @nextui-org/popover@0.0.0-dev-v2-20230606020717
+  - @nextui-org/snippet@0.0.0-dev-v2-20230606020717
+  - @nextui-org/spinner@0.0.0-dev-v2-20230606020717
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230606020717
+  - @nextui-org/avatar@0.0.0-dev-v2-20230606020717
+  - @nextui-org/button@0.0.0-dev-v2-20230606020717
+  - @nextui-org/navbar@0.0.0-dev-v2-20230606020717
+  - @nextui-org/spacer@0.0.0-dev-v2-20230606020717
+  - @nextui-org/switch@0.0.0-dev-v2-20230606020717
+  - @nextui-org/badge@0.0.0-dev-v2-20230606020717
+  - @nextui-org/image@0.0.0-dev-v2-20230606020717
+  - @nextui-org/input@0.0.0-dev-v2-20230606020717
+  - @nextui-org/modal@0.0.0-dev-v2-20230606020717
+  - @nextui-org/radio@0.0.0-dev-v2-20230606020717
+  - @nextui-org/table@0.0.0-dev-v2-20230606020717
+  - @nextui-org/card@0.0.0-dev-v2-20230606020717
+  - @nextui-org/chip@0.0.0-dev-v2-20230606020717
+  - @nextui-org/code@0.0.0-dev-v2-20230606020717
+  - @nextui-org/drip@0.0.0-dev-v2-20230606020717
+  - @nextui-org/link@0.0.0-dev-v2-20230606020717
+  - @nextui-org/tabs@0.0.0-dev-v2-20230606020717
+  - @nextui-org/user@0.0.0-dev-v2-20230606020717
+  - @nextui-org/kbd@0.0.0-dev-v2-20230606020717
+  - @nextui-org/system@0.0.0-dev-v2-20230606020717
+  - @nextui-org/theme@0.0.0-dev-v2-20230606020717
+
 ## 0.0.0-dev-v2-20230605023127
 
 ### Patch Changes

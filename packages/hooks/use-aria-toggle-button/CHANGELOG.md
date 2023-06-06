@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230606020717
+
+### Patch Changes
+
+- Types fixed, borders changed
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230606020717
+
 ## 0.0.0-dev-v2-20230605023127
 
 ### Patch Changes

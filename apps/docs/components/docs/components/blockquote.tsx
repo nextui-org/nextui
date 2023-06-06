@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {tv, VariantProps} from "tailwind-variants";
 
-const blockquote = tv({
+const blockquoteStyles = tv({
   base: "border pl-4 bg-default-50 my-6 py-3 rounded-xl [&>p]:m-0",
   variants: {
     color: {
@@ -18,7 +18,7 @@ const blockquote = tv({
   },
 });
 
-type BlockquoteVariantProps = VariantProps<typeof blockquote>;
+type BlockquoteVariantProps = VariantProps<typeof blockquoteStyles>;
 
 export interface BlockquoteProps extends BlockquoteVariantProps {
   children?: React.ReactNode;
@@ -26,7 +26,7 @@ export interface BlockquoteProps extends BlockquoteVariantProps {
 }
 
 export const Blockquote: FC<BlockquoteProps> = ({children, color, className, ...props}) => {
-  const styles = blockquote({color, className});
+  const styles = blockquoteStyles({color, className});
 
   return (
     <blockquote className={styles} {...props}>

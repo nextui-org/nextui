@@ -56,6 +56,7 @@
     "scroll-into-view-if-needed": "2.2.29",
     "shelljs": "^0.8.4",
     "tailwind-scrollbar-hide": "^1.1.7",
+    "tailwind-variants": "^0.1.5",
     "unified": "^9.2.2"
   },
   "devDependencies": {

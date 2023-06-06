@@ -1,7 +1,6 @@
 import {FC} from "react";
 import {Link as NextUILink, Image} from "@nextui-org/react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 import {Head} from "./head";
 import {Navbar} from "./navbar";
@@ -13,6 +12,7 @@ import {Heading} from "@/libs/docs/utils";
 import {FooterNav, DocsToc} from "@/components/docs";
 import {GITHUB_URL, REPO_NAME} from "@/libs/github/constants";
 import {CONTENT_PATH, TAG} from "@/libs/docs/config";
+import {DocsSidebar} from "@/components/docs/sidebar";
 
 export interface DocsLayoutProps {
   routes: Route[];
@@ -25,11 +25,6 @@ export interface DocsLayoutProps {
   headings?: Heading[];
   children?: React.ReactNode;
 }
-
-const DocsSidebar = dynamic(
-  () => import("@/components/docs/sidebar").then((mod) => mod.DocsSidebar),
-  {ssr: false},
-);
 
 export const DocsLayout: FC<DocsLayoutProps> = ({
   children,

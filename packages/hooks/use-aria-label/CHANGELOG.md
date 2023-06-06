@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-label
 
+## 0.0.0-dev-v2-20230606020717
+
+### Patch Changes
+
+- Types fixed, borders changed
+
 ## 0.0.0-dev-v2-20230605023127
 
 ### Patch Changes

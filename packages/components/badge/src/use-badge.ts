@@ -7,7 +7,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, ReactRef} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
-export interface UseBadgeProps extends HTMLNextUIProps<"span">, BadgeVariantProps {
+export interface Props extends Omit<HTMLNextUIProps<"span">, "content"> {
   /**
    * Ref to the DOM node.
    */
@@ -34,6 +34,8 @@ export interface UseBadgeProps extends HTMLNextUIProps<"span">, BadgeVariantProp
    */
   classNames?: SlotsToClasses<BadgeSlots>;
 }
+
+export type UseBadgeProps = Props & BadgeVariantProps;
 
 export function useBadge(originalProps: UseBadgeProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, badge.variantKeys);
