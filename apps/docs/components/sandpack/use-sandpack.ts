@@ -98,7 +98,7 @@ export const useSandpack = ({
 
   // const dependencies = useMemo(() => {
   //   let deps = {
-  //     "framer-motion": "10.11.2",
+  //     "framer-motion": "10.12.16",
   //   };
 
   //   if (hasComponents) {
@@ -132,7 +132,7 @@ export const useSandpack = ({
     () => ({
       entry: entryFile,
       dependencies: {
-        "framer-motion": "10.11.2",
+        "framer-motion": "10.12.16",
         "@nextui-org/react": "dev-v2",
       },
       devDependencies: {

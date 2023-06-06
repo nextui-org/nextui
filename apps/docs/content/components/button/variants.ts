@@ -2,7 +2,7 @@ const App = `import {Button} from "@nextui-org/react";
 
 export default function App() {
   return (
-    <div className="flex gap-4 items-center">
+    <div className="flex flex-wrap gap-4 items-center">
       <Button color="primary" variant="solid">
         Solid
       </Button>
@@ -18,11 +18,11 @@ export default function App() {
       <Button color="primary" variant="flat">
         Flat
       </Button>  
-      <Button color="primary" variant="shadow">
-        Shadow
-      </Button>  
       <Button color="primary" variant="ghost">
         Ghost
+      </Button>  
+      <Button color="primary" variant="shadow">
+        Shadow
       </Button>  
     </div>
   );

@@ -76,4 +76,10 @@ export const utilities = {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
+  ".transition-transform-colors": {
+    " transition-property":
+      "transform, color, background, background-color, border-color, text-decoration-color, fill, stroke",
+    "transition-timing-function": "ease",
+    "transition-duration": DEFAULT_TRANSITION_DURATION,
+  },
 };

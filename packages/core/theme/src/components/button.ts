@@ -98,7 +98,7 @@ const button = tv({
     },
     disableAnimation: {
       true: "!transition-none",
-      false: "transition-transform-background motion-reduce:transition-none",
+      false: "transition-transform-colors motion-reduce:transition-none",
     },
   },
   defaultVariants: {
@@ -329,12 +329,6 @@ const button = tv({
       variant: "ghost",
       color: "danger",
       class: colorVariants.ghost.danger,
-    },
-    // !disabledAnimation / ghost
-    {
-      variant: "ghost",
-      disableAnimation: false,
-      class: "transition-[transform,background]",
     },
     // isInGroup / radius
     {

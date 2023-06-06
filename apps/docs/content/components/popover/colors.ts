@@ -21,7 +21,7 @@ export default function App() {
   ];
 
   return (
-    <div className="inline-grid grid-cols-4 gap-4">
+    <div className="flex flex-wrap gap-4">
       {colors.map((color) => (
         <Popover key={color} placement="top" color={color}>
           <PopoverTrigger>

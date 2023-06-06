@@ -2,7 +2,7 @@ const App = `import {Code} from "@nextui-org/react";
 
 export default function App() {
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-wrap gap-4">
       <Code color="default">npm install @nextui-org/react</Code>
       <Code color="primary">npm install @nextui-org/react</Code>
       <Code color="secondary">npm install @nextui-org/react</Code>

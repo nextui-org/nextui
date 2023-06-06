@@ -23,7 +23,7 @@ export default function App() {
   )
 
   return (
-    <div className="inline-grid grid-cols-3 gap-4">
+    <div className="flex flex-wrap gap-4">
       {backdrops.map((backdrop) => (
         <Popover
           key={backdrop}

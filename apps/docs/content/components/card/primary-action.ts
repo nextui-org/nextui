@@ -54,7 +54,7 @@ export default function App() {
               radius="xl"
               width="100%"
               alt={item.title}
-              className="w-full h-[140px] object-cover"
+              className="w-full object-cover h-[140px]"
               src={item.img}
             />
           </CardBody>

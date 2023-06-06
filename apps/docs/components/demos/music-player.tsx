@@ -31,7 +31,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               alt="Album cover"
               className="object-cover"
               classNames={{
-                base: "shadow-black/20",
+                wrapper: "shadow-black/20",
               }}
               height={200}
               shadow="lg"

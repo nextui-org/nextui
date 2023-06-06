@@ -98,6 +98,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "intl-messageformat": "^10.1.0",
     "execa": "^5.1.1",
     "find-up": "^6.3.0",
     "fs-extra": "^10.0.0",

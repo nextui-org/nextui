@@ -71,9 +71,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
         >
           <Image
             alt="Professional camera"
-            classNames={{
-              img: "object-cover -translate-y-12 h-[100%]",
-            }}
+            className="object-cover -translate-y-12 h-[100%]"
             src="/images/card-example-6.jpeg"
             width={120}
           />

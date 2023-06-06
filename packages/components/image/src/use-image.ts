@@ -57,8 +57,8 @@ interface Props extends HTMLNextUIProps<"img"> {
    * @example
    * ```ts
    * <Image classNames={{
-   *    base:"base-classes", // wrapper
-   *    img: "img-classes",
+   *    base:"base-classes", // image classes
+   *    wrapper: "wrapper-classes",
    *    blurredImg: "blurredImg-classes", // this is a cloned version of the img
    * }} />
    * ```
@@ -116,9 +116,6 @@ export function useImage(originalProps: UseImageProps) {
 
   const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
   const showSkeleton = isLoading && !disableSkeleton;
-  const showWrapper = removeWrapper
-    ? false
-    : isBlurred || isZoomed || !disableSkeleton || fallbackSrc;
 
   const slots = useMemo(
     () =>
@@ -129,10 +126,10 @@ export function useImage(originalProps: UseImageProps) {
     [...Object.values(variantProps), showSkeleton],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(className, classNames?.img);
 
   const getImgProps: PropGetter = (props = {}) => {
-    const imgStyles = clsx(showWrapper ? classNames?.img : baseStyles, props?.className);
+    const imgStyles = clsx(baseStyles, props?.className);
 
     return {
       src,
@@ -151,13 +148,13 @@ export function useImage(originalProps: UseImageProps) {
       : {};
 
     return {
-      className: slots.base({class: classNames?.base}),
+      className: slots.wrapper({class: classNames?.wrapper}),
       style: {
         ...fallbackStyle,
         maxWidth: w,
       },
     };
-  }, [slots, showFallback, fallbackSrc, classNames?.base]);
+  }, [slots, showFallback, fallbackSrc, classNames?.wrapper]);
 
   const getBlurredImgProps = useCallback<PropGetter>(() => {
     return {

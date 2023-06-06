@@ -26,7 +26,7 @@ export default function App() {
   ];
 
   return (
-    <div className="inline-grid grid-cols-3 gap-4">
+    <div className="flex flex-wrap md:inline-grid md:grid-cols-3 gap-4">
       {placements.map((placement) => (
         <Popover key={placement} placement={placement}>
           <PopoverTrigger>
