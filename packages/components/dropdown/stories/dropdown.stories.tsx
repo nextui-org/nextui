@@ -494,7 +494,7 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
         <DropdownTrigger>
           <Avatar
             isBordered
-            isFocusable
+            as="button"
             className="transition-transform"
             color="secondary"
             size="lg"
@@ -526,7 +526,7 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
       <Dropdown {...args} placement="bottom-start">
         <DropdownTrigger>
           <User
-            isFocusable
+            as="button"
             avatarProps={{
               isBordered: true,
               color: "primary",

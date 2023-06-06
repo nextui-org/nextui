@@ -1,5 +1,17 @@
 # @nextui-org/user
 
+## 0.0.0-dev-v2-20230606203647
+
+### Patch Changes
+
+- Popover data attr added
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230606203647
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230606203647
+  - @nextui-org/avatar@0.0.0-dev-v2-20230606203647
+  - @nextui-org/system@0.0.0-dev-v2-20230606203647
+  - @nextui-org/theme@0.0.0-dev-v2-20230606203647
+
 ## 0.0.0-dev-v2-20230606020717
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230606203647
+
+### Patch Changes
+
+- Popover data attr added
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230606203647
+
 ## 0.0.0-dev-v2-20230606020717
 
 ### Patch Changes

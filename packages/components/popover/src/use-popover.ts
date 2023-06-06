@@ -175,6 +175,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
     "data-focus-visible": dataAttr(isFocusVisible),
+    "data-placement": getArrowPlacement(ariaPlacement, placementProp),
     ...mergeProps(focusProps, props),
     className: slots.base({class: clsx(baseStyles, props.className)}),
     style: {

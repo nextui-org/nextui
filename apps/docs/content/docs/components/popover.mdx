@@ -1,12 +1,12 @@
 ---
-title: 'Popover'
+title: "Popover"
 description: "Popover is a non-modal dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something."
 url: https://nextui.org/docs/components/tooltip
 ---
 
 # Popover
 
-Popover is a **non-modal** dialog that floats around its disclosure. It's commonly used for displaying 
+Popover is a **non-modal** dialog that floats around its disclosure. It's commonly used for displaying
 additional rich content on top of something.
 
 <ComponentLinks component="popover" reactAriaHook="usePopover" />
@@ -20,7 +20,6 @@ NextUI exports 4 popover-related components:
 - **Popover**: The main component to display a popover.
 - **PopoverTrigger**: The component that triggers the popover.
 - **PopoverContent**: The component that contains the popover content.
-
 
 <ImportTabs
   commands={{
@@ -37,16 +36,6 @@ NextUI exports 4 popover-related components:
 
 <CodeDemo title="With Arrow" files={popoverContent.arrow} />
 
-### Offset
-
-<CodeDemo title="Offset" files={popoverContent.offset} />
-
-### Open Callback
-
-Popover provides an `onOpenChange` callback to handle the open event.
-
-<CodeDemo title="Open Callback" files={popoverContent.openCallback} />
-
 ### Colors
 
 <CodeDemo title="Colors" files={popoverContent.colors} />
@@ -54,6 +43,10 @@ Popover provides an `onOpenChange` callback to handle the open event.
 ### Placements
 
 <CodeDemo title="Placements" files={popoverContent.placements} />
+
+### Offset
+
+<CodeDemo title="Offset" files={popoverContent.offset} />
 
 ### Controlled
 
@@ -73,7 +66,6 @@ form elements without any problem. the focus returns to the trigger when the pop
 
 <CodeDemo title="With Form" files={popoverContent.withForm} />
 
-
 > **Note**: You can add the `autoFocus` prop to the first `Input` component to focus it when the popover opens.
 
 ### Backdrop
@@ -83,7 +75,6 @@ either `transparent`, `opaque` or `blur`. The default value is `transparent`.
 
 <CodeDemo title="Backdrop" files={popoverContent.backdrop} />
 
-
 ### Custom Motion
 
 Popover offers a `motionProps` property to customize the `enter` / `exit` animation.
@@ -92,22 +83,136 @@ Popover offers a `motionProps` property to customize the `enter` / `exit` animat
 
 > Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
 
-
 ### Custom Trigger
 
 <CodeDemo title="Custom Trigger" files={popoverContent.customTrigger} />
 
 ## Slots
 
-- **base**: The main popover slot, it wraps the popover content. 
+- **base**: The main popover slot, it wraps the popover content.
 - **trigger**: The popover trigger slot, it has small styles to ensure the trigger works correctly.
 - **backdrop**: The backdrop slot, it contains the backdrop styles.
 - **arrow**: The arrow slot, it wraps the popover arrow, the placement of the arrow is based on the popover placement, e.g. `data-[placement=top]:...`.
-
-
 
 ### Custom Styles
 
 You can customize the `Popover` component by passing custom Tailwind CSS classes to the component slots.
 
 <CodeDemo title="Custom Styles" files={popoverContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Popover` has the following attributes on the `PopoverContent` element:
+
+- **data-open**:
+  When the popover is open. Based on popover state.
+- **data-placement**:
+  The placement of the popover. Based on `placement` prop. The arrow element is positioned based on this attribute.
+- **data-focus**:
+  When the popover is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the popover is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />{" "}
+
+## Accessibility
+
+- The trigger and popover are automatically associated semantically via ARIA.
+- Content outside the popover is hidden from assistive technologies while it is open.
+- The popover closes when interacting outside, or pressing the <kbd>Escape</kbd> key.
+- Focus is moved into the popover on mount, and restored to the trigger element on unmount.
+- The popover is positioned relative to the trigger element, and automatically flips and adjusts to avoid overlapping with the edge of the browser window.
+- Scrolling is prevented outside the popover to avoid unintentionally repositioning or closing it.
+
+<Spacer y={4} />
+
+## API
+
+#### Popover Props
+
+| Attribute                 | Type                                                                        | Description                                                                                                                                                  | Default         |
+| ------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| children\*                | `ReactNode[]`                                                               | The content of the popover. It's usually the `PopoverTrigger` and `PopoverContent`.                                                                          | -               |
+| size                      | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The popover size. This change the `PopoverContent` font size.                                                                                                | `md`            |
+| color                     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The popover color theme.                                                                                                                                     | `default`       |
+| radius                    | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                  | The popover border radius.                                                                                                                                   | `xl`            |
+| shadow                    | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`          | The popover shadow.                                                                                                                                          | `lg`            |
+| backdrop                  | `transparent` \| `opaque` \| `blur`                                         | The popover backdrop type.                                                                                                                                   | `transparent`   |
+| placement                 | [PopoverPlacement](#popover-placement)                                      | The placement of the popover relative to its trigger reference.                                                                                              | `bottom`        |
+| state                     | `OverlayTriggerState`                                                       | The controlled state of the popover. See [Overlay States](https://react-spectrum.adobe.com/react-stately/useOverlayTriggerState.html#useoverlaytriggerstate) | -               |
+| isOpen                    | `boolean`                                                                   | Whether the popover is open by default (controlled).                                                                                                         | -               |
+| defaultOpen               | `boolean`                                                                   | Whether the popover is open by default (uncontrolled).                                                                                                       | -               |
+| offset(px)                | `number`                                                                    | The distance or margin between the reference and popper. It is used internally to create an offset modifier.                                                 | `7`             |
+| containerPadding(px)      | `number`                                                                    | The placement padding that should be applied between the element and its surrounding container.                                                              | `12`            |
+| crossOffset(px)           | `number`                                                                    | The additional offset applied along the cross axis between the element and its anchor element.                                                               | `0`             |
+| triggerType               | `dialog` \| `menu` \| `listbox` \| `tree` \| `grid`;                        | Type of popover that is opened by the trigger.                                                                                                               | `dialog`        |
+| showArrow                 | `boolean`                                                                   | Whether the popover should have an arrow.                                                                                                                    | `false`         |
+| shouldFlip                | `boolean`                                                                   | Whether the popover should change its placement and flip when it's about to overflow its boundary area.                                                      | `true`          |
+| triggerScaleOnOpen        | `boolean`                                                                   | Whether the trigger should scale down when the popover is open.                                                                                              | `true`          |
+| shouldBlockScroll         | `boolean`                                                                   | Whether to block scrolling outside the popover.                                                                                                              | `true`          |
+| isKeyboardDismissDisabled | `boolean`                                                                   | Whether pressing the escape key to close the popover should be disabled.                                                                                     | `false`         |
+| shouldCloseOnBlur         | `boolean`                                                                   | Whether the popover should close when focus is lost or moves outside it.                                                                                     | `false`         |
+| motionProps               | [MotionProps](#motion-props)                                                | The props to modify the framer motion animation. Use the `variants` API to create your own animation.                                                        |                 |
+| portalContainer           | `HTMLElement`                                                               | The container element in which the overlay portal will be placed.                                                                                            | `document.body` |
+| triggerRef                | `RefObject<HTMLElement>`                                                    | The ref for the element which the popover positions itself with respect to.                                                                                  | -               |
+| scrollRef                 | `RefObject<HTMLElement>`                                                    | A ref for the scrollable region within the popover.                                                                                                          | `overlayRef`    |
+| disableAnimation          | `boolean`                                                                   | Whether the popover is animated.                                                                                                                             | `false`         |
+| classNames                | `Record<"base"｜ "trigger"｜ "backdrop"｜ "arrow", string>`                 | Allows to set custom class names for the popover slots.                                                                                                      | -               |
+
+<Spacer y={1} />
+
+#### Popover Events
+
+| Attribute                    | Type                        | Description                                                                                                                                                                                                                                                                                               |
+| ---------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onOpenChange                 | `(isOpen: boolean) => void` | Handler that is called when the popover's open state changes.                                                                                                                                                                                                                                             |
+| shouldCloseOnInteractOutside | `(e: HTMLElement) => void`  | When user interacts with the argument element outside of the popover ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the popover. By default, onClose will always be called on interaction outside the overlay ref. |
+| onClose                      | `() => void`                | Handler that is called when the popover should close.                                                                                                                                                                                                                                                     |
+
+<Spacer y={2} />
+
+#### PopoverTrigger Props
+
+| Attribute  | Type        | Description                                                                                                                                                               | Default |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| children\* | `ReactNode` | The popover trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+
+<Spacer y={2} />
+
+#### PopoverContent Props
+
+| Attribute | Type        | Description                                                | Default |
+| --------- | ----------- | ---------------------------------------------------------- | ------- |
+| children  | `ReactNode` | The content that is displayed when the trigger is pressed. | -       |
+
+<Spacer y={2} />
+
+### Popover types
+
+<Spacer y={1} />
+
+#### Popover Placement
+
+```ts
+type PopoverPlacement =
+  | "top"
+  | "bottom"
+  | "right"
+  | "left"
+  | "top-start"
+  | "top-end"
+  | "bottom-start"
+  | "bottom-end"
+  | "left-start"
+  | "left-end"
+  | "right-start"
+  | "right-end";
+```
+
+#### Motion Props
+
+```ts
+export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
+```

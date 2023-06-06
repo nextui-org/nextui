@@ -1,5 +1,11 @@
 # @nextui-org/test-utils
 
+## 0.0.0-dev-v2-20230606203647
+
+### Patch Changes
+
+- Popover data attr added
+
 ## 0.0.0-dev-v2-20230606020717
 
 ### Patch Changes
