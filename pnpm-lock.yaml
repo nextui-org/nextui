@@ -1148,6 +1148,9 @@ importers:
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../input
+      '@nextui-org/link':
+        specifier: workspace:*
+        version: link:../link
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
