@@ -23,3 +23,4 @@ export * from "./image";
 export * from "./radio-group";
 export * from "./switch";
 export * from "./popover";
+export * from "./tooltip";

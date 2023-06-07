@@ -1,4 +1,4 @@
-import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
+import type {PopoverVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
@@ -11,7 +11,7 @@ import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {popover} from "@nextui-org/theme";
-import {ReactRef, mergeRefs, clsx} from "@nextui-org/shared-utils";
+import {ReactRef, mergeRefs, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
@@ -68,7 +68,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "content"> {
    * }} />
    * ```
    */
-  classNames?: SlotsToClasses<PopoverSlots>;
+  classNames?: SlotsToClasses<"base" | "arrow">;
 }
 
 export type UseTooltipProps = Props &
@@ -212,6 +212,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const getTooltipProps = useCallback<PropGetter>(
     () => ({
       ref: overlayRef,
+      "data-open": dataAttr(isOpen),
+      "data-disabled": dataAttr(isDisabled),
+      "data-placement": getArrowPlacement(placement, placementProp),
       className: slots.base({class: baseStyles}),
       ...mergeProps(tooltipProps, positionProps, overlayProps, otherProps),
       id: tooltipId,

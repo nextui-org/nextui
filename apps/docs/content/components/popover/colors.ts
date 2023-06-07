@@ -5,7 +5,7 @@ export default function App() {
     <PopoverContent>
       <div className="px-1 py-2">
         <div className="text-sm font-bold">Popover Content</div>
-        <div className="text-xs">This is a content of the popover</div>
+        <div className="text-xs">This is the popover content</div>
       </div>
     </PopoverContent>
   );

@@ -1,5 +1,13 @@
 # @nextui-org/use-callback-ref
 
+## 0.0.0-dev-v2-20230607013542
+
+### Patch Changes
+
+- Tooltip data attributes added
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230607013542
+
 ## 0.0.0-dev-v2-20230606203647
 
 ### Patch Changes

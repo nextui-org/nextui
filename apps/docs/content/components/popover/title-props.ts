@@ -4,7 +4,7 @@ export default function App() {
   return (
     <Popover placement="right">
       <PopoverTrigger>
-        <Button>Open Popover</Button>
+        <Button variant="flat">Open Popover</Button>
       </PopoverTrigger>
       <PopoverContent>
         {(titleProps) => (
@@ -12,7 +12,7 @@ export default function App() {
             <h3 className="text-sm font-bold" {...titleProps}>
               Popover Content
             </h3>
-            <div className="text-xs">This is a content of the popover</div>
+            <div className="text-xs">This is the popover content</div>
           </div>
         )}
       </PopoverContent>

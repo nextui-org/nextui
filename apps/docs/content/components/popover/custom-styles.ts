@@ -7,12 +7,12 @@ export default function App() {
       backdrop="opaque"
       placement="right"
       classNames={{
-        base: "py-3 px-4 bg-gradient-to-br from-white to-default-300 dark:from-default-50 dark:to-default-200",
+        base: "py-3 px-4 border border-default-200 bg-gradient-to-br from-white to-default-300 dark:from-default-100 dark:to-default-50",
         arrow: "bg-default-200",
       }}
     >
       <PopoverTrigger>
-        <Button>Open Popover</Button>
+        <Button variant="flat">Open Popover</Button>
       </PopoverTrigger>
       <PopoverContent>
         {(titleProps) => (
@@ -20,7 +20,7 @@ export default function App() {
             <h3 className="text-sm font-bold" {...titleProps}>
               Popover Content
             </h3>
-            <div className="text-xs">This is a content of the popover</div>
+            <div className="text-xs">This is the popover content</div>
           </div>
         )}
       </PopoverContent>

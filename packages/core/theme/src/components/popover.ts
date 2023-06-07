@@ -85,9 +85,9 @@ const popover = tv({
     size: {
       xs: {base: "text-xs"},
       sm: {base: "text-sm"},
-      md: {base: "text-base"},
-      lg: {base: "text-lg"},
-      xl: {base: "text-xl"},
+      md: {base: "text-sm"},
+      lg: {base: "text-base"},
+      xl: {base: "text-lg"},
     },
     color: {
       default: {

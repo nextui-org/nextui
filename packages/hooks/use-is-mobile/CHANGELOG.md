@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mobile
 
+## 0.0.0-dev-v2-20230607013542
+
+### Patch Changes
+
+- Tooltip data attributes added
+
 ## 0.0.0-dev-v2-20230606203647
 
 ### Patch Changes

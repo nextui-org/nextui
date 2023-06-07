@@ -1,13 +1,179 @@
 ---
-title: 'Tooltip'
-description: 'Tooltips displays informative text when users hover, focus, or click an element.'
+title: "Tooltip"
+description: "Tooltips display a brief, informative message that appears when a user interacts with an element."
 url: https://nextui.org/docs/components/tooltip
 ---
 
 # Tooltip
 
-Tooltips displays informative text when users hover, focus, or click an element.
+Tooltips display a brief, informative message that appears when a user interacts with an element.
 
-```jsx
-import {Tooltip} from '@nextui-org/react';
+<ComponentLinks component="tooltip" styles="popover" reactAriaHook="useTooltipTrigger" />
+
+---
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Tooltip} from "@nextui-org/react";',
+    individual: 'import {Tooltip} from "@nextui-org/tooltip";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={tooltipContent.usage} />
+
+### With Arrow
+
+<CodeDemo title="With Arrow" files={tooltipContent.arrow} />
+
+### Colors
+
+<CodeDemo title="Colors" files={tooltipContent.colors} />
+
+### Placements
+
+<CodeDemo title="Placements" files={tooltipContent.placements} />
+
+### Offset
+
+<CodeDemo title="Offset" files={tooltipContent.offset} />
+
+### Controlled
+
+<CodeDemo title="Controlled" files={tooltipContent.controlled} />
+
+### With Delay
+
+You can control the `open` and `close` delay of the tooltip with `delay` and `closeDelay` props.
+
+<CodeDemo title="With Delay" files={tooltipContent.delay} />
+
+Hovering over the second button shows the tooltip immediately. If you wait for a delay before hovering
+another element, the delay restarts.
+
+<CodeDemo title="With Delay Multiple" files={tooltipContent.delayMultiple} />
+
+### Custom Content
+
+<CodeDemo title="Custom Content" files={tooltipContent.customContent} />
+
+### Custom Motion
+
+Tooltip offers a `motionProps` property to customize the `enter` / `exit` animation.
+
+<CodeDemo title="Custom Motion" files={tooltipContent.customMotion} />
+
+> Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
+
+## Slots
+
+- **base**: The main tooltip slot, it wraps the tooltip content.
+- **arrow**: The arrow slot, it wraps the tooltip arrow, the placement of the arrow is based on the tooltip placement, e.g. `data-[placement=top]:...`.
+
+### Custom Styles
+
+You can customize the `Tooltip` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={tooltipContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Tooltip` has the following attributes on the `root` element:
+
+- **data-open**:
+  When the tooltip is open. Based on tooltip state.
+- **data-placement**:
+  The placement of the tooltip. Based on `placement` prop. The arrow element is positioned based on this attribute.
+- **data-disabled**:
+  When the tooltip is disabled. Based on `disabled` prop.
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Keyboard focus management and cross browser normalization.
+- Hover management and cross browser normalization.
+- Labeling support for screen readers (aria-describedby).
+- Exposed as a tooltip to assistive technology via ARIA.
+- Matches native tooltip behavior with delay on hover of first tooltip and no delay on subsequent tooltips.
+
+<Spacer y={4} />
+
+## API
+
+#### Tooltip Props
+
+| Attribute                 | Type                                                                        | Description                                                                                                  | Default         |
+| ------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------------- |
+| children\*                | `ReactNode[]`                                                               | The children to render. Usually a trigger element.                                                           | -               |
+| content                   | `ReactNode`                                                                 | The content to render inside the tooltip.                                                                    | -               |
+| size                      | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The tooltip size. This change the `content` font size.                                                       | `md`            |
+| color                     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The tooltip color theme.                                                                                     | `default`       |
+| radius                    | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                  | The tooltip border radius.                                                                                   | `xl`            |
+| shadow                    | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`          | The tooltip shadow.                                                                                          | `lg`            |
+| placement                 | [TooltipPlacement](#tooltip-placement)                                      | The placement of the tooltip relative to its trigger reference.                                              | `top`           |
+| delay                     | `number`                                                                    | The delay in milliseconds before the tooltip opens.                                                          | `500`           |
+| closeDelay                | `number`                                                                    | The delay in milliseconds before the tooltip closes.                                                         | `0`             |
+| isOpen                    | `boolean`                                                                   | Whether the tooltip is open by default (controlled).                                                         | -               |
+| defaultOpen               | `boolean`                                                                   | Whether the tooltip is open by default (uncontrolled).                                                       | -               |
+| offset(px)                | `number`                                                                    | The distance or margin between the reference and popper. It is used internally to create an offset modifier. | `7`             |
+| containerPadding(px)      | `number`                                                                    | The placement padding that should be applied between the element and its surrounding container.              | `12`            |
+| crossOffset(px)           | `number`                                                                    | The additional offset applied along the cross axis between the element and its anchor element.               | `0`             |
+| triggerType               | `dialog` \| `menu` \| `listbox` \| `tree` \| `grid`;                        | Type of tooltip that is opened by the trigger.                                                               | `dialog`        |
+| showArrow                 | `boolean`                                                                   | Whether the tooltip should have an arrow.                                                                    | `false`         |
+| shouldFlip                | `boolean`                                                                   | Whether the tooltip should change its placement and flip when it's about to overflow its boundary area.      | `true`          |
+| triggerScaleOnOpen        | `boolean`                                                                   | Whether the trigger should scale down when the tooltip is open.                                              | `true`          |
+| shouldBlockScroll         | `boolean`                                                                   | Whether to block scrolling outside the tooltip.                                                              | `true`          |
+| isKeyboardDismissDisabled | `boolean`                                                                   | Whether pressing the escape key to close the tooltip should be disabled.                                     | `false`         |
+| isDismissable             | `boolean`                                                                   | Whether to close the overlay when the user interacts outside it.                                             | `false`         |
+| shouldCloseOnBlur         | `boolean`                                                                   | Whether the tooltip should close when focus is lost or moves outside it.                                     | `true`          |
+| motionProps               | [MotionProps](#motion-props)                                                | The props to modify the framer motion animation. Use the `variants` API to create your own animation.        | -               |
+| portalContainer           | `HTMLElement`                                                               | The container element in which the overlay portal will be placed.                                            | `document.body` |
+| isDisabled                | `boolean`                                                                   | Whether the tooltip is disabled.                                                                             | `false`         |
+| disableAnimation          | `boolean`                                                                   | Whether the tooltip is animated.                                                                             | `false`         |
+| classNames                | `Record<"base"｜"arrow", string>`                                           | Allows to set custom class names for the tooltip slots.                                                      | -               |
+
+<Spacer y={1} />
+
+#### Tooltip Events
+
+| Attribute                    | Type                        | Description                                                                                                                                                                                                                                                                                               |
+| ---------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onOpenChange                 | `(isOpen: boolean) => void` | Handler that is called when the tooltip's open state changes.                                                                                                                                                                                                                                             |
+| shouldCloseOnInteractOutside | `(e: HTMLElement) => void`  | When user interacts with the argument element outside of the tooltip ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the tooltip. By default, onClose will always be called on interaction outside the overlay ref. |
+| onClose                      | `() => void`                | Handler that is called when the tooltip should close.                                                                                                                                                                                                                                                     |
+
+<Spacer y={2} />
+
+### Tooltip types
+
+<Spacer y={1} />
+
+#### Tooltip Placement
+
+```ts
+type TooltipPlacement =
+  | "top"
+  | "bottom"
+  | "right"
+  | "left"
+  | "top-start"
+  | "top-end"
+  | "bottom-start"
+  | "bottom-end"
+  | "left-start"
+  | "left-end"
+  | "right-start"
+  | "right-end";
+```
+
+#### Motion Props
+
+```ts
+export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
 ```

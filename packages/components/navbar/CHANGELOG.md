@@ -1,5 +1,19 @@
 # @nextui-org/navbar
 
+## 0.0.0-dev-v2-20230607013542
+
+### Patch Changes
+
+- Tooltip data attributes added
+- Updated dependencies
+  - @nextui-org/use-aria-toggle-button@0.0.0-dev-v2-20230607013542
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230607013542
+  - @nextui-org/use-scroll-position@0.0.0-dev-v2-20230607013542
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230607013542
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230607013542
+  - @nextui-org/system@0.0.0-dev-v2-20230607013542
+  - @nextui-org/theme@0.0.0-dev-v2-20230607013542
+
 ## 0.0.0-dev-v2-20230606203647
 
 ### Patch Changes
