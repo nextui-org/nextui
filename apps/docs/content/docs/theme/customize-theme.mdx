@@ -6,3 +6,83 @@ url: https://nextui.org/docs/theme/palette
 
 # Customize theme
 
+NextUI provides a simple way to customize the default themes, first the color pallet, NextUI uses a color variable primary, secondary color pallet to easily customize your theme any time.
+
+### Customizing theme from tailwind config:
+
+To extend or override a token in the default theme, import the `createTheme` function and add the keys you'd like to override.
+You can also add new values to the theme.
+
+For example, if you'd like to update the colors in the theme to include your brand colors, here's what you'll do:
+
+```js
+// tailwind.config.js
+
+// 1. Import `nextui`
+const { nextui } = require("@nextui-org/react");
+
+// 2. Add NextUI components to Tailwind content
+module.exports = {
+  content: [
+    // (Default)
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js",
+    // (Default)
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}' // ++ this line
+  ],
+  darkMode: 'class', // Don't forget this.
+    plugins: [
+      nextui({
+        themes: {
+            purpleTheme: {
+              'primary': '#8667C4', // Required for NextUI components
+              'primary-50': '#F2ECFF', // Required for NextUI components
+              'primary-100': '#E3DCF1', // Required for NextUI components
+              'primary-200': '#D2C7E8', // Required for NextUI components
+              'primary-300': '#BBAADD', // Required for NextUI components
+              'primary-400': '#9F88CE', // Required for NextUI components
+              'primary-500': '#876AC2', // Required for NextUI components
+              'primary-600': '#7350B7', // Required for NextUI components
+              'primary-700': '#503589', // Required for NextUI components
+              'primary-800': '#3A2763', // Required for NextUI components
+              'primary-900': '#2A1C48', // Required for NextUI components
+              'primary-content': '#F2ECFF', // Optional for your own styling
+              'secondary': '#9A2BB1', // Required for NextUI components
+              'secondary-50': '#EED9F4', // Required for NextUI components
+              'secondary-100': '#DFB9EA', // Required for NextUI components
+              'secondary-200': '#D19BE1', // Required for NextUI components
+              'secondary-300': '#C17BD5', // Required for NextUI components
+              'secondary-400': '#AD53C8', // Required for NextUI components
+              'secondary-500': '#9439AF', // Required for NextUI components
+              'secondary-600': '#742C88', // Required for NextUI components
+              'secondary-700': '#5C246D', // Required for NextUI components
+              'secondary-800': '#421B4D', // Required for NextUI components
+              'secondary-900': '#2C1234', // Required for NextUI components
+              'secondary-content': '#4B3772', // Optional for your own styling
+              'gradient-primary-from': '#005618', // Optional for your own styling
+              'gradient-primary-to': '#009F2C', // Optional for your own styling
+              'gradient-secondary-from': '#E5FFEC', // Optional for your own styling
+              'gradient-secondary-to': '#CBFFD9', // Optional for your own styling
+              'base-300': '#C0C0C0',  // Optional for your own styling
+              'base-200': '#DBDBDB', // Optional for your own styling
+              'base-100': '#F9F9F9', // Optional for your own styling 
+              'neutral': '#323232', // Optional for your own styling
+              'light': '#F5F5F5', // Optional for your own styling
+              'dark': '#353535' // Optional for your own styling
+          }
+        }
+      })
+  ]
+}
+
+// 3. Now you can use these colors in your components
+function MyComponent() {
+  return (
+    <>
+      <Button color={'primary'}>NextUI New Primary Color</Button>
+      <Button color={'secondary'}>NextUI New Secondary Color</Button>
+    </>
+  )
+}
+```
