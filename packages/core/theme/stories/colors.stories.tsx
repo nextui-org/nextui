@@ -165,8 +165,8 @@ SemanticColors.args = {
           textClassName: "text-background",
         },
         {
-          color: "border",
-          className: "bg-border",
+          color: "divider",
+          className: "bg-divider",
           textClassName: "text-foreground",
         },
       ],

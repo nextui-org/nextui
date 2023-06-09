@@ -209,6 +209,17 @@ const corePlugin = (
             3: "3px",
             5: "5px",
           },
+          minWidth: {
+            1: "0.25rem",
+            2: "0.5rem",
+            3: "0.75rem",
+            "3.5": "0.875rem",
+            4: "1rem",
+            5: "1.25rem",
+            6: "1.5rem",
+            7: "1.75rem",
+            8: "2rem",
+          },
           backgroundImage: {
             "stripe-gradient":
               "linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent)",

@@ -56,8 +56,7 @@ const navbar = tv({
       "items-center",
       "justify-center",
       "border-b",
-      "border-default-200",
-      "dark:border-default-100",
+      "border-divider",
     ],
     wrapper: [
       "flex",

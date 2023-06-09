@@ -72,6 +72,7 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
       data-hover-unselected={dataAttr((isHovered || isPressed) && !isSelected)}
       data-pressed={dataAttr(isPressed)}
       data-selected={dataAttr(isSelected)}
+      data-slot="tab"
       {...mergeProps(
         tabProps,
         !isDisabled
@@ -94,6 +95,7 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
       {isSelected && !disableAnimation && !disableCursor && isMounted ? (
         <motion.span
           className={slots.cursor({class: classNames?.cursor})}
+          data-slot="cursor"
           layoutDependency={false}
           layoutId="cursor"
           transition={{
@@ -106,6 +108,7 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
         className={slots.tabContent({
           class: classNames?.tabContent,
         })}
+        data-slot="tabContent"
       >
         {item.rendered}
       </div>

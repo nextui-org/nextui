@@ -1,0 +1,160 @@
+---
+title: "Tabs"
+description: "Tabs organize content into multiple sections and allow users to navigate between them."
+url: https://nextui.org/docs/components/tabs
+---
+
+# Tabs
+
+Tabs organize content into multiple sections and allow users to navigate between them.
+
+<ComponentLinks component="tabs" reactAriaHook="useTabList" />
+
+---
+
+## Import
+
+NextUI exports 2 tabs-related components:
+
+- **Tabs**: The main component to display a tab list.
+- **Tab**: The component to display a tab item. The children of this component will be displayed as the content of the tab.
+
+<ImportTabs
+  commands={{
+    main: 'import {Tabs, Tab} from "@nextui-org/react";',
+    individual: 'import {Tabs, Tab} from "@nextui-org/tabs";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={tabsContent.usage} />
+
+### Dynamic
+
+You can render tabs dynamically by using `items` prop.
+
+<CodeDemo title="Dynamic" files={tabsContent.dynamic} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={tabsContent.disabled} />
+
+### Disabled Item
+
+<CodeDemo title="Disabled Item" files={tabsContent.disabledItem} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={tabsContent.sizes} />
+
+### Radius
+
+<CodeDemo title="Radius" files={tabsContent.radius} />
+
+### Colors
+
+<CodeDemo title="Colors" files={tabsContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={tabsContent.variants} />
+
+### With Icons
+
+<CodeDemo title="With Icons" files={tabsContent.icons} />
+
+### Controlled
+
+You can use the `onSelectionChange` and `selectedKey` props to control the selected tab.
+
+<CodeDemo title="Controlled" files={tabsContent.controlled} />
+
+### With Form
+
+<CodeDemo title="With Form" files={tabsContent.form} />
+
+## Slots
+
+- **base**: The main tabs slot, it wraps the items and the panels.
+- **tabList**: The tab list slot, it wraps the tab items.
+- **tab**: The tab slot, it wraps the tab item.
+- **tabContent**: The tab content slot, it wraps the tab content.
+- **cursor**: The cursor slot, it wraps the cursor. This is only visible when `disableAnimation=false`
+- **panel**: The panel slot, it wraps the tab panel (content).
+
+### Custom Styles
+
+You can customize the `Tabs` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={tabsContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Tab` has the following attributes on the `root` element:
+
+- **data-selected**:
+  When the tab is selected.
+- **data-disabled**:
+  When the tab is disabled.
+- **data-hover**:
+  When the tab is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html).
+- **data-hover-selected**:
+  When the tab is being hovered and is not selected. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html) and `selected` state.
+- **data-focus**:
+  When the tab is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the tab is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-pressed**:
+  When the tab is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Support for mouse, touch, and keyboard interactions on tabs.
+- Keyboard event support for arrows keys.
+- Support for disabled tabs.
+- Follows the tabs ARIA pattern, semantically linking tabs and their associated tab panels.
+- Focus management for tab panels without any focusable children.
+
+<Spacer y={4} />
+
+## API
+
+### Tabs Props
+
+| Attribute              | Type                                                                                              | Description                                                                                             | Default     |
+| ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------- |
+| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                      | The list of tabs.                                                                                       | -           |
+| variant                | `solid` \| `bordered` \| `light` \| `underlined`                                                  | The tabs appearance style.                                                                              | `solid`     |
+| size                   | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                              | The tabs size.                                                                                          | `md`        |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                       | The tabs color theme.                                                                                   | `default`   |
+| radius                 | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                                        | The tabs border radius.                                                                                 | `xl`        |
+| shadowCursor           | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`                                | The tabs cursor shadow.                                                                                 | `md`        |
+| fullWidth              | `boolean`                                                                                         | Whether the tabs should take the full width of its parent.                                              | `false`     |
+| items                  | `Iterable<T>`                                                                                     | The list of tabs (dynamic).                                                                             | -           |
+| disabledKeys           | `React.Key[]`                                                                                     | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -           |
+| selectedKey            | `React.Key`                                                                                       | The key for the currently selected item.                                                                | -           |
+| defaultSelectedKey     | `React.Key`                                                                                       | The key for the initially selected item.                                                                | -           |
+| disallowEmptySelection | `boolean`                                                                                         | Whether the tabs should allow empty selection.                                                          | `false`     |
+| keyboardActivation     | `automatic` \| `manual`                                                                           | Whether tabs are activated automatically on focus or manually.                                          | `automatic` |
+| disableCursor          | `boolean`                                                                                         | Whether the cursor should be hidden.                                                                    | `false`     |
+| isDisabled             | `boolean`                                                                                         | Whether the tab list should be disabled.                                                                | `false`     |
+| disableAnimation       | `boolean`                                                                                         | Whether the tab list should be animated.                                                                | `false`     |
+| classNames             | `Record<"base"｜ "tabList"｜ "tab"｜ "tabContent"｜ "tabContent" ｜ "cursor" ｜ "panel", string>` | Allows to set custom class names for the card slots.                                                    | -           |
+
+### Tabs Events
+
+| Attribute         | Type                      | Description                                        |
+| ----------------- | ------------------------- | -------------------------------------------------- |
+| onSelectionChange | `(key: React.Key) => any` | Handler that is called when the selection changes. |
+
+### Tab Props
+
+| Attribute  | Type        | Description             | Default |
+| ---------- | ----------- | ----------------------- | ------- |
+| children\* | `ReactNode` | The content of the tab. | -       |
+| title      | `ReactNode` | The title of the tab.   | -       |

@@ -45,6 +45,7 @@ const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
       {...mergeProps(tabPanelProps, focusProps, otherProps)}
       aria-labelledby={`${tabPanelId}-${state.selectedItem?.key}`}
       className={slots.panel?.({class: tabPanelStyles})}
+      data-slot="panel"
       id={tabPanelId}
     >
       {content}

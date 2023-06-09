@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/dropdown",
-  "version": "0.0.0-dev-v2-20230607013542",
+  "version": "0.0.0-dev-v2-20230609000231",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"

@@ -17,7 +17,7 @@ import {colorVariants} from "../utils";
  */
 const badge = tv({
   slots: {
-    base: ["relative", "inline-flex", "shrink-0", "overflow-visible", "align-middle"],
+    base: ["relative", "flex", "shrink-0", "overflow-visible", "items-center", "justify-center"],
     badge: [
       "flex",
       "z-10",
@@ -277,35 +277,35 @@ const badge = tv({
       isOneChar: true,
       size: "xs",
       class: {
-        badge: "w-3.5 h-3.5",
+        badge: "w-3.5 h-3.5 min-w-3.5 min-h-3.5",
       },
     },
     {
       isOneChar: true,
       size: "sm",
       class: {
-        badge: "w-4 h-4",
+        badge: "w-4 h-4 min-w-4 min-h-4",
       },
     },
     {
       isOneChar: true,
       size: "md",
       class: {
-        badge: "w-5 h-5",
+        badge: "w-5 h-5 min-w-5 min-h-5",
       },
     },
     {
       isOneChar: true,
       size: "lg",
       class: {
-        badge: "w-6 h-6",
+        badge: "w-6 h-6 min-w-6 min-h-6",
       },
     },
     {
       isOneChar: true,
       size: "xl",
       class: {
-        badge: "w-7 h-7",
+        badge: "w-7 h-7 min-w-7 min-h-7",
       },
     },
     // isDot / size
@@ -313,35 +313,35 @@ const badge = tv({
       isDot: true,
       size: "xs",
       class: {
-        badge: "w-2 h-2",
+        badge: "w-2 h-2 min-w-2 min-h-2",
       },
     },
     {
       isDot: true,
       size: "sm",
       class: {
-        badge: "w-3 h-3",
+        badge: "w-3 h-3 min-w-3 min-h-3",
       },
     },
     {
       isDot: true,
       size: "md",
       class: {
-        badge: "w-3.5 h-3.5",
+        badge: "w-3.5 h-3.5 min-w-3.5 min-h-3.5",
       },
     },
     {
       isDot: true,
       size: "lg",
       class: {
-        badge: "w-4 h-4",
+        badge: "w-4 h-4 min-w-4 min-h-4",
       },
     },
     {
       isDot: true,
       size: "xl",
       class: {
-        badge: "w-5 h-5",
+        badge: "w-5 h-5 min-w-5 min-h-5",
       },
     },
     // placement / rectangle

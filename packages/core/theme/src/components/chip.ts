@@ -412,35 +412,35 @@ const chip = tv({
       isOneChar: true,
       size: "xs",
       class: {
-        base: "w-4 h-4",
+        base: "w-4 h-4 min-w-4 min-h-4",
       },
     },
     {
       isOneChar: true,
       size: "sm",
       class: {
-        base: "w-5 h-5",
+        base: "w-5 h-5 min-w-5 min-h-5",
       },
     },
     {
       isOneChar: true,
       size: "md",
       class: {
-        base: "w-6 h-6",
+        base: "w-6 h-6 min-w-6 min-h-6",
       },
     },
     {
       isOneChar: true,
       size: "lg",
       class: {
-        base: "w-7 h-7",
+        base: "w-7 h-7 min-w-7 min-h-7",
       },
     },
     {
       isOneChar: true,
       size: "xl",
       class: {
-        base: "w-8 h-8",
+        base: "w-8 h-8 min-w-8 min-h-8",
       },
     },
     // hasStartContent / size

@@ -105,12 +105,14 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   );
 
   const getBaseProps: PropGetter = (props) => ({
+    "data-slot": "base",
     className: slots.base({class: clsx(baseStyles, props?.className)}),
     ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
   });
 
   const getTabListProps: PropGetter = (props) => ({
     ref: domRef,
+    "data-slot": "tabList",
     className: slots.tabList({class: clsx(classNames?.tabList, props?.className)}),
     ...mergeProps(tabListProps, props),
     id: tabListId,

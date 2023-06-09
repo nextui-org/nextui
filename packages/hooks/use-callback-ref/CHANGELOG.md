@@ -1,5 +1,13 @@
 # @nextui-org/use-callback-ref
 
+## 0.0.0-dev-v2-20230609000231
+
+### Patch Changes
+
+- Bordered colors changed to divider color
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230609000231
+
 ## 0.0.0-dev-v2-20230607013542
 
 ### Patch Changes

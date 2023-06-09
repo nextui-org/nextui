@@ -18,7 +18,7 @@ const accordion = tv({
     variant: {
       light: "",
       shadow: "px-4 shadow-lg rounded-xl bg-background dark:bg-content1 border border-default-100",
-      bordered: "px-4 border border-default rounded-lg",
+      bordered: "px-4 border border-divider rounded-lg",
       splitted: "group is-splitted flex flex-col gap-2", // the classNames are applied in the accordion-item component
     },
     fullWidth: {
@@ -56,7 +56,7 @@ const accordion = tv({
 const accordionItem = tv({
   slots: {
     base: [
-      "border-default",
+      "border-divider",
       "[&:not(:last-of-type)]:border-b",
       "group-[.is-splitted]:px-4",
       "group-[.is-splitted]:bg-background",

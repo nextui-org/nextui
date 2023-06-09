@@ -12,7 +12,7 @@ import {tv} from "tailwind-variants";
  * <span className={styles} />
  */
 const divider = tv({
-  base: "shrink-0 bg-border border-none",
+  base: "shrink-0 bg-divider border-none",
   variants: {
     orientation: {
       horizontal: "w-full h-px",

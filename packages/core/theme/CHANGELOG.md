@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230609000231
+
+### Patch Changes
+
+- Bordered colors changed to divider color
+
 ## 0.0.0-dev-v2-20230607013542
 
 ### Patch Changes

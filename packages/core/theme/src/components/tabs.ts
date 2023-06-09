@@ -23,7 +23,7 @@ import {colorVariants} from "../utils";
  */
 const tabs = tv({
   slots: {
-    base: "inline-block",
+    base: "inline-flex",
     tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1"],
     tab: [
       "z-0",
@@ -57,9 +57,10 @@ const tabs = tv({
       "text-default-500",
       "group-data-[selected=true]:text-foreground",
     ],
-    cursor: ["absolute", "z-0", "bg-white", "shadow-md"],
+    cursor: ["absolute", "z-0", "bg-white"],
     panel: [
-      "mt-3",
+      "py-3",
+      "px-1",
       "outline-none",
       // focus ring
       "data-[focus-visible=true]:outline-none",
@@ -150,6 +151,29 @@ const tabs = tv({
         cursor: "rounded-full",
       },
     },
+    shadowCursor: {
+      none: {
+        cursor: "shadow-none",
+      },
+      sm: {
+        cursor: "shadow-sm",
+      },
+      md: {
+        cursor: "shadow-md",
+      },
+      lg: {
+        cursor: "shadow-lg",
+      },
+      xl: {
+        cursor: "shadow-xl",
+      },
+      "2xl": {
+        cursor: "shadow-2xl",
+      },
+      inner: {
+        cursor: "shadow-inner",
+      },
+    },
     fullWidth: {
       true: {
         base: "w-full",
@@ -172,6 +196,7 @@ const tabs = tv({
     radius: "xl",
     color: "default",
     variant: "solid",
+    shadowCursor: "md",
     size: "md",
     fullWidth: false,
     isDisabled: false,

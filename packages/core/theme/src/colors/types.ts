@@ -16,7 +16,7 @@ export type ColorScale = Partial<{
 export type BaseColors = {
   background: ColorScale;
   foreground: ColorScale;
-  border: ColorScale;
+  divider: ColorScale;
   content1: ColorScale;
   content2: ColorScale;
   content3: ColorScale;
