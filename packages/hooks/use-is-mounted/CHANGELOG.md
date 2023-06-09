@@ -1,5 +1,17 @@
 # @nextui-org/use-is-mounted
 
+## 0.0.0-dev-v2-20230609194506
+
+### Patch Changes
+
+- Badge styles fixed
+
+## 0.0.0-dev-v2-20230609175559
+
+### Patch Changes
+
+- Accordion Item data attributes added, APi improved, badge styles fixed
+
 ## 0.0.0-dev-v2-20230609003119
 
 ### Patch Changes

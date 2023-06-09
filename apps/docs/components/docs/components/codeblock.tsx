@@ -10,6 +10,7 @@ interface CodeblockProps {
   metastring?: string;
   theme?: PrismTheme;
   showLines?: boolean;
+  hideScrollBar?: boolean;
   className?: string;
   children?: (props: any) => React.ReactNode;
 }
@@ -45,6 +46,7 @@ export function Codeblock({
   showLines,
   theme: themeProp,
   metastring,
+  hideScrollBar,
   className: classNameProp,
   ...props
 }: CodeblockProps) {
@@ -59,6 +61,7 @@ export function Codeblock({
           <pre
             className={clsx(className, classNameProp, "flex max-w-full", {
               "flex-col": isMultiLine,
+              "scrollbar-hide overflow-x-scroll": hideScrollBar,
             })}
             style={style}
           >

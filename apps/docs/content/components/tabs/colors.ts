@@ -13,7 +13,7 @@ export default function App() {
   return (
     <div className="flex flex-wrap gap-4">
       {colors.map((color) => (
-        <Tabs key={color} color={color} aria-label="Tabs colors">
+        <Tabs key={color} color={color} aria-label="Tabs colors" radius="full">
           <Tab key="photos" title="Photos"/>
           <Tab key="music" title="Music"/>
           <Tab key="videos" title="Videos"/>

@@ -12,6 +12,7 @@ import {
   Tabs,
   Tab,
   Link,
+  Badge,
 } from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
 import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
@@ -174,7 +175,7 @@ export const Hero = () => {
   const isMounted = useIsMounted();
 
   return (
-    <section className="flex relative overflow-hidden lg:overflow-visible w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
+    <section className="flex relative overflow-hidden lg:overflow-visible w-full flex-nowrap justify-between items-center h-[calc(94vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
       <div className="flex flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
         <div className="text-center leading-8 md:leading-10 md:text-left">
           <div className="inline-block">
@@ -203,18 +204,28 @@ export const Hero = () => {
           >
             Get Started
           </Button>
-          <Button
-            isExternal
-            as={Link}
-            className="w-full md:w-auto"
-            href="https://github.com/nextui-org/nextui"
-            radius="full"
-            size="lg"
-            startIcon={<GithubIcon />}
-            variant="bordered"
+          <Badge
+            classNames={{
+              base: "w-full md:w-auto",
+              badge: "hidden md:flex text-default-600",
+            }}
+            content="10.6k"
+            variant="faded"
           >
-            Github
-          </Button>
+            <Button
+              fullWidth
+              isExternal
+              as={Link}
+              className="w-full md:w-auto"
+              href="https://github.com/nextui-org/nextui"
+              radius="full"
+              size="lg"
+              startIcon={<GithubIcon />}
+              variant="bordered"
+            >
+              Github
+            </Button>
+          </Badge>
         </div>
       </div>
 

@@ -69,6 +69,7 @@ const accordionItem = tv({
     heading: "",
     trigger: [
       "flex py-4 w-full h-full gap-3 outline-none items-center",
+      "data-[pressed=true]:opacity-80",
       // focus ring
       "data-[focus-visible=true]:outline-none",
       "data-[focus-visible=true]:ring-2",
@@ -115,6 +116,7 @@ const accordionItem = tv({
       },
       false: {
         indicator: "transition-transform",
+        trigger: "transition-opacity",
       },
     },
     disableIndicatorAnimation: {

@@ -38,24 +38,12 @@ export interface CollapseTransitionOptions {
 
 const defaultTransitions = {
   exit: {
-    height: {
-      duration: 0.3,
-      ease: TRANSITION_EASINGS.ease,
-    },
-    opacity: {
-      duration: 0.3,
-      ease: TRANSITION_EASINGS.ease,
-    },
+    height: {duration: 0.2, ease: TRANSITION_EASINGS.ease},
+    opacity: {duration: 0.3, ease: TRANSITION_EASINGS.ease},
   },
   enter: {
-    height: {
-      duration: 0.4,
-      ease: TRANSITION_EASINGS.spring,
-    },
-    opacity: {
-      duration: 0.3,
-      ease: TRANSITION_EASINGS.ease,
-    },
+    height: {duration: 0.3, ease: TRANSITION_EASINGS.ease},
+    opacity: {duration: 0.4, ease: TRANSITION_EASINGS.ease},
   },
 };
 

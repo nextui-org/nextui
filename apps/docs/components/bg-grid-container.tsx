@@ -1,7 +1,6 @@
 import {ReactNode, FC} from "react";
 import {Image} from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
-
 export interface BgGridContainerProps {
   showGradient?: boolean;
   children?: ReactNode;

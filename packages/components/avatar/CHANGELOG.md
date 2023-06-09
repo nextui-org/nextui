@@ -1,5 +1,29 @@
 # @nextui-org/avatar
 
+## 0.0.0-dev-v2-20230609194506
+
+### Patch Changes
+
+- Badge styles fixed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230609194506
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230609194506
+  - @nextui-org/use-image@0.0.0-dev-v2-20230609194506
+  - @nextui-org/system@0.0.0-dev-v2-20230609194506
+  - @nextui-org/theme@0.0.0-dev-v2-20230609194506
+
+## 0.0.0-dev-v2-20230609175559
+
+### Patch Changes
+
+- Accordion Item data attributes added, APi improved, badge styles fixed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230609175559
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230609175559
+  - @nextui-org/use-image@0.0.0-dev-v2-20230609175559
+  - @nextui-org/system@0.0.0-dev-v2-20230609175559
+  - @nextui-org/theme@0.0.0-dev-v2-20230609175559
+
 ## 0.0.0-dev-v2-20230609003119
 
 ### Patch Changes

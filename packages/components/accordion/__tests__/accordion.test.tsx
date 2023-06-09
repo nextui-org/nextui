@@ -68,7 +68,7 @@ describe("Accordion", () => {
     expect(wrapper.getAllByRole("button")[0]).toBeDisabled();
   });
 
-  it("should expand the accordion item when clicked", () => {
+  it("should expand the accordion item when clicked", async () => {
     const wrapper = render(
       <Accordion disableAnimation>
         <AccordionItem key="1" data-testid="item-1" title="Accordion Item 1">
@@ -81,12 +81,12 @@ describe("Accordion", () => {
     );
 
     const base = wrapper.getByTestId("item-1");
-    const button = base.querySelector("button");
+    const button = base.querySelector("button") as HTMLElement;
 
     expect(button).toHaveAttribute("aria-expanded", "false");
 
-    act(() => {
-      button?.click();
+    await act(async () => {
+      await userEvent.click(button);
     });
 
     expect(button).toHaveAttribute("aria-expanded", "true");
@@ -229,6 +229,9 @@ describe("Accordion", () => {
         <AccordionItem key="1" data-testid="item-1" title="Accordion Item 1">
           Accordion Item 1 description
         </AccordionItem>
+        <AccordionItem key="2" data-testid="item-2" title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
       </Accordion>,
     );
 
@@ -237,8 +240,8 @@ describe("Accordion", () => {
 
     expect(button).toHaveAttribute("aria-expanded", "false");
 
-    act(() => {
-      button?.click();
+    await act(async () => {
+      await userEvent.click(button);
     });
 
     expect(button).toHaveAttribute("aria-expanded", "true");

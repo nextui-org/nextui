@@ -17,7 +17,7 @@ import {colorVariants} from "../utils";
  */
 const badge = tv({
   slots: {
-    base: ["relative", "flex", "shrink-0", "overflow-visible", "items-center", "justify-center"],
+    base: ["relative", "inline-flex", "shrink-0"],
     badge: [
       "flex",
       "z-10",

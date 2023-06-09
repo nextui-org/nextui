@@ -6,7 +6,8 @@ import {clsx, ReactRef, callAllHandlers, dataAttr} from "@nextui-org/shared-util
 import {NodeWithProps} from "@nextui-org/aria-utils";
 import {useAriaAccordionItem} from "@nextui-org/use-aria-accordion-item";
 import {useCallback, useMemo} from "react";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {useHover, usePress} from "@react-aria/interactions";
 
 import {AccordionItemBaseProps} from "./base/accordion-item-base";
 import {useAccordionContext} from "./accordion-context";
@@ -44,6 +45,13 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     hideIndicator = groupContext.hideIndicator ?? false,
     disableAnimation = groupContext.disableAnimation ?? false,
     disableIndicatorAnimation = groupContext.disableIndicatorAnimation ?? false,
+    style,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
+    onClick,
     ...otherProps
   } = props;
 
@@ -65,6 +73,18 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
 
   const {isFocused, isFocusVisible, focusProps} = useFocusRing({
     autoFocus: item.props?.autoFocus,
+  });
+
+  const {isHovered, hoverProps} = useHover({isDisabled});
+
+  const {pressProps, isPressed} = usePress({
+    ref: domRef,
+    isDisabled,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
   });
 
   const handleFocus = () => {
@@ -117,6 +137,8 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "data-focus": dataAttr(isFocused),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-disabled": dataAttr(isDisabled),
+        "data-hover": dataAttr(isHovered),
+        "data-pressed": dataAttr(isPressed),
         className: slots.trigger({class: classNames?.trigger}),
         onFocus: callAllHandlers(
           handleFocus,
@@ -132,18 +154,33 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
           otherProps.onBlur,
           item.props?.onBlur,
         ),
-        ...mergeProps(buttonProps, props),
+        style: {
+          ...style,
+          ...props?.style,
+          WebkitTapHighlightColor: "transparent",
+        },
+        ...mergeProps(buttonProps, hoverProps, pressProps, props),
+        onClick: chain(pressProps.onClick, onClick),
       };
     },
     [
       domRef,
+      style,
+      slots,
       isOpen,
       isFocusVisible,
+      isPressed,
+      isHovered,
       isDisabled,
       isFocused,
       buttonProps,
       focusProps,
-      slots,
+      pressProps,
+      hoverProps,
+      otherProps,
+      item.props,
+      handleFocus,
+      handleBlur,
       classNames,
     ],
   );

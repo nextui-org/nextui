@@ -9,6 +9,7 @@ export default function App() {
         <CardBody>
           <Tabs
             fullWidth
+            size="sm"
             aria-label="Tabs form"
             selectedKey={selected}
             onSelectionChange={setSelected}

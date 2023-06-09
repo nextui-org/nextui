@@ -6,8 +6,8 @@ import type {
 import type {CollapseTransitionProps} from "@nextui-org/framer-transitions";
 
 import {ItemProps, BaseItem} from "@nextui-org/aria-utils";
-import {FocusableProps} from "@react-types/shared";
-import {ReactNode} from "react";
+import {FocusableProps, PressEvents} from "@react-types/shared";
+import {ReactNode, MouseEventHandler} from "react";
 
 export type AccordionItemIndicatorProps = {
   /**
@@ -27,7 +27,8 @@ export type AccordionItemIndicatorProps = {
 
 export interface Props<T extends object = {}>
   extends Omit<ItemProps<"button", T>, "children" | "title" | keyof FocusableProps>,
-    FocusableProps {
+    FocusableProps,
+    PressEvents {
   /**
    * The content of the component.
    */
@@ -54,6 +55,11 @@ export interface Props<T extends object = {}>
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: CollapseTransitionProps;
+  /**
+   * The native button click event handler.
+   * @deprecated - use `onPress` instead.
+   */
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.

@@ -69,7 +69,7 @@ const defaultProps = {
 
 const Template: ComponentStory<typeof Input> = (args: InputProps) => (
   <div className="w-full max-w-[240px]">
-    <Input {...args} />
+    <Input {...args} size="sm" />
   </div>
 );
 

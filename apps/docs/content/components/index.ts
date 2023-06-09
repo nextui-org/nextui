@@ -25,3 +25,4 @@ export * from "./switch";
 export * from "./popover";
 export * from "./tooltip";
 export * from "./tabs";
+export * from "./modal";

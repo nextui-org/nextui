@@ -192,7 +192,7 @@ export default function App() {
   const itemStyles = {
     base: "py-0 w-full",
     title: "font-normal text-base",
-    trigger: "px-2 py-0 hover:bg-default-100 rounded-lg h-14 flex items-center",
+    trigger: "px-2 py-0 data-[hover=true]:bg-default-100 rounded-lg h-14 flex items-center",
     indicator: "text-base",
     content: "text-sm px-2",
   };

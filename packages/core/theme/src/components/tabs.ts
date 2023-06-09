@@ -24,7 +24,7 @@ import {colorVariants} from "../utils";
 const tabs = tv({
   slots: {
     base: "inline-flex",
-    tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1"],
+    tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1", "h-fit"],
     tab: [
       "z-0",
       "w-full",
@@ -126,24 +126,24 @@ const tabs = tv({
         cursor: "rounded",
       },
       sm: {
+        tabList: "rounded-sm",
+        tab: "rounded",
+        cursor: "rounded",
+      },
+      md: {
         tabList: "rounded-md",
         tab: "rounded-sm",
         cursor: "rounded-sm",
       },
-      md: {
+      lg: {
         tabList: "rounded-lg",
         tab: "rounded-md",
         cursor: "rounded-md",
       },
-      lg: {
+      xl: {
         tabList: "rounded-xl",
         tab: "rounded-lg",
         cursor: "rounded-lg",
-      },
-      xl: {
-        tabList: "rounded-2xl",
-        tab: "rounded-xl",
-        cursor: "rounded-xl",
       },
       full: {
         tabList: "rounded-full",

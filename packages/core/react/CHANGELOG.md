@@ -1,5 +1,83 @@
 # @nextui-org/react
 
+## 0.0.0-dev-v2-20230609194506
+
+### Patch Changes
+
+- Badge styles fixed
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230609194506
+  - @nextui-org/accordion@0.0.0-dev-v2-20230609194506
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230609194506
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230609194506
+  - @nextui-org/progress@0.0.0-dev-v2-20230609194506
+  - @nextui-org/skeleton@0.0.0-dev-v2-20230609194506
+  - @nextui-org/divider@0.0.0-dev-v2-20230609194506
+  - @nextui-org/popover@0.0.0-dev-v2-20230609194506
+  - @nextui-org/snippet@0.0.0-dev-v2-20230609194506
+  - @nextui-org/spinner@0.0.0-dev-v2-20230609194506
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230609194506
+  - @nextui-org/avatar@0.0.0-dev-v2-20230609194506
+  - @nextui-org/button@0.0.0-dev-v2-20230609194506
+  - @nextui-org/navbar@0.0.0-dev-v2-20230609194506
+  - @nextui-org/spacer@0.0.0-dev-v2-20230609194506
+  - @nextui-org/switch@0.0.0-dev-v2-20230609194506
+  - @nextui-org/badge@0.0.0-dev-v2-20230609194506
+  - @nextui-org/image@0.0.0-dev-v2-20230609194506
+  - @nextui-org/input@0.0.0-dev-v2-20230609194506
+  - @nextui-org/modal@0.0.0-dev-v2-20230609194506
+  - @nextui-org/radio@0.0.0-dev-v2-20230609194506
+  - @nextui-org/table@0.0.0-dev-v2-20230609194506
+  - @nextui-org/card@0.0.0-dev-v2-20230609194506
+  - @nextui-org/chip@0.0.0-dev-v2-20230609194506
+  - @nextui-org/code@0.0.0-dev-v2-20230609194506
+  - @nextui-org/drip@0.0.0-dev-v2-20230609194506
+  - @nextui-org/link@0.0.0-dev-v2-20230609194506
+  - @nextui-org/tabs@0.0.0-dev-v2-20230609194506
+  - @nextui-org/user@0.0.0-dev-v2-20230609194506
+  - @nextui-org/kbd@0.0.0-dev-v2-20230609194506
+  - @nextui-org/system@0.0.0-dev-v2-20230609194506
+  - @nextui-org/theme@0.0.0-dev-v2-20230609194506
+
+## 0.0.0-dev-v2-20230609175559
+
+### Patch Changes
+
+- Accordion Item data attributes added, APi improved, badge styles fixed
+- Updated dependencies
+  - @nextui-org/pagination@0.0.0-dev-v2-20230609175559
+  - @nextui-org/accordion@0.0.0-dev-v2-20230609175559
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230609175559
+  - @nextui-org/dropdown@0.0.0-dev-v2-20230609175559
+  - @nextui-org/progress@0.0.0-dev-v2-20230609175559
+  - @nextui-org/skeleton@0.0.0-dev-v2-20230609175559
+  - @nextui-org/divider@0.0.0-dev-v2-20230609175559
+  - @nextui-org/popover@0.0.0-dev-v2-20230609175559
+  - @nextui-org/snippet@0.0.0-dev-v2-20230609175559
+  - @nextui-org/spinner@0.0.0-dev-v2-20230609175559
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230609175559
+  - @nextui-org/avatar@0.0.0-dev-v2-20230609175559
+  - @nextui-org/button@0.0.0-dev-v2-20230609175559
+  - @nextui-org/navbar@0.0.0-dev-v2-20230609175559
+  - @nextui-org/spacer@0.0.0-dev-v2-20230609175559
+  - @nextui-org/switch@0.0.0-dev-v2-20230609175559
+  - @nextui-org/badge@0.0.0-dev-v2-20230609175559
+  - @nextui-org/image@0.0.0-dev-v2-20230609175559
+  - @nextui-org/input@0.0.0-dev-v2-20230609175559
+  - @nextui-org/modal@0.0.0-dev-v2-20230609175559
+  - @nextui-org/radio@0.0.0-dev-v2-20230609175559
+  - @nextui-org/table@0.0.0-dev-v2-20230609175559
+  - @nextui-org/card@0.0.0-dev-v2-20230609175559
+  - @nextui-org/chip@0.0.0-dev-v2-20230609175559
+  - @nextui-org/code@0.0.0-dev-v2-20230609175559
+  - @nextui-org/drip@0.0.0-dev-v2-20230609175559
+  - @nextui-org/link@0.0.0-dev-v2-20230609175559
+  - @nextui-org/tabs@0.0.0-dev-v2-20230609175559
+  - @nextui-org/user@0.0.0-dev-v2-20230609175559
+  - @nextui-org/kbd@0.0.0-dev-v2-20230609175559
+  - @nextui-org/system@0.0.0-dev-v2-20230609175559
+  - @nextui-org/theme@0.0.0-dev-v2-20230609175559
+
 ## 0.0.0-dev-v2-20230609003119
 
 ### Patch Changes

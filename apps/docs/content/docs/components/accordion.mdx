@@ -26,7 +26,6 @@ NextUI exports 2 accordion-related components:
   }}
 />
 
-
 ## Usage
 
 <CodeDemo title="Usage" files={accordionContent.usage} />
@@ -49,7 +48,23 @@ If you set `isCompact` to `true`, the `Accordion` will be displayed in a compact
 
 ### Variants
 
-<CodeDemo title="Variants" files={accordionContent.variants} />
+Accordion has 4 variants: `light`, `shadow`, `bordered` and `splitted`.
+
+#### Light variant
+
+<CodeDemo title="Light variant" files={accordionContent.lightVariant} />
+
+#### Shadow variant
+
+<CodeDemo title="Shadow variant" files={accordionContent.shadowVariant} />
+
+#### Bordered variant
+
+<CodeDemo title="Bordered variant" files={accordionContent.borderedVariant} />
+
+#### Splitted variant
+
+<CodeDemo title="Splitted variant" files={accordionContent.splittedVariant} />
 
 ### Default expanded keys
 
@@ -121,7 +136,7 @@ Here's an example of how to customize the accordion styles:
 
 <CodeDemo title="Custom Accordion Styles" files={accordionContent.customStyles} />
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Data Attributes
 
@@ -131,8 +146,18 @@ Here's an example of how to customize the accordion styles:
   Whether the accordion item is open.
 - **data-disabled**:
   When the accordion item is disabled.
+- **data-hover**:
+  When the accordion item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html).
+- **data-focus**:
+  When the accordion item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the accordion item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the accordion item is disabled. Based on `isDisabled` prop.
+- **data-pressed**:
+  When the accordion item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html).
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Accessibility
 
@@ -142,7 +167,7 @@ Here's an example of how to customize the accordion styles:
 - `aria-disabled` attribute for the accordion item.
 - `aria-controls` attribute for the accordion item.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## API
 
@@ -167,13 +192,19 @@ Here's an example of how to customize the accordion styles:
 
 ### Accordion Item Events
 
-| Attribute     | Type                           | Description                                                     | Default |
-| ------------- | ------------------------------ | --------------------------------------------------------------- | ------- |
-| onFocus       | `(e: FocusEvent) => void`      | Handler that is called when the element receives focus.         |         |
-| onBlur        | `(e: FocusEvent) => void`      | Handler that is called when the element loses focus.            |         |
-| onFocusChange | `(isFocused: boolean) => void` | Handler that is called when the element's focus status changes. |         |
-| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler that is called when a key is pressed.                   |         |
-| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler that is called when a key is released.                  |         |
+| Attribute     | Type                           | Description                                                                                                     |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| onFocus       | `(e: FocusEvent) => void`      | Handler that is called when the element receives focus.                                                         |
+| onBlur        | `(e: FocusEvent) => void`      | Handler that is called when the element loses focus.                                                            |
+| onFocusChange | `(isFocused: boolean) => void` | Handler that is called when the element's focus status changes.                                                 |
+| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler that is called when a key is pressed.                                                                   |
+| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler that is called when a key is released.                                                                  |
+| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      |
+| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 |
+| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     |
+| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    |
+| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. |
+| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                 |
 
 ### Accordion Props
 
@@ -183,12 +214,12 @@ Here's an example of how to customize the accordion styles:
 | variant                   | `light` \| `shadow` \| `bordered` \| `splitted` | The accordion appearance style.                                                                         | `light`  |
 | selectionMode             | `none` \| `single` \| `multiple`                | The type of selection that is allowed in the collection.                                                |          |
 | selectionBehavior         | `toggle` \| `replace`                           | The accordion selection behavior.                                                                       | `toggle` |
-| isCompact                 | `boolean`                                       | Whether all Accordion items should be smaller.                                                                |  `false`        |
-| isDisabled                | `boolean`                                       | Whether the Accordion items are disabled.                                                                      |          |
-| hideDivider               | `boolean`                                       | Whether the Accordion items divider is hidden.                                                                |          |
-| hideIndicator             | `boolean`                                       | Whether the Accordion items indicator is hidden.                                                              |          |
-| disableAnimation          | `boolean`                                       | Whether the Accordion items open/close animation is disabled.                                                            |          |
-| disableIndicatorAnimation | `boolean`                                       | Whether the Accordion items indicator animation is disabled.                                                  |          |
+| isCompact                 | `boolean`                                       | Whether all Accordion items should be smaller.                                                          | `false`  |
+| isDisabled                | `boolean`                                       | Whether the Accordion items are disabled.                                                               |          |
+| hideDivider               | `boolean`                                       | Whether the Accordion items divider is hidden.                                                          |          |
+| hideIndicator             | `boolean`                                       | Whether the Accordion items indicator is hidden.                                                        |          |
+| disableAnimation          | `boolean`                                       | Whether the Accordion items open/close animation is disabled.                                           |          |
+| disableIndicatorAnimation | `boolean`                                       | Whether the Accordion items indicator animation is disabled.                                            |          |
 | disallowEmptySelection    | `boolean`                                       | Whether the collection allows empty selection.                                                          |          |
 | fullWidth                 | `boolean`                                       | Whether the accordion should take up the full width of its parent container.                            | `true`   |
 | motionProps               | `MotionProps`                                   | The motion properties of the Accordion.                                                                 |          |

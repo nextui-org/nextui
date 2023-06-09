@@ -1,5 +1,23 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230609194506
+
+### Patch Changes
+
+- Badge styles fixed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230609194506
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230609194506
+
+## 0.0.0-dev-v2-20230609175559
+
+### Patch Changes
+
+- Accordion Item data attributes added, APi improved, badge styles fixed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230609175559
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230609175559
+
 ## 0.0.0-dev-v2-20230609003119
 
 ### Patch Changes
