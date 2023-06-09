@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230609003119
+
+### Patch Changes
+
+- Button focus visible ring fixed
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230609003119
+
 ## 0.0.0-dev-v2-20230609000231
 
 ### Patch Changes

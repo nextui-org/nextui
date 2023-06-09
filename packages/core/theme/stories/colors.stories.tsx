@@ -232,7 +232,7 @@ SemanticColors.args = {
       ],
     },
     {
-      title: "default",
+      title: "Default",
       items: [
         {
           color: "default-50",

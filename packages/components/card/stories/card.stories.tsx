@@ -84,13 +84,13 @@ const Template: ComponentStory<typeof Card> = (args: CardProps) => (
 
 const WithDividerTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   <Card {...args} className="max-w-md">
-    <CardHeader className="border-b border-border dark:border-border-dark">
+    <CardHeader className="border-b border-divider dark:border-divider-dark">
       <strong>Description</strong>
     </CardHeader>
     <CardBody className="py-8">
       <p>The Object constructor creates an object wrapper for the given value.</p>
     </CardBody>
-    <CardFooter className="border-t border-border dark:border-border-dark">
+    <CardFooter className="border-t border-divider dark:border-divider-dark">
       <p>
         When called in a non-constructor context, Object behaves identically to{" "}
         <Code color="primary">new Object()</Code>.
@@ -162,7 +162,7 @@ const WithAbsImgHeaderFooterTemplate: ComponentStory<typeof Card> = (args: CardP
       src={require("./assets/homepod.jpeg")}
       width={300}
     />
-    <CardFooter className="justify-between absolute bottom-0">
+    <CardFooter className="justify-between absolute bottom-0 z-10">
       <div>
         <p className="text-xs text-black/80">Available soon.</p>
         <p className="text-xs text-black/80">Get notified.</p>

@@ -37,6 +37,7 @@ const button = tv({
     "data-[pressed=true]:scale-95",
     "overflow-hidden",
     // focus ring
+    "data-[focus-visible=true]:z-10",
     "data-[focus-visible=true]:outline-none",
     "data-[focus-visible=true]:ring-2",
     "data-[focus-visible=true]:ring-primary",

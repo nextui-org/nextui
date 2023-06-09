@@ -33,7 +33,7 @@ export const InstallBanner = () => {
       className={sectionWrapper({
         isBlurred: true,
         class:
-          "border-t border-b border-border left-1/2 px-8 right-1/2 w-screen -ml-[50vw] -mr-[50vw] flex justify-center items-center mt-16 lg:mt-44",
+          "border-t border-b border-divider left-1/2 px-8 right-1/2 w-screen -ml-[50vw] -mr-[50vw] flex justify-center items-center mt-16 lg:mt-44",
       })}
     >
       <div className=" w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">
