@@ -110,9 +110,13 @@ const toggle = tv({
           "w-3 h-3 text-[0.6rem]",
           //selected
           "group-data-[selected=true]:ml-3",
+          "rtl:group-data-[selected=true]:ml-0",
+          "rtl:group-data-[selected=true]:mr-3",
           // pressed
           "group-data-[pressed=true]:w-4",
           "group-data-[selected]:group-data-[pressed]:ml-2",
+          "rtl:group-data-[selected]:group-data-[pressed]:ml-0",
+          "rtl:group-data-[selected]:group-data-[pressed]:mr-2",
         ],
         startContent: "text-[0.6rem] left-1",
         endContent: "text-[0.6rem] right-1",
@@ -124,9 +128,13 @@ const toggle = tv({
           "w-4 h-4 text-xs",
           //selected
           "group-data-[selected=true]:ml-4",
+          "rtl:group-data-[selected=true]:ml-0",
+          "rtl:group-data-[selected=true]:mr-4",
           // pressed
           "group-data-[pressed=true]:w-5",
           "group-data-[selected]:group-data-[pressed]:ml-4",
+          "rtl:group-data-[selected]:group-data-[pressed]:ml-0",
+          "rtl:group-data-[selected]:group-data-[pressed]:mr-4",
         ],
         endContent: "text-xs",
         startContent: "text-xs",
@@ -138,9 +146,13 @@ const toggle = tv({
           "w-5 h-5 text-sm",
           //selected
           "group-data-[selected=true]:ml-5",
+          "rtl:group-data-[selected=true]:ml-0",
+          "rtl:group-data-[selected=true]:mr-5",
           // pressed
           "group-data-[pressed=true]:w-6",
           "group-data-[selected]:group-data-[pressed]:ml-4",
+          "rtl:group-data-[selected]:group-data-[pressed]:ml-0",
+          "rtl:group-data-[selected]:group-data-[pressed]:mr-4",
         ],
         endContent: "text-sm",
         startContent: "text-sm",
@@ -152,9 +164,13 @@ const toggle = tv({
           "w-6 h-6 text-base",
           //selected
           "group-data-[selected=true]:ml-6",
+          "rtl:group-data-[selected=true]:ml-0",
+          "rtl:group-data-[selected=true]:mr-6",
           // pressed
           "group-data-[pressed=true]:w-7",
           "group-data-[selected]:group-data-[pressed]:ml-5",
+          "rtl:group-data-[selected]:group-data-[pressed]:ml-0",
+          "rtl:group-data-[selected]:group-data-[pressed]:mr-5",
         ],
         endContent: "text-base",
         startContent: "text-base",
@@ -166,9 +182,13 @@ const toggle = tv({
           "w-7 h-7 text-lg",
           //selected
           "group-data-[selected=true]:ml-7",
+          "rtl:group-data-[selected=true]:ml-0",
+          "rtl:group-data-[selected=true]:mr-7",
           // pressed
           "group-data-[pressed=true]:w-8",
           "group-data-[selected]:group-data-[pressed]:ml-6",
+          "rtl:group-data-[selected]:group-data-[pressed]:ml-0",
+          "rtl:group-data-[selected]:group-data-[pressed]:mr-6",
         ],
         endContent: "text-base",
         startContent: "text-base",

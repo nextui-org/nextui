@@ -208,7 +208,6 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       return {
         ...props,
         "aria-hidden": true,
-        dir: "ltr",
         className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props?.className)})),
       };
     },
