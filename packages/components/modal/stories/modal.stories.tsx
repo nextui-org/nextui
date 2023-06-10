@@ -219,11 +219,13 @@ DefaultOpen.args = {
 export const OpenChange = OpenChangeTemplate.bind({});
 OpenChange.args = {
   ...defaultProps,
+  scrollBehavior: "inside",
 };
 
 export const InsideScroll = InsideScrollTemplate.bind({});
 InsideScroll.args = {
   ...defaultProps,
+  scrollBehavior: "inside",
 };
 
 export const OutsideScroll = OutsideScrollTemplate.bind({});

@@ -32,7 +32,8 @@ const modal = tv({
       "overflow-x-auto",
       "overflow-y-hidden",
       "justify-center",
-      "items-center",
+      "items-start",
+      "md:items-center",
     ],
     base: [
       "flex",
@@ -46,6 +47,7 @@ const modal = tv({
       "dark:bg-content1",
       "border border-default-100",
       "outline-none",
+      "my-16",
     ],
     trigger: [],
     backdrop: ["hidden", "z-50"],
@@ -103,7 +105,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "max-w-full rounded-none min-h-screen",
+        base: "my-0 max-w-full rounded-none min-h-screen",
       },
     },
     radius: {
@@ -122,7 +124,7 @@ const modal = tv({
         backdrop: "bg-black/50 backdrop-opacity-50",
       },
       blur: {
-        backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/30",
+        backdrop: "backdrop-blur-md backdrop-saturate-150 bg-black/30",
       },
     },
     scrollBehavior: {
@@ -131,7 +133,7 @@ const modal = tv({
         body: "overflow-y-auto",
       },
       outside: {
-        wrapper: "items-start overflow-y-auto",
+        wrapper: "md:items-start overflow-y-auto",
         base: "my-16",
       },
     },
@@ -140,7 +142,6 @@ const modal = tv({
     size: "md",
     radius: "lg",
     backdrop: "blur",
-    scrollBehavior: "inside",
   },
   compoundVariants: [
     // backdrop (opaque/blur)

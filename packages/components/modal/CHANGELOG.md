@@ -1,5 +1,20 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230610024734
+
+### Patch Changes
+
+- Modal improved on mobile
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230610024734
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230610024734
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230610024734
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230610024734
+  - @nextui-org/use-disclosure@0.0.0-dev-v2-20230610024734
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230610024734
+  - @nextui-org/system@0.0.0-dev-v2-20230610024734
+  - @nextui-org/theme@0.0.0-dev-v2-20230610024734
+
 ## 0.0.0-dev-v2-20230609194506
 
 ### Patch Changes

@@ -12,7 +12,6 @@ import {
   Tabs,
   Tab,
   Link,
-  Badge,
 } from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
 import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
@@ -204,28 +203,20 @@ export const Hero = () => {
           >
             Get Started
           </Button>
-          <Badge
-            classNames={{
-              base: "w-full md:w-auto",
-              badge: "hidden md:flex text-default-600",
-            }}
-            content="10.6k"
-            variant="faded"
+
+          <Button
+            fullWidth
+            isExternal
+            as={Link}
+            className="w-full md:w-auto"
+            href="https://github.com/nextui-org/nextui"
+            radius="full"
+            size="lg"
+            startIcon={<GithubIcon />}
+            variant="bordered"
           >
-            <Button
-              fullWidth
-              isExternal
-              as={Link}
-              className="w-full md:w-auto"
-              href="https://github.com/nextui-org/nextui"
-              radius="full"
-              size="lg"
-              startIcon={<GithubIcon />}
-              variant="bordered"
-            >
-              Github
-            </Button>
-          </Badge>
+            Github
+          </Button>
         </div>
       </div>
 

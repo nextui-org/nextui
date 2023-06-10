@@ -1,5 +1,11 @@
 # @nextui-org/dom-utils
 
+## 0.0.0-dev-v2-20230610024734
+
+### Patch Changes
+
+- Modal improved on mobile
+
 ## 0.0.0-dev-v2-20230609194506
 
 ### Patch Changes

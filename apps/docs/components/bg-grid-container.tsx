@@ -36,13 +36,13 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
       </div>
       <div
         className={clsx(
-          "absolute z-[-1] inset-0 bg-grid-zinc-300/25 [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.6))]",
+          "hidden md:block absolute z-[-1] inset-0 bg-grid-zinc-300/25 [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.6))]",
           "dark:bg-grid-zinc-500/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]",
         )}
         style={{backgroundPosition: "10px 10px"}}
       />
       {showGradient && (
-        <div className="absolute h-full w-full z-[-1] opacity-40 -top-8 -right-28">
+        <div className="hidden md:block absolute h-full w-full z-[-1] opacity-40 -top-8 -right-28">
           <Image
             removeWrapper
             alt="custom themes background"
