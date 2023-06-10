@@ -49,7 +49,7 @@ const navbar = tv({
   slots: {
     base: [
       "relative",
-      "z-50",
+      "z-40",
       "w-full",
       "h-auto",
       "flex",
@@ -156,7 +156,7 @@ const navbar = tv({
       "data-[active=true]:font-semibold",
     ],
     menu: [
-      "z-50",
+      "z-40",
       "hidden",
       "px-6",
       "pt-4",

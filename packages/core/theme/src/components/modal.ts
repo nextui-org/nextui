@@ -30,7 +30,6 @@ const modal = tv({
       "inset-0",
       "z-50",
       "overflow-x-auto",
-      "overflow-y-hidden",
       "justify-center",
       "items-start",
       "md:items-center",
@@ -128,6 +127,9 @@ const modal = tv({
       },
     },
     scrollBehavior: {
+      normal: {
+        base: ["overflow-y-hidden"],
+      },
       inside: {
         base: "max-h-[calc(100%_-_7.5rem)]",
         body: "overflow-y-auto",
@@ -142,6 +144,7 @@ const modal = tv({
     size: "md",
     radius: "lg",
     backdrop: "blur",
+    scrollBehavior: "normal",
   },
   compoundVariants: [
     // backdrop (opaque/blur)

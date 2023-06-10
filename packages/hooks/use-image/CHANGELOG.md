@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230610220209
+
+### Patch Changes
+
+- Modal styles changed
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230610220209
+
 ## 0.0.0-dev-v2-20230610024734
 
 ### Patch Changes

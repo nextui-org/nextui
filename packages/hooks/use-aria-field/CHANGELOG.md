@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230610220209
+
+### Patch Changes
+
+- Modal styles changed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230610220209
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230610220209
+
 ## 0.0.0-dev-v2-20230610024734
 
 ### Patch Changes

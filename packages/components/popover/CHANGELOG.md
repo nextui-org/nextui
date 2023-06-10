@@ -1,5 +1,20 @@
 # @nextui-org/popover
 
+## 0.0.0-dev-v2-20230610220209
+
+### Patch Changes
+
+- Modal styles changed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230610220209
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230610220209
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230610220209
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230610220209
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230610220209
+  - @nextui-org/button@0.0.0-dev-v2-20230610220209
+  - @nextui-org/system@0.0.0-dev-v2-20230610220209
+  - @nextui-org/theme@0.0.0-dev-v2-20230610220209
+
 ## 0.0.0-dev-v2-20230610024734
 
 ### Patch Changes
