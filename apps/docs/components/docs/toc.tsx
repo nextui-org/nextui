@@ -6,6 +6,7 @@ import scrollIntoView from "scroll-into-view-if-needed";
 
 import {Heading} from "@/libs/docs/utils";
 import {useScrollSpy} from "@/hooks/use-scroll-spy";
+import {useScrollPosition} from "@/hooks/use-scroll-position";
 
 export interface DocsTocProps {
   headings: Heading[];
@@ -20,6 +21,8 @@ const paddingLeftByLevel: Record<number, string> = {
 
 export const DocsToc: FC<DocsTocProps> = ({headings}) => {
   const tocRef = useRef<HTMLDivElement>(null);
+
+  const scrollPosition = useScrollPosition(tocRef);
 
   const activeId = useScrollSpy(
     headings.map(({id}) => `[id="${id}"]`),
@@ -50,6 +53,11 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
     <div
       ref={tocRef}
       className="sticky w-full flex flex-col gap-4 text-left top-20 pb-20 h-[calc(100vh-121px)] scrollbar-hide overflow-y-scroll"
+      style={{
+        WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
+          scrollPosition > 30 ? "90%" : "100%"
+        }, transparent 100%)`,
+      }}
     >
       <p className="text-sm">On this page</p>
       <ul className="scrollbar-hide flex flex-col gap-2">

@@ -17,6 +17,7 @@ import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
+import {useScrollPosition} from "@/hooks/use-scroll-position";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
   slug?: string;
@@ -177,13 +178,15 @@ function TreeHeading({item}: {item: any}) {
 function Tree<T extends object>(props: CollectionBase<T> & Expandable & MultipleSelection) {
   let state = useTreeState(props);
 
+  let ref = useRef<HTMLUListElement>(null);
+
+  const scrollPosition = useScrollPosition(ref);
+
   let keyboardDelegate = useMemo(
     // @ts-expect-error
     () => new TreeKeyboardDelegate(state.collection, state.disabledKeys),
     [state.collection, state.disabledKeys],
   );
-
-  let ref = useRef(null);
 
   let {collectionProps} = useSelectableCollection({
     ref,
@@ -197,6 +200,11 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
       ref={ref}
       className="flex flex-col gap-4 scrollbar-hide lg:overflow-y-scroll lg:max-h-[calc(100vh_-_64px)] pb-28"
       role="tree"
+      style={{
+        WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
+          scrollPosition > 30 ? "90%" : "100%"
+        }, transparent 100%)`,
+      }}
     >
       {[...state.collection].map((item) => {
         if (item.type === "section") {

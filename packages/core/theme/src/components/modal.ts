@@ -122,7 +122,7 @@ const modal = tv({
         backdrop: "bg-black/50 backdrop-opacity-50",
       },
       blur: {
-        backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/20",
+        backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/30",
       },
     },
     scrollBehavior: {
