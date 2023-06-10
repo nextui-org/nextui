@@ -124,7 +124,8 @@ const accordionItem = tv({
         indicator: "transition-none",
       },
       false: {
-        indicator: "rotate-0 data-[open=true]:-rotate-90",
+        indicator:
+          "rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90",
       },
     },
   },
