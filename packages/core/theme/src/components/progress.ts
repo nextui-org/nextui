@@ -23,7 +23,7 @@ import {tv} from "tailwind-variants";
 const progress = tv(
   {
     slots: {
-      base: "flex flex-col gap-2 w-full",
+      base: "flex flex-col gap-2 w-full rtl:scale-x-[-1]",
       label: "",
       labelWrapper: "flex justify-between",
       value: "",
