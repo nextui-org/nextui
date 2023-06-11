@@ -392,7 +392,7 @@ const CenterImgWithHeaderTemplate: ComponentStory<typeof Card> = (args: CardProp
         <div key={index}>
           <Card {...args} isPressable className="w-[200px] h-[200px]">
             <CardHeader className="p-0">
-              <h5 className="pl-6 pt-3">{item.title}</h5>
+              <h5 className="px-6 pt-3">{item.title}</h5>
             </CardHeader>
             <CardBody className="h-full justify-center">
               <img alt={item.title} className="w-[180px]" src={item.img} />
