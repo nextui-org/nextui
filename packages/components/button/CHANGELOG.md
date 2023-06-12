@@ -1,5 +1,19 @@
 # @nextui-org/button
 
+## 0.0.0-dev-v2-20230612221453
+
+### Patch Changes
+
+- Warning and success color a11y improved on light mode
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230612221453
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230612221453
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230612221453
+  - @nextui-org/spinner@0.0.0-dev-v2-20230612221453
+  - @nextui-org/drip@0.0.0-dev-v2-20230612221453
+  - @nextui-org/system@0.0.0-dev-v2-20230612221453
+  - @nextui-org/theme@0.0.0-dev-v2-20230612221453
+
 ## 0.0.0-dev-v2-20230612214035
 
 ### Patch Changes

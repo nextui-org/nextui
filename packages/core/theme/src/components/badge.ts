@@ -48,24 +48,12 @@ const badge = tv({
       shadow: {},
     },
     color: {
-      default: {
-        badge: colorVariants.solid.default,
-      },
-      primary: {
-        badge: colorVariants.solid.primary,
-      },
-      secondary: {
-        badge: colorVariants.solid.secondary,
-      },
-      success: {
-        badge: colorVariants.solid.success,
-      },
-      warning: {
-        badge: colorVariants.solid.warning,
-      },
-      danger: {
-        badge: colorVariants.solid.danger,
-      },
+      default: {},
+      primary: {},
+      secondary: {},
+      success: {},
+      warning: {},
+      danger: {},
     },
     size: {
       xs: {
@@ -143,6 +131,49 @@ const badge = tv({
     isInvisible: false,
   },
   compoundVariants: [
+    // solid / color
+    {
+      variant: "solid",
+      color: "default",
+      class: {
+        badge: colorVariants.solid.default,
+      },
+    },
+    {
+      variant: "solid",
+      color: "primary",
+      class: {
+        badge: colorVariants.solid.primary,
+      },
+    },
+    {
+      variant: "solid",
+      color: "secondary",
+      class: {
+        badge: colorVariants.solid.secondary,
+      },
+    },
+    {
+      variant: "solid",
+      color: "success",
+      class: {
+        badge: colorVariants.solid.success,
+      },
+    },
+    {
+      variant: "solid",
+      color: "warning",
+      class: {
+        badge: colorVariants.solid.warning,
+      },
+    },
+    {
+      variant: "solid",
+      color: "danger",
+      class: {
+        badge: colorVariants.solid.danger,
+      },
+    },
     // shadow / color
     {
       variant: "shadow",

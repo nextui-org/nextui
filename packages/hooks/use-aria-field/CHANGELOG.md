@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230612221453
+
+### Patch Changes
+
+- Warning and success color a11y improved on light mode
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230612221453
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230612221453
+
 ## 0.0.0-dev-v2-20230612214035
 
 ### Patch Changes

@@ -48,28 +48,16 @@ const snippet = tv({
     variant: {
       flat: "",
       solid: "",
-      bordered: "border-2 !bg-transparent",
+      bordered: "border-2 bg-transparent",
       shadow: "",
     },
     color: {
-      default: {
-        base: colorVariants.flat.default,
-      },
-      primary: {
-        base: colorVariants.flat.primary,
-      },
-      secondary: {
-        base: colorVariants.flat.secondary,
-      },
-      success: {
-        base: colorVariants.flat.success,
-      },
-      warning: {
-        base: colorVariants.flat.warning,
-      },
-      danger: {
-        base: colorVariants.flat.danger,
-      },
+      default: {},
+      primary: {},
+      secondary: {},
+      success: {},
+      warning: {},
+      danger: {},
     },
     size: {
       xs: {
@@ -133,7 +121,50 @@ const snippet = tv({
     disableAnimation: false,
   },
   compoundVariants: [
-    // solid & shadow / color
+    // flat / color
+    {
+      variant: "flat",
+      color: "default",
+      class: {
+        base: colorVariants.flat.default,
+      },
+    },
+    {
+      variant: "flat",
+      color: "primary",
+      class: {
+        base: colorVariants.flat.primary,
+      },
+    },
+    {
+      variant: "flat",
+      color: "secondary",
+      class: {
+        base: colorVariants.flat.secondary,
+      },
+    },
+    {
+      variant: "flat",
+      color: "success",
+      class: {
+        base: colorVariants.flat.success,
+      },
+    },
+    {
+      variant: "flat",
+      color: "warning",
+      class: {
+        base: colorVariants.flat.warning,
+      },
+    },
+    {
+      variant: "flat",
+      color: "danger",
+      class: {
+        base: colorVariants.flat.danger,
+      },
+    },
+    // solid / color
     {
       variant: "solid",
       color: "default",

@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mobile
 
+## 0.0.0-dev-v2-20230612221453
+
+### Patch Changes
+
+- Warning and success color a11y improved on light mode
+
 ## 0.0.0-dev-v2-20230612214035
 
 ### Patch Changes
