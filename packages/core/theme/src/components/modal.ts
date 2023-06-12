@@ -25,7 +25,7 @@ const modal = tv({
     wrapper: [
       "flex",
       "w-screen",
-      "h-screen",
+      "h-[100dvh]",
       "fixed",
       "inset-0",
       "z-50",
@@ -49,7 +49,7 @@ const modal = tv({
       "my-16",
     ],
     trigger: [],
-    backdrop: ["hidden", "z-50"],
+    backdrop: "z-50",
     header: "flex py-4 px-6 flex-initial text-lg font-semibold",
     body: "flex flex-1 flex-col gap-3 px-6 py-2",
     footer: "flex flex-row gap-2 px-6 py-4 justify-end",
@@ -104,7 +104,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 max-w-full rounded-none min-h-screen",
+        base: "my-0 max-w-full min-h-full rounded-none ",
       },
     },
     radius: {
@@ -118,7 +118,9 @@ const modal = tv({
       "3xl": {base: "rounded-3xl"},
     },
     backdrop: {
-      transparent: {},
+      transparent: {
+        backdrop: "hidden",
+      },
       opaque: {
         backdrop: "bg-black/50 backdrop-opacity-50",
       },
@@ -128,7 +130,7 @@ const modal = tv({
     },
     scrollBehavior: {
       normal: {
-        base: ["overflow-y-hidden"],
+        base: "overflow-y-hidden",
       },
       inside: {
         base: "max-h-[calc(100%_-_7.5rem)]",
@@ -151,7 +153,7 @@ const modal = tv({
     {
       backdrop: ["opaque", "blur"],
       class: {
-        backdrop: "block w-full h-full fixed inset-0",
+        backdrop: "w-full h-full fixed inset-0",
       },
     },
   ],

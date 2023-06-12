@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230612214035
+
+### Patch Changes
+
+- Modal styles ajusted to support dvh
+- Updated dependencies
+  - @nextui-org/dom-utils@0.0.0-dev-v2-20230612214035
+
 ## 0.0.0-dev-v2-20230610220209
 
 ### Patch Changes

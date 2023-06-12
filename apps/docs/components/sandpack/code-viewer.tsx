@@ -1,19 +1,16 @@
 import type {SandpackInitMode} from "@codesandbox/sandpack-react";
 
 import * as React from "react";
-import {
-  FileTabs,
-  CodeEditor,
-  useSandpack,
-  useActiveCode,
-  SandpackStack,
-} from "@codesandbox/sandpack-react";
+import {FileTabs, useSandpack, useActiveCode, SandpackStack} from "@codesandbox/sandpack-react";
 import {Button} from "@nextui-org/react";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {clsx} from "@nextui-org/shared-utils";
+import {Language} from "prism-react-renderer";
 
-import {getId} from "./utils";
+import {HighlightedLines} from "./types";
 import {Decorators} from "./types";
+
+import {Codeblock} from "@/components/docs/components";
 
 export interface CodeViewerProps {
   showTabs?: boolean;
@@ -23,6 +20,7 @@ export interface CodeViewerProps {
    */
   decorators?: Decorators;
   code?: string;
+  highlightedLines?: HighlightedLines;
   wrapContent?: boolean;
   defaultExpanded?: boolean;
   /**
@@ -38,28 +36,18 @@ export interface CodeViewerProps {
 const INITIAL_HEIGHT = "200px";
 
 export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
-  (
-    {
-      showTabs,
-      code: propCode,
-      decorators,
-      initMode,
-      defaultExpanded = false,
-      showLineNumbers,
-      wrapContent,
-      containerRef,
-    },
-    ref,
-  ) => {
+  ({showTabs, code: propCode, defaultExpanded = false, highlightedLines, containerRef}, ref) => {
     const {sandpack} = useSandpack();
     const {code} = useActiveCode();
 
     const {activeFile} = sandpack;
+
     const [isExpanded, setIsExpanded] = React.useState(defaultExpanded);
-    const id = React.useId();
+
+    // const id = React.useId();
     // hack to make sure we re-render the code editor and change current file
     // TODO: open an issue on sandpack-react
-    const [internalKey, setInternalKey] = React.useState(() => id);
+    // const [internalKey, setInternalKey] = React.useState(() => id);
     const lineCountRef = React.useRef<{[key: string]: number}>({});
 
     if (!lineCountRef.current[activeFile]) {
@@ -70,7 +58,9 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
 
     const lineCount = lineCountRef.current[activeFile];
     const isExpandable = lineCount > 7 || isExpanded;
-    const isAppFile = activeFile.includes("App");
+    const fileExt = activeFile.split(".").pop() as Language;
+
+    // const isAppFile = activeFile.includes("App");
 
     React.useEffect(() => {
       if (containerRef && containerRef?.current !== null && isExpandable) {
@@ -78,9 +68,9 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
       }
     }, [containerRef]);
 
-    React.useEffect(() => {
-      setInternalKey(getId());
-    }, [propCode, code]);
+    // React.useEffect(() => {
+    //   setInternalKey(getId());
+    // }, [propCode, code]);
 
     React.useEffect(() => {
       if (defaultExpanded && containerRef && containerRef?.current !== null) {
@@ -120,6 +110,9 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
                 "is-expanded": isExpanded,
               })}
             >
+              {/*
+               * Disabled in favor of Codeblock due to performance issues & font size on ios 
+               *   
               <CodeEditor
                 key={internalKey}
                 ref={ref}
@@ -131,6 +124,13 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
                 showLineNumbers={showLineNumbers}
                 showReadOnly={false}
                 wrapContent={wrapContent}
+              /> */}
+              <Codeblock
+                ref={ref}
+                className={clsx({"pb-16": isExpandable, "pb-2": !isExpandable})}
+                codeString={propCode || code}
+                language={fileExt}
+                metastring={highlightedLines && `{${highlightedLines}}`}
               />
             </div>
           </SandpackStack>
@@ -138,7 +138,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
         {isExpandable && (
           <div
             className={clsx(
-              "w-full absolute py-1 px-4 flex items-center justify-center bg-gradient-to-t from-code-background to-code-background/10 dark:to-code-background/50",
+              "w-full absolute z-10 py-1 px-4 flex items-center justify-center bg-gradient-to-t from-code-background to-code-background/10 dark:to-code-background/50",
               {"h-10 bottom-0 pb-2": isExpanded},
               {"h-full inset-0": !isExpanded},
             )}

@@ -6,7 +6,7 @@ import NextImage from "next/image";
 
 import {Sandpack} from "@/components/sandpack";
 import * as DocsComponents from "@/components/docs/components";
-import {Codeblock} from "@/components/docs/components/codeblock";
+import {Codeblock} from "@/components/docs/components";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {

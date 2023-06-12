@@ -23,9 +23,6 @@ export default function App() {
         size={size} 
         isOpen={isOpen} 
         onClose={onClose} 
-        classNames={{
-          wrapper: "z-[100001]",
-        }}
       >
         <ModalContent>
           {(onClose) => (

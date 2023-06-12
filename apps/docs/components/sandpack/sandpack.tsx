@@ -69,10 +69,11 @@ export const Sandpack: FC<SandpackProps> = ({
                 containerRef={editorContainerRef}
                 decorators={decorators}
                 defaultExpanded={defaultExpanded}
+                highlightedLines={highlightedLines}
                 showTabs={showTabs}
               />
             )}
-            <div className="opacity-0 group-hover:opacity-100 flex transition-opacity absolute gap-0 right-2 top-2 items-center justify-center bg-code-background">
+            <div className="hidden md:flex opacity-0 group-hover:opacity-100 transition-opacity absolute gap-0 right-2 top-2 items-center justify-center bg-code-background">
               {showReportBug && <BugReportButton />}
               {showCopyCode && <CopyButton />}
               {!showPreview && showOpenInCodeSandbox && <CodeSandboxButton />}

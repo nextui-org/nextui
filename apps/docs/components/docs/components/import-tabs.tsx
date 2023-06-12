@@ -1,6 +1,6 @@
 import {Tabs, Tab, Snippet} from "@nextui-org/react";
 
-import {Codeblock} from "./codeblock";
+import Codeblock from "./codeblock";
 
 type PackageManager = {
   key: string;

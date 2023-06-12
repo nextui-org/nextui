@@ -31,8 +31,6 @@
   max-height: 600px;
 }
 
-
-
 .sp-code-viewer.is-expanded .cm-scroller {
   overflow: auto;
   padding-bottom: 50px;

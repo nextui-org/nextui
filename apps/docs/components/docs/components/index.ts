@@ -5,3 +5,4 @@ export * from "./community";
 export * from "./frameworks";
 export * from "./code-demo";
 export * from "./import-tabs";
+export {default as Codeblock} from "./codeblock";
