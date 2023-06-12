@@ -127,7 +127,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
               /> */}
               <Codeblock
                 ref={ref}
-                className={clsx({"pb-16": isExpandable, "pb-2": !isExpandable})}
+                className={isExpandable ? "pb-16" : "pb-2"}
                 codeString={propCode || code}
                 language={fileExt}
                 metastring={highlightedLines && `{${highlightedLines}}`}
