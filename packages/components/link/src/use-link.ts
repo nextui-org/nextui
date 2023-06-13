@@ -6,7 +6,8 @@ import {useLink as useAriaLink} from "@react-aria/link";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {useFocusRing} from "@react-aria/focus";
-import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
+import {dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
 

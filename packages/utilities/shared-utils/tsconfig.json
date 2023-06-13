@@ -1,4 +1,10 @@
 {
   "extends": "../../../tsconfig.json",
-  "include": ["src", "index.ts"]
+  "include": [
+    "src",
+    "index.ts",
+    "../react-utils/src/context.ts",
+    "../react-utils/src/children.ts",
+    "../react-utils/src/refs.ts"
+  ]
 }

@@ -1,1 +1,2 @@
-export const isActive = (pathname: string, href: string) => pathname && pathname.startsWith(href);
+export const isActive = (pathname: string | undefined | null, href: string) =>
+  pathname && pathname.startsWith(href);

@@ -1,5 +1,5 @@
 import type {ButtonProps} from "./index";
-import type {ReactRef} from "@nextui-org/shared-utils";
+import type {ReactRef} from "@nextui-org/react-utils";
 import type {ButtonGroupVariantProps} from "@nextui-org/theme";
 
 import {buttonGroup} from "@nextui-org/theme";

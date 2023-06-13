@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/checkbox",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
     "checkbox"
@@ -39,6 +39,7 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@react-aria/checkbox": "^3.9.1",

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "@nextui-org/react";
+import {Link} from "@nextui-org/link";
 
 import {VercelIcon} from "@/components/icons";
 

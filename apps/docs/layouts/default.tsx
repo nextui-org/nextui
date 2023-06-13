@@ -1,9 +1,9 @@
 import {ReactNode, FC} from "react";
 
 import {Head} from "./head";
-import {Navbar} from "./navbar";
 import {Footer} from "./footer";
 
+import {Navbar} from "@/components/navbar";
 import {Route} from "@/libs/docs/page";
 export interface DefaultLayoutProps {
   routes: Route[];

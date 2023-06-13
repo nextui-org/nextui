@@ -1,5 +1,5 @@
 import React from "react";
-import {Code} from "@nextui-org/react";
+import {Code} from "@nextui-org/code";
 
 import {
   MoonIcon,

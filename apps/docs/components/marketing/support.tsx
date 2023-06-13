@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, useMemo, useRef} from "react";
 import {Avatar, AvatarProps, Button, Spacer, Tooltip} from "@nextui-org/react";
 import {clamp, get} from "lodash";

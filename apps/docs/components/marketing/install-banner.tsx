@@ -1,6 +1,10 @@
+"use client";
+
 import {Button} from "@nextui-org/react";
+import {Link} from "@nextui-org/link";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
+import NextLink from "next/link";
 
 import {FeaturesGrid} from "./features-grid";
 
@@ -33,7 +37,7 @@ export const InstallBanner = () => {
       className={sectionWrapper({
         isBlurred: true,
         class:
-          "border-t border-b border-divider left-1/2 px-8 right-1/2 w-screen -ml-[50vw] -mr-[50vw] flex justify-center items-center mt-16 lg:mt-44",
+          "border-t border-b border-divider px-8 w-screen flex justify-center items-center mt-16 lg:mt-44",
       })}
     >
       <div className=" w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">
@@ -50,6 +54,7 @@ export const InstallBanner = () => {
           </p>
           <div className="flex flex-row gap-3 justify-start">
             <Button
+              as={NextLink}
               className="text-sm"
               color="secondary"
               endIcon={
@@ -58,13 +63,17 @@ export const InstallBanner = () => {
                   strokeWidth={2}
                 />
               }
+              href="/docs/guide/installation"
               radius="full"
               size="md"
             >
               Get Started
             </Button>
             <Button
+              isExternal
+              as={Link}
               className="text-sm"
+              href="https://github.com/nextui-org/nextui"
               radius="full"
               size="md"
               startIcon={<GithubIcon />}

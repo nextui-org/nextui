@@ -1,3 +1,5 @@
+"use client";
+
 import {useRef} from "react";
 import {Button} from "@nextui-org/react";
 import confetti from "canvas-confetti";

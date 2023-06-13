@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/accordion",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
   "keywords": [
     "react",
@@ -48,6 +48,7 @@
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-aria-accordion-item": "workspace:*",
     "@nextui-org/system": "workspace:*",

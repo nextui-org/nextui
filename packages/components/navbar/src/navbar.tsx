@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {pickChildren} from "@nextui-org/shared-utils";
+import {pickChildren} from "@nextui-org/react-utils";
 import {motion} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 

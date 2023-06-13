@@ -11,7 +11,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {SpacerProps, Spacer, Link as NextUILink, cn, Chip} from "@nextui-org/react";
 import Link from "next/link";
 import {isEmpty} from "lodash";
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 
 import {getRoutePaths} from "./utils";
 

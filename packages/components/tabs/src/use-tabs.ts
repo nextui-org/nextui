@@ -3,7 +3,8 @@ import type {TabsVariantProps, SlotsToClasses, TabsSlots, TabsReturnType} from "
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, useId} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
 import {AriaTabListProps, useTabList} from "@react-aria/tabs";

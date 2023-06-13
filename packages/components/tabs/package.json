@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tabs",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "Tabs organize content into multiple sections and allow users to navigate between them.",
   "keywords": [
     "tabs"
@@ -40,6 +40,7 @@
   "dependencies": {
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",

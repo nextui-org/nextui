@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "./button";
 import ButtonGroup from "./button-group";
 

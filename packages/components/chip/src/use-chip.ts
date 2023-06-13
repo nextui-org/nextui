@@ -7,7 +7,8 @@ import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {chip} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, isValidElement, cloneElement} from "react";
 import {PressEvent} from "@react-types/shared";
 

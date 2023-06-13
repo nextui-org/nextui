@@ -38,7 +38,7 @@ export type TransitionEndConfig = WithMotionState<Target>;
 export type DelayConfig = WithMotionState<number>;
 
 export const TRANSITION_EASINGS = {
-  ease: [0.25, 0.1, 0.25, 1],
+  ease: [0.36, 0.66, 0.4, 1],
   easeIn: [0.4, 0, 1, 1],
   easeOut: [0, 0, 0.2, 1],
   easeInOut: [0.4, 0, 0.2, 1],
@@ -81,9 +81,39 @@ export const TRANSITION_VARIANTS = {
     enter: {scale: 1},
     exit: {scale: 0.95},
   },
+  scaleInOut: {
+    enter: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: TRANSITION_EASINGS.ease,
+      },
+    },
+    exit: {
+      scale: 1.03,
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: TRANSITION_EASINGS.ease,
+      },
+    },
+  },
   fade: {
-    enter: {opacity: 1},
-    exit: {opacity: 0},
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: TRANSITION_EASINGS.ease,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: TRANSITION_EASINGS.ease,
+      },
+    },
   },
   pushLeft: {
     enter: {x: "100%"},

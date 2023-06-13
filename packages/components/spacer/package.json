@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/spacer",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "A flexible spacer component designed to create consistent spacing and maintain alignment in your layout.",
   "keywords": [
     "spacer"
@@ -40,7 +40,8 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*"
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

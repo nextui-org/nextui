@@ -1,6 +1,5 @@
 import * as React from "react";
-
-import {isFunction} from "./assertion";
+import {isFunction} from "@nextui-org/shared-utils";
 
 export type ReactRef<T> = React.RefObject<T> | React.MutableRefObject<T> | React.Ref<T>;
 

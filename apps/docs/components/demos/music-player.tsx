@@ -1,3 +1,5 @@
+"use client";
+
 import {Card, CardBody, Button, Image, Progress, CardProps} from "@nextui-org/react";
 import {useState, FC} from "react";
 import {clsx} from "@nextui-org/shared-utils";

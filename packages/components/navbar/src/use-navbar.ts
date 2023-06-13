@@ -3,7 +3,8 @@ import type {NavbarVariantProps, SlotsToClasses, NavbarSlots} from "@nextui-org/
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {navbar} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useEffect, useMemo, useRef, useState} from "react";
 import {mergeProps, useResizeObserver} from "@react-aria/utils";
 import {useScrollPosition} from "@nextui-org/use-scroll-position";

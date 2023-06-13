@@ -3,7 +3,7 @@ import type {CodeVariantProps} from "@nextui-org/theme";
 import {code} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
 export interface UseCodeProps extends HTMLNextUIProps<"code">, CodeVariantProps {

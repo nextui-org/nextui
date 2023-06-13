@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/table",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"
@@ -40,6 +40,7 @@
     "@nextui-org/checkbox": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/system": "workspace:*",

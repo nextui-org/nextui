@@ -1,7 +1,9 @@
-import React, {useMemo, useRef} from "react";
+"use client";
+
+import React, {useCallback, useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
 import {Skeleton} from "@nextui-org/react";
-import {useInView} from "framer-motion";
+import {motion, useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 
@@ -21,6 +23,7 @@ const DynamicSandpack = dynamic(() => import("../../../sandpack").then((m) => m.
 });
 
 interface CodeDemoProps extends UseCodeDemoProps {
+  title?: string;
   component?: string;
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
@@ -50,17 +53,41 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
-  displayMode = "always",
+  displayMode = "visible",
   highlightedLines,
   iframeInitialWidth,
   iframeSrc,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, {once: true});
+  const isInView = useInView(ref, {
+    margin: "100px",
+  });
 
   const {noInline, code} = useCodeDemo({
     files,
   });
+
+  const renderContent = useCallback(
+    (content: React.ReactNode) => {
+      if (displayMode === "always") return content;
+
+      if (displayMode === "visible") {
+        return (
+          <motion.div
+            animate={isInView ? "visible" : "hidden"}
+            initial={false}
+            variants={{
+              visible: {opacity: 1},
+              hidden: {opacity: 0},
+            }}
+          >
+            {content}
+          </motion.div>
+        );
+      }
+    },
+    [displayMode, isInView],
+  );
 
   const previewContent = useMemo(() => {
     if (!showPreview) return null;
@@ -79,14 +106,13 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
       />
     );
 
-    if (displayMode === "always") return content;
-
-    if (displayMode === "visible") return isInView ? content : null;
+    return renderContent(content);
   }, [displayMode, showPreview, isInView]);
 
-  return (
-    <div ref={ref} className="flex flex-col gap-4">
-      {previewContent}
+  const editorContent = useMemo(() => {
+    if (!showEditor) return null;
+
+    const content = (
       <DynamicSandpack
         defaultExpanded={defaultExpanded}
         files={files}
@@ -95,6 +121,25 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         showOpenInCodeSandbox={showOpenInCodeSandbox || showPreview}
         showPreview={showSandpackPreview}
       />
+    );
+
+    return renderContent(content);
+  }, [
+    displayMode,
+    showEditor,
+    isInView,
+    files,
+    highlightedLines,
+    defaultExpanded,
+    showPreview,
+    showSandpackPreview,
+    showOpenInCodeSandbox,
+  ]);
+
+  return (
+    <div ref={ref} className="flex flex-col gap-4">
+      {previewContent}
+      {editorContent}
     </div>
   );
 };

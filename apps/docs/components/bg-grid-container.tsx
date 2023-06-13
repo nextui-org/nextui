@@ -1,5 +1,4 @@
 import {ReactNode, FC} from "react";
-import {Image} from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
 export interface BgGridContainerProps {
   showGradient?: boolean;
@@ -8,7 +7,7 @@ export interface BgGridContainerProps {
 }
 
 export const BgGridContainer: FC<BgGridContainerProps> = ({
-  showGradient = true,
+  // showGradient = true,
   children,
   className,
 }) => {
@@ -18,23 +17,23 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
         "relative overflow-y-hidden flex items-center border border-default-400/50 dark:border-default-100/50 px-2 py-4 rounded-lg",
         "overflow-hidden",
         // blur effect
-        "bg-transparent",
-        "before:w-full",
-        "before:bg-background/10",
-        "before:content-['']",
-        "before:block",
-        "before:z-[-1]",
-        "before:absolute",
-        "before:inset-0",
-        "before:backdrop-blur-md",
-        "before:backdrop-saturate-200",
+        // "bg-transparent",
+        // "before:w-full",
+        // "before:bg-background/10",
+        // "before:content-['']",
+        // "before:block",
+        // "before:z-[-1]",
+        // "before:absolute",
+        // "before:inset-0",
+        // "before:backdrop-blur-md",
+        // "before:backdrop-saturate-200",
         className,
       )}
     >
       <div className="max-w-full py-4 px-2 w-full h-full scrollbar-hide overflow-x-scroll">
         {children}
       </div>
-      <div
+      {/* <div
         className={clsx(
           "hidden md:block absolute z-[-1] inset-0 bg-grid-zinc-300/25 [mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.6))]",
           "dark:bg-grid-zinc-500/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]",
@@ -50,7 +49,7 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
             src="/gradients/blue-purple-1.svg"
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

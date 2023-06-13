@@ -4,7 +4,7 @@ import {SeparatorProps as AriaSeparatorProps, useSeparator} from "@react-aria/se
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {divider} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 

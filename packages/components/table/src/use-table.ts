@@ -15,7 +15,8 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {table} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
 interface Props extends HTMLNextUIProps<"table"> {

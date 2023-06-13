@@ -89,7 +89,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
           className={slots.wrapper({class: classNames?.wrapper})}
           exit="exit"
           initial="exit"
-          variants={TRANSITION_VARIANTS.scaleSpring}
+          variants={TRANSITION_VARIANTS.scaleInOut}
           {...motionProps}
         >
           {content}

@@ -1,5 +1,23 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230613212244
+
+### Patch Changes
+
+- New package added for react utilities
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230613212244
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230613212244
+
+## 0.0.0-dev-v2-20230613135041
+
+### Patch Changes
+
+- Input flat colors a11y improved
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230613135041
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230613135041
+
 ## 0.0.0-dev-v2-20230612221453
 
 ### Patch Changes

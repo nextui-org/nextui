@@ -5,7 +5,8 @@ import {ReactNode, useMemo, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {user} from "@nextui-org/theme";
-import {ReactRef, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {mergeProps} from "@react-aria/utils";
 export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {

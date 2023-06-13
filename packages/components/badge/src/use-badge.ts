@@ -4,7 +4,8 @@ import type {ReactNode} from "react";
 import {badge} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, ReactRef} from "@nextui-org/shared-utils";
+import {clsx} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
 export interface Props extends Omit<HTMLNextUIProps<"span">, "content"> {

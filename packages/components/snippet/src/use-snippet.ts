@@ -3,7 +3,8 @@ import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-or
 import {snippet} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {clsx, dataAttr, ReactRef} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback, ReactElement, useRef} from "react";

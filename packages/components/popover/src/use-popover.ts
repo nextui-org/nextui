@@ -11,7 +11,8 @@ import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-uti
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";

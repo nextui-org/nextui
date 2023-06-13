@@ -1,3 +1,4 @@
+"use client";
 // Inspired by https://github.dev/modulz/stitches-site code demo
 import React from "react";
 import rangeParser from "parse-numeric-range";

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/link",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
   "keywords": [
     "link"
@@ -40,6 +40,7 @@
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@react-aria/link": "^3.5.1",

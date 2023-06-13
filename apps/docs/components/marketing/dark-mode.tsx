@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react/display-name */
 import {Code, Button, Tooltip} from "@nextui-org/react";
 import {useState} from "react";

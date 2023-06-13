@@ -1,5 +1,23 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230613212244
+
+### Patch Changes
+
+- New package added for react utilities
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230613212244
+  - @nextui-org/system@0.0.0-dev-v2-20230613212244
+
+## 0.0.0-dev-v2-20230613135041
+
+### Patch Changes
+
+- Input flat colors a11y improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230613135041
+  - @nextui-org/system@0.0.0-dev-v2-20230613135041
+
 ## 0.0.0-dev-v2-20230612221453
 
 ### Patch Changes

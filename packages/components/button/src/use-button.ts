@@ -3,7 +3,8 @@ import type {AriaButtonProps} from "@react-types/button";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
 
-import {dataAttr, ReactRef} from "@nextui-org/shared-utils";
+import {dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef} from "@nextui-org/react-utils";
 import {MouseEventHandler, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {chain, mergeProps} from "@react-aria/utils";

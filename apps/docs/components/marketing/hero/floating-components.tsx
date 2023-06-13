@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button,
   Input,
@@ -11,24 +13,20 @@ import {
   Pagination,
   Tabs,
   Tab,
-  Link,
 } from "@nextui-org/react";
-import {clsx} from "@nextui-org/shared-utils";
-import {ArrowRightIcon, MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
+import {MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
-import NextLink from "next/link";
 
-import {title, subtitle} from "@/components/primitives";
 import {NextUILogo} from "@/components";
-import {GithubIcon} from "@/components/icons";
 import {UserTwitterCard} from "@/components/demos";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {useMediaQuery} from "@/hooks/use-media-query";
 
-const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
+export const FloatingComponents: React.FC<{}> = () => {
   const {theme, setTheme} = useTheme();
 
-  const isSelected = theme === "dark" && mounted;
+  const isMounted = useIsMounted();
+  const isSelected = theme === "dark" && isMounted;
 
   const isTablet = useMediaQuery(1024);
 
@@ -37,7 +35,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
   };
 
   return (
-    <div className="hidden lg:flex flex-col relative w-1/2">
+    <div className="hidden lg:flex flex-col relative z-20 w-1/2">
       <>
         <Switch
           classNames={{
@@ -120,7 +118,7 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
           />
         </div>
 
-        {mounted && (
+        {isMounted && (
           <Tooltip
             showArrow
             className="text-sm animate-[levitate_14s_ease_infinite]"
@@ -167,71 +165,5 @@ const FloatingComponents: React.FC<{mounted: boolean}> = ({mounted}) => {
         </Card>
       </>
     </div>
-  );
-};
-
-export const Hero = () => {
-  const isMounted = useIsMounted();
-
-  return (
-    <section className="flex relative overflow-hidden lg:overflow-visible w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
-      <div className="flex flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
-        <div className="text-center leading-8 md:leading-10 md:text-left">
-          <div className="inline-block">
-            <h1 className={title()}>Make&nbsp;</h1>
-            <h1 className={title({color: "violet"})}>beautiful&nbsp;</h1>
-          </div>
-          <h1 className={title()}>websites regardless of your design experience.</h1>
-        </div>
-        <h4 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
-          Beautiful, fast and modern React UI library.
-        </h4>
-        <div className="flex flex-col md:flex-row items-center gap-4">
-          <Button
-            as={NextLink}
-            className="w-full md:w-auto"
-            color="primary"
-            endIcon={
-              <ArrowRightIcon
-                className="group-data-[hover=true]:translate-x-0.5 transition-transform"
-                strokeWidth={2}
-              />
-            }
-            href="/docs/guide/introduction"
-            radius="full"
-            size="lg"
-          >
-            Get Started
-          </Button>
-
-          <Button
-            fullWidth
-            isExternal
-            as={Link}
-            className="w-full md:w-auto"
-            href="https://github.com/nextui-org/nextui"
-            radius="full"
-            size="lg"
-            startIcon={<GithubIcon />}
-            variant="bordered"
-          >
-            Github
-          </Button>
-        </div>
-      </div>
-
-      <FloatingComponents mounted={isMounted} />
-
-      <div
-        className={clsx(
-          "absolute -top-20 lg:top-10 w-screen h-screen -z-50 opacity-0",
-          "data-[mounted=true]:opacity-100 transition-opacity",
-          "bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')]",
-          "after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[-1]",
-          "after:bg-gradient-to-r after:from-transparent after:to-white dark:after:to-black after:z-[-1]",
-        )}
-        data-mounted={isMounted}
-      />
-    </section>
   );
 };

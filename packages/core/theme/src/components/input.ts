@@ -110,10 +110,10 @@ const input = tv({
         label: "text-secondary",
       },
       success: {
-        label: "text-success",
+        label: "text-success-600 dark:text-success",
       },
       warning: {
-        label: "text-warning",
+        label: "text-warning-600 dark:text-warning",
       },
       danger: {
         label: "text-danger",
@@ -288,12 +288,14 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-success-50",
+          "text-success-600",
+          "dark:text-success",
+          "placeholder:text-success-600",
+          "dark:placeholder:text-success",
           "data-[hover=true]:bg-success-100",
-          "text-success",
           "group-data-[focus=true]:bg-success-50",
-          "placeholder:text-success",
         ],
-        input: "placeholder:text-success",
+        input: "placeholder:text-success-600 dark:placeholder:text-success",
       },
     },
     {
@@ -302,12 +304,14 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-warning-50",
+          "text-warning-600",
+          "dark:text-warning",
+          "placeholder:text-warning-600",
+          "dark:placeholder:text-warning",
           "data-[hover=true]:bg-warning-100",
-          "text-warning",
           "group-data-[focus=true]:bg-warning-50",
-          "placeholder:text-warning",
         ],
-        input: "placeholder:text-warning",
+        input: "placeholder:text-warning-600 dark:placeholder:text-warning",
       },
     },
     {
@@ -316,10 +320,10 @@ const input = tv({
       class: {
         inputWrapper: [
           "bg-danger-50",
-          "data-[hover=true]:bg-danger-100",
           "text-danger",
-          "group-data-[focus=true]:bg-danger-50",
           "placeholder:text-danger",
+          "data-[hover=true]:bg-danger-100",
+          "group-data-[focus=true]:bg-danger-50",
         ],
         input: "placeholder:text-danger",
       },

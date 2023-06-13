@@ -1,6 +1,6 @@
 import type {AriaRadioGroupProps} from "@react-types/radio";
 import type {Orientation} from "@react-types/shared";
-import type {ReactRef} from "@nextui-org/shared-utils";
+import type {ReactRef} from "@nextui-org/react-utils";
 import type {RadioGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {radioGroup} from "@nextui-org/theme";

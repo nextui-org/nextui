@@ -3,7 +3,8 @@ import type {ReactNode} from "react";
 import {avatarGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {ReactRef, clsx, getValidChildren, compact} from "@nextui-org/shared-utils";
+import {clsx, compact} from "@nextui-org/shared-utils";
+import {ReactRef, getValidChildren} from "@nextui-org/react-utils";
 import {cloneElement, useMemo} from "react";
 
 import {AvatarProps} from "./index";

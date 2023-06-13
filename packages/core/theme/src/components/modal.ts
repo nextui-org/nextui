@@ -104,7 +104,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 max-w-full min-h-full rounded-none ",
+        base: "my-0 max-w-full min-h-full !rounded-none",
       },
     },
     radius: {
@@ -145,7 +145,7 @@ const modal = tv({
   defaultVariants: {
     size: "md",
     radius: "lg",
-    backdrop: "blur",
+    backdrop: "opaque",
     scrollBehavior: "normal",
   },
   compoundVariants: [

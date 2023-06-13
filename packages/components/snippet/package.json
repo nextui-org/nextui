@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/snippet",
-  "version": "0.0.0-dev-v2-20230612221453",
+  "version": "0.0.0-dev-v2-20230613212244",
   "description": "Display a snippet of copyable code for the command line.",
   "keywords": [
     "snippet"
@@ -42,6 +42,7 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/use-clipboard": "workspace:*",

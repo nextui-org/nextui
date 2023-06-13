@@ -1,11 +1,11 @@
 import {FC} from "react";
-import {Link as NextUILink, Image} from "@nextui-org/react";
+import {Link as NextUILink} from "@nextui-org/react";
 import Link from "next/link";
 
 import {Head} from "./head";
-import {Navbar} from "./navbar";
 import {Footer} from "./footer";
 
+import {Navbar} from "@/components/navbar";
 import {Route} from "@/libs/docs/page";
 import {MetaProps} from "@/libs/docs/meta";
 import {Heading} from "@/libs/docs/utils";
@@ -72,7 +72,7 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
       </main>
       <Footer align="right" />
 
-      <div
+      {/* <div
         aria-hidden="true"
         className="fixed hidden dark:md:block dark:opacity-70 -bottom-[40%] -left-[20%] z-[-10]"
       >
@@ -94,7 +94,7 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
           className="z-[-10]"
           src="/gradients/docs-right.svg"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

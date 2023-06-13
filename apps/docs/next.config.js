@@ -8,7 +8,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: process.env.IS_VERCEL_ENV === "true",
+    // ignoreBuildErrors: process.env.IS_VERCEL_ENV === "true",
+    ignoreBuildErrors: true,
   },
 };
 

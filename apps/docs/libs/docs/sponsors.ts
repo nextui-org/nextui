@@ -277,6 +277,9 @@ export const mockData: Sponsor[] = [
 
 export const getSponsors = async () => {
   try {
+    if (!__PROD__) {
+      return mockData;
+    }
     const res = await fetch("https://opencollective.com/nextui/members/all.json");
     const data = await res.json();
 
@@ -285,7 +288,7 @@ export const getSponsors = async () => {
       (sponsor) => sponsor.role !== "ADMIN" && sponsor.role !== "HOST",
     );
 
-    return sponsors;
+    return sponsors as Sponsor[];
   } catch (error) {
     return __PROD__ ? [] : mockData;
   }

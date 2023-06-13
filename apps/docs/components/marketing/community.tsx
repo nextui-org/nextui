@@ -1,8 +1,8 @@
-import {Spacer} from "@nextui-org/react";
+import {Spacer} from "@nextui-org/spacer";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 
-import {FeaturesGrid} from "@/components/marketing";
+import {FeaturesGrid} from "@/components/marketing/features-grid";
 import {communityAccounts} from "@/libs/constants";
 
 export const Community = () => {

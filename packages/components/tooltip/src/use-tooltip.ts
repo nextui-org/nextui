@@ -11,7 +11,8 @@ import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {popover} from "@nextui-org/theme";
-import {ReactRef, mergeRefs, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
 import {createDOMRef} from "@nextui-org/dom-utils";
 import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";

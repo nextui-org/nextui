@@ -1,3 +1,5 @@
+"use client";
+
 import {useRef, useState, FC, ReactNode} from "react";
 import {
   link,
@@ -20,11 +22,12 @@ import dynamic from "next/dynamic";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
-import {useRouter} from "next/router";
+import {usePathname} from "next/navigation";
 import {includes} from "lodash";
 import {SearchIcon} from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
 
+import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
@@ -50,7 +53,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const ref = useRef(null);
   const isMounted = useIsMounted();
 
-  const router = useRouter();
+  const pathname = usePathname();
 
   const searchInput = (
     <Input
@@ -136,8 +139,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               color="foreground"
               data-active={
                 !!(
-                  isActive(router.pathname, "/docs/[[...slug]]") &&
-                  !includes(router.asPath, "components")
+                  isActive(pathname, "/docs/[[...slug]]")
+                  // TODO: Fix this
+                  // && !includes(router.asPath, "components")
                 )
               }
               href="/docs/guide/introduction"
@@ -152,7 +156,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                 "data-[active=true]:text-primary data-[active=true]:font-medium",
               )}
               color="foreground"
-              data-active={includes(router.asPath, "components")}
+              data-active={includes(pathname, "components")}
               href="/docs/components/avatar"
             >
               Components
@@ -165,7 +169,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                 "data-[active=true]:text-primary data-[active=true]:font-medium",
               )}
               color="foreground"
-              data-active={router.asPath === "/figma"}
+              data-active={pathname === "/figma"}
               href="/figma"
             >
               Figma
@@ -183,13 +187,13 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
 
       <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href="https://twitter.com/getnextui">
+          <Link isExternal href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal href="https://discord.gg/9b6yyZKmH4">
+          <Link isExternal href={siteConfig.links.discord}>
             <DiscordIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal href="https://github.com/nextui-org/nextui">
+          <Link isExternal href={siteConfig.links.github}>
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <ThemeSwitch />
@@ -200,7 +204,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             isExternal
             as={Link}
             className="group text-sm font-normal text-default-600 bg-default-400/20 dark:bg-default-500/20"
-            href="https://patreon.com/jrgarciadev"
+            href={siteConfig.links.sponsor}
             startIcon={
               <HeartFilledIcon className="text-danger group-data-[hover=true]:animate-heartbeat" />
             }
