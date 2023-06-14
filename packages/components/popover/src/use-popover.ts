@@ -10,7 +10,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
-import {createDOMRef} from "@nextui-org/dom-utils";
+import {createDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";

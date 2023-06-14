@@ -2,7 +2,7 @@ import type {SkeletonVariantProps, SkeletonSlots, SlotsToClasses} from "@nextui-
 
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {skeleton} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";

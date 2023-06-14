@@ -9,7 +9,7 @@ import {checkbox} from "@nextui-org/theme";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useFocusableRef} from "@nextui-org/dom-utils";
+import {useFocusableRef} from "@nextui-org/react-utils";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {
   useCheckbox as useReactAriaCheckbox,

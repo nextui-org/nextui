@@ -2,9 +2,7 @@
 
 import React, {ReactNode} from "react";
 import {tv} from "tailwind-variants";
-import {Card, CardHeader, CardBody} from "@nextui-org/card";
-import {LinkProps} from "@nextui-org/link";
-import {SlotsToClasses} from "@nextui-org/theme";
+import {Card, CardHeader, CardBody, LinkProps, SlotsToClasses} from "@nextui-org/react";
 import {useRouter} from "next/navigation";
 import {LinkIcon} from "@nextui-org/shared-icons";
 

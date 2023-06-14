@@ -4,7 +4,7 @@ import type {AriaProgressBarProps} from "@react-types/progress";
 
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {progress} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";

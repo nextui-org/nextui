@@ -3,7 +3,7 @@ import type {ImageVariantProps, SlotsToClasses, ImageSlots} from "@nextui-org/th
 import {ImgHTMLAttributes, useCallback} from "react";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {image} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useImage as useImageBase} from "@nextui-org/use-image";

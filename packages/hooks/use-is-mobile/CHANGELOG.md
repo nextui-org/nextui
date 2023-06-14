@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mobile
 
+## 0.0.0-dev-v2-20230613214509
+
+### Patch Changes
+
+- Package structure improved
+
 ## 0.0.0-dev-v2-20230613212244
 
 ### Patch Changes

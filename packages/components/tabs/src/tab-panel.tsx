@@ -1,7 +1,7 @@
 import type {AriaTabPanelProps} from "@react-aria/tabs";
 
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useTabPanel} from "@react-aria/tabs";

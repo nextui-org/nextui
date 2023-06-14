@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/navbar",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse and more.",
   "keywords": [
     "navbar"
@@ -38,7 +38,6 @@
     "framer-motion": ">=4.0.0"
   },
   "dependencies": {
-    "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",

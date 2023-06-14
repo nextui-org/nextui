@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tooltip",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
     "tooltip"
@@ -38,7 +38,6 @@
     "framer-motion": ">=4.0.0"
   },
   "dependencies": {
-    "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",

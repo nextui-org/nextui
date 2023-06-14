@@ -125,7 +125,7 @@ module.exports = {
             "ul > li": {
               marginTop: "0.1em",
               marginBottom: "0.1em",
-              fontWeight: theme("fontWeight.light"),
+              fontWeight: theme("fontWeight.noemal"),
             },
             "ul > li > *:last-child": {
               marginTop:0,
@@ -209,7 +209,7 @@ module.exports = {
               marginTop: `${12 / 14}em`,
             },
             blockquote: {
-              fontWeight: theme("fontWeight.light"),
+              fontWeight: theme("fontWeight.normal"),
               fontStyle: "font-normal",
             },
             'blockquote p:first-of-type::before': {

@@ -1,6 +1,5 @@
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
-import {Button} from "@nextui-org/button";
-import {Link} from "@nextui-org/link";
+import {Button, Link} from "@nextui-org/react";
 import NextLink from "next/link";
 
 import {FloatingComponents} from "./floating-components";

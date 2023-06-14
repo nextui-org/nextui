@@ -6,7 +6,7 @@ import {mergeProps} from "@react-aria/utils";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {chip} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, isValidElement, cloneElement} from "react";

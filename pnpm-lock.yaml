@@ -285,18 +285,6 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../packages/utilities/aria-utils
-      '@nextui-org/button':
-        specifier: workspace:*
-        version: link:../../packages/components/button
-      '@nextui-org/card':
-        specifier: workspace:*
-        version: link:../../packages/components/card
-      '@nextui-org/code':
-        specifier: workspace:*
-        version: link:../../packages/components/code
-      '@nextui-org/link':
-        specifier: workspace:*
-        version: link:../../packages/components/link
       '@nextui-org/react':
         specifier: workspace:*
         version: link:../../packages/core/react
@@ -306,9 +294,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../packages/utilities/shared-utils
-      '@nextui-org/spacer':
-        specifier: workspace:*
-        version: link:../../packages/components/spacer
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../packages/core/theme
@@ -496,9 +481,6 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -560,9 +542,6 @@ importers:
 
   packages/components/avatar:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -603,9 +582,6 @@ importers:
 
   packages/components/badge:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -637,9 +613,6 @@ importers:
 
   packages/components/button:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/drip':
         specifier: workspace:*
         version: link:../drip
@@ -692,9 +665,6 @@ importers:
 
   packages/components/card:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/drip':
         specifier: workspace:*
         version: link:../drip
@@ -753,9 +723,6 @@ importers:
 
   packages/components/checkbox:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -817,9 +784,6 @@ importers:
 
   packages/components/chip:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -860,9 +824,6 @@ importers:
 
   packages/components/code:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -885,9 +846,6 @@ importers:
 
   packages/components/divider:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -916,9 +874,6 @@ importers:
 
   packages/components/drip:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -941,9 +896,6 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/popover':
         specifier: workspace:*
         version: link:../popover
@@ -1011,9 +963,6 @@ importers:
 
   packages/components/image:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1039,9 +988,9 @@ importers:
 
   packages/components/input:
     dependencies:
-      '@nextui-org/dom-utils':
+      '@nextui-org/react-utils':
         specifier: workspace:*
-        version: link:../../utilities/dom-utils
+        version: link:../../utilities/react-utils
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
@@ -1088,9 +1037,6 @@ importers:
 
   packages/components/kbd:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1116,9 +1062,6 @@ importers:
 
   packages/components/link:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1156,9 +1099,6 @@ importers:
 
   packages/components/modal:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -1232,9 +1172,6 @@ importers:
 
   packages/components/navbar:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -1308,9 +1245,9 @@ importers:
 
   packages/components/pagination:
     dependencies:
-      '@nextui-org/dom-utils':
+      '@nextui-org/react-utils':
         specifier: workspace:*
-        version: link:../../utilities/dom-utils
+        version: link:../../utilities/react-utils
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
@@ -1351,9 +1288,6 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -1415,9 +1349,6 @@ importers:
 
   packages/components/progress:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1464,9 +1395,6 @@ importers:
 
   packages/components/radio:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1516,9 +1444,6 @@ importers:
 
   packages/components/skeleton:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1544,9 +1469,6 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1587,9 +1509,6 @@ importers:
 
   packages/components/spacer:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1612,9 +1531,6 @@ importers:
 
   packages/components/spinner:
     dependencies:
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1637,9 +1553,9 @@ importers:
 
   packages/components/switch:
     dependencies:
-      '@nextui-org/dom-utils':
+      '@nextui-org/react-utils':
         specifier: workspace:*
-        version: link:../../utilities/dom-utils
+        version: link:../../utilities/react-utils
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -1686,9 +1602,6 @@ importers:
       '@nextui-org/checkbox':
         specifier: workspace:*
         version: link:../checkbox
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1768,9 +1681,6 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -1844,9 +1754,6 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -1902,9 +1809,6 @@ importers:
       '@nextui-org/avatar':
         specifier: workspace:*
         version: link:../avatar
-      '@nextui-org/dom-utils':
-        specifier: workspace:*
-        version: link:../../utilities/dom-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -2344,9 +2248,9 @@ importers:
 
   packages/hooks/use-real-shape:
     dependencies:
-      '@nextui-org/dom-utils':
+      '@nextui-org/react-utils':
         specifier: workspace:*
-        version: link:../../utilities/dom-utils
+        version: link:../../utilities/react-utils
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2502,15 +2406,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.18.1
         version: 3.18.1(react@18.2.0)
-    devDependencies:
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
-  packages/utilities/dom-utils:
     devDependencies:
       clean-package:
         specifier: 2.2.0

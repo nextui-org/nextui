@@ -4,7 +4,7 @@ import type {ButtonGroupVariantProps} from "@nextui-org/theme";
 
 import {buttonGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
 interface Props extends HTMLNextUIProps<"div">, ButtonGroupVariantProps {
   /**

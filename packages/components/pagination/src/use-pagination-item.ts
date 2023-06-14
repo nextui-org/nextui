@@ -6,7 +6,7 @@ import {useMemo} from "react";
 import {PaginationItemType, PaginationItemValue} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 

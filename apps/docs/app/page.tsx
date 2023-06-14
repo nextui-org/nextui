@@ -1,4 +1,4 @@
-import {Spacer} from "@nextui-org/spacer";
+import {Spacer} from "@nextui-org/react";
 
 import {getSponsors} from "@/libs/docs/sponsors";
 import {Hero} from "@/components/marketing/hero";

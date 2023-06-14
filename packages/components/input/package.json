@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/input",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "The input component is designed for capturing user input within a text field.",
   "keywords": [
     "input"
@@ -37,9 +37,9 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/use-aria-field": "workspace:*",

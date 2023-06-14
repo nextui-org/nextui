@@ -9,7 +9,7 @@ import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 
 import {useRadioGroupContext} from "./radio-group-context";

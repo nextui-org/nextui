@@ -4,7 +4,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {spinner} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
 
 export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantProps> {

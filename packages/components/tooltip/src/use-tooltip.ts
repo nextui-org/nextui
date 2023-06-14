@@ -13,7 +13,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {popover} from "@nextui-org/theme";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {createDOMRef} from "@nextui-org/dom-utils";
+import {createDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 

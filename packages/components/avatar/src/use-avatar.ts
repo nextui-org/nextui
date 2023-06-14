@@ -3,7 +3,7 @@ import type {AvatarVariantProps, AvatarSlots, SlotsToClasses} from "@nextui-org/
 import {avatar} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useFocusRing} from "@react-aria/focus";

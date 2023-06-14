@@ -9,7 +9,7 @@ import {TreeState, useTreeState} from "@react-stately/tree";
 import {useAccordion as useReactAriaAccordion} from "@react-aria/accordion";
 import {mergeProps} from "@react-aria/utils";
 import {accordion} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useState} from "react";
 
 import {AccordionItemProps} from "./accordion-item";

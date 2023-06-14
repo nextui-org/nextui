@@ -19,7 +19,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useOverlayTrigger} from "@react-aria/overlays";
-import {createDOMRef} from "@nextui-org/dom-utils";
+import {createDOMRef} from "@nextui-org/react-utils";
 import {useOverlayTriggerState} from "@react-stately/overlays";
 import {OverlayTriggerProps} from "@react-stately/overlays";
 import {mergeRefs, mergeProps} from "@react-aria/utils";

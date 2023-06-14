@@ -1,5 +1,5 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {HTMLMotionProps, motion} from "framer-motion";
 import {usePreventScroll} from "@react-aria/overlays";

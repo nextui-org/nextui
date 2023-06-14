@@ -2,7 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 import {PopoverContent} from "@nextui-org/popover";
 import {DOMProps, AriaLabelingProps} from "@react-types/shared";
 import {useMenu} from "@react-aria/menu";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {AriaMenuProps} from "@react-types/menu";
 import {useTreeState} from "@react-stately/tree";
 import {dropdownMenu} from "@nextui-org/theme";

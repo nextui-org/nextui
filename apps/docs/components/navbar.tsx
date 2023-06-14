@@ -32,7 +32,6 @@ import {Route} from "@/libs/docs/page";
 import {LargeLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
-import {isActive} from "@/utils/links";
 import RouterEvents from "@/libs/router-events";
 
 export interface NavbarProps {
@@ -54,6 +53,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const isMounted = useIsMounted();
 
   const pathname = usePathname();
+
+  const docsPaths = [
+    "/docs/guide/introduction",
+    "/docs/guide/installation",
+    "/docs/guide/upgrade-to-v2",
+  ];
 
   const searchInput = (
     <Input
@@ -137,13 +142,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                 "data-[active=true]:text-primary data-[active=true]:font-medium",
               )}
               color="foreground"
-              data-active={
-                !!(
-                  isActive(pathname, "/docs/[[...slug]]")
-                  // TODO: Fix this
-                  // && !includes(router.asPath, "components")
-                )
-              }
+              data-active={includes(docsPaths, pathname)}
               href="/docs/guide/introduction"
             >
               Docs

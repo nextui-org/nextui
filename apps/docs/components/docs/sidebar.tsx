@@ -1,3 +1,5 @@
+"use client";
+
 import {FC} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
@@ -117,7 +119,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             as={Link}
             className={clsx(
               "w-full",
-              "dark:font-light",
+              "font-normal",
               "before:mr-4",
               "before:content-['']",
               "before:block",

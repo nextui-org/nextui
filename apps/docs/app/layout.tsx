@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import {Metadata} from "next";
 import {clsx} from "@nextui-org/shared-utils";
-import {Link} from "@nextui-org/link";
+import {Link} from "@nextui-org/react";
 
 import {Providers} from "./providers";
 
@@ -17,6 +17,20 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: [
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "NextUI",
+    "React Aria",
+    "Server Components",
+    "React Components",
+    "UI Components",
+    "UI Kit",
+    "UI Library",
+    "UI Framework",
+    "UI Design System",
+  ],
   themeColor: [
     {media: "(prefers-color-scheme: light)", color: "white"},
     {media: "(prefers-color-scheme: dark)", color: "black"},
@@ -26,6 +40,18 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
+  twitter: siteConfig.twitter,
+  openGraph: siteConfig.openGraph,
+  authors: [
+    {
+      name: "jrgarciadev",
+      url: "https://jrgarciadev.com",
+    },
+  ],
+  creator: "jrgarciadev",
+  viewport:
+    "viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
@@ -34,7 +60,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <head />
       <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col">
             <Navbar routes={manifest.routes} />
             <main className="container mx-auto max-w-7xl px-6 flex-grow">{children}</main>
             <footer className="container mx-auto max-w-7xl pb-12 px-12">

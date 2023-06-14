@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, useRef, useEffect} from "react";
 import {clsx} from "@nextui-org/shared-utils";
 import {Divider, Spacer} from "@nextui-org/react";
@@ -68,6 +70,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
                 key={i}
                 className={clsx(
                   "transition-colors",
+                  "font-normal",
                   "flex items-center text-sm font-normal text-foreground/30",
                   "data-[active=true]:text-foreground/80",
                   "before:content-['']",

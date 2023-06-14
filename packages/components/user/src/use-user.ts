@@ -7,7 +7,7 @@ import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {user} from "@nextui-org/theme";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
 export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {
   /**

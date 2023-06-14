@@ -1,22 +1,15 @@
 import React from "react";
-import {useRouter} from "next/router";
-import {capitalize, join} from "lodash";
+import {usePathname} from "next/navigation";
 import {Tooltip, Link, Button} from "@nextui-org/react";
+import {capitalize, last} from "lodash";
 
 import {BugIcon} from "@/components/icons";
 import {ISSUE_REPORT_URL} from "@/libs/github/constants";
 
 export const BugReportButton = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
-  const slug = router.query.slug || "";
-
-  const componentTitle = Array.isArray(slug)
-    ? join(
-        slug.map((s) => capitalize(s)),
-        "/",
-      )
-    : capitalize(slug);
+  const componentTitle = capitalize(last(pathname?.split("/")));
 
   return (
     <Tooltip

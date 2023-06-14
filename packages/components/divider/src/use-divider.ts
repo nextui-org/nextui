@@ -3,7 +3,7 @@ import type {DividerVariantProps} from "@nextui-org/theme";
 import {SeparatorProps as AriaSeparatorProps, useSeparator} from "@react-aria/separator";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {divider} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";

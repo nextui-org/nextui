@@ -2,7 +2,7 @@ import type {GridNode} from "@react-types/grid";
 
 import {Key} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableCell} from "@react-aria/table";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";

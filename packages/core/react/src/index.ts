@@ -1,3 +1,5 @@
+"use client";
+
 export * from "@nextui-org/system";
 export * from "@nextui-org/theme";
 export * from "@nextui-org/accordion";

@@ -10,7 +10,7 @@ import {useAriaButton} from "@nextui-org/use-aria-button";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {callAllHandlers, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useDrip} from "@nextui-org/drip";
 import {AriaButtonProps} from "@react-aria/button";
 

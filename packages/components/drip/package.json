@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/drip",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "A ripple effect for ensuring that the user fells the system is reacting instantaneously",
   "keywords": [
     "drip"
@@ -39,8 +39,7 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*"
+    "@nextui-org/shared-utils": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

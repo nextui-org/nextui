@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/button",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "Buttons allow users to perform actions and choose with a single tap.",
   "keywords": [
     "button"
@@ -41,7 +41,6 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/drip": "workspace:*",
     "@nextui-org/spinner": "workspace:*",

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/radio",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "Radios allow users to select a single option from a list of mutually exclusive options.",
   "keywords": [
     "radio"
@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "@nextui-org/theme": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",

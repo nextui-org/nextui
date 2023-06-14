@@ -4,7 +4,7 @@ import type {LinkVariantProps} from "@nextui-org/theme";
 import {link} from "@nextui-org/theme";
 import {useLink as useAriaLink} from "@react-aria/link";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";

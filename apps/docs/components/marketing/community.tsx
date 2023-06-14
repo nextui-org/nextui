@@ -1,4 +1,4 @@
-import {Spacer} from "@nextui-org/spacer";
+import {Spacer} from "@nextui-org/react";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 

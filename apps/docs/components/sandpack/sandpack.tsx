@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, useRef} from "react";
 import {SandpackProvider, SandpackLayout, SandpackPreview} from "@codesandbox/sandpack-react";
 

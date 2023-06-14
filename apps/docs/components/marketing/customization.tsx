@@ -1,8 +1,7 @@
 "use client";
 
 /* eslint-disable react/display-name */
-import {Button} from "@nextui-org/button";
-import {Link} from "@nextui-org/link";
+import {Button, Link} from "@nextui-org/react";
 import NextLink from "next/link";
 
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";

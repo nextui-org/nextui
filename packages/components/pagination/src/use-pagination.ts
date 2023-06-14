@@ -11,7 +11,7 @@ import {useEffect, useRef, useMemo} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
 import {usePagination as useBasePagination} from "@nextui-org/use-pagination";
 import {pagination} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
 export type PaginationItemRenderProps<T extends HTMLElement = HTMLElement> = {

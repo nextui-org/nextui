@@ -1,5 +1,5 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";

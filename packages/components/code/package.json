@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/code",
-  "version": "0.0.0-dev-v2-20230613212244",
+  "version": "0.0.0-dev-v2-20230613214509",
   "description": "Code is a component used to display inline code.",
   "keywords": [
     "code"
@@ -40,8 +40,7 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*"
+    "@nextui-org/react-utils": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

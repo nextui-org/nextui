@@ -1,5 +1,13 @@
 # @nextui-org/use-disclosure
 
+## 0.0.0-dev-v2-20230613214509
+
+### Patch Changes
+
+- Package structure improved
+- Updated dependencies
+  - @nextui-org/use-callback-ref@0.0.0-dev-v2-20230613214509
+
 ## 0.0.0-dev-v2-20230613212244
 
 ### Patch Changes

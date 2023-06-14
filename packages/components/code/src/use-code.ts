@@ -2,7 +2,7 @@ import type {CodeVariantProps} from "@nextui-org/theme";
 
 import {code} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 

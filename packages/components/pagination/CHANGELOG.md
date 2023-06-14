@@ -1,5 +1,18 @@
 # @nextui-org/pagination
 
+## 0.0.0-dev-v2-20230613214509
+
+### Patch Changes
+
+- Package structure improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230613214509
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230613214509
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230613214509
+  - @nextui-org/use-pagination@0.0.0-dev-v2-20230613214509
+  - @nextui-org/system@0.0.0-dev-v2-20230613214509
+  - @nextui-org/theme@0.0.0-dev-v2-20230613214509
+
 ## 0.0.0-dev-v2-20230613212244
 
 ### Patch Changes

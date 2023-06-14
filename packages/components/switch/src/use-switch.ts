@@ -9,7 +9,7 @@ import {useHover, usePress} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
 import {chain, mergeProps} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {useFocusableRef} from "@nextui-org/dom-utils";
+import {useFocusableRef} from "@nextui-org/react-utils";
 import {useSwitch as useReactAriaSwitch} from "@react-aria/switch";
 import {useMemo} from "react";
 import {useToggleState} from "@react-stately/toggle";

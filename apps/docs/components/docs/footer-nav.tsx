@@ -1,18 +1,23 @@
+"use client";
+
 import * as React from "react";
 import NextLink from "next/link";
 import {Link} from "@nextui-org/react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 
+import manifest from "@/content/docs/manifest.json";
 import {removeFromLast} from "@/utils";
 import {Route, addTagToSlug} from "@/libs/docs/page";
+import {useDocsRoute} from "@/hooks/use-docs-route";
 
 export interface FooterNavProps {
   tag?: string;
-  prevRoute?: Route;
-  nextRoute?: Route;
+  currentRoute?: Route;
 }
 
-export const FooterNav: React.FC<FooterNavProps> = ({tag, prevRoute, nextRoute}) => {
+export const FooterNav: React.FC<FooterNavProps> = ({currentRoute, tag}) => {
+  const {prevRoute, nextRoute} = useDocsRoute(manifest.routes, currentRoute);
+
   return (
     <div className="flex w-full justify-between py-20">
       {prevRoute ? (

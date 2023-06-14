@@ -1,9 +1,8 @@
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, callAllHandlers, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {NodeWithProps} from "@nextui-org/aria-utils";
 import {useAriaAccordionItem} from "@nextui-org/use-aria-accordion-item";
 import {useCallback, useMemo} from "react";
