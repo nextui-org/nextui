@@ -1,5 +1,29 @@
 # @nextui-org/shared-icons
 
+## 0.0.0-dev-v2-20230614044324
+
+### Patch Changes
+
+- Client directive removed from button entry file
+
+## 0.0.0-dev-v2-20230614043419
+
+### Patch Changes
+
+- Main package fixed
+
+## 0.0.0-dev-v2-20230614042446
+
+### Patch Changes
+
+- Main package build adapted to support workspace and build files
+
+## 0.0.0-dev-v2-20230614033154
+
+### Patch Changes
+
+- Main package client directive added
+
 ## 0.0.0-dev-v2-20230613214509
 
 ### Patch Changes

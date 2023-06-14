@@ -325,7 +325,7 @@ module.exports = {
           "code-mdx": "#ff4ecd",
         },
         dark: {
-          "code-background": "#0B0B0B",
+          "code-background": "#0D0B0B",
           "code-mdx": "#06B7DB",
         },
       },

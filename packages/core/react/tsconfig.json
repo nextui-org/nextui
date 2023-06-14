@@ -2,10 +2,12 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "allowJs": true,
     "paths": {
       "tailwind-variants": ["../../../node_modules/tailwind-variants"],
       "@react-aria/interactions": ["../../../node_modules/@react-aria/interactions"]
     }
   },
-  "include": ["src", "index.ts"]
+  "include": ["src", "index.ts"],
+  "exclude": ["src/scripts/**", "src/index.ts.backup"]
 }

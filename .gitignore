@@ -48,6 +48,8 @@ esm
 examples/**/yarn.lock
 examples/**/out
 examples/**/.next
+packages/**/*.backup
+packages/**/*.backup.ts
 
 .vercel
 

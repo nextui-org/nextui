@@ -1,5 +1,7 @@
 "use client";
 
+// only for developments, client directive  this is removed in production builds
+
 export * from "@nextui-org/system";
 export * from "@nextui-org/theme";
 export * from "@nextui-org/accordion";
