@@ -1,12 +1,18 @@
-import {ArrowRightIcon} from "@nextui-org/shared-icons";
-import {Button, Link} from "@nextui-org/react";
+"use client";
+
 import NextLink from "next/link";
+import {Button, Link} from "@nextui-org/react";
+import {ArrowRightIcon} from "@nextui-org/shared-icons";
+import dynamic from "next/dynamic";
 
 import {FloatingComponents} from "./floating-components";
-import {BgLooper} from "./bg-looper";
 
 import {title, subtitle} from "@/components/primitives";
 import {GithubIcon} from "@/components/icons";
+
+const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
+  ssr: false,
+});
 
 export const Hero = () => {
   return (
@@ -19,9 +25,9 @@ export const Hero = () => {
           </div>
           <h1 className={title()}>websites regardless of your design experience.</h1>
         </div>
-        <h4 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
+        <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
           Beautiful, fast and modern React UI library.
-        </h4>
+        </h2>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}

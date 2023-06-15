@@ -141,7 +141,6 @@ export function useCard(originalProps: UseCardProps) {
       return {
         ref: domRef,
         className: slots.base({class: baseStyles}),
-        role: originalProps.isPressable ? "button" : "section",
         tabIndex: originalProps.isPressable ? 0 : -1,
         "data-hover": dataAttr(isHovered),
         "data-pressed": dataAttr(isPressed),
@@ -149,7 +148,7 @@ export function useCard(originalProps: UseCardProps) {
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-disabled": dataAttr(originalProps.isDisabled),
         ...mergeProps(
-          originalProps.isPressable ? {...buttonProps, ...focusProps} : {},
+          originalProps.isPressable ? {...buttonProps, ...focusProps, role: "button"} : {},
           originalProps.isHoverable ? hoverProps : {},
           otherProps,
           props,

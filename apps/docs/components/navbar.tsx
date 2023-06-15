@@ -26,13 +26,13 @@ import {usePathname} from "next/navigation";
 import {includes} from "lodash";
 import {SearchIcon} from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
+import {useEffect} from "react";
 
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
-import RouterEvents from "@/libs/router-events";
 
 export interface NavbarProps {
   routes: Route[];
@@ -53,6 +53,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const isMounted = useIsMounted();
 
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [pathname]);
 
   const docsPaths = [
     "/docs/guide/introduction",
@@ -80,10 +86,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     />
   );
 
-  RouterEvents.on("routeChangeStart", () => {
-    if (isMenuOpen) setIsMenuOpen(false);
-  });
-
   return (
     <NextUINavbar
       ref={ref}
@@ -96,8 +98,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-3" href="/">
+        <NavbarBrand as="li" className="gap-3 max-w-fit">
+          <NextLink aria-label="Home" className="flex justify-start items-center gap-3" href="/">
             <LargeLogo className="h-5 md:h-6" />
           </NextLink>
           {ref.current ? (
@@ -134,7 +136,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <div className="w-[80px]" />
           )}
         </NavbarBrand>
-        <div className="hidden lg:flex gap-4 justify-start">
+        <ul className="hidden lg:flex gap-4 justify-start">
           <NavbarItem>
             <NextLink
               className={clsx(
@@ -144,6 +146,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               color="foreground"
               data-active={includes(docsPaths, pathname)}
               href="/docs/guide/introduction"
+              prefetch={false}
             >
               Docs
             </NextLink>
@@ -157,6 +160,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               color="foreground"
               data-active={includes(pathname, "components")}
               href="/docs/components/avatar"
+              prefetch={false}
             >
               Components
             </NextLink>
@@ -174,25 +178,29 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               Figma
             </NextLink>
           </NavbarItem>
-        </div>
+        </ul>
       </NavbarContent>
 
       <NavbarContent className="flex w-full gap-3 sm:hidden" justify="end">
-        <Link isExternal href="https://github.com/nextui-org/nextui">
-          <GithubIcon className="text-default-600 dark:text-default-500" />
-        </Link>
-        <ThemeSwitch />
+        <NavbarItem>
+          <Link isExternal aria-label="Github" href="https://github.com/nextui-org/nextui">
+            <GithubIcon className="text-default-600 dark:text-default-500" />
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <ThemeSwitch />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href={siteConfig.links.twitter}>
+          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal href={siteConfig.links.discord}>
+          <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
             <DiscordIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal href={siteConfig.links.github}>
+          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <ThemeSwitch />
@@ -212,10 +220,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             Sponsor
           </Button>
         </NavbarItem>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
+        <NavbarItem>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu disableAnimation>

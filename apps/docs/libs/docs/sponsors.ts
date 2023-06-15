@@ -1,8 +1,4 @@
-import {uniqBy} from "lodash";
-
-import {__PROD__} from "@/utils";
 export type SponsorType = "USER" | "ORGANIZATION" | "COLLECTIVE";
-
 export type SponsorRole = "ADMIN" | "BACKER" | "CONTRIBUTOR" | "HOST" | "MEMBER" | "FUNDRAISER";
 
 export const SPONSOR_TIERS = {
@@ -274,25 +270,6 @@ export const mockData: Sponsor[] = [
     createdAt: "2016-03-12",
   },
 ];
-
-export const getSponsors = async () => {
-  try {
-    if (!__PROD__) {
-      return mockData;
-    }
-    const res = await fetch("https://opencollective.com/nextui/members/all.json");
-    const data = await res.json();
-
-    // filter out repeated sponsors
-    const sponsors = uniqBy<Sponsor>(data, "profile").filter(
-      (sponsor) => sponsor.role !== "ADMIN" && sponsor.role !== "HOST",
-    );
-
-    return sponsors as Sponsor[];
-  } catch (error) {
-    return __PROD__ ? [] : mockData;
-  }
-};
 
 export const getTier = (amount: number) => {
   return (

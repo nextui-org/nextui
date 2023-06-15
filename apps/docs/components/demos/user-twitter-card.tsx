@@ -3,6 +3,7 @@
 import {useState, FC} from "react";
 import {Card, CardHeader, Button, Avatar, CardBody, CardFooter} from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
+import NextImage from "next/image";
 
 interface UserTwitterCardProps {
   className?: string;
@@ -15,7 +16,17 @@ export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
     <Card className={clsx("max-w-[300px]", className)}>
       <CardHeader className="justify-between">
         <div className="flex gap-5">
-          <Avatar isBordered radius="full" size="md" src="/avatars/avatar-1.png" />
+          <Avatar
+            isBordered
+            ImgComponent={NextImage}
+            imgProps={{
+              width: 40,
+              height: 40,
+            }}
+            radius="full"
+            size="md"
+            src="/avatars/avatar-1.webp"
+          />
           <div className="flex flex-col items-start justify-center">
             <h4 className="text-sm font-semibold leading-none text-default-600">Zoey Lang</h4>
             <h5 className="text-sm tracking-tight text-default-400">@zoeylang</h5>

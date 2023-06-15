@@ -1,26 +1,30 @@
 "use client";
 
-import {
-  Button,
-  Input,
-  Tooltip,
-  Image,
-  CardFooter,
-  Card,
-  CardBody,
-  Switch,
-  Spinner,
-  Pagination,
-  Tabs,
-  Tab,
-} from "@nextui-org/react";
+import dynamic from "next/dynamic";
+import {Button, Tooltip} from "@nextui-org/react";
 import {MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
+import NextImage from "next/image";
 
-import {NextUILogo} from "@/components";
-import {UserTwitterCard} from "@/components/demos";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {useMediaQuery} from "@/hooks/use-media-query";
+import {NextUILogo} from "@/components/nextui-logo";
+
+const Input = dynamic(() => import("@nextui-org/react").then((mod) => mod.Input));
+const Image = dynamic(() => import("@nextui-org/react").then((mod) => mod.Image));
+
+const Card = dynamic(() => import("@nextui-org/react").then((mod) => mod.Card));
+const CardBody = dynamic(() => import("@nextui-org/react").then((mod) => mod.CardBody));
+const CardFooter = dynamic(() => import("@nextui-org/react").then((mod) => mod.CardFooter));
+const Switch = dynamic(() => import("@nextui-org/react").then((mod) => mod.Switch));
+const Spinner = dynamic(() => import("@nextui-org/react").then((mod) => mod.Spinner));
+const Pagination = dynamic(() => import("@nextui-org/react").then((mod) => mod.Pagination));
+const UserTwitterCard = dynamic(() =>
+  import("../../demos/user-twitter-card").then((mod) => mod.UserTwitterCard),
+);
+const FloatingTabs = dynamic(() => import("./floating-tabs").then((mod) => mod.FloatingTabs), {
+  ssr: false,
+});
 
 export const FloatingComponents: React.FC<{}> = () => {
   const {theme, setTheme} = useTheme();
@@ -69,8 +73,10 @@ export const FloatingComponents: React.FC<{}> = () => {
         >
           <Image
             alt="Professional camera"
+            as={NextImage}
             className="object-cover -translate-y-12 h-[100%]"
-            src="/images/card-example-6.jpeg"
+            height={120}
+            src="/images/card-example-6.webp"
             width={120}
           />
           <CardFooter className="before:bg-black/10 before:border before:border-white/20 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
@@ -79,20 +85,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           </CardFooter>
         </Card>
 
-        <Tabs
-          aria-label="Floating tabs example"
-          className=""
-          classNames={{
-            base: "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s]",
-            tabList: "max-w-[200px] bg-content1 shadow-sm",
-          }}
-          radius="full"
-          size="xs"
-        >
-          <Tab key="notes" title="Notes" />
-          <Tab key="tasks" title="Tasks" />
-          <Tab key="files" title="Files" />
-        </Tabs>
+        <FloatingTabs />
 
         <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
@@ -151,9 +144,10 @@ export const FloatingComponents: React.FC<{}> = () => {
         >
           <Image
             alt="Woman listing to music"
+            as={NextImage}
             className="object-cover"
             height={200}
-            src="/images/hero-card.jpeg"
+            src="/images/hero-card.webp"
             width={200}
           />
           <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">

@@ -5,6 +5,7 @@ import {useMemo, useState} from "react";
 import {Tabs, Tab, Card, CardBody, Image, Button, RadioGroup, Radio} from "@nextui-org/react";
 import get from "lodash/get";
 import NextLink from "next/link";
+import NextImage from "next/image";
 
 import {shopCartStyles} from "./styles";
 
@@ -120,9 +121,12 @@ const CustomThemesExample = ({
         <CardBody className="relative flex-col md:flex-row md:items-center gap-4 md:gap-9 overflow-visible">
           <div className={slots.imageWrapper()}>
             <Image
+              fill
               removeWrapper
               alt="Shoes theme example"
+              as={NextImage}
               className={slots.img()}
+              sizes="100vw"
               src="/images/shoes-1.png"
             />
           </div>
@@ -177,6 +181,7 @@ const CustomThemesExample = ({
           </div>
           <Button
             isIconOnly
+            aria-label="like"
             className={slots.starButton()}
             data-liked={liked}
             radius="full"
@@ -188,6 +193,7 @@ const CustomThemesExample = ({
         </CardBody>
       </Card>
       <Button
+        aria-label="Learn more about theme customization"
         as={NextLink}
         className="max-w-fit"
         color="primary"

@@ -115,6 +115,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
           <Avatar
             key={`${sponsor.MemberId}-${index}`}
             isBordered
+            showFallback
             className="absolute cursor-pointer bg-transparent before:bg-white/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200"
             color={getSponsorColor(sponsor) as AvatarProps["color"]}
             name={getSponsorName(sponsor)}
@@ -176,6 +177,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
                 >
                   <Button
                     isIconOnly
+                    aria-label="Become a sponsor"
                     className="z-50 w-auto h-auto bg-gradient-to-b from-[#FF1CF7] to-[#7928CA]"
                     radius="full"
                     onPress={() => handleExternalLinkClick(supportAccounts[0].href)}

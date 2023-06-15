@@ -2,12 +2,11 @@
 
 import {useRef} from "react";
 import {Button} from "@nextui-org/react";
-import confetti from "canvas-confetti";
 
 export const CustomButton = () => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const handleConfetti = () => {
+  const handleConfetti = async () => {
     const {clientWidth, clientHeight} = document.documentElement;
     const boundingBox = buttonRef.current?.getBoundingClientRect?.();
 
@@ -16,6 +15,7 @@ export const CustomButton = () => {
     const targetWidth = boundingBox?.width ?? 0;
 
     const targetCenterX = targetX + targetWidth / 2;
+    const confetti = (await import("canvas-confetti")).default;
 
     confetti({
       zIndex: 999,

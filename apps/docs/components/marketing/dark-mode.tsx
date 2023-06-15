@@ -4,14 +4,19 @@
 import {Code, Button, Tooltip} from "@nextui-org/react";
 import {useState} from "react";
 import NextLink from "next/link";
+import dynamic from "next/dynamic";
 
 import {MusicPlayer} from "@/components/demos";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {ThemeSwitch} from "@/components/theme-switch";
 import {CodeWindow} from "@/components/code-window";
 import landingContent from "@/content/landing";
-import {GradientBox, DemoCodeModal} from "@/components";
+import {GradientBox} from "@/components";
 import {InfoBoldIcon} from "@/components/icons";
+
+const DemoCodeModal = dynamic(() => import("../demo-code-modal").then((mod) => mod.DemoCodeModal), {
+  ssr: false,
+});
 
 export const DarkMode = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,6 +45,7 @@ export const DarkMode = () => {
                 <Tooltip className="text-xs px-2" content="Show code" placement="top">
                   <Button
                     isIconOnly
+                    aria-label="Show code"
                     className="text-white/70 dark:text-black/70 data-[hover]:bg-foreground/10"
                     radius="full"
                     variant="light"
@@ -68,6 +74,7 @@ export const DarkMode = () => {
         </div>
         <div className="flex w-1/2 justify-start">
           <Button
+            aria-label="Learn more about dark mode"
             as={NextLink}
             className="max-w-fit"
             color="warning"

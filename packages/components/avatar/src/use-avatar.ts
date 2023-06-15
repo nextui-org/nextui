@@ -71,6 +71,15 @@ export interface UseAvatarProps
    */
   onError?: () => void;
   /**
+   * The component used to render the image.
+   * @default "img"
+   */
+  ImgComponent?: React.ElementType;
+  /**
+   * Props to pass to the image component.
+   */
+  imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
+  /**
    * Classname or List of classes to change the classNames of the avatar.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -111,6 +120,8 @@ export function useAvatar(props: UseAvatarProps = {}) {
     getInitials = safeText,
     ignoreFallback = false,
     showFallback: showFallbackProp = false,
+    ImgComponent = "img",
+    imgProps,
     className,
     onError,
     ...otherProps
@@ -173,17 +184,19 @@ export function useAvatar(props: UseAvatarProps = {}) {
   );
 
   const getImageProps = useCallback<PropGetter>(
-    () => ({
+    (props = {}) => ({
       ref: imgRef,
       src: src,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
+      ...mergeProps(imgProps, props),
     }),
-    [slots, isImgLoaded, src, imgRef],
+    [slots, isImgLoaded, imgProps, src, imgRef],
   );
 
   return {
     Component,
+    ImgComponent,
     src,
     alt,
     icon,

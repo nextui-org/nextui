@@ -1,5 +1,21 @@
 # @nextui-org/use-callback-ref
 
+## 0.0.0-dev-v2-20230615024440
+
+### Patch Changes
+
+- Avatar API improved
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230615024440
+
+## 0.0.0-dev-v2-20230614225402
+
+### Patch Changes
+
+- Avatar API improved
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230614225402
+
 ## 0.0.0-dev-v2-20230614044324
 
 ### Patch Changes

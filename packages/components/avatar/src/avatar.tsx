@@ -9,6 +9,7 @@ export interface AvatarProps extends Omit<UseAvatarProps, "ref"> {}
 const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   const {
     Component,
+    ImgComponent,
     src,
     icon = <AvatarIcon />,
     alt,
@@ -55,7 +56,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
 
   return (
     <Component {...getAvatarProps()}>
-      {src && <img {...getImageProps()} alt={alt} />}
+      {src && <ImgComponent {...getImageProps()} alt={alt} />}
       {fallback}
     </Component>
   );

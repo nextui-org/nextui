@@ -25,7 +25,7 @@ export const shopCartStyles = tv({
       "before:transition-all",
     ],
     img: [
-      "overflow-visible",
+      "object-[45%_50%]",
       "sm:scale-125",
       "absolute",
       "z-10",

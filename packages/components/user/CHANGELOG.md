@@ -1,5 +1,29 @@
 # @nextui-org/user
 
+## 0.0.0-dev-v2-20230615024440
+
+### Patch Changes
+
+- Avatar API improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230615024440
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230615024440
+  - @nextui-org/avatar@0.0.0-dev-v2-20230615024440
+  - @nextui-org/system@0.0.0-dev-v2-20230615024440
+  - @nextui-org/theme@0.0.0-dev-v2-20230615024440
+
+## 0.0.0-dev-v2-20230614225402
+
+### Patch Changes
+
+- Avatar API improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230614225402
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230614225402
+  - @nextui-org/avatar@0.0.0-dev-v2-20230614225402
+  - @nextui-org/system@0.0.0-dev-v2-20230614225402
+  - @nextui-org/theme@0.0.0-dev-v2-20230614225402
+
 ## 0.0.0-dev-v2-20230614044324
 
 ### Patch Changes

@@ -21,12 +21,13 @@ import {
   DeleteDocumentBulkIcon,
 } from "@nextui-org/shared-icons";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {useEffect, useRef, useState} from "react";
 
 import {FeaturesGrid} from "./features-grid";
 
 import landingContent from "@/content/landing";
-import {GradientBox, DemoCodeModal} from "@/components";
+import {GradientBox} from "@/components";
 import {
   KeyboardBoldIcon,
   MouseCircleBoldIcon,
@@ -38,6 +39,10 @@ import {
 } from "@/components/icons";
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {useIsMobile} from "@/hooks/use-media-query";
+
+const DemoCodeModal = dynamic(() => import("../demo-code-modal").then((mod) => mod.DemoCodeModal), {
+  ssr: false,
+});
 
 const a11yItems = [
   {
@@ -119,6 +124,7 @@ export const A11yOtb = () => {
               features={a11yItems}
             />
             <Button
+              aria-label="Learn more about accessibility"
               as={Link}
               className="max-w-fit"
               color="success"
@@ -139,6 +145,7 @@ export const A11yOtb = () => {
             <Tooltip className="text-xs px-2" content="Show code" placement="top">
               <Button
                 isIconOnly
+                aria-label="Show code"
                 className="absolute top-1 right-1 text-success-50 data-[hover]:bg-foreground/10"
                 radius="full"
                 variant="light"
