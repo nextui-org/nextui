@@ -330,9 +330,6 @@ importers:
       '@react-stately/tree':
         specifier: ^3.6.1
         version: 3.6.1(react@18.2.0)
-      '@types/mkdirp':
-        specifier: ^2.0.0
-        version: 2.0.0
       '@vercel/analytics':
         specifier: ^1.0.1
         version: 1.0.1
@@ -469,9 +466,6 @@ importers:
       eslint-config-next:
         specifier: ^11.0.0
         version: 11.0.0(eslint-import-resolver-typescript@2.4.0)(eslint@7.29.0)(next@13.4.4)(typescript@4.9.5)
-      mkdirp:
-        specifier: ^3.0.1
-        version: 3.0.1
       next-sitemap:
         specifier: ^4.0.7
         version: 4.0.7(@next/env@13.4.2)(next@13.4.4)
@@ -9474,13 +9468,6 @@ packages:
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
-
-  /@types/mkdirp@2.0.0:
-    resolution: {integrity: sha512-c/iUqMymAlxLAyIK3u5SzrwkrkyOdv1XDc91T+b5FsY7Jr6ERhUD19jJHOhPW4GD6tmN6mFEorfSdks525pwdQ==}
-    deprecated: This is a stub types definition. mkdirp provides its own type definitions, so you do not need this installed.
-    dependencies:
-      mkdirp: 3.0.1
-    dev: false
 
   /@types/node-fetch@2.6.4:
     resolution: {integrity: sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg==}
@@ -18565,11 +18552,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dev: true
-
-  /mkdirp@3.0.1:
-    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
-    engines: {node: '>=10'}
-    hasBin: true
 
   /move-concurrently@1.0.1:
     resolution: {integrity: sha512-hdrFxZOycD/g6A6SoI2bB5NA/5NEqD0569+S47WZhPvm46sD50ZHdYaFmnua5lndde9rCHGjmfK7Z8BuCt/PcQ==}
