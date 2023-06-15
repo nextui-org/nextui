@@ -85,7 +85,8 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                     {...lineProps}
                     className={clsx(
                       lineProps.className,
-                      "px-4 relative [&>span]:relative [&>span]:z-10",
+                      language === "bash" ? "pr-4" : "px-4",
+                      "relative [&>span]:relative [&>span]:z-10",
                       {
                         "px-2": showLines,
                       },

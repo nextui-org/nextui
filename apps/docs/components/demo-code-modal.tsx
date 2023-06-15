@@ -3,11 +3,13 @@
 import {FC, useState} from "react";
 import {
   Modal,
+  Button,
   ModalContent,
   ModalHeader,
   Link as NextUILink,
   ModalBody,
   Skeleton,
+  ModalFooter,
 } from "@nextui-org/react";
 import Link from "next/link";
 import {toLower} from "lodash";
@@ -64,17 +66,25 @@ export const DemoCodeModal: FC<DemoCodeModalProps> = ({isOpen, code, title, subt
           </p>
         </ModalHeader>
         <ModalBody>
-          <Skeleton className="h-[320px] md:h-[60vh] rounded-xl" isLoaded={isCodeVisible}>
+          <Skeleton
+            className="h-[calc(100vh_-_200px)] md:h-[60vh] rounded-xl"
+            isLoaded={isCodeVisible}
+          >
             <CodeWindow
               showCopy
               showWindowIcons
-              className="min-h-[320px] max-h-[80vh] md:max-h-[60vh] h-screen"
+              className="min-h-[320px] max-h-full md:max-h-[60vh] h-screen"
               language="jsx"
               title={fileName}
               value={code}
             />
           </Skeleton>
         </ModalBody>
+        <ModalFooter className="md:hidden">
+          <Button fullWidth onPress={onClose}>
+            Close
+          </Button>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );

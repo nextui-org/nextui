@@ -71,8 +71,8 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
                 className={clsx(
                   "transition-colors",
                   "font-normal",
-                  "flex items-center text-sm font-normal text-foreground/30",
-                  "data-[active=true]:text-foreground/80",
+                  "flex items-center text-sm font-normal text-default-300",
+                  "data-[active=true]:text-foreground",
                   "before:content-['']",
                   "before:opacity-0",
                   "data-[active=true]:before:opacity-100",

@@ -132,7 +132,7 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 
 <CodeDemo title="Custom Avatar" files={avatarContent.custom} />
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Data Attributes
 
@@ -145,7 +145,7 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 - **data-focus-visible**:
   When the avatar is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html), it is applied when `isFocusable` is `true` or when the `as` property is assigned as `button`.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## API
 
@@ -164,7 +164,9 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 | isDisabled   | `boolean`                                                                    | If `true`, disables the avatar and applies a disabled styling.               | `false`   |
 | isFocusable  | `boolean`                                                                    | If `true`, makes the avatar focusable for keyboard navigation.               | `false`   |
 | showFallback | `boolean`                                                                    | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
-| classNames   | `Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>`                 | Allows to set custom class names for the avatar slots.                       | -         |
+| ImgComponent | `React.ElementType`                                                          | The component to be used as the image element.                               | `img`     |
+| imgProps     | `ImgComponentProps`                                                          | Props to be passed to the image element.                                     | -         |
+| classNames   | `Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>`              | Allows to set custom class names for the avatar slots.                       | -         |
 
 ### Avatar Group Props
 
