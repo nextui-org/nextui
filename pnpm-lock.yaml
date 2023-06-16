@@ -1129,6 +1129,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-aria-modal-overlay':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-modal-overlay
       '@nextui-org/use-disclosure':
         specifier: workspace:*
         version: link:../../hooks/use-disclosure
@@ -1153,6 +1156,9 @@ importers:
       '@react-types/overlays':
         specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
+      react-remove-scroll:
+        specifier: ^2.5.6
+        version: 2.5.6(@types/react@18.0.1)(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -1223,6 +1229,9 @@ importers:
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.12.16(react-dom@18.2.0)(react@18.2.0)
+      react-remove-scroll:
+        specifier: ^2.5.6
+        version: 2.5.6(@types/react@18.0.1)(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1339,6 +1348,9 @@ importers:
       '@react-types/overlays':
         specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
+      react-remove-scroll:
+        specifier: ^2.5.6
+        version: 2.5.6(@types/react@18.0.1)(react@18.2.0)
     devDependencies:
       '@nextui-org/card':
         specifier: workspace:*
@@ -2104,6 +2116,28 @@ importers:
       '@react-aria/utils':
         specifier: ^3.17.0
         version: 3.17.0(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.18.1
+        version: 3.18.1(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-modal-overlay:
+    dependencies:
+      '@react-aria/overlays':
+        specifier: ^3.14.1
+        version: 3.14.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.17.0
+        version: 3.17.0(react@18.2.0)
+      '@react-stately/overlays':
+        specifier: ^3.5.2
+        version: 3.5.2(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.18.1
         version: 3.18.1(react@18.2.0)
@@ -4679,7 +4713,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       '@types/react': 18.2.8
-      clsx: 1.1.0
+      clsx: 1.2.1
       focus-lock: 0.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -12985,6 +13019,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /detect-node-es@1.1.0:
+    resolution: {integrity: sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==}
+    dev: false
+
   /detect-package-manager@2.0.1:
     resolution: {integrity: sha512-j/lJHyoLlWi6G1LDdLgvUtz60Zo5GEj+sVYtTVXnYLDPuzgC3llMxonXym9zIwhhUII8vjdw0LXxavpLqTbl1A==}
     engines: {node: '>=12'}
@@ -15292,6 +15330,11 @@ packages:
       has-symbols: 1.0.3
     dev: true
 
+  /get-nonce@1.0.1:
+    resolution: {integrity: sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==}
+    engines: {node: '>=6'}
+    dev: false
+
   /get-package-type@0.1.0:
     resolution: {integrity: sha512-pjzuKtY64GYfWizNAJ0fr9VqttZkNiK2iS430LtIHzjBEr6bX8Am2zm4sW4Ro5wjWW5cAlRL1qAMTcXbjNAO2Q==}
     engines: {node: '>=8.0.0'}
@@ -16260,7 +16303,6 @@ packages:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /invert-kv@2.0.0:
     resolution: {integrity: sha512-wPVv/y/QQ/Uiirj/vh3oP+1Ww+AWehmi1g5fFWGPF6IpCBCDVrhgHRMvrLfdYcwDh3QJbGXDW4JAuzxElLSqKA==}
@@ -20836,6 +20878,41 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /react-remove-scroll-bar@2.3.4(@types/react@18.0.1)(react@18.2.0):
+    resolution: {integrity: sha512-63C4YQBUt0m6ALadE9XV56hV8BgJWDmmTPY758iIJjfQKt2nYwoUrPk0LXRXcB/yIj82T1/Ixfdpdk68LwIB0A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.0.1
+      react: 18.2.0
+      react-style-singleton: 2.2.1(@types/react@18.0.1)(react@18.2.0)
+      tslib: 2.5.3
+    dev: false
+
+  /react-remove-scroll@2.5.6(@types/react@18.0.1)(react@18.2.0):
+    resolution: {integrity: sha512-bO856ad1uDYLefgArk559IzUNeQ6SWH4QnrevIUjH+GczV56giDfl3h0Idptf2oIKxQmd1p9BN25jleKodTALg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.0.1
+      react: 18.2.0
+      react-remove-scroll-bar: 2.3.4(@types/react@18.0.1)(react@18.2.0)
+      react-style-singleton: 2.2.1(@types/react@18.0.1)(react@18.2.0)
+      tslib: 2.5.3
+      use-callback-ref: 1.3.0(@types/react@18.0.1)(react@18.2.0)
+      use-sidecar: 1.1.2(@types/react@18.0.1)(react@18.2.0)
+    dev: false
+
   /react-simple-code-editor@0.11.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-7bVI4Yd1aNCeuldErXUt8ksaAG5Fi+GZ6vp3mtFBnckKdzsQtrgkDvdwMFXIhwTGG+mUYmk5ZpMo0axSW9JBzA==}
     peerDependencies:
@@ -20854,6 +20931,23 @@ packages:
       shallowequal: 1.1.0
       throttle-debounce: 3.0.1
     dev: true
+
+  /react-style-singleton@2.2.1(@types/react@18.0.1)(react@18.2.0):
+    resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.0.1
+      get-nonce: 1.0.1
+      invariant: 2.2.4
+      react: 18.2.0
+      tslib: 2.5.3
+    dev: false
 
   /react-syntax-highlighter@15.5.0(react@18.2.0):
     resolution: {integrity: sha512-+zq2myprEnQmH5yw6Gqc8lD55QHnpKaU8TOcFeC/Lg/MQSs8UknEA0JC4nTZGFAXC2J2Hyj/ijJ7NlabyPi2gg==}
@@ -23644,6 +23738,21 @@ packages:
       qs: 6.11.2
     dev: true
 
+  /use-callback-ref@1.3.0(@types/react@18.0.1)(react@18.2.0):
+    resolution: {integrity: sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.0.1
+      react: 18.2.0
+      tslib: 2.5.3
+    dev: false
+
   /use-composed-ref@1.3.0(react@18.2.0):
     resolution: {integrity: sha512-GLMG0Jc/jiKov/3Ulid1wbv3r54K9HlMW29IWcDFPEqFkSO2nS0MuefWgMJpeHQ9YJeXDL3ZUF+P3jdXlZX/cQ==}
     peerDependencies:
@@ -23677,6 +23786,22 @@ packages:
       '@types/react': 18.0.1
       react: 18.2.0
       use-isomorphic-layout-effect: 1.1.2(@types/react@18.0.1)(react@18.2.0)
+    dev: false
+
+  /use-sidecar@1.1.2(@types/react@18.0.1)(react@18.2.0):
+    resolution: {integrity: sha512-epTbsLuzZ7lPClpz2TyryBfztm7m+28DlEv2ZCQ3MDr5ssiwyOwGH/e5F9CkfWjJ1t4clvI58yF822/GUkjjhw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.9.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.0.1
+      detect-node-es: 1.1.0
+      react: 18.2.0
+      tslib: 2.5.3
     dev: false
 
   /use@3.1.1:

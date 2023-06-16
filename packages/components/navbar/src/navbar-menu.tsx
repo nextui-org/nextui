@@ -1,20 +1,23 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {HTMLMotionProps, motion} from "framer-motion";
-import {usePreventScroll} from "@react-aria/overlays";
+import {AnimatePresence, HTMLMotionProps, motion} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
+import {ReactElement, useCallback} from "react";
+import {RemoveScroll} from "react-remove-scroll";
+import {Overlay} from "@react-aria/overlays";
 
 import {menuVariants} from "./navbar-menu-transitions";
 import {useNavbarContext} from "./navbar-context";
 
 export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
   children?: React.ReactNode;
+
   /**
-   * Whether to disable the animation.
-   * @default false
+   * The container element in which the navbar menu overlay portal will be placed.
+   * @default document.body
    */
-  disableAnimation?: boolean;
+  portalContainer?: Element;
   /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
@@ -22,45 +25,67 @@ export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
 }
 
 const NavbarMenu = forwardRef<NavbarMenuProps, "ul">((props, ref) => {
-  const {className, children, disableAnimation = false, motionProps, ...otherProps} = props;
-
+  const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
   const domRef = useDOMRef(ref);
 
-  const {slots, isMenuOpen, classNames} = useNavbarContext();
+  const {slots, isMenuOpen, height, disableAnimation, classNames} = useNavbarContext();
 
   const styles = clsx(classNames?.menu, className);
 
-  usePreventScroll({
-    isDisabled: !isMenuOpen,
-  });
+  const MenuWrapper = useCallback(
+    ({children}: {children: ReactElement}) => {
+      return (
+        <RemoveScroll forwardProps enabled={isMenuOpen}>
+          {children}
+        </RemoveScroll>
+      );
+    },
+    [isMenuOpen],
+  );
 
-  if (disableAnimation) {
-    return (
+  const contents = disableAnimation ? (
+    <MenuWrapper>
       <ul
         ref={domRef}
         className={slots.menu?.({class: styles})}
         data-open={dataAttr(isMenuOpen)}
+        style={{
+          // @ts-expect-error
+          "--navbar-height": height,
+        }}
         {...otherProps}
       >
         {children}
       </ul>
-    );
-  }
-
-  return (
-    <motion.ul
-      ref={domRef}
-      layoutScroll
-      animate={isMenuOpen ? "open" : "closed"}
-      className={slots.menu?.({class: styles})}
-      data-open={dataAttr(isMenuOpen)}
-      initial={false}
-      variants={menuVariants}
-      {...mergeProps(motionProps, otherProps)}
-    >
-      {children}
-    </motion.ul>
+    </MenuWrapper>
+  ) : (
+    <AnimatePresence initial={false}>
+      {isMenuOpen ? (
+        <MenuWrapper>
+          <motion.ul
+            ref={domRef}
+            layoutScroll
+            animate="enter"
+            className={slots.menu?.({class: styles})}
+            data-open={dataAttr(isMenuOpen)}
+            exit="exit"
+            initial="exit"
+            style={{
+              // @ts-expect-error
+              "--navbar-height": height,
+              ...style,
+            }}
+            variants={menuVariants}
+            {...mergeProps(motionProps, otherProps)}
+          >
+            {children}
+          </motion.ul>
+        </MenuWrapper>
+      ) : null}
+    </AnimatePresence>
   );
+
+  return <Overlay portalContainer={portalContainer}>{contents}</Overlay>;
 });
 
 NavbarMenu.displayName = "NextUI.NavbarMenu";

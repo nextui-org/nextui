@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/use-safe-layout-effect",
-  "version": "0.0.0-dev-v2-20230616024445",
-  "description": "",
+  "name": "@nextui-org/use-aria-modal-overlay",
+  "version": "2.0.0-beta.1",
+  "description": "A custom implementation of react aria modal overlay, this removes the prevent scroll",
   "keywords": [
-    "use-safe-layout-effect"
+    "use-aria-modal-overlay"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/hooks/use-safe-layout-effect"
+    "directory": "packages/hooks/use-aria-modal-overlay"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -32,6 +32,12 @@
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "@react-aria/overlays": "^3.14.1",
+    "@react-stately/overlays": "^3.5.2",
+    "@react-types/shared": "^3.18.1",
+    "@react-aria/utils": "^3.17.0"
   },
   "peerDependencies": {
     "react": ">=18"

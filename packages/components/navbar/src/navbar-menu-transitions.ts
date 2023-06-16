@@ -1,39 +1,19 @@
+import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
 import {Variants} from "framer-motion";
 
 export const menuVariants: Variants = {
-  open: {
+  enter: {
+    height: "calc(100vh - var(--navbar-height) - 1px)",
     transition: {
-      type: "spring",
-      bounce: 0,
-      duration: 0.7,
-      delayChildren: 0.15,
-      staggerChildren: 0.05,
+      duration: 0.4,
+      ease: TRANSITION_EASINGS.ease,
     },
   },
-  closed: {
+  exit: {
+    height: 0,
     transition: {
-      type: "spring",
-      bounce: 0,
       duration: 0.3,
-    },
-  },
-};
-
-export const menuItemVariants: Variants = {
-  open: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 24,
-    },
-  },
-  closed: {
-    opacity: 0,
-    y: 20,
-    transition: {
-      duration: 0.2,
+      ease: TRANSITION_EASINGS.ease,
     },
   },
 };

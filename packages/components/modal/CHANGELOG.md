@@ -1,5 +1,20 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230616024445
+
+### Patch Changes
+
+- Prevent scroll removed from overlay components as Modal, Navbar and Popover. Navbar styles simplified
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230616024445
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230616024445
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230616024445
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230616024445
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230616024445
+  - @nextui-org/use-disclosure@0.0.0-dev-v2-20230616024445
+  - @nextui-org/system@0.0.0-dev-v2-20230616024445
+  - @nextui-org/theme@0.0.0-dev-v2-20230616024445
+
 ## 0.0.0-dev-v2-20230615024440
 
 ### Patch Changes

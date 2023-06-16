@@ -36,7 +36,7 @@ export default {
     position: {
       control: {
         type: "select",
-        options: ["static", "sticky", "floating"],
+        options: ["static", "fixed"],
       },
     },
     maxWidth: {
@@ -79,7 +79,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
   return (
     <div
       ref={ref}
-      className="max-w-[90%] sm:max-w-[80%] max-h-[90vh] overflow-x-hidden overflow-y-scroll shadow-md relative border border-default"
+      className="max-w-[90%] pt-16 sm:max-w-[80%] max-h-[90vh] overflow-x-hidden overflow-y-scroll shadow-md relative border border-default"
     >
       {children}
       <div className="max-w-5xl flex flex-col gap-4 px-10 mt-8">
@@ -157,7 +157,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
 
   return (
     <App ref={parentRef}>
-      <Navbar parentRef={parentRef} position="sticky" onMenuOpenChange={setIsMenuOpen} {...args}>
+      <Navbar parentRef={parentRef} position="fixed" onMenuOpenChange={setIsMenuOpen} {...args}>
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -535,22 +535,16 @@ Static.args = {
   position: "static",
 };
 
-export const Sticky = Template.bind({});
-Sticky.args = {
+export const Fixed = Template.bind({});
+Fixed.args = {
   ...defaultProps,
-  position: "sticky",
-};
-
-export const Floating = Template.bind({});
-Floating.args = {
-  ...defaultProps,
-  position: "floating",
+  position: "fixed",
 };
 
 export const HideOnScroll = Template.bind({});
 HideOnScroll.args = {
   ...defaultProps,
-  position: "sticky",
+  position: "fixed",
   shouldHideOnScroll: true,
 };
 

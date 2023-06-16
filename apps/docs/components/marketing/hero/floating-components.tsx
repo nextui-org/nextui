@@ -1,30 +1,25 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import {Button, Tooltip} from "@nextui-org/react";
+import {
+  Button,
+  Tooltip,
+  Input,
+  Image,
+  Card,
+  CardBody,
+  CardFooter,
+  Switch,
+  Spinner,
+  Pagination,
+} from "@nextui-org/react";
 import {MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
 import {useTheme} from "next-themes";
 import NextImage from "next/image";
 
+import {FloatingTabs} from "./floating-tabs";
+
+import {UserTwitterCard} from "@/components/demos/user-twitter-card";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {useMediaQuery} from "@/hooks/use-media-query";
 import {NextUILogo} from "@/components/nextui-logo";
-
-const Input = dynamic(() => import("@nextui-org/react").then((mod) => mod.Input));
-const Image = dynamic(() => import("@nextui-org/react").then((mod) => mod.Image));
-
-const Card = dynamic(() => import("@nextui-org/react").then((mod) => mod.Card));
-const CardBody = dynamic(() => import("@nextui-org/react").then((mod) => mod.CardBody));
-const CardFooter = dynamic(() => import("@nextui-org/react").then((mod) => mod.CardFooter));
-const Switch = dynamic(() => import("@nextui-org/react").then((mod) => mod.Switch));
-const Spinner = dynamic(() => import("@nextui-org/react").then((mod) => mod.Spinner));
-const Pagination = dynamic(() => import("@nextui-org/react").then((mod) => mod.Pagination));
-const UserTwitterCard = dynamic(() =>
-  import("../../demos/user-twitter-card").then((mod) => mod.UserTwitterCard),
-);
-const FloatingTabs = dynamic(() => import("./floating-tabs").then((mod) => mod.FloatingTabs), {
-  ssr: false,
-});
 
 export const FloatingComponents: React.FC<{}> = () => {
   const {theme, setTheme} = useTheme();

@@ -1,5 +1,13 @@
 # @nextui-org/use-real-shape
 
+## 0.0.0-dev-v2-20230616024445
+
+### Patch Changes
+
+- Prevent scroll removed from overlay components as Modal, Navbar and Popover. Navbar styles simplified
+- Updated dependencies
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230616024445
+
 ## 0.0.0-dev-v2-20230615024440
 
 ### Patch Changes

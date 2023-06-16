@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/modal",
-  "version": "0.0.0-dev-v2-20230615024440",
+  "version": "0.0.0-dev-v2-20230616024445",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"
@@ -46,13 +46,15 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/use-aria-modal-overlay": "workspace:*",
     "@react-aria/dialog": "^3.5.2",
     "@react-aria/interactions": "^3.15.1",
     "@react-aria/overlays": "^3.14.1",
     "@react-aria/utils": "^3.17.0",
     "@react-stately/overlays": "^3.5.2",
     "@react-aria/focus": "^3.12.1",
-    "@react-types/overlays": "^3.7.2"
+    "@react-types/overlays": "^3.7.2",
+    "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
     "@nextui-org/input": "workspace:*",

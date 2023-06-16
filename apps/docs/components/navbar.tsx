@@ -18,7 +18,6 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from "@nextui-org/react";
-import dynamic from "next/dynamic";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
@@ -30,9 +29,10 @@ import {useEffect} from "react";
 
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
-import {LargeLogo, ThemeSwitch} from "@/components";
+import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
+import {DocsSidebar} from "@/components/docs/sidebar";
 
 export interface NavbarProps {
   routes: Route[];
@@ -40,11 +40,6 @@ export interface NavbarProps {
   slug?: string;
   children?: ReactNode;
 }
-
-const DocsSidebar = dynamic(
-  () => import("@/components/docs/sidebar").then((mod) => mod.DocsSidebar),
-  {ssr: false},
-);
 
 export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
@@ -90,16 +85,17 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     <NextUINavbar
       ref={ref}
       className={clsx({
-        isMenuOpen: "z-[100001]",
+        "z-[100001]": isMenuOpen,
       })}
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
-      position="sticky"
+      position="fixed"
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink aria-label="Home" className="flex justify-start items-center gap-3" href="/">
+          <NextLink aria-label="Home" className="flex justify-start items-center gap-2" href="/">
+            <SmallLogo className="w-6 h-6 md:hidden" />
             <LargeLogo className="h-5 md:h-6" />
           </NextLink>
           {ref.current ? (
@@ -146,7 +142,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               color="foreground"
               data-active={includes(docsPaths, pathname)}
               href="/docs/guide/introduction"
-              prefetch={false}
             >
               Docs
             </NextLink>
@@ -160,7 +155,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               color="foreground"
               data-active={includes(pathname, "components")}
               href="/docs/components/avatar"
-              prefetch={false}
             >
               Components
             </NextLink>
@@ -182,17 +176,23 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       </NavbarContent>
 
       <NavbarContent className="flex w-full gap-3 sm:hidden" justify="end">
-        <NavbarItem>
+        <NavbarItem className="flex items-center">
           <Link isExternal aria-label="Github" href="https://github.com/nextui-org/nextui">
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="flex items-center">
           <ThemeSwitch />
+        </NavbarItem>
+        <NavbarItem>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
+      <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-600 dark:text-default-500" />
@@ -220,17 +220,11 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             Sponsor
           </Button>
         </NavbarItem>
-        <NavbarItem>
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
-          />
-        </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu disableAnimation>
+      <NavbarMenu>
         {searchInput}
-        <DocsSidebar routes={routes} slug={slug} tag={tag} />
+        <DocsSidebar className="mt-4" routes={routes} slug={slug} tag={tag} />
         {children}
       </NavbarMenu>
     </NextUINavbar>

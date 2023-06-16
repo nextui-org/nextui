@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className="flex flex-wrap md:inline-grid md:grid-cols-3 gap-4">
       {placements.map((placement) => (
-        <Popover key={placement} placement={placement}>
+        <Popover key={placement} placement={placement} color="primary">
           <PopoverTrigger>
             <Button variant="flat" color="primary">
               {placement.charAt(0).toUpperCase() + placement.slice(1)}

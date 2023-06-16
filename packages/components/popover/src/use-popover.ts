@@ -4,7 +4,7 @@ import type {RefObject, Ref} from "react";
 
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
+import {useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
@@ -89,7 +89,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     onOpenChange,
     shouldFlip = true,
     containerPadding = 12,
-    shouldBlockScroll = true,
+    shouldBlockScroll = false,
     portalContainer,
     placement: placementProp = "top",
     triggerType = "dialog",
@@ -132,10 +132,6 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const state = stateProp || innerState;
-
-  usePreventScroll({
-    isDisabled: !state.isOpen || !shouldBlockScroll,
-  });
 
   const {popoverProps, underlayProps, arrowProps, placement: ariaPlacement} = useReactAriaPopover(
     {
@@ -233,6 +229,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,
+    shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "transparent",
     motionProps,
     focusProps,

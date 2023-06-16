@@ -3,7 +3,7 @@ import {pickChildren} from "@nextui-org/react-utils";
 import {motion} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 
-import {variants} from "./navbar-transitions";
+import {hideOnScrollVariants} from "./navbar-transitions";
 import {UseNavbarProps, useNavbar} from "./use-navbar";
 import {NavbarProvider} from "./navbar-context";
 import NavbarMenu from "./navbar-menu";
@@ -34,7 +34,7 @@ const Navbar = forwardRef<NavbarProps, "div">((props, ref) => {
         <motion.nav
           animate={context.isHidden ? "hidden" : "visible"}
           initial={false}
-          variants={variants}
+          variants={hideOnScrollVariants}
           {...mergeProps(context.getBaseProps(), context.motionProps)}
         >
           {content}

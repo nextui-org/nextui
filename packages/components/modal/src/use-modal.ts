@@ -1,7 +1,8 @@
 import type {ModalVariantProps, SlotsToClasses, ModalSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {AriaModalOverlayProps, useModalOverlay} from "@react-aria/overlays";
+import {AriaModalOverlayProps} from "@react-aria/overlays";
+import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";
 import {
   RefObject,
   Ref,
@@ -134,7 +135,7 @@ export function useModal(originalProps: UseModalProps) {
 
   const {triggerProps} = useOverlayTrigger({type: "dialog"}, state, triggerRef);
 
-  const {modalProps, underlayProps} = useModalOverlay(
+  const {modalProps, underlayProps} = useAriaModalOverlay(
     {
       isDismissable,
       isKeyboardDismissDisabled,

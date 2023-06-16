@@ -2,7 +2,7 @@
 
 import React, {useCallback, useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
-import {Skeleton} from "@nextui-org/react";
+import {Skeleton, Tab, Tabs} from "@nextui-org/react";
 import {motion, useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
@@ -28,6 +28,7 @@ interface CodeDemoProps extends UseCodeDemoProps {
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
   enableResize?: boolean;
+  showTabs?: boolean;
   showPreview?: boolean;
   showOpenInCodeSandbox?: boolean;
   displayMode?: "always" | "visible";
@@ -53,7 +54,8 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
-  displayMode = "visible",
+  displayMode = "always",
+  showTabs = true,
   highlightedLines,
   iframeInitialWidth,
   iframeSrc,
@@ -137,9 +139,29 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   ]);
 
   return (
-    <div ref={ref} className="flex flex-col gap-4">
-      {previewContent}
-      {editorContent}
+    <div ref={ref} className="flex flex-col gap-2">
+      {showTabs ? (
+        <Tabs
+          disableAnimation
+          aria-label="Code demo tabs"
+          classNames={{
+            panel: "pt-0",
+          }}
+          variant="underlined"
+        >
+          <Tab key="preview" title="Preview">
+            {previewContent}
+          </Tab>
+          <Tab key="code" title="Code">
+            {editorContent}
+          </Tab>
+        </Tabs>
+      ) : (
+        <>
+          {previewContent}
+          {editorContent}
+        </>
+      )}
     </div>
   );
 };

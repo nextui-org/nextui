@@ -48,26 +48,28 @@ import {tv} from "tailwind-variants";
 const navbar = tv({
   slots: {
     base: [
-      "relative",
+      "flex",
       "z-40",
       "w-full",
       "h-auto",
-      "flex",
       "items-center",
       "justify-center",
       "border-b",
       "border-divider",
+      // "data-[menu-open=true]:fixed",
+      "data-[menu-open=true]:border-none",
     ],
     wrapper: [
+      "z-40",
       "flex",
+      "px-6",
+      "w-full",
       "flex-row",
       "relative",
       "flex-nowrap",
       "items-center",
       "justify-between",
-      "w-full",
       "h-[var(--navbar-height)]",
-      "px-6",
     ],
     toggle: [
       "group",
@@ -156,19 +158,15 @@ const navbar = tv({
       "data-[active=true]:font-semibold",
     ],
     menu: [
-      "z-40",
-      "hidden",
+      "z-30",
       "px-6",
-      "pt-4",
-      "absolute",
+      "pt-2",
+      "fixed",
       "max-w-full",
-      "top-[calc(var(--navbar-height)_+_1px)]",
-      "h-[calc(100vh_-_var(--navbar-height)_-_1px)]",
+      "top-[var(--navbar-height)]",
       "inset-x-0",
       "bottom-0",
       "w-screen",
-      "bg-background",
-      "data-[open=true]:flex",
       "flex-col",
       "gap-3",
       "overflow-y-auto",
@@ -180,12 +178,8 @@ const navbar = tv({
       static: {
         base: "static",
       },
-      sticky: {},
-      floating: {
-        base: "shadow-none border-b-0",
-        wrapper: "mt-4 mx-8 shadow-md border border-default-200 dark:border-default-100 rounded-xl",
-        menu:
-          "mt-5 mx-8 border border-default-200 dark:border-default-100 rounded-xl max-w-[calc(100%_-_4rem)]",
+      fixed: {
+        base: "fixed top-0 inset-x-0",
       },
     },
     maxWidth: {
@@ -210,7 +204,7 @@ const navbar = tv({
     },
     hideOnScroll: {
       true: {
-        base: ["sticky", "top-0", "inset-x-0"],
+        base: ["fixed", "top-0", "inset-x-0"],
       },
     },
     isBordered: {
@@ -219,55 +213,29 @@ const navbar = tv({
     isBlurred: {
       false: {
         base: "bg-background",
+        menu: "bg-background",
       },
-      true: {},
+      true: {
+        base: [
+          "backdrop-blur-lg",
+          "data-[menu-open=true]:backdrop-blur-xl",
+          "backdrop-saturate-150",
+          "bg-background/70",
+        ],
+        menu: ["backdrop-blur-xl", "backdrop-saturate-150", "bg-background/70"],
+      },
+    },
+    disableAnimation: {
+      true: {
+        menu: ["hidden", "h-[calc(100dvh_-_var(--navbar-height)_-_1px)]", "data-[open=true]:flex"],
+      },
     },
   },
   defaultVariants: {
     maxWidth: "lg",
-    position: "sticky",
+    position: "fixed",
     isBlurred: true,
   },
-  compoundVariants: [
-    {
-      position: ["sticky", "floating"],
-      class: {
-        base: "sticky top-0 inset-x-0",
-      },
-    },
-    {
-      isBlurred: true,
-      position: ["static", "sticky"],
-      class: {
-        base: [
-          "backdrop-blur",
-          "backdrop-saturate-150",
-          "bg-background/80",
-          "dark:bg-background/50",
-          "data-[menu-open=true]:bg-background",
-        ],
-      },
-    },
-    {
-      isBlurred: true,
-      position: "floating",
-      class: {
-        base: "bg-gradient-to-b from-background to-transparent",
-        wrapper: [
-          "before:content-['']",
-          "before:block",
-          "before:z-[-1]",
-          "before:absolute",
-          "before:-top-px",
-          "before:inset-0",
-          "before:backdrop-blur",
-          "before:backdrop-saturate-150",
-          "before:bg-background/50",
-          "data-[menu-open=true]:before:bg-background",
-        ],
-      },
-    },
-  ],
 });
 
 export type NavbarVariantProps = VariantProps<typeof navbar>;

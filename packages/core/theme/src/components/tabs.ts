@@ -24,7 +24,7 @@ import {colorVariants} from "../utils";
 const tabs = tv({
   slots: {
     base: "inline-flex",
-    tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1", "h-fit"],
+    tabList: ["flex", "items-center", "gap-2", "bg-content2", "dark:bg-content1", "p-1", "h-fit"],
     tab: [
       "z-0",
       "w-full",
@@ -77,15 +77,15 @@ const tabs = tv({
         cursor: "inset-0",
       },
       light: {
-        tabList: "bg-transparent",
+        tabList: "bg-transparent dark:bg-transparent",
         cursor: "inset-0",
       },
       underlined: {
-        tabList: "bg-transparent",
+        tabList: "bg-transparent dark:bg-transparent",
         cursor: "h-[2px] w-[80%] bottom-0 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
-        tabList: "bg-transparent border-1 border-default-200 shadow-sm",
+        tabList: "bg-transparent dark:bg-transparent border-1 border-default-200 shadow-sm",
         cursor: "inset-0",
       },
     },
@@ -211,7 +211,7 @@ const tabs = tv({
       variant: ["solid", "bordered", "light"],
       color: "default",
       class: {
-        cursor: ["bg-background", "dark:bg-default"],
+        cursor: ["bg-background", "dark:bg-default", "border border-default-100 dark:border-none"],
         tabContent: "group-data-[selected=true]:text-default-foreground",
       },
     },

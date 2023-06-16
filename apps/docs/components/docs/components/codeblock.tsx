@@ -1,5 +1,5 @@
 import React, {forwardRef} from "react";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
 
 import defaultTheme from "@/libs/prism-theme";
@@ -81,7 +81,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
 
                 return (
                   <div
-                    key={i}
+                    key={`${i}-${getUniqueID("line")}`}
                     {...lineProps}
                     className={clsx(
                       lineProps.className,

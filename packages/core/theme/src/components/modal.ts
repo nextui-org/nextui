@@ -104,7 +104,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 max-w-full min-h-full !rounded-none",
+        base: "my-0 max-w-full h-[100dvh] !rounded-none",
       },
     },
     radius: {
@@ -153,7 +153,7 @@ const modal = tv({
     {
       backdrop: ["opaque", "blur"],
       class: {
-        backdrop: "w-full h-full fixed inset-0",
+        backdrop: "w-screen h-screen fixed inset-0",
       },
     },
   ],

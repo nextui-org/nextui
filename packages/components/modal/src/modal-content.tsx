@@ -6,6 +6,7 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {CloseIcon} from "@nextui-org/shared-icons";
+import {RemoveScroll} from "react-remove-scroll";
 import {motion} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
@@ -81,20 +82,22 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
   return (
     <div tabIndex={-1}>
       {backdropContent}
-      {disableAnimation ? (
-        <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
-      ) : (
-        <motion.div
-          animate="enter"
-          className={slots.wrapper({class: classNames?.wrapper})}
-          exit="exit"
-          initial="exit"
-          variants={TRANSITION_VARIANTS.scaleInOut}
-          {...motionProps}
-        >
-          {content}
-        </motion.div>
-      )}
+      <RemoveScroll forwardProps>
+        {disableAnimation ? (
+          <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
+        ) : (
+          <motion.div
+            animate="enter"
+            className={slots.wrapper({class: classNames?.wrapper})}
+            exit="exit"
+            initial="exit"
+            variants={TRANSITION_VARIANTS.scaleInOut}
+            {...motionProps}
+          >
+            {content}
+          </motion.div>
+        )}
+      </RemoveScroll>
     </div>
   );
 });

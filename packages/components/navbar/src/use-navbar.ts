@@ -63,7 +63,6 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
    */
   onScrollPositionChange?: (scrollPosition: number) => void;
-
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -193,14 +192,16 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   return {
     Component,
-    motionProps,
-    isHidden,
     slots,
     domRef,
-    classNames,
+    height,
+    isHidden,
+    disableAnimation: originalProps.disableAnimation ?? false,
     shouldHideOnScroll,
     isMenuOpen,
+    classNames,
     setIsMenuOpen,
+    motionProps,
     getBaseProps,
     getWrapperProps,
   };

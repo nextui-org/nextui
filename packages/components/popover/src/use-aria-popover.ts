@@ -1,11 +1,5 @@
 import {RefObject, useLayoutEffect} from "react";
-import {
-  AriaPopoverProps,
-  useOverlay,
-  PopoverAria,
-  usePreventScroll,
-  useOverlayPosition,
-} from "@react-aria/overlays";
+import {AriaPopoverProps, useOverlay, PopoverAria, useOverlayPosition} from "@react-aria/overlays";
 import {OverlayPlacement, toReactAriaPlacement, ariaHideOutside} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
@@ -84,10 +78,6 @@ export function useReactAriaPopover(
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
     onClose: () => {},
-  });
-
-  usePreventScroll({
-    isDisabled: isNonModal,
   });
 
   useLayoutEffect(() => {
