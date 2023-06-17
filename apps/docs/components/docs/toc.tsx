@@ -54,7 +54,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
   return (
     <div
       ref={tocRef}
-      className="fixed w-full flex flex-col gap-4 text-left top-20 pb-20 h-[calc(100vh-121px)] scrollbar-hide overflow-y-scroll"
+      className="fixed w-full max-w-[12rem] flex flex-col gap-4 text-left top-20 pb-20 h-[calc(100vh-121px)] scrollbar-hide overflow-y-scroll"
       style={{
         WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
           scrollPosition > 30 ? "90%" : "100%"
