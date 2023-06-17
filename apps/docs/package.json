@@ -6,11 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
-    "update:search-meta": "tsx scripts/update-search-meta.ts",
     "start": "next start",
     "lint": "next lint",
     "preinstall": "node preinstall.js",
-    "build:sponsors": "tsx scripts/build-sponsors.ts"
+    "build:sponsors": "tsx scripts/build-sponsors.ts",
+    "update:search-meta": "tsx scripts/update-search-meta.ts"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.6.4",
@@ -40,7 +40,7 @@
     "lodash": "^4.17.21",
     "mini-svg-data-uri": "^1.4.3",
     "mitt": "3.0.0",
-    "next": "13.4.7-canary.0",
+    "next": "13.4.7-canary.1",
     "next-mdx-remote": "^3.0.2",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",

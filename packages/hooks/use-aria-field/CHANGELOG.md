@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230617005419
+
+### Patch Changes
+
+- Tailwind variants upgraded, flat and light colors improved, modal & navbar improved
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230617005419
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230617005419
+
 ## 0.0.0-dev-v2-20230616024445
 
 ### Patch Changes

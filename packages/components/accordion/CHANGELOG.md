@@ -1,5 +1,20 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230617005419
+
+### Patch Changes
+
+- Tailwind variants upgraded, flat and light colors improved, modal & navbar improved
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230617005419
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230617005419
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230617005419
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230617005419
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230617005419
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230617005419
+  - @nextui-org/system@0.0.0-dev-v2-20230617005419
+  - @nextui-org/theme@0.0.0-dev-v2-20230617005419
+
 ## 0.0.0-dev-v2-20230616024445
 
 ### Patch Changes

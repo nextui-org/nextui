@@ -77,7 +77,7 @@ const navbar = tv({
       "items-center",
       "justify-center",
       "w-6",
-      "h-10",
+      "h-full",
       "outline-none",
       "rounded-sm",
       // focus ring

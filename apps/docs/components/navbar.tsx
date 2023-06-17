@@ -184,12 +184,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         <NavbarItem className="flex items-center">
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem>
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
-          />
-        </NavbarItem>
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
@@ -219,7 +214,11 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           >
             Sponsor
           </Button>
-        </NavbarItem>
+        </NavbarItem>{" "}
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="hidden sm:flex lg:hidden"
+        />
       </NavbarContent>
 
       <NavbarMenu>
