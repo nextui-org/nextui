@@ -4,6 +4,10 @@ import nonDismissable from "./non-dismissable";
 import position from "./position";
 import overflow from "./overflow";
 import form from "./form";
+import backdrop from "./backdrop";
+import customBackdrop from "./custom-backdrop";
+import customMotion from "./custom-motion";
+import customStyles from "./custom-styles";
 
 export const modalContent = {
   usage,
@@ -12,4 +16,8 @@ export const modalContent = {
   position,
   overflow,
   form,
+  backdrop,
+  customBackdrop,
+  customMotion,
+  customStyles,
 };

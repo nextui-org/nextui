@@ -7,10 +7,10 @@ import {tv} from "tailwind-variants";
  *
  * @example
  * ```js
- * const {base, trigger, backdrop, header, body, footer} = modal({...})
+ * const {base, backdrop, header, body, footer} = modal({...})
  *
  * <div>
- *    <button className={trigger()}>Open Modal</button>
+ *    <button>Open Modal</button>
  *    <div className={backdrop()}/>
  *    <div className={base()}>
  *       <div className={header()}>Header</div>
@@ -43,12 +43,12 @@ const modal = tv({
       "w-full",
       "shadow-lg",
       "box-border",
+      "bg-background",
       "dark:bg-content1",
       "border border-default-100",
       "outline-none",
       "my-16",
     ],
-    trigger: [],
     backdrop: "z-50",
     header: "flex py-4 px-6 flex-initial text-lg font-semibold",
     body: "flex flex-1 flex-col gap-3 px-6 py-2",

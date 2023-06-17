@@ -68,5 +68,47 @@ You can use the `scrollBehavior` prop to set the scroll behavior of the modal.
 
 ### With Form
 
+The `Modal` handles the focus within the modal content. It means that you can use the modal with
+form elements without any problem. the focus returns to the trigger when the modal closes.
+
 <CodeDemo title="With Form" files={modalContent.form} />
 
+> **Note**: You can add the `autoFocus` prop to the first `Input` component to focus it when the modal opens.
+
+### Backdrop
+
+The `Modal` component has a `backdrop` prop to show a backdrop behind the modal. The backdrop can be
+either `transparent`, `opaque` or `blur`. The default value is `transparent`.
+
+<CodeDemo title="Backdrop" files={modalContent.backdrop} />
+
+### Custom Backdrop
+
+You can customize the backdrop by using the `backdrop` slot.
+
+<CodeDemo title="Custom Backdrop" files={modalContent.customBackdrop} />
+
+### Custom Motion
+
+Modal offers a `motionProps` property to customize the `enter` / `exit` animation.
+
+<CodeDemo title="Custom Motion" files={modalContent.customMotion} />
+
+> Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
+
+
+## Slots
+
+- **wrapper**: The wrapper slot of the modal. It wraps the `base` and the `backdrop` slots.
+- **base**: The main slot of the modal content.
+- **backdrop**: The backdrop slot, it is displayed behind the modal.
+- **header**: The header of the modal, it is displayed at the top of the modal.
+- **body**: The body of the modal, it is displayed in the middle of the modal.
+- **footer**: The footer of the modal, it is displayed at the bottom of the modal.
+- **closeButton**: The close button of the modal.
+
+### Custom Styles
+
+You can customize the `Modal` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={modalContent.customStyles} />

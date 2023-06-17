@@ -3,23 +3,13 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";
-import {
-  RefObject,
-  Ref,
-  useCallback,
-  useId,
-  useRef,
-  useState,
-  useMemo,
-  useImperativeHandle,
-} from "react";
+import {RefObject, useCallback, useId, useRef, useState, useMemo, useImperativeHandle} from "react";
 import {modal} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useOverlayTrigger} from "@react-aria/overlays";
 import {createDOMRef} from "@nextui-org/react-utils";
 import {useOverlayTriggerState} from "@react-stately/overlays";
 import {OverlayTriggerProps} from "@react-stately/overlays";
@@ -133,8 +123,6 @@ export function useModal(originalProps: UseModalProps) {
     },
   });
 
-  const {triggerProps} = useOverlayTrigger({type: "dialog"}, state, triggerRef);
-
   const {modalProps, underlayProps} = useAriaModalOverlay(
     {
       isDismissable,
@@ -169,14 +157,6 @@ export function useModal(originalProps: UseModalProps) {
     "aria-modal": true,
     "aria-labelledby": headerMounted ? headerId : undefined,
     "aria-describedby": bodyMounted ? bodyId : undefined,
-  });
-
-  const getTriggerProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
-    ...mergeProps(triggerProps, props),
-    className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
-    ref: mergeRefs(_ref, triggerRef),
-    "aria-controls": dialogId,
-    "aria-haspopup": "dialog",
   });
 
   const getBackdropProps = useCallback<PropGetter>(
@@ -219,7 +199,6 @@ export function useModal(originalProps: UseModalProps) {
     setBodyMounted,
     setHeaderMounted,
     getDialogProps,
-    getTriggerProps,
     getBackdropProps,
     getCloseButtonProps,
   };

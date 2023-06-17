@@ -2,7 +2,7 @@ const App = `import {Popover, PopoverTrigger, PopoverContent, Button, Input} fro
 
 export default function App() {
 
-  const backdrops = ["opaque", "blur", "transparent", ];
+  const backdrops = ["opaque", "blur", "transparent"];
 
   const content = (
     <PopoverContent className="w-[240px]">

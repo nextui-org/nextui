@@ -6,6 +6,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-2">
+      <Button onPress={onOpen}>Open Modal</Button>
       <RadioGroup
         label="Select scroll behavior"
         orientation="horizontal"
@@ -15,7 +16,6 @@ export default function App() {
         <Radio value="inside">inside</Radio>
         <Radio value="outside">outside</Radio>
       </RadioGroup>
-      <Button onPress={onOpen}>Open Modal</Button>
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
