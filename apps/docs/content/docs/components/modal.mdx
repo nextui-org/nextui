@@ -43,7 +43,30 @@ When the modal opens:
 
 <CodeDemo title="Sizes" files={modalContent.sizes} />
 
+### Non-dissmissable
+
+By default the modal can be closed by clicking on the overlay or pressing the <Kbd>ESC</Kbd> key. 
+You can disable this behavior by setting the `isDismissable` prop to `false`.
+
+<CodeDemo title="Non-dissmissible" files={modalContent.nonDismissable} />
+
+### Modal position
+
+By default the modal is centered on the screen when the breakpoint is greater than `md` and is displayed at the top of the
+screen when the breakpoint is less than `md`. You can change the position of the modal by modifying the `wrapper` slot.
+
+<CodeDemo title="Modal position" files={modalContent.position} highlightedLines="12"/>
+
+### Overflow scroll
+
+You can use the `scrollBehavior` prop to set the scroll behavior of the modal.
+
+- **inside**: The modal content will be scrollable.
+- **outside**: The modal content will be scrollable and the modal will be fixed.
+
+<CodeDemo title="Overflow scroll" files={modalContent.overflow} />
 
 ### With Form
 
 <CodeDemo title="With Form" files={modalContent.form} />
+

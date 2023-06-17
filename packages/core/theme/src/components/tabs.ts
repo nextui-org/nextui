@@ -24,7 +24,7 @@ import {colorVariants} from "../utils";
 const tabs = tv({
   slots: {
     base: "inline-flex",
-    tabList: ["flex", "items-center", "gap-2", "bg-content2", "dark:bg-content1", "p-1", "h-fit"],
+    tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1", "h-fit"],
     tab: [
       "z-0",
       "w-full",

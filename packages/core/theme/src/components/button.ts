@@ -273,32 +273,32 @@ const button = tv({
     {
       variant: "light",
       color: "default",
-      class: [colorVariants.light.default, "data-[hover=true]:bg-default-100"],
+      class: [colorVariants.light.default, "data-[hover=true]:bg-default-100/50"],
     },
     {
       variant: "light",
       color: "primary",
-      class: [colorVariants.light.primary, "data-[hover=true]:bg-primary-50"],
+      class: [colorVariants.light.primary, "data-[hover=true]:bg-primary-100/50"],
     },
     {
       variant: "light",
       color: "secondary",
-      class: [colorVariants.light.secondary, "data-[hover=true]:bg-secondary-100"],
+      class: [colorVariants.light.secondary, "data-[hover=true]:bg-secondary-100/50"],
     },
     {
       variant: "light",
       color: "success",
-      class: [colorVariants.light.success, "data-[hover=true]:bg-success-50"],
+      class: [colorVariants.light.success, "data-[hover=true]:bg-success-100/50"],
     },
     {
       variant: "light",
       color: "warning",
-      class: [colorVariants.light.warning, "data-[hover=true]:bg-warning-50"],
+      class: [colorVariants.light.warning, "data-[hover=true]:bg-warning-100/50"],
     },
     {
       variant: "light",
       color: "danger",
-      class: [colorVariants.light.danger, "data-[hover=true]:bg-danger-50"],
+      class: [colorVariants.light.danger, "data-[hover=true]:bg-danger-100/50"],
     },
     // ghost / color
     {

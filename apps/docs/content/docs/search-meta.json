@@ -1,0 +1,4824 @@
+[
+  {
+    "content": "Accordion",
+    "objectID": "0e84af17-701a-4e28-913a-e0a511c4969e",
+    "type": "lvl1",
+    "url": "/components/accordion",
+    "hierarchy": {"lvl1": "Accordion"}
+  },
+  {
+    "content": "Accordion",
+    "objectID": "7d61614c-2d93-478e-9e4e-d5d7ae9f19bb",
+    "type": "lvl1",
+    "url": "/components/accordion#accordion",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "cbbe7932-d5dd-4e46-b688-b81282114e4a",
+    "type": "lvl2",
+    "url": "/components/accordion#import",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "b92c9e40-dcb6-4a83-88f2-d4875cc1265d",
+    "type": "lvl2",
+    "url": "/components/accordion#usage",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "With Subtitle",
+    "objectID": "38c5b10e-3f27-4857-89b2-149785786d2e",
+    "type": "lvl3",
+    "url": "/components/accordion#with-subtitle",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Usage",
+      "lvl3": "With Subtitle"
+    }
+  },
+  {
+    "content": "Expand multiple items",
+    "objectID": "62876950-a4b2-4714-bf5c-f55077bfde21",
+    "type": "lvl3",
+    "url": "/components/accordion#expand-multiple-items",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "With Subtitle",
+      "lvl3": "Expand multiple items"
+    }
+  },
+  {
+    "content": "Compact",
+    "objectID": "9d12b911-3522-4578-8138-d7099d222683",
+    "type": "lvl3",
+    "url": "/components/accordion#compact",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Expand multiple items",
+      "lvl3": "Compact"
+    }
+  },
+  {
+    "content": "Variants",
+    "objectID": "d1baf5d2-45a6-4e1a-ae60-71673416c132",
+    "type": "lvl3",
+    "url": "/components/accordion#variants",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Compact", "lvl3": "Variants"}
+  },
+  {
+    "content": "Light variant",
+    "objectID": "5a60c6ad-5ec8-49e1-a589-35619e212baa",
+    "type": "lvl4",
+    "url": "/components/accordion#light-variant",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Variants", "lvl3": null}
+  },
+  {
+    "content": "Shadow variant",
+    "objectID": "5bd81e60-79f9-47cd-88f3-486aabe77bfa",
+    "type": "lvl4",
+    "url": "/components/accordion#shadow-variant",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Light variant", "lvl3": null}
+  },
+  {
+    "content": "Bordered variant",
+    "objectID": "ac35ce3d-f52c-4ee6-8389-76a79e942c81",
+    "type": "lvl4",
+    "url": "/components/accordion#bordered-variant",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Shadow variant", "lvl3": null}
+  },
+  {
+    "content": "Splitted variant",
+    "objectID": "987ca2c9-d1f3-4373-b391-aaff8287ef24",
+    "type": "lvl4",
+    "url": "/components/accordion#splitted-variant",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Bordered variant",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Default expanded keys",
+    "objectID": "27062950-49b4-4f6f-8cd0-fd27bc869e1f",
+    "type": "lvl3",
+    "url": "/components/accordion#default-expanded-keys",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Splitted variant",
+      "lvl3": "Default expanded keys"
+    }
+  },
+  {
+    "content": "Disabled keys",
+    "objectID": "6c455c33-376a-4976-ac37-aef966f0bf04",
+    "type": "lvl3",
+    "url": "/components/accordion#disabled-keys",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Default expanded keys",
+      "lvl3": "Disabled keys"
+    }
+  },
+  {
+    "content": "Start content",
+    "objectID": "a8b41be6-f3ea-40dd-955a-8650324e0ea3",
+    "type": "lvl3",
+    "url": "/components/accordion#start-content",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Disabled keys",
+      "lvl3": "Start content"
+    }
+  },
+  {
+    "content": "Custom Indicator",
+    "objectID": "82cbd357-f545-43b4-b1a4-2f6f41eda014",
+    "type": "lvl3",
+    "url": "/components/accordion#custom-indicator",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Start content",
+      "lvl3": "Custom Indicator"
+    }
+  },
+  {
+    "content": "Custom Motion",
+    "objectID": "dd1511e4-9a74-49e6-8233-497828622394",
+    "type": "lvl3",
+    "url": "/components/accordion#custom-motion",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Custom Indicator",
+      "lvl3": "Custom Motion"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "35e19c2a-feed-4a3c-b1d3-acb8adeb1cbc",
+    "type": "lvl3",
+    "url": "/components/accordion#controlled",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Custom Motion",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Accordion Item Slots",
+    "objectID": "9ab9ad45-90f4-4e40-960e-efcf6ce65c6f",
+    "type": "lvl2",
+    "url": "/components/accordion#accordion-item-slots",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Item Slots",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Custom Accordion Styles",
+    "objectID": "26defb62-4e5b-49fa-82f4-4bfeb91fe287",
+    "type": "lvl3",
+    "url": "/components/accordion#custom-accordion-styles",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Item Slots",
+      "lvl3": "Custom Accordion Styles"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "bb83ecc9-bce1-4047-8c05-8a60f94f0759",
+    "type": "lvl2",
+    "url": "/components/accordion#data-attributes",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Data Attributes",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "1eb9691f-55c0-44b1-bf1b-2591614b9114",
+    "type": "lvl2",
+    "url": "/components/accordion#accessibility",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "d58bccf3-7e9d-47b2-a264-edd0fe78edc7",
+    "type": "lvl2",
+    "url": "/components/accordion#api",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Accordion Item Props",
+    "objectID": "cd62cf04-261f-480a-8947-afd774e2afc6",
+    "type": "lvl3",
+    "url": "/components/accordion#accordion-item-props",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "API",
+      "lvl3": "Accordion Item Props"
+    }
+  },
+  {
+    "content": "Accordion Item Events",
+    "objectID": "099dfbeb-2810-48ad-bc4b-bcac12792d6f",
+    "type": "lvl3",
+    "url": "/components/accordion#accordion-item-events",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Item Props",
+      "lvl3": "Accordion Item Events"
+    }
+  },
+  {
+    "content": "Accordion Props",
+    "objectID": "40ddfd65-f0cf-4693-8335-b968bf330819",
+    "type": "lvl3",
+    "url": "/components/accordion#accordion-props",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Item Events",
+      "lvl3": "Accordion Props"
+    }
+  },
+  {
+    "content": "Accordion Events",
+    "objectID": "5ccd5d9c-efa3-4a7d-80cb-9097b17faed0",
+    "type": "lvl3",
+    "url": "/components/accordion#accordion-events",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Props",
+      "lvl3": "Accordion Events"
+    }
+  },
+  {
+    "content": "Types",
+    "objectID": "03922a54-354d-46bc-81da-3ab137230ee2",
+    "type": "lvl3",
+    "url": "/components/accordion#types",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Events",
+      "lvl3": "Types"
+    }
+  },
+  {
+    "content": "Accordion Item Indicator Props",
+    "objectID": "ab4f0c38-2564-4b9b-9820-47ff377cd7c2",
+    "type": "lvl4",
+    "url": "/components/accordion#accordion-item-indicator-props",
+    "hierarchy": {"lvl1": "Accordion", "lvl2": "Types", "lvl3": null}
+  },
+  {
+    "content": "Accordion Item classNames",
+    "objectID": "2a3e660b-5033-4377-a603-8365a3f5ee8f",
+    "type": "lvl3",
+    "url": "/components/accordion#accordion-item-classnames",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Item Indicator Props",
+      "lvl3": "Accordion Item classNames"
+    }
+  },
+  {
+    "content": "Motion Props",
+    "objectID": "91fd9312-155b-44d3-a7b3-d791d25f657a",
+    "type": "lvl4",
+    "url": "/components/accordion#motion-props",
+    "hierarchy": {
+      "lvl1": "Accordion",
+      "lvl2": "Accordion Item classNames",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Avatar",
+    "objectID": "0d08904c-0e76-4bca-b61d-6da65b4114c8",
+    "type": "lvl1",
+    "url": "/components/avatar",
+    "hierarchy": {"lvl1": "Avatar"}
+  },
+  {
+    "content": "Avatar",
+    "objectID": "472cea1b-0256-44b5-8a97-35cb3bc3af75",
+    "type": "lvl1",
+    "url": "/components/avatar#avatar",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "d9ce4244-cb8d-4780-a822-b657a8acf54c",
+    "type": "lvl2",
+    "url": "/components/avatar#import",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "6b7a71f0-e255-45fe-82d8-a3c174ef8545",
+    "type": "lvl2",
+    "url": "/components/avatar#usage",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "db6dda23-5b43-4eba-b463-ac2a302b8c8d",
+    "type": "lvl3",
+    "url": "/components/avatar#sizes",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "1b564ba7-330b-4f91-b9b0-6dba4d39e5d7",
+    "type": "lvl3",
+    "url": "/components/avatar#disabled",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Sizes", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Bordered",
+    "objectID": "5c50071c-db65-4ee0-b627-e5f4096dc569",
+    "type": "lvl3",
+    "url": "/components/avatar#bordered",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Disabled", "lvl3": "Bordered"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "8833c976-013b-45be-9ce0-cf3d608d6d20",
+    "type": "lvl3",
+    "url": "/components/avatar#radius",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Bordered", "lvl3": "Radius"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "848c3153-5976-4abb-8c2e-df488873f97d",
+    "type": "lvl3",
+    "url": "/components/avatar#colors",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Radius", "lvl3": "Colors"}
+  },
+  {
+    "content": "Avatar Fallbacks",
+    "objectID": "543f66e9-e7ec-4e4a-8d6b-5bdf000c1284",
+    "type": "lvl3",
+    "url": "/components/avatar#avatar-fallbacks",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Colors",
+      "lvl3": "Avatar Fallbacks"
+    }
+  },
+  {
+    "content": "Custom Fallback",
+    "objectID": "db888dab-5ad6-41f8-b7aa-94fae23d0818",
+    "type": "lvl3",
+    "url": "/components/avatar#custom-fallback",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Avatar Fallbacks",
+      "lvl3": "Custom Fallback"
+    }
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "72b42b4a-a679-48df-abfd-f55ed80bac3e",
+    "type": "lvl3",
+    "url": "/components/avatar#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Custom Fallback",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Custom intials logic",
+    "objectID": "af328de5-0788-420c-a3d9-7fcf0a499b4a",
+    "type": "lvl3",
+    "url": "/components/avatar#custom-intials-logic",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Custom Implementation",
+      "lvl3": "Custom intials logic"
+    }
+  },
+  {
+    "content": "Avatar Group",
+    "objectID": "1c52d4b6-1115-49cd-b422-8a2af41106eb",
+    "type": "lvl2",
+    "url": "/components/avatar#avatar-group",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Avatar Group", "lvl3": null}
+  },
+  {
+    "content": "Group Disabled",
+    "objectID": "8a4e5ddf-0fbe-470d-ab5d-0384a9f565cd",
+    "type": "lvl3",
+    "url": "/components/avatar#group-disabled",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Avatar Group",
+      "lvl3": "Group Disabled"
+    }
+  },
+  {
+    "content": "Group Max Count",
+    "objectID": "b5d6103b-e370-4939-9c96-2e84ad427718",
+    "type": "lvl3",
+    "url": "/components/avatar#group-max-count",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Group Disabled",
+      "lvl3": "Group Max Count"
+    }
+  },
+  {
+    "content": "Group Total Count",
+    "objectID": "b5ccdee7-2bbd-4319-b1a5-ecda7b74b456",
+    "type": "lvl3",
+    "url": "/components/avatar#group-total-count",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Group Max Count",
+      "lvl3": "Group Total Count"
+    }
+  },
+  {
+    "content": "Group Custom count",
+    "objectID": "e5872dce-7f58-4898-a9d0-d17ad779d16c",
+    "type": "lvl3",
+    "url": "/components/avatar#group-custom-count",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Group Total Count",
+      "lvl3": "Group Custom count"
+    }
+  },
+  {
+    "content": "Group Grid",
+    "objectID": "b1e5583b-f942-4f17-9bec-cf9c9edc8246",
+    "type": "lvl3",
+    "url": "/components/avatar#group-grid",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Group Custom count",
+      "lvl3": "Group Grid"
+    }
+  },
+  {
+    "content": "Group Custom Implementation",
+    "objectID": "2de42481-2c4a-4020-b431-acbda0012ccc",
+    "type": "lvl3",
+    "url": "/components/avatar#group-custom-implementation",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Group Grid",
+      "lvl3": "Group Custom Implementation"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "b224759f-1780-4cf7-aa97-18ed5a2970d1",
+    "type": "lvl2",
+    "url": "/components/avatar#slots",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Avatar Styles",
+    "objectID": "4c97afb6-f449-4c0f-9e22-af8d52a4f05c",
+    "type": "lvl3",
+    "url": "/components/avatar#custom-avatar-styles",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Slots",
+      "lvl3": "Custom Avatar Styles"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "d8415510-f46a-4d21-bb8c-b55f5127e166",
+    "type": "lvl2",
+    "url": "/components/avatar#data-attributes",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "83f00f84-459a-4cdf-9a5b-f0cc6c5da377",
+    "type": "lvl2",
+    "url": "/components/avatar#api",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Avatar Props",
+    "objectID": "fe26ff1c-aa4f-4359-bf7f-bdf6c19ca3d1",
+    "type": "lvl3",
+    "url": "/components/avatar#avatar-props",
+    "hierarchy": {"lvl1": "Avatar", "lvl2": "API", "lvl3": "Avatar Props"}
+  },
+  {
+    "content": "Avatar Group Props",
+    "objectID": "cd05b903-20e4-4850-8f00-abce0f10bad6",
+    "type": "lvl3",
+    "url": "/components/avatar#avatar-group-props",
+    "hierarchy": {
+      "lvl1": "Avatar",
+      "lvl2": "Avatar Props",
+      "lvl3": "Avatar Group Props"
+    }
+  },
+  {
+    "content": "Badge",
+    "objectID": "3bf4b3bc-3dc4-4d80-bd58-9f662fa4837d",
+    "type": "lvl1",
+    "url": "/components/badge",
+    "hierarchy": {"lvl1": "Badge"}
+  },
+  {
+    "content": "Badge",
+    "objectID": "de09627a-8f38-49ef-9bb6-3ee04eb789ed",
+    "type": "lvl1",
+    "url": "/components/badge#badge",
+    "hierarchy": {"lvl1": "Badge", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "89672de4-7a6a-47a7-a0d5-4de384d452e2",
+    "type": "lvl2",
+    "url": "/components/badge#import",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "3a787aae-df1b-4016-98c8-3056e4d643b2",
+    "type": "lvl2",
+    "url": "/components/badge#usage",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "27dd247c-d54b-4c97-bc7c-2507be540e2c",
+    "type": "lvl3",
+    "url": "/components/badge#sizes",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "67551dff-a201-48b6-91ea-f4e109889eeb",
+    "type": "lvl3",
+    "url": "/components/badge#colors",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "f6595488-5892-4eb4-8309-efab60238a9c",
+    "type": "lvl3",
+    "url": "/components/badge#variants",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Colors", "lvl3": "Variants"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "b69e24f0-e01e-457c-8623-135418089863",
+    "type": "lvl3",
+    "url": "/components/badge#radius",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Variants", "lvl3": "Radius"}
+  },
+  {
+    "content": "Placements",
+    "objectID": "1d61a074-3381-464a-bbc7-e6adfc4bc1c2",
+    "type": "lvl3",
+    "url": "/components/badge#placements",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Radius", "lvl3": "Placements"}
+  },
+  {
+    "content": "Shapes",
+    "objectID": "796156d1-f14d-4351-be67-b85c5a9a685b",
+    "type": "lvl3",
+    "url": "/components/badge#shapes",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "Placements", "lvl3": "Shapes"}
+  },
+  {
+    "content": "Badge Visibility",
+    "objectID": "37e79f9a-196a-40db-84a7-a584d175ed6d",
+    "type": "lvl3",
+    "url": "/components/badge#badge-visibility",
+    "hierarchy": {
+      "lvl1": "Badge",
+      "lvl2": "Shapes",
+      "lvl3": "Badge Visibility"
+    }
+  },
+  {
+    "content": "Content Examples",
+    "objectID": "7e8510ad-acae-4601-a6a6-370040620d21",
+    "type": "lvl3",
+    "url": "/components/badge#content-examples",
+    "hierarchy": {
+      "lvl1": "Badge",
+      "lvl2": "Badge Visibility",
+      "lvl3": "Content Examples"
+    }
+  },
+  {
+    "content": "Disable Outline",
+    "objectID": "ac53bbdf-fad2-4218-836c-db805a15ef19",
+    "type": "lvl3",
+    "url": "/components/badge#disable-outline",
+    "hierarchy": {
+      "lvl1": "Badge",
+      "lvl2": "Content Examples",
+      "lvl3": "Disable Outline"
+    }
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "c1f4de5e-3112-4c00-a663-a6ccb7ba0fef",
+    "type": "lvl3",
+    "url": "/components/badge#accessibility",
+    "hierarchy": {
+      "lvl1": "Badge",
+      "lvl2": "Disable Outline",
+      "lvl3": "Accessibility"
+    }
+  },
+  {
+    "content": "API",
+    "objectID": "e5adc11f-dfd3-4305-b8eb-42f0ee8dee12",
+    "type": "lvl2",
+    "url": "/components/badge#api",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Badge Props",
+    "objectID": "812e3a65-26a4-4069-bff0-41a413729c48",
+    "type": "lvl3",
+    "url": "/components/badge#badge-props",
+    "hierarchy": {"lvl1": "Badge", "lvl2": "API", "lvl3": "Badge Props"}
+  },
+  {
+    "content": "Button",
+    "objectID": "7b3eff67-a257-441b-9bad-a5fdb23835c2",
+    "type": "lvl1",
+    "url": "/components/button",
+    "hierarchy": {"lvl1": "Button"}
+  },
+  {
+    "content": "Button",
+    "objectID": "83835094-212b-484f-840e-dac81473d6b7",
+    "type": "lvl1",
+    "url": "/components/button#button",
+    "hierarchy": {"lvl1": "Button", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "6719237f-9e09-4ff3-8282-a011278bf575",
+    "type": "lvl2",
+    "url": "/components/button#import",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "b1a9d7af-30d4-4ad4-b735-5c7c312f62e1",
+    "type": "lvl2",
+    "url": "/components/button#usage",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "c5f4074f-e00c-4203-85ca-c19910424730",
+    "type": "lvl3",
+    "url": "/components/button#disabled",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "50400d70-9ecb-4a5c-aeb0-e812a52ed540",
+    "type": "lvl3",
+    "url": "/components/button#sizes",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Disabled", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "5be65f3d-9040-4fad-81a2-c4b42a9d4111",
+    "type": "lvl3",
+    "url": "/components/button#radius",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Sizes", "lvl3": "Radius"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "fc8257f3-946a-489c-811e-05ccc5cd6a06",
+    "type": "lvl3",
+    "url": "/components/button#colors",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Radius", "lvl3": "Colors"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "df04c0cc-f68a-4e91-9550-59605e58fcde",
+    "type": "lvl3",
+    "url": "/components/button#variants",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Colors", "lvl3": "Variants"}
+  },
+  {
+    "content": "Loading",
+    "objectID": "d7a27f72-4cbd-40e4-81e1-63aa3fe98f4b",
+    "type": "lvl3",
+    "url": "/components/button#loading",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Variants", "lvl3": "Loading"}
+  },
+  {
+    "content": "With Icons",
+    "objectID": "cb293a87-2bf7-419f-9af0-c3ea42cf0449",
+    "type": "lvl3",
+    "url": "/components/button#with-icons",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Loading", "lvl3": "With Icons"}
+  },
+  {
+    "content": "Icon Only",
+    "objectID": "10485c8b-e8d3-40f9-900e-7a5c87cc421c",
+    "type": "lvl3",
+    "url": "/components/button#icon-only",
+    "hierarchy": {"lvl1": "Button", "lvl2": "With Icons", "lvl3": "Icon Only"}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "dcc85961-83c8-4ea7-9b57-e3962c09be87",
+    "type": "lvl3",
+    "url": "/components/button#custom-styles",
+    "hierarchy": {
+      "lvl1": "Button",
+      "lvl2": "Icon Only",
+      "lvl3": "Custom Styles"
+    }
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "3d235e9a-9fe1-4217-ae6b-d6586ce62176",
+    "type": "lvl3",
+    "url": "/components/button#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Button",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Button Group",
+    "objectID": "5385e3c1-2834-44d5-aafe-aeed13fd720b",
+    "type": "lvl2",
+    "url": "/components/button#button-group",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Button Group", "lvl3": null}
+  },
+  {
+    "content": "Group Disabled",
+    "objectID": "e4ad76c0-91ce-4085-9900-58ce24052a74",
+    "type": "lvl3",
+    "url": "/components/button#group-disabled",
+    "hierarchy": {
+      "lvl1": "Button",
+      "lvl2": "Button Group",
+      "lvl3": "Group Disabled"
+    }
+  },
+  {
+    "content": "Group Use case",
+    "objectID": "2f7c506f-0eb8-4623-b02a-cb96ad99e36a",
+    "type": "lvl3",
+    "url": "/components/button#group-use-case",
+    "hierarchy": {
+      "lvl1": "Button",
+      "lvl2": "Group Disabled",
+      "lvl3": "Group Use case"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "99cbd97d-6381-4251-a7eb-c79e5fd3aa89",
+    "type": "lvl2",
+    "url": "/components/button#data-attributes",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "ed231ce8-7eb8-40ed-a185-f9be74e9c7f3",
+    "type": "lvl2",
+    "url": "/components/button#accessibility",
+    "hierarchy": {"lvl1": "Button", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "17f6d528-3c31-42c9-b1b9-69e927bbc2c6",
+    "type": "lvl2",
+    "url": "/components/button#api",
+    "hierarchy": {"lvl1": "Button", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Button Props",
+    "objectID": "82b729ea-3601-4f3c-8385-eaa52b536b1f",
+    "type": "lvl3",
+    "url": "/components/button#button-props",
+    "hierarchy": {"lvl1": "Button", "lvl2": "API", "lvl3": "Button Props"}
+  },
+  {
+    "content": "Button Events",
+    "objectID": "b034fecf-78d1-4b3b-8579-65158d0b962d",
+    "type": "lvl3",
+    "url": "/components/button#button-events",
+    "hierarchy": {
+      "lvl1": "Button",
+      "lvl2": "Button Props",
+      "lvl3": "Button Events"
+    }
+  },
+  {
+    "content": "Button Group Props",
+    "objectID": "14be5dbd-acb3-492c-8d64-6d5a91563501",
+    "type": "lvl3",
+    "url": "/components/button#button-group-props",
+    "hierarchy": {
+      "lvl1": "Button",
+      "lvl2": "Button Events",
+      "lvl3": "Button Group Props"
+    }
+  },
+  {
+    "content": "Card",
+    "objectID": "e749f30c-eafe-4e43-bfd2-188b89fb627f",
+    "type": "lvl1",
+    "url": "/components/card",
+    "hierarchy": {"lvl1": "Card"}
+  },
+  {
+    "content": "Card",
+    "objectID": "57e5a6b1-b836-49bd-a5bb-747e51e0c3aa",
+    "type": "lvl1",
+    "url": "/components/card#card",
+    "hierarchy": {"lvl1": "Card", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "08748bb3-bdb0-453f-bbd2-0c58fc949efc",
+    "type": "lvl2",
+    "url": "/components/card#import",
+    "hierarchy": {"lvl1": "Card", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "f1ae9279-1874-4e01-8732-142ea15ed483",
+    "type": "lvl2",
+    "url": "/components/card#usage",
+    "hierarchy": {"lvl1": "Card", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "With Divider",
+    "objectID": "109e288a-5f46-4920-b33f-99a1542435eb",
+    "type": "lvl3",
+    "url": "/components/card#with-divider",
+    "hierarchy": {"lvl1": "Card", "lvl2": "Usage", "lvl3": "With Divider"}
+  },
+  {
+    "content": "With Image",
+    "objectID": "0588eecc-301d-4958-ab4b-0d548b02dc32",
+    "type": "lvl3",
+    "url": "/components/card#with-image",
+    "hierarchy": {
+      "lvl1": "Card",
+      "lvl2": "With Divider",
+      "lvl3": "With Image"
+    }
+  },
+  {
+    "content": "Blurred Footer",
+    "objectID": "cacc1cdd-cd42-41ea-bcb9-b9dcb93f4948",
+    "type": "lvl3",
+    "url": "/components/card#blurred-footer",
+    "hierarchy": {
+      "lvl1": "Card",
+      "lvl2": "With Image",
+      "lvl3": "Blurred Footer"
+    }
+  },
+  {
+    "content": "Composition",
+    "objectID": "25e9e82f-e364-42d3-9b32-6d23e4cbffa7",
+    "type": "lvl3",
+    "url": "/components/card#composition",
+    "hierarchy": {
+      "lvl1": "Card",
+      "lvl2": "Blurred Footer",
+      "lvl3": "Composition"
+    }
+  },
+  {
+    "content": "Blurred Card",
+    "objectID": "07548a09-408e-48c7-9ee6-29a06a46212e",
+    "type": "lvl3",
+    "url": "/components/card#blurred-card",
+    "hierarchy": {
+      "lvl1": "Card",
+      "lvl2": "Composition",
+      "lvl3": "Blurred Card"
+    }
+  },
+  {
+    "content": "Primary Action",
+    "objectID": "6660c2da-8419-47ca-b5df-94efc8855226",
+    "type": "lvl3",
+    "url": "/components/card#primary-action",
+    "hierarchy": {
+      "lvl1": "Card",
+      "lvl2": "Blurred Card",
+      "lvl3": "Primary Action"
+    }
+  },
+  {
+    "content": "Cover Image",
+    "objectID": "4d741e23-dd3f-45e8-b71f-d32fe2029328",
+    "type": "lvl3",
+    "url": "/components/card#cover-image",
+    "hierarchy": {
+      "lvl1": "Card",
+      "lvl2": "Primary Action",
+      "lvl3": "Cover Image"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "c52da886-bf2d-484e-9fe7-d540b3c8cb74",
+    "type": "lvl2",
+    "url": "/components/card#data-attributes",
+    "hierarchy": {"lvl1": "Card", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "ecc19369-f95a-490f-938c-8e9738e39ceb",
+    "type": "lvl2",
+    "url": "/components/card#api",
+    "hierarchy": {"lvl1": "Card", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Card Props",
+    "objectID": "1feeb83e-d20f-4351-953b-d7f0da3af827",
+    "type": "lvl3",
+    "url": "/components/card#card-props",
+    "hierarchy": {"lvl1": "Card", "lvl2": "API", "lvl3": "Card Props"}
+  },
+  {
+    "content": "Card Events",
+    "objectID": "c003e848-ba0c-4469-bcb4-d1fd8d1f32cb",
+    "type": "lvl3",
+    "url": "/components/card#card-events",
+    "hierarchy": {"lvl1": "Card", "lvl2": "Card Props", "lvl3": "Card Events"}
+  },
+  {
+    "content": "Checkbox Group",
+    "objectID": "2bb66446-19e7-4762-adaf-615238995353",
+    "type": "lvl1",
+    "url": "/components/checkbox-group",
+    "hierarchy": {"lvl1": "Checkbox Group"}
+  },
+  {
+    "content": "Checkbox Group",
+    "objectID": "86e9254b-fc26-4cf2-8b85-45f703319b04",
+    "type": "lvl1",
+    "url": "/components/checkbox-group#checkbox-group",
+    "hierarchy": {"lvl1": "Checkbox Group", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "c63751aa-8ec3-4be1-a275-8600119d1658",
+    "type": "lvl2",
+    "url": "/components/checkbox-group#import",
+    "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "e7389878-317d-4b65-81b8-0b1fbaac5164",
+    "type": "lvl2",
+    "url": "/components/checkbox-group#usage",
+    "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "b7ef4114-cdf8-42d8-b67a-e12b9a5d07d2",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#disabled",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "Usage",
+      "lvl3": "Disabled"
+    }
+  },
+  {
+    "content": "Horizontal",
+    "objectID": "fa919a10-4ec1-4ca9-9e64-6664c3ddddab",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#horizontal",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "Disabled",
+      "lvl3": "Horizontal"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "9ffe53b4-0667-4c25-b7a8-401373933d94",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#controlled",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "Horizontal",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "d7e7cc4d-22da-41ad-8a4d-e6f17a4cb8bc",
+    "type": "lvl2",
+    "url": "/components/checkbox-group#slots",
+    "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "31950827-3b7a-49b0-b1ca-0606df064fa6",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#custom-styles",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "Slots",
+      "lvl3": "Custom Styles"
+    }
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "49ce5bfa-9bcb-4b58-8a3e-8a9543a199c7",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "API",
+    "objectID": "6e6bb5b5-e5d6-44fb-a35e-da4ae5682a01",
+    "type": "lvl2",
+    "url": "/components/checkbox-group#api",
+    "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Checkbox Group Props",
+    "objectID": "6021c87b-f8ff-48cc-a933-b26ffb5b7cb6",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#checkbox-group-props",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "API",
+      "lvl3": "Checkbox Group Props"
+    }
+  },
+  {
+    "content": "Checkbox Group Events",
+    "objectID": "c848a3fa-c0cd-403e-a950-b35f0f9daf08",
+    "type": "lvl3",
+    "url": "/components/checkbox-group#checkbox-group-events",
+    "hierarchy": {
+      "lvl1": "Checkbox Group",
+      "lvl2": "Checkbox Group Props",
+      "lvl3": "Checkbox Group Events"
+    }
+  },
+  {
+    "content": "Checkbox",
+    "objectID": "04736150-3dfa-4d72-ba17-086788ec2d0f",
+    "type": "lvl1",
+    "url": "/components/checkbox",
+    "hierarchy": {"lvl1": "Checkbox"}
+  },
+  {
+    "content": "Checkbox",
+    "objectID": "1ac499f7-9223-45f3-927a-41b23899a49a",
+    "type": "lvl1",
+    "url": "/components/checkbox#checkbox",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "4f23abff-5e35-4d7a-8aef-378d7868770e",
+    "type": "lvl2",
+    "url": "/components/checkbox#import",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "01d93f30-0c2a-42d9-979d-9f6debc1d19a",
+    "type": "lvl2",
+    "url": "/components/checkbox#usage",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "744ccc1c-45db-429c-8725-77e4ef84315b",
+    "type": "lvl3",
+    "url": "/components/checkbox#disabled",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "84b0b3aa-de1a-4739-b145-977c16f7139a",
+    "type": "lvl3",
+    "url": "/components/checkbox#sizes",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Disabled", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "11a1a394-968a-4d73-98ce-122a255c09b5",
+    "type": "lvl3",
+    "url": "/components/checkbox#colors",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "43335b6f-fd5c-4191-b5d3-f1030bfaecfe",
+    "type": "lvl3",
+    "url": "/components/checkbox#radius",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Colors", "lvl3": "Radius"}
+  },
+  {
+    "content": "Indeterminate",
+    "objectID": "1b071112-a435-4b3a-8f9a-07d08cf82dc3",
+    "type": "lvl3",
+    "url": "/components/checkbox#indeterminate",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Radius",
+      "lvl3": "Indeterminate"
+    }
+  },
+  {
+    "content": "Line Through",
+    "objectID": "d7652410-ec3d-4815-a484-22371eda3989",
+    "type": "lvl3",
+    "url": "/components/checkbox#line-through",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Indeterminate",
+      "lvl3": "Line Through"
+    }
+  },
+  {
+    "content": "Custom Check Icon",
+    "objectID": "c42976a5-b417-458e-bc92-d430d706bcd8",
+    "type": "lvl3",
+    "url": "/components/checkbox#custom-check-icon",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Line Through",
+      "lvl3": "Custom Check Icon"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "ef9d8348-4a40-417c-a50e-da9f305ac38a",
+    "type": "lvl3",
+    "url": "/components/checkbox#controlled",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Custom Check Icon",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "e26f77fd-514d-477b-ad8b-5862b080d8ff",
+    "type": "lvl2",
+    "url": "/components/checkbox#slots",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "09f21558-4929-4c3b-bc41-690bea6b47a9",
+    "type": "lvl3",
+    "url": "/components/checkbox#custom-styles",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Slots",
+      "lvl3": "Custom Styles"
+    }
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "97c9e22e-6b55-4756-9d6d-e145413ca4e0",
+    "type": "lvl3",
+    "url": "/components/checkbox#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "8e16b77c-c997-4de0-aaa5-ddf10aa6af80",
+    "type": "lvl2",
+    "url": "/components/checkbox#data-attributes",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "91e301dd-3703-4735-819c-b8cb9357627e",
+    "type": "lvl2",
+    "url": "/components/checkbox#accessibility",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "8ff74d24-b233-488b-a91f-d135d8266bda",
+    "type": "lvl2",
+    "url": "/components/checkbox#api",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Checkbox Props",
+    "objectID": "6b2382a4-b5e0-4058-a0eb-a30854732a5f",
+    "type": "lvl3",
+    "url": "/components/checkbox#checkbox-props",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "API", "lvl3": "Checkbox Props"}
+  },
+  {
+    "content": "Checkbox Events",
+    "objectID": "63fdd9ff-34a5-412b-a953-8282f8469923",
+    "type": "lvl3",
+    "url": "/components/checkbox#checkbox-events",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Checkbox Props",
+      "lvl3": "Checkbox Events"
+    }
+  },
+  {
+    "content": "Types",
+    "objectID": "ae89fd18-965b-4740-aa88-61d0419172b3",
+    "type": "lvl3",
+    "url": "/components/checkbox#types",
+    "hierarchy": {
+      "lvl1": "Checkbox",
+      "lvl2": "Checkbox Events",
+      "lvl3": "Types"
+    }
+  },
+  {
+    "content": "Checkbox Icon Props",
+    "objectID": "316e7aea-f9ca-4ce2-a4ec-3f95b53c154b",
+    "type": "lvl4",
+    "url": "/components/checkbox#checkbox-icon-props",
+    "hierarchy": {"lvl1": "Checkbox", "lvl2": "Types", "lvl3": null}
+  },
+  {
+    "content": "Chip",
+    "objectID": "703beeb6-1d39-488f-b95c-44ecff3f6318",
+    "type": "lvl1",
+    "url": "/components/chip",
+    "hierarchy": {"lvl1": "Chip"}
+  },
+  {
+    "content": "Chip",
+    "objectID": "07b6ea79-8a69-4e35-9bd3-f3e0a7cfdb2f",
+    "type": "lvl1",
+    "url": "/components/chip#chip",
+    "hierarchy": {"lvl1": "Chip", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "9df3e1dc-7c51-43ad-a0a4-159e8e7d9bf5",
+    "type": "lvl2",
+    "url": "/components/chip#import",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "160b5b42-a3ea-4521-b517-762ac3602b1a",
+    "type": "lvl2",
+    "url": "/components/chip#usage",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "f1869528-4c59-41ba-b124-2a18560ec723",
+    "type": "lvl3",
+    "url": "/components/chip#disabled",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "3612db9a-2909-4cc7-8c5d-c7e490045e97",
+    "type": "lvl3",
+    "url": "/components/chip#sizes",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Disabled", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "a026af44-5e14-4fb0-a698-b892687e42e4",
+    "type": "lvl3",
+    "url": "/components/chip#colors",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "29d25a66-d500-4d77-908a-5f98d18e8406",
+    "type": "lvl3",
+    "url": "/components/chip#radius",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Colors", "lvl3": "Radius"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "bd0a8992-2f3f-47b1-96f7-74d4d47ccc56",
+    "type": "lvl3",
+    "url": "/components/chip#variants",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Radius", "lvl3": "Variants"}
+  },
+  {
+    "content": "Start & End Content",
+    "objectID": "b6189f3c-77f3-4876-94fa-9678c4929b6e",
+    "type": "lvl3",
+    "url": "/components/chip#start--end-content",
+    "hierarchy": {
+      "lvl1": "Chip",
+      "lvl2": "Variants",
+      "lvl3": "Start & End Content"
+    }
+  },
+  {
+    "content": "With Close Button",
+    "objectID": "87c3e39d-48dc-4b5b-9812-75023ad1cc5c",
+    "type": "lvl3",
+    "url": "/components/chip#with-close-button",
+    "hierarchy": {
+      "lvl1": "Chip",
+      "lvl2": "Start & End Content",
+      "lvl3": "With Close Button"
+    }
+  },
+  {
+    "content": "With Avatar",
+    "objectID": "5458cab9-391f-476c-a309-2d05e8622a71",
+    "type": "lvl3",
+    "url": "/components/chip#with-avatar",
+    "hierarchy": {
+      "lvl1": "Chip",
+      "lvl2": "With Close Button",
+      "lvl3": "With Avatar"
+    }
+  },
+  {
+    "content": "List of Chips",
+    "objectID": "5b6ee187-0caf-48b5-b763-975fa47b05a8",
+    "type": "lvl3",
+    "url": "/components/chip#list-of-chips",
+    "hierarchy": {
+      "lvl1": "Chip",
+      "lvl2": "With Avatar",
+      "lvl3": "List of Chips"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "66cf011e-67a7-4fe7-9beb-b1b243bafa23",
+    "type": "lvl2",
+    "url": "/components/chip#slots",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "3c5ea056-5232-4bad-80da-e05614e6e062",
+    "type": "lvl3",
+    "url": "/components/chip#custom-styles",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "API",
+    "objectID": "2ea373f9-9ee0-4666-848c-7f9a88700f3d",
+    "type": "lvl2",
+    "url": "/components/chip#api",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Chip Props",
+    "objectID": "1f7adec1-12be-44a2-b7a4-ec44085c0569",
+    "type": "lvl3",
+    "url": "/components/chip#chip-props",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "API", "lvl3": "Chip Props"}
+  },
+  {
+    "content": "Chip Events",
+    "objectID": "1c9eb726-c02d-4371-89f4-980c70697345",
+    "type": "lvl3",
+    "url": "/components/chip#chip-events",
+    "hierarchy": {"lvl1": "Chip", "lvl2": "Chip Props", "lvl3": "Chip Events"}
+  },
+  {
+    "content": "Circular Progress",
+    "objectID": "bef8feb1-b4fa-4c72-8102-17648b4cab3b",
+    "type": "lvl1",
+    "url": "/components/circular-progress",
+    "hierarchy": {"lvl1": "Circular Progress"}
+  },
+  {
+    "content": "Circular Progress",
+    "objectID": "73a80f92-e36b-4bda-ac5c-ea7d570bafac",
+    "type": "lvl1",
+    "url": "/components/circular-progress#circular-progress",
+    "hierarchy": {"lvl1": "Circular Progress", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "5b7078fe-2093-437c-91ad-358411887b35",
+    "type": "lvl2",
+    "url": "/components/circular-progress#import",
+    "hierarchy": {"lvl1": "Circular Progress", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "efdcb897-b686-4d7d-b17a-e4cdbe1c4079",
+    "type": "lvl2",
+    "url": "/components/circular-progress#usage",
+    "hierarchy": {"lvl1": "Circular Progress", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "7cec6eca-0785-418c-9128-f11a5de6937a",
+    "type": "lvl3",
+    "url": "/components/circular-progress#sizes",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "Usage",
+      "lvl3": "Sizes"
+    }
+  },
+  {
+    "content": "Colors",
+    "objectID": "af86560c-8e5f-4621-be15-22a5976e34fd",
+    "type": "lvl3",
+    "url": "/components/circular-progress#colors",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "Sizes",
+      "lvl3": "Colors"
+    }
+  },
+  {
+    "content": "With Label",
+    "objectID": "ca96d108-fde9-4ba9-86e5-fba048fdce96",
+    "type": "lvl3",
+    "url": "/components/circular-progress#with-label",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "Colors",
+      "lvl3": "With Label"
+    }
+  },
+  {
+    "content": "With Value",
+    "objectID": "325e3329-c555-40f6-a92d-a87988a50bd4",
+    "type": "lvl3",
+    "url": "/components/circular-progress#with-value",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "With Label",
+      "lvl3": "With Value"
+    }
+  },
+  {
+    "content": "Value Formatting",
+    "objectID": "d5c0bbf7-8e2e-4ba3-ac90-2cbd7cbe42d2",
+    "type": "lvl3",
+    "url": "/components/circular-progress#value-formatting",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "With Value",
+      "lvl3": "Value Formatting"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "e5aee1a6-3e42-41ab-904d-580c7395a235",
+    "type": "lvl2",
+    "url": "/components/circular-progress#slots",
+    "hierarchy": {"lvl1": "Circular Progress", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "ebfd593c-dce2-4182-9258-b6745f7870df",
+    "type": "lvl3",
+    "url": "/components/circular-progress#custom-styles",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "Slots",
+      "lvl3": "Custom Styles"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "ebcbf8c7-39f1-412e-92e8-8f85d1b70dec",
+    "type": "lvl2",
+    "url": "/components/circular-progress#data-attributes",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "Data Attributes",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "0aa303ef-9f70-4c1c-b197-793387c01eac",
+    "type": "lvl2",
+    "url": "/components/circular-progress#accessibility",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "Accessibility",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "API",
+    "objectID": "3d362118-3bd5-4aa2-81be-538a9bfa8559",
+    "type": "lvl2",
+    "url": "/components/circular-progress#api",
+    "hierarchy": {"lvl1": "Circular Progress", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Circular Progress Props",
+    "objectID": "244fe163-5b4f-476e-9413-7d8fd4e32ba9",
+    "type": "lvl3",
+    "url": "/components/circular-progress#circular-progress-props",
+    "hierarchy": {
+      "lvl1": "Circular Progress",
+      "lvl2": "API",
+      "lvl3": "Circular Progress Props"
+    }
+  },
+  {
+    "content": "Code",
+    "objectID": "868984e6-361d-4897-ba26-bbba1636a5f4",
+    "type": "lvl1",
+    "url": "/components/code",
+    "hierarchy": {"lvl1": "Code"}
+  },
+  {
+    "content": "Code",
+    "objectID": "1d4244f3-7b48-4dc7-9cb4-59fbcb01f379",
+    "type": "lvl1",
+    "url": "/components/code#code",
+    "hierarchy": {"lvl1": "Code", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "e51ec4b1-cfe5-4b62-948c-f352f38a389d",
+    "type": "lvl2",
+    "url": "/components/code#import",
+    "hierarchy": {"lvl1": "Code", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "91be7d5a-32f9-4e93-9f26-42d0eb6372ba",
+    "type": "lvl2",
+    "url": "/components/code#usage",
+    "hierarchy": {"lvl1": "Code", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "a48acb44-3c6a-4aca-9c97-7e9dc2223dba",
+    "type": "lvl3",
+    "url": "/components/code#sizes",
+    "hierarchy": {"lvl1": "Code", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "0f08c477-4d8f-4757-8ed4-7ae10bfa97a1",
+    "type": "lvl3",
+    "url": "/components/code#colors",
+    "hierarchy": {"lvl1": "Code", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "API",
+    "objectID": "44b61ef4-73df-49a8-957f-21dfeb8b00bf",
+    "type": "lvl2",
+    "url": "/components/code#api",
+    "hierarchy": {"lvl1": "Code", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Code Props",
+    "objectID": "a8e8f95e-c245-4ec7-af15-0a11b419d81e",
+    "type": "lvl3",
+    "url": "/components/code#code-props",
+    "hierarchy": {"lvl1": "Code", "lvl2": "API", "lvl3": "Code Props"}
+  },
+  {
+    "content": "Divider",
+    "objectID": "218451be-8a3b-4bfe-bb87-b375022855e0",
+    "type": "lvl1",
+    "url": "/components/divider",
+    "hierarchy": {"lvl1": "Divider"}
+  },
+  {
+    "content": "Divider",
+    "objectID": "89e809b7-c215-44f1-9b42-b255d9b2c296",
+    "type": "lvl1",
+    "url": "/components/divider#divider",
+    "hierarchy": {"lvl1": "Divider", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "34e39cdf-533a-4019-bfa6-fca6bb1eb28b",
+    "type": "lvl2",
+    "url": "/components/divider#import",
+    "hierarchy": {"lvl1": "Divider", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "2979ed71-24c6-409f-9421-c756416572b3",
+    "type": "lvl2",
+    "url": "/components/divider#usage",
+    "hierarchy": {"lvl1": "Divider", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "fe3d209d-c9d6-4ed2-9276-d1abb24e9bbc",
+    "type": "lvl2",
+    "url": "/components/divider#data-attributes",
+    "hierarchy": {"lvl1": "Divider", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "144683f0-7725-42d5-b487-48821c24e167",
+    "type": "lvl2",
+    "url": "/components/divider#accessibility",
+    "hierarchy": {"lvl1": "Divider", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "c03021c1-6a64-4e96-811e-9ab50d27cf9e",
+    "type": "lvl2",
+    "url": "/components/divider#api",
+    "hierarchy": {"lvl1": "Divider", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Divider Props",
+    "objectID": "0eb38327-7493-4c4f-86e9-e976d84d7893",
+    "type": "lvl3",
+    "url": "/components/divider#divider-props",
+    "hierarchy": {"lvl1": "Divider", "lvl2": "API", "lvl3": "Divider Props"}
+  },
+  {
+    "content": "Dropdown",
+    "objectID": "5c6d87b8-3cfb-41b0-baae-d7c3aaff26b2",
+    "type": "lvl1",
+    "url": "/components/dropdown",
+    "hierarchy": {"lvl1": "Dropdown"}
+  },
+  {
+    "content": "Dropdown",
+    "objectID": "f9817d8f-4590-4224-8701-d0b6ee8b2386",
+    "type": "lvl1",
+    "url": "/components/dropdown#dropdown",
+    "hierarchy": {"lvl1": "Dropdown", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Image",
+    "objectID": "53db59bc-7bfb-491e-a07c-f188385d73eb",
+    "type": "lvl1",
+    "url": "/components/image",
+    "hierarchy": {"lvl1": "Image"}
+  },
+  {
+    "content": "Image",
+    "objectID": "b7ab1c39-84c0-472b-b90e-fa7498815de5",
+    "type": "lvl1",
+    "url": "/components/image#image",
+    "hierarchy": {"lvl1": "Image", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "e1d80e2f-0998-458b-a75a-c053af5ed71e",
+    "type": "lvl2",
+    "url": "/components/image#import",
+    "hierarchy": {"lvl1": "Image", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "4cdfe19a-5604-48a1-a37c-59502b1fdd3c",
+    "type": "lvl2",
+    "url": "/components/image#usage",
+    "hierarchy": {"lvl1": "Image", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Blurred",
+    "objectID": "0390ed03-5898-485e-9ea6-53749c2ab0e6",
+    "type": "lvl3",
+    "url": "/components/image#blurred",
+    "hierarchy": {"lvl1": "Image", "lvl2": "Usage", "lvl3": "Blurred"}
+  },
+  {
+    "content": "Zoomed",
+    "objectID": "3ac59e62-b7b2-4384-9fe2-c04d089d7046",
+    "type": "lvl3",
+    "url": "/components/image#zoomed",
+    "hierarchy": {"lvl1": "Image", "lvl2": "Blurred", "lvl3": "Zoomed"}
+  },
+  {
+    "content": "Animated Loading",
+    "objectID": "497b7c2b-fa0d-4b98-86da-93c4b67d382a",
+    "type": "lvl3",
+    "url": "/components/image#animated-loading",
+    "hierarchy": {
+      "lvl1": "Image",
+      "lvl2": "Zoomed",
+      "lvl3": "Animated Loading"
+    }
+  },
+  {
+    "content": "Image with fallback",
+    "objectID": "96dd2c23-c817-43fb-a1f6-02c3b717b979",
+    "type": "lvl3",
+    "url": "/components/image#image-with-fallback",
+    "hierarchy": {
+      "lvl1": "Image",
+      "lvl2": "Animated Loading",
+      "lvl3": "Image with fallback"
+    }
+  },
+  {
+    "content": "With Next.js Image",
+    "objectID": "12a2f8f0-768a-4d95-95ed-179808c5c069",
+    "type": "lvl3",
+    "url": "/components/image#with-nextjs-image",
+    "hierarchy": {
+      "lvl1": "Image",
+      "lvl2": "Image with fallback",
+      "lvl3": "With Next.js Image"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "b2f52ae0-b34c-4a72-9cce-2788cdaa6521",
+    "type": "lvl2",
+    "url": "/components/image#slots",
+    "hierarchy": {"lvl1": "Image", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "66064ab8-445b-4a27-aed9-dc8a506d86d0",
+    "type": "lvl2",
+    "url": "/components/image#api",
+    "hierarchy": {"lvl1": "Image", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Image Props",
+    "objectID": "361f7bd0-abe2-4b60-bfaa-f357eb1cf824",
+    "type": "lvl3",
+    "url": "/components/image#image-props",
+    "hierarchy": {"lvl1": "Image", "lvl2": "API", "lvl3": "Image Props"}
+  },
+  {
+    "content": "Image Events",
+    "objectID": "c6b9c03f-da54-4a80-b825-c0869556e7c4",
+    "type": "lvl3",
+    "url": "/components/image#image-events",
+    "hierarchy": {
+      "lvl1": "Image",
+      "lvl2": "Image Props",
+      "lvl3": "Image Events"
+    }
+  },
+  {
+    "content": "Input",
+    "objectID": "938b402e-e4df-43af-8281-2b73c15edabc",
+    "type": "lvl1",
+    "url": "/components/input",
+    "hierarchy": {"lvl1": "Input"}
+  },
+  {
+    "content": "Input",
+    "objectID": "98ea71f9-bcc9-4f5d-bf90-19617448b7df",
+    "type": "lvl1",
+    "url": "/components/input#input",
+    "hierarchy": {"lvl1": "Input", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "4cd64b63-97d4-483f-9871-fab6a6820eb4",
+    "type": "lvl2",
+    "url": "/components/input#import",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "528a85d5-fc9a-41ee-b716-5d97c9213519",
+    "type": "lvl2",
+    "url": "/components/input#usage",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "ee1bb31b-5362-4610-b123-2eb6fd26009e",
+    "type": "lvl3",
+    "url": "/components/input#disabled",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Read Only",
+    "objectID": "95e414ae-f062-4dbe-aab9-8a82a46bdf43",
+    "type": "lvl3",
+    "url": "/components/input#read-only",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Disabled", "lvl3": "Read Only"}
+  },
+  {
+    "content": "Required",
+    "objectID": "1a1bdda4-d2ba-4251-9d73-27c8fa8f4aa8",
+    "type": "lvl3",
+    "url": "/components/input#required",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Read Only", "lvl3": "Required"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "07acb4bc-8786-4095-8fb6-b10a78d9c271",
+    "type": "lvl3",
+    "url": "/components/input#sizes",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Required", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "209cb1fb-abab-4eef-a5da-ee900a3bc571",
+    "type": "lvl3",
+    "url": "/components/input#colors",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "dff42762-c675-43a0-8e52-1b2032b6c7f9",
+    "type": "lvl3",
+    "url": "/components/input#variants",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Colors", "lvl3": "Variants"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "bfb7fa06-083d-49f5-a383-337505f95d55",
+    "type": "lvl3",
+    "url": "/components/input#radius",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Variants", "lvl3": "Radius"}
+  },
+  {
+    "content": "Label Placements",
+    "objectID": "f1dd87dc-147f-4477-b48b-62950ec6e58f",
+    "type": "lvl3",
+    "url": "/components/input#label-placements",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Radius",
+      "lvl3": "Label Placements"
+    }
+  },
+  {
+    "content": "With Description",
+    "objectID": "948ceec2-e634-4b11-8410-419eaf8d52cc",
+    "type": "lvl3",
+    "url": "/components/input#with-description",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Label Placements",
+      "lvl3": "With Description"
+    }
+  },
+  {
+    "content": "Password Input",
+    "objectID": "c3542ca6-90ac-4a4c-8210-3deed309e578",
+    "type": "lvl3",
+    "url": "/components/input#password-input",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "With Description",
+      "lvl3": "Password Input"
+    }
+  },
+  {
+    "content": "Clear Button",
+    "objectID": "34ebe776-e4d9-4798-99dc-9ac1914835d3",
+    "type": "lvl3",
+    "url": "/components/input#clear-button",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Password Input",
+      "lvl3": "Clear Button"
+    }
+  },
+  {
+    "content": "Start & End Content",
+    "objectID": "0531dfc5-2f10-475f-b418-c1d55b04feac",
+    "type": "lvl3",
+    "url": "/components/input#start--end-content",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Clear Button",
+      "lvl3": "Start & End Content"
+    }
+  },
+  {
+    "content": "With Error Message",
+    "objectID": "6f13d633-e052-4242-b1b2-f7cc9cb14040",
+    "type": "lvl3",
+    "url": "/components/input#with-error-message",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Start & End Content",
+      "lvl3": "With Error Message"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "1135f7f3-3849-4a67-83be-984cba1c4f87",
+    "type": "lvl3",
+    "url": "/components/input#controlled",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "With Error Message",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "e2559d2a-e9f2-45f3-8bf9-def7779e2816",
+    "type": "lvl2",
+    "url": "/components/input#slots",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "512d9269-16c5-4cb9-b6bc-05a930832192",
+    "type": "lvl3",
+    "url": "/components/input#custom-styles",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "b929b279-80a4-447f-b75a-30c4301dff0b",
+    "type": "lvl3",
+    "url": "/components/input#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "c0b9e7ee-f843-4bb8-b990-28452c1680b4",
+    "type": "lvl2",
+    "url": "/components/input#data-attributes",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "68112f1d-7608-4a64-8c54-c363314f5087",
+    "type": "lvl2",
+    "url": "/components/input#accessibility",
+    "hierarchy": {"lvl1": "Input", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "7b33a149-159b-4cf2-aa80-cf3d84935cbc",
+    "type": "lvl2",
+    "url": "/components/input#api",
+    "hierarchy": {"lvl1": "Input", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Input Props",
+    "objectID": "3aa34527-cdb1-470e-bb94-00b858868ab6",
+    "type": "lvl3",
+    "url": "/components/input#input-props",
+    "hierarchy": {"lvl1": "Input", "lvl2": "API", "lvl3": "Input Props"}
+  },
+  {
+    "content": "Input Events",
+    "objectID": "93eb127b-9069-41b0-adb1-d26856848843",
+    "type": "lvl3",
+    "url": "/components/input#input-events",
+    "hierarchy": {
+      "lvl1": "Input",
+      "lvl2": "Input Props",
+      "lvl3": "Input Events"
+    }
+  },
+  {
+    "content": "Keyboard Key",
+    "objectID": "7e4c2e4a-f132-4bfb-ab61-ad8f33fac348",
+    "type": "lvl1",
+    "url": "/components/kbd",
+    "hierarchy": {"lvl1": "Keyboard Key"}
+  },
+  {
+    "content": "Keyboard Key",
+    "objectID": "b30442f7-1d9f-4caa-b63c-ad431f6c3719",
+    "type": "lvl1",
+    "url": "/components/kbd#keyboard-key",
+    "hierarchy": {"lvl1": "Keyboard Key", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "c9957736-448c-4ed7-a176-a87fd424d5b8",
+    "type": "lvl2",
+    "url": "/components/kbd#import",
+    "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "81a2e565-0d8f-4f23-bea1-1d22a47a628f",
+    "type": "lvl2",
+    "url": "/components/kbd#usage",
+    "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Keys",
+    "objectID": "ecf2140b-9d91-4d75-a198-f580d5565c56",
+    "type": "lvl3",
+    "url": "/components/kbd#keys",
+    "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Usage", "lvl3": "Keys"}
+  },
+  {
+    "content": "Slots",
+    "objectID": "d2e26f9c-ad1c-49b3-b792-0d6cdacbc0b5",
+    "type": "lvl2",
+    "url": "/components/kbd#slots",
+    "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "62e5ad42-1317-4d8a-b6d5-c26669cc1687",
+    "type": "lvl2",
+    "url": "/components/kbd#accessibility",
+    "hierarchy": {
+      "lvl1": "Keyboard Key",
+      "lvl2": "Accessibility",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "API",
+    "objectID": "ad0d0b7b-e9a5-4099-bf35-dbf7a3405df7",
+    "type": "lvl2",
+    "url": "/components/kbd#api",
+    "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Keyboard Key Props",
+    "objectID": "f7d665c0-0a96-4066-966f-e484b0f598ca",
+    "type": "lvl3",
+    "url": "/components/kbd#keyboard-key-props",
+    "hierarchy": {
+      "lvl1": "Keyboard Key",
+      "lvl2": "API",
+      "lvl3": "Keyboard Key Props"
+    }
+  },
+  {
+    "content": "Keyboard Keys",
+    "objectID": "558c2924-988e-4d31-a841-b145acd9d346",
+    "type": "lvl3",
+    "url": "/components/kbd#keyboard-keys",
+    "hierarchy": {
+      "lvl1": "Keyboard Key",
+      "lvl2": "Keyboard Key Props",
+      "lvl3": "Keyboard Keys"
+    }
+  },
+  {
+    "content": "Link",
+    "objectID": "626a8540-c070-46da-b11f-c4091e8cbea1",
+    "type": "lvl1",
+    "url": "/components/link",
+    "hierarchy": {"lvl1": "Link"}
+  },
+  {
+    "content": "Link",
+    "objectID": "a2ef0abb-5f4a-4178-a806-137108807f31",
+    "type": "lvl1",
+    "url": "/components/link#link",
+    "hierarchy": {"lvl1": "Link", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "64ac318b-51ea-4dc7-b84c-16d18cb4183d",
+    "type": "lvl2",
+    "url": "/components/link#import",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "af1b961c-99d4-437b-ac5d-3105f538cdbb",
+    "type": "lvl2",
+    "url": "/components/link#usage",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "c053210e-089e-45f2-8212-3bff90e0ed8c",
+    "type": "lvl3",
+    "url": "/components/link#disabled",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "377b5350-fb77-42c5-8828-ddff3565cc4b",
+    "type": "lvl3",
+    "url": "/components/link#sizes",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Disabled", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "22db75e8-095b-4a3d-ba17-fabfb2f80c15",
+    "type": "lvl3",
+    "url": "/components/link#colors",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Underline",
+    "objectID": "853bf6cf-11a7-4085-aeb2-ba29be87d2f5",
+    "type": "lvl3",
+    "url": "/components/link#underline",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Colors", "lvl3": "Underline"}
+  },
+  {
+    "content": "External",
+    "objectID": "07f802b6-51cc-4934-bd21-77e9149bce6a",
+    "type": "lvl3",
+    "url": "/components/link#external",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Underline", "lvl3": "External"}
+  },
+  {
+    "content": "Custom Anchor Icon",
+    "objectID": "b5e0cc4d-9f7f-483e-b31a-d18692e26873",
+    "type": "lvl3",
+    "url": "/components/link#custom-anchor-icon",
+    "hierarchy": {
+      "lvl1": "Link",
+      "lvl2": "External",
+      "lvl3": "Custom Anchor Icon"
+    }
+  },
+  {
+    "content": "Block Link",
+    "objectID": "9f36a72e-256a-4ad6-8da0-11d3ada3175f",
+    "type": "lvl3",
+    "url": "/components/link#block-link",
+    "hierarchy": {
+      "lvl1": "Link",
+      "lvl2": "Custom Anchor Icon",
+      "lvl3": "Block Link"
+    }
+  },
+  {
+    "content": "Polymorphic Component",
+    "objectID": "f6329482-34c4-402f-a8bf-5bdc008a5550",
+    "type": "lvl3",
+    "url": "/components/link#polymorphic-component",
+    "hierarchy": {
+      "lvl1": "Link",
+      "lvl2": "Block Link",
+      "lvl3": "Polymorphic Component"
+    }
+  },
+  {
+    "content": "Usage with Next.js",
+    "objectID": "3fd5863d-4850-4545-964e-fe792dbdd7a7",
+    "type": "lvl3",
+    "url": "/components/link#usage-with-nextjs",
+    "hierarchy": {
+      "lvl1": "Link",
+      "lvl2": "Polymorphic Component",
+      "lvl3": "Usage with Next.js"
+    }
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "4bebf90f-5d2f-4e19-8442-b11fb160a76e",
+    "type": "lvl3",
+    "url": "/components/link#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Link",
+      "lvl2": "Usage with Next.js",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "4dbddc06-37aa-4cf3-8569-211f7f6b12b8",
+    "type": "lvl2",
+    "url": "/components/link#data-attributes",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "8ed23128-075f-4645-94c4-7522550fd358",
+    "type": "lvl2",
+    "url": "/components/link#accessibility",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "35067491-6f12-4eb5-94a2-840477685411",
+    "type": "lvl2",
+    "url": "/components/link#api",
+    "hierarchy": {"lvl1": "Link", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Link Props",
+    "objectID": "c97b7bbe-e537-412b-bebc-5a48581406cb",
+    "type": "lvl3",
+    "url": "/components/link#link-props",
+    "hierarchy": {"lvl1": "Link", "lvl2": "API", "lvl3": "Link Props"}
+  },
+  {
+    "content": "Link Events",
+    "objectID": "000ff147-e824-43a6-af0b-5e52a4c1a445",
+    "type": "lvl3",
+    "url": "/components/link#link-events",
+    "hierarchy": {"lvl1": "Link", "lvl2": "Link Props", "lvl3": "Link Events"}
+  },
+  {
+    "content": "Modal",
+    "objectID": "e3b3ab4c-6d94-4f1f-8fa0-6db0f05ac581",
+    "type": "lvl1",
+    "url": "/components/modal",
+    "hierarchy": {"lvl1": "Modal"}
+  },
+  {
+    "content": "Modal",
+    "objectID": "60a9cb00-2309-4d34-9198-a4dbec697d71",
+    "type": "lvl1",
+    "url": "/components/modal#modal",
+    "hierarchy": {"lvl1": "Modal", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "10e77c63-b72d-4967-9a40-ba11414ef843",
+    "type": "lvl2",
+    "url": "/components/modal#import",
+    "hierarchy": {"lvl1": "Modal", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "aa78deb5-cb11-4edd-8c52-e906b63ee3a6",
+    "type": "lvl2",
+    "url": "/components/modal#usage",
+    "hierarchy": {"lvl1": "Modal", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "b7ba7d77-9b66-4c5f-bb5a-336fd31fdcc5",
+    "type": "lvl3",
+    "url": "/components/modal#sizes",
+    "hierarchy": {"lvl1": "Modal", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Non-dissmissable",
+    "objectID": "7d0648bb-6f77-4b22-a95e-4bf70487fb5e",
+    "type": "lvl3",
+    "url": "/components/modal#non-dissmissable",
+    "hierarchy": {
+      "lvl1": "Modal",
+      "lvl2": "Sizes",
+      "lvl3": "Non-dissmissable"
+    }
+  },
+  {
+    "content": "Modal position",
+    "objectID": "af6ab81e-5816-4a7d-8d7c-7275dd2e87bb",
+    "type": "lvl3",
+    "url": "/components/modal#modal-position",
+    "hierarchy": {
+      "lvl1": "Modal",
+      "lvl2": "Non-dissmissable",
+      "lvl3": "Modal position"
+    }
+  },
+  {
+    "content": "Overflow scroll",
+    "objectID": "511e34cc-a321-4f9b-a2b0-ba8a7177fde8",
+    "type": "lvl3",
+    "url": "/components/modal#overflow-scroll",
+    "hierarchy": {
+      "lvl1": "Modal",
+      "lvl2": "Modal position",
+      "lvl3": "Overflow scroll"
+    }
+  },
+  {
+    "content": "With Form",
+    "objectID": "f8e4a5d8-c69e-45af-b85c-8c2dc019051b",
+    "type": "lvl3",
+    "url": "/components/modal#with-form",
+    "hierarchy": {
+      "lvl1": "Modal",
+      "lvl2": "Overflow scroll",
+      "lvl3": "With Form"
+    }
+  },
+  {
+    "content": "Navbar",
+    "objectID": "57bbb5a6-4df3-46ba-89d9-877b884b8ffd",
+    "type": "lvl1",
+    "url": "/components/navbar",
+    "hierarchy": {"lvl1": "Navbar"}
+  },
+  {
+    "content": "Navbar",
+    "objectID": "55c9faaa-90d2-46f9-82d7-2c24b2a27884",
+    "type": "lvl1",
+    "url": "/components/navbar#navbar",
+    "hierarchy": {"lvl1": "Navbar", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Pagination",
+    "objectID": "6504ed17-1033-486b-9d4f-26497011917d",
+    "type": "lvl1",
+    "url": "/components/pagination",
+    "hierarchy": {"lvl1": "Pagination"}
+  },
+  {
+    "content": "Pagination",
+    "objectID": "d38ed696-503e-43ed-b1b7-bcd3cf645488",
+    "type": "lvl1",
+    "url": "/components/pagination#pagination",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Popover",
+    "objectID": "26c6f787-d4dc-455c-af10-edef2921b222",
+    "type": "lvl1",
+    "url": "/components/popover",
+    "hierarchy": {"lvl1": "Popover"}
+  },
+  {
+    "content": "Popover",
+    "objectID": "9ba0c946-efbc-4426-bfec-a3c8b8c3b291",
+    "type": "lvl1",
+    "url": "/components/popover#popover",
+    "hierarchy": {"lvl1": "Popover", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "67f39cf7-f9f2-4833-ae63-5a20dc4e9b4d",
+    "type": "lvl2",
+    "url": "/components/popover#import",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "90995d69-663d-4971-8758-246d1d9c0fc5",
+    "type": "lvl2",
+    "url": "/components/popover#usage",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "With Arrow",
+    "objectID": "35cfd815-4364-4dd9-b8ae-4a21f5c5acb8",
+    "type": "lvl3",
+    "url": "/components/popover#with-arrow",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Usage", "lvl3": "With Arrow"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "70972c74-354f-47f1-a2b6-98904ecbdc1d",
+    "type": "lvl3",
+    "url": "/components/popover#colors",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "With Arrow", "lvl3": "Colors"}
+  },
+  {
+    "content": "Placements",
+    "objectID": "c0528466-e923-48b6-9750-3822893f87fb",
+    "type": "lvl3",
+    "url": "/components/popover#placements",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Colors", "lvl3": "Placements"}
+  },
+  {
+    "content": "Offset",
+    "objectID": "14ebbb58-7816-4971-977f-f60209e1687a",
+    "type": "lvl3",
+    "url": "/components/popover#offset",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Placements", "lvl3": "Offset"}
+  },
+  {
+    "content": "Controlled",
+    "objectID": "91e0b0fa-6c7d-4161-b7bb-4c2f41cf52c8",
+    "type": "lvl3",
+    "url": "/components/popover#controlled",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Offset", "lvl3": "Controlled"}
+  },
+  {
+    "content": "Title Props",
+    "objectID": "02ea0e11-c808-47e9-bd58-4944ac7872af",
+    "type": "lvl3",
+    "url": "/components/popover#title-props",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Controlled",
+      "lvl3": "Title Props"
+    }
+  },
+  {
+    "content": "With Form",
+    "objectID": "b5c105d4-14b4-4987-b9e8-b113646e5f25",
+    "type": "lvl3",
+    "url": "/components/popover#with-form",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Title Props",
+      "lvl3": "With Form"
+    }
+  },
+  {
+    "content": "Backdrop",
+    "objectID": "28ee8bbe-6b41-48fc-a6c4-dfd48cbfa381",
+    "type": "lvl3",
+    "url": "/components/popover#backdrop",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "With Form", "lvl3": "Backdrop"}
+  },
+  {
+    "content": "Custom Motion",
+    "objectID": "a7763767-0e82-49d0-b881-1b6e1fd9d43c",
+    "type": "lvl3",
+    "url": "/components/popover#custom-motion",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Backdrop",
+      "lvl3": "Custom Motion"
+    }
+  },
+  {
+    "content": "Custom Trigger",
+    "objectID": "26352cf8-1a3b-41cd-aa36-c64bd8b4c620",
+    "type": "lvl3",
+    "url": "/components/popover#custom-trigger",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Custom Motion",
+      "lvl3": "Custom Trigger"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "c07dfc54-b7c7-43b7-9a9e-df1ac003603a",
+    "type": "lvl2",
+    "url": "/components/popover#slots",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "f4ab0606-a593-416c-902b-c921528a53b0",
+    "type": "lvl3",
+    "url": "/components/popover#custom-styles",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "f0442915-d30c-4446-b7fc-7500a1fd48ba",
+    "type": "lvl2",
+    "url": "/components/popover#data-attributes",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "24183b29-250a-4f65-a00c-906107fcfdf1",
+    "type": "lvl2",
+    "url": "/components/popover#accessibility",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "14b37ecb-3394-412d-92f4-18fb3bb74b08",
+    "type": "lvl2",
+    "url": "/components/popover#api",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Popover Props",
+    "objectID": "393000a3-6cdc-4acd-9a28-9d39eafbc115",
+    "type": "lvl3",
+    "url": "/components/popover#popover-props",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "API", "lvl3": "Popover Props"}
+  },
+  {
+    "content": "Popover Events",
+    "objectID": "e413b448-8580-4cbf-b9e5-02d35b2d33a5",
+    "type": "lvl3",
+    "url": "/components/popover#popover-events",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Popover Props",
+      "lvl3": "Popover Events"
+    }
+  },
+  {
+    "content": "PopoverTrigger Props",
+    "objectID": "60edb9c7-4d53-4789-9154-78a7957d3014",
+    "type": "lvl3",
+    "url": "/components/popover#popovertrigger-props",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Popover Events",
+      "lvl3": "PopoverTrigger Props"
+    }
+  },
+  {
+    "content": "PopoverContent Props",
+    "objectID": "0458abcf-12d8-4726-9277-0351d051cc06",
+    "type": "lvl3",
+    "url": "/components/popover#popovercontent-props",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "PopoverTrigger Props",
+      "lvl3": "PopoverContent Props"
+    }
+  },
+  {
+    "content": "Popover types",
+    "objectID": "2c950c59-9fe7-4627-ba25-1d2b04aa49ff",
+    "type": "lvl3",
+    "url": "/components/popover#popover-types",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "PopoverContent Props",
+      "lvl3": "Popover types"
+    }
+  },
+  {
+    "content": "Popover Placement",
+    "objectID": "bbeada20-c54a-44b1-9fcb-0f9467dc6712",
+    "type": "lvl4",
+    "url": "/components/popover#popover-placement",
+    "hierarchy": {"lvl1": "Popover", "lvl2": "Popover types", "lvl3": null}
+  },
+  {
+    "content": "Motion Props",
+    "objectID": "6cc47812-0031-482b-bb3a-93ed2900985f",
+    "type": "lvl4",
+    "url": "/components/popover#motion-props",
+    "hierarchy": {
+      "lvl1": "Popover",
+      "lvl2": "Popover Placement",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Progress",
+    "objectID": "1b5ec856-bca4-47a7-b705-f29fe860cac2",
+    "type": "lvl1",
+    "url": "/components/progress",
+    "hierarchy": {"lvl1": "Progress"}
+  },
+  {
+    "content": "Progress",
+    "objectID": "864e68be-f6e8-4dd4-b704-a28bed7eeb86",
+    "type": "lvl1",
+    "url": "/components/progress#progress",
+    "hierarchy": {"lvl1": "Progress", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "0954dc14-a8a7-4a46-b25d-238eaddc0e7d",
+    "type": "lvl2",
+    "url": "/components/progress#import",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "b37b0c04-b3a4-4a21-beb3-b912697bcb9d",
+    "type": "lvl2",
+    "url": "/components/progress#usage",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "e6a18af6-159f-44ab-9cc2-06b695db9b96",
+    "type": "lvl3",
+    "url": "/components/progress#sizes",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "f1bd2e66-57da-4615-99ca-25f8f839c38d",
+    "type": "lvl3",
+    "url": "/components/progress#colors",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Indeterminate",
+    "objectID": "73ecd4e9-6618-4564-b43d-ef1c0f3faa48",
+    "type": "lvl3",
+    "url": "/components/progress#indeterminate",
+    "hierarchy": {
+      "lvl1": "Progress",
+      "lvl2": "Colors",
+      "lvl3": "Indeterminate"
+    }
+  },
+  {
+    "content": "Striped",
+    "objectID": "681e9aac-b72e-4f6d-8bc2-fd6c596b9dc5",
+    "type": "lvl3",
+    "url": "/components/progress#striped",
+    "hierarchy": {
+      "lvl1": "Progress",
+      "lvl2": "Indeterminate",
+      "lvl3": "Striped"
+    }
+  },
+  {
+    "content": "With Label",
+    "objectID": "f9d36579-2c97-45f4-b9e7-156d74de0d4c",
+    "type": "lvl3",
+    "url": "/components/progress#with-label",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Striped", "lvl3": "With Label"}
+  },
+  {
+    "content": "With Value",
+    "objectID": "87781eb2-873b-4bca-97bb-69f20055ec59",
+    "type": "lvl3",
+    "url": "/components/progress#with-value",
+    "hierarchy": {
+      "lvl1": "Progress",
+      "lvl2": "With Label",
+      "lvl3": "With Value"
+    }
+  },
+  {
+    "content": "Value Formatting",
+    "objectID": "1b70b0e6-a9d7-4d93-b965-19c733e54fd3",
+    "type": "lvl3",
+    "url": "/components/progress#value-formatting",
+    "hierarchy": {
+      "lvl1": "Progress",
+      "lvl2": "With Value",
+      "lvl3": "Value Formatting"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "e1b823b9-c9ab-46c8-870b-df26715e99f6",
+    "type": "lvl2",
+    "url": "/components/progress#slots",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "eaf3ddd8-3c93-46fd-92ca-5142c172e56e",
+    "type": "lvl3",
+    "url": "/components/progress#custom-styles",
+    "hierarchy": {
+      "lvl1": "Progress",
+      "lvl2": "Slots",
+      "lvl3": "Custom Styles"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "ddadf5ca-6c62-443b-b44c-4e4407752eff",
+    "type": "lvl2",
+    "url": "/components/progress#data-attributes",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "52a16a14-f3ca-4fe3-a8dd-dd82114f05c6",
+    "type": "lvl2",
+    "url": "/components/progress#accessibility",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "2166ab19-bdaf-4905-96c1-22b2cd6ea607",
+    "type": "lvl2",
+    "url": "/components/progress#api",
+    "hierarchy": {"lvl1": "Progress", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Circular Progress Props",
+    "objectID": "3028a6c7-0049-42cb-8dfc-d1f8caae1fea",
+    "type": "lvl3",
+    "url": "/components/progress#circular-progress-props",
+    "hierarchy": {
+      "lvl1": "Progress",
+      "lvl2": "API",
+      "lvl3": "Circular Progress Props"
+    }
+  },
+  {
+    "content": "Radio",
+    "objectID": "73837abc-f2ff-4c37-aa84-5b26717c0cb2",
+    "type": "lvl1",
+    "url": "/components/radio-group",
+    "hierarchy": {"lvl1": "Radio"}
+  },
+  {
+    "content": "Radio group",
+    "objectID": "3f595f1d-75f0-406f-a62b-1c5d5a0bf60c",
+    "type": "lvl1",
+    "url": "/components/radio-group#radio-group",
+    "hierarchy": {"lvl1": "Radio", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "6a261c7a-2357-4222-aef7-2cd140af623f",
+    "type": "lvl2",
+    "url": "/components/radio-group#import",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "2915418f-701d-4137-bb90-924511dd869b",
+    "type": "lvl2",
+    "url": "/components/radio-group#usage",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "57433d25-c87f-46e8-af14-20f21cf9cbe9",
+    "type": "lvl3",
+    "url": "/components/radio-group#disabled",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Default Value",
+    "objectID": "3fdf24a6-d9f7-49f9-bbef-269ec34211e5",
+    "type": "lvl3",
+    "url": "/components/radio-group#default-value",
+    "hierarchy": {
+      "lvl1": "Radio",
+      "lvl2": "Disabled",
+      "lvl3": "Default Value"
+    }
+  },
+  {
+    "content": "With Description",
+    "objectID": "41da44e6-aca6-43a0-9215-f160ddd68b94",
+    "type": "lvl3",
+    "url": "/components/radio-group#with-description",
+    "hierarchy": {
+      "lvl1": "Radio",
+      "lvl2": "Default Value",
+      "lvl3": "With Description"
+    }
+  },
+  {
+    "content": "Horizontal",
+    "objectID": "a46726b6-eb0e-49bf-a587-337ac8496749",
+    "type": "lvl3",
+    "url": "/components/radio-group#horizontal",
+    "hierarchy": {
+      "lvl1": "Radio",
+      "lvl2": "With Description",
+      "lvl3": "Horizontal"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "5a6c4c65-6c13-44da-84f1-222e00c52526",
+    "type": "lvl3",
+    "url": "/components/radio-group#controlled",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Horizontal", "lvl3": "Controlled"}
+  },
+  {
+    "content": "Slots",
+    "objectID": "63705067-da59-4955-ac5e-74ac1363ad02",
+    "type": "lvl2",
+    "url": "/components/radio-group#slots",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "91882a64-5617-40fc-a388-4b856f3653b9",
+    "type": "lvl3",
+    "url": "/components/radio-group#custom-styles",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "ce3e8b95-4951-4bf2-904d-bf3582af61aa",
+    "type": "lvl3",
+    "url": "/components/radio-group#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Radio",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "a50f1e2a-fcc5-4fb8-b998-8f07fc51305f",
+    "type": "lvl2",
+    "url": "/components/radio-group#data-attributes",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "365b7d72-f63e-42ed-bbef-5dfa341a37db",
+    "type": "lvl2",
+    "url": "/components/radio-group#accessibility",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "015c2565-de2f-42bd-ac2d-84dc08596b9e",
+    "type": "lvl2",
+    "url": "/components/radio-group#api",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "RadioGroup Props",
+    "objectID": "af57bec6-ebe4-4585-9923-33042eb17bf8",
+    "type": "lvl3",
+    "url": "/components/radio-group#radiogroup-props",
+    "hierarchy": {"lvl1": "Radio", "lvl2": "API", "lvl3": "RadioGroup Props"}
+  },
+  {
+    "content": "RadioGroup Events",
+    "objectID": "f63f55a2-c9d6-44d6-bd07-a546ba72f437",
+    "type": "lvl3",
+    "url": "/components/radio-group#radiogroup-events",
+    "hierarchy": {
+      "lvl1": "Radio",
+      "lvl2": "RadioGroup Props",
+      "lvl3": "RadioGroup Events"
+    }
+  },
+  {
+    "content": "Radio Props",
+    "objectID": "2208e00f-3603-4885-a179-0ad7e0039ad6",
+    "type": "lvl3",
+    "url": "/components/radio-group#radio-props",
+    "hierarchy": {
+      "lvl1": "Radio",
+      "lvl2": "RadioGroup Events",
+      "lvl3": "Radio Props"
+    }
+  },
+  {
+    "content": "Skeleton",
+    "objectID": "b394f252-9c40-4229-b94b-23f241043ae7",
+    "type": "lvl1",
+    "url": "/components/skeleton",
+    "hierarchy": {"lvl1": "Skeleton"}
+  },
+  {
+    "content": "Skeleton",
+    "objectID": "c67cb080-9a02-42e8-ba2c-237f7eacc32b",
+    "type": "lvl1",
+    "url": "/components/skeleton#skeleton",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "c26dab18-6a34-4145-8aa9-e01ece26ec29",
+    "type": "lvl2",
+    "url": "/components/skeleton#import",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "1514d490-4dde-4e3d-b319-9007dcea5766",
+    "type": "lvl2",
+    "url": "/components/skeleton#usage",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Standalone",
+    "objectID": "08bb16b3-0004-41e3-b26a-79b634cad7eb",
+    "type": "lvl3",
+    "url": "/components/skeleton#standalone",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "Usage", "lvl3": "Standalone"}
+  },
+  {
+    "content": "Loaded State",
+    "objectID": "bd752334-c2fd-4a54-99e6-b38a42c8ae72",
+    "type": "lvl3",
+    "url": "/components/skeleton#loaded-state",
+    "hierarchy": {
+      "lvl1": "Skeleton",
+      "lvl2": "Standalone",
+      "lvl3": "Loaded State"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "dacc913d-8fc3-48bb-b632-713a6699d4c6",
+    "type": "lvl2",
+    "url": "/components/skeleton#slots",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "42c4d422-8b3b-41e8-a9f8-6052d161b91f",
+    "type": "lvl2",
+    "url": "/components/skeleton#data-attributes",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "7b61e70d-6aa9-48c3-8d5c-6320ce75197f",
+    "type": "lvl2",
+    "url": "/components/skeleton#api",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Skeleton Props",
+    "objectID": "1de220b6-ea28-4a5d-9afd-655252b96634",
+    "type": "lvl3",
+    "url": "/components/skeleton#skeleton-props",
+    "hierarchy": {"lvl1": "Skeleton", "lvl2": "API", "lvl3": "Skeleton Props"}
+  },
+  {
+    "content": "Snippet",
+    "objectID": "f2a8bdb5-e72f-4d10-a400-b4d910a213b9",
+    "type": "lvl1",
+    "url": "/components/snippet",
+    "hierarchy": {"lvl1": "Snippet"}
+  },
+  {
+    "content": "Snippet",
+    "objectID": "b86049ac-437b-4d13-a39b-fec6f6b3c695",
+    "type": "lvl1",
+    "url": "/components/snippet#snippet",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "51629e4a-645b-4a74-945b-b9c7e5c06a50",
+    "type": "lvl2",
+    "url": "/components/snippet#import",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "7f449235-8093-48de-be69-20d7a7540086",
+    "type": "lvl2",
+    "url": "/components/snippet#usage",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "74ad9473-f4fa-4c5b-93a2-8dcd43b8959f",
+    "type": "lvl3",
+    "url": "/components/snippet#sizes",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "8df9b65b-528c-4802-a589-847c89538e4b",
+    "type": "lvl3",
+    "url": "/components/snippet#colors",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "c6b96051-3af9-48ca-887f-9b2d8a428a51",
+    "type": "lvl3",
+    "url": "/components/snippet#variants",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "Colors", "lvl3": "Variants"}
+  },
+  {
+    "content": "Custom Symbol",
+    "objectID": "8acadaa4-5385-454c-926c-c270ea978f78",
+    "type": "lvl3",
+    "url": "/components/snippet#custom-symbol",
+    "hierarchy": {
+      "lvl1": "Snippet",
+      "lvl2": "Variants",
+      "lvl3": "Custom Symbol"
+    }
+  },
+  {
+    "content": "Without Copy",
+    "objectID": "c8f68ae7-1041-4f5a-8368-ffbb091e3379",
+    "type": "lvl3",
+    "url": "/components/snippet#without-copy",
+    "hierarchy": {
+      "lvl1": "Snippet",
+      "lvl2": "Custom Symbol",
+      "lvl3": "Without Copy"
+    }
+  },
+  {
+    "content": "Custom Tooltip",
+    "objectID": "e94c264b-f23d-4c8f-968d-5a75eac400d6",
+    "type": "lvl3",
+    "url": "/components/snippet#custom-tooltip",
+    "hierarchy": {
+      "lvl1": "Snippet",
+      "lvl2": "Without Copy",
+      "lvl3": "Custom Tooltip"
+    }
+  },
+  {
+    "content": "Multiline",
+    "objectID": "3e81a982-b19b-46ac-915b-390e1dc0b5f4",
+    "type": "lvl3",
+    "url": "/components/snippet#multiline",
+    "hierarchy": {
+      "lvl1": "Snippet",
+      "lvl2": "Custom Tooltip",
+      "lvl3": "Multiline"
+    }
+  },
+  {
+    "content": "Custom Icons",
+    "objectID": "9e3f2fa3-8881-4198-98f8-a497a9d00f67",
+    "type": "lvl3",
+    "url": "/components/snippet#custom-icons",
+    "hierarchy": {
+      "lvl1": "Snippet",
+      "lvl2": "Multiline",
+      "lvl3": "Custom Icons"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "4b4f98dd-a91f-4c4e-a9d8-eb186a9be9e4",
+    "type": "lvl2",
+    "url": "/components/snippet#slots",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "6ff06b5f-90c0-4ceb-8737-7ae5b76c3024",
+    "type": "lvl2",
+    "url": "/components/snippet#api",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Snippet Props",
+    "objectID": "3a692b14-6e23-444e-8195-d99f48839033",
+    "type": "lvl3",
+    "url": "/components/snippet#snippet-props",
+    "hierarchy": {"lvl1": "Snippet", "lvl2": "API", "lvl3": "Snippet Props"}
+  },
+  {
+    "content": "Snippet Events",
+    "objectID": "e84ee834-5b22-47cf-a97d-4260fc53bf2c",
+    "type": "lvl3",
+    "url": "/components/snippet#snippet-events",
+    "hierarchy": {
+      "lvl1": "Snippet",
+      "lvl2": "Snippet Props",
+      "lvl3": "Snippet Events"
+    }
+  },
+  {
+    "content": "Spacer",
+    "objectID": "cc0227ea-06af-44bc-a750-d8dfe05d520e",
+    "type": "lvl1",
+    "url": "/components/spacer",
+    "hierarchy": {"lvl1": "Spacer"}
+  },
+  {
+    "content": "Spacer",
+    "objectID": "8b26683a-49e0-4075-a603-5bb8cc76f3ed",
+    "type": "lvl1",
+    "url": "/components/spacer#spacer",
+    "hierarchy": {"lvl1": "Spacer", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "baf7aeaa-8b9e-43d5-ab51-597833154cd9",
+    "type": "lvl2",
+    "url": "/components/spacer#import",
+    "hierarchy": {"lvl1": "Spacer", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "ee5bb130-ee2e-4d1b-bc16-8878a3cd3a1c",
+    "type": "lvl2",
+    "url": "/components/spacer#usage",
+    "hierarchy": {"lvl1": "Spacer", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "8e4951e2-e227-4108-b6c2-84f9c939597d",
+    "type": "lvl2",
+    "url": "/components/spacer#api",
+    "hierarchy": {"lvl1": "Spacer", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Spacer Props",
+    "objectID": "920baa57-0993-42fa-a42b-eac08490ccef",
+    "type": "lvl3",
+    "url": "/components/spacer#spacer-props",
+    "hierarchy": {"lvl1": "Spacer", "lvl2": "API", "lvl3": "Spacer Props"}
+  },
+  {
+    "content": "Spaces",
+    "objectID": "702facc1-0915-40e1-9f44-f4b5044a7e1c",
+    "type": "lvl3",
+    "url": "/components/spacer#spaces",
+    "hierarchy": {"lvl1": "Spacer", "lvl2": "Spacer Props", "lvl3": "Spaces"}
+  },
+  {
+    "content": "Spinner",
+    "objectID": "aeb2c926-2d57-4ba9-9e8f-ae495a3cb01f",
+    "type": "lvl1",
+    "url": "/components/spinner",
+    "hierarchy": {"lvl1": "Spinner"}
+  },
+  {
+    "content": "Spinner",
+    "objectID": "e7ca95b0-4ccc-42f3-bb83-487d8eff00a8",
+    "type": "lvl1",
+    "url": "/components/spinner#spinner",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "e0fd0cf2-ae2c-4b5a-8505-54778f07ba68",
+    "type": "lvl2",
+    "url": "/components/spinner#import",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "4aba44b3-7d51-4834-bcb2-745dc699a51b",
+    "type": "lvl2",
+    "url": "/components/spinner#usage",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "955b7bbe-7825-4b55-a321-ab8a8a0b34d9",
+    "type": "lvl3",
+    "url": "/components/spinner#sizes",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "Usage", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "0c027d76-34b1-4bf0-8695-a72e3ba60c66",
+    "type": "lvl3",
+    "url": "/components/spinner#colors",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "With Label",
+    "objectID": "0d4f8b81-d3ba-4b82-9704-92e2a15c4c1c",
+    "type": "lvl3",
+    "url": "/components/spinner#with-label",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "Colors", "lvl3": "With Label"}
+  },
+  {
+    "content": "Label colors",
+    "objectID": "35dd04b3-7e48-4d3e-9d89-7e568f89c4e6",
+    "type": "lvl3",
+    "url": "/components/spinner#label-colors",
+    "hierarchy": {
+      "lvl1": "Spinner",
+      "lvl2": "With Label",
+      "lvl3": "Label colors"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "1f07e024-c4dc-4f74-bd1e-fc855619eead",
+    "type": "lvl2",
+    "url": "/components/spinner#slots",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "0824781d-a210-48af-9377-6179283fee29",
+    "type": "lvl2",
+    "url": "/components/spinner#api",
+    "hierarchy": {"lvl1": "Spinner", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Circular Progress Props",
+    "objectID": "32323e3e-03d6-448f-834c-ff399a2b6737",
+    "type": "lvl3",
+    "url": "/components/spinner#circular-progress-props",
+    "hierarchy": {
+      "lvl1": "Spinner",
+      "lvl2": "API",
+      "lvl3": "Circular Progress Props"
+    }
+  },
+  {
+    "content": "Switch",
+    "objectID": "d2a7290f-ff09-42d5-bde6-f66909befc32",
+    "type": "lvl1",
+    "url": "/components/switch",
+    "hierarchy": {"lvl1": "Switch"}
+  },
+  {
+    "content": "Switch",
+    "objectID": "51cd1e85-49e1-4e18-ba20-5c1026984408",
+    "type": "lvl1",
+    "url": "/components/switch#switch",
+    "hierarchy": {"lvl1": "Switch", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "9e8bb607-1921-4da3-b6aa-0996ed0b34bb",
+    "type": "lvl2",
+    "url": "/components/switch#import",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "2b568890-cbc7-45d3-b446-147740dc604f",
+    "type": "lvl2",
+    "url": "/components/switch#usage",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "With Label",
+    "objectID": "2d656bca-4615-4926-a79b-82511dd8e9f0",
+    "type": "lvl3",
+    "url": "/components/switch#with-label",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Usage", "lvl3": "With Label"}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "f6248ed6-ecbf-4545-b084-0b5208b26508",
+    "type": "lvl3",
+    "url": "/components/switch#disabled",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "With Label", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "7e8989b7-a40e-4458-b1f5-2988bdea3961",
+    "type": "lvl3",
+    "url": "/components/switch#sizes",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Disabled", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "1b96300a-20b1-44bc-965f-15701f357b6c",
+    "type": "lvl3",
+    "url": "/components/switch#colors",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "With Thumb Icon",
+    "objectID": "66ab2aae-ca7e-4b2b-9087-68dac6de450c",
+    "type": "lvl3",
+    "url": "/components/switch#with-thumb-icon",
+    "hierarchy": {
+      "lvl1": "Switch",
+      "lvl2": "Colors",
+      "lvl3": "With Thumb Icon"
+    }
+  },
+  {
+    "content": "With Icons",
+    "objectID": "5b58e26d-1fe6-416e-8c8d-1707ef9abc5f",
+    "type": "lvl3",
+    "url": "/components/switch#with-icons",
+    "hierarchy": {
+      "lvl1": "Switch",
+      "lvl2": "With Thumb Icon",
+      "lvl3": "With Icons"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "3b5f4891-8bc6-4650-9e99-f6a3b3b30211",
+    "type": "lvl3",
+    "url": "/components/switch#controlled",
+    "hierarchy": {
+      "lvl1": "Switch",
+      "lvl2": "With Icons",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "2e3f8f57-4d8a-4b25-9b0f-a26df14b1ffd",
+    "type": "lvl2",
+    "url": "/components/switch#slots",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "24340d5d-f587-47f4-af60-1c0f1f4cce28",
+    "type": "lvl3",
+    "url": "/components/switch#custom-styles",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "62cea23a-832d-45c8-a370-f4d9afb1eb14",
+    "type": "lvl3",
+    "url": "/components/switch#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Switch",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "c620ee7d-f279-4618-9079-a9e8177e6b77",
+    "type": "lvl2",
+    "url": "/components/switch#data-attributes",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "ce79dd12-737f-404b-893b-165c10d0bd51",
+    "type": "lvl2",
+    "url": "/components/switch#accessibility",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "c4a73b54-4c72-478a-bdea-67734ffaf2a9",
+    "type": "lvl2",
+    "url": "/components/switch#api",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Switch Props",
+    "objectID": "7c9bd9b6-f690-4655-80d5-e69953c85220",
+    "type": "lvl3",
+    "url": "/components/switch#switch-props",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "API", "lvl3": "Switch Props"}
+  },
+  {
+    "content": "Switch Events",
+    "objectID": "de4f318e-8ed4-45ed-8965-0186d7645d4f",
+    "type": "lvl3",
+    "url": "/components/switch#switch-events",
+    "hierarchy": {
+      "lvl1": "Switch",
+      "lvl2": "Switch Props",
+      "lvl3": "Switch Events"
+    }
+  },
+  {
+    "content": "Types",
+    "objectID": "0cf4bd7e-213a-43c6-9f5f-937fb212c4c5",
+    "type": "lvl3",
+    "url": "/components/switch#types",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Switch Events", "lvl3": "Types"}
+  },
+  {
+    "content": "Switch Icon Props",
+    "objectID": "3502fbb3-f96e-40b9-9f1b-f35499c23843",
+    "type": "lvl4",
+    "url": "/components/switch#switch-icon-props",
+    "hierarchy": {"lvl1": "Switch", "lvl2": "Types", "lvl3": null}
+  },
+  {
+    "content": "Table",
+    "objectID": "a3309dbc-2389-4f64-a722-fa1c6c5659fd",
+    "type": "lvl1",
+    "url": "/components/table",
+    "hierarchy": {"lvl1": "Table"}
+  },
+  {
+    "content": "Table",
+    "objectID": "d2acfe9b-b4a0-42a8-9aef-c8371daced18",
+    "type": "lvl1",
+    "url": "/components/table#table",
+    "hierarchy": {"lvl1": "Table", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Tabs",
+    "objectID": "26578c4e-3bf4-423b-b50e-e69b5947db09",
+    "type": "lvl1",
+    "url": "/components/tabs",
+    "hierarchy": {"lvl1": "Tabs"}
+  },
+  {
+    "content": "Tabs",
+    "objectID": "33f5f29a-832d-48e0-847c-9be70fba4f37",
+    "type": "lvl1",
+    "url": "/components/tabs#tabs",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "85fe89c0-18f5-4c14-ac3c-0bbbdf07b04e",
+    "type": "lvl2",
+    "url": "/components/tabs#import",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "05c71892-a2d8-4577-9e0a-d6759254b3f9",
+    "type": "lvl2",
+    "url": "/components/tabs#usage",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Dynamic",
+    "objectID": "7d3d9a93-5099-4de0-a027-6e156acc47e0",
+    "type": "lvl3",
+    "url": "/components/tabs#dynamic",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Usage", "lvl3": "Dynamic"}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "0976200b-f2a2-4085-969c-396ad15120dd",
+    "type": "lvl3",
+    "url": "/components/tabs#disabled",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Dynamic", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Disabled Item",
+    "objectID": "25f37e32-1e1e-4de4-af7e-7068de6652ba",
+    "type": "lvl3",
+    "url": "/components/tabs#disabled-item",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Disabled", "lvl3": "Disabled Item"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "0a5293fd-d325-4bf6-a7e6-d3d22a76ec22",
+    "type": "lvl3",
+    "url": "/components/tabs#sizes",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Disabled Item", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Radius",
+    "objectID": "c597e39a-2d3e-4efb-a129-c762ea9a9d7b",
+    "type": "lvl3",
+    "url": "/components/tabs#radius",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Sizes", "lvl3": "Radius"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "5a666a8b-6397-4953-aa7d-cca7101e25a7",
+    "type": "lvl3",
+    "url": "/components/tabs#colors",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Radius", "lvl3": "Colors"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "7a77c8ad-e4d3-4d9f-a0e8-2ca6962e1a95",
+    "type": "lvl3",
+    "url": "/components/tabs#variants",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Colors", "lvl3": "Variants"}
+  },
+  {
+    "content": "With Icons",
+    "objectID": "7f741a3c-a29c-4046-a5f8-22f2f23e08f4",
+    "type": "lvl3",
+    "url": "/components/tabs#with-icons",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Variants", "lvl3": "With Icons"}
+  },
+  {
+    "content": "Controlled",
+    "objectID": "7513e2a0-55d5-477a-a500-8e48ac55f224",
+    "type": "lvl3",
+    "url": "/components/tabs#controlled",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "With Icons", "lvl3": "Controlled"}
+  },
+  {
+    "content": "With Form",
+    "objectID": "fc33d725-e546-4068-a005-e5aa48624082",
+    "type": "lvl3",
+    "url": "/components/tabs#with-form",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Controlled", "lvl3": "With Form"}
+  },
+  {
+    "content": "Slots",
+    "objectID": "7b092ff7-95c4-411d-8d6b-ff951852c0d8",
+    "type": "lvl2",
+    "url": "/components/tabs#slots",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "dc351f0e-9827-4e06-80aa-9936e225e94e",
+    "type": "lvl3",
+    "url": "/components/tabs#custom-styles",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "0218ddf8-915b-4a34-96a1-845cca6bddb8",
+    "type": "lvl2",
+    "url": "/components/tabs#data-attributes",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "815f7a70-445c-4534-a80d-82e9a8c02d29",
+    "type": "lvl2",
+    "url": "/components/tabs#accessibility",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "33b59b8b-ad42-4e51-a79a-b276932d48f9",
+    "type": "lvl2",
+    "url": "/components/tabs#api",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Tabs Props",
+    "objectID": "827f39ff-3e0b-4088-94d0-f9f45e71f7c4",
+    "type": "lvl3",
+    "url": "/components/tabs#tabs-props",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "API", "lvl3": "Tabs Props"}
+  },
+  {
+    "content": "Tabs Events",
+    "objectID": "5b1c89a8-ea9b-4e89-a53e-71c1c70d32a1",
+    "type": "lvl3",
+    "url": "/components/tabs#tabs-events",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Tabs Props", "lvl3": "Tabs Events"}
+  },
+  {
+    "content": "Tab Props",
+    "objectID": "b71e2352-3236-4311-8f1b-3ad882085a5e",
+    "type": "lvl3",
+    "url": "/components/tabs#tab-props",
+    "hierarchy": {"lvl1": "Tabs", "lvl2": "Tabs Events", "lvl3": "Tab Props"}
+  },
+  {
+    "content": "Textarea",
+    "objectID": "7f274f4d-6e88-41d8-8f2a-c854e5082733",
+    "type": "lvl1",
+    "url": "/components/textarea",
+    "hierarchy": {"lvl1": "Textarea"}
+  },
+  {
+    "content": "Textarea",
+    "objectID": "9d55f872-c256-4ea1-81db-7c0ef79bbd55",
+    "type": "lvl1",
+    "url": "/components/textarea#textarea",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "f1ba0faf-fe43-433e-baff-7b7c51914911",
+    "type": "lvl2",
+    "url": "/components/textarea#import",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "8b61293d-e60c-4713-a38d-fb9eb21a5306",
+    "type": "lvl2",
+    "url": "/components/textarea#usage",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "aa31b3cd-6fcf-4b2b-aa9b-2dccd647e093",
+    "type": "lvl3",
+    "url": "/components/textarea#disabled",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Readonly",
+    "objectID": "da6c2034-9689-4699-a0ec-cbfd04ecd363",
+    "type": "lvl3",
+    "url": "/components/textarea#readonly",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Disabled", "lvl3": "Readonly"}
+  },
+  {
+    "content": "Required",
+    "objectID": "28594b76-a54b-46a9-aebf-c53e608a3ba7",
+    "type": "lvl3",
+    "url": "/components/textarea#required",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Readonly", "lvl3": "Required"}
+  },
+  {
+    "content": "Autosize",
+    "objectID": "f06aec67-ce64-48c8-8a8d-2ef49e981340",
+    "type": "lvl3",
+    "url": "/components/textarea#autosize",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Required", "lvl3": "Autosize"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "32bfff5f-df38-45b8-889e-dfdd40272326",
+    "type": "lvl3",
+    "url": "/components/textarea#variants",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Autosize", "lvl3": "Variants"}
+  },
+  {
+    "content": "With Error Message",
+    "objectID": "692e8893-8a23-45b0-a1cc-0e8be3fcc964",
+    "type": "lvl3",
+    "url": "/components/textarea#with-error-message",
+    "hierarchy": {
+      "lvl1": "Textarea",
+      "lvl2": "Variants",
+      "lvl3": "With Error Message"
+    }
+  },
+  {
+    "content": "Description",
+    "objectID": "1122c7c3-e353-4dfa-8724-a548eb538103",
+    "type": "lvl3",
+    "url": "/components/textarea#description",
+    "hierarchy": {
+      "lvl1": "Textarea",
+      "lvl2": "With Error Message",
+      "lvl3": "Description"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "34f80b21-e4d4-4724-9935-ce442656b4c9",
+    "type": "lvl3",
+    "url": "/components/textarea#controlled",
+    "hierarchy": {
+      "lvl1": "Textarea",
+      "lvl2": "Description",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "08429204-2c50-4280-bede-ad1ef3362baa",
+    "type": "lvl2",
+    "url": "/components/textarea#slots",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "0796f0d9-7e31-4c14-9872-e518f3dcd424",
+    "type": "lvl2",
+    "url": "/components/textarea#data-attributes",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "fc46f5e3-7c3c-41a7-af14-334b1cf08470",
+    "type": "lvl2",
+    "url": "/components/textarea#accessibility",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "83e48b65-8c64-48f7-9453-436c5c5afb64",
+    "type": "lvl2",
+    "url": "/components/textarea#api",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Textarea Props",
+    "objectID": "f19ec838-3a41-4330-aae0-9ec915d0930e",
+    "type": "lvl3",
+    "url": "/components/textarea#textarea-props",
+    "hierarchy": {"lvl1": "Textarea", "lvl2": "API", "lvl3": "Textarea Props"}
+  },
+  {
+    "content": "Input Events",
+    "objectID": "4ea8ed2b-a9e5-4394-bb58-0ade3602e5cf",
+    "type": "lvl3",
+    "url": "/components/textarea#input-events",
+    "hierarchy": {
+      "lvl1": "Textarea",
+      "lvl2": "Textarea Props",
+      "lvl3": "Input Events"
+    }
+  },
+  {
+    "content": "Tooltip",
+    "objectID": "9ed21528-7e8d-4237-8d14-adb3f6371627",
+    "type": "lvl1",
+    "url": "/components/tooltip",
+    "hierarchy": {"lvl1": "Tooltip"}
+  },
+  {
+    "content": "Tooltip",
+    "objectID": "e9860688-6349-4801-a5b5-f06f3384c24f",
+    "type": "lvl1",
+    "url": "/components/tooltip#tooltip",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "017017d0-d3dc-4475-8fa4-03ef5ace2982",
+    "type": "lvl2",
+    "url": "/components/tooltip#import",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "488ce4c6-09fd-4a6b-b9d4-423d5ff0b223",
+    "type": "lvl2",
+    "url": "/components/tooltip#usage",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "With Arrow",
+    "objectID": "b25f3992-3fc4-4fec-af1e-f3528ac546f5",
+    "type": "lvl3",
+    "url": "/components/tooltip#with-arrow",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Usage", "lvl3": "With Arrow"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "7c211366-b295-4924-8bad-62c0771a28ee",
+    "type": "lvl3",
+    "url": "/components/tooltip#colors",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "With Arrow", "lvl3": "Colors"}
+  },
+  {
+    "content": "Placements",
+    "objectID": "8e14f00f-22bf-414f-b610-7aad0e13fad3",
+    "type": "lvl3",
+    "url": "/components/tooltip#placements",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Colors", "lvl3": "Placements"}
+  },
+  {
+    "content": "Offset",
+    "objectID": "877b40a0-55d0-409d-9586-7b4b81977f69",
+    "type": "lvl3",
+    "url": "/components/tooltip#offset",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Placements", "lvl3": "Offset"}
+  },
+  {
+    "content": "Controlled",
+    "objectID": "71be1bb1-a2fd-4686-9b75-afb26fbacd33",
+    "type": "lvl3",
+    "url": "/components/tooltip#controlled",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Offset", "lvl3": "Controlled"}
+  },
+  {
+    "content": "With Delay",
+    "objectID": "f8054432-7529-4c89-b686-d2c20ea02bae",
+    "type": "lvl3",
+    "url": "/components/tooltip#with-delay",
+    "hierarchy": {
+      "lvl1": "Tooltip",
+      "lvl2": "Controlled",
+      "lvl3": "With Delay"
+    }
+  },
+  {
+    "content": "Custom Content",
+    "objectID": "3edee72a-7608-4b84-b5f3-ca8e14fe095b",
+    "type": "lvl3",
+    "url": "/components/tooltip#custom-content",
+    "hierarchy": {
+      "lvl1": "Tooltip",
+      "lvl2": "With Delay",
+      "lvl3": "Custom Content"
+    }
+  },
+  {
+    "content": "Custom Motion",
+    "objectID": "9d8e6031-c326-4c3e-b989-3f10b33aee88",
+    "type": "lvl3",
+    "url": "/components/tooltip#custom-motion",
+    "hierarchy": {
+      "lvl1": "Tooltip",
+      "lvl2": "Custom Content",
+      "lvl3": "Custom Motion"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "06243d7f-c8af-4f45-975a-75dd06821c6d",
+    "type": "lvl2",
+    "url": "/components/tooltip#slots",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "3caafc58-2001-466a-8cd3-107fbdc1c3c7",
+    "type": "lvl3",
+    "url": "/components/tooltip#custom-styles",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Slots", "lvl3": "Custom Styles"}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "8e8bca08-ceef-4fde-8ecb-7401b224c0fd",
+    "type": "lvl2",
+    "url": "/components/tooltip#data-attributes",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "804f068e-e8ac-40e6-9f19-97889d5b382f",
+    "type": "lvl2",
+    "url": "/components/tooltip#accessibility",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "5868d0b7-5a4c-4562-95ec-f28387cd7816",
+    "type": "lvl2",
+    "url": "/components/tooltip#api",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Tooltip Props",
+    "objectID": "5539e6fe-910a-4206-8273-09fe4da45306",
+    "type": "lvl3",
+    "url": "/components/tooltip#tooltip-props",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "API", "lvl3": "Tooltip Props"}
+  },
+  {
+    "content": "Tooltip Events",
+    "objectID": "ccc5e1e3-4bf9-4dc5-a1a4-27bfc1c7a15b",
+    "type": "lvl3",
+    "url": "/components/tooltip#tooltip-events",
+    "hierarchy": {
+      "lvl1": "Tooltip",
+      "lvl2": "Tooltip Props",
+      "lvl3": "Tooltip Events"
+    }
+  },
+  {
+    "content": "Tooltip types",
+    "objectID": "effd117a-c81f-40c1-99da-55b54be50575",
+    "type": "lvl3",
+    "url": "/components/tooltip#tooltip-types",
+    "hierarchy": {
+      "lvl1": "Tooltip",
+      "lvl2": "Tooltip Events",
+      "lvl3": "Tooltip types"
+    }
+  },
+  {
+    "content": "Tooltip Placement",
+    "objectID": "95a7f0ad-f5fb-477d-8cc6-eb47e1f0f219",
+    "type": "lvl4",
+    "url": "/components/tooltip#tooltip-placement",
+    "hierarchy": {"lvl1": "Tooltip", "lvl2": "Tooltip types", "lvl3": null}
+  },
+  {
+    "content": "Motion Props",
+    "objectID": "411e52fd-f856-4831-82bd-79fb65501d28",
+    "type": "lvl4",
+    "url": "/components/tooltip#motion-props",
+    "hierarchy": {
+      "lvl1": "Tooltip",
+      "lvl2": "Tooltip Placement",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "User",
+    "objectID": "c221376e-6fff-40f2-aefc-52e8be995daa",
+    "type": "lvl1",
+    "url": "/components/user",
+    "hierarchy": {"lvl1": "User"}
+  },
+  {
+    "content": "User",
+    "objectID": "d630dfd6-c89e-48b2-9ea5-af22703d845c",
+    "type": "lvl1",
+    "url": "/components/user#user",
+    "hierarchy": {"lvl1": "User", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Import",
+    "objectID": "7311383c-4369-4b47-843a-05dfa93edac7",
+    "type": "lvl2",
+    "url": "/components/user#import",
+    "hierarchy": {"lvl1": "User", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "3373b95c-b2fc-443b-9a56-d2c615171766",
+    "type": "lvl2",
+    "url": "/components/user#usage",
+    "hierarchy": {"lvl1": "User", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Link Description",
+    "objectID": "bdd4e3ed-e5c6-429c-af63-0bbf537dc67e",
+    "type": "lvl3",
+    "url": "/components/user#link-description",
+    "hierarchy": {"lvl1": "User", "lvl2": "Usage", "lvl3": "Link Description"}
+  },
+  {
+    "content": "Slots",
+    "objectID": "f80cba0a-2395-4fc5-9b58-98e29cd8a868",
+    "type": "lvl2",
+    "url": "/components/user#slots",
+    "hierarchy": {"lvl1": "User", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "6299a832-301c-44ac-8ef8-ad86c234d515",
+    "type": "lvl2",
+    "url": "/components/user#data-attributes",
+    "hierarchy": {"lvl1": "User", "lvl2": "Data Attributes", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "aaddb82f-3486-4ac9-9fab-14b92644309a",
+    "type": "lvl2",
+    "url": "/components/user#api",
+    "hierarchy": {"lvl1": "User", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "User Props",
+    "objectID": "806a26d3-7e1c-4fa8-b139-0b0ea3f09ee9",
+    "type": "lvl3",
+    "url": "/components/user#user-props",
+    "hierarchy": {"lvl1": "User", "lvl2": "API", "lvl3": "User Props"}
+  },
+  {
+    "content": "Astro",
+    "objectID": "5eceff0f-2a6f-45b1-ab63-c0ecd1399a9f",
+    "type": "lvl1",
+    "url": "/frameworks/astro",
+    "hierarchy": {"lvl1": "Astro"}
+  },
+  {
+    "content": "Astro",
+    "objectID": "b9c801fe-5d4e-456f-8119-89300e5dbe73",
+    "type": "lvl1",
+    "url": "/frameworks/astro#astro",
+    "hierarchy": {"lvl1": "Astro", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Installation",
+    "objectID": "053aa4ac-88e7-44db-b4a4-c899f00e8698",
+    "type": "lvl3",
+    "url": "/frameworks/astro#installation",
+    "hierarchy": {"lvl1": "Astro", "lvl2": "Astro", "lvl3": "Installation"}
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "5837e1da-aa3a-46ea-acdf-460fed50683d",
+    "type": "lvl3",
+    "url": "/frameworks/astro#tailwind-css-setup",
+    "hierarchy": {
+      "lvl1": "Astro",
+      "lvl2": "Installation",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Usage",
+    "objectID": "63dea66a-1c98-43e4-8b2b-b462d3111e50",
+    "type": "lvl3",
+    "url": "/frameworks/astro#usage",
+    "hierarchy": {
+      "lvl1": "Astro",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Usage"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "d88616ce-8897-4400-8bde-d00215c8384c",
+    "type": "lvl3",
+    "url": "/frameworks/astro#setup-pnpm-optional",
+    "hierarchy": {
+      "lvl1": "Astro",
+      "lvl2": "Usage",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Next.js",
+    "objectID": "e0713bc0-572b-4f07-8bfb-7b223ab6178b",
+    "type": "lvl1",
+    "url": "/frameworks/nextjs",
+    "hierarchy": {"lvl1": "Next.js"}
+  },
+  {
+    "content": "Next.js",
+    "objectID": "df09f949-80e7-457f-968d-48de7bad6688",
+    "type": "lvl1",
+    "url": "/frameworks/nextjs#nextjs",
+    "hierarchy": {"lvl1": "Next.js", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "App directory Setup",
+    "objectID": "3bf8b2b8-b68f-4450-867b-06cd9d06a3bf",
+    "type": "lvl2",
+    "url": "/frameworks/nextjs#app-directory-setup",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "App directory Setup",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "create-next-app",
+    "objectID": "ba286d02-4aca-46ad-8f9c-130e8c928e41",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#create-next-app",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "App directory Setup",
+      "lvl3": "create-next-app"
+    }
+  },
+  {
+    "content": "Manual Installation",
+    "objectID": "ff86e10a-1715-4542-aba9-ab6c0155be91",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#manual-installation",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "create-next-app",
+      "lvl3": "Manual Installation"
+    }
+  },
+  {
+    "content": "Add dependencies",
+    "objectID": "9a31554b-5ee8-4e86-b156-a39727c66f21",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#add-dependencies",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Manual Installation",
+      "lvl3": "Add dependencies"
+    }
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "9ebf68d2-8130-4821-b600-e7c5a2b97588",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#tailwind-css-setup",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Add dependencies",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Setup Provider",
+    "objectID": "f8999df9-ad69-4e9c-bf20-dffc78b076dd",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#setup-provider",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Setup Provider"
+    }
+  },
+  {
+    "content": "Add Provider to Root",
+    "objectID": "35e3e0c8-e040-4956-8ac9-ef434c37a9bb",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#add-provider-to-root",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Setup Provider",
+      "lvl3": "Add Provider to Root"
+    }
+  },
+  {
+    "content": "Use NextUI Components",
+    "objectID": "b7b44941-b056-4f2d-9997-4202439bc58d",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#use-nextui-components",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Add Provider to Root",
+      "lvl3": "Use NextUI Components"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "113623d6-d4fc-41be-beee-963f20f624c7",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#setup-pnpm-optional",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Use NextUI Components",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Pages Directory Setup",
+    "objectID": "a8c3d19d-2f38-43f4-9158-ef172a61179b",
+    "type": "lvl2",
+    "url": "/frameworks/nextjs#pages-directory-setup",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Pages Directory Setup",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "create-next-app",
+    "objectID": "c014acb8-1044-4468-afda-ebf345d1521a",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#create-next-app-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Pages Directory Setup",
+      "lvl3": "create-next-app"
+    }
+  },
+  {
+    "content": "Manual Installation",
+    "objectID": "9ab75220-e3b5-403b-8848-5b83dda3135a",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#manual-installation-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "create-next-app",
+      "lvl3": "Manual Installation"
+    }
+  },
+  {
+    "content": "Add dependencies",
+    "objectID": "6e332f1c-469e-4f81-a6d7-45d54c9e7d80",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#add-dependencies-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Manual Installation",
+      "lvl3": "Add dependencies"
+    }
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "13536415-82ca-42d4-934f-52786b4cad91",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#tailwind-css-setup-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Add dependencies",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Setup Provider",
+    "objectID": "4cc9570f-68a9-4783-bc41-0e316228fda0",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#setup-provider-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Setup Provider"
+    }
+  },
+  {
+    "content": "Use NextUI Components",
+    "objectID": "09a7fbb1-9564-445b-a9d3-05d4e7059974",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#use-nextui-components-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Setup Provider",
+      "lvl3": "Use NextUI Components"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "f99aff5a-ff6f-4a14-aee0-2f4a263e033d",
+    "type": "lvl3",
+    "url": "/frameworks/nextjs#setup-pnpm-optional-1",
+    "hierarchy": {
+      "lvl1": "Next.js",
+      "lvl2": "Use NextUI Components",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Remix",
+    "objectID": "3fbe8c5d-ff8e-4db2-8684-e0ce57ec4521",
+    "type": "lvl1",
+    "url": "/frameworks/remix",
+    "hierarchy": {"lvl1": "Remix"}
+  },
+  {
+    "content": "Remix",
+    "objectID": "1d2950f4-fbef-405a-9d25-12504c54c110",
+    "type": "lvl1",
+    "url": "/frameworks/remix#remix",
+    "hierarchy": {"lvl1": "Remix", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Installation",
+    "objectID": "d361fbb0-8bbf-46b2-8ecb-3493e7315d65",
+    "type": "lvl3",
+    "url": "/frameworks/remix#installation",
+    "hierarchy": {"lvl1": "Remix", "lvl2": "Remix", "lvl3": "Installation"}
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "7f2611f8-5566-4fb1-96fe-2ebc5d236548",
+    "type": "lvl3",
+    "url": "/frameworks/remix#tailwind-css-setup",
+    "hierarchy": {
+      "lvl1": "Remix",
+      "lvl2": "Installation",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Provider Setup",
+    "objectID": "7ee2e110-2d46-4d26-ad19-19ef28c4ce52",
+    "type": "lvl3",
+    "url": "/frameworks/remix#provider-setup",
+    "hierarchy": {
+      "lvl1": "Remix",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Provider Setup"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "7aaa2aa3-afc3-4a96-8d28-76aba8595b3a",
+    "type": "lvl3",
+    "url": "/frameworks/remix#setup-pnpm-optional",
+    "hierarchy": {
+      "lvl1": "Remix",
+      "lvl2": "Provider Setup",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Vite",
+    "objectID": "5f4cdb6e-98d1-4a1f-96b3-3486b0f2f360",
+    "type": "lvl1",
+    "url": "/frameworks/vite",
+    "hierarchy": {"lvl1": "Vite"}
+  },
+  {
+    "content": "Vite",
+    "objectID": "e4cfcea0-f92c-4f36-b4e8-06c5722b419a",
+    "type": "lvl1",
+    "url": "/frameworks/vite#vite",
+    "hierarchy": {"lvl1": "Vite", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Installation",
+    "objectID": "6d91e27c-23cc-4e14-849a-9a455b224431",
+    "type": "lvl3",
+    "url": "/frameworks/vite#installation",
+    "hierarchy": {"lvl1": "Vite", "lvl2": "Vite", "lvl3": "Installation"}
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "eda12999-c352-4a93-b89c-2dd8a826647c",
+    "type": "lvl3",
+    "url": "/frameworks/vite#tailwind-css-setup",
+    "hierarchy": {
+      "lvl1": "Vite",
+      "lvl2": "Installation",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Provider Setup",
+    "objectID": "0ee0ec14-7004-47ce-8a97-42a4b875a4ab",
+    "type": "lvl3",
+    "url": "/frameworks/vite#provider-setup",
+    "hierarchy": {
+      "lvl1": "Vite",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Provider Setup"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "f3bcdce3-354f-4841-b444-39f3fe3b8a17",
+    "type": "lvl3",
+    "url": "/frameworks/vite#setup-pnpm-optional",
+    "hierarchy": {
+      "lvl1": "Vite",
+      "lvl2": "Provider Setup",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Installation",
+    "objectID": "63a4ed1d-17cf-490d-903d-c383a39cc988",
+    "type": "lvl1",
+    "url": "/guide/installation",
+    "hierarchy": {"lvl1": "Installation"}
+  },
+  {
+    "content": "Installation",
+    "objectID": "217530c6-ae41-4e66-aefe-2e8d6350f59e",
+    "type": "lvl1",
+    "url": "/guide/installation#installation",
+    "hierarchy": {"lvl1": "Installation", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Install Packages",
+    "objectID": "1a3ac978-54b4-4bfa-8d0b-fbbc91c790d2",
+    "type": "lvl3",
+    "url": "/guide/installation#install-packages",
+    "hierarchy": {
+      "lvl1": "Installation",
+      "lvl2": "Installation",
+      "lvl3": "Install Packages"
+    }
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "4a133dd0-67d9-405a-88d7-200ffed55d34",
+    "type": "lvl3",
+    "url": "/guide/installation#tailwind-css-setup",
+    "hierarchy": {
+      "lvl1": "Installation",
+      "lvl2": "Install Packages",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Provider Setup",
+    "objectID": "09baac56-1ba8-42ba-9b92-ce3dccde9dea",
+    "type": "lvl3",
+    "url": "/guide/installation#provider-setup",
+    "hierarchy": {
+      "lvl1": "Installation",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Provider Setup"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "bf445543-5ef5-44a5-b1c8-9b35333f2d07",
+    "type": "lvl3",
+    "url": "/guide/installation#setup-pnpm-optional",
+    "hierarchy": {
+      "lvl1": "Installation",
+      "lvl2": "Provider Setup",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Framework Guides",
+    "objectID": "1fd3dfce-cb0a-42ff-8ba1-63e439b391c4",
+    "type": "lvl2",
+    "url": "/guide/installation#framework-guides",
+    "hierarchy": {
+      "lvl1": "Installation",
+      "lvl2": "Framework Guides",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Introduction",
+    "objectID": "798fa600-6c26-40b5-980e-423e2400bb27",
+    "type": "lvl1",
+    "url": "/guide/introduction",
+    "hierarchy": {"lvl1": "Introduction"}
+  },
+  {
+    "content": "Introduction",
+    "objectID": "a99a5715-e6da-4314-9acb-74118c3cb818",
+    "type": "lvl1",
+    "url": "/guide/introduction#introduction",
+    "hierarchy": {"lvl1": "Introduction", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "What is NextUI?",
+    "objectID": "4ce0ec8d-af6e-41e4-8252-4198edc90466",
+    "type": "lvl2",
+    "url": "/guide/introduction#what-is-nextui",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "What is NextUI?",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "FAQ",
+    "objectID": "6310b268-a22e-49d3-851f-ee379f645a1b",
+    "type": "lvl2",
+    "url": "/guide/introduction#faq",
+    "hierarchy": {"lvl1": "Introduction", "lvl2": "FAQ", "lvl3": null}
+  },
+  {
+    "content": "Is NextUI a Vercel related project?",
+    "objectID": "0d634526-7bd5-4581-b743-34607d507a74",
+    "type": "lvl3",
+    "url": "/guide/introduction#is-nextui-a-vercel-related-project",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "FAQ",
+      "lvl3": "Is NextUI a Vercel related project?"
+    }
+  },
+  {
+    "content": "How is NextUI different from TailwindCSS?",
+    "objectID": "a7260859-f6ad-4084-85a8-201f04a2bad4",
+    "type": "lvl3",
+    "url": "/guide/introduction#how-is-nextui-different-from-tailwindcss",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "Is NextUI a Vercel related project?",
+      "lvl3": "How is NextUI different from TailwindCSS?"
+    }
+  },
+  {
+    "content": "How is NextUI different from TailwindCSS components libraries?",
+    "objectID": "fb3a0043-a4b7-4d20-8ec5-e44fcb299c0e",
+    "type": "lvl3",
+    "url": "/guide/introduction#how-is-nextui-different-from-tailwindcss-components-libraries",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "How is NextUI different from TailwindCSS?",
+      "lvl3": "How is NextUI different from TailwindCSS components libraries?"
+    }
+  },
+  {
+    "content": "How NextUI deals with TailwindCSS classes conflicts?",
+    "objectID": "d3601fca-7f0c-4987-91fa-4d4815bc708f",
+    "type": "lvl3",
+    "url": "/guide/introduction#how-nextui-deals-with-tailwindcss-classes-conflicts",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "How is NextUI different from TailwindCSS components libraries?",
+      "lvl3": "How NextUI deals with TailwindCSS classes conflicts?"
+    }
+  },
+  {
+    "content": "Does NextUI use runtime CSS?",
+    "objectID": "cdc3672f-25ff-4d76-9ee8-01f2d23682b9",
+    "type": "lvl3",
+    "url": "/guide/introduction#does-nextui-use-runtime-css",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "How NextUI deals with TailwindCSS classes conflicts?",
+      "lvl3": "Does NextUI use runtime CSS?"
+    }
+  },
+  {
+    "content": "Does NextUI support TypeScript?",
+    "objectID": "64b43f44-eb50-4611-8049-06517b1ae86d",
+    "type": "lvl3",
+    "url": "/guide/introduction#does-nextui-support-typescript",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "Does NextUI use runtime CSS?",
+      "lvl3": "Does NextUI support TypeScript?"
+    }
+  },
+  {
+    "content": "Can I use NextUI with other front-end frameworks or libraries, such as Vue or Angular?",
+    "objectID": "b1406279-83d2-4cdd-86f9-26a09db4cfe4",
+    "type": "lvl3",
+    "url": "/guide/introduction#can-i-use-nextui-with-other-front-end-frameworks-or-libraries-such-as-vue-or-angular",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "Does NextUI support TypeScript?",
+      "lvl3": "Can I use NextUI with other front-end frameworks or libraries, such as Vue or Angular?"
+    }
+  },
+  {
+    "content": "Why NextUI uses Framer Motion?",
+    "objectID": "5b2c3f1c-9130-4adb-b435-c03758a065db",
+    "type": "lvl3",
+    "url": "/guide/introduction#why-nextui-uses-framer-motion",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "Can I use NextUI with other front-end frameworks or libraries, such as Vue or Angular?",
+      "lvl3": "Why NextUI uses Framer Motion?"
+    }
+  },
+  {
+    "content": "Community",
+    "objectID": "d2e69bf2-f420-401d-85b0-2ae6ee6b2f76",
+    "type": "lvl2",
+    "url": "/guide/introduction#community",
+    "hierarchy": {"lvl1": "Introduction", "lvl2": "Community", "lvl3": null}
+  },
+  {
+    "content": "Contributing",
+    "objectID": "1abc5c1f-f1f7-45aa-8074-d6b0f3b05054",
+    "type": "lvl2",
+    "url": "/guide/introduction#contributing",
+    "hierarchy": {
+      "lvl1": "Introduction",
+      "lvl2": "Contributing",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Upgrade to v2",
+    "objectID": "917dc445-e8c2-4ce7-b635-7e3994bf1a5a",
+    "type": "lvl1",
+    "url": "/guide/upgrade-to-v2",
+    "hierarchy": {"lvl1": "Upgrade to v2"}
+  },
+  {
+    "content": "Upgrade to v2",
+    "objectID": "114142cf-5421-4726-83e3-3f05b50ae163",
+    "type": "lvl1",
+    "url": "/guide/upgrade-to-v2#upgrade-to-v2",
+    "hierarchy": {"lvl1": "Upgrade to v2", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Next.js upgrade steps",
+    "objectID": "01a122f7-12b2-453c-927a-9a3ef1c0ad7e",
+    "type": "lvl2",
+    "url": "/guide/upgrade-to-v2#nextjs-upgrade-steps",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Next.js upgrade steps",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "App directory Setup",
+    "objectID": "9ae41031-99a8-4ac1-be3d-0c1ee71fdfbc",
+    "type": "lvl2",
+    "url": "/guide/upgrade-to-v2#app-directory-setup",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "App directory Setup",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Installation",
+    "objectID": "d1d13e52-70de-43f3-aa36-6673a98e87f8",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#installation",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "App directory Setup",
+      "lvl3": "Installation"
+    }
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "8bbc49d3-84d9-4034-b4db-5eee633dce15",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#tailwind-css-setup",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Installation",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Setup Provider",
+    "objectID": "a90e4992-b12c-4340-bcb2-5425b999fcd4",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#setup-provider",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Setup Provider"
+    }
+  },
+  {
+    "content": "Add Provider to Root",
+    "objectID": "c29f9ee6-352d-482c-91eb-5e5897d29d37",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#add-provider-to-root",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Setup Provider",
+      "lvl3": "Add Provider to Root"
+    }
+  },
+  {
+    "content": "Use NextUI Components",
+    "objectID": "1db7599f-ffe3-462a-9261-c210192e4bbc",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#use-nextui-components",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Add Provider to Root",
+      "lvl3": "Use NextUI Components"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "8485256f-c052-4205-b179-6f4c63f4509d",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#setup-pnpm-optional",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Use NextUI Components",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Pages Directory Setup",
+    "objectID": "f306af43-9de8-4d6b-85ac-1b7109231879",
+    "type": "lvl2",
+    "url": "/guide/upgrade-to-v2#pages-directory-setup",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Pages Directory Setup",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Installation",
+    "objectID": "ce9fe0d1-af7c-4430-8e59-f54a0853891f",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#installation-1",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Pages Directory Setup",
+      "lvl3": "Installation"
+    }
+  },
+  {
+    "content": "Tailwind CSS Setup",
+    "objectID": "112a71bf-3acc-4890-8a73-ce58e64a746e",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#tailwind-css-setup-1",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Installation",
+      "lvl3": "Tailwind CSS Setup"
+    }
+  },
+  {
+    "content": "Setup Provider",
+    "objectID": "0118f634-a379-435f-a6e4-25b401e39542",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#setup-provider-1",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Tailwind CSS Setup",
+      "lvl3": "Setup Provider"
+    }
+  },
+  {
+    "content": "Use NextUI Components",
+    "objectID": "6f0e807c-7424-404e-bd93-11613271fa9d",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#use-nextui-components-1",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Setup Provider",
+      "lvl3": "Use NextUI Components"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "0338baeb-06c9-4f36-a0f1-d83c1e9092e8",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#setup-pnpm-optional-1",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Use NextUI Components",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "React upgrade steps",
+    "objectID": "22f4e50f-d0dc-44e2-bb01-d2c373aa1116",
+    "type": "lvl2",
+    "url": "/guide/upgrade-to-v2#react-upgrade-steps",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "React upgrade steps",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Upgrade React version",
+    "objectID": "353290bf-9d72-46ee-830c-dbb7060a2a71",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#upgrade-react-version",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "React upgrade steps",
+      "lvl3": "Upgrade React version"
+    }
+  },
+  {
+    "content": "Install Framer motion",
+    "objectID": "7d0ff222-4829-45bb-8603-4ba2738b6f4e",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#install-framer-motion",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Upgrade React version",
+      "lvl3": "Install Framer motion"
+    }
+  },
+  {
+    "content": "TailwindCSS Setup",
+    "objectID": "a4b42c0d-0a92-40f8-a46d-16fbb4d73d5e",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#tailwindcss-setup",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Install Framer motion",
+      "lvl3": "TailwindCSS Setup"
+    }
+  },
+  {
+    "content": "Provider Setup",
+    "objectID": "d48ff3eb-6dfd-4839-9e0e-369c9499e384",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#provider-setup",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "TailwindCSS Setup",
+      "lvl3": "Provider Setup"
+    }
+  },
+  {
+    "content": "Use NextUI Components",
+    "objectID": "2dbb091f-ecc6-40be-81a5-a8ac3dc612c7",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#use-nextui-components-2",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Provider Setup",
+      "lvl3": "Use NextUI Components"
+    }
+  },
+  {
+    "content": "Setup pnpm (optional)",
+    "objectID": "1eda721b-98cc-4f45-91c5-f274f8c4a8d5",
+    "type": "lvl3",
+    "url": "/guide/upgrade-to-v2#setup-pnpm-optional-2",
+    "hierarchy": {
+      "lvl1": "Upgrade to v2",
+      "lvl2": "Use NextUI Components",
+      "lvl3": "Setup pnpm (optional)"
+    }
+  },
+  {
+    "content": "Customize theme",
+    "objectID": "15154e75-99c9-415a-b7aa-6868610050ef",
+    "type": "lvl1",
+    "url": "/theme/customize-theme",
+    "hierarchy": {"lvl1": "Customize theme"}
+  },
+  {
+    "content": "Customize theme",
+    "objectID": "fa98c9ba-3c40-488f-af7b-7ddc6dae6d18",
+    "type": "lvl1",
+    "url": "/theme/customize-theme#customize-theme",
+    "hierarchy": {"lvl1": "Customize theme", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Dark mode",
+    "objectID": "421e248e-952b-42d0-87a3-6e767bcde215",
+    "type": "lvl1",
+    "url": "/theme/dark-mode",
+    "hierarchy": {"lvl1": "Dark mode"}
+  },
+  {
+    "content": "Dark mode",
+    "objectID": "3a389652-9f7a-49b0-9467-96515e8765dd",
+    "type": "lvl1",
+    "url": "/theme/dark-mode#dark-mode",
+    "hierarchy": {"lvl1": "Dark mode", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Default Theme",
+    "objectID": "b635d216-3af7-43d0-aec1-9e760b44dd3b",
+    "type": "lvl1",
+    "url": "/theme/default-theme",
+    "hierarchy": {"lvl1": "Default Theme"}
+  },
+  {
+    "content": "Default Theme",
+    "objectID": "81b319e4-383e-419f-b6aa-2bed66b63f3d",
+    "type": "lvl1",
+    "url": "/theme/default-theme#default-theme",
+    "hierarchy": {"lvl1": "Default Theme", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Override styles",
+    "objectID": "b03edb9b-720c-4fb5-9ffa-989109a66c34",
+    "type": "lvl1",
+    "url": "/theme/override-styles",
+    "hierarchy": {"lvl1": "Override styles"}
+  },
+  {
+    "content": "Override styles",
+    "objectID": "db15cac9-76a3-4a54-9547-88cf291ae1c2",
+    "type": "lvl1",
+    "url": "/theme/override-styles#override-styles",
+    "hierarchy": {"lvl1": "Override styles", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Typescript",
+    "objectID": "4331e77b-7bb7-4bc3-8832-5385bfcf0dfb",
+    "type": "lvl1",
+    "url": "/theme/typescript",
+    "hierarchy": {"lvl1": "Typescript"}
+  },
+  {
+    "content": "Typescript",
+    "objectID": "16b6b0b2-0e47-45bd-9a60-aa1b55841c60",
+    "type": "lvl1",
+    "url": "/theme/typescript#typescript",
+    "hierarchy": {"lvl1": "Typescript", "lvl2": null, "lvl3": null}
+  },
+  {
+    "content": "Utilities",
+    "objectID": "d194659f-42d9-4e9b-80d1-7a432ae38023",
+    "type": "lvl1",
+    "url": "/theme/utilities",
+    "hierarchy": {"lvl1": "Utilities"}
+  },
+  {
+    "content": "Utilities",
+    "objectID": "36a34dfa-e802-4309-9e26-25f5c55e75cb",
+    "type": "lvl1",
+    "url": "/theme/utilities#utilities",
+    "hierarchy": {"lvl1": "Utilities", "lvl2": null, "lvl3": null}
+  }
+]

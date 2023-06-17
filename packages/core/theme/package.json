@@ -55,7 +55,7 @@
     "lodash.get": "^4.4.2",
     "lodash.isempty": "^4.4.0",
     "lodash.omit": "^4.5.0",
-    "tailwind-variants": "^0.1.6",
+    "tailwind-variants": "^0.1.8",
     "tailwindcss": "^3.2.7"
   },
   "peerDependencies": {

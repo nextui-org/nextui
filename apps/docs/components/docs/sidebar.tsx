@@ -236,7 +236,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
   }, [] as string[]);
 
   return (
-    <div className={cn("lg:sticky lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
+    <div className={cn("lg:fixed lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
       <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
         {(route) => (
           <Item

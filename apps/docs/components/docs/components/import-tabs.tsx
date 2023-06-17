@@ -48,7 +48,12 @@ export const ImportTabs = ({commands}: ImportTabsProps) => {
                 copyButton: "text-lg text-default-400",
               }}
             >
-              <Codeblock hideScrollBar codeString={commands[key] as string} language="jsx" />
+              <Codeblock
+                hideScrollBar
+                removeIndent
+                codeString={commands[key] as string}
+                language="jsx"
+              />
             </Snippet>
           </Tab>
         );

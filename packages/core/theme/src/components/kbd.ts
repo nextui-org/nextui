@@ -35,8 +35,7 @@ import {tv} from "tailwind-variants";
 const kbd = tv({
   slots: {
     base: [
-      "px-2",
-      "py-1",
+      "px-1",
       "inline-block",
       "space-x-0.5",
       "font-sans",

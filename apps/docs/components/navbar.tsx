@@ -69,7 +69,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         input: "text-sm",
       }}
       endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
+        <Kbd className="hidden py-0.5 px-2 lg:inline-block" keys={["command"]}>
           K
         </Kbd>
       }
@@ -105,7 +105,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                   <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
                     <DropdownTrigger>
                       <Button
-                        className="hidden w-[65px] sm:flex gap-0.5"
+                        className="hidden w-[65px] sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
                         endIcon={<ChevronDownIcon className="text-xs" />}
                         radius="full"
                         size="xs"

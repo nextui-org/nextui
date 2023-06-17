@@ -10,6 +10,7 @@ interface CodeblockProps {
   metastring?: string;
   theme?: PrismTheme;
   showLines?: boolean;
+  removeIndent?: boolean;
   hideScrollBar?: boolean;
   className?: string;
   children?: (props: any) => React.ReactNode;
@@ -49,6 +50,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
       theme: themeProp,
       metastring,
       hideScrollBar,
+      removeIndent,
       className: classNameProp,
       ...props
     },
@@ -81,11 +83,11 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
 
                 return (
                   <div
-                    key={`${i}-${getUniqueID("line")}`}
+                    key={`${i}-${getUniqueID("line-wrapper")}`}
                     {...lineProps}
                     className={clsx(
                       lineProps.className,
-                      language === "bash" ? "pr-4" : "px-4",
+                      language === "bash" || removeIndent ? "pr-4" : "px-4",
                       "relative [&>span]:relative [&>span]:z-10",
                       {
                         "px-2": showLines,
@@ -101,7 +103,11 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                       <span className="select-none text-xs mr-6 opacity-30">{i + 1}</span>
                     )}
                     {line.map((token, key) => (
-                      <span key={key} {...getTokenProps({token, key})} className={className} />
+                      <span
+                        key={`${key}-${getUniqueID("line")}`}
+                        {...getTokenProps({token, key})}
+                        className={className}
+                      />
                     ))}
                   </div>
                 );

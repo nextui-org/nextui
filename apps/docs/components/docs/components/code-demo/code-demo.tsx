@@ -140,7 +140,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
 
   return (
     <div ref={ref} className="flex flex-col gap-2">
-      {showTabs ? (
+      {showTabs && showPreview ? (
         <Tabs
           disableAnimation
           aria-label="Code demo tabs"

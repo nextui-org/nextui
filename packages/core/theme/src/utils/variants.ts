@@ -29,12 +29,12 @@ const bordered = {
 };
 
 const flat = {
-  default: "bg-default-100 text-default-foreground",
-  primary: "bg-primary-50 text-primary",
-  secondary: "bg-secondary-100 text-secondary",
-  success: "bg-success-50 text-success-600 dark:text-success",
-  warning: "bg-warning-50 text-warning-600 dark:text-warning",
-  danger: "bg-danger-50 text-danger",
+  default: "bg-default-100/50 text-default-foreground",
+  primary: "bg-primary-100/50 text-primary",
+  secondary: "bg-secondary-100/50 text-secondary",
+  success: "bg-success-100/50 text-success-600 dark:text-success",
+  warning: "bg-warning-100/50 text-warning-600 dark:text-warning",
+  danger: "bg-danger-100/50 text-danger",
   foreground: "bg-foreground/10 text-foreground",
 };
 
