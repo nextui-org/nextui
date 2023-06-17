@@ -1,7 +1,7 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {ReactNode, useMemo} from "react";
+import {cloneElement, isValidElement, ReactNode, useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
@@ -27,6 +27,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     classNames,
     motionProps,
     backdrop,
+    closeButton,
     showCloseButton,
     disableAnimation,
     getDialogProps,
@@ -44,15 +45,19 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     dialogRef,
   );
 
+  const closeButtonContent = isValidElement(closeButton) ? (
+    cloneElement(closeButton, getCloseButtonProps())
+  ) : (
+    <button {...getCloseButtonProps()}>
+      <CloseIcon />
+    </button>
+  );
+
   const content = (
     <>
       <DismissButton onDismiss={onClose} />
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
-        {showCloseButton && (
-          <button {...getCloseButtonProps()}>
-            <CloseIcon />
-          </button>
-        )}
+        {showCloseButton && closeButtonContent}
         {typeof children === "function" ? children(onClose) : children}
       </Component>
       <DismissButton onDismiss={onClose} />

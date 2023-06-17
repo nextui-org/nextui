@@ -1,5 +1,11 @@
 # @nextui-org/use-ref-state
 
+## 0.0.0-dev-v2-20230617142344
+
+### Patch Changes
+
+- Modal API improved
+
 ## 0.0.0-dev-v2-20230617005419
 
 ### Patch Changes

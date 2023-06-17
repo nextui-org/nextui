@@ -1,5 +1,16 @@
 # @nextui-org/code
 
+## 0.0.0-dev-v2-20230617142344
+
+### Patch Changes
+
+- Modal API improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230617142344
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230617142344
+  - @nextui-org/system@0.0.0-dev-v2-20230617142344
+  - @nextui-org/theme@0.0.0-dev-v2-20230617142344
+
 ## 0.0.0-dev-v2-20230617005419
 
 ### Patch Changes

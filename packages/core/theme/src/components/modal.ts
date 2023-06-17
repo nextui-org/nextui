@@ -41,7 +41,6 @@ const modal = tv({
       "bg-white",
       "z-50",
       "w-full",
-      "shadow-lg",
       "box-border",
       "bg-background",
       "dark:bg-content1",
@@ -117,6 +116,29 @@ const modal = tv({
       "2xl": {base: "rounded-2xl"},
       "3xl": {base: "rounded-3xl"},
     },
+    shadow: {
+      none: {
+        base: "shadow-none",
+      },
+      sm: {
+        base: "shadow-sm",
+      },
+      md: {
+        base: "shadow-md",
+      },
+      lg: {
+        base: "shadow-lg",
+      },
+      xl: {
+        base: "shadow-xl",
+      },
+      "2xl": {
+        base: "shadow-2xl",
+      },
+      inner: {
+        base: "shadow-inner",
+      },
+    },
     backdrop: {
       transparent: {
         backdrop: "hidden",
@@ -145,6 +167,7 @@ const modal = tv({
   defaultVariants: {
     size: "md",
     radius: "lg",
+    shadow: "lg",
     backdrop: "opaque",
     scrollBehavior: "normal",
   },

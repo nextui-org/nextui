@@ -3,7 +3,7 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";
-import {RefObject, useCallback, useId, useRef, useState, useMemo, useImperativeHandle} from "react";
+import {useCallback, useId, useRef, useState, useMemo, useImperativeHandle, ReactNode} from "react";
 import {modal} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useAriaButton} from "@nextui-org/use-aria-button";
@@ -21,10 +21,6 @@ interface Props extends HTMLNextUIProps<"section"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
-   * The ref for the element which the overlay positions itself with respect to.
-   */
-  triggerRef?: RefObject<HTMLElement>;
-  /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: HTMLMotionProps<"section">;
@@ -33,6 +29,10 @@ interface Props extends HTMLNextUIProps<"section"> {
    * @default true
    */
   showCloseButton?: boolean;
+  /**
+   * Custom modal close button element.
+   */
+  closeButton?: ReactNode;
   /**
    * Whether the animation should be disabled.
    * @default false
@@ -77,12 +77,12 @@ export function useModal(originalProps: UseModalProps) {
     as,
     className,
     classNames,
-    triggerRef: triggerRefProp,
     disableAnimation = false,
     isOpen,
     defaultOpen,
     onOpenChange,
     motionProps,
+    closeButton,
     isDismissable = true,
     showCloseButton = true,
     portalContainer,
@@ -94,13 +94,10 @@ export function useModal(originalProps: UseModalProps) {
   const Component = as || "section";
 
   const dialogRef = useRef<HTMLElement>(null);
-  const domTriggerRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLElement>(null);
 
   const [headerMounted, setHeaderMounted] = useState(false);
   const [bodyMounted, setBodyMounted] = useState(false);
-
-  const triggerRef = triggerRefProp || domTriggerRef;
 
   const dialogId = useId();
   const headerId = useId();
@@ -154,7 +151,8 @@ export function useModal(originalProps: UseModalProps) {
     className: slots.base({class: clsx(baseStyles, props.className)}),
     id: dialogId,
     "data-open": dataAttr(state.isOpen),
-    "aria-modal": true,
+    "data-dismissable": dataAttr(isDismissable),
+    "aria-modal": dataAttr(true),
     "aria-labelledby": headerMounted ? headerId : undefined,
     "aria-describedby": bodyMounted ? bodyId : undefined,
   });
@@ -186,10 +184,10 @@ export function useModal(originalProps: UseModalProps) {
     dialogRef,
     headerId,
     bodyId,
-    triggerRef,
     motionProps,
     classNames,
     isDismissable,
+    closeButton,
     showCloseButton,
     portalContainer,
     backdrop: originalProps.backdrop ?? "opaque",

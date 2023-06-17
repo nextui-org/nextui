@@ -1,6 +1,6 @@
 ---
-title: 'Modal'
-description: 'Display a dialog with a custom content that requires attention or provides additional information.'
+title: "Modal"
+description: "Display a dialog with a custom content that requires attention or provides additional information."
 url: https://nextui.org/docs/components/modal
 ---
 
@@ -17,7 +17,7 @@ Displays a dialog with a custom content that requires attention or provides addi
 NextUI exports 5 modal-related components:
 
 - **Modal**: The main component to display a modal.
-- **ModalContent**: The wrapper of the other modal components. 
+- **ModalContent**: The wrapper of the other modal components.
 - **ModalHeader**: The header of the modal.
 - **ModalBody**: The body of the modal.
 - **ModalFooter**: The footer of the modal.
@@ -25,7 +25,8 @@ NextUI exports 5 modal-related components:
 <ImportTabs
   commands={{
     main: 'import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/react";',
-    individual: 'import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/modal";',
+    individual:
+      'import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/modal";',
   }}
 />
 
@@ -38,14 +39,13 @@ When the modal opens:
 
 <CodeDemo title="Usage" files={modalContent.usage} />
 
-
 ### Sizes
 
 <CodeDemo title="Sizes" files={modalContent.sizes} />
 
 ### Non-dissmissable
 
-By default the modal can be closed by clicking on the overlay or pressing the <Kbd>ESC</Kbd> key. 
+By default the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.
 You can disable this behavior by setting the `isDismissable` prop to `false`.
 
 <CodeDemo title="Non-dissmissible" files={modalContent.nonDismissable} />
@@ -55,7 +55,7 @@ You can disable this behavior by setting the `isDismissable` prop to `false`.
 By default the modal is centered on the screen when the breakpoint is greater than `md` and is displayed at the top of the
 screen when the breakpoint is less than `md`. You can change the position of the modal by modifying the `wrapper` slot.
 
-<CodeDemo title="Modal position" files={modalContent.position} highlightedLines="12"/>
+<CodeDemo title="Modal position" files={modalContent.position} highlightedLines="12" />
 
 ### Overflow scroll
 
@@ -92,10 +92,9 @@ You can customize the backdrop by using the `backdrop` slot.
 
 Modal offers a `motionProps` property to customize the `enter` / `exit` animation.
 
-<CodeDemo title="Custom Motion" files={modalContent.customMotion} />
+<CodeDemo title="Custom Motion" highlightedLines="14-31" files={modalContent.customMotion} />
 
 > Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
-
 
 ## Slots
 
@@ -112,3 +111,67 @@ Modal offers a `motionProps` property to customize the `enter` / `exit` animatio
 You can customize the `Modal` component by passing custom Tailwind CSS classes to the component slots.
 
 <CodeDemo title="Custom Styles" highlightedLines="15-20" files={modalContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Modal` has the following attributes on the `root` element:
+
+- **data-open**:
+  When the modal is open. Based on modal state.
+- **data-dismissable**:
+  When the modal is dismissable. Based on `isDismissable` prop.
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Content outside the modal is hidden from assistive technologies while it is open.
+- The modal optionally closes when interacting outside, or pressing the <kbd>Esc</kbd> key.
+- Focus is moved into the modal on mount, and restored to the trigger element on unmount.
+- While open, focus is contained within the modal, preventing the user from tabbing outside.
+- Scrolling the page behind the modal is prevented while it is open, including in mobile browsers.
+
+<Spacer y={4} />
+
+## API
+
+### Modal Props
+
+| Attribute                 | Type                                                                                                | Description                                                                                           | Default         |
+| ------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------- |
+| children\*                | `ReactNode`                                                                                         | The content of the modal. It's usually the `ModalContent`.                                            | -               |
+| size                      | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `4xl` \| `5xl` \| `full`                  | The modal size. This changes the modal `max-width` and `height` (full).                               | `md`            |
+| color                     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                         | The modal color theme.                                                                                | `default`       |
+| radius                    | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl`                                  | The modal border radius.                                                                              | `xl`            |
+| shadow                    | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`                                  | The modal shadow.                                                                                     | `lg`            |
+| backdrop                  | `transparent` \| `opaque` \| `blur`                                                                 | The modal backdrop type.                                                                              | `opaque`        |
+| scrollBehavior            | `normal` \| `inside` \| `outside`                                                                   | The modal scroll behavior.                                                                            | `normal`        |
+| isOpen                    | `boolean`                                                                                           | Whether the modal is open by default (controlled).                                                    | -               |
+| defaultOpen               | `boolean`                                                                                           | Whether the modal is open by default (uncontrolled).                                                  | -               |
+| isDismissable             | `boolean`                                                                                           | Whether the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.        | `true`          |
+| isKeyboardDismissDisabled | `boolean`                                                                                           | Whether pressing the <Kbd>Esc</Kbd> key to close the modal should be disabled.                        | `false`         |
+| showCloseButton           | `boolean`                                                                                           | Whether the modal should display a close button.                                                      | `true`          |
+| closeButton               | `ReactNode`                                                                                         | Custom close button to display on top right corner.                                                   | -               |
+| motionProps               | [MotionProps](#motion-props)                                                                        | The props to modify the framer motion animation. Use the `variants` API to create your own animation. |                 |
+| portalContainer           | `HTMLElement`                                                                                       | The container element in which the overlay portal will be placed.                                     | `document.body` |
+| disableAnimation          | `boolean`                                                                                           | Whether the modal should not have animations.                                                         | `false`         |
+| classNames                | `Record<"wrapper"｜ "base"｜ "backdrop"｜ "header" ｜ "body" ｜ "footer" ｜ "closeButton", string>` | Allows to set custom class names for the modal slots.                                                 | -               |
+
+### Modal Events
+
+| Attribute    | Type                        | Description                                                 |
+| ------------ | --------------------------- | ----------------------------------------------------------- |
+| onOpenChange | `(isOpen: boolean) => void` | Handler that is called when the modal's open state changes. |
+| onClose      | `() => void`                | Handler that is called when the modal is closed.            |
+
+<Spacer y={4} />
+
+### Modal types
+
+#### Motion Props
+
+```ts
+export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
+```

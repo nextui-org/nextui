@@ -11,7 +11,7 @@ export default function App() {
         isOpen={isOpen} 
         onOpenChange={onOpenChange}
         classNames={{
-          backdrop: "bg-gradient-to-t from-slate-800 to-slate-800/10 backdrop-opacity-20"
+          backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
         }}
       >
         <ModalContent>
