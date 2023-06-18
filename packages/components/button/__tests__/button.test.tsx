@@ -41,7 +41,7 @@ describe("Button", () => {
 
   it("should renders with start icon", () => {
     const wrapper = render(
-      <Button startIcon={<span data-testid="start-icon">Icon</span>}>Button</Button>,
+      <Button startContent={<span data-testid="start-icon">Icon</span>}>Button</Button>,
     );
 
     expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
@@ -49,7 +49,7 @@ describe("Button", () => {
 
   it("should renders with end icon", () => {
     const wrapper = render(
-      <Button endIcon={<span data-testid="end-icon">Icon</span>}>Button</Button>,
+      <Button endContent={<span data-testid="end-icon">Icon</span>}>Button</Button>,
     );
 
     expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();

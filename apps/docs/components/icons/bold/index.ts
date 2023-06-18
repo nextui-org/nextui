@@ -11,3 +11,5 @@ export * from "./previous";
 export * from "./repeat-one";
 export * from "./shuffle";
 export * from "./info";
+export * from "./document-code";
+export * from "./hash";

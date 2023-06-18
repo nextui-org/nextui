@@ -29,19 +29,21 @@ export default async function Home() {
   const data = await getData();
 
   return (
-    <section className="flex flex-col items-center justify-center">
-      <Hero />
-      <FeaturesGrid features={landingContent.topFeatures} />
-      <CustomThemes />
-      <A11yOtb />
-      <DarkMode />
-      <Customization />
-      <LastButNotLeast />
-      <Support sponsors={data.sponsors} />
-      <Spacer y={24} />
-      <InstallBanner />
-      <Community />
-      <Spacer y={24} />
-    </section>
+    <main className="container mx-auto max-w-7xl px-6 pt-16 flex-grow">
+      <section className="flex flex-col items-center justify-center">
+        <Hero />
+        <FeaturesGrid features={landingContent.topFeatures} />
+        <CustomThemes />
+        <A11yOtb />
+        <DarkMode />
+        <Customization />
+        <LastButNotLeast />
+        <Support sponsors={data.sponsors} />
+        <Spacer y={24} />
+        <InstallBanner />
+        <Community />
+        <Spacer y={24} />
+      </section>
+    </main>
   );
 }

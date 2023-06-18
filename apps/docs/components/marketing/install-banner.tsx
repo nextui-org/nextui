@@ -56,7 +56,7 @@ export const InstallBanner = () => {
               as={NextLink}
               className="text-sm"
               color="secondary"
-              endIcon={
+              endContent={
                 <ArrowRightIcon
                   className="group-data-[hover=true]:translate-x-0.5 transition-transform"
                   strokeWidth={2}
@@ -75,7 +75,7 @@ export const InstallBanner = () => {
               href="https://github.com/nextui-org/nextui"
               radius="full"
               size="md"
-              startIcon={<GithubIcon />}
+              startContent={<GithubIcon />}
               variant="bordered"
             >
               Github

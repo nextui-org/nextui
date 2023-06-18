@@ -94,7 +94,7 @@ const button = tv({
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
     isIconOnly: {
-      true: "p-0 gap-0 min-w-fit",
+      true: "p-0 gap-0",
       false: "[&>svg]:max-w-[2em]",
     },
     disableAnimation: {
@@ -382,27 +382,27 @@ const button = tv({
     {
       isIconOnly: true,
       size: "xs",
-      class: "w-6 h-6",
+      class: "min-w-[1.5rem] w-6 h-6",
     },
     {
       isIconOnly: true,
       size: "sm",
-      class: "w-8 h-8",
+      class: "min-w-[2rem] w-8 h-8",
     },
     {
       isIconOnly: true,
       size: "md",
-      class: "w-10 h-10",
+      class: "min-w-[2.5rem] w-10 h-10",
     },
     {
       isIconOnly: true,
       size: "lg",
-      class: "w-12 h-12",
+      class: "min-w-[3rem] w-12 h-12",
     },
     {
       isIconOnly: true,
       size: "xl",
-      class: "w-14 h-14",
+      class: "min-w-[3.5rem] w-14 h-14",
     },
   ],
 });

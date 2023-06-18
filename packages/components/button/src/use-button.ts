@@ -33,11 +33,11 @@ export interface UseButtonProps
   /**
    * The button start content.
    */
-  startIcon?: ReactNode;
+  startContent?: ReactNode;
   /**
    * The button end content.
    */
-  endIcon?: ReactNode;
+  endContent?: ReactNode;
   /**
    * Spinner to display when loading.
    * @see https://nextui.org/components/spinner
@@ -63,8 +63,8 @@ export function useButton(props: UseButtonProps) {
     ref,
     as,
     children,
-    startIcon: startIconProp,
-    endIcon: endIconProp,
+    startContent: startContentProp,
+    endContent: endContentProp,
     autoFocus,
     className,
     spinner,
@@ -182,8 +182,8 @@ export function useButton(props: UseButtonProps) {
         })
       : null;
 
-  const startIcon = getIconClone(startIconProp);
-  const endIcon = getIconClone(endIconProp);
+  const startContent = getIconClone(startContentProp);
+  const endContent = getIconClone(endContentProp);
 
   const spinnerSize = useMemo(() => {
     const buttonSpinnerSizeMap: Record<string, SpinnerProps["size"]> = {
@@ -204,8 +204,8 @@ export function useButton(props: UseButtonProps) {
     drips,
     spinner,
     styles,
-    startIcon,
-    endIcon,
+    startContent,
+    endContent,
     isLoading,
     spinnerPlacement,
     spinnerSize,

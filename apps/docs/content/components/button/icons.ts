@@ -72,10 +72,10 @@ import {CameraIcon} from './CameraIcon';
 export default function App() {
   return (
     <div className="flex gap-4 items-center">
-      <Button color="success" endIcon={<CameraIcon/>}>
+      <Button color="success" endContent={<CameraIcon/>}>
         Take a photo
       </Button>    
-      <Button color="danger" variant="bordered" startIcon={<UserIcon/>}>
+      <Button color="danger" variant="bordered" startContent={<UserIcon/>}>
         Delete user
       </Button>
     </div>

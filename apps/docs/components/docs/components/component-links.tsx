@@ -29,7 +29,7 @@ export const ComponentLinks = ({
         href={`https://storiesv2.nextui.org/?path=/story/components-${storybook || component}`}
         radius="md"
         size="sm"
-        startIcon={<StorybookIcon className="text-lg text-[#ff4785]" />}
+        startContent={<StorybookIcon className="text-lg text-[#ff4785]" />}
         variant="flat"
       >
         Storybook
@@ -41,7 +41,7 @@ export const ComponentLinks = ({
         href={`https://www.npmjs.com/package/@nextui-org/${component}`}
         radius="md"
         size="sm"
-        startIcon={<NpmIcon className="text-2xl text-[#E53E3E]" />}
+        startContent={<NpmIcon className="text-2xl text-[#E53E3E]" />}
         variant="flat"
       >
         {`@nextui-org/${component}`}
@@ -54,7 +54,7 @@ export const ComponentLinks = ({
           href={`https://react-spectrum.adobe.com/react-aria/${reactAriaHook}.html`}
           radius="md"
           size="sm"
-          startIcon={<AdobeIcon className="text-lg text-[#E1251B]" />}
+          startContent={<AdobeIcon className="text-lg text-[#E1251B]" />}
           variant="flat"
         >
           React Aria
@@ -67,7 +67,7 @@ export const ComponentLinks = ({
         href={`${COMPONENT_PATH}/${component}`}
         radius="md"
         size="sm"
-        startIcon={<GithubIcon />}
+        startContent={<GithubIcon />}
         variant="flat"
       >
         Source
@@ -79,7 +79,7 @@ export const ComponentLinks = ({
         href={`${COMPONENT_THEME_PATH}/${styles || component}.ts`}
         radius="md"
         size="sm"
-        startIcon={<GithubIcon />}
+        startContent={<GithubIcon />}
         variant="flat"
       >
         Styles source

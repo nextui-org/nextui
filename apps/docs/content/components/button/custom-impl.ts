@@ -11,8 +11,8 @@ const MyButton = forwardRef((props, ref) => {
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
-    startIcon,
-    endIcon,
+    startContent,
+    endContent,
     isLoading,
     disableRipple,
     getButtonProps,
@@ -23,11 +23,11 @@ const MyButton = forwardRef((props, ref) => {
 
   return (
     <button ref={domRef} className={classNames} {...getButtonProps()}>
-      {startIcon}
+      {startContent}
       {isLoading && spinnerPlacement === "start" && spinner}
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
-      {endIcon}
+      {endContent}
       {!disableRipple && <Drip drips={drips} />}
     </button>
   );
@@ -52,8 +52,8 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
-    startIcon,
-    endIcon,
+    startContent,
+    endContent,
     isLoading,
     disableRipple,
     getButtonProps,
@@ -64,11 +64,11 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   return (
     <button ref={domRef} className={classNames} {...getButtonProps()}>
-      {startIcon}
+      {startContent}
       {isLoading && spinnerPlacement === "start" && spinner}
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
-      {endIcon}
+      {endContent}
       {!disableRipple && <Drip drips={drips} />}
     </button>
   );

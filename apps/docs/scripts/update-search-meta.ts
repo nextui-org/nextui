@@ -36,15 +36,23 @@ interface TOCResultItem {
   seen: number
 }
 
+const getUrl = (slug: string) => {
+  const url = removePrefix(slug, "/")
+
+
+  return `/docs${url}`
+}
+
 async function getMDXMeta(file: string) {
   const {content, frontMatter: _frontMatter} = await parseMarkdownFile(file);
 
   const frontMatter = _frontMatter as Record<string, any>
   const tableOfContent = toc(content);
   const json = tableOfContent.json as TOCResultItem[]
-  const slug = fileToPath(file)
+  let slug = fileToPath(file)
     .replace(`/${docsRootFolder}`, "")
     .replace(process.cwd(), "");
+
 
   const result:ResultType[] = [];
   const title = !!frontMatter.title ? frontMatter.title : "";
@@ -53,18 +61,18 @@ async function getMDXMeta(file: string) {
     content: title,
     objectID: uuid(),
     type: "lvl1",
-    url: removePrefix(slug, "/"),
+    url: getUrl(slug),
     hierarchy: {
       lvl1: title,
     },
   });
 
   json.forEach((item, index) => {
-    result.push({
+    item.content !== title && result.push({
       content: item.content,
       objectID: uuid(),
       type: `lvl${item.lvl}`,
-      url: removePrefix(slug, "/") + `#${item.slug}`,
+      url: getUrl(slug) + `#${item.slug}`,
       hierarchy: {
         lvl1: title,
         lvl2: item.lvl === 2 ? item.content : json[index - 1]?.content ?? null,
@@ -78,16 +86,9 @@ async function getMDXMeta(file: string) {
 
 async function getSearchMeta(saveMode: "algolia" | "local" = "local") {
   dotenv.config();
-  // Initialize Algolia client
-  const client = algoliasearch(
-    process.env.ALGOLIA_APP_ID || "",
-    process.env.ALGOLIA_ADMIN_API_KEY || "",
-  );
 
   try {
-    const tmpIndex = await client.initIndex("prod_docs_tmp");
-    const mainIndex = await client.initIndex("prod_docs");
-
+  
     let json: any = [];
 
     const files = shell
@@ -128,7 +129,14 @@ async function getSearchMeta(saveMode: "algolia" | "local" = "local") {
       return;
     }
 
+    // Initialize Algolia client
+    const client = algoliasearch(
+      process.env.ALGOLIA_APP_ID || "",
+      process.env.ALGOLIA_ADMIN_API_KEY || "",
+    );
   
+    const tmpIndex = await client.initIndex("prod_docs_tmp");
+    const mainIndex = await client.initIndex("prod_docs");
 
     // Get settings of main index and set them to the temp index
     const indexSettings = await mainIndex.getSettings();

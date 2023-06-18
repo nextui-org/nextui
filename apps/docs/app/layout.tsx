@@ -4,6 +4,7 @@ import {clsx} from "@nextui-org/shared-utils";
 
 import {Providers} from "./providers";
 
+import {Cmdk} from "@/components/cmdk";
 import manifest from "@/content/docs/manifest.json";
 import {siteConfig} from "@/config/site";
 import {fontSans} from "@/config/fonts";
@@ -61,9 +62,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
           <div className="relative flex flex-col" id="app-container">
             <Navbar routes={manifest.routes} />
-            <main className="container mx-auto max-w-7xl px-6 pt-16 flex-grow">{children}</main>
+            {children}
             <Footer />
           </div>
+          <Cmdk />
         </Providers>
       </body>
     </html>

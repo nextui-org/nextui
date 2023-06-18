@@ -25,10 +25,10 @@ interface Props extends HTMLNextUIProps<"section"> {
    */
   motionProps?: HTMLMotionProps<"section">;
   /**
-   * Determines if the modal should have a close button in the top right corner.
-   * @default true
+   * Determines whether to hide the modal close button.
+   * @default false
    */
-  showCloseButton?: boolean;
+  hideCloseButton?: boolean;
   /**
    * Custom modal close button element.
    */
@@ -84,7 +84,7 @@ export function useModal(originalProps: UseModalProps) {
     motionProps,
     closeButton,
     isDismissable = true,
-    showCloseButton = true,
+    hideCloseButton = false,
     portalContainer,
     isKeyboardDismissDisabled = false,
     onClose,
@@ -188,7 +188,7 @@ export function useModal(originalProps: UseModalProps) {
     classNames,
     isDismissable,
     closeButton,
-    showCloseButton,
+    hideCloseButton,
     portalContainer,
     backdrop: originalProps.backdrop ?? "opaque",
     isOpen: state.isOpen,

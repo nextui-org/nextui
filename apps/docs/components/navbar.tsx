@@ -9,7 +9,6 @@ import {
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
-  Input,
   Link,
   Button,
   Kbd,
@@ -23,16 +22,22 @@ import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
 import {includes} from "lodash";
-import {SearchIcon} from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
 import {useEffect} from "react";
 
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
-import {TwitterIcon, GithubIcon, DiscordIcon, HeartFilledIcon} from "@/components/icons";
+import {
+  TwitterIcon,
+  GithubIcon,
+  DiscordIcon,
+  HeartFilledIcon,
+  SearchLinearIcon,
+} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
+import {useCmdkStore} from "@/components/cmdk";
 
 export interface NavbarProps {
   routes: Route[];
@@ -49,6 +54,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
 
   const pathname = usePathname();
 
+  const cmkdStore = useCmdkStore();
+
   useEffect(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -61,24 +68,26 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     "/docs/guide/upgrade-to-v2",
   ];
 
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-400/20 dark:bg-default-500/20",
-        input: "text-sm",
-      }}
+  const searchButton = (
+    <Button
+      aria-label="Quick search"
+      className="text-sm font-normal text-default-600 bg-default-400/20 dark:bg-default-500/20"
       endContent={
         <Kbd className="hidden py-0.5 px-2 lg:inline-block" keys={["command"]}>
           K
         </Kbd>
       }
-      labelPlacement="outside"
-      placeholder="Search..."
       startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
+        <SearchLinearIcon
+          className="text-base text-default-400 pointer-events-none flex-shrink-0"
+          size={18}
+          strokeWidth={2}
+        />
       }
-    />
+      onPress={() => cmkdStore.onOpen()}
+    >
+      Quick Search...
+    </Button>
   );
 
   return (
@@ -105,8 +114,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                   <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
                     <DropdownTrigger>
                       <Button
-                        className="hidden w-[65px] sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
-                        endIcon={<ChevronDownIcon className="text-xs" />}
+                        className="hidden min-w-fit max-w-[64px] sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
+                        endContent={<ChevronDownIcon className="text-xs" />}
                         radius="full"
                         size="xs"
                         variant="flat"
@@ -129,7 +138,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               </DropdownMenu>
             </Dropdown>
           ) : (
-            <div className="w-[80px]" />
+            <div className="w-[64px]" />
           )}
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start">
@@ -184,6 +193,18 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         <NavbarItem className="flex items-center">
           <ThemeSwitch />
         </NavbarItem>
+        <NavbarItem className="flex items-center">
+          <Button
+            isIconOnly
+            className="p-0"
+            radius="full"
+            size="xs"
+            variant="light"
+            onPress={() => cmkdStore.onOpen()}
+          >
+            <SearchLinearIcon className="text-default-600 dark:text-default-500 mt-px" size={20} />
+          </Button>
+        </NavbarItem>
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
@@ -200,14 +221,14 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           </Link>
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+        <NavbarItem className="hidden lg:flex">{searchButton}</NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Button
             isExternal
             as={Link}
             className="group text-sm font-normal text-default-600 bg-default-400/20 dark:bg-default-500/20"
             href={siteConfig.links.sponsor}
-            startIcon={
+            startContent={
               <HeartFilledIcon className="text-danger group-data-[hover=true]:animate-heartbeat" />
             }
             variant="flat"
@@ -222,7 +243,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       </NavbarContent>
 
       <NavbarMenu>
-        {searchInput}
         <DocsSidebar className="mt-4" routes={routes} slug={slug} tag={tag} />
         {children}
       </NavbarMenu>

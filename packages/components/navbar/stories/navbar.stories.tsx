@@ -237,7 +237,7 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
           <Dropdown>
             <NavbarItem>
               <DropdownTrigger>
-                <Button endIcon={icons.chevron} radius="full" variant="light">
+                <Button endContent={icons.chevron} radius="full" variant="light">
                   Features
                 </Button>
               </DropdownTrigger>

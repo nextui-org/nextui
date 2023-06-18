@@ -24,7 +24,7 @@ import {colorVariants} from "../utils";
  */
 const snippet = tv({
   slots: {
-    base: "inline-flex items-center justify-between h-fit rounded-md",
+    base: "inline-flex items-center justify-between h-fit rounded-md gap-2",
     pre: "bg-transparent text-inherit font-mono font-normal inline-block whitespace-nowrap",
     content: "flex flex-col",
     symbol: "select-none",
@@ -32,7 +32,6 @@ const snippet = tv({
       "group",
       "relative",
       "z-10",
-      "ml-2",
       "text-lg",
       "text-inherit",
       "data-[hover=true]:bg-transparent",

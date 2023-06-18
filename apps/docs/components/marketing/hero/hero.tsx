@@ -33,7 +33,7 @@ export const Hero = () => {
             as={NextLink}
             className="w-full md:w-auto"
             color="primary"
-            endIcon={
+            endContent={
               <ArrowRightIcon
                 className="group-data-[hover=true]:translate-x-0.5 transition-transform"
                 strokeWidth={2}
@@ -54,7 +54,7 @@ export const Hero = () => {
             href="https://github.com/nextui-org/nextui"
             radius="full"
             size="lg"
-            startIcon={<GithubIcon />}
+            startContent={<GithubIcon />}
             variant="bordered"
           >
             Github

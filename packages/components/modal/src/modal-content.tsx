@@ -28,7 +28,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     motionProps,
     backdrop,
     closeButton,
-    showCloseButton,
+    hideCloseButton,
     disableAnimation,
     getDialogProps,
     getBackdropProps,
@@ -57,7 +57,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     <>
       <DismissButton onDismiss={onClose} />
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
-        {showCloseButton && closeButtonContent}
+        {!hideCloseButton && closeButtonContent}
         {typeof children === "function" ? children(onClose) : children}
       </Component>
       <DismissButton onDismiss={onClose} />

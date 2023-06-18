@@ -68,31 +68,8 @@ export const DocsLayout: FC<DocsLayoutProps> = ({
           )}
         </div>
       </main>
+
       <Footer align="right" />
-
-      {/* <div
-        aria-hidden="true"
-        className="fixed hidden dark:md:block dark:opacity-70 -bottom-[40%] -left-[20%] z-[-10]"
-      >
-        <Image
-          removeWrapper
-          alt="docs left background"
-          className="z-[-10]"
-          src="/gradients/docs-left.svg"
-        />
-      </div>
-
-      <div
-        aria-hidden="true"
-        className="fixed hidden dark:md:block dark:opacity-70 -top-[80%] -right-[60%] 2xl:-top-[60%] 2xl:-right-[45%] z-[-10] rotate-12"
-      >
-        <Image
-          removeWrapper
-          alt="docs right background"
-          className="z-[-10]"
-          src="/gradients/docs-right.svg"
-        />
-      </div> */}
     </div>
   );
 };

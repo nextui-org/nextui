@@ -1,5 +1,18 @@
 # @nextui-org/tooltip
 
+## 0.0.0-dev-v2-20230618174149
+
+### Patch Changes
+
+- Button APi changed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230618174149
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230618174149
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230618174149
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230618174149
+  - @nextui-org/system@0.0.0-dev-v2-20230618174149
+  - @nextui-org/theme@0.0.0-dev-v2-20230618174149
+
 ## 0.0.0-dev-v2-20230617142344
 
 ### Patch Changes
