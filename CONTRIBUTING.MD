@@ -1,6 +1,6 @@
 # Next UI Contributing Guide
 
-Hello!, I am very excited that you are interested in contributing with Next UI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
+Hello! I am very excited that you are interested in contributing with Next UI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
 
 - [Code of Conduct](https://github.com/jrgarciadev/nextui/blob/main/CODE_OF_CONDUCT.md)
 - [Extraction request guidelines](#pull-request-guidelines)
@@ -92,7 +92,7 @@ git checkout -b fix/something
 All commits that fix bugs or add features need a test.
 You can run the nest command for component specific tests.
 
-```
+```bash
 # Test current code
 yarn test:update # or npm run test:update
 
@@ -103,7 +103,7 @@ yarn test:update src/button  # or npm run test:update src/button
 
 5. Be sure the package builds.
 
-```
+```bash
 # Build current code
 yarn build # or npm run build
 ```
