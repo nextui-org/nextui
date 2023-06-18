@@ -165,7 +165,7 @@ export const A11yOtb = () => {
                 onOpenChange={(open) => setIsDropdownOpen(open)}
               >
                 <DropdownTrigger>
-                  <Button color="success" variant="flat">
+                  <Button className="bg-success-50" color="success" variant="flat">
                     {isMobile ? "Click me" : "Actions"}
                   </Button>
                 </DropdownTrigger>
