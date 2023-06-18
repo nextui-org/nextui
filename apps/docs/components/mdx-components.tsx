@@ -21,10 +21,12 @@ const Thead: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
     <thead
       className={clsx(
-        "[&>tr]:h-12 [&>tr>th]:bg-default-100",
-        "[&>tr>th]:align-middle",
+        "[&>tr]:h-12",
         "[&>tr>th]:py-0",
-        "[&>tr>th]:text-default-500 [&>tr>th]:text-xs",
+        "[&>tr>th]:align-middle",
+        "[&>tr>th]:bg-default-400/20",
+        "dark:[&>tr>th]:bg-default-600/10",
+        "[&>tr>th]:text-default-600 [&>tr>th]:text-xs",
         "[&>tr>th]:text-left [&>tr>th]:pl-2",
         "[&>tr>th:first-child]:rounded-l-lg",
         "[&>tr>th:last-child]:rounded-r-lg",
