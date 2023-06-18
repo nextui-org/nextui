@@ -52,7 +52,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         isHovered={isHovered}
         isPressable={isPressable}
         isPressed={isPressed}
-        role={isPressable ? "button" : "section"}
+        role={isPressable ? "button" : "region"}
         tabIndex={isPressable ? 0 : -1}
         variant={variant}
         {...getCardProps()}

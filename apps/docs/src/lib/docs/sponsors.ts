@@ -62,15 +62,19 @@ export type Sponsor = {
 };
 
 export const getSponsors = async () => {
-  const res = await fetch("https://opencollective.com/nextui/members/all.json");
-  const data = await res.json();
+  try {
+    const res = await fetch("https://opencollective.com/nextui/members/all.json");
+    const data = await res.json();
 
-  // filter out repeated sponsors
-  const sponsors = uniqBy<Sponsor>(data, "profile").filter(
-    (sponsor) => sponsor.role !== "ADMIN" && sponsor.role !== "HOST",
-  );
+    // filter out repeated sponsors
+    const sponsors = uniqBy<Sponsor>(data, "profile").filter(
+      (sponsor) => sponsor.role !== "ADMIN" && sponsor.role !== "HOST",
+    );
 
-  return sponsors;
+    return sponsors;
+  } catch (error) {
+    return [];
+  }
 };
 
 export const getTier = (amount: number) => {

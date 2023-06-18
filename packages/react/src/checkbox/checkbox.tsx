@@ -4,7 +4,7 @@ import type {PressResult} from "@react-aria/interactions";
 import type {CSS} from "../theme/stitches.config";
 
 import React, {useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover, usePress} from "@react-aria/interactions";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -92,7 +92,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
     return (
       <StyledCheckboxLabel
         ref={domRef}
-        {...mergeProps(hoverProps, pressProps, otherProps)}
+        {...mergeProps(hoverProps, pressProps, filterDOMProps(otherProps, {labelable: true}))}
         as={as}
         className={clsx("nextui-checkbox-label", `nextui-checkbox--${checkboxState}`, className)}
         css={css}

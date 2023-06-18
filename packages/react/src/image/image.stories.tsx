@@ -47,7 +47,7 @@ export const Skeleton = () => (
     alt="Default Image"
     height={180}
     maxDelay={5000}
-    src="http://www.deelay.me/5000/https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
+    src="https://app.requestly.io/delay/5000/https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
     width={320}
   />
 );

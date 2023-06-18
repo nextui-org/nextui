@@ -91,7 +91,7 @@ export default function NavbarDisableCollapseAnimationExample() {
             </Dropdown.Menu>
           </Dropdown>
         </Navbar.Content>
-        <Navbar.Collapse disableAnimation>
+        <Navbar.Collapse disableAnimation showIn="xs">
           {collapseItems.map((item, index) => (
             <Navbar.CollapseItem
               key={`${item}-${index}`}

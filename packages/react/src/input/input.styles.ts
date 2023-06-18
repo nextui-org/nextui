@@ -899,10 +899,14 @@ export const StyledInputClearButton = styled("button", {
   },
 });
 
-export const StyledInputClearButtonIconWrapper = styled('span', {
-  display: 'flex',
-  br: '100%'
-} , cssFocusVisible)
+export const StyledInputClearButtonIconWrapper = styled(
+  "span",
+  {
+    display: "flex",
+    br: "100%",
+  },
+  cssFocusVisible,
+);
 
 // types
 export type InputVariantsProps = VariantProps<typeof StyledInput>;

@@ -44,7 +44,7 @@ const CustomizationSection = () => {
           >
             Stitches
           </Link>
-          , you can customize any components in several ways eather using the&nbsp;
+          , you can customize any components in several ways either using the&nbsp;
           <NextLink href="/docs/theme/override-styles#using-the-css-prop">
             <Link css={{color: "$green600", d: "inline-flex"}}>css&nbsp;</Link>
           </NextLink>
