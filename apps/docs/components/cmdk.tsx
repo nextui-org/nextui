@@ -243,7 +243,9 @@ export const Cmdk: FC<{}> = () => {
                 <CloseIcon />
               </Button>
             )}
-            <Kbd className="border-none px-2 py-1 ml-2 font-medium text-[0.6rem]">ESC</Kbd>
+            <Kbd className="hidden md:block border-none px-2 py-1 ml-2 font-medium text-[0.6rem]">
+              ESC
+            </Kbd>
           </div>
           <Command.List ref={listRef} className={slots.list()} role="listbox">
             {query.length > 0 ? (
