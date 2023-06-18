@@ -200,6 +200,7 @@ export const Cmdk: FC<{}> = () => {
         base: [
           "mt-[20vh]",
           "max-w-[calc(100vw-2rem)]",
+          "sm:max-w-xl",
           "supports-[backdrop-filter]:bg-background/80",
           "dark:supports-[backdrop-filter]:bg-background/30",
           "supports-[backdrop-filter]:backdrop-blur-md",
