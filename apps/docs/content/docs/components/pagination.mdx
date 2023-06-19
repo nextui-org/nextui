@@ -8,6 +8,91 @@ url: https://nextui.org/docs/components/pagination
 
 The Pagination component allows you to display active page and navigate between multiple pages.
 
-```jsx
-import {Pagination} from '@nextui-org/react';
-```
+<ComponentLinks component="pagination" />
+
+---
+
+## Import
+
+NextUI exports 3 pagination-related components:
+
+- **Pagination**: The main component to display a pagination.
+- **PaginationItem**: The internal component to display a pagination item.
+- **PaginationCursor**: The internal item component to display the current page.
+
+<ImportTabs
+  commands={{
+    main: 'import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/react";',
+    individual:
+      'import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={paginationContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={paginationContent.disabled} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={paginationContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Radius" files={paginationContent.colors} />
+
+### Variants
+
+You can use the `variant` property to change the pagination items style.
+
+<CodeDemo title="Variants" files={paginationContent.variants} />
+
+### With Controls
+
+You can set the `showControls` to `true` to display the `next` and `previous` buttons.
+
+<CodeDemo title="With Controls" files={paginationContent.controls} />
+
+### Pagination Loop
+
+In case you want to loop the pagination, you can set the `loop` property to `true`. 
+The cursor will go back to the first page when it reaches the last page and vice versa.
+
+<CodeDemo title="Pagination Loop" files={paginationContent.loop} />
+
+### Changing the initial page
+
+You can change the initial page by setting the `initialPage` property.
+
+<CodeDemo title="Changing the initial page" files={paginationContent.initialPage} />
+
+### Compact Pagination
+
+You can set the `isCompact` property to `true` to display reduced version of the pagination.
+
+<CodeDemo title="Compact Pagination" files={paginationContent.compact} />
+
+### Controlled
+
+<CodeDemo title="Controlled" files={paginationContent.controlled} />
+
+### Siblings
+
+You can control the number of pages to show before and after the current page by setting the `siblings` property.
+
+<CodeDemo title="Siblings" files={paginationContent.siblings} />
+
+### Boundaries
+
+You can control the number of pages to show at the beginning and end of the pagination by setting the `boundaries` property.
+
+<CodeDemo title="Boundaries" files={paginationContent.boundaries} />
+
+### Custom items
+
+You can use the `renderItem` property to customize the pagination items.
+
+<CodeDemo title="Custom items" files={paginationContent.customItems} />

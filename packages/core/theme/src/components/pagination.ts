@@ -49,7 +49,7 @@ const pagination = tv({
       },
       flat: {},
       faded: {
-        item: "border-2",
+        item: ["border-2", "border-default"],
       },
     },
     color: {
@@ -343,7 +343,7 @@ const pagination = tv({
     {
       slots: ["item", "prev", "next"],
       variant: "faded",
-      class: ["bg-default-100", "data-[hover=true]:bg-default-200", "active:bg-default-300"],
+      class: ["bg-default-50", "data-[hover=true]:bg-default-100", "active:bg-default-200"],
     },
     {
       slots: ["item", "prev", "next"],

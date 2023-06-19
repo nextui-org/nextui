@@ -1,5 +1,11 @@
 # @nextui-org/test-utils
 
+## 0.0.0-dev-v2-20230619185541
+
+### Patch Changes
+
+- Pagination faded styles fixed
+
 ## 0.0.0-dev-v2-20230619135319
 
 ### Patch Changes

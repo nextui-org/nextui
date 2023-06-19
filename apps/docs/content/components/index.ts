@@ -26,3 +26,4 @@ export * from "./popover";
 export * from "./tooltip";
 export * from "./tabs";
 export * from "./modal";
+export * from "./pagination";

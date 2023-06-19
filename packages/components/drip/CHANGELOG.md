@@ -1,5 +1,15 @@
 # @nextui-org/drip
 
+## 0.0.0-dev-v2-20230619185541
+
+### Patch Changes
+
+- Pagination faded styles fixed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230619185541
+  - @nextui-org/system@0.0.0-dev-v2-20230619185541
+  - @nextui-org/theme@0.0.0-dev-v2-20230619185541
+
 ## 0.0.0-dev-v2-20230619135319
 
 ### Patch Changes
