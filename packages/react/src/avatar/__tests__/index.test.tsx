@@ -116,4 +116,21 @@ describe("Avatar", () => {
     expect(imgRef.current).not.toBeNull();
     expect(() => wrapper.unmount()).not.toThrow();
   });
+
+  it("should apply button styles when 'as' prop is 'button'", () => {
+    const wrapper = mount(<Avatar as="button" />);
+
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("should handle the onLoad event", () => {
+    const onLoad = jest.fn();
+    const wrapper = mount(
+      <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026705d" onLoad={onLoad} />,
+    );
+
+    wrapper.find("img").simulate("load");
+    expect(onLoad).toHaveBeenCalled();
+  });
 });
