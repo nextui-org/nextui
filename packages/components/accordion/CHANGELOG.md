@@ -1,5 +1,20 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230619132750
+
+### Patch Changes
+
+- Modal width improved on mobile, flat colors changed, small improvements
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230619132750
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230619132750
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230619132750
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230619132750
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230619132750
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230619132750
+  - @nextui-org/system@0.0.0-dev-v2-20230619132750
+  - @nextui-org/theme@0.0.0-dev-v2-20230619132750
+
 ## 0.0.0-dev-v2-20230618174149
 
 ### Patch Changes

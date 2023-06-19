@@ -1,5 +1,11 @@
 # @nextui-org/test-utils
 
+## 0.0.0-dev-v2-20230619132750
+
+### Patch Changes
+
+- Modal width improved on mobile, flat colors changed, small improvements
+
 ## 0.0.0-dev-v2-20230618174149
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230619132750
+
+### Patch Changes
+
+- Modal width improved on mobile, flat colors changed, small improvements
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230619132750
+
 ## 0.0.0-dev-v2-20230618174149
 
 ### Patch Changes

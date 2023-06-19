@@ -46,6 +46,7 @@ const modal = tv({
       "dark:bg-content1",
       "border border-default-100",
       "outline-none",
+      "mx-6",
       "my-16",
     ],
     backdrop: "z-50",
@@ -103,7 +104,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 max-w-full h-[100dvh] !rounded-none",
+        base: "my-0 mx-0 max-w-full h-[100dvh] !rounded-none",
       },
     },
     radius: {

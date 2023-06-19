@@ -25,6 +25,8 @@ import {usePathname} from "next/navigation";
 import {includes} from "lodash";
 import {motion, AnimatePresence} from "framer-motion";
 import {useEffect} from "react";
+import {usePress} from "@react-aria/interactions";
+import {useFocusRing} from "@react-aria/focus";
 
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
@@ -49,6 +51,7 @@ export interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
+  const [commandKey, setCommandKey] = useState<"ctrl" | "command">("command");
 
   const ref = useRef(null);
   const isMounted = useIsMounted();
@@ -63,6 +66,15 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    setCommandKey(isAppleDevice() ? "command" : "ctrl");
+  }, []);
+
+  const {pressProps} = usePress({
+    onPress: () => cmkdStore.onOpen(),
+  });
+  const {focusProps, isFocusVisible} = useFocusRing();
+
   const docsPaths = [
     "/docs/guide/introduction",
     "/docs/guide/installation",
@@ -74,10 +86,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       aria-label="Quick search"
       className="text-sm font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20"
       endContent={
-        <Kbd
-          className="hidden py-0.5 px-2 lg:inline-block"
-          keys={isAppleDevice() ? ["command"] : ["ctrl"]}
-        >
+        <Kbd className="hidden py-0.5 px-2 lg:inline-block" keys={commandKey}>
           K
         </Kbd>
       }
@@ -189,7 +198,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       </NavbarContent>
 
       <NavbarContent className="flex w-full gap-0 sm:hidden" justify="end">
-        <NavbarItem className="flex items-center">
+        <NavbarItem className="flex h-full items-center">
           <Link
             isExternal
             aria-label="Github"
@@ -199,19 +208,28 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
         </NavbarItem>
-        <NavbarItem className="flex items-center">
+        <NavbarItem className="flex h-full items-center">
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="flex items-center">
-          <Button
-            isIconOnly
-            className="w-8 h-8"
-            size="xs"
-            variant="light"
-            onPress={() => cmkdStore.onOpen()}
+        <NavbarItem className="flex h-full items-center">
+          <button
+            className={clsx(
+              "transition-opacity p-1 hover:opacity-80 rounded-full cursor-pointer outline-none",
+              // focus ring
+              "data-[focus-visible=true]:z-10",
+              "data-[focus-visible=true]:outline-none",
+              "data-[focus-visible=true]:ring-2",
+              "data-[focus-visible=true]:ring-primary",
+              "data-[focus-visible=true]:ring-offset-2",
+              "data-[focus-visible=true]:ring-offset-background",
+              "data-[focus-visible=true]:dark:ring-offset-background-dark",
+            )}
+            data-focus-visible={isFocusVisible}
+            {...focusProps}
+            {...pressProps}
           >
-            <SearchLinearIcon className="text-default-600 dark:text-default-500" size={20} />
-          </Button>
+            <SearchLinearIcon className="mt-px text-default-600 dark:text-default-500" size={20} />
+          </button>
         </NavbarItem>
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="ml-2" />
       </NavbarContent>

@@ -55,7 +55,7 @@ export default function App() {
           <p className="text-black text-xs">Available soon.</p>
           <p className="text-black text-xs">Get notified.</p>
         </div>
-        <Button color="secondary" radius="full" size="sm" variant="flat">
+        <Button color="primary" radius="full" size="sm">
           Notify Me
         </Button>
       </CardFooter>
