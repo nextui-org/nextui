@@ -4,13 +4,15 @@
 import {Command} from "cmdk";
 import {useEffect, useState, FC, useMemo, useCallback, useRef} from "react";
 import {matchSorter} from "match-sorter";
-import {Button, Kbd, Modal, ModalContent} from "@nextui-org/react";
+import {Button, ButtonProps, Kbd, Modal, ModalContent} from "@nextui-org/react";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {tv} from "tailwind-variants";
 import {useRouter} from "next/navigation";
 import MultiRef from "react-multi-ref";
+import {cn} from "@nextui-org/theme";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {create} from "zustand";
+import {intersectionBy, isEmpty} from "lodash";
 
 import {
   DocumentCodeBoldIcon,
@@ -21,6 +23,7 @@ import {
 
 import searchData from "@/content/docs/search-meta.json";
 import {useUpdateEffect} from "@/hooks/use-update-effect";
+import {useLocalStorage} from "@/hooks/use-local-storage";
 
 export interface CmdkStore {
   isOpen: boolean;
@@ -89,11 +92,30 @@ const cmdk = tv({
       "text-default-400",
       "text-xs",
       "group-data-[active=true]:text-primary-foreground",
+      "select-none",
     ],
-    itemTitle: ["text-default-500", "group-data-[active=true]:text-primary-foreground"],
+    itemTitle: [
+      "text-default-500",
+      "group-data-[active=true]:text-primary-foreground",
+      "select-none",
+    ],
     emptyWrapper: ["flex", "flex-col", "text-center", "items-center", "justify-center", "h-32"],
   },
 });
+
+interface SearchResultItem {
+  content: string;
+  objectID: string;
+  url: string;
+  type: "lvl1" | "lvl2" | "lvl3";
+  hierarchy: {
+    lvl1: string | null;
+    lvl2?: string | null;
+    lvl3?: string | null;
+  };
+}
+
+const MATCH_KEYS = ["hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "content"];
 
 export const Cmdk: FC<{}> = () => {
   const [query, setQuery] = useState("");
@@ -107,16 +129,46 @@ export const Cmdk: FC<{}> = () => {
 
   const {isOpen, onClose, onOpen} = useCmdkStore();
 
-  const results = useMemo(
+  const [recentSearches, setRecentSearches] = useLocalStorage<SearchResultItem[]>(
+    "recent-searches",
+    [],
+  );
+
+  const addToRecentSearches = (item: SearchResultItem) => {
+    // Avoid adding the same search again
+    if (!recentSearches.find((i) => i.objectID === item.objectID)) {
+      setRecentSearches((recentSearches) => [item, ...recentSearches].slice(0, 6));
+    }
+  };
+
+  const results = useMemo<SearchResultItem[]>(
     function getResults() {
       if (query.length < 2) return [];
 
-      return matchSorter(searchData, query, {
-        keys: ["hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "content"],
-      }).slice(0, 20);
+      const data = searchData as SearchResultItem[];
+
+      const words = query.split(" ");
+
+      if (words.length === 1) {
+        return matchSorter(data, query, {
+          keys: MATCH_KEYS,
+        }).slice(0, 20);
+      }
+
+      const matchesForEachWord = words.map((word) =>
+        matchSorter(data, word, {
+          keys: MATCH_KEYS,
+        }),
+      );
+
+      const matches = intersectionBy(...matchesForEachWord, "objectID").slice(0, 20);
+
+      return matches;
     },
     [query],
   );
+
+  const items = !isEmpty(results) ? results : recentSearches;
 
   // Toggle the menu when ⌘K / CTRL K is pressed
   useEffect(() => {
@@ -135,13 +187,22 @@ export const Cmdk: FC<{}> = () => {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [isOpen]);
 
+  const onItemSelect = useCallback(
+    (item: SearchResultItem) => {
+      onClose();
+      router.push(item.url);
+      addToRecentSearches(item);
+    },
+    [router],
+  );
+
   const onInputKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       eventRef.current = "keyboard";
       switch (e.key) {
         case "ArrowDown": {
           e.preventDefault();
-          if (activeItem + 1 < results.length) {
+          if (activeItem + 1 < items.length) {
             setActiveItem(activeItem + 1);
           }
           break;
@@ -160,17 +221,17 @@ export const Cmdk: FC<{}> = () => {
           break;
         }
         case "Enter": {
-          if (results?.length <= 0) {
+          if (items?.length <= 0) {
             break;
           }
 
-          onClose();
-          router.push(results[activeItem].url);
+          onItemSelect(items[activeItem]);
+
           break;
         }
       }
     },
-    [activeItem, results, router],
+    [activeItem, items, router],
   );
 
   useUpdateEffect(() => {
@@ -190,6 +251,79 @@ export const Cmdk: FC<{}> = () => {
       boundary: listRef.current,
     });
   }, [activeItem]);
+
+  const CloseButton = useCallback(
+    ({
+      onPress,
+      className,
+    }: {
+      onPress?: ButtonProps["onPress"];
+      className?: ButtonProps["className"];
+    }) => {
+      return (
+        <Button
+          isIconOnly
+          className={cn(
+            "border data-[hover=true]:bg-content2 border-default-400 dark:border-default-100",
+            className,
+          )}
+          size="xs"
+          variant="bordered"
+          onPress={onPress}
+        >
+          <CloseIcon />
+        </Button>
+      );
+    },
+    [],
+  );
+
+  const renderItem = useCallback(
+    (item: SearchResultItem, index: number, isRecent = false) => {
+      const isLvl1 = item.type === "lvl1";
+
+      const mainIcon = isRecent ? (
+        <SearchLinearIcon className={slots.leftIcon()} size={20} strokeWidth={2} />
+      ) : isLvl1 ? (
+        <DocumentCodeBoldIcon className={slots.leftIcon()} />
+      ) : (
+        <HashBoldIcon className={slots.leftIcon()} />
+      );
+
+      return (
+        <Command.Item
+          key={item.objectID}
+          ref={menuNodes.ref(index)}
+          className={slots.itemWrapper()}
+          data-active={index === activeItem}
+          value={item.content}
+          onMouseEnter={() => {
+            eventRef.current = "mouse";
+
+            setActiveItem(index);
+          }}
+          onSelect={() => {
+            if (eventRef.current === "keyboard") {
+              return;
+            }
+
+            onItemSelect(item);
+          }}
+        >
+          <div className={slots.leftWrapper()}>
+            {mainIcon}
+            <div className={slots.itemContent()}>
+              {!isLvl1 && <span className={slots.itemParentTitle()}>{item.hierarchy.lvl1}</span>}
+              <p className={slots.itemTitle()}>{item.content}</p>
+            </div>
+          </div>
+
+          <ChevronRightLinearIcon size={14} />
+        </Command.Item>
+      );
+    },
+    [activeItem, onItemSelect, CloseButton, slots],
+  );
 
   return (
     <Modal
@@ -221,7 +355,7 @@ export const Cmdk: FC<{}> = () => {
       onClose={onClose}
     >
       <ModalContent>
-        <Command className={slots.base()} label="Global Command Menu" shouldFilter={false}>
+        <Command className={slots.base()} label="Quick search command" shouldFilter={false}>
           <div className={slots.header()}>
             <SearchLinearIcon className={slots.searchIcon()} strokeWidth={2} />
             <Command.Input
@@ -232,23 +366,13 @@ export const Cmdk: FC<{}> = () => {
               onKeyDown={onInputKeyDown}
               onValueChange={setQuery}
             />
-            {query.length > 0 && (
-              <Button
-                isIconOnly
-                className="border data-[hover=true]:bg-content2 border-default-400 dark:border-default-100"
-                size="xs"
-                variant="bordered"
-                onPress={() => setQuery("")}
-              >
-                <CloseIcon />
-              </Button>
-            )}
+            {query.length > 0 && <CloseButton onPress={() => setQuery("")} />}
             <Kbd className="hidden md:block border-none px-2 py-1 ml-2 font-medium text-[0.6rem]">
               ESC
             </Kbd>
           </div>
           <Command.List ref={listRef} className={slots.list()} role="listbox">
-            {query.length > 0 ? (
+            {query.length > 0 && (
               <Command.Empty>
                 <div className={slots.emptyWrapper()}>
                   <div>
@@ -257,48 +381,28 @@ export const Cmdk: FC<{}> = () => {
                   </div>
                 </div>
               </Command.Empty>
-            ) : (
-              <div className={slots.emptyWrapper()}>
-                <p className="text-default-400">No recent searches</p>
-              </div>
             )}
 
-            {results.map((item, index) => {
-              const isLvl1 = item.type === "lvl1";
+            {isEmpty(query) &&
+              (isEmpty(recentSearches) ? (
+                <div className={slots.emptyWrapper()}>
+                  <p className="text-default-400">No recent searches</p>
+                </div>
+              ) : (
+                recentSearches.length > 0 && (
+                  <Command.Group
+                    heading={
+                      <div className="flex items-center justify-between">
+                        <p className="text-default-600">Recent</p>
+                      </div>
+                    }
+                  >
+                    {recentSearches.map((item, index) => renderItem(item, index, true))}
+                  </Command.Group>
+                )
+              ))}
 
-              return (
-                <Command.Item
-                  key={item.objectID}
-                  ref={menuNodes.ref(index)}
-                  className={slots.itemWrapper()}
-                  data-active={index === activeItem}
-                  value={item.content}
-                  onMouseEnter={() => {
-                    eventRef.current = "mouse";
-                    setActiveItem(index);
-                  }}
-                  onSelect={() => {
-                    onClose();
-                    router.push(item.url);
-                  }}
-                >
-                  <div className={slots.leftWrapper()}>
-                    {isLvl1 ? (
-                      <DocumentCodeBoldIcon className={slots.leftIcon()} />
-                    ) : (
-                      <HashBoldIcon className={slots.leftIcon()} />
-                    )}
-                    <div className={slots.itemContent()}>
-                      {!isLvl1 && (
-                        <span className={slots.itemParentTitle()}>{item.hierarchy.lvl1}</span>
-                      )}
-                      <p className={slots.itemTitle()}>{item.content}</p>
-                    </div>
-                  </div>
-                  <ChevronRightLinearIcon size={14} />
-                </Command.Item>
-              );
-            })}
+            {results.map((item, index) => renderItem(item, index))}
           </Command.List>
         </Command>
       </ModalContent>

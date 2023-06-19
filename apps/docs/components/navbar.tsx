@@ -68,12 +68,17 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     "/docs/guide/upgrade-to-v2",
   ];
 
+  const isAppleDevice = /(Mac|iPhone|iPod|iPad)/i.test(navigator?.platform);
+
   const searchButton = (
     <Button
       aria-label="Quick search"
-      className="text-sm font-normal text-default-600 bg-default-400/20 dark:bg-default-500/20"
+      className="text-sm font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20"
       endContent={
-        <Kbd className="hidden py-0.5 px-2 lg:inline-block" keys={["command"]}>
+        <Kbd
+          className="hidden py-0.5 px-2 lg:inline-block"
+          keys={isAppleDevice ? ["command"] : ["ctrl"]}
+        >
           K
         </Kbd>
       }
@@ -184,9 +189,14 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="flex w-full gap-3 sm:hidden" justify="end">
+      <NavbarContent className="flex w-full gap-0 sm:hidden" justify="end">
         <NavbarItem className="flex items-center">
-          <Link isExternal aria-label="Github" href="https://github.com/nextui-org/nextui">
+          <Link
+            isExternal
+            aria-label="Github"
+            className="p-1"
+            href="https://github.com/nextui-org/nextui"
+          >
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
         </NavbarItem>
@@ -196,27 +206,26 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         <NavbarItem className="flex items-center">
           <Button
             isIconOnly
-            className="p-0"
-            radius="full"
+            className="w-8 h-8"
             size="xs"
             variant="light"
             onPress={() => cmkdStore.onOpen()}
           >
-            <SearchLinearIcon className="text-default-600 dark:text-default-500 mt-px" size={20} />
+            <SearchLinearIcon className="text-default-600 dark:text-default-500" size={20} />
           </Button>
         </NavbarItem>
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="ml-2" />
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
-        <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
+        <NavbarItem className="hidden sm:flex">
+          <Link isExternal aria-label="Twitter" className="p-1" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
+          <Link isExternal aria-label="Discord" className="p-1" href={siteConfig.links.discord}>
             <DiscordIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+          <Link isExternal aria-label="Github" className="p-1" href={siteConfig.links.github}>
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <ThemeSwitch />

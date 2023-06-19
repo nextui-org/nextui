@@ -12,8 +12,6 @@ import prettier from 'prettier'
 import toc from "markdown-toc";
 import {parseMarkdownFile, fileToPath, removePrefix} from "@docusaurus/utils";
 
-
-
 const docsRootFolder = "content/docs";
 
 interface ResultType {
