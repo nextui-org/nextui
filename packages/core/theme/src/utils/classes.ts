@@ -2,10 +2,10 @@
  * This is the base classNames for all elements.
  * Is meant to be used with the `addBase` method from tailwindcss.
  */
-export const baseStyles = {
-  color: "hsl(var(--nextui-foreground))",
-  backgroundColor: "hsl(var(--nextui-background))",
-};
+export const baseStyles = (prefix) => ({
+  color: `hsl(var(--${prefix}-foreground))`,
+  backgroundColor: `hsl(var(--${prefix}-background))`,
+});
 
 /**
  * focus classNames when the element is focused by keyboard.

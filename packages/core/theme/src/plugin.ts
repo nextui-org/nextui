@@ -181,7 +181,7 @@ const corePlugin = (
       // add base classNames
       addBase({
         [":root, [data-theme]"]: {
-          ...baseStyles,
+          ...baseStyles(prefix),
         },
       });
       // add the css variables to "@layer utilities"
