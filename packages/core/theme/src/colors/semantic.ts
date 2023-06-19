@@ -16,7 +16,7 @@ const base: SemanticBaseColors = {
       DEFAULT: "#11181C",
     },
     divider: {
-      DEFAULT: "rgba(17, 17, 17, 0.25)",
+      DEFAULT: "rgba(17, 17, 17, 0.15)",
     },
     content1: {
       DEFAULT: twColors.zinc[50],
@@ -43,7 +43,7 @@ const base: SemanticBaseColors = {
       DEFAULT: "#ECEDEE",
     },
     divider: {
-      DEFAULT: "rgba(255, 255, 255, 0.20)",
+      DEFAULT: "rgba(255, 255, 255, 0.15)",
     },
     content1: {
       DEFAULT: twColors.zinc[900],

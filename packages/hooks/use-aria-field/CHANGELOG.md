@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230619135319
+
+### Patch Changes
+
+- Divider color changed, theme plugin prefix base colors added
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230619135319
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230619135319
+
 ## 0.0.0-dev-v2-20230619132750
 
 ### Patch Changes
