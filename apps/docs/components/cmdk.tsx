@@ -11,6 +11,7 @@ import {useRouter} from "next/navigation";
 import MultiRef from "react-multi-ref";
 import {cn} from "@nextui-org/theme";
 import scrollIntoView from "scroll-into-view-if-needed";
+import {isAppleDevice} from "@react-aria/utils";
 import {create} from "zustand";
 import {intersectionBy, isEmpty} from "lodash";
 
@@ -173,8 +174,7 @@ export const Cmdk: FC<{}> = () => {
   // Toggle the menu when ⌘K / CTRL K is pressed
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      const isAppleDevice = /(Mac|iPhone|iPod|iPad)/i.test(navigator?.platform);
-      const hotkey = isAppleDevice ? "metaKey" : "ctrlKey";
+      const hotkey = isAppleDevice() ? "metaKey" : "ctrlKey";
 
       if (e?.key?.toLowerCase() === "k" && e[hotkey]) {
         e.preventDefault();

@@ -18,6 +18,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
+import {isAppleDevice} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
@@ -68,8 +69,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     "/docs/guide/upgrade-to-v2",
   ];
 
-  const isAppleDevice = /(Mac|iPhone|iPod|iPad)/i.test(navigator?.platform);
-
   const searchButton = (
     <Button
       aria-label="Quick search"
@@ -77,7 +76,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       endContent={
         <Kbd
           className="hidden py-0.5 px-2 lg:inline-block"
-          keys={isAppleDevice ? ["command"] : ["ctrl"]}
+          keys={isAppleDevice() ? ["command"] : ["ctrl"]}
         >
           K
         </Kbd>
