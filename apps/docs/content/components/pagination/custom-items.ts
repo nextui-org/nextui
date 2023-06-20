@@ -61,7 +61,7 @@ export default function App() {
   }: PaginationItemRenderProps<HTMLButtonElement>) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-default-200/50 w-8 h-8")} onClick={onNext}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -69,7 +69,7 @@ export default function App() {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-default-200/50 w-8 h-8")} onClick={onPrevious}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
           <ChevronIcon />
         </button>
       );
@@ -86,7 +86,7 @@ export default function App() {
         className={cn(
           className,
           isActive &&
-            "bg-gradient-to-br from-indigo-500 to-pink-500 shadow-pink-500/30 shadow-lg font-bold",
+            "bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
         )}
         onClick={() => setPage(value)}
       >
@@ -97,7 +97,7 @@ export default function App() {
 
   return (
     <Pagination
-      disableCursor
+      hideCursor
       showControls
       total={10}
       initialPage={1}
@@ -124,7 +124,7 @@ export default function App() {
   }) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-default-200/50 w-8 h-8")} onClick={onNext}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -132,7 +132,7 @@ export default function App() {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-default-200/50 w-8 h-8")} onClick={onPrevious}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
           <ChevronIcon />
         </button>
       );
@@ -149,7 +149,7 @@ export default function App() {
         className={cn(
           className,
           isActive &&
-          "bg-gradient-to-br from-indigo-500 to-pink-500 shadow-pink-500/30 shadow-lg font-bold",
+          "bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
         )}
         onClick={() => setPage(value)}
       >
@@ -160,7 +160,7 @@ export default function App() {
 
   return (
     <Pagination
-      disableCursor
+      hideCursor
       showControls
       total={10}
       initialPage={1}

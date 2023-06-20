@@ -197,7 +197,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="flex w-full gap-0 sm:hidden" justify="end">
+      <NavbarContent className="flex w-full gap-2 sm:hidden" justify="end">
         <NavbarItem className="flex h-full items-center">
           <Link
             isExternal

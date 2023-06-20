@@ -1,28 +1,28 @@
 [
   {
     "content": "Accordion",
-    "objectID": "e6c187e2-5f57-4301-8f38-d99040054091",
+    "objectID": "673061d8-d118-4c5b-a26b-685596676a59",
     "type": "lvl1",
     "url": "/docs/components/accordion",
     "hierarchy": {"lvl1": "Accordion"}
   },
   {
     "content": "Import",
-    "objectID": "da7d5a77-396c-46e4-8e56-7847d166879d",
+    "objectID": "929719a9-09b5-4d77-ac28-04489ed32fd4",
     "type": "lvl2",
     "url": "/docs/components/accordion#import",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "d115048a-80c1-49c8-a1c3-b238cf6387c5",
+    "objectID": "51c39c9c-01b6-493f-9e1f-98cfcb371195",
     "type": "lvl2",
     "url": "/docs/components/accordion#usage",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "With Subtitle",
-    "objectID": "8d43e644-4d09-44de-87a9-ecbdc9896e9e",
+    "objectID": "62ded9a0-8b9a-428e-a16a-78d9fc9955bc",
     "type": "lvl3",
     "url": "/docs/components/accordion#with-subtitle",
     "hierarchy": {
@@ -33,7 +33,7 @@
   },
   {
     "content": "Expand multiple items",
-    "objectID": "40b17ee3-2892-472f-a69e-a18f6064a917",
+    "objectID": "2437aafb-3a40-4d77-a4d5-0aa65bedc7a1",
     "type": "lvl3",
     "url": "/docs/components/accordion#expand-multiple-items",
     "hierarchy": {
@@ -44,7 +44,7 @@
   },
   {
     "content": "Compact",
-    "objectID": "7e852ef3-c112-449b-885a-a2d2297c1817",
+    "objectID": "d73e2f21-8f6d-4075-a88a-e54a456a8f5e",
     "type": "lvl3",
     "url": "/docs/components/accordion#compact",
     "hierarchy": {
@@ -55,35 +55,35 @@
   },
   {
     "content": "Variants",
-    "objectID": "4d44a347-7506-4585-a964-b72f9a0f302e",
+    "objectID": "1e7c6dc2-cab0-4a07-a1cd-595bd9b8be7b",
     "type": "lvl3",
     "url": "/docs/components/accordion#variants",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Compact", "lvl3": "Variants"}
   },
   {
     "content": "Light variant",
-    "objectID": "bb261165-6213-4c8d-a51f-4b5cae09aa13",
+    "objectID": "1eb7512f-8bc6-4da1-83de-afedfb6b2fd7",
     "type": "lvl4",
     "url": "/docs/components/accordion#light-variant",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Variants", "lvl3": null}
   },
   {
     "content": "Shadow variant",
-    "objectID": "55f2f08e-168b-42d1-ae0e-7583692416a8",
+    "objectID": "a4c4e13e-b044-429c-8f41-c07798616384",
     "type": "lvl4",
     "url": "/docs/components/accordion#shadow-variant",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Light variant", "lvl3": null}
   },
   {
     "content": "Bordered variant",
-    "objectID": "56d87356-9352-47c9-9c42-d66bace76b41",
+    "objectID": "789c3743-b3c1-4f14-80e8-43bcd0962aba",
     "type": "lvl4",
     "url": "/docs/components/accordion#bordered-variant",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Shadow variant", "lvl3": null}
   },
   {
     "content": "Splitted variant",
-    "objectID": "1b8c5cc3-a63d-46c0-bf79-e77597e7027f",
+    "objectID": "a65e3de9-6d67-4805-b0dc-e56e7c974641",
     "type": "lvl4",
     "url": "/docs/components/accordion#splitted-variant",
     "hierarchy": {
@@ -94,7 +94,7 @@
   },
   {
     "content": "Default expanded keys",
-    "objectID": "f7b4725f-b7df-4d62-af3e-1e55622ed626",
+    "objectID": "818977f4-2b05-425b-a45c-d7961621a5de",
     "type": "lvl3",
     "url": "/docs/components/accordion#default-expanded-keys",
     "hierarchy": {
@@ -105,7 +105,7 @@
   },
   {
     "content": "Disabled keys",
-    "objectID": "b13a9eb4-3004-4bef-a487-a7b3461e5923",
+    "objectID": "c4dde98a-d82b-43de-8237-e6a23b773a80",
     "type": "lvl3",
     "url": "/docs/components/accordion#disabled-keys",
     "hierarchy": {
@@ -116,7 +116,7 @@
   },
   {
     "content": "Start content",
-    "objectID": "401c7fe9-7cda-495d-88ad-a442b11330c9",
+    "objectID": "a621b5b2-34be-42a3-af81-116bfbd9186e",
     "type": "lvl3",
     "url": "/docs/components/accordion#start-content",
     "hierarchy": {
@@ -127,7 +127,7 @@
   },
   {
     "content": "Custom Indicator",
-    "objectID": "7c405e43-1cec-44f7-938a-0f8240fae009",
+    "objectID": "526ee3c3-2fc3-45d2-b5fb-8e440e48f04f",
     "type": "lvl3",
     "url": "/docs/components/accordion#custom-indicator",
     "hierarchy": {
@@ -138,7 +138,7 @@
   },
   {
     "content": "Custom Motion",
-    "objectID": "927c14b1-c603-431b-899e-49eadb7a0094",
+    "objectID": "f6cd0cd2-c80f-4ec5-b9a9-e1132e5a6db3",
     "type": "lvl3",
     "url": "/docs/components/accordion#custom-motion",
     "hierarchy": {
@@ -149,7 +149,7 @@
   },
   {
     "content": "Controlled",
-    "objectID": "c43e12dc-f54b-4c07-9673-8376b73a594a",
+    "objectID": "deaf9d13-f91f-4839-8bb5-607c84275089",
     "type": "lvl3",
     "url": "/docs/components/accordion#controlled",
     "hierarchy": {
@@ -160,7 +160,7 @@
   },
   {
     "content": "Accordion Item Slots",
-    "objectID": "9922a6ae-b854-4e25-ad40-3016e7087299",
+    "objectID": "c10600fe-b2f1-476c-9911-57ac23ad2914",
     "type": "lvl2",
     "url": "/docs/components/accordion#accordion-item-slots",
     "hierarchy": {
@@ -171,7 +171,7 @@
   },
   {
     "content": "Custom Accordion Styles",
-    "objectID": "dda2d4a1-5fe0-4401-bf79-0551b452f15b",
+    "objectID": "577e8276-93cb-49e3-93bc-c946136e98c4",
     "type": "lvl3",
     "url": "/docs/components/accordion#custom-accordion-styles",
     "hierarchy": {
@@ -182,7 +182,7 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "c52f276c-f8fe-4783-80fe-8aded73c7c00",
+    "objectID": "aa537ccb-2cc6-4d11-a911-3464d252f254",
     "type": "lvl2",
     "url": "/docs/components/accordion#data-attributes",
     "hierarchy": {
@@ -193,21 +193,21 @@
   },
   {
     "content": "Accessibility",
-    "objectID": "e3e7b32f-b82a-4c72-8847-7444547c78e6",
+    "objectID": "19f729e4-3ffc-476d-93f1-b80f8c45c387",
     "type": "lvl2",
     "url": "/docs/components/accordion#accessibility",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "6c56aa0d-42a8-4e79-985e-85f6be3ba98f",
+    "objectID": "4d9fa18d-e3a7-4597-ab86-192aa62d708a",
     "type": "lvl2",
     "url": "/docs/components/accordion#api",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Accordion Item Props",
-    "objectID": "e1a4fa2e-ce91-4480-873a-edc645a12f23",
+    "objectID": "ad137ecb-92af-46ee-83a6-47b10b303ee9",
     "type": "lvl3",
     "url": "/docs/components/accordion#accordion-item-props",
     "hierarchy": {
@@ -218,7 +218,7 @@
   },
   {
     "content": "Accordion Item Events",
-    "objectID": "4701dcf7-dacd-45f6-b46c-9de04fafaf98",
+    "objectID": "5cf3f69c-1ee0-4461-835b-992d5fab2fb9",
     "type": "lvl3",
     "url": "/docs/components/accordion#accordion-item-events",
     "hierarchy": {
@@ -229,7 +229,7 @@
   },
   {
     "content": "Accordion Props",
-    "objectID": "2dc31fd3-6dbe-46f6-990a-dcdde11a7378",
+    "objectID": "eee56697-b7a8-4874-acab-2e802cbdc8bd",
     "type": "lvl3",
     "url": "/docs/components/accordion#accordion-props",
     "hierarchy": {
@@ -240,7 +240,7 @@
   },
   {
     "content": "Accordion Events",
-    "objectID": "41c97eab-c30b-43c6-aaad-4f3c7f9bd54e",
+    "objectID": "fe4e9c1c-e6b1-4a48-a9ee-454e3cc6878b",
     "type": "lvl3",
     "url": "/docs/components/accordion#accordion-events",
     "hierarchy": {
@@ -251,7 +251,7 @@
   },
   {
     "content": "Types",
-    "objectID": "e491ac33-1701-434c-914c-d5e193f0cde0",
+    "objectID": "ced1f730-40bc-4e11-bea9-bd50fc8f93eb",
     "type": "lvl3",
     "url": "/docs/components/accordion#types",
     "hierarchy": {
@@ -262,14 +262,14 @@
   },
   {
     "content": "Accordion Item Indicator Props",
-    "objectID": "d181cc7f-f5fe-4ed4-a05c-ceb07fa9b429",
+    "objectID": "771d7ed7-1168-4afb-a71c-86479cd2dbd9",
     "type": "lvl4",
     "url": "/docs/components/accordion#accordion-item-indicator-props",
     "hierarchy": {"lvl1": "Accordion", "lvl2": "Types", "lvl3": null}
   },
   {
     "content": "Accordion Item classNames",
-    "objectID": "a639fc21-25fe-4921-893d-3ee41e55adb5",
+    "objectID": "d7c93c51-a5d8-42f3-b7f6-a976336ccbac",
     "type": "lvl3",
     "url": "/docs/components/accordion#accordion-item-classnames",
     "hierarchy": {
@@ -280,7 +280,7 @@
   },
   {
     "content": "Motion Props",
-    "objectID": "c238f3e7-5fa2-4833-8f01-fdad282254e5",
+    "objectID": "66e26a08-a5c0-455a-935f-a535ff2517b4",
     "type": "lvl4",
     "url": "/docs/components/accordion#motion-props",
     "hierarchy": {
@@ -291,63 +291,63 @@
   },
   {
     "content": "Avatar",
-    "objectID": "6b2fac91-ced2-4a1c-9de7-ad1834ea9ad5",
+    "objectID": "cef7fd0f-994d-4ca5-ad68-8fec0a662a76",
     "type": "lvl1",
     "url": "/docs/components/avatar",
     "hierarchy": {"lvl1": "Avatar"}
   },
   {
     "content": "Import",
-    "objectID": "50ea3b53-ccd4-4906-bd90-374fd70a04b3",
+    "objectID": "946bb888-9b29-48b1-9586-037185e26df8",
     "type": "lvl2",
     "url": "/docs/components/avatar#import",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "598bd430-f5b6-4ac0-ac35-3929cca95137",
+    "objectID": "7222adf6-9822-4e53-b874-95392d91a781",
     "type": "lvl2",
     "url": "/docs/components/avatar#usage",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "b8e1d953-8f6f-436e-b7fe-d0996ee37012",
+    "objectID": "b2fa1833-eaf5-4103-b0fa-1026909e99fb",
     "type": "lvl3",
     "url": "/docs/components/avatar#sizes",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Disabled",
-    "objectID": "a7386123-b9e9-433f-835e-35cf6b791ebb",
+    "objectID": "5bcd1380-e59b-4bda-befa-106deb60f67d",
     "type": "lvl3",
     "url": "/docs/components/avatar#disabled",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Sizes", "lvl3": "Disabled"}
   },
   {
     "content": "Bordered",
-    "objectID": "a7b88bcf-883d-4162-95dd-7ee68282a035",
+    "objectID": "96b9aec0-1f09-40e4-996b-baceae28221d",
     "type": "lvl3",
     "url": "/docs/components/avatar#bordered",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Disabled", "lvl3": "Bordered"}
   },
   {
     "content": "Radius",
-    "objectID": "572eec81-dc81-40f4-999e-a71c87f52785",
+    "objectID": "263b0b6a-f3a8-40c8-a01f-b8f0fe35d2f2",
     "type": "lvl3",
     "url": "/docs/components/avatar#radius",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Bordered", "lvl3": "Radius"}
   },
   {
     "content": "Colors",
-    "objectID": "7170cd7a-2692-46a4-9924-55c129dc89ba",
+    "objectID": "b9a5029a-3433-4718-bfec-3928a04d2562",
     "type": "lvl3",
     "url": "/docs/components/avatar#colors",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Radius", "lvl3": "Colors"}
   },
   {
     "content": "Avatar Fallbacks",
-    "objectID": "165325e8-30c7-4dad-8712-9420ddc6981c",
+    "objectID": "a34fa33a-cc4b-456c-b5be-874d9d75b253",
     "type": "lvl3",
     "url": "/docs/components/avatar#avatar-fallbacks",
     "hierarchy": {
@@ -358,7 +358,7 @@
   },
   {
     "content": "Custom Fallback",
-    "objectID": "37691cab-0153-413c-b788-5aadfac3aa08",
+    "objectID": "9eb6fd48-b3ba-428b-bb2d-40ee41f45e02",
     "type": "lvl3",
     "url": "/docs/components/avatar#custom-fallback",
     "hierarchy": {
@@ -369,7 +369,7 @@
   },
   {
     "content": "Custom Implementation",
-    "objectID": "4ed434e9-8146-4b30-a188-4210b43aac64",
+    "objectID": "f0eb2577-ec7a-4624-bc18-a86f9b5928ae",
     "type": "lvl3",
     "url": "/docs/components/avatar#custom-implementation",
     "hierarchy": {
@@ -380,7 +380,7 @@
   },
   {
     "content": "Custom intials logic",
-    "objectID": "add68055-cf22-4fc5-9fcb-5c6dfaa27867",
+    "objectID": "fe3216ac-bd9f-49f9-bd10-271efe87146b",
     "type": "lvl3",
     "url": "/docs/components/avatar#custom-intials-logic",
     "hierarchy": {
@@ -391,14 +391,14 @@
   },
   {
     "content": "Avatar Group",
-    "objectID": "c5aae597-1de4-4fe8-a28e-bc28631c8ca9",
+    "objectID": "5c86c8a2-c34e-4289-9249-858ea3713a18",
     "type": "lvl2",
     "url": "/docs/components/avatar#avatar-group",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Avatar Group", "lvl3": null}
   },
   {
     "content": "Group Disabled",
-    "objectID": "a5f07f4d-d2c6-4aba-8720-622214888943",
+    "objectID": "06ec7991-8486-49b3-bbd0-54d09cb2bd7c",
     "type": "lvl3",
     "url": "/docs/components/avatar#group-disabled",
     "hierarchy": {
@@ -409,7 +409,7 @@
   },
   {
     "content": "Group Max Count",
-    "objectID": "d50e4432-9d9b-4801-be7d-54a5fce6e12d",
+    "objectID": "255918a5-bfb7-4209-a9ea-8065d1bba63a",
     "type": "lvl3",
     "url": "/docs/components/avatar#group-max-count",
     "hierarchy": {
@@ -420,7 +420,7 @@
   },
   {
     "content": "Group Total Count",
-    "objectID": "adce36e3-e563-4beb-b919-85075919345f",
+    "objectID": "4dc6be7d-5c8e-4693-917e-f56fcc2f3a3c",
     "type": "lvl3",
     "url": "/docs/components/avatar#group-total-count",
     "hierarchy": {
@@ -431,7 +431,7 @@
   },
   {
     "content": "Group Custom count",
-    "objectID": "225bb77f-9ed1-4bb5-af56-f8518b057c76",
+    "objectID": "4c4d3f2c-764c-4050-858a-f6fef0d4d3df",
     "type": "lvl3",
     "url": "/docs/components/avatar#group-custom-count",
     "hierarchy": {
@@ -442,7 +442,7 @@
   },
   {
     "content": "Group Grid",
-    "objectID": "1e0cdf2d-cb54-4ea1-86d5-bf80776cea4b",
+    "objectID": "ded3b5f3-473e-4fd9-8e7a-f1eec54ba7f7",
     "type": "lvl3",
     "url": "/docs/components/avatar#group-grid",
     "hierarchy": {
@@ -453,7 +453,7 @@
   },
   {
     "content": "Group Custom Implementation",
-    "objectID": "53cd5907-a1bb-41b9-8e05-b7dc3fc91ccc",
+    "objectID": "c3dad9b2-92cd-4938-a432-674a524911de",
     "type": "lvl3",
     "url": "/docs/components/avatar#group-custom-implementation",
     "hierarchy": {
@@ -464,14 +464,14 @@
   },
   {
     "content": "Slots",
-    "objectID": "5d288678-e14b-4e80-b6ee-bb92164d517e",
+    "objectID": "71b47b64-59b3-4c52-90fe-fad704973503",
     "type": "lvl2",
     "url": "/docs/components/avatar#slots",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Avatar Styles",
-    "objectID": "980d694c-4150-4727-9df0-bc39b2d0b019",
+    "objectID": "a4209c7e-4471-4de7-b686-c36db720ac39",
     "type": "lvl3",
     "url": "/docs/components/avatar#custom-avatar-styles",
     "hierarchy": {
@@ -482,28 +482,28 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "b35310a9-0677-444a-99d6-629fec00e810",
+    "objectID": "ecfebeda-adf5-4e23-afbc-b785d5fad5e1",
     "type": "lvl2",
     "url": "/docs/components/avatar#data-attributes",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "d26be0a9-91a4-4c6b-834b-aaa502671db0",
+    "objectID": "d01b3a60-301f-417d-9de4-012c0e863d68",
     "type": "lvl2",
     "url": "/docs/components/avatar#api",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Avatar Props",
-    "objectID": "0244e1bf-8de0-4114-8964-9c2be5512691",
+    "objectID": "99965f32-740e-4a30-be7d-6f81303215d0",
     "type": "lvl3",
     "url": "/docs/components/avatar#avatar-props",
     "hierarchy": {"lvl1": "Avatar", "lvl2": "API", "lvl3": "Avatar Props"}
   },
   {
     "content": "Avatar Group Props",
-    "objectID": "9a2bd1aa-9925-4478-9f68-f6ce02bfa9d3",
+    "objectID": "8401f591-e9cb-46e0-8dbb-ebbc9be692a6",
     "type": "lvl3",
     "url": "/docs/components/avatar#avatar-group-props",
     "hierarchy": {
@@ -514,70 +514,70 @@
   },
   {
     "content": "Badge",
-    "objectID": "df0779a3-f79c-4698-992c-2759504a5ad0",
+    "objectID": "b92572fb-b4d3-45f0-a5a4-4e2d7efe6685",
     "type": "lvl1",
     "url": "/docs/components/badge",
     "hierarchy": {"lvl1": "Badge"}
   },
   {
     "content": "Import",
-    "objectID": "54e7beed-45f5-4010-89dd-fd35f3f0a08c",
+    "objectID": "ff0692c7-8762-4611-b88e-771cca26e88c",
     "type": "lvl2",
     "url": "/docs/components/badge#import",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "5a68476a-6e45-414d-99fe-44680f4bb871",
+    "objectID": "a978a769-a9d1-4486-8b5d-b757832fcfcd",
     "type": "lvl2",
     "url": "/docs/components/badge#usage",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "a919b2f3-f6e8-4371-8e5a-600e90cc5df3",
+    "objectID": "bba2c0e6-f63e-46ce-b219-9072246b1ead",
     "type": "lvl3",
     "url": "/docs/components/badge#sizes",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "85e8f7ad-1748-4847-ad9d-0020f0caabbf",
+    "objectID": "da7ff9a9-c8c0-4d87-abf6-8b165b6592d2",
     "type": "lvl3",
     "url": "/docs/components/badge#colors",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Variants",
-    "objectID": "bb53cc61-417b-4bcd-9390-6f69c15816b6",
+    "objectID": "7c18295e-6af6-4906-b4ce-34b6cf327fa9",
     "type": "lvl3",
     "url": "/docs/components/badge#variants",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Colors", "lvl3": "Variants"}
   },
   {
     "content": "Radius",
-    "objectID": "cba97799-6e29-4a2e-be29-9de57393389c",
+    "objectID": "5441d6d6-e3cd-4eb3-80b2-300761d63138",
     "type": "lvl3",
     "url": "/docs/components/badge#radius",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Variants", "lvl3": "Radius"}
   },
   {
     "content": "Placements",
-    "objectID": "592adf18-adf6-4c5d-ac57-0e31b7f3f19b",
+    "objectID": "fbd64821-5f1a-4bfd-b7b8-8ca3b60c4c98",
     "type": "lvl3",
     "url": "/docs/components/badge#placements",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Radius", "lvl3": "Placements"}
   },
   {
     "content": "Shapes",
-    "objectID": "7b2f5974-9fd2-4a7a-8cf8-c8e4d6bb29f9",
+    "objectID": "571b4a85-18d1-4278-a12f-d12be5668a63",
     "type": "lvl3",
     "url": "/docs/components/badge#shapes",
     "hierarchy": {"lvl1": "Badge", "lvl2": "Placements", "lvl3": "Shapes"}
   },
   {
     "content": "Badge Visibility",
-    "objectID": "dcf3c0f3-f583-4950-a664-4a6a2bb9f385",
+    "objectID": "ac775f4d-bf6f-4bd9-a4f3-8e6c0718f568",
     "type": "lvl3",
     "url": "/docs/components/badge#badge-visibility",
     "hierarchy": {
@@ -588,7 +588,7 @@
   },
   {
     "content": "Content Examples",
-    "objectID": "a50d8593-7d94-41ed-bb6c-077d7e4c9961",
+    "objectID": "c00c2d84-89b3-44c1-9b9a-b8624e7e907a",
     "type": "lvl3",
     "url": "/docs/components/badge#content-examples",
     "hierarchy": {
@@ -599,7 +599,7 @@
   },
   {
     "content": "Disable Outline",
-    "objectID": "ebb81f0d-50b8-4b87-ad73-8540ebd5adb6",
+    "objectID": "2c202413-a55a-4904-a5c1-defcb5fc2c49",
     "type": "lvl3",
     "url": "/docs/components/badge#disable-outline",
     "hierarchy": {
@@ -610,7 +610,7 @@
   },
   {
     "content": "Accessibility",
-    "objectID": "b73e3d5e-c7a7-41a1-bea4-c01272dd17a3",
+    "objectID": "c84443c8-f4be-428b-8395-f0e7714baa4c",
     "type": "lvl3",
     "url": "/docs/components/badge#accessibility",
     "hierarchy": {
@@ -621,98 +621,98 @@
   },
   {
     "content": "API",
-    "objectID": "5031ba4b-e589-4237-b9c2-9538be4587d9",
+    "objectID": "b1130b7f-6da7-4975-95ec-4840e50f8fe4",
     "type": "lvl2",
     "url": "/docs/components/badge#api",
     "hierarchy": {"lvl1": "Badge", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Badge Props",
-    "objectID": "7ba8b3da-f77c-461e-9fe4-b61795dafd46",
+    "objectID": "0b5a60ff-265f-4d64-877a-bf046f4e4d79",
     "type": "lvl3",
     "url": "/docs/components/badge#badge-props",
     "hierarchy": {"lvl1": "Badge", "lvl2": "API", "lvl3": "Badge Props"}
   },
   {
     "content": "Button",
-    "objectID": "b35bf69b-70b3-4a10-b0b8-c2a3a09fecb4",
+    "objectID": "0f1debd0-1e68-4713-bc4f-5a07be7c2e32",
     "type": "lvl1",
     "url": "/docs/components/button",
     "hierarchy": {"lvl1": "Button"}
   },
   {
     "content": "Import",
-    "objectID": "5880415f-adcf-47fe-8605-5600cf1475b4",
+    "objectID": "86ac924a-417e-4b65-8ff2-9588bc47fadc",
     "type": "lvl2",
     "url": "/docs/components/button#import",
     "hierarchy": {"lvl1": "Button", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "2daf7cb9-8d5d-49a1-add9-7646a123b1f4",
+    "objectID": "ddb3eb4a-471a-4c40-8fec-3c764b131ffc",
     "type": "lvl2",
     "url": "/docs/components/button#usage",
     "hierarchy": {"lvl1": "Button", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "363afbf2-cebe-401d-b375-02e107aa01eb",
+    "objectID": "56e569bb-925c-4f82-9cd9-9eb2ebd91f9f",
     "type": "lvl3",
     "url": "/docs/components/button#disabled",
     "hierarchy": {"lvl1": "Button", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Sizes",
-    "objectID": "49d1ff99-24b0-4b61-9d5a-3185db7e4995",
+    "objectID": "c157beeb-6928-42aa-88ae-489ef4fe62e4",
     "type": "lvl3",
     "url": "/docs/components/button#sizes",
     "hierarchy": {"lvl1": "Button", "lvl2": "Disabled", "lvl3": "Sizes"}
   },
   {
     "content": "Radius",
-    "objectID": "9382b122-154f-45f5-a7cf-0f4e3c2bb86d",
+    "objectID": "83a616d6-ff68-4936-8719-fe14b51fcc89",
     "type": "lvl3",
     "url": "/docs/components/button#radius",
     "hierarchy": {"lvl1": "Button", "lvl2": "Sizes", "lvl3": "Radius"}
   },
   {
     "content": "Colors",
-    "objectID": "b4b9b4fd-9506-4f10-9446-2f67fff1e0dd",
+    "objectID": "3aefc78a-ac1f-4932-accb-6580ef3f4641",
     "type": "lvl3",
     "url": "/docs/components/button#colors",
     "hierarchy": {"lvl1": "Button", "lvl2": "Radius", "lvl3": "Colors"}
   },
   {
     "content": "Variants",
-    "objectID": "9a9af806-54ee-4711-8010-edc3fb23afed",
+    "objectID": "defe724b-03e1-488d-a76d-8969e83a4f00",
     "type": "lvl3",
     "url": "/docs/components/button#variants",
     "hierarchy": {"lvl1": "Button", "lvl2": "Colors", "lvl3": "Variants"}
   },
   {
     "content": "Loading",
-    "objectID": "27aeb7fe-89f4-4bc9-87e5-98b62e36d572",
+    "objectID": "2faf341b-a5ee-4532-835e-4ac713028fab",
     "type": "lvl3",
     "url": "/docs/components/button#loading",
     "hierarchy": {"lvl1": "Button", "lvl2": "Variants", "lvl3": "Loading"}
   },
   {
     "content": "With Icons",
-    "objectID": "cb0bd3eb-f847-4271-9bdd-28906588c4f5",
+    "objectID": "efa83478-1312-4f62-80b3-cd45f85fc4e7",
     "type": "lvl3",
     "url": "/docs/components/button#with-icons",
     "hierarchy": {"lvl1": "Button", "lvl2": "Loading", "lvl3": "With Icons"}
   },
   {
     "content": "Icon Only",
-    "objectID": "9beaedea-aadf-4c05-ac1e-7d238b13f824",
+    "objectID": "553bb51f-229c-4dbe-8105-a2ae56414ace",
     "type": "lvl3",
     "url": "/docs/components/button#icon-only",
     "hierarchy": {"lvl1": "Button", "lvl2": "With Icons", "lvl3": "Icon Only"}
   },
   {
     "content": "Custom Styles",
-    "objectID": "d1ffbe8e-4360-473b-a6c6-b69a96439474",
+    "objectID": "6f016a1e-f040-4747-b8ec-0ac4f500ea05",
     "type": "lvl3",
     "url": "/docs/components/button#custom-styles",
     "hierarchy": {
@@ -723,7 +723,7 @@
   },
   {
     "content": "Custom Implementation",
-    "objectID": "9512a3e0-830d-436e-ae92-4051c81600b8",
+    "objectID": "2bf9a724-3d69-442d-b258-5f92fdafc709",
     "type": "lvl3",
     "url": "/docs/components/button#custom-implementation",
     "hierarchy": {
@@ -734,14 +734,14 @@
   },
   {
     "content": "Button Group",
-    "objectID": "656085de-e007-46c4-91d7-1a5ebaf50cf3",
+    "objectID": "79622cd5-ef0e-4bd3-acf7-d42ba8b2c6c3",
     "type": "lvl2",
     "url": "/docs/components/button#button-group",
     "hierarchy": {"lvl1": "Button", "lvl2": "Button Group", "lvl3": null}
   },
   {
     "content": "Group Disabled",
-    "objectID": "234329ef-6ba2-4c5a-9bcb-03bc866091ae",
+    "objectID": "ed939ce8-b198-408c-a46d-1f8c6cc63dc4",
     "type": "lvl3",
     "url": "/docs/components/button#group-disabled",
     "hierarchy": {
@@ -752,7 +752,7 @@
   },
   {
     "content": "Group Use case",
-    "objectID": "959bbf1a-1f14-4ea3-b2ce-56a70e509c5f",
+    "objectID": "c0b4d119-1c36-4c8d-a7e9-c9902f5ce267",
     "type": "lvl3",
     "url": "/docs/components/button#group-use-case",
     "hierarchy": {
@@ -763,35 +763,35 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "63a4d61f-5057-4860-afd8-d40d47b5acfd",
+    "objectID": "3ad94528-0161-4e95-a5f7-d8f6ecc0b669",
     "type": "lvl2",
     "url": "/docs/components/button#data-attributes",
     "hierarchy": {"lvl1": "Button", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "dbad21b1-d3b6-4b5d-adbc-1f3d141293f0",
+    "objectID": "bcbda091-e8a3-446c-8709-252c515dd3fd",
     "type": "lvl2",
     "url": "/docs/components/button#accessibility",
     "hierarchy": {"lvl1": "Button", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "49160596-b175-463f-b880-f27b17ceba98",
+    "objectID": "3c7418f3-1f24-46a1-83e5-446816de4a3f",
     "type": "lvl2",
     "url": "/docs/components/button#api",
     "hierarchy": {"lvl1": "Button", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Button Props",
-    "objectID": "5dc40384-23f2-46b9-89f9-3fee79ddb767",
+    "objectID": "3f30103f-f96d-4a72-947b-ddccfc1775d4",
     "type": "lvl3",
     "url": "/docs/components/button#button-props",
     "hierarchy": {"lvl1": "Button", "lvl2": "API", "lvl3": "Button Props"}
   },
   {
     "content": "Button Events",
-    "objectID": "e655d419-84f1-4ea1-a918-fc5690c686f7",
+    "objectID": "dbd27bce-f961-43c8-8df5-655a5fbb641d",
     "type": "lvl3",
     "url": "/docs/components/button#button-events",
     "hierarchy": {
@@ -802,7 +802,7 @@
   },
   {
     "content": "Button Group Props",
-    "objectID": "2d1c67b5-298a-483f-bfd1-75c9d311a7c9",
+    "objectID": "a0e3cf89-9292-46ed-80cb-4ff2f2b7d46f",
     "type": "lvl3",
     "url": "/docs/components/button#button-group-props",
     "hierarchy": {
@@ -813,35 +813,35 @@
   },
   {
     "content": "Card",
-    "objectID": "5ba4ad50-b19f-42e3-b7d0-8306ff76e96a",
+    "objectID": "1128d043-b45d-4844-9248-6b46e0ab62dc",
     "type": "lvl1",
     "url": "/docs/components/card",
     "hierarchy": {"lvl1": "Card"}
   },
   {
     "content": "Import",
-    "objectID": "a3517bb1-2049-4a43-86dc-6410a4f6c64c",
+    "objectID": "858b33d2-e216-45e1-bae7-51033fe8b332",
     "type": "lvl2",
     "url": "/docs/components/card#import",
     "hierarchy": {"lvl1": "Card", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "cf3e144e-b722-450a-b611-874662b6d861",
+    "objectID": "32364f16-7f60-4252-b698-e36e7755c277",
     "type": "lvl2",
     "url": "/docs/components/card#usage",
     "hierarchy": {"lvl1": "Card", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "With Divider",
-    "objectID": "ffdfc21f-8a3b-4a1a-b429-1c53659f0642",
+    "objectID": "d5b827bc-713d-4da5-8210-a46bafa7bc3a",
     "type": "lvl3",
     "url": "/docs/components/card#with-divider",
     "hierarchy": {"lvl1": "Card", "lvl2": "Usage", "lvl3": "With Divider"}
   },
   {
     "content": "With Image",
-    "objectID": "1a7163e1-66ec-4efb-aea9-18fcbadbdb92",
+    "objectID": "c9b5050d-a3c5-42dd-a22b-f03d60f88f01",
     "type": "lvl3",
     "url": "/docs/components/card#with-image",
     "hierarchy": {
@@ -852,7 +852,7 @@
   },
   {
     "content": "Blurred Footer",
-    "objectID": "5c11ad9d-af43-4c72-9d7f-312595cab0d9",
+    "objectID": "b87b71c5-e3b9-4c9b-8a26-6481fe40a212",
     "type": "lvl3",
     "url": "/docs/components/card#blurred-footer",
     "hierarchy": {
@@ -863,7 +863,7 @@
   },
   {
     "content": "Composition",
-    "objectID": "f7843732-ccd1-4f28-8d8c-9787d364b108",
+    "objectID": "e94532fb-4558-4561-9887-e3d6c9da2ff2",
     "type": "lvl3",
     "url": "/docs/components/card#composition",
     "hierarchy": {
@@ -874,7 +874,7 @@
   },
   {
     "content": "Blurred Card",
-    "objectID": "2692c5e6-ec7d-4102-a4ac-c20f0d1749b7",
+    "objectID": "f2b71da8-2e7f-401e-881c-ac348ce361ca",
     "type": "lvl3",
     "url": "/docs/components/card#blurred-card",
     "hierarchy": {
@@ -885,7 +885,7 @@
   },
   {
     "content": "Primary Action",
-    "objectID": "5955db03-fc88-4539-bbd5-977cee2dbd42",
+    "objectID": "d95f3dde-a215-4ef4-8f27-50e1151a1b58",
     "type": "lvl3",
     "url": "/docs/components/card#primary-action",
     "hierarchy": {
@@ -896,7 +896,7 @@
   },
   {
     "content": "Cover Image",
-    "objectID": "c1051695-5302-4473-a1db-6224f15a3f2b",
+    "objectID": "efeeb677-5b93-4af1-acb7-076b4f587cd4",
     "type": "lvl3",
     "url": "/docs/components/card#cover-image",
     "hierarchy": {
@@ -907,56 +907,56 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "51c6d646-bcb1-45bf-aa4a-ac2c4a85ce8d",
+    "objectID": "275c0d8a-89a0-49da-b3a3-6c60596d603a",
     "type": "lvl2",
     "url": "/docs/components/card#data-attributes",
     "hierarchy": {"lvl1": "Card", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "1c0aa149-378f-4fd5-a658-2f2515810411",
+    "objectID": "661809c6-d46c-4f69-b48d-52f588a4d6ba",
     "type": "lvl2",
     "url": "/docs/components/card#api",
     "hierarchy": {"lvl1": "Card", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Card Props",
-    "objectID": "3ada8b34-3fd2-4494-a73e-9a2eb3b9f396",
+    "objectID": "0554f329-a10a-428f-a42b-c6500d0b4ad0",
     "type": "lvl3",
     "url": "/docs/components/card#card-props",
     "hierarchy": {"lvl1": "Card", "lvl2": "API", "lvl3": "Card Props"}
   },
   {
     "content": "Card Events",
-    "objectID": "8d46e716-9d3c-486c-827d-b22309364750",
+    "objectID": "548f3793-0f42-4b08-95b7-58bd44e5f9ca",
     "type": "lvl3",
     "url": "/docs/components/card#card-events",
     "hierarchy": {"lvl1": "Card", "lvl2": "Card Props", "lvl3": "Card Events"}
   },
   {
     "content": "Checkbox Group",
-    "objectID": "fcb720ff-d85f-424c-9f0d-810375bdc2c6",
+    "objectID": "49342db2-02b4-4e8b-ade9-12b50d986247",
     "type": "lvl1",
     "url": "/docs/components/checkbox-group",
     "hierarchy": {"lvl1": "Checkbox Group"}
   },
   {
     "content": "Import",
-    "objectID": "3a8e690f-8e19-42e5-9800-2d97e4b1e650",
+    "objectID": "efe39ed3-255e-4e39-a0c6-54d78550bb6d",
     "type": "lvl2",
     "url": "/docs/components/checkbox-group#import",
     "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "fdff286a-3f00-426a-818a-5b7e4e2f93e5",
+    "objectID": "409cd13c-d5fb-4429-8401-feb09e8bcea6",
     "type": "lvl2",
     "url": "/docs/components/checkbox-group#usage",
     "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "70107a78-245a-41bf-9028-fa90efff9258",
+    "objectID": "9ec5f9e9-16cf-4010-92e4-c0aadcdab233",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#disabled",
     "hierarchy": {
@@ -967,7 +967,7 @@
   },
   {
     "content": "Horizontal",
-    "objectID": "4daf3a54-ad46-432b-b583-b7301d4c3a97",
+    "objectID": "ec6c60ca-8379-42cf-b9f9-e3719dfda2fd",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#horizontal",
     "hierarchy": {
@@ -978,7 +978,7 @@
   },
   {
     "content": "Controlled",
-    "objectID": "785f556a-006d-4313-a5c0-ab8bb3dd09a5",
+    "objectID": "55a45373-c061-45e4-bff7-3dd042f03e60",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#controlled",
     "hierarchy": {
@@ -989,14 +989,14 @@
   },
   {
     "content": "Slots",
-    "objectID": "35cd3fd8-7396-47c5-91bf-e13a6153a6b7",
+    "objectID": "dddd8772-76c0-4e87-99a3-b3dbbf0837b4",
     "type": "lvl2",
     "url": "/docs/components/checkbox-group#slots",
     "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "c8bea13c-e814-4ee2-806e-91dc770aa10b",
+    "objectID": "7dc6d8c3-015d-4dbf-a7f4-8fe803f9d68e",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#custom-styles",
     "hierarchy": {
@@ -1007,7 +1007,7 @@
   },
   {
     "content": "Custom Implementation",
-    "objectID": "036e5226-c93b-444a-850a-9e0c2489aa88",
+    "objectID": "74d0c4fa-aa30-45a8-b7d9-837e9b6d2b55",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#custom-implementation",
     "hierarchy": {
@@ -1018,14 +1018,14 @@
   },
   {
     "content": "API",
-    "objectID": "0aca8e30-d13c-40fc-8a65-1de061d983d2",
+    "objectID": "42c0a812-30b6-4549-846c-94328dcb201d",
     "type": "lvl2",
     "url": "/docs/components/checkbox-group#api",
     "hierarchy": {"lvl1": "Checkbox Group", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Checkbox Group Props",
-    "objectID": "a9e40117-e5cc-4aac-9129-e91572125b25",
+    "objectID": "2a6a7dec-d3ac-43b1-b2e6-a76e61f1cc56",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#checkbox-group-props",
     "hierarchy": {
@@ -1036,7 +1036,7 @@
   },
   {
     "content": "Checkbox Group Events",
-    "objectID": "50077bdc-44d1-47e7-ab7b-0e1b76eeefd0",
+    "objectID": "1551b8e5-7554-491d-9951-dab78e894bae",
     "type": "lvl3",
     "url": "/docs/components/checkbox-group#checkbox-group-events",
     "hierarchy": {
@@ -1047,56 +1047,56 @@
   },
   {
     "content": "Checkbox",
-    "objectID": "5db1a1b0-f8d5-4829-8ba4-6ec37783daee",
+    "objectID": "287a05bf-d6a9-4ace-bd3b-d575224b9b3e",
     "type": "lvl1",
     "url": "/docs/components/checkbox",
     "hierarchy": {"lvl1": "Checkbox"}
   },
   {
     "content": "Import",
-    "objectID": "b1ad47fa-6c47-4532-a30f-89e83f068b39",
+    "objectID": "35eaaf75-034f-41e3-80da-7820735de1e9",
     "type": "lvl2",
     "url": "/docs/components/checkbox#import",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "7abddaed-2d9e-49a2-993b-32f051e8ea01",
+    "objectID": "f23bd5ec-fdaa-4aee-b096-814eefc3b21e",
     "type": "lvl2",
     "url": "/docs/components/checkbox#usage",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "a273f4ad-de93-43d1-82b6-34d356be0503",
+    "objectID": "94d1069f-6778-414d-ad62-a8e972c00ea1",
     "type": "lvl3",
     "url": "/docs/components/checkbox#disabled",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Sizes",
-    "objectID": "aa8daa15-a0fe-4fc0-9764-e3cac77cfb5e",
+    "objectID": "ce92f97b-75b0-4e45-9b27-7ed8d7486ff1",
     "type": "lvl3",
     "url": "/docs/components/checkbox#sizes",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Disabled", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "8aa9f233-8268-485b-b7e3-fea6a0cd816c",
+    "objectID": "61044c87-2513-4b46-a1ed-0619e9c053fd",
     "type": "lvl3",
     "url": "/docs/components/checkbox#colors",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Radius",
-    "objectID": "30fac4f5-48f7-46e8-a0c3-1a9e24f7eb03",
+    "objectID": "e19e9137-24b3-4328-b374-c53f2ea01205",
     "type": "lvl3",
     "url": "/docs/components/checkbox#radius",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Colors", "lvl3": "Radius"}
   },
   {
     "content": "Indeterminate",
-    "objectID": "7724ff6e-528e-4765-b3e5-0cf5c27b25b4",
+    "objectID": "ce8d0d73-4710-4e7e-a813-d0d49b0f83dd",
     "type": "lvl3",
     "url": "/docs/components/checkbox#indeterminate",
     "hierarchy": {
@@ -1107,7 +1107,7 @@
   },
   {
     "content": "Line Through",
-    "objectID": "db7d0444-2266-491a-93d0-9dda9bf7a7fe",
+    "objectID": "b34be4f2-8ff6-4b8e-9590-fa29f12d1517",
     "type": "lvl3",
     "url": "/docs/components/checkbox#line-through",
     "hierarchy": {
@@ -1118,7 +1118,7 @@
   },
   {
     "content": "Custom Check Icon",
-    "objectID": "5a20b2b1-ae7c-4431-b82f-e3478736f0bb",
+    "objectID": "c9dca0c5-0412-4434-8691-99c6b9aa2492",
     "type": "lvl3",
     "url": "/docs/components/checkbox#custom-check-icon",
     "hierarchy": {
@@ -1129,7 +1129,7 @@
   },
   {
     "content": "Controlled",
-    "objectID": "d8947e99-9708-4f79-bd03-197d94f66b7d",
+    "objectID": "f0863449-58de-4df2-baf6-85e4ca2fcb52",
     "type": "lvl3",
     "url": "/docs/components/checkbox#controlled",
     "hierarchy": {
@@ -1140,14 +1140,14 @@
   },
   {
     "content": "Slots",
-    "objectID": "073781d3-e8d1-459b-938e-ec24ecbc5ca9",
+    "objectID": "ce6e87f3-4c3a-4a3b-a9b3-b9cee18c0a2a",
     "type": "lvl2",
     "url": "/docs/components/checkbox#slots",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "fdb2bd18-7e4f-4551-9601-55f8a8fc6162",
+    "objectID": "18084fb0-03c4-457b-8c36-0c45d1577f73",
     "type": "lvl3",
     "url": "/docs/components/checkbox#custom-styles",
     "hierarchy": {
@@ -1158,7 +1158,7 @@
   },
   {
     "content": "Custom Implementation",
-    "objectID": "85420754-5941-49b9-b4eb-e931572709a5",
+    "objectID": "041a7e68-088f-47ae-b550-0869bca5a8fb",
     "type": "lvl3",
     "url": "/docs/components/checkbox#custom-implementation",
     "hierarchy": {
@@ -1169,35 +1169,35 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "02133d97-f1d8-49b8-9bed-6cb0ef0f3d4c",
+    "objectID": "d1e9bd45-3944-476a-b862-2f70607ca029",
     "type": "lvl2",
     "url": "/docs/components/checkbox#data-attributes",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "5c275c61-accc-42c0-9ea2-16801802a833",
+    "objectID": "36de0e25-796c-4425-9ad2-e2ef6ad0b49a",
     "type": "lvl2",
     "url": "/docs/components/checkbox#accessibility",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "736b59d0-b12b-488b-a01f-1aa0e4df035b",
+    "objectID": "e5514ffc-d267-491b-8543-56bb8d1d0e9f",
     "type": "lvl2",
     "url": "/docs/components/checkbox#api",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Checkbox Props",
-    "objectID": "62ece04c-949c-4bf4-991e-153c962e62ae",
+    "objectID": "5023717b-1c22-4e49-b942-8e0785ea2a82",
     "type": "lvl3",
     "url": "/docs/components/checkbox#checkbox-props",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "API", "lvl3": "Checkbox Props"}
   },
   {
     "content": "Checkbox Events",
-    "objectID": "d605fdae-0528-4748-b4d7-7955bea32e1f",
+    "objectID": "56540883-d6d6-43e5-a428-c238a7040a2e",
     "type": "lvl3",
     "url": "/docs/components/checkbox#checkbox-events",
     "hierarchy": {
@@ -1208,7 +1208,7 @@
   },
   {
     "content": "Types",
-    "objectID": "d20b16f5-2103-459e-a5a4-66e92420fc9f",
+    "objectID": "06db2ad2-9adb-47f0-a3b2-748e63394320",
     "type": "lvl3",
     "url": "/docs/components/checkbox#types",
     "hierarchy": {
@@ -1219,70 +1219,70 @@
   },
   {
     "content": "Checkbox Icon Props",
-    "objectID": "a8168141-64ca-4f0f-a8e1-f41a1d6742ad",
+    "objectID": "ad2e7041-d7a4-48a8-b6e7-ec0b0aedc357",
     "type": "lvl4",
     "url": "/docs/components/checkbox#checkbox-icon-props",
     "hierarchy": {"lvl1": "Checkbox", "lvl2": "Types", "lvl3": null}
   },
   {
     "content": "Chip",
-    "objectID": "90f7a2cc-7801-4e3f-9ebc-e9d9a0a4bead",
+    "objectID": "dac4f872-e23f-4ebf-a203-794dd82a91ee",
     "type": "lvl1",
     "url": "/docs/components/chip",
     "hierarchy": {"lvl1": "Chip"}
   },
   {
     "content": "Import",
-    "objectID": "88efd965-690e-404a-8d44-739ae752c55c",
+    "objectID": "b07ceb78-901d-47ef-a143-95d03a8603d7",
     "type": "lvl2",
     "url": "/docs/components/chip#import",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "9391d4c6-09e2-4bf5-9cbd-b7fa16018e11",
+    "objectID": "d3349dcf-6dd4-4d1e-b8fd-d3c320c62ac2",
     "type": "lvl2",
     "url": "/docs/components/chip#usage",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "09442ba7-a305-4467-a846-a569c9f87ab0",
+    "objectID": "83697681-6c90-42c6-86c0-808d3c1b5e38",
     "type": "lvl3",
     "url": "/docs/components/chip#disabled",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Sizes",
-    "objectID": "3121ee80-39b7-4d19-85d6-bc2ca8d18f0f",
+    "objectID": "38a2394c-dfa8-4d00-aed3-1d2f3e0260f0",
     "type": "lvl3",
     "url": "/docs/components/chip#sizes",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Disabled", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "a0f920f2-1945-4db4-afe0-1c14a6c08b92",
+    "objectID": "edac0c3e-700c-421e-8091-1aaa065a642e",
     "type": "lvl3",
     "url": "/docs/components/chip#colors",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Radius",
-    "objectID": "aa69437b-5869-498a-8784-5dde254a13c3",
+    "objectID": "f117e7c7-e055-4e2f-9e93-147c4d73f4e7",
     "type": "lvl3",
     "url": "/docs/components/chip#radius",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Colors", "lvl3": "Radius"}
   },
   {
     "content": "Variants",
-    "objectID": "3df94c1a-d229-446f-b8f2-717f1dcc5307",
+    "objectID": "834da14a-6809-4684-b082-ef52089698aa",
     "type": "lvl3",
     "url": "/docs/components/chip#variants",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Radius", "lvl3": "Variants"}
   },
   {
     "content": "Start & End Content",
-    "objectID": "3136eb30-ffca-4da4-9fa3-483a65d2504a",
+    "objectID": "7fccf58b-6f5d-4288-844a-07a0e325c826",
     "type": "lvl3",
     "url": "/docs/components/chip#start--end-content",
     "hierarchy": {
@@ -1293,7 +1293,7 @@
   },
   {
     "content": "With Close Button",
-    "objectID": "e8e1305a-ff94-4fc0-889d-c121afc8ce55",
+    "objectID": "9c53c863-2a39-4711-b71b-ffa3ceaa39ce",
     "type": "lvl3",
     "url": "/docs/components/chip#with-close-button",
     "hierarchy": {
@@ -1304,7 +1304,7 @@
   },
   {
     "content": "With Avatar",
-    "objectID": "d01629ac-f1f0-45b6-9826-3686770e5aa6",
+    "objectID": "1be0e5b7-5b65-49bf-bed1-19998da94b8d",
     "type": "lvl3",
     "url": "/docs/components/chip#with-avatar",
     "hierarchy": {
@@ -1315,7 +1315,7 @@
   },
   {
     "content": "List of Chips",
-    "objectID": "68b8e676-ff9b-4c4a-a81d-47c8861c13f9",
+    "objectID": "c917e7ef-a8c6-4772-9a30-fbbab69d67be",
     "type": "lvl3",
     "url": "/docs/components/chip#list-of-chips",
     "hierarchy": {
@@ -1326,63 +1326,63 @@
   },
   {
     "content": "Slots",
-    "objectID": "15e1adaf-a552-4e32-8839-8a79f6bc5bb3",
+    "objectID": "bf8e4284-5d88-4926-bc5f-f35a680f3fb9",
     "type": "lvl2",
     "url": "/docs/components/chip#slots",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "32fb35f4-e160-4026-a561-792286c9cb26",
+    "objectID": "3d288201-4194-40f9-ac30-0fb482481f56",
     "type": "lvl3",
     "url": "/docs/components/chip#custom-styles",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "API",
-    "objectID": "71959251-c0c8-4306-bcc0-78141c9b0132",
+    "objectID": "56544d71-6b27-4cdc-9d26-4a40edfe7322",
     "type": "lvl2",
     "url": "/docs/components/chip#api",
     "hierarchy": {"lvl1": "Chip", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Chip Props",
-    "objectID": "23c9e953-beef-44de-a8b3-d623e83bd0f4",
+    "objectID": "df1a4f5a-e657-44b5-b600-80bb332b28a4",
     "type": "lvl3",
     "url": "/docs/components/chip#chip-props",
     "hierarchy": {"lvl1": "Chip", "lvl2": "API", "lvl3": "Chip Props"}
   },
   {
     "content": "Chip Events",
-    "objectID": "f3a9572e-318f-4295-ac31-6766594ce6d7",
+    "objectID": "b93dada8-c688-476c-837a-42674245e1bb",
     "type": "lvl3",
     "url": "/docs/components/chip#chip-events",
     "hierarchy": {"lvl1": "Chip", "lvl2": "Chip Props", "lvl3": "Chip Events"}
   },
   {
     "content": "Circular Progress",
-    "objectID": "16ddb638-fac0-42ba-9097-9961208a8f6d",
+    "objectID": "dadb17cd-7dd5-42cc-88c4-ea203f57ba91",
     "type": "lvl1",
     "url": "/docs/components/circular-progress",
     "hierarchy": {"lvl1": "Circular Progress"}
   },
   {
     "content": "Import",
-    "objectID": "7f74e3f3-33c1-45a6-8ab3-33dd7efeaa75",
+    "objectID": "332118a0-3048-4c70-b24e-f28350e6e3c2",
     "type": "lvl2",
     "url": "/docs/components/circular-progress#import",
     "hierarchy": {"lvl1": "Circular Progress", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "1ffd4e92-77eb-4b70-b651-601304ce4b5a",
+    "objectID": "7db631b6-cdf2-4ea5-bda2-7bcf11837e53",
     "type": "lvl2",
     "url": "/docs/components/circular-progress#usage",
     "hierarchy": {"lvl1": "Circular Progress", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "c0b1c887-e43c-458f-a582-e0455b5e4181",
+    "objectID": "8a1ed7eb-fbec-44e8-9af9-b35034bc6cf5",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#sizes",
     "hierarchy": {
@@ -1393,7 +1393,7 @@
   },
   {
     "content": "Colors",
-    "objectID": "911c2e22-32ba-428d-8397-6631b483426e",
+    "objectID": "caaf168e-35b1-418b-8a80-de655e7cb23e",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#colors",
     "hierarchy": {
@@ -1404,7 +1404,7 @@
   },
   {
     "content": "With Label",
-    "objectID": "cf0a2f7e-848d-4b14-845b-2c4acb85fac7",
+    "objectID": "6bb6a2c2-76c2-4b69-b9e2-e3cf297929e4",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#with-label",
     "hierarchy": {
@@ -1415,7 +1415,7 @@
   },
   {
     "content": "With Value",
-    "objectID": "7a63f949-912e-4485-a10c-c8415302dd25",
+    "objectID": "e40d31f1-af90-4d83-837e-b9fa7a3869bf",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#with-value",
     "hierarchy": {
@@ -1426,7 +1426,7 @@
   },
   {
     "content": "Value Formatting",
-    "objectID": "c92fa4ca-10ce-4384-9103-24b90cdd88d9",
+    "objectID": "5cbd4e22-347f-4d59-bc21-7ca75eacac4b",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#value-formatting",
     "hierarchy": {
@@ -1437,14 +1437,14 @@
   },
   {
     "content": "Slots",
-    "objectID": "3d5fb209-5a7b-4e8f-8c6a-cb5b9d3218a5",
+    "objectID": "8ceeea3a-1aed-4ede-9a83-dc0dcd0a5448",
     "type": "lvl2",
     "url": "/docs/components/circular-progress#slots",
     "hierarchy": {"lvl1": "Circular Progress", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "ea15daf1-7e44-4ba6-9ccd-9852cbdb34b0",
+    "objectID": "66dd09c1-202e-46aa-a0c8-3eb206be023e",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#custom-styles",
     "hierarchy": {
@@ -1455,7 +1455,7 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "20396662-e72b-444a-9ce1-203cc111ca9e",
+    "objectID": "8e741495-a787-4faa-acf7-66718dc4beff",
     "type": "lvl2",
     "url": "/docs/components/circular-progress#data-attributes",
     "hierarchy": {
@@ -1466,7 +1466,7 @@
   },
   {
     "content": "Accessibility",
-    "objectID": "c54e0273-3ccf-482c-afe8-073f0d3ee834",
+    "objectID": "3f80c1ce-1758-4215-a49a-6e51153017cd",
     "type": "lvl2",
     "url": "/docs/components/circular-progress#accessibility",
     "hierarchy": {
@@ -1477,14 +1477,14 @@
   },
   {
     "content": "API",
-    "objectID": "ac3d3834-3fc4-47d1-9502-f640e5ed763d",
+    "objectID": "5fc4f8be-4dd8-4b3a-aa58-ca0cfe05d27b",
     "type": "lvl2",
     "url": "/docs/components/circular-progress#api",
     "hierarchy": {"lvl1": "Circular Progress", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Circular Progress Props",
-    "objectID": "514b8611-f787-473e-a6c7-74293f15228a",
+    "objectID": "d42f3757-79b3-4c37-b618-821371f826e6",
     "type": "lvl3",
     "url": "/docs/components/circular-progress#circular-progress-props",
     "hierarchy": {
@@ -1495,147 +1495,147 @@
   },
   {
     "content": "Code",
-    "objectID": "387a9fb4-8757-4b31-88ec-cd398b7abc8b",
+    "objectID": "a4e24cc4-0782-4368-a4fc-7db8f08c4a10",
     "type": "lvl1",
     "url": "/docs/components/code",
     "hierarchy": {"lvl1": "Code"}
   },
   {
     "content": "Import",
-    "objectID": "92a45dc9-7442-4055-9c87-f14a89aa7269",
+    "objectID": "e6afa904-4c86-4cec-8156-3b88eadfe6cc",
     "type": "lvl2",
     "url": "/docs/components/code#import",
     "hierarchy": {"lvl1": "Code", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "aac0771b-6bd3-480c-9cc2-c92b6ac4a848",
+    "objectID": "600d0a07-92dc-4c5a-b009-c0e8044614d5",
     "type": "lvl2",
     "url": "/docs/components/code#usage",
     "hierarchy": {"lvl1": "Code", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "07ef3c58-0c26-4f83-9198-0e6839d1205b",
+    "objectID": "16bf23db-b765-4b0f-8e5b-32e0968d4c64",
     "type": "lvl3",
     "url": "/docs/components/code#sizes",
     "hierarchy": {"lvl1": "Code", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "3a5d1c5e-4d19-4d5a-95d6-5f8cb26513ab",
+    "objectID": "8da2cc70-39da-4755-bf56-46fa6acb4b8b",
     "type": "lvl3",
     "url": "/docs/components/code#colors",
     "hierarchy": {"lvl1": "Code", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "API",
-    "objectID": "6892a317-63a5-4045-92a5-fb73a6817000",
+    "objectID": "3cf455c5-b242-43c5-8c68-61e4c142617a",
     "type": "lvl2",
     "url": "/docs/components/code#api",
     "hierarchy": {"lvl1": "Code", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Code Props",
-    "objectID": "02b0a374-23d3-4732-a6bb-83d5202fc0d1",
+    "objectID": "74c6b549-339e-4c9c-a876-223a2840f57d",
     "type": "lvl3",
     "url": "/docs/components/code#code-props",
     "hierarchy": {"lvl1": "Code", "lvl2": "API", "lvl3": "Code Props"}
   },
   {
     "content": "Divider",
-    "objectID": "1cdaeb1c-495a-4e4a-85dd-7e0f60b40d7b",
+    "objectID": "0ced3821-5894-4b49-835d-5630e24be81d",
     "type": "lvl1",
     "url": "/docs/components/divider",
     "hierarchy": {"lvl1": "Divider"}
   },
   {
     "content": "Import",
-    "objectID": "5e6e3309-a538-4427-a90e-2b792ad02291",
+    "objectID": "0b4b6769-60d2-4ca2-a054-b90cbc380d3c",
     "type": "lvl2",
     "url": "/docs/components/divider#import",
     "hierarchy": {"lvl1": "Divider", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "b5837363-0e53-4ce2-9fe2-721f643c3680",
+    "objectID": "803f03d0-e113-4f2e-b3b4-6866d38bb35b",
     "type": "lvl2",
     "url": "/docs/components/divider#usage",
     "hierarchy": {"lvl1": "Divider", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Data Attributes",
-    "objectID": "1bc0850c-67bc-4040-8410-d4884e52b841",
+    "objectID": "c72808e2-c81e-489b-9132-cf1b48a915f4",
     "type": "lvl2",
     "url": "/docs/components/divider#data-attributes",
     "hierarchy": {"lvl1": "Divider", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "699970c7-e46b-4526-ace5-660c6d3abe84",
+    "objectID": "4a73682e-ba5f-437e-b37d-6db82fb3af08",
     "type": "lvl2",
     "url": "/docs/components/divider#accessibility",
     "hierarchy": {"lvl1": "Divider", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "8edc63ad-270b-4b70-acfd-42f4cc584ca6",
+    "objectID": "1c1cba1d-80c9-433c-8dbf-4947aaa01ea4",
     "type": "lvl2",
     "url": "/docs/components/divider#api",
     "hierarchy": {"lvl1": "Divider", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Divider Props",
-    "objectID": "9c4dc96c-936f-4689-b131-a397f679a38c",
+    "objectID": "84fef354-e2e5-4954-bea2-3484ca04aa53",
     "type": "lvl3",
     "url": "/docs/components/divider#divider-props",
     "hierarchy": {"lvl1": "Divider", "lvl2": "API", "lvl3": "Divider Props"}
   },
   {
     "content": "Dropdown",
-    "objectID": "fbe5594e-fd57-49d5-a647-fdd70a7d3db7",
+    "objectID": "8f90847a-e6fb-4ce6-8a3f-5d572a9bd5ea",
     "type": "lvl1",
     "url": "/docs/components/dropdown",
     "hierarchy": {"lvl1": "Dropdown"}
   },
   {
     "content": "Image",
-    "objectID": "901a2b9e-8b45-41b4-8671-faf14279cf2c",
+    "objectID": "7f175263-d673-4226-a08a-ac63eea2e2fb",
     "type": "lvl1",
     "url": "/docs/components/image",
     "hierarchy": {"lvl1": "Image"}
   },
   {
     "content": "Import",
-    "objectID": "db73c370-8955-40c0-a19a-a285a1698b2f",
+    "objectID": "f9df89c7-0e04-45b6-b763-401291f060e3",
     "type": "lvl2",
     "url": "/docs/components/image#import",
     "hierarchy": {"lvl1": "Image", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "2dce7e30-2992-4ebb-9930-8b2838de10a0",
+    "objectID": "f4cc0516-4e29-47d2-aaaa-0deee3da7fba",
     "type": "lvl2",
     "url": "/docs/components/image#usage",
     "hierarchy": {"lvl1": "Image", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Blurred",
-    "objectID": "b820a1e1-97a5-4300-aec2-5e9d6b54b79b",
+    "objectID": "7bf06cbf-d032-4822-a6bd-4053ef8d8c2f",
     "type": "lvl3",
     "url": "/docs/components/image#blurred",
     "hierarchy": {"lvl1": "Image", "lvl2": "Usage", "lvl3": "Blurred"}
   },
   {
     "content": "Zoomed",
-    "objectID": "cafd254d-5b17-49ae-bc70-04c8d24c07e2",
+    "objectID": "9f946752-2247-4895-aea4-f9bdb1837688",
     "type": "lvl3",
     "url": "/docs/components/image#zoomed",
     "hierarchy": {"lvl1": "Image", "lvl2": "Blurred", "lvl3": "Zoomed"}
   },
   {
     "content": "Animated Loading",
-    "objectID": "0efb3f13-037a-4eb3-867b-ef0a130ddc84",
+    "objectID": "2dc34c9e-6bb7-4ecc-9e2f-b47b14b2af7e",
     "type": "lvl3",
     "url": "/docs/components/image#animated-loading",
     "hierarchy": {
@@ -1646,7 +1646,7 @@
   },
   {
     "content": "Image with fallback",
-    "objectID": "0baeb33c-03e9-40f8-982d-17209ed97baa",
+    "objectID": "2aff0c11-9e64-48f6-99b5-ba19fdb5e6cd",
     "type": "lvl3",
     "url": "/docs/components/image#image-with-fallback",
     "hierarchy": {
@@ -1657,7 +1657,7 @@
   },
   {
     "content": "With Next.js Image",
-    "objectID": "12f32d26-157d-4b9a-a9ec-0c3b06a692a0",
+    "objectID": "42358bb7-ba30-4032-8e5a-349796385044",
     "type": "lvl3",
     "url": "/docs/components/image#with-nextjs-image",
     "hierarchy": {
@@ -1668,28 +1668,28 @@
   },
   {
     "content": "Slots",
-    "objectID": "3678aefc-89f5-4591-8dea-a4da6028a9a7",
+    "objectID": "45e87eaf-691f-4760-a913-d19d97e69cde",
     "type": "lvl2",
     "url": "/docs/components/image#slots",
     "hierarchy": {"lvl1": "Image", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "97c78ac4-7a84-492b-87a9-3aff506ca0ea",
+    "objectID": "832d507d-55eb-4efc-8941-dcbe6326015e",
     "type": "lvl2",
     "url": "/docs/components/image#api",
     "hierarchy": {"lvl1": "Image", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Image Props",
-    "objectID": "9ba90f9b-2358-47d7-86c3-2e78177cb994",
+    "objectID": "793ae62d-d97d-4f1b-9354-bc6939435c38",
     "type": "lvl3",
     "url": "/docs/components/image#image-props",
     "hierarchy": {"lvl1": "Image", "lvl2": "API", "lvl3": "Image Props"}
   },
   {
     "content": "Image Events",
-    "objectID": "c250f465-8db0-4035-ae63-71aacde68059",
+    "objectID": "3d1002bd-291a-4bf3-a0bf-14815338f1a0",
     "type": "lvl3",
     "url": "/docs/components/image#image-events",
     "hierarchy": {
@@ -1700,77 +1700,77 @@
   },
   {
     "content": "Input",
-    "objectID": "47390354-6cf4-4f8f-817a-74032d5df346",
+    "objectID": "51279078-c062-440f-9f59-a6d08ff207aa",
     "type": "lvl1",
     "url": "/docs/components/input",
     "hierarchy": {"lvl1": "Input"}
   },
   {
     "content": "Import",
-    "objectID": "d7117f7a-69d9-438f-8336-4b47dd3dbe37",
+    "objectID": "00d56b61-0c80-45e3-be41-2b8aaf2beb1e",
     "type": "lvl2",
     "url": "/docs/components/input#import",
     "hierarchy": {"lvl1": "Input", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "c8b40a0a-3f78-4ee3-8d81-d3a3bf6a0253",
+    "objectID": "ae26f999-45a1-4f43-9b4a-f9df8756016d",
     "type": "lvl2",
     "url": "/docs/components/input#usage",
     "hierarchy": {"lvl1": "Input", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "9fe712a7-d2a9-4b0b-884c-db65a28a7945",
+    "objectID": "9bd391d6-d68d-4418-bc96-507b0ed943f6",
     "type": "lvl3",
     "url": "/docs/components/input#disabled",
     "hierarchy": {"lvl1": "Input", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Read Only",
-    "objectID": "918b69d2-b07b-461b-a55b-7477662e3ea6",
+    "objectID": "83102a0f-7002-4a63-aa79-66677667a2a3",
     "type": "lvl3",
     "url": "/docs/components/input#read-only",
     "hierarchy": {"lvl1": "Input", "lvl2": "Disabled", "lvl3": "Read Only"}
   },
   {
     "content": "Required",
-    "objectID": "a9e82466-53d2-4e03-8250-72b2d81faeb1",
+    "objectID": "7c3a7bfc-a38a-4172-93ef-781490612564",
     "type": "lvl3",
     "url": "/docs/components/input#required",
     "hierarchy": {"lvl1": "Input", "lvl2": "Read Only", "lvl3": "Required"}
   },
   {
     "content": "Sizes",
-    "objectID": "7b2e1107-3074-49db-bff8-a717b9b94d82",
+    "objectID": "3602dc47-39b4-413a-94f2-cbd9f3725cd5",
     "type": "lvl3",
     "url": "/docs/components/input#sizes",
     "hierarchy": {"lvl1": "Input", "lvl2": "Required", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "7754cb13-9804-4295-a24f-b991c2ff9144",
+    "objectID": "96962853-99dc-4a2f-b69e-ae006fac19f6",
     "type": "lvl3",
     "url": "/docs/components/input#colors",
     "hierarchy": {"lvl1": "Input", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Variants",
-    "objectID": "500ef576-a0b6-439f-a868-ea84dd63573c",
+    "objectID": "46eeaa61-fe41-41a3-9f0e-368491b2d09c",
     "type": "lvl3",
     "url": "/docs/components/input#variants",
     "hierarchy": {"lvl1": "Input", "lvl2": "Colors", "lvl3": "Variants"}
   },
   {
     "content": "Radius",
-    "objectID": "d974fd2b-11bf-4cbf-b1a6-0e3f7f41e9f2",
+    "objectID": "b608abc4-359a-43dc-a78c-e58dcc36081e",
     "type": "lvl3",
     "url": "/docs/components/input#radius",
     "hierarchy": {"lvl1": "Input", "lvl2": "Variants", "lvl3": "Radius"}
   },
   {
     "content": "Label Placements",
-    "objectID": "829ecfab-6c0e-419c-b6d4-da11c2f43da9",
+    "objectID": "4ddae417-b888-4a80-855d-108056c5bb0c",
     "type": "lvl3",
     "url": "/docs/components/input#label-placements",
     "hierarchy": {
@@ -1781,7 +1781,7 @@
   },
   {
     "content": "With Description",
-    "objectID": "54bbf16f-e36a-4803-b1c3-a869f5cdded5",
+    "objectID": "dedeccb6-09a0-497f-abe5-24029e4bc5f1",
     "type": "lvl3",
     "url": "/docs/components/input#with-description",
     "hierarchy": {
@@ -1792,7 +1792,7 @@
   },
   {
     "content": "Password Input",
-    "objectID": "9c9f289a-e5f8-4055-a17b-ab532e660cee",
+    "objectID": "b6b47064-fa6b-433d-afa3-68ee124f0f5a",
     "type": "lvl3",
     "url": "/docs/components/input#password-input",
     "hierarchy": {
@@ -1803,7 +1803,7 @@
   },
   {
     "content": "Clear Button",
-    "objectID": "4c3288e3-ffeb-43aa-82ec-548cf8ae338b",
+    "objectID": "fecd64dc-3168-4b9a-a18e-ec2e3db4b0d7",
     "type": "lvl3",
     "url": "/docs/components/input#clear-button",
     "hierarchy": {
@@ -1814,7 +1814,7 @@
   },
   {
     "content": "Start & End Content",
-    "objectID": "c2c97db5-12d8-4d80-9538-fc8b32deb919",
+    "objectID": "815d68bd-1825-4920-9e0e-0f6a68c67857",
     "type": "lvl3",
     "url": "/docs/components/input#start--end-content",
     "hierarchy": {
@@ -1825,7 +1825,7 @@
   },
   {
     "content": "With Error Message",
-    "objectID": "f0c30adc-4178-4c1f-925b-7ce973c6230d",
+    "objectID": "40e4807c-36ff-4ea0-80a3-0982f06b6164",
     "type": "lvl3",
     "url": "/docs/components/input#with-error-message",
     "hierarchy": {
@@ -1836,7 +1836,7 @@
   },
   {
     "content": "Controlled",
-    "objectID": "b0c3b8cf-e49a-41f6-824d-f43351f49778",
+    "objectID": "10339bed-7a3c-41e5-a29e-028f5ac3888f",
     "type": "lvl3",
     "url": "/docs/components/input#controlled",
     "hierarchy": {
@@ -1847,21 +1847,21 @@
   },
   {
     "content": "Slots",
-    "objectID": "1d983603-b72f-4f39-83b6-87dde800dd10",
+    "objectID": "e3e5710d-2113-4140-83e9-e1304404d151",
     "type": "lvl2",
     "url": "/docs/components/input#slots",
     "hierarchy": {"lvl1": "Input", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "c79e43c0-3ee7-4bca-85b3-143c42b36530",
+    "objectID": "f141f276-f1a5-44be-8898-9ac61b7e5902",
     "type": "lvl3",
     "url": "/docs/components/input#custom-styles",
     "hierarchy": {"lvl1": "Input", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Custom Implementation",
-    "objectID": "cd743301-d5f0-4290-9cc5-7a847e4548d7",
+    "objectID": "e955a56f-138f-427b-b82f-86ea18e1d380",
     "type": "lvl3",
     "url": "/docs/components/input#custom-implementation",
     "hierarchy": {
@@ -1872,35 +1872,35 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "2dc14e18-b4a1-4e9c-aceb-f8736a94146c",
+    "objectID": "435f3c61-39bf-4f0a-b852-b6caef954930",
     "type": "lvl2",
     "url": "/docs/components/input#data-attributes",
     "hierarchy": {"lvl1": "Input", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "9d60c2ef-45ca-4c95-97fe-d5c0bedaca94",
+    "objectID": "33759320-a371-43c6-b2d2-01c644f34d89",
     "type": "lvl2",
     "url": "/docs/components/input#accessibility",
     "hierarchy": {"lvl1": "Input", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "266f0d99-1f10-47d8-8e3c-e1ee1a9e894a",
+    "objectID": "4f5fab9d-7ae7-4e81-b588-9156de100f5c",
     "type": "lvl2",
     "url": "/docs/components/input#api",
     "hierarchy": {"lvl1": "Input", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Input Props",
-    "objectID": "8e0ba939-78e1-487a-bf83-3eea9f1f5f57",
+    "objectID": "1ffef624-be74-434c-86df-3f3d6d603729",
     "type": "lvl3",
     "url": "/docs/components/input#input-props",
     "hierarchy": {"lvl1": "Input", "lvl2": "API", "lvl3": "Input Props"}
   },
   {
     "content": "Input Events",
-    "objectID": "c5e19e55-f956-4ac6-bc55-5656be5b041c",
+    "objectID": "e4d71fce-4bdf-42f1-9778-368d8533be3e",
     "type": "lvl3",
     "url": "/docs/components/input#input-events",
     "hierarchy": {
@@ -1911,42 +1911,42 @@
   },
   {
     "content": "Keyboard Key",
-    "objectID": "aa5a2f9a-572e-45af-8bac-20ee45ac6ba8",
+    "objectID": "d2e59d83-05ce-43d2-a0e2-4c9371edffaa",
     "type": "lvl1",
     "url": "/docs/components/kbd",
     "hierarchy": {"lvl1": "Keyboard Key"}
   },
   {
     "content": "Import",
-    "objectID": "9620970c-8d7f-44c7-be56-5f95a150d0c5",
+    "objectID": "f3e83a6c-d445-4b99-851b-c55f827af0b1",
     "type": "lvl2",
     "url": "/docs/components/kbd#import",
     "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "49f7e753-014c-45e7-a687-1c58ac9e10e5",
+    "objectID": "ddc11426-d527-4a3f-9da9-b5d738a66b27",
     "type": "lvl2",
     "url": "/docs/components/kbd#usage",
     "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Keys",
-    "objectID": "e6040756-336b-4c91-bfa5-bd2192979dac",
+    "objectID": "88967d9d-7721-47d3-88fd-005d05077caf",
     "type": "lvl3",
     "url": "/docs/components/kbd#keys",
     "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Usage", "lvl3": "Keys"}
   },
   {
     "content": "Slots",
-    "objectID": "708bfca0-e8f3-49df-9a31-3e222ccdfde6",
+    "objectID": "b057d755-7759-4f94-992e-1968abbf7330",
     "type": "lvl2",
     "url": "/docs/components/kbd#slots",
     "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "ff82517b-52f9-4b17-8df5-a6027582b2c2",
+    "objectID": "f6e1f19f-01c6-4fb2-8fad-760126c84913",
     "type": "lvl2",
     "url": "/docs/components/kbd#accessibility",
     "hierarchy": {
@@ -1957,14 +1957,14 @@
   },
   {
     "content": "API",
-    "objectID": "1b982510-cc08-464e-abe8-ed64dcb07541",
+    "objectID": "7384f6ad-2096-4eae-a864-8ad57acce19f",
     "type": "lvl2",
     "url": "/docs/components/kbd#api",
     "hierarchy": {"lvl1": "Keyboard Key", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Keyboard Key Props",
-    "objectID": "2865755f-6927-43ba-8ad1-7768ddd4ae2f",
+    "objectID": "93cd34a8-65c7-4210-a5c7-f2e37ebe3e77",
     "type": "lvl3",
     "url": "/docs/components/kbd#keyboard-key-props",
     "hierarchy": {
@@ -1975,7 +1975,7 @@
   },
   {
     "content": "Keyboard Keys",
-    "objectID": "efd5d995-d628-4feb-8738-9a3d9dedea63",
+    "objectID": "afb84308-4fc4-4672-8706-c0513ea5a7e9",
     "type": "lvl3",
     "url": "/docs/components/kbd#keyboard-keys",
     "hierarchy": {
@@ -1986,63 +1986,63 @@
   },
   {
     "content": "Link",
-    "objectID": "688d3da8-211e-4267-8ca6-0ac836caa4b4",
+    "objectID": "a60a7522-9df4-45bf-b637-0c0fe17ec48b",
     "type": "lvl1",
     "url": "/docs/components/link",
     "hierarchy": {"lvl1": "Link"}
   },
   {
     "content": "Import",
-    "objectID": "cd81c593-f1ac-4df8-be0e-add0696af4a2",
+    "objectID": "aa699765-a9fa-49ac-bb56-5da2f73dbd31",
     "type": "lvl2",
     "url": "/docs/components/link#import",
     "hierarchy": {"lvl1": "Link", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "32a5968f-0955-439e-96b0-d2a99e93041b",
+    "objectID": "ea898bb9-e51d-42af-aa98-e8ee4abed56c",
     "type": "lvl2",
     "url": "/docs/components/link#usage",
     "hierarchy": {"lvl1": "Link", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "a3966870-5728-460b-b935-16d3d66a96cd",
+    "objectID": "48202be7-f1b7-46d6-9b58-8a8cbea015bc",
     "type": "lvl3",
     "url": "/docs/components/link#disabled",
     "hierarchy": {"lvl1": "Link", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Sizes",
-    "objectID": "5641e5b6-b97c-40ac-8296-21f7a7e13d72",
+    "objectID": "8300fde3-5b7d-4157-96dc-725e7410a5f9",
     "type": "lvl3",
     "url": "/docs/components/link#sizes",
     "hierarchy": {"lvl1": "Link", "lvl2": "Disabled", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "193948f1-48de-45ac-b6ed-60e4246f61bd",
+    "objectID": "c0d8e89e-5914-4866-a9e9-efa707742b7f",
     "type": "lvl3",
     "url": "/docs/components/link#colors",
     "hierarchy": {"lvl1": "Link", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Underline",
-    "objectID": "2561467d-18bc-4e2b-9379-136a02c65ff4",
+    "objectID": "e44420ae-ea9e-4cbe-aaac-467097b912cb",
     "type": "lvl3",
     "url": "/docs/components/link#underline",
     "hierarchy": {"lvl1": "Link", "lvl2": "Colors", "lvl3": "Underline"}
   },
   {
     "content": "External",
-    "objectID": "72ad163f-8188-4b3a-a972-bfebedfd0829",
+    "objectID": "e30e6f2c-e465-40c5-982a-bf55d9372056",
     "type": "lvl3",
     "url": "/docs/components/link#external",
     "hierarchy": {"lvl1": "Link", "lvl2": "Underline", "lvl3": "External"}
   },
   {
     "content": "Custom Anchor Icon",
-    "objectID": "6ff8c7ba-f66c-4165-a8ce-8120cd0e5c7a",
+    "objectID": "fa5cd79d-aaed-40ab-81f3-3d0b65d84264",
     "type": "lvl3",
     "url": "/docs/components/link#custom-anchor-icon",
     "hierarchy": {
@@ -2053,7 +2053,7 @@
   },
   {
     "content": "Block Link",
-    "objectID": "b85bd792-abdf-4c4a-9d8a-9cdae3113197",
+    "objectID": "67cea71f-efff-4d33-a1c9-22f8252a769a",
     "type": "lvl3",
     "url": "/docs/components/link#block-link",
     "hierarchy": {
@@ -2064,7 +2064,7 @@
   },
   {
     "content": "Polymorphic Component",
-    "objectID": "4fcd45ba-da6f-4a78-a0b7-58ec541e572f",
+    "objectID": "936d6b6b-2745-43f3-9da9-9e9fa2de0189",
     "type": "lvl3",
     "url": "/docs/components/link#polymorphic-component",
     "hierarchy": {
@@ -2075,7 +2075,7 @@
   },
   {
     "content": "Usage with Next.js",
-    "objectID": "de3618f4-ac12-4420-a92f-710723184c7e",
+    "objectID": "31e29e08-acca-455f-8b44-757c8fb14b77",
     "type": "lvl3",
     "url": "/docs/components/link#usage-with-nextjs",
     "hierarchy": {
@@ -2086,7 +2086,7 @@
   },
   {
     "content": "Custom Implementation",
-    "objectID": "319c1005-0cb1-4791-aa38-80f6dc67445a",
+    "objectID": "66177092-e6c7-44e4-8655-4f096998139f",
     "type": "lvl3",
     "url": "/docs/components/link#custom-implementation",
     "hierarchy": {
@@ -2097,70 +2097,70 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "b5b1b242-054a-40b3-b1d1-9eeb67b491fa",
+    "objectID": "b3216023-4469-4825-823b-11376b4d5a02",
     "type": "lvl2",
     "url": "/docs/components/link#data-attributes",
     "hierarchy": {"lvl1": "Link", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "99fe026b-7c3b-4c0c-91a0-c0e73690546d",
+    "objectID": "fa2d949f-0d22-4af3-9ea0-9aa752bf5cab",
     "type": "lvl2",
     "url": "/docs/components/link#accessibility",
     "hierarchy": {"lvl1": "Link", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "866577e7-8e3b-44d0-8c09-8ea1bed853d3",
+    "objectID": "0496cc08-9cc7-4d76-a2af-f2dbe4ca0be7",
     "type": "lvl2",
     "url": "/docs/components/link#api",
     "hierarchy": {"lvl1": "Link", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Link Props",
-    "objectID": "35910797-d781-49c1-8c85-4e13e72154d6",
+    "objectID": "50831f35-f6b6-4414-8b6f-40f5c5a1aff5",
     "type": "lvl3",
     "url": "/docs/components/link#link-props",
     "hierarchy": {"lvl1": "Link", "lvl2": "API", "lvl3": "Link Props"}
   },
   {
     "content": "Link Events",
-    "objectID": "faae8af5-ae22-4c0b-968f-ebb7b30d21ad",
+    "objectID": "a7bee5ff-fb74-422b-9d3e-3f1be48da80e",
     "type": "lvl3",
     "url": "/docs/components/link#link-events",
     "hierarchy": {"lvl1": "Link", "lvl2": "Link Props", "lvl3": "Link Events"}
   },
   {
     "content": "Modal",
-    "objectID": "1d01a2d4-646e-4021-8a61-ce628814926e",
+    "objectID": "8be4a708-419d-4330-92be-3ec1fefb4110",
     "type": "lvl1",
     "url": "/docs/components/modal",
     "hierarchy": {"lvl1": "Modal"}
   },
   {
     "content": "Import",
-    "objectID": "812aae63-3858-439f-ac61-26dc7024889b",
+    "objectID": "59256dca-e03c-4dcb-a47e-087ec4ebb300",
     "type": "lvl2",
     "url": "/docs/components/modal#import",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "29f80804-cae1-4e8e-9d45-412b48044131",
+    "objectID": "68251928-bbc3-472d-ad42-be2a7696cd2d",
     "type": "lvl2",
     "url": "/docs/components/modal#usage",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "13c34518-bb63-434f-9bed-4caf3a5459cb",
+    "objectID": "a78f9581-2d2d-4959-b6ab-5d19d12de355",
     "type": "lvl3",
     "url": "/docs/components/modal#sizes",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Non-dissmissable",
-    "objectID": "b23b8c1b-77d0-4e39-a5d6-f1e1e918b9fe",
+    "objectID": "b95b2863-ef4c-4217-b893-240b1f33c733",
     "type": "lvl3",
     "url": "/docs/components/modal#non-dissmissable",
     "hierarchy": {
@@ -2171,7 +2171,7 @@
   },
   {
     "content": "Modal position",
-    "objectID": "422a7b9b-1016-4d77-897c-ecbbc48d029b",
+    "objectID": "0ffb1f2c-2ad6-4044-9771-1f9d82184241",
     "type": "lvl3",
     "url": "/docs/components/modal#modal-position",
     "hierarchy": {
@@ -2182,7 +2182,7 @@
   },
   {
     "content": "Overflow scroll",
-    "objectID": "4ecefecd-16a5-4bde-a52b-4924011c0e21",
+    "objectID": "62c3b2e1-f0df-429a-898b-6dc80fb03cbe",
     "type": "lvl3",
     "url": "/docs/components/modal#overflow-scroll",
     "hierarchy": {
@@ -2193,7 +2193,7 @@
   },
   {
     "content": "With Form",
-    "objectID": "0fefb919-c0b6-4421-b150-1a9f2e1d8946",
+    "objectID": "34346df4-e296-4a7e-b7e7-40487f942840",
     "type": "lvl3",
     "url": "/docs/components/modal#with-form",
     "hierarchy": {
@@ -2204,14 +2204,14 @@
   },
   {
     "content": "Backdrop",
-    "objectID": "611d6e4c-b7bd-42ce-b90e-2b131a863752",
+    "objectID": "f3a995c2-8314-464e-941e-0d660b618bd4",
     "type": "lvl3",
     "url": "/docs/components/modal#backdrop",
     "hierarchy": {"lvl1": "Modal", "lvl2": "With Form", "lvl3": "Backdrop"}
   },
   {
     "content": "Custom Backdrop",
-    "objectID": "ee420aed-4a77-4ce8-ae67-4887051970d3",
+    "objectID": "d81c966c-835e-4a0e-ac97-5b364faf7b59",
     "type": "lvl3",
     "url": "/docs/components/modal#custom-backdrop",
     "hierarchy": {
@@ -2222,7 +2222,7 @@
   },
   {
     "content": "Custom Motion",
-    "objectID": "611ddc0a-aeee-481a-83a7-4b9ce94b97c9",
+    "objectID": "b26030b9-63ad-4226-9863-c0090cb04068",
     "type": "lvl3",
     "url": "/docs/components/modal#custom-motion",
     "hierarchy": {
@@ -2233,49 +2233,49 @@
   },
   {
     "content": "Slots",
-    "objectID": "e16ca5e6-b012-4d88-89e8-89099e72ec9e",
+    "objectID": "2fad3b95-0639-4413-acd3-ab967ffde181",
     "type": "lvl2",
     "url": "/docs/components/modal#slots",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "22156a47-a99a-4bc3-a948-79a8463e20ab",
+    "objectID": "4f23a62e-6c03-4c40-8ae1-66d90cd224c3",
     "type": "lvl3",
     "url": "/docs/components/modal#custom-styles",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Data Attributes",
-    "objectID": "03b75c83-137c-402b-8f12-310813dc0d9b",
+    "objectID": "1a5b581d-e05a-4793-b339-71f364406441",
     "type": "lvl2",
     "url": "/docs/components/modal#data-attributes",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "3a6f02ec-ad64-40fb-809a-0eecf206c56f",
+    "objectID": "cb3a4e68-a766-4ebd-a562-040a95b6dcf0",
     "type": "lvl2",
     "url": "/docs/components/modal#accessibility",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "c6e33317-c036-46fc-959d-6080eb54b528",
+    "objectID": "6f830916-b3bd-4082-8223-1586ebd153a1",
     "type": "lvl2",
     "url": "/docs/components/modal#api",
     "hierarchy": {"lvl1": "Modal", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Modal Props",
-    "objectID": "b5515b47-b3bd-4c0a-b2f2-e700929af98b",
+    "objectID": "cce86c1a-f1f3-4dd7-91e4-952838ba7a56",
     "type": "lvl3",
     "url": "/docs/components/modal#modal-props",
     "hierarchy": {"lvl1": "Modal", "lvl2": "API", "lvl3": "Modal Props"}
   },
   {
     "content": "Modal Events",
-    "objectID": "6bca5cce-647b-402a-9819-d1109894b807",
+    "objectID": "6f624507-a15b-4f57-a1fb-1556de9b8d3e",
     "type": "lvl3",
     "url": "/docs/components/modal#modal-events",
     "hierarchy": {
@@ -2286,7 +2286,7 @@
   },
   {
     "content": "Modal types",
-    "objectID": "bbd803bb-5f31-4f21-9bab-3681d50be39c",
+    "objectID": "cef79c44-5cce-4a80-867a-8d7a4238d99a",
     "type": "lvl3",
     "url": "/docs/components/modal#modal-types",
     "hierarchy": {
@@ -2297,84 +2297,319 @@
   },
   {
     "content": "Motion Props",
-    "objectID": "681afe58-331f-4c37-a232-d37c08cb2520",
+    "objectID": "15ca215f-18d4-4cb2-8578-ff5dcd24970c",
     "type": "lvl4",
     "url": "/docs/components/modal#motion-props",
     "hierarchy": {"lvl1": "Modal", "lvl2": "Modal types", "lvl3": null}
   },
   {
     "content": "Navbar",
-    "objectID": "f4bfb2ac-9584-41be-b4c5-d21783dd9596",
+    "objectID": "4133b77c-f08f-4d5a-b211-0a056540bab1",
     "type": "lvl1",
     "url": "/docs/components/navbar",
     "hierarchy": {"lvl1": "Navbar"}
   },
   {
     "content": "Pagination",
-    "objectID": "5bf20480-7663-4881-963e-86c8ad61a841",
+    "objectID": "07627273-c1b5-43dc-8b44-fa4f832285df",
     "type": "lvl1",
     "url": "/docs/components/pagination",
     "hierarchy": {"lvl1": "Pagination"}
   },
   {
+    "content": "Import",
+    "objectID": "eb98cc69-a21c-44a0-adb0-2f6f618ba318",
+    "type": "lvl2",
+    "url": "/docs/components/pagination#import",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Import", "lvl3": null}
+  },
+  {
+    "content": "Usage",
+    "objectID": "639ed447-8c87-4401-be54-2848b74c970b",
+    "type": "lvl2",
+    "url": "/docs/components/pagination#usage",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Usage", "lvl3": null}
+  },
+  {
+    "content": "Disabled",
+    "objectID": "5e2daa0d-7cde-4944-89c7-217a281ed1c1",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#disabled",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Usage", "lvl3": "Disabled"}
+  },
+  {
+    "content": "Sizes",
+    "objectID": "a7a348d2-e760-42d7-886d-785c14f437cf",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#sizes",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Disabled", "lvl3": "Sizes"}
+  },
+  {
+    "content": "Colors",
+    "objectID": "be25e18e-0c80-4acc-8fc4-73240384098d",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#colors",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Sizes", "lvl3": "Colors"}
+  },
+  {
+    "content": "Variants",
+    "objectID": "2b077b89-c0ef-459b-b202-7bb64b08f723",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#variants",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Colors", "lvl3": "Variants"}
+  },
+  {
+    "content": "With Controls",
+    "objectID": "fc4a104c-8cbd-4c7b-8a8e-2bff0f3a12a5",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#with-controls",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Variants",
+      "lvl3": "With Controls"
+    }
+  },
+  {
+    "content": "Pagination Loop",
+    "objectID": "9367cd9f-db78-4f88-83eb-6ff895e1970d",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#pagination-loop",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "With Controls",
+      "lvl3": "Pagination Loop"
+    }
+  },
+  {
+    "content": "Changing the initial page",
+    "objectID": "26709870-3cd0-4184-9b86-cd02a0d22240",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#changing-the-initial-page",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Pagination Loop",
+      "lvl3": "Changing the initial page"
+    }
+  },
+  {
+    "content": "Compact Pagination",
+    "objectID": "6c1a8a89-add4-48a2-a353-23cfffa94108",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#compact-pagination",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Changing the initial page",
+      "lvl3": "Compact Pagination"
+    }
+  },
+  {
+    "content": "With Shadow",
+    "objectID": "9eb49ca5-56f9-4c05-8325-4e6c6dc0364f",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#with-shadow",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Compact Pagination",
+      "lvl3": "With Shadow"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "45502c82-e935-4471-bd68-545d4143a7fc",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#controlled",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "With Shadow",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Siblings",
+    "objectID": "18cd2cb5-a149-4290-a314-6ba1d56dbf7b",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#siblings",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Controlled",
+      "lvl3": "Siblings"
+    }
+  },
+  {
+    "content": "Boundaries",
+    "objectID": "c1c579a3-53bb-443f-9427-0d5b9dca95e9",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#boundaries",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Siblings",
+      "lvl3": "Boundaries"
+    }
+  },
+  {
+    "content": "Custom items",
+    "objectID": "826f6490-4449-4766-a565-8c1777754a3c",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#custom-items",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Boundaries",
+      "lvl3": "Custom items"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "12b1a4ac-8b71-4432-8b42-e093bfe3cd82",
+    "type": "lvl2",
+    "url": "/docs/components/pagination#slots",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Slots", "lvl3": null}
+  },
+  {
+    "content": "Custom Styles",
+    "objectID": "7e850345-abb2-4db8-9005-64e0a41600ea",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#custom-styles",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Slots",
+      "lvl3": "Custom Styles"
+    }
+  },
+  {
+    "content": "Custom Implementation",
+    "objectID": "57c8f794-c71a-4216-9bac-46606f3d30ef",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#custom-implementation",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Custom Styles",
+      "lvl3": "Custom Implementation"
+    }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "dcc5f443-e21b-40aa-aa7c-69e5da52bcb2",
+    "type": "lvl2",
+    "url": "/docs/components/pagination#data-attributes",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Data Attributes",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "1e7ed17c-4e69-4169-8c16-c665d3561594",
+    "type": "lvl2",
+    "url": "/docs/components/pagination#accessibility",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Accessibility", "lvl3": null}
+  },
+  {
+    "content": "API",
+    "objectID": "9f698bf2-22ac-4972-8f3c-32bc40e84163",
+    "type": "lvl2",
+    "url": "/docs/components/pagination#api",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "API", "lvl3": null}
+  },
+  {
+    "content": "Pagination Props",
+    "objectID": "c1eab284-ad3e-4e19-9d2c-cdafa6e8ab31",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#pagination-props",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "API",
+      "lvl3": "Pagination Props"
+    }
+  },
+  {
+    "content": "Pagination Events",
+    "objectID": "0268a8ee-4ed6-4902-8f0a-6b8fcdef2ca2",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#pagination-events",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Pagination Props",
+      "lvl3": "Pagination Events"
+    }
+  },
+  {
+    "content": "Types",
+    "objectID": "b5e03401-3054-41ae-9636-ad3b0bd71006",
+    "type": "lvl3",
+    "url": "/docs/components/pagination#types",
+    "hierarchy": {
+      "lvl1": "Pagination",
+      "lvl2": "Pagination Events",
+      "lvl3": "Types"
+    }
+  },
+  {
+    "content": "Pagination Item Props",
+    "objectID": "53d134a7-4262-48a6-9e1b-18f2c9361370",
+    "type": "lvl4",
+    "url": "/docs/components/pagination#pagination-item-props",
+    "hierarchy": {"lvl1": "Pagination", "lvl2": "Types", "lvl3": null}
+  },
+  {
     "content": "Popover",
-    "objectID": "f2d5b0e6-7ed8-4ba9-8bd1-3cedf165ea4c",
+    "objectID": "9e0ea4c6-a033-4343-8f8c-e54d491ca464",
     "type": "lvl1",
     "url": "/docs/components/popover",
     "hierarchy": {"lvl1": "Popover"}
   },
   {
     "content": "Import",
-    "objectID": "5113736c-0e3a-4686-92ad-48dd14c7f26f",
+    "objectID": "a7e66684-f990-4bf9-a166-4ec74e86885e",
     "type": "lvl2",
     "url": "/docs/components/popover#import",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "75a68995-6031-4375-a300-b9972e8d77f6",
+    "objectID": "4553b44f-4ffb-45c5-8408-21f5e129c31f",
     "type": "lvl2",
     "url": "/docs/components/popover#usage",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "With Arrow",
-    "objectID": "a75c754c-59ec-488a-bdf8-96ceb5d5f6e2",
+    "objectID": "5e194317-6278-4790-88e8-302ec38a758e",
     "type": "lvl3",
     "url": "/docs/components/popover#with-arrow",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Usage", "lvl3": "With Arrow"}
   },
   {
     "content": "Colors",
-    "objectID": "fdb0a094-0978-4db0-91ce-54c375bee96b",
+    "objectID": "d31fa827-3433-406c-8581-2c53d7df087d",
     "type": "lvl3",
     "url": "/docs/components/popover#colors",
     "hierarchy": {"lvl1": "Popover", "lvl2": "With Arrow", "lvl3": "Colors"}
   },
   {
     "content": "Placements",
-    "objectID": "ad12fe8b-5dff-4417-b744-3ef37a602fb9",
+    "objectID": "dc221ab3-f721-4d99-a645-39c6753a0fe1",
     "type": "lvl3",
     "url": "/docs/components/popover#placements",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Colors", "lvl3": "Placements"}
   },
   {
     "content": "Offset",
-    "objectID": "903ee761-424f-4ff7-8270-1e808ea213a9",
+    "objectID": "481860c8-a17e-40f0-bbab-d16d15a637a2",
     "type": "lvl3",
     "url": "/docs/components/popover#offset",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Placements", "lvl3": "Offset"}
   },
   {
     "content": "Controlled",
-    "objectID": "68a74391-8377-4094-b9c1-1c2fc184814f",
+    "objectID": "24bab8b3-fb34-4deb-b3e8-cd66c3e73dae",
     "type": "lvl3",
     "url": "/docs/components/popover#controlled",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Offset", "lvl3": "Controlled"}
   },
   {
     "content": "Title Props",
-    "objectID": "eacea4dc-3569-4077-aee3-f3ee010c41c1",
+    "objectID": "ae849b51-4c15-46a1-b561-17438bdd833e",
     "type": "lvl3",
     "url": "/docs/components/popover#title-props",
     "hierarchy": {
@@ -2385,7 +2620,7 @@
   },
   {
     "content": "With Form",
-    "objectID": "41f26bc4-e071-4454-87f9-30fc102ed2d3",
+    "objectID": "08320946-4a42-452b-a4f1-83db5285acef",
     "type": "lvl3",
     "url": "/docs/components/popover#with-form",
     "hierarchy": {
@@ -2396,14 +2631,14 @@
   },
   {
     "content": "Backdrop",
-    "objectID": "3cab0831-282e-4306-8534-094b57f8575b",
+    "objectID": "9ee8fae0-a1a1-45eb-8381-0aa564c177ee",
     "type": "lvl3",
     "url": "/docs/components/popover#backdrop",
     "hierarchy": {"lvl1": "Popover", "lvl2": "With Form", "lvl3": "Backdrop"}
   },
   {
     "content": "Custom Motion",
-    "objectID": "bce5b831-3ce2-4ace-8255-10aee68a1e44",
+    "objectID": "6984a4d6-9dea-4f1d-ba1f-bd752ed25b19",
     "type": "lvl3",
     "url": "/docs/components/popover#custom-motion",
     "hierarchy": {
@@ -2414,7 +2649,7 @@
   },
   {
     "content": "Custom Trigger",
-    "objectID": "b3808081-8793-4cfb-90a4-a69b3501f4b1",
+    "objectID": "fff43481-3db4-4ede-bd88-501d223fe9dc",
     "type": "lvl3",
     "url": "/docs/components/popover#custom-trigger",
     "hierarchy": {
@@ -2425,49 +2660,49 @@
   },
   {
     "content": "Slots",
-    "objectID": "74b0f330-9dbe-47d8-8fed-0e5c9e825fec",
+    "objectID": "a368c53c-454d-43d7-9aa7-ad532e4592c9",
     "type": "lvl2",
     "url": "/docs/components/popover#slots",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "17502a39-bbdc-49fa-ba41-92c5d58aed76",
+    "objectID": "42011e7f-b582-43c3-b61d-17600fc520ac",
     "type": "lvl3",
     "url": "/docs/components/popover#custom-styles",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Data Attributes",
-    "objectID": "261faea1-1806-4702-8a55-46e8c22fd3cb",
+    "objectID": "91fcc985-4c16-4adb-925c-74363c3a966d",
     "type": "lvl2",
     "url": "/docs/components/popover#data-attributes",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "faaa5767-8cd5-4a89-9d33-8199b6285d05",
+    "objectID": "ef3ac7a9-c35e-438d-aa1c-91cee8eb8ba0",
     "type": "lvl2",
     "url": "/docs/components/popover#accessibility",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "2636a32f-eb67-4630-9964-1bf8debac9c6",
+    "objectID": "a6b23b73-5f1f-481e-aae5-9f8615f3204a",
     "type": "lvl2",
     "url": "/docs/components/popover#api",
     "hierarchy": {"lvl1": "Popover", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Popover Props",
-    "objectID": "648996af-f629-42bf-84d5-eecff5e7dbc2",
+    "objectID": "e57f5f04-c463-4ab4-a492-9746cc734f47",
     "type": "lvl3",
     "url": "/docs/components/popover#popover-props",
     "hierarchy": {"lvl1": "Popover", "lvl2": "API", "lvl3": "Popover Props"}
   },
   {
     "content": "Popover Events",
-    "objectID": "ad158712-dc7d-4226-ba33-6257fc56bd7a",
+    "objectID": "33f731a7-2d11-40c8-99f6-e2bae0d34612",
     "type": "lvl3",
     "url": "/docs/components/popover#popover-events",
     "hierarchy": {
@@ -2478,7 +2713,7 @@
   },
   {
     "content": "PopoverTrigger Props",
-    "objectID": "b472bfdb-7aa0-44ec-9813-8c68e97a640e",
+    "objectID": "81f92953-b5ee-455d-b09a-21ad5061092f",
     "type": "lvl3",
     "url": "/docs/components/popover#popovertrigger-props",
     "hierarchy": {
@@ -2489,7 +2724,7 @@
   },
   {
     "content": "PopoverContent Props",
-    "objectID": "04e4aa0b-a8b6-4430-92ed-5468c0f27fa8",
+    "objectID": "d3896619-28a1-450b-a9ee-e0499532e83f",
     "type": "lvl3",
     "url": "/docs/components/popover#popovercontent-props",
     "hierarchy": {
@@ -2500,7 +2735,7 @@
   },
   {
     "content": "Popover types",
-    "objectID": "03c6c3f7-50b4-4d88-9904-872d07457ce7",
+    "objectID": "11109319-2118-47ba-b230-d7402152573b",
     "type": "lvl3",
     "url": "/docs/components/popover#popover-types",
     "hierarchy": {
@@ -2511,14 +2746,14 @@
   },
   {
     "content": "Popover Placement",
-    "objectID": "7b053975-5b8e-4d74-a841-49b951e8e272",
+    "objectID": "16cde339-547f-4482-9c39-99b3afc1c5a4",
     "type": "lvl4",
     "url": "/docs/components/popover#popover-placement",
     "hierarchy": {"lvl1": "Popover", "lvl2": "Popover types", "lvl3": null}
   },
   {
     "content": "Motion Props",
-    "objectID": "b18c300f-199f-4c1f-b79f-d8309695abe4",
+    "objectID": "faa3e602-1daa-4a5a-a88b-331a7f0a3db5",
     "type": "lvl4",
     "url": "/docs/components/popover#motion-props",
     "hierarchy": {
@@ -2529,42 +2764,42 @@
   },
   {
     "content": "Progress",
-    "objectID": "f10ae2db-c167-484f-bfa3-8e7d1af8fcaf",
+    "objectID": "88759cdb-03a7-4d21-a8c9-d1fe49258dd6",
     "type": "lvl1",
     "url": "/docs/components/progress",
     "hierarchy": {"lvl1": "Progress"}
   },
   {
     "content": "Import",
-    "objectID": "a9ca2f57-5cad-42d9-b8d8-f279b4f54b95",
+    "objectID": "9391a810-3f95-4dec-8a47-cc8c4d4ea9bd",
     "type": "lvl2",
     "url": "/docs/components/progress#import",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "51793850-4447-48cb-a0c4-fbe083342111",
+    "objectID": "c8945689-1ddd-4f2f-91a3-f3d5df23624c",
     "type": "lvl2",
     "url": "/docs/components/progress#usage",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "1f6dab15-50b4-4de0-bb77-f15b789df792",
+    "objectID": "a5453c40-d1ac-42d2-9e4c-7a0d3364edbc",
     "type": "lvl3",
     "url": "/docs/components/progress#sizes",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "e8cb8e47-ddb3-4fab-9868-f4ddb4a41f5e",
+    "objectID": "6cd7d267-f069-4eb7-ba99-75147d88bf78",
     "type": "lvl3",
     "url": "/docs/components/progress#colors",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Indeterminate",
-    "objectID": "966f7aca-4ae9-414d-884f-92bf49d9d5a6",
+    "objectID": "85f03275-03ff-455f-8fe5-e72d5c8029fe",
     "type": "lvl3",
     "url": "/docs/components/progress#indeterminate",
     "hierarchy": {
@@ -2575,7 +2810,7 @@
   },
   {
     "content": "Striped",
-    "objectID": "31d99be1-f1ac-45aa-b979-2d1cf1918efa",
+    "objectID": "79aa11df-98b0-4692-90f0-61ceb2c1c258",
     "type": "lvl3",
     "url": "/docs/components/progress#striped",
     "hierarchy": {
@@ -2586,14 +2821,14 @@
   },
   {
     "content": "With Label",
-    "objectID": "e8d95c9e-4950-4dfe-905d-22139443d6f8",
+    "objectID": "ac1280f4-e589-4718-aea3-bd91fb82a018",
     "type": "lvl3",
     "url": "/docs/components/progress#with-label",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Striped", "lvl3": "With Label"}
   },
   {
     "content": "With Value",
-    "objectID": "7dbd17a7-74c6-44f9-a337-6690dc7f266d",
+    "objectID": "98277f6f-36df-406e-b2e1-29261535beda",
     "type": "lvl3",
     "url": "/docs/components/progress#with-value",
     "hierarchy": {
@@ -2604,7 +2839,7 @@
   },
   {
     "content": "Value Formatting",
-    "objectID": "5ac2905d-3703-4f54-80cb-efe8e1a5ad2d",
+    "objectID": "39a631ca-82be-4ace-83c7-25bf6089718a",
     "type": "lvl3",
     "url": "/docs/components/progress#value-formatting",
     "hierarchy": {
@@ -2615,14 +2850,14 @@
   },
   {
     "content": "Slots",
-    "objectID": "cc989750-1793-4dc3-aeb7-3a63c9eb743a",
+    "objectID": "e4773492-58c0-4534-9035-bd2a353376b1",
     "type": "lvl2",
     "url": "/docs/components/progress#slots",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "220580e1-fc2c-4b9d-9c3a-335b000a2e9d",
+    "objectID": "41bf6663-47e0-4cda-8225-c9bb5d0d8903",
     "type": "lvl3",
     "url": "/docs/components/progress#custom-styles",
     "hierarchy": {
@@ -2633,28 +2868,28 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "ed1bfb65-71b2-446e-8ed2-a459e77fb3a6",
+    "objectID": "4051574e-6547-490c-968e-b95a74b86c37",
     "type": "lvl2",
     "url": "/docs/components/progress#data-attributes",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "2778111d-1dbd-4455-a35f-b75eed776c24",
+    "objectID": "55a6ac41-12e7-42eb-815d-c516a4c3070d",
     "type": "lvl2",
     "url": "/docs/components/progress#accessibility",
     "hierarchy": {"lvl1": "Progress", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "5e78c9da-228b-4832-8ce8-d46e5b640d7d",
+    "objectID": "cb64965c-24ef-4984-b00c-3158b611dc23",
     "type": "lvl2",
     "url": "/docs/components/progress#api",
     "hierarchy": {"lvl1": "Progress", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Circular Progress Props",
-    "objectID": "4a5946aa-b423-43de-809c-6e675f05276a",
+    "objectID": "312afab2-db2f-4256-9fa1-3136d02bfd65",
     "type": "lvl3",
     "url": "/docs/components/progress#circular-progress-props",
     "hierarchy": {
@@ -2665,42 +2900,42 @@
   },
   {
     "content": "Radio",
-    "objectID": "fe3f566f-11cd-45c8-bc4e-100f9ff4e45c",
+    "objectID": "e974a041-839c-4c6e-81c4-c1a8aafa24c0",
     "type": "lvl1",
     "url": "/docs/components/radio-group",
     "hierarchy": {"lvl1": "Radio"}
   },
   {
     "content": "Radio group",
-    "objectID": "5354e3e3-352c-4053-9ff9-c6ba8f5ce9e6",
+    "objectID": "adf74bb5-83b4-4de7-ba18-8359f607b7ed",
     "type": "lvl1",
     "url": "/docs/components/radio-group#radio-group",
     "hierarchy": {"lvl1": "Radio", "lvl2": null, "lvl3": null}
   },
   {
     "content": "Import",
-    "objectID": "795960ec-74b3-49e2-b11c-eda9a3f67d5a",
+    "objectID": "f338da4d-6d55-4703-aa79-b7f54408bd32",
     "type": "lvl2",
     "url": "/docs/components/radio-group#import",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "efe385d6-59ea-449e-8dc9-e1d43a67339d",
+    "objectID": "ccaadf61-25e9-47e0-a63c-79b3f1c72c18",
     "type": "lvl2",
     "url": "/docs/components/radio-group#usage",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "1c124b63-65de-4b47-bb50-a433779d6c6c",
+    "objectID": "2490c4fa-2f27-4916-9c50-d39531c2f17d",
     "type": "lvl3",
     "url": "/docs/components/radio-group#disabled",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Default Value",
-    "objectID": "a67ef927-75b4-4ea3-8094-45ee0d5e11d0",
+    "objectID": "c253bcec-d6ea-49b8-a1ef-d161300fabfc",
     "type": "lvl3",
     "url": "/docs/components/radio-group#default-value",
     "hierarchy": {
@@ -2711,7 +2946,7 @@
   },
   {
     "content": "With Description",
-    "objectID": "7fa54654-dd93-4897-92f1-60afae25a83c",
+    "objectID": "a631916f-24d0-44e1-bd42-c0b89712e75a",
     "type": "lvl3",
     "url": "/docs/components/radio-group#with-description",
     "hierarchy": {
@@ -2722,7 +2957,7 @@
   },
   {
     "content": "Horizontal",
-    "objectID": "e73f8c42-b387-4e6e-8045-f48ac1cb5a97",
+    "objectID": "13c13c46-72f4-4748-a3af-471d8b69b8bb",
     "type": "lvl3",
     "url": "/docs/components/radio-group#horizontal",
     "hierarchy": {
@@ -2733,28 +2968,28 @@
   },
   {
     "content": "Controlled",
-    "objectID": "06da92c9-27bd-4028-95ef-a1673f6e0a66",
+    "objectID": "b74a66a1-549f-4754-bab7-b861c6332ddf",
     "type": "lvl3",
     "url": "/docs/components/radio-group#controlled",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Horizontal", "lvl3": "Controlled"}
   },
   {
     "content": "Slots",
-    "objectID": "1a58d29e-2d76-4618-8641-4a612884c1e2",
+    "objectID": "115ed6d2-045c-4b2a-b699-57b542f445fd",
     "type": "lvl2",
     "url": "/docs/components/radio-group#slots",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "8eadd1c0-b1c6-4deb-9ca4-88dd6019cee3",
+    "objectID": "73cfc588-ebbf-4684-a8a3-c9019789fa85",
     "type": "lvl3",
     "url": "/docs/components/radio-group#custom-styles",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Custom Implementation",
-    "objectID": "cfe5d639-cfc4-403e-af22-ebfa184263cd",
+    "objectID": "4a964fa3-ef02-48a1-8c0f-87c473238717",
     "type": "lvl3",
     "url": "/docs/components/radio-group#custom-implementation",
     "hierarchy": {
@@ -2765,35 +3000,35 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "6b013816-2b08-4954-bb35-c9afc5eb8066",
+    "objectID": "37f4b3d2-f5e3-4ce8-9e21-b4f89b50441a",
     "type": "lvl2",
     "url": "/docs/components/radio-group#data-attributes",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "c6e48138-4cfb-4ff7-80c3-cdb69e44292e",
+    "objectID": "86c30ef4-70e3-476d-99c8-611429754aac",
     "type": "lvl2",
     "url": "/docs/components/radio-group#accessibility",
     "hierarchy": {"lvl1": "Radio", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "aab1ecda-a0d0-4c93-ab50-88bcd6891d45",
+    "objectID": "c411bc87-5dfd-4046-8eb4-ba0165cdeb8d",
     "type": "lvl2",
     "url": "/docs/components/radio-group#api",
     "hierarchy": {"lvl1": "Radio", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "RadioGroup Props",
-    "objectID": "89eb2060-00fa-4a59-b24d-5d089435f17f",
+    "objectID": "e36bad42-1c60-4c1a-b56a-a7845796739f",
     "type": "lvl3",
     "url": "/docs/components/radio-group#radiogroup-props",
     "hierarchy": {"lvl1": "Radio", "lvl2": "API", "lvl3": "RadioGroup Props"}
   },
   {
     "content": "RadioGroup Events",
-    "objectID": "498d9fdf-a383-4c68-a94c-a5969e0f9839",
+    "objectID": "29b342ca-16ac-4624-9534-fae972f165df",
     "type": "lvl3",
     "url": "/docs/components/radio-group#radiogroup-events",
     "hierarchy": {
@@ -2804,7 +3039,7 @@
   },
   {
     "content": "Radio Props",
-    "objectID": "e1d4fb54-6613-4ba2-b183-7f8664a92dba",
+    "objectID": "234061b3-d36a-4412-af24-0a48388592dc",
     "type": "lvl3",
     "url": "/docs/components/radio-group#radio-props",
     "hierarchy": {
@@ -2815,35 +3050,35 @@
   },
   {
     "content": "Skeleton",
-    "objectID": "19d19cd5-bdbd-4fb2-9686-07d2cb75d307",
+    "objectID": "ead27ce3-111e-4605-8247-e24d7042e66b",
     "type": "lvl1",
     "url": "/docs/components/skeleton",
     "hierarchy": {"lvl1": "Skeleton"}
   },
   {
     "content": "Import",
-    "objectID": "ae1540f0-f7d8-40b5-a6cc-ed7b515282a9",
+    "objectID": "7827fced-40c9-4a05-bc67-bd47857d2bc3",
     "type": "lvl2",
     "url": "/docs/components/skeleton#import",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "959fad55-80a8-4c8b-9668-c1c8385db55d",
+    "objectID": "cec45750-f478-4d0e-ae7a-d23fbf126933",
     "type": "lvl2",
     "url": "/docs/components/skeleton#usage",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Standalone",
-    "objectID": "ad2b5350-0fe1-4db6-95b9-d55de8a96fb7",
+    "objectID": "8eece062-85e5-4dd9-bd96-15f5a6c997da",
     "type": "lvl3",
     "url": "/docs/components/skeleton#standalone",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "Usage", "lvl3": "Standalone"}
   },
   {
     "content": "Loaded State",
-    "objectID": "78b878fd-8984-4242-89fb-57c81631859d",
+    "objectID": "d8c4e556-af22-4462-94e2-fed96dab43d7",
     "type": "lvl3",
     "url": "/docs/components/skeleton#loaded-state",
     "hierarchy": {
@@ -2854,77 +3089,77 @@
   },
   {
     "content": "Slots",
-    "objectID": "6f834cb1-6d50-4505-b937-b4885b19bb76",
+    "objectID": "24eee4e6-0fa5-4761-803a-850410f62500",
     "type": "lvl2",
     "url": "/docs/components/skeleton#slots",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Data Attributes",
-    "objectID": "cb4c8283-6be6-4e66-88b0-82b25d4ac300",
+    "objectID": "be0e9c58-c662-4403-8383-285fea254b34",
     "type": "lvl2",
     "url": "/docs/components/skeleton#data-attributes",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "e02cd0fd-b671-40d4-9404-b139286e8fc4",
+    "objectID": "4dc1f082-20de-44fa-87ea-f7db491da007",
     "type": "lvl2",
     "url": "/docs/components/skeleton#api",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Skeleton Props",
-    "objectID": "3e14769b-1428-4185-a6c1-daf607ef485e",
+    "objectID": "5b3c2aac-98ff-48b1-8853-d5b7be77cd42",
     "type": "lvl3",
     "url": "/docs/components/skeleton#skeleton-props",
     "hierarchy": {"lvl1": "Skeleton", "lvl2": "API", "lvl3": "Skeleton Props"}
   },
   {
     "content": "Snippet",
-    "objectID": "6507d74a-255c-4e97-aa2c-e7d5997c8915",
+    "objectID": "022df0cd-b5ec-4ef2-bef6-b802fb60df3a",
     "type": "lvl1",
     "url": "/docs/components/snippet",
     "hierarchy": {"lvl1": "Snippet"}
   },
   {
     "content": "Import",
-    "objectID": "3275d05d-8c3d-452d-9a47-adf123c4f2f4",
+    "objectID": "cfa58302-4d5a-4b1f-b103-22911f8de1e2",
     "type": "lvl2",
     "url": "/docs/components/snippet#import",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "38cddc49-d489-46c0-9337-28c70780d9b6",
+    "objectID": "668a6f0b-0aa1-471d-b654-3662e3396141",
     "type": "lvl2",
     "url": "/docs/components/snippet#usage",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "bb194044-a872-4200-9dff-b1c503986d38",
+    "objectID": "7a262f4f-1590-409f-9649-06b4c1ea74be",
     "type": "lvl3",
     "url": "/docs/components/snippet#sizes",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "011c5b60-d820-47ad-af98-8d3b556625ca",
+    "objectID": "57f11cb5-171c-47f7-8958-3eadd420d1a8",
     "type": "lvl3",
     "url": "/docs/components/snippet#colors",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "Variants",
-    "objectID": "51f04c2a-1369-4528-bad4-8203ad36e1d4",
+    "objectID": "6ce4ca45-d9ab-45a2-92ae-b28a2154b7ce",
     "type": "lvl3",
     "url": "/docs/components/snippet#variants",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "Colors", "lvl3": "Variants"}
   },
   {
     "content": "Custom Symbol",
-    "objectID": "bad4d90f-cce1-47fc-a84c-9a6f5ce16b27",
+    "objectID": "1217eaa2-cfee-4445-887a-b6f0edaea905",
     "type": "lvl3",
     "url": "/docs/components/snippet#custom-symbol",
     "hierarchy": {
@@ -2935,7 +3170,7 @@
   },
   {
     "content": "Without Copy",
-    "objectID": "28398da9-acbb-4124-8a63-e575ed402c0e",
+    "objectID": "fff628f1-9c11-4eff-ba5a-a3679dab3ddd",
     "type": "lvl3",
     "url": "/docs/components/snippet#without-copy",
     "hierarchy": {
@@ -2946,7 +3181,7 @@
   },
   {
     "content": "Custom Tooltip",
-    "objectID": "b9759bc8-0198-4d29-8c11-c796a3357ae6",
+    "objectID": "2e749806-00e3-4d67-b65a-6e7475f29f35",
     "type": "lvl3",
     "url": "/docs/components/snippet#custom-tooltip",
     "hierarchy": {
@@ -2957,7 +3192,7 @@
   },
   {
     "content": "Multiline",
-    "objectID": "00d27dea-f1fd-4b6c-bf87-aaed63b10416",
+    "objectID": "b7fa3a8c-2474-4a8a-a22f-18c67ccbd33a",
     "type": "lvl3",
     "url": "/docs/components/snippet#multiline",
     "hierarchy": {
@@ -2968,7 +3203,7 @@
   },
   {
     "content": "Custom Icons",
-    "objectID": "55ecc4f2-c51f-4d7a-8df1-ec6cc72058e1",
+    "objectID": "14d377dd-eceb-4483-8ed3-a8cd7cd72cfc",
     "type": "lvl3",
     "url": "/docs/components/snippet#custom-icons",
     "hierarchy": {
@@ -2979,28 +3214,28 @@
   },
   {
     "content": "Slots",
-    "objectID": "a2811bf3-fb0d-4c3c-a447-1f24f228393d",
+    "objectID": "b71881d2-85fd-4758-9523-21f50d77072a",
     "type": "lvl2",
     "url": "/docs/components/snippet#slots",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "3c1bdcfb-ed4e-47bc-b4d3-bf9694143443",
+    "objectID": "d44d491c-a7e1-4fa6-a4d3-65eb11ba2533",
     "type": "lvl2",
     "url": "/docs/components/snippet#api",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Snippet Props",
-    "objectID": "100ee5b9-dffe-4e08-b69c-1d304b43d519",
+    "objectID": "177f03b7-2c6a-4e82-a338-bb7ff2e83e55",
     "type": "lvl3",
     "url": "/docs/components/snippet#snippet-props",
     "hierarchy": {"lvl1": "Snippet", "lvl2": "API", "lvl3": "Snippet Props"}
   },
   {
     "content": "Snippet Events",
-    "objectID": "f16fa950-4611-423b-a53c-6cce3714a1be",
+    "objectID": "3435c98b-e8f8-4cd0-8181-d091ccf5f7ae",
     "type": "lvl3",
     "url": "/docs/components/snippet#snippet-events",
     "hierarchy": {
@@ -3011,91 +3246,91 @@
   },
   {
     "content": "Spacer",
-    "objectID": "c45795ab-8e3c-486c-b462-ed20ea46f411",
+    "objectID": "a837db1d-4144-453c-9bd2-6b268fb39a7c",
     "type": "lvl1",
     "url": "/docs/components/spacer",
     "hierarchy": {"lvl1": "Spacer"}
   },
   {
     "content": "Import",
-    "objectID": "137ebc44-4b05-42ec-b481-445d1ffb9bb7",
+    "objectID": "e99ed6ec-3b33-43f3-a411-03250b75dffa",
     "type": "lvl2",
     "url": "/docs/components/spacer#import",
     "hierarchy": {"lvl1": "Spacer", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "430775a6-c491-4de5-9645-5a0a01428d43",
+    "objectID": "65a8cfa6-6e4b-4d44-b9ca-d2dc52ea286e",
     "type": "lvl2",
     "url": "/docs/components/spacer#usage",
     "hierarchy": {"lvl1": "Spacer", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "9a00190a-d3e3-4c03-b528-926d24d37c83",
+    "objectID": "dce24971-a833-4925-a1d2-8d20e93fb641",
     "type": "lvl2",
     "url": "/docs/components/spacer#api",
     "hierarchy": {"lvl1": "Spacer", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Spacer Props",
-    "objectID": "d9a4e0df-4608-4149-9fa9-5bc61897a790",
+    "objectID": "c91e4214-2955-40bf-afbb-8f69c814b611",
     "type": "lvl3",
     "url": "/docs/components/spacer#spacer-props",
     "hierarchy": {"lvl1": "Spacer", "lvl2": "API", "lvl3": "Spacer Props"}
   },
   {
     "content": "Spaces",
-    "objectID": "37982100-74fa-44b0-b7c5-a47852c48011",
+    "objectID": "bff25567-8f0f-4501-a150-d2d33a200a95",
     "type": "lvl3",
     "url": "/docs/components/spacer#spaces",
     "hierarchy": {"lvl1": "Spacer", "lvl2": "Spacer Props", "lvl3": "Spaces"}
   },
   {
     "content": "Spinner",
-    "objectID": "38f13d34-e4ef-476f-8065-d3e327ba1dc8",
+    "objectID": "36c83808-a12a-4e3c-b6c0-b00eca949538",
     "type": "lvl1",
     "url": "/docs/components/spinner",
     "hierarchy": {"lvl1": "Spinner"}
   },
   {
     "content": "Import",
-    "objectID": "8db28556-b2ba-45f6-9568-459fc22a9289",
+    "objectID": "9d8ff075-1dfe-4a08-9213-c4305f314703",
     "type": "lvl2",
     "url": "/docs/components/spinner#import",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "fa451ad2-5365-44f5-921c-bcdc661b3751",
+    "objectID": "648e8422-8660-4fec-a0b1-477bcb96e71f",
     "type": "lvl2",
     "url": "/docs/components/spinner#usage",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Sizes",
-    "objectID": "0b8c7611-69ec-4ad2-810f-6a7e93c06d50",
+    "objectID": "fcc361cb-df93-41e3-9bac-4b18ea63d405",
     "type": "lvl3",
     "url": "/docs/components/spinner#sizes",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "Usage", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "bc248791-1958-4d3c-933a-83816d91b7b2",
+    "objectID": "e9558654-e0aa-4c48-89ee-3f1b17dc718e",
     "type": "lvl3",
     "url": "/docs/components/spinner#colors",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "With Label",
-    "objectID": "48a7666c-b2c9-426a-badd-0bb2f0f1e164",
+    "objectID": "60d3a70a-a77a-499d-8bc6-69b745dbeaf4",
     "type": "lvl3",
     "url": "/docs/components/spinner#with-label",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "Colors", "lvl3": "With Label"}
   },
   {
     "content": "Label colors",
-    "objectID": "d54f31d1-184e-414b-8c48-4811cec450e7",
+    "objectID": "7d66d619-ed49-498a-a30f-0469cd07ab60",
     "type": "lvl3",
     "url": "/docs/components/spinner#label-colors",
     "hierarchy": {
@@ -3106,21 +3341,21 @@
   },
   {
     "content": "Slots",
-    "objectID": "d292000a-0732-4ad2-905b-64aa9f9f0ce2",
+    "objectID": "27b13ee8-965c-4d96-bbd1-a04dc15e6c54",
     "type": "lvl2",
     "url": "/docs/components/spinner#slots",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "16cd8616-145d-456b-b25e-813b3f57a1a5",
+    "objectID": "4cbb5219-9ecf-4d97-8636-22bed04c510f",
     "type": "lvl2",
     "url": "/docs/components/spinner#api",
     "hierarchy": {"lvl1": "Spinner", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Circular Progress Props",
-    "objectID": "3ae9d873-20f0-4374-a1e4-50ee9e7b7e13",
+    "objectID": "a25cee8c-f721-4424-951e-db2e546508b9",
     "type": "lvl3",
     "url": "/docs/components/spinner#circular-progress-props",
     "hierarchy": {
@@ -3131,56 +3366,56 @@
   },
   {
     "content": "Switch",
-    "objectID": "005d4439-730a-4168-93d8-b2cc177fc31c",
+    "objectID": "8c85c812-84ec-476f-a03c-9bc021824c2b",
     "type": "lvl1",
     "url": "/docs/components/switch",
     "hierarchy": {"lvl1": "Switch"}
   },
   {
     "content": "Import",
-    "objectID": "4ca6b34b-44df-4446-80b4-01da6db7f6bd",
+    "objectID": "3de24028-a937-4291-8a70-2bcac1f7d3aa",
     "type": "lvl2",
     "url": "/docs/components/switch#import",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "1dab81d8-8405-4cd6-8cba-50107d63e850",
+    "objectID": "f23032bf-81fd-464c-a0c7-fa968cf7ba68",
     "type": "lvl2",
     "url": "/docs/components/switch#usage",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "With Label",
-    "objectID": "abe9075e-acad-4ae5-9c15-248002c6a3f1",
+    "objectID": "3804b233-ec1d-4cc0-bcce-50fbbb203ed9",
     "type": "lvl3",
     "url": "/docs/components/switch#with-label",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Usage", "lvl3": "With Label"}
   },
   {
     "content": "Disabled",
-    "objectID": "5b5de90f-5252-4cac-9de7-1d29f8820952",
+    "objectID": "68679484-667e-4669-8586-570d0619f588",
     "type": "lvl3",
     "url": "/docs/components/switch#disabled",
     "hierarchy": {"lvl1": "Switch", "lvl2": "With Label", "lvl3": "Disabled"}
   },
   {
     "content": "Sizes",
-    "objectID": "eee86962-363e-41f9-afd9-cf4a507360f0",
+    "objectID": "4c486159-90c8-4c0c-b91e-5c794d25551a",
     "type": "lvl3",
     "url": "/docs/components/switch#sizes",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Disabled", "lvl3": "Sizes"}
   },
   {
     "content": "Colors",
-    "objectID": "e8449d96-73ef-4814-9a3c-e34669756188",
+    "objectID": "057f1dbf-af8d-47a1-8341-b047278c62e0",
     "type": "lvl3",
     "url": "/docs/components/switch#colors",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Sizes", "lvl3": "Colors"}
   },
   {
     "content": "With Thumb Icon",
-    "objectID": "46848477-e0b3-4a45-a719-f97c1aee6bd3",
+    "objectID": "ab831a61-8bfa-4064-9d11-706bd63b71f6",
     "type": "lvl3",
     "url": "/docs/components/switch#with-thumb-icon",
     "hierarchy": {
@@ -3191,7 +3426,7 @@
   },
   {
     "content": "With Icons",
-    "objectID": "08507920-21ad-434b-a25a-01409c85e17c",
+    "objectID": "2bfa8d41-d2a6-47ce-aaec-069453387349",
     "type": "lvl3",
     "url": "/docs/components/switch#with-icons",
     "hierarchy": {
@@ -3202,7 +3437,7 @@
   },
   {
     "content": "Controlled",
-    "objectID": "6b85f4ba-a547-4b90-94d7-db74ff8af24b",
+    "objectID": "cc17ce6e-562d-4c06-8afc-883b3aa25bf3",
     "type": "lvl3",
     "url": "/docs/components/switch#controlled",
     "hierarchy": {
@@ -3213,21 +3448,21 @@
   },
   {
     "content": "Slots",
-    "objectID": "931c2504-703e-4da1-8518-ed103f3fcacb",
+    "objectID": "f46b0884-989c-4d0c-8371-f1a9b2fd06d5",
     "type": "lvl2",
     "url": "/docs/components/switch#slots",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "0b195f07-a207-459a-9ff3-115a8acac000",
+    "objectID": "8149441b-25bc-4752-b80e-7fc15a9247ad",
     "type": "lvl3",
     "url": "/docs/components/switch#custom-styles",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Custom Implementation",
-    "objectID": "07f4c954-3865-49f2-937a-5dac1facb5be",
+    "objectID": "89470039-b449-400a-baf8-2f517038c311",
     "type": "lvl3",
     "url": "/docs/components/switch#custom-implementation",
     "hierarchy": {
@@ -3238,35 +3473,35 @@
   },
   {
     "content": "Data Attributes",
-    "objectID": "2f9653cd-3a67-4925-904e-07cd055e3e42",
+    "objectID": "1672ed1f-89de-44b6-be76-ecabb450568d",
     "type": "lvl2",
     "url": "/docs/components/switch#data-attributes",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "a83a4603-5859-4c08-9410-8aaaefe04eaa",
+    "objectID": "19db7c54-7e9c-4bd1-b1f9-183884c4230a",
     "type": "lvl2",
     "url": "/docs/components/switch#accessibility",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "1d1e548e-ec43-42ad-b46d-344cf9478dca",
+    "objectID": "8981b00c-b01b-46e2-b499-8ec218ab6a9d",
     "type": "lvl2",
     "url": "/docs/components/switch#api",
     "hierarchy": {"lvl1": "Switch", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Switch Props",
-    "objectID": "096e6349-ae16-4b36-a9f9-79b27e0e7765",
+    "objectID": "ee9c7802-889b-460c-98b5-37a1f5ca200d",
     "type": "lvl3",
     "url": "/docs/components/switch#switch-props",
     "hierarchy": {"lvl1": "Switch", "lvl2": "API", "lvl3": "Switch Props"}
   },
   {
     "content": "Switch Events",
-    "objectID": "06963b24-bd10-4752-8d63-0e88d28f9068",
+    "objectID": "5380208b-bc64-475b-b934-bd1682421bec",
     "type": "lvl3",
     "url": "/docs/components/switch#switch-events",
     "hierarchy": {
@@ -3277,231 +3512,231 @@
   },
   {
     "content": "Types",
-    "objectID": "25d42b97-6dbd-43d0-9511-255feac82b51",
+    "objectID": "53a3ff4f-4cd6-40e0-8fad-4c099d612b87",
     "type": "lvl3",
     "url": "/docs/components/switch#types",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Switch Events", "lvl3": "Types"}
   },
   {
     "content": "Switch Icon Props",
-    "objectID": "2f5de704-142f-403f-9a6a-0b306a305548",
+    "objectID": "6e76f842-ab79-4b8d-8688-74afe6ab774f",
     "type": "lvl4",
     "url": "/docs/components/switch#switch-icon-props",
     "hierarchy": {"lvl1": "Switch", "lvl2": "Types", "lvl3": null}
   },
   {
     "content": "Table",
-    "objectID": "402034f1-a80d-4cb7-88bb-d4072193b84d",
+    "objectID": "1de48fc1-6986-44fb-a464-8703c5e93dc9",
     "type": "lvl1",
     "url": "/docs/components/table",
     "hierarchy": {"lvl1": "Table"}
   },
   {
     "content": "Tabs",
-    "objectID": "0e65aaa8-997b-4f7a-9471-c26a230e0ef3",
+    "objectID": "a5259f36-364c-45a4-851c-9ce27dece79c",
     "type": "lvl1",
     "url": "/docs/components/tabs",
     "hierarchy": {"lvl1": "Tabs"}
   },
   {
     "content": "Import",
-    "objectID": "94f746fe-7aa9-4557-9880-a246037b2abc",
+    "objectID": "d1b89fd6-ddc9-4e88-9343-7993bca0396e",
     "type": "lvl2",
     "url": "/docs/components/tabs#import",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "c266984a-7890-4ff8-9342-2d4c5b8f302f",
+    "objectID": "e3133200-6318-458f-aeca-7ce4182f6cee",
     "type": "lvl2",
     "url": "/docs/components/tabs#usage",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Dynamic",
-    "objectID": "f004ad13-858f-474e-a9aa-8fe854c83178",
+    "objectID": "9e511536-1e6d-4483-8587-e353a709163e",
     "type": "lvl3",
     "url": "/docs/components/tabs#dynamic",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Usage", "lvl3": "Dynamic"}
   },
   {
     "content": "Disabled",
-    "objectID": "27994acd-68ea-4b00-bcb7-2ccf4f8d9727",
+    "objectID": "79e23b44-fc28-4659-84a9-7e40601701bf",
     "type": "lvl3",
     "url": "/docs/components/tabs#disabled",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Dynamic", "lvl3": "Disabled"}
   },
   {
     "content": "Disabled Item",
-    "objectID": "7a3ac2b5-72f6-4a1e-9f75-2a27a9d4be03",
+    "objectID": "d9005052-1d8a-4af8-970f-36d979204bbf",
     "type": "lvl3",
     "url": "/docs/components/tabs#disabled-item",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Disabled", "lvl3": "Disabled Item"}
   },
   {
     "content": "Sizes",
-    "objectID": "9804fe0a-3898-4327-aced-66ce0050d6b6",
+    "objectID": "25c0a4fc-16ea-4da1-8bbc-aa60c8a1e7f4",
     "type": "lvl3",
     "url": "/docs/components/tabs#sizes",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Disabled Item", "lvl3": "Sizes"}
   },
   {
     "content": "Radius",
-    "objectID": "c9097910-8c25-4dca-a104-9165805f5267",
+    "objectID": "61dcb411-5c32-4e38-901d-1bc18d28f088",
     "type": "lvl3",
     "url": "/docs/components/tabs#radius",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Sizes", "lvl3": "Radius"}
   },
   {
     "content": "Colors",
-    "objectID": "18076e80-13cf-452f-904c-1b6c4f7698b4",
+    "objectID": "5e24cef4-7d0e-4d3a-9af4-06fad00be9ac",
     "type": "lvl3",
     "url": "/docs/components/tabs#colors",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Radius", "lvl3": "Colors"}
   },
   {
     "content": "Variants",
-    "objectID": "4116bf19-3e1c-45bc-a7aa-4685b5028577",
+    "objectID": "5e5d259c-e4a5-4d73-9428-a91d0f4a139b",
     "type": "lvl3",
     "url": "/docs/components/tabs#variants",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Colors", "lvl3": "Variants"}
   },
   {
     "content": "With Icons",
-    "objectID": "e16b9559-bab4-4df9-9b2b-52e8cdf98422",
+    "objectID": "97873992-08cc-4e52-912f-d4a01ffc5081",
     "type": "lvl3",
     "url": "/docs/components/tabs#with-icons",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Variants", "lvl3": "With Icons"}
   },
   {
     "content": "Controlled",
-    "objectID": "59bb5fa3-fb65-417c-8145-0eec59aebd9e",
+    "objectID": "b23a28b5-b9c6-44a6-b0c8-c02fab86cf6b",
     "type": "lvl3",
     "url": "/docs/components/tabs#controlled",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "With Icons", "lvl3": "Controlled"}
   },
   {
     "content": "With Form",
-    "objectID": "a1f506b5-1b9b-4abd-985c-99b852d188f1",
+    "objectID": "15a546e9-c046-4a32-8b43-2989ab5ca491",
     "type": "lvl3",
     "url": "/docs/components/tabs#with-form",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Controlled", "lvl3": "With Form"}
   },
   {
     "content": "Slots",
-    "objectID": "2afc7926-61c4-407b-8f74-8332b8b17c5b",
+    "objectID": "285c6d30-6a60-4063-8742-f6078ccf0ddd",
     "type": "lvl2",
     "url": "/docs/components/tabs#slots",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "7a2ae4f5-1570-43a1-a506-0049bac9074b",
+    "objectID": "18f7aafd-d424-419c-a038-8e8afd2e6737",
     "type": "lvl3",
     "url": "/docs/components/tabs#custom-styles",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Data Attributes",
-    "objectID": "744dfe54-d62f-4d74-bfe5-8f8e83e904c3",
+    "objectID": "d4e10672-1dd0-442b-893b-e973e8d1b1f5",
     "type": "lvl2",
     "url": "/docs/components/tabs#data-attributes",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "a864f02d-eb36-4db4-a187-cfb82b7a9f82",
+    "objectID": "f69d12e1-d9ca-4eae-9ab4-350441b2a37c",
     "type": "lvl2",
     "url": "/docs/components/tabs#accessibility",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "773f965d-2dfb-4aac-8b83-27b5ac49b776",
+    "objectID": "29dc0040-63ca-4f6a-9e66-51b1388e126b",
     "type": "lvl2",
     "url": "/docs/components/tabs#api",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Tabs Props",
-    "objectID": "7b6a13e7-37a7-4eb4-ab28-4d5a74d01703",
+    "objectID": "59e29819-3423-4ad7-83e1-588274cfbd73",
     "type": "lvl3",
     "url": "/docs/components/tabs#tabs-props",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "API", "lvl3": "Tabs Props"}
   },
   {
     "content": "Tabs Events",
-    "objectID": "d8a0e813-48ee-4a64-9ee2-832d698e0184",
+    "objectID": "914a0256-5154-4550-966b-565fe163a1e0",
     "type": "lvl3",
     "url": "/docs/components/tabs#tabs-events",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Tabs Props", "lvl3": "Tabs Events"}
   },
   {
     "content": "Tab Props",
-    "objectID": "b7d99a99-249f-4aab-aa08-3213328aa330",
+    "objectID": "54e541df-7ab1-44e5-b3ca-a09b11bcf42a",
     "type": "lvl3",
     "url": "/docs/components/tabs#tab-props",
     "hierarchy": {"lvl1": "Tabs", "lvl2": "Tabs Events", "lvl3": "Tab Props"}
   },
   {
     "content": "Textarea",
-    "objectID": "f6f0b314-e649-4f3c-8b60-fc59173d2e7c",
+    "objectID": "a53bc7ab-1df5-414d-9576-45b44a3c9a66",
     "type": "lvl1",
     "url": "/docs/components/textarea",
     "hierarchy": {"lvl1": "Textarea"}
   },
   {
     "content": "Import",
-    "objectID": "fb800d9c-4e93-4a83-9a1f-81bfbd526d6d",
+    "objectID": "43c404a0-67c8-4e86-b709-7433dcbfbddc",
     "type": "lvl2",
     "url": "/docs/components/textarea#import",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "aa03d4e3-3ea0-41de-9c5f-9fe737457a55",
+    "objectID": "8320b7af-4e07-498c-9c1d-62aea172a121",
     "type": "lvl2",
     "url": "/docs/components/textarea#usage",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Disabled",
-    "objectID": "c90f92b1-b513-42d9-a794-568d7da87c5d",
+    "objectID": "a7b28437-66e8-44db-967a-23e1258728b8",
     "type": "lvl3",
     "url": "/docs/components/textarea#disabled",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Usage", "lvl3": "Disabled"}
   },
   {
     "content": "Readonly",
-    "objectID": "6b6c151f-01b4-450c-8b6e-a2f30ba49f96",
+    "objectID": "ab4f9509-3efa-4804-a04a-849d005c8ef2",
     "type": "lvl3",
     "url": "/docs/components/textarea#readonly",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Disabled", "lvl3": "Readonly"}
   },
   {
     "content": "Required",
-    "objectID": "2bcc9782-d02c-421e-804e-a65789aeb49d",
+    "objectID": "90dd540f-dfca-41f9-baaf-44d08f1096b4",
     "type": "lvl3",
     "url": "/docs/components/textarea#required",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Readonly", "lvl3": "Required"}
   },
   {
     "content": "Autosize",
-    "objectID": "3752735b-5060-4c45-96c0-44a62364115d",
+    "objectID": "47c28377-16e5-4803-9a98-aa1f5bf6e1b3",
     "type": "lvl3",
     "url": "/docs/components/textarea#autosize",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Required", "lvl3": "Autosize"}
   },
   {
     "content": "Variants",
-    "objectID": "8d6827ea-f0da-46fa-8db8-544a0e035cb6",
+    "objectID": "6da93bda-a92a-4b90-a707-47223222705c",
     "type": "lvl3",
     "url": "/docs/components/textarea#variants",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Autosize", "lvl3": "Variants"}
   },
   {
     "content": "With Error Message",
-    "objectID": "813aafba-37bb-4e0f-9a16-b3b1a1c06ab9",
+    "objectID": "436926f9-e51d-4004-b80b-d13e2d551f94",
     "type": "lvl3",
     "url": "/docs/components/textarea#with-error-message",
     "hierarchy": {
@@ -3512,7 +3747,7 @@
   },
   {
     "content": "Description",
-    "objectID": "5e6cebc5-2947-414f-a7b8-7aa525b8fc94",
+    "objectID": "449c2483-11b6-40ea-af0b-97733ad5e89c",
     "type": "lvl3",
     "url": "/docs/components/textarea#description",
     "hierarchy": {
@@ -3523,7 +3758,7 @@
   },
   {
     "content": "Controlled",
-    "objectID": "7350b135-f6cb-490c-919b-adbed4e45ecf",
+    "objectID": "02230358-b645-4034-afb0-b7332322a2e2",
     "type": "lvl3",
     "url": "/docs/components/textarea#controlled",
     "hierarchy": {
@@ -3534,42 +3769,42 @@
   },
   {
     "content": "Slots",
-    "objectID": "e5db05e8-ca33-4618-8c7b-702f580670c4",
+    "objectID": "8c3d753d-bafb-44b0-925d-0fda24eceb28",
     "type": "lvl2",
     "url": "/docs/components/textarea#slots",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Data Attributes",
-    "objectID": "e6d9f267-a10e-44a7-b6eb-712b33b3de3f",
+    "objectID": "dfcb2734-b3a7-45f9-891b-51e6257f8b74",
     "type": "lvl2",
     "url": "/docs/components/textarea#data-attributes",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "08a11068-42d8-4970-b9c0-6f23e6f1b6ed",
+    "objectID": "e74f5743-f555-4fae-b910-d833c9aaa1e4",
     "type": "lvl2",
     "url": "/docs/components/textarea#accessibility",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "5ab16892-7b18-4450-8666-b467651ed72f",
+    "objectID": "843a57dd-81dc-40a6-ac17-bf3dc91d4ab7",
     "type": "lvl2",
     "url": "/docs/components/textarea#api",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Textarea Props",
-    "objectID": "ccc6a242-8d26-46c9-8f2f-cad9a6e74671",
+    "objectID": "44c9e4ad-1087-4b69-83f8-b7b83f5d5812",
     "type": "lvl3",
     "url": "/docs/components/textarea#textarea-props",
     "hierarchy": {"lvl1": "Textarea", "lvl2": "API", "lvl3": "Textarea Props"}
   },
   {
     "content": "Input Events",
-    "objectID": "02322d89-5363-451d-83a8-001c7a181722",
+    "objectID": "56f6e1e2-877f-426d-8777-2e4d7fea2083",
     "type": "lvl3",
     "url": "/docs/components/textarea#input-events",
     "hierarchy": {
@@ -3580,63 +3815,63 @@
   },
   {
     "content": "Tooltip",
-    "objectID": "5eb7c192-97c2-417e-94bc-c6b2c7c00d91",
+    "objectID": "b048481c-6612-41bf-927b-c0d394b9f183",
     "type": "lvl1",
     "url": "/docs/components/tooltip",
     "hierarchy": {"lvl1": "Tooltip"}
   },
   {
     "content": "Import",
-    "objectID": "0cf6450a-61c1-461d-ad2e-8b74ff9f46d7",
+    "objectID": "b858ea80-c311-455d-aa18-5b7dde21d56b",
     "type": "lvl2",
     "url": "/docs/components/tooltip#import",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "813cf620-14a0-4e14-9311-e9589bd60ad9",
+    "objectID": "8b84ba73-0f88-4bd0-9530-e4d7c20be1fc",
     "type": "lvl2",
     "url": "/docs/components/tooltip#usage",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "With Arrow",
-    "objectID": "d1bcf299-a00e-479d-92fd-f901cdb9d877",
+    "objectID": "59902eec-77b0-450f-bc6b-e20a629eaac3",
     "type": "lvl3",
     "url": "/docs/components/tooltip#with-arrow",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Usage", "lvl3": "With Arrow"}
   },
   {
     "content": "Colors",
-    "objectID": "4f3bd214-d4f1-4eaf-a0ad-b50e4ebf0185",
+    "objectID": "19e77c73-0dbd-4b2c-a160-3ca6bb8774fa",
     "type": "lvl3",
     "url": "/docs/components/tooltip#colors",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "With Arrow", "lvl3": "Colors"}
   },
   {
     "content": "Placements",
-    "objectID": "454b6028-3719-4a0f-9da0-6f24a1666b52",
+    "objectID": "4eb20074-ba21-4eee-8792-d09ecbb509d8",
     "type": "lvl3",
     "url": "/docs/components/tooltip#placements",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Colors", "lvl3": "Placements"}
   },
   {
     "content": "Offset",
-    "objectID": "2e22e2ed-edc9-4af4-8958-254ae4f04fe8",
+    "objectID": "92b4c326-cef2-4cfb-8f79-3295a9803861",
     "type": "lvl3",
     "url": "/docs/components/tooltip#offset",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Placements", "lvl3": "Offset"}
   },
   {
     "content": "Controlled",
-    "objectID": "9f1f82db-a87c-462c-926b-2a90b4a9d7a7",
+    "objectID": "7af6b3b7-8600-4ca7-8ef5-aaf890fe6ed2",
     "type": "lvl3",
     "url": "/docs/components/tooltip#controlled",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Offset", "lvl3": "Controlled"}
   },
   {
     "content": "With Delay",
-    "objectID": "1d5d94ed-656a-485e-952f-ea396ca7600c",
+    "objectID": "51f7083c-8f89-48c3-9011-4760d5cf8015",
     "type": "lvl3",
     "url": "/docs/components/tooltip#with-delay",
     "hierarchy": {
@@ -3647,7 +3882,7 @@
   },
   {
     "content": "Custom Content",
-    "objectID": "8b9ad636-c0b8-4e78-8eac-880b05d62b3f",
+    "objectID": "25dd7d44-3562-4851-b660-5d4892ff5d4e",
     "type": "lvl3",
     "url": "/docs/components/tooltip#custom-content",
     "hierarchy": {
@@ -3658,7 +3893,7 @@
   },
   {
     "content": "Custom Motion",
-    "objectID": "4ee5a82f-6ac2-476d-9e7c-b0f983356ccf",
+    "objectID": "1e48598b-1878-4350-9f24-5f4bb2f23aa3",
     "type": "lvl3",
     "url": "/docs/components/tooltip#custom-motion",
     "hierarchy": {
@@ -3669,49 +3904,49 @@
   },
   {
     "content": "Slots",
-    "objectID": "31b38c68-bba4-4faf-b549-0761cd552f10",
+    "objectID": "5fc845db-63ff-49ac-97f8-832994425500",
     "type": "lvl2",
     "url": "/docs/components/tooltip#slots",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Custom Styles",
-    "objectID": "4f3acd67-6f9a-4b4b-9925-774044aad097",
+    "objectID": "623641d7-48ed-4507-8f26-fef62365bdef",
     "type": "lvl3",
     "url": "/docs/components/tooltip#custom-styles",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Slots", "lvl3": "Custom Styles"}
   },
   {
     "content": "Data Attributes",
-    "objectID": "7aa56d8c-260c-48d8-bb07-e69b3b089ff1",
+    "objectID": "f8daca07-fd78-4473-9df7-b4a212a7888e",
     "type": "lvl2",
     "url": "/docs/components/tooltip#data-attributes",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "Accessibility",
-    "objectID": "b7c3e35f-ef9c-40dc-a61f-c0ad88db1cd7",
+    "objectID": "a54ec5ac-7465-4da8-99d4-7125689066c4",
     "type": "lvl2",
     "url": "/docs/components/tooltip#accessibility",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Accessibility", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "2a9b790b-ede4-4f27-98ee-74cabdaafe44",
+    "objectID": "7e0dbe8a-f11f-4a46-a8ae-7faae56fd4b1",
     "type": "lvl2",
     "url": "/docs/components/tooltip#api",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "Tooltip Props",
-    "objectID": "f14f1cf8-cd87-4503-a75b-f3fc3d5b6825",
+    "objectID": "2ea8bd9d-4e4f-44ec-b0ee-adad6a4e954f",
     "type": "lvl3",
     "url": "/docs/components/tooltip#tooltip-props",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "API", "lvl3": "Tooltip Props"}
   },
   {
     "content": "Tooltip Events",
-    "objectID": "7d2a1889-090e-47f6-a616-294b4dd9e49f",
+    "objectID": "95d1389d-9920-4bf3-a772-aa53bb5d5b9e",
     "type": "lvl3",
     "url": "/docs/components/tooltip#tooltip-events",
     "hierarchy": {
@@ -3722,7 +3957,7 @@
   },
   {
     "content": "Tooltip types",
-    "objectID": "0c6211fa-7fdc-4582-b497-8dfc69f11557",
+    "objectID": "5c56cf10-9dd0-4983-816c-efbb98bc2bf6",
     "type": "lvl3",
     "url": "/docs/components/tooltip#tooltip-types",
     "hierarchy": {
@@ -3733,14 +3968,14 @@
   },
   {
     "content": "Tooltip Placement",
-    "objectID": "fd71db73-f555-4e09-8d45-c0cb1ed155ab",
+    "objectID": "59db7a80-1ac1-453f-ada2-c3977900d560",
     "type": "lvl4",
     "url": "/docs/components/tooltip#tooltip-placement",
     "hierarchy": {"lvl1": "Tooltip", "lvl2": "Tooltip types", "lvl3": null}
   },
   {
     "content": "Motion Props",
-    "objectID": "da840419-b726-487e-80d6-db6e675e3339",
+    "objectID": "859b11ec-08c1-405a-bfc9-a1977b1a3479",
     "type": "lvl4",
     "url": "/docs/components/tooltip#motion-props",
     "hierarchy": {
@@ -3751,77 +3986,77 @@
   },
   {
     "content": "User",
-    "objectID": "fc69df16-1d6e-4acf-8c15-9352fd248fc8",
+    "objectID": "09a7a2d5-9c47-4490-aa85-b68106dd3243",
     "type": "lvl1",
     "url": "/docs/components/user",
     "hierarchy": {"lvl1": "User"}
   },
   {
     "content": "Import",
-    "objectID": "e10737de-4abf-4d1e-a24e-f8966175e3ee",
+    "objectID": "270f639a-ccbf-4cb4-a7b9-c58fad0ac93d",
     "type": "lvl2",
     "url": "/docs/components/user#import",
     "hierarchy": {"lvl1": "User", "lvl2": "Import", "lvl3": null}
   },
   {
     "content": "Usage",
-    "objectID": "491fd67f-a5fe-484e-b5fd-1564bca960c1",
+    "objectID": "5cd43698-828e-4e44-a228-5ee8ee4f5245",
     "type": "lvl2",
     "url": "/docs/components/user#usage",
     "hierarchy": {"lvl1": "User", "lvl2": "Usage", "lvl3": null}
   },
   {
     "content": "Link Description",
-    "objectID": "1bbf07d9-e471-4ddc-acab-2e9a845c285c",
+    "objectID": "b1c0e34e-b548-4548-a31b-c02720978291",
     "type": "lvl3",
     "url": "/docs/components/user#link-description",
     "hierarchy": {"lvl1": "User", "lvl2": "Usage", "lvl3": "Link Description"}
   },
   {
     "content": "Slots",
-    "objectID": "acdf76c9-43a1-46d5-9ee4-87d1623bf8f7",
+    "objectID": "d70cf628-f495-419b-b4e2-bd40ac78859a",
     "type": "lvl2",
     "url": "/docs/components/user#slots",
     "hierarchy": {"lvl1": "User", "lvl2": "Slots", "lvl3": null}
   },
   {
     "content": "Data Attributes",
-    "objectID": "752da58b-8e4a-4b8b-b795-4ee57bc7309a",
+    "objectID": "3f4e8c43-7f2f-44e9-b1c8-24cde887a064",
     "type": "lvl2",
     "url": "/docs/components/user#data-attributes",
     "hierarchy": {"lvl1": "User", "lvl2": "Data Attributes", "lvl3": null}
   },
   {
     "content": "API",
-    "objectID": "fe4bd0ef-bce1-4e8a-afd0-ed2ae2df94b9",
+    "objectID": "ae7c6ae6-e7ad-4a39-9dd5-07775cf2acda",
     "type": "lvl2",
     "url": "/docs/components/user#api",
     "hierarchy": {"lvl1": "User", "lvl2": "API", "lvl3": null}
   },
   {
     "content": "User Props",
-    "objectID": "21ef93af-0575-4c0e-89da-185560f06319",
+    "objectID": "5f527796-9df7-4f51-8f58-8afb00cc1253",
     "type": "lvl3",
     "url": "/docs/components/user#user-props",
     "hierarchy": {"lvl1": "User", "lvl2": "API", "lvl3": "User Props"}
   },
   {
     "content": "Astro",
-    "objectID": "0d0ed584-f876-4ae7-92a9-b8c33284925e",
+    "objectID": "dd6d8c25-8a95-4c3b-9802-1c3ca3d7c0a5",
     "type": "lvl1",
     "url": "/docs/frameworks/astro",
     "hierarchy": {"lvl1": "Astro"}
   },
   {
     "content": "Installation",
-    "objectID": "071041d3-788b-48c5-aa75-df4dfb16466c",
+    "objectID": "bfae5ffe-e1f2-4d6b-92cc-6aba9311a69f",
     "type": "lvl3",
     "url": "/docs/frameworks/astro#installation",
     "hierarchy": {"lvl1": "Astro", "lvl2": "Astro", "lvl3": "Installation"}
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "3f8ccbd3-af82-4d8c-9b7f-3a9d561c581d",
+    "objectID": "293404b1-d1c3-48c1-96c2-b544761c52e2",
     "type": "lvl3",
     "url": "/docs/frameworks/astro#tailwind-css-setup",
     "hierarchy": {
@@ -3832,7 +4067,7 @@
   },
   {
     "content": "Usage",
-    "objectID": "913aa979-4c98-4466-8318-1d047a077f8e",
+    "objectID": "409e60ac-557f-4a20-9ba4-7c1aef9c344d",
     "type": "lvl3",
     "url": "/docs/frameworks/astro#usage",
     "hierarchy": {
@@ -3843,7 +4078,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "27e80407-adca-45bc-944b-ee8de5ad0d90",
+    "objectID": "2b6aa96b-2846-40c6-989c-e4da99f133cf",
     "type": "lvl3",
     "url": "/docs/frameworks/astro#setup-pnpm-optional",
     "hierarchy": {
@@ -3854,14 +4089,14 @@
   },
   {
     "content": "Next.js",
-    "objectID": "6e6796ed-0b3d-4164-a6f6-54dd439b9ed0",
+    "objectID": "4964c3fd-ba36-4605-a62b-25d84a7db1f2",
     "type": "lvl1",
     "url": "/docs/frameworks/nextjs",
     "hierarchy": {"lvl1": "Next.js"}
   },
   {
     "content": "App directory Setup",
-    "objectID": "f4b3204a-156e-4fb4-9522-bc5106aa75e5",
+    "objectID": "51a75306-430c-44b8-993f-c9333a65b3c1",
     "type": "lvl2",
     "url": "/docs/frameworks/nextjs#app-directory-setup",
     "hierarchy": {
@@ -3872,7 +4107,7 @@
   },
   {
     "content": "create-next-app",
-    "objectID": "ae6c8fa9-b1f0-44ce-9ff4-a996efce1e94",
+    "objectID": "24932569-611c-4519-9895-b5be3a4dd5ff",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#create-next-app",
     "hierarchy": {
@@ -3883,7 +4118,7 @@
   },
   {
     "content": "Manual Installation",
-    "objectID": "99462971-c226-47b3-90d0-b6806468c898",
+    "objectID": "c8ef02e0-95d9-4b81-af72-e58c65b77eea",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#manual-installation",
     "hierarchy": {
@@ -3894,7 +4129,7 @@
   },
   {
     "content": "Add dependencies",
-    "objectID": "d2efd1da-dabe-4b6d-aa59-8763753df935",
+    "objectID": "dadd140a-6f8e-41ab-86fe-a75172cf1e45",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#add-dependencies",
     "hierarchy": {
@@ -3905,7 +4140,7 @@
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "6d755642-60d8-46f3-8937-a170f404847b",
+    "objectID": "98696f8e-e6af-4c88-8063-6c4e228fc5e2",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#tailwind-css-setup",
     "hierarchy": {
@@ -3916,7 +4151,7 @@
   },
   {
     "content": "Setup Provider",
-    "objectID": "c4e2ef17-5c24-4920-8dc7-f3c5a6cf7b54",
+    "objectID": "3520f04c-fad7-4ecb-a85e-150cc6457425",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#setup-provider",
     "hierarchy": {
@@ -3927,7 +4162,7 @@
   },
   {
     "content": "Add Provider to Root",
-    "objectID": "271d45fc-db7c-44cd-a85d-47bc9f52a0cb",
+    "objectID": "bf4b5668-5613-4551-b5cd-53757cde8f55",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#add-provider-to-root",
     "hierarchy": {
@@ -3938,7 +4173,7 @@
   },
   {
     "content": "Use NextUI Components",
-    "objectID": "170ebbbd-6544-40c6-8020-ee72260090a6",
+    "objectID": "599b0c57-42ff-465c-b47e-136e6d72a026",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#use-nextui-components",
     "hierarchy": {
@@ -3949,7 +4184,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "5ef39363-1406-473a-8970-3bc1e8f7ee0d",
+    "objectID": "60c318e9-e5ee-40ff-ac80-72d48956d0c2",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#setup-pnpm-optional",
     "hierarchy": {
@@ -3960,7 +4195,7 @@
   },
   {
     "content": "Pages Directory Setup",
-    "objectID": "a0db287c-53ce-4c33-b75a-a6ef18fa7357",
+    "objectID": "d3bd1e32-add6-4bc8-ac70-c0553d966191",
     "type": "lvl2",
     "url": "/docs/frameworks/nextjs#pages-directory-setup",
     "hierarchy": {
@@ -3971,7 +4206,7 @@
   },
   {
     "content": "create-next-app",
-    "objectID": "b6a28126-b277-4ec4-a2e7-ea53cf64b2b9",
+    "objectID": "96422257-8264-41a9-9a68-85ce550a3939",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#create-next-app-1",
     "hierarchy": {
@@ -3982,7 +4217,7 @@
   },
   {
     "content": "Manual Installation",
-    "objectID": "22d529e8-a1f6-4d24-be27-c685e4136cd3",
+    "objectID": "be5e7800-ad4e-486f-87c1-5173eba1bd08",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#manual-installation-1",
     "hierarchy": {
@@ -3993,7 +4228,7 @@
   },
   {
     "content": "Add dependencies",
-    "objectID": "9ea29578-e809-4d20-80d8-319d88052550",
+    "objectID": "8b43dae2-fcc8-4dc9-8abd-35530de4e132",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#add-dependencies-1",
     "hierarchy": {
@@ -4004,7 +4239,7 @@
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "37e961f7-fabc-4808-98a4-25c37ff29670",
+    "objectID": "6144637d-77b1-412a-883d-5ce04047ec4d",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#tailwind-css-setup-1",
     "hierarchy": {
@@ -4015,7 +4250,7 @@
   },
   {
     "content": "Setup Provider",
-    "objectID": "1a6d161d-9248-43df-a92b-e89a39d0e8bd",
+    "objectID": "0e99f494-84e7-4157-a3b5-91a3ba2b9290",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#setup-provider-1",
     "hierarchy": {
@@ -4026,7 +4261,7 @@
   },
   {
     "content": "Use NextUI Components",
-    "objectID": "80dd789a-ac3a-4efb-b927-7a184d200c86",
+    "objectID": "2233ac95-25c2-4b4e-b4b7-3818943c6a79",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#use-nextui-components-1",
     "hierarchy": {
@@ -4037,7 +4272,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "5be132d6-7f2a-44a8-901c-fa47092e9b68",
+    "objectID": "5729db4b-e29a-4d26-9757-75a27908e98c",
     "type": "lvl3",
     "url": "/docs/frameworks/nextjs#setup-pnpm-optional-1",
     "hierarchy": {
@@ -4048,21 +4283,21 @@
   },
   {
     "content": "Remix",
-    "objectID": "0896eb7f-2be4-4887-af3a-9c791dce048a",
+    "objectID": "dbbe9694-4334-431c-9252-62ae7206c618",
     "type": "lvl1",
     "url": "/docs/frameworks/remix",
     "hierarchy": {"lvl1": "Remix"}
   },
   {
     "content": "Installation",
-    "objectID": "29930a51-6f52-4469-a86e-78182f8ac2dc",
+    "objectID": "7aac65ce-06e3-4361-8d4f-e91d6dde039b",
     "type": "lvl3",
     "url": "/docs/frameworks/remix#installation",
     "hierarchy": {"lvl1": "Remix", "lvl2": "Remix", "lvl3": "Installation"}
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "3084f918-a672-490a-a51f-c8ce8caf7881",
+    "objectID": "63b4a20f-b83a-42ab-a8d8-235374915dfd",
     "type": "lvl3",
     "url": "/docs/frameworks/remix#tailwind-css-setup",
     "hierarchy": {
@@ -4073,7 +4308,7 @@
   },
   {
     "content": "Provider Setup",
-    "objectID": "7a21764b-8b8a-4fb0-8be9-5bd3bcb147c1",
+    "objectID": "9c593eaf-2112-4595-96d6-c8b9c5146c0a",
     "type": "lvl3",
     "url": "/docs/frameworks/remix#provider-setup",
     "hierarchy": {
@@ -4084,7 +4319,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "e9bfa101-aef0-49fa-8f5f-bfa587267c09",
+    "objectID": "223dd314-f7fe-4be8-95d9-b291ee807548",
     "type": "lvl3",
     "url": "/docs/frameworks/remix#setup-pnpm-optional",
     "hierarchy": {
@@ -4095,21 +4330,21 @@
   },
   {
     "content": "Vite",
-    "objectID": "ef69dfe8-dcf4-481b-925f-53574081f2cf",
+    "objectID": "3ee05aa4-8b9b-4dc8-88c5-9e6f7d7e16a5",
     "type": "lvl1",
     "url": "/docs/frameworks/vite",
     "hierarchy": {"lvl1": "Vite"}
   },
   {
     "content": "Installation",
-    "objectID": "abad9e12-d8e7-4e37-acb0-a7721bf1acfd",
+    "objectID": "ace7eb9b-fd0d-4ea3-ad96-3534be1366ad",
     "type": "lvl3",
     "url": "/docs/frameworks/vite#installation",
     "hierarchy": {"lvl1": "Vite", "lvl2": "Vite", "lvl3": "Installation"}
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "b363e5dc-3b55-43ea-92aa-ff58e7e02303",
+    "objectID": "fc6f5431-4080-4fd8-839e-adf33bcb8e97",
     "type": "lvl3",
     "url": "/docs/frameworks/vite#tailwind-css-setup",
     "hierarchy": {
@@ -4120,7 +4355,7 @@
   },
   {
     "content": "Provider Setup",
-    "objectID": "f7e1eec1-1d3a-4ea5-a830-541e02c5eebc",
+    "objectID": "fca95f6a-eb5d-4b27-a3ef-60e7f85725d3",
     "type": "lvl3",
     "url": "/docs/frameworks/vite#provider-setup",
     "hierarchy": {
@@ -4131,7 +4366,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "6394248d-316d-4dce-af8b-905383375102",
+    "objectID": "20884c68-577a-4501-b0e0-32e98259fb2a",
     "type": "lvl3",
     "url": "/docs/frameworks/vite#setup-pnpm-optional",
     "hierarchy": {
@@ -4142,14 +4377,14 @@
   },
   {
     "content": "Installation",
-    "objectID": "ff64b566-72a4-4fdd-ae46-00c21b08d1c6",
+    "objectID": "fcb8fd2f-b2f9-459e-a2ce-77696a7f0fa8",
     "type": "lvl1",
     "url": "/docs/guide/installation",
     "hierarchy": {"lvl1": "Installation"}
   },
   {
     "content": "Install Packages",
-    "objectID": "c66bf135-4a40-4f6d-9f9b-b7a2edccd481",
+    "objectID": "fccc4a4f-be9b-4545-a0fe-025dd0e37c83",
     "type": "lvl3",
     "url": "/docs/guide/installation#install-packages",
     "hierarchy": {
@@ -4160,7 +4395,7 @@
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "a3cabaa3-7a39-4b53-8f47-1358a0e9cad9",
+    "objectID": "8c93185f-d4a5-448e-93a5-d68b0b867c71",
     "type": "lvl3",
     "url": "/docs/guide/installation#tailwind-css-setup",
     "hierarchy": {
@@ -4171,7 +4406,7 @@
   },
   {
     "content": "Provider Setup",
-    "objectID": "ca1c65fd-2f0e-4dde-95fc-8fac05c5b645",
+    "objectID": "26050227-d7a5-4b1c-8fea-eb355fa6122d",
     "type": "lvl3",
     "url": "/docs/guide/installation#provider-setup",
     "hierarchy": {
@@ -4182,7 +4417,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "b5355e1b-24e6-45b1-a311-3021372604a7",
+    "objectID": "3a019ab5-238e-409f-91db-851ec90efc0a",
     "type": "lvl3",
     "url": "/docs/guide/installation#setup-pnpm-optional",
     "hierarchy": {
@@ -4193,7 +4428,7 @@
   },
   {
     "content": "Framework Guides",
-    "objectID": "cc72a1c1-36e5-4b95-9d9f-32a611d32123",
+    "objectID": "6b2c9476-d0b1-4a0c-8ab2-b67c125d817b",
     "type": "lvl2",
     "url": "/docs/guide/installation#framework-guides",
     "hierarchy": {
@@ -4204,14 +4439,14 @@
   },
   {
     "content": "Introduction",
-    "objectID": "9aae87c3-caee-4adb-9cad-f9697fc22f50",
+    "objectID": "56e7cc93-1221-402f-84b5-acadcd066351",
     "type": "lvl1",
     "url": "/docs/guide/introduction",
     "hierarchy": {"lvl1": "Introduction"}
   },
   {
     "content": "What is NextUI?",
-    "objectID": "8836ff90-85e1-4aaa-842e-cc0d70e003c8",
+    "objectID": "3e6d7204-9854-43ce-91eb-1e0b2b6f9324",
     "type": "lvl2",
     "url": "/docs/guide/introduction#what-is-nextui",
     "hierarchy": {
@@ -4222,14 +4457,14 @@
   },
   {
     "content": "FAQ",
-    "objectID": "3d5ce2ef-a814-488c-84e7-a39fe76ab50b",
+    "objectID": "ce3bce4b-b76c-41e3-9f55-276cb1610efe",
     "type": "lvl2",
     "url": "/docs/guide/introduction#faq",
     "hierarchy": {"lvl1": "Introduction", "lvl2": "FAQ", "lvl3": null}
   },
   {
     "content": "Is NextUI a Vercel related project?",
-    "objectID": "51b388d4-ad5b-4d9a-8b2f-f4f14374bd20",
+    "objectID": "91e27663-2076-43a5-82e3-1a910e2d1680",
     "type": "lvl3",
     "url": "/docs/guide/introduction#is-nextui-a-vercel-related-project",
     "hierarchy": {
@@ -4240,7 +4475,7 @@
   },
   {
     "content": "How is NextUI different from TailwindCSS?",
-    "objectID": "8bded910-da4d-46c2-b9a0-48dd2cdae0f2",
+    "objectID": "82ebd09d-002a-470b-b727-164142a7adda",
     "type": "lvl3",
     "url": "/docs/guide/introduction#how-is-nextui-different-from-tailwindcss",
     "hierarchy": {
@@ -4251,7 +4486,7 @@
   },
   {
     "content": "How is NextUI different from TailwindCSS components libraries?",
-    "objectID": "f5405ecc-7a36-47cf-b357-3e401b382862",
+    "objectID": "4a21a62b-37ae-4db7-94a5-671a47ea5e39",
     "type": "lvl3",
     "url": "/docs/guide/introduction#how-is-nextui-different-from-tailwindcss-components-libraries",
     "hierarchy": {
@@ -4262,7 +4497,7 @@
   },
   {
     "content": "How NextUI deals with TailwindCSS classes conflicts?",
-    "objectID": "a1b24945-73c4-4f86-9acb-948a8a335380",
+    "objectID": "452da14d-8fba-409e-8572-8282ba341b03",
     "type": "lvl3",
     "url": "/docs/guide/introduction#how-nextui-deals-with-tailwindcss-classes-conflicts",
     "hierarchy": {
@@ -4273,7 +4508,7 @@
   },
   {
     "content": "Does NextUI use runtime CSS?",
-    "objectID": "0e8992ef-8f82-41c5-bc05-4b6179e7053d",
+    "objectID": "f7300074-6e58-4162-9bfa-9c4772660dc7",
     "type": "lvl3",
     "url": "/docs/guide/introduction#does-nextui-use-runtime-css",
     "hierarchy": {
@@ -4284,7 +4519,7 @@
   },
   {
     "content": "Does NextUI support TypeScript?",
-    "objectID": "a0e08da7-331b-472d-8bcf-0edc12beb0ab",
+    "objectID": "03a80046-59a9-4bbd-a776-d85d83f46382",
     "type": "lvl3",
     "url": "/docs/guide/introduction#does-nextui-support-typescript",
     "hierarchy": {
@@ -4295,7 +4530,7 @@
   },
   {
     "content": "Can I use NextUI with other front-end frameworks or libraries, such as Vue or Angular?",
-    "objectID": "4c11730f-48ad-4bdf-bde1-8e4eb136af68",
+    "objectID": "d2730205-070b-4bad-945a-1451c26ef81b",
     "type": "lvl3",
     "url": "/docs/guide/introduction#can-i-use-nextui-with-other-front-end-frameworks-or-libraries-such-as-vue-or-angular",
     "hierarchy": {
@@ -4306,7 +4541,7 @@
   },
   {
     "content": "Why NextUI uses Framer Motion?",
-    "objectID": "78e9e595-63c7-4ff9-8e75-f04b204ef99f",
+    "objectID": "517895cc-a6eb-4f2c-9fce-d9ed1342ec81",
     "type": "lvl3",
     "url": "/docs/guide/introduction#why-nextui-uses-framer-motion",
     "hierarchy": {
@@ -4317,14 +4552,14 @@
   },
   {
     "content": "Community",
-    "objectID": "43e4b887-080e-4966-a7c8-41d5a7ef1e5b",
+    "objectID": "ca41f077-0620-4007-a71b-54e096259cc2",
     "type": "lvl2",
     "url": "/docs/guide/introduction#community",
     "hierarchy": {"lvl1": "Introduction", "lvl2": "Community", "lvl3": null}
   },
   {
     "content": "Contributing",
-    "objectID": "1a6e6c01-1660-4f2b-8f07-2037cebe6510",
+    "objectID": "fa23a90c-6757-40fd-9986-cd98e8026ade",
     "type": "lvl2",
     "url": "/docs/guide/introduction#contributing",
     "hierarchy": {
@@ -4335,14 +4570,14 @@
   },
   {
     "content": "Upgrade to v2",
-    "objectID": "c4884f50-48c1-4421-acf0-481a0acb44ea",
+    "objectID": "86285b85-0022-4f87-bc8e-76230ded2a48",
     "type": "lvl1",
     "url": "/docs/guide/upgrade-to-v2",
     "hierarchy": {"lvl1": "Upgrade to v2"}
   },
   {
     "content": "Next.js upgrade steps",
-    "objectID": "17c731c2-1555-43fe-9db5-c449bd33f5a1",
+    "objectID": "dadcf604-02bf-460d-8bbe-924c19c5abaa",
     "type": "lvl2",
     "url": "/docs/guide/upgrade-to-v2#nextjs-upgrade-steps",
     "hierarchy": {
@@ -4353,7 +4588,7 @@
   },
   {
     "content": "App directory Setup",
-    "objectID": "104996a9-0837-4066-bacd-d66ae12dae73",
+    "objectID": "b810705c-2877-4254-bb49-cdc89f35dd4d",
     "type": "lvl2",
     "url": "/docs/guide/upgrade-to-v2#app-directory-setup",
     "hierarchy": {
@@ -4364,7 +4599,7 @@
   },
   {
     "content": "Installation",
-    "objectID": "4cfa73ce-6eb7-4dc0-a500-17b1dbae646a",
+    "objectID": "cb977801-e739-432d-b998-273d7bf2dd12",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#installation",
     "hierarchy": {
@@ -4375,7 +4610,7 @@
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "0514a9c7-f026-4470-b44f-fb1b4593e122",
+    "objectID": "e6ae9d55-b1b9-4a53-9d64-55c1965a1ddc",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#tailwind-css-setup",
     "hierarchy": {
@@ -4386,7 +4621,7 @@
   },
   {
     "content": "Setup Provider",
-    "objectID": "7a92d6ee-5a14-4583-9fa5-c3c2432f39d3",
+    "objectID": "d8a3450a-cbf0-40ab-8c05-8652c83e0836",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#setup-provider",
     "hierarchy": {
@@ -4397,7 +4632,7 @@
   },
   {
     "content": "Add Provider to Root",
-    "objectID": "682ef55d-1011-4efb-bed9-abe8e54a0c9a",
+    "objectID": "f8bf2924-3f79-4669-b6d8-da92df92cc9e",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#add-provider-to-root",
     "hierarchy": {
@@ -4408,7 +4643,7 @@
   },
   {
     "content": "Use NextUI Components",
-    "objectID": "8bdd334f-c779-4641-b21d-d5353084b318",
+    "objectID": "224b6721-931a-4247-b8a3-5b63b8c20e0d",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#use-nextui-components",
     "hierarchy": {
@@ -4419,7 +4654,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "dd20904d-dc23-4819-bc4f-64668c5ad828",
+    "objectID": "c3296d36-c1b0-4683-b0cb-a22d15b94d40",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#setup-pnpm-optional",
     "hierarchy": {
@@ -4430,7 +4665,7 @@
   },
   {
     "content": "Pages Directory Setup",
-    "objectID": "3ea79de9-9672-43a9-bee6-7fad571ee1c3",
+    "objectID": "3ed4d21a-16b3-40de-90a3-3d797c7cc365",
     "type": "lvl2",
     "url": "/docs/guide/upgrade-to-v2#pages-directory-setup",
     "hierarchy": {
@@ -4441,7 +4676,7 @@
   },
   {
     "content": "Installation",
-    "objectID": "28e1ed98-232d-4615-8fd4-7b9d3fb7b5b3",
+    "objectID": "071fe37b-454e-4188-999e-8766b3d83572",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#installation-1",
     "hierarchy": {
@@ -4452,7 +4687,7 @@
   },
   {
     "content": "Tailwind CSS Setup",
-    "objectID": "740179ed-4334-49ba-ba4d-3c8ae6668579",
+    "objectID": "1955f657-61af-47ce-9a05-3888d95d4358",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#tailwind-css-setup-1",
     "hierarchy": {
@@ -4463,7 +4698,7 @@
   },
   {
     "content": "Setup Provider",
-    "objectID": "9d9c5b53-2195-4935-a2fb-69976f89f3a8",
+    "objectID": "0da65629-52ab-4f56-a2d5-2ac636aaaea9",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#setup-provider-1",
     "hierarchy": {
@@ -4474,7 +4709,7 @@
   },
   {
     "content": "Use NextUI Components",
-    "objectID": "3e4f8d43-cd35-44da-a073-7d9caa9379d8",
+    "objectID": "f97de12b-182e-4874-a5ef-b8b3efa79ecd",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#use-nextui-components-1",
     "hierarchy": {
@@ -4485,7 +4720,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "66e36e0c-d9b7-4f27-889d-eca75736e4dc",
+    "objectID": "19ce988a-3f93-41ed-841c-6b0cc63695c2",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#setup-pnpm-optional-1",
     "hierarchy": {
@@ -4496,7 +4731,7 @@
   },
   {
     "content": "React upgrade steps",
-    "objectID": "3b577931-34be-4559-b74a-b1cca197f261",
+    "objectID": "9652941c-5452-4e68-a745-43eb588adb50",
     "type": "lvl2",
     "url": "/docs/guide/upgrade-to-v2#react-upgrade-steps",
     "hierarchy": {
@@ -4507,7 +4742,7 @@
   },
   {
     "content": "Upgrade React version",
-    "objectID": "da087c4a-23a5-4222-bfe3-a5d6dc8f7bef",
+    "objectID": "1a0de6ea-9c56-40bc-9cd2-d18ce1a39d82",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#upgrade-react-version",
     "hierarchy": {
@@ -4518,7 +4753,7 @@
   },
   {
     "content": "Install Framer motion",
-    "objectID": "e4b1c7d9-613d-4e5e-a267-8b934470f7ec",
+    "objectID": "20c9cd43-1599-4017-8d45-76f7fe4b00c5",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#install-framer-motion",
     "hierarchy": {
@@ -4529,7 +4764,7 @@
   },
   {
     "content": "TailwindCSS Setup",
-    "objectID": "54a312f6-4831-4831-badb-f813594a8b82",
+    "objectID": "92740544-e723-4661-b00b-f0d5cdff88fe",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#tailwindcss-setup",
     "hierarchy": {
@@ -4540,7 +4775,7 @@
   },
   {
     "content": "Provider Setup",
-    "objectID": "853bb262-e124-4324-a532-fe49d23b1af1",
+    "objectID": "e3a7af63-cee7-4bd7-a836-82f5ee4be01f",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#provider-setup",
     "hierarchy": {
@@ -4551,7 +4786,7 @@
   },
   {
     "content": "Use NextUI Components",
-    "objectID": "de62e371-d6fc-4e09-8fea-2f28bf782936",
+    "objectID": "60dc82c2-20a3-4655-88fd-677f62988d85",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#use-nextui-components-2",
     "hierarchy": {
@@ -4562,7 +4797,7 @@
   },
   {
     "content": "Setup pnpm (optional)",
-    "objectID": "ec5dc682-fe36-4b47-a37a-a92e5a1aa267",
+    "objectID": "9a0433f1-b80e-4519-ad5e-e1a8f76a5fc1",
     "type": "lvl3",
     "url": "/docs/guide/upgrade-to-v2#setup-pnpm-optional-2",
     "hierarchy": {
@@ -4573,42 +4808,42 @@
   },
   {
     "content": "Customize theme",
-    "objectID": "5a38ec9d-91cc-4374-8fb0-d8fa94878e4f",
+    "objectID": "b8bd3697-dc0d-4d0f-9ddd-474a1e8db6d8",
     "type": "lvl1",
     "url": "/docs/theme/customize-theme",
     "hierarchy": {"lvl1": "Customize theme"}
   },
   {
     "content": "Dark mode",
-    "objectID": "c2650c8c-5c02-40cc-a70f-cda460d0b949",
+    "objectID": "0540e4ac-523c-4147-bdeb-f1f4cb6c0865",
     "type": "lvl1",
     "url": "/docs/theme/dark-mode",
     "hierarchy": {"lvl1": "Dark mode"}
   },
   {
     "content": "Default Theme",
-    "objectID": "2ef4febf-9c9a-485c-90e9-6a2d26aa1dd6",
+    "objectID": "d12dbf79-f1a1-4b06-8dce-9de6cd948760",
     "type": "lvl1",
     "url": "/docs/theme/default-theme",
     "hierarchy": {"lvl1": "Default Theme"}
   },
   {
     "content": "Override styles",
-    "objectID": "1a996bae-a40d-45e1-b756-300ea98c0e53",
+    "objectID": "fb0f5e24-6864-4a4d-aca1-37f60c8a3b02",
     "type": "lvl1",
     "url": "/docs/theme/override-styles",
     "hierarchy": {"lvl1": "Override styles"}
   },
   {
     "content": "Typescript",
-    "objectID": "ecaa2702-fd76-472b-87df-cc5dad06a522",
+    "objectID": "bf2c0e86-631e-4c66-8d9e-0b33fca935e7",
     "type": "lvl1",
     "url": "/docs/theme/typescript",
     "hierarchy": {"lvl1": "Typescript"}
   },
   {
     "content": "Utilities",
-    "objectID": "8a2adefc-ea11-4d7c-a67c-7e91d3cc2abf",
+    "objectID": "a415b299-693c-4279-8519-a843d3908a49",
     "type": "lvl1",
     "url": "/docs/theme/utilities",
     "hierarchy": {"lvl1": "Utilities"}

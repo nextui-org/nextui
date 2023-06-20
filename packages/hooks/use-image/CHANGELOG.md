@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230620142942
+
+### Patch Changes
+
+- Pagination styles fixed
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230620142942
+
 ## 0.0.0-dev-v2-20230620004617
 
 ### Patch Changes

@@ -63,6 +63,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             className={slots.prev({
               class: classNames?.prev,
             })}
+            data-slot="prev"
             getAriaLabel={getItemAriaLabel}
             isDisabled={!loop && activePage === 1}
             value={value}
@@ -79,6 +80,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             className={slots.next({
               class: clsx(classNames?.next),
             })}
+            data-slot="next"
             getAriaLabel={getItemAriaLabel}
             isDisabled={!loop && activePage === total}
             value={value}
@@ -100,6 +102,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             className={slots.item({
               class: clsx(classNames?.item, "group"),
             })}
+            data-slot="item"
             getAriaLabel={getItemAriaLabel}
             value={value}
             onPress={() =>

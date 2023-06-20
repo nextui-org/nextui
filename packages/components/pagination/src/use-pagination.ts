@@ -256,6 +256,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: domRef,
       role: "navigation",
+      "data-slot": "base",
       "data-controls": dataAttr(showControls),
       "data-loop": dataAttr(loop),
       "data-dots-jump": dotsJump,
@@ -293,6 +294,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     return {
       ...props,
       ref: (node) => getItemRef(node, props.value),
+      "data-slot": "item",
       isActive: props.value === activePage,
       className: slots.item({class: clsx(classNames?.item, props?.className)}),
       onPress: () => {
@@ -308,6 +310,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: cursorRef,
       activePage,
+      "data-slot": "cursor",
       className: slots.cursor({class: clsx(classNames?.cursor, props?.className)}),
     };
   };

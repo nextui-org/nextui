@@ -1,5 +1,20 @@
 # @nextui-org/popover
 
+## 0.0.0-dev-v2-20230620142942
+
+### Patch Changes
+
+- Pagination styles fixed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230620142942
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230620142942
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230620142942
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230620142942
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230620142942
+  - @nextui-org/button@0.0.0-dev-v2-20230620142942
+  - @nextui-org/system@0.0.0-dev-v2-20230620142942
+  - @nextui-org/theme@0.0.0-dev-v2-20230620142942
+
 ## 0.0.0-dev-v2-20230620004617
 
 ### Patch Changes

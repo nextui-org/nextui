@@ -22,7 +22,7 @@ import {colorVariants} from "../utils";
  */
 const pagination = tv({
   slots: {
-    base: "flex flex-wrap relative items-center gap-1 max-w-fit",
+    base: "flex flex-nowrap relative overflow-x-auto overflow-y-visible items-center gap-1 max-w-fit h-fit",
     item: [],
     prev: "",
     next: "",
@@ -354,27 +354,27 @@ const pagination = tv({
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "xs",
-      class: "w-7 h-7 text-xs",
+      class: "min-w-7 w-7 h-7 text-xs",
     },
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "sm",
-      class: "w-8 h-8 text-sm",
+      class: "min-w-8 w-8 h-8 text-sm",
     },
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "md",
-      class: "w-9 h-9 text-sm",
+      class: "min-w-9 w-9 h-9 text-sm",
     },
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "lg",
-      class: "w-10 h-10 text-base",
+      class: "min-w-10 w-10 h-10 text-base",
     },
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "xl",
-      class: "w-11 h-11 text-base",
+      class: "min-w-11 w-11 h-11 text-base",
     },
     // radius
     {

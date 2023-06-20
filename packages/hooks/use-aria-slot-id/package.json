@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-slot-id",
-  "version": "0.0.0-dev-v2-20230620004617",
+  "version": "0.0.0-dev-v2-20230620142942",
   "description": "Based on react-aria useSlotId, used to generate an id, and after render check if that id is rendered",
   "keywords": [
     "use-aria-slot-id"
