@@ -377,7 +377,7 @@ const button = tv({
     {
       isInGroup: true,
       variant: ["bordered", "ghost"],
-      class: "[&:not(:first-child)]:border-l-0",
+      class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.2)*-1)]",
     },
     // isIconOnly / size
     {
