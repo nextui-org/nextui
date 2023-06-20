@@ -1,5 +1,12 @@
 # @nextui-org/image
 
+## 0.0.0-dev-v2-20230620231624
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230620231624
+
 ## 0.0.0-dev-v2-20230620200507
 
 ### Patch Changes
