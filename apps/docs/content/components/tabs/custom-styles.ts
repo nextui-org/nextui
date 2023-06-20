@@ -98,33 +98,6 @@ export default function App() {
             </div>
           }
         />
-        <Tab
-          key="shared"
-          title={
-            <div className="flex items-center space-x-2">
-              <span>Shared</span>
-              <Chip size="sm" variant="faded">2</Chip>
-            </div>
-          }
-        />
-        <Tab
-          key="links"
-          title={
-            <div className="flex items-center space-x-2">
-              <span>Links</span>
-              <Chip size="sm" variant="faded">1</Chip>
-            </div>
-          }
-        />
-        <Tab
-          key="documents"
-          title={
-            <div className="flex items-center space-x-2">
-              <span>Documents</span>
-              <Chip size="sm" variant="faded">1</Chip>
-            </div>
-          }
-        />
       </Tabs>
     </div>  
   );
