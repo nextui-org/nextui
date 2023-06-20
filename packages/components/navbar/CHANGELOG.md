@@ -1,5 +1,19 @@
 # @nextui-org/navbar
 
+## 0.0.0-dev-v2-20230620004617
+
+### Patch Changes
+
+- Pagination API improved
+- Updated dependencies
+  - @nextui-org/use-aria-toggle-button@0.0.0-dev-v2-20230620004617
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230620004617
+  - @nextui-org/use-scroll-position@0.0.0-dev-v2-20230620004617
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230620004617
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230620004617
+  - @nextui-org/system@0.0.0-dev-v2-20230620004617
+  - @nextui-org/theme@0.0.0-dev-v2-20230620004617
+
 ## 0.0.0-dev-v2-20230619185541
 
 ### Patch Changes

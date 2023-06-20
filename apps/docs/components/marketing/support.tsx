@@ -6,7 +6,8 @@ import {clamp, get} from "lodash";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 
-import {FeaturesGrid} from "@/components/marketing";
+import {FeaturesGrid} from "./features-grid";
+
 import {OpenCollectiveIcon, PatreonIcon, HeartBoldIcon, PlusLinearIcon} from "@/components/icons";
 import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@/libs/docs/sponsors";
 import {SonarPulse} from "@/components/sonar-pulse";

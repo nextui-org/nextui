@@ -1,5 +1,11 @@
 # @nextui-org/use-ssr
 
+## 0.0.0-dev-v2-20230620004617
+
+### Patch Changes
+
+- Pagination API improved
+
 ## 0.0.0-dev-v2-20230619185541
 
 ### Patch Changes

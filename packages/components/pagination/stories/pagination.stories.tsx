@@ -189,7 +189,7 @@ export const CustomItems = () => {
   return (
     <Pagination
       {...defaultProps}
-      disableCursor
+      hideCursor
       showControls
       className="gap-2"
       radius="full"

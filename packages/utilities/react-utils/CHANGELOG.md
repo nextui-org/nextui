@@ -1,5 +1,13 @@
 # @nextui-org/react-utils
 
+## 0.0.0-dev-v2-20230620004617
+
+### Patch Changes
+
+- Pagination API improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230620004617
+
 ## 0.0.0-dev-v2-20230619185541
 
 ### Patch Changes

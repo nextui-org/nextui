@@ -21,12 +21,13 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
     range,
     loop,
     activePage,
-    disableCursor,
+    hideCursor,
     disableAnimation,
     renderItem: renderItemProp,
     onNext,
     onPrevious,
     setPage,
+    getItemAriaLabel,
     getItemRef,
     getBaseProps,
     getItemProps,
@@ -62,6 +63,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             className={slots.prev({
               class: classNames?.prev,
             })}
+            getAriaLabel={getItemAriaLabel}
             isDisabled={!loop && activePage === 1}
             value={value}
             onPress={onPrevious}
@@ -77,6 +79,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             className={slots.next({
               class: clsx(classNames?.next),
             })}
+            getAriaLabel={getItemAriaLabel}
             isDisabled={!loop && activePage === total}
             value={value}
             onPress={onNext}
@@ -97,6 +100,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
             className={slots.item({
               class: clsx(classNames?.item, "group"),
             })}
+            getAriaLabel={getItemAriaLabel}
             value={value}
             onPress={() =>
               isBefore
@@ -114,7 +118,11 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
       }
 
       return (
-        <PaginationItem key={`${value}-${index}`} {...getItemProps({value})}>
+        <PaginationItem
+          key={`${value}-${index}`}
+          {...getItemProps({value})}
+          getAriaLabel={getItemAriaLabel}
+        >
           {value}
         </PaginationItem>
       );
@@ -124,7 +132,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {!disableCursor && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
+      {!hideCursor && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
       {range.map(renderItem)}
     </Component>
   );

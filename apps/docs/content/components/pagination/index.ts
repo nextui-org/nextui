@@ -8,10 +8,13 @@ import controls from "./controls";
 import loop from "./loop";
 import initialPage from "./initial-page";
 import compact from "./compact";
+import shadow from "./shadow";
 import controlled from "./controlled";
 import siblings from "./siblings";
 import boundaries from "./boundaries";
 import customItems from "./custom-items";
+import customStyles from "./custom-styles";
+import customImpl from "./custom-impl";
 
 export const paginationContent = {
   usage,
@@ -22,10 +25,13 @@ export const paginationContent = {
   variants,
   controls,
   loop,
+  shadow,
   initialPage,
   compact,
   controlled,
   siblings,
   boundaries,
   customItems,
+  customStyles,
+  customImpl,
 };

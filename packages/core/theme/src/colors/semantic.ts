@@ -73,22 +73,22 @@ export const semanticColorsLight: SemanticColors = {
   },
   primary: {
     ...common.blue,
-    foreground: common.white,
+    foreground: readableColor(common.blue[500]),
     DEFAULT: common.blue[500],
   },
   secondary: {
     ...common.purple,
-    foreground: common.white,
+    foreground: readableColor(common.purple[500]),
     DEFAULT: common.purple[500],
   },
   success: {
     ...common.green,
-    foreground: common.white,
+    foreground: common.green[800],
     DEFAULT: common.green[500],
   },
   warning: {
     ...common.yellow,
-    foreground: common.white,
+    foreground: common.yellow[900],
     DEFAULT: common.yellow[500],
   },
   danger: {
@@ -107,12 +107,12 @@ export const semanticColorsDark: SemanticColors = {
   },
   primary: {
     ...swapColorValues(common.blue),
+    foreground: readableColor(common.blue[500]),
     DEFAULT: common.blue[500],
-    foreground: common.white,
   },
   secondary: {
     ...swapColorValues(common.purple),
-    foreground: common.white,
+    foreground: readableColor(common.purple[400]),
     DEFAULT: common.purple[400],
   },
   success: {

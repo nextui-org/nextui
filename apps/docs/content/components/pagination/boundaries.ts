@@ -6,19 +6,19 @@ export default function App() {
       <p>1 Boundary (default)</p>
       <Pagination
         total={10}
-        color="danger"
+        color="secondary"
       />
       <p>2 Boundaries</p>
       <Pagination
         total={10}
         boundaries={2}
-        color="danger"
+        color="secondary"
       />
       <p>3 Boundaries</p>
       <Pagination
         total={10}
         boundaries={3}
-        color="danger"
+        color="secondary"
       />
     </div>
   );

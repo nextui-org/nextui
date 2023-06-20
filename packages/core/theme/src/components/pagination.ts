@@ -108,6 +108,11 @@ const pagination = tv({
     showShadow: {
       true: {},
     },
+    hideCursor: {
+      true: {
+        cursor: "hidden",
+      },
+    },
     disableAnimation: {
       true: {
         item: "transition-none",
@@ -116,11 +121,6 @@ const pagination = tv({
       false: {
         item: "transition-background",
         cursor: ["transition-transform", "!duration-300"],
-      },
-    },
-    disableCursor: {
-      true: {
-        cursor: "hidden",
       },
     },
   },
@@ -133,7 +133,7 @@ const pagination = tv({
     isDisabled: false,
     showShadow: false,
     disableAnimation: false,
-    disableCursor: false,
+    hideCursor: false,
   },
   compoundVariants: [
     // showShadow / color
@@ -189,13 +189,13 @@ const pagination = tv({
     },
     /**
      * --------------------------------------------------------
-     * disableCursor
+     * hideCursor
      * the classNames will be applied to the active item
      * --------------------------------------------------------
      */
-    // disableCursor / color
+    // hideCursor / color
     {
-      disableCursor: true,
+      hideCursor: true,
       color: "default",
       class: {
         item: [
@@ -206,7 +206,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       color: "primary",
       class: {
         item: [
@@ -217,7 +217,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       color: "secondary",
       class: {
         item: [
@@ -228,7 +228,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       color: "success",
       class: {
         item: [
@@ -239,7 +239,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       color: "warning",
       class: {
         item: [
@@ -250,7 +250,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       color: "danger",
       class: {
         item: [
@@ -262,7 +262,7 @@ const pagination = tv({
     },
     // shadow / color
     {
-      disableCursor: true,
+      hideCursor: true,
       showShadow: true,
       color: "default",
       class: {
@@ -270,7 +270,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       showShadow: true,
       color: "primary",
       class: {
@@ -278,7 +278,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       showShadow: true,
       color: "secondary",
       class: {
@@ -286,7 +286,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       showShadow: true,
       color: "success",
       class: {
@@ -294,7 +294,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       showShadow: true,
       color: "warning",
       class: {
@@ -302,7 +302,7 @@ const pagination = tv({
       },
     },
     {
-      disableCursor: true,
+      hideCursor: true,
       showShadow: true,
       color: "danger",
       class: {

@@ -69,6 +69,10 @@ export type NextUIConfig = {
    */
   prefix?: string;
   /**
+   * If true, the common nextui colors (e.g. "blue", "green", "purple") will not be extended on the theme.
+   */
+  omitCommonColors?: boolean;
+  /**
    * The theme definitions.
    */
   themes?: ConfigObject | ConfigFunction;
@@ -173,6 +177,7 @@ const corePlugin = (
   config: ConfigObject | ConfigFunction = {},
   defaultTheme: DefaultThemeType,
   prefix: string,
+  omitCommonColors: boolean,
 ) => {
   const resolved = resolveConfig(config, defaultTheme, prefix);
 
@@ -197,7 +202,7 @@ const corePlugin = (
         extend: {
           // @ts-ignore
           colors: {
-            ...commonColors,
+            ...(omitCommonColors ? {} : commonColors),
             ...resolved.colors,
           },
           fontSize: {
@@ -248,6 +253,7 @@ export const nextui = (config: NextUIConfig = {}) => {
 
   const defaultTheme = config.defaultTheme || "light";
   const defaultPrefix = config.prefix || DEFAULT_PREFIX;
+  const omitCommonColors = config.omitCommonColors || false;
 
   // get other themes from the config different from light and dark
   const otherThemes = omit(themeObject, ["light", "dark"]) || {};
@@ -260,5 +266,6 @@ export const nextui = (config: NextUIConfig = {}) => {
     },
     defaultTheme,
     defaultPrefix,
+    omitCommonColors,
   );
 };

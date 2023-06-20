@@ -152,7 +152,7 @@ const InlineCode = ({children}: {children?: React.ReactNode}) => {
   );
 };
 
-export const MDXComponents = ({
+export const MDXComponents = {
   /**
    * Next.js components
    */
@@ -203,4 +203,4 @@ export const MDXComponents = ({
     />
   ),
   // Block,
-} as unknown) as Record<string, React.ReactNode>;
+} as unknown as Record<string, React.ReactNode>;

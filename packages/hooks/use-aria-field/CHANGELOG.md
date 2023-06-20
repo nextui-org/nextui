@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230620004617
+
+### Patch Changes
+
+- Pagination API improved
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230620004617
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230620004617
+
 ## 0.0.0-dev-v2-20230619185541
 
 ### Patch Changes

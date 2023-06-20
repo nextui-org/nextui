@@ -2,11 +2,12 @@ import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nex
 import type {Timer} from "@nextui-org/shared-utils";
 import type {ReactNode, Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import type {
+
+import {
   UsePaginationProps as UseBasePaginationProps,
   PaginationItemValue,
+  PaginationItemType,
 } from "@nextui-org/use-pagination";
-
 import {useEffect, useRef, useMemo} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
 import {usePagination as useBasePagination} from "@nextui-org/use-pagination";
@@ -15,18 +16,57 @@ import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
 export type PaginationItemRenderProps<T extends HTMLElement = HTMLElement> = {
+  /**
+   * The pagination item ref.
+   */
   ref?: Ref<T>;
+  /**
+   * The pagination item value.
+   */
   value: PaginationItemValue;
+  /**
+   * The pagination item index.
+   */
   index: number;
+  /**
+   * The active page number.
+   */
   activePage: number;
+  /**
+   * Whether the pagination item is active.
+   */
   isActive: boolean;
+  /**
+   * Whether the pagination item is the first item in the pagination.
+   */
   isFirst: boolean;
+  /**
+   * Whether the pagination item is the last item in the pagination.
+   */
   isLast: boolean;
+  /**
+   * Whether the pagination item is the next item in the pagination.
+   */
   isNext: boolean;
+  /**
+   * Whether the pagination item is the previous item in the pagination.
+   */
   isPrevious: boolean;
+  /**
+   * The pagination item className.
+   */
   className: string;
+  /**
+   * Callback to go to the next page.
+   */
   onNext: () => void;
+  /**
+   * Callback to go to the previous page.
+   */
   onPrevious: () => void;
+  /**
+   * Callback to go to the page.
+   */
   setPage: (page: number) => void;
 };
 
@@ -56,6 +96,10 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    * @returns ReactNode
    */
   renderItem?: <T extends HTMLElement>(props: PaginationItemRenderProps<T>) => ReactNode;
+  /**
+   * Function to get the aria-label of the item. If not provided, pagination will use the default one.
+   */
+  getItemAriaLabel?: (page?: string) => string;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -99,6 +143,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     onChange,
     className,
     renderItem,
+    getItemAriaLabel: getItemAriaLabelProp,
     ...otherProps
   } = props;
 
@@ -176,14 +221,14 @@ export function usePagination(originalProps: UsePaginationProps) {
     activePage,
     originalProps.disableAnimation,
     originalProps.isCompact,
-    originalProps.disableCursor,
+    originalProps.hideCursor,
   ]);
 
   const slots = useMemo(
     () =>
       pagination({
         ...variantProps,
-        disableCursor: originalProps.disableCursor || originalProps.disableAnimation,
+        hideCursor: originalProps.hideCursor || originalProps.disableAnimation,
       }),
     [...Object.values(variantProps)],
   );
@@ -221,6 +266,29 @@ export function usePagination(originalProps: UsePaginationProps) {
     };
   };
 
+  const getItemAriaLabel = (page?: string) => {
+    if (!page) return;
+
+    if (getItemAriaLabelProp) {
+      return getItemAriaLabelProp(page);
+    }
+
+    switch (page) {
+      case PaginationItemType.DOTS:
+        return "dots element";
+      case PaginationItemType.PREV:
+        return "previous page button";
+      case PaginationItemType.NEXT:
+        return "next page button";
+      case "first":
+        return "first page button";
+      case "last":
+        return "last page button";
+      default:
+        return `pagination item ${page}`;
+    }
+  };
+
   const getItemProps: PropGetter = (props = {}) => {
     return {
       ...props,
@@ -255,7 +323,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     range,
     activePage,
     getItemRef,
-    disableCursor: originalProps.disableCursor,
+    hideCursor: originalProps.hideCursor,
     disableAnimation: originalProps.disableAnimation,
     setPage,
     onPrevious,
@@ -264,6 +332,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     getBaseProps,
     getItemProps,
     getCursorProps,
+    getItemAriaLabel,
   };
 }
 

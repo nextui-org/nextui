@@ -1,6 +1,6 @@
 ---
-title: 'Pagination'
-description: 'The Pagination component allows you to display active page and navigate between multiple pages.'
+title: "Pagination"
+description: "The Pagination component allows you to display active page and navigate between multiple pages."
 url: https://nextui.org/docs/components/pagination
 ---
 
@@ -58,7 +58,7 @@ You can set the `showControls` to `true` to display the `next` and `previous` bu
 
 ### Pagination Loop
 
-In case you want to loop the pagination, you can set the `loop` property to `true`. 
+In case you want to loop the pagination, you can set the `loop` property to `true`.
 The cursor will go back to the first page when it reaches the last page and vice versa.
 
 <CodeDemo title="Pagination Loop" files={paginationContent.loop} />
@@ -74,6 +74,12 @@ You can change the initial page by setting the `initialPage` property.
 You can set the `isCompact` property to `true` to display reduced version of the pagination.
 
 <CodeDemo title="Compact Pagination" files={paginationContent.compact} />
+
+### With Shadow
+
+You can use the `showShadow` property to display a shadow below the active page item.
+
+<CodeDemo title="With Shadow" files={paginationContent.shadow} />
 
 ### Controlled
 
@@ -96,3 +102,127 @@ You can control the number of pages to show at the beginning and end of the pagi
 You can use the `renderItem` property to customize the pagination items.
 
 <CodeDemo title="Custom items" files={paginationContent.customItems} />
+
+## Slots
+
+- **base**: The main pagination slot.
+- **prev**: The previous button slot.
+- **next**: The next button slot.
+- **item**: The pagination item slot, applied to the middle items.
+- **cursor**: The current page slot. Available only when `disableCursor` is `false` and `disableAnimation` is `false.
+- **forwardIcon**: The forward icon slot. The one that appears when hovering the ellipsis button.
+- **ellipsis**: The ellipsis slot.
+- **chevronNext**: The chevron next icon slot.
+
+### Custom Styles
+
+You can customize the `Pagination` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={paginationContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the pagination even further, you can use the `usePagination` hook to create
+your own implementation.
+
+<CodeDemo title="Custom Implementation" files={paginationContent.customImpl} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Pagination` has the following attributes on the `root` element:
+
+- **data-controls**:
+  Indicates whether the pagination has controls. Based on `showControls` prop.
+- **data-loop**:
+  When the pagination is looped. Based on `loop` prop.
+- **data-dots-jump**:
+  Indicates whether the pagination has dots jump. Based on `dotsJump` prop.
+- **data-total**:
+  The total number of pages. Based on `total` prop.
+- **data-active-page**:
+  The active page. Based on `activePage` prop.
+
+<Spacer y={4} />
+
+## Accessibility
+
+- The root node has a role of `navigation` by default.
+- The pagination items have an aria-label that identifies the item purpose ("next page button", "previous page button", etc.), you
+  can override this label by using the `getItemAriaLabel` function.
+- The pagination items are in tab order, with a tabindex of "0".
+
+<Spacer y={4} />
+
+## API
+
+### Pagination Props
+
+| Attribute        | Type                                                                                                             | Description                                                              | Default   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
+| variant          | `flat` \| `bordered` \| `light` \| `faded`                                                                       | The pagination variant.                                                  | `flat`    |
+| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                                             | The pagination size.                                                     | `md`      |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                      | The pagination color theme.                                              | `default` |
+| radius           | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                                                       | The pagination border radius.                                            | `xl`      |
+| total            | `number`                                                                                                         | The total number of pages.                                               | `1`       |
+| dotsJump         | `boolean`                                                                                                        | umber of pages that are added or subtracted on the '...' button.         | `5`       |
+| initialPage      | `number`                                                                                                         | The initial page. (uncontrolled)                                         | `1`       |
+| page             | `number`                                                                                                         | The current page. (controlled)                                           | -         |
+| siblings         | `number`                                                                                                         | The number of pages to show before and after the current page.           | `1`       |
+| boundaries       | `number`                                                                                                         | The number of pages to show at the beginning and end of the pagination.  | `1`       |
+| loop             | `boolean`                                                                                                        | Whether the pagination should be looped.                                 | `false`   |
+| isCompact        | `boolean`                                                                                                        | Whether the pagination should have a compact style.                      | `false`   |
+| isDisabled       | `boolean`                                                                                                        | Whether the pagination is disabled.                                      | `false`   |
+| showShadow       | `boolean`                                                                                                        | Whether the pagination cursor should have a shadow.                      | `false`   |
+| showControls     | `boolean`                                                                                                        | Whether the pagination should have controls.                             | `false`   |
+| hideCursor       | `boolean`                                                                                                        | Whether the pagination cursor should be hidden.                          | `false`   |
+| renderItem       | [PaginationItemProps](#pagination-item-props)                                                                    | The pagination item render function.                                     | -         |
+| getItemAriaLabel | `(page: string) => string`                                                                                       | A function that allows you to customize the pagination items aria-label. | -         |
+| disableAnimation | `boolean`                                                                                                        | Whether the pagination cursor should be animated.                        | `false`   |
+| classNames       | `Record<"base"｜ "prev"｜ "next" ｜ "item" ｜ "cursor" ｜ "forwardIcon" ｜ "ellipsis" ｜ "chevronNext", string>` | Allows to set custom class names for the pagination slots.               | -         |
+
+### Pagination Events
+
+| Attribute | Type                     | Description                                                     |
+| --------- | ------------------------ | --------------------------------------------------------------- |
+| onChange  | `(page: number) => void` | Handler that is called when the pagination acitve page changes. |
+
+---
+
+### Types
+
+#### Pagination Item Props
+
+```ts
+export type PaginationItemRenderProps = {
+  // The pagination item ref.
+  ref?: Ref<T>;
+  // The pagination item value.
+  value: PaginationItemValue;
+  // The pagination item index.
+  index: number;
+  // The active page number.
+  activePage: number;
+  // Whether the pagination item is active.
+  isActive: boolean;
+  // Whether the pagination item is the first item in the pagination.
+  isFirst: boolean;
+  // Whether the pagination item is the last item in the pagination.
+  isLast: boolean;
+  // Whether the pagination item is the next item in the pagination.
+  isNext: boolean;
+  // Whether the pagination item is the previous item in the pagination.
+  isPrevious: boolean;
+  // The pagination item className.
+  className: string;
+  // Callback to go to the next page.
+  onNext: () => void;
+  // Callback to go to the previous page.
+  onPrevious: () => void;
+  // Callback to go to the page.
+  setPage: (page: number) => void;
+};
+
+type renderItem?: (props: PaginationItemRenderProps) => ReactNode;
+```

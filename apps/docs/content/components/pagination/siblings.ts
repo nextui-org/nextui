@@ -6,19 +6,16 @@ export default function App() {
       <p>1 Sibling (default)</p>
       <Pagination
         total={10}
-        color="danger"
       />
       <p>2 Siblings</p>
       <Pagination
         total={10}
         siblings={2}
-        color="danger"
       />
       <p>3 Siblings</p>
       <Pagination
         total={10}
         siblings={3}
-        color="danger"
       />
     </div>
   );

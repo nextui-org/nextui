@@ -1,4 +1,4 @@
-import {FeaturesGrid} from "@/components/marketing";
+import {FeaturesGrid} from "@/components/marketing/features-grid";
 import {communityAccounts} from "@/libs/constants";
 
 export const Community = () => {

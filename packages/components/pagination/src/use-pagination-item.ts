@@ -3,7 +3,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
-import {PaginationItemType, PaginationItemValue} from "@nextui-org/use-pagination";
+import {PaginationItemType} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
@@ -43,29 +43,9 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
 
   /**
    * Function to get the aria-label of the item.
-   * @param page PaginationItemValue
-   * @returns string
    */
-  getAriaLabel?: (page?: PaginationItemValue) => string;
+  getAriaLabel?: (page?: string) => string | undefined;
 }
-
-const getItemAriaLabel = (page?: string | number) => {
-  if (!page) return;
-  switch (page) {
-    case PaginationItemType.DOTS:
-      return "dots element";
-    case PaginationItemType.PREV:
-      return "previous page button";
-    case PaginationItemType.NEXT:
-      return "next page button";
-    case "first":
-      return "first page button";
-    case "last":
-      return "last page button";
-    default:
-      return `pagination item ${page}`;
-  }
-};
 
 export function usePaginationItem(props: UsePaginationItemProps) {
   const {
@@ -77,7 +57,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
     isDisabled,
     onPress,
     onClick,
-    getAriaLabel = getItemAriaLabel,
+    getAriaLabel,
     className,
     ...otherProps
   } = props;
@@ -86,7 +66,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
   const domRef = useDOMRef(ref);
 
   const ariaLabel = useMemo(
-    () => (isActive ? `${getAriaLabel(value)} active` : getAriaLabel(value)),
+    () => (isActive ? `${getAriaLabel?.(value)} active` : getAriaLabel?.(value)),
     [value, isActive],
   );
 
