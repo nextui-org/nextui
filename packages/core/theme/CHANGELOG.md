@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 0.0.0-dev-v2-20230620200507
+
+### Patch Changes
+
+- Pagination tab highlight transparent on items
+
 ## 0.0.0-dev-v2-20230620194547
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/dropdown
 
+## 0.0.0-dev-v2-20230620200507
+
+### Patch Changes
+
+- Updated dependencies
+  - @nextui-org/theme@0.0.0-dev-v2-20230620200507
+  - @nextui-org/popover@0.0.0-dev-v2-20230620200507
+
 ## 0.0.0-dev-v2-20230620194547
 
 ### Patch Changes

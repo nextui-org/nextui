@@ -34,7 +34,7 @@ const pagination = tv({
       "overflow-x-scroll",
       "scrollbar-hide",
     ],
-    item: [],
+    item: ["tap-highlight-transparent"],
     prev: "",
     next: "",
     cursor: [
