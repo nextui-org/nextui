@@ -78,7 +78,7 @@ import {NextUIProvider} from '@nextui-org/react'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
-    <NextUIProvider locale="en">
+    <NextUIProvider>
       {children}
     </NextUIProvider>
   )
@@ -196,7 +196,7 @@ import {NextUIProvider} from '@nextui-org/react'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NextUIProvider locale="en">
+    <NextUIProvider>
       <Component {...pageProps} />
     </NextUIProvider>
   )
@@ -298,7 +298,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <NextUIProvider locale="en">
+    <NextUIProvider>
       <App />
     </NextUIProvider>
   </React.StrictMode>,

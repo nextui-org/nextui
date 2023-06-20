@@ -56,7 +56,7 @@ Go to the root of your application and do this:
 import {NextUIProvider} from "@nextui-org/react";
 
 const Application = () => (
-  <NextUIProvider locale="en">
+  <NextUIProvider>
     <AppComponent /> // ---> Your App Component
   </NextUIProvider>
 );

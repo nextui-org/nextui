@@ -4,10 +4,10 @@ import {OverlayProvider} from "@react-aria/overlays";
 
 export interface NextUIProviderProps {
   children: React.ReactNode;
-  locale: I18nProviderProps["locale"];
+  locale?: I18nProviderProps["locale"];
 }
 
-export const NextUIProvider: React.FC<NextUIProviderProps> = ({children, locale}) => {
+export const NextUIProvider: React.FC<NextUIProviderProps> = ({children, locale = "en"}) => {
   return (
     <SSRProvider>
       <I18nProvider locale={locale}>
