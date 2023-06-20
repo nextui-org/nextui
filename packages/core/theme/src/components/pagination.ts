@@ -92,12 +92,14 @@ const pagination = tv({
       true: {
         base: "gap-0",
         item: [
-          "first-of-type:rounded-r-none",
-          "last-of-type:rounded-l-none",
+          "ltr:first-of-type:rounded-r-none",
+          "rtl:first-of-type:rounded-l-none",
+          "ltr:last-of-type:rounded-l-none",
+          "rtl:last-of-type:rounded-r-none",
           "[&:not(:first-of-type):not(:last-of-type)]:rounded-none",
         ],
-        prev: "!rounded-r-none",
-        next: "!rounded-l-none",
+        prev: "ltr:!rounded-r-none rtl:!rounded-l-none",
+        next: "ltr:!rounded-l-none rtl:!rounded-r-none",
       },
     },
     isDisabled: {

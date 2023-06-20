@@ -15,6 +15,7 @@ import scrollIntoView from "scroll-into-view-if-needed";
 import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {useLocale} from "@react-aria/i18n";
 
 export type PaginationItemRenderProps = {
   /**
@@ -128,6 +129,7 @@ export const CURSOR_TRANSITION_TIMEOUT = 300; // in ms
 
 export function usePagination(originalProps: UsePaginationProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, pagination.variantKeys);
+  const {direction} = useLocale();
 
   const {
     as,
@@ -228,6 +230,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       scrollTo(activePage);
     }
   }, [
+    direction,
     activePage,
     originalProps.disableAnimation,
     originalProps.isCompact,
@@ -268,7 +271,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ref: domRef,
       role: "navigation",
       "data-slot": "base",
-      dir: "ltr",
+      dir: direction,
       "data-controls": dataAttr(showControls),
       "data-loop": dataAttr(loop),
       "data-dots-jump": dotsJump,
