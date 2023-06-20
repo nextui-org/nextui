@@ -150,7 +150,7 @@ export const CustomItems = () => {
     onPrevious,
     setPage,
     className,
-  }: PaginationItemRenderProps<HTMLButtonElement>) => {
+  }: PaginationItemRenderProps) => {
     if (value === PaginationItemType.NEXT) {
       return (
         <button className={cn(className, "bg-default-200")} onClick={onNext}>
@@ -189,7 +189,7 @@ export const CustomItems = () => {
   return (
     <Pagination
       {...defaultProps}
-      hideCursor
+      disableCursorAnimation
       showControls
       className="gap-2"
       radius="full"

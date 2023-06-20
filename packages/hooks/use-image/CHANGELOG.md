@@ -1,5 +1,21 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230620154717
+
+### Patch Changes
+
+- Pagination build version
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230620154717
+
+## 0.0.0-dev-v2-20230620153822
+
+### Patch Changes
+
+- Pagination automatic scroll added
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230620153822
+
 ## 0.0.0-dev-v2-20230620142942
 
 ### Patch Changes

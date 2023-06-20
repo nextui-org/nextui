@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/popover",
-  "version": "0.0.0-dev-v2-20230620142942",
+  "version": "0.0.0-dev-v2-20230620154717",
   "description": "A popover is an overlay element positioned relative to a trigger.",
   "keywords": [
     "popover"

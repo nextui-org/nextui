@@ -21,7 +21,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
     range,
     loop,
     activePage,
-    hideCursor,
+    disableCursorAnimation,
     disableAnimation,
     renderItem: renderItemProp,
     onNext,
@@ -135,7 +135,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {!hideCursor && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
+      {!disableCursorAnimation && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
       {range.map(renderItem)}
     </Component>
   );

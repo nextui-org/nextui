@@ -97,7 +97,7 @@ export default function App() {
 
   return (
     <Pagination
-      hideCursor
+      disableCursorAnimation
       showControls
       total={10}
       initialPage={1}
@@ -160,7 +160,7 @@ export default function App() {
 
   return (
     <Pagination
-      hideCursor
+      disableCursorAnimation
       showControls
       total={10}
       initialPage={1}

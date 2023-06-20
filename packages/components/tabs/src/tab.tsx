@@ -41,11 +41,12 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
     classNames,
   } = useTabsContext();
 
-  const {tabProps, isSelected, isDisabled: isDisabledItem, isPressed} = useTab(
-    {key},
-    state,
-    domRef,
-  );
+  const {
+    tabProps,
+    isSelected,
+    isDisabled: isDisabledItem,
+    isPressed,
+  } = useTab({key}, state, domRef);
 
   const isDisabled = isDisabledProp || isDisabledItem;
 

@@ -1,5 +1,33 @@
 # @nextui-org/dropdown
 
+## 0.0.0-dev-v2-20230620154717
+
+### Patch Changes
+
+- Pagination build version
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230620154717
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230620154717
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230620154717
+  - @nextui-org/use-is-mobile@0.0.0-dev-v2-20230620154717
+  - @nextui-org/popover@0.0.0-dev-v2-20230620154717
+  - @nextui-org/system@0.0.0-dev-v2-20230620154717
+  - @nextui-org/theme@0.0.0-dev-v2-20230620154717
+
+## 0.0.0-dev-v2-20230620153822
+
+### Patch Changes
+
+- Pagination automatic scroll added
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230620153822
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230620153822
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230620153822
+  - @nextui-org/use-is-mobile@0.0.0-dev-v2-20230620153822
+  - @nextui-org/popover@0.0.0-dev-v2-20230620153822
+  - @nextui-org/system@0.0.0-dev-v2-20230620153822
+  - @nextui-org/theme@0.0.0-dev-v2-20230620153822
+
 ## 0.0.0-dev-v2-20230620142942
 
 ### Patch Changes

@@ -22,7 +22,7 @@ import {colorVariants} from "../utils";
  */
 const pagination = tv({
   slots: {
-    base: "flex flex-nowrap relative overflow-x-auto overflow-y-visible items-center gap-1 max-w-fit h-fit",
+    base: ["flex flex-nowrap overflow-x-scroll py-2.5 relative items-center gap-1 max-w-fit h-fit"],
     item: [],
     prev: "",
     next: "",
@@ -108,7 +108,7 @@ const pagination = tv({
     showShadow: {
       true: {},
     },
-    hideCursor: {
+    disableCursorAnimation: {
       true: {
         cursor: "hidden",
       },
@@ -133,7 +133,7 @@ const pagination = tv({
     isDisabled: false,
     showShadow: false,
     disableAnimation: false,
-    hideCursor: false,
+    disableCursorAnimation: false,
   },
   compoundVariants: [
     // showShadow / color
@@ -141,42 +141,42 @@ const pagination = tv({
       showShadow: true,
       color: "default",
       class: {
-        cursor: colorVariants.shadow.default,
+        cursor: [colorVariants.shadow.default, "shadow-md"],
       },
     },
     {
       showShadow: true,
       color: "primary",
       class: {
-        cursor: colorVariants.shadow.primary,
+        cursor: [colorVariants.shadow.primary, "shadow-md"],
       },
     },
     {
       showShadow: true,
       color: "secondary",
       class: {
-        cursor: colorVariants.shadow.secondary,
+        cursor: [colorVariants.shadow.secondary, "shadow-md"],
       },
     },
     {
       showShadow: true,
       color: "success",
       class: {
-        cursor: colorVariants.shadow.success,
+        cursor: [colorVariants.shadow.success, "shadow-md"],
       },
     },
     {
       showShadow: true,
       color: "warning",
       class: {
-        cursor: colorVariants.shadow.warning,
+        cursor: [colorVariants.shadow.warning, "shadow-md"],
       },
     },
     {
       showShadow: true,
       color: "danger",
       class: {
-        cursor: colorVariants.shadow.danger,
+        cursor: [colorVariants.shadow.danger, "shadow-md"],
       },
     },
     // isCompact / bordered
@@ -189,13 +189,13 @@ const pagination = tv({
     },
     /**
      * --------------------------------------------------------
-     * hideCursor
+     * disableCursorAnimation
      * the classNames will be applied to the active item
      * --------------------------------------------------------
      */
-    // hideCursor / color
+    // disableCursorAnimation / color
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       color: "default",
       class: {
         item: [
@@ -206,7 +206,7 @@ const pagination = tv({
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       color: "primary",
       class: {
         item: [
@@ -217,7 +217,7 @@ const pagination = tv({
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       color: "secondary",
       class: {
         item: [
@@ -228,7 +228,7 @@ const pagination = tv({
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       color: "success",
       class: {
         item: [
@@ -239,7 +239,7 @@ const pagination = tv({
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       color: "warning",
       class: {
         item: [
@@ -250,7 +250,7 @@ const pagination = tv({
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       color: "danger",
       class: {
         item: [
@@ -262,51 +262,51 @@ const pagination = tv({
     },
     // shadow / color
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       showShadow: true,
       color: "default",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-default/50"],
+        item: ["data-[active=true]:shadow-md", "data-[active=true]:shadow-default/50"],
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       showShadow: true,
       color: "primary",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-primary/40"],
+        item: ["data-[active=true]:shadow-md", "data-[active=true]:shadow-primary/40"],
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       showShadow: true,
       color: "secondary",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-secondary/40"],
+        item: ["data-[active=true]:shadow-md", "data-[active=true]:shadow-secondary/40"],
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       showShadow: true,
       color: "success",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-success/40"],
+        item: ["data-[active=true]:shadow-md", "data-[active=true]:shadow-success/40"],
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       showShadow: true,
       color: "warning",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-warning/40"],
+        item: ["data-[active=true]:shadow-md", "data-[active=true]:shadow-warning/40"],
       },
     },
     {
-      hideCursor: true,
+      disableCursorAnimation: true,
       showShadow: true,
       color: "danger",
       class: {
-        item: ["data-[active=true]:shadow-lg", "data-[active=true]:shadow-danger/40"],
+        item: ["data-[active=true]:shadow-md", "data-[active=true]:shadow-danger/40"],
       },
     },
   ],

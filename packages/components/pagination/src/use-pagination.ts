@@ -11,15 +11,16 @@ import {
 import {useEffect, useRef, useMemo} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
 import {usePagination as useBasePagination} from "@nextui-org/use-pagination";
+import scrollIntoView from "scroll-into-view-if-needed";
 import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
-export type PaginationItemRenderProps<T extends HTMLElement = HTMLElement> = {
+export type PaginationItemRenderProps = {
   /**
    * The pagination item ref.
    */
-  ref?: Ref<T>;
+  ref?: Ref<any>;
   /**
    * The pagination item value.
    */
@@ -95,7 +96,7 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
    * @param props Pagination item props
    * @returns ReactNode
    */
-  renderItem?: <T extends HTMLElement>(props: PaginationItemRenderProps<T>) => ReactNode;
+  renderItem?: (props: PaginationItemRenderProps) => ReactNode;
   /**
    * Function to get the aria-label of the item. If not provided, pagination will use the default one.
    */
@@ -183,6 +184,15 @@ export function usePagination(originalProps: UsePaginationProps) {
     cursorTimer.current && clearTimeout(cursorTimer.current);
 
     if (node) {
+      // scroll parent to the item
+      scrollIntoView(node, {
+        scrollMode: "if-needed",
+        behavior: "smooth",
+        block: "start",
+        inline: "start",
+        boundary: domRef.current,
+      });
+
       // get position of the item
       const {offsetLeft} = node;
 
@@ -221,14 +231,15 @@ export function usePagination(originalProps: UsePaginationProps) {
     activePage,
     originalProps.disableAnimation,
     originalProps.isCompact,
-    originalProps.hideCursor,
+    originalProps.disableCursorAnimation,
   ]);
 
   const slots = useMemo(
     () =>
       pagination({
         ...variantProps,
-        hideCursor: originalProps.hideCursor || originalProps.disableAnimation,
+        disableCursorAnimation:
+          originalProps.disableCursorAnimation || originalProps.disableAnimation,
       }),
     [...Object.values(variantProps)],
   );
@@ -326,7 +337,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     range,
     activePage,
     getItemRef,
-    hideCursor: originalProps.hideCursor,
+    disableCursorAnimation: originalProps.disableCursorAnimation,
     disableAnimation: originalProps.disableAnimation,
     setPage,
     onPrevious,
