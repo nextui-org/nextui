@@ -4,7 +4,7 @@ export default function App() {
   return (
     <Popover placement="right">
       <PopoverTrigger>
-        <Button variant="flat">Open Popover</Button>
+        <Button>Open Popover</Button>
       </PopoverTrigger>
       <PopoverContent>
         {(titleProps) => (

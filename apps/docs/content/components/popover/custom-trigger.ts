@@ -51,7 +51,7 @@ import {UserTwitterCard} from "./UserTwitterCard";
 
 export default function App() {
   return (
-    <Popover showArrow placement="right">
+    <Popover showArrow placement="bottom">
       <PopoverTrigger>
         <User   
           as="button"

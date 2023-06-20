@@ -80,6 +80,7 @@ const navbar = tv({
       "h-full",
       "outline-none",
       "rounded-sm",
+      "tap-highlight-transparent",
       // focus ring
       "data-[focus-visible=true]:outline-none",
       "data-[focus-visible=true]:ring-2",

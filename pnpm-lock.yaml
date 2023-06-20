@@ -408,9 +408,6 @@ importers:
       shelljs:
         specifier: ^0.8.4
         version: 0.8.4
-      tailwind-scrollbar-hide:
-        specifier: ^1.1.7
-        version: 1.1.7
       tailwind-variants:
         specifier: ^0.1.8
         version: 0.1.8(tailwindcss@3.2.7)
@@ -1744,6 +1741,9 @@ importers:
       '@nextui-org/use-is-mounted':
         specifier: workspace:*
         version: link:../../hooks/use-is-mounted
+      '@nextui-org/use-update-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-update-effect
       '@react-aria/focus':
         specifier: ^3.12.1
         version: 3.12.1(react@18.2.0)
@@ -1765,6 +1765,9 @@ importers:
       '@react-types/tabs':
         specifier: ^3.3.0
         version: 3.3.0(react@18.2.0)
+      scroll-into-view-if-needed:
+        specifier: 2.2.29
+        version: 2.2.29
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2363,6 +2366,15 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-ssr:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-update-effect:
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -23055,10 +23067,6 @@ packages:
 
   /tailwind-merge@1.13.2:
     resolution: {integrity: sha512-R2/nULkdg1VR/EL4RXg4dEohdoxNUJGLMnWIQnPKL+O9Twu7Cn3Rxi4dlXkDzZrEGtR+G+psSXFouWlpTyLhCQ==}
-    dev: false
-
-  /tailwind-scrollbar-hide@1.1.7:
-    resolution: {integrity: sha512-X324n9OtpTmOMqEgDUEA/RgLrNfBF/jwJdctaPZDzB3mppxJk7TLIDmOreEDm1Bq4R9LSPu4Epf8VSdovNU+iA==}
     dev: false
 
   /tailwind-variants@0.1.8(tailwindcss@3.2.7):

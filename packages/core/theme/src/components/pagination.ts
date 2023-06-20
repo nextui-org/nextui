@@ -22,7 +22,18 @@ import {colorVariants} from "../utils";
  */
 const pagination = tv({
   slots: {
-    base: ["flex flex-nowrap overflow-x-scroll py-2.5 relative items-center gap-1 max-w-fit h-fit"],
+    base: [
+      "flex",
+      "flex-nowrap",
+      "h-fit",
+      "max-w-fit",
+      "py-2.5",
+      "relative",
+      "gap-1",
+      "items-center",
+      "overflow-x-scroll",
+      "scrollbar-hide",
+    ],
     item: [],
     prev: "",
     next: "",

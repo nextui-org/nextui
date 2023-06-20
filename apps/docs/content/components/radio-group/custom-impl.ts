@@ -18,7 +18,7 @@ export const CustomRadio = (props) => {
     <Component
       {...getBaseProps()}
       className={cn(
-        "group inline-flex items-center justify-between hover:bg-content2 flex-row-reverse",
+        "group inline-flex items-center hover:opacity-70 active:opacity-50 justify-between flex-row-reverse tap-highlight-transparent",
         "max-w-[300px] cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
         "data-[selected=true]:border-primary",
       )}

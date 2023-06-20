@@ -36,6 +36,7 @@ const button = tv({
     "subpixel-antialiased",
     "data-[pressed=true]:scale-95",
     "overflow-hidden",
+    "tap-highlight-transparent",
     // focus ring
     "data-[focus-visible=true]:z-10",
     "data-[focus-visible=true]:outline-none",

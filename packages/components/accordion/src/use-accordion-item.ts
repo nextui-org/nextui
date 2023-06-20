@@ -45,7 +45,6 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     hideIndicator = groupContext.hideIndicator ?? false,
     disableAnimation = groupContext.disableAnimation ?? false,
     disableIndicatorAnimation = groupContext.disableIndicatorAnimation ?? false,
-    style,
     onPress,
     onPressStart,
     onPressEnd,
@@ -154,18 +153,12 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
           otherProps.onBlur,
           item.props?.onBlur,
         ),
-        style: {
-          ...style,
-          ...props?.style,
-          WebkitTapHighlightColor: "transparent",
-        },
         ...mergeProps(buttonProps, hoverProps, pressProps, props),
         onClick: chain(pressProps.onClick, onClick),
       };
     },
     [
       domRef,
-      style,
       slots,
       isOpen,
       isFocusVisible,

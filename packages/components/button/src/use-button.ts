@@ -81,7 +81,6 @@ export function useButton(props: UseButtonProps) {
     spinnerPlacement = "start",
     onPress,
     onClick,
-    style,
     ...otherProps
   } = props;
 
@@ -151,14 +150,8 @@ export function useButton(props: UseButtonProps) {
       "data-hover": dataAttr(isHovered),
       "data-loading": dataAttr(isLoading),
       ...mergeProps(ariaButtonProps, focusProps, hoverProps, otherProps, props),
-      style: {
-        ...style,
-        ...props?.style,
-        WebkitTapHighlightColor: "transparent",
-      },
     }),
     [
-      style,
       isLoading,
       isDisabled,
       isFocused,

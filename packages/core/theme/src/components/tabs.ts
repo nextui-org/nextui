@@ -24,7 +24,17 @@ import {colorVariants} from "../utils";
 const tabs = tv({
   slots: {
     base: "inline-flex",
-    tabList: ["flex", "items-center", "gap-2", "bg-default-100", "p-1", "h-fit"],
+    tabList: [
+      "flex",
+      "p-1",
+      "h-fit",
+      "gap-2",
+      "items-center",
+      "flex-nowrap",
+      "overflow-x-scroll",
+      "scrollbar-hide",
+      "bg-default-100",
+    ],
     tab: [
       "z-0",
       "w-full",
@@ -40,7 +50,7 @@ const tabs = tv({
       "transition-opacity",
       "data-[disabled=true]:cursor-not-allowed",
       "data-[disabled=true]:opacity-30",
-      "data-[hover-unselected=true]:opacity-70",
+      "data-[hover-unselected=true]:opacity-50",
       // focus ring
       "data-[focus-visible=true]:outline-none",
       "data-[focus-visible=true]:ring-2",

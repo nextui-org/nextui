@@ -5,7 +5,7 @@ import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useMemo, useId} from "react";
+import {useMemo, useId, RefObject} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
 import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
@@ -21,7 +21,7 @@ export interface Props extends Omit<HTMLNextUIProps<"div">, "children"> {
    * Whether the cursor should be hidden.
    * @default false
    */
-  disableCursor?: boolean;
+  disableCursorAnimation?: boolean;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -49,7 +49,8 @@ export type ContextType<T = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
   tabPanelId: string;
-  disableCursor?: boolean;
+  disableCursorAnimation?: boolean;
+  listRef?: RefObject<HTMLElement>;
   classNames?: SlotsToClasses<TabsSlots>;
   disableAnimation?: boolean;
   isDisabled?: boolean;
@@ -58,7 +59,7 @@ export type ContextType<T = object> = {
 export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, tabs.variantKeys);
 
-  const {ref, as, className, children, classNames, disableCursor, ...otherProps} = props;
+  const {ref, as, className, children, classNames, disableCursorAnimation, ...otherProps} = props;
 
   const Component = as || "div";
 
@@ -90,7 +91,8 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       slots,
       tabPanelId,
       classNames,
-      disableCursor,
+      listRef: domRef,
+      disableCursorAnimation,
       isDisabled: originalProps?.isDisabled,
       disableAnimation: originalProps?.disableAnimation,
     }),
@@ -98,7 +100,8 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       state,
       slots,
       tabPanelId,
-      disableCursor,
+      domRef,
+      disableCursorAnimation,
       originalProps?.disableAnimation,
       originalProps?.isDisabled,
       classNames,
@@ -119,7 +122,14 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     id: tabListId,
   });
 
-  return {Component, state, context, getBaseProps, getTabListProps};
+  return {
+    Component,
+    domRef,
+    state,
+    context,
+    getBaseProps,
+    getTabListProps,
+  };
 }
 
 export type UseTabsReturn = ReturnType<typeof useTabs>;

@@ -90,7 +90,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col gap-3 outline-none w-full",
+        "flex flex-col gap-3 outline-none w-full tap-highlight-transparent",
         // focus ring
         "data-[focus-visible=true]:outline-none",
         "data-[focus-visible=true]:ring-2",

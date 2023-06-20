@@ -4,7 +4,7 @@ export default function App() {
   return (
     <Popover placement="bottom" showArrow={true}>
       <PopoverTrigger>
-        <Button variant="flat">Open Popover</Button>
+        <Button>Open Popover</Button>
       </PopoverTrigger>
       <PopoverContent>
         <div className="px-1 py-2">

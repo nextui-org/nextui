@@ -29,8 +29,7 @@ import {tv} from "tailwind-variants";
  */
 const toggle = tv({
   slots: {
-    base:
-      "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent",
     wrapper: [
       "px-1",
       "relative",

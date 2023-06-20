@@ -33,7 +33,7 @@ export default function App() {
           backdrop={backdrop}
         >
           <PopoverTrigger>
-            <Button variant="flat" color="warning">
+            <Button color="warning">
               {backdrop.charAt(0).toUpperCase() + backdrop.slice(1)}
             </Button>
           </PopoverTrigger>

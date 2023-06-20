@@ -36,7 +36,8 @@ const chip = tv({
       "opacity-70",
       "hover:opacity-100",
       "cursor-pointer",
-      "active:opacity-70",
+      "active:opacity-50",
+      "tap-highlight-transparent",
     ],
   },
   variants: {

@@ -190,7 +190,7 @@ const card = tv({
     {
       isPressable: true,
       disableAnimation: false,
-      class: "data-[pressed=true]:scale-95",
+      class: "data-[pressed=true]:scale-95 tap-highlight-transparent",
     },
   ],
   defaultVariants: {

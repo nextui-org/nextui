@@ -62,7 +62,7 @@ export default function App() {
         color="primary" 
         variant="underlined"
         classNames={{
-          tabList: "gap-6 w-full relative rounded-none p-0 after:content-[''] after:absolute after:bottom-0 after:w-full after:-z-[1] after:h-px after:bg-divider",
+          tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider",
           cursor: "w-full bg-[#22d3ee]",
           tab: "max-w-fit px-0 h-12",
           tabContent: "group-data-[selected=true]:text-[#06b6d4]"
@@ -94,6 +94,33 @@ export default function App() {
             <div className="flex items-center space-x-2">
               <VideoIcon/>
               <span>Videos</span>
+              <Chip size="sm" variant="faded">1</Chip>
+            </div>
+          }
+        />
+        <Tab
+          key="shared"
+          title={
+            <div className="flex items-center space-x-2">
+              <span>Shared</span>
+              <Chip size="sm" variant="faded">2</Chip>
+            </div>
+          }
+        />
+        <Tab
+          key="links"
+          title={
+            <div className="flex items-center space-x-2">
+              <span>Links</span>
+              <Chip size="sm" variant="faded">1</Chip>
+            </div>
+          }
+        />
+        <Tab
+          key="documents"
+          title={
+            <div className="flex items-center space-x-2">
+              <span>Documents</span>
               <Chip size="sm" variant="faded">1</Chip>
             </div>
           }

@@ -16,7 +16,7 @@ export default function App() {
       />
       <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
         <p className="text-xs text-white/80">Available soon.</p>
-        <Button color="secondary" radius="full" size="xs" variant="flat">
+        <Button color="secondary" radius="full" size="xs">
           Notify me
         </Button>
       </CardFooter>

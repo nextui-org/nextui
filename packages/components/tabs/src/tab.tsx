@@ -2,6 +2,7 @@ import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import scrollIntoView from "scroll-into-view-if-needed";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
@@ -35,7 +36,8 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
     slots,
     state,
     tabPanelId,
-    disableCursor,
+    listRef,
+    disableCursorAnimation,
     isDisabled: isDisabledProp,
     disableAnimation,
     classNames,
@@ -62,6 +64,20 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
   const [, isMounted] = useIsMounted({
     rerender: true,
   });
+
+  const handleClick = () => {
+    chain(onClick, tabProps.onClick);
+
+    if (!domRef?.current || !listRef?.current) return;
+
+    scrollIntoView(domRef.current, {
+      scrollMode: "if-needed",
+      behavior: "smooth",
+      block: "end",
+      inline: "end",
+      boundary: listRef?.current,
+    });
+  };
 
   return (
     <Component
@@ -91,9 +107,9 @@ const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
         ...style,
         WebkitTapHighlightColor: "transparent",
       }}
-      onClick={chain(onClick, tabProps.onClick)}
+      onClick={handleClick}
     >
-      {isSelected && !disableAnimation && !disableCursor && isMounted ? (
+      {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
         <motion.span
           className={slots.cursor({class: classNames?.cursor})}
           data-slot="cursor"

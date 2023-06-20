@@ -29,7 +29,7 @@ const bordered = {
 };
 
 const flat = {
-  default: "bg-default/20 text-default-foreground",
+  default: "bg-default/40 text-default-foreground",
   primary: "bg-primary/20 text-primary",
   secondary: "bg-secondary/20 text-secondary",
   success: "bg-success/20 text-success-600 dark:text-success",

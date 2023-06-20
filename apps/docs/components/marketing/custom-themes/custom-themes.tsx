@@ -93,7 +93,7 @@ const CustomThemesExample = ({
     <div className="flex flex-col gap-6 ">
       <Tabs
         disableAnimation
-        disableCursor
+        disableCursorAnimation
         aria-label="Custom themes tabs"
         classNames={{
           base: "w-full md:max-w-[50%]",

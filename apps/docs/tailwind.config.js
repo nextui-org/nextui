@@ -330,7 +330,6 @@ module.exports = {
         },
       },
     }),
-    require("tailwind-scrollbar-hide"),
     require("@tailwindcss/typography"),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(

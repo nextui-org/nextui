@@ -30,7 +30,7 @@ export default function App() {
       {placements.map((placement) => (
         <Popover key={placement} placement={placement} color="primary">
           <PopoverTrigger>
-            <Button variant="flat" color="primary">
+            <Button color="primary" variant="flat">
               {placement.charAt(0).toUpperCase() + placement.slice(1)}
             </Button>
           </PopoverTrigger>

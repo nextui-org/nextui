@@ -5,7 +5,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col w-full">
-      <Card className="w-[340px] h-[400px]">
+      <Card className="max-w-full w-[340px] h-[400px]">
         <CardBody>
           <Tabs
             fullWidth

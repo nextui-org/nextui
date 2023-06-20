@@ -10,7 +10,8 @@ import {tv} from "tailwind-variants";
  */
 const link = tv({
   base: [
-    "relative inline-flex items-center outline-none", // focus ring
+    "relative inline-flex items-center outline-none tap-highlight-transparent",
+    // focus ring
     "data-[focus-visible=true]:outline-none",
     "data-[focus-visible=true]:ring-2",
     "data-[focus-visible=true]:ring-primary",
@@ -55,7 +56,7 @@ const link = tv({
         "after:transition-background",
         "after:absolute",
       ],
-      false: "hover:opacity-80 transition-opacity",
+      false: "hover:opacity-80 active:opacity-50 transition-opacity",
     },
     isDisabled: {
       true: "opacity-50 cursor-default pointer-events-none",

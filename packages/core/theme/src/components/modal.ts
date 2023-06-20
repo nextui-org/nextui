@@ -65,6 +65,7 @@ const modal = tv({
       "rounded-full",
       "hover:bg-default-100",
       "active:bg-default-200",
+      "tap-highlight-transparent",
       // focus ring
       "data-[focus-visible]:outline-none",
       "data-[focus-visible]:ring-2",

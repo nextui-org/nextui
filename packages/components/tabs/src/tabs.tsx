@@ -9,11 +9,14 @@ import TabPanel from "./tab-panel";
 interface Props<T> extends Omit<UseTabsProps<T>, "ref"> {}
 
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {Component, state, context, getBaseProps, getTabListProps} = useTabs<T>({ref, ...props});
+  const {Component, state, context, getBaseProps, getTabListProps} = useTabs<T>({
+    ref,
+    ...props,
+  });
 
   const layoutId = useId();
 
-  const layoutGroupEnabled = !props.disableAnimation && !props.disableCursor;
+  const layoutGroupEnabled = !props.disableAnimation && !props.disableCursorAnimation;
 
   return (
     <TabsProvider value={context}>

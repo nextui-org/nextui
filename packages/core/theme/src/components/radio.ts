@@ -26,7 +26,7 @@ import {tv} from "tailwind-variants";
  */
 const radio = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent",
     wrapper: [
       "relative",
       "inline-flex",

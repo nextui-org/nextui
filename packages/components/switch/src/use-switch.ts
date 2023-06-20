@@ -94,7 +94,6 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     classNames,
     onChange,
     onValueChange,
-    style,
     ...otherProps
   } = props;
 
@@ -139,11 +138,11 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
 
   const state = useToggleState(ariaSwitchProps);
 
-  const {inputProps, isPressed: isPressedKeyboard, isReadOnly} = useReactAriaSwitch(
-    ariaSwitchProps,
-    state,
-    inputRef,
-  );
+  const {
+    inputProps,
+    isPressed: isPressedKeyboard,
+    isReadOnly,
+  } = useReactAriaSwitch(ariaSwitchProps, state, inputRef);
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({autoFocus: inputProps.autoFocus});
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
@@ -195,11 +194,6 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(pressed),
-      style: {
-        ...style,
-        ...props?.style,
-        WebkitTapHighlightColor: "transparent",
-      },
     };
   };
 
@@ -246,7 +240,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
         includeStateProps: false,
       },
     ) =>
-      (mergeProps(
+      mergeProps(
         {
           width: "1em",
           height: "1em",
@@ -257,7 +251,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
               isSelected: isSelected,
             }
           : {},
-      ) as unknown) as SwitchThumbIconProps,
+      ) as unknown as SwitchThumbIconProps,
     [slots, classNames?.thumbIcon, isSelected],
   );
 
