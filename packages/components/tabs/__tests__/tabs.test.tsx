@@ -84,21 +84,21 @@ describe("Tabs", () => {
   test("should select the correct tab with keyboard navigation", async () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test">
-        <Tab key="item1" data-testid="item1" title="Item 1">
+        <Tab key="item1" title="Item 1">
           <div>Content 1</div>
         </Tab>
-        <Tab key="item2" data-testid="item2" title="Item 2">
+        <Tab key="item2" title="Item 2">
           <div>Content 2</div>
         </Tab>
-        <Tab key="item3" data-testid="item3" title="Item 3">
+        <Tab key="item3" title="Item 3">
           <div>Content 3</div>
         </Tab>
       </Tabs>,
     );
 
-    const tab1 = wrapper.getByTestId("item1");
-    const tab2 = wrapper.getByTestId("item2");
-    const tab3 = wrapper.getByTestId("item3");
+    const tab1 = wrapper.getByRole("tab", {name: "Item 1"});
+    const tab2 = wrapper.getByRole("tab", {name: "Item 2"});
+    const tab3 = wrapper.getByRole("tab", {name: "Item 3"});
 
     expect(tab1).toHaveAttribute("aria-selected", "true");
     expect(tab2).toHaveAttribute("aria-selected", "false");
