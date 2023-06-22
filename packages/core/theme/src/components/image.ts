@@ -52,35 +52,35 @@ const image = tv({
     },
     shadow: {
       none: {
-        base: "shadow-none",
+        wrapper: "shadow-none",
         img: "shadow-none",
       },
       sm: {
-        base: "shadow-sm",
+        wrapper: "shadow-sm",
         img: "shadow-sm",
       },
       base: {
-        base: "shadow",
+        wrapper: "shadow",
         img: "shadow",
       },
       md: {
-        base: "shadow-md",
+        wrapper: "shadow-md",
         img: "shadow-md",
       },
       lg: {
-        base: "shadow-lg",
+        wrapper: "shadow-lg",
         img: "shadow-lg",
       },
       xl: {
-        base: "shadow-xl",
+        wrapper: "shadow-xl",
         img: "shadow-xl",
       },
       "2xl": {
-        base: "shadow-2xl",
+        wrapper: "shadow-2xl",
         img: "shadow-2xl",
       },
       inner: {
-        base: "shadow-inner",
+        wrapper: "shadow-inner",
         img: "shadow-inner",
       },
     },
@@ -91,7 +91,7 @@ const image = tv({
     },
     showSkeleton: {
       true: {
-        base: [
+        wrapper: [
           "group",
           "relative",
           "overflow-hidden",
