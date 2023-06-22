@@ -14,6 +14,7 @@ import scrollIntoView from "scroll-into-view-if-needed";
 import {isAppleDevice} from "@react-aria/utils";
 import {create} from "zustand";
 import {intersectionBy, isEmpty} from "lodash";
+import {writeStorage, useLocalStorage} from "@rehooks/local-storage";
 
 import {
   DocumentCodeBoldIcon,
@@ -24,7 +25,6 @@ import {
 
 import searchData from "@/content/docs/search-meta.json";
 import {useUpdateEffect} from "@/hooks/use-update-effect";
-import {useLocalStorage} from "@/hooks/use-local-storage";
 
 export interface CmdkStore {
   isOpen: boolean;
@@ -117,6 +117,9 @@ interface SearchResultItem {
 }
 
 const MATCH_KEYS = ["hierarchy.lvl1", "hierarchy.lvl2", "hierarchy.lvl3", "content"];
+const RECENT_SEARCHES_KEY = "recent-searches";
+const MAX_RECENT_SEARCHES = 10;
+const MAX_RESULTS = 20;
 
 export const Cmdk: FC<{}> = () => {
   const [query, setQuery] = useState("");
@@ -130,15 +133,18 @@ export const Cmdk: FC<{}> = () => {
 
   const {isOpen, onClose, onOpen} = useCmdkStore();
 
-  const [recentSearches, setRecentSearches] = useLocalStorage<SearchResultItem[]>(
-    "recent-searches",
-    [],
-  );
+  const [recentSearches] = useLocalStorage<SearchResultItem[]>(RECENT_SEARCHES_KEY);
 
   const addToRecentSearches = (item: SearchResultItem) => {
+    let searches = recentSearches ?? [];
+
     // Avoid adding the same search again
-    if (!recentSearches.find((i) => i.objectID === item.objectID)) {
-      setRecentSearches((recentSearches) => [item, ...recentSearches].slice(0, 6));
+    if (!searches.find((i) => i.objectID === item.objectID)) {
+      writeStorage(RECENT_SEARCHES_KEY, [item, ...searches].slice(0, MAX_RECENT_SEARCHES));
+    } else {
+      // Move the search to the top
+      searches = searches.filter((i) => i.objectID !== item.objectID);
+      writeStorage(RECENT_SEARCHES_KEY, [item, ...searches].slice(0, MAX_RECENT_SEARCHES));
     }
   };
 
@@ -153,7 +159,7 @@ export const Cmdk: FC<{}> = () => {
       if (words.length === 1) {
         return matchSorter(data, query, {
           keys: MATCH_KEYS,
-        }).slice(0, 20);
+        }).slice(0, MAX_RESULTS);
       }
 
       const matchesForEachWord = words.map((word) =>
@@ -162,14 +168,14 @@ export const Cmdk: FC<{}> = () => {
         }),
       );
 
-      const matches = intersectionBy(...matchesForEachWord, "objectID").slice(0, 20);
+      const matches = intersectionBy(...matchesForEachWord, "objectID").slice(0, MAX_RESULTS);
 
       return matches;
     },
     [query],
   );
 
-  const items = !isEmpty(results) ? results : recentSearches;
+  const items = !isEmpty(results) ? results : recentSearches ?? [];
 
   // Toggle the menu when ⌘K / CTRL K is pressed
   useEffect(() => {
@@ -193,7 +199,7 @@ export const Cmdk: FC<{}> = () => {
       router.push(item.url);
       addToRecentSearches(item);
     },
-    [router],
+    [router, recentSearches],
   );
 
   const onInputKeyDown = useCallback(
@@ -387,6 +393,7 @@ export const Cmdk: FC<{}> = () => {
                   <p className="text-default-400">No recent searches</p>
                 </div>
               ) : (
+                recentSearches &&
                 recentSearches.length > 0 && (
                   <Command.Group
                     heading={

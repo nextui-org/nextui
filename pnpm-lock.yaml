@@ -315,6 +315,9 @@ importers:
       '@react-stately/tree':
         specifier: ^3.6.1
         version: 3.6.1(react@18.2.0)
+      '@rehooks/local-storage':
+        specifier: ^2.4.4
+        version: 2.4.4(react@18.2.0)
       '@vercel/analytics':
         specifier: ^1.0.1
         version: 1.0.1
@@ -7686,6 +7689,14 @@ packages:
     dependencies:
       '@react-types/overlays': 3.7.2(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
+  /@rehooks/local-storage@2.4.4(react@18.2.0):
+    resolution: {integrity: sha512-zE+kfOkG59n/1UTxdmbwktIosclr67Nlbf2MzUJ9mNtCSypVscNHeD1qT6JCSo5Pjj8DO893IKWNLJqKKzDL/Q==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
       react: 18.2.0
     dev: false
 

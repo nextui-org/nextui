@@ -1,5 +1,13 @@
 # @nextui-org/use-callback-ref
 
+## 0.0.0-dev-v2-20230622015559
+
+### Patch Changes
+
+- Pagination and tabs improvements
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230622015559
+
 ## 0.0.0-dev-v2-20230620194547
 
 ### Patch Changes

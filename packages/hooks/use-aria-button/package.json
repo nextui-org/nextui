@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-button",
-  "version": "0.0.0-dev-v2-20230620194547",
+  "version": "0.0.0-dev-v2-20230622015559",
   "description": "Internal hook to handle button a11y and events, this is based on react-aria button hook but without the onClick warning",
   "keywords": [
     "use-aria-button"

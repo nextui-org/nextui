@@ -28,6 +28,7 @@ const pagination = tv({
       "h-fit",
       "max-w-fit",
       "py-2.5",
+      "px-1",
       "relative",
       "gap-1",
       "items-center",
