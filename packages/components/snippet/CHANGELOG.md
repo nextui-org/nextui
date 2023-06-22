@@ -1,5 +1,20 @@
 # @nextui-org/snippet
 
+## 0.0.0-dev-v2-20230622022515
+
+### Patch Changes
+
+- Pagination styles improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230622022515
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230622022515
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230622022515
+  - @nextui-org/use-clipboard@0.0.0-dev-v2-20230622022515
+  - @nextui-org/tooltip@0.0.0-dev-v2-20230622022515
+  - @nextui-org/button@0.0.0-dev-v2-20230622022515
+  - @nextui-org/system@0.0.0-dev-v2-20230622022515
+  - @nextui-org/theme@0.0.0-dev-v2-20230622022515
+
 ## 0.0.0-dev-v2-20230622015559
 
 ### Patch Changes

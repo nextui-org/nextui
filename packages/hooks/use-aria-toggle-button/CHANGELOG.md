@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230622022515
+
+### Patch Changes
+
+- Pagination styles improved
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230622022515
+
 ## 0.0.0-dev-v2-20230622015559
 
 ### Patch Changes
