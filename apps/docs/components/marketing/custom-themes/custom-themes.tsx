@@ -96,9 +96,9 @@ const CustomThemesExample = ({
         disableCursorAnimation
         aria-label="Custom themes tabs"
         classNames={{
-          base: "w-full md:max-w-[50%]",
-          tab: "px-0 md:px-3 h-auto data-[selected=true]:bg-transparent",
-          tabList: "w-full md:max-w-1/2 justify-start gap-0 md:gap-4",
+          base: "w-full",
+          tab: "px-0 w-fit h-auto data-[selected=true]:bg-transparent",
+          tabList: "w-full justify-start gap-8",
           tabContent: "text-default-400 text-base",
         }}
         items={tabs}

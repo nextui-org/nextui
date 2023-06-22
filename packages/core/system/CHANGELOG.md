@@ -1,5 +1,17 @@
 # @nextui-org/system
 
+## 0.0.0-dev-v2-20230622015559
+
+### Patch Changes
+
+- Pagination and tabs improvements
+
+## 0.0.0-dev-v2-20230620231624
+
+### Patch Changes
+
+- i18n provider added
+
 ## 0.0.0-dev-v2-20230620194547
 
 ### Patch Changes

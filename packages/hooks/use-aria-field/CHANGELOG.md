@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230622015559
+
+### Patch Changes
+
+- Pagination and tabs improvements
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230622015559
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230622015559
+
 ## 0.0.0-dev-v2-20230620194547
 
 ### Patch Changes
