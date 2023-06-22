@@ -27,8 +27,8 @@ const pagination = tv({
       "flex-nowrap",
       "h-fit",
       "max-w-fit",
-      "py-2.5",
-      "px-1",
+      "p-2.5",
+      "-m-2.5",
       "relative",
       "gap-1",
       "items-center",
@@ -48,6 +48,7 @@ const pagination = tv({
       "left-0",
       "select-none",
       "touch-none",
+      "z-20",
     ],
     forwardIcon: "hidden group-hover:block data-[before=true]:rotate-180",
     ellipsis: "group-hover:hidden",
@@ -198,7 +199,7 @@ const pagination = tv({
       isCompact: true,
       variant: "bordered",
       class: {
-        item: "[&:not(:first-of-type)]:border-l-0",
+        item: "[&:not(:first-of-type)]:ml-[calc(theme(borderWidth.2)*-1)]",
       },
     },
     /**
@@ -338,6 +339,7 @@ const pagination = tv({
         "justify-center",
         "text-default-foreground",
         // focus ring
+        "data-[focus-visible=true]:z-10",
         "data-[focus-visible=true]:outline-none",
         "data-[focus-visible=true]:ring-2",
         "data-[focus-visible=true]:ring-primary",
