@@ -381,7 +381,13 @@ export const Cmdk: FC<{}> = () => {
                 <div className={slots.emptyWrapper()}>
                   <div>
                     <p>No results for &quot;{query}&quot;</p>
-                    <p className="text-default-400">Try searching for something else.</p>
+                    {query.length === 1 ? (
+                      <p className="text-default-400">
+                        Try adding more characters to your search term.
+                      </p>
+                    ) : (
+                      <p className="text-default-400">Try searching for something else.</p>
+                    )}
                   </div>
                 </div>
               </Command.Empty>

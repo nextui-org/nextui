@@ -43,7 +43,7 @@
     "match-sorter": "^6.3.1",
     "mini-svg-data-uri": "^1.4.3",
     "mitt": "3.0.0",
-    "next": "13.4.7-canary.1",
+    "next": "13.4.7-canary.4",
     "next-mdx-remote": "^3.0.2",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",

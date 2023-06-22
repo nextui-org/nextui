@@ -35,7 +35,7 @@ const pagination = tv({
       "overflow-x-scroll",
       "scrollbar-hide",
     ],
-    item: ["tap-highlight-transparent"],
+    item: ["tap-highlight-transparent", "select-none", "touch-none"],
     prev: "",
     next: "",
     cursor: [
@@ -46,6 +46,8 @@ const pagination = tv({
       "justify-center",
       "origin-center",
       "left-0",
+      "select-none",
+      "touch-none",
     ],
     forwardIcon: "hidden group-hover:block data-[before=true]:rotate-180",
     ellipsis: "group-hover:hidden",
