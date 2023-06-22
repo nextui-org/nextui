@@ -13,7 +13,7 @@ import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {useTabsContext} from "./tabs-context";
 
-export interface TabItemProps<T = object> extends HTMLNextUIProps<"div"> {
+export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
   /**
    * The tab item.
    */
@@ -23,14 +23,14 @@ export interface TabItemProps<T = object> extends HTMLNextUIProps<"div"> {
 /**
  * @internal
  */
-const Tab = forwardRef<TabItemProps, "div">((props, ref) => {
+const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
   const {className, as, item, style, onClick, ...otherProps} = props;
 
   const {key} = item;
 
   const domRef = useDOMRef(ref);
 
-  const Component = as || "div";
+  const Component = as || "button";
 
   const {
     slots,
