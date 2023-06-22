@@ -55,6 +55,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       as,
       variant,
       color,
+      key: keyProp,
       disableAnimation,
       onAction,
       closeOnSelect,
@@ -72,10 +73,10 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     const Component = as || "li";
     const isFirstKey = item.key === state.collection.getFirstKey();
 
-    const slots = useMemo(() => dropdownSection({showDivider: showDivider && !isFirstKey}), [
-      showDivider,
-      isFirstKey,
-    ]);
+    const slots = useMemo(
+      () => dropdownSection({showDivider: showDivider && !isFirstKey}),
+      [showDivider, isFirstKey],
+    );
 
     const baseStyles = clsx(section, className, item.props?.className);
 
@@ -86,6 +87,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
 
     return (
       <Component
+        key={keyProp || item.key}
         {...mergeProps(itemProps, otherProps, item.props)}
         className={slots.section({class: baseStyles})}
       >

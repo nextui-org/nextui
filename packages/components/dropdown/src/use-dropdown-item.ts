@@ -36,6 +36,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     item,
     state,
     shortcut,
+    key: keyProp,
     description,
     startContent,
     endContent,
@@ -116,6 +117,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
   const baseStyles = clsx(className, classNames?.base);
 
   const getItemProps: PropGetter = (props = {}) => ({
+    key: keyProp || key,
     ref: domRef,
     ...mergeProps(
       menuItemProps,

@@ -1,5 +1,20 @@
 # @nextui-org/accordion
 
+## 0.0.0-dev-v2-20230622203738
+
+### Patch Changes
+
+- Image styles fixed, dropdown and pagination keys modified
+- Updated dependencies
+  - @nextui-org/use-aria-accordion-item@0.0.0-dev-v2-20230622203738
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230622203738
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230622203738
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230622203738
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230622203738
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230622203738
+  - @nextui-org/system@0.0.0-dev-v2-20230622203738
+  - @nextui-org/theme@0.0.0-dev-v2-20230622203738
+
 ## 0.0.0-dev-v2-20230622022515
 
 ### Patch Changes

@@ -38,8 +38,7 @@ export const FloatingComponents: React.FC<{}> = () => {
       <>
         <Switch
           classNames={{
-            base:
-              "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
+            base: "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
             wrapper: "shadow-sm",
             startContent: "text-white",
           }}

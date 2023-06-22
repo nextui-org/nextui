@@ -116,7 +116,11 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink aria-label="Home" className="flex justify-start items-center gap-2" href="/">
+          <NextLink
+            aria-label="Home"
+            className="flex justify-start items-center gap-2 tap-highlight-transparent transition-opacity active:opacity-50"
+            href="/"
+          >
             <SmallLogo className="w-6 h-6 md:hidden" />
             <LargeLogo className="h-5 md:h-6" />
           </NextLink>

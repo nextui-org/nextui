@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230622203738
+
+### Patch Changes
+
+- Image styles fixed, dropdown and pagination keys modified
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230622203738
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230622203738
+
 ## 0.0.0-dev-v2-20230622022515
 
 ### Patch Changes

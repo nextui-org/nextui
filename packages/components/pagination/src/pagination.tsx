@@ -56,6 +56,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
           className: slots.item({class: classNames?.item}),
         });
       }
+
       if (value === PaginationItemType.PREV) {
         return (
           <PaginationItem
@@ -121,11 +122,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
       }
 
       return (
-        <PaginationItem
-          key={`${value}-${index}`}
-          {...getItemProps({value})}
-          getAriaLabel={getItemAriaLabel}
-        >
+        <PaginationItem {...getItemProps({value})} key={key} getAriaLabel={getItemAriaLabel}>
           {value}
         </PaginationItem>
       );

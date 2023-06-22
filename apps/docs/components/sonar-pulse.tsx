@@ -1,7 +1,7 @@
 import {FC, ReactNode, useMemo} from "react";
 import {parseToRgba} from "color2k";
 import {clsx} from "@nextui-org/shared-utils";
-
+import {useIsSSR} from "@react-aria/ssr";
 export interface SonarPulseProps {
   children: ReactNode;
   icon?: ReactNode;
@@ -19,6 +19,8 @@ export const SonarPulse: FC<SonarPulseProps> = ({
   circlesCount = 4,
   playState = "paused",
 }) => {
+  const isSSR = useIsSSR();
+
   const initialSizeFactor = 1.5;
   const circleSize = size * initialSizeFactor;
 
@@ -65,6 +67,10 @@ export const SonarPulse: FC<SonarPulseProps> = ({
 
     return circles;
   }, [rgbaColors, circlesCount, playState, size]);
+
+  if (isSSR) {
+    return null;
+  }
 
   return (
     <div className="relative inline-block">

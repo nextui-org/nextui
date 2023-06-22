@@ -19,6 +19,7 @@ export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
           <Avatar
             isBordered
             ImgComponent={NextImage}
+            alt="Zoey Lang"
             imgProps={{
               width: 40,
               height: 40,
