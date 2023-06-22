@@ -86,6 +86,9 @@ export function useImage(originalProps: UseImageProps) {
     removeWrapper = false,
     onError,
     onLoad,
+    srcSet,
+    sizes,
+    crossOrigin,
     ...otherProps
   } = props;
 
@@ -95,6 +98,9 @@ export function useImage(originalProps: UseImageProps) {
     onError,
     onLoad,
     ignoreFallback: false,
+    srcSet,
+    sizes,
+    crossOrigin,
   });
 
   const isImgLoaded = imageStatus === "loaded" && !isLoadingProp;
@@ -137,6 +143,10 @@ export function useImage(originalProps: UseImageProps) {
       ref: domRef,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: imgStyles}),
+      loading,
+      srcSet,
+      sizes,
+      crossOrigin,
       ...otherProps,
     };
   };
