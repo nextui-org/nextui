@@ -6,9 +6,39 @@ url: https://nextui.org/docs/components/dropdown
 
 # Dropdown
 
-Displays a list of actions or options that a user can choose. Dropdown implementation is based on <br/> <a href="https://react-spectrum.adobe.com/react-aria/useMenu.html" rel="noreferrer" target="_blank">@react-aria/menu</a>
+Displays a list of actions or options that a user can choose.
 
-```jsx
-import {Dropdown} from "@nextui-org/react";
-```
+<ComponentLinks component="dropdown" reactAriaHook="useMenu" />
 
+---
+
+## Import
+
+NextUI exports 5 dropdown-related components:
+
+- **Dropdown**: The main component, which is a wrapper for the other components. 
+- **DropdownTrigger**: The component that triggers the dropdown menu to open.
+- **DropdownMenu**: The component that contains the dropdown items. 
+- **DropdownSection**: The component that contains a group of dropdown items.
+- **DropdownItem**: The component that represents a dropdown item.
+
+<ImportTabs
+  commands={{
+    main: 'import {Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem} from "@nextui-org/react";',
+    individual: 'import {Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem} from "@nextui-org/dropdown";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={dropdownContent.usage} />
+
+
+### Dynamic items
+
+Dropdown follows the [Collection Components API](https://react-spectrum.adobe.com/react-stately/collections.html), accepting both static and dynamic collections.
+
+- **Static**: The usage example above shows the static implementation, which can be used when the full list of options is known ahead of time.
+- **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
+
+<CodeDemo title="Dynamic items" files={dropdownContent.dynamic} />

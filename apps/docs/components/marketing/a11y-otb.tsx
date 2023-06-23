@@ -161,6 +161,7 @@ export const A11yOtb = () => {
                 isOpen={isDropdownOpen}
                 placement="bottom"
                 portalContainer={ref.current}
+                shouldBlockScroll={false}
                 shouldFlip={isMobile}
                 onOpenChange={(open) => setIsDropdownOpen(open)}
               >

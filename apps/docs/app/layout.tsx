@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning dir="ltr" lang="en">
       <head />
       <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>

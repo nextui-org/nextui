@@ -434,6 +434,13 @@ const tabs = tv({
       },
     },
   ],
+  compoundSlots: [
+    {
+      variant: "underlined",
+      slots: ["tab", "tabList", "cursor"],
+      class: ["rounded-none"],
+    },
+  ],
 });
 
 export type TabsVariantProps = VariantProps<typeof tabs>;

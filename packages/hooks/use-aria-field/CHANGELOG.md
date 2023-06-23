@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230623023752
+
+### Patch Changes
+
+- Dropdown styles changed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230623023752
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230623023752
+
 ## 0.0.0-dev-v2-20230622203738
 
 ### Patch Changes

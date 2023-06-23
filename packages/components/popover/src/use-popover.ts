@@ -133,7 +133,12 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const state = stateProp || innerState;
 
-  const {popoverProps, underlayProps, arrowProps, placement: ariaPlacement} = useReactAriaPopover(
+  const {
+    popoverProps,
+    underlayProps,
+    arrowProps,
+    placement: ariaPlacement,
+  } = useReactAriaPopover(
     {
       triggerRef,
       popoverRef,

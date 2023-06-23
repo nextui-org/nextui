@@ -5,7 +5,7 @@ import {tv} from "tailwind-variants";
 /**
  * Dropdown wrapper **Tailwind Variants** component
  *
- * const { base, menu  } = dropdown({...})
+ * const { base, menu } = dropdown({...})
  *
  * @example
  * <div>
@@ -78,8 +78,8 @@ const dropdownItem = tv({
       "data-[focus-visible=true]:dark:ring-offset-background-content1",
     ],
     wrapper: "w-full flex flex-col items-start justify-center",
-    title: "flex-1",
-    description: ["text-xs", "w-full", "text-default-500", "group-hover:text-current"],
+    title: "flex-1 text-base font-normal truncate",
+    description: ["text-sm", "w-full", "text-default-500", "group-hover:text-current"],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
     shortcut: [
       "px-1",
@@ -201,48 +201,42 @@ const dropdownItem = tv({
       variant: "shadow",
       color: "default",
       class: {
-        base:
-          "data-[hover=true]:shadow-default/50 data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
+        base: "data-[hover=true]:shadow-default/50 data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
       },
     },
     {
       variant: "shadow",
       color: "primary",
       class: {
-        base:
-          "data-[hover=true]:shadow-primary/30 data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
+        base: "data-[hover=true]:shadow-primary/30 data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
       },
     },
     {
       variant: "shadow",
       color: "secondary",
       class: {
-        base:
-          "data-[hover=true]:shadow-secondary/30 data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
+        base: "data-[hover=true]:shadow-secondary/30 data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
       },
     },
     {
       variant: "shadow",
       color: "success",
       class: {
-        base:
-          "data-[hover=true]:shadow-success/30 data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
+        base: "data-[hover=true]:shadow-success/30 data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
       },
     },
     {
       variant: "shadow",
       color: "warning",
       class: {
-        base:
-          "data-[hover=true]:shadow-warning/30 data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
+        base: "data-[hover=true]:shadow-warning/30 data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
       },
     },
     {
       variant: "shadow",
       color: "danger",
       class: {
-        base:
-          "data-[hover=true]:shadow-danger/30 data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
+        base: "data-[hover=true]:shadow-danger/30 data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
       },
     },
     // bordered / color
@@ -293,42 +287,42 @@ const dropdownItem = tv({
       variant: "flat",
       color: "default",
       class: {
-        base: "data-[hover=true]:bg-default-100 data-[hover=true]:text-default-foreground",
+        base: "data-[hover=true]:bg-default/40 data-[hover=true]:text-default-foreground",
       },
     },
     {
       variant: "flat",
       color: "primary",
       class: {
-        base: "data-[hover=true]:bg-primary-50 data-[hover=true]:text-primary",
+        base: "data-[hover=true]:bg-primary/20 data-[hover=true]:text-primary",
       },
     },
     {
       variant: "flat",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:bg-secondary-100 data-[hover=true]:text-secondary",
+        base: "data-[hover=true]:bg-secondary/20 data-[hover=true]:text-secondary",
       },
     },
     {
       variant: "flat",
       color: "success",
       class: {
-        base: "data-[hover=true]:bg-success-50 data-[hover=true]:text-success",
+        base: "data-[hover=true]:bg-success/20 data-[hover=true]:text-success ",
       },
     },
     {
       variant: "flat",
       color: "warning",
       class: {
-        base: "data-[hover=true]:bg-warning-50 data-[hover=true]:text-warning",
+        base: "data-[hover=true]:bg-warning/20 data-[hover=true]:text-warning",
       },
     },
     {
       variant: "flat",
       color: "danger",
       class: {
-        base: "data-[hover=true]:bg-danger-50 data-[hover=true]:text-danger",
+        base: "data-[hover=true]:bg-danger/20 data-[hover=true]:text-danger",
       },
     },
     // faded / color
@@ -464,7 +458,7 @@ const dropdownSection = tv({
 
  */
 const dropdownMenu = tv({
-  base: "w-full flex flex-col p-1",
+  base: "w-full flex flex-col gap-0.5 p-1",
 });
 
 export type DropdownSectionVariantProps = VariantProps<typeof dropdownSection>;
