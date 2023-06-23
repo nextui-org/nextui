@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-button
 
+## 0.0.0-dev-v2-20230623225431
+
+### Patch Changes
+
+- Dropdown styles improved, foreground palette extended
+
 ## 0.0.0-dev-v2-20230623023752
 
 ### Patch Changes

@@ -13,20 +13,37 @@ export const baseStyles = (prefix: string) => ({
 export const focusVisibleClasses = [
   "focus:outline-0",
   "focus-visible:ring-2",
-  "focus-visible:ring-primary",
+  "focus-visible:ring-focus",
   "focus-visible:ring-offset-2",
   "focus-visible:transition-shadow",
   "focus-visible:ring-offset-background",
-  "dark:focus-visible:ring-offset-background-dark",
+];
+
+export const dataFocusVisibleClasses = [
+  "outline-none",
+  "data-[focus-visible=true]:z-10",
+  "data-[focus-visible=true]:outline-none",
+  "data-[focus-visible=true]:ring-2",
+  "data-[focus-visible=true]:ring-focus",
+  "data-[focus-visible=true]:ring-offset-2",
+  "data-[focus-visible=true]:ring-offset-background",
+];
+
+export const groupDataFocusVisibleClasses = [
+  "outline-none",
+  "group-data-[focus-visible=true]:z-10",
+  "group-data-[focus-visible=true]:ring-2",
+  "group-data-[focus-visible=true]:ring-focus",
+  "group-data-[focus-visible=true]:ring-offset-2",
+  "group-data-[focus-visible=true]:ring-offset-background",
 ];
 
 export const ringClasses = [
   "outline-none",
   "ring-2",
-  "!ring-primary",
+  "ring-focus",
   "ring-offset-2",
   "ring-offset-background",
-  "dark:ring-offset-background-dark",
 ];
 
 /**

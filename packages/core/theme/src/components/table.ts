@@ -2,14 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-const focusRing = [
-  "data-[focus-visible=true]:outline-none",
-  "data-[focus-visible=true]:ring-2",
-  "data-[focus-visible=true]:ring-primary",
-  "data-[focus-visible=true]:ring-offset-2",
-  "data-[focus-visible=true]:ring-offset-background",
-  "data-[focus-visible=true]:dark:ring-offset-background-dark",
-];
+import {dataFocusVisibleClasses} from "../utils";
 
 /**
  * Table **Tailwind Variants** component
@@ -62,7 +55,7 @@ const table = tv({
     table: "min-w-full h-auto",
     thead: "[&>tr]:first:rounded-lg",
     tbody: "",
-    tr: ["group", "outline-none", ...focusRing],
+    tr: ["group", "outline-none", ...dataFocusVisibleClasses],
     th: [
       "group",
       "px-3",
@@ -70,7 +63,7 @@ const table = tv({
       "text-left",
       "align-middle",
       "bg-default-100",
-      "text-default-500",
+      "text-foreground-500",
       "text-xs",
       "font-semibold",
       "first:rounded-l-lg",
@@ -78,8 +71,8 @@ const table = tv({
       "outline-none",
       "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
-      "data-[hover=true]:text-default-400",
-      ...focusRing,
+      "data-[hover=true]:text-foreground-400",
+      ...dataFocusVisibleClasses,
     ],
     td: [
       "py-2",
@@ -90,7 +83,7 @@ const table = tv({
       "text-sm",
       "font-normal",
       "outline-none",
-      ...focusRing,
+      ...dataFocusVisibleClasses,
       // before content for selection
       "before:content-['']",
       "before:absolute",
@@ -99,7 +92,7 @@ const table = tv({
       "before:opacity-0",
       "data-[selected=true]:before:opacity-100",
       // disabled
-      "group-data-[disabled=true]:text-default-300",
+      "group-data-[disabled=true]:text-foreground-300",
     ],
     tfoot: "",
     sortIcon: [
@@ -113,14 +106,13 @@ const table = tv({
       "group-data-[hover=true]:opacity-100",
       "data-[direction=ascending]:rotate-180",
     ],
-    emptyWrapper: "text-default-400 align-middle text-center h-40",
+    emptyWrapper: "text-foreground-400 align-middle text-center h-40",
     loadingWrapper: "absolute inset-0 flex items-center justify-center",
   },
   variants: {
     color: {
       default: {
-        td:
-          "before:bg-default-200 dark:before:bg-default-100 data-[selected=true]:text-default-foreground",
+        td: "before:bg-default-200 dark:before:bg-default-100 data-[selected=true]:text-default-foreground",
       },
       primary: {
         td: "before:bg-primary-50 data-[selected=true]:text-primary",

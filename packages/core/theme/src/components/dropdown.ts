@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses} from "../utils";
+
 /**
  * Dropdown wrapper **Tailwind Variants** component
  *
@@ -62,7 +64,7 @@ const dropdownItem = tv({
       "justify-between",
       "relative",
       "px-2",
-      "py-1",
+      "py-1.5",
       "w-full",
       "h-full",
       "box-border",
@@ -70,16 +72,12 @@ const dropdownItem = tv({
       "outline-none",
       "cursor-pointer",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
+      ...dataFocusVisibleClasses,
       "data-[focus-visible=true]:dark:ring-offset-background-content1",
     ],
     wrapper: "w-full flex flex-col items-start justify-center",
-    title: "flex-1 text-base font-normal truncate",
-    description: ["text-sm", "w-full", "text-default-500", "group-hover:text-current"],
+    title: "flex-1 text-sm font-normal truncate",
+    description: ["text-xs", "w-full", "text-foreground-500", "group-hover:text-current"],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
     shortcut: [
       "px-1",
@@ -129,11 +127,11 @@ const dropdownItem = tv({
           "mt-2",
           "before-content-['']",
           "before:absolute",
-          "before:-top-1",
+          "before:-top-1.5",
           "before:left-0",
           "before:right-0",
           "before:h-px",
-          "before:bg-default-200",
+          "before:bg-divider",
         ],
       },
     },
@@ -431,7 +429,8 @@ const dropdownItem = tv({
 const dropdownSection = tv({
   slots: {
     section: "relative mb-2",
-    heading: "pl-1 text-xs text-default-500",
+    heading: "pl-1 text-xs text-foreground-500",
+    group: "pt-1",
   },
   variants: {
     showDivider: {
@@ -444,7 +443,7 @@ const dropdownSection = tv({
           "before:left-0",
           "before:right-0",
           "before:h-px",
-          "before:bg-default-200",
+          "before:bg-divider",
         ],
       },
     },

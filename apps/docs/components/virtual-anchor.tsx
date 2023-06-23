@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Link} from "@nextui-org/react";
 
-import {LinkLinearIcon} from "@/components/icons";
+import {HashLinearIcon} from "@/components/icons";
 
 export interface Props {
   id?: string;
@@ -31,7 +31,7 @@ export const VirtualAnchor: React.FC<Props> = ({children, id}) => {
     >
       {children}
       <span className="opacity-0 transition-opacity group-hover:opacity-100">
-        <LinkLinearIcon size={20} strokeWidth="2" />
+        <HashLinearIcon size={20} />
       </span>
     </Link>
   );

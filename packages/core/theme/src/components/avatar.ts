@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {translateCenterClasses, colorVariants} from "../utils";
+import {translateCenterClasses, colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
  * Avatar wrapper **Tailwind Variants** component
@@ -29,12 +29,7 @@ const avatar = tv({
       "text-white",
       "z-10",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
-      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
     img: [
       "flex",
@@ -166,7 +161,7 @@ const avatar = tv({
       color: "primary",
       isBordered: true,
       class: {
-        base: "ring-primary",
+        base: "ring-focus",
       },
     },
     {

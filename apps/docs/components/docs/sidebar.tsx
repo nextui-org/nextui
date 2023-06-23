@@ -10,7 +10,14 @@ import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {SpacerProps, Spacer, Link as NextUILink, cn, Chip} from "@nextui-org/react";
+import {
+  SpacerProps,
+  Spacer,
+  Link as NextUILink,
+  cn,
+  Chip,
+  dataFocusVisibleClasses,
+} from "@nextui-org/react";
 import Link from "next/link";
 import {isEmpty} from "lodash";
 import {useRouter} from "next/navigation";
@@ -92,12 +99,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       className={clsx(
         "flex flex-col gap-3 outline-none w-full tap-highlight-transparent",
         // focus ring
-        "data-[focus-visible=true]:outline-none",
-        "data-[focus-visible=true]:ring-2",
-        "data-[focus-visible=true]:ring-primary",
-        "data-[focus-visible=true]:ring-offset-2",
-        "data-[focus-visible=true]:ring-offset-background",
-        "data-[focus-visible=true]:dark:ring-offset-background-dark",
+        ...dataFocusVisibleClasses,
       )}
       data-focus-visible={isFocusVisible}
       data-focused={isFocused}

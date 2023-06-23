@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses} from "../utils";
+
 /**
  * Accordion wrapper **Tailwind Variants** component
  *
@@ -71,18 +73,13 @@ const accordionItem = tv({
       "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
       "data-[pressed=true]:opacity-50",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
-      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
     startContent: "flex-shrink-0",
     indicator: "text-default-400",
     titleWrapper: "flex-1 flex flex-col text-left",
     title: "text-foreground text-lg",
-    subtitle: "text-sm text-default-500 font-normal",
+    subtitle: "text-sm text-foreground-500 font-normal",
     content: "py-2",
   },
   variants: {

@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {colorVariants} from "../utils";
+import {colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
  * Tabs wrapper **Tailwind Variants** component
@@ -52,12 +52,7 @@ const tabs = tv({
       "data-[disabled=true]:opacity-30",
       "data-[hover-unselected=true]:opacity-50",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
-      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
     tabContent: [
       "relative",
@@ -73,12 +68,7 @@ const tabs = tv({
       "px-1",
       "outline-none",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
-      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
   },
   variants: {

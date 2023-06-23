@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
+
 /**
  * Input wrapper **Tailwind Variants** component
  *
@@ -23,10 +25,10 @@ import {tv} from "tailwind-variants";
 const input = tv({
   slots: {
     base: "group flex flex-col data-[has-elements=true]:gap-2",
-    label: "block text-sm font-medium text-default-600",
+    label: "block text-sm font-medium text-foreground-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-default-500",
+    input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
     clearButton: [
       "z-10",
       "hidden",
@@ -41,14 +43,9 @@ const input = tv({
       "active:!opacity-70",
       "rounded-full",
       // focus ring
-      "data-[focus-visible]:outline-none",
-      "data-[focus-visible]:ring-2",
-      "data-[focus-visible]:!ring-primary",
-      "data-[focus-visible]:ring-offset-2",
-      "data-[focus-visible]:ring-offset-background",
-      "data-[focus-visible]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
-    description: "text-xs text-default-400",
+    description: "text-xs text-foreground-400",
     errorMessage: "text-xs text-danger",
   },
   variants: {
@@ -491,12 +488,7 @@ const input = tv({
       class: {
         inputWrapper: [
           // focus ring
-          "group-data-[focus-visible]:outline-none",
-          "group-data-[focus-visible]:ring-2",
-          "group-data-[focus-visible]:!ring-primary",
-          "group-data-[focus-visible]:ring-offset-2",
-          "group-data-[focus-visible]:ring-offset-background",
-          "group-data-[focus-visible]:dark:ring-offset-background-dark",
+          ...groupDataFocusVisibleClasses,
         ],
       },
     },
@@ -572,7 +564,7 @@ const input = tv({
       class: {
         label: [
           "font-normal",
-          "text-default-500",
+          "text-foreground-500",
           "group-focus-within:font-medium",
           "group-[.is-filled]:font-medium",
           "group-focus-within:pointer-events-auto",
@@ -585,7 +577,7 @@ const input = tv({
       labelPlacement: "inside",
       class: {
         inputWrapper: "group",
-        label: ["group-focus-within:text-default-600", "group-[.is-filled]:text-default-600"],
+        label: ["group-focus-within:text-foreground-600", "group-[.is-filled]:text-foreground-600"],
       },
     },
     {

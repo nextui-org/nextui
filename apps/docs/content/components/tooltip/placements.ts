@@ -25,8 +25,8 @@ export default function App() {
           content={placement}
           color="secondary"
         >
-          <Button variant="flat" color="secondary">
-            {placement.charAt(0).toUpperCase() + placement.slice(1)}
+          <Button variant="flat" color="secondary" className="capitalize">
+            {placement}
           </Button>
         </Tooltip>
       ))}

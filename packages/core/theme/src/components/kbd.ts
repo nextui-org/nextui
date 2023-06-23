@@ -45,7 +45,7 @@ const kbd = tv({
       "border",
       "border-default",
       "bg-default-100",
-      "text-default-600",
+      "text-foreground-600",
       "rounded-md",
     ],
     abbr: "no-underline",

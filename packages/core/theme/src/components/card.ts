@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses} from "../utils";
+
 /**
  * Card **Tailwind Variants** component
  *
@@ -31,12 +33,7 @@ const card = tv({
       "dark:bg-content1",
       "border border-default-100",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
-      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
     header: [
       "flex",

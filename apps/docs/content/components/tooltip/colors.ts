@@ -14,11 +14,10 @@ export default function App() {
   return (
     <div className="flex flex-wrap gap-4">
       {colors.map((color) => {
-        const colorName = color.charAt(0).toUpperCase() + color.slice(1);
         return (
           <Tooltip key={color} color={color} content={colorName}>
-            <Button variant="flat" color={color}>
-              {color.charAt(0).toUpperCase() + color.slice(1)}
+            <Button variant="flat" color={color} className="capitalize">
+              {color}
             </Button>
           </Tooltip>
         )

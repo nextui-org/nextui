@@ -17,8 +17,8 @@ export default function App() {
       {variants.map((variant) => (
         <Popover key={variant} placement="top" variant={variant}>
           <PopoverTrigger>
-            <Button variant={variant}>
-              {variant.charAt(0).toUpperCase() + variant.slice(1)}
+            <Button variant={variant} className="capitalize">
+              {variant}
             </Button>
           </PopoverTrigger>
           {content}

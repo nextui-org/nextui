@@ -13,10 +13,14 @@ const base: SemanticBaseColors = {
       DEFAULT: "#ffffff",
     },
     foreground: {
+      ...twColors.zinc,
       DEFAULT: "#11181C",
     },
     divider: {
       DEFAULT: "rgba(17, 17, 17, 0.15)",
+    },
+    focus: {
+      DEFAULT: common.blue[500],
     },
     content1: {
       DEFAULT: twColors.zinc[50],
@@ -40,7 +44,11 @@ const base: SemanticBaseColors = {
       DEFAULT: "#000000",
     },
     foreground: {
+      ...swapColorValues(twColors.zinc),
       DEFAULT: "#ECEDEE",
+    },
+    focus: {
+      DEFAULT: common.blue[500],
     },
     divider: {
       DEFAULT: "rgba(255, 255, 255, 0.15)",
@@ -83,7 +91,7 @@ export const semanticColorsLight: SemanticColors = {
   },
   success: {
     ...common.green,
-    foreground: common.green[800],
+    foreground: common.green[900],
     DEFAULT: common.green[500],
   },
   warning: {

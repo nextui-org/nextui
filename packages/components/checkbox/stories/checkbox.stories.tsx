@@ -214,17 +214,11 @@ export const CustomWithClassNames = (props: CustomCheckboxProps) => {
 };
 
 export const CustomWithHooks = (props: CheckboxProps) => {
-  const {
-    children,
-    isSelected,
-    isFocusVisible,
-    getBaseProps,
-    getLabelProps,
-    getInputProps,
-  } = useCheckbox({
-    "aria-label": props["aria-label"] || "Toggle status",
-    ...props,
-  });
+  const {children, isSelected, isFocusVisible, getBaseProps, getLabelProps, getInputProps} =
+    useCheckbox({
+      "aria-label": props["aria-label"] || "Toggle status",
+      ...props,
+    });
 
   return (
     <label {...getBaseProps()}>
@@ -235,7 +229,7 @@ export const CustomWithHooks = (props: CheckboxProps) => {
         classNames={{
           base: clsx("border-default hover:bg-default-200", {
             "border-primary bg-primary hover:bg-primary-600 hover:border-primary-600": isSelected,
-            "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark": isFocusVisible,
+            "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background": isFocusVisible,
           }),
           content: clsx("text-primary", {
             "text-primary-foreground pl-1": isSelected,

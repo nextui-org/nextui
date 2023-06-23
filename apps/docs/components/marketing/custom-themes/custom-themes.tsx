@@ -152,7 +152,7 @@ const CustomThemesExample = ({
                   classNames={{
                     wrapper: "hidden",
                     labelWrapper: slots.sizeOption(),
-                    label: "text-sm font-semibold text-inherit",
+                    label: slots.sizeOptionLabel(),
                   }}
                   value={itemSize}
                 >

@@ -16,7 +16,7 @@ Displays a list of actions or options that a user can choose.
 
 NextUI exports 5 dropdown-related components:
 
-- **Dropdown**: The main component, which is a wrapper for the other components. 
+- **Dropdown**: The main component, which is a wrapper for the other components. This component is an extension of the [Popover](/docs/components/popover) component, so it accepts all the props of the Popover component.
 - **DropdownTrigger**: The component that triggers the dropdown menu to open.
 - **DropdownMenu**: The component that contains the dropdown items. 
 - **DropdownSection**: The component that contains a group of dropdown items.
@@ -42,3 +42,87 @@ Dropdown follows the [Collection Components API](https://react-spectrum.adobe.co
 - **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
 
 <CodeDemo title="Dynamic items" files={dropdownContent.dynamic} />
+
+
+### With Divider
+
+Dropdown items can be separated by a divider using the `showDivider` prop.
+
+<CodeDemo title="With Divider" highlightedLines="17" files={dropdownContent.divider} />
+
+### Disabled Keys
+
+Dropdown items can be disabled using the `disabledKeys` prop to the `DropdownMenu` component.
+
+<CodeDemo title="Disabled Keys" highlightedLines="17" files={dropdownContent.disabledKeys} />
+
+> **Note**:  It's important to have a unique key for each item, otherwise the disabled keys will not work.
+
+### Action event
+
+You can use the `onAction` prop to get the key of the selected item.
+
+<CodeDemo title="Action event" highlightedLines="15" files={dropdownContent.action} />
+
+### Variants
+
+You can use the `variant` in the `DropdownMenu` component to change the `hover` style of the dropdown items.
+
+<CodeDemo title="Variants" highlightedLines="21-22" files={dropdownContent.variants} />
+
+### Single Selection
+
+You can set the `selectionMode` property as `single` to allow the user to select only one item at a time.
+
+<CodeDemo title="Single Selection" highlightedLines="26-28"  files={dropdownContent.singleSelection} />
+
+### Multiple Selection
+
+You can set the `selectionMode` property as `multiple` to allow the user to select multiple items at a time.
+
+<CodeDemo title="Multiple Selection" highlightedLines="26-28"  files={dropdownContent.multipleSelection} />
+
+### With Shortcut
+
+You can use the `shortcut` prop to add a shortcut to the dropdown item.
+
+<CodeDemo title="With Shortcut" highlightedLines="14-19" files={dropdownContent.shortcut} />
+
+> **Note**:  Dropdown does not handle the shortcut event, you need to handle it yourself.
+
+### With Icons
+
+It is possible to add icons to the dropdown items using the `startContent` / `endContent` props.
+
+<CodeDemo title="With Icons" highlightedLines="23,30,37,47" files={dropdownContent.icons} />
+
+> **Note**: Note: If you use `currentColor` as the icon color, the icon will have the same color as the item text.
+
+### With Description
+
+You can use the `description` prop to add a description to the dropdown item.
+
+<CodeDemo title="With Description" highlightedLines="23,31,39,50" files={dropdownContent.description} />
+
+
+### With Sections
+
+You can use the `DropdownSection` component to group dropdown items.
+
+<CodeDemo title="With Sections" highlightedLines="20,46" files={dropdownContent.sections} />
+
+> **Note**: Sections without a `title` must provide an `aria-label` for accessibility.
+
+
+### Custom Trigger
+
+You can use any component as a trigger for the dropdown menu, just wrap it in the `DropdownTrigger` component.
+
+<CodeDemo title="Custom Trigger" highlightedLines="17-18" files={dropdownContent.customTrigger} />
+
+### Changing the backdrop
+
+As we mentioned earlier, the `Dropdown` component is an extension of the [Popover](/docs/components/popover) component, 
+so it accepts all the props of the Popover component, including the `backdrop` prop.
+
+<CodeDemo title="Changing the backdrop" highlightedLines="17" files={dropdownContent.backdrop} />

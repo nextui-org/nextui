@@ -169,6 +169,11 @@ SemanticColors.args = {
           className: "bg-divider",
           textClassName: "text-foreground",
         },
+        {
+          color: "focus",
+          className: "bg-focus",
+          textClassName: "text-primary-foreground",
+        },
       ],
     },
     {

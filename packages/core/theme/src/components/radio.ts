@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {groupDataFocusVisibleClasses} from "../utils";
+
 /**
  * Radio wrapper **Tailwind Variants** component
  *
@@ -40,12 +42,7 @@ const radio = tv({
       "border-default",
       "group-data-[hover-unselected=true]:bg-default-100",
       // focus ring
-      "group-data-[focus-visible=true]:outline-none",
-      "group-data-[focus-visible=true]:ring-2",
-      "group-data-[focus-visible=true]:!ring-primary",
-      "group-data-[focus-visible=true]:ring-offset-2",
-      "group-data-[focus-visible=true]:ring-offset-background",
-      "group-data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...groupDataFocusVisibleClasses,
     ],
     labelWrapper: "flex flex-col ml-1",
     control: [
@@ -59,7 +56,7 @@ const radio = tv({
       "group-data-[selected=true]:scale-100",
     ],
     label: "relative text-foreground select-none",
-    description: "relative text-default-400",
+    description: "relative text-foreground-400",
   },
   variants: {
     color: {
@@ -202,9 +199,9 @@ const radio = tv({
 const radioGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
-    label: "relative text-default-500",
+    label: "relative text-foreground-500",
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
-    description: "text-xs text-default-400",
+    description: "text-xs text-foreground-400",
     errorMessage: "text-xs text-danger",
   },
 });

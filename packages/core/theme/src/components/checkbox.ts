@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {groupDataFocusVisibleClasses} from "../utils";
+
 /**
  * Checkbox wrapper **Tailwind Variants** component
  *
@@ -49,12 +51,7 @@ const checkbox = tv({
       "group-data-[hover=true]:before:bg-default-100",
       "group-data-[hover=true]:before:bg-default-100",
       // focus ring
-      "group-data-[focus-visible=true]:outline-none",
-      "group-data-[focus-visible=true]:ring-2",
-      "group-data-[focus-visible=true]:!ring-primary",
-      "group-data-[focus-visible=true]:ring-offset-2",
-      "group-data-[focus-visible=true]:ring-offset-background",
-      "group-data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...groupDataFocusVisibleClasses,
     ],
     icon: "z-10 w-4 h-3 opacity-0 group-data-[selected=true]:opacity-100",
     label: "relative text-foreground select-none",
@@ -195,9 +192,9 @@ const checkbox = tv({
 const checkboxGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
-    label: "relative text-default-500",
+    label: "relative text-foreground-500",
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
-    description: "text-xs text-default-400",
+    description: "text-xs text-foreground-400",
     errorMessage: "text-xs text-danger",
   },
 });

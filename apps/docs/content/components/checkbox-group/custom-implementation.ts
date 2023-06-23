@@ -34,7 +34,7 @@ const checkbox = tv({
     },
     isFocusVisible: {
       true: { 
-        base: "outline-none ring-2 !ring-primary ring-offset-2 ring-offset-background dark:ring-offset-background-dark",
+        base: "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background",
       }
     }
   }

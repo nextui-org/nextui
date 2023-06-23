@@ -18,3 +18,4 @@ export * from "./rotate-right";
 export * from "./hash";
 export * from "./chevron-right";
 export * from "./search";
+export * from "./simple-grid";

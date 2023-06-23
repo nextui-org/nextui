@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses} from "../utils";
+
 /**
  * Modal **Tailwind Variants** component
  *
@@ -61,18 +63,13 @@ const modal = tv({
       "top-1",
       "right-1",
       "p-2",
-      "text-default-500",
+      "text-foreground-500",
       "rounded-full",
       "hover:bg-default-100",
       "active:bg-default-200",
       "tap-highlight-transparent",
       // focus ring
-      "data-[focus-visible]:outline-none",
-      "data-[focus-visible]:ring-2",
-      "data-[focus-visible]:!ring-primary",
-      "data-[focus-visible]:ring-offset-2",
-      "data-[focus-visible]:ring-offset-background",
-      "data-[focus-visible]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
   },
   variants: {

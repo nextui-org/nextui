@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {colorVariants} from "../utils";
+import {colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
  * Pagination wrapper **Tailwind Variants** component
@@ -339,13 +339,7 @@ const pagination = tv({
         "justify-center",
         "text-default-foreground",
         // focus ring
-        "data-[focus-visible=true]:z-10",
-        "data-[focus-visible=true]:outline-none",
-        "data-[focus-visible=true]:ring-2",
-        "data-[focus-visible=true]:ring-primary",
-        "data-[focus-visible=true]:ring-offset-2",
-        "data-[focus-visible=true]:ring-offset-background",
-        "data-[focus-visible=true]:dark:ring-offset-background-dark",
+        ...dataFocusVisibleClasses,
         // disabled
         "data-[disabled=true]:text-default-300",
         "data-[disabled=true]:pointer-events-none",

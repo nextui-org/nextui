@@ -2,6 +2,8 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses} from "../utils";
+
 /**
  * Toggle (Switch) wrapper **Tailwind Variants** component
  *
@@ -41,12 +43,7 @@ const toggle = tv({
       "bg-default-200",
       "rounded-full",
       // focus ring
-      "group-data-[focus-visible]:outline-none",
-      "group-data-[focus-visible]:ring-2",
-      "group-data-[focus-visible]:!ring-primary",
-      "group-data-[focus-visible]:ring-offset-2",
-      "group-data-[focus-visible]:ring-offset-background",
-      "group-data-[focus-visible]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
     thumb: [
       "z-10",

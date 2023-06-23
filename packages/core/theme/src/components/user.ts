@@ -1,5 +1,7 @@
 import {tv} from "tailwind-variants";
 
+import {dataFocusVisibleClasses} from "../utils";
+
 /**
  * User wrapper **Tailwind Variants** component
  *
@@ -19,16 +21,11 @@ const user = tv({
     base: [
       "inline-flex items-center justify-center gap-2 rounded-sm outline-none",
       // focus ring
-      "data-[focus-visible=true]:outline-none",
-      "data-[focus-visible=true]:ring-2",
-      "data-[focus-visible=true]:ring-primary",
-      "data-[focus-visible=true]:ring-offset-2",
-      "data-[focus-visible=true]:ring-offset-background",
-      "data-[focus-visible=true]:dark:ring-offset-background-dark",
+      ...dataFocusVisibleClasses,
     ],
     wrapper: "inline-flex flex-col items-start",
     name: "text-sm text-inherit",
-    description: "text-xs text-default-400",
+    description: "text-xs text-foreground-400",
   },
 });
 

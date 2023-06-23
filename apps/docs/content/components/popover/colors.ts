@@ -25,8 +25,8 @@ export default function App() {
       {colors.map((color) => (
         <Popover key={color} placement="top" color={color}>
           <PopoverTrigger>
-            <Button color={color}>
-              {color.charAt(0).toUpperCase() + color.slice(1)}
+            <Button color={color} className="capitalize">
+              {color}
             </Button>
           </PopoverTrigger>
           {content}

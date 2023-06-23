@@ -62,11 +62,15 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       className,
       classNames: stylesProp = {},
       showDivider = true,
+      // removed title from props to avoid browsers showing a tooltip on hover
+      // the title props is already inside the rendered prop
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      title,
       ...otherProps
     },
     _,
   ) => {
-    const {section, heading, ...classNames} = stylesProp;
+    const {section, heading, group, ...classNames} = stylesProp || {};
 
     const headingId = useId();
 
@@ -78,7 +82,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       [showDivider, isFirstKey],
     );
 
-    const baseStyles = clsx(section, className, item.props?.className);
+    const baseStyles = clsx(section, className);
 
     const {itemProps, headingProps, groupProps} = useMenuSection({
       heading: item.rendered,
@@ -88,7 +92,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     return (
       <Component
         key={keyProp || item.key}
-        {...mergeProps(itemProps, otherProps, item.props)}
+        {...mergeProps(itemProps, otherProps)}
         className={slots.section({class: baseStyles})}
       >
         {item.rendered && (
@@ -96,7 +100,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
             {item.rendered}
           </span>
         )}
-        <ul {...groupProps} aria-labelledby={headingId}>
+        <ul {...groupProps} aria-labelledby={headingId} className={slots.group({class: group})}>
           {[...item.childNodes].map((node) => {
             let dropdownItem = (
               <DropdownItem

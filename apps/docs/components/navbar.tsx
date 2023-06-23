@@ -17,6 +17,7 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from "@nextui-org/react";
+import {dataFocusVisibleClasses} from "@nextui-org/theme";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
 import {isAppleDevice} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
@@ -220,13 +221,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             className={clsx(
               "transition-opacity p-1 hover:opacity-80 rounded-full cursor-pointer outline-none",
               // focus ring
-              "data-[focus-visible=true]:z-10",
-              "data-[focus-visible=true]:outline-none",
-              "data-[focus-visible=true]:ring-2",
-              "data-[focus-visible=true]:ring-primary",
-              "data-[focus-visible=true]:ring-offset-2",
-              "data-[focus-visible=true]:ring-offset-background",
-              "data-[focus-visible=true]:dark:ring-offset-background-dark",
+              ...dataFocusVisibleClasses,
             )}
             data-focus-visible={isFocusVisible}
             {...focusProps}

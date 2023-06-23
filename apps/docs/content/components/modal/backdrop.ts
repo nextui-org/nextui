@@ -19,8 +19,9 @@ export default function App() {
             variant="flat" 
             color="warning" 
             onPress={() => handleOpen(b)}
+            className="capitalize"
           >
-           {b.charAt(0).toUpperCase() + b.slice(1)}
+           {b}
           </Button>
         ))}  
       </div>

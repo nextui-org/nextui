@@ -2,7 +2,7 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "tailwind-variants";
 
-import {colorVariants} from "../utils";
+import {colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
  * Button wrapper **Tailwind Variants** component
@@ -38,13 +38,7 @@ const button = tv({
     "overflow-hidden",
     "tap-highlight-transparent",
     // focus ring
-    "data-[focus-visible=true]:z-10",
-    "data-[focus-visible=true]:outline-none",
-    "data-[focus-visible=true]:ring-2",
-    "data-[focus-visible=true]:ring-primary",
-    "data-[focus-visible=true]:ring-offset-2",
-    "data-[focus-visible=true]:ring-offset-background",
-    "data-[focus-visible=true]:dark:ring-offset-background-dark",
+    ...dataFocusVisibleClasses,
   ],
   variants: {
     variant: {
@@ -274,7 +268,7 @@ const button = tv({
     {
       variant: "light",
       color: "default",
-      class: [colorVariants.light.default, "data-[hover=true]:bg-default/20"],
+      class: [colorVariants.light.default, "data-[hover=true]:bg-default/40"],
     },
     {
       variant: "light",

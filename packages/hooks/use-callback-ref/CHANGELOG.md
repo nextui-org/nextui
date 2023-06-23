@@ -1,5 +1,13 @@
 # @nextui-org/use-callback-ref
 
+## 0.0.0-dev-v2-20230623225431
+
+### Patch Changes
+
+- Dropdown styles improved, foreground palette extended
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230623225431
+
 ## 0.0.0-dev-v2-20230623023752
 
 ### Patch Changes
