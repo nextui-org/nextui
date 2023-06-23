@@ -1,5 +1,19 @@
 # @nextui-org/table
 
+## 0.0.0-dev-v2-20230623234227
+
+### Patch Changes
+
+- Palette sematic colors improved
+- Updated dependencies
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230623234227
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230623234227
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230623234227
+  - @nextui-org/checkbox@0.0.0-dev-v2-20230623234227
+  - @nextui-org/spacer@0.0.0-dev-v2-20230623234227
+  - @nextui-org/system@0.0.0-dev-v2-20230623234227
+  - @nextui-org/theme@0.0.0-dev-v2-20230623234227
+
 ## 0.0.0-dev-v2-20230623225431
 
 ### Patch Changes

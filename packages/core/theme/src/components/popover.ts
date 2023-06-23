@@ -86,7 +86,7 @@ const popover = tv({
     },
     color: {
       default: {
-        base: "bg-background dark:bg-content1 border border-default-100",
+        base: "bg-content1 border border-boundary",
       },
       foreground: {
         base: colorVariants.solid.foreground,

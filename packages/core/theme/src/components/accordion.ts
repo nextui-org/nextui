@@ -19,7 +19,7 @@ const accordion = tv({
   variants: {
     variant: {
       light: "",
-      shadow: "px-4 shadow-lg rounded-xl bg-background dark:bg-content1 border border-default-100",
+      shadow: "px-4 shadow-lg rounded-xl bg-content1 border border-boundary",
       bordered: "px-4 border border-divider rounded-lg",
       splitted: "group is-splitted flex flex-col gap-2", // the classNames are applied in the accordion-item component
     },
@@ -61,12 +61,11 @@ const accordionItem = tv({
       "border-divider",
       "[&:not(:last-of-type)]:border-b",
       "group-[.is-splitted]:px-4",
-      "group-[.is-splitted]:bg-background",
-      "dark:group-[.is-splitted]:bg-content1",
+      "group-[.is-splitted]:bg-content1",
       "group-[.is-splitted]:shadow-lg",
       "group-[.is-splitted]:rounded-lg",
       "group-[.is-splitted]:border",
-      "group-[.is-splitted]:border-default-100",
+      "group-[.is-splitted]:border-boundary",
     ],
     heading: "",
     trigger: [

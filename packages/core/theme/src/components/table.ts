@@ -49,7 +49,7 @@ const table = tv({
       "justify-between",
       "gap-4",
       "border",
-      "border-default-100",
+      "border-boundary",
       "overflow-auto",
     ],
     table: "min-w-full h-auto",

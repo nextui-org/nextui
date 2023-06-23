@@ -211,7 +211,7 @@ const tabs = tv({
       variant: ["solid", "bordered", "light"],
       color: "default",
       class: {
-        cursor: ["bg-background", "dark:bg-default", "border border-default-100 dark:border-none"],
+        cursor: ["bg-content1", "border border-boundary"],
         tabContent: "group-data-[selected=true]:text-default-foreground",
       },
     },

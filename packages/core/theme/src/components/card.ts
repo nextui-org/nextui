@@ -29,9 +29,8 @@ const card = tv({
       "outline-none",
       "text-foreground",
       "box-border",
-      "bg-background",
-      "dark:bg-content1",
-      "border border-default-100",
+      "bg-content1",
+      "border border-boundary",
       // focus ring
       ...dataFocusVisibleClasses,
     ],

@@ -25,10 +25,9 @@ const dropdown = tv({
     "min-w-[200px]",
     "shadow",
     "shadow-lg",
-    "bg-white",
-    "dark:bg-content1",
+    "bg-content1",
     "border",
-    "border-default-100",
+    "border-boundary",
   ],
 });
 

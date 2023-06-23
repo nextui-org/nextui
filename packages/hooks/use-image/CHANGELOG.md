@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230623234227
+
+### Patch Changes
+
+- Palette sematic colors improved
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230623234227
+
 ## 0.0.0-dev-v2-20230623225431
 
 ### Patch Changes

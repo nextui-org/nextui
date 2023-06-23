@@ -1,4 +1,4 @@
-import type {SemanticColors, SemanticBaseColors} from "./types";
+import type {BrandColors, SemanticBaseColors} from "./types";
 
 import twColors from "tailwindcss/colors.js";
 import {readableColor} from "color2k";
@@ -19,12 +19,15 @@ const base: SemanticBaseColors = {
     divider: {
       DEFAULT: "rgba(17, 17, 17, 0.15)",
     },
+    boundary: {
+      DEFAULT: twColors.zinc[100],
+    },
     focus: {
       DEFAULT: common.blue[500],
     },
     content1: {
-      DEFAULT: twColors.zinc[50],
-      foreground: twColors.zinc[900],
+      DEFAULT: "#ffffff",
+      foreground: "#11181C",
     },
     content2: {
       DEFAULT: twColors.zinc[100],
@@ -53,6 +56,9 @@ const base: SemanticBaseColors = {
     divider: {
       DEFAULT: "rgba(255, 255, 255, 0.15)",
     },
+    boundary: {
+      DEFAULT: twColors.zinc[800],
+    },
     content1: {
       DEFAULT: twColors.zinc[900],
       foreground: twColors.zinc[50],
@@ -72,7 +78,7 @@ const base: SemanticBaseColors = {
   },
 };
 
-export const semanticColorsLight: SemanticColors = {
+export const brandColorsLight: BrandColors = {
   ...base.light,
   default: {
     ...twColors.zinc,
@@ -106,7 +112,7 @@ export const semanticColorsLight: SemanticColors = {
   },
 };
 
-export const semanticColorsDark: SemanticColors = {
+export const brandColorsDark: BrandColors = {
   ...base.dark,
   default: {
     ...swapColorValues(twColors.zinc),
@@ -141,6 +147,6 @@ export const semanticColorsDark: SemanticColors = {
 };
 
 export const semanticColors = {
-  light: semanticColorsLight,
-  dark: semanticColorsDark,
+  light: brandColorsLight,
+  dark: brandColorsDark,
 };

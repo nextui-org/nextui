@@ -1,5 +1,14 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230623234227
+
+### Patch Changes
+
+- Palette sematic colors improved
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230623234227
+  - @nextui-org/system@0.0.0-dev-v2-20230623234227
+
 ## 0.0.0-dev-v2-20230623225431
 
 ### Patch Changes

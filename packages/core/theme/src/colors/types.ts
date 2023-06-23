@@ -17,6 +17,7 @@ export type BaseColors = {
   background: ColorScale;
   foreground: ColorScale;
   divider: ColorScale;
+  boundary: ColorScale;
   focus: ColorScale;
   content1: ColorScale;
   content2: ColorScale;
@@ -24,7 +25,7 @@ export type BaseColors = {
   content4: ColorScale;
 };
 
-export type SemanticColors = BaseColors & {
+export type BrandColors = BaseColors & {
   default: ColorScale;
   primary: ColorScale;
   secondary: ColorScale;
