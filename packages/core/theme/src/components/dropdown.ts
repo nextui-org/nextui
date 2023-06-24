@@ -427,7 +427,7 @@ const dropdownItem = tv({
  */
 const dropdownSection = tv({
   slots: {
-    section: "relative mb-2",
+    base: "relative mb-2",
     heading: "pl-1 text-xs text-foreground-500",
     group: "pt-1",
   },

@@ -15,7 +15,7 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
     getBaseProps,
     disableAnimation,
     handleFocusChanged,
-    itemStyles,
+    itemClasses,
   } = useAccordion({
     ref,
     ...props,
@@ -27,7 +27,7 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
       item={item}
       onFocusChange={(isFocused) => handleFocusChanged(isFocused, item.key)}
       {...item.props}
-      classNames={{...itemStyles, ...(item.props.classNames || {})}}
+      classNames={{...itemClasses, ...(item.props.classNames || {})}}
     />
   ));
 

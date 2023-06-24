@@ -70,7 +70,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     },
     _,
   ) => {
-    const {section, heading, group, ...classNames} = stylesProp || {};
+    const {base, heading, group, ...classNames} = stylesProp || {};
 
     const headingId = useId();
 
@@ -82,7 +82,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       [showDivider, isFirstKey],
     );
 
-    const baseStyles = clsx(section, className);
+    const baseStyles = clsx(base, className);
 
     const {itemProps, headingProps, groupProps} = useMenuSection({
       heading: item.rendered,
@@ -93,7 +93,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       <Component
         key={keyProp || item.key}
         {...mergeProps(itemProps, otherProps)}
-        className={slots.section({class: baseStyles})}
+        className={slots.base({class: baseStyles})}
       >
         {item.rendered && (
           <span {...headingProps} className={slots.heading({class: heading})} id={headingId}>

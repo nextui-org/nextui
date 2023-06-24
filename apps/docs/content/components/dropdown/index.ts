@@ -12,6 +12,7 @@ import description from "./description";
 import sections from "./sections";
 import customTrigger from "./custom-trigger";
 import backdrop from "./backdrop";
+import customPopoverStyles from "./custom-popover-styles";
 
 export const dropdownContent = {
   usage,
@@ -28,4 +29,5 @@ export const dropdownContent = {
   sections,
   customTrigger,
   backdrop,
+  customPopoverStyles,
 };

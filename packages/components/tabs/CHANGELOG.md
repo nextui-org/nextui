@@ -1,5 +1,20 @@
 # @nextui-org/tabs
 
+## 0.0.0-dev-v2-20230624033637
+
+### Patch Changes
+
+- Small renames on styles and items styles
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230624033637
+  - @nextui-org/use-update-effect@0.0.0-dev-v2-20230624033637
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230624033637
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230624033637
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230624033637
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230624033637
+  - @nextui-org/system@0.0.0-dev-v2-20230624033637
+  - @nextui-org/theme@0.0.0-dev-v2-20230624033637
+
 ## 0.0.0-dev-v2-20230623234227
 
 ### Patch Changes

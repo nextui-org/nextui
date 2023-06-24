@@ -189,7 +189,7 @@ import {InfoIcon} from "./InfoIcon";
 import {InvalidCardIcon} from "./InvalidCardIcon";
 
 export default function App() {
-  const itemStyles = {
+  const itemClasses = {
     base: "py-0 w-full",
     title: "font-normal text-base",
     trigger: "px-2 py-0 data-[hover=true]:bg-default-100 rounded-lg h-14 flex items-center",
@@ -206,7 +206,7 @@ export default function App() {
       hideDivider
       className="p-2 flex flex-col gap-1 w-full max-w-[300px]"
       variant="shadow"
-      itemStyles={itemStyles}
+      itemClasses={itemClasses}
     >
       <AccordionItem
         key="1"

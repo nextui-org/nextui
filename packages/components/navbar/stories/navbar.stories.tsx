@@ -245,7 +245,7 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
             <DropdownMenu
               aria-label="ACME features"
               className="w-[340px]"
-              itemStyles={{
+              itemClasses={{
                 base: "gap-4",
                 wrapper: "py-3",
               }}

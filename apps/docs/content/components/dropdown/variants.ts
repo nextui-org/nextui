@@ -40,6 +40,7 @@ export default function App() {
         label="Select dropdown color"
         orientation="horizontal"
         color={selectedColor}
+        defaultValue="default"
         onValueChange={setSelectedColor}
       >
         <Radio value="default">Default</Radio>

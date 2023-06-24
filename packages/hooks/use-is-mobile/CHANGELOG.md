@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mobile
 
+## 0.0.0-dev-v2-20230624033637
+
+### Patch Changes
+
+- Small renames on styles and items styles
+
 ## 0.0.0-dev-v2-20230623234227
 
 ### Patch Changes

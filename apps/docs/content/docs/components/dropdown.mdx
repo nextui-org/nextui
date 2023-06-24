@@ -18,21 +18,21 @@ NextUI exports 5 dropdown-related components:
 
 - **Dropdown**: The main component, which is a wrapper for the other components. This component is an extension of the [Popover](/docs/components/popover) component, so it accepts all the props of the Popover component.
 - **DropdownTrigger**: The component that triggers the dropdown menu to open.
-- **DropdownMenu**: The component that contains the dropdown items. 
+- **DropdownMenu**: The component that contains the dropdown items.
 - **DropdownSection**: The component that contains a group of dropdown items.
 - **DropdownItem**: The component that represents a dropdown item.
 
 <ImportTabs
   commands={{
     main: 'import {Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem} from "@nextui-org/react";',
-    individual: 'import {Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem} from "@nextui-org/dropdown";',
+    individual:
+      'import {Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem} from "@nextui-org/dropdown";',
   }}
 />
 
 ## Usage
 
 <CodeDemo title="Usage" files={dropdownContent.usage} />
-
 
 ### Dynamic items
 
@@ -42,7 +42,6 @@ Dropdown follows the [Collection Components API](https://react-spectrum.adobe.co
 - **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
 
 <CodeDemo title="Dynamic items" files={dropdownContent.dynamic} />
-
 
 ### With Divider
 
@@ -56,7 +55,7 @@ Dropdown items can be disabled using the `disabledKeys` prop to the `DropdownMen
 
 <CodeDemo title="Disabled Keys" highlightedLines="17" files={dropdownContent.disabledKeys} />
 
-> **Note**:  It's important to have a unique key for each item, otherwise the disabled keys will not work.
+> **Note**: It's important to have a unique key for each item, otherwise the disabled keys will not work.
 
 ### Action event
 
@@ -74,13 +73,21 @@ You can use the `variant` in the `DropdownMenu` component to change the `hover` 
 
 You can set the `selectionMode` property as `single` to allow the user to select only one item at a time.
 
-<CodeDemo title="Single Selection" highlightedLines="26-28"  files={dropdownContent.singleSelection} />
+<CodeDemo
+  title="Single Selection"
+  highlightedLines="26-28"
+  files={dropdownContent.singleSelection}
+/>
 
 ### Multiple Selection
 
 You can set the `selectionMode` property as `multiple` to allow the user to select multiple items at a time.
 
-<CodeDemo title="Multiple Selection" highlightedLines="26-28"  files={dropdownContent.multipleSelection} />
+<CodeDemo
+  title="Multiple Selection"
+  highlightedLines="26-28"
+  files={dropdownContent.multipleSelection}
+/>
 
 ### With Shortcut
 
@@ -88,7 +95,7 @@ You can use the `shortcut` prop to add a shortcut to the dropdown item.
 
 <CodeDemo title="With Shortcut" highlightedLines="14-19" files={dropdownContent.shortcut} />
 
-> **Note**:  Dropdown does not handle the shortcut event, you need to handle it yourself.
+> **Note**: Dropdown does not handle the shortcut event, you need to handle it yourself.
 
 ### With Icons
 
@@ -102,8 +109,11 @@ It is possible to add icons to the dropdown items using the `startContent` / `en
 
 You can use the `description` prop to add a description to the dropdown item.
 
-<CodeDemo title="With Description" highlightedLines="23,31,39,50" files={dropdownContent.description} />
-
+<CodeDemo
+  title="With Description"
+  highlightedLines="23,31,39,50"
+  files={dropdownContent.description}
+/>
 
 ### With Sections
 
@@ -113,7 +123,6 @@ You can use the `DropdownSection` component to group dropdown items.
 
 > **Note**: Sections without a `title` must provide an `aria-label` for accessibility.
 
-
 ### Custom Trigger
 
 You can use any component as a trigger for the dropdown menu, just wrap it in the `DropdownTrigger` component.
@@ -122,7 +131,55 @@ You can use any component as a trigger for the dropdown menu, just wrap it in th
 
 ### Changing the backdrop
 
-As we mentioned earlier, the `Dropdown` component is an extension of the [Popover](/docs/components/popover) component, 
+As we mentioned earlier, the `Dropdown` component is an extension of the [Popover](/docs/components/popover) component,
 so it accepts all the props of the Popover component, including the `backdrop` prop.
 
 <CodeDemo title="Changing the backdrop" highlightedLines="17" files={dropdownContent.backdrop} />
+
+## Slots
+
+Dropdown has 2 components with slots the `DropdownItem` and `DropdownSection` components.
+
+### DropdownItem
+
+- **base**: The main slot for the dropdown item. It wraps all the other slots.
+- **wrapper**: The `title` and `description` wrapper.
+- **title**: The title of the dropdown item.
+- **description**: The description of the dropdown item.
+- **shortcut**: The shorcut slot.
+- **selectedIcon**: The selected icon slot. This is only visible when the item is selected.
+
+### DropdownSection
+
+- **base**: The main slot for the dropdown section. It wraps all the other slots.
+- **heading**: The title that is render on top of the section group.
+- **group**: The group of dropdown items.
+
+
+### Customizing the dropdown popover
+
+The `Dropdown` component is an extension of the [Popover](/docs/components/popover) component, so you can use the same
+slots to customize the dropdown.
+
+<CodeDemo title="Custom Styles" highlightedLines="14-15" files={dropdownContent.customPopoverStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+---
+
+<Spacer y={3} />
+
+### Keyboard Interactions
+
+| Key                              | Description                                                                                                                                   |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Space</kbd>                 | When focus is on `DropdownTrigger`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
+| <kbd>Enter</kbd>                 | When focus is on `DropdownTrigger`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
+| <kbd>ArrowDown</kbd>             | When focus is on `DropdownTrigger`, opens the dropdown menu. When focus is on an item, moves focus to the next item.                          |
+| <kbd>ArrowUp</kbd>               | When focus is on an item, moves focus to the previous item.                                                                                   |
+| <kbd>Esc</kbd>                   | Closes the dropdown menu and moves focus to `DropdownTrigger`.                                                                                |
+| <kbd>A-Z</kbd> or <kbd>a-z</kbd> | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists.       |
+
+<Spacer y={3} />

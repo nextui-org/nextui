@@ -27,7 +27,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * The accordion items classNames.
    */
-  itemStyles?: AccordionItemProps["classNames"];
+  itemClasses?: AccordionItemProps["classNames"];
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
@@ -82,7 +82,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     hideIndicator = false,
     disableAnimation = false,
     disableIndicatorAnimation = false,
-    itemStyles,
+    itemClasses,
     ...otherProps
   } = props;
 
@@ -206,7 +206,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     getBaseProps,
     disableAnimation,
     handleFocusChanged,
-    itemStyles,
+    itemClasses,
   };
 }
 

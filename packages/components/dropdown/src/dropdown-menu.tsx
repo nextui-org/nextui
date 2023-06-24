@@ -38,7 +38,7 @@ export interface DropdownMenuProps<T = object>
   /**
    * The dropdown items classNames.
    */
-  itemStyles?: DropdownItemProps["classNames"];
+  itemClasses?: DropdownItemProps["classNames"];
 }
 
 const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
@@ -51,7 +51,7 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
       onAction,
       closeOnSelect,
       className,
-      itemStyles,
+      itemClasses,
       ...otherProps
     },
     ref,
@@ -79,7 +79,7 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
                 disableAnimation,
                 item,
                 state,
-                classNames: itemStyles,
+                classNames: itemClasses,
                 variant,
                 onAction,
                 ...item.props,

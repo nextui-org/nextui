@@ -1,5 +1,13 @@
 # @nextui-org/aria-utils
 
+## 0.0.0-dev-v2-20230624033637
+
+### Patch Changes
+
+- Small renames on styles and items styles
+- Updated dependencies
+  - @nextui-org/system@0.0.0-dev-v2-20230624033637
+
 ## 0.0.0-dev-v2-20230623234227
 
 ### Patch Changes

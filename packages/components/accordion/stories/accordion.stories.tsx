@@ -243,7 +243,7 @@ const ControlledTemplate: ComponentStory<typeof Accordion> = (args: AccordionPro
 };
 
 const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
-  const itemStyles: AccordionItemProps["classNames"] = {
+  const itemClasses: AccordionItemProps["classNames"] = {
     base: "py-0 w-full",
     title: "font-normal text-base",
     trigger: "px-2 py-0 data-[hover=true]:bg-default-100 rounded-lg h-14 flex items-center",
@@ -261,7 +261,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: Ac
       <AccordionItem
         key="1"
         aria-label="Connected devices"
-        classNames={itemStyles}
+        classNames={itemClasses}
         startContent={<MonitorMobileIcon className="text-primary" />}
         subtitle={
           <p className="flex">
@@ -275,7 +275,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: Ac
       <AccordionItem
         key="2"
         aria-label="Apps Permissions"
-        classNames={itemStyles}
+        classNames={itemClasses}
         startContent={<ShieldSecurityIcon />}
         subtitle="3 apps have read permissions"
         title="Apps Permissions"
@@ -285,7 +285,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: Ac
       <AccordionItem
         key="3"
         aria-label="Pending tasks"
-        classNames={{...itemStyles, subtitle: "text-warning"}}
+        classNames={{...itemClasses, subtitle: "text-warning"}}
         startContent={<InfoIcon className="text-warning" />}
         subtitle="Complete your profile"
         title="Pending tasks"
@@ -295,7 +295,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: Ac
       <AccordionItem
         key="4"
         aria-label="Card expired"
-        classNames={{...itemStyles, subtitle: "text-danger"}}
+        classNames={{...itemClasses, subtitle: "text-danger"}}
         startContent={<InvalidCardIcon className="text-danger" />}
         subtitle="Please, update now"
         title={
