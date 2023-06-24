@@ -95,10 +95,7 @@ export const FloatingComponents: React.FC<{}> = () => {
             showControls
             showShadow
             classNames={{
-              base: "shadow-sm rounded-xl",
-              item: "bg-background dark:bg-content1",
-              prev: "bg-background dark:bg-content1",
-              next: "bg-background dark:bg-content1",
+              base: "rounded-xl",
             }}
             initialPage={6}
             total={10}

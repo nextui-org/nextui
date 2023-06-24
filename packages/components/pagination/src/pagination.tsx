@@ -11,7 +11,7 @@ import PaginationCursor from "./pagination-cursor";
 
 export interface PaginationProps extends Omit<UsePaginationProps, "ref"> {}
 
-const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
+const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
   const {
     Component,
     dotsJump,
@@ -30,6 +30,7 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
     getItemAriaLabel,
     getItemRef,
     getBaseProps,
+    getWrapperProps,
     getItemProps,
     getCursorProps,
   } = usePagination({ref, ...props});
@@ -132,8 +133,10 @@ const Pagination = forwardRef<PaginationProps, "ul">((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {!disableCursorAnimation && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
-      {range.map(renderItem)}
+      <ul {...getWrapperProps()}>
+        {!disableCursorAnimation && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
+        {range.map(renderItem)}
+      </ul>
     </Component>
   );
 });

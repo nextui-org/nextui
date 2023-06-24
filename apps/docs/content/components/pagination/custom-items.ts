@@ -86,7 +86,7 @@ export default function App() {
         className={cn(
           className,
           isActive &&
-            "bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
+            "text-white bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
         )}
         onClick={() => setPage(value)}
       >
@@ -149,7 +149,7 @@ export default function App() {
         className={cn(
           className,
           isActive &&
-          "bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
+          "text-white bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
         )}
         onClick={() => setPage(value)}
       >

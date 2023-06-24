@@ -1,5 +1,11 @@
 # @nextui-org/use-ref-state
 
+## 0.0.0-dev-v2-20230624215649
+
+### Patch Changes
+
+- Small color changes, pagination wrapper added, dropdown font size changed on mobile
+
 ## 0.0.0-dev-v2-20230624033637
 
 ### Patch Changes

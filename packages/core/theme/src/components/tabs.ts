@@ -33,7 +33,7 @@ const tabs = tv({
       "flex-nowrap",
       "overflow-x-scroll",
       "scrollbar-hide",
-      "bg-default-100",
+      "bg-content2",
     ],
     tab: [
       "z-0",

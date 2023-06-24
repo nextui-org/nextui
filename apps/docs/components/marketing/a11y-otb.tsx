@@ -119,6 +119,7 @@ export const A11yOtb = () => {
               classNames={{
                 base: "grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4",
                 header: "pb-3",
+                card: "bg-white dark:bg-default-400/10",
                 iconWrapper: "bg-default-100 dark:bg-transparent text-default-500/50",
               }}
               features={a11yItems}

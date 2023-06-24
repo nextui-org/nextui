@@ -70,13 +70,19 @@ const dropdownItem = tv({
       "rounded-lg",
       "outline-none",
       "cursor-pointer",
+      "tap-highlight-transparent",
       // focus ring
       ...dataFocusVisibleClasses,
       "data-[focus-visible=true]:dark:ring-offset-background-content1",
     ],
     wrapper: "w-full flex flex-col items-start justify-center",
-    title: "flex-1 text-sm font-normal truncate",
-    description: ["text-xs", "w-full", "text-foreground-500", "group-hover:text-current"],
+    title: "flex-1 text-base lg:text-sm font-normal truncate",
+    description: [
+      "text-sm lg:text-xs",
+      "w-full",
+      "text-foreground-500",
+      "group-hover:text-current",
+    ],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
     shortcut: [
       "px-1",

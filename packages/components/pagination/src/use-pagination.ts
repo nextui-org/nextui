@@ -71,7 +71,7 @@ export type PaginationItemRenderProps = {
   setPage: (page: number) => void;
 };
 
-interface Props extends Omit<HTMLNextUIProps<"ul">, "onChange"> {
+interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
   /**
    * Ref to the DOM node.
    */
@@ -148,7 +148,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     ...otherProps
   } = props;
 
-  const Component = as || "ul";
+  const Component = as || "nav";
 
   const domRef = useDOMRef(ref);
   const cursorRef = useRef<HTMLElement>(null);
@@ -186,7 +186,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     if (node) {
       // scroll parent to the item
       scrollIntoView(node, {
-        scrollMode: "if-needed",
+        scrollMode: "always",
         behavior: "smooth",
         block: "start",
         inline: "start",
@@ -267,6 +267,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: domRef,
       role: "navigation",
+      ariaLabel: props["aria-label"] || "pagination navigation",
       "data-slot": "base",
       "data-controls": dataAttr(showControls),
       "data-loop": dataAttr(loop),
@@ -275,6 +276,14 @@ export function usePagination(originalProps: UsePaginationProps) {
       "data-active-page": activePage,
       className: slots.base({class: clsx(baseStyles, props?.className)}),
       ...otherProps,
+    };
+  };
+
+  const getWrapperProps: PropGetter = (props = {}) => {
+    return {
+      ...props,
+      "data-slot": "wrapper",
+      className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
     };
   };
 
@@ -345,6 +354,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     onNext,
     renderItem,
     getBaseProps,
+    getWrapperProps,
     getItemProps,
     getCursorProps,
     getItemAriaLabel,

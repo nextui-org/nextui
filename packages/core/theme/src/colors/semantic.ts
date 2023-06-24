@@ -10,7 +10,7 @@ import {commonColors as common} from "./common";
 const base: SemanticBaseColors = {
   light: {
     background: {
-      DEFAULT: "#ffffff",
+      DEFAULT: "#FFFFFF",
     },
     foreground: {
       ...twColors.zinc,
@@ -26,7 +26,7 @@ const base: SemanticBaseColors = {
       DEFAULT: common.blue[500],
     },
     content1: {
-      DEFAULT: "#ffffff",
+      DEFAULT: "#FFFFFF",
       foreground: "#11181C",
     },
     content2: {

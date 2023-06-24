@@ -1,5 +1,13 @@
 # @nextui-org/use-image
 
+## 0.0.0-dev-v2-20230624215649
+
+### Patch Changes
+
+- Small color changes, pagination wrapper added, dropdown font size changed on mobile
+- Updated dependencies
+  - @nextui-org/use-safe-layout-effect@0.0.0-dev-v2-20230624215649
+
 ## 0.0.0-dev-v2-20230624033637
 
 ### Patch Changes

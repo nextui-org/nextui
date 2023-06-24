@@ -71,7 +71,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
                 className={clsx(
                   "transition-colors",
                   "font-normal",
-                  "flex items-center text-sm font-normal text-default-300",
+                  "flex items-center text-sm font-normal text-default-500 dark:text-default-300",
                   "data-[active=true]:text-foreground",
                   "before:content-['']",
                   "before:opacity-0",
@@ -98,7 +98,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
           <Divider />
           <Spacer y={2} />
           <a
-            className="flex gap-2 items-center text-sm text-foreground/30 hover:text-foreground/80 pl-4 transition-opacity"
+            className="flex gap-2 items-center text-sm text-default-500 dark:text-foreground/30 hover:text-foreground/80 pl-4 transition-opacity"
             href={`#${firstId}`}
           >
             Back to top

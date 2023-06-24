@@ -2,6 +2,7 @@ import type {DropdownItemVariantProps, DropdownItemSlots, SlotsToClasses} from "
 import type {AriaMenuItemProps} from "@react-aria/menu";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
+import {HTMLNextUIProps} from "@nextui-org/system";
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
 import {ReactNode} from "react";
 
@@ -74,6 +75,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
 }
 
 export type DropdownItemBaseProps<T extends object = {}> = Props<T> &
+  HTMLNextUIProps<"li"> &
   DropdownItemVariantProps &
   AriaMenuItemProps &
   FocusableProps &

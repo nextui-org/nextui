@@ -22,18 +22,16 @@ import {colorVariants, dataFocusVisibleClasses} from "../utils";
  */
 const pagination = tv({
   slots: {
-    base: [
+    base: ["p-2.5", "-m-2.5", "overflow-x-scroll", "scrollbar-hide"],
+    wrapper: [
       "flex",
       "flex-nowrap",
       "h-fit",
       "max-w-fit",
-      "p-2.5",
-      "-m-2.5",
       "relative",
       "gap-1",
       "items-center",
-      "overflow-x-scroll",
-      "scrollbar-hide",
+      "overflow-visible",
     ],
     item: ["tap-highlight-transparent", "select-none", "touch-none"],
     prev: "",
@@ -105,8 +103,9 @@ const pagination = tv({
     },
     isCompact: {
       true: {
-        base: "gap-0",
+        wrapper: "gap-0 shadow-sm",
         item: [
+          "shadow-none",
           "first-of-type:rounded-r-none",
           "last-of-type:rounded-l-none",
           "[&:not(:first-of-type):not(:last-of-type)]:rounded-none",
@@ -334,6 +333,7 @@ const pagination = tv({
         "flex-wrap",
         "truncate",
         "box-border",
+        "shadow-sm",
         "outline-none",
         "items-center",
         "justify-center",
@@ -388,37 +388,37 @@ const pagination = tv({
     },
     // radius
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "none",
       class: "rounded-none",
     },
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "base",
       class: "rounded-base",
     },
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "sm",
       class: "rounded-sm",
     },
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "md",
       class: "rounded",
     },
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "lg",
       class: "rounded-lg",
     },
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "xl",
       class: "rounded-xl",
     },
     {
-      slots: ["item", "cursor", "prev", "next"],
+      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "full",
       class: "rounded-full",
     },

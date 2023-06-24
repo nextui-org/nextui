@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230624215649
+
+### Patch Changes
+
+- Small color changes, pagination wrapper added, dropdown font size changed on mobile
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230624215649
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230624215649
+
 ## 0.0.0-dev-v2-20230624033637
 
 ### Patch Changes

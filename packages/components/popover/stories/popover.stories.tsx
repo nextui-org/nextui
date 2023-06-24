@@ -433,7 +433,7 @@ WithForm.args = {
   showArrow: true,
   offset: 10,
   placement: "top",
-  className: "w-[280px] bg-white dark:bg-content1",
+  className: "w-[280px] bg-content1",
 };
 
 export const WithBackdrop = WithBackdropTemplate.bind({});
@@ -443,7 +443,7 @@ WithBackdrop.args = {
   offset: 10,
   placement: "left",
   backdrop: "blur",
-  className: "bg-white dark:bg-content1",
+  className: "bg-content1",
 };
 
 export const CustomMotion = Template.bind({});

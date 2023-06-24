@@ -20,7 +20,7 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import {isEmpty} from "lodash";
-import {useRouter} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 
 import {getRoutePaths} from "./utils";
 
@@ -59,6 +59,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const {key, rendered, childNodes} = item;
 
   const router = useRouter();
+  const pathname = usePathname();
 
   const paths = item.props.path
     ? getRoutePaths(item.props.path, item.props?.tag)
@@ -70,7 +71,11 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const isNew = item.props?.newPost;
 
   const isExpanded = state.expandedKeys.has(key);
-  const isSelected = state.selectionManager.isSelected(key) || paths.pathname === item.props.slug;
+  const isSelected =
+    state.selectionManager.isSelected(key) ||
+    paths.pathname === item.props.slug ||
+    paths.pathname === pathname ||
+    paths.pagePath === pathname;
 
   const ref = useRef<any>(null);
 
@@ -134,11 +139,14 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             href={paths.pathname}
           >
             <span
-              className={clsx({
-                "opacity-100": isSelected,
-                "opacity-60": !isSelected,
-                "pointer-events-none": item.props?.comingSoon,
-              })}
+              className={clsx(
+                isSelected
+                  ? "text-primary font-medium dark:text-foreground"
+                  : "opacity-80 dark:opacity-60",
+                {
+                  "pointer-events-none": item.props?.comingSoon,
+                },
+              )}
             >
               {rendered}
             </span>

@@ -35,14 +35,14 @@ export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = neve
 
 export type RightJoinProps<
   SourceProps extends object = {},
-  OverrideProps extends object = {}
+  OverrideProps extends object = {},
 > = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
 
 export type MergeWithAs<
   ComponentProps extends object,
   AsProps extends object,
   AdditionalProps extends object = {},
-  AsComponent extends As = As
+  AsComponent extends As = As,
 > = RightJoinProps<ComponentProps, AdditionalProps> &
   RightJoinProps<AsProps, AdditionalProps> & {
     as?: AsComponent;
