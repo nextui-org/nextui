@@ -1,5 +1,11 @@
 # @nextui-org/use-resize
 
+## 0.0.0-dev-v2-20230625035223
+
+### Patch Changes
+
+- Dropdown styles and API improved
+
 ## 0.0.0-dev-v2-20230624215649
 
 ### Patch Changes

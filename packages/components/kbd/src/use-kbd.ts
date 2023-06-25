@@ -52,7 +52,7 @@ export function useKbd(originalProps: UseKbdProps) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const keysToRender = typeof keys === "string" ? [keys] : Array.isArray(keys) ? keys : [];
 

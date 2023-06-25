@@ -114,7 +114,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     ],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps = useCallback<PropGetter>(
     (props = {}) => {

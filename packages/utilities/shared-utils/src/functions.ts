@@ -54,3 +54,16 @@ export function extractProperty<K extends keyof Extractable, D extends keyof Ext
 export function getUniqueID(prefix: string) {
   return `${prefix}-${Math.floor(Math.random() * 1000000)}`;
 }
+
+/**
+ * This function removes all event handlers from an object.
+ */
+export function removeEvents(input: {[key: string]: any}) {
+  for (const key in input) {
+    if (key.startsWith("on")) {
+      delete input[key];
+    }
+  }
+
+  return input;
+}

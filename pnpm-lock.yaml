@@ -926,6 +926,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/divider':
+        specifier: workspace:*
+        version: link:../divider
       '@nextui-org/popover':
         specifier: workspace:*
         version: link:../popover

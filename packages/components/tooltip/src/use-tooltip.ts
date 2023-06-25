@@ -166,7 +166,11 @@ export function useTooltip(originalProps: UseTooltipProps) {
     state,
   );
 
-  const {overlayProps: positionProps, arrowProps, placement} = useOverlayPosition({
+  const {
+    overlayProps: positionProps,
+    arrowProps,
+    placement,
+  } = useOverlayPosition({
     isOpen: isOpen,
     targetRef: triggerRef,
     placement: toReactAriaPlacement(placementProp),
@@ -197,7 +201,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({

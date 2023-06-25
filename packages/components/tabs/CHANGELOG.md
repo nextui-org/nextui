@@ -1,5 +1,20 @@
 # @nextui-org/tabs
 
+## 0.0.0-dev-v2-20230625035223
+
+### Patch Changes
+
+- Dropdown styles and API improved
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230625035223
+  - @nextui-org/use-update-effect@0.0.0-dev-v2-20230625035223
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230625035223
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230625035223
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230625035223
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230625035223
+  - @nextui-org/system@0.0.0-dev-v2-20230625035223
+  - @nextui-org/theme@0.0.0-dev-v2-20230625035223
+
 ## 0.0.0-dev-v2-20230624215649
 
 ### Patch Changes

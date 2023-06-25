@@ -162,7 +162,7 @@ export function useAvatar(props: UseAvatarProps = {}) {
     [color, radius, size, isBordered, isDisabled, isInGroup, groupContext?.isGrid],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const canBeFocused = useMemo(() => {
     return isFocusable || as === "button";

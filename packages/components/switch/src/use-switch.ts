@@ -180,7 +180,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = (props) => {
     return {

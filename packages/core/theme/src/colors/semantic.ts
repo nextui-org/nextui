@@ -20,7 +20,7 @@ const base: SemanticBaseColors = {
       DEFAULT: "rgba(17, 17, 17, 0.15)",
     },
     boundary: {
-      DEFAULT: twColors.zinc[100],
+      DEFAULT: twColors.zinc[300],
     },
     focus: {
       DEFAULT: common.blue[500],

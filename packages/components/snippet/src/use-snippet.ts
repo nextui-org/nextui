@@ -177,7 +177,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     return str ? `${str} ` : "";
   }, [symbol]);
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getSnippetProps = useCallback<PropGetter>(
     () => ({

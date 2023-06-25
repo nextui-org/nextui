@@ -89,9 +89,10 @@ export function useRadio(props: UseRadioProps) {
   const labelId = useId();
 
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
-  const isInvalid = useMemo(() => groupContext.validationState === "invalid", [
-    groupContext.validationState,
-  ]);
+  const isInvalid = useMemo(
+    () => groupContext.validationState === "invalid",
+    [groupContext.validationState],
+  );
 
   const ariaRadioProps = useMemo(() => {
     const ariaLabel =
@@ -111,7 +112,12 @@ export function useRadio(props: UseRadioProps) {
     };
   }, [labelId, id, isDisabledProp, isRequired]);
 
-  const {inputProps, isDisabled, isSelected, isPressed: isPressedKeyboard} = useReactAriaRadio(
+  const {
+    inputProps,
+    isDisabled,
+    isSelected,
+    isPressed: isPressedKeyboard,
+  } = useReactAriaRadio(
     {
       value,
       children,
@@ -164,7 +170,7 @@ export function useRadio(props: UseRadioProps) {
     [color, size, radius, isDisabled, isInvalid, disableAnimation],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {

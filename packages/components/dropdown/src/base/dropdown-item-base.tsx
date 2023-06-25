@@ -2,7 +2,6 @@ import type {DropdownItemVariantProps, DropdownItemSlots, SlotsToClasses} from "
 import type {AriaMenuItemProps} from "@react-aria/menu";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
-import {HTMLNextUIProps} from "@nextui-org/system";
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
 import {ReactNode} from "react";
 
@@ -48,6 +47,11 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    */
   endContent?: ReactNode;
   /**
+   * Whether the dropdown press events are disabled.
+   * @default false
+   */
+  isReadOnly?: boolean;
+  /**
    * The dropdown item `selected` icon, it's usually an checkmark icon.
    * If you pass a function, NextUI will expose the current selected icon and the selected status,
    * In case you want to use a custom indicator or modify the current one.
@@ -75,7 +79,6 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
 }
 
 export type DropdownItemBaseProps<T extends object = {}> = Props<T> &
-  HTMLNextUIProps<"li"> &
   DropdownItemVariantProps &
   AriaMenuItemProps &
   FocusableProps &

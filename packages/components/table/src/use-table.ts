@@ -167,7 +167,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     [...Object.values(variantProps), isSelectable, isMultiSelectable],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const context = useMemo<ContextType<T>>(
     () => ({

@@ -79,7 +79,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
 
   const domRef = useDOMRef(ref);
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
   const [, isMounted] = useIsMounted({
     rerender: true,
     delay: 100,

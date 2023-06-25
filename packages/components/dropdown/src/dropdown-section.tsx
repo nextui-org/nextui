@@ -1,6 +1,4 @@
-import type {DropdownSectionSlots, SlotsToClasses} from "@nextui-org/theme";
-
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system";
 import {dropdownSection} from "@nextui-org/theme";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
@@ -8,10 +6,12 @@ import {useMenuSection} from "@react-aria/menu";
 import {useMemo, Key, useId} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
+import {Divider} from "@nextui-org/divider";
 
 import DropdownItem, {DropdownItemProps} from "./dropdown-item";
+import {DropdownSectionBaseProps} from "./base/dropdown-section-base";
 
-export interface DropdownSectionProps<T extends object = object> extends HTMLNextUIProps<"li"> {
+export interface DropdownSectionProps<T extends object = object> extends DropdownSectionBaseProps {
   item: Node<T>;
   state: TreeState<T>;
   /**
@@ -33,14 +33,8 @@ export interface DropdownSectionProps<T extends object = object> extends HTMLNex
    */
   closeOnSelect?: DropdownItemProps["closeOnSelect"];
   /**
-   * The dropdown items classNames.
+   * Callback fired when the menu item is selected.
    */
-  classNames?: DropdownItemProps["classNames"] & SlotsToClasses<DropdownSectionSlots>;
-  /**
-   * Shows a divider between sections
-   * @default true
-   */
-  showDivider?: boolean;
   onAction?: (key: Key) => void;
 }
 
@@ -60,8 +54,10 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
       onAction,
       closeOnSelect,
       className,
-      classNames: stylesProp = {},
-      showDivider = true,
+      classNames,
+      showDivider = false,
+      dividerProps = {},
+      itemClasses,
       // removed title from props to avoid browsers showing a tooltip on hover
       // the title props is already inside the rendered prop
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -70,19 +66,14 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     },
     _,
   ) => {
-    const {base, heading, group, ...classNames} = stylesProp || {};
-
     const headingId = useId();
 
     const Component = as || "li";
-    const isFirstKey = item.key === state.collection.getFirstKey();
 
-    const slots = useMemo(
-      () => dropdownSection({showDivider: showDivider && !isFirstKey}),
-      [showDivider, isFirstKey],
-    );
+    const slots = useMemo(() => dropdownSection(), []);
 
-    const baseStyles = clsx(base, className);
+    const baseStyles = clsx(classNames?.base, className);
+    const dividerStyles = clsx(classNames?.divider, dividerProps.className);
 
     const {itemProps, headingProps, groupProps} = useMenuSection({
       heading: item.rendered,
@@ -92,20 +83,32 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     return (
       <Component
         key={keyProp || item.key}
+        data-slot="base"
         {...mergeProps(itemProps, otherProps)}
         className={slots.base({class: baseStyles})}
       >
         {item.rendered && (
-          <span {...headingProps} className={slots.heading({class: heading})} id={headingId}>
+          <span
+            {...headingProps}
+            className={slots.heading({class: classNames?.heading})}
+            data-slot="heading"
+            id={headingId}
+          >
             {item.rendered}
           </span>
         )}
-        <ul {...groupProps} aria-labelledby={headingId} className={slots.group({class: group})}>
+        <ul
+          {...groupProps}
+          aria-labelledby={headingId}
+          className={slots.group({class: classNames?.group})}
+          data-has-title={!!item.rendered}
+          data-slot="group"
+        >
           {[...item.childNodes].map((node) => {
             let dropdownItem = (
               <DropdownItem
                 key={node.key}
-                classNames={classNames}
+                classNames={itemClasses}
                 closeOnSelect={closeOnSelect}
                 color={color}
                 disableAnimation={disableAnimation}
@@ -123,6 +126,15 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
 
             return dropdownItem;
           })}
+          {showDivider && (
+            <Divider
+              as="li"
+              className={slots.divider({
+                class: dividerStyles,
+              })}
+              {...dividerProps}
+            />
+          )}
         </ul>
       </Component>
     );

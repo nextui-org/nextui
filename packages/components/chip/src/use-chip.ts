@@ -77,16 +77,17 @@ export function useChip(originalProps: UseChipProps) {
 
   const domRef = useDOMRef(ref);
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const isCloseable = !!onClose;
   const isDotVariant = originalProps.variant === "dot";
 
   const {focusProps: closeFocusProps, isFocusVisible: isCloseButtonFocusVisible} = useFocusRing();
 
-  const isOneChar = useMemo(() => typeof children === "string" && children?.length === 1, [
-    children,
-  ]);
+  const isOneChar = useMemo(
+    () => typeof children === "string" && children?.length === 1,
+    [children],
+  );
 
   const hasStartContent = useMemo(() => !!avatar || !!startContent, [avatar, startContent]);
   const hasEndContent = useMemo(() => !!endContent || isCloseable, [endContent, isCloseable]);

@@ -119,7 +119,7 @@ export default function App() {
         </Button>
       </DropdownTrigger>
       <DropdownMenu variant="faded" aria-label="Dropdown menu with description">
-      <DropdownSection title="Actions">  
+      <DropdownSection title="Actions" showDivider>  
         <DropdownItem
             key="new"
             shortcut="⌘N"

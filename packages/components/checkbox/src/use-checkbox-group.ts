@@ -107,7 +107,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const slots = useMemo(() => checkboxGroup(), []);
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getGroupProps: PropGetter = () => {
     return {

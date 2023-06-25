@@ -83,7 +83,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     [...Object.values(variantProps), className],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const context = useMemo<ContextType<T>>(
     () => ({

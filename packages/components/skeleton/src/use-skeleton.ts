@@ -49,7 +49,7 @@ export function useSkeleton(originalProps: UseSkeletonProps) {
     [...Object.values(variantProps), children],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getSkeletonProps: PropGetter = (props = {}) => {
     return {

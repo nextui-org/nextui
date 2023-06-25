@@ -33,6 +33,7 @@ const popover = tv({
       "text-base",
       "outline-none",
       "box-border",
+      "overflow-hidden",
       // focus ring
       ...dataFocusVisibleClasses,
     ],

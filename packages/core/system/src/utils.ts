@@ -10,7 +10,7 @@ export function forwardRef<Props extends object, Component extends As>(
     }
   >,
 ) {
-  return (baseForwardRef(component) as unknown) as ComponentWithAs<Component, Props>;
+  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props>;
 }
 
 export const toIterator = (obj: any) => {

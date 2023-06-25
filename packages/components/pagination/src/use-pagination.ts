@@ -244,7 +244,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     [...Object.values(variantProps)],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const onNext = () => {
     if (loop && activePage === total) {

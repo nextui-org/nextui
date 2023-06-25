@@ -1,6 +1,5 @@
 import usage from "./usage";
 import dynamic from "./dynamic";
-import divider from "./divider";
 import disabledKeys from "./disabled-keys";
 import action from "./action";
 import variants from "./variants";
@@ -13,11 +12,11 @@ import sections from "./sections";
 import customTrigger from "./custom-trigger";
 import backdrop from "./backdrop";
 import customPopoverStyles from "./custom-popover-styles";
+import customItemsStyles from "./custom-items-styles";
 
 export const dropdownContent = {
   usage,
   dynamic,
-  divider,
   disabledKeys,
   action,
   variants,
@@ -30,4 +29,5 @@ export const dropdownContent = {
   customTrigger,
   backdrop,
   customPopoverStyles,
+  customItemsStyles,
 };

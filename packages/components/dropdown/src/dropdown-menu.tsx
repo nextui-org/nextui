@@ -79,16 +79,15 @@ const DropdownMenu = forwardRef<DropdownMenuProps, "ul">(
                 disableAnimation,
                 item,
                 state,
-                classNames: itemClasses,
                 variant,
                 onAction,
                 ...item.props,
               };
 
               if (item.type === "section") {
-                return <DropdownSection {...itemProps} />;
+                return <DropdownSection {...itemProps} itemClasses={itemClasses} />;
               }
-              let dropdownItem = <DropdownItem {...itemProps} />;
+              let dropdownItem = <DropdownItem {...itemProps} classNames={itemClasses} />;
 
               if (item.wrapper) {
                 dropdownItem = item.wrapper(dropdownItem);

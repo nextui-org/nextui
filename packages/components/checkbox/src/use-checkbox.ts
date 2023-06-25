@@ -160,7 +160,13 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     onValueChange,
   ]);
 
-  const {inputProps, isSelected, isDisabled, isReadOnly, isPressed: isPressedKeyboard} = isInGroup
+  const {
+    inputProps,
+    isSelected,
+    isDisabled,
+    isReadOnly,
+    isPressed: isPressedKeyboard,
+  } = isInGroup
     ? // eslint-disable-next-line
       useReactAriaCheckboxGroupItem(
         {
@@ -219,7 +225,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     [color, size, radius, lineThrough, isDisabled, disableAnimation],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = () => {
     return {

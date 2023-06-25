@@ -130,12 +130,10 @@ export function useModal(originalProps: UseModalProps) {
   );
 
   const {buttonProps: closeButtonProps} = useAriaButton({onPress: state.close}, closeButtonRef);
-  const {
-    isFocusVisible: isCloseButtonFocusVisible,
-    focusProps: closeButtonFocusProps,
-  } = useFocusRing();
+  const {isFocusVisible: isCloseButtonFocusVisible, focusProps: closeButtonFocusProps} =
+    useFocusRing();
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
     () =>

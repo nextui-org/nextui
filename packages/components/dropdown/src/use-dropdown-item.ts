@@ -6,7 +6,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
 import {useMenuItem} from "@react-aria/menu";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
@@ -48,6 +48,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     autoFocus,
     onPress,
     onClick,
+    isReadOnly = false,
     closeOnSelect = closeOnSelectGroup ?? true,
     ...otherProps
   } = props;
@@ -71,7 +72,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
 
   const {pressProps, isPressed} = usePress({
     ref: domRef,
-    isDisabled,
+    isDisabled: isDisabled,
     onPress,
   });
 
@@ -104,6 +105,8 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     domRef,
   );
 
+  let itemProps = menuItemProps;
+
   const slots = useMemo(
     () =>
       dropdownItem({
@@ -114,15 +117,19 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     [...Object.values(variantProps), isDisabled, disableAnimation],
   );
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
+
+  if (isReadOnly) {
+    itemProps = removeEvents(itemProps);
+  }
 
   const getItemProps: PropGetter = (props = {}) => ({
     key: keyProp || key,
     ref: domRef,
     ...mergeProps(
-      menuItemProps,
+      itemProps,
       focusProps,
-      pressProps,
+      isReadOnly ? {} : pressProps,
       hoverProps,
       filterDOMProps(otherProps, {labelable: true}),
       props,

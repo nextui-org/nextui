@@ -43,12 +43,6 @@ Dropdown follows the [Collection Components API](https://react-spectrum.adobe.co
 
 <CodeDemo title="Dynamic items" files={dropdownContent.dynamic} />
 
-### With Divider
-
-Dropdown items can be separated by a divider using the `showDivider` prop.
-
-<CodeDemo title="With Divider" highlightedLines="17" files={dropdownContent.divider} />
-
 ### Disabled Keys
 
 Dropdown items can be disabled using the `disabledKeys` prop to the `DropdownMenu` component.
@@ -161,13 +155,17 @@ Dropdown has 2 components with slots the `DropdownItem` and `DropdownSection` co
 The `Dropdown` component is an extension of the [Popover](/docs/components/popover) component, so you can use the same
 slots to customize the dropdown.
 
-<CodeDemo title="Custom Styles" highlightedLines="14-15" files={dropdownContent.customPopoverStyles} />
+<CodeDemo title="Custom Popover Styles" highlightedLines="14-15" files={dropdownContent.customPopoverStyles} />
 
-<Spacer y={4} />
 
-## Data Attributes
+### Customizing the dropdown items style
 
----
+You can customize the dropdown items either by using the `DropdownMenu` `itemClasses` prop or by using the 
+`DropdownItem` slots, the `itemClasses` allows you to customize all the items at once, while the slots allow 
+you to customize each item individually.
+
+<CodeDemo title="Custom Dropdown Items Styles" files={dropdownContent.customItemsStyles} />
+
 
 <Spacer y={3} />
 

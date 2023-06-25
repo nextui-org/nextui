@@ -77,7 +77,7 @@ export function useUser(props: UseUserProps) {
 
   const slots = useMemo(() => user(), []);
 
-  const baseStyles = clsx(className, classNames?.base);
+  const baseStyles = clsx(classNames?.base, className);
 
   const getUserProps = useCallback<PropGetter>(
     () => ({

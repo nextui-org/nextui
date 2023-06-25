@@ -89,11 +89,10 @@ const dropdownItem = tv({
       "py-0.5",
       "rounded",
       "font-sans",
-      "opacity-60",
-      "text-inherit",
+      "text-foreground-500",
       "text-xs",
       "border",
-      "border-default-200",
+      "border-boundary",
       "group-hover:border-current",
     ],
   },
@@ -125,20 +124,6 @@ const dropdownItem = tv({
       success: {},
       warning: {},
       danger: {},
-    },
-    showDivider: {
-      true: {
-        base: [
-          "mt-2",
-          "before-content-['']",
-          "before:absolute",
-          "before:-top-1.5",
-          "before:left-0",
-          "before:right-0",
-          "before:h-px",
-          "before:bg-divider",
-        ],
-      },
     },
     isDisabled: {
       true: {
@@ -420,10 +405,10 @@ const dropdownItem = tv({
 /**
  * Dropdown wrapper **Tailwind Variants** component
  *
- * const { section, heading } = dropdownSection({...})
+ * const { base, section, heading } = dropdownSection({...})
  *
  * @example
- * <div>
+ * <div className={base()}>
  *  <button className={trigger()} aria-expanded="true/false">your trigger</button>
  *  <div className={section()}>
  *    // dropdown content
@@ -435,23 +420,8 @@ const dropdownSection = tv({
   slots: {
     base: "relative mb-2",
     heading: "pl-1 text-xs text-foreground-500",
-    group: "pt-1",
-  },
-  variants: {
-    showDivider: {
-      true: {
-        heading: [
-          "mt-2",
-          "before-content-['']",
-          "before:absolute",
-          "before:-top-1",
-          "before:left-0",
-          "before:right-0",
-          "before:h-px",
-          "before:bg-divider",
-        ],
-      },
-    },
+    group: "data-[has-title=true]:pt-1",
+    divider: "mt-2",
   },
 });
 
