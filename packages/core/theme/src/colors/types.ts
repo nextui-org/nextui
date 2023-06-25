@@ -18,6 +18,7 @@ export type BaseColors = {
   foreground: ColorScale;
   divider: ColorScale;
   boundary: ColorScale;
+  overlay: ColorScale;
   focus: ColorScale;
   content1: ColorScale;
   content2: ColorScale;

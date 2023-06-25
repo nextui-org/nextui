@@ -1,5 +1,20 @@
 # @nextui-org/popover
 
+## 0.0.0-dev-v2-20230625145649
+
+### Patch Changes
+
+- New color added to manage overlays, popover and dropdown styles small changes
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230625145649
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230625145649
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230625145649
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230625145649
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230625145649
+  - @nextui-org/button@0.0.0-dev-v2-20230625145649
+  - @nextui-org/system@0.0.0-dev-v2-20230625145649
+  - @nextui-org/theme@0.0.0-dev-v2-20230625145649
+
 ## 0.0.0-dev-v2-20230625035223
 
 ### Patch Changes

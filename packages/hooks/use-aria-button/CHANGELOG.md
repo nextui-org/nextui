@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-button
 
+## 0.0.0-dev-v2-20230625145649
+
+### Patch Changes
+
+- New color added to manage overlays, popover and dropdown styles small changes
+
 ## 0.0.0-dev-v2-20230625035223
 
 ### Patch Changes

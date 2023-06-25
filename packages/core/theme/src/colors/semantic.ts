@@ -20,10 +20,13 @@ const base: SemanticBaseColors = {
       DEFAULT: "rgba(17, 17, 17, 0.15)",
     },
     boundary: {
-      DEFAULT: twColors.zinc[300],
+      DEFAULT: twColors.zinc[200],
     },
     focus: {
       DEFAULT: common.blue[500],
+    },
+    overlay: {
+      DEFAULT: "#000000",
     },
     content1: {
       DEFAULT: "#FFFFFF",
@@ -52,6 +55,9 @@ const base: SemanticBaseColors = {
     },
     focus: {
       DEFAULT: common.blue[500],
+    },
+    overlay: {
+      DEFAULT: "#000000",
     },
     divider: {
       DEFAULT: "rgba(255, 255, 255, 0.15)",

@@ -33,7 +33,6 @@ const popover = tv({
       "text-base",
       "outline-none",
       "box-border",
-      "overflow-hidden",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -88,6 +87,7 @@ const popover = tv({
     color: {
       default: {
         base: "bg-content1 border border-boundary",
+        arrow: "border border-boundary",
       },
       foreground: {
         base: colorVariants.solid.foreground,
@@ -143,10 +143,10 @@ const popover = tv({
     backdrop: {
       transparent: {},
       opaque: {
-        backdrop: "bg-black/50 backdrop-opacity-50",
+        backdrop: "bg-overlay/50 backdrop-opacity-50",
       },
       blur: {
-        backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-black/30",
+        backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-overlay/30",
       },
     },
     triggerScaleOnOpen: {

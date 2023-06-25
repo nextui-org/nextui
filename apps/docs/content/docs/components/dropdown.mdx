@@ -148,26 +148,28 @@ Dropdown has 2 components with slots the `DropdownItem` and `DropdownSection` co
 - **base**: The main slot for the dropdown section. It wraps all the other slots.
 - **heading**: The title that is render on top of the section group.
 - **group**: The group of dropdown items.
-
+- **divider**: The divider that is render between the groups. This is only visible when `showDivider` is `true`.
 
 ### Customizing the dropdown popover
 
 The `Dropdown` component is an extension of the [Popover](/docs/components/popover) component, so you can use the same
 slots to customize the dropdown.
 
-<CodeDemo title="Custom Popover Styles" highlightedLines="14-15" files={dropdownContent.customPopoverStyles} />
-
+<CodeDemo
+  title="Custom Popover Styles"
+  highlightedLines="14-15"
+  files={dropdownContent.customPopoverStyles}
+/>
 
 ### Customizing the dropdown items style
 
-You can customize the dropdown items either by using the `DropdownMenu` `itemClasses` prop or by using the 
-`DropdownItem` slots, the `itemClasses` allows you to customize all the items at once, while the slots allow 
+You can customize the dropdown items either by using the `DropdownMenu` `itemClasses` prop or by using the
+`DropdownItem` slots, the `itemClasses` allows you to customize all the items at once, while the slots allow
 you to customize each item individually.
 
 <CodeDemo title="Custom Dropdown Items Styles" files={dropdownContent.customItemsStyles} />
 
-
-<Spacer y={3} />
+<Spacer y={4} />
 
 ### Keyboard Interactions
 
@@ -180,4 +182,173 @@ you to customize each item individually.
 | <kbd>Esc</kbd>                   | Closes the dropdown menu and moves focus to `DropdownTrigger`.                                                                                |
 | <kbd>A-Z</kbd> or <kbd>a-z</kbd> | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists.       |
 
-<Spacer y={3} />
+<Spacer y={4} />
+
+## Data Attributes
+
+`DropdownItem` has the following attributes on the `root` element:
+
+- **data-disabled**:
+  When the dropdown item is disabled. Based on dropdown `disabledKeys` prop.
+- **data-selected**:
+  When the dropdown item is selected. Based on dropdown `selectedKeys` prop.
+- **data-hover**:
+  When the dropdown item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-pressed**:
+  When the dropdown item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-focus**:
+  When the dropdown item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the dropdown item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Exposed to assistive technology as a button with a menu using ARIA.
+- Support for single, multiple, or no selection.
+- Support for disabled items.
+- Support for sections.
+- Complex item labeling support for accessibility.
+- Keyboard navigation support including arrow keys, home/end, page up/down. See [Keyboard Interactions](#keyboard-interactions) for more details.
+- Automatic scrolling support during keyboard navigation.
+- Keyboard support for opening the menu using the arrow keys, including automatically focusing the first or last item accordingly.
+- Typeahead to allow focusing items by typing text.
+- Virtualized scrolling support for performance with long lists.
+
+<Spacer y={4} />
+
+## API
+
+### Dropdown Props
+
+| Attribute         | Type                                     | Description                                                                                           | Default |
+| ----------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
+| children\*        | `ReactNode[]`                            | The children to render. Usually a `DropdownTrigger` and `DropdownMenu` elements.                      | -       |
+| type              | `menu` \| `listbox`                      | Type of overlay that is opened by the dropdown trigger.                                               | `menu`  |
+| trigger           | `press` \| `longPress`                   | How the dropdown menu is triggered.                                                                   | `press` |
+| isDisabled        | `boolean`                                | Whether the dropdown trigger is disabled.                                                             | `false` |
+| closeOnSelect     | `boolean`                                | Whether the dropdown menu should be closed when an item is selected.                                  | `true`  |
+| shouldBlockScroll | `boolean`                                | Whether the dropdown menu should block scrolling outside the menu.                                    | `true`  |
+| PopoverProps      | [PopoverProps](/docs/components/popover) | Since the dropdown is an extension of the popover, it accepts all the props of the popover component. | -       |
+
+### Dropdown Events
+
+| Attribute                    | Type                        | Description                                                                                                             |
+| ---------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| onOpenChange                 | `(isOpen: boolean) => void` | Handler that is called when the dropdown's open state changes.                                                          |
+| shouldCloseOnInteractOutside | `(e: HTMLElement) => void`  | When user interacts with the argument element outside of the dropdown ref, return `true` if `onClose` should be called. |
+| onClose                      | `() => void`                | Handler that is called when the dropdown should close.                                                                  |
+
+---
+
+### DropdownTrigger Props
+
+| Attribute | Type        | Description                                                                                                                                                                    | Default |
+| --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| children  | `ReactNode` | TThe dropdown trigger component, ensure the `children` passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility. | -       |
+
+---
+
+### DropdownMenu Props
+
+| Attribute              | Type                                                                                                   | Description                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
+| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -         |
+| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -         |
+| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The dropdown items appearance style.                                                                    | `solid`   |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The dropdown items color theme.                                                                         | `default` |
+| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -         |
+| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -         |
+| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
+| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -         |
+| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`   |
+| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`   |
+| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`   |
+| closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`    |
+| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`   |
+| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -         |
+
+### DropdownMenu Events
+
+| Attribute         | Type                          | Description                                                                |
+| ----------------- | ----------------------------- | -------------------------------------------------------------------------- |
+| onAction          | `(key: React.Key) => void`    | Handler that is called when an item is selected.                           |
+| onSelectionChange | `(keys: React.Key[]) => void` | Handler that is called when the selection changes.                         |
+| onClose           | `() => void`                  | Handler that is called when the menu should close after selecting an item. |
+
+---
+
+### DropdownSection Props
+
+| Attribute    | Type                                                                                                   | Description                                                                                 | Default |
+| ------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------- |
+| children\*   | `ReactNode`                                                                                            | The contents of the dropdown section. Usually a list of `DropdownItem` components. (static) | -       |
+| title        | `string`                                                                                               | The title of the dropdown section.                                                          | -       |
+| items        | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                   | -       |
+| showDivider  | `boolean`                                                                                              | Whether to show the divider between the groups.                                             | `false` |
+| DividerProps | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
+| classNames   | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
+| itemClasses  | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
+
+---
+
+### DropdownItem Props
+
+| Attribute     | Type                                                                                          | Description                                                                                                     | Default |
+| ------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------- |
+| children\*    | `ReactNode`                                                                                   | The contents of the dropdown item.                                                                              | -       |
+| key           | `React.Key`                                                                                   | The unique key for the dropdown item.                                                                           | -       |
+| title         | `string` \| `ReactNode`                                                                       | The title of the dropdown item.                                                                                 | -       |
+| textValue     | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                               | -       |
+| description   | `string` \| `ReactNode`                                                                       | The description of the dropdown item.                                                                           | -       |
+| shortcut      | `string` \| `ReactNode`                                                                       | The dropdown item keyboard shortcut.                                                                            | -       |
+| startContent  | `ReactNode`                                                                                   | The start content of the dropdown item.                                                                         | -       |
+| endContent    | `ReactNode`                                                                                   | The end content of the dropdown item. This is positioned after the shortcut and the selected icon.              | -       |
+| selectedIcon  | [SelectedIconProps](#dropdown-item-selected-icon-props)                                       | Custom icon to render when the item is selected.                                                                | -       |
+| isDisabled    | `boolean`                                                                                     | Whether the dropdown item should be disabled. (**Deprecated**) pass **disabledKeys** to `DropdownMenu` instead. | `false` |
+| isSelected    | `boolean`                                                                                     | Whether the dropdown item should be selected. (**Deprecated**) pass **selectedKeys** to `DropdownMenu` instead. | `false` |
+| isReadOnly    | `boolean`                                                                                     | Whether the dropdown item press events should be ignored.                                                       | `false` |
+| closeOnSelect | `boolean`                                                                                     | Whether the dropdown menu should be closed when the item is selected.                                           | `true`  |
+| classNames    | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                   | -       |
+
+### DropdownItem Events
+
+| Attribute     | Type                           | Description                                                                                                                  |
+| ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| onAction      | `() => void`                   | Handler that is called when the dropdown item is selected. (**Deprecated**) pass to `DropdownMenu` instead.                  |
+| onClose       | `() => void`                   | Handler that is called when the dropdown item should close after selecting. (**Deprecated**) pass to `DropdownMenu` instead. |
+| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                                   |
+| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                              |
+| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.                  |
+| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                                 |
+| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not.              |
+| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                                        |
+| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                                       |
+| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                              |
+
+---
+
+### Types
+
+#### Dropdown Item Selected Icon Props
+
+```ts
+export type DropdownItemSelectedIconProps = {
+  /**
+   * The current icon, usually an checkmark icon.
+   */
+  icon?: ReactNode;
+  /**
+   * The current selected status.
+   */
+  isSelected?: boolean;
+  /**
+   * The current disabled status.
+   * @default false
+   */
+  isDisabled?: boolean;
+};
+
+type selectedIcon?: ReactNode | ((props: DropdownItemSelectedIconProps) => ReactNode) | null;
+```

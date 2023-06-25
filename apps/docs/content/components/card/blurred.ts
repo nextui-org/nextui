@@ -154,7 +154,7 @@ export default function App() {
   return (
     <Card
       isBlurred
-      className="border-none bg-white/20 dark:bg-default-100/50 max-w-[610px]"
+      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[610px]"
       radius="2xl"
       shadow="lg"
     >
@@ -196,7 +196,7 @@ export default function App() {
               <Progress
                 aria-label="Music progress"
                 classNames={{
-                  filler: "bg-default-500 dark:bg-white",
+                  indicator: "bg-default-800 dark:bg-white",
                   track: "bg-default-500/30",
                 }}
                 color="default"

@@ -1,5 +1,14 @@
 # @nextui-org/framer-transitions
 
+## 0.0.0-dev-v2-20230625145649
+
+### Patch Changes
+
+- New color added to manage overlays, popover and dropdown styles small changes
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230625145649
+  - @nextui-org/system@0.0.0-dev-v2-20230625145649
+
 ## 0.0.0-dev-v2-20230625035223
 
 ### Patch Changes

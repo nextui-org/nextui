@@ -35,7 +35,7 @@ export default function App() {
       }}
     >
       <DropdownTrigger>
-        <Button variant="bordered">Open Menu</Button>
+        <Button variant="ghost">Open Menu</Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Custom item styles"
@@ -96,7 +96,7 @@ export default function App() {
             className="cursor-default"
             endContent={
               <select
-                className="z-10 outline-none py-0.5 rounded-md text-xs group-data-[hover=true]:border-default-500 border border-boundary bg-transparent text-default-500"
+                className="z-10 outline-none w-16 py-0.5 rounded-md text-xs group-data-[hover=true]:border-default-500 border border-boundary bg-transparent text-default-500"
                 id="theme"
                 name="theme"
               >

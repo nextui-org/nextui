@@ -7,6 +7,8 @@ import {motion, useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 
+import {GradientBoxProps} from "@/components/gradient-box";
+
 const DynamicReactLiveDemo = dynamic(
   () => import("./react-live-demo").then((m) => m.ReactLiveDemo),
   {
@@ -32,6 +34,8 @@ interface CodeDemoProps extends UseCodeDemoProps {
   showPreview?: boolean;
   showOpenInCodeSandbox?: boolean;
   displayMode?: "always" | "visible";
+  isGradientBox?: boolean;
+  gradientColor?: GradientBoxProps["color"];
   defaultExpanded?: boolean;
   showWindowActions?: boolean;
   iframeSrc?: string;
@@ -50,12 +54,14 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showSandpackPreview = false,
   showOpenInCodeSandbox,
   showWindowActions = false,
+  isGradientBox = false,
   enableResize = false,
   defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
   displayMode = "always",
   showTabs = true,
+  gradientColor,
   highlightedLines,
   iframeInitialWidth,
   iframeSrc,
@@ -98,10 +104,12 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
       <DynamicReactLiveDemo
         code={code}
         enableResize={enableResize || asIframe}
+        gradientColor={gradientColor}
         height={previewHeight}
         iframeInitialWidth={iframeInitialWidth}
         iframeSrc={iframeSrc}
         iframeTitle={component}
+        isGradientBox={isGradientBox}
         noInline={noInline}
         overflow={overflow}
         showWindowActions={showWindowActions || asIframe}
