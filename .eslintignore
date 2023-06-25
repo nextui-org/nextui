@@ -1,7 +1,6 @@
 .now/*
 .next/*
 *.css
-examples/*
 dist
 esm/*
 public/*

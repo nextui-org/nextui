@@ -6,8 +6,78 @@ url: https://nextui.org/docs/components/navbar
 
 # Navbar
 
-A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse and more.
+A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse menu and more.
 
-```jsx
-import {Navbar} from "@nextui-org/react";
-```
+<ComponentLinks component="navbar" />
+
+---
+
+## Import
+
+NextUI exports 7 navbar-related components:
+
+- **Navbar**: The main component of navbar.
+- **NavbarBrand**: The component for branding.
+- **NavbarContent**: The component for wrapping navbar items.
+- **NavbarItem**: The component for navbar item.
+- **NavbarMenuToggle**: The component for toggling navbar menu.
+- **NavbarMenu**: The component for wrapping navbar menu items.
+- **NavbarMenuItem**: The component for navbar menu item.
+
+<ImportTabs
+  commands={{
+    main: `import {
+  Navbar, 
+  NavbarBrand, 
+  NavbarContent, 
+  NavbarItem, 
+  NavbarMenuToggle.
+  NavbarMenu,
+  NavbarMenuItem
+} from "@nextui-org/react";`,
+    individual: `import {
+  Navbar, 
+  NavbarBrand, 
+  NavbarContent, 
+  NavbarItem, 
+  NavbarMenuToggle.
+  NavbarMenu,
+  NavbarMenuItem
+} from "@nextui-org/navbar";`
+  }}
+/>
+
+## Usage
+
+<CodeDemo 
+  asIframe
+  title="Usage"
+  previewHeight="500px"
+  iframeSrc="/examples/navbar/usage"
+  files={navbarContent.usage} 
+/>
+
+
+### Static
+
+You can use the `position` prop to make the navbar static positioned (the default behavior is `sticky`).
+
+<CodeDemo 
+  asIframe
+  title="Static"
+  previewHeight="500px"
+  iframeSrc="/examples/navbar/static"
+  files={navbarContent.static}
+/>
+
+### Hide on scroll
+
+It is possible to hide the navbar on scroll by using the `shouldHideOnScroll` prop.
+
+<CodeDemo 
+  asIframe
+  title="Hide on scroll"
+  previewHeight="500px"
+  iframeSrc="/examples/navbar/hide-on-scroll"
+  files={navbarContent.hideOnScroll}
+/>

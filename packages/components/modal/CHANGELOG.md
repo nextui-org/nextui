@@ -1,5 +1,21 @@
 # @nextui-org/modal
 
+## 0.0.0-dev-v2-20230625233448
+
+### Patch Changes
+
+- Navbar styles fixed
+- Updated dependencies
+  - @nextui-org/use-aria-modal-overlay@0.0.0-dev-v2-20230625233448
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230625233448
+  - @nextui-org/shared-icons@0.0.0-dev-v2-20230625233448
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230625233448
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230625233448
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230625233448
+  - @nextui-org/use-disclosure@0.0.0-dev-v2-20230625233448
+  - @nextui-org/system@0.0.0-dev-v2-20230625233448
+  - @nextui-org/theme@0.0.0-dev-v2-20230625233448
+
 ## 0.0.0-dev-v2-20230625145649
 
 ### Patch Changes

@@ -6,6 +6,7 @@ import {Skeleton, Tab, Tabs} from "@nextui-org/react";
 import {motion, useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
+import WindowResizer, {WindowResizerProps} from "./window-resizer";
 
 import {GradientBoxProps} from "@/components/gradient-box";
 
@@ -24,9 +25,9 @@ const DynamicSandpack = dynamic(() => import("../../../sandpack").then((m) => m.
   loading: () => <Skeleton className="w-full h-32 rounded-xl" />,
 });
 
-interface CodeDemoProps extends UseCodeDemoProps {
+interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   title?: string;
-  component?: string;
+  asIframe?: boolean;
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
   enableResize?: boolean;
@@ -37,25 +38,19 @@ interface CodeDemoProps extends UseCodeDemoProps {
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
   defaultExpanded?: boolean;
-  showWindowActions?: boolean;
-  iframeSrc?: string;
-  asIframe?: boolean;
-  iframeInitialWidth?: number;
   previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
 }
 
 export const CodeDemo: React.FC<CodeDemoProps> = ({
   files = {},
-  component,
+  title,
   showEditor = true,
   showPreview = true,
   asIframe = false,
   showSandpackPreview = false,
   showOpenInCodeSandbox,
-  showWindowActions = false,
   isGradientBox = false,
-  enableResize = false,
   defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
@@ -100,24 +95,25 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   const previewContent = useMemo(() => {
     if (!showPreview) return null;
 
-    const content = (
-      <DynamicReactLiveDemo
-        code={code}
-        enableResize={enableResize || asIframe}
-        gradientColor={gradientColor}
-        height={previewHeight}
+    const content = asIframe ? (
+      <WindowResizer
+        iframeHeight={previewHeight}
         iframeInitialWidth={iframeInitialWidth}
         iframeSrc={iframeSrc}
-        iframeTitle={component}
+        iframeTitle={title}
+      />
+    ) : (
+      <DynamicReactLiveDemo
+        code={code}
+        gradientColor={gradientColor}
         isGradientBox={isGradientBox}
         noInline={noInline}
         overflow={overflow}
-        showWindowActions={showWindowActions || asIframe}
       />
     );
 
     return renderContent(content);
-  }, [displayMode, showPreview, isInView]);
+  }, [displayMode, asIframe, showPreview, isInView]);
 
   const editorContent = useMemo(() => {
     if (!showEditor) return null;

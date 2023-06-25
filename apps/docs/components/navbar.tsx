@@ -104,6 +104,10 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     </Button>
   );
 
+  if (pathname.includes("/examples")) {
+    return null;
+  }
+
   return (
     <NextUINavbar
       ref={ref}
@@ -112,7 +116,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
       })}
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
-      position="fixed"
+      position="sticky"
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">

@@ -117,7 +117,7 @@ export const shopCartStyles = tv({
         contentWrapper: "ml-3",
         imageWrapper: [
           "lg:scale-[1.3]",
-          "before:rounded-md",
+          "before:rounded-sm",
           "before:from-[#323232] before:to-[#000000]",
           "shadow-xl",
         ],

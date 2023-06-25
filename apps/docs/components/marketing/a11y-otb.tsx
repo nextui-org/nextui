@@ -177,7 +177,7 @@ export const A11yOtb = () => {
                   color="default"
                   variant="flat"
                 >
-                  <DropdownSection title="Actions">
+                  <DropdownSection showDivider title="Actions">
                     <DropdownItem
                       key="new"
                       description="Create a new file"

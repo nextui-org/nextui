@@ -157,7 +157,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
 
   return (
     <App ref={parentRef}>
-      <Navbar parentRef={parentRef} position="fixed" onMenuOpenChange={setIsMenuOpen} {...args}>
+      <Navbar parentRef={parentRef} position="sticky" onMenuOpenChange={setIsMenuOpen} {...args}>
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -395,19 +395,13 @@ const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps
                 <p className="font-semibold">Signed in as</p>
                 <p className="font-semibold">zoey@example.com</p>
               </DropdownItem>
-              <DropdownItem key="settings" showDivider>
-                My Settings
-              </DropdownItem>
+              <DropdownItem key="settings">My Settings</DropdownItem>
               <DropdownItem key="team_settings">Team Settings</DropdownItem>
-              <DropdownItem key="analytics" showDivider>
-                Analytics
-              </DropdownItem>
+              <DropdownItem key="analytics">Analytics</DropdownItem>
               <DropdownItem key="system">System</DropdownItem>
               <DropdownItem key="configurations">Configurations</DropdownItem>
-              <DropdownItem key="help_and_feedback" showDivider>
-                Help & Feedback
-              </DropdownItem>
-              <DropdownItem key="logout" showDivider color="danger">
+              <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+              <DropdownItem key="logout" color="danger">
                 Log Out
               </DropdownItem>
             </DropdownMenu>
@@ -506,19 +500,13 @@ const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProp
                 <p className="font-semibold">Signed in as</p>
                 <p className="font-semibold">zoey@example.com</p>
               </DropdownItem>
-              <DropdownItem key="settings" showDivider>
-                My Settings
-              </DropdownItem>
+              <DropdownItem key="settings">My Settings</DropdownItem>
               <DropdownItem key="team_settings">Team Settings</DropdownItem>
-              <DropdownItem key="analytics" showDivider>
-                Analytics
-              </DropdownItem>
+              <DropdownItem key="analytics">Analytics</DropdownItem>
               <DropdownItem key="system">System</DropdownItem>
               <DropdownItem key="configurations">Configurations</DropdownItem>
-              <DropdownItem key="help_and_feedback" showDivider>
-                Help & Feedback
-              </DropdownItem>
-              <DropdownItem key="logout" showDivider color="danger">
+              <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+              <DropdownItem key="logout" color="danger">
                 Log Out
               </DropdownItem>
             </DropdownMenu>
@@ -535,16 +523,16 @@ Static.args = {
   position: "static",
 };
 
-export const Fixed = Template.bind({});
-Fixed.args = {
+export const Sticky = Template.bind({});
+Sticky.args = {
   ...defaultProps,
-  position: "fixed",
+  position: "sticky",
 };
 
 export const HideOnScroll = Template.bind({});
 HideOnScroll.args = {
   ...defaultProps,
-  position: "fixed",
+  position: "sticky",
   shouldHideOnScroll: true,
 };
 

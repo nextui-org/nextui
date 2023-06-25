@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230625233448
+
+### Patch Changes
+
+- Navbar styles fixed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230625233448
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230625233448
+
 ## 0.0.0-dev-v2-20230625145649
 
 ### Patch Changes

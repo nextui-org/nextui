@@ -58,7 +58,6 @@ const navbar = tv({
       "justify-center",
       "border-b",
       "border-divider",
-      // "data-[menu-open=true]:fixed",
       "data-[menu-open=true]:border-none",
     ],
     wrapper: [
@@ -124,9 +123,10 @@ const navbar = tv({
       "group-data-[open=true]:after:-rotate-45",
     ],
     brand: [
-      "w-full",
       "flex",
+      "basis-0",
       "flex-row",
+      "flex-grow",
       "flex-nowrap",
       "justify-start",
       "bg-transparent",
@@ -138,7 +138,6 @@ const navbar = tv({
     ],
     content: [
       "flex",
-      "w-full",
       "h-full",
       "flex-row",
       "flex-nowrap",
@@ -147,6 +146,8 @@ const navbar = tv({
       "data-[justify=start]:justify-start",
       "data-[justify=center]:justify-center",
       "data-[justify=end]:justify-end",
+      "data-[justify=end]:flex-grow",
+      "data-[justify=end]:basis-0",
     ],
     item: [
       "text-base",
@@ -176,8 +177,8 @@ const navbar = tv({
       static: {
         base: "static",
       },
-      fixed: {
-        base: "fixed top-0 inset-x-0",
+      sticky: {
+        base: "sticky top-0 inset-x-0",
       },
     },
     maxWidth: {
@@ -231,7 +232,7 @@ const navbar = tv({
   },
   defaultVariants: {
     maxWidth: "lg",
-    position: "fixed",
+    position: "sticky",
     isBlurred: true,
   },
 });

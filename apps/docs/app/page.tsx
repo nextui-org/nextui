@@ -29,7 +29,7 @@ export default async function Home() {
   const data = await getData();
 
   return (
-    <main className="container mx-auto max-w-7xl px-6 pt-16 flex-grow">
+    <main className="container mx-auto max-w-7xl px-6 flex-grow">
       <section className="flex flex-col items-center justify-center">
         <Hero />
         <FeaturesGrid features={landingContent.topFeatures} />

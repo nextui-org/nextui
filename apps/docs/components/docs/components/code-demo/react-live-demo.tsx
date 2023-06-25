@@ -7,13 +7,7 @@ import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
 
 export interface ReactLiveDemoProps {
   code: string;
-  height?: string | number;
   noInline?: boolean;
-  showWindowActions?: boolean;
-  iframeSrc?: string;
-  iframeTitle?: string;
-  iframeInitialWidth?: number;
-  enableResize?: boolean;
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
   overflow?: "auto" | "visible" | "hidden";
@@ -23,11 +17,6 @@ export const scope = {
   ...Components,
 } as Record<string, unknown>;
 
-{
-  /* <GradientBox isCentered className="py-14 px-4 lg:px-8" color="orange" to="top-right">
-
-</GradientBox> */
-}
 export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   code,
   isGradientBox,

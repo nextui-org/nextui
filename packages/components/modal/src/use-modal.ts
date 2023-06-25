@@ -44,6 +44,11 @@ interface Props extends HTMLNextUIProps<"section"> {
    */
   portalContainer?: Element;
   /**
+   * Whether the scroll should be blocked when the modal is open.
+   * @default true
+   */
+  shouldBlockScroll?: boolean;
+  /**
    *  Callback fired when the modal is closed.
    */
   onClose?: () => void;
@@ -85,6 +90,7 @@ export function useModal(originalProps: UseModalProps) {
     closeButton,
     isDismissable = true,
     hideCloseButton = false,
+    shouldBlockScroll = true,
     portalContainer,
     isKeyboardDismissDisabled = false,
     onClose,
@@ -188,6 +194,7 @@ export function useModal(originalProps: UseModalProps) {
     closeButton,
     hideCloseButton,
     portalContainer,
+    shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "opaque",
     isOpen: state.isOpen,
     onClose: state.close,

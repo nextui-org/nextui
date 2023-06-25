@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230625233448
+
+### Patch Changes
+
+- Navbar styles fixed
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230625233448
+
 ## 0.0.0-dev-v2-20230625145649
 
 ### Patch Changes

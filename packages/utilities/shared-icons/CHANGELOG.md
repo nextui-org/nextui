@@ -1,5 +1,11 @@
 # @nextui-org/shared-icons
 
+## 0.0.0-dev-v2-20230625233448
+
+### Patch Changes
+
+- Navbar styles fixed
+
 ## 0.0.0-dev-v2-20230625145649
 
 ### Patch Changes

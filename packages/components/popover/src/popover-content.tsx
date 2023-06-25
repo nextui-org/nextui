@@ -85,7 +85,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
   return (
     <div {...getPopoverProps()}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll}>
+      <RemoveScroll forwardProps enabled={shouldBlockScroll} removeScrollBar={false}>
         {disableAnimation ? (
           content
         ) : (

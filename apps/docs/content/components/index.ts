@@ -28,3 +28,4 @@ export * from "./tabs";
 export * from "./modal";
 export * from "./pagination";
 export * from "./dropdown";
+export * from "./navbar";

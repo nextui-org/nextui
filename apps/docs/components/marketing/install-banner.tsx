@@ -58,7 +58,7 @@ export const InstallBanner = () => {
               color="secondary"
               endContent={
                 <ArrowRightIcon
-                  className="group-data-[hover=true]:translate-x-0.5 transition-transform"
+                  className="group-data-[hover=true]:translate-x-0.5 outline-none transition-transform"
                   strokeWidth={2}
                 />
               }
