@@ -21,6 +21,7 @@ export default function App() {
       <DropdownMenu 
         aria-label="Single selection actions"
         variant="flat"
+        closeOnSelect={false}
         disallowEmptySelection
         selectionMode="multiple"
         selectedKeys={selectedKeys}

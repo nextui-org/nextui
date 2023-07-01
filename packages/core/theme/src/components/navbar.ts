@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -56,8 +55,6 @@ const navbar = tv({
       "h-auto",
       "items-center",
       "justify-center",
-      "border-b",
-      "border-divider",
       "data-[menu-open=true]:border-none",
     ],
     wrapper: [
@@ -80,7 +77,7 @@ const navbar = tv({
       "w-6",
       "h-full",
       "outline-none",
-      "rounded-sm",
+      "rounded-small",
       "tap-highlight-transparent",
       // focus ring
       ...dataFocusVisibleClasses,
@@ -132,7 +129,7 @@ const navbar = tv({
       "bg-transparent",
       "items-center",
       "no-underline",
-      "text-base",
+      "text-medium",
       "whitespace-nowrap",
       "box-border",
     ],
@@ -150,7 +147,7 @@ const navbar = tv({
       "data-[justify=end]:basis-0",
     ],
     item: [
-      "text-base",
+      "text-medium",
       "whitespace-nowrap",
       "box-border",
       // active
@@ -170,7 +167,7 @@ const navbar = tv({
       "gap-3",
       "overflow-y-auto",
     ],
-    menuItem: ["text-lg"],
+    menuItem: ["text-large"],
   },
   variants: {
     position: {
@@ -207,7 +204,9 @@ const navbar = tv({
       },
     },
     isBordered: {
-      true: {},
+      true: {
+        base: ["border-b", "border-divider"],
+      },
     },
     isBlurred: {
       false: {

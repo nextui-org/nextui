@@ -28,9 +28,9 @@ export default function App() {
   return (
     <Dropdown
       showArrow
-      radius="lg"
+      radius="sm"
       classNames={{
-        base: "p-0 border border-divider bg-background",
+        base: "p-0 border-small border-divider bg-background",
         arrow: "bg-default-200",
       }}
     >
@@ -80,7 +80,7 @@ export default function App() {
           <DropdownItem key="settings">Settings</DropdownItem>
           <DropdownItem
             key="new_project"
-            endContent={<PlusIcon className="text-lg" />}
+            endContent={<PlusIcon className="text-large" />}
           >
             New Project
           </DropdownItem>
@@ -96,7 +96,7 @@ export default function App() {
             className="cursor-default"
             endContent={
               <select
-                className="z-10 outline-none w-16 py-0.5 rounded-md text-xs group-data-[hover=true]:border-default-500 border border-boundary bg-transparent text-default-500"
+                className="z-10 outline-none w-16 py-0.5 rounded-md text-tiny group-data-[hover=true]:border-default-500 border-small border-default-300 dark:border-default-200 bg-transparent text-default-500"
                 id="theme"
                 name="theme"
               >

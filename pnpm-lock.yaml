@@ -412,8 +412,8 @@ importers:
         specifier: ^0.8.4
         version: 0.8.4
       tailwind-variants:
-        specifier: ^0.1.8
-        version: 0.1.8(tailwindcss@3.2.7)
+        specifier: ^0.1.10
+        version: 0.1.10(tailwindcss@3.2.7)
       unified:
         specifier: ^9.2.2
         version: 9.2.2
@@ -511,6 +511,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/divider':
+        specifier: workspace:*
+        version: link:../divider
       '@nextui-org/framer-transitions':
         specifier: workspace:*
         version: link:../../utilities/framer-transitions
@@ -2015,6 +2018,9 @@ importers:
       '@react-aria/ssr':
         specifier: ^3.6.0
         version: 3.6.0(react@18.2.0)
+      clsx:
+        specifier: ^1.2.1
+        version: 1.2.1
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2025,9 +2031,6 @@ importers:
 
   packages/core/theme:
     dependencies:
-      '@types/lodash.omit':
-        specifier: ^4.5.7
-        version: 4.5.7
       color:
         specifier: ^4.2.3
         version: 4.2.3
@@ -2040,21 +2043,12 @@ importers:
       flat:
         specifier: ^5.0.2
         version: 5.0.2
-      lodash.foreach:
-        specifier: ^4.5.0
-        version: 4.5.0
-      lodash.get:
-        specifier: ^4.4.2
-        version: 4.4.2
-      lodash.isempty:
-        specifier: ^4.4.0
-        version: 4.4.0
-      lodash.omit:
-        specifier: ^4.5.0
-        version: 4.5.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       tailwind-variants:
-        specifier: ^0.1.8
-        version: 0.1.8(tailwindcss@3.2.7)
+        specifier: ^0.1.10
+        version: 0.1.10(tailwindcss@3.2.7)
       tailwindcss:
         specifier: ^3.2.7
         version: 3.2.7(postcss@8.4.21)(ts-node@10.9.1)
@@ -2065,15 +2059,9 @@ importers:
       '@types/flat':
         specifier: ^5.0.2
         version: 5.0.2
-      '@types/lodash.foreach':
-        specifier: ^4.5.7
-        version: 4.5.7
-      '@types/lodash.get':
-        specifier: ^4.4.7
-        version: 4.4.7
-      '@types/lodash.isempty':
-        specifier: ^4.4.7
-        version: 4.4.7
+      '@types/lodash':
+        specifier: ^4.14.194
+        version: 4.14.194
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -4758,7 +4746,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       '@types/react': 18.2.8
-      clsx: 1.1.0
+      clsx: 1.2.1
       focus-lock: 0.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9717,32 +9705,9 @@ packages:
       '@types/node': 15.12.4
     dev: true
 
-  /@types/lodash.foreach@4.5.7:
-    resolution: {integrity: sha512-YjBEB6/Bl19V+R70IpyB/MhMb2IvrSgD26maRNyqbGRNDTH9AnPrQoT+ECvhFJ/hwhQ+RgYWaZKvF+knCguMJw==}
-    dependencies:
-      '@types/lodash': 4.14.194
-    dev: true
-
-  /@types/lodash.get@4.4.7:
-    resolution: {integrity: sha512-af34Mj+KdDeuzsJBxc/XeTtOx0SZHZNLd+hdrn+PcKGQs0EG2TJTzQAOTCZTgDJCArahlCzLWSy8c2w59JRz7Q==}
-    dependencies:
-      '@types/lodash': 4.14.194
-    dev: true
-
-  /@types/lodash.isempty@4.4.7:
-    resolution: {integrity: sha512-YOzlpoIn9jrfHzjIukKnu9Le3tmi+0PhUdOt2rMpJW/4J6jX7s0HeBatXdh9QckLga8qt4EKBxVIEqtEq6pzLg==}
-    dependencies:
-      '@types/lodash': 4.14.194
-    dev: true
-
-  /@types/lodash.omit@4.5.7:
-    resolution: {integrity: sha512-6q6cNg0tQ6oTWjSM+BcYMBhan54P/gLqBldG4AuXd3nKr0oeVekWNS4VrNEu3BhCSDXtGapi7zjhnna0s03KpA==}
-    dependencies:
-      '@types/lodash': 4.14.194
-    dev: false
-
   /@types/lodash@4.14.194:
     resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
+    dev: true
 
   /@types/mdast@3.0.11:
     resolution: {integrity: sha512-Y/uImid8aAwrEA24/1tcRZwpxX3pIFTSilcNDKSPn+Y2iDywSEachzRuvgAYYLR3wpGXAsMbv5lvKLDZLeYPAw==}
@@ -18216,16 +18181,9 @@ packages:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
 
-  /lodash.foreach@4.5.0:
-    resolution: {integrity: sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==}
-    dev: false
-
   /lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
-
-  /lodash.isempty@4.4.0:
-    resolution: {integrity: sha512-oKMuF3xEeqDltrGMfDxAPGIVMSSRv8tbRSODbrs4KGsRRLEhrW8N8Rd4DRgB2+621hY8A8XwwrTVhXWpxFvMzg==}
-    dev: false
+    dev: true
 
   /lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -18246,10 +18204,6 @@ packages:
   /lodash.mergewith@4.6.2:
     resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
     dev: true
-
-  /lodash.omit@4.5.0:
-    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
-    dev: false
 
   /lodash.snakecase@4.1.1:
     resolution: {integrity: sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw==}
@@ -23089,8 +23043,8 @@ packages:
     resolution: {integrity: sha512-R2/nULkdg1VR/EL4RXg4dEohdoxNUJGLMnWIQnPKL+O9Twu7Cn3Rxi4dlXkDzZrEGtR+G+psSXFouWlpTyLhCQ==}
     dev: false
 
-  /tailwind-variants@0.1.8(tailwindcss@3.2.7):
-    resolution: {integrity: sha512-U4wzqr3GN1lvHU4XKJ0Th7Rn007SKB4cLqU0eed4bUEiydw/83G48EQ8MPo2VwEiuFOGcL1IAlAHU81wxDB9fQ==}
+  /tailwind-variants@0.1.10(tailwindcss@3.2.7):
+    resolution: {integrity: sha512-PlOoXweMcOt2TXYr01lZ8iuRJG3M3voiWdAIb1vSqmuGuLvjtJwGphmwPToHRLXebC0dnKXow/xz2gRShCqI9w==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'

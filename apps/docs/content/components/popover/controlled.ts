@@ -11,12 +11,12 @@ export default function App() {
         </PopoverTrigger>
         <PopoverContent>
           <div className="px-1 py-2">
-            <div className="text-sm font-bold">Popover Content</div>
-            <div className="text-xs">This is the popover content</div>
+            <div className="text-small font-bold">Popover Content</div>
+            <div className="text-tiny">This is the popover content</div>
           </div>
         </PopoverContent>
       </Popover>
-      <p className="text-sm text-default-400">Open: {isOpen ? "true" : "false"}</p>
+      <p className="text-small text-default-400">Open: {isOpen ? "true" : "false"}</p>
     </div>
   );
 }`;

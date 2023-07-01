@@ -26,7 +26,7 @@ export type BaseColors = {
   content4: ColorScale;
 };
 
-export type BrandColors = BaseColors & {
+export type ThemeColors = BaseColors & {
   default: ColorScale;
   primary: ColorScale;
   secondary: ColorScale;

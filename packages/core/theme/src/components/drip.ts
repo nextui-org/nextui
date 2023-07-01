@@ -1,4 +1,4 @@
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Drip wrapper **Tailwind Variants** component

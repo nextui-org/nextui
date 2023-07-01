@@ -1,5 +1,13 @@
 # @nextui-org/react-utils
 
+## 0.0.0-dev-v2-20230701230240
+
+### Patch Changes
+
+- Layout configuration added to the tailwind plugin, components were adapted
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230701230240
+
 ## 0.0.0-dev-v2-20230625233448
 
 ### Patch Changes

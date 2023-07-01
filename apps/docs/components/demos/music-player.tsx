@@ -23,8 +23,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
     <Card
       isBlurred
       className={clsx("border-none bg-background/60 dark:bg-default-100/50", className)}
-      radius="2xl"
-      shadow="2xl"
+      shadow="sm"
       {...otherProps}
     >
       <CardBody>

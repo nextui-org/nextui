@@ -37,10 +37,6 @@ Badges are used as a small numerical value or status descriptor for UI elements.
 
 <CodeDemo title="Variants" files={badgeContent.variants} />
 
-### Radius
-
-<CodeDemo title="Radius" files={badgeContent.radius} />
-
 ### Placements
 
 <CodeDemo title="Placements" files={badgeContent.placements} />
@@ -86,13 +82,12 @@ Instead, consider supplying a comprehensive description, such as using `aria-lab
 | content          | `string` \| `number` \| `ReactNode`                                         | The content of the badge. The badge will be rendered relative to its children. | -           |
 | variant          | `solid` \| `flat` \| `faded` \| `shadow`                                    | The variant style of the badge.                                                | `solid`     |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the badge.                                                        | `default`   |
-| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the badge.                                                         | `md`        |
-| radius           | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                  | The radius of the badge.                                                       | `full`      |
+| size             | `sm` \| `md` \| `lg`                                                        | The size of the badge.                                                         | `md`        |
 | shape            | `circle` \| `rectangle`                                                     | The shape of the badge.                                                        | `rectangle` |
 | placement        | `top-right` \| `top-left` \| `bottom-right` \| `bottom-left`                | The placement of the badge.                                                    | `top-right` |
-| disableOutline   | `boolean`                                                                     | If `true`, the badge will not have an outline.                                 | `false`     |
-| disableAnimation | `boolean`                                                                     | If `true`, the badge will not have an animation.                               | `false`     |
-| isInvisible      | `boolean`                                                                     | If `true`, the badge will be invisible.                                        | `false`     |
-| isOneChar        | `boolean`                                                                     | If `true`, the badge will have the same width and height.                      | `false`     |
-| isDot            | `boolean`                                                                     | If `true`, the badge will have smaller dimensions.                             | `false`     |
-| classNames       | `Record<"base"｜"badge", string>`                                         | Allows to set custom class names for the badge slots.                          | -           |
+| disableOutline   | `boolean`                                                                   | If `true`, the badge will not have an outline.                                 | `false`     |
+| disableAnimation | `boolean`                                                                   | If `true`, the badge will not have an animation.                               | `false`     |
+| isInvisible      | `boolean`                                                                   | If `true`, the badge will be invisible.                                        | `false`     |
+| isOneChar        | `boolean`                                                                   | If `true`, the badge will have the same width and height.                      | `false`     |
+| isDot            | `boolean`                                                                   | If `true`, the badge will have smaller dimensions.                             | `false`     |
+| classNames       | `Record<"base"｜"badge", string>`                                           | Allows to set custom class names for the badge slots.                          | -           |

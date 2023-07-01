@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -55,14 +54,19 @@ const pagination = tv({
   variants: {
     variant: {
       bordered: {
-        item: ["border-2", "border-default", "bg-transparent", "data-[hover=true]:bg-default-100"],
+        item: [
+          "border-medium",
+          "border-default",
+          "bg-transparent",
+          "data-[hover=true]:bg-default-100",
+        ],
       },
       light: {
         item: "bg-transparent",
       },
       flat: {},
       faded: {
-        item: ["border-2", "border-default"],
+        item: ["border-medium", "border-default"],
       },
     },
     color: {
@@ -86,19 +90,15 @@ const pagination = tv({
       },
     },
     size: {
-      xs: {},
       sm: {},
       md: {},
       lg: {},
-      xl: {},
     },
     radius: {
       none: {},
-      base: {},
       sm: {},
       md: {},
       lg: {},
-      xl: {},
       full: {},
     },
     isCompact: {
@@ -116,7 +116,7 @@ const pagination = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     showShadow: {
@@ -142,7 +142,7 @@ const pagination = tv({
     variant: "flat",
     color: "primary",
     size: "md",
-    radius: "xl",
+    radius: "md",
     isCompact: false,
     isDisabled: false,
     showShadow: false,
@@ -333,7 +333,6 @@ const pagination = tv({
         "flex-wrap",
         "truncate",
         "box-border",
-        "shadow-sm",
         "outline-none",
         "items-center",
         "justify-center",
@@ -344,6 +343,11 @@ const pagination = tv({
         "data-[disabled=true]:text-default-300",
         "data-[disabled=true]:pointer-events-none",
       ],
+    },
+    {
+      slots: ["item", "prev", "next"],
+      variant: ["flat", "bordered", "faded"],
+      class: ["shadow-sm"],
     },
     {
       slots: ["item", "prev", "next"],
@@ -363,28 +367,18 @@ const pagination = tv({
     // size
     {
       slots: ["item", "cursor", "prev", "next"],
-      size: "xs",
-      class: "min-w-7 w-7 h-7 text-xs",
-    },
-    {
-      slots: ["item", "cursor", "prev", "next"],
       size: "sm",
-      class: "min-w-8 w-8 h-8 text-sm",
+      class: "min-w-8 w-8 h-8 text-tiny",
     },
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "md",
-      class: "min-w-9 w-9 h-9 text-sm",
+      class: "min-w-9 w-9 h-9 text-small",
     },
     {
       slots: ["item", "cursor", "prev", "next"],
       size: "lg",
-      class: "min-w-10 w-10 h-10 text-base",
-    },
-    {
-      slots: ["item", "cursor", "prev", "next"],
-      size: "xl",
-      class: "min-w-11 w-11 h-11 text-base",
+      class: "min-w-10 w-10 h-10 text-medium",
     },
     // radius
     {
@@ -394,28 +388,18 @@ const pagination = tv({
     },
     {
       slots: ["wrapper", "item", "cursor", "prev", "next"],
-      radius: "base",
-      class: "rounded-base",
-    },
-    {
-      slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "sm",
-      class: "rounded-sm",
+      class: "rounded-small",
     },
     {
       slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "md",
-      class: "rounded",
+      class: "rounded-medium",
     },
     {
       slots: ["wrapper", "item", "cursor", "prev", "next"],
       radius: "lg",
-      class: "rounded-lg",
-    },
-    {
-      slots: ["wrapper", "item", "cursor", "prev", "next"],
-      radius: "xl",
-      class: "rounded-xl",
+      class: "rounded-large",
     },
     {
       slots: ["wrapper", "item", "cursor", "prev", "next"],

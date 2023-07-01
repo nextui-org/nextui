@@ -21,8 +21,8 @@ export default function App() {
       }}
     >
       <div className="flex flex-col gap-1">
-        <p className="text-base">Enable early access</p>
-        <p className="text-xs text-default-400">
+        <p className="text-medium">Enable early access</p>
+        <p className="text-tiny text-default-400">
           Get access to new features before they are released.
         </p>
       </div>

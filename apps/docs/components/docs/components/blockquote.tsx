@@ -5,7 +5,7 @@ const blockquoteStyles = tv({
   base: "border pl-4 bg-default-50 my-6 py-3 rounded-xl [&>p]:m-0",
   variants: {
     color: {
-      default: "border-default-100 bg-default-50/20",
+      default: "border-default-200 dark:border-default-100 bg-default-200/20",
       primary: "border-primary-100 bg-primary-50/20",
       secondary: "border-secondary-100 bg-secondary-50/20",
       success: "border-success-100 bg-success-50/20",

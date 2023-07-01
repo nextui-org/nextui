@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -32,6 +31,7 @@ const button = tv({
     "appearance-none",
     "outline-none",
     "select-none",
+    "min-w-max",
     "font-normal",
     "subpixel-antialiased",
     "data-[pressed=true]:scale-95",
@@ -43,19 +43,17 @@ const button = tv({
   variants: {
     variant: {
       solid: "",
-      bordered: "border-2 bg-transparent",
+      bordered: "border-medium bg-transparent",
       light: "bg-transparent",
       flat: "",
-      faded: "border-2",
+      faded: "border-medium",
       shadow: "",
-      ghost: "border-2 bg-transparent",
+      ghost: "border-medium bg-transparent",
     },
     size: {
-      xs: "px-2 min-w-[5rem] h-6 text-xs gap-1",
-      sm: "px-3 min-w-[6rem] h-8 text-sm gap-2",
-      md: "px-4 min-w-[7rem] h-10 text-sm gap-2",
-      lg: "px-6 min-w-[8rem] h-12 text-base gap-3",
-      xl: "px-8 min-w-[10rem] h-14 text-lg gap-3",
+      sm: "px-3 min-w-[4rem] h-8 text-small gap-2 rounded-small",
+      md: "px-4 min-w-[5rem] h-10 text-small gap-2 rounded-medium",
+      lg: "px-6 min-w-[6rem] h-12 text-medium gap-3 rounded-large",
     },
     color: {
       default: "",
@@ -67,29 +65,25 @@ const button = tv({
     },
     radius: {
       none: "rounded-none",
-      base: "rounded",
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl",
-      "2xl": "rounded-2xl",
-      "3xl": "rounded-3xl",
+      sm: "rounded-small",
+      md: "rounded-medium",
+      lg: "rounded-large",
       full: "rounded-full",
     },
     fullWidth: {
       true: "w-full",
     },
     isDisabled: {
-      true: "opacity-50 pointer-events-none",
+      true: "opacity-disabled pointer-events-none",
     },
     isLoading: {
-      true: "opacity-50 pointer-events-none",
+      true: "opacity-disabled pointer-events-none",
     },
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
     isIconOnly: {
-      true: "p-0 gap-0",
+      true: "px-0 !gap-0",
       false: "[&>svg]:max-w-[2em]",
     },
     disableAnimation: {
@@ -101,7 +95,6 @@ const button = tv({
     size: "md",
     variant: "solid",
     color: "default",
-    radius: "xl",
     fullWidth: false,
     isDisabled: false,
     isLoading: false,
@@ -326,46 +319,26 @@ const button = tv({
       color: "danger",
       class: colorVariants.ghost.danger,
     },
-    // isInGroup / radius
+    // isInGroup / size
     {
       isInGroup: true,
-      radius: "base",
-      class: "rounded-none  first:rounded-l last:rounded-r",
+      size: "sm",
+      class: "rounded-none first:rounded-l-small last:rounded-r-small",
     },
     {
       isInGroup: true,
-      radius: "sm",
-      class: "rounded-none  first:rounded-l-sm last:rounded-r-sm",
+      size: "md",
+      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
     },
     {
       isInGroup: true,
-      radius: "md",
-      class: "rounded-none  first:rounded-l-md last:rounded-r-md",
+      size: "lg",
+      class: "rounded-none first:rounded-l-large last:rounded-r-large",
     },
     {
       isInGroup: true,
-      radius: "lg",
-      class: "rounded-none  first:rounded-l-lg last:rounded-r-lg",
-    },
-    {
-      isInGroup: true,
-      radius: "xl",
-      class: "rounded-none  first:rounded-l-xl last:rounded-r-xl",
-    },
-    {
-      isInGroup: true,
-      radius: "2xl",
-      class: "rounded-none  first:rounded-l-2xl last:rounded-r-2xl",
-    },
-    {
-      isInGroup: true,
-      radius: "3xl",
-      class: "rounded-none  first:rounded-l-3xl last:rounded-r-3xl",
-    },
-    {
-      isInGroup: true,
-      radius: "full",
-      class: "rounded-none  first:rounded-l-full last:rounded-r-full",
+      isRounded: true,
+      class: "rounded-none first:rounded-l-full last:rounded-r-full",
     },
     // isInGroup / bordered / ghost
     {
@@ -373,41 +346,28 @@ const button = tv({
       variant: ["bordered", "ghost"],
       class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.2)*-1)]",
     },
-    // isIconOnly / size
-    {
-      isIconOnly: true,
-      size: "xs",
-      class: "min-w-[1.5rem] w-6 h-6",
-    },
     {
       isIconOnly: true,
       size: "sm",
-      class: "min-w-[2rem] w-8 h-8",
+      class: "min-w-8 w-8 h-8",
     },
     {
       isIconOnly: true,
       size: "md",
-      class: "min-w-[2.5rem] w-10 h-10",
+      class: "min-w-10 w-10 h-10",
     },
     {
       isIconOnly: true,
       size: "lg",
-      class: "min-w-[3rem] w-12 h-12",
-    },
-    {
-      isIconOnly: true,
-      size: "xl",
-      class: "min-w-[3.5rem] w-14 h-14",
+      class: "min-w-12 w-12 h-12",
     },
   ],
 });
 
 // size: {
-//   xs: "px-2 h-6 text-xs",
-//   sm: "px-3 h-8 text-sm",
-//   md: "px-4 h-10 text-base",
-//   lg: "px-6 h-12 text-base",
-//   xl: "px-8 h-14 text-lg",
+//   sm: "px-3 h-8 text-small",
+//   md: "px-4 h-10 text-medium",
+//   lg: "px-6 h-12 text-medium",
 // },
 
 /**

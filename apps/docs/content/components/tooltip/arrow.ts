@@ -3,7 +3,7 @@ const App = `import {Tooltip, Button} from "@nextui-org/react";
 export default function App() {
   return (
     <Tooltip showArrow={true} content="I am a tooltip">
-      <Button variant="flat">Hover me</Button>
+      <Button>Hover me</Button>
     </Tooltip>
   );
 }`;

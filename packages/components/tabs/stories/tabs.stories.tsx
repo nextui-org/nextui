@@ -41,7 +41,7 @@ export default {
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl"],
+        options: ["sm", "md", "lg"],
       },
     },
     isDisabled: {

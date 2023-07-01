@@ -11,7 +11,7 @@ export default function App() {
   ];
 
   return (
-    <div className="w-full flex flex-row gap-4">
+    <div className="w-full flex flex-row flex-wrap gap-4">
       {colors.map((color) => (
         <Input
           key={color}
@@ -20,7 +20,7 @@ export default function App() {
           label="Email"
           placeholder="Enter your email"
           defaultValue="junior@nextui.org"
-          className="min-w-[220px]"
+          className="max-w-[220px]"
         />
       ))}
     </div>

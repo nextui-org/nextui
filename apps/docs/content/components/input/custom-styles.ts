@@ -35,7 +35,7 @@ export default function App() {
       <Input
         label="Search"
         isClearable
-        radius="xl"
+        radius="lg"
         classNames={{
           label: "text-black/50 dark:text-white/90",
           input: [

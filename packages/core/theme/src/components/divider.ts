@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Divider wrapper **Tailwind Variants** component
@@ -15,8 +15,8 @@ const divider = tv({
   base: "shrink-0 bg-divider border-none",
   variants: {
     orientation: {
-      horizontal: "w-full h-px",
-      vertical: "h-full w-px",
+      horizontal: "w-full h-divider",
+      vertical: "h-full w-divider",
     },
   },
   defaultVariants: {

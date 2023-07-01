@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Spacer wrapper **Tailwind Variants** component

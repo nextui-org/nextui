@@ -13,7 +13,7 @@ export default function App() {
           <Avatar
             isBordered
             color="primary"
-            radius="xl"
+            radius="lg"
             src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
           />
         }
@@ -29,7 +29,7 @@ export default function App() {
           <Avatar
             isBordered
             color="success"
-            radius="xl"
+            radius="lg"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         }
@@ -45,7 +45,7 @@ export default function App() {
           <Avatar
             isBordered
             color="warning"
-            radius="xl"
+            radius="lg"
             src="https://i.pravatar.cc/150?u=a04258114e29026702d"
           />
         }

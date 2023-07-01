@@ -39,7 +39,7 @@ export default function App() {
           labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">$</span>
+              <span className="text-default-400 text-small">$</span>
             </div>
           }
         />
@@ -50,7 +50,7 @@ export default function App() {
           labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">https://</span>
+              <span className="text-default-400 text-small">https://</span>
             </div>
           }
         />
@@ -72,7 +72,7 @@ export default function App() {
           labelPlacement="outside"
           endContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">$</span>
+              <span className="text-default-400 text-small">$</span>
             </div>
           }
         />
@@ -83,7 +83,7 @@ export default function App() {
           labelPlacement="outside"
           endContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">.org/</span>
+              <span className="text-default-400 text-small">.org/</span>
             </div>
           }
         />
@@ -98,7 +98,7 @@ export default function App() {
           }
           endContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">@gmail.com</span>
+              <span className="text-default-400 text-small">@gmail.com</span>
             </div>
           }
         />
@@ -108,7 +108,7 @@ export default function App() {
           labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">$</span>
+              <span className="text-default-400 text-small">$</span>
             </div>
           }
           endContent={
@@ -117,7 +117,7 @@ export default function App() {
                 Currency
               </label>
               <select
-                className="outline-none border-0 bg-transparent text-default-400 text-sm"
+                className="outline-none border-0 bg-transparent text-default-400 text-small"
                 id="currency"
                 name="currency"
               >
@@ -136,12 +136,12 @@ export default function App() {
           labelPlacement="outside"
           startContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">https://</span>
+              <span className="text-default-400 text-small">https://</span>
             </div>
           }
           endContent={
             <div className="pointer-events-none flex items-center">
-              <span className="text-default-400 text-sm">.org</span>
+              <span className="text-default-400 text-small">.org</span>
             </div>
           }
         />

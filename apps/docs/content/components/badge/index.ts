@@ -2,7 +2,6 @@ import usage from "./usage";
 import sizes from "./sizes";
 import colors from "./colors";
 import variants from "./variants";
-import radius from "./radius";
 import placements from "./placements";
 import shapes from "./shapes";
 import visibility from "./visibility";
@@ -15,7 +14,6 @@ export const badgeContent = {
   sizes,
   colors,
   variants,
-  radius,
   placements,
   shapes,
   visibility,

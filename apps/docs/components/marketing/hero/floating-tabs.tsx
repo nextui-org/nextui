@@ -12,7 +12,7 @@ export const FloatingTabs: React.FC<{}> = () => {
         tabList: "max-w-[200px] shadow-sm",
       }}
       radius="full"
-      size="xs"
+      size="sm"
     >
       <Tab key="notes" title="Notes" />
       <Tab key="tasks" title="Tasks" />

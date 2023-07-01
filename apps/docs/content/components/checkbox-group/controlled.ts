@@ -15,7 +15,7 @@ export default function App() {
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="san-francisco">San Francisco</Checkbox>
       </CheckboxGroup>
-      <p className="text-default-500 text-sm">Selected: {selected.join(", ")}</p>
+      <p className="text-default-500 text-small">Selected: {selected.join(", ")}</p>
     </div>
   );
 }`;

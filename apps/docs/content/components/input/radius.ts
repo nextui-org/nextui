@@ -3,16 +3,14 @@ const App = `import {Input} from "@nextui-org/react";
 export default function App() {
   const radius = [
     "full",
-    "xl",
     "lg",
     "md",
     "sm",
-    "base",
     "none",
   ];
 
   return (
-    <div className="w-full flex flex-row gap-4">
+    <div className="w-full flex flex-row flex-wrap gap-4">
       {radius.map((r) => (
         <Input
           key={r}
@@ -21,7 +19,7 @@ export default function App() {
           label="Email"
           placeholder="Enter your email"
           defaultValue="junior@nextui.org"
-          className="min-w-[220px]"
+          className="max-w-[220px]"
         />
       ))}
     </div>

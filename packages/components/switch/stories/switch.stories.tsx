@@ -6,7 +6,7 @@ import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SunFilledIcon, MoonFilledIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 
-import {Switch, SwitchProps, SwitchthumbIconProps, useSwitch} from "../src";
+import {Switch, SwitchProps, SwitchThumbIconProps, useSwitch} from "../src";
 
 export default {
   title: "Components/Switch",
@@ -21,7 +21,7 @@ export default {
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl"],
+        options: ["sm", "md", "lg"],
       },
     },
     isDisabled: {
@@ -106,9 +106,8 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Switch> = (args: Switc
 };
 
 const CustomWithHooksTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
-  const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} = useSwitch(
-    args,
-  );
+  const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} =
+    useSwitch(args);
 
   return (
     <div className="flex flex-col gap-2">
@@ -162,7 +161,7 @@ export const WiththumbIcon = Template.bind({});
 WiththumbIcon.args = {
   ...defaultProps,
   size: "xl",
-  thumbIcon: (props: SwitchthumbIconProps) =>
+  thumbIcon: (props: SwitchThumbIconProps) =>
     props.isSelected ? (
       <SunFilledIcon className={props.className} />
     ) : (

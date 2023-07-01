@@ -17,7 +17,7 @@ export default function App() {
       <Chip
         variant="flat"
         avatar={
-          <Avatar name="JW" size="xs" getInitials={(name) => name.charAt(0)} />
+          <Avatar name="JW" size="sm" getInitials={(name) => name.charAt(0)} />
         }
       >
         Avatar

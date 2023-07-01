@@ -76,7 +76,7 @@ export default function App() {
                 <div className="flex py-2 px-1 justify-between">
                   <Checkbox
                     classNames={{
-                      label: "text-sm",
+                      label: "text-small",
                     }}
                   >
                     Remember me

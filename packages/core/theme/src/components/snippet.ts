@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants} from "../utils";
 
 /**
@@ -24,7 +23,7 @@ import {colorVariants} from "../utils";
  */
 const snippet = tv({
   slots: {
-    base: "inline-flex items-center justify-between h-fit rounded-md gap-2",
+    base: "inline-flex items-center justify-between h-fit rounded-large gap-2",
     pre: "bg-transparent text-inherit font-mono font-normal inline-block whitespace-nowrap",
     content: "flex flex-col",
     symbol: "select-none",
@@ -32,7 +31,7 @@ const snippet = tv({
       "group",
       "relative",
       "z-10",
-      "text-lg",
+      "text-large",
       "text-inherit",
       "data-[hover=true]:bg-transparent",
     ],
@@ -47,7 +46,7 @@ const snippet = tv({
     variant: {
       flat: "",
       solid: "",
-      bordered: "border-2 bg-transparent",
+      bordered: "border-medium bg-transparent",
       shadow: "",
     },
     color: {
@@ -59,43 +58,28 @@ const snippet = tv({
       danger: {},
     },
     size: {
-      xs: {
-        base: "px-2 py-1 text-xs",
-      },
       sm: {
-        base: "px-2 py-1 text-sm",
+        base: "px-1.5 py-0.5 text-tiny rounded-small",
       },
       md: {
-        base: "px-3 py-1.5 text-sm",
+        base: "px-3 py-1.5 text-small rounded-medium",
       },
       lg: {
-        base: "px-4 py-2 text-base",
-      },
-      xl: {
-        base: "px-4 py-2 text-lg",
+        base: "px-4 py-2 text-medium rounded-large",
       },
     },
     radius: {
       none: {
         base: "rounded-none",
       },
-      base: {
-        base: "rounded-base",
-      },
       sm: {
-        base: "rounded-sm",
+        base: "rounded-small",
       },
       md: {
-        base: "rounded-md",
+        base: "rounded-medium",
       },
       lg: {
-        base: "rounded-lg",
-      },
-      xl: {
-        base: "rounded-xl",
-      },
-      full: {
-        base: "rounded-full",
+        base: "rounded-large",
       },
     },
     fullWidth: {
@@ -115,7 +99,6 @@ const snippet = tv({
     color: "default",
     variant: "flat",
     size: "md",
-    radius: "lg",
     fullWidth: false,
     disableAnimation: false,
   },

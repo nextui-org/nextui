@@ -13,7 +13,7 @@ export const CodeSandboxButton = () => {
       placement="top"
       radius="md"
     >
-      <Button isIconOnly as="span" size="xs" title="Open in CodeSandbox" variant="light">
+      <Button isIconOnly as="span" size="sm" title="Open in CodeSandbox" variant="light">
         <UnstyledOpenInCodeSandboxButton
           style={{
             width: "100%",

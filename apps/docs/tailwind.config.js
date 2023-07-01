@@ -1,8 +1,8 @@
 const {nextui} = require("@nextui-org/theme/plugin");
 const {commonColors} = require("@nextui-org/theme/colors");
-const svgToDataUri = require('mini-svg-data-uri')
-const plugin = require('tailwindcss/plugin')
-const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
+const svgToDataUri = require("mini-svg-data-uri");
+const plugin = require("tailwindcss/plugin");
+const {default: flattenColorPalette} = require("tailwindcss/lib/util/flattenColorPalette");
 
 // get tailwindcss default config
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -23,36 +23,39 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "code-foreground": 'rgb(var(--code-foreground) / <alpha-value>)',
-        "code-syntax1": 'rgb(var(--code-syntax1) / <alpha-value>)',
-        "code-syntax2": 'rgb(var(--code-syntax2) / <alpha-value>)',
-        "code-syntax3": 'rgb(var(--code-syntax3) / <alpha-value>)',
-        "code-syntax4": 'rgb(var(--code-syntax4) / <alpha-value>)',
-        "code-syntax5": 'rgb(var(--code-syntax5) / <alpha-value>)',
-        "code-syntax6": 'rgb(var(--code-syntax6) / <alpha-value>)',
-        "code-removed": 'rgb(var(--code-removed) / <alpha-value>)',
-        "code-string": 'rgb(var(--code-string) / <alpha-value>)',
-        "code-class": 'rgb(var(--code-class) / <alpha-value>)',
-        "code-punctuation": 'rgb(var(--code-punctuation) / <alpha-value>)',
-        "code-number": 'rgb(var(--code-number) / <alpha-value>)',
-        "code-added": 'rgb(var(--code-added) / <alpha-value>)',
-        "code-line-number": 'rgb(var(--code-line-number) / <alpha-value>)',
-        "code-faded-line": 'rgb(var(--code-faded-line) / <alpha-value>)',
-        "code-comment": 'rgb(var(--code-comment) / <alpha-value>)',
-        "code-keyword": 'rgb(var(--code-keyword) / <alpha-value>)',
-        "code-function": 'rgb(var(--code-function) / <alpha-value>)',
-        "code-tag": 'rgb(var(--code-tag) / <alpha-value>)',
-        "code-attr-name": 'rgb(var(--code-attr-name) / <alpha-value>)',
-        "code-language-javascript": 'rgb(var(--code-language-javascript) / <alpha-value>)',
-        "code-highlighted-word1-bg": 'rgb(var(--code-highlighted-word1-bg) / <alpha-value>)',
-        "code-highlighted-word1-bg-active": 'rgb(var(--code-highlighted-word1-bg-active) / <alpha-value>)',
-        "code-highlighted-word1-text": 'rgb(var(--code-highlighted-word1-text) / <alpha-value>)',
-        "code-highlighted-word2-bg": 'rgb(var(--code-highlighted-word2-bg) / <alpha-value>)',
-        "code-highlighted-word2-bg-active": 'rgb(var(--code-highlighted-word2-bg-active) / <alpha-value>)',
-        "code-highlighted-word2-text": 'rgb(var(--code-highlighted-word2-text) / <alpha-value>)',
-        "code-highlighted-word3-bg": 'rgb(var(--code-highlighted-word3-bg) / <alpha-value>)',
-        "code-highlighted-word3-bg-active": 'rgb(var(--code-highlighted-word3-bg-active) / <alpha-value>)',
-        "code-highlighted-word3-text": 'rgb(var(--code-highlighted-word3-text) / <alpha-value>)',
+        "code-foreground": "rgb(var(--code-foreground) / <alpha-value>)",
+        "code-syntax1": "rgb(var(--code-syntax1) / <alpha-value>)",
+        "code-syntax2": "rgb(var(--code-syntax2) / <alpha-value>)",
+        "code-syntax3": "rgb(var(--code-syntax3) / <alpha-value>)",
+        "code-syntax4": "rgb(var(--code-syntax4) / <alpha-value>)",
+        "code-syntax5": "rgb(var(--code-syntax5) / <alpha-value>)",
+        "code-syntax6": "rgb(var(--code-syntax6) / <alpha-value>)",
+        "code-removed": "rgb(var(--code-removed) / <alpha-value>)",
+        "code-string": "rgb(var(--code-string) / <alpha-value>)",
+        "code-class": "rgb(var(--code-class) / <alpha-value>)",
+        "code-punctuation": "rgb(var(--code-punctuation) / <alpha-value>)",
+        "code-number": "rgb(var(--code-number) / <alpha-value>)",
+        "code-added": "rgb(var(--code-added) / <alpha-value>)",
+        "code-line-number": "rgb(var(--code-line-number) / <alpha-value>)",
+        "code-faded-line": "rgb(var(--code-faded-line) / <alpha-value>)",
+        "code-comment": "rgb(var(--code-comment) / <alpha-value>)",
+        "code-keyword": "rgb(var(--code-keyword) / <alpha-value>)",
+        "code-function": "rgb(var(--code-function) / <alpha-value>)",
+        "code-tag": "rgb(var(--code-tag) / <alpha-value>)",
+        "code-attr-name": "rgb(var(--code-attr-name) / <alpha-value>)",
+        "code-language-javascript": "rgb(var(--code-language-javascript) / <alpha-value>)",
+        "code-highlighted-word1-bg": "rgb(var(--code-highlighted-word1-bg) / <alpha-value>)",
+        "code-highlighted-word1-bg-active":
+          "rgb(var(--code-highlighted-word1-bg-active) / <alpha-value>)",
+        "code-highlighted-word1-text": "rgb(var(--code-highlighted-word1-text) / <alpha-value>)",
+        "code-highlighted-word2-bg": "rgb(var(--code-highlighted-word2-bg) / <alpha-value>)",
+        "code-highlighted-word2-bg-active":
+          "rgb(var(--code-highlighted-word2-bg-active) / <alpha-value>)",
+        "code-highlighted-word2-text": "rgb(var(--code-highlighted-word2-text) / <alpha-value>)",
+        "code-highlighted-word3-bg": "rgb(var(--code-highlighted-word3-bg) / <alpha-value>)",
+        "code-highlighted-word3-bg-active":
+          "rgb(var(--code-highlighted-word3-bg-active) / <alpha-value>)",
+        "code-highlighted-word3-text": "rgb(var(--code-highlighted-word3-text) / <alpha-value>)",
       },
       boxShadow: {
         highlighted: `${commonColors.purple[500]} 1px 0 0, ${commonColors.purple[500]} -1px 0 0`,
@@ -94,8 +97,8 @@ module.exports = {
               fontSize: `${theme("fontSize.2xl")[0]} !important`,
               ...theme("fontSize.2xl")[1],
             },
-            "h3 a" :{
-              fontSize: '1.25rem !important',
+            "h3 a": {
+              fontSize: "1.25rem !important",
               fontWeight: theme("fontWeight.medium"),
             },
             "h2 small, h3 small, h4 small": {
@@ -125,11 +128,11 @@ module.exports = {
             "ul > li": {
               marginTop: "0.1em",
               marginBottom: "0.1em",
-              fontWeight: theme("fontWeight.noemal"),
+              fontWeight: theme("fontWeight.normal"),
             },
             "ul > li > *:last-child": {
-              marginTop:0,
-              marginBottom:0,
+              marginTop: 0,
+              marginBottom: 0,
             },
             "ul > li > a": {
               marginTop: "0",
@@ -151,12 +154,6 @@ module.exports = {
               fontWeight: "inherit",
             },
             kbd: {
-              background: theme("colors.slate.100"),
-              borderWidth: "1px",
-              borderColor: theme("colors.slate.200"),
-              padding: "0.125em 0.25em",
-              color: theme("colors.slate.700"),
-              fontWeight: 500,
               fontSize: "0.875em",
               fontVariantLigatures: "none",
               borderRadius: "4px",
@@ -184,22 +181,22 @@ module.exports = {
               minWidth: "100%",
             },
             table: {
-              marginTop: '0px',
+              marginTop: "0px",
               fontSize: theme("fontSize.sm")[0],
               lineHeight: theme("fontSize.sm")[1].lineHeight,
             },
             thead: {
-              border: 'none',
+              border: "none",
             },
             "thead th": {
               paddingTop: 0,
               fontWeight: theme("fontWeight.semibold"),
             },
             "tbody tr": {
-              border: 'none',
+              border: "none",
             },
             "tbody tr:last-child": {
-              border: 'none',
+              border: "none",
             },
             "figure figcaption": {
               textAlign: "center",
@@ -212,11 +209,11 @@ module.exports = {
               fontWeight: theme("fontWeight.normal"),
               fontStyle: "font-normal",
             },
-            'blockquote p:first-of-type::before': {
-              content: '',
+            "blockquote p:first-of-type::before": {
+              content: "",
             },
-            'blockquote p:last-of-type::after': {
-              content: '',
+            "blockquote p:last-of-type::after": {
+              content: "",
             },
           },
         },
@@ -315,33 +312,58 @@ module.exports = {
         "expand-opacity": "expand-opacity 6s linear infinite both",
       },
     },
-   
   },
   plugins: [
     nextui({
       themes: {
         light: {
-          "code-background": "#363449",
-          "code-mdx": "#ff4ecd",
+          colors: {
+            "code-background": "#363449",
+            "code-mdx": "#ff4ecd",
+          },
         },
         dark: {
-          "code-background": "#0D0B0B",
-          "code-mdx": "#06B7DB",
+          colors: {
+            "code-background": "#0D0B0B",
+            "code-mdx": "#06B7DB",
+          },
+        },
+        // only for testing purpose
+        olive: {
+          extend: "dark",
+          layout:{
+            radius: {
+              small: "2px",
+              medium: "4px",
+              large: "6px",
+            },
+            borderWidth: {
+              small: "1px",
+              medium: "1px",
+              large: "2px",
+            },
+          },
+          colors: {
+            primary:{
+              DEFAULT: "#BEF264",
+              foreground: "#000000",
+            },
+          },
         },
       },
     }),
     require("@tailwindcss/typography"),
-    plugin(function ({ matchUtilities, theme }) {
+    plugin(function ({matchUtilities, theme}) {
       matchUtilities(
         {
-          'bg-grid': (value) => ({
+          "bg-grid": (value) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`,
             )}")`,
           }),
         },
-        { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
-      )
+        {values: flattenColorPalette(theme("backgroundColor")), type: "color"},
+      );
     }),
   ],
 };

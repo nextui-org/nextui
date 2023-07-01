@@ -21,8 +21,8 @@ interface Props extends HTMLNextUIProps<"div">, ButtonGroupVariantProps {
 export type ContextType = {
   size?: ButtonProps["size"];
   color?: ButtonProps["color"];
-  radius?: ButtonProps["radius"];
   variant?: ButtonProps["variant"];
+  radius?: ButtonProps["radius"];
   isDisabled?: ButtonProps["isDisabled"];
   disableAnimation?: ButtonProps["disableAnimation"];
   disableRipple?: ButtonProps["disableRipple"];
@@ -46,7 +46,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
     color = "default",
     size = "md",
     variant = "solid",
-    radius = "xl",
+    radius,
     isDisabled = false,
     disableAnimation = false,
     disableRipple = false,

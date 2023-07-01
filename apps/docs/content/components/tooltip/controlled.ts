@@ -10,9 +10,9 @@ export default function App() {
         onOpenChange={(open) => setIsOpen(open)}
         content="I am a tooltip"
       >
-        <Button variant="flat">Hover me</Button>
+        <Button>Hover me</Button>
       </Tooltip>
-      <p className="text-sm text-default-400">
+      <p className="text-small text-default-500">
         Open: {isOpen ? "true" : "false"}
       </p>
     </div>

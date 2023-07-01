@@ -191,10 +191,10 @@ import {InvalidCardIcon} from "./InvalidCardIcon";
 export default function App() {
   const itemClasses = {
     base: "py-0 w-full",
-    title: "font-normal text-base",
+    title: "font-normal text-medium",
     trigger: "px-2 py-0 data-[hover=true]:bg-default-100 rounded-lg h-14 flex items-center",
-    indicator: "text-base",
-    content: "text-sm px-2",
+    indicator: "text-medium",
+    content: "text-small px-2",
   };
 
   const defaultContent =
@@ -203,7 +203,7 @@ export default function App() {
 
   return (
     <Accordion
-      hideDivider
+      showDivider={false}
       className="p-2 flex flex-col gap-1 w-full max-w-[300px]"
       variant="shadow"
       itemClasses={itemClasses}
@@ -249,7 +249,7 @@ export default function App() {
         title={
           <p className="flex gap-1 items-center">
             Card expired
-            <p className="text-default-400 text-sm">*4812</p>
+            <p className="text-default-400 text-small">*4812</p>
           </p>
         }
       >

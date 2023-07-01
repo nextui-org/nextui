@@ -136,10 +136,10 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                   <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
                     <DropdownTrigger>
                       <Button
-                        className="hidden min-w-fit max-w-[64px] sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
-                        endContent={<ChevronDownIcon className="text-xs" />}
+                        className="hidden text-xs h-6 py-1 min-w-fit sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
+                        endContent={<ChevronDownIcon className="text-tiny" />}
                         radius="full"
-                        size="xs"
+                        size="sm"
                         variant="flat"
                       >
                         v2.0.0

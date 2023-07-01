@@ -2,11 +2,9 @@ const App = `import {Tabs, Tab} from "@nextui-org/react";
 
 export default function App() {
   const sizes = [
-    "xs",
     "sm",
     "md",
     "lg",
-    "xl",
   ];
 
   return (

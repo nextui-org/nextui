@@ -87,7 +87,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isSelected: isSelectedProp,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
-    radius = groupContext?.radius ?? "md",
+    radius = groupContext?.radius,
     lineThrough = groupContext?.lineThrough ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,

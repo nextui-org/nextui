@@ -2,7 +2,7 @@ const App = `import {Input} from "@nextui-org/react";
 
 export default function App() {
 
-  const sizes = ["xs", "sm", "md", "lg", "xl"];
+  const sizes = ["sm", "md", "lg"];
 
   return (
     <div className="w-full flex flex-col gap-4">

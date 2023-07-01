@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -64,7 +63,7 @@ const table = tv({
       "align-middle",
       "bg-default-100",
       "text-foreground-500",
-      "text-xs",
+      "text-tiny",
       "font-semibold",
       "first:rounded-l-lg",
       "last:rounded-r-lg",
@@ -80,7 +79,7 @@ const table = tv({
       "relative",
       "align-middle",
       "whitespace-normal",
-      "text-sm",
+      "text-small",
       "font-normal",
       "outline-none",
       ...dataFocusVisibleClasses,

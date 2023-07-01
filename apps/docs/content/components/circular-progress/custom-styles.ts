@@ -20,7 +20,7 @@ export default function App() {
         <Chip
           classNames={{
             base: "border-1 border-white/30",
-            content: "text-white/90 text-sm font-semibold",
+            content: "text-white/90 text-small font-semibold",
           }}
           variant="bordered"
         >

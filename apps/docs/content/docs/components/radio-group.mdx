@@ -53,6 +53,7 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 ## Slots
 
 - RadioGroup Slots
+
   - **base**: Radio group root wrapper, it wraps the label and the wrapper.
   - **wrapper**: Radio group wrapper, it wraps all Radios.
   - **label**: Radio group label, it is placed before the wrapper.
@@ -79,7 +80,7 @@ In case you need to customize the radio group even further, you can use the `use
 
 <CodeDemo title="Custom Implementation" files={radioGroupContent.customImpl} />
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Data Attributes
 
@@ -109,7 +110,7 @@ In case you need to customize the radio group even further, you can use the `use
   - **data-disabled**:
     When the radio is disabled. Based on `isDisabled` prop.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Accessibility
 
@@ -120,7 +121,7 @@ In case you need to customize the radio group even further, you can use the `use
 - Keyboard focus management and cross browser normalization.
 - Group and radio labeling support for assistive technology.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## API
 
@@ -130,9 +131,8 @@ In case you need to customize the radio group even further, you can use the `use
 | ---------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | children         | `ReactNode` \| `ReactNode[]`                                                | The list of radio elements.                                                                                                                                       | -          |
 | label            | `ReactNode`                                                                 | The label of the radio group.                                                                                                                                     | -          |
-| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                        | The size of the radios.                                                                                                                                           | `md`       |
+| size             | `sm` \| `md` \| `lg`                                                        | The size of the radios.                                                                                                                                           | `md`       |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the radios.                                                                                                                                          | `primary`  |
-| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`          | The radius of the radios.                                                                                                                                         | `full`     |
 | orientation      | `horizontal` \| `vertical`                                                  | The orientation of the radio group.                                                                                                                               | `vertical` |
 | name             | `string`                                                                    | The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons). | -          |
 | value            | `string[]`                                                                  | The current selected value. (controlled).                                                                                                                         | -          |
@@ -159,9 +159,8 @@ In case you need to customize the radio group even further, you can use the `use
 | ---------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
 | children         | `ReactNode`                                                                                    | The label of the radio.                                                                        | -         |
 | label            | `ReactNode`                                                                                    | The label of the radio.                                                                        | -         |
-| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                           | The size of the radio.                                                                         | `md`      |
+| size             | `sm` \| `md` \| `lg`                                                                           | The size of the radio.                                                                         | `md`      |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                    | The color of the radio.                                                                        | `primary` |
-| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                             | The radius of the radio.                                                                       | `lg`      |
 | description      | `ReactNode`                                                                                    | A description for the field. Provides a hint such as specific requirements for what to choose. | -         |
 | isDisabled       | `boolean`                                                                                      | Whether the radio is disabled.                                                                 | `false`   |
 | isRequired       | `boolean`                                                                                      | Whether user checkboxes are required on the input before form submission.                      | `false`   |

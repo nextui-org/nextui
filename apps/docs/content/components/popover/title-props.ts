@@ -9,10 +9,10 @@ export default function App() {
       <PopoverContent>
         {(titleProps) => (
           <div className="px-1 py-2">
-            <h3 className="text-sm font-bold" {...titleProps}>
+            <h3 className="text-small font-bold" {...titleProps}>
               Popover Content
             </h3>
-            <div className="text-xs">This is the popover content</div>
+            <div className="text-tiny">This is the popover content</div>
           </div>
         )}
       </PopoverContent>

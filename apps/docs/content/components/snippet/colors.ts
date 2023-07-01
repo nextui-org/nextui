@@ -2,7 +2,7 @@ const App = `import {Snippet} from "@nextui-org/react";
 
 export default function App() {
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-wrap gap-4">
       <Snippet color="default">npm install @nextui-org/react</Snippet>
       <Snippet color="primary">npm install @nextui-org/react</Snippet>
       <Snippet color="secondary">npm install @nextui-org/react</Snippet>

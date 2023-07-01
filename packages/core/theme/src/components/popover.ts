@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants, dataFocusVisibleClasses} from "../utils";
 /**
  * Popover wrapper **Tailwind Variants** component
@@ -30,7 +29,6 @@ const popover = tv({
       "subpixel-antialiased",
       "px-4",
       "py-1",
-      "text-base",
       "outline-none",
       "box-border",
       // focus ring
@@ -78,16 +76,14 @@ const popover = tv({
   },
   variants: {
     size: {
-      xs: {base: "text-xs"},
-      sm: {base: "text-sm"},
-      md: {base: "text-sm"},
-      lg: {base: "text-base"},
-      xl: {base: "text-lg"},
+      sm: {base: "text-tiny"},
+      md: {base: "text-small"},
+      lg: {base: "text-medium"},
     },
     color: {
       default: {
-        base: "bg-content1 border border-boundary",
-        arrow: "border border-boundary",
+        base: "bg-content1",
+        arrow: "shadow-small",
       },
       foreground: {
         base: colorVariants.solid.foreground,
@@ -110,40 +106,26 @@ const popover = tv({
     },
     radius: {
       none: {base: "rounded-none"},
-      base: {base: "rounded"},
-      sm: {base: "rounded-sm"},
-      md: {base: "rounded-md"},
-      lg: {base: "rounded-lg"},
-      xl: {base: "rounded-xl"},
+      sm: {base: "rounded-small"},
+      md: {base: "rounded-medium"},
+      lg: {base: "rounded-large"},
       full: {base: "rounded-full"},
     },
     shadow: {
-      none: {
-        base: "shadow-none",
-      },
       sm: {
-        base: "shadow-sm",
+        base: "shadow-small",
       },
       md: {
-        base: "shadow-md",
+        base: "shadow-medium",
       },
       lg: {
-        base: "shadow-lg",
-      },
-      xl: {
-        base: "shadow-xl",
-      },
-      "2xl": {
-        base: "shadow-2xl",
-      },
-      inner: {
-        base: "shadow-inner",
+        base: "shadow-large",
       },
     },
     backdrop: {
       transparent: {},
       opaque: {
-        backdrop: "bg-overlay/50 backdrop-opacity-50",
+        backdrop: "bg-overlay/50 backdrop-opacity-disabled",
       },
       blur: {
         backdrop: "backdrop-blur-sm backdrop-saturate-150 bg-overlay/30",
@@ -163,9 +145,9 @@ const popover = tv({
   },
   defaultVariants: {
     color: "default",
-    radius: "xl",
+    radius: "lg",
     size: "md",
-    shadow: "lg",
+    shadow: "md",
     backdrop: "transparent",
     disableAnimation: false,
     triggerScaleOnOpen: true,

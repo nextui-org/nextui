@@ -15,7 +15,7 @@ export default function App() {
     <div className="flex flex-wrap gap-4">
       {colors.map((color) => {
         return (
-          <Tooltip key={color} color={color} content={colorName}>
+          <Tooltip key={color} color={color} content={color} className="capitalize">
             <Button variant="flat" color={color} className="capitalize">
               {color}
             </Button>

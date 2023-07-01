@@ -41,7 +41,6 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     motionProps = groupContext?.motionProps,
     isCompact = groupContext?.isCompact ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    hideDivider = groupContext.hideDivider ?? false,
     hideIndicator = groupContext.hideIndicator ?? false,
     disableAnimation = groupContext.disableAnimation ?? false,
     disableIndicatorAnimation = groupContext.disableIndicatorAnimation ?? false,
@@ -99,19 +98,11 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       accordionItem({
         isCompact,
         isDisabled,
-        hideDivider,
         hideIndicator,
         disableAnimation,
         disableIndicatorAnimation,
       }),
-    [
-      isCompact,
-      isDisabled,
-      hideDivider,
-      hideIndicator,
-      disableAnimation,
-      disableIndicatorAnimation,
-    ],
+    [isCompact, isDisabled, hideIndicator, disableAnimation, disableIndicatorAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);

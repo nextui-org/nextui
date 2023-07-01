@@ -48,7 +48,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
   Omit<AriaRadioGroupProps, "onChange"> &
-  Pick<RadioProps, "color" | "size" | "radius" | "isDisabled" | "disableAnimation" | "onChange">;
+  Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">;
 
 export type ContextType = {
   groupState: RadioGroupState;
@@ -56,7 +56,6 @@ export type ContextType = {
   validationState?: UseRadioGroupProps["validationState"];
   color?: RadioProps["color"];
   size?: RadioProps["size"];
-  radius?: RadioProps["radius"];
   isDisabled?: RadioProps["isDisabled"];
   disableAnimation?: RadioProps["disableAnimation"];
   onChange?: RadioProps["onChange"];
@@ -71,7 +70,6 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     size = "md",
     color = "primary",
-    radius = "full",
     isDisabled = false,
     disableAnimation = false,
     orientation = "vertical",
@@ -112,7 +110,6 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     () => ({
       size,
       color,
-      radius,
       groupState,
       isRequired,
       validationState,
@@ -120,17 +117,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       disableAnimation,
       onChange,
     }),
-    [
-      size,
-      color,
-      radius,
-      groupState,
-      isRequired,
-      validationState,
-      isDisabled,
-      disableAnimation,
-      onChange,
-    ],
+    [size, color, groupState, isRequired, validationState, isDisabled, disableAnimation, onChange],
   );
 
   const slots = useMemo(() => radioGroup(), []);

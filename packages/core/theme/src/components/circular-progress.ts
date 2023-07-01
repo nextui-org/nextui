@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * CircularProgress **Tailwind Variants** component
@@ -53,30 +53,20 @@ const circularProgress = tv({
       },
     },
     size: {
-      xs: {
-        svg: "w-6 h-6",
-        label: "text-xs",
-        value: "text-[0.4rem]",
-      },
       sm: {
         svg: "w-8 h-8",
-        label: "text-sm",
+        label: "text-small",
         value: "text-[0.5rem]",
       },
       md: {
         svg: "w-10 h-10",
-        label: "text-sm",
+        label: "text-small",
         value: "text-[0.55rem]",
       },
       lg: {
         svg: "w-12 h-12",
-        label: "text-base",
+        label: "text-medium",
         value: "text-[0.6rem]",
-      },
-      xl: {
-        svg: "w-14 h-14",
-        label: "text-base",
-        value: "text-xs",
       },
     },
     isIndeterminate: {
@@ -86,7 +76,7 @@ const circularProgress = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50 cursor-not-allowed",
+        base: "opacity-disabled cursor-not-allowed",
       },
     },
     disableAnimation: {

@@ -1,4 +1,4 @@
-import {Button, Link} from "@nextui-org/react";
+import {Button, ButtonProps, Link} from "@nextui-org/react";
 
 import {GithubIcon, NpmIcon, AdobeIcon, StorybookIcon} from "@/components/icons";
 import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
@@ -9,6 +9,27 @@ export interface ComponentLinksProps {
   storybook?: string;
   reactAriaHook?: string;
 }
+
+const ButtonLink = ({
+  children,
+  href,
+  startContent,
+  ...props
+}: ButtonProps & {
+  href: string;
+}) => (
+  <Button
+    isExternal
+    as={Link}
+    className="!text-small py-4 bg-default-100 dark:bg-default-50 text-default-700"
+    href={href}
+    size="sm"
+    startContent={startContent}
+    {...props}
+  >
+    {children}
+  </Button>
+);
 
 export const ComponentLinks = ({
   component,
@@ -22,63 +43,35 @@ export const ComponentLinks = ({
 
   return (
     <div className="flex flex-wrap gap-3 mt-6">
-      <Button
-        isExternal
-        as={Link}
-        className="bg-default-100 dark:bg-default-50 text-default-700"
+      <ButtonLink
         href={`https://storiesv2.nextui.org/?path=/story/components-${storybook || component}`}
-        radius="md"
-        size="sm"
         startContent={<StorybookIcon className="text-lg text-[#ff4785]" />}
       >
         Storybook
-      </Button>
-      <Button
-        isExternal
-        as={Link}
-        className="bg-default-100 dark:bg-default-50 text-default-700"
+      </ButtonLink>
+      <ButtonLink
         href={`https://www.npmjs.com/package/@nextui-org/${component}`}
-        radius="md"
-        size="sm"
         startContent={<NpmIcon className="text-2xl text-[#E53E3E]" />}
       >
         {`@nextui-org/${component}`}
-      </Button>
+      </ButtonLink>
       {reactAriaHook && (
-        <Button
-          isExternal
-          as={Link}
-          className="bg-default-100 dark:bg-default-50 text-default-700"
+        <ButtonLink
           href={`https://react-spectrum.adobe.com/react-aria/${reactAriaHook}.html`}
-          radius="md"
-          size="sm"
           startContent={<AdobeIcon className="text-lg text-[#E1251B]" />}
         >
           React Aria
-        </Button>
+        </ButtonLink>
       )}
-      <Button
-        isExternal
-        as={Link}
-        className="bg-default-100 dark:bg-default-50 text-default-700"
-        href={`${COMPONENT_PATH}/${component}`}
-        radius="md"
-        size="sm"
-        startContent={<GithubIcon />}
-      >
+      <ButtonLink href={`${COMPONENT_PATH}/${component}`} startContent={<GithubIcon size={20} />}>
         Source
-      </Button>
-      <Button
-        isExternal
-        as={Link}
-        className="bg-default-100 dark:bg-default-50 text-default-700"
+      </ButtonLink>
+      <ButtonLink
         href={`${COMPONENT_THEME_PATH}/${styles || component}.ts`}
-        radius="md"
-        size="sm"
-        startContent={<GithubIcon />}
+        startContent={<GithubIcon size={20} />}
       >
         Styles source
-      </Button>
+      </ButtonLink>
     </div>
   );
 };

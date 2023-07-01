@@ -14,9 +14,9 @@ export default function App() {
         src="/images/hero-card.jpeg"
         width={200}
       />
-      <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
-        <p className="text-xs text-white/80">Available soon.</p>
-        <Button color="secondary" radius="full" size="xs">
+      <CardFooter className="before:bg-white/10 border-white/20 border-1 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
+        <p className="text-tiny text-white/80">Available soon.</p>
+        <Button className="text-tiny" color="secondary" radius="full" size="sm">
           Notify me
         </Button>
       </CardFooter>

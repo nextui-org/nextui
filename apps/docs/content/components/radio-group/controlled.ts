@@ -16,7 +16,7 @@ export default function App() {
         <Radio value="london">London</Radio>
         <Radio value="tokyo">Tokyo</Radio>
       </RadioGroup>
-      <p className="text-default-500 text-sm">Selected: {selected}</p>
+      <p className="text-default-500 text-small">Selected: {selected}</p>
     </div>
   );
 }`;

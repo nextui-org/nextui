@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {translateCenterClasses, colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -55,20 +54,14 @@ const avatar = tv({
   },
   variants: {
     size: {
-      xs: {
-        base: "w-7 h-7 text-[0.625rem]",
-      },
       sm: {
-        base: "w-8 h-8 text-xs",
+        base: "w-8 h-8 text-tiny",
       },
       md: {
-        base: "w-10 h-10 text-xs",
+        base: "w-10 h-10 text-tiny",
       },
       lg: {
-        base: "w-12 h-12 text-sm",
-      },
-      xl: {
-        base: "w-16 h-16 text-base",
+        base: "w-12 h-12 text-small",
       },
     },
     color: {
@@ -95,26 +88,14 @@ const avatar = tv({
       none: {
         base: "rounded-none",
       },
-      base: {
-        base: "rounded",
-      },
       sm: {
-        base: "rounded-sm",
+        base: "rounded-small",
       },
       md: {
-        base: "rounded-md",
+        base: "rounded-medium",
       },
       lg: {
-        base: "rounded-lg",
-      },
-      xl: {
-        base: "rounded-xl",
-      },
-      "2xl": {
-        base: "rounded-2xl",
-      },
-      "3xl": {
-        base: "rounded-3xl",
+        base: "rounded-large",
       },
       full: {
         base: "rounded-full",
@@ -127,7 +108,7 @@ const avatar = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50",
+        base: "opacity-disabled",
       },
     },
     isInGroup: {
@@ -190,13 +171,6 @@ const avatar = tv({
       isBordered: true,
       class: {
         base: "ring-danger",
-      },
-    },
-    {
-      isBordered: true,
-      size: "xl",
-      class: {
-        base: "ring",
       },
     },
   ],

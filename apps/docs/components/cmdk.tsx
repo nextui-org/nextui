@@ -9,7 +9,7 @@ import {CloseIcon} from "@nextui-org/shared-icons";
 import {tv} from "tailwind-variants";
 import {useRouter} from "next/navigation";
 import MultiRef from "react-multi-ref";
-import {cn} from "@nextui-org/theme";
+import {clsx} from "@nextui-org/shared-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {isAppleDevice} from "@react-aria/utils";
 import {create} from "zustand";
@@ -269,11 +269,12 @@ export const Cmdk: FC<{}> = () => {
       return (
         <Button
           isIconOnly
-          className={cn(
+          className={clsx(
             "border data-[hover=true]:bg-content2 border-default-400 dark:border-default-100",
             className,
           )}
-          size="xs"
+          radius="full"
+          size="sm"
           variant="bordered"
           onPress={onPress}
         >
@@ -339,6 +340,8 @@ export const Cmdk: FC<{}> = () => {
         wrapper: "md:items-start",
         base: [
           "mt-[20vh]",
+          "border-small",
+          "dark:border-default-100",
           "supports-[backdrop-filter]:bg-background/80",
           "dark:supports-[backdrop-filter]:bg-background/30",
           "supports-[backdrop-filter]:backdrop-blur-md",

@@ -7,7 +7,7 @@ export default function App() {
       max={3}
       total={10}
       renderCount={(count) => (
-        <p className="text-sm text-foreground font-medium ml-2">+{count} others</p>
+        <p className="text-small text-foreground font-medium ml-2">+{count} others</p>
       )}
     >
       <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />

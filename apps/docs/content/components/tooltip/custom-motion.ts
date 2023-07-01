@@ -4,19 +4,23 @@ export default function App() {
   return (
     <Tooltip 
       content="I am a tooltip"
+      delay={0}
+      closeDelay={0}
       motionProps={{
         variants: {
           exit: {
             opacity: 0,
             transition: {
-              opacity: {duration: 0.1, easings: "easeInOut"},
-            },
+              duration: 0.1,
+              ease: "easeIn",
+            }
           },
           enter: {
             opacity: 1,
             transition: {
-              opacity: {easings: "easeOut", duration: 0.15},
-            },
+              duration: 0.15,
+              ease: "easeOut",
+            }
           },
         },
       }}

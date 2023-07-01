@@ -151,22 +151,22 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 
 ### Avatar Props
 
-| Attribute    | Type                                                                         | Description                                                                  | Default   |
-| ------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
-| src          | `string`                                                                     | The source URL of the image to be displayed.                                 | -         |
-| color        | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | Sets the avatar background color.                                            | `default` |
-| radius       | `none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | Sets the avatar border radius.                                               | `full`    |
-| size         | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                         | Sets the avatar size.                                                        | `md`      |
-| name         | `string`                                                                     | Displays the initials if the image is not provided or fails to load.         | -         |
-| icon         | `ReactNode`                                                                  | Displays a custom icon inside the avatar.                                    | -         |
-| fallback     | `ReactNode`                                                                  | A custom fallback component to display when the image fails to load.         | -         |
-| isBordered   | `boolean`                                                                    | If `true`, adds a border around the avatar.                                  | `false`   |
-| isDisabled   | `boolean`                                                                    | If `true`, disables the avatar and applies a disabled styling.               | `false`   |
-| isFocusable  | `boolean`                                                                    | If `true`, makes the avatar focusable for keyboard navigation.               | `false`   |
-| showFallback | `boolean`                                                                    | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
-| ImgComponent | `React.ElementType`                                                          | The component to be used as the image element.                               | `img`     |
-| imgProps     | `ImgComponentProps`                                                          | Props to be passed to the image element.                                     | -         |
-| classNames   | `Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>`              | Allows to set custom class names for the avatar slots.                       | -         |
+| Attribute    | Type                                                                        | Description                                                                  | Default   |
+| ------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
+| src          | `string`                                                                    | The source URL of the image to be displayed.                                 | -         |
+| color        | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | Sets the avatar background color.                                            | `default` |
+| radius       | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | Sets the avatar border radius.                                               | `full`    |
+| size         | `sm` \| `md` \| `lg`                                                        | Sets the avatar size.                                                        | `md`      |
+| name         | `string`                                                                    | Displays the initials if the image is not provided or fails to load.         | -         |
+| icon         | `ReactNode`                                                                 | Displays a custom icon inside the avatar.                                    | -         |
+| fallback     | `ReactNode`                                                                 | A custom fallback component to display when the image fails to load.         | -         |
+| isBordered   | `boolean`                                                                   | If `true`, adds a border around the avatar.                                  | `false`   |
+| isDisabled   | `boolean`                                                                   | If `true`, disables the avatar and applies a disabled styling.               | `false`   |
+| isFocusable  | `boolean`                                                                   | If `true`, makes the avatar focusable for keyboard navigation.               | `false`   |
+| showFallback | `boolean`                                                                   | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
+| ImgComponent | `React.ElementType`                                                         | The component to be used as the image element.                               | `img`     |
+| imgProps     | `ImgComponentProps`                                                         | Props to be passed to the image element.                                     | -         |
+| classNames   | `Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>`             | Allows to set custom class names for the avatar slots.                       | -         |
 
 ### Avatar Group Props
 

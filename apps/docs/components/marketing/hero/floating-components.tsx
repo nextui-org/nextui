@@ -44,7 +44,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           }}
           endContent={<MoonFilledIcon />}
           isSelected={isSelected}
-          size="xl"
+          size="lg"
           startContent={<SunFilledIcon />}
           onChange={onChange}
         />
@@ -55,7 +55,6 @@ export const FloatingComponents: React.FC<{}> = () => {
           defaultValue="NextUI"
           label="Input"
           labelPlacement="outside"
-          radius="xl"
           variant="bordered"
           onClear={() => {}}
         />
@@ -63,7 +62,6 @@ export const FloatingComponents: React.FC<{}> = () => {
         <Card
           isFooterBlurred
           className="absolute -top-[260px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
-          radius="2xl"
         >
           <Image
             alt="Professional camera"
@@ -73,7 +71,7 @@ export const FloatingComponents: React.FC<{}> = () => {
             src="/images/card-example-6.webp"
             width={120}
           />
-          <CardFooter className="before:bg-black/10 before:border before:border-white/20 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
+          <CardFooter className="before:bg-black/10 border-white/20 border-1 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
             <p className="text-xs font-semibold text-white/80">Camera</p>
             <p className="text-xs font-semibold text-white/80">$525</p>
           </CardFooter>
@@ -83,7 +81,10 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
-        <Card className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
+        <Card
+          className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
+          shadow="lg"
+        >
           <CardBody>
             <NextUILogo small size={60} />
           </CardBody>
@@ -122,16 +123,18 @@ export const FloatingComponents: React.FC<{}> = () => {
           </Tooltip>
         )}
 
-        <Card className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] shadow-lg z-10 max-w-fit border-none">
+        <Card
+          className="absolute right-[10px] top-[30px] animate-[levitate_16s_ease_infinite] z-10 max-w-fit border-none"
+          shadow="lg"
+        >
           <CardBody>
-            <Spinner color="secondary" size="xl" />
+            <Spinner color="secondary" size="lg" />
           </CardBody>
         </Card>
 
         <Card
           isFooterBlurred
           className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
-          radius="2xl"
         >
           <Image
             alt="Woman listing to music"
@@ -141,9 +144,9 @@ export const FloatingComponents: React.FC<{}> = () => {
             src="/images/hero-card.webp"
             width={200}
           />
-          <CardFooter className="before:bg-white/10 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
+          <CardFooter className="before:bg-white/10 border-white/20 border-1 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
             <p className="text-xs text-white/80">Available soon.</p>
-            <Button color="secondary" radius="full" size="xs">
+            <Button className="text-tiny" color="secondary" radius="full" size="sm">
               Notify me
             </Button>
           </CardFooter>

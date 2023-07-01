@@ -1,6 +1,5 @@
-import type {BrandColors, SemanticBaseColors} from "./types";
+import type {ThemeColors, SemanticBaseColors} from "./types";
 
-import twColors from "tailwindcss/colors.js";
 import {readableColor} from "color2k";
 
 import {swapColorValues} from "../utils/object";
@@ -13,14 +12,14 @@ const base: SemanticBaseColors = {
       DEFAULT: "#FFFFFF",
     },
     foreground: {
-      ...twColors.zinc,
+      ...common.zinc,
       DEFAULT: "#11181C",
     },
     divider: {
       DEFAULT: "rgba(17, 17, 17, 0.15)",
     },
     boundary: {
-      DEFAULT: twColors.zinc[200],
+      DEFAULT: common.zinc[200],
     },
     focus: {
       DEFAULT: common.blue[500],
@@ -33,16 +32,16 @@ const base: SemanticBaseColors = {
       foreground: "#11181C",
     },
     content2: {
-      DEFAULT: twColors.zinc[100],
-      foreground: twColors.zinc[800],
+      DEFAULT: common.zinc[100],
+      foreground: common.zinc[800],
     },
     content3: {
-      DEFAULT: twColors.zinc[200],
-      foreground: twColors.zinc[700],
+      DEFAULT: common.zinc[200],
+      foreground: common.zinc[700],
     },
     content4: {
-      DEFAULT: twColors.zinc[300],
-      foreground: twColors.zinc[600],
+      DEFAULT: common.zinc[300],
+      foreground: common.zinc[600],
     },
   },
   dark: {
@@ -50,7 +49,7 @@ const base: SemanticBaseColors = {
       DEFAULT: "#000000",
     },
     foreground: {
-      ...swapColorValues(twColors.zinc),
+      ...swapColorValues(common.zinc),
       DEFAULT: "#ECEDEE",
     },
     focus: {
@@ -63,33 +62,33 @@ const base: SemanticBaseColors = {
       DEFAULT: "rgba(255, 255, 255, 0.15)",
     },
     boundary: {
-      DEFAULT: twColors.zinc[800],
+      DEFAULT: common.zinc[800],
     },
     content1: {
-      DEFAULT: twColors.zinc[900],
-      foreground: twColors.zinc[50],
+      DEFAULT: common.zinc[900],
+      foreground: common.zinc[50],
     },
     content2: {
-      DEFAULT: twColors.zinc[800],
-      foreground: twColors.zinc[100],
+      DEFAULT: common.zinc[800],
+      foreground: common.zinc[100],
     },
     content3: {
-      DEFAULT: twColors.zinc[700],
-      foreground: twColors.zinc[200],
+      DEFAULT: common.zinc[700],
+      foreground: common.zinc[200],
     },
     content4: {
-      DEFAULT: twColors.zinc[600],
-      foreground: twColors.zinc[300],
+      DEFAULT: common.zinc[600],
+      foreground: common.zinc[300],
     },
   },
 };
 
-export const brandColorsLight: BrandColors = {
+export const themeColorsLight: ThemeColors = {
   ...base.light,
   default: {
-    ...twColors.zinc,
-    foreground: readableColor(twColors.zinc[300]),
-    DEFAULT: twColors.zinc[300],
+    ...common.zinc,
+    foreground: readableColor(common.zinc[300]),
+    DEFAULT: common.zinc[300],
   },
   primary: {
     ...common.blue,
@@ -103,12 +102,12 @@ export const brandColorsLight: BrandColors = {
   },
   success: {
     ...common.green,
-    foreground: common.green[900],
+    foreground: readableColor(common.green[500]),
     DEFAULT: common.green[500],
   },
   warning: {
     ...common.yellow,
-    foreground: common.yellow[900],
+    foreground: readableColor(common.yellow[500]),
     DEFAULT: common.yellow[500],
   },
   danger: {
@@ -118,12 +117,12 @@ export const brandColorsLight: BrandColors = {
   },
 };
 
-export const brandColorsDark: BrandColors = {
+export const themeColorsDark: ThemeColors = {
   ...base.dark,
   default: {
-    ...swapColorValues(twColors.zinc),
-    foreground: readableColor(twColors.zinc[700]),
-    DEFAULT: twColors.zinc[700],
+    ...swapColorValues(common.zinc),
+    foreground: readableColor(common.zinc[700]),
+    DEFAULT: common.zinc[700],
   },
   primary: {
     ...swapColorValues(common.blue),
@@ -153,6 +152,6 @@ export const brandColorsDark: BrandColors = {
 };
 
 export const semanticColors = {
-  light: brandColorsLight,
-  dark: brandColorsDark,
+  light: themeColorsLight,
+  dark: themeColorsDark,
 };

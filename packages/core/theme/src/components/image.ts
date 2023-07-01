@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Image wrapper **Tailwind Variants** component
@@ -41,13 +41,9 @@ const image = tv({
   variants: {
     radius: {
       none: {},
-      base: {},
       sm: {},
       md: {},
       lg: {},
-      xl: {},
-      "2xl": {},
-      "3xl": {},
       full: {},
     },
     shadow: {
@@ -56,32 +52,16 @@ const image = tv({
         img: "shadow-none",
       },
       sm: {
-        wrapper: "shadow-sm",
-        img: "shadow-sm",
-      },
-      base: {
-        wrapper: "shadow",
-        img: "shadow",
+        wrapper: "shadow-small",
+        img: "shadow-small",
       },
       md: {
-        wrapper: "shadow-md",
-        img: "shadow-md",
+        wrapper: "shadow-medium",
+        img: "shadow-medium",
       },
       lg: {
-        wrapper: "shadow-lg",
-        img: "shadow-lg",
-      },
-      xl: {
-        wrapper: "shadow-xl",
-        img: "shadow-xl",
-      },
-      "2xl": {
-        wrapper: "shadow-2xl",
-        img: "shadow-2xl",
-      },
-      inner: {
-        wrapper: "shadow-inner",
-        img: "shadow-inner",
+        wrapper: "shadow-large",
+        img: "shadow-large",
       },
     },
     isZoomed: {
@@ -130,7 +110,7 @@ const image = tv({
     },
   },
   defaultVariants: {
-    radius: "xl",
+    radius: "lg",
     shadow: "none",
     isZoomed: false,
     isBlurred: false,
@@ -150,13 +130,8 @@ const image = tv({
     },
     {
       slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
-      radius: "base",
-      class: "rounded",
-    },
-    {
-      slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
       radius: "sm",
-      class: "rounded-sm",
+      class: "rounded-small",
     },
     {
       slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
@@ -166,22 +141,7 @@ const image = tv({
     {
       slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
       radius: "lg",
-      class: "rounded-lg",
-    },
-    {
-      slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
-      radius: "xl",
-      class: "rounded-xl",
-    },
-    {
-      slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
-      radius: "2xl",
-      class: "rounded-2xl",
-    },
-    {
-      slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],
-      radius: "3xl",
-      class: "rounded-3xl",
+      class: "rounded-large",
     },
   ],
 });

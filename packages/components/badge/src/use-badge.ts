@@ -47,10 +47,10 @@ export function useBadge(originalProps: UseBadgeProps) {
 
   const domRef = useDOMRef(ref);
 
-  const isOneChar = useMemo(() => String(content)?.length === 1 || originalProps?.isOneChar, [
-    content,
-    originalProps?.isOneChar,
-  ]);
+  const isOneChar = useMemo(
+    () => String(content)?.length === 1 || originalProps?.isOneChar,
+    [content, originalProps?.isOneChar],
+  );
 
   const isDot = useMemo(() => String(content)?.length === 0, [content]);
 

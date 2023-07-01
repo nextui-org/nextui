@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants} from "../utils";
 
 /**
@@ -26,26 +25,22 @@ const code = tv({
       danger: colorVariants.flat.danger,
     },
     size: {
-      xs: "text-xs",
-      sm: "text-sm",
-      md: "text-base",
-      lg: "text-lg",
-      xl: "text-xl",
+      sm: "text-small",
+      md: "text-medium",
+      lg: "text-large",
     },
     radius: {
       none: "rounded-none",
-      base: "rounded-base",
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl",
+      sm: "rounded-small",
+      md: "rounded-medium",
+      lg: "rounded-large",
       full: "rounded-full",
     },
   },
   defaultVariants: {
     color: "default",
     size: "sm",
-    radius: "lg",
+    radius: "sm",
   },
 });
 

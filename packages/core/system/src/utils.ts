@@ -1,5 +1,6 @@
 import type {As, RightJoinProps, PropsOf, ComponentWithAs} from "./types";
 
+import clsx from "clsx";
 import {forwardRef as baseForwardRef} from "react";
 
 export function forwardRef<Props extends object, Component extends As>(
@@ -53,3 +54,8 @@ export const mapPropsVariants = <T extends Record<string, any>, K extends keyof 
 
   return [omitted, picked] as [Omit<T, K>, Pick<T, K>];
 };
+
+/**
+ * Classnames utility
+ */
+export const cn = clsx;

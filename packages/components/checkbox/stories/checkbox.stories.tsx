@@ -29,13 +29,13 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+        options: ["none", "sm", "md", "lg", "full"],
       },
     },
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl"],
+        options: ["sm", "md", "lg"],
       },
     },
     lineThrough: {
@@ -196,7 +196,7 @@ export const CustomWithClassNames = (props: CustomCheckboxProps) => {
         <User
           avatarProps={{size: "sm", src: userProfile.avatar}}
           description={
-            <Link href={userProfile.url} size="xs">
+            <Link href={userProfile.url} size="sm">
               @{userProfile.username}
             </Link>
           }
@@ -204,7 +204,7 @@ export const CustomWithClassNames = (props: CustomCheckboxProps) => {
         />
         <div className="flex flex-col items-end gap-1">
           <span className="text-xs text-default-500">{userRole}</span>
-          <Chip color={statusColor} size="xs" variant="flat">
+          <Chip color={statusColor} size="sm" variant="flat">
             {status}
           </Chip>
         </div>

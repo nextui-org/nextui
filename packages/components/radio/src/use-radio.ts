@@ -63,7 +63,6 @@ export function useRadio(props: UseRadioProps) {
     description,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
-    radius = groupContext?.radius ?? "full",
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
     onChange = groupContext?.onChange,
@@ -162,12 +161,11 @@ export function useRadio(props: UseRadioProps) {
       radio({
         color,
         size,
-        radius,
         isInvalid,
         isDisabled,
         disableAnimation,
       }),
-    [color, size, radius, isDisabled, isInvalid, disableAnimation],
+    [color, size, isDisabled, isInvalid, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);

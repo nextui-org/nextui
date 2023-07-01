@@ -11,13 +11,13 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+        options: ["none", "sm", "md", "lg", "full"],
       },
     },
     shadow: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "2xl", "3xl", "inner"],
+        options: ["none", "sm", "md", "lg"],
       },
     },
     isBlurred: {
@@ -93,7 +93,7 @@ Zoomed.args = {
   ...defaultProps,
   width: 300,
   isZoomed: true,
-  radius: "xl",
+  radius: "lg",
   src: "https://nextui.org/images/card-example-2.jpeg",
 };
 
@@ -102,8 +102,8 @@ Shadow.args = {
   ...defaultProps,
   width: 300,
   isZoomed: true,
-  radius: "xl",
-  shadow: "xl",
+  radius: "lg",
+  shadow: "md",
   src: require("./assets/local-image-small.jpg"),
 };
 
@@ -111,18 +111,16 @@ export const AnimatedLoad = Template.bind({});
 AnimatedLoad.args = {
   ...defaultProps,
   width: 300,
-  radius: "xl",
-  src:
-    "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  radius: "lg",
+  src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
 };
 
 export const Fallback = LoadingTemplate.bind({});
 Fallback.args = {
   ...defaultProps,
   width: 300,
-  radius: "xl",
-  src:
-    "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  radius: "lg",
+  src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
   fallbackSrc: "https://via.placeholder.com/300x450",
 };
 
@@ -131,8 +129,7 @@ Skeleton.args = {
   ...defaultProps,
   width: 300,
   height: 450,
-  radius: "xl",
-  src:
-    "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+  radius: "lg",
+  src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
   disableSkeleton: false,
 };

@@ -14,7 +14,6 @@ import {
   SpacerProps,
   Spacer,
   Link as NextUILink,
-  cn,
   Chip,
   dataFocusVisibleClasses,
 } from "@nextui-org/react";
@@ -151,12 +150,12 @@ function TreeItem<T>(props: TreeItemProps<T>) {
               {rendered}
             </span>
             {isNew && (
-              <Chip className="ml-2" color="primary" size="xs" variant="flat">
+              <Chip className="ml-2" color="primary" size="sm" variant="flat">
                 New
               </Chip>
             )}
             {item.props?.comingSoon && (
-              <Chip className="ml-2" color="default" size="xs" variant="flat">
+              <Chip className="ml-2" color="default" size="sm" variant="flat">
                 Coming soon
               </Chip>
             )}
@@ -246,7 +245,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
   }, [] as string[]);
 
   return (
-    <div className={cn("lg:fixed lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
+    <div className={clsx("lg:fixed lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
       <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
         {(route) => (
           <Item

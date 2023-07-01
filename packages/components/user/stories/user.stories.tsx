@@ -56,7 +56,7 @@ export const WithLinkDescription = Template.bind({});
 WithLinkDescription.args = {
   name: "Junior Garcia",
   description: (
-    <Link href="https://twitter.com/jrgarciadev" size="xs">
+    <Link href="https://twitter.com/jrgarciadev" size="sm">
       @jrgarciadev
     </Link>
   ),

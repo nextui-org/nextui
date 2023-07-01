@@ -1,5 +1,19 @@
 # @nextui-org/navbar
 
+## 0.0.0-dev-v2-20230701230240
+
+### Patch Changes
+
+- Layout configuration added to the tailwind plugin, components were adapted
+- Updated dependencies
+  - @nextui-org/use-aria-toggle-button@0.0.0-dev-v2-20230701230240
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230701230240
+  - @nextui-org/use-scroll-position@0.0.0-dev-v2-20230701230240
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230701230240
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230701230240
+  - @nextui-org/system@0.0.0-dev-v2-20230701230240
+  - @nextui-org/theme@0.0.0-dev-v2-20230701230240
+
 ## 0.0.0-dev-v2-20230625233448
 
 ### Patch Changes

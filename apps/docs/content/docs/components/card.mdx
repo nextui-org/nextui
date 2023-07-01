@@ -30,29 +30,29 @@ NextUI exports 4 card-related components:
 
 ## Usage
 
-<CodeDemo title="Usage" files={cardContent.usage} />
+<CodeDemo isPreviewCentered title="Usage" files={cardContent.usage} />
 
 ### With Divider
 
-<CodeDemo title="With Divider" files={cardContent.divider} />
+<CodeDemo isPreviewCentered title="With Divider" files={cardContent.divider} />
 
 > See the [Divider](/docs/components/divider) component for more details.
 
 ### With Image
 
-<CodeDemo title="With Image" files={cardContent.image} />
+<CodeDemo isPreviewCentered title="With Image" files={cardContent.image} />
 
 ### Blurred Footer
 
 You can pass the `isFooterBlurred` prop to the card to blur the footer.
 
-<CodeDemo title="Blurred Footer" files={cardContent.blurredFooter} />
+<CodeDemo isPreviewCentered title="Blurred Footer" files={cardContent.blurredFooter} />
 
 ### Composition
 
 You can use other NextUI components inside the card to compose a more complex card.
 
-<CodeDemo title="Composition" files={cardContent.composition} />
+<CodeDemo isPreviewCentered title="Composition" files={cardContent.composition} />
 
 ### Blurred Card
 
@@ -97,21 +97,21 @@ You can use `Image` component as the cover of the card by taking it out of the `
 
 ### Card Props
 
-| Attribute                 | Type                                                                          | Description                                                                   | Default |
-| ------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
-| children                  | `ReactNode` \| `ReactNode[]`                                                  | Usually the Card parts, `CardHeader`, `CardBody` and `CardFooter`.            | -       |
-| shadow                    | `none` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `inner`            | The card shadow.                                                              | `md`    |
-| radius                    | ``none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | The card border radius.                                                       | `xl`    |
-| fullWidth                 | `boolean`                                                                     | Whether the card should take the full width of its parent.                    | `false` |
-| isHoverable               | `boolean`                                                                     | Whether the card should change the background on hover.                       | `false` |
-| isPressable               | `boolean`                                                                     | Whether the card should allow to be pressed.                                  | `false` |
-| isBlurred                 | `boolean`                                                                     | Whether the card background should be blurred.                                | `false` |
-| isFooterBlurred           | `boolean`                                                                     | Whether the card footer background should be blurred.                         | `false` |
-| isDisabled                | `boolean`                                                                     | Whether the card should be disabled. The press events will be ignored.        | `false` |
-| disableAnimation          | `boolean`                                                                     | Whether to disable the animation.                                             | `false` |
-| disableRipple             | `boolean`                                                                     | Whether to disable ripple effect. Only when `isPressable` is true.            | `false` |
-| allowTextSelectionOnPress | `boolean`                                                                     | Whether to allow text selection on pressing. Only when `isPressable` is true. | `false` |
-| classNames                | `Record<"base"｜ "header"｜ "body"｜ "footer", string>`                       | Allows to set custom class names for the card slots.                          | -       |
+| Attribute                 | Type                                                    | Description                                                                   | Default |
+| ------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
+| children                  | `ReactNode` \| `ReactNode[]`                            | Usually the Card parts, `CardHeader`, `CardBody` and `CardFooter`.            | -       |
+| shadow                    | `none` \| `sm` \| `md` \| `lg`                          | The card shadow.                                                              | `md`    |
+| radius                    | `none` \| `sm` \| `md` \| `lg`                          | The card border radius.                                                       | `lg`    |
+| fullWidth                 | `boolean`                                               | Whether the card should take the full width of its parent.                    | `false` |
+| isHoverable               | `boolean`                                               | Whether the card should change the background on hover.                       | `false` |
+| isPressable               | `boolean`                                               | Whether the card should allow to be pressed.                                  | `false` |
+| isBlurred                 | `boolean`                                               | Whether the card background should be blurred.                                | `false` |
+| isFooterBlurred           | `boolean`                                               | Whether the card footer background should be blurred.                         | `false` |
+| isDisabled                | `boolean`                                               | Whether the card should be disabled. The press events will be ignored.        | `false` |
+| disableAnimation          | `boolean`                                               | Whether to disable the animation.                                             | `false` |
+| disableRipple             | `boolean`                                               | Whether to disable ripple effect. Only when `isPressable` is true.            | `false` |
+| allowTextSelectionOnPress | `boolean`                                               | Whether to allow text selection on pressing. Only when `isPressable` is true. | `false` |
+| classNames                | `Record<"base"｜ "header"｜ "body"｜ "footer", string>` | Allows to set custom class names for the card slots.                          | -       |
 
 ### Card Events
 

@@ -134,7 +134,7 @@ In case you need to customize the input even further, you can use the `useInput`
   files={inputContent.customImpl}
 />
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Data Attributes
 
@@ -155,7 +155,7 @@ In case you need to customize the input even further, you can use the `useInput`
 - **data-disabled**:
   When the input is disabled. Based on `isDisabled` prop.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Accessibility
 
@@ -165,7 +165,7 @@ In case you need to customize the input even further, you can use the `useInput`
 - Required and invalid states exposed to assistive technology via ARIA.
 - Support for description and error message help text linked to the input via ARIA.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## API
 
@@ -175,9 +175,9 @@ In case you need to customize the input even further, you can use the `useInput`
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
 | children         | `ReactNode`                                                                                                                        | The content of the input.                                                                      | -         |
 | variant          | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                    | The variant of the input.                                                                      | `flat`    |
-| size             | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                                                               | The size of the input.                                                                         | `md`      |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                        | The color of the input.                                                                        | `default` |
-| radius           | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                                                                 | The radius of the input.                                                                       | `lg`      |
+| size             | `sm` \| `md` \| `lg`                                                                                                               | The size of the input.                                                                         | `md`      |
+| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                           | The radius of the input.                                                                       | -         |
 | label            | `ReactNode`                                                                                                                        | The content to display as the label.                                                           | -         |
 | value            | `string`                                                                                                                           | The current value of the input (controlled).                                                   | -         |
 | defaultValue     | `string`                                                                                                                           | The default value of the input (uncontrolled).                                                 | -         |

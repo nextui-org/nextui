@@ -4,7 +4,7 @@ export default function App() {
   return (
     <CircularProgress
       label="Speed"
-      size="xl"
+      size="lg"
       value={70}
       color="success"
       formatOptions={{ style: "unit", unit: "kilometer" }}

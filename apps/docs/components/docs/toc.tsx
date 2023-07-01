@@ -73,6 +73,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
                   "font-normal",
                   "flex items-center text-sm font-normal text-default-500 dark:text-default-300",
                   "data-[active=true]:text-foreground",
+                  "dark:data-[active=true]:text-foreground",
                   "before:content-['']",
                   "before:opacity-0",
                   "data-[active=true]:before:opacity-100",

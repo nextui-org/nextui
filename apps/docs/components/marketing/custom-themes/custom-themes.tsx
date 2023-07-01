@@ -117,7 +117,7 @@ const CustomThemesExample = ({
           />
         )}
       </Tabs>
-      <Card className={slots.wrapper()} radius="2xl">
+      <Card className={slots.wrapper()} radius="lg">
         <CardBody className="relative flex-col md:flex-row md:items-center gap-4 md:gap-9 overflow-visible">
           <div className={slots.imageWrapper()}>
             <Image
@@ -164,7 +164,6 @@ const CustomThemesExample = ({
               <Button
                 className={slots.buyButton()}
                 color="primary"
-                radius="xl"
                 variant={selectedTheme === "nextui" ? "shadow" : "solid"}
               >
                 Buy now
@@ -172,7 +171,7 @@ const CustomThemesExample = ({
               <Button
                 className={slots.addToBagButton()}
                 color="primary"
-                radius="xl"
+                radius="full"
                 variant="bordered"
               >
                 Add to bag

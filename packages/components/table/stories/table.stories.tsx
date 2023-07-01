@@ -251,7 +251,7 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
       case "name":
         return (
           <User
-            avatarProps={{radius: "xl", src: user.avatar}}
+            avatarProps={{radius: "lg", src: user.avatar}}
             description={user.email}
             name={cellValue}
           >
@@ -391,7 +391,7 @@ const CustomCellWithClassnamesTemplate: ComponentStory<typeof Table> = (args: Ta
       case "name":
         return (
           <User
-            avatarProps={{radius: "xl", src: user.avatar}}
+            avatarProps={{radius: "lg", src: user.avatar}}
             classNames={{
               description: "text-white/60",
             }}

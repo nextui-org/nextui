@@ -25,9 +25,9 @@ export default function App() {
   return (
     <Badge content="99+" shape="circle" color="danger">
       <Button
+        radius="full"
         isIconOnly
         aria-label="more than 99 notifications"
-        radius="full"
         variant="light"
       >
         <NotificationIcon size={24} />

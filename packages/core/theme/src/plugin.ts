@@ -1,91 +1,27 @@
 /**
- * Based on the tw-colors by L-Blondy
+ * Based on tw-colors by L-Blondy
  * @see https://github.com/L-Blondy/tw-colors
  */
 
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
-import forEach from "lodash.foreach";
-import flatten from "flat";
-import get from "lodash.get";
-import omit from "lodash.omit";
+import {get, omit, forEach} from "lodash";
 import deepMerge from "deepmerge";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
-import {removeDefaultKeys} from "./utils/object";
+import {flattenThemeObject, transformKeysToKebab} from "./utils/object";
+import {isBaseTheme} from "./utils/theme";
 import {baseStyles} from "./utils/classes";
+import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
+import {lightLayout, darkLayout, layouts, defaultLayout} from "./default-layout";
 
-interface MaybeNested<K extends keyof any = string, V = string> {
-  [key: string]: V | MaybeNested<K, V>;
-}
-
-const SCHEME = Symbol("color-scheme");
 const DEFAULT_PREFIX = "nextui";
-
-export type Colors = MaybeNested<string, string>;
-
-export interface ColorsWithScheme<T> extends Colors {
-  [SCHEME]?: T;
-}
-
-interface FlatColorsWithScheme<T> extends Record<string, string> {
-  [SCHEME]?: T;
-}
-
-type SchemerFn<T> = (colors: Colors) => ColorsWithScheme<T>;
-
-const dark: SchemerFn<"dark"> = (colors) => {
-  return {
-    [SCHEME]: "dark",
-    ...colors,
-  };
-};
-
-const light: SchemerFn<"light"> = (colors) => {
-  return {
-    [SCHEME]: "light",
-    ...colors,
-  };
-};
-
-export type DefaultThemeType = "light" | "dark";
-
-export type ConfigObject = Record<string, ColorsWithScheme<"light" | "dark">>;
-
-export type ConfigFunction = ({
-  light,
-  dark,
-}: {
-  light: SchemerFn<"light">;
-  dark: SchemerFn<"dark">;
-}) => ConfigObject;
-
-export type NextUIConfig = {
-  /**
-   * The prefix for the css variables.
-   * @default "nextui"
-   */
-  prefix?: string;
-  /**
-   * If true, the common nextui colors (e.g. "blue", "green", "purple") will not be extended on the theme.
-   */
-  omitCommonColors?: boolean;
-  /**
-   * The theme definitions.
-   */
-  themes?: ConfigObject | ConfigFunction;
-  /**
-   * The default theme to use.
-   * @default "light"
-   */
-  defaultTheme?: DefaultThemeType;
-};
 
 // @internal
 const resolveConfig = (
-  config: ConfigObject | ConfigFunction = {},
+  themes: ConfigThemes = {},
   defaultTheme: DefaultThemeType,
   prefix: string,
 ) => {
@@ -101,29 +37,26 @@ const resolveConfig = (
     utilities: {},
     colors: {},
   };
-  const configObject = typeof config === "function" ? config({dark, light}) : config;
 
-  forEach(configObject, (colors: ColorsWithScheme<"light" | "dark">, themeName: string) => {
+  forEach(themes, ({extend, layout, colors}: ConfigTheme, themeName: string) => {
     let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
+    const scheme = themeName === "light" || themeName === "dark" ? themeName : extend;
 
     // if the theme is the default theme, add the selector to the root element
     if (themeName === defaultTheme) {
       cssSelector = `:root,${cssSelector}`;
     }
 
-    resolved.utilities[cssSelector] = colors[SCHEME]
+    resolved.utilities[cssSelector] = scheme
       ? {
-          "color-scheme": colors[SCHEME],
+          "color-scheme": scheme,
         }
       : {};
 
     // flatten color definitions
-    const flatColors = removeDefaultKeys(
-      flatten(colors, {
-        safe: true,
-        delimiter: "-",
-      }) as Object,
-    ) as FlatColorsWithScheme<"light" | "dark">;
+    const flatColors = flattenThemeObject(colors);
+
+    const flatLayout = layout ? transformKeysToKebab(layout) : {};
 
     // resolved.variants
     resolved.variants.push({
@@ -131,9 +64,11 @@ const resolveConfig = (
       definition: [`&.${themeName}`, `&[data-theme='${themeName}']`],
     });
 
+    /**
+     * Colors
+     */
     forEach(flatColors, (colorValue, colorName) => {
-      // this case was handled above
-      if ((colorName as any) === SCHEME || !colorValue) return;
+      if (!colorValue) return;
 
       try {
         // const [h, s, l, defaultAlphaValue] = parseToHsla(colorValue);
@@ -168,18 +103,37 @@ const resolveConfig = (
         console.log("error", error?.message);
       }
     });
+
+    /**
+     * Layout
+     */
+    forEach(flatLayout, (value, key) => {
+      if (!value) return;
+
+      if (typeof value === "object") {
+        forEach(value, (v, k) => {
+          const layoutVariable = `--${prefix}-${key}-${k}`;
+
+          resolved.utilities[cssSelector]![layoutVariable] = v;
+        });
+      } else {
+        const layoutVariable = `--${prefix}-${key}`;
+
+        resolved.utilities[cssSelector]![layoutVariable] = value;
+      }
+    });
   });
 
   return resolved;
 };
 
 const corePlugin = (
-  config: ConfigObject | ConfigFunction = {},
+  themes: ConfigThemes = {},
   defaultTheme: DefaultThemeType,
   prefix: string,
   omitCommonColors: boolean,
 ) => {
-  const resolved = resolveConfig(config, defaultTheme, prefix);
+  const resolved = resolveConfig(themes, defaultTheme, prefix);
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
@@ -205,14 +159,11 @@ const corePlugin = (
             ...(omitCommonColors ? {} : commonColors),
             ...resolved.colors,
           },
-          fontSize: {
-            tiny: "0.625rem",
+          height: {
+            divider: `var(--${prefix}-divider-weight)`,
           },
-          borderWidth: {
-            1: "1px",
-            1.5: "1.5px",
-            3: "3px",
-            5: "5px",
+          width: {
+            divider: `var(--${prefix}-divider-weight)`,
           },
           minWidth: {
             1: "0.25rem",
@@ -228,6 +179,34 @@ const corePlugin = (
             10: "2.5rem",
             11: "2.75rem",
             12: "3rem",
+          },
+          fontSize: {
+            tiny: [`var(--${prefix}-font-size-tiny)`, `var(--${prefix}-line-height-tiny)`],
+            small: [`var(--${prefix}-font-size-small)`, `var(--${prefix}-line-height-small)`],
+            medium: [`var(--${prefix}-font-size-medium)`, `var(--${prefix}-line-height-medium)`],
+            large: [`var(--${prefix}-font-size-large)`, `var(--${prefix}-line-height-large)`],
+          },
+          borderRadius: {
+            small: `var(--${prefix}-radius-small)`,
+            medium: `var(--${prefix}-radius-medium)`,
+            large: `var(--${prefix}-radius-large)`,
+          },
+          opacity: {
+            disabled: `var(--${prefix}-disabled-opacity)`,
+          },
+          borderWidth: {
+            small: `var(--${prefix}-border-width-small)`,
+            medium: `var(--${prefix}-border-width-medium)`,
+            large: `var(--${prefix}-border-width-large)`,
+            1: "1px",
+            1.5: "1.5px",
+            3: "3px",
+            5: "5px",
+          },
+          boxShadow: {
+            small: `var(--${prefix}-box-shadow-small)`,
+            medium: `var(--${prefix}-box-shadow-medium)`,
+            large: `var(--${prefix}-box-shadow-large)`,
           },
           backgroundImage: {
             "stripe-gradient":
@@ -248,28 +227,46 @@ const corePlugin = (
   );
 };
 
-export const nextui = (config: NextUIConfig = {}) => {
-  const themeObject =
-    typeof config.themes === "function" ? config.themes({dark, light}) : config.themes;
+export const nextui = (config: NextUIPluginConfig = {}) => {
+  const themeObject = config.themes;
 
-  const userLightColors = get(themeObject, "light", {});
-  const userDarkColors = get(themeObject, "dark", {});
+  const userLightColors = get(themeObject, "light.colors", {});
+  const userDarkColors = get(themeObject, "dark.colors", {});
 
   const defaultTheme = config.defaultTheme || "light";
+  const defaultExtendTheme = config.defaultExtendTheme || "light";
   const defaultPrefix = config.prefix || DEFAULT_PREFIX;
   const omitCommonColors = config.omitCommonColors || false;
 
   // get other themes from the config different from light and dark
-  const otherThemes = omit(themeObject, ["light", "dark"]) || {};
+  let otherThemes = omit(themeObject, ["light", "dark"]) || {};
 
-  return corePlugin(
-    {
-      light: deepMerge(semanticColors.light, userLightColors),
-      dark: deepMerge(semanticColors.dark, userDarkColors),
-      ...otherThemes,
-    },
-    defaultTheme,
-    defaultPrefix,
-    omitCommonColors,
-  );
+  forEach(otherThemes, ({extend, colors, layout}, themeName) => {
+    const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
+
+    if (colors && typeof colors === "object") {
+      otherThemes[themeName].colors = deepMerge(semanticColors[baseTheme], colors);
+    }
+    if (layout && typeof layout === "object") {
+      otherThemes[themeName].layout = deepMerge(extend ? layouts[extend] : defaultLayout, layout);
+    }
+  });
+
+  const light: ConfigTheme = {
+    layout: deepMerge(lightLayout, get(themeObject, "light.layout", {})),
+    colors: deepMerge(semanticColors.light, userLightColors),
+  };
+
+  const dark = {
+    layout: deepMerge(darkLayout, get(themeObject, "dark.layout", {})),
+    colors: deepMerge(semanticColors.dark, userDarkColors),
+  };
+
+  const themes = {
+    light,
+    dark,
+    ...otherThemes,
+  };
+
+  return corePlugin(themes, defaultTheme, defaultPrefix, omitCommonColors);
 };

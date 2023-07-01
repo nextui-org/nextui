@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {groupDataFocusVisibleClasses} from "../utils";
 
 /**
@@ -37,9 +36,10 @@ const radio = tv({
       "flex-shrink-0",
       "overflow-hidden",
       "border-solid",
-      "border-2",
+      "border-medium",
       "box-border",
       "border-default",
+      "rounded-full",
       "group-data-[hover-unselected=true]:bg-default-100",
       // focus ring
       ...groupDataFocusVisibleClasses,
@@ -52,6 +52,7 @@ const radio = tv({
       "opacity-0",
       "scale-0",
       "origin-center",
+      "rounded-full",
       "group-data-[selected=true]:opacity-100",
       "group-data-[selected=true]:scale-100",
     ],
@@ -86,75 +87,31 @@ const radio = tv({
       },
     },
     size: {
-      xs: {
-        wrapper: "w-3.5 h-3.5",
-        control: "w-1 h-1",
-        labelWrapper: "ml-1",
-        label: "text-xs",
-        description: "text-xs",
-      },
       sm: {
         wrapper: "w-4 h-4",
         control: "w-1.5 h-1.5",
         labelWrapper: "ml-1",
-        label: "text-sm",
-        description: "text-xs",
+        label: "text-small",
+        description: "text-tiny",
       },
       md: {
         wrapper: "w-5 h-5",
         control: "w-2 h-2",
         labelWrapper: "ml-2",
-        label: "text-base",
-        description: "text-sm",
+        label: "text-medium",
+        description: "text-small",
       },
       lg: {
         wrapper: "w-6 h-6",
         control: "w-2.5 h-2.5",
         labelWrapper: "ml-2",
-        label: "text-lg",
-        description: "text-base",
-      },
-      xl: {
-        wrapper: "w-7 h-7",
-        control: "w-3 h-3",
-        labelWrapper: "ml-3",
-        label: "text-xl",
-        description: "text-lg",
-      },
-    },
-    radius: {
-      none: {
-        wrapper: "rounded-none",
-        control: "rounded-none",
-      },
-      base: {
-        wrapper: "rounded",
-        control: "rounded",
-      },
-      sm: {
-        wrapper: "rounded-sm",
-        control: "rounded-sm",
-      },
-      md: {
-        wrapper: "rounded-md",
-        control: "rounded-sm",
-      },
-      lg: {
-        wrapper: "rounded-lg",
-        control: "rounded",
-      },
-      xl: {
-        wrapper: "rounded-xl",
-        control: "rounded-md",
-      },
-      full: {
-        wrapper: "rounded-full",
-        control: "rounded-full",
+        label: "text-large",
+        description: "text-medium",
       },
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     isInvalid: {
@@ -176,7 +133,6 @@ const radio = tv({
   defaultVariants: {
     color: "primary",
     size: "md",
-    radius: "full",
     isDisabled: false,
     isInvalid: false,
     disableAnimation: false,
@@ -201,8 +157,8 @@ const radioGroup = tv({
     base: "relative flex flex-col gap-2",
     label: "relative text-foreground-500",
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
-    description: "text-xs text-foreground-400",
-    errorMessage: "text-xs text-danger",
+    description: "text-tiny text-foreground-400",
+    errorMessage: "text-tiny text-danger",
   },
 });
 

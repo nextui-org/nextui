@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -51,7 +50,7 @@ const toggle = tv({
       "items-center",
       "justify-center",
       "bg-white",
-      "shadow-sm",
+      "shadow-small",
       "rounded-full",
       "origin-right",
     ],
@@ -100,80 +99,52 @@ const toggle = tv({
       },
     },
     size: {
-      xs: {
-        wrapper: "w-8 h-5 mr-1",
-        thumb: [
-          "w-3 h-3 text-[0.6rem]",
-          //selected
-          "group-data-[selected=true]:ml-3",
-          // pressed
-          "group-data-[pressed=true]:w-4",
-          "group-data-[selected]:group-data-[pressed]:ml-2",
-        ],
-        startContent: "text-[0.6rem] left-1",
-        endContent: "text-[0.6rem] right-1",
-        label: "text-xs",
-      },
       sm: {
         wrapper: "w-10 h-6 mr-2",
         thumb: [
-          "w-4 h-4 text-xs",
+          "w-4 h-4 text-tiny",
           //selected
           "group-data-[selected=true]:ml-4",
           // pressed
           "group-data-[pressed=true]:w-5",
           "group-data-[selected]:group-data-[pressed]:ml-4",
         ],
-        endContent: "text-xs",
-        startContent: "text-xs",
-        label: "text-sm",
+        endContent: "text-tiny",
+        startContent: "text-tiny",
+        label: "text-small",
       },
       md: {
         wrapper: "w-12 h-7 mr-2",
         thumb: [
-          "w-5 h-5 text-sm",
+          "w-5 h-5 text-small",
           //selected
           "group-data-[selected=true]:ml-5",
           // pressed
           "group-data-[pressed=true]:w-6",
           "group-data-[selected]:group-data-[pressed]:ml-4",
         ],
-        endContent: "text-sm",
-        startContent: "text-sm",
-        label: "text-base",
+        endContent: "text-small",
+        startContent: "text-small",
+        label: "text-medium",
       },
       lg: {
         wrapper: "w-14 h-8 mr-2",
         thumb: [
-          "w-6 h-6 text-base",
+          "w-6 h-6 text-medium",
           //selected
           "group-data-[selected=true]:ml-6",
           // pressed
           "group-data-[pressed=true]:w-7",
           "group-data-[selected]:group-data-[pressed]:ml-5",
         ],
-        endContent: "text-base",
-        startContent: "text-base",
-        label: "text-lg",
-      },
-      xl: {
-        wrapper: "w-16 h-9 mr-2",
-        thumb: [
-          "w-7 h-7 text-lg",
-          //selected
-          "group-data-[selected=true]:ml-7",
-          // pressed
-          "group-data-[pressed=true]:w-8",
-          "group-data-[selected]:group-data-[pressed]:ml-6",
-        ],
-        endContent: "text-base",
-        startContent: "text-base",
-        label: "text-lg",
+        endContent: "text-medium",
+        startContent: "text-medium",
+        label: "text-large",
       },
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     disableAnimation: {

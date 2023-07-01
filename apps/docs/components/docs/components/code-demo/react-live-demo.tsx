@@ -1,5 +1,6 @@
 import React from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
+import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
 
 import {BgGridContainer} from "@/components/bg-grid-container";
@@ -8,6 +9,7 @@ import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
 export interface ReactLiveDemoProps {
   code: string;
   noInline?: boolean;
+  isCentered?: boolean;
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
   overflow?: "auto" | "visible" | "hidden";
@@ -21,11 +23,16 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   code,
   isGradientBox,
   gradientColor = "orange",
+  isCentered = false,
   noInline,
 }) => {
   const content = (
     <>
-      <LivePreview className="live-preview flex h-full w-full not-prose" />
+      <LivePreview
+        className={clsx("live-preview flex h-full w-full not-prose", {
+          "justify-center items-center": isCentered,
+        })}
+      />
       <LiveError />
     </>
   );

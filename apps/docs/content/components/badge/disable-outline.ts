@@ -6,7 +6,7 @@ export default function App() {
       <Badge content="5" color="danger" shape="rectangle" disableOutline>
         <Avatar
           isBordered
-          radius="lg"
+          radius="md"
           src="https://i.pravatar.cc/150?u=a042f81f4e29026024d"
         />
       </Badge>

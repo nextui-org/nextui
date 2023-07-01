@@ -11,7 +11,7 @@ export default function App() {
         value={value}
         onValueChange={setValue}
       />
-      <p className="text-default-500 text-sm">Input value: {value}</p>
+      <p className="text-default-500 text-small">Input value: {value}</p>
     </div>
   );
 }`;

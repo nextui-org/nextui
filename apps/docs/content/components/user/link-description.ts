@@ -5,7 +5,7 @@ export default function App() {
     <User   
       name="Junior Garcia"
       description={(
-        <Link href="https://twitter.com/jrgarciadev" size="xs" isExternal>
+        <Link href="https://twitter.com/jrgarciadev" size="sm" isExternal>
           @jrgarciadev
         </Link>
       )}

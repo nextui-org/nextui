@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {ringClasses, colorVariants} from "../utils";
 
 /**
@@ -36,7 +35,7 @@ const chip = tv({
       "opacity-70",
       "hover:opacity-100",
       "cursor-pointer",
-      "active:opacity-50",
+      "active:opacity-disabled",
       "tap-highlight-transparent",
     ],
   },
@@ -44,18 +43,18 @@ const chip = tv({
     variant: {
       solid: {},
       bordered: {
-        base: "border-1 bg-transparent",
+        base: "border-medium bg-transparent",
       },
       light: {
         base: "bg-transparent",
       },
       flat: {},
       faded: {
-        base: "border-1",
+        base: "border-medium",
       },
       shadow: {},
       dot: {
-        base: "border-1 border-default text-foreground bg-transparent",
+        base: "border-medium border-default text-foreground bg-transparent",
       },
     },
     color: {
@@ -79,47 +78,41 @@ const chip = tv({
       },
     },
     size: {
-      xs: {
-        base: "px-0.5 h-5 text-xs",
-        content: "px-1",
-        closeButton: "text-sm",
-        avatar: "w-3.5 h-3.5",
-      },
       sm: {
-        base: "px-1 h-6 text-sm",
+        base: "px-1 h-6 text-small",
         content: "px-1",
-        closeButton: "text-base",
+        closeButton: "text-medium",
         avatar: "w-4 h-4",
       },
       md: {
-        base: "px-1 h-7 text-sm",
+        base: "px-1 h-7 text-small",
         content: "px-2",
-        closeButton: "text-lg",
+        closeButton: "text-large",
         avatar: "w-5 h-5",
       },
       lg: {
-        base: "px-2 h-8 text-base",
+        base: "px-2 h-8 text-medium",
         content: "px-2",
         closeButton: "text-xl",
         avatar: "w-6 h-6",
       },
-      xl: {
-        base: "px-2 h-9 text-lg",
-        content: "px-2",
-        closeButton: "text-2xl",
-        avatar: "w-7 h-7",
-      },
     },
     radius: {
-      none: {base: "rounded-none"},
-      base: {base: "rounded"},
-      sm: {base: "rounded-sm"},
-      md: {base: "rounded-md"},
-      lg: {base: "rounded-lg"},
-      xl: {base: "rounded-xl"},
-      "2xl": {base: "rounded-2xl"},
-      "3xl": {base: "rounded-3xl"},
-      full: {base: "rounded-full"},
+      none: {
+        base: "rounded-none",
+      },
+      sm: {
+        base: "rounded-small",
+      },
+      md: {
+        base: "rounded-medium",
+      },
+      lg: {
+        base: "rounded-large",
+      },
+      full: {
+        base: "rounded-full",
+      },
     },
     hasStartContent: {
       true: {},
@@ -134,7 +127,7 @@ const chip = tv({
       },
     },
     isDisabled: {
-      true: {base: "opacity-50 pointer-events-none"},
+      true: {base: "opacity-disabled pointer-events-none"},
     },
     isCloseButtonFocusVisible: {
       true: {
@@ -411,13 +404,6 @@ const chip = tv({
     // isOneChar / size
     {
       isOneChar: true,
-      size: "xs",
-      class: {
-        base: "w-4 h-4 min-w-4 min-h-4",
-      },
-    },
-    {
-      isOneChar: true,
       size: "sm",
       class: {
         base: "w-5 h-5 min-w-5 min-h-5",
@@ -437,24 +423,17 @@ const chip = tv({
         base: "w-7 h-7 min-w-7 min-h-7",
       },
     },
-    {
-      isOneChar: true,
-      size: "xl",
-      class: {
-        base: "w-8 h-8 min-w-8 min-h-8",
-      },
-    },
     // hasStartContent / size
     {
       hasStartContent: true,
-      size: ["xs", "sm"],
+      size: "sm",
       class: {
         content: "pl-0.5",
       },
     },
     {
       hasStartContent: true,
-      size: ["md", "lg", "xl"],
+      size: ["md", "lg"],
       class: {
         content: "pl-1",
       },
@@ -462,14 +441,14 @@ const chip = tv({
     // hasEndContent / size
     {
       hasEndContent: true,
-      size: ["xs", "sm"],
+      size: "sm",
       class: {
         content: "pr-0.5",
       },
     },
     {
       hasEndContent: true,
-      size: ["md", "lg", "xl"],
+      size: ["md", "lg"],
       class: {
         content: "pr-1",
       },

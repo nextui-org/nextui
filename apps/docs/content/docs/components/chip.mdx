@@ -77,7 +77,7 @@ You can customize the `Chip` component by passing custom Tailwind CSS classes to
 
 <CodeDemo title="Custom Styles" files={chipContent.customStyles} />
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## API
 
@@ -87,9 +87,9 @@ You can customize the `Chip` component by passing custom Tailwind CSS classes to
 | ------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------- |
 | children     | `ReactNode`                                                                  | The content of the chip.                                                                                                     | -         |
 | variant      | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost` | The chip appearance style.                                                                                                   | `solid`   |
-| size         | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                         | The size of the chip.                                                                                                        | `md`      |
 | color        | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The color of the chip.                                                                                                       | `default` |
-| radius       | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`           | The radius of the chip.                                                                                                      | `full`    |
+| size         | `sm` \| `md` \| `lg`                                                         | The size of the chip.                                                                                                        | `md`      |
+| radius       | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The radius of the chip.                                                                                                      | `full`    |
 | avatar       | `ReactNode`                                                                  | Avatar to be rendered in the left side of the chip.                                                                          | -         |
 | startContent | `ReactNode`                                                                  | Element to be rendered in the left side of the chip. This prop overrides the `avatar` prop.                                  | -         |
 | endContent   | `ReactNode`                                                                  | Element to be rendered in the right side of the chip. This prop overrides the default close button when `onClose` is passed. | -         |

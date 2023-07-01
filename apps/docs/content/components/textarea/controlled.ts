@@ -13,7 +13,7 @@ export default function App() {
         value={value}
         onValueChange={setValue}
       />
-      <p className="text-default-500 text-sm">Textarea value: {value}</p>
+      <p className="text-default-500 text-small">Textarea value: {value}</p>
     </div>
   );
 }`;

@@ -9,7 +9,7 @@ export default function App() {
         <CardBody>
           <Tabs
             fullWidth
-            size="sm"
+            size="md"
             aria-label="Tabs form"
             selectedKey={selected}
             onSelectionChange={setSelected}
@@ -23,7 +23,7 @@ export default function App() {
                   placeholder="Enter your password"
                   type="password"
                 />
-                <p className="text-center text-sm">
+                <p className="text-center text-small">
                   Need to create an account?{" "}
                   <Link size="sm" onPress={() => setSelected("sign-up")}>
                     Sign up
@@ -46,7 +46,7 @@ export default function App() {
                   placeholder="Enter your password"
                   type="password"
                 />
-                <p className="text-center text-sm">
+                <p className="text-center text-small">
                   Already have an account?{" "}
                   <Link size="sm" onPress={() => setSelected("login")}>
                     Login

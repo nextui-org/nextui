@@ -106,7 +106,6 @@ export interface UseSnippetProps
    *   isDisabled: disableCopy,
    *   onPress: onCopy
    *   size:"sm",
-   *   radius: "lg",
    *   variant:"light",
    *   isIconOnly: true,
    * }
@@ -220,7 +219,6 @@ export function useSnippet(originalProps: UseSnippetProps) {
       typeof tooltipProps.content === "string" ? tooltipProps.content : "Copy to clipboard",
     size: "sm",
     variant: "light",
-    radius: "lg",
     isDisabled: disableCopy,
     onPress: onCopy,
     isIconOnly: true,

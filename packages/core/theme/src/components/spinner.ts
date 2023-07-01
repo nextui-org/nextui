@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Spinner wrapper **Tailwind Variants** component
@@ -47,35 +47,23 @@ const spinner = tv({
   },
   variants: {
     size: {
-      xs: {
-        wrapper: "w-4 h-4",
-        circle1: "border-2",
-        circle2: "border-2",
-        label: "text-xs",
-      },
       sm: {
         wrapper: "w-5 h-5",
         circle1: "border-2",
         circle2: "border-2",
-        label: "text-xs",
+        label: "text-small",
       },
       md: {
         wrapper: "w-8 h-8",
         circle1: "border-3",
         circle2: "border-3",
-        label: "text-sm",
+        label: "text-medium",
       },
       lg: {
         wrapper: "w-10 h-10",
         circle1: "border-3",
         circle2: "border-3",
-        label: "text-base",
-      },
-      xl: {
-        wrapper: "w-12 h-12",
-        circle1: "border-4",
-        circle2: "border-4",
-        label: "text-lg",
+        label: "text-large",
       },
     },
     color: {

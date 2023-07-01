@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 
 /**
@@ -25,7 +24,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 const input = tv({
   slots: {
     base: "group flex flex-col data-[has-elements=true]:gap-2",
-    label: "block text-sm font-medium text-foreground-600",
+    label: "block text-small font-medium text-foreground-600",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
@@ -45,8 +44,8 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    description: "text-xs text-foreground-400",
-    errorMessage: "text-xs text-danger",
+    description: "text-tiny text-foreground-400",
+    errorMessage: "text-tiny text-danger",
   },
   variants: {
     variant: {
@@ -60,14 +59,14 @@ const input = tv({
       faded: {
         inputWrapper: [
           "bg-default-100",
-          "border-2",
+          "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
       },
       bordered: {
         inputWrapper: [
-          "border-2",
+          "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
           "group-data-[focus=true]:border-foreground",
@@ -80,7 +79,7 @@ const input = tv({
           "!gap-0",
           "relative",
           "box-border",
-          "border-b-2",
+          "border-b-medium",
           "shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
           "border-default-200",
           "!rounded-none",
@@ -113,56 +112,39 @@ const input = tv({
         label: "text-warning-600 dark:text-warning",
       },
       danger: {
-        label: "text-danger",
+        label: "text-danger dark:text-danger-500",
       },
     },
     size: {
-      xs: {
-        label: "text-xs",
-        inputWrapper: "h-6 px-1",
-        input: "text-xs",
-        clearButton: "right-2 text-sm",
-      },
       sm: {
-        label: "text-xs",
-        inputWrapper: "h-8 px-2",
-        input: "text-xs",
-        clearButton: "text-base",
+        label: "text-tiny",
+        inputWrapper: "h-8 px-2 rounded-small",
+        input: "text-tiny",
+        clearButton: "text-medium",
       },
       md: {
-        inputWrapper: "h-10",
-        input: "text-sm",
-        clearButton: "text-lg",
+        inputWrapper: "h-10 rounded-medium",
+        input: "text-small",
+        clearButton: "text-large",
       },
       lg: {
-        inputWrapper: "h-12",
-        input: "text-base",
-        clearButton: "text-xl",
-      },
-      xl: {
-        inputWrapper: "h-14",
-        input: "text-base",
-        clearButton: "text-xl right-3.5",
+        inputWrapper: "h-12 rounded-large",
+        input: "text-medium",
+        clearButton: "text-large",
       },
     },
     radius: {
       none: {
         inputWrapper: "rounded-none",
       },
-      base: {
-        inputWrapper: "rounded",
-      },
       sm: {
-        inputWrapper: "rounded-sm",
+        inputWrapper: "rounded-small",
       },
       md: {
-        inputWrapper: "rounded-md",
+        inputWrapper: "rounded-medium",
       },
       lg: {
-        inputWrapper: "rounded-lg",
-      },
-      xl: {
-        inputWrapper: "rounded-xl",
+        inputWrapper: "rounded-large",
       },
       full: {
         inputWrapper: "rounded-full",
@@ -178,7 +160,7 @@ const input = tv({
         label: "text-foreground",
       },
       inside: {
-        label: "text-xs",
+        label: "text-tiny",
         inputWrapper: "flex-col items-start justify-center gap-0",
       },
     },
@@ -200,7 +182,7 @@ const input = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     isInvalid: {
@@ -243,7 +225,6 @@ const input = tv({
     variant: "flat",
     color: "default",
     size: "md",
-    radius: "lg",
     fullWidth: true,
     labelPlacement: "inside",
     isDisabled: false,
@@ -318,11 +299,13 @@ const input = tv({
         inputWrapper: [
           "bg-danger-50",
           "text-danger",
+          "dark:text-danger-500",
           "placeholder:text-danger",
+          "dark:placeholder:text-danger-500",
           "data-[hover=true]:bg-danger-100",
           "group-data-[focus=true]:bg-danger-50",
         ],
-        input: "placeholder:text-danger",
+        input: "placeholder:text-danger dark:placeholder:text-danger-500",
       },
     },
     // faded & color
@@ -441,7 +424,7 @@ const input = tv({
     // radius-full & size
     {
       radius: "full",
-      size: ["xs", "sm"],
+      size: ["sm"],
       class: {
         inputWrapper: "px-3",
       },
@@ -458,13 +441,6 @@ const input = tv({
       size: "lg",
       class: {
         inputWrapper: "px-5",
-      },
-    },
-    {
-      radius: "full",
-      size: "xl",
-      class: {
-        inputWrapper: "px-6",
       },
     },
     // !disableAnimation & variant
@@ -521,14 +497,6 @@ const input = tv({
     // size & labelPlacement
     {
       labelPlacement: "inside",
-      size: "xs",
-      class: {
-        label: "text-[0.6rem]",
-        inputWrapper: "h-10 py-1 px-2",
-      },
-    },
-    {
-      labelPlacement: "inside",
       size: "sm",
       class: {
         inputWrapper: "h-12 py-1.5 px-3",
@@ -545,16 +513,8 @@ const input = tv({
       labelPlacement: "inside",
       size: "lg",
       class: {
-        label: "text-sm",
+        label: "text-small",
         inputWrapper: "h-16 py-2.5 gap-1",
-      },
-    },
-    {
-      labelPlacement: "inside",
-      size: "xl",
-      class: {
-        label: "text-sm",
-        inputWrapper: "h-20 p-4 gap-2",
       },
     },
     // isLabelPlaceholder & labelPlacement
@@ -641,14 +601,6 @@ const input = tv({
     {
       isLabelPlaceholder: true,
       variant: "underlined",
-      size: "xs",
-      class: {
-        label: ["pt-2"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      variant: "underlined",
       size: "sm",
       class: {
         label: ["pt-3"],
@@ -670,36 +622,13 @@ const input = tv({
         label: ["pt-5"],
       },
     },
-    {
-      isLabelPlaceholder: true,
-      variant: "underlined",
-      size: "xl",
-      class: {
-        label: ["pt-6"],
-      },
-    },
     // isLabelPlaceholder & inside & size
-    {
-      isLabelPlaceholder: true,
-      labelPlacement: "inside",
-      size: "xs",
-      class: {
-        label: [
-          "text-xs",
-          "group-focus-within:text-[0.6rem]",
-          "group-focus-within:-translate-y-2",
-          "group-[.is-filled]:text-[0.6rem]",
-          "group-[.is-filled]:-translate-y-2",
-        ],
-        input: "pt-4",
-      },
-    },
     {
       isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-sm", "group-focus-within:text-xs", "group-[.is-filled]:text-xs"],
+        label: ["text-small", "group-focus-within:text-tiny", "group-[.is-filled]:text-tiny"],
         input: "pt-4",
       },
     },
@@ -727,52 +656,23 @@ const input = tv({
       size: "lg",
       class: {
         label: [
-          "text-base",
-          "group-focus-within:text-sm",
+          "text-medium",
+          "group-focus-within:text-small",
           "group-focus-within:-translate-y-3",
-          "group-[.is-filled]:text-sm",
+          "group-[.is-filled]:text-small",
           "group-[.is-filled]:-translate-y-3",
         ],
         input: "pt-6",
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      labelPlacement: "inside",
-      size: "xl",
-      class: {
-        label: [
-          "text-base",
-          "group-focus-within:text-sm",
-          "group-focus-within:-translate-y-3",
-          "group-[.is-filled]:text-sm",
-          "group-[.is-filled]:-translate-y-3",
-        ],
-        input: "pt-8",
       },
     },
     // isLabelPlaceholder & outside & size
     {
       isLabelPlaceholder: true,
       labelPlacement: "outside",
-      size: "xs",
-      class: {
-        label: [
-          "text-xs",
-          "bottom-1",
-          "left-1",
-          "group-focus-within:bottom-8",
-          "group-[.is-filled]:bottom-8",
-        ],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      labelPlacement: "outside",
       size: "sm",
       class: {
         label: [
-          "text-xs",
+          "text-tiny",
           "bottom-2",
           "left-2",
           "group-focus-within:bottom-10",
@@ -786,7 +686,7 @@ const input = tv({
       size: "md",
       class: {
         label: [
-          "text-sm",
+          "text-small",
           "bottom-2.5",
           "left-3",
           "group-focus-within:bottom-12",
@@ -800,29 +700,13 @@ const input = tv({
       size: "lg",
       class: {
         label: [
-          "text-base",
+          "text-medium",
           "bottom-3",
           "left-3",
-          "group-focus-within:text-sm",
+          "group-focus-within:text-small",
           "group-[.is-filled]:bottom-sm",
           "group-focus-within:bottom-14",
           "group-[.is-filled]:bottom-14",
-        ],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      labelPlacement: "outside",
-      size: "xl",
-      class: {
-        label: [
-          "text-base",
-          "bottom-4",
-          "left-3",
-          "group-focus-within:text-sm",
-          "group-[.is-filled]:bottom-sm",
-          "group-focus-within:bottom-16",
-          "group-[.is-filled]:bottom-16",
         ],
       },
     },

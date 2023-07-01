@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -19,8 +18,8 @@ const accordion = tv({
   variants: {
     variant: {
       light: "",
-      shadow: "px-4 shadow-lg rounded-xl bg-content1 border border-boundary",
-      bordered: "px-4 border border-divider rounded-lg",
+      shadow: "px-4 shadow-medium rounded-medium bg-content1",
+      bordered: "px-4 border-medium border-divider rounded-medium",
       splitted: "group is-splitted flex flex-col gap-2", // the classNames are applied in the accordion-item component
     },
     fullWidth: {
@@ -58,47 +57,38 @@ const accordion = tv({
 const accordionItem = tv({
   slots: {
     base: [
-      "border-divider",
-      "[&:not(:last-of-type)]:border-b",
       "group-[.is-splitted]:px-4",
       "group-[.is-splitted]:bg-content1",
-      "group-[.is-splitted]:shadow-lg",
-      "group-[.is-splitted]:rounded-lg",
-      "group-[.is-splitted]:border",
-      "group-[.is-splitted]:border-boundary",
+      "group-[.is-splitted]:shadow-medium",
+      "group-[.is-splitted]:rounded-medium",
     ],
     heading: "",
     trigger: [
       "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
-      "data-[pressed=true]:opacity-50",
+      "data-[pressed=true]:opacity-disabled",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
     startContent: "flex-shrink-0",
     indicator: "text-default-400",
     titleWrapper: "flex-1 flex flex-col text-left",
-    title: "text-foreground text-lg",
-    subtitle: "text-sm text-foreground-500 font-normal",
+    title: "text-foreground text-large",
+    subtitle: "text-small text-foreground-500 font-normal",
     content: "py-2",
   },
   variants: {
     isCompact: {
       true: {
         trigger: "py-2",
-        title: "text-base",
-        subtitle: "text-xs",
-        indicator: "text-base",
+        title: "text-medium",
+        subtitle: "text-small",
+        indicator: "text-medium",
         content: "py-1",
       },
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
-      },
-    },
-    hideDivider: {
-      true: {
-        base: "!border-b-0",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     hideIndicator: {
@@ -128,7 +118,6 @@ const accordionItem = tv({
     size: "md",
     radius: "lg",
     isDisabled: false,
-    hideDivider: false,
     hideIndicator: false,
     disableAnimation: false,
     disableIndicatorAnimation: false,

@@ -79,7 +79,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 - **description**: The description of the textarea.
 - **errorMessage**: The error message of the textarea.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Data Attributes
 
@@ -100,7 +100,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 - **data-disabled**:
   When the textarea is disabled. Based on `isDisabled` prop.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## Accessibility
 
@@ -110,7 +110,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 - Required and invalid states exposed to assistive technology via ARIA.
 - Support for description and error message help text linked to the input via ARIA.
 
-<Spacer y={4}/>  
+<Spacer y={4} />{" "}
 
 ## API
 
@@ -123,9 +123,9 @@ You can use the `value` and `onValueChange` properties to control the input valu
 | maxRows           | `number`                                                                                         | Maximum number of rows up to which the textarea can grow.                                         | `8`       |
 | cacheMeasurements | `boolean`                                                                                        | Reuse previously computed measurements when computing height of textarea.                         | `false`   |
 | variant           | `flat` \| `bordered` \| `faded` \| `underlined`                                                  | The variant of the textarea.                                                                      | `flat`    |
-| size              | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                                             | The size of the textarea.                                                                         | `md`      |
 | color             | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                      | The color of the textarea.                                                                        | `default` |
-| radius            | `none` \| `base` \| `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `full`                               | The radius of the textarea.                                                                       | `lg`      |
+| size              | `sm`\|`md`\|`lg`                                                                                 | The size of the textarea.                                                                         | `md`      |
+| radius            | `none` \| `sm` \| `md` \| `lg` \| `full`                                                         | The radius of the textarea.                                                                       | -         |
 | label             | `ReactNode`                                                                                      | The content to display as the label.                                                              | -         |
 | value             | `string`                                                                                         | The current value of the textarea (controlled).                                                   | -         |
 | defaultValue      | `string`                                                                                         | The default value of the textarea (uncontrolled).                                                 | -         |

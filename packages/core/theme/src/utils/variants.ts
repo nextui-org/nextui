@@ -34,7 +34,7 @@ const flat = {
   secondary: "bg-secondary/20 text-secondary",
   success: "bg-success/20 text-success-600 dark:text-success",
   warning: "bg-warning/20 text-warning-600 dark:text-warning",
-  danger: "bg-danger/20 text-danger",
+  danger: "bg-danger/20 text-danger dark:text-danger-500",
   foreground: "bg-foreground/10 text-foreground",
 };
 

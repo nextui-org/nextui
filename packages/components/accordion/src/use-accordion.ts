@@ -11,6 +11,7 @@ import {mergeProps} from "@react-aria/utils";
 import {accordion} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useState} from "react";
+import {DividerProps} from "@nextui-org/divider";
 
 import {AccordionItemProps} from "./accordion-item";
 
@@ -19,6 +20,16 @@ interface Props extends HTMLNextUIProps<"div"> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
+  /**
+   * Whether to display a divider at the bottom of the each accordion item.
+   *
+   * @default true
+   */
+  showDivider?: boolean;
+  /**
+   * The divider props.
+   */
+  dividerProps?: DividerProps;
   /**
    * The accordion selection behavior.
    * @default "toggle"
@@ -36,7 +47,6 @@ export type UseAccordionProps<T extends object = {}> = Props &
     AccordionItemProps,
     | "isCompact"
     | "isDisabled"
-    | "hideDivider"
     | "hideIndicator"
     | "disableAnimation"
     | "disableIndicatorAnimation"
@@ -50,7 +60,6 @@ export type ContextType<T extends object = {}> = {
   focusedKey?: Key | null;
   isCompact?: AccordionItemProps["isCompact"];
   isDisabled?: AccordionItemProps["isDisabled"];
-  hideDivider?: AccordionItemProps["hideDivider"];
   hideIndicator?: AccordionItemProps["hideIndicator"];
   disableAnimation?: AccordionItemProps["disableAnimation"];
   disableIndicatorAnimation?: AccordionItemProps["disableAnimation"];
@@ -76,9 +85,10 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     defaultSelectedKeys,
     onExpandedChange,
     onSelectionChange,
+    dividerProps = {},
     isCompact = false,
     isDisabled = false,
-    hideDivider = false,
+    showDivider = true,
     hideIndicator = false,
     disableAnimation = false,
     disableIndicatorAnimation = false,
@@ -166,7 +176,6 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       motionProps,
       isCompact,
       isDisabled,
-      hideDivider,
       hideIndicator,
       disableAnimation,
       disableIndicatorAnimation,
@@ -177,7 +186,6 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       isCompact,
       isDisabled,
       hideIndicator,
-      hideDivider,
       disableAnimation,
       disableIndicatorAnimation,
       motionProps,
@@ -200,10 +208,13 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   return {
     Component,
     context,
-    classNames,
     state,
     focusedKey,
     getBaseProps,
+    isSplitted: variant === "splitted",
+    classNames,
+    showDivider,
+    dividerProps,
     disableAnimation,
     handleFocusChanged,
     itemClasses,

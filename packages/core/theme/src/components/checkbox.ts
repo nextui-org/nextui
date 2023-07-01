@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {groupDataFocusVisibleClasses} from "../utils";
 
 /**
@@ -78,50 +77,61 @@ const checkbox = tv({
       },
     },
     size: {
-      xs: {
-        wrapper: "w-3.5 h-3.5 mr-1",
-        label: "text-xs",
-        icon: "w-3 h-2",
-      },
       sm: {
-        wrapper: "w-4 h-4 mr-1",
-        label: "text-sm",
+        wrapper: [
+          "w-4 h-4 mr-2",
+          "rounded-[calc(theme(borderRadius.medium)*0.5)]",
+          "before:rounded-[calc(theme(borderRadius.medium)*0.5)]",
+          "after:rounded-[calc(theme(borderRadius.medium)*0.5)]",
+        ],
+        label: "text-small",
         icon: "w-3 h-2",
       },
       md: {
-        wrapper: "w-5 h-5 mr-2",
-        label: "text-base",
+        wrapper: [
+          "w-5 h-5 mr-2",
+          "rounded-[calc(theme(borderRadius.medium)*0.6)]",
+          "before:rounded-[calc(theme(borderRadius.medium)*0.6)]",
+          "after:rounded-[calc(theme(borderRadius.medium)*0.6)]",
+        ],
+        label: "text-medium",
         icon: "w-4 h-3",
       },
       lg: {
-        wrapper: "w-6 h-6 mr-2",
-        label: "text-lg",
+        wrapper: [
+          "w-6 h-6 mr-2",
+          "rounded-[calc(theme(borderRadius.medium)*0.7)]",
+          "before:rounded-[calc(theme(borderRadius.medium)*0.7)]",
+          "after:rounded-[calc(theme(borderRadius.medium)*0.7)]",
+        ],
+        label: "text-large",
         icon: "w-5 h-4",
-      },
-      xl: {
-        wrapper: "w-7 h-7 mr-2",
-        label: "text-xl",
-        icon: "w-6 h-5",
       },
     },
     radius: {
       none: {
         wrapper: "rounded-none before:rounded-none after:rounded-none",
       },
-      base: {
-        wrapper: "rounded before:rounded after:rounded",
-      },
       sm: {
-        wrapper: "rounded-sm before:rounded-sm after:rounded-sm",
+        wrapper: [
+          "rounded-[calc(theme(borderRadius.medium)*0.5)]",
+          "before:rounded-[calc(theme(borderRadius.medium)*0.5)]",
+          "after:rounded-[calc(theme(borderRadius.medium)*0.5)]",
+        ],
       },
       md: {
-        wrapper: "rounded-md before:rounded-md after:rounded-md",
+        wrapper: [
+          "rounded-[calc(theme(borderRadius.medium)*0.6)]",
+          "before:rounded-[calc(theme(borderRadius.medium)*0.6)]",
+          "after:rounded-[calc(theme(borderRadius.medium)*0.6)]",
+        ],
       },
       lg: {
-        wrapper: "rounded-lg before:rounded-lg after:rounded-lg",
-      },
-      xl: {
-        wrapper: "rounded-xl before:rounded-xl after:rounded-xl",
+        wrapper: [
+          "rounded-[calc(theme(borderRadius.medium)*0.7)]",
+          "before:rounded-[calc(theme(borderRadius.medium)*0.7)]",
+          "after:rounded-[calc(theme(borderRadius.medium)*0.7)]",
+        ],
       },
       full: {
         wrapper: "rounded-full before:rounded-full after:rounded-full",
@@ -145,7 +155,7 @@ const checkbox = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     disableAnimation: {
@@ -169,7 +179,6 @@ const checkbox = tv({
   defaultVariants: {
     color: "primary",
     size: "md",
-    radius: "md",
     isDisabled: false,
     lineThrough: false,
     disableAnimation: false,
@@ -192,10 +201,10 @@ const checkbox = tv({
 const checkboxGroup = tv({
   slots: {
     base: "relative flex flex-col gap-2",
-    label: "relative text-foreground-500",
+    label: "relative text-medium text-foreground-500",
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
-    description: "text-xs text-foreground-400",
-    errorMessage: "text-xs text-danger",
+    description: "text-small text-foreground-400",
+    errorMessage: "text-small text-danger",
   },
 });
 

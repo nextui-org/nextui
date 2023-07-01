@@ -1,5 +1,4 @@
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -19,13 +18,13 @@ import {dataFocusVisibleClasses} from "../utils";
 const user = tv({
   slots: {
     base: [
-      "inline-flex items-center justify-center gap-2 rounded-sm outline-none",
+      "inline-flex items-center justify-center gap-2 rounded-small outline-none",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
     wrapper: "inline-flex flex-col items-start",
-    name: "text-sm text-inherit",
-    description: "text-xs text-foreground-400",
+    name: "text-small text-inherit",
+    description: "text-tiny text-foreground-400",
   },
 });
 

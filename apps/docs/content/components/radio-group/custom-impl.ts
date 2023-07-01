@@ -32,7 +32,7 @@ export const CustomRadio = (props) => {
       <div {...getLabelWrapperProps()}>
         {children && <span {...getLabelProps()}>{children}</span>}
         {description && (
-          <span className="text-sm text-foreground opacity-70">{description}</span>
+          <span className="text-small text-foreground opacity-70">{description}</span>
         )}
       </div>
     </Component>
@@ -92,7 +92,7 @@ export const CustomRadio = (props: RadioProps) => {
       <div {...getLabelWrapperProps()}>
         {children && <span {...getLabelProps()}>{children}</span>}
         {description && (
-          <span className="text-sm text-foreground opacity-70">{description}</span>
+          <span className="text-small text-foreground opacity-70">{description}</span>
         )}
       </div>
     </Component>

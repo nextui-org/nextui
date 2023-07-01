@@ -29,7 +29,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
       }}
       radius="lg"
       selectedKey={template}
-      size="xs"
+      size="sm"
       onSelectionChange={handleToggle}
     >
       <Tab

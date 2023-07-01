@@ -23,7 +23,7 @@ export const CopyButton = () => {
       content={copied ? "Copied!" : "Copy"}
       radius="md"
     >
-      <Button isIconOnly size="xs" title="Copy Code" variant="light" onClick={copyHandler}>
+      <Button isIconOnly size="sm" title="Copy Code" variant="light" onClick={copyHandler}>
         <CopyLinearIcon className="text-zinc-500" height={16} width={16} />
       </Button>
     </Tooltip>

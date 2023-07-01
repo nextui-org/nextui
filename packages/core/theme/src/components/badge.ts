@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants} from "../utils";
 
 /**
@@ -24,6 +23,7 @@ const badge = tv({
       "flex-wrap",
       "absolute",
       "box-border",
+      "rounded-full",
       "whitespace-nowrap",
       "place-content-center",
       "origin-center",
@@ -43,7 +43,7 @@ const badge = tv({
       solid: {},
       flat: {},
       faded: {
-        badge: "border-2",
+        badge: "border-medium",
       },
       shadow: {},
     },
@@ -56,20 +56,14 @@ const badge = tv({
       danger: {},
     },
     size: {
-      xs: {
-        badge: "px-0.5 text-[0.625rem]",
-      },
       sm: {
-        badge: "px-1 text-xs",
+        badge: "px-1 text-tiny",
       },
       md: {
-        badge: "px-1 text-sm",
+        badge: "px-1 text-small",
       },
       lg: {
-        badge: "px-1 text-sm",
-      },
-      xl: {
-        badge: "px-1 text-base",
+        badge: "px-1 text-small",
       },
     },
     placement: {
@@ -77,15 +71,6 @@ const badge = tv({
       "top-left": {},
       "bottom-right": {},
       "bottom-left": {},
-    },
-    radius: {
-      none: {badge: "rounded-none"},
-      base: {badge: "rounded"},
-      sm: {badge: "rounded-sm"},
-      md: {badge: "rounded-md"},
-      lg: {badge: "rounded-lg"},
-      xl: {badge: "rounded-xl"},
-      full: {badge: "rounded-full"},
     },
     shape: {
       circle: {},
@@ -123,7 +108,6 @@ const badge = tv({
     variant: "solid",
     color: "default",
     size: "md",
-    radius: "full",
     shape: "rectangle",
     placement: "top-right",
     disableOutline: false,
@@ -306,13 +290,6 @@ const badge = tv({
     // isOneChar / size
     {
       isOneChar: true,
-      size: "xs",
-      class: {
-        badge: "w-3.5 h-3.5 min-w-3.5 min-h-3.5",
-      },
-    },
-    {
-      isOneChar: true,
       size: "sm",
       class: {
         badge: "w-4 h-4 min-w-4 min-h-4",
@@ -332,21 +309,7 @@ const badge = tv({
         badge: "w-6 h-6 min-w-6 min-h-6",
       },
     },
-    {
-      isOneChar: true,
-      size: "xl",
-      class: {
-        badge: "w-7 h-7 min-w-7 min-h-7",
-      },
-    },
     // isDot / size
-    {
-      isDot: true,
-      size: "xs",
-      class: {
-        badge: "w-2 h-2 min-w-2 min-h-2",
-      },
-    },
     {
       isDot: true,
       size: "sm",
@@ -366,13 +329,6 @@ const badge = tv({
       size: "lg",
       class: {
         badge: "w-4 h-4 min-w-4 min-h-4",
-      },
-    },
-    {
-      isDot: true,
-      size: "xl",
-      class: {
-        badge: "w-5 h-5 min-w-5 min-h-5",
       },
     },
     // placement / rectangle

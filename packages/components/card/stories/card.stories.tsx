@@ -15,13 +15,13 @@ export default {
     shadow: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "xl", "2xl", "inner"],
+        options: ["sm", "md", "lg"],
       },
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+        options: ["sm", "md", "lg"],
       },
     },
     fullWidth: {
@@ -167,7 +167,9 @@ const WithAbsImgHeaderFooterTemplate: ComponentStory<typeof Card> = (args: CardP
         <p className="text-xs text-black/80">Available soon.</p>
         <p className="text-xs text-black/80">Get notified.</p>
       </div>
-      <Button radius="full">Notify Me</Button>
+      <Button className="text-tiny" color="primary" radius="full" size="sm">
+        Notify Me
+      </Button>
     </CardFooter>
   </Card>
 );

@@ -31,7 +31,7 @@ interface DocPageProps {
 
 const cache = new Map();
 
-export function getDocFromParams(params: {slug: string[]}) {
+function getDocFromParams(params: {slug: string[]}) {
   let meta, doc;
 
   const {slug} = getAppSlug(params);

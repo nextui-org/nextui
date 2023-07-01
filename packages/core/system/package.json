@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "0.0.0-dev-v2-20230625233448",
+  "version": "0.0.0-dev-v2-20230701230240",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -52,6 +52,7 @@
   "dependencies": {
     "@react-aria/i18n": "^3.7.2",
     "@react-aria/overlays": "^3.14.1",
-    "@react-aria/ssr": "^3.6.0"
+    "@react-aria/ssr": "^3.6.0",
+    "clsx": "^1.2.1"
   }
 }

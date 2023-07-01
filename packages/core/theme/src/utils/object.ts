@@ -1,3 +1,6 @@
+import flatten from "flat";
+import {mapKeys, kebabCase} from "lodash";
+
 export function swapColorValues<T extends Object>(colors: T) {
   const swappedColors = {};
   const keys = Object.keys(colors);
@@ -37,3 +40,27 @@ export function removeDefaultKeys<T extends Object>(obj: T) {
 
   return newObj;
 }
+
+/**
+ *
+ * Flatten theme object and remove default keys
+ *
+ * @param obj theme object
+ * @returns object with flattened keys
+ */
+export const flattenThemeObject = <TTarget>(obj: TTarget) =>
+  removeDefaultKeys(
+    flatten(obj, {
+      safe: true,
+      delimiter: "-",
+    }) as Object,
+  );
+
+/**
+ * Transform object keys to kebab case
+ *
+ * @param obj object
+ * @returns object with kebab cased keys
+ */
+export const transformKeysToKebab = <T extends object>(obj: T) =>
+  mapKeys(obj, (value, key) => kebabCase(key));

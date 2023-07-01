@@ -37,18 +37,12 @@ export const Sandpack: FC<SandpackProps> = ({
 }) => {
   const editorContainerRef = useRef(null);
 
-  const {
-    files,
-    decorators,
-    customSetup,
-    sandpackTemplate,
-    hasTypescript,
-    setCurrentTemplate,
-  } = useSandpack({
-    files: filesProp,
-    template,
-    highlightedLines,
-  });
+  const {files, decorators, customSetup, sandpackTemplate, hasTypescript, setCurrentTemplate} =
+    useSandpack({
+      files: filesProp,
+      template,
+      highlightedLines,
+    });
 
   return (
     <SandpackProvider

@@ -53,7 +53,7 @@ export default function App() {
     <div className="flex gap-5 items-center">
       <Badge content="5" color="danger">
         <Avatar
-          radius="lg"
+          radius="md"
           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
         />
       </Badge>
@@ -66,7 +66,7 @@ export default function App() {
       <Badge content="new" color="danger" size="sm">
         <Avatar
           isBordered
-          radius="lg"
+          radius="md"
           color="danger"
           src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
         />
@@ -80,7 +80,7 @@ export default function App() {
         <Avatar
           isBordered
           color="success"
-          radius="lg"
+          radius="md"
           src="https://i.pravatar.cc/300?u=a042581f4e290267072"
         />
       </Badge>

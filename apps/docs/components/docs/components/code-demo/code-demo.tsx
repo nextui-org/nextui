@@ -34,6 +34,7 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   showTabs?: boolean;
   showPreview?: boolean;
   showOpenInCodeSandbox?: boolean;
+  isPreviewCentered?: boolean;
   displayMode?: "always" | "visible";
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
@@ -49,6 +50,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showPreview = true,
   asIframe = false,
   showSandpackPreview = false,
+  isPreviewCentered = false,
   showOpenInCodeSandbox,
   isGradientBox = false,
   defaultExpanded = false,
@@ -106,6 +108,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
       <DynamicReactLiveDemo
         code={code}
         gradientColor={gradientColor}
+        isCentered={isPreviewCentered}
         isGradientBox={isGradientBox}
         noInline={noInline}
         overflow={overflow}

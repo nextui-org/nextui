@@ -98,7 +98,7 @@ const TemplateWithStartContent: ComponentStory<typeof Accordion> = (args: Accord
         <Avatar
           isBordered
           color="primary"
-          radius="xl"
+          radius="lg"
           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
         />
       }
@@ -114,7 +114,7 @@ const TemplateWithStartContent: ComponentStory<typeof Accordion> = (args: Accord
         <Avatar
           isBordered
           color="success"
-          radius="xl"
+          radius="lg"
           src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
         />
       }
@@ -130,7 +130,7 @@ const TemplateWithStartContent: ComponentStory<typeof Accordion> = (args: Accord
         <Avatar
           isBordered
           color="warning"
-          radius="xl"
+          radius="lg"
           src="https://i.pravatar.cc/150?u=a04258114e29026702d"
         />
       }
@@ -254,8 +254,8 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: Ac
   return (
     <Accordion
       {...args}
-      hideDivider
       className="p-2 flex flex-col gap-1 w-full max-w-[300px]"
+      showDivider={false}
       variant="shadow"
     >
       <AccordionItem

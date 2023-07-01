@@ -1,5 +1,5 @@
 export const yellow = {
-  50: "#fef6e9",
+  50: "#fefce8",
   100: "#fdedd3",
   200: "#fbdba7",
   300: "#f9c97c",

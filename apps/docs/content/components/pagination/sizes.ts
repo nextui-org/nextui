@@ -2,7 +2,7 @@ const App = `import {Pagination} from "@nextui-org/react";
 
 export default function App() {
 
-  const sizes = ["xs", "sm", "md", "lg", "xl"]
+  const sizes = ["sm", "md", "lg"]
 
   return (
     <div className="flex flex-wrap gap-4 items-center">

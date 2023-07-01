@@ -1,15 +1,36 @@
 ---
 title: 'Table'
-description: 'Tables are used to display tabular data using rows and columns. hey allow users to quickly scan, sort, compare, and take action on large amounts of data.'
+description: 'Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.'
 url: https://nextui.org/docs/components/table
 ---
+
 
 # Table
 
 Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
-Table implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useTable.html" rel="noreferrer" target="_blank">
-@react-aria/table</a>
+<ComponentLinks component="table" reactHook="useTable" />
 
-```jsx
-import {Table} from '@nextui-org/react';
-```
+---
+
+## Import
+
+NextUI exports 6 table-related components:
+
+- **Table**: The main component to display a table.
+- **TableHeader**: The header of the table.
+- **TableBody**: The body of the table.
+- **TableColumn**: The column of the table.
+- **TableRow**: The row of the table.
+- **TableCell**: The cell of the table.
+
+<ImportTabs
+  commands={{
+    main: 'import {Table, TableHeader, TableBody, TableColumn, TableRow, TableCell} from "@nextui-org/react";',
+    individual:
+      'import {Table, TableHeader, TableBody, TableColumn, TableRow, TableCell} from "@nextui-org/table";',
+  }}
+/>
+
+## Usage
+
+

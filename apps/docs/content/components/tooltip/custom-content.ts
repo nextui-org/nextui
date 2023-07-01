@@ -5,8 +5,8 @@ export default function App() {
     <Tooltip
       content={
         <div className="px-1 py-2">
-          <div className="text-sm font-bold">Custom Content</div>
-          <div className="text-xs">This is a custom tooltip content</div>
+          <div className="text-small font-bold">Custom Content</div>
+          <div className="text-tiny">This is a custom tooltip content</div>
         </div>
       }
     >

@@ -73,7 +73,7 @@ export function useButton(props: UseButtonProps) {
     color = groupContext?.color ?? "default",
     variant = groupContext?.variant ?? "solid",
     disableAnimation = groupContext?.disableAnimation ?? false,
-    radius = groupContext?.radius ?? "xl",
+    radius = groupContext?.radius,
     disableRipple = groupContext?.disableRipple ?? false,
     isDisabled = groupContext?.isDisabled ?? false,
     isIconOnly = groupContext?.isIconOnly ?? false,
@@ -180,8 +180,6 @@ export function useButton(props: UseButtonProps) {
 
   const spinnerSize = useMemo(() => {
     const buttonSpinnerSizeMap: Record<string, SpinnerProps["size"]> = {
-      xs: "xs",
-      sm: "xs",
       md: "sm",
       lg: "sm",
       xl: "sm",

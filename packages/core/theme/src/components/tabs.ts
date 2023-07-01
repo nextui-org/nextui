@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -50,7 +49,7 @@ const tabs = tv({
       "transition-opacity",
       "data-[disabled=true]:cursor-not-allowed",
       "data-[disabled=true]:opacity-30",
-      "data-[hover-unselected=true]:opacity-50",
+      "data-[hover-unselected=true]:opacity-disabled",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -85,7 +84,7 @@ const tabs = tv({
         cursor: "h-[2px] w-[80%] bottom-0 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
-        tabList: "bg-transparent dark:bg-transparent border-1 border-default-200 shadow-sm",
+        tabList: "bg-transparent dark:bg-transparent border-medium border-default-200 shadow-sm",
         cursor: "inset-0",
       },
     },
@@ -98,20 +97,20 @@ const tabs = tv({
       danger: {},
     },
     size: {
-      xs: {
-        tab: "h-7 text-xs",
-      },
       sm: {
-        tab: "h-8 text-sm",
+        tabList: "rounded-medium",
+        tab: "h-7 text-tiny rounded-small",
+        cursor: "rounded-small",
       },
       md: {
-        tab: "h-9 text-sm",
+        tabList: "rounded-medium",
+        tab: "h-8 text-small rounded-small",
+        cursor: "rounded-small",
       },
       lg: {
-        tab: "h-10 text-base",
-      },
-      xl: {
-        tab: "h-11 text-base",
+        tabList: "rounded-large",
+        tab: "h-9 text-medium rounded-medium",
+        cursor: "rounded-medium",
       },
     },
     radius: {
@@ -120,58 +119,25 @@ const tabs = tv({
         tab: "rounded-none",
         cursor: "rounded-none",
       },
-      base: {
-        tabList: "rounded",
-        tab: "rounded",
-        cursor: "rounded",
-      },
       sm: {
-        tabList: "rounded-sm",
-        tab: "rounded",
-        cursor: "rounded",
+        tabList: "rounded-medium",
+        tab: "rounded-small",
+        cursor: "rounded-small",
       },
       md: {
-        tabList: "rounded-md",
-        tab: "rounded-sm",
-        cursor: "rounded-sm",
+        tabList: "rounded-medium",
+        tab: "rounded-small",
+        cursor: "rounded-small",
       },
       lg: {
-        tabList: "rounded-lg",
-        tab: "rounded-md",
-        cursor: "rounded-md",
-      },
-      xl: {
-        tabList: "rounded-xl",
-        tab: "rounded-lg",
-        cursor: "rounded-lg",
+        tabList: "rounded-large",
+        tab: "rounded-medium",
+        cursor: "rounded-medium",
       },
       full: {
         tabList: "rounded-full",
         tab: "rounded-full",
         cursor: "rounded-full",
-      },
-    },
-    shadowCursor: {
-      none: {
-        cursor: "shadow-none",
-      },
-      sm: {
-        cursor: "shadow-sm",
-      },
-      md: {
-        cursor: "shadow-md",
-      },
-      lg: {
-        cursor: "shadow-lg",
-      },
-      xl: {
-        cursor: "shadow-xl",
-      },
-      "2xl": {
-        cursor: "shadow-2xl",
-      },
-      inner: {
-        cursor: "shadow-inner",
       },
     },
     fullWidth: {
@@ -182,7 +148,7 @@ const tabs = tv({
     },
     isDisabled: {
       true: {
-        tabList: "opacity-50 pointer-events-none",
+        tabList: "opacity-disabled pointer-events-none",
       },
     },
     disableAnimation: {
@@ -193,10 +159,8 @@ const tabs = tv({
     },
   },
   defaultVariants: {
-    radius: "xl",
     color: "default",
     variant: "solid",
-    shadowCursor: "md",
     size: "md",
     fullWidth: false,
     isDisabled: false,
@@ -211,7 +175,7 @@ const tabs = tv({
       variant: ["solid", "bordered", "light"],
       color: "default",
       class: {
-        cursor: ["bg-background", "dark:bg-default", "border border-boundary dark:border-none"],
+        cursor: ["bg-background", "dark:bg-default", "shadow-small"],
         tabContent: "group-data-[selected=true]:text-default-foreground",
       },
     },

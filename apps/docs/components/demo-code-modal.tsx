@@ -45,7 +45,7 @@ export const DemoCodeModal: FC<DemoCodeModalProps> = ({isOpen, code, title, subt
           setIsCodeVisible(isOpen);
         },
       }}
-      radius={isMobile ? "none" : "2xl"}
+      radius={isMobile ? "none" : "lg"}
       size={isMobile ? "full" : "2xl"}
       onClose={onClose}
     >

@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -45,13 +44,12 @@ const modal = tv({
       "w-full",
       "box-border",
       "bg-content1",
-      "border border-boundary",
       "outline-none",
       "mx-6",
       "my-16",
     ],
     backdrop: "z-50",
-    header: "flex py-4 px-6 flex-initial text-lg font-semibold",
+    header: "flex py-4 px-6 flex-initial text-large font-semibold",
     body: "flex flex-1 flex-col gap-3 px-6 py-2",
     footer: "flex flex-row gap-2 px-6 py-4 justify-end",
     closeButton: [
@@ -106,35 +104,19 @@ const modal = tv({
     },
     radius: {
       none: {base: "rounded-none"},
-      base: {base: "rounded"},
-      sm: {base: "rounded-sm"},
-      md: {base: "rounded-md"},
-      lg: {base: "rounded-lg"},
-      xl: {base: "rounded-xl"},
-      "2xl": {base: "rounded-2xl"},
-      "3xl": {base: "rounded-3xl"},
+      sm: {base: "rounded-small"},
+      md: {base: "rounded-medium"},
+      lg: {base: "rounded-large"},
     },
     shadow: {
-      none: {
-        base: "shadow-none",
-      },
       sm: {
-        base: "shadow-sm",
+        base: "shadow-small",
       },
       md: {
-        base: "shadow-md",
+        base: "shadow-medium",
       },
       lg: {
-        base: "shadow-lg",
-      },
-      xl: {
-        base: "shadow-xl",
-      },
-      "2xl": {
-        base: "shadow-2xl",
-      },
-      inner: {
-        base: "shadow-inner",
+        base: "shadow-large",
       },
     },
     backdrop: {
@@ -142,7 +124,7 @@ const modal = tv({
         backdrop: "hidden",
       },
       opaque: {
-        backdrop: "bg-overlay/50 backdrop-opacity-50",
+        backdrop: "bg-overlay/50 backdrop-opacity-disabled",
       },
       blur: {
         backdrop: "backdrop-blur-md backdrop-saturate-150 bg-overlay/30",
@@ -165,7 +147,7 @@ const modal = tv({
   defaultVariants: {
     size: "md",
     radius: "lg",
-    shadow: "lg",
+    shadow: "sm",
     backdrop: "opaque",
     scrollBehavior: "normal",
   },

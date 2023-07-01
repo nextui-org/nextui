@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -19,16 +18,7 @@ import {dataFocusVisibleClasses} from "../utils";
  * </div>
  */
 const dropdown = tv({
-  base: [
-    "w-full",
-    "p-1",
-    "min-w-[200px]",
-    "shadow",
-    "shadow-lg",
-    "bg-content1",
-    "border",
-    "border-boundary",
-  ],
+  base: ["w-full", "p-1", "min-w-[200px]"],
 });
 
 /**
@@ -67,19 +57,20 @@ const dropdownItem = tv({
       "w-full",
       "h-full",
       "box-border",
-      "rounded-lg",
+      "rounded-small",
       "outline-none",
       "cursor-pointer",
       "tap-highlight-transparent",
+      "data-[pressed=true]:opacity-70",
       // focus ring
       ...dataFocusVisibleClasses,
       "data-[focus-visible=true]:dark:ring-offset-background-content1",
     ],
     wrapper: "w-full flex flex-col items-start justify-center",
-    title: "flex-1 text-base lg:text-sm font-normal truncate",
+    title: "flex-1 text-medium lg:text-small font-normal truncate",
     description: [
-      "text-sm lg:text-xs",
       "w-full",
+      "text-small lg:text-tiny",
       "text-foreground-500",
       "group-hover:text-current",
     ],
@@ -90,9 +81,9 @@ const dropdownItem = tv({
       "rounded",
       "font-sans",
       "text-foreground-500",
-      "text-xs",
-      "border",
-      "border-boundary",
+      "text-tiny",
+      "border-small",
+      "border-default-300",
       "group-hover:border-current",
     ],
   },
@@ -102,13 +93,13 @@ const dropdownItem = tv({
         base: "",
       },
       bordered: {
-        base: "border-1 border-transparent bg-transparent",
+        base: "border-medium border-transparent bg-transparent",
       },
       light: {
         base: "bg-transparent",
       },
       faded: {
-        base: "border-1 border-transparent hover:border-default data-[hover=true]:bg-default-100",
+        base: "border-small border-transparent hover:border-default data-[hover=true]:bg-default-100",
       },
       flat: {
         base: "",
@@ -127,7 +118,7 @@ const dropdownItem = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50 pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
       },
     },
     disableAnimation: {
@@ -419,7 +410,7 @@ const dropdownItem = tv({
 const dropdownSection = tv({
   slots: {
     base: "relative mb-2",
-    heading: "pl-1 text-xs text-foreground-500",
+    heading: "pl-1 text-tiny text-foreground-500",
     group: "data-[has-title=true]:pt-1",
     divider: "mt-2",
   },

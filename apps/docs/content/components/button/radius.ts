@@ -4,25 +4,19 @@ export default function App() {
   return (
     <div className="flex gap-4 items-center">
       <Button radius="full">
-        Button
+        Full
       </Button>
-      <Button radius="2xl">
-        Button
-      </Button>  
-      <Button radius="xl">
-        Button
-      </Button>  
       <Button radius="lg">
-        Button
+        Large
       </Button>  
       <Button radius="md">
-        Button
+        Medium
       </Button>  
       <Button radius="sm">
-        Button
+        Small
       </Button>  
       <Button radius="none">
-        Button
+        None
       </Button>  
     </div>
   );

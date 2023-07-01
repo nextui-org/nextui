@@ -20,16 +20,15 @@ export default {
         options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
     },
-    radius: {
+    isRounded: {
       control: {
-        type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+        type: "boolean",
       },
     },
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl"],
+        options: ["sm", "md", "lg"],
       },
     },
     fullWidth: {

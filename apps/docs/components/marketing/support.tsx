@@ -58,10 +58,10 @@ const getSponsorSize = (sponsor: Sponsor, isMobile: boolean) => {
       size = isMobile ? "sm" : "md";
       break;
     case SPONSOR_TIERS.GOLD:
-      size = isMobile ? "lg" : "xl";
+      size = isMobile ? "md" : "lg";
       break;
     case SPONSOR_TIERS.PLATINUM:
-      size = isMobile ? "lg" : "xl";
+      size = isMobile ? "md" : "lg";
       break;
     default:
       size = isMobile ? "sm" : "md";
@@ -174,7 +174,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
                   color="secondary"
                   content={"Become a sponsor"}
                   offset={10}
-                  radius="xl"
+                  radius="full"
                 >
                   <Button
                     isIconOnly

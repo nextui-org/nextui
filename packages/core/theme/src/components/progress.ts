@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Progress **Tailwind Variants** component
@@ -52,30 +52,20 @@ const progress = tv(
         },
       },
       size: {
-        xs: {
-          label: "text-xs",
-          value: "text-xs",
+        sm: {
+          label: "text-small",
+          value: "text-small",
           track: "h-1",
         },
-        sm: {
-          label: "text-sm",
-          value: "text-sm",
-          track: "h-2",
-        },
         md: {
-          label: "text-base",
-          value: "text-base",
-          track: "h-4",
+          label: "text-medium",
+          value: "text-medium",
+          track: "h-3",
         },
         lg: {
-          label: "text-lg",
-          value: "text-lg",
-          track: "h-6",
-        },
-        xl: {
-          label: "text-lg",
-          value: "text-lg",
-          track: "h-7",
+          label: "text-large",
+          value: "text-large",
+          track: "h-5",
         },
       },
       radius: {
@@ -83,25 +73,17 @@ const progress = tv(
           track: "rounded-none",
           indicator: "rounded-none",
         },
-        base: {
-          track: "rounded",
-          indicator: "rounded",
-        },
         sm: {
-          track: "rounded-sm",
-          indicator: "rounded-sm",
+          track: "rounded-small",
+          indicator: "rounded-small",
         },
         md: {
-          track: "rounded-md",
-          indicator: "rounded-md",
+          track: "rounded-medium",
+          indicator: "rounded-medium",
         },
         lg: {
-          track: "rounded-lg",
-          indicator: "rounded-lg",
-        },
-        xl: {
-          track: "rounded-xl",
-          indicator: "rounded-xl",
+          track: "rounded-large",
+          indicator: "rounded-large",
         },
         full: {
           track: "rounded-full",
@@ -120,7 +102,7 @@ const progress = tv(
       },
       isDisabled: {
         true: {
-          base: "opacity-50 cursor-not-allowed",
+          base: "opacity-disabled cursor-not-allowed",
         },
       },
       disableAnimation: {

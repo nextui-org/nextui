@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -30,7 +29,6 @@ const card = tv({
       "text-foreground",
       "box-border",
       "bg-content1",
-      "border border-boundary",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -79,69 +77,35 @@ const card = tv({
         base: "shadow-none",
       },
       sm: {
-        base: "shadow-sm",
+        base: "shadow-small",
       },
       md: {
-        base: "shadow-md",
+        base: "shadow-medium",
       },
       lg: {
-        base: "shadow-lg",
-      },
-      xl: {
-        base: "shadow-xl",
-      },
-      "2xl": {
-        base: "shadow-2xl",
-      },
-      inner: {
-        base: "shadow-inner",
+        base: "shadow-large",
       },
     },
     radius: {
       none: {
         base: "rounded-none",
-        header: "rounded-t-none",
-        footer: "rounded-b-none",
-      },
-      base: {
-        base: "rounded",
-        header: "rounded-t",
-        footer: "rounded-b",
+        header: "rounded-none",
+        footer: "rounded-none",
       },
       sm: {
-        base: "rounded-sm",
-        header: "rounded-t-sm",
-        footer: "rounded-b-sm",
+        base: "rounded-small",
+        header: "rounded-t-small",
+        footer: "rounded-b-small",
       },
       md: {
-        base: "rounded-md",
-        header: "rounded-t-md",
-        footer: "rounded-b-md",
+        base: "rounded-medium",
+        header: "rounded-t-medium",
+        footer: "rounded-b-medium",
       },
       lg: {
-        base: "rounded-lg",
-        header: "rounded-t-lg",
-        footer: "rounded-b-lg",
-      },
-      xl: {
-        base: "rounded-xl",
-        header: "rounded-t-xl",
-        footer: "rounded-b-xl",
-      },
-      "2xl": {
-        base: "rounded-2xl",
-        header: "rounded-t-2xl",
-        footer: "rounded-b-2xl",
-      },
-      "3xl": {
-        base: "rounded-3xl",
-        header: "rounded-t-3xl",
-        footer: "rounded-b-3xl",
-      },
-      full: {
-        base: "rounded-full",
-        header: "rounded-t-full",
-        footer: "rounded-b-full",
+        base: "rounded-large",
+        header: "rounded-t-large",
+        footer: "rounded-b-large",
       },
     },
     fullWidth: {
@@ -174,7 +138,7 @@ const card = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-50 cursor-not-allowed",
+        base: "opacity-disabled cursor-not-allowed",
       },
     },
     disableAnimation: {
@@ -190,8 +154,8 @@ const card = tv({
     },
   ],
   defaultVariants: {
-    radius: "xl",
-    shadow: "lg",
+    radius: "lg",
+    shadow: "md",
     fullWidth: false,
     isHoverable: false,
     isPressable: false,

@@ -3,11 +3,9 @@ const App = `import {Chip} from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex gap-4">
-      <Chip size="xs">Chip</Chip>
-      <Chip size="sm">Chip</Chip>
-      <Chip size="md">Chip</Chip>
-      <Chip size="lg">Chip</Chip>
-      <Chip size="xl">Chip</Chip>
+      <Chip size="sm">Small</Chip>
+      <Chip size="md">Medium</Chip>
+      <Chip size="lg">Large</Chip>
     </div>  
   );
 }`;

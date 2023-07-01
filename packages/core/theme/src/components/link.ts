@@ -1,7 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
-
+import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
 
 /**
@@ -18,11 +17,9 @@ const link = tv({
   ],
   variants: {
     size: {
-      xs: "text-xs",
-      sm: "text-sm",
-      md: "text-base",
-      lg: "text-lg",
-      xl: "text-xl",
+      sm: "text-small",
+      md: "text-medium",
+      lg: "text-large",
     },
     color: {
       foreground: "text-foreground",
@@ -53,10 +50,10 @@ const link = tv({
         "after:transition-background",
         "after:absolute",
       ],
-      false: "hover:opacity-80 active:opacity-50 transition-opacity",
+      false: "hover:opacity-80 active:opacity-disabled transition-opacity",
     },
     isDisabled: {
-      true: "opacity-50 cursor-default pointer-events-none",
+      true: "opacity-disabled cursor-default pointer-events-none",
     },
     disableAnimation: {
       true: "after:transition-none transition-none",

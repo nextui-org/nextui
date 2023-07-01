@@ -197,8 +197,16 @@ export function useTooltip(originalProps: UseTooltipProps) {
     () =>
       popover({
         ...variantProps,
+        radius: originalProps?.radius ?? "md",
+        size: originalProps?.size ?? "md",
+        shadow: originalProps?.shadow ?? "sm",
       }),
-    [...Object.values(variantProps)],
+    [
+      ...Object.values(variantProps),
+      originalProps?.radius,
+      originalProps?.size,
+      originalProps?.shadow,
+    ],
   );
 
   const baseStyles = clsx(classNames?.base, className);

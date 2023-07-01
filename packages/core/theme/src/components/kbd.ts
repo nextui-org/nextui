@@ -1,6 +1,6 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "tailwind-variants";
+import {tv} from "../utils/tv";
 
 /**
  * Keyboard Key wrapper **Tailwind Variants** component
@@ -35,18 +35,19 @@ import {tv} from "tailwind-variants";
 const kbd = tv({
   slots: {
     base: [
-      "px-1",
-      "inline-block",
+      "px-1.5",
+      "py-0.5",
+      "inline-flex",
       "space-x-0.5",
+      "items-center",
       "font-sans",
       "font-normal",
       "text-center",
-      "text-sm",
-      "border",
-      "border-default",
+      "text-small",
+      "shadow-small",
       "bg-default-100",
       "text-foreground-600",
-      "rounded-md",
+      "rounded-small",
     ],
     abbr: "no-underline",
     content: "",

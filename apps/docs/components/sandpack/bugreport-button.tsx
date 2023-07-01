@@ -24,7 +24,7 @@ export const BugReportButton = () => {
         isIconOnly
         as={Link}
         href={`${ISSUE_REPORT_URL}${componentTitle}`}
-        size="xs"
+        size="sm"
         title="Report a bug"
         variant="light"
       >
