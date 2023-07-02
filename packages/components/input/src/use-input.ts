@@ -10,8 +10,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, RefObject} from "react";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
-
-import {useAriaTextField} from "./use-aria-textfield";
+import {useTextField} from "@react-aria/textfield";
 
 export interface Props extends HTMLNextUIProps<"input"> {
   /**
@@ -102,7 +101,7 @@ export function useInput(originalProps: UseInputProps) {
     onClear?.();
   };
 
-  const {labelProps, inputProps, descriptionProps, errorMessageProps} = useAriaTextField(
+  const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
     {
       ...originalProps,
       inputElementType: isMultiline ? "textarea" : "input",
@@ -177,6 +176,9 @@ export function useInput(originalProps: UseInputProps) {
       ref: domRef,
       className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
       ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
+      required: originalProps.isRequired,
+      "aria-readonly": dataAttr(originalProps.isReadOnly),
+      "aria-required": dataAttr(originalProps.isRequired),
       onChange: chain(inputProps.onChange, onChange),
     };
   };

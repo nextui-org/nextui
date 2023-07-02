@@ -1,6 +1,6 @@
 import type {DropdownItemBaseProps} from "./base/dropdown-item-base";
 
-import {useMemo, useRef, useCallback, useId} from "react";
+import {useMemo, useRef, useCallback} from "react";
 import {dropdownItem} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
@@ -65,10 +65,6 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
   const isSelectable = state.selectionManager.selectionMode !== "none";
 
   const isMobile = useIsMobile();
-
-  const labelId = useId();
-  const descriptionId = useId();
-  const keyboardId = useId();
 
   const {pressProps, isPressed} = usePress({
     ref: domRef,
@@ -140,27 +136,22 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     "data-selected": dataAttr(isSelected),
     "data-pressed": dataAttr(isPressed),
     "data-focus-visible": dataAttr(isFocusVisible),
-    "aria-labelledby": labelId,
-    "aria-describedby": [descriptionId, keyboardId].filter(Boolean).join(" ") || undefined,
     className: slots.base({class: clsx(baseStyles, props.className)}),
     onClick: chain(pressProps.onClick, onClick),
   });
 
   const getLabelProps: PropGetter = (props = {}) => ({
     ...mergeProps(labelProps, props),
-    id: labelId,
     className: slots.title({class: classNames?.title}),
   });
 
   const getDescriptionProps: PropGetter = (props = {}) => ({
     ...mergeProps(descriptionProps, props),
-    id: descriptionId,
     className: slots.description({class: classNames?.description}),
   });
 
   const getKeyboardShortcutProps: PropGetter = (props = {}) => ({
     ...mergeProps(keyboardShortcutProps, props),
-    id: keyboardId,
     className: slots.shortcut({class: classNames?.shortcut}),
   });
 

@@ -3,7 +3,7 @@ import {dropdownSection} from "@nextui-org/theme";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
 import {useMenuSection} from "@react-aria/menu";
-import {useMemo, Key, useId} from "react";
+import {useMemo, Key} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {Divider} from "@nextui-org/divider";
@@ -66,8 +66,6 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     },
     _,
   ) => {
-    const headingId = useId();
-
     const Component = as || "li";
 
     const slots = useMemo(() => dropdownSection(), []);
@@ -92,14 +90,12 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
             {...headingProps}
             className={slots.heading({class: classNames?.heading})}
             data-slot="heading"
-            id={headingId}
           >
             {item.rendered}
           </span>
         )}
         <ul
           {...groupProps}
-          aria-labelledby={headingId}
           className={slots.group({class: classNames?.group})}
           data-has-title={!!item.rendered}
           data-slot="group"

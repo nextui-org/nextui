@@ -5,7 +5,7 @@ import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useMemo, useId, RefObject} from "react";
+import {useMemo, RefObject} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
 import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
@@ -48,7 +48,6 @@ export type UseTabsProps<T> = Props &
 export type ContextType<T = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
-  tabPanelId: string;
   disableCursorAnimation?: boolean;
   listRef?: RefObject<HTMLElement>;
   classNames?: SlotsToClasses<TabsSlots>;
@@ -71,9 +70,6 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   });
   const {tabListProps} = useTabList<T>(otherProps, state, domRef);
 
-  const tabListId = useId();
-  const tabPanelId = useId();
-
   const slots = useMemo(
     () =>
       tabs({
@@ -89,7 +85,6 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     () => ({
       state,
       slots,
-      tabPanelId,
       classNames,
       listRef: domRef,
       disableCursorAnimation,
@@ -99,7 +94,6 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     [
       state,
       slots,
-      tabPanelId,
       domRef,
       disableCursorAnimation,
       originalProps?.disableAnimation,
@@ -119,7 +113,6 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     "data-slot": "tabList",
     className: slots.tabList({class: clsx(classNames?.tabList, props?.className)}),
     ...mergeProps(tabListProps, props),
-    id: tabListId,
   });
 
   return {

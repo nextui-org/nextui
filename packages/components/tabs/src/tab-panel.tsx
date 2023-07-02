@@ -22,7 +22,7 @@ const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
   const Component = as || "div";
   const domRef = useDOMRef(ref);
 
-  const {slots, tabPanelId, state, classNames} = useTabsContext();
+  const {slots, state, classNames} = useTabsContext();
 
   const {tabPanelProps} = useTabPanel(props, state, domRef);
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
@@ -43,10 +43,8 @@ const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
       data-focus={isFocused}
       data-focus-visible={isFocusVisible}
       {...mergeProps(tabPanelProps, focusProps, otherProps)}
-      aria-labelledby={`${tabPanelId}-${state.selectedItem?.key}`}
       className={slots.panel?.({class: tabPanelStyles})}
       data-slot="panel"
-      id={tabPanelId}
     >
       {content}
     </Component>

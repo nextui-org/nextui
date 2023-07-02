@@ -27,7 +27,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
         tabList:
           "bg-transparent relative before:bg-white/5 before:w-full before:rounded-lg before:h-full before:content-[''] before:block before:z-1 before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-100",
       }}
-      radius="lg"
+      radius="md"
       selectedKey={template}
       size="sm"
       onSelectionChange={handleToggle}

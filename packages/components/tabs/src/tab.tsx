@@ -24,7 +24,7 @@ export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
  * @internal
  */
 const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
-  const {className, as, item, style, onClick, ...otherProps} = props;
+  const {className, as, item, onClick, ...otherProps} = props;
 
   const {key} = item;
 
@@ -35,7 +35,6 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
   const {
     slots,
     state,
-    tabPanelId,
     listRef,
     disableCursorAnimation,
     isDisabled: isDisabledProp,
@@ -58,8 +57,6 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
   });
 
   const tabStyles = clsx(classNames?.tab, className);
-
-  const ariaControls = item?.props.children ? `${tabPanelId}-${key}` : undefined;
 
   const [, isMounted] = useIsMounted({
     rerender: true,
@@ -100,13 +97,7 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
           : {},
         filterDOMProps(otherProps, {labelable: true}),
       )}
-      aria-controls={ariaControls}
       className={slots.tab?.({class: tabStyles})}
-      id={`${tabPanelId}-${key}`}
-      style={{
-        ...style,
-        WebkitTapHighlightColor: "transparent",
-      }}
       onClick={handleClick}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (

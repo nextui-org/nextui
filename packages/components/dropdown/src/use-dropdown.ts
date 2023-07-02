@@ -1,4 +1,4 @@
-import {Ref, useId} from "react";
+import {Ref} from "react";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useMenuTriggerState} from "@react-stately/menu";
 import {MenuTriggerType} from "@react-types/menu";
@@ -64,9 +64,6 @@ export function useDropdown(props: UseDropdownProps) {
   const menuRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const triggerId = useId();
-  const menuId = useId();
-
   const state = useMenuTriggerState({
     trigger,
     isOpen,
@@ -120,17 +117,13 @@ export function useDropdown(props: UseDropdownProps) {
 
     return {
       ...mergeProps(otherMenuTriggerProps, props),
-      id: triggerId,
       ref: mergeRefs(_ref, triggerRef),
-      "aria-controls": menuId,
     };
   };
 
   const getMenuProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
     ...mergeProps(menuProps, props),
-    id: menuId,
     ref: mergeRefs(_ref, menuRef),
-    "aria-labelledby": triggerId,
   });
 
   return {

@@ -47,6 +47,7 @@ const tabs = tv({
       "outline-none",
       "cursor-pointer",
       "transition-opacity",
+      "tap-highlight-transparent",
       "data-[disabled=true]:cursor-not-allowed",
       "data-[disabled=true]:opacity-30",
       "data-[hover-unselected=true]:opacity-disabled",

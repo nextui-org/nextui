@@ -43,7 +43,7 @@
     "match-sorter": "^6.3.1",
     "mini-svg-data-uri": "^1.4.3",
     "mitt": "3.0.0",
-    "next": "13.4.7-canary.4",
+    "next": "13.4.8-canary.14",
     "next-mdx-remote": "^3.0.2",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",
@@ -70,7 +70,7 @@
   "devDependencies": {
     "@docusaurus/utils": "2.0.0-beta.3",
     "@next/bundle-analyzer": "^13.4.6",
-    "@next/env": "^13.4.2",
+    "@next/env": "^13.4.7",
     "@react-types/shared": "^3.18.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
