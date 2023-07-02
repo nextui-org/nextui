@@ -1,5 +1,11 @@
 # @nextui-org/test-utils
 
+## 0.0.0-dev-v2-20230702033431
+
+### Patch Changes
+
+- Boundary color removed, dropdown styles changed
+
 ## 0.0.0-dev-v2-20230702031855
 
 ### Patch Changes

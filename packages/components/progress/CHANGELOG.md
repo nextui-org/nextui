@@ -1,5 +1,18 @@
 # @nextui-org/progress
 
+## 0.0.0-dev-v2-20230702033431
+
+### Patch Changes
+
+- Boundary color removed, dropdown styles changed
+- Updated dependencies
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230702033431
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230702033431
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230702033431
+  - @nextui-org/use-is-mounted@0.0.0-dev-v2-20230702033431
+  - @nextui-org/system@0.0.0-dev-v2-20230702033431
+  - @nextui-org/theme@0.0.0-dev-v2-20230702033431
+
 ## 0.0.0-dev-v2-20230702031855
 
 ### Patch Changes

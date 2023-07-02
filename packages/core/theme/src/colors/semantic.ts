@@ -18,9 +18,6 @@ const base: SemanticBaseColors = {
     divider: {
       DEFAULT: "rgba(17, 17, 17, 0.15)",
     },
-    boundary: {
-      DEFAULT: common.zinc[200],
-    },
     focus: {
       DEFAULT: common.blue[500],
     },
@@ -60,9 +57,6 @@ const base: SemanticBaseColors = {
     },
     divider: {
       DEFAULT: "rgba(255, 255, 255, 0.15)",
-    },
-    boundary: {
-      DEFAULT: common.zinc[800],
     },
     content1: {
       DEFAULT: common.zinc[900],

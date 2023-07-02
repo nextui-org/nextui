@@ -170,11 +170,6 @@ SemanticColors.args = {
           textClassName: "text-foreground",
         },
         {
-          color: "boundary",
-          className: "bg-boundary",
-          textClassName: "text-foreground",
-        },
-        {
           color: "focus",
           className: "bg-focus",
           textClassName: "text-primary-foreground",

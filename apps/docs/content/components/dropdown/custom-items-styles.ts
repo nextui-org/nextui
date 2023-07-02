@@ -42,6 +42,7 @@ export default function App() {
         disabledKeys={["profile"]}
         className="p-3"
         itemClasses={{
+          title: "text-small",
           base: [
             "rounded-md",
             "text-default-500",
