@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-field
 
+## 0.0.0-dev-v2-20230702031855
+
+### Patch Changes
+
+- React aria packages upgraded, SSRProvider removed since is no longer needed
+- Updated dependencies
+  - @nextui-org/use-aria-slot-id@0.0.0-dev-v2-20230702031855
+  - @nextui-org/use-aria-label@0.0.0-dev-v2-20230702031855
+
 ## 0.0.0-dev-v2-20230701230240
 
 ### Patch Changes

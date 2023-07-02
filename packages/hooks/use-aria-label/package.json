@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-label",
-  "version": "0.0.0-dev-v2-20230701230240",
+  "version": "0.0.0-dev-v2-20230702031855",
   "description": "Based on react-aria label hook, it provides the accessibility implementation for labels and their associated elements. Labels provide context for user inputs.",
   "keywords": [
     "use-aria-label"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/utils": "^3.17.0",
+    "@react-aria/utils": "^3.18.0",
     "@react-types/shared": "^3.18.1"
   },
   "peerDependencies": {

@@ -1,5 +1,11 @@
 # @nextui-org/use-ssr
 
+## 0.0.0-dev-v2-20230702031855
+
+### Patch Changes
+
+- React aria packages upgraded, SSRProvider removed since is no longer needed
+
 ## 0.0.0-dev-v2-20230701230240
 
 ### Patch Changes

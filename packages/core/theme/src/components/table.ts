@@ -47,8 +47,8 @@ const table = tv({
       "relative",
       "justify-between",
       "gap-4",
-      "border",
-      "border-boundary",
+      "shadow-medium",
+      "bg-content1",
       "overflow-auto",
     ],
     table: "min-w-full h-auto",
@@ -79,7 +79,7 @@ const table = tv({
       "relative",
       "align-middle",
       "whitespace-normal",
-      "text-small",
+      "text-medium",
       "font-normal",
       "outline-none",
       ...dataFocusVisibleClasses,
@@ -141,23 +141,14 @@ const table = tv({
       none: {
         base: "rounded-none",
       },
-      base: {
-        base: "rounded",
-      },
       sm: {
-        base: "rounded-sm",
+        base: "rounded-small",
       },
       md: {
-        base: "rounded-md",
+        base: "rounded-medium",
       },
       lg: {
-        base: "rounded-lg",
-      },
-      xl: {
-        base: "rounded-xl",
-      },
-      "2xl": {
-        base: "rounded-2xl",
+        base: "rounded-large",
       },
     },
     shadow: {
@@ -165,22 +156,13 @@ const table = tv({
         base: "shadow-none",
       },
       sm: {
-        base: "shadow-sm",
+        base: "shadow-small",
       },
       md: {
-        base: "shadow-md",
+        base: "shadow-medium",
       },
       lg: {
-        base: "shadow-lg",
-      },
-      xl: {
-        base: "shadow-xl",
-      },
-      "2xl": {
-        base: "shadow-2xl",
-      },
-      inner: {
-        base: "shadow-inner",
+        base: "shadow-large",
       },
     },
     hideHeader: {
@@ -233,8 +215,8 @@ const table = tv({
   },
   defaultVariants: {
     layout: "auto",
-    shadow: "lg",
-    radius: "xl",
+    shadow: "md",
+    radius: "lg",
     color: "default",
     hideHeader: false,
     isStriped: false,

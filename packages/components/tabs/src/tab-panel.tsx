@@ -29,9 +29,9 @@ const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
 
   const selectedItem = state.selectedItem;
 
-  const content = selectedItem?.props.children;
+  const content = selectedItem?.props?.children;
 
-  const tabPanelStyles = clsx(classNames?.panel, className, selectedItem.props?.className);
+  const tabPanelStyles = clsx(classNames?.panel, className, selectedItem?.props?.className);
 
   if (!content) {
     return null;

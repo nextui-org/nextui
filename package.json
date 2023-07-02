@@ -32,7 +32,7 @@
     "lint:docs-fix": "eslint --fix -c .eslintrc.json ./apps/docs/**/*.{ts,tsx}",
     "turbo:clean": "turbo clean && rimraf ./node_modules/.cache/turbo",
     "turbo:graph": "pnpm build --graph=dependency-graph.png",
-    "clean": "pnpm turbo:clean && pnpm clean:node-modules && pnpm clean:lock && pnpm clean:jest && pnpm install --hoist",
+    "clean": "pnpm turbo:clean && pnpm clean:jest && pnpm clean:node-modules && pnpm clean:lock && pnpm install --hoist",
     "clean:node-modules": "rimraf ./apps/**/node_modules && rimraf ./packages/**/**/node_modules && rm -rf ./node_modules",
     "clean:lock": "rm ./pnpm-lock.yaml",
     "clean:jest": "jest --clearCache",

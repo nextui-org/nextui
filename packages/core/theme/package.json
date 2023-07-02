@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/theme",
-  "version": "0.0.0-dev-v2-20230701230240",
+  "version": "0.0.0-dev-v2-20230702031855",
   "description": "The default theme for NextUI components",
   "keywords": [
     "theme",
@@ -48,7 +48,7 @@
   "dependencies": {
     "color": "^4.2.3",
     "color2k": "^2.0.2",
-    "deepmerge": "4.3.0",
+    "deepmerge": "4.3.1",
     "flat": "^5.0.2",
     "lodash": "^4.17.21",
     "tailwind-variants": "^0.1.10",

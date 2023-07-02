@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-slot-id",
-  "version": "0.0.0-dev-v2-20230701230240",
+  "version": "0.0.0-dev-v2-20230702031855",
   "description": "Based on react-aria useSlotId, used to generate an id, and after render check if that id is rendered",
   "keywords": [
     "use-aria-slot-id"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/utils": "^3.17.0"
+    "@react-aria/utils": "^3.18.0"
   },
   "peerDependencies": {
     "react": ">=18"

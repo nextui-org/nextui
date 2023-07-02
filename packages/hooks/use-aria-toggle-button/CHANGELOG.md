@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230702031855
+
+### Patch Changes
+
+- React aria packages upgraded, SSRProvider removed since is no longer needed
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230702031855
+
 ## 0.0.0-dev-v2-20230701230240
 
 ### Patch Changes
