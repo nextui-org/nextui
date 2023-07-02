@@ -56,7 +56,7 @@ export const DarkMode = () => {
                 </Tooltip>
                 <ThemeSwitch
                   classNames={{
-                    base: "p-1.5 bg-transparent rounded-xl",
+                    base: "mt-1 bg-transparent rounded-xl",
                     wrapper: "!text-white/70 dark:!text-black/70",
                   }}
                 />

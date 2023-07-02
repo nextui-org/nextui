@@ -83,12 +83,12 @@ const cmdk = tv({
       "data-[active=true]:bg-primary",
       "data-[active=true]:text-primary-foreground",
     ],
-    leftWrapper: ["flex", "gap-3", "items-center"],
+    leftWrapper: ["flex", "gap-3", "items-center", "max-w-full"],
     leftIcon: [
       "text-default-500 dark:text-default-300",
       "group-data-[active=true]:text-primary-foreground",
     ],
-    itemContent: ["flex", "flex-col", "gap-0", "justify-center"],
+    itemContent: ["flex", "flex-col", "gap-0", "justify-center", "max-w-[80%]"],
     itemParentTitle: [
       "text-default-400",
       "text-xs",
@@ -96,6 +96,7 @@ const cmdk = tv({
       "select-none",
     ],
     itemTitle: [
+      "truncate",
       "text-default-500",
       "group-data-[active=true]:text-primary-foreground",
       "select-none",

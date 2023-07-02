@@ -9,6 +9,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "@nextui-org/docs",
-    "@nextui-org/storybook"
+    "@nextui-org/storybook",
+    "@nextui-org/test-utils"
   ]
 }

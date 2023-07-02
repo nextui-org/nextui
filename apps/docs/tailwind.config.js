@@ -348,6 +348,7 @@ module.exports = {
               DEFAULT: "#BEF264",
               foreground: "#000000",
             },
+            focus: "#BEF264",
           },
         },
       },

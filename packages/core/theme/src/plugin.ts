@@ -5,13 +5,17 @@
 
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
-import {get, omit, forEach} from "lodash";
+import get from "lodash.get";
+import omit from "lodash.omit";
+import forEach from "lodash.foreach";
+import mapKeys from "lodash.mapkeys";
+import kebabCase from "lodash.kebabcase";
 import deepMerge from "deepmerge";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
-import {flattenThemeObject, transformKeysToKebab} from "./utils/object";
+import {flattenThemeObject} from "./utils/object";
 import {isBaseTheme} from "./utils/theme";
 import {baseStyles} from "./utils/classes";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
@@ -56,7 +60,7 @@ const resolveConfig = (
     // flatten color definitions
     const flatColors = flattenThemeObject(colors);
 
-    const flatLayout = layout ? transformKeysToKebab(layout) : {};
+    const flatLayout = layout ? mapKeys(layout, (value, key) => kebabCase(key)) : {};
 
     // resolved.variants
     resolved.variants.push({
