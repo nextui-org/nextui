@@ -164,7 +164,7 @@ export default function App() {
               alt="Album cover"
               className="object-cover"
               height={200}
-              shadow="lg"
+              shadow="md"
               src="/images/album-cover.png"
               width="100%"
             />

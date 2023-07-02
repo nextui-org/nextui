@@ -33,11 +33,8 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               alt="Album cover"
               as={NextImage}
               className="object-cover"
-              classNames={{
-                wrapper: "shadow-black/20",
-              }}
               height={300}
-              shadow="lg"
+              shadow="md"
               src="/images/album-cover.png"
               width={240}
             />

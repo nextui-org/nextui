@@ -17,7 +17,7 @@ export default function App() {
           className={isFollowed ? "bg-transparent text-foreground border-default-200" : ""}
           color="primary"
           radius="full"
-          size="md"
+          size="sm"
           variant={isFollowed ? "bordered" : "solid"}
           onPress={() => setIsFollowed(!isFollowed)}
         >

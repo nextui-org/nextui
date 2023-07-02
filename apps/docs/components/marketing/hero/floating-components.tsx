@@ -144,9 +144,15 @@ export const FloatingComponents: React.FC<{}> = () => {
             src="/images/hero-card.webp"
             width={200}
           />
-          <CardFooter className="before:bg-white/10 border-white/20 border-1 overflow-hidden justify-between py-2 absolute before:rounded-xl rounded-xl bottom-1 w-[calc(100%_-_8px)] shadow-lg ml-1 z-10">
-            <p className="text-xs text-white/80">Available soon.</p>
-            <Button className="text-tiny" color="secondary" radius="full" size="sm">
+          <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+            <p className="text-tiny text-white/80">Available soon.</p>
+            <Button
+              className="text-tiny text-white bg-black/20"
+              color="default"
+              radius="lg"
+              size="sm"
+              variant="flat"
+            >
               Notify me
             </Button>
           </CardFooter>

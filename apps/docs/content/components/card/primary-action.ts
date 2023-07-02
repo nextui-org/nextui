@@ -50,7 +50,7 @@ export default function App() {
         <Card shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">
             <Image
-              shadow="lg"
+              shadow="sm"
               radius="lg"
               width="100%"
               alt={item.title}
