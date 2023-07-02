@@ -1,5 +1,20 @@
 # @nextui-org/popover
 
+## 0.0.0-dev-v2-20230702034649
+
+### Patch Changes
+
+- Dropdown styles fixed
+- Updated dependencies
+  - @nextui-org/framer-transitions@0.0.0-dev-v2-20230702034649
+  - @nextui-org/shared-utils@0.0.0-dev-v2-20230702034649
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230702034649
+  - @nextui-org/react-utils@0.0.0-dev-v2-20230702034649
+  - @nextui-org/aria-utils@0.0.0-dev-v2-20230702034649
+  - @nextui-org/button@0.0.0-dev-v2-20230702034649
+  - @nextui-org/system@0.0.0-dev-v2-20230702034649
+  - @nextui-org/theme@0.0.0-dev-v2-20230702034649
+
 ## 0.0.0-dev-v2-20230702033431
 
 ### Patch Changes

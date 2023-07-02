@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-toggle-button
 
+## 0.0.0-dev-v2-20230702034649
+
+### Patch Changes
+
+- Dropdown styles fixed
+- Updated dependencies
+  - @nextui-org/use-aria-button@0.0.0-dev-v2-20230702034649
+
 ## 0.0.0-dev-v2-20230702033431
 
 ### Patch Changes

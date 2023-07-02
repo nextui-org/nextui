@@ -1,5 +1,11 @@
 # @nextui-org/shared-icons
 
+## 0.0.0-dev-v2-20230702034649
+
+### Patch Changes
+
+- Dropdown styles fixed
+
 ## 0.0.0-dev-v2-20230702033431
 
 ### Patch Changes
