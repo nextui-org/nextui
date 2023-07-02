@@ -1,4 +1,4 @@
 export * from "./sidebar";
 export * from "./toc";
-export * from "./footer-nav";
+export * from "./pager";
 export * from "./components/code-demo";

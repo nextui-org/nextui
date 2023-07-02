@@ -1,9 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "tailwind-variants": ["./node_modules/tailwind-variants"]
+      "tailwind-variants": ["./node_modules/tailwind-variants"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,6 +19,12 @@
     ],
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+  ],
   "exclude": ["node_modules", "next-redirect.js"]
 }

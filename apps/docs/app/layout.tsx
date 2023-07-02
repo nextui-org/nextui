@@ -6,7 +6,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import {Providers} from "./providers";
 
 import {Cmdk} from "@/components/cmdk";
-import manifest from "@/content/docs/manifest.json";
+import manifest from "@/config/routes.json";
 import {siteConfig} from "@/config/site";
 import {fontSans} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";

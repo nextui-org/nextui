@@ -1,5 +1,8 @@
 import {ParsedUrlQuery} from "querystring";
 
+import {marked} from "marked";
+import Slugger from "github-slugger";
+
 export type SlugParams = ParsedUrlQuery | undefined;
 export type Heading = {level: number; text: string; id: string};
 
@@ -7,6 +10,8 @@ export interface SlugResponse {
   slug: string;
   tag?: string;
 }
+
+const slugger = new Slugger();
 
 // Handle optional catch all route for `/docs`
 function getDocsSlug(slug: any): any {
@@ -41,18 +46,20 @@ export function getAppSlug(params: {slug: string[]}) {
   return {slug: `/docs/${slug.join("/")}`};
 }
 
-export function extractHeadings(compiledSource: string): Heading[] {
-  const regex = /mdx\("(h\d)",[a-z]\(\{},{id:"(.*?)"\}\),"([^"]*?)"/g;
-  let match;
-  const headings = [];
+export function getHeadings(markdownText: string | undefined): Heading[] {
+  let headings: Heading[] = [];
 
-  while ((match = regex.exec(compiledSource)) !== null) {
-    const [, level, id, text] = match;
-    // Check if text is ending with "),mdx", if so, remove it.
-    let cleanedText = text.endsWith('"),mdx') ? text.slice(0, -6) : text;
-
-    headings.push({level: parseInt(level.replace("h", "")), text: cleanedText, id});
+  if (!markdownText) {
+    return headings;
   }
+  slugger.reset();
+  const tokens = marked.lexer(markdownText);
+
+  tokens.forEach((token) => {
+    if (token.type === "heading") {
+      headings.push({level: token.depth, text: token.text, id: slugger.slug(token.text)});
+    }
+  });
 
   return headings;
 }

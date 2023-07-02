@@ -81,6 +81,7 @@
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "chalk": "^4.1.2",
+    "concurrently": "^7.6.0",
     "commitlint-plugin-function-rules": "^1.7.1",
     "eslint": "^7.29.0",
     "eslint-config-airbnb": "^18.2.1",

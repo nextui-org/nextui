@@ -93,9 +93,8 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                         "px-2": showLines,
                       },
                       {
-                        "before:content-[''] before:w-full before:h-full before:absolute before:z-0 before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background": shouldHighlightLine(
-                          i,
-                        ),
+                        "before:content-[''] before:w-full before:h-full before:absolute before:z-0 before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background":
+                          shouldHighlightLine(i),
                       },
                     )}
                   >

@@ -23,7 +23,7 @@ import {
   SearchLinearIcon,
 } from "./icons";
 
-import searchData from "@/content/docs/search-meta.json";
+import searchData from "@/config/search-meta.json";
 import {useUpdateEffect} from "@/hooks/use-update-effect";
 
 export interface CmdkStore {

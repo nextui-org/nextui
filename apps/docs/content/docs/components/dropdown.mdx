@@ -1,8 +1,9 @@
 ---
 title: "Dropdown"
 description: "Displays a list of actions or options that a user can choose."
-url: https://nextui.org/docs/components/dropdown
 ---
+
+import {dropdownContent} from "@/content/components/dropdown";
 
 # Dropdown
 
@@ -263,7 +264,7 @@ you to customize each item individually.
 
 ### DropdownMenu Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                             |
+| Attribute              | Type                                                                                                   | Description                                                                                             |           |
 | ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
 | children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -         |
 | items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -         |
@@ -278,7 +279,7 @@ you to customize each item individually.
 | shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`   |
 | closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`    |
 | disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`   |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -         |
+| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`            | Allows to set custom class names for the dropdown item slots.                                           | -         |
 
 ### DropdownMenu Events
 

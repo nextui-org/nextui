@@ -1,6 +1,6 @@
 import {Image} from "@nextui-org/react";
 
-import manifest from "@/content/docs/manifest.json";
+import manifest from "@/config/routes.json";
 import {DocsSidebar} from "@/components/docs/sidebar";
 
 interface DocsLayoutProps {

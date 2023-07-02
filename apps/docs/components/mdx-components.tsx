@@ -98,18 +98,30 @@ const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
   );
 };
 
+const InlineCode = ({children}: {children?: React.ReactNode}) => {
+  return (
+    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx">
+      {children}
+    </Components.Code>
+  );
+};
+
 const Code = ({
   className,
   children,
-  metastring,
+  meta,
 }: {
   children?: React.ReactNode;
-  metastring?: string;
   className?: string;
+  meta?: string;
 }) => {
-  const isMultiLine = (children as string).split("\n").length > 2;
+  const isMultiLine = (children as string)?.split?.("\n")?.length > 2;
   const language = (className?.replace(/language-/, "") ?? "jsx") as Language;
   const codeString = String(children).trim();
+
+  if (!className) {
+    return <InlineCode>{children}</InlineCode>;
+  }
 
   return (
     <Components.Snippet
@@ -129,7 +141,7 @@ const Code = ({
       }}
       codeString={codeString}
     >
-      <Codeblock codeString={codeString} language={language} metastring={metastring} />
+      <Codeblock codeString={codeString} language={language} metastring={meta} />
     </Components.Snippet>
   );
 };
@@ -141,14 +153,6 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
     <Components.Link href={href} isExternal={isExternal} showAnchorIcon={isExternal}>
       {children}
     </Components.Link>
-  );
-};
-
-const InlineCode = ({children}: {children?: React.ReactNode}) => {
-  return (
-    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx">
-      {children}
-    </Components.Code>
   );
 };
 
@@ -183,7 +187,6 @@ export const MDXComponents = {
   thead: Thead,
   tr: Trow,
   td: Tcol,
-  // Playground,
   // CarbonAd,
   code: Code,
   ul: List,
@@ -191,8 +194,6 @@ export const MDXComponents = {
   blockquote: (props: Omit<React.HTMLAttributes<HTMLElement>, "color">) => (
     <DocsComponents.Blockquote {...props} />
   ),
-  inlineCode: InlineCode,
-  InlineCode,
   kbd: (props: React.HTMLAttributes<HTMLElement>) => (
     <Components.Kbd {...props} className="py-0.5 px-1.5" />
   ),

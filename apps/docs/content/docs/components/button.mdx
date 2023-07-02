@@ -1,8 +1,9 @@
 ---
 title: "Button"
 description: "Buttons allow users to perform actions and choose with a single tap."
-url: https://nextui.org/docs/components/button
 ---
+
+import {buttonContent} from "@/content/components/button";
 
 # Button
 
@@ -175,12 +176,12 @@ building buttons that work well across devices and interaction methods.
 
 ### Button Group Props
 
-| Attribute  | Type                                                                          | Description                                     | Default   |
-| ---------- | ----------------------------------------------------------------------------- | ----------------------------------------------- | --------- |
-| children   | `ReactNode` \| `ReactNode[]`                                                  | The buttons to display.                         | -         |
-| variant    | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost`  | The buttons appearance style.                   | `solid`   |
-| size       | `xs` \| `sm` \| `md` \| `lg` \| `xl`                                          | The buttons size.                               | `md`      |
-| color      | ``default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The buttons color theme.                        | `default` |
-| radius     | ``none` \| `base` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `full` | The buttons border radius.                      | `xl`      |
-| fullWidth  | `boolean`                                                                     | Whether the buttons should take the full width. | `false`   |
-| isDisabled | `boolean`                                                                     | Whether the buttons are disabled.               | `false`   |
+| Attribute  | Type                                                                         | Description                                     | Default   |
+| ---------- | ---------------------------------------------------------------------------- | ----------------------------------------------- | --------- |
+| children   | `ReactNode` \| `ReactNode[]`                                                 | The buttons to display.                         | -         |
+| variant    | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost` | The buttons appearance style.                   | `solid`   |
+| color      | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The buttons color theme.                        | `default` |
+| size       | `sm` \| `md` \| `lg`                                                         | The buttons size.                               | `md`      |
+| radius     | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The buttons border radius.                      | `xl`      |
+| fullWidth  | `boolean`                                                                    | Whether the buttons should take the full width. | `false`   |
+| isDisabled | `boolean`                                                                    | Whether the buttons are disabled.               | `false`   |
