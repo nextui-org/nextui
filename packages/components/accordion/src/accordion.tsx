@@ -1,6 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {LayoutGroup} from "framer-motion";
 import {Divider} from "@nextui-org/divider";
+import {Fragment} from "react";
 
 import {UseAccordionProps, useAccordion} from "./use-accordion";
 import {AccordionProvider} from "./accordion-context";
@@ -25,16 +26,15 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
   });
 
   const content = [...state.collection].map((item, index) => (
-    <>
+    <Fragment key={item.key}>
       <AccordionItem
-        key={item.key}
         item={item}
         onFocusChange={(isFocused) => handleFocusChanged(isFocused, item.key)}
         {...item.props}
         classNames={{...itemClasses, ...(item.props.classNames || {})}}
       />
       {!isSplitted && showDivider && index < state.collection.size - 1 && <Divider />}
-    </>
+    </Fragment>
   ));
 
   return (
