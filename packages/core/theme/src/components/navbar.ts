@@ -158,13 +158,14 @@ const navbar = tv({
       "px-6",
       "pt-2",
       "fixed",
+      "flex",
       "max-w-full",
       "top-[var(--navbar-height)]",
       "inset-x-0",
       "bottom-0",
       "w-screen",
       "flex-col",
-      "gap-3",
+      "gap-2",
       "overflow-y-auto",
     ],
     menuItem: ["text-large"],
@@ -200,7 +201,7 @@ const navbar = tv({
     },
     hideOnScroll: {
       true: {
-        base: ["fixed", "top-0", "inset-x-0"],
+        base: ["sticky", "top-0", "inset-x-0"],
       },
     },
     isBordered: {

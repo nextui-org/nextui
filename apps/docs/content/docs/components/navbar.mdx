@@ -68,7 +68,7 @@ You can use the `position` prop to make the navbar static positioned (the defaul
   title="Static"
   previewHeight="500px"
   iframeSrc="/examples/navbar/static"
-  files={navbarContent.static}
+  files={navbarContent.staticPosition}
 />
 
 ### Hide on scroll
@@ -81,4 +81,30 @@ It is possible to hide the navbar on scroll by using the `shouldHideOnScroll` pr
   previewHeight="500px"
   iframeSrc="/examples/navbar/hide-on-scroll"
   files={navbarContent.hideOnScroll}
+/>
+
+### With Menu
+
+You can use the `NavbarMenuToggle` and `NavbarMenu` components to display a togglable menu.
+
+<CodeDemo 
+  asIframe
+  title="With Menu"
+  iframeInitialWidth={420}
+  previewHeight="600px"
+  iframeSrc="/examples/navbar/with-menu"
+  files={navbarContent.withMenu}
+/>
+
+### With Dropdown Menu
+
+It is possible to use the [Dropdown](/docs/components/dropdown) component to display a dropdown menu as navbar item.
+
+
+<CodeDemo 
+  asIframe
+  title="With Dropdown Menu"
+  previewHeight="600px"
+  iframeSrc="/examples/navbar/with-dropdown-menu"
+  files={navbarContent.withMenu}
 />

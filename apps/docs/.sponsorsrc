@@ -110,9 +110,9 @@
     "role": "BACKER",
     "tier": "bronze sponsor 🥉",
     "isActive": true,
-    "totalAmountDonated": 60,
+    "totalAmountDonated": 70,
     "currency": "USD",
-    "lastTransactionAt": "2023-06-02 06:09",
+    "lastTransactionAt": "2023-07-02 09:04",
     "lastTransactionAmount": 10,
     "profile": "https://opencollective.com/chartbrew",
     "name": "Chartbrew",
@@ -302,14 +302,14 @@
     "currency": "USD",
     "lastTransactionAt": "2023-06-13 13:51",
     "lastTransactionAmount": 5,
-    "profile": "https://opencollective.com/jefferson-fonseca",
-    "name": "Jefferson Fonseca",
-    "company": null,
+    "profile": "https://opencollective.com/encurme",
+    "name": "EncurMe",
+    "company": "EncurMe",
     "description": null,
     "image": "/sponsors/442878.jpg",
     "email": null,
     "twitter": null,
     "github": null,
-    "website": null
+    "website": "https://encur.me/"
   }
 ]

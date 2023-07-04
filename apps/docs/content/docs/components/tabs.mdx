@@ -127,24 +127,25 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ### Tabs Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                             | Default     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ----------- |
-| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The list of tabs.                                                                                       | -           |
-| variant                | `solid` \| `bordered` \| `light` \| `underlined`                                                       | The tabs appearance style.                                                                              | `solid`     |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The tabs color theme.                                                                                   | `default`   |
-| size                   | `sm` \| `md` \| `lg`                                                                                   | The tabs size.                                                                                          | `md`        |
-| radius                 | `none` \| `sm` \| `md` \| `lg` \| `full`                                                               | The tabs border radius.                                                                                 | -           |
-| fullWidth              | `boolean`                                                                                              | Whether the tabs should take the full width of its parent.                                              | `false`     |
-| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The list of tabs (dynamic).                                                                             | -           |
-| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -           |
-| selectedKey            | `React.Key`                                                                                            | The key for the currently selected item.                                                                | -           |
-| defaultSelectedKey     | `React.Key`                                                                                            | The key for the initially selected item.                                                                | -           |
-| disallowEmptySelection | `boolean`                                                                                              | Whether the tabs should allow empty selection.                                                          | `false`     |
-| keyboardActivation     | `automatic` \| `manual`                                                                                | Whether tabs are activated automatically on focus or manually.                                          | `automatic` |
-| disableCursorAnimation | `boolean`                                                                                              | Whether the cursor should be hidden.                                                                    | `false`     |
-| isDisabled             | `boolean`                                                                                              | Whether the tab list should be disabled.                                                                | `false`     |
-| disableAnimation       | `boolean`                                                                                              | Whether the tab list should be animated.                                                                | `false`     |
-| classNames             | `Record<"base"｜ "tabList"｜ "tab"｜ "tabContent"｜ "tabContent" ｜ "cursor" ｜ "panel", string>`      | Allows to set custom class names for the card slots.                                                    | -           |
+| Attribute              | Type                                                                                                   | Description                                                                                                  | Default     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ----------- |
+| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The list of tabs.                                                                                            | -           |
+| variant                | `solid` \| `bordered` \| `light` \| `underlined`                                                       | The tabs appearance style.                                                                                   | `solid`     |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The tabs color theme.                                                                                        | `default`   |
+| size                   | `sm` \| `md` \| `lg`                                                                                   | The tabs size.                                                                                               | `md`        |
+| radius                 | `none` \| `sm` \| `md` \| `lg` \| `full`                                                               | The tabs border radius.                                                                                      | -           |
+| fullWidth              | `boolean`                                                                                              | Whether the tabs should take the full width of its parent.                                                   | `false`     |
+| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The list of tabs (dynamic).                                                                                  | -           |
+| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.      | -           |
+| selectedKey            | `React.Key`                                                                                            | The key for the currently selected item.                                                                     | -           |
+| defaultSelectedKey     | `React.Key`                                                                                            | The key for the initially selected item.                                                                     | -           |
+| disallowEmptySelection | `boolean`                                                                                              | Whether the tabs should allow empty selection.                                                               | `false`     |
+| keyboardActivation     | `automatic` \| `manual`                                                                                | Whether tabs are activated automatically on focus or manually.                                               | `automatic` |
+| motionProps            | [MotionProps](#motion-props)                                                                           | The props to modify the cursor framer motion animation. Use the `variants` API to create your own animation. | -           |
+| disableCursorAnimation | `boolean`                                                                                              | Whether the cursor should be hidden.                                                                         | `false`     |
+| isDisabled             | `boolean`                                                                                              | Whether the tab list should be disabled.                                                                     | `false`     |
+| disableAnimation       | `boolean`                                                                                              | Whether the tab list should be animated.                                                                     | `false`     |
+| classNames             | `Record<"base"｜ "tabList"｜ "tab"｜ "tabContent"｜ "tabContent" ｜ "cursor" ｜ "panel", string>`      | Allows to set custom class names for the card slots.                                                         | -           |
 
 ### Tabs Events
 
@@ -158,3 +159,9 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 | ---------- | ----------- | ----------------------- | ------- |
 | children\* | `ReactNode` | The content of the tab. | -       |
 | title      | `ReactNode` | The title of the tab.   | -       |
+
+#### Motion Props
+
+```ts
+export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
+```

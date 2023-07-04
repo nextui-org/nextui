@@ -4,6 +4,7 @@ import {Button, Link} from "@nextui-org/react";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
+import {Code} from "@nextui-org/react";
 
 import {FeaturesGrid} from "./features-grid";
 
@@ -21,8 +22,11 @@ const bannerSuggestions = [
   },
   {
     title: "NextUI + Next.js",
-    description:
-      "NextUI is totally compatible with Next.js you just need to customize the _app.jsx entry file to load the provider.",
+    description: (
+      <>
+        NextUI is fully compatible with the new Next.js 13 <Code>app/</Code> directory structure.
+      </>
+    ),
     icon: <NextJsIcon className="text-pink-500" />,
     href: "/docs/frameworks/nextjs",
   },

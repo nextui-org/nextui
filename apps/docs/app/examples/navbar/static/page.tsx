@@ -20,7 +20,7 @@ export default function Page() {
         <AcmeLogo />
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-2" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem as={Link} color="foreground" href="#">
           Features
         </NavbarItem>

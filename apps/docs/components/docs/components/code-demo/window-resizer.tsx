@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {motion, useMotionValue, useTransform} from "framer-motion";
 import {tv} from "tailwind-variants";
 
@@ -7,16 +7,16 @@ import {useIsomorphicLayoutEffect} from "@/hooks/use-isomorphic-layout-effect";
 import {WindowActions} from "@/components/code-window/window-actions";
 
 const resizer = tv({
-  base: "flex items-center justify-end absolute right-[5px] z-10 w-auto xs:hidden",
   slots: {
+    base: "flex items-center justify-end absolute right-[5px] z-10 w-auto xs:hidden",
     main: "relative w-full",
     barWrapper:
       "cursor-ew-resize select-none absolute d-flex justify-center flex items-center w-[10px] h-auto active:opacity-80",
     barInner: "relative z-10",
     bar: "w-[6px] h-[40px] rounded-full bg-default-400",
     iframeWrapper:
-      "w-full h-full border border-default-200 dark:border-default-100 rounded-lg overflow-hidden",
-    iframe: "w-full h-full border-none z-10 overflow-x-visible overflow-y-scroll",
+      "relative z-10 w-full h-full border border-default-200 dark:border-default-100 rounded-lg overflow-hidden",
+    iframe: "w-full h-full border-none z-10 overflow-scroll",
   },
   variants: {
     hasInitialWidth: {
@@ -32,9 +32,11 @@ const resizer = tv({
     enablePointerEvents: {
       true: {
         iframe: "pointer-events-auto",
+        iframeWrapper: "pointer-events-auto",
       },
       false: {
         iframe: "pointer-events-none select-none",
+        iframeWrapper: "pointer-events-none select-none",
       },
     },
   },
@@ -48,7 +50,6 @@ const resizer = tv({
 export interface WindowResizerProps {
   iframeHeight?: string | number;
   iframeMinWidth?: number;
-  iframeZoom?: number;
   iframeSrc?: string;
   iframeInitialWidth?: number;
   iframeTitle?: string;
@@ -68,7 +69,6 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     iframeSrc,
     iframeTitle,
     iframeHeight: height = "420px",
-    iframeZoom = 1,
     iframeInitialWidth,
     iframeMinWidth: minWidth = MIN_WIDTH,
   } = props;
@@ -110,34 +110,6 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     resizerRef.current.onselectstart = () => false;
   }, []);
 
-  // inject iframe styles
-  useEffect(() => {
-    const iframeStyles = `
-  body {
-    zoom: ${iframeZoom};
-  }
-  `;
-
-    if (!iframeRef.current) {
-      return;
-    }
-    const iframeDocument = iframeRef.current.contentDocument;
-
-    if (!iframeDocument) {
-      return;
-    }
-    // add classname to the iframe html element
-    iframeDocument?.documentElement?.classList?.add("overflow-hidden");
-
-    const style = iframeDocument.createElement("style");
-
-    if (style) {
-      style.innerHTML = iframeStyles;
-    }
-
-    iframeDocument.head?.appendChild(style);
-  });
-
   return (
     <div className={main()} style={{height}}>
       <motion.div
@@ -146,13 +118,13 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
           width: isMobile ? "100%" : browserWidth,
         }}
       >
-        <WindowActions />
+        <WindowActions className="bg-default-100 dark:bg-default-50" />
         <motion.iframe ref={iframeRef} className={iframe()} src={iframeSrc} title={iframeTitle} />
       </motion.div>
       <div
         ref={constraintsResizerRef}
         className={base({
-          className: "top-0 bottom-0 right-0 xs:w-mw-xs",
+          className: "z-1 top-0 bottom-0 right-0 xs:w-mw-xs",
         })}
         style={{
           width: `calc(100% - ${hasInitialWidth ? iframeInitialWidth : minWidth}px - 20px)`,

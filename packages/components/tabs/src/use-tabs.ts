@@ -11,12 +11,17 @@ import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
+import {HTMLMotionProps} from "framer-motion";
 
 export interface Props extends Omit<HTMLNextUIProps<"div">, "children"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * The props to modify the cursor motion animation. Use the `variants` API to create your own animation.
+   */
+  motionProps?: HTMLMotionProps<"span">;
   /**
    * Whether the cursor should be hidden.
    * @default false
@@ -51,6 +56,7 @@ export type ContextType<T = object> = {
   disableCursorAnimation?: boolean;
   listRef?: RefObject<HTMLElement>;
   classNames?: SlotsToClasses<TabsSlots>;
+  motionProps?: HTMLMotionProps<"span">;
   disableAnimation?: boolean;
   isDisabled?: boolean;
 };
@@ -58,7 +64,16 @@ export type ContextType<T = object> = {
 export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, tabs.variantKeys);
 
-  const {ref, as, className, children, classNames, disableCursorAnimation, ...otherProps} = props;
+  const {
+    ref,
+    as,
+    className,
+    children,
+    classNames,
+    disableCursorAnimation,
+    motionProps,
+    ...otherProps
+  } = props;
 
   const Component = as || "div";
 
@@ -86,6 +101,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       state,
       slots,
       classNames,
+      motionProps,
       listRef: domRef,
       disableCursorAnimation,
       isDisabled: originalProps?.isDisabled,
@@ -95,6 +111,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       state,
       slots,
       domRef,
+      motionProps,
       disableCursorAnimation,
       originalProps?.disableAnimation,
       originalProps?.isDisabled,

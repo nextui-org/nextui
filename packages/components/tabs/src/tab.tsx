@@ -8,7 +8,6 @@ import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
 import {motion} from "framer-motion";
-import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {useTabsContext} from "./tabs-context";
@@ -36,6 +35,7 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
     slots,
     state,
     listRef,
+    motionProps,
     disableCursorAnimation,
     isDisabled: isDisabledProp,
     disableAnimation,
@@ -107,9 +107,11 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
           layoutDependency={false}
           layoutId="cursor"
           transition={{
-            ease: TRANSITION_EASINGS.softSpring,
-            duration: 0.6,
+            type: "spring",
+            bounce: 0.15,
+            duration: 0.5,
           }}
+          {...motionProps}
         />
       ) : null}
       <div

@@ -13,6 +13,7 @@ import toc from "markdown-toc";
 import {parseMarkdownFile, fileToPath, removePrefix} from "@docusaurus/utils";
 
 const docsRootFolder = "content/docs";
+const configFolder = "config";
 
 interface ResultType {
   content: string
@@ -109,13 +110,13 @@ async function getSearchMeta(saveMode: "algolia" | "local" = "local") {
 
         
         // create a folder if it doesn't exist
-        if (!fs.existsSync(`${docsRootFolder}`)) {
-          fs.mkdirSync(`${docsRootFolder}`);
+        if (!fs.existsSync(`${configFolder}`)) {
+          fs.mkdirSync(`${configFolder}`);
         }
 
         const outPath = path.join(
           process.cwd(),
-          `${docsRootFolder}`,
+          `${configFolder}`,
           'search-meta.json'
         );
 

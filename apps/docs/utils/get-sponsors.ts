@@ -15,7 +15,8 @@ export const getSponsors = async () => {
 
     // filter out repeated sponsors
     const sponsors = uniqBy<Sponsor>(data, "profile").filter(
-      (sponsor) => sponsor.role !== "ADMIN" && sponsor.role !== "HOST",
+      (sponsor) =>
+        sponsor.role !== "ADMIN" && sponsor.role !== "HOST" && sponsor.name !== "EthicalAds",
     );
 
     return sponsors as Sponsor[];

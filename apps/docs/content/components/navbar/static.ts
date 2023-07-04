@@ -14,7 +14,7 @@ import {AcmeLogo} from "./AcmeLogo.jsx";
 
 export default function App() {
   return (
-    <Navbar>
+    <Navbar position="static">
       <NavbarBrand>
         <AcmeLogo />
         <p className="font-bold text-inherit">ACME</p>
