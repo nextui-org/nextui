@@ -29,7 +29,7 @@ export default {
     {
       title: "Light & Dark UI",
       description:
-        "Automatic dark mode recognition, NextUI automatically changes the theme when detects HTML theme prop changes.",
+        "Automatic dark mode recognition, NextUI automatically changes the theme when it detects HTML theme prop changes.",
       icon: <Moon fill="#FF4ECD" />,
     },
     {
