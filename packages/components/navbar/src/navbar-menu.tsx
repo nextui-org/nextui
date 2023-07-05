@@ -59,7 +59,7 @@ const NavbarMenu = forwardRef<NavbarMenuProps, "ul">((props, ref) => {
       </ul>
     </MenuWrapper>
   ) : (
-    <AnimatePresence initial={false}>
+    <AnimatePresence>
       {isMenuOpen ? (
         <MenuWrapper>
           <motion.ul

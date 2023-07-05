@@ -47,6 +47,7 @@ export default function Page() {
           <NavbarItem>
             <DropdownTrigger>
               <Button
+                disableRipple
                 className="p-0 bg-transparent data-[hover=true]:bg-transparent"
                 endContent={icons.chevron}
                 radius="sm"

@@ -22,6 +22,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
 
   const {
     Component: OverlayComponent,
+    isOpen,
     placement,
     showArrow,
     motionProps,
@@ -85,14 +86,14 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
   return (
     <div {...getPopoverProps()}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll} removeScrollBar={false}>
+      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
         {disableAnimation ? (
           content
         ) : (
           <motion.div
             animate="enter"
             exit="exit"
-            initial="exit"
+            initial="initial"
             style={{
               ...getTransformOrigins(placement === "center" ? "top" : placement),
             }}

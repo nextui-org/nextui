@@ -28,7 +28,7 @@ const Popover = forwardRef<PopoverProps, "div">((props, ref) => {
       {context.disableAnimation && context.isOpen ? (
         overlay
       ) : (
-        <AnimatePresence initial={false}>{context.isOpen ? overlay : null}</AnimatePresence>
+        <AnimatePresence>{context.isOpen ? overlay : null}</AnimatePresence>
       )}
     </PopoverProvider>
   );

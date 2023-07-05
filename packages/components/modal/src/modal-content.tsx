@@ -24,6 +24,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     Component: DialogComponent,
     dialogRef,
     slots,
+    isOpen,
     classNames,
     motionProps,
     backdrop,
@@ -88,7 +89,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
   return (
     <div tabIndex={-1}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll} removeScrollBar={false}>
+      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
         {disableAnimation ? (
           <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
         ) : (

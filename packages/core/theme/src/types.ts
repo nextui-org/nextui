@@ -89,6 +89,7 @@ export interface LayoutTheme {
    */
   boxShadow?: BaseThemeUnit;
 }
+
 export type ConfigTheme = {
   extend?: "light" | "dark";
   layout?: LayoutTheme;

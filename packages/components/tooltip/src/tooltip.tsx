@@ -88,7 +88,7 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
           </Component>
         </OverlayContainer>
       ) : (
-        <AnimatePresence initial={false}>
+        <AnimatePresence>
           {isOpen ? (
             <OverlayContainer portalContainer={portalContainer}>{animatedContent}</OverlayContainer>
           ) : null}
