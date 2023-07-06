@@ -8,7 +8,7 @@ describe("ButtonGroup", () => {
   it("should render correctly", () => {
     const wrapper = render(
       <ButtonGroup>
-        <Button>action</Button>
+        <Button disableRipple>action</Button>
       </ButtonGroup>,
     );
 
@@ -26,7 +26,7 @@ describe("ButtonGroup", () => {
     const handler = jest.fn();
     const wrapper = render(
       <ButtonGroup isDisabled={true}>
-        <Button data-testid="button-test" onClick={handler}>
+        <Button disableRipple data-testid="button-test" onClick={handler}>
           action
         </Button>
       </ButtonGroup>,
@@ -42,13 +42,13 @@ describe("ButtonGroup", () => {
     const wrapper = render(
       <ButtonGroup>
         <Button variant="flat">button</Button>
-        <Button color="warning" variant="light">
+        <Button disableRipple color="warning" variant="light">
           light
         </Button>
-        <Button color="success" variant="light">
+        <Button disableRipple color="success" variant="light">
           button
         </Button>
-        <Button color="warning" variant="bordered">
+        <Button disableRipple color="warning" variant="bordered">
           button
         </Button>
       </ButtonGroup>,

@@ -102,7 +102,9 @@ describe("Popover", () => {
     const wrapper = render(
       <Popover onOpenChange={(isOpen) => (!isOpen ? onClose() : undefined)}>
         <PopoverTrigger>
-          <Button data-testid="trigger-test">Open popover</Button>
+          <Button disableRipple data-testid="trigger-test">
+            Open popover
+          </Button>
         </PopoverTrigger>
         <PopoverContent>
           <p>This is the content of the popover.</p>

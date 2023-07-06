@@ -7,7 +7,7 @@ export default function App() {
         <Image
           alt="nextui logo"
           height={40}
-          radius="lg"
+          radius="sm"
           src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
           width={40}
         />

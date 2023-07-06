@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/drip",
-  "version": "0.0.0-dev-v2-20230705005214",
-  "description": "A ripple effect for ensuring that the user fells the system is reacting instantaneously",
+  "name": "@nextui-org/ripple",
+  "version": "0.0.0-dev-v2-20230706030638",
+  "description": "A simple implementation to display a ripple animation when the source component is clicked",
   "keywords": [
-    "drip"
+    "ripple"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,30 +19,33 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/drip"
+    "directory": "packages/components/ripple"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "framer-motion": ">=4.0.0"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*"
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
+    "framer-motion": "^10.12.18",
     "react": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"

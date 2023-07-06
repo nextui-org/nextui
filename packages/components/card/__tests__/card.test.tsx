@@ -1,5 +1,6 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {render} from "@testing-library/react";
+import {act} from "@testing-library/react-hooks";
 
 import {Card} from "../src";
 
@@ -25,10 +26,12 @@ describe("Card", () => {
 
   it("should be clicked when is pressable", () => {
     const onPress = jest.fn();
-    const {getByRole} = render(<Card isPressable onPress={onPress} />);
+    const {getByRole} = render(<Card disableRipple isPressable onPress={onPress} />);
+
+    const button = getByRole("button");
 
     act(() => {
-      getByRole("button").click();
+      button.click();
     });
 
     expect(onPress).toHaveBeenCalled();
@@ -45,7 +48,7 @@ describe("Card", () => {
   });
 
   it("should have a button role when is pressable", () => {
-    const {container} = render(<Card isPressable />);
+    const {container} = render(<Card disableRipple isPressable />);
 
     expect(container.firstChild).toHaveAttribute("role", "button");
   });

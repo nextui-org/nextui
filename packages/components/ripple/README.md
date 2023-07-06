@@ -1,4 +1,4 @@
-# @nextui-org/drip
+# @nextui-org/ripple
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/drip
+yarn add @nextui-org/ripple
 # or
-npm i @nextui-org/drip
+npm i @nextui-org/ripple
 ```
 
 ## Contribution

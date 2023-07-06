@@ -5,7 +5,7 @@ import {Button} from "../src";
 
 describe("Button", () => {
   it("should render correctly", () => {
-    const wrapper = render(<Button />);
+    const wrapper = render(<Button disableRipple />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -13,13 +13,13 @@ describe("Button", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLButtonElement>();
 
-    render(<Button ref={ref} />);
+    render(<Button ref={ref} disableRipple />);
     expect(ref.current).not.toBeNull();
   });
 
   it("should trigger onPress function", () => {
     const onPress = jest.fn();
-    const {getByRole} = render(<Button onPress={onPress} />);
+    const {getByRole} = render(<Button disableRipple onPress={onPress} />);
 
     act(() => {
       getByRole("button").click();
@@ -30,7 +30,7 @@ describe("Button", () => {
 
   it("should ignore events when disabled", () => {
     const onPress = jest.fn();
-    const {getByRole} = render(<Button disabled onPress={onPress} />);
+    const {getByRole} = render(<Button disableRipple disabled onPress={onPress} />);
 
     act(() => {
       getByRole("button").click();
@@ -41,7 +41,9 @@ describe("Button", () => {
 
   it("should renders with start icon", () => {
     const wrapper = render(
-      <Button startContent={<span data-testid="start-icon">Icon</span>}>Button</Button>,
+      <Button disableRipple startContent={<span data-testid="start-icon">Icon</span>}>
+        Button
+      </Button>,
     );
 
     expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
@@ -49,14 +51,16 @@ describe("Button", () => {
 
   it("should renders with end icon", () => {
     const wrapper = render(
-      <Button endContent={<span data-testid="end-icon">Icon</span>}>Button</Button>,
+      <Button disableRipple endContent={<span data-testid="end-icon">Icon</span>}>
+        Button
+      </Button>,
     );
 
     expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
   });
 
   it("should have the proper type attribute", () => {
-    const wrapper = render(<Button type="submit" />);
+    const wrapper = render(<Button disableRipple type="submit" />);
 
     expect(wrapper.getByRole("button")).toHaveAttribute("type", "submit");
   });

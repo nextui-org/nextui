@@ -11,7 +11,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {callAllHandlers, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {useDrip} from "@nextui-org/drip";
+import {useRipple} from "@nextui-org/ripple";
 import {AriaButtonProps} from "@react-aria/button";
 
 export interface Props extends HTMLNextUIProps<"div"> {
@@ -80,11 +80,11 @@ export function useCard(originalProps: UseCardProps) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const {onClick: onDripClickHandler, drips} = useDrip();
+  const {onClick: onRippleClickHandler, ripples} = useRipple();
 
-  const handleDrip = (e: MouseEvent<HTMLDivElement>) => {
+  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     if (!originalProps.disableAnimation && !disableRipple && domRef.current) {
-      onDripClickHandler(e);
+      onRippleClickHandler(e);
     }
   };
 
@@ -93,7 +93,7 @@ export function useCard(originalProps: UseCardProps) {
       onPress,
       elementType: as,
       isDisabled: !originalProps.isPressable,
-      onClick: callAllHandlers(onClick, handleDrip),
+      onClick: callAllHandlers(onClick, handleClick),
       allowTextSelectionOnPress,
       ...otherProps,
     } as AriaButtonProps,
@@ -178,14 +178,14 @@ export function useCard(originalProps: UseCardProps) {
     Component,
     classNames,
     children,
-    drips,
+    ripples,
     isHovered,
     isPressed,
     isPressable: originalProps.isPressable,
     isHoverable: originalProps.isHoverable,
     disableAnimation: originalProps.disableAnimation,
     disableRipple,
-    onDripClickHandler,
+    handleClick,
     isFocusVisible,
     getCardProps,
   };

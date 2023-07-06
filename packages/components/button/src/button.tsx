@@ -1,8 +1,9 @@
-import {Drip} from "@nextui-org/drip";
 import {Spinner} from "@nextui-org/spinner";
 import {forwardRef} from "@nextui-org/system";
+import {lazy} from "react";
 
 import {UseButtonProps, useButton} from "./use-button";
+const Ripple = lazy(() => import("@nextui-org/ripple").then(({Ripple}) => ({default: Ripple})));
 
 export interface ButtonProps extends Omit<UseButtonProps, "ref"> {}
 
@@ -12,7 +13,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     domRef,
     children,
     styles,
-    drips,
+    ripples,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -33,7 +34,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
-      {!disableRipple && <Drip drips={drips} />}
+      {!disableRipple && <Ripple suspense ripples={ripples} />}
     </Component>
   );
 });

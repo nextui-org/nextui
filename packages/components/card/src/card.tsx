@@ -1,8 +1,10 @@
 import {forwardRef} from "@nextui-org/system";
-import {Drip} from "@nextui-org/drip";
+import {lazy} from "react";
 
 import {CardProvider} from "./card-context";
 import {useCard, UseCardProps} from "./use-card";
+
+const Ripple = lazy(() => import("@nextui-org/ripple").then(({Ripple}) => ({default: Ripple})));
 
 export interface CardProps extends Omit<UseCardProps, "ref"> {}
 
@@ -11,7 +13,7 @@ const Card = forwardRef<CardProps, "div">((props, ref) => {
     children,
     context,
     Component,
-    drips,
+    ripples,
     isPressable,
     disableAnimation,
     disableRipple,
@@ -24,7 +26,7 @@ const Card = forwardRef<CardProps, "div">((props, ref) => {
   return (
     <Component {...getCardProps()}>
       <CardProvider value={context}>{children}</CardProvider>
-      {isPressable && !disableAnimation && !disableRipple && <Drip drips={drips} />}
+      {isPressable && !disableAnimation && !disableRipple && <Ripple suspense ripples={ripples} />}
     </Component>
   );
 });

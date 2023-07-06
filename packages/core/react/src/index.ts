@@ -12,7 +12,6 @@ export * from "@nextui-org/card";
 export * from "@nextui-org/chip";
 export * from "@nextui-org/checkbox";
 export * from "@nextui-org/code";
-export * from "@nextui-org/drip";
 export * from "@nextui-org/link";
 export * from "@nextui-org/pagination";
 export * from "@nextui-org/radio";

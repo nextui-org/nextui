@@ -8,13 +8,13 @@ import {ReactRef} from "@nextui-org/react-utils";
 import {MouseEventHandler, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useDrip} from "@nextui-org/drip";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useHover} from "@react-aria/interactions";
 import {SpinnerProps} from "@nextui-org/spinner";
+import {useRipple} from "@nextui-org/ripple";
 
 import {useButtonGroupContext} from "./button-group-context";
 
@@ -122,11 +122,11 @@ export function useButton(props: UseButtonProps) {
     ],
   );
 
-  const {onClick: onDripClickHandler, drips} = useDrip();
+  const {onClick: onRippleClickHandler, ripples} = useRipple();
 
-  const handleDrip = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disableRipple || isDisabled || disableAnimation) return;
-    domRef.current && onDripClickHandler(e);
+    domRef.current && onRippleClickHandler(e);
   };
 
   const {buttonProps: ariaButtonProps, isPressed} = useAriaButton(
@@ -134,7 +134,7 @@ export function useButton(props: UseButtonProps) {
       elementType: as,
       isDisabled,
       onPress,
-      onClick: chain(onClick, handleDrip),
+      onClick: chain(onClick, handleClick),
       ...otherProps,
     } as AriaButtonProps,
     domRef,
@@ -192,7 +192,7 @@ export function useButton(props: UseButtonProps) {
     Component,
     children,
     domRef,
-    drips,
+    ripples,
     spinner,
     styles,
     startContent,

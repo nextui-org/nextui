@@ -679,12 +679,12 @@ importers:
 
   packages/components/button:
     dependencies:
-      '@nextui-org/drip':
-        specifier: workspace:*
-        version: link:../drip
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
+      '@nextui-org/ripple':
+        specifier: workspace:*
+        version: link:../ripple
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -731,12 +731,12 @@ importers:
 
   packages/components/card:
     dependencies:
-      '@nextui-org/drip':
-        specifier: workspace:*
-        version: link:../drip
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
+      '@nextui-org/ripple':
+        specifier: workspace:*
+        version: link:../ripple
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -930,25 +930,6 @@ importers:
       '@react-aria/utils':
         specifier: ^3.18.0
         version: 3.18.0(react@18.2.0)
-    devDependencies:
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
-  packages/components/drip:
-    dependencies:
-      '@nextui-org/shared-utils':
-        specifier: workspace:*
-        version: link:../../utilities/shared-utils
-      '@nextui-org/system':
-        specifier: workspace:*
-        version: link:../../core/system
-      '@nextui-org/theme':
-        specifier: workspace:*
-        version: link:../../core/theme
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1526,6 +1507,31 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/ripple:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      framer-motion:
+        specifier: ^10.12.18
+        version: 10.12.18(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/skeleton:
     dependencies:
       '@nextui-org/react-utils':
@@ -1957,9 +1963,6 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../../components/divider
-      '@nextui-org/drip':
-        specifier: workspace:*
-        version: link:../../components/drip
       '@nextui-org/dropdown':
         specifier: workspace:*
         version: link:../../components/dropdown
