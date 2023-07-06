@@ -1,7 +1,8 @@
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
-import {CollapseTransition} from "@nextui-org/framer-transitions";
+import {AnimatePresence, motion} from "framer-motion";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
@@ -46,9 +47,20 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     }
 
     return (
-      <CollapseTransition in={isOpen} {...motionProps}>
-        <div {...getContentProps()}>{children}</div>
-      </CollapseTransition>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.section
+            key="content"
+            animate="enter"
+            exit="exit"
+            initial="exit"
+            variants={TRANSITION_VARIANTS.collapse}
+            {...motionProps}
+          >
+            <div {...getContentProps()}>{children}</div>
+          </motion.section>
+        )}
+      </AnimatePresence>
     );
   }, [isOpen, disableAnimation, children, motionProps]);
 

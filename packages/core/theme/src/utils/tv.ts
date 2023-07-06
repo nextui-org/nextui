@@ -1,5 +1,6 @@
 import {tv as tvBase, TV} from "tailwind-variants";
 
+import {mappedSpacingScaleKeys} from "../types";
 const COMMON_UNITS = ["small", "medium", "large"];
 
 export const tv: TV = (options, config) =>
@@ -11,7 +12,7 @@ export const tv: TV = (options, config) =>
       theme: {
         ...config?.twMergeConfig?.theme,
         opacity: ["disabled"],
-        spacing: ["divider"],
+        spacing: ["divider", "unit", ...mappedSpacingScaleKeys],
         borderWidth: COMMON_UNITS,
         borderRadius: COMMON_UNITS,
       },

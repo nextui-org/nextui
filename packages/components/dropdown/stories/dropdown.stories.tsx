@@ -41,7 +41,7 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+        options: ["none", "sm", "md", "lg", "full"],
       },
     },
     placement: {
@@ -146,7 +146,7 @@ const DividerTemplate: ComponentStory<any> = ({
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
-      <DropdownItem key="delete" showDivider className="text-danger" color="danger">
+      <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>
     </DropdownMenu>
@@ -172,7 +172,7 @@ const DisabledKeysTemplate: ComponentStory<any> = ({
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
-      <DropdownItem key="delete" showDivider className="text-danger" color="danger">
+      <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>
     </DropdownMenu>
@@ -273,7 +273,7 @@ const WithShortcutTemplate: ComponentStory<any> = ({color, variant, ...args}) =>
       <DropdownItem key="edit" shortcut="⌘⇧E">
         Edit file
       </DropdownItem>
-      <DropdownItem key="delete" showDivider className="text-danger" color="danger" shortcut="⌘⇧D">
+      <DropdownItem key="delete" className="text-danger" color="danger" shortcut="⌘⇧D">
         Delete file
       </DropdownItem>
     </DropdownMenu>
@@ -319,7 +319,6 @@ const WithStartContentTemplate: ComponentStory<any> = ({
         </DropdownItem>
         <DropdownItem
           key="delete"
-          showDivider
           className="text-danger"
           color="danger"
           shortcut="⌘⇧D"
@@ -359,7 +358,6 @@ const WithEndContentTemplate: ComponentStory<any> = ({
         </DropdownItem>
         <DropdownItem
           key="delete"
-          showDivider
           className="text-danger"
           color="danger"
           endContent={<DeleteDocumentBulkIcon className={clsx(iconClasses, "!text-danger")} />}
@@ -413,7 +411,6 @@ const WithDescriptionTemplate: ComponentStory<any> = ({
         </DropdownItem>
         <DropdownItem
           key="delete"
-          showDivider
           className="text-danger"
           color="danger"
           description="Permanently delete the file"
@@ -506,19 +503,13 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
             <p className="font-semibold">Signed in as</p>
             <p className="font-semibold">zoey@example.com</p>
           </DropdownItem>
-          <DropdownItem key="settings" showDivider>
-            My Settings
-          </DropdownItem>
+          <DropdownItem key="settings">My Settings</DropdownItem>
           <DropdownItem key="team_settings">Team Settings</DropdownItem>
-          <DropdownItem key="analytics" showDivider>
-            Analytics
-          </DropdownItem>
+          <DropdownItem key="analytics">Analytics</DropdownItem>
           <DropdownItem key="system">System</DropdownItem>
           <DropdownItem key="configurations">Configurations</DropdownItem>
-          <DropdownItem key="help_and_feedback" showDivider>
-            Help & Feedback
-          </DropdownItem>
-          <DropdownItem key="logout" showDivider color="danger">
+          <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+          <DropdownItem key="logout" color="danger">
             Log Out
           </DropdownItem>
         </DropdownMenu>
@@ -543,19 +534,13 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
             <p className="font-bold">Signed in as</p>
             <p className="font-bold">@tonyreichert</p>
           </DropdownItem>
-          <DropdownItem key="settings" showDivider>
-            My Settings
-          </DropdownItem>
+          <DropdownItem key="settings">My Settings</DropdownItem>
           <DropdownItem key="team_settings">Team Settings</DropdownItem>
-          <DropdownItem key="analytics" showDivider>
-            Analytics
-          </DropdownItem>
+          <DropdownItem key="analytics">Analytics</DropdownItem>
           <DropdownItem key="system">System</DropdownItem>
           <DropdownItem key="configurations">Configurations</DropdownItem>
-          <DropdownItem key="help_and_feedback" showDivider>
-            Help & Feedback
-          </DropdownItem>
-          <DropdownItem key="logout" showDivider color="danger">
+          <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+          <DropdownItem key="logout" color="danger">
             Log Out
           </DropdownItem>
         </DropdownMenu>

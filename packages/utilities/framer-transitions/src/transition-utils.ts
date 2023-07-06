@@ -1,8 +1,10 @@
-/**
- * Part of this code is taken from @chakra-ui/system ❤️
- */
-
 import type {Target, TargetAndTransition, Transition} from "framer-motion";
+
+type WithMotionState<P> = Partial<Record<"enter" | "exit", P>>;
+
+export type TransitionConfig = WithMotionState<Transition>;
+
+export type TransitionEndConfig = WithMotionState<Target>;
 
 export type TransitionProperties = {
   /**
@@ -13,29 +15,20 @@ export type TransitionProperties = {
    * Custom `transitionEnd` definition for `enter` and `exit`
    */
   transitionEnd?: TransitionEndConfig;
-  /**
-   * Custom `delay` definition for `enter` and `exit`
-   */
-  delay?: number | DelayConfig;
 };
 
 type TargetResolver<P = {}> = (props: P & TransitionProperties) => TargetAndTransition;
 
 type Variant<P = {}> = TargetAndTransition | TargetResolver<P>;
 
-export type Variants<P = {}> = {
-  enter: Variant<P>;
-  exit: Variant<P>;
-  initial?: Variant<P>;
-};
-
-type WithMotionState<P> = Partial<Record<"enter" | "exit", P>>;
-
-export type TransitionConfig = WithMotionState<Transition>;
-
-export type TransitionEndConfig = WithMotionState<Target>;
-
-export type DelayConfig = WithMotionState<number>;
+export type Variants<P = {}> = Record<
+  string,
+  {
+    enter: Variant<P>;
+    exit: Variant<P>;
+    initial?: Variant<P>;
+  }
+>;
 
 export const TRANSITION_EASINGS = {
   ease: [0.36, 0.66, 0.4, 1],
@@ -47,7 +40,18 @@ export const TRANSITION_EASINGS = {
   softSpring: [0.16, 1.11, 0.3, 1.02],
 } as const;
 
-export const TRANSITION_VARIANTS = {
+export const TRANSITION_DEFAULTS = {
+  enter: {
+    duration: 0.2,
+    ease: TRANSITION_EASINGS.easeOut,
+  },
+  exit: {
+    duration: 0.1,
+    ease: TRANSITION_EASINGS.easeIn,
+  },
+} as const;
+
+export const TRANSITION_VARIANTS: Variants = {
   scaleSpring: {
     initial: {
       opacity: 0,
@@ -146,99 +150,34 @@ export const TRANSITION_VARIANTS = {
       },
     },
   },
-  pushLeft: {
-    enter: {x: "100%"},
-    exit: {x: "-30%"},
+  collapse: {
+    enter: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        height: {
+          ease: TRANSITION_EASINGS.ease,
+          duration: 0.25,
+        },
+        opacity: {
+          ease: TRANSITION_EASINGS.ease,
+          duration: 0.3,
+        },
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        height: {
+          ease: TRANSITION_EASINGS.ease,
+          duration: 0.3,
+        },
+        opacity: {
+          ease: TRANSITION_EASINGS.ease,
+          duration: 0.1,
+        },
+      },
+    },
   },
-  pushRight: {
-    enter: {x: "-100%"},
-    exit: {x: "30%"},
-  },
-  pushUp: {
-    enter: {y: "100%"},
-    exit: {y: "-30%"},
-  },
-  pushDown: {
-    enter: {y: "-100%"},
-    exit: {y: "30%"},
-  },
-  slideLeft: {
-    position: {left: 0, top: 0, bottom: 0, width: "100%"},
-    enter: {x: 0, y: 0},
-    exit: {x: "-100%", y: 0},
-  },
-  slideRight: {
-    position: {right: 0, top: 0, bottom: 0, width: "100%"},
-    enter: {x: 0, y: 0},
-    exit: {x: "100%", y: 0},
-  },
-  slideUp: {
-    position: {top: 0, left: 0, right: 0, maxWidth: "100vw"},
-    enter: {x: 0, y: 0},
-    exit: {x: 0, y: "-100%"},
-  },
-  slideDown: {
-    position: {bottom: 0, left: 0, right: 0, maxWidth: "100vw"},
-    enter: {x: 0, y: 0},
-    exit: {x: 0, y: "100%"},
-  },
-};
-
-export type SlideDirection = "top" | "left" | "bottom" | "right";
-
-export function getSlideTransition(options?: {direction?: SlideDirection}) {
-  const side = options?.direction ?? "right";
-
-  switch (side) {
-    case "right":
-      return TRANSITION_VARIANTS.slideRight;
-    case "left":
-      return TRANSITION_VARIANTS.slideLeft;
-    case "bottom":
-      return TRANSITION_VARIANTS.slideDown;
-    case "top":
-      return TRANSITION_VARIANTS.slideUp;
-    default:
-      return TRANSITION_VARIANTS.slideRight;
-  }
-}
-
-export const TRANSITION_DEFAULTS = {
-  enter: {
-    duration: 0.2,
-    ease: TRANSITION_EASINGS.easeOut,
-  },
-  exit: {
-    duration: 0.1,
-    ease: TRANSITION_EASINGS.easeIn,
-  },
-} as const;
-
-export type WithTransitionConfig<P extends object> = Omit<P, "transition"> &
-  TransitionProperties & {
-    /**
-     * If `true`, the element will unmount when `in={false}` and animation is done
-     */
-    unmountOnExit?: boolean;
-    /**
-     * Show the component; triggers when enter or exit states
-     */
-    in?: boolean;
-  };
-
-export const withDelay = {
-  enter: (
-    transition: Transition,
-    delay?: number | DelayConfig,
-  ): Transition & {delay: number | undefined} => ({
-    ...transition,
-    delay: typeof delay === "number" ? delay : delay?.["enter"],
-  }),
-  exit: (
-    transition: Transition,
-    delay?: number | DelayConfig,
-  ): Transition & {delay: number | undefined} => ({
-    ...transition,
-    delay: typeof delay === "number" ? delay : delay?.["exit"],
-  }),
 };

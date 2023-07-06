@@ -51,9 +51,9 @@ const button = tv({
       ghost: "border-medium bg-transparent",
     },
     size: {
-      sm: "px-3 min-w-[4rem] h-8 text-small gap-2 rounded-small",
-      md: "px-4 min-w-[5rem] h-10 text-small gap-2 rounded-medium",
-      lg: "px-6 min-w-[6rem] h-12 text-medium gap-3 rounded-large",
+      sm: "px-unit-3 min-w-16 h-unit-8 text-tiny gap-unit-2 rounded-small",
+      md: "px-unit-4 min-w-20 h-unit-10 text-small gap-unit-2 rounded-medium",
+      lg: "px-unit-6 min-w-24 h-unit-12 text-medium gap-unit-3 rounded-large",
     },
     color: {
       default: "",
@@ -83,8 +83,8 @@ const button = tv({
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
     isIconOnly: {
-      true: "px-0 !gap-0",
-      false: "[&>svg]:max-w-[2em]",
+      true: "px-unit-0 !gap-unit-0",
+      false: "[&>svg]:max-w-[theme(spacing.unit-8]",
     },
     disableAnimation: {
       true: "!transition-none",
@@ -344,22 +344,22 @@ const button = tv({
     {
       isInGroup: true,
       variant: ["bordered", "ghost"],
-      class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.2)*-1)]",
+      class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.medium)*-1)]",
     },
     {
       isIconOnly: true,
       size: "sm",
-      class: "min-w-8 w-8 h-8",
+      class: "min-w-unit-8 w-unit-8 h-unit-8",
     },
     {
       isIconOnly: true,
       size: "md",
-      class: "min-w-10 w-10 h-10",
+      class: "min-w-unit-10 w-unit-10 h-unit-10",
     },
     {
       isIconOnly: true,
       size: "lg",
-      class: "min-w-12 w-12 h-12",
+      class: "min-w-unit-12 w-unit-12 h-unit-12",
     },
   ],
 });

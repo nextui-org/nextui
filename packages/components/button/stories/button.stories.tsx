@@ -41,7 +41,7 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg", "full"],
+        options: ["none", "sm", "md", "lg", "full"],
       },
     },
     isDisabled: {

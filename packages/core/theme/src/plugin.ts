@@ -16,7 +16,7 @@ import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
-import {isBaseTheme} from "./utils/theme";
+import {createSpacingUnits, generateSpacingScale, isBaseTheme} from "./utils/theme";
 import {baseStyles} from "./utils/classes";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, layouts, defaultLayout} from "./default-layout";
@@ -120,6 +120,20 @@ const resolveConfig = (
 
           resolved.utilities[cssSelector]![layoutVariable] = v;
         });
+      } else if (key === "spacing-unit") {
+        const layoutVariable = `--${prefix}-${key}`;
+
+        // add the base unit "--spacing-unit: value"
+        resolved.utilities[cssSelector]![layoutVariable] = value;
+
+        const spacingScale = generateSpacingScale(Number(value));
+
+        // add the list of spacing units "--spacing-unit-[key]: value"
+        forEach(spacingScale, (v, k) => {
+          const layoutVariable = `--${prefix}-${key}-${k}`;
+
+          resolved.utilities[cssSelector]![layoutVariable] = v;
+        });
       } else {
         const layoutVariable = `--${prefix}-${key}`;
 
@@ -169,20 +183,27 @@ const corePlugin = (
           width: {
             divider: `var(--${prefix}-divider-weight)`,
           },
+          spacing: {
+            unit: `var(--${prefix}-spacing-unit)`,
+            ...createSpacingUnits(prefix),
+          },
           minWidth: {
-            1: "0.25rem",
-            2: "0.5rem",
-            3: "0.75rem",
-            "3.5": "0.875rem",
-            4: "1rem",
-            5: "1.25rem",
-            6: "1.5rem",
-            7: "1.75rem",
-            8: "2rem",
-            9: "2.25rem",
-            10: "2.5rem",
-            11: "2.75rem",
-            12: "3rem",
+            "unit-1": `var(--${prefix}-spacing-unit)`,
+            "unit-2": `var(--${prefix}-spacing-unit-2`,
+            "unit-3": `var(--${prefix}-spacing-unit-3)`,
+            "unit-3.5": `var(--${prefix}-spacing-unit-3.5)`,
+            "unit-4": `var(--${prefix}-spacing-unit-4)`,
+            "unit-5": `var(--${prefix}-spacing-unit-5)`,
+            "unit-6": `var(--${prefix}-spacing-unit-6)`,
+            "unit-7": `var(--${prefix}-spacing-unit-7)`,
+            "unit-8": `var(--${prefix}-spacing-unit-8)`,
+            "unit-9": `var(--${prefix}-spacing-unit-9)`,
+            "unit-10": `var(--${prefix}-spacing-unit-10)`,
+            "unit-11": `var(--${prefix}-spacing-unit-11)`,
+            "unit-12": `var(--${prefix}-spacing-unit-12)`,
+            "unit-16": `var(--${prefix}-spacing-unit-16)`,
+            "unit-20": `var(--${prefix}-spacing-unit-20)`,
+            "unit-24": `var(--${prefix}-spacing-unit-24)`,
           },
           fontSize: {
             tiny: [`var(--${prefix}-font-size-tiny)`, `var(--${prefix}-line-height-tiny)`],

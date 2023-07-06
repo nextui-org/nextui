@@ -139,6 +139,7 @@ export function useButton(props: UseButtonProps) {
     } as AriaButtonProps,
     domRef,
   );
+
   const {isHovered, hoverProps} = useHover({isDisabled});
 
   const getButtonProps: PropGetter = useCallback(

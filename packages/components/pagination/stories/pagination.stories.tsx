@@ -1,6 +1,7 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {button, pagination, cn} from "@nextui-org/theme";
+import {button, pagination} from "@nextui-org/theme";
+import {cn} from "@nextui-org/system";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 
 import {
@@ -45,7 +46,7 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+        options: ["none", "sm", "md", "lg", "full"],
       },
     },
     size: {

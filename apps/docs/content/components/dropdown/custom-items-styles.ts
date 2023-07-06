@@ -35,7 +35,7 @@ export default function App() {
       }}
     >
       <DropdownTrigger>
-        <Button variant="ghost">Open Menu</Button>
+        <Button variant="ghost" disableRipple>Open Menu</Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Custom item styles"

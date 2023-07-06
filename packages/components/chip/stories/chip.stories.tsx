@@ -25,7 +25,7 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
+        options: ["none", "sm", "md", "lg", "full"],
       },
     },
     size: {

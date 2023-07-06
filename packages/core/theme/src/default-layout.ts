@@ -1,6 +1,7 @@
 import {LayoutTheme} from "./types";
 
 export const defaultLayout: LayoutTheme = {
+  spacingUnit: 4,
   disabledOpacity: ".5",
   dividerWeight: "1px",
   fontSize: {

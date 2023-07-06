@@ -124,8 +124,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     ref: domRef,
     ...mergeProps(
       itemProps,
-      focusProps,
-      isReadOnly ? {} : pressProps,
+      isReadOnly ? {} : mergeProps(focusProps, pressProps),
       hoverProps,
       filterDOMProps(otherProps, {labelable: true}),
       props,

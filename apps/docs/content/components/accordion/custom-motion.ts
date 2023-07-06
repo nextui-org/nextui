@@ -7,15 +7,38 @@ export default function App() {
   return (
     <Accordion
       motionProps={{
-        startingY: 0,
-        transition: {
+        variants: {
           enter: {
-            height: { duration: 0.1 },
-            opacity: { duration: 0.3 },
+            y: 0,
+            opacity: 1,
+            height: "auto",
+            transition: {
+              height: {
+                type: "spring",
+                stiffness: 500,
+                damping: 30,
+                duration: 1,
+              },
+              opacity: {
+                easings: "ease",
+                duration: 1,
+              },
+            },
           },
           exit: {
-            height: { duration: 0.2 },
-            opacity: { duration: 0.3 },
+            y: -10,
+            opacity: 0,
+            height: 0,
+            transition: {
+              height: {
+                easings: "ease",
+                duration: 0.25,
+              },
+              opacity: {
+                easings: "ease",
+                duration: 0.3,
+              },
+            },
           },
         },
       }}

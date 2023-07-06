@@ -12,7 +12,70 @@ export type FontThemeUnit = BaseThemeUnit & {
   tiny?: string;
 };
 
+export const spacingScaleKeys = [
+  "0",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "2xl",
+  "3xl",
+  "4xl",
+  "5xl",
+  "6xl",
+  "7xl",
+  "8xl",
+  "9xl",
+  "1",
+  "2",
+  "3",
+  "3.5",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "20",
+  "24",
+  "28",
+  "32",
+  "36",
+  "40",
+  "44",
+  "48",
+  "52",
+  "56",
+  "60",
+  "64",
+  "72",
+  "80",
+  "96",
+];
+
+export const mappedSpacingScaleKeys = spacingScaleKeys.map((key) => `unit-${key}`);
+
+export type SpacingScaleKeys = typeof spacingScaleKeys[number];
+
+export type SpacingScale = Partial<Record<SpacingScaleKeys, string>>;
+
 export interface LayoutTheme {
+  /**
+   * Base unit token that defines a consistent spacing scale across the components.
+   *
+   * @default 4 (px)
+   */
+  spacingUnit?: number;
   /**
    * The default font size applied across the components.
    *

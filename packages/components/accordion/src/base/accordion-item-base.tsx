@@ -3,11 +3,11 @@ import type {
   AccordionItemSlots,
   SlotsToClasses,
 } from "@nextui-org/theme";
-import type {CollapseTransitionProps} from "@nextui-org/framer-transitions";
 
 import {ItemProps, BaseItem} from "@nextui-org/aria-utils";
 import {FocusableProps, PressEvents} from "@react-types/shared";
 import {ReactNode, MouseEventHandler} from "react";
+import {HTMLMotionProps} from "framer-motion";
 
 export type AccordionItemIndicatorProps = {
   /**
@@ -54,7 +54,7 @@ export interface Props<T extends object = {}>
   /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
-  motionProps?: CollapseTransitionProps;
+  motionProps?: HTMLMotionProps<"section">;
   /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
