@@ -49,7 +49,7 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     }
 
     return (
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.section
             key="accordion-content"
@@ -59,6 +59,16 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
             style={{overflowY: "auto", willChange}}
             variants={TRANSITION_VARIANTS.collapse}
             {...motionProps}
+            // key="content"
+            // animate="open"
+            // exit="collapsed"
+            // initial="collapsed"
+            // style={{overflowY: "auto", willChange}}
+            // transition={{duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98]}}
+            // variants={{
+            //   open: {opacity: 1, height: "auto"},
+            //   collapsed: {opacity: 0, height: 0},
+            // }}
           >
             <div {...getContentProps()}>{children}</div>
           </motion.section>

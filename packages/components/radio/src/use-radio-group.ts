@@ -4,7 +4,7 @@ import type {ReactRef} from "@nextui-org/react-utils";
 import type {RadioGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {radioGroup} from "@nextui-org/theme";
-import {useMemo} from "react";
+import {useCallback, useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
@@ -68,12 +68,15 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     classNames,
     children,
     label,
+    value,
+    name,
     size = "md",
     color = "primary",
     isDisabled = false,
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
+    isReadOnly,
     errorMessage,
     description,
     validationState,
@@ -90,8 +93,11 @@ export function useRadioGroup(props: UseRadioGroupProps) {
   const otherPropsWithOrientation = useMemo<AriaRadioGroupProps>(() => {
     return {
       ...otherProps,
+      value,
+      name,
       "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
       isRequired,
+      isReadOnly,
       orientation,
       onChange: onValueChange,
     };
@@ -117,51 +123,71 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       disableAnimation,
       onChange,
     }),
-    [size, color, groupState, isRequired, validationState, isDisabled, disableAnimation, onChange],
+    [
+      size,
+      color,
+      isRequired,
+      isDisabled,
+      disableAnimation,
+      onChange,
+      groupState.name,
+      groupState?.isDisabled,
+      groupState?.isReadOnly,
+      groupState?.isRequired,
+      groupState?.selectedValue,
+      groupState?.validationState,
+      groupState?.lastFocusedValue,
+    ],
   );
 
   const slots = useMemo(() => radioGroup(), []);
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const getGroupProps: PropGetter = () => {
+  const getGroupProps: PropGetter = useCallback(() => {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
       ...mergeProps(groupProps, otherProps),
     };
-  };
+  }, [domRef, slots, baseStyles, groupProps, otherProps]);
 
-  const getLabelProps: PropGetter = () => {
+  const getLabelProps: PropGetter = useCallback(() => {
     return {
       className: slots.label({class: classNames?.label}),
       ...labelProps,
     };
-  };
+  }, [slots, classNames?.label, labelProps]);
 
-  const getWrapperProps: PropGetter = () => {
+  const getWrapperProps: PropGetter = useCallback(() => {
     return {
       className: slots.wrapper({class: classNames?.wrapper}),
       role: "presentation",
       "data-orientation": orientation,
     };
-  };
+  }, [slots, classNames?.wrapper, orientation]);
 
-  const getDescriptionProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      ...descriptionProps,
-      className: slots.description({class: clsx(classNames?.description, props?.className)}),
-    };
-  };
+  const getDescriptionProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...descriptionProps,
+        className: slots.description({class: clsx(classNames?.description, props?.className)}),
+      };
+    },
+    [slots, classNames?.description, descriptionProps],
+  );
 
-  const getErrorMessageProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      ...errorMessageProps,
-      className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
-    };
-  };
+  const getErrorMessageProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...errorMessageProps,
+        className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
+      };
+    },
+    [slots, classNames?.errorMessage, errorMessageProps],
+  );
 
   return {
     Component,

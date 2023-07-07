@@ -170,42 +170,65 @@ export function useRadio(props: UseRadioProps) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const getBaseProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      ref: domRef,
-      className: slots.base({class: baseStyles}),
-      "data-disabled": dataAttr(isDisabled),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-selected": dataAttr(isSelected),
-      "data-invalid": dataAttr(isInvalid),
-      "data-hover": dataAttr(isHovered),
-      "data-pressed": dataAttr(pressed),
-      "data-hover-unselected": dataAttr(isHovered && !isSelected),
-      "data-readonly": dataAttr(inputProps.readOnly),
-      "aria-required": dataAttr(isRequired),
-      ...mergeProps(hoverProps, pressProps, otherProps),
-    };
-  };
+  const getBaseProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ref: domRef,
+        className: slots.base({class: baseStyles}),
+        "data-disabled": dataAttr(isDisabled),
+        "data-focus": dataAttr(isFocused),
+        "data-focus-visible": dataAttr(isFocusVisible),
+        "data-selected": dataAttr(isSelected),
+        "data-invalid": dataAttr(isInvalid),
+        "data-hover": dataAttr(isHovered),
+        "data-pressed": dataAttr(pressed),
+        "data-hover-unselected": dataAttr(isHovered && !isSelected),
+        "data-readonly": dataAttr(inputProps.readOnly),
+        "aria-required": dataAttr(isRequired),
+        ...mergeProps(hoverProps, pressProps, otherProps),
+      };
+    },
+    [
+      slots,
+      baseStyles,
+      domRef,
+      isDisabled,
+      isFocused,
+      isFocusVisible,
+      isSelected,
+      isInvalid,
+      isHovered,
+      pressed,
+      inputProps.readOnly,
+      isRequired,
+      otherProps,
+    ],
+  );
 
-  const getWrapperProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      "aria-hidden": true,
-      className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props.className)})),
-    };
-  };
+  const getWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        "aria-hidden": true,
+        className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props.className)})),
+      };
+    },
+    [slots, classNames?.wrapper],
+  );
 
-  const getInputProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      ref: inputRef,
-      required: isRequired,
-      ...mergeProps(inputProps, focusProps),
-      onChange: chain(inputProps.onChange, onChange),
-    };
-  };
+  const getInputProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ref: inputRef,
+        required: isRequired,
+        ...mergeProps(inputProps, focusProps),
+        onChange: chain(inputProps.onChange, onChange),
+      };
+    },
+    [inputProps, focusProps, isRequired, onChange],
+  );
 
   const getLabelProps: PropGetter = useCallback(
     (props = {}) => ({
@@ -213,7 +236,7 @@ export function useRadio(props: UseRadioProps) {
       id: labelId,
       className: slots.label({class: classNames?.label}),
     }),
-    [slots, classNames, isDisabled, isSelected, isInvalid],
+    [slots, classNames?.label, isDisabled, isSelected, isInvalid],
   );
 
   const getLabelWrapperProps: PropGetter = useCallback(
@@ -221,7 +244,7 @@ export function useRadio(props: UseRadioProps) {
       ...props,
       className: slots.labelWrapper({class: classNames?.labelWrapper}),
     }),
-    [slots, classNames],
+    [slots, classNames?.labelWrapper],
   );
 
   const getControlProps: PropGetter = useCallback(
@@ -229,7 +252,7 @@ export function useRadio(props: UseRadioProps) {
       ...props,
       className: slots.control({class: classNames?.control}),
     }),
-    [slots, isDisabled, isSelected, isInvalid],
+    [slots, classNames?.control],
   );
 
   return {

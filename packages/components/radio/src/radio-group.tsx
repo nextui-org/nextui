@@ -1,4 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
+import {memo} from "react";
 
 import {RadioGroupProvider} from "./radio-group-context";
 import {UseRadioGroupProps, useRadioGroup} from "./use-radio-group";
@@ -37,4 +38,4 @@ const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
 
 RadioGroup.displayName = "NextUI.RadioGroup";
 
-export default RadioGroup;
+export default memo(RadioGroup);

@@ -227,7 +227,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const getBaseProps: PropGetter = () => {
+  const getBaseProps: PropGetter = useCallback(() => {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
@@ -242,23 +242,41 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       "data-indeterminate": dataAttr(isIndeterminate),
       ...mergeProps(hoverProps, pressProps, otherProps),
     };
-  };
+  }, [
+    slots,
+    baseStyles,
+    isDisabled,
+    isSelected,
+    isIndeterminate,
+    isInvalid,
+    isHovered,
+    isFocused,
+    pressed,
+    inputProps.readOnly,
+    isFocusVisible,
+    hoverProps,
+    pressProps,
+    otherProps,
+  ]);
 
-  const getWrapperProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      "aria-hidden": true,
-      className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props?.className)})),
-    };
-  };
+  const getWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        "aria-hidden": true,
+        className: clsx(slots.wrapper({class: clsx(classNames?.wrapper, props?.className)})),
+      };
+    },
+    [slots, classNames?.wrapper],
+  );
 
-  const getInputProps: PropGetter = () => {
+  const getInputProps: PropGetter = useCallback(() => {
     return {
       ref: inputRef,
       ...mergeProps(inputProps, focusProps),
       onChange: chain(inputProps.onChange, onChange),
     };
-  };
+  }, [inputProps, focusProps, onChange]);
 
   const getLabelProps: PropGetter = useCallback(
     () => ({

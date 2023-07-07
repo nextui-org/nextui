@@ -1,5 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
+import {memo} from "react";
 
 import {UseRadioProps, useRadio} from "./use-radio";
 
@@ -40,4 +41,4 @@ const Radio = forwardRef<RadioProps, "label">((props, ref) => {
 
 Radio.displayName = "NextUI.Radio";
 
-export default Radio;
+export default memo(Radio);

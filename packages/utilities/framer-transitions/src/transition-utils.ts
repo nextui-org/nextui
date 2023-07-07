@@ -154,31 +154,24 @@ export const TRANSITION_VARIANTS: Variants = {
     enter: {
       opacity: 1,
       height: "auto",
-      transform: "translateY(0)",
       transition: {
         height: {
-          duration: 0.3,
-          easings: "easeInOut",
+          type: "spring",
+          stiffness: 300,
+          damping: 25,
         },
         opacity: {
-          duration: 0.5,
-          easings: "easeInOut",
+          easings: "ease",
+          duration: 0.4,
         },
       },
     },
     exit: {
       opacity: 0,
       height: 0,
-      transform: "translateY(-10px)",
       transition: {
-        height: {
-          duration: 0.25,
-          easings: "easeInOut",
-        },
-        opacity: {
-          duration: 0.2,
-          easings: "easeInOut",
-        },
+        easings: "ease",
+        duration: 0.3,
       },
     },
   },

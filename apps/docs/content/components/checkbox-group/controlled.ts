@@ -9,7 +9,7 @@ export default function App() {
         label="Select cities"
         color="warning"
         value={selected}
-        onChange={setSelected}
+        onValueChange={setSelected}
       >
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
         <Checkbox value="sydney">Sydney</Checkbox>

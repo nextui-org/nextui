@@ -1,4 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
+import {memo} from "react";
 
 import {CheckboxGroupProvider} from "./checkbox-group-context";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
@@ -36,4 +37,4 @@ const CheckboxGroup = forwardRef<CheckboxGroupProps, "div">((props, ref) => {
 
 CheckboxGroup.displayName = "NextUI.CheckboxGroup";
 
-export default CheckboxGroup;
+export default memo(CheckboxGroup);

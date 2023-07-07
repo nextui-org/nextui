@@ -91,7 +91,7 @@ const navbar = tv({
       "flex-col",
       "items-center",
       "justify-center",
-      "text-foreground",
+      "text-inherit",
       "group-data-[pressed=true]:opacity-70",
       "transition-opacity",
       // before - first line
