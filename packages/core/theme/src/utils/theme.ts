@@ -37,7 +37,14 @@ export const generateSpacingScale = (spacingUnit: number) => {
   });
 
   baseScale.forEach((i) => {
-    const key = `${i}` as SpacingScaleKeys;
+    let key = `${i}` as SpacingScaleKeys;
+
+    // if the key has decimal e.g 3.5 change it to "3-5" format
+    if (key.includes(".")) {
+      const [first, second] = key.split(".");
+
+      key = `${first}_${second}`;
+    }
 
     scale[key] = `${spacingUnit * i}px`;
   });
@@ -52,13 +59,20 @@ export const generateSpacingScale = (spacingUnit: number) => {
 };
 
 export function createSpacingUnits(prefix: string) {
-  let result = spacingScaleKeys.reduce(
-    (acc, key) => ({
+  let result = spacingScaleKeys.reduce((acc, key) => {
+    let value = `var(--${prefix}-spacing-unit-${key})`;
+
+    if (key.includes(".")) {
+      const [first, second] = key.split(".");
+
+      value = `var(--${prefix}-spacing-unit-${first}_${second})`;
+    }
+
+    return {
       ...acc,
-      [`unit-${key}`]: `var(--${prefix}-spacing-unit-${key})`,
-    }),
-    {},
-  );
+      [`unit-${key}`]: value,
+    };
+  }, {});
 
   return result as Record<SpacingScaleKeys, string>;
 }

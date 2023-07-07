@@ -1,7 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence, motion, useWillChange} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
@@ -31,6 +31,8 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     getIndicatorProps,
   } = useAccordionItem({ref, ...props});
 
+  const willChange = useWillChange();
+
   const indicatorContent = useMemo<ReactNode | null>(() => {
     if (typeof indicator === "function") {
       return indicator({indicator: <ChevronIcon />, isOpen, isDisabled});
@@ -47,13 +49,14 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     }
 
     return (
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {isOpen && (
           <motion.section
-            key="content"
+            key="accordion-content"
             animate="enter"
             exit="exit"
             initial="exit"
+            style={{overflowY: "auto", willChange}}
             variants={TRANSITION_VARIANTS.collapse}
             {...motionProps}
           >

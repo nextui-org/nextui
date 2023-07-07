@@ -191,7 +191,7 @@ const corePlugin = (
             "unit-1": `var(--${prefix}-spacing-unit)`,
             "unit-2": `var(--${prefix}-spacing-unit-2`,
             "unit-3": `var(--${prefix}-spacing-unit-3)`,
-            "unit-3.5": `var(--${prefix}-spacing-unit-3.5)`,
+            "unit-3.5": `var(--${prefix}-spacing-unit-3_5)`,
             "unit-4": `var(--${prefix}-spacing-unit-4)`,
             "unit-5": `var(--${prefix}-spacing-unit-5)`,
             "unit-6": `var(--${prefix}-spacing-unit-6)`,

@@ -154,28 +154,30 @@ export const TRANSITION_VARIANTS: Variants = {
     enter: {
       opacity: 1,
       height: "auto",
+      transform: "translateY(0)",
       transition: {
         height: {
-          ease: TRANSITION_EASINGS.ease,
-          duration: 0.25,
+          duration: 0.3,
+          easings: "easeInOut",
         },
         opacity: {
-          ease: TRANSITION_EASINGS.ease,
-          duration: 0.3,
+          duration: 0.5,
+          easings: "easeInOut",
         },
       },
     },
     exit: {
       opacity: 0,
       height: 0,
+      transform: "translateY(-10px)",
       transition: {
         height: {
-          ease: TRANSITION_EASINGS.ease,
-          duration: 0.3,
+          duration: 0.25,
+          easings: "easeInOut",
         },
         opacity: {
-          ease: TRANSITION_EASINGS.ease,
-          duration: 0.1,
+          duration: 0.2,
+          easings: "easeInOut",
         },
       },
     },
