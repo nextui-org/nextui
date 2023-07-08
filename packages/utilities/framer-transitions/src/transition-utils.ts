@@ -157,8 +157,8 @@ export const TRANSITION_VARIANTS: Variants = {
       transition: {
         height: {
           type: "spring",
-          stiffness: 300,
-          damping: 25,
+          bounce: 0,
+          duration: 0.3,
         },
         opacity: {
           easings: "ease",

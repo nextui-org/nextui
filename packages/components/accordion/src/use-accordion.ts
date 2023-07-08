@@ -171,8 +171,8 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
 
   const context: ContextType<T> = useMemo(
     () => ({
-      focusedKey,
       state,
+      focusedKey,
       motionProps,
       isCompact,
       isDisabled,

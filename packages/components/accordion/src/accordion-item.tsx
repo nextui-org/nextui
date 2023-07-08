@@ -20,6 +20,7 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
     startContent,
     isOpen,
     isDisabled,
+    hideIndicator,
     disableAnimation,
     motionProps,
     getBaseProps,
@@ -40,8 +41,10 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
 
     if (indicator) return indicator;
 
-    return <ChevronIcon />;
+    return null;
   }, [indicator, isOpen, isDisabled]);
+
+  const indicatorComponent = indicatorContent || <ChevronIcon />;
 
   const content = useMemo(() => {
     if (disableAnimation) {
@@ -80,7 +83,9 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
             {title && <span {...getTitleProps()}>{title}</span>}
             {subtitle && <span {...getSubtitleProps()}>{subtitle}</span>}
           </div>
-          {indicatorContent && <span {...getIndicatorProps()}>{indicatorContent}</span>}
+          {!hideIndicator && indicatorComponent && (
+            <span {...getIndicatorProps()}>{indicatorComponent}</span>
+          )}
         </button>
       </h2>
       {content}

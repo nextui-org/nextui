@@ -191,7 +191,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames, isOpen, isDisabled],
+    [slots, classNames?.indicator, isOpen, isDisabled],
   );
 
   const getHeadingProps = useCallback<PropGetter>(
@@ -203,7 +203,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames, isOpen, isDisabled],
+    [slots, classNames?.heading, isOpen, isDisabled],
   );
 
   const getTitleProps = useCallback<PropGetter>(
@@ -215,7 +215,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames, isOpen, isDisabled],
+    [slots, classNames?.title, isOpen, isDisabled],
   );
 
   const getSubtitleProps = useCallback<PropGetter>(
@@ -243,6 +243,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     startContent,
     isOpen,
     isDisabled,
+    hideIndicator,
     disableAnimation,
     motionProps,
     getBaseProps,
