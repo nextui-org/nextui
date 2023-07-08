@@ -49,7 +49,11 @@ export default function App() {
   return (
     <>
       <Button onPress={onOpen} color="primary">Open Modal</Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal 
+        isOpen={isOpen} 
+        onOpenChange={onOpenChange}
+        position="top-center"
+      >
         <ModalContent>
           {(onClose) => (
             <>

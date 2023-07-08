@@ -17,6 +17,8 @@ export default function App() {
         <Radio value="top">top</Radio>
         <Radio value="bottom">bottom</Radio>
         <Radio value="center">center</Radio>
+        <Radio value="top-center">top-center</Radio>
+        <Radio value="bottom-center">bottom-center</Radio>
       </RadioGroup>
       <Modal 
         isOpen={isOpen} 

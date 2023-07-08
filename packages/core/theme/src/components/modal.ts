@@ -120,7 +120,7 @@ const modal = tv({
     },
     position: {
       auto: {
-        wrapper: "items-end sm:items-center focus-within:items-start sm:focus-within:items-center",
+        wrapper: "items-end sm:items-center",
       },
       center: {
         wrapper: "items-center sm:items-center",
@@ -128,8 +128,14 @@ const modal = tv({
       top: {
         wrapper: "items-start sm:items-start",
       },
+      "top-center": {
+        wrapper: "items-start sm:items-center",
+      },
       bottom: {
         wrapper: "items-end sm:items-end",
+      },
+      "bottom-center": {
+        wrapper: "items-end sm:items-center",
       },
     },
     shadow: {
