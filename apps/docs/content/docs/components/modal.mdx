@@ -58,6 +58,9 @@ screen when the breakpoint is less than `md`. You can change the position of the
 
 <CodeDemo title="Modal position" files={modalContent.position} highlightedLines="12" />
 
+> **Note**: The `top-center` and `bottom-center` positions mean that the modal is positioned at the top / bottom of the screen 
+on mobile and at the center of the screen on desktop. 
+
 ### Overflow scroll
 
 You can use the `scrollBehavior` prop to set the scroll behavior of the modal.
@@ -75,9 +78,6 @@ form elements without any problem. the focus returns to the trigger when the mod
 <CodeDemo title="With Form" files={modalContent.form} />
 
 > **Note**: You can add the `autoFocus` prop to the first `Input` component to focus it when the modal opens.
-
-> **Note**: The `top-center` and `bottom-center` positions mean that the modal is positioned at the top / bottom of the screen 
-on mobile and at the center of the screen on desktop. 
 
 ### Backdrop
 
