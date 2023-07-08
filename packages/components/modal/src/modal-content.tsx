@@ -12,6 +12,7 @@ import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
 
 import {useModalContext} from "./modal-context";
+import {scaleInOut} from "./modal-transition";
 
 export interface ModalContentProps extends AriaDialogProps {
   children: ReactNode | ((onClose: () => void) => ReactNode);
@@ -98,7 +99,7 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
             className={slots.wrapper({class: classNames?.wrapper})}
             exit="exit"
             initial="exit"
-            variants={TRANSITION_VARIANTS.scaleInOut}
+            variants={scaleInOut}
             {...motionProps}
           >
             {content}

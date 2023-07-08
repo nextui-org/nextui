@@ -32,8 +32,16 @@ const modal = tv({
       "z-50",
       "overflow-x-auto",
       "justify-center",
-      "items-start",
-      "md:items-center",
+      //  mobile animation vars
+      "[--scale-enter:100%]",
+      "[--scale-exit:100%]",
+      "[--slide-enter:0px]",
+      "[--slide-exit:80px]",
+      // tablet/desktop animation vars
+      "sm:[--scale-enter:100%]",
+      "sm:[--scale-exit:105%]",
+      "sm:[--slide-enter:0px]",
+      "sm:[--slide-exit:0px]",
     ],
     base: [
       "flex",
@@ -45,8 +53,10 @@ const modal = tv({
       "box-border",
       "bg-content1",
       "outline-none",
-      "mx-6",
-      "my-16",
+      "mx-2",
+      "my-2",
+      "sm:mx-6",
+      "sm:my-16",
     ],
     backdrop: "z-50",
     header: "flex py-4 px-6 flex-initial text-large font-semibold",
@@ -108,6 +118,20 @@ const modal = tv({
       md: {base: "rounded-medium"},
       lg: {base: "rounded-large"},
     },
+    position: {
+      auto: {
+        wrapper: "items-end sm:items-center",
+      },
+      center: {
+        wrapper: "items-center sm:items-center",
+      },
+      top: {
+        wrapper: "items-start sm:items-start",
+      },
+      bottom: {
+        wrapper: "items-end sm:items-end",
+      },
+    },
     shadow: {
       sm: {
         base: "shadow-small",
@@ -139,7 +163,7 @@ const modal = tv({
         body: "overflow-y-auto",
       },
       outside: {
-        wrapper: "md:items-start overflow-y-auto",
+        wrapper: "sm:items-start overflow-y-auto",
         base: "my-16",
       },
     },
@@ -148,6 +172,7 @@ const modal = tv({
     size: "md",
     radius: "lg",
     shadow: "sm",
+    position: "auto",
     backdrop: "opaque",
     scrollBehavior: "normal",
   },
