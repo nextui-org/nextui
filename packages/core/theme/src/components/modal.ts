@@ -39,7 +39,7 @@ const modal = tv({
       "[--slide-exit:80px]",
       // tablet/desktop animation vars
       "sm:[--scale-enter:100%]",
-      "sm:[--scale-exit:105%]",
+      "sm:[--scale-exit:103%]",
       "sm:[--slide-enter:0px]",
       "sm:[--slide-exit:0px]",
     ],
@@ -120,7 +120,7 @@ const modal = tv({
     },
     position: {
       auto: {
-        wrapper: "items-end sm:items-center",
+        wrapper: "items-end sm:items-center focus-within:items-start sm:focus-within:items-center",
       },
       center: {
         wrapper: "items-center sm:items-center",

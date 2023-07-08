@@ -130,7 +130,6 @@ export const Cmdk: FC<{}> = () => {
 
   const eventRef = useRef<"mouse" | "keyboard">();
   const listRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   const {isOpen, onClose, onOpen} = useCmdkStore();
@@ -193,13 +192,6 @@ export const Cmdk: FC<{}> = () => {
     document.addEventListener("keydown", onKeyDown);
 
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [isOpen]);
-
-  useEffect(() => {
-    // focus the input when the menu is opened
-    if (isOpen) {
-      inputRef.current?.focus();
-    }
   }, [isOpen]);
 
   const onItemSelect = useCallback(
@@ -375,7 +367,6 @@ export const Cmdk: FC<{}> = () => {
           <div className={slots.header()}>
             <SearchLinearIcon className={slots.searchIcon()} strokeWidth={2} />
             <Command.Input
-              ref={inputRef}
               autoFocus
               className={slots.input()}
               placeholder="Search documentation"
