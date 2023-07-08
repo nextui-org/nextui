@@ -1,17 +1,17 @@
-const App = `import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+const App = `import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, RadioGroup, Radio} from "@nextui-org/react";
 
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
-  const [modalPosition, setModalPosition] = React.useState("auto");
+  const [modalPlacement, setModalPlacement] = React.useState("auto");
 
   return (
     <div className="flex flex-col gap-2">
-      <Button onPress={onOpen}>Open Modal</Button>
+      <Button onPress={onOpen} className="max-w-fit">Open Modal</Button>
       <RadioGroup
-        label="Select modal position"
+        label="Select modal placement"
         orientation="horizontal"
-        value={modalPosition}
-        onValueChange={setModalPosition}
+        value={modalPlacement}
+        onValueChange={setModalPlacement}
       >
         <Radio value="auto">auto</Radio>
         <Radio value="top">top</Radio>
@@ -22,7 +22,7 @@ export default function App() {
       </RadioGroup>
       <Modal 
         isOpen={isOpen} 
-        position={modalPosition}
+        placement={modalPlacement}
         onOpenChange={onOpenChange} 
       >
         <ModalContent>

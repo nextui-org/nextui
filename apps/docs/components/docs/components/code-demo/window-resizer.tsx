@@ -16,7 +16,7 @@ const resizer = tv({
     bar: "w-[6px] h-[40px] rounded-full bg-default-400",
     iframeWrapper:
       "relative z-10 w-full h-full border border-default-200 dark:border-default-100 rounded-lg overflow-hidden",
-    iframe: "w-full h-full border-none z-10 overflow-scroll",
+    iframe: "w-full h-[calc(100%_-_2rem)] border-none z-10 overflow-scroll",
   },
   variants: {
     hasInitialWidth: {

@@ -7,7 +7,7 @@ import {matchSorter} from "match-sorter";
 import {Button, ButtonProps, Kbd, Modal, ModalContent} from "@nextui-org/react";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {tv} from "tailwind-variants";
-import {useRouter} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import MultiRef from "react-multi-ref";
 import {clsx} from "@nextui-org/shared-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
@@ -25,6 +25,8 @@ import {
 
 import searchData from "@/config/search-meta.json";
 import {useUpdateEffect} from "@/hooks/use-update-effect";
+
+const hideOnPaths = ["examples"];
 
 export interface CmdkStore {
   isOpen: boolean;
@@ -127,6 +129,8 @@ export const Cmdk: FC<{}> = () => {
   const [activeItem, setActiveItem] = useState(0);
   const [menuNodes] = useState(() => new MultiRef<number, HTMLElement>());
   const slots = useMemo(() => cmdk(), []);
+
+  const pathname = usePathname();
 
   const eventRef = useRef<"mouse" | "keyboard">();
   const listRef = useRef<HTMLDivElement>(null);
@@ -333,6 +337,8 @@ export const Cmdk: FC<{}> = () => {
     [activeItem, onItemSelect, CloseButton, slots],
   );
 
+  const shouldOpen = !hideOnPaths.some((path) => pathname.includes(path));
+
   return (
     <Modal
       hideCloseButton
@@ -349,7 +355,7 @@ export const Cmdk: FC<{}> = () => {
         ],
         backdrop: ["bg-black/80"],
       }}
-      isOpen={isOpen}
+      isOpen={isOpen && shouldOpen}
       motionProps={{
         onAnimationComplete: () => {
           if (!isOpen) {
@@ -357,7 +363,7 @@ export const Cmdk: FC<{}> = () => {
           }
         },
       }}
-      position="center"
+      placement="top-center"
       scrollBehavior="inside"
       size="xl"
       onClose={onClose}

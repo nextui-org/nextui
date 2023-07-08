@@ -53,8 +53,8 @@ const modal = tv({
       "box-border",
       "bg-content1",
       "outline-none",
-      "mx-2",
-      "my-2",
+      "mx-1",
+      "my-1",
       "sm:mx-6",
       "sm:my-16",
     ],
@@ -118,7 +118,7 @@ const modal = tv({
       md: {base: "rounded-medium"},
       lg: {base: "rounded-large"},
     },
-    position: {
+    placement: {
       auto: {
         wrapper: "items-end sm:items-center",
       },
@@ -178,7 +178,7 @@ const modal = tv({
     size: "md",
     radius: "lg",
     shadow: "sm",
-    position: "auto",
+    placement: "auto",
     backdrop: "opaque",
     scrollBehavior: "normal",
   },

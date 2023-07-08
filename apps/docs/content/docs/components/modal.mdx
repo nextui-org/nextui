@@ -51,15 +51,22 @@ You can disable this behavior by setting the `isDismissable` prop to `false`.
 
 <CodeDemo title="Non-dissmissible" files={modalContent.nonDismissable} />
 
-### Modal position
+### Modal placement
 
-By default the modal is centered on the screen when the breakpoint is greater than `md` and is displayed at the top of the
-screen when the breakpoint is less than `md`. You can change the position of the modal by modifying the `wrapper` slot.
+By default the modal is centered on screens higher than `sm` and is at the `bottom` of the screen on mobile. This placement is called `auto`, but
+you can change it by using the `placement` prop.
 
-<CodeDemo title="Modal position" files={modalContent.position} highlightedLines="12" />
+<CodeDemo
+  asIframe
+  title="Modal placement"
+  iframeInitialWidth={320}
+  previewHeight="680px"
+  iframeSrc="/examples/modal/placement"
+  files={modalContent.placement}
+/>
 
-> **Note**: The `top-center` and `bottom-center` positions mean that the modal is positioned at the top / bottom of the screen 
-on mobile and at the center of the screen on desktop. 
+> **Note**: The `top-center` and `bottom-center` positions mean that the modal is positioned at the top / bottom of the screen
+> on mobile and at the center of the screen on desktop.
 
 ### Overflow scroll
 
@@ -152,7 +159,7 @@ You can customize the `Modal` component by passing custom Tailwind CSS classes t
 | shadow                    | `none` \| `sm` \| `md` \| `lg`                                                                      | The modal shadow.                                                                                     | `lg`            |
 | backdrop                  | `transparent` \| `opaque` \| `blur`                                                                 | The modal backdrop type.                                                                              | `opaque`        |
 | scrollBehavior            | `normal` \| `inside` \| `outside`                                                                   | The modal scroll behavior.                                                                            | `normal`        |
-| position                  | `auto` \| `top` \| `center` \| `bottom`                                                             | The modal position.                                                                                   | `auto`          |
+| placement                 | `auto` \| `top` \| `center` \| `bottom`                                                             | The modal position.                                                                                   | `auto`          |
 | isOpen                    | `boolean`                                                                                           | Whether the modal is open by default (controlled).                                                    | -               |
 | defaultOpen               | `boolean`                                                                                           | Whether the modal is open by default (uncontrolled).                                                  | -               |
 | isDismissable             | `boolean`                                                                                           | Whether the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.        | `true`          |
