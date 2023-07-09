@@ -44,7 +44,7 @@ function mergeColors(
 
 describe("colorVariants", () => {
   ["light", "dark"].forEach((mode) => {
-    const solidPageBg = mergeColors(
+    const mergedPageBg = mergeColors(
       parseToRgba(getColorFromName("background", mode)),
       parseToRgba("#FFF"),
     );
@@ -67,11 +67,11 @@ describe("colorVariants", () => {
 
               if (!bg || !text) return;
 
-              const solidBg = mergeColors(parseToRgba(bg), parseToRgba(solidPageBg));
-              const solidText = mergeColors(parseToRgba(text), parseToRgba(solidBg));
+              const mergedBg = mergeColors(parseToRgba(bg), parseToRgba(mergedPageBg));
+              const mergedText = mergeColors(parseToRgba(text), parseToRgba(mergedBg));
 
-              it(`${textName}(${solidText}) has enough contrast with ${bgName}(${solidBg}) to be ${targetGuideline}`, () => {
-                expect(getContrast(solidText, solidBg)).toBeGreaterThanOrEqual(
+              it(`${textName}(${mergedText}) has enough contrast with ${bgName}(${mergedBg}) to be ${targetGuideline}`, () => {
+                expect(getContrast(mergedText, mergedBg)).toBeGreaterThanOrEqual(
                   guidelines[targetGuideline],
                 );
               });
