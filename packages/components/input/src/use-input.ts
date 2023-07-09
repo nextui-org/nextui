@@ -54,7 +54,7 @@ export interface Props extends HTMLNextUIProps<"input"> {
   /**
    * React aria onChange event.
    */
-  onValueChange?: AriaTextFieldProps["onChange"];
+  onValueChange?: (value: string | undefined) => void;
 }
 
 export type UseInputProps = Omit<Props, keyof InputVariantProps> &
@@ -81,17 +81,10 @@ export function useInput(originalProps: UseInputProps) {
     ...otherProps
   } = props;
 
-  const handleValueChange = useCallback(
-    (value: string | undefined) => {
-      value && onValueChange(value);
-    },
-    [onValueChange],
-  );
-
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
     props.value,
     props.defaultValue,
-    handleValueChange,
+    onValueChange,
   );
 
   const Component = as || "div";
