@@ -109,7 +109,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 mx-0 max-w-full h-[100dvh] !rounded-none",
+        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] !rounded-none",
       },
     },
     radius: {

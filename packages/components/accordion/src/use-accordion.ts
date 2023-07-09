@@ -181,13 +181,15 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       disableIndicatorAnimation,
     }),
     [
-      state,
       focusedKey,
       isCompact,
       isDisabled,
       hideIndicator,
       disableAnimation,
+      state?.expandedKeys.values,
       disableIndicatorAnimation,
+      ...[...state?.expandedKeys],
+      ...[...state?.disabledKeys],
       motionProps,
     ],
   );

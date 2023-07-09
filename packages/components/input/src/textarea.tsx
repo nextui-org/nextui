@@ -1,5 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
+import {memo} from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 import {UseInputProps, useInput} from "./use-input";
@@ -100,4 +101,4 @@ const Textarea = forwardRef<TextAreaProps, "textarea">(
 
 Textarea.displayName = "NextUI.Textarea";
 
-export default Textarea;
+export default memo(Textarea);

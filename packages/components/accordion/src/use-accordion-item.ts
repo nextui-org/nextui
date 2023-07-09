@@ -29,16 +29,20 @@ export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
    * Current focused key.
    */
   focusedKey: React.Key | null;
+  /**
+   * Callback fired when the focus state changes.
+   */
+  onFocusChange?: (isFocused: boolean, key?: React.Key) => void;
 }
 
-export type UseAccordionItemProps<T extends object = {}> = Props<T> & AccordionItemBaseProps;
+export type UseAccordionItemProps<T extends object = {}> = Props<T> &
+  Omit<AccordionItemBaseProps, "onFocusChange">;
 
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
   const {ref, as, item, onFocusChange} = props;
 
   const {
     state,
-    classNames,
     className,
     indicator,
     children,
@@ -48,6 +52,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     motionProps,
     focusedKey,
     isCompact = false,
+    classNames: classNamesProp = {},
     isDisabled: isDisabledProp = false,
     hideIndicator = false,
     disableAnimation = false,
@@ -92,13 +97,20 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     onPressUp,
   });
 
-  const handleFocus = () => {
-    onFocusChange?.(true);
-  };
+  const handleFocus = useCallback(() => {
+    onFocusChange?.(true, item.key);
+  }, []);
 
-  const handleBlur = () => {
-    onFocusChange?.(false);
-  };
+  const handleBlur = useCallback(() => {
+    onFocusChange?.(false, item.key);
+  }, []);
+
+  const classNames = useMemo(
+    () => ({
+      ...classNamesProp,
+    }),
+    [...Object.values(classNamesProp)],
+  );
 
   const slots = useMemo(
     () =>

@@ -21,6 +21,11 @@ export const tv: TV = (options, config) =>
         shadow: [{shadow: COMMON_UNITS}],
         "font-size": [{text: ["tiny", ...COMMON_UNITS]}],
         "bg-image": ["bg-stripe-gradient"],
+        "min-w": [
+          {
+            "min-w": ["unit", ...mappedSpacingScaleKeys],
+          },
+        ],
       },
     },
   });

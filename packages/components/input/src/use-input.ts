@@ -8,7 +8,7 @@ import {useDOMRef} from "@nextui-org/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, RefObject} from "react";
+import {useMemo, Ref, RefObject, useCallback} from "react";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
@@ -77,11 +77,22 @@ export function useInput(originalProps: UseInputProps) {
     endContent,
     onClear,
     onChange,
-    onValueChange,
+    onValueChange = () => {},
     ...otherProps
   } = props;
 
-  const [inputValue, setInputValue] = useControlledState(props.value, props.defaultValue, () => {});
+  const handleValueChange = useCallback(
+    (value: string | undefined) => {
+      value && onValueChange(value);
+    },
+    [onValueChange],
+  );
+
+  const [inputValue, setInputValue] = useControlledState<string | undefined>(
+    props.value,
+    props.defaultValue,
+    handleValueChange,
+  );
 
   const Component = as || "div";
   const baseStyles = clsx(classNames?.base, className, !!inputValue ? "is-filled" : "");
@@ -91,22 +102,22 @@ export function useInput(originalProps: UseInputProps) {
     ? RefObject<HTMLTextAreaElement>
     : RefObject<HTMLInputElement>;
 
-  const handleClear = () => {
-    setInputValue(undefined);
+  const handleClear = useCallback(() => {
+    setInputValue("");
 
     if (domRef.current) {
       domRef.current.value = "";
       domRef.current.focus();
     }
     onClear?.();
-  };
+  }, [domRef, setInputValue, onClear]);
 
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
     {
       ...originalProps,
       inputElementType: isMultiline ? "textarea" : "input",
       value: inputValue,
-      onChange: chain(onValueChange, setInputValue),
+      onChange: setInputValue,
     },
     domRef,
   );
@@ -148,95 +159,140 @@ export function useInput(originalProps: UseInputProps) {
     [...Object.values(variantProps), isInvalid, isClearable, isLabelPlaceholder, hasStartContent],
   );
 
-  const getBaseProps: PropGetter = (props = {}) => {
-    return {
-      className: slots.base({class: baseStyles}),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-readonly": dataAttr(originalProps.isReadOnly),
-      "data-focus": dataAttr(isFocused),
-      "data-hover": dataAttr(isHovered),
-      "data-required": dataAttr(originalProps.isRequired),
-      "data-invalid": dataAttr(isInvalid),
-      "data-disabled": dataAttr(originalProps.isDisabled),
-      "data-has-elements": dataAttr(hasElements),
-      ...props,
-    };
-  };
+  const getBaseProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.base({class: baseStyles}),
+        "data-focus-visible": dataAttr(isFocusVisible),
+        "data-readonly": dataAttr(originalProps.isReadOnly),
+        "data-focus": dataAttr(isFocused),
+        "data-hover": dataAttr(isHovered),
+        "data-required": dataAttr(originalProps.isRequired),
+        "data-invalid": dataAttr(isInvalid),
+        "data-disabled": dataAttr(originalProps.isDisabled),
+        "data-has-elements": dataAttr(hasElements),
+        ...props,
+      };
+    },
+    [
+      slots,
+      baseStyles,
+      isFocused,
+      isHovered,
+      isInvalid,
+      hasElements,
+      isFocusVisible,
+      originalProps.isReadOnly,
+      originalProps.isRequired,
+      originalProps.isDisabled,
+    ],
+  );
 
-  const getLabelProps: PropGetter = (props = {}) => {
-    return {
-      className: slots.label({class: classNames?.label}),
-      ...labelProps,
-      ...props,
-    };
-  };
+  const getLabelProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.label({class: classNames?.label}),
+        ...labelProps,
+        ...props,
+      };
+    },
+    [slots, labelProps, classNames?.label],
+  );
 
-  const getInputProps: PropGetter = (props = {}) => {
-    return {
-      ref: domRef,
-      className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
-      ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
-      required: originalProps.isRequired,
-      "aria-readonly": dataAttr(originalProps.isReadOnly),
-      "aria-required": dataAttr(originalProps.isRequired),
-      onChange: chain(inputProps.onChange, onChange),
-    };
-  };
+  const getInputProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ref: domRef,
+        className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
+        ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
+        required: originalProps.isRequired,
+        "aria-readonly": dataAttr(originalProps.isReadOnly),
+        "aria-required": dataAttr(originalProps.isRequired),
+        onChange: chain(inputProps.onChange, onChange),
+      };
+    },
+    [
+      slots,
+      inputValue,
+      focusProps,
+      inputProps,
+      otherProps,
+      classNames?.input,
+      originalProps.isReadOnly,
+      originalProps.isRequired,
+      onChange,
+    ],
+  );
 
-  const getInputWrapperProps: PropGetter = (props = {}) => {
-    return {
-      "data-hover": dataAttr(isHovered),
-      className: slots.inputWrapper({
-        class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
-      }),
-      onClick: (e: React.MouseEvent) => {
-        if (e.target === e.currentTarget) {
-          domRef.current?.focus();
-        }
-      },
-      ...mergeProps(props, hoverProps),
-      style: {
-        cursor: "text",
-        ...props.style,
-      },
-    };
-  };
+  const getInputWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        "data-hover": dataAttr(isHovered),
+        className: slots.inputWrapper({
+          class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
+        }),
+        onClick: (e: React.MouseEvent) => {
+          if (e.target === e.currentTarget) {
+            domRef.current?.focus();
+          }
+        },
+        ...mergeProps(props, hoverProps),
+        style: {
+          cursor: "text",
+          ...props.style,
+        },
+      };
+    },
+    [slots, isHovered, inputValue],
+  );
 
-  const getInnerWrapperProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      className: slots.innerWrapper({
-        class: clsx(classNames?.innerWrapper, props?.className),
-      }),
-    };
-  };
+  const getInnerWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.innerWrapper({
+          class: clsx(classNames?.innerWrapper, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.innerWrapper],
+  );
 
-  const getDescriptionProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      ...descriptionProps,
-      className: slots.description({class: clsx(classNames?.description, props?.className)}),
-    };
-  };
+  const getDescriptionProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...descriptionProps,
+        className: slots.description({class: clsx(classNames?.description, props?.className)}),
+      };
+    },
+    [slots, classNames?.description],
+  );
 
-  const getErrorMessageProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      ...errorMessageProps,
-      className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
-    };
-  };
+  const getErrorMessageProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...errorMessageProps,
+        className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
+      };
+    },
+    [slots, errorMessageProps, classNames?.errorMessage],
+  );
 
-  const getClearButtonProps: PropGetter = (props = {}) => {
-    return {
-      ...props,
-      role: "button",
-      tabIndex: 0,
-      "data-focus-visible": dataAttr(isClearButtonFocusVisible),
-      className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
-      ...mergeProps(clearPressProps, clearFocusProps),
-    };
-  };
+  const getClearButtonProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        role: "button",
+        tabIndex: 0,
+        "data-focus-visible": dataAttr(isClearButtonFocusVisible),
+        className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
+        ...mergeProps(clearPressProps, clearFocusProps),
+      };
+    },
+    [slots, isClearButtonFocusVisible, clearPressProps, clearFocusProps, classNames?.clearButton],
+  );
 
   return {
     Component,
