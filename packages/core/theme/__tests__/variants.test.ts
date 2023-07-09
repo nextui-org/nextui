@@ -44,7 +44,7 @@ function mergeColors(
 
 describe("colorVariants", () => {
   ["light", "dark"].forEach((mode) => {
-    const mergedPageBg = mergeColors(
+    const mergedPageBackground = mergeColors(
       parseToRgba(getColorFromName("background", mode)),
       parseToRgba("#FFF"),
     );
@@ -56,22 +56,26 @@ describe("colorVariants", () => {
             describe(color, () => {
               const classes = colorVariants[variant][color].split(" ").reverse() as string[];
 
-              const bgName =
-                classes.find((val) => val.startsWith("bg-"))?.replace("bg-", "") || "background";
+              const backgroundName =
+                classes.find((val) => val.startsWith("background-"))?.replace("background-", "") ||
+                "background";
               const textName = classes.find((val) => val.startsWith("text-"))?.replace("text-", "");
 
               if (!textName) return;
 
-              const bg = getColorFromName(bgName, mode);
+              const background = getColorFromName(backgroundName, mode);
               const text = getColorFromName(textName, mode);
 
-              if (!bg || !text) return;
+              if (!background || !text) return;
 
-              const mergedBg = mergeColors(parseToRgba(bg), parseToRgba(mergedPageBg));
-              const mergedText = mergeColors(parseToRgba(text), parseToRgba(mergedBg));
+              const mergedBackground = mergeColors(
+                parseToRgba(background),
+                parseToRgba(mergedPageBackground),
+              );
+              const mergedText = mergeColors(parseToRgba(text), parseToRgba(mergedBackground));
 
-              it(`${textName}(${mergedText}) has enough contrast with ${bgName}(${mergedBg}) to be ${targetGuideline}`, () => {
-                expect(getContrast(mergedText, mergedBg)).toBeGreaterThanOrEqual(
+              it(`${textName}(${mergedText}) has enough contrast with ${backgroundName}(${mergedBackground}) to be ${targetGuideline}`, () => {
+                expect(getContrast(mergedText, mergedBackground)).toBeGreaterThanOrEqual(
                   guidelines[targetGuideline],
                 );
               });
