@@ -8,9 +8,9 @@ import {useAriaAccordionItem} from "@nextui-org/use-aria-accordion-item";
 import {useCallback, useMemo} from "react";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
+import {TreeState} from "@react-stately/tree";
 
 import {AccordionItemBaseProps} from "./base/accordion-item-base";
-import {useAccordionContext} from "./accordion-context";
 
 export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
   /**
@@ -21,16 +21,23 @@ export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
    * The item node.
    */
   item: NodeWithProps<T, AccordionItemBaseProps<T>>;
+  /**
+   * The accordion tree state.
+   */
+  state: TreeState<T>;
+  /**
+   * Current focused key.
+   */
+  focusedKey: React.Key | null;
 }
 
 export type UseAccordionItemProps<T extends object = {}> = Props<T> & AccordionItemBaseProps;
 
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
-  const groupContext = useAccordionContext();
-
   const {ref, as, item, onFocusChange} = props;
 
   const {
+    state,
     classNames,
     className,
     indicator,
@@ -38,12 +45,13 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     title,
     subtitle,
     startContent,
-    motionProps = groupContext?.motionProps,
-    isCompact = groupContext?.isCompact ?? false,
-    isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    hideIndicator = groupContext.hideIndicator ?? false,
-    disableAnimation = groupContext.disableAnimation ?? false,
-    disableIndicatorAnimation = groupContext.disableIndicatorAnimation ?? false,
+    motionProps,
+    focusedKey,
+    isCompact = false,
+    isDisabled: isDisabledProp = false,
+    hideIndicator = false,
+    disableAnimation = false,
+    disableIndicatorAnimation = false,
     onPress,
     onPressStart,
     onPressEnd,
@@ -57,13 +65,12 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
 
   const domRef = useDOMRef<HTMLButtonElement>(ref);
 
-  const state = groupContext?.state;
-  const isDisabled = state.disabledKeys.has(item.key) || isDisabledProp || groupContext?.isDisabled;
+  const isDisabled = state.disabledKeys.has(item.key) || isDisabledProp;
   const isOpen = state.selectionManager.isSelected(item.key);
 
   const {buttonProps: buttonCompleteProps, regionProps} = useAriaAccordionItem(
     {item, isDisabled},
-    {...state, focusedKey: groupContext.focusedKey},
+    {...state, focusedKey: focusedKey},
     domRef,
   );
 
@@ -119,55 +126,34 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     [baseStyles, otherProps, slots, item.props, isOpen, isDisabled],
   );
 
-  const getButtonProps = useCallback<PropGetter>(
-    (props = {}) => {
-      return {
-        ref: domRef,
-        "data-open": dataAttr(isOpen),
-        "data-focus": dataAttr(isFocused),
-        "data-focus-visible": dataAttr(isFocusVisible),
-        "data-disabled": dataAttr(isDisabled),
-        "data-hover": dataAttr(isHovered),
-        "data-pressed": dataAttr(isPressed),
-        className: slots.trigger({class: classNames?.trigger}),
-        onFocus: callAllHandlers(
-          handleFocus,
-          onFocusButton,
-          focusProps.onFocus,
-          otherProps.onFocus,
-          item.props?.onFocus,
-        ),
-        onBlur: callAllHandlers(
-          handleBlur,
-          onBlurButton,
-          focusProps.onBlur,
-          otherProps.onBlur,
-          item.props?.onBlur,
-        ),
-        ...mergeProps(buttonProps, hoverProps, pressProps, props),
-        onClick: chain(pressProps.onClick, onClick),
-      };
-    },
-    [
-      domRef,
-      slots,
-      isOpen,
-      isFocusVisible,
-      isPressed,
-      isHovered,
-      isDisabled,
-      isFocused,
-      buttonProps,
-      focusProps,
-      pressProps,
-      hoverProps,
-      otherProps,
-      item.props,
-      handleFocus,
-      handleBlur,
-      classNames,
-    ],
-  );
+  const getButtonProps: PropGetter = (props = {}) => {
+    return {
+      ref: domRef,
+      "data-open": dataAttr(isOpen),
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-disabled": dataAttr(isDisabled),
+      "data-hover": dataAttr(isHovered),
+      "data-pressed": dataAttr(isPressed),
+      className: slots.trigger({class: classNames?.trigger}),
+      onFocus: callAllHandlers(
+        handleFocus,
+        onFocusButton,
+        focusProps.onFocus,
+        otherProps.onFocus,
+        item.props?.onFocus,
+      ),
+      onBlur: callAllHandlers(
+        handleBlur,
+        onBlurButton,
+        focusProps.onBlur,
+        otherProps.onBlur,
+        item.props?.onBlur,
+      ),
+      ...mergeProps(buttonProps, hoverProps, pressProps, props),
+      onClick: chain(pressProps.onClick, onClick),
+    };
+  };
 
   const getContentProps = useCallback<PropGetter>(
     (props = {}) => {
@@ -178,7 +164,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...mergeProps(regionProps, props),
       };
     },
-    [slots, classNames, regionProps, isOpen, isDisabled],
+    [slots, classNames, regionProps, isOpen, isDisabled, classNames?.content],
   );
 
   const getIndicatorProps = useCallback<PropGetter>(
@@ -191,7 +177,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames?.indicator, isOpen, isDisabled],
+    [slots, classNames?.indicator, isOpen, isDisabled, classNames?.indicator],
   );
 
   const getHeadingProps = useCallback<PropGetter>(
@@ -203,7 +189,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames?.heading, isOpen, isDisabled],
+    [slots, classNames?.heading, isOpen, isDisabled, classNames?.heading],
   );
 
   const getTitleProps = useCallback<PropGetter>(
@@ -215,7 +201,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames?.title, isOpen, isDisabled],
+    [slots, classNames?.title, isOpen, isDisabled, classNames?.title],
   );
 
   const getSubtitleProps = useCallback<PropGetter>(
@@ -227,7 +213,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         ...props,
       };
     },
-    [slots, classNames, isOpen, isDisabled],
+    [slots, classNames, isOpen, isDisabled, classNames?.subtitle],
   );
 
   return {

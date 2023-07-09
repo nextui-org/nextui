@@ -7,9 +7,22 @@ import {mergeProps} from "@react-aria/utils";
 import {useTabPanel} from "@react-aria/tabs";
 import {useFocusRing} from "@react-aria/focus";
 
-import {useTabsContext} from "./tabs-context";
+import {ValuesType} from "./use-tabs";
 
-interface Props extends HTMLNextUIProps<"div"> {}
+interface Props extends HTMLNextUIProps<"div"> {
+  /**
+   * The tab list state.
+   */
+  state: ValuesType["state"];
+  /**
+   * Component slots classes
+   */
+  slots: ValuesType["slots"];
+  /**
+   * User custom classnames
+   */
+  classNames?: ValuesType["classNames"];
+}
 
 export type TabPanelProps = Props & AriaTabPanelProps;
 
@@ -17,12 +30,10 @@ export type TabPanelProps = Props & AriaTabPanelProps;
  * @internal
  */
 const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
-  const {as, className, ...otherProps} = props;
+  const {as, state, className, slots, classNames, ...otherProps} = props;
 
   const Component = as || "div";
   const domRef = useDOMRef(ref);
-
-  const {slots, state, classNames} = useTabsContext();
 
   const {tabPanelProps} = useTabPanel(props, state, domRef);
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();

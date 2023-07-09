@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {useMemo} from "react";
+import {memo, useMemo} from "react";
 
 import {UseInputProps, useInput} from "./use-input";
 
@@ -70,4 +70,4 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
 
 Input.displayName = "NextUI.Input";
 
-export default Input;
+export default memo(Input);

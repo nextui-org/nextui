@@ -10,7 +10,7 @@ import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusableRef} from "@nextui-org/react-utils";
-import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {
   useCheckbox as useReactAriaCheckbox,
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
@@ -124,9 +124,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const labelId = useId();
 
   const ariaCheckboxProps = useMemo(() => {
-    const ariaLabel =
-      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
-
     return {
       name,
       value,
@@ -139,7 +136,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       isDisabled: isDisabledProp,
       isReadOnly: isReadOnlyProp,
       validationState,
-      "aria-label": ariaLabel,
+      "aria-label": safeAriaLabel(otherProps["aria-label"], children),
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       onChange: onValueChange,
     };

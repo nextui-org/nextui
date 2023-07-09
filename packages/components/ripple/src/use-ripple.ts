@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 export type RippleType = {
   key: number;
@@ -34,7 +34,7 @@ export function useRipple(props: UseRippleProps = {}) {
     };
   }, [ripples]);
 
-  const onClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+  const onClick = useCallback((event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const trigger = event.currentTarget;
 
     const size = Math.max(trigger.clientWidth, trigger.clientHeight);
@@ -49,7 +49,7 @@ export function useRipple(props: UseRippleProps = {}) {
         y: event.clientY - rect.y - size / 2,
       },
     ]);
-  };
+  }, []);
 
   return {ripples, onClick, ...otherProps};
 }

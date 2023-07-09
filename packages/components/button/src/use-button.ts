@@ -124,10 +124,13 @@ export function useButton(props: UseButtonProps) {
 
   const {onClick: onRippleClickHandler, ripples} = useRipple();
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (disableRipple || isDisabled || disableAnimation) return;
-    domRef.current && onRippleClickHandler(e);
-  };
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (disableRipple || isDisabled || disableAnimation) return;
+      domRef.current && onRippleClickHandler(e);
+    },
+    [disableRipple, isDisabled, disableAnimation, domRef, onRippleClickHandler],
+  );
 
   const {buttonProps: ariaButtonProps, isPressed} = useAriaButton(
     {
@@ -181,9 +184,9 @@ export function useButton(props: UseButtonProps) {
 
   const spinnerSize = useMemo(() => {
     const buttonSpinnerSizeMap: Record<string, SpinnerProps["size"]> = {
+      sm: "sm",
       md: "sm",
-      lg: "sm",
-      xl: "sm",
+      lg: "md",
     };
 
     return buttonSpinnerSizeMap[size];

@@ -10,37 +10,45 @@ import {useHover} from "@react-aria/interactions";
 import {motion} from "framer-motion";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
-import {useTabsContext} from "./tabs-context";
+import {ValuesType} from "./use-tabs";
 
 export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
-  /**
-   * The tab item.
-   */
   item: Node<T>;
+  state: ValuesType["state"];
+  slots: ValuesType["slots"];
+  listRef?: ValuesType["listRef"];
+  classNames?: ValuesType["classNames"];
+  isDisabled?: ValuesType["isDisabled"];
+  motionProps?: ValuesType["motionProps"];
+  disableAnimation?: ValuesType["disableAnimation"];
+  disableCursorAnimation?: ValuesType["disableCursorAnimation"];
 }
 
 /**
  * @internal
  */
 const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
-  const {className, as, item, onClick, ...otherProps} = props;
+  const {
+    className,
+    as,
+    item,
+    state,
+    classNames,
+    isDisabled: isDisabledProp,
+    listRef,
+    slots,
+    motionProps,
+    disableAnimation,
+    disableCursorAnimation,
+    onClick,
+    ...otherProps
+  } = props;
 
   const {key} = item;
 
   const domRef = useDOMRef(ref);
 
   const Component = as || "button";
-
-  const {
-    slots,
-    state,
-    listRef,
-    motionProps,
-    disableCursorAnimation,
-    isDisabled: isDisabledProp,
-    disableAnimation,
-    classNames,
-  } = useTabsContext();
 
   const {
     tabProps,

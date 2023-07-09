@@ -5,7 +5,7 @@ import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useMemo, RefObject} from "react";
+import {useMemo, RefObject, useCallback} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
 import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
@@ -50,7 +50,7 @@ export type UseTabsProps<T> = Props &
   Omit<AriaTabListProps<T>, "children" | "orientation"> &
   CollectionProps<T>;
 
-export type ContextType<T = object> = {
+export type ValuesType<T = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
   disableCursorAnimation?: boolean;
@@ -96,7 +96,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const context = useMemo<ContextType<T>>(
+  const values = useMemo<ValuesType<T>>(
     () => ({
       state,
       slots,
@@ -119,24 +119,30 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     ],
   );
 
-  const getBaseProps: PropGetter = (props) => ({
-    "data-slot": "base",
-    className: slots.base({class: clsx(baseStyles, props?.className)}),
-    ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
-  });
+  const getBaseProps: PropGetter = useCallback(
+    (props) => ({
+      "data-slot": "base",
+      className: slots.base({class: clsx(baseStyles, props?.className)}),
+      ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
+    }),
+    [baseStyles, otherProps, slots],
+  );
 
-  const getTabListProps: PropGetter = (props) => ({
-    ref: domRef,
-    "data-slot": "tabList",
-    className: slots.tabList({class: clsx(classNames?.tabList, props?.className)}),
-    ...mergeProps(tabListProps, props),
-  });
+  const getTabListProps: PropGetter = useCallback(
+    (props) => ({
+      ref: domRef,
+      "data-slot": "tabList",
+      className: slots.tabList({class: clsx(classNames?.tabList, props?.className)}),
+      ...mergeProps(tabListProps, props),
+    }),
+    [domRef, tabListProps, classNames, slots],
+  );
 
   return {
     Component,
     domRef,
     state,
-    context,
+    values,
     getBaseProps,
     getTabListProps,
   };

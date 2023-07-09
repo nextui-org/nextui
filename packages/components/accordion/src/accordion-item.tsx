@@ -59,7 +59,7 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
             animate="enter"
             exit="exit"
             initial="exit"
-            style={{overflowY: "auto", willChange}}
+            style={{overflowY: "hidden", willChange}}
             variants={TRANSITION_VARIANTS.collapse}
             {...motionProps}
           >

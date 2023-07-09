@@ -1,7 +1,6 @@
 import {forwardRef, ForwardedRef, ReactElement, Ref, useId} from "react";
 import {LayoutGroup} from "framer-motion";
 
-import {TabsProvider} from "./tabs-context";
 import {UseTabsProps, useTabs} from "./use-tabs";
 import Tab from "./tab";
 import TabPanel from "./tab-panel";
@@ -9,7 +8,7 @@ import TabPanel from "./tab-panel";
 interface Props<T> extends Omit<UseTabsProps<T>, "ref"> {}
 
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {Component, state, context, getBaseProps, getTabListProps} = useTabs<T>({
+  const {Component, values, state, getBaseProps, getTabListProps} = useTabs<T>({
     ref,
     ...props,
   });
@@ -18,23 +17,35 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
 
   const layoutGroupEnabled = !props.disableAnimation && !props.disableCursorAnimation;
 
+  const tabsProps = {
+    state,
+    listRef: values.listRef,
+    slots: values.slots,
+    classNames: values.classNames,
+    isDisabled: values.isDisabled,
+    motionProps: values.motionProps,
+    disableAnimation: values.disableAnimation,
+    disableCursorAnimation: values.disableCursorAnimation,
+  };
+
+  const tabs = [...state.collection].map((item) => (
+    <Tab key={item.key} item={item} {...item.props} {...tabsProps} />
+  ));
+
   return (
-    <TabsProvider value={context}>
+    <>
       <div {...getBaseProps()}>
         <Component {...getTabListProps()}>
-          {layoutGroupEnabled ? (
-            <LayoutGroup id={layoutId}>
-              {[...state.collection].map((item) => (
-                <Tab key={item.key} item={item} {...item.props} />
-              ))}
-            </LayoutGroup>
-          ) : (
-            [...state.collection].map((item) => <Tab key={item.key} item={item} {...item.props} />)
-          )}
+          {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
         </Component>
       </div>
-      <TabPanel key={state.selectedItem?.key} />
-    </TabsProvider>
+      <TabPanel
+        key={state.selectedItem?.key}
+        classNames={values.classNames}
+        slots={values.slots}
+        state={values.state}
+      />
+    </>
   );
 }
 

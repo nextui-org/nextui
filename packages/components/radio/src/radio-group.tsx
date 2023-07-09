@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {memo} from "react";
+import {memo, useMemo} from "react";
 
 import {RadioGroupProvider} from "./radio-group-context";
 import {UseRadioGroupProps, useRadioGroup} from "./use-radio-group";
@@ -21,12 +21,15 @@ const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
     getErrorMessageProps,
   } = useRadioGroup({ref, ...props});
 
+  const memoizedProvider = useMemo(
+    () => <RadioGroupProvider value={context}>{children}</RadioGroupProvider>,
+    [context],
+  );
+
   return (
     <Component {...getGroupProps()}>
       {label && <label {...getLabelProps()}>{label}</label>}
-      <div {...getWrapperProps()}>
-        <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
-      </div>
+      <div {...getWrapperProps()}>{memoizedProvider}</div>
       {errorMessage ? (
         <div {...getErrorMessageProps()}>{errorMessage}</div>
       ) : description ? (

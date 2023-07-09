@@ -12,8 +12,5 @@ export type {Selection} from "@react-types/shared";
 export {useAccordionItem} from "./use-accordion-item";
 export {useAccordion} from "./use-accordion";
 
-// export context
-export * from "./accordion-context";
-
 // export component
 export {Accordion, AccordionItem};

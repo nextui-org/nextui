@@ -4,7 +4,6 @@ import {Divider} from "@nextui-org/divider";
 import {Fragment} from "react";
 
 import {UseAccordionProps, useAccordion} from "./use-accordion";
-import {AccordionProvider} from "./accordion-context";
 import AccordionItem from "./accordion-item";
 
 export interface AccordionProps extends Omit<UseAccordionProps, "ref"> {}
@@ -12,7 +11,7 @@ export interface AccordionProps extends Omit<UseAccordionProps, "ref"> {}
 const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
   const {
     Component,
-    context,
+    values,
     state,
     isSplitted,
     showDivider,
@@ -31,6 +30,7 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
         item={item}
         onFocusChange={(isFocused) => handleFocusChanged(isFocused, item.key)}
         {...item.props}
+        {...values}
         classNames={{...itemClasses, ...(item.props.classNames || {})}}
       />
       {!isSplitted && showDivider && index < state.collection.size - 1 && <Divider />}
@@ -39,9 +39,7 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <AccordionProvider value={context}>
-        {disableAnimation ? content : <LayoutGroup>{content}</LayoutGroup>}
-      </AccordionProvider>
+      {disableAnimation ? content : <LayoutGroup>{content}</LayoutGroup>}
     </Component>
   );
 });

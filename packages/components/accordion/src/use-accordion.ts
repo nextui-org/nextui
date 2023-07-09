@@ -55,7 +55,7 @@ export type UseAccordionProps<T extends object = {}> = Props &
   AriaAccordionProps<T> &
   MultipleSelection;
 
-export type ContextType<T extends object = {}> = {
+export type ValuesType<T extends object = {}> = {
   state: TreeState<T>;
   focusedKey?: Key | null;
   isCompact?: AccordionItemProps["isCompact"];
@@ -169,7 +169,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     domRef,
   );
 
-  const context: ContextType<T> = useMemo(
+  const values: ValuesType<T> = useMemo(
     () => ({
       state,
       focusedKey,
@@ -207,7 +207,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
 
   return {
     Component,
-    context,
+    values,
     state,
     focusedKey,
     getBaseProps,

@@ -9,7 +9,7 @@ import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
 import {RadioProps} from "./index";
@@ -95,13 +95,13 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       ...otherProps,
       value,
       name,
-      "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
+      "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       isRequired,
       isReadOnly,
       orientation,
       onChange: onValueChange,
     };
-  }, [otherProps, onValueChange]);
+  }, [otherProps, value, name, label, isRequired, isReadOnly, orientation, onValueChange]);
 
   const groupState = useRadioGroupState(otherPropsWithOrientation);
 
@@ -157,7 +157,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       className: slots.label({class: classNames?.label}),
       ...labelProps,
     };
-  }, [slots, classNames?.label, labelProps]);
+  }, [slots, classNames?.label, labelProps, classNames?.label]);
 
   const getWrapperProps: PropGetter = useCallback(() => {
     return {
@@ -165,7 +165,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       role: "presentation",
       "data-orientation": orientation,
     };
-  }, [slots, classNames?.wrapper, orientation]);
+  }, [slots, classNames?.wrapper, orientation, slots.wrapper]);
 
   const getDescriptionProps: PropGetter = useCallback(
     (props = {}) => {
@@ -175,7 +175,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
         className: slots.description({class: clsx(classNames?.description, props?.className)}),
       };
     },
-    [slots, classNames?.description, descriptionProps],
+    [slots, classNames?.description, descriptionProps, slots.description],
   );
 
   const getErrorMessageProps: PropGetter = useCallback(

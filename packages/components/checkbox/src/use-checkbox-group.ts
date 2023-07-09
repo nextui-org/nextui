@@ -10,7 +10,7 @@ import {checkboxGroup} from "@nextui-org/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 
 import {CheckboxProps} from "./index";
 
@@ -97,7 +97,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     () => ({
       value,
       name,
-      "aria-label": typeof label === "string" ? label : otherProps["aria-label"],
+      "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       defaultValue,
       isRequired,
       isReadOnly,
@@ -170,7 +170,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       className: slots.label({class: classNames?.label}),
       ...labelProps,
     };
-  }, [slots, labelProps]);
+  }, [slots, labelProps, classNames?.label]);
 
   const getWrapperProps: PropGetter = useCallback(() => {
     return {
@@ -178,7 +178,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       role: "presentation",
       "data-orientation": orientation,
     };
-  }, [slots, orientation]);
+  }, [slots, orientation, classNames?.wrapper]);
 
   const getDescriptionProps: PropGetter = useCallback(
     (props = {}) => {
@@ -188,7 +188,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
         className: slots.description({class: clsx(classNames?.description, props?.className)}),
       };
     },
-    [slots, descriptionProps],
+    [slots, descriptionProps, classNames?.description],
   );
 
   const getErrorMessageProps: PropGetter = useCallback(
@@ -199,7 +199,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
         className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
       };
     },
-    [slots, errorMessageProps],
+    [slots, errorMessageProps, classNames?.errorMessage],
   );
 
   return {

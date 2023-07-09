@@ -58,6 +58,7 @@ const tabs = tv({
       "relative",
       "z-10",
       "text-inherit",
+      "whitespace-nowrap",
       "transition-colors",
       "text-default-500",
       "group-data-[selected=true]:text-foreground",
