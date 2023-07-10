@@ -52,7 +52,7 @@ export default function App() {
       <Modal 
         isOpen={isOpen} 
         onOpenChange={onOpenChange}
-        position="top-center"
+        placement="top-center"
       >
         <ModalContent>
           {(onClose) => (

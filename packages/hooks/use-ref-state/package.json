@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-ref-state",
-  "version": "0.0.0-dev-v2-20230710005328",
+  "version": "0.0.0-dev-v2-20230710220232",
   "description": "Hook for saving the state in a ref value",
   "keywords": [
     "use-ref-state"
