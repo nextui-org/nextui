@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata} from "next";
 import {clsx} from "@nextui-org/shared-utils";
+import {Analytics} from "@vercel/analytics/react";
 
 import {Providers} from "./providers";
 
@@ -68,6 +69,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </div>
           <Cmdk />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
