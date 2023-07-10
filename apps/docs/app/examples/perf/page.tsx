@@ -1,23 +1,93 @@
 "use client";
 
 import {
-  Button,
-  Textarea,
-  Tabs,
-  Tab,
-  Input,
   RadioGroup,
   Radio,
   Accordion,
+  Tabs,
+  Tab,
+  Textarea,
+  Input,
   AccordionItem,
+  Button,
 } from "@nextui-org/react";
 import {useState} from "react";
+
+const MyRadioGroup = () => {
+  const [radio, setRadio] = useState("1");
+
+  return (
+    <RadioGroup value={radio} onValueChange={setRadio}>
+      <Radio value="1">Radio 1</Radio>
+      <Radio value="2">Radio 2</Radio>
+      <Radio value="3">Radio 3</Radio>
+      <Radio value="4">Radio 4</Radio>
+      <Radio value="5">Radio 5</Radio>
+      <Radio value="6">Radio 6</Radio>
+      <Radio value="7">Radio 7</Radio>
+      <Radio value="8">Radio 8</Radio>
+      <Radio value="9">Radio 9</Radio>
+      <Radio value="10">Radio 10</Radio>
+      <Radio value="11">Radio 11</Radio>
+      <Radio value="12">Radio 12</Radio>
+      <Radio value="13">Radio 13</Radio>
+      <Radio value="14">Radio 14</Radio>
+      <Radio value="15">Radio 15</Radio>
+      <Radio value="16">Radio 16</Radio>
+      <Radio value="17">Radio 17</Radio>
+      <Radio value="18">Radio 18</Radio>
+      <Radio value="19">Radio 19</Radio>
+      <Radio value="20">Radio 20</Radio>
+      <Radio value="21">Radio 21</Radio>
+      <Radio value="22">Radio 22</Radio>
+      <Radio value="23">Radio 23</Radio>
+      <Radio value="24">Radio 24</Radio>
+      <Radio value="25">Radio 25</Radio>
+      <Radio value="26">Radio 26</Radio>
+      <Radio value="27">Radio 27</Radio>
+      <Radio value="28">Radio 28</Radio>
+      <Radio value="29">Radio 29</Radio>
+      <Radio value="30">Radio 30</Radio>
+      <Radio value="31">Radio 31</Radio>
+      <Radio value="32">Radio 32</Radio>
+      <Radio value="33">Radio 33</Radio>
+      <Radio value="34">Radio 34</Radio>
+      <Radio value="35">Radio 35</Radio>
+      <Radio value="36">Radio 36</Radio>
+      <Radio value="37">Radio 37</Radio>
+      <Radio value="38">Radio 38</Radio>
+      <Radio value="39">Radio 39</Radio>
+      <Radio value="40">Radio 40</Radio>
+      <Radio value="41">Radio 41</Radio>
+      <Radio value="42">Radio 42</Radio>
+      <Radio value="43">Radio 43</Radio>
+      <Radio value="44">Radio 44</Radio>
+      <Radio value="45">Radio 45</Radio>
+      <Radio value="46">Radio 46</Radio>
+      <Radio value="47">Radio 47</Radio>
+      <Radio value="48">Radio 48</Radio>
+      <Radio value="49">Radio 49</Radio>
+      <Radio value="50">Radio 50</Radio>
+      <Radio value="51">Radio 51</Radio>
+      <Radio value="52">Radio 52</Radio>
+      <Radio value="53">Radio 53</Radio>
+      <Radio value="54">Radio 54</Radio>
+      <Radio value="55">Radio 55</Radio>
+      <Radio value="56">Radio 56</Radio>
+      <Radio value="57">Radio 57</Radio>
+      <Radio value="58">Radio 58</Radio>
+      <Radio value="59">Radio 59</Radio>
+      <Radio value="60">Radio 60</Radio>
+      <Radio value="61">Radio 61</Radio>
+      <Radio value="62">Radio 62</Radio>
+    </RadioGroup>
+  );
+};
 
 export default function NextUIPerf() {
   const [textA, setTextA] = useState("");
   const [textB, setTextB] = useState("");
   const [textC, setTextC] = useState("");
-  const [radio, setRadio] = useState("1");
 
   return (
     <div className="w-full p-24 gap-4 flex flex-col">
@@ -77,18 +147,7 @@ export default function NextUIPerf() {
       <Textarea label="Text B" placeholder="Text B" value={textB} onValueChange={setTextB} />
       <Textarea label="Text C" placeholder="Text C" value={textC} onValueChange={setTextC} />
 
-      <RadioGroup value={radio} onValueChange={setRadio}>
-        <Radio value="1">Radio 1</Radio>
-        <Radio value="2">Radio 2</Radio>
-        <Radio value="3">Radio 3</Radio>
-        <Radio value="4">Radio 4</Radio>
-        <Radio value="5">Radio 5</Radio>
-        <Radio value="6">Radio 6</Radio>
-        <Radio value="7">Radio 7</Radio>
-        <Radio value="8">Radio 8</Radio>
-        <Radio value="9">Radio 9</Radio>
-        <Radio value="10">Radio 10</Radio>
-      </RadioGroup>
+      <MyRadioGroup />
 
       <Button>Click Me!</Button>
     </div>

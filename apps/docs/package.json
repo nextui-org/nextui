@@ -48,7 +48,7 @@
     "match-sorter": "^6.3.1",
     "mini-svg-data-uri": "^1.4.3",
     "mitt": "3.0.0",
-    "next": "13.4.8",
+    "next": "13.4.9",
     "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",
@@ -71,7 +71,7 @@
     "scroll-into-view-if-needed": "3.0.10",
     "sharp": "^0.32.1",
     "shelljs": "^0.8.4",
-    "tailwind-variants": "^0.1.10",
+    "tailwind-variants": "^0.1.11",
     "unified": "^9.2.2",
     "unist-util-visit": "^4.1.2",
     "zustand": "^4.3.8"
