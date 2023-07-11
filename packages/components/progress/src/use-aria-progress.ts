@@ -1,5 +1,5 @@
 import {AriaProgressBarProps} from "@react-types/progress";
-import {clamp, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {DOMAttributes} from "@react-types/shared";
 import {useAriaLabel} from "@nextui-org/use-aria-label";
 import {useNumberFormatter} from "@react-aria/i18n";
@@ -36,7 +36,7 @@ export function useProgressBar(props: AriaProgressBarProps): ProgressBarAria {
     labelElementType: "span",
   });
 
-  value = clamp(value, minValue, maxValue);
+  value = Math.max(value, minValue);
   const percentage = (value - minValue) / (maxValue - minValue);
   const formatter = useNumberFormatter(formatOptions);
 
