@@ -9,3 +9,7 @@ export function range(start: number, end: number) {
 
   return Array.from({length}, (_, index) => index + start);
 }
+
+export function clampPercentage(value: number) {
+  return Math.min(Math.max(value, 0), 100);
+}
