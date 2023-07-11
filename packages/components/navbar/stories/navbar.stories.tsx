@@ -79,7 +79,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
   return (
     <div
       ref={ref}
-      className="max-w-[90%] pt-16 sm:max-w-[80%] max-h-[90vh] overflow-x-hidden overflow-y-scroll shadow-md relative border border-default"
+      className="max-w-[90%] sm:max-w-[80%] max-h-[90vh] overflow-x-hidden overflow-y-scroll shadow-md relative border border-default"
     >
       {children}
       <div className="max-w-5xl flex flex-col gap-4 px-10 mt-8">

@@ -436,8 +436,8 @@ importers:
         specifier: ^0.8.4
         version: 0.8.4
       tailwind-variants:
-        specifier: ^0.1.12
-        version: 0.1.12(tailwindcss@3.2.7)
+        specifier: ^0.1.13
+        version: 0.1.13(tailwindcss@3.2.7)
       unified:
         specifier: ^9.2.2
         version: 9.2.2
@@ -2092,8 +2092,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       tailwind-variants:
-        specifier: ^0.1.12
-        version: 0.1.12(tailwindcss@3.2.7)
+        specifier: ^0.1.13
+        version: 0.1.13(tailwindcss@3.2.7)
       tailwindcss:
         specifier: ^3.2.7
         version: 3.2.7(postcss@8.4.21)(ts-node@10.9.1)
@@ -24868,8 +24868,8 @@ packages:
     resolution: {integrity: sha512-R2/nULkdg1VR/EL4RXg4dEohdoxNUJGLMnWIQnPKL+O9Twu7Cn3Rxi4dlXkDzZrEGtR+G+psSXFouWlpTyLhCQ==}
     dev: false
 
-  /tailwind-variants@0.1.12(tailwindcss@3.2.7):
-    resolution: {integrity: sha512-7ydBs+N8Zqo6w0x08N11Y/HZFuhob5lmYhJb85a5qbTqOfF/sOyfzfkuqcNOjr6SIekULMt7cLeljpB3Gx0zmw==}
+  /tailwind-variants@0.1.13(tailwindcss@3.2.7):
+    resolution: {integrity: sha512-G2M7M74hjq0nAo6QdEfUJgF+0t9DecFUw91GC1P9YTnwMcfB3uChT5U5e2DuNU42xoOz15lzo7r0mPdMzZkylg==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'

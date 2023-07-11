@@ -96,15 +96,89 @@ You can use the `NavbarMenuToggle` and `NavbarMenu` components to display a togg
   files={navbarContent.withMenu}
 />
 
+If you want to remove the `open` / `close` animation, you can pass the `disableAnimation={true}` prop to `Navbar` component.
+
+<CodeDemo 
+  asIframe
+  title="With Menu"
+  iframeInitialWidth={420}
+  highlightedLines="24"
+  previewHeight="600px"
+  iframeSrc="/examples/navbar/disable-menu-animation"
+  files={navbarContent.disableMenuAnimation}
+/>
+
+### With Border
+
+You can use the `isBordered` prop to add a bottom border to the navbar.
+
+<CodeDemo 
+  asIframe
+  title="Adding a bottom border"
+  previewHeight="500px"
+  iframeSrc="/examples/navbar/bordered"
+  files={navbarContent.bordered}
+/>
+
+### Disabling Blur
+
+Navbar has a blur effect by default. You can disable it by using the `isBlurred=false` prop.
+
+<CodeDemo
+  asIframe
+  title="Disabling blur"
+  previewHeight="500px"
+  iframeSrc="/examples/navbar/disabled-blur"
+  files={navbarContent.disabledBlur}
+/>
+
 ### With Dropdown Menu
 
 It is possible to use the [Dropdown](/docs/components/dropdown) component to display a dropdown menu as navbar item.
-
 
 <CodeDemo 
   asIframe
   title="With Dropdown Menu"
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-dropdown-menu"
-  files={navbarContent.withMenu}
+  files={navbarContent.withDropdownMenu}
+/>
+
+### With Avatar 
+
+Example of a navbar with avatar and dropdown menu.
+
+<CodeDemo 
+  asIframe
+  title="With Avatar"
+  previewHeight="420px"
+  iframeSrc="/examples/navbar/with-avatar"
+  files={navbarContent.withAvatar}
+/>
+
+
+### With Search Input
+
+Example of a navbar with search input.
+
+<CodeDemo 
+  asIframe
+  title="With Search Input"
+  previewHeight="420px"
+  iframeSrc="/examples/navbar/with-search-input"
+  files={navbarContent.withSearchInput}
+/>
+
+
+### Active Item Customization
+
+When the `NavbarItem` is active, it will have a `data-active` attribute. You can use this attribute to customize it.
+
+<CodeDemo 
+  asIframe
+  title="Customizing the active item"
+  previewHeight="420px"
+  iframeSrc="/examples/navbar/custom-active-item"
+  highlightedLines="9-20"
+  files={navbarContent.customActiveItem}
 />
