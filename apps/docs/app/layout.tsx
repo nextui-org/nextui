@@ -12,6 +12,7 @@ import {siteConfig} from "@/config/site";
 import {fontSans} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";
 import {Footer} from "@/components/footer";
+import {__PROD__} from "@/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -69,7 +70,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </div>
           <Cmdk />
         </Providers>
-        <Analytics />
+        {__PROD__ && <Analytics />}
       </body>
     </html>
   );
