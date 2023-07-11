@@ -47,8 +47,9 @@ const pagination = tv({
       "touch-none",
       "z-20",
     ],
-    forwardIcon: "hidden group-hover:block data-[before=true]:rotate-180",
-    ellipsis: "group-hover:hidden",
+    forwardIcon:
+      "hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180",
+    ellipsis: "group-hover:hidden group-data-[focus-visible=true]:hidden",
     chevronNext: "rotate-180",
   },
   variants: {
