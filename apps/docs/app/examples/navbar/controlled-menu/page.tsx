@@ -1,4 +1,19 @@
-const AcmeLogo = `export const AcmeLogo = () => (
+"use client";
+
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Avatar,
+} from "@nextui-org/react";
+import React from "react";
+
+const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
     <path
       clipRule="evenodd"
@@ -7,12 +22,11 @@ const AcmeLogo = `export const AcmeLogo = () => (
       fillRule="evenodd"
     />
   </svg>
-);`;
+);
 
-const App = `import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-import {AcmeLogo} from "./AcmeLogo.jsx";
+export default function Page() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean | undefined>(false);
 
-export default function App() {
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -27,9 +41,9 @@ export default function App() {
   ];
 
   return (
-    <Navbar disableAnimation isBordered>
+    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
@@ -56,19 +70,22 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem as={Link} className="hidden md:flex" href="#">
-          Login
-        </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
+          <Avatar
+            isBordered
+            as="button"
+            className="transition-transform"
+            color="warning"
+            name="Jane Lee"
+            size="sm"
+            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+          />
         </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={\`\${item}-\${index}\`}>
+          <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full"
               color={
@@ -84,13 +101,4 @@ export default function App() {
       </NavbarMenu>
     </Navbar>
   );
-}`;
-
-const react = {
-  "/App.jsx": App,
-  "/AcmeLogo.jsx": AcmeLogo,
-};
-
-export default {
-  ...react,
-};
+}

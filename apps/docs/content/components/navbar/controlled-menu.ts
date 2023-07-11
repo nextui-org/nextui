@@ -13,6 +13,8 @@ const App = `import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Butto
 import {AcmeLogo} from "./AcmeLogo.jsx";
 
 export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -27,9 +29,13 @@ export default function App() {
   ];
 
   return (
-    <Navbar disableAnimation isBordered>
+    <Navbar 
+      isBordered 
+      isMenuOpen={isMenuOpen} 
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">

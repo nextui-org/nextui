@@ -25,8 +25,6 @@ const AcmeLogo = () => (
 );
 
 export default function Page() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean | undefined>(false);
-
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -41,12 +39,12 @@ export default function Page() {
   ];
 
   return (
-    <Navbar disableAnimation isBordered onMenuOpenChange={setIsMenuOpen}>
+    <Navbar disableAnimation isBordered>
       <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+        <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden" justify="center">
+      <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <AcmeLogo />
           <p className="font-bold text-inherit">ACME</p>

@@ -108,6 +108,20 @@ If you want to remove the `open` / `close` animation, you can pass the `disableA
   files={navbarContent.disableMenuAnimation}
 />
 
+### Controlled Menu
+
+You can use the `isMenuOpen` and `onMenuOpenChange` props to control the navbar menu state.
+
+<CodeDemo 
+  asIframe
+  title="Controlled Menu"
+  iframeInitialWidth={420}
+  previewHeight="600px"
+  highlightedLines="5,23-24"
+  iframeSrc="/examples/navbar/controlled-menu"
+  files={navbarContent.controlledMenu}
+/>
+
 ### With Border
 
 You can use the `isBordered` prop to add a bottom border to the navbar.
@@ -170,7 +184,7 @@ Example of a navbar with search input.
 />
 
 
-### Active Item Customization
+### Customizing the active item
 
 When the `NavbarItem` is active, it will have a `data-active` attribute. You can use this attribute to customize it.
 
@@ -182,3 +196,29 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
   highlightedLines="9-20"
   files={navbarContent.customActiveItem}
 />
+
+## Data Attributes
+
+`Navbar` has the following attributes on the `root` element:
+
+- **data-menu-open**: 
+  Indicates if the navbar menu is open. 
+- **data-hidden**:
+  Indicates if the navbar is hidden. It is used when the `shouldHideOnScroll` prop is `true`.
+
+`NavbarItem` has the following attributes on the `root` element:
+
+- **data-active**: 
+  Indicates if the navbar item is active. It is used when the `isActive` prop is `true`.
+
+`NavbarMenuToggle` has the following attributes on the `root` element:
+
+- **data-open**: 
+  Indicates if the navbar menu is open. It is used when the `isMenuOpen` prop is `true`.
+- **data-pressed**:
+  When the navbar menu toggle is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-hover**:
+  When the navbar menu toggle is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus-visible**:
+  When the navbar menu toggle is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
