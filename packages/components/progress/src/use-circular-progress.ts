@@ -9,13 +9,12 @@ import type {AriaProgressBarProps} from "@react-types/progress";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {circularProgress} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clampPercentage, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useCallback} from "react";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
-
-import {useProgressBar as useAriaProgress} from "./use-aria-progress";
+import {useProgressBar as useAriaProgress} from "@react-aria/progress";
 
 export interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -126,7 +125,7 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
       return 0.25;
     }
 
-    return value ? (value - minValue) / (maxValue - minValue) : 0;
+    return value ? clampPercentage((value - minValue) / (maxValue - minValue), 1) : 0;
   }, [selfMounted, value, minValue, maxValue, isIndeterminate]);
 
   const offset = circumference - percentage * circumference;

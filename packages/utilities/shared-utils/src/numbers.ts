@@ -10,6 +10,6 @@ export function range(start: number, end: number) {
   return Array.from({length}, (_, index) => index + start);
 }
 
-export function clampPercentage(value: number) {
-  return Math.min(Math.max(value, 0), 100);
+export function clampPercentage(value: number, max: number = 100) {
+  return Math.min(Math.max(value, 0), max);
 }

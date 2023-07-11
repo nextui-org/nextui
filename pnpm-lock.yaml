@@ -1426,9 +1426,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@nextui-org/use-aria-label':
-        specifier: workspace:*
-        version: link:../../hooks/use-aria-label
       '@nextui-org/use-is-mounted':
         specifier: workspace:*
         version: link:../../hooks/use-is-mounted
@@ -2159,22 +2156,6 @@ importers:
       '@react-types/button':
         specifier: ^3.7.3
         version: 3.7.3(react@18.2.0)
-      '@react-types/shared':
-        specifier: ^3.18.1
-        version: 3.18.1(react@18.2.0)
-    devDependencies:
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
-  packages/hooks/use-aria-label:
-    dependencies:
-      '@react-aria/utils':
-        specifier: ^3.18.0
-        version: 3.18.0(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.18.1
         version: 3.18.1(react@18.2.0)

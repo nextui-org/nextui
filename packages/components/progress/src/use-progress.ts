@@ -10,8 +10,7 @@ import {ReactRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useCallback} from "react";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
-
-import {useProgressBar as useAriaProgress} from "./use-aria-progress";
+import {useProgressBar as useAriaProgress} from "@react-aria/progress";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
