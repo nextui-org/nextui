@@ -97,7 +97,7 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
             style={{
               ...getTransformOrigins(placement === "center" ? "top" : placement),
             }}
-            variants={TRANSITION_VARIANTS.scaleSpring}
+            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
             {...motionProps}
           >
             {content}

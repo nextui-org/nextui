@@ -238,7 +238,7 @@ export interface DocsSidebarProps {
 export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}) => {
   const expandedKeys = routes?.reduce((keys, route) => {
     if (route.defaultOpen) {
-      keys.push(route.key);
+      keys.push(route.key as string);
     }
 
     return keys;

@@ -312,6 +312,9 @@ importers:
       '@react-aria/visually-hidden':
         specifier: ^3.8.0
         version: 3.8.2(react@18.2.0)
+      '@react-stately/data':
+        specifier: ^3.10.0
+        version: 3.10.0(react@18.2.0)
       '@react-stately/layout':
         specifier: ^3.12.0
         version: 3.12.0(react@18.2.0)
@@ -7995,7 +7998,6 @@ packages:
       '@react-types/shared': 3.18.1(react@18.2.0)
       '@swc/helpers': 0.5.1
       react: 18.2.0
-    dev: true
 
   /@react-stately/grid@3.7.0(react@18.2.0):
     resolution: {integrity: sha512-3eb7+7p9Xh/+luUOyieY2bM4CsARA8WnRB7c2++gh4dh9AEpZV4VGICGTe35+dJYr+9pbYQqVMEcEFUOaJJzZw==}

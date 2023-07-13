@@ -1,4 +1,4 @@
-import React, {Key} from "react";
+import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
@@ -11,7 +11,16 @@ import {EditIcon, DeleteIcon, EyeIcon} from "@nextui-org/shared-icons";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
 
-import {Table, TableHeader, TableColumn, TableBody, TableCell, TableRow, TableProps} from "../src";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableCell,
+  TableRow,
+  TableProps,
+  getKeyValue,
+} from "../src";
 
 export default {
   title: "Components/Table",
@@ -107,15 +116,6 @@ type SWCharacter = {
   height: string;
   mass: string;
   birth_year: string;
-};
-
-const isObject = (target: unknown) => target && typeof target === "object";
-
-const getKeyValue = (obj: any, key: Key) => {
-  if (!isObject(obj)) return obj;
-  if (obj instanceof Array) return [...obj];
-
-  return obj[key];
 };
 
 const StaticTemplate: ComponentStory<typeof Table> = (args: TableProps) => (

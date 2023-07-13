@@ -30,6 +30,7 @@
     "@react-aria/utils": "^3.18.0",
     "@react-aria/virtualizer": "^3.8.0",
     "@react-aria/visually-hidden": "^3.8.0",
+    "@react-stately/data": "^3.10.0",
     "@react-stately/layout": "^3.12.0",
     "@react-stately/tree": "^3.7.0",
     "@rehooks/local-storage": "^2.4.4",

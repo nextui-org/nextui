@@ -37,6 +37,7 @@ export default function App() {
           </Button>
         </DropdownTrigger>
         <DropdownMenu
+          disallowEmptySelection
           aria-label="Merge options"
           selectedKeys={selectedOption}
           selectionMode="single"

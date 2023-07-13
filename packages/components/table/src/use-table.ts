@@ -62,11 +62,6 @@ interface Props extends HTMLNextUIProps<"table"> {
    * @default "selection"
    */
   disabledBehavior?: DisabledBehavior;
-  /**
-   * Whether to disabled the related animations such as checkbox animation.
-   * @default false
-   */
-  disableAnimation?: boolean;
   /** Handler that is called when a user performs an action on the row. */
   onRowAction?: (key: Key) => void;
   /** Handler that is called when a user performs an action on the cell. */
@@ -109,6 +104,7 @@ export type ContextType<T = object> = {
   selectionBehavior: SelectionBehavior | null;
   disabledBehavior: UseTableProps<T>["disabledBehavior"];
   disableAnimation?: UseTableProps<T>["disableAnimation"];
+  isHeaderSticky?: UseTableProps<T>["isHeaderSticky"];
   showSelectionCheckboxes: UseTableProps<T>["showSelectionCheckboxes"];
   classNames?: SlotsToClasses<TableSlots>;
   onRowAction?: UseTableProps<T>["onRowAction"];
@@ -130,7 +126,6 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     selectionBehavior = selectionMode === "none" ? null : "toggle",
     disabledBehavior = "selection",
     showSelectionCheckboxes = selectionMode === "multiple" && selectionBehavior !== "replace",
-    disableAnimation = false,
     BaseComponent = "div",
     topContent,
     bottomContent,
@@ -174,10 +169,11 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       state,
       slots,
       isSelectable,
-      color: originalProps?.color,
       collection,
       classNames,
-      disableAnimation,
+      color: originalProps?.color,
+      disableAnimation: originalProps?.disableAnimation ?? false,
+      isHeaderSticky: originalProps?.isHeaderSticky ?? false,
       selectionMode,
       selectionBehavior,
       disabledBehavior,
@@ -195,8 +191,9 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       selectionBehavior,
       disabledBehavior,
       showSelectionCheckboxes,
-      disableAnimation,
       originalProps?.color,
+      originalProps?.disableAnimation,
+      originalProps?.isHeaderSticky,
       onRowAction,
       onCellAction,
     ],

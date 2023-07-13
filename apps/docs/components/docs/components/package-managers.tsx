@@ -60,7 +60,7 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
               classNames={{
                 base: "bg-code-background text-code-foreground",
                 pre: "font-light text-base",
-                copyButton: "text-lg text-code-foreground/50",
+                copyButton: "text-lg text-zinc-500 mr-2",
               }}
             >
               <Codeblock codeString={commands[name] as string} language="bash" />

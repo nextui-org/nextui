@@ -65,7 +65,7 @@ const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
           style={{
             ...getTransformOrigins(placement),
           }}
-          variants={TRANSITION_VARIANTS.scaleSpringFast}
+          variants={TRANSITION_VARIANTS.scaleSpring}
           {...motionProps}
         >
           <Component className={className}>

@@ -48,6 +48,7 @@ const resizer = tv({
 });
 
 export interface WindowResizerProps {
+  resizeEnabled?: boolean;
   iframeHeight?: string | number;
   iframeMinWidth?: number;
   iframeSrc?: string;
@@ -68,6 +69,7 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
   const {
     iframeSrc,
     iframeTitle,
+    resizeEnabled,
     iframeHeight: height = "420px",
     iframeInitialWidth,
     iframeMinWidth: minWidth = MIN_WIDTH,
@@ -121,40 +123,42 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
         <WindowActions className="bg-default-100 dark:bg-default-50" />
         <motion.iframe ref={iframeRef} className={iframe()} src={iframeSrc} title={iframeTitle} />
       </motion.div>
-      <div
-        ref={constraintsResizerRef}
-        className={base({
-          className: "z-1 top-0 bottom-0 right-0 xs:w-mw-xs",
-        })}
-        style={{
-          width: `calc(100% - ${hasInitialWidth ? iframeInitialWidth : minWidth}px - 20px)`,
-        }}
-      >
-        <motion.div
-          ref={resizerRef}
-          _dragX={resizerX}
-          className={barWrapper()}
-          drag="x"
-          dragConstraints={constraintsResizerRef}
-          dragElastic={0}
-          dragMomentum={false}
-          style={{x: resizerX}}
-          onDragEnd={() => {
-            document.documentElement.classList.remove("dragging-ew");
-            iframeRef.current?.classList.remove("dragging-ew");
-            setEnablePointerEvents(true);
-          }}
-          onDragStart={() => {
-            document.documentElement.classList.add("dragging-ew");
-            iframeRef.current?.classList.add("dragging-ew");
-            setEnablePointerEvents(false);
+      {resizeEnabled && (
+        <div
+          ref={constraintsResizerRef}
+          className={base({
+            className: "z-1 top-0 bottom-0 right-0 xs:w-mw-xs",
+          })}
+          style={{
+            width: `calc(100% - ${hasInitialWidth ? iframeInitialWidth : minWidth}px - 20px)`,
           }}
         >
-          <div className={barInner()}>
-            <div className={bar()} />
-          </div>
-        </motion.div>
-      </div>
+          <motion.div
+            ref={resizerRef}
+            _dragX={resizerX}
+            className={barWrapper()}
+            drag="x"
+            dragConstraints={constraintsResizerRef}
+            dragElastic={0}
+            dragMomentum={false}
+            style={{x: resizerX}}
+            onDragEnd={() => {
+              document.documentElement.classList.remove("dragging-ew");
+              iframeRef.current?.classList.remove("dragging-ew");
+              setEnablePointerEvents(true);
+            }}
+            onDragStart={() => {
+              document.documentElement.classList.add("dragging-ew");
+              iframeRef.current?.classList.add("dragging-ew");
+              setEnablePointerEvents(false);
+            }}
+          >
+            <div className={barInner()}>
+              <div className={bar()} />
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

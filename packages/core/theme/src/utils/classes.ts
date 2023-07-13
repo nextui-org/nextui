@@ -11,22 +11,15 @@ export const baseStyles = (prefix: string) => ({
  * focus classNames when the element is focused by keyboard.
  */
 export const focusVisibleClasses = [
-  "focus:outline-0",
-  "focus-visible:ring-2",
-  "focus-visible:ring-focus",
-  "focus-visible:ring-offset-2",
-  "focus-visible:transition-shadow",
-  "focus-visible:ring-offset-background",
+  "focus-visible:outline-2",
+  "focus-visible:outline-focus",
+  "focus-visible:outline-offset-2",
 ];
 
 export const dataFocusVisibleClasses = [
-  "outline-none",
-  "data-[focus-visible=true]:z-10",
-  "data-[focus-visible=true]:outline-none",
-  "data-[focus-visible=true]:ring-2",
-  "data-[focus-visible=true]:ring-focus",
-  "data-[focus-visible=true]:ring-offset-2",
-  "data-[focus-visible=true]:ring-offset-background",
+  "data-[focus-visible=true]:outline-2",
+  "data-[focus-visible=true]:outline-focus",
+  "data-[focus-visible=true]:outline-offset-2",
 ];
 
 export const groupDataFocusVisibleClasses = [

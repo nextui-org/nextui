@@ -29,7 +29,7 @@ const TableRow = forwardRef<TableRowProps, "tr">((props, ref) => {
 
   const {rowProps} = useTableRow({node}, state, domRef);
 
-  const trStyles = clsx(classNames?.thead, className, node.props?.className);
+  const trStyles = clsx(classNames?.tr, className, node.props?.className);
 
   const {isFocusVisible, focusProps} = useFocusRing();
 

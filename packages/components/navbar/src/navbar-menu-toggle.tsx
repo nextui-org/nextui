@@ -10,13 +10,6 @@ import {useMemo, ReactNode} from "react";
 
 import {useNavbarContext} from "./navbar-context";
 
-export type ToggleIconProps = {
-  /**
-   * The current open status.
-   */
-  isOpen?: boolean;
-};
-
 export interface Props extends Omit<HTMLNextUIProps<"button">, keyof AriaToggleButtonProps> {
   /**
    * The value of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefvalue).
@@ -30,7 +23,7 @@ export interface Props extends Omit<HTMLNextUIProps<"button">, keyof AriaToggleB
   /**
    * The icon to display.
    */
-  icon?: ReactNode | ((props: ToggleIconProps) => ReactNode) | null;
+  icon?: ReactNode | ((isOpen: boolean | undefined) => ReactNode) | null;
 }
 
 export type NavbarMenuToggleProps = Props & AriaToggleButtonProps;
@@ -66,7 +59,7 @@ const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref
 
   const child = useMemo(() => {
     if (typeof icon === "function") {
-      return icon({isOpen: isMenuOpen});
+      return icon(isMenuOpen);
     }
 
     return icon || <span className={slots.toggleIcon({class: classNames?.toggleIcon})} />;

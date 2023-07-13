@@ -48,17 +48,17 @@ const Table = forwardRef<TableProps, "table">((props, ref) => {
           <Component {...getTableProps()}>
             <TableRowGroup>
               {collection.headerRows.map((headerRow) => (
-                <TableHeaderRow key={headerRow?.key} node={headerRow}>
+                <TableHeaderRow key={headerRow?.key} node={headerRow} {...headerRow?.props}>
                   {[...headerRow.childNodes].map((column) =>
                     column?.props?.isSelectionCell ? (
-                      <TableSelectAllCheckbox key={column?.key} node={column} />
+                      <TableSelectAllCheckbox key={column?.key} node={column} {...column?.props} />
                     ) : (
-                      <TableColumnHeader key={column?.key} node={column} />
+                      <TableColumnHeader key={column?.key} node={column} {...column?.props} />
                     ),
                   )}
                 </TableHeaderRow>
               ))}
-              <Spacer as="tr" y={1} />
+              <Spacer as="tr" tabIndex={-1} y={1} />
             </TableRowGroup>
             <TableBody />
           </Component>

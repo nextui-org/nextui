@@ -25,14 +25,231 @@ NextUI exports 6 table-related components:
 
 <ImportTabs
   commands={{
-    main: 'import {Table, TableHeader, TableBody, TableColumn, TableRow, TableCell} from "@nextui-org/react";',
+    main: `import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  TableRow,
+  TableCell
+} from "@nextui-org/react";`,
     individual:
-      'import {Table, TableHeader, TableBody, TableColumn, TableRow, TableCell} from "@nextui-org/table";',
+      `import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  TableRow,
+  TableCell
+} from "@nextui-org/table";`,
   }}
 />
 
 ## Usage
 
 <CodeDemo title="Usage" files={tableContent.usage} />
+
+### Dynamic
+
+To render a table dynamically, you can use the `columns` prop to pass the columns and `items` prop to pass the data.
+
+<CodeDemo title="Dynamic" files={tableContent.dynamic} />
+
+#### Why not array map?
+
+Using the `items` prop and providing a render function allows [react-aria](https://react-spectrum.adobe.com/react-aria/index.html) 
+to automatically cache the results of rendering each item and avoid re-rendering all items in the 
+collection when only one of them changes. This has big performance benefits for large 
+collections.
+
+You could also use `Array.map` to render the items, but it will not be as performant as using the `items` and `columns` prop.
+
+Example:
+
+```jsx
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+
+const rows = [...];
+
+const columns = [...];
+
+export default function App() {
+  return (
+    <Table aria-label="Example table with dynamic content">
+      <TableHeader>
+        {columns.map((column) =>
+          <TableColumn key={column.key}>{column.label}</TableColumn>
+        )}
+      </TableHeader>
+      <TableBody>
+        {rows.map((row) =>
+          <TableRow key={row.key}>
+            {(columnKey) => <TableCell>{getKeyValue(row, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  );
+}
+```
+
+> **Note**: To learn more about React Aria collections and how to use them, please check [React Aria Collections](https://react-spectrum.adobe.com/react-stately/collections.html).
+
+ 
+### Empty State
+
+You can use the `emptyContent` prop to render a custom component when the table is empty.
+
+<CodeDemo title="Empty State" highlightedLines="11" files={tableContent.empty} />
+
+### Without Header
+
+In case you don't want to render the header, you can use the `hideHeader` prop.
+
+<CodeDemo title="Without Header" files={tableContent.withoutHeader} />
+
+
+### Without Wrapper
+
+By default the table is wrapped in a `div` element with a small shadow effect and a border radius. 
+You can use the `removeWrapper` prop to remove the wrapper and only render the table.
+
+<CodeDemo title="Without Wrapper" files={tableContent.withoutWrapper} />
+
+### Custom Cells
+
+You can render any component inside the table cell. In the example below, we are rendering different components according to the `key` of the column.
+
+<CodeDemo title="Custom Cells" files={tableContent.customCells} />
+
+
+### Striped Rows
+
+You can use the `isStriped` prop to render striped rows.
+
+<CodeDemo title="Striped Rows" files={tableContent.striped} />
+
+### Single Row Selection
+
+It is possible to make the table rows selectable. To do so, you can use the `selectioMode` prop. Use `defaultSelectedKeys` to 
+provide a default set of selected rows. 
+
+<CodeDemo title="Single Row Selection" files={tableContent.singleSelection} />
+
+> **Note**: The value of the selected keys must match the key prop of the row.
+
+### Multiple Row Selection
+
+You can also select multiple rows by using the `selectionMode="multiple"` prop. Use `defaultSelectedKeys` to
+provide a default set of selected rows.
+
+<CodeDemo title="Multiple Row Selection" files={tableContent.multipleSelection} />
+
+> **Note**: When using multiple selection, selectable checkboxes will be rendered in the first column of the table.
+
+### Disallow Empty Selection
+
+Table also supports a `disallowEmptySelection` prop which forces the user to have at least one
+row in the Table selected at all times. In this mode, if a single row is selected and the 
+user presses it, it will not be deselected.
+
+<CodeDemo title="Disallow Empty Selection" files={tableContent.disallowEmptySelection} />
+
+### Controlled Selection
+
+To programmatically control row selection, use the `selectedKeys` prop paired with the `onSelectionChange` callback.
+The key prop from the selected rows will be passed into the callback when the row is pressed, allowing you to update state accordingly.
+
+<CodeDemo title="Controlled Selection" files={tableContent.controlledSelection} />
+
+> **Note**: The `selectedKeys` property must be an `Set` object.
+
+
+### Disabled Rows
+
+You can disable rows by using the `disabledKeys` prop. This will prevent rows from being 
+selectable as shown in the example below.
+
+<CodeDemo title="Disabled Rows" files={tableContent.disabledRows} />
+
+### Selection Behavior
+
+By default, Table uses the `toggle` selection behavior, which behaves like a checkbox group: 
+clicking, tapping, or pressing the <Kbd>Space</Kbd> or <Kbd>Enter</Kbd> keys toggles selection for the focused row. 
+
+When the `selectionBehavior` prop is set to `replace`, clicking a row with the mouse replaces
+the selection with only that row. Using the arrow keys moves both focus and selection. 
+To select multiple rows, modifier keys such as <Kbd>Ctrl</Kbd>, <Kbd>Cmd</Kbd>, and <Kbd>Shift</Kbd> can be used.
+
+<CodeDemo title="Selection Behavior" files={tableContent.selectionBehavior} />
+
+### Rows Actions
+
+Table supports rows via the `onRowAction` callback. In the default `toggle` selection 
+behavior, when nothing is selected, clicking or tapping the row triggers the row action.
+
+This behavior is slightly different in the `replace` selection behavior, where single 
+clicking selects the row and actions are performed via double click. 
+
+<CodeDemo title="Rows Actions" files={tableContent.rowActions} />
+
+
+### Sorting Rows
+
+Table supports sorting its data when a column header is pressed. To designate that a `Column`
+should support sorting, provide it with the `allowsSorting` prop. 
+
+Table accepts a `sortDescriptor` prop that defines the current column key to sort by 
+and the sort direction (ascending/descending). When the user presses a sortable column 
+header, the column's key and sort direction is passed into the `onSortChange` callback, 
+allowing you to update the `sortDescriptor` appropriately.
+
+We recommend using the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) to manage the data sorting. So make
+sure to install it before using the `Table` component.
+
+<PackageManagers
+  commands={{
+    npm: 'npm install @react-stately/data',
+    yarn: 'yarn add @react-stately/data',
+    pnpm: 'pnpm add @react-stately/data'
+  }}
+/>
+
+```jsx
+import {useAsyncList} from "@react-stately/data";
+```
+
+<CodeDemo 
+  asIframe
+  title="Sorting Rows"
+  displayMode="visible" 
+  resizeEnabled={false}
+  files={tableContent.sorting} 
+  previewHeight="520px"
+  iframeSrc="/examples/table/sorting"
+/>
+
+> Note that we passed the `isLoading` and `loadingContent` props to `TableBody` to 
+> render a loading state while the data is being fetched.
+
+
+### Loading more data
+
+Table sllows you to add a custom component at the end of the table, on the example below we are 
+using a button to load more data.
+
+<CodeDemo 
+  asIframe
+  title="Loading more data"
+  displayMode="visible" 
+  resizeEnabled={false}
+  files={tableContent.loadMore}
+  highlightedLines="36-45"
+  previewHeight="620px"
+  iframeSrc="/examples/table/load-more"
+/>
+
+> **Note**: We passed the `isHeaderSticky` to the `Table` component to make the header sticky.
+
 
 

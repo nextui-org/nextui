@@ -42,12 +42,13 @@ const table = tv({
   slots: {
     base: [
       "p-4",
+      "z-0",
       "flex",
       "flex-col",
       "relative",
       "justify-between",
       "gap-4",
-      "shadow-medium",
+      "shadow-small",
       "bg-content1",
       "overflow-auto",
     ],
@@ -79,14 +80,14 @@ const table = tv({
       "relative",
       "align-middle",
       "whitespace-normal",
-      "text-medium",
+      "text-small",
       "font-normal",
       "outline-none",
       ...dataFocusVisibleClasses,
       // before content for selection
       "before:content-['']",
       "before:absolute",
-      "before:-z-[1]",
+      "before:z-[-1]",
       "before:inset-0",
       "before:opacity-0",
       "data-[selected=true]:before:opacity-100",
@@ -111,22 +112,22 @@ const table = tv({
   variants: {
     color: {
       default: {
-        td: "before:bg-default-200 dark:before:bg-default-100 data-[selected=true]:text-default-foreground",
+        td: "before:bg-default/40 data-[selected=true]:text-default-foreground",
       },
       primary: {
-        td: "before:bg-primary-50 data-[selected=true]:text-primary",
+        td: "before:bg-primary/20 data-[selected=true]:text-primary",
       },
       secondary: {
-        td: "before:bg-secondary-100 data-[selected=true]:text-secondary",
+        td: "before:bg-secondary/20 data-[selected=true]:text-secondary",
       },
       success: {
-        td: "before:bg-success-50 data-[selected=true]:text-success",
+        td: "before:bg-success/20 data-[selected=true]:text-success-600 dark:data-[selected=true]:text-success",
       },
       warning: {
-        td: "before:bg-warning-50 data-[selected=true]:text-warning",
+        td: "before:bg-warning/20 data-[selected=true]:text-warning-600 dark:data-[selected=true]:text-warning",
       },
       danger: {
-        td: "before:bg-danger-50 data-[selected=true]:text-danger",
+        td: "before:bg-danger/20 data-[selected=true]:text-danger dark:data-[selected=true]:text-danger-500",
       },
     },
     layout: {
@@ -180,13 +181,16 @@ const table = tv({
     },
     isHeaderSticky: {
       true: {
-        thead: "sticky top-0 z-10 [&>tr]:first:shadow",
+        thead: "sticky top-0 z-10 [&>tr]:first:shadow-small",
       },
     },
     isSelectable: {
       true: {
         tr: "cursor-default",
-        td: ["group-data-[hover=true]:before:opacity-70"],
+        td: [
+          "group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100",
+          "group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70",
+        ],
       },
     },
     isMultiSelectable: {
@@ -212,15 +216,22 @@ const table = tv({
         table: "w-full",
       },
     },
+    disableAnimation: {
+      true: {},
+      false: {
+        td: "before:transition-colors-opacity before:!duration-150",
+      },
+    },
   },
   defaultVariants: {
     layout: "auto",
-    shadow: "md",
+    shadow: "sm",
     radius: "lg",
     color: "default",
     hideHeader: false,
     isStriped: false,
     fullWidth: true,
+    disableAnimation: false,
   },
 });
 

@@ -53,6 +53,25 @@ export const TRANSITION_DEFAULTS = {
 
 export const TRANSITION_VARIANTS: Variants = {
   scaleSpring: {
+    enter: {
+      transform: "scale(1)",
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.3,
+      },
+    },
+    exit: {
+      transform: "scale(0.6)",
+      opacity: 0,
+      transition: {
+        type: "easeOut",
+        duration: 0.2,
+      },
+    },
+  },
+  scaleSpringOpacity: {
     initial: {
       opacity: 0,
       transform: "scale(0.6)",
@@ -73,24 +92,6 @@ export const TRANSITION_VARIANTS: Variants = {
         type: "spring",
         bounce: 0,
         duration: 0.4,
-      },
-    },
-  },
-  scaleSpringFast: {
-    enter: {
-      transform: "scale(1)",
-      opacity: 1,
-      transition: {
-        ease: TRANSITION_EASINGS.spring,
-        duration: 0.3,
-      },
-    },
-    exit: {
-      transform: "scale(0.6)",
-      opacity: 0,
-      transition: {
-        type: "easeOut",
-        duration: 0.2,
       },
     },
   },

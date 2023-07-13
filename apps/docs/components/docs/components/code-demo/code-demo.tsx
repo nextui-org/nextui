@@ -3,7 +3,7 @@
 import React, {useCallback, useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
 import {Skeleton, Tab, Tabs} from "@nextui-org/react";
-import {motion, useInView} from "framer-motion";
+import {useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 import WindowResizer, {WindowResizerProps} from "./window-resizer";
@@ -35,6 +35,7 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   showPreview?: boolean;
   showOpenInCodeSandbox?: boolean;
   isPreviewCentered?: boolean;
+  resizeEnabled?: boolean;
   displayMode?: "always" | "visible";
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
@@ -49,6 +50,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showEditor = true,
   showPreview = true,
   asIframe = false,
+  resizeEnabled = true,
   showSandpackPreview = false,
   isPreviewCentered = false,
   showOpenInCodeSandbox,
@@ -75,23 +77,15 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   const renderContent = useCallback(
     (content: React.ReactNode) => {
       if (displayMode === "always") return content;
-
       if (displayMode === "visible") {
-        return (
-          <motion.div
-            animate={isInView ? "visible" : "hidden"}
-            initial={false}
-            variants={{
-              visible: {opacity: 1},
-              hidden: {opacity: 0},
-            }}
-          >
-            {content}
-          </motion.div>
-        );
+        if (!isInView) {
+          return <div style={{height: previewHeight}} />;
+        }
+
+        return content;
       }
     },
-    [displayMode, isInView],
+    [displayMode, previewHeight, isInView],
   );
 
   const previewContent = useMemo(() => {
@@ -103,6 +97,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         iframeInitialWidth={iframeInitialWidth}
         iframeSrc={iframeSrc}
         iframeTitle={title}
+        resizeEnabled={resizeEnabled}
       />
     ) : (
       <DynamicReactLiveDemo
@@ -116,7 +111,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     );
 
     return renderContent(content);
-  }, [displayMode, asIframe, showPreview, isInView]);
+  }, [displayMode, previewHeight, asIframe, showPreview, isInView]);
 
   const editorContent = useMemo(() => {
     if (!showEditor) return null;

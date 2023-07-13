@@ -11,6 +11,11 @@ export interface TableBodyProps<T>
    */
   loadingContent?: ReactNode;
   /**
+   * Whether the table data is currently loading.
+   * @default false
+   */
+  isLoading?: boolean;
+  /**
    *  Provides content to display when there are no rows in the table.
    * */
   emptyContent?: ReactNode;

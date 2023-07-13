@@ -23,7 +23,9 @@ const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
   const bodyProps = collection.body.props;
 
   const isLoading =
-    bodyProps?.loadingState === "loading" || bodyProps?.loadingState === "loadingMore";
+    bodyProps?.isLoading ||
+    bodyProps?.loadingState === "loading" ||
+    bodyProps?.loadingState === "loadingMore";
 
   const renderRows = useMemo(() => {
     return [...collection.body.childNodes].map((row) => (

@@ -12,7 +12,6 @@ import {useNavbarContext} from "./navbar-context";
 
 export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
   children?: React.ReactNode;
-
   /**
    * The container element in which the navbar menu overlay portal will be placed.
    * @default document.body
