@@ -38,7 +38,6 @@ const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
   const renderItem = useCallback(
     (value: PaginationItemValue, index: number) => {
       const isBefore = index < range.indexOf(activePage);
-      const key = `${value}-${index}`;
 
       if (renderItemProp && typeof renderItemProp === "function") {
         return renderItemProp({
@@ -61,7 +60,7 @@ const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
       if (value === PaginationItemType.PREV) {
         return (
           <PaginationItem
-            key={key}
+            key={PaginationItemType.PREV}
             className={slots.prev({
               class: classNames?.prev,
             })}
@@ -78,7 +77,7 @@ const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
       if (value === PaginationItemType.NEXT) {
         return (
           <PaginationItem
-            key={key}
+            key={PaginationItemType.NEXT}
             className={slots.next({
               class: clsx(classNames?.next),
             })}
@@ -100,7 +99,7 @@ const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
       if (value === PaginationItemType.DOTS) {
         return (
           <PaginationItem
-            key={key}
+            key={PaginationItemType.DOTS + isBefore}
             className={slots.item({
               class: clsx(classNames?.item, "group"),
             })}
@@ -123,7 +122,7 @@ const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
       }
 
       return (
-        <PaginationItem {...getItemProps({value})} key={key} getAriaLabel={getItemAriaLabel}>
+        <PaginationItem {...getItemProps({value})} key={value} getAriaLabel={getItemAriaLabel}>
           {value}
         </PaginationItem>
       );

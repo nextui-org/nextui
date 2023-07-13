@@ -313,7 +313,6 @@ export function usePagination(originalProps: UsePaginationProps) {
   const getItemProps: PropGetter = (props = {}) => {
     return {
       ...props,
-      key: props.value,
       ref: (node) => getItemRef(node, props.value),
       "data-slot": "item",
       isActive: props.value === activePage,
