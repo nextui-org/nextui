@@ -17,6 +17,7 @@ import loadMore from "./load-more";
 import paginated from "./paginated";
 import asyncPagination from "./async-pagination";
 import infinitePagination from "./infinite-pagination";
+import useCase from "./use-case";
 
 export const tableContent = {
   usage,
@@ -38,4 +39,5 @@ export const tableContent = {
   paginated,
   asyncPagination,
   infinitePagination,
+  useCase,
 };

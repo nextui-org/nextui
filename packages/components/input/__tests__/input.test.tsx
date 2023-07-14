@@ -57,10 +57,10 @@ describe("Input", () => {
   it("should have the same aria-labelledby as label id", () => {
     const {container} = render(<Input label="test input" />);
 
-    expect(container.querySelector("input")).toHaveAttribute(
-      "aria-labelledby",
-      container.querySelector("label")?.id,
-    );
+    const labelId = container.querySelector("label")?.id;
+    const labelledBy = container.querySelector("input")?.getAttribute("aria-labelledby");
+
+    expect(labelledBy?.includes(labelId as string)).toBeTruthy();
   });
 
   it("should have the correct type attribute", () => {

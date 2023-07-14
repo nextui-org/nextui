@@ -39,9 +39,10 @@ export const useSandpack = ({
   );
 
   // map current template to its mime type
-  const mimeType = useMemo(() => (sandpackTemplate === "vite-react-ts" ? ".tsx" : ".jsx"), [
-    sandpackTemplate,
-  ]);
+  const mimeType = useMemo(
+    () => (sandpackTemplate === "vite-react-ts" ? ".tsx" : ".jsx"),
+    [sandpackTemplate],
+  );
 
   // get entry file by current template
   const entryFile = useMemo(
@@ -51,10 +52,11 @@ export const useSandpack = ({
 
   // filter files by current template
   const filteredFiles = Object.keys(files).reduce((acc, key) => {
-    if (key.includes(mimeType)) {
-      // @ts-ignore
-      acc[key] = files[key];
+    if (key.includes("App") && !key.includes(mimeType)) {
+      return acc;
     }
+    // @ts-ignore
+    acc[key] = files[key];
 
     return acc;
   }, {});

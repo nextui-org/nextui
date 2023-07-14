@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {Tabs, Tab} from "@nextui-org/react";
 import {SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
 
@@ -12,11 +12,17 @@ interface Props {
 export type LanguageSelectorProps = Props;
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onChange}) => {
-  const handleToggle = () => {
+  const [selectedTemplate, setSelectedTemplate] = React.useState(template);
+
+  const handleToggle = useCallback(() => {
     const newTemplate = template === "vite-react" ? "vite-react-ts" : "vite-react";
 
-    onChange?.(newTemplate);
-  };
+    setSelectedTemplate(newTemplate);
+
+    setTimeout(() => {
+      onChange?.(newTemplate);
+    }, 250);
+  }, [template, onChange]);
 
   return (
     <Tabs
@@ -28,7 +34,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
           "bg-transparent relative before:bg-white/5 before:w-full before:rounded-lg before:h-full before:content-[''] before:block before:z-1 before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-100",
       }}
       radius="md"
-      selectedKey={template}
+      selectedKey={selectedTemplate}
       size="sm"
       onSelectionChange={handleToggle}
     >

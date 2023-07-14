@@ -106,7 +106,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
           <SandpackStack>
             {shouldShowTabs ? <FileTabs /> : null}
             <div
-              className={clsx("sp-code-viewer", {
+              className={clsx("sp-code-viewer max-h-[600px] overflow-y-scroll", {
                 "is-expanded": isExpanded,
               })}
             >

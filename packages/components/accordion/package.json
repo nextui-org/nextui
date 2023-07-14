@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/accordion",
-  "version": "0.0.0-dev-v2-20230714000855",
+  "version": "0.0.0-dev-v2-20230714033008",
   "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
   "keywords": [
     "react",

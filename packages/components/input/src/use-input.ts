@@ -6,7 +6,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, RefObject, useCallback} from "react";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
@@ -106,6 +106,11 @@ export function useInput(originalProps: UseInputProps) {
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
     {
       ...originalProps,
+      "aria-label": safeAriaLabel(
+        originalProps?.["aria-label"],
+        originalProps?.label,
+        originalProps?.placeholder,
+      ),
       inputElementType: isMultiline ? "textarea" : "input",
       value: inputValue,
       onChange: setInputValue,
@@ -128,9 +133,14 @@ export function useInput(originalProps: UseInputProps) {
   });
 
   const isInvalid = props.validationState === "invalid";
-  const labelPlacement = originalProps.labelPlacement || "inside";
+
+  const labelPlacement = (
+    originalProps.labelPlacement ?? label ? "inside" : "outside"
+  ) as InputVariantProps["labelPlacement"];
+
   const isLabelPlaceholder =
     !props.placeholder && labelPlacement !== "outside-left" && !isMultiline;
+
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
 
@@ -145,9 +155,17 @@ export function useInput(originalProps: UseInputProps) {
         ...variantProps,
         isInvalid,
         isClearable,
+        labelPlacement,
         isLabelPlaceholder: isLabelPlaceholder && !hasStartContent,
       }),
-    [...Object.values(variantProps), isInvalid, isClearable, isLabelPlaceholder, hasStartContent],
+    [
+      ...Object.values(variantProps),
+      isInvalid,
+      labelPlacement,
+      isClearable,
+      isLabelPlaceholder,
+      hasStartContent,
+    ],
   );
 
   const getBaseProps: PropGetter = useCallback(

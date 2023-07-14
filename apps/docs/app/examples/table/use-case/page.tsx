@@ -344,7 +344,7 @@ export default function Page() {
         );
       case "actions":
         return (
-          <div className="relative flex items-center gap-2">
+          <div className="relative flex justify-end items-center gap-2">
             <Dropdown>
               <DropdownTrigger>
                 <Button isIconOnly variant="light">
@@ -388,7 +388,6 @@ export default function Page() {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            labelPlacement="outside"
             placeholder="Search by name..."
             startContent={<SearchIcon />}
             value={filterValue}
@@ -500,7 +499,7 @@ export default function Page() {
   return (
     <div className="p-6">
       <Table
-        aria-label="Example table with client side sorting"
+        aria-label="Example table with custom cells, pagination and sorting"
         bottomContent={bottomContent}
         bottomContentPlacement="outside"
         classNames={{
