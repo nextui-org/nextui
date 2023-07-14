@@ -20,51 +20,58 @@ const Table = forwardRef<TableProps, "table">((props, ref) => {
     collection,
     context,
     topContent,
+    topContentPlacement,
+    bottomContentPlacement,
     bottomContent,
     removeWrapper,
     getBaseProps,
+    getWrapperProps,
     getTableProps,
   } = useTable({
     ref,
     ...props,
   });
 
-  const BaseWrapper = useCallback(
+  const Wrapper = useCallback(
     ({children}: {children: JSX.Element}) => {
       if (removeWrapper) {
         return children;
       }
 
-      return <BaseComponent {...getBaseProps()}>{children}</BaseComponent>;
+      return <BaseComponent {...getWrapperProps()}>{children}</BaseComponent>;
     },
-    [removeWrapper, getBaseProps],
+    [removeWrapper, getWrapperProps],
   );
 
   return (
     <TableProvider value={context}>
-      <BaseWrapper>
-        <>
-          {topContent}
-          <Component {...getTableProps()}>
-            <TableRowGroup>
-              {collection.headerRows.map((headerRow) => (
-                <TableHeaderRow key={headerRow?.key} node={headerRow} {...headerRow?.props}>
-                  {[...headerRow.childNodes].map((column) =>
-                    column?.props?.isSelectionCell ? (
-                      <TableSelectAllCheckbox key={column?.key} node={column} {...column?.props} />
-                    ) : (
-                      <TableColumnHeader key={column?.key} node={column} {...column?.props} />
-                    ),
-                  )}
-                </TableHeaderRow>
-              ))}
-              <Spacer as="tr" tabIndex={-1} y={1} />
-            </TableRowGroup>
-            <TableBody />
-          </Component>
-          {bottomContent}
-        </>
-      </BaseWrapper>
+      <div {...getBaseProps()}>
+        {topContentPlacement === "outside" && topContent}
+        <Wrapper>
+          <>
+            {topContentPlacement === "inside" && topContent}
+            <Component {...getTableProps()}>
+              <TableRowGroup>
+                {collection.headerRows.map((headerRow) => (
+                  <TableHeaderRow key={headerRow?.key} node={headerRow}>
+                    {[...headerRow.childNodes].map((column) =>
+                      column?.props?.isSelectionCell ? (
+                        <TableSelectAllCheckbox key={column?.key} node={column} />
+                      ) : (
+                        <TableColumnHeader key={column?.key} node={column} />
+                      ),
+                    )}
+                  </TableHeaderRow>
+                ))}
+                <Spacer as="tr" tabIndex={-1} y={1} />
+              </TableRowGroup>
+              <TableBody />
+            </Component>
+            {bottomContentPlacement === "inside" && bottomContent}
+          </>
+        </Wrapper>
+        {bottomContentPlacement === "outside" && bottomContent}
+      </div>
     </TableProvider>
   );
 });

@@ -31,6 +31,7 @@ const button = tv({
     "appearance-none",
     "outline-none",
     "select-none",
+    "whitespace-nowrap",
     "min-w-max",
     "font-normal",
     "subpixel-antialiased",

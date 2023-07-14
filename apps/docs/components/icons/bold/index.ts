@@ -13,3 +13,4 @@ export * from "./shuffle";
 export * from "./info";
 export * from "./document-code";
 export * from "./hash";
+export * from "./more-square";

@@ -103,6 +103,49 @@ const snippet = tv({
     disableAnimation: false,
   },
   compoundVariants: [
+    // solid - shadow / color
+    {
+      variant: ["solid", "shadow"],
+      color: "default",
+      class: {
+        copyButton: "data-[focus-visible]:outline-default-foreground",
+      },
+    },
+    {
+      variant: ["solid", "shadow"],
+      color: "primary",
+      class: {
+        copyButton: "data-[focus-visible]:outline-primary-foreground",
+      },
+    },
+    {
+      variant: ["solid", "shadow"],
+      color: "secondary",
+      class: {
+        copyButton: "data-[focus-visible]:outline-secondary-foreground",
+      },
+    },
+    {
+      variant: ["solid", "shadow"],
+      color: "success",
+      class: {
+        copyButton: "data-[focus-visible]:outline-success-foreground",
+      },
+    },
+    {
+      variant: ["solid", "shadow"],
+      color: "warning",
+      class: {
+        copyButton: "data-[focus-visible]:outline-warning-foreground",
+      },
+    },
+    {
+      variant: ["solid", "shadow"],
+      color: "danger",
+      class: {
+        copyButton: "data-[focus-visible]:outline-danger-foreground",
+      },
+    },
     // flat / color
     {
       variant: "flat",

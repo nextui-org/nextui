@@ -40,7 +40,8 @@ import {dataFocusVisibleClasses} from "../utils";
  */
 const table = tv({
   slots: {
-    base: [
+    base: "flex flex-col relative gap-4",
+    wrapper: [
       "p-4",
       "z-0",
       "flex",
@@ -63,6 +64,7 @@ const table = tv({
       "text-left",
       "align-middle",
       "bg-default-100",
+      "whitespace-nowrap",
       "text-foreground-500",
       "text-tiny",
       "font-semibold",
@@ -140,30 +142,30 @@ const table = tv({
     },
     radius: {
       none: {
-        base: "rounded-none",
+        wrapper: "rounded-none",
       },
       sm: {
-        base: "rounded-small",
+        wrapper: "rounded-small",
       },
       md: {
-        base: "rounded-medium",
+        wrapper: "rounded-medium",
       },
       lg: {
-        base: "rounded-large",
+        wrapper: "rounded-large",
       },
     },
     shadow: {
       none: {
-        base: "shadow-none",
+        wrapper: "shadow-none",
       },
       sm: {
-        base: "shadow-small",
+        wrapper: "shadow-small",
       },
       md: {
-        base: "shadow-medium",
+        wrapper: "shadow-medium",
       },
       lg: {
-        base: "shadow-large",
+        wrapper: "shadow-large",
       },
     },
     hideHeader: {
@@ -213,13 +215,8 @@ const table = tv({
     fullWidth: {
       true: {
         base: "w-full",
+        wrapper: "w-full",
         table: "w-full",
-      },
-    },
-    disableAnimation: {
-      true: {},
-      false: {
-        td: "before:transition-colors-opacity before:!duration-150",
       },
     },
   },

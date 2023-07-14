@@ -14,6 +14,9 @@ import selectionBehavior from "./selection-behavior";
 import rowActions from "./row-actions";
 import sorting from "./sorting";
 import loadMore from "./load-more";
+import paginated from "./paginated";
+import asyncPagination from "./async-pagination";
+import infinitePagination from "./infinite-pagination";
 
 export const tableContent = {
   usage,
@@ -32,4 +35,7 @@ export const tableContent = {
   rowActions,
   sorting,
   loadMore,
+  paginated,
+  asyncPagination,
+  infinitePagination,
 };

@@ -19,6 +19,8 @@ import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
+type TableContentPlacement = "inside" | "outside";
+
 interface Props extends HTMLNextUIProps<"table"> {
   /**
    * Ref to the DOM node.
@@ -38,9 +40,19 @@ interface Props extends HTMLNextUIProps<"table"> {
    */
   baseRef?: ReactRef<HTMLElement | null>;
   /**
+   * Where to place the `topContent` component.
+   * @default "inside"
+   */
+  topContentPlacement?: TableContentPlacement;
+  /**
    * Provides content to include a component in the top of the table.
    */
   topContent?: ReactNode;
+  /**
+   * Where to place the `bottomContent` component.
+   * @default "inside"
+   */
+  bottomContentPlacement?: TableContentPlacement;
   /**
    * Provides content to include a component in the bottom of the table.
    */
@@ -62,6 +74,11 @@ interface Props extends HTMLNextUIProps<"table"> {
    * @default "selection"
    */
   disabledBehavior?: DisabledBehavior;
+  /**
+   * Whether to disable the table and checkbox animations.
+   * @default false
+   */
+  disableAnimation?: boolean;
   /** Handler that is called when a user performs an action on the row. */
   onRowAction?: (key: Key) => void;
   /** Handler that is called when a user performs an action on the cell. */
@@ -122,7 +139,10 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     className,
     classNames,
     removeWrapper = false,
+    disableAnimation = false,
     selectionMode = "none",
+    topContentPlacement = "inside",
+    bottomContentPlacement = "inside",
     selectionBehavior = selectionMode === "none" ? null : "toggle",
     disabledBehavior = "selection",
     showSelectionCheckboxes = selectionMode === "multiple" && selectionBehavior !== "replace",
@@ -172,7 +192,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       collection,
       classNames,
       color: originalProps?.color,
-      disableAnimation: originalProps?.disableAnimation ?? false,
+      disableAnimation,
       isHeaderSticky: originalProps?.isHeaderSticky ?? false,
       selectionMode,
       selectionBehavior,
@@ -190,9 +210,9 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       selectionMode,
       selectionBehavior,
       disabledBehavior,
+      disableAnimation,
       showSelectionCheckboxes,
       originalProps?.color,
-      originalProps?.disableAnimation,
       originalProps?.isHeaderSticky,
       onRowAction,
       onCellAction,
@@ -206,6 +226,15 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       className: slots.base({class: clsx(baseStyles, props?.className)}),
     }),
     [baseStyles, slots],
+  );
+
+  const getWrapperProps: PropGetter = useCallback(
+    (props) => ({
+      ...props,
+      ref: domBaseRef,
+      className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
+    }),
+    [classNames?.wrapper, slots],
   );
 
   const getTableProps: PropGetter = (props) => ({
@@ -225,7 +254,10 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     bottomContent,
     removeWrapper,
     selectionMode,
+    topContentPlacement,
+    bottomContentPlacement,
     getBaseProps,
+    getWrapperProps,
     getTableProps,
   };
 }

@@ -11,7 +11,7 @@ import {
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
 
-import {Input, InputProps, useInput} from "../src";
+import {Input, useInput} from "../src";
 
 export default {
   title: "Components/Input",
@@ -67,20 +67,20 @@ const defaultProps = {
   label: "Email",
 };
 
-const Template: ComponentStory<typeof Input> = (args: InputProps) => (
+const Template: ComponentStory<typeof Input> = (args) => (
   <div className="w-full max-w-[240px]">
     <Input {...args} size="sm" />
   </div>
 );
 
-const MirrorTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const MirrorTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full max-w-xl flex flex-row gap-4">
     <Input {...args} />
     <Input {...args} placeholder="Enter your email" />
   </div>
 );
 
-const PasswordTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+const PasswordTemplate: ComponentStory<typeof Input> = (args) => {
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
 
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
@@ -104,7 +104,7 @@ const PasswordTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
   );
 };
 
-const RegexValidationTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+const RegexValidationTemplate: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = React.useState("");
 
   const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
@@ -129,7 +129,7 @@ const RegexValidationTemplate: ComponentStory<typeof Input> = (args: InputProps)
   );
 };
 
-const ControlledTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+const ControlledTemplate: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = React.useState("");
 
   return (
@@ -140,7 +140,7 @@ const ControlledTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
   );
 };
 
-const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const LabelPositionTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full flex flex-col items-center gap-12">
     <div className="w-full max-w-xl flex flex-row items-end gap-4">
       <Input {...args} />
@@ -155,7 +155,7 @@ const LabelPositionTemplate: ComponentStory<typeof Input> = (args: InputProps) =
   </div>
 );
 
-const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const StartContentTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input
       {...args}
@@ -189,7 +189,7 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args: InputProps) =>
   </div>
 );
 
-const EndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const EndContentTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input
       {...args}
@@ -223,7 +223,7 @@ const EndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
   </div>
 );
 
-const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full max-w-xs flex flex-col items-end gap-4">
     <Input
       {...args}
@@ -283,7 +283,7 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args: InputPro
   </div>
 );
 
-const InputTypesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const InputTypesTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="grid grid-cols-3 gap-4">
     <Input {...args} label="Text" placeholder="Enter your text" />
     <Input {...args} label="Number" placeholder="Enter your number" type="number" />
@@ -300,7 +300,7 @@ const InputTypesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
   </div>
 );
 
-const CustomWithClassNamesTemplate: ComponentStory<typeof Input> = (args: InputProps) => (
+const CustomWithClassNamesTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full max-w-[340px]">
     <Input
       {...args}
@@ -344,7 +344,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Input> = (args: InputP
   </div>
 );
 
-const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args: InputProps) => {
+const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args) => {
   const {
     Component,
     label,

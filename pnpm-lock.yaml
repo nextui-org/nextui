@@ -288,6 +288,9 @@ importers:
       '@nextui-org/use-clipboard':
         specifier: workspace:*
         version: link:../../packages/hooks/use-clipboard
+      '@nextui-org/use-infinite-scroll':
+        specifier: workspace:*
+        version: link:../../packages/hooks/use-infinite-scroll
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../packages/hooks/use-is-mobile

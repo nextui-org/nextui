@@ -205,7 +205,7 @@ header, the column's key and sort direction is passed into the `onSortChange` ca
 allowing you to update the `sortDescriptor` appropriately.
 
 We recommend using the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) to manage the data sorting. So make
-sure to install it before using the `Table` component.
+sure to install it before using the sorting feature.
 
 <PackageManagers
   commands={{
@@ -222,7 +222,6 @@ import {useAsyncList} from "@react-stately/data";
 <CodeDemo 
   asIframe
   title="Sorting Rows"
-  displayMode="visible" 
   resizeEnabled={false}
   files={tableContent.sorting} 
   previewHeight="520px"
@@ -241,7 +240,6 @@ using a button to load more data.
 <CodeDemo 
   asIframe
   title="Loading more data"
-  displayMode="visible" 
   resizeEnabled={false}
   files={tableContent.loadMore}
   highlightedLines="36-45"
@@ -251,5 +249,55 @@ using a button to load more data.
 
 > **Note**: We passed the `isHeaderSticky` to the `Table` component to make the header sticky.
 
+### Paginated Table
+
+You can use the [Pagination](/components/pagination) component to paginate the table.
+
+<CodeDemo 
+  title="Paginated Table"
+  files={tableContent.paginated}
+/>
+
+### Async Pagination
+
+It is also possible to use the [Pagination](/components/pagination) component to paginate the table asynchronously. To fetch the data, we are using the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html).
+Please check the installation instructions in the [Sorting Rows](#sorting-rows) section.
+
+<CodeDemo 
+  asIframe
+  title="Async Paginated Table"
+  resizeEnabled={false}
+  files={tableContent.asyncPagination}
+  previewHeight="600px"
+  iframeSrc="/examples/table/async-pagination"
+/>
 
 
+### Infinite Pagination
+
+Table also supports infinite pagination. To do so, you can use the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) and 
+[@nextui-org/use-infinite-scroll](https://www.npmjs.com/package/@nextui-org/use-infinite-scroll) hook.
+
+<CodeDemo 
+  asIframe
+  title="Infinite Paginated Table"
+  resizeEnabled={false}
+  files={tableContent.infinityPagination}
+  previewHeight="620px"
+  iframeSrc="/examples/table/infinite-pagination"
+/>
+
+
+### Use Case Example
+
+When creating a table, you usually need core functionalities like sorting, pagination, and filtering. In the 
+example below, we combined all these functionalities to create a complete table.
+
+<CodeDemo 
+  asIframe
+  title="Table use Case Example"
+  resizeEnabled={false}
+  files={tableContent.loadMore}
+  previewHeight="620px"
+  iframeSrc="/examples/table/use-case"
+/>

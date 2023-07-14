@@ -833,7 +833,7 @@ const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) 
   );
 };
 
-const InfinityPaginationTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const InfinitePaginationTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   const [hasMore, setHasMore] = React.useState(false);
 
   let list = useAsyncList<SWCharacter>({
@@ -979,13 +979,13 @@ AsyncPaginated.args = {
   className: "max-w-3xl max-h-auto min-h-[400px]",
 };
 
-export const InfinityPagination = InfinityPaginationTemplate.bind({});
+export const InfinityPagination = InfinitePaginationTemplate.bind({});
 InfinityPagination.args = {
   ...defaultProps,
   className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
 };
 
-export const HeaderSticky = InfinityPaginationTemplate.bind({});
+export const HeaderSticky = InfinitePaginationTemplate.bind({});
 HeaderSticky.args = {
   ...defaultProps,
   layout: "fixed",

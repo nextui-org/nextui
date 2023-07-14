@@ -45,7 +45,7 @@ const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((pr
         columnHeaderProps,
         focusProps,
         filterDOMProps(node.props, {labelable: true}),
-        otherProps,
+        filterDOMProps(otherProps, {labelable: true}),
       )}
       className={slots.th?.({class: thStyles})}
     >
