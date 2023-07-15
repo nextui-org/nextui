@@ -85,8 +85,8 @@ const table = tv({
       "text-small",
       "font-normal",
       "outline-none",
-      "[&>:first-child]:z-1",
-      "[&>:first-child]:relative",
+      "[&>*]:z-1",
+      "[&>*]:relative",
       ...dataFocusVisibleClasses,
       // before content for selection
       "before:content-['']",

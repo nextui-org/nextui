@@ -35,6 +35,8 @@ const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
   const {isFocusVisible, focusProps} = useFocusRing();
   const isRowSelected = state.selectionManager.isSelected(rowKey);
 
+  const cell = typeof node.rendered === "string" ? <span>{node.rendered}</span> : node.rendered;
+
   return (
     <Component
       ref={domRef}
@@ -48,7 +50,7 @@ const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
       )}
       className={slots.td?.({class: tdStyles})}
     >
-      {node.rendered}
+      {cell}
     </Component>
   );
 });

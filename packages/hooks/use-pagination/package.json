@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-pagination",
-  "version": "0.0.0-dev-v2-20230714205125",
+  "version": "0.0.0-dev-v2-20230715020155",
   "description": "State management hook for Pagination component, it lets you manage pagination with controlled and uncontrolled state",
   "keywords": [
     "use-pagination"
