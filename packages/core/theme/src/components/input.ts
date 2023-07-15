@@ -23,8 +23,9 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col data-[has-elements=true]:gap-2",
+    base: "group flex flex-col",
     label: "block text-small font-medium text-foreground-600",
+    mainWrapper: "",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
@@ -44,6 +45,7 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
+    helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -118,17 +120,17 @@ const input = tv({
     size: {
       sm: {
         label: "text-tiny",
-        inputWrapper: "h-8 px-2 rounded-small",
+        inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
         input: "text-small",
         clearButton: "text-medium",
       },
       md: {
-        inputWrapper: "h-10 rounded-medium",
+        inputWrapper: "h-unit-10 min-h-unit-10 rounded-medium",
         input: "text-small",
         clearButton: "text-large",
       },
       lg: {
-        inputWrapper: "h-12 rounded-large",
+        inputWrapper: "h-unit-12 min-h-unit-12 rounded-large",
         input: "text-medium",
         clearButton: "text-large",
       },
@@ -152,12 +154,19 @@ const input = tv({
     },
     labelPlacement: {
       outside: {
-        label: "text-foreground",
+        base: "data-[has-helper=true]:pb-4",
+        label: "text-foreground pb-1.5",
+        mainWrapper: "flex flex-col",
+        description: "absolute left-1",
+        errorMessage: "absolute left-1",
       },
       "outside-left": {
-        base: "flex-row items-center flex-wrap",
+        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4",
         inputWrapper: "flex-1",
-        label: "text-foreground",
+        mainWrapper: "flex flex-col",
+        label: "text-foreground pr-2",
+        description: "absolute left-1",
+        errorMessage: "absolute left-1",
       },
       inside: {
         label: "text-tiny",
@@ -546,6 +555,7 @@ const input = tv({
       class: {
         base: "group relative justify-end",
         label: [
+          "pb-0",
           "group-focus-within:left-0",
           "group-[.is-filled]:left-0",
           "group-focus-within:text-foreground",

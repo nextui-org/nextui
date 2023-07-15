@@ -85,11 +85,13 @@ const table = tv({
       "text-small",
       "font-normal",
       "outline-none",
+      "[&>:first-child]:z-1",
+      "[&>:first-child]:relative",
       ...dataFocusVisibleClasses,
       // before content for selection
       "before:content-['']",
       "before:absolute",
-      "before:z-[-1]",
+      "before:z-0",
       "before:inset-0",
       "before:opacity-0",
       "data-[selected=true]:before:opacity-100",
@@ -181,9 +183,15 @@ const table = tv({
         ],
       },
     },
+    isCompact: {
+      true: {
+        td: "py-1",
+      },
+      false: {},
+    },
     isHeaderSticky: {
       true: {
-        thead: "sticky top-0 z-10 [&>tr]:first:shadow-small",
+        thead: "sticky top-0 z-20 [&>tr]:first:shadow-small",
       },
     },
     isSelectable: {
@@ -225,6 +233,7 @@ const table = tv({
     shadow: "sm",
     radius: "lg",
     color: "default",
+    isCompact: false,
     hideHeader: false,
     isStriped: false,
     fullWidth: true,

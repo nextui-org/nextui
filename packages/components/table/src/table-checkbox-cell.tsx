@@ -29,7 +29,8 @@ const TableCheckboxCell = forwardRef<TableCheckboxCellProps, "td">((props, ref) 
   const Component = as || "td";
   const domRef = useDOMRef(ref);
 
-  const {slots, state, color, disableAnimation, selectionMode, classNames} = useTableContext();
+  const {slots, state, color, disableAnimation, checkboxesProps, selectionMode, classNames} =
+    useTableContext();
 
   const {gridCellProps} = useTableCell({node}, state, domRef);
   const {isFocusVisible, focusProps} = useFocusRing();
@@ -63,7 +64,7 @@ const TableCheckboxCell = forwardRef<TableCheckboxCellProps, "td">((props, ref) 
           color={color}
           disableAnimation={disableAnimation}
           onValueChange={onChange}
-          {...otherCheckboxProps}
+          {...mergeProps(checkboxesProps, otherCheckboxProps)}
         />
       )}
     </Component>

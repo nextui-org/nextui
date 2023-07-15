@@ -1,7 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {LayoutGroup} from "framer-motion";
 import {Divider} from "@nextui-org/divider";
-import {Fragment, Key, memo, useCallback, useMemo} from "react";
+import {Fragment, Key, useCallback, useMemo} from "react";
 
 import {UseAccordionProps, useAccordion} from "./use-accordion";
 import AccordionItem from "./accordion-item";
@@ -56,4 +56,4 @@ const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
 
 AccordionGroup.displayName = "NextUI.Accordion";
 
-export default memo(AccordionGroup);
+export default AccordionGroup;

@@ -79,9 +79,18 @@ export const useSandpack = ({
       return 0;
     })
     .reduce((acc, key) => {
+      let fileContent = files[key] as string;
+      const importReact = 'import React from "react";';
+      const importAllReact = 'import * as React from "react";';
+
+      // Check if the file content includes 'React' import statements, if not, add it
+      if (!fileContent.includes(importReact) && !fileContent.includes(importAllReact)) {
+        fileContent = `${importReact}\n${fileContent}`;
+      }
+
       return {
         ...acc,
-        [key]: files[key],
+        [key]: fileContent,
       };
     }, {});
 

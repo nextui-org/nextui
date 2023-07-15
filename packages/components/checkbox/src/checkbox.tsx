@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
-import {cloneElement, memo, ReactElement} from "react";
+import {cloneElement, ReactElement} from "react";
 
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";
 import {CheckboxIcon} from "./checkbox-icon";
@@ -40,4 +40,4 @@ const Checkbox = forwardRef<CheckboxProps, "label">((props, ref) => {
 
 Checkbox.displayName = "NextUI.Checkbox";
 
-export default memo(Checkbox);
+export default Checkbox;

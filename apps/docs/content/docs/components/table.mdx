@@ -1,6 +1,6 @@
 ---
-title: 'Table'
-description: 'Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.'
+title: "Table"
+description: "Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data."
 ---
 
 import {tableContent} from "@/content/components/table";
@@ -8,6 +8,7 @@ import {tableContent} from "@/content/components/table";
 # Table
 
 Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
+
 <ComponentLinks component="table" reactHook="useTable" />
 
 ---
@@ -33,8 +34,7 @@ NextUI exports 6 table-related components:
   TableRow,
   TableCell
 } from "@nextui-org/react";`,
-    individual:
-      `import {
+    individual: `import {
   Table,
   TableHeader,
   TableBody,
@@ -57,9 +57,9 @@ To render a table dynamically, you can use the `columns` prop to pass the column
 
 #### Why not array map?
 
-Using the `items` prop and providing a render function allows [react-aria](https://react-spectrum.adobe.com/react-aria/index.html) 
-to automatically cache the results of rendering each item and avoid re-rendering all items in the 
-collection when only one of them changes. This has big performance benefits for large 
+Using the `items` prop and providing a render function allows [react-aria](https://react-spectrum.adobe.com/react-aria/index.html)
+to automatically cache the results of rendering each item and avoid re-rendering all items in the
+collection when only one of them changes. This has big performance benefits for large
 collections.
 
 You could also use `Array.map` to render the items, but it will not be as performant as using the `items` and `columns` prop.
@@ -95,7 +95,6 @@ export default function App() {
 
 > **Note**: To learn more about React Aria collections and how to use them, please check [React Aria Collections](https://react-spectrum.adobe.com/react-stately/collections.html).
 
- 
 ### Empty State
 
 You can use the `emptyContent` prop to render a custom component when the table is empty.
@@ -108,10 +107,9 @@ In case you don't want to render the header, you can use the `hideHeader` prop.
 
 <CodeDemo title="Without Header" files={tableContent.withoutHeader} />
 
-
 ### Without Wrapper
 
-By default the table is wrapped in a `div` element with a small shadow effect and a border radius. 
+By default the table is wrapped in a `div` element with a small shadow effect and a border radius.
 You can use the `removeWrapper` prop to remove the wrapper and only render the table.
 
 <CodeDemo title="Without Wrapper" files={tableContent.withoutWrapper} />
@@ -122,7 +120,6 @@ You can render any component inside the table cell. In the example below, we are
 
 <CodeDemo title="Custom Cells" files={tableContent.customCells} />
 
-
 ### Striped Rows
 
 You can use the `isStriped` prop to render striped rows.
@@ -131,8 +128,8 @@ You can use the `isStriped` prop to render striped rows.
 
 ### Single Row Selection
 
-It is possible to make the table rows selectable. To do so, you can use the `selectioMode` prop. Use `defaultSelectedKeys` to 
-provide a default set of selected rows. 
+It is possible to make the table rows selectable. To do so, you can use the `selectioMode` prop. Use `defaultSelectedKeys` to
+provide a default set of selected rows.
 
 <CodeDemo title="Single Row Selection" files={tableContent.singleSelection} />
 
@@ -150,7 +147,7 @@ provide a default set of selected rows.
 ### Disallow Empty Selection
 
 Table also supports a `disallowEmptySelection` prop which forces the user to have at least one
-row in the Table selected at all times. In this mode, if a single row is selected and the 
+row in the Table selected at all times. In this mode, if a single row is selected and the
 user presses it, it will not be deselected.
 
 <CodeDemo title="Disallow Empty Selection" files={tableContent.disallowEmptySelection} />
@@ -164,44 +161,42 @@ The key prop from the selected rows will be passed into the callback when the ro
 
 > **Note**: The `selectedKeys` property must be an `Set` object.
 
-
 ### Disabled Rows
 
-You can disable rows by using the `disabledKeys` prop. This will prevent rows from being 
+You can disable rows by using the `disabledKeys` prop. This will prevent rows from being
 selectable as shown in the example below.
 
 <CodeDemo title="Disabled Rows" files={tableContent.disabledRows} />
 
 ### Selection Behavior
 
-By default, Table uses the `toggle` selection behavior, which behaves like a checkbox group: 
-clicking, tapping, or pressing the <Kbd>Space</Kbd> or <Kbd>Enter</Kbd> keys toggles selection for the focused row. 
+By default, Table uses the `toggle` selection behavior, which behaves like a checkbox group:
+clicking, tapping, or pressing the <Kbd>Space</Kbd> or <Kbd>Enter</Kbd> keys toggles selection for the focused row.
 
 When the `selectionBehavior` prop is set to `replace`, clicking a row with the mouse replaces
-the selection with only that row. Using the arrow keys moves both focus and selection. 
+the selection with only that row. Using the arrow keys moves both focus and selection.
 To select multiple rows, modifier keys such as <Kbd>Ctrl</Kbd>, <Kbd>Cmd</Kbd>, and <Kbd>Shift</Kbd> can be used.
 
 <CodeDemo title="Selection Behavior" files={tableContent.selectionBehavior} />
 
 ### Rows Actions
 
-Table supports rows via the `onRowAction` callback. In the default `toggle` selection 
+Table supports rows via the `onRowAction` callback. In the default `toggle` selection
 behavior, when nothing is selected, clicking or tapping the row triggers the row action.
 
-This behavior is slightly different in the `replace` selection behavior, where single 
-clicking selects the row and actions are performed via double click. 
+This behavior is slightly different in the `replace` selection behavior, where single
+clicking selects the row and actions are performed via double click.
 
 <CodeDemo title="Rows Actions" files={tableContent.rowActions} />
-
 
 ### Sorting Rows
 
 Table supports sorting its data when a column header is pressed. To designate that a `Column`
-should support sorting, provide it with the `allowsSorting` prop. 
+should support sorting, provide it with the `allowsSorting` prop.
 
-Table accepts a `sortDescriptor` prop that defines the current column key to sort by 
-and the sort direction (ascending/descending). When the user presses a sortable column 
-header, the column's key and sort direction is passed into the `onSortChange` callback, 
+Table accepts a `sortDescriptor` prop that defines the current column key to sort by
+and the sort direction (ascending/descending). When the user presses a sortable column
+header, the column's key and sort direction is passed into the `onSortChange` callback,
 allowing you to update the `sortDescriptor` appropriately.
 
 We recommend using the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) to manage the data sorting. So make
@@ -209,9 +204,9 @@ sure to install it before using the sorting feature.
 
 <PackageManagers
   commands={{
-    npm: 'npm install @react-stately/data',
-    yarn: 'yarn add @react-stately/data',
-    pnpm: 'pnpm add @react-stately/data'
+    npm: "npm install @react-stately/data",
+    yarn: "yarn add @react-stately/data",
+    pnpm: "pnpm add @react-stately/data",
   }}
 />
 
@@ -219,25 +214,24 @@ sure to install it before using the sorting feature.
 import {useAsyncList} from "@react-stately/data";
 ```
 
-<CodeDemo 
+<CodeDemo
   asIframe
   title="Sorting Rows"
   resizeEnabled={false}
-  files={tableContent.sorting} 
+  files={tableContent.sorting}
   previewHeight="520px"
   iframeSrc="/examples/table/sorting"
 />
 
-> Note that we passed the `isLoading` and `loadingContent` props to `TableBody` to 
+> Note that we passed the `isLoading` and `loadingContent` props to `TableBody` to
 > render a loading state while the data is being fetched.
-
 
 ### Loading more data
 
-Table sllows you to add a custom component at the end of the table, on the example below we are 
+Table sllows you to add a custom component at the end of the table, on the example below we are
 using a button to load more data.
 
-<CodeDemo 
+<CodeDemo
   asIframe
   title="Loading more data"
   resizeEnabled={false}
@@ -253,17 +247,14 @@ using a button to load more data.
 
 You can use the [Pagination](/components/pagination) component to paginate the table.
 
-<CodeDemo 
-  title="Paginated Table"
-  files={tableContent.paginated}
-/>
+<CodeDemo title="Paginated Table" files={tableContent.paginated} />
 
 ### Async Pagination
 
 It is also possible to use the [Pagination](/components/pagination) component to paginate the table asynchronously. To fetch the data, we are using the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html).
 Please check the installation instructions in the [Sorting Rows](#sorting-rows) section.
 
-<CodeDemo 
+<CodeDemo
   asIframe
   title="Async Paginated Table"
   resizeEnabled={false}
@@ -272,13 +263,12 @@ Please check the installation instructions in the [Sorting Rows](#sorting-rows) 
   iframeSrc="/examples/table/async-pagination"
 />
 
-
 ### Infinite Pagination
 
-Table also supports infinite pagination. To do so, you can use the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) and 
+Table also supports infinite pagination. To do so, you can use the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) and
 [@nextui-org/use-infinite-scroll](https://www.npmjs.com/package/@nextui-org/use-infinite-scroll) hook.
 
-<CodeDemo 
+<CodeDemo
   asIframe
   title="Infinite Paginated Table"
   resizeEnabled={false}
@@ -287,17 +277,238 @@ Table also supports infinite pagination. To do so, you can use the `useAsyncList
   iframeSrc="/examples/table/infinite-pagination"
 />
 
-
 ### Use Case Example
 
-When creating a table, you usually need core functionalities like sorting, pagination, and filtering. In the 
+When creating a table, you usually need core functionalities like sorting, pagination, and filtering. In the
 example below, we combined all these functionalities to create a complete table.
 
-<CodeDemo 
+<CodeDemo
   asIframe
   title="Table use Case Example"
   resizeEnabled={false}
   files={tableContent.useCase}
-  previewHeight="624px"
+  previewHeight="630px"
   iframeSrc="/examples/table/use-case"
 />
+
+## Slots
+
+- **base**: Defines a flexible column layout and relative positioning for the table component.
+- **wrapper**: Applies to the outermost wrapper, providing padding, flexible layout, relative positioning, visual styles, and scrollable overflow handling.
+- **table**: Sets the table to have a full minimum width and auto-adjusting height.
+- **thead**: Specifies rounded corners for the first child row in the table header.
+- **tbody**: No specific styles are applied to the body of the table.
+- **tr**: Styles for table rows including group focus, outline properties, and a set of undefined focus-visible classes.
+- **th**: Styles for table headers, including padding, text alignment, font properties, and special styles for sortable columns.
+- **td**: Applies to table cells, with properties for padding, alignment, and relative positioning, plus special styles for first child elements, selection indication, and disabled cells.
+- **tfoot**: No specific styles are applied to the footer of the table.
+- **sortIcon**: Styles for sorting icons, with properties for margin, opacity, and transition effects based on sorting direction and hover state.
+- **emptyWrapper**: Defines style for an empty table, with text alignment, color, and a specified height.
+- **loadingWrapper**: Style applied when the table is loading, positioning it centrally in its container.
+
+### Custom Styles
+
+You can customize the `Table` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo
+  asIframe
+  title="Table custom styles example"
+  resizeEnabled={false}
+  files={tableContent.customStyles}
+  previewHeight="540px"
+  iframeSrc="/examples/table/custom-styles"
+/>
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`TableBody` has the following attributes:
+
+- **data-empty**:
+  When the table is empty.
+- **data-loading**:
+  When the table data is loading. Based on `TableBody` `isLoading` and `loadingContent` props.
+
+`TableRow` has the following attributes:
+
+- **data-selected**:
+  When the row is selected. Based on `Table` `selectedKeys` prop.
+- **data-disabled**:
+  When the row is disabled. Based on `Table` `disabledKeys` prop.
+- **data-hover**:
+  When the row is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus-visible**:
+  When the row is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-first**:
+  When the row is the first row.
+- **data-middle**:
+  When the row is in the middle.
+- **data-odd**:
+  When the row is odd.
+- **data-last**:
+  When the row is the last row.
+
+`TableCell` has the following attributes:
+
+- **data-selected**:
+  When the cell row is selected. Based on `Table` `selectedKeys` prop.
+- **data-focus-visible**:
+  When the cell is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Exposed to assistive technology as a grid using ARIA.
+- Keyboard navigation between columns, rows, cells, and in-cell focusable elements via the arrow keys.
+- Single, multiple, or no row selection via mouse, touch, or keyboard interactions.
+- Support for disabled rows, which cannot be selected.
+- Column sorting support.
+- Async loading, infinite scrolling, filtering, and sorting support.
+- Support for both toggle and replace selection behaviors.
+- Labeling support for accessibility.
+- Ensures that selections are announced using an ARIA live region.
+- Support for marking columns as row headers, which will be read when navigating the rows with a screen reader.
+- Optional support for checkboxes in each row for selection, as well as in the header to select all rows.
+- Automatic scrolling support during keyboard navigation.
+- Support for row actions via double click, Enter key, or tapping.
+- Typeahead to allow focusing rows by typing text.
+- Long press to enter selection mode on touch when there is both selection and row actions.
+
+<Spacer y={4} />
+
+## API
+
+### Table Props
+
+| Attribute                     | Type                                                                                                                                                          | Description                                                                                                  | Default     |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------- |
+| children\*                    | `ReactNode[]`                                                                                                                                                 | The elements that make up the table. Includes the `TableHeader`, `TableBody`, `TableColumn`, and `TableRow`. | -           |
+| color                         | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                   | Color of the selected rows, and checkboxes.                                                                  | `default`   |
+| layout                        | `auto` \| `fixed`                                                                                                                                             | Defines the layout of the table.                                                                             | `auto`      |
+| radius                        | `none` \| `sm` \| `md` \| `lg`                                                                                                                                | The border-radius of the table.                                                                              | `lg`        |
+| shadow                        | `none` \| `sm` \| `md` \| `lg`                                                                                                                                | The shadow size of the table.                                                                                | `sm`        |
+| hideHeader                    | `boolean`                                                                                                                                                     | Whether to hide the table header.                                                                            | `false`     |
+| isStriped                     | `boolean`                                                                                                                                                     | Whether to apply striped rows in the table.                                                                  | `false`     |
+| isCompact                     | `boolean`                                                                                                                                                     | Whether to apply compact style to the table.                                                                 | `false`     |
+| isHeaderSticky                | `boolean`                                                                                                                                                     | Whether to make the table header sticky.                                                                     | `false`     |
+| fullWidth                     | `boolean`                                                                                                                                                     | Whether to make the table full width.                                                                        | `true`      |
+| disableAnimation              | `boolean`                                                                                                                                                     | Whether to disable animations in the table.                                                                  | `false`     |
+| removeWrapper                 | `boolean`                                                                                                                                                     | Whether the table base container should not be rendered.                                                     | `false`     |
+| BaseComponent                 | `React.ComponentType<any>`                                                                                                                                    | A custom wrapper component for the table.                                                                    | `div`       |
+| topContent                    | `ReactNode`                                                                                                                                                   | Provides content to include a component in the top of the table.                                             | -           |
+| bottomContent                 | `ReactNode`                                                                                                                                                   | Provides content to include a component in the bottom of the table.                                          | -           |
+| topContentPlacement           | `inside` \| `outside`                                                                                                                                         | Where to place the `topContent` component.                                                                   | `inside`    |
+| bottomContentPlacement        | `inside` \| `outside`                                                                                                                                         | Where to place the `bottomContent` component.                                                                | `inside`    |
+| showSelectionCheckboxes       | `boolean`                                                                                                                                                     | Whether the row selection checkboxes should be displayed.                                                    | -           |
+| sortDescriptor                | [SortDescriptor](#sort-descriptor)                                                                                                                            | The current sorted column and direction.                                                                     | -           |
+| selectedKeys                  | [Selection](#selection)                                                                                                                                       | The currently selected keys in the collection (controlled).                                                  | -           |
+| defaultSelectedKeys           | [Selection](#selection)                                                                                                                                       | The initial selected keys in the collection (uncontrolled).                                                  | -           |
+| disabledKeys                  | [Selection](#selection)                                                                                                                                       | A set of keys for rows that are disabled.                                                                    | -           |
+| disallowEmptySelection        | `boolean`                                                                                                                                                     | Whether the collection allows empty selection.                                                               | -           |
+| selectionMode                 | `single` \| `multiple` \| `none`                                                                                                                              | The type of selection that is allowed in the collection.                                                     | `none`      |
+| selectionBehavior             | `toggle` \| `replace`                                                                                                                                         | How multiple selection should behave in the collection.                                                      | `toggle`    |
+| disabledBehavior              | `selection` \| `all`                                                                                                                                          | Whether `disabledKeys` applies to all interactions, or only selection.                                       | `selection` |
+| allowDuplicateSelectionEvents | `boolean`                                                                                                                                                     | Whether `onSelectionChange` should fire even if the new set of keys is the same as the last.                 | -           |
+| disableAnimation              | `boolean`                                                                                                                                                     | Whether to disable the table and checkbox animations.                                                        | `false`     |
+| checkboxesProps               | [CheckboxProps](/docs/components/checkbox/#checkbox-props)                                                                                                    | Props to be passed to the checkboxes.                                                                        | -           |
+| classNames                    | `Record<"base" ｜ "table" ｜ "thead" ｜ "tbody" ｜ "tfoot" ｜ "emptyWrapper" ｜ "loadingWrapper" ｜ "wrapper" ｜ "tr" ｜ "th" ｜ "td" ｜ "sortIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                | -           |
+
+### Table Events
+
+| Attribute         | Type                                  | Description                                                         |
+| ----------------- | ------------------------------------- | ------------------------------------------------------------------- |
+| onRowAction       | `(key: React.Key) => void`            | Handler that is called when a user performs an action on the row.   |
+| onCellAction      | `(key: react.Key) => void`            | Handler that is called when a user performs an action on the cell.  |
+| onSelectionChange | `(keys: Selection) => any`            | Handler that is called when the selection changes.                  |
+| onSortChange      | `(descriptor: SortDescriptor) => any` | Handler that is called when the sorted column or direction changes. |
+
+<Spacer y={2} />
+
+#### TableHeader Props
+
+| Attribute  | Type          | Description                                                                                                 | Default |
+| ---------- | ------------- | ----------------------------------------------------------------------------------------------------------- | ------- |
+| children\* | `ReactNode[]` | A list of Column(s) or a function. If the latter, a list of columns must be provided using the columns prop | -       |
+| columns    | `T[]`         | A list of table columns.                                                                                    | -       |
+
+<Spacer y={2} />
+
+#### TableColumn Props
+
+| Attribute     | Type                         | Description                                                                                            | Default |
+| ------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------ | ------- |
+| children\*    | `ReactNode`                  | Static child columns or content to render as the column header                                         | -       |
+| align         | `start` \| `center` \| `end` | The alignment of the column's contents relative to its allotted width                                  | `start` |
+| hideHeader    | `boolean`                    | Whether the column should hide its header text                                                         | `false` |
+| allowsSorting | `boolean`                    | Whether the column allows sorting                                                                      | -       |
+| isRowHeader   | `boolean`                    | Whether a column is a row header and should be announced by assistive technology during row navigation | -       |
+| textValue     | `string`                     | A string representation of the column's contents, used for accessibility announcements                 | -       |
+| width         | `string` \| `number`         | The width of the column                                                                                | -       |
+| minWidth      | `string` \| `number`         | The minimum width of the column                                                                        | -       |
+| maxWidth      | `string` \| `number`         | The maximum width of the column                                                                        | -       |
+
+<Spacer y={2} />
+
+#### TableBody Props
+
+| Attribute      | Type                                                          | Description                                                                                   | Default |
+| -------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------- |
+| children\*     | `RowElement` \| `RowElement[]` \| `((item: T) => RowElement)` | The contents of the table body. Supports static items or a function for dynamic rendering     | -       |
+| items          | `Iterable<T>`                                                 | A list of row objects in the table body used when dynamically rendering rows                  | -       |
+| isLoading      | `boolean`                                                     | Whether the table body is loading.                                                            | -       |
+| loadingState   | [LoadingState](#loading-state)                                | Handler that is called when more items should be loaded, e.g. while scrolling near the bottom | -       |
+| loadingContent | `ReactNode`                                                   | Content to display while loading more items                                                   | -       |
+| emptyContent   | `ReactNode`                                                   | Content to display when there are no items in the table body                                  | -       |
+
+### TableBody Events
+
+| Attribute  | Type        | Description                                                                  |
+| ---------- | ----------- | ---------------------------------------------------------------------------- |
+| onLoadMore | `() => any` | A list of row objects in the table body used when dynamically rendering rows |
+
+<Spacer y={2} />
+
+#### TableRow Props
+
+| Attribute  | Type                                               | Description                                                                     | Default |
+| ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------- | ------- |
+| children\* | `CellElement` \| `CellElement[]` \| `CellRenderer` | Rendered contents of the row or row child items                                 | -       |
+| textValue  | `string`                                           | A string representation of the row's contents, used for features like typeahead | -       |
+
+<Spacer y={2} />
+
+#### TableCell Props
+
+| Attribute  | Type        | Description                                                                     | Default |
+| ---------- | ----------- | ------------------------------------------------------------------------------- | ------- |
+| children\* | `ReactNode` | The contents of the cell                                                        | -       |
+| textValue  | `string`    | A string representation of the row's contents, used for features like typeahead | -       |
+
+---
+
+<Spacer y={2} />
+
+### Table types
+
+#### Sort descriptor
+
+```ts
+type SortDescriptor = {
+  column: React.Key;
+  direction: "ascending" | "descending";
+};
+```
+
+#### Selection
+
+```ts
+type Selection = "all" | Set<React.Key>;
+```
+
+#### Loading state
+
+```ts
+type LoadingState = "loading" | "sorting" | "loadingMore" | "error" | "idle" | "filtering";
+```

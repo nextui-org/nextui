@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {memo, useMemo} from "react";
+import {useMemo} from "react";
 
 import {UseInputProps, useInput} from "./use-input";
 
@@ -15,6 +15,9 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
     isClearable,
     startContent,
     endContent,
+    labelPlacement,
+    hasPlaceholder,
+    hasHelper,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     errorMessage,
@@ -23,6 +26,8 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
     getInputProps,
     getInnerWrapperProps,
     getInputWrapperProps,
+    getMainWrapperProps,
+    getHelperWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
@@ -38,6 +43,27 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
     return endContent;
   }, [isClearable, getClearButtonProps]);
 
+  const helperWrapper = useMemo(() => {
+    if (!hasHelper) return null;
+
+    return (
+      <div {...getHelperWrapperProps()}>
+        {errorMessage ? (
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
+        ) : description ? (
+          <div {...getDescriptionProps()}>{description}</div>
+        ) : null}
+      </div>
+    );
+  }, [
+    hasHelper,
+    errorMessage,
+    description,
+    getHelperWrapperProps,
+    getErrorMessageProps,
+    getDescriptionProps,
+  ]);
+
   const innerWrapper = useMemo(() => {
     if (startContent || end) {
       return (
@@ -52,22 +78,54 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
     return <input {...getInputProps()} />;
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
 
+  const mainWrapper = useMemo(() => {
+    if (shouldLabelBeOutside) {
+      return (
+        <div {...getMainWrapperProps()}>
+          <div {...getInputWrapperProps()}>
+            {labelPlacement === "outside" && !hasPlaceholder ? labelContent : null}
+            {innerWrapper}
+          </div>
+          {helperWrapper}
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <div {...getInputWrapperProps()}>
+          {labelContent}
+          {innerWrapper}
+        </div>
+        {helperWrapper}
+      </>
+    );
+  }, [
+    labelPlacement,
+    helperWrapper,
+    shouldLabelBeOutside,
+    shouldLabelBeInside,
+    hasPlaceholder,
+    labelContent,
+    innerWrapper,
+    errorMessage,
+    description,
+    getMainWrapperProps,
+    getInputWrapperProps,
+    getErrorMessageProps,
+    getDescriptionProps,
+  ]);
+
   return (
     <Component {...getBaseProps()}>
-      {shouldLabelBeOutside ? labelContent : null}
-      <div {...getInputWrapperProps()}>
-        {shouldLabelBeInside ? labelContent : null}
-        {innerWrapper}
-      </div>
-      {errorMessage ? (
-        <div {...getErrorMessageProps()}>{errorMessage}</div>
-      ) : description ? (
-        <div {...getDescriptionProps()}>{description}</div>
-      ) : null}
+      {shouldLabelBeOutside && (labelPlacement === "outside-left" || hasPlaceholder)
+        ? labelContent
+        : null}
+      {mainWrapper}
     </Component>
   );
 });
 
 Input.displayName = "NextUI.Input";
 
-export default memo(Input);
+export default Input;

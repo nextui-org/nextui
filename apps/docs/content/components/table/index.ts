@@ -18,6 +18,7 @@ import paginated from "./paginated";
 import asyncPagination from "./async-pagination";
 import infinitePagination from "./infinite-pagination";
 import useCase from "./use-case";
+import customStyles from "./custom-styles";
 
 export const tableContent = {
   usage,
@@ -40,4 +41,5 @@ export const tableContent = {
   asyncPagination,
   infinitePagination,
   useCase,
+  customStyles,
 };

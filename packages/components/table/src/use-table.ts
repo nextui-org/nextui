@@ -18,6 +18,7 @@ import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
+import {CheckboxProps} from "@nextui-org/checkbox";
 
 type TableContentPlacement = "inside" | "outside";
 
@@ -79,6 +80,10 @@ interface Props extends HTMLNextUIProps<"table"> {
    * @default false
    */
   disableAnimation?: boolean;
+  /**
+   * Props to be passed to the checkboxes.
+   */
+  checkboxesProps?: CheckboxProps;
   /** Handler that is called when a user performs an action on the row. */
   onRowAction?: (key: Key) => void;
   /** Handler that is called when a user performs an action on the cell. */
@@ -119,6 +124,7 @@ export type ContextType<T = object> = {
   isSelectable: boolean;
   selectionMode: UseTableProps<T>["selectionMode"];
   selectionBehavior: SelectionBehavior | null;
+  checkboxesProps?: CheckboxProps;
   disabledBehavior: UseTableProps<T>["disabledBehavior"];
   disableAnimation?: UseTableProps<T>["disableAnimation"];
   isHeaderSticky?: UseTableProps<T>["isHeaderSticky"];
@@ -147,6 +153,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     disabledBehavior = "selection",
     showSelectionCheckboxes = selectionMode === "multiple" && selectionBehavior !== "replace",
     BaseComponent = "div",
+    checkboxesProps,
     topContent,
     bottomContent,
     onRowAction,
@@ -193,6 +200,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       classNames,
       color: originalProps?.color,
       disableAnimation,
+      checkboxesProps,
       isHeaderSticky: originalProps?.isHeaderSticky ?? false,
       selectionMode,
       selectionBehavior,
@@ -209,6 +217,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
       classNames,
       selectionMode,
       selectionBehavior,
+      checkboxesProps,
       disabledBehavior,
       disableAnimation,
       showSelectionCheckboxes,
@@ -237,11 +246,14 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     [classNames?.wrapper, slots],
   );
 
-  const getTableProps: PropGetter = (props) => ({
-    ...mergeProps(gridProps, filterDOMProps(otherProps, {labelable: true}), props),
-    ref: domRef,
-    className: slots.table({class: clsx(classNames?.table, props?.className)}),
-  });
+  const getTableProps: PropGetter = useCallback(
+    (props) => ({
+      ...mergeProps(gridProps, filterDOMProps(otherProps, {labelable: true}), props),
+      ref: domRef,
+      className: slots.table({class: clsx(classNames?.table, props?.className)}),
+    }),
+    [classNames?.table, slots, gridProps, otherProps],
+  );
 
   return {
     BaseComponent,

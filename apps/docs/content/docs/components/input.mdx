@@ -63,6 +63,8 @@ You can change the position of the label by setting the `labelPlacement` propert
 
 <CodeDemo title="Label Positions" files={inputContent.labelPositions} />
 
+> **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
 ### With Description
 
 You can add a description to the input by passing the `description` property.
@@ -111,10 +113,12 @@ You can use the `value` and `onValueChange` properties to control the input valu
 
 - **base**: Input wrapper, it handles alignment, placement, and general appearance.
 - **label**: Label of the input, it is the one that is displayed above, inside or left of the input.
+- **mainWrapper**: Wraps the `inputWrapper` when position is `outside` / `outside-left`.
 - **inputWrapper**: Wraps the `label` (when it is inside) and the `innerWrapper`.
 - **innerWrapper**: Wraps the `input`, the `startContent` and the `endContent`.
 - **input**: The input element.
 - **clearButton**: The clear button, it is at the end of the input.
+- **helperWrapper**: Wraps the `description` and the `errorMessage`.
 - **description**: The description of the input.
 - **errorMessage**: The error message of the input.
 
@@ -172,30 +176,30 @@ In case you need to customize the input even further, you can use the `useInput`
 
 ### Input Props
 
-| Attribute        | Type                                                                                                                               | Description                                                                                    | Default   |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
-| children         | `ReactNode`                                                                                                                        | The content of the input.                                                                      | -         |
-| variant          | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                    | The variant of the input.                                                                      | `flat`    |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                        | The color of the input.                                                                        | `default` |
-| size             | `sm` \| `md` \| `lg`                                                                                                               | The size of the input.                                                                         | `md`      |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                           | The radius of the input.                                                                       | -         |
-| label            | `ReactNode`                                                                                                                        | The content to display as the label.                                                           | -         |
-| value            | `string`                                                                                                                           | The current value of the input (controlled).                                                   | -         |
-| defaultValue     | `string`                                                                                                                           | The default value of the input (uncontrolled).                                                 | -         |
-| placeholder      | `string`                                                                                                                           | The placeholder of the input.                                                                  | -         |
-| description      | `ReactNode`                                                                                                                        | A description for the input. Provides a hint such as specific requirements for what to choose. | -         |
-| errorMessage     | `ReactNode`                                                                                                                        | An error message for the input.                                                                | -         |
-| labelPlacement   | `inside` \| `outside` \| `outside-left`                                                                                            | The position of the label.                                                                     | `inside`  |
-| fullWidth        | `boolean`                                                                                                                          | Whether the input should take up the width of its parent.                                      | `true`    |
-| validationState  | `valid` \| `invalid`                                                                                                               | Whether the input should display its "valid" or "invalid" visual styling.                      | -         |
-| isClearable      | `boolean`                                                                                                                          | Whether the input should have a clear button.                                                  | `false`   |
-| isRequired       | `boolean`                                                                                                                          | Whether user input is required on the input before form submission.                            | `false`   |
-| isReadOnly       | `boolean`                                                                                                                          | Whether the input can be selected but not changed by the user.                                 |           |
-| isDisabled       | `boolean`                                                                                                                          | Whether the input is disabled.                                                                 | `false`   |
-| startContent     | `ReactNode`                                                                                                                        | Element to be rendered in the left side of the input.                                          | -         |
-| endContent       | `ReactNode`                                                                                                                        | Element to be rendered in the right side of the input.                                         | -         |
-| disableAnimation | `boolean`                                                                                                                          | Whether the input should be animated.                                                          | `false`   |
-| classNames       | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input" ｜ "clearButton" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the checkbox slots.                                       | -         |
+| Attribute        | Type                                                                                                                                                                   | Description                                                                                    | Default   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
+| children         | `ReactNode`                                                                                                                                                            | The content of the input.                                                                      | -         |
+| variant          | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                                        | The variant of the input.                                                                      | `flat`    |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                            | The color of the input.                                                                        | `default` |
+| size             | `sm` \| `md` \| `lg`                                                                                                                                                   | The size of the input.                                                                         | `md`      |
+| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                               | The radius of the input.                                                                       | -         |
+| label            | `ReactNode`                                                                                                                                                            | The content to display as the label.                                                           | -         |
+| value            | `string`                                                                                                                                                               | The current value of the input (controlled).                                                   | -         |
+| defaultValue     | `string`                                                                                                                                                               | The default value of the input (uncontrolled).                                                 | -         |
+| placeholder      | `string`                                                                                                                                                               | The placeholder of the input.                                                                  | -         |
+| description      | `ReactNode`                                                                                                                                                            | A description for the input. Provides a hint such as specific requirements for what to choose. | -         |
+| errorMessage     | `ReactNode`                                                                                                                                                            | An error message for the input.                                                                | -         |
+| labelPlacement   | `inside` \| `outside` \| `outside-left`                                                                                                                                | The position of the label.                                                                     | `inside`  |
+| fullWidth        | `boolean`                                                                                                                                                              | Whether the input should take up the width of its parent.                                      | `true`    |
+| validationState  | `valid` \| `invalid`                                                                                                                                                   | Whether the input should display its "valid" or "invalid" visual styling.                      | -         |
+| isClearable      | `boolean`                                                                                                                                                              | Whether the input should have a clear button.                                                  | `false`   |
+| isRequired       | `boolean`                                                                                                                                                              | Whether user input is required on the input before form submission.                            | `false`   |
+| isReadOnly       | `boolean`                                                                                                                                                              | Whether the input can be selected but not changed by the user.                                 |           |
+| isDisabled       | `boolean`                                                                                                                                                              | Whether the input is disabled.                                                                 | `false`   |
+| startContent     | `ReactNode`                                                                                                                                                            | Element to be rendered in the left side of the input.                                          | -         |
+| endContent       | `ReactNode`                                                                                                                                                            | Element to be rendered in the right side of the input.                                         | -         |
+| disableAnimation | `boolean`                                                                                                                                                              | Whether the input should be animated.                                                          | `false`   |
+| classNames       | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "mainWrapper" ｜ "input" ｜ "clearButton" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the checkbox slots.                                       | -         |
 
 ### Input Events
 

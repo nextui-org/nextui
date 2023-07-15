@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {useMemo, ReactNode, memo} from "react";
+import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {AnimatePresence, motion, useWillChange} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
@@ -95,4 +95,4 @@ const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
 
 AccordionItem.displayName = "NextUI.AccordionItem";
 
-export default memo(AccordionItem);
+export default AccordionItem;

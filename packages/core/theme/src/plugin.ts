@@ -152,6 +152,24 @@ const corePlugin = (
   omitCommonColors: boolean,
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
+  const minSizes = {
+    "unit-1": `var(--${prefix}-spacing-unit)`,
+    "unit-2": `var(--${prefix}-spacing-unit-2`,
+    "unit-3": `var(--${prefix}-spacing-unit-3)`,
+    "unit-3.5": `var(--${prefix}-spacing-unit-3_5)`,
+    "unit-4": `var(--${prefix}-spacing-unit-4)`,
+    "unit-5": `var(--${prefix}-spacing-unit-5)`,
+    "unit-6": `var(--${prefix}-spacing-unit-6)`,
+    "unit-7": `var(--${prefix}-spacing-unit-7)`,
+    "unit-8": `var(--${prefix}-spacing-unit-8)`,
+    "unit-9": `var(--${prefix}-spacing-unit-9)`,
+    "unit-10": `var(--${prefix}-spacing-unit-10)`,
+    "unit-11": `var(--${prefix}-spacing-unit-11)`,
+    "unit-12": `var(--${prefix}-spacing-unit-12)`,
+    "unit-16": `var(--${prefix}-spacing-unit-16)`,
+    "unit-20": `var(--${prefix}-spacing-unit-20)`,
+    "unit-24": `var(--${prefix}-spacing-unit-24)`,
+  };
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
@@ -188,22 +206,10 @@ const corePlugin = (
             ...createSpacingUnits(prefix),
           },
           minWidth: {
-            "unit-1": `var(--${prefix}-spacing-unit)`,
-            "unit-2": `var(--${prefix}-spacing-unit-2`,
-            "unit-3": `var(--${prefix}-spacing-unit-3)`,
-            "unit-3.5": `var(--${prefix}-spacing-unit-3_5)`,
-            "unit-4": `var(--${prefix}-spacing-unit-4)`,
-            "unit-5": `var(--${prefix}-spacing-unit-5)`,
-            "unit-6": `var(--${prefix}-spacing-unit-6)`,
-            "unit-7": `var(--${prefix}-spacing-unit-7)`,
-            "unit-8": `var(--${prefix}-spacing-unit-8)`,
-            "unit-9": `var(--${prefix}-spacing-unit-9)`,
-            "unit-10": `var(--${prefix}-spacing-unit-10)`,
-            "unit-11": `var(--${prefix}-spacing-unit-11)`,
-            "unit-12": `var(--${prefix}-spacing-unit-12)`,
-            "unit-16": `var(--${prefix}-spacing-unit-16)`,
-            "unit-20": `var(--${prefix}-spacing-unit-20)`,
-            "unit-24": `var(--${prefix}-spacing-unit-24)`,
+            ...minSizes,
+          },
+          minHeight: {
+            ...minSizes,
           },
           fontSize: {
             tiny: [`var(--${prefix}-font-size-tiny)`, `var(--${prefix}-line-height-tiny)`],

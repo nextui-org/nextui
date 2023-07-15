@@ -322,7 +322,10 @@ export default function Page() {
       case "name":
         return (
           <User
-            avatarProps={{radius: "lg", src: user.avatar}}
+            avatarProps={{radius: "full", size: "sm", src: user.avatar}}
+            classNames={{
+              description: "text-default-500",
+            }}
             description={user.email}
             name={cellValue}
           >
@@ -333,22 +336,27 @@ export default function Page() {
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
-            <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p>
+            <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p>
           </div>
         );
       case "status":
         return (
-          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
+          <Chip
+            className="capitalize border-none gap-1 text-default-600"
+            color={statusColorMap[user.status]}
+            size="sm"
+            variant="dot"
+          >
             {cellValue}
           </Chip>
         );
       case "actions":
         return (
           <div className="relative flex justify-end items-center gap-2">
-            <Dropdown>
+            <Dropdown className="bg-background border-1 border-default-200">
               <DropdownTrigger>
-                <Button isIconOnly size="sm" variant="light">
-                  <VerticalDotsIcon className="text-default-300" />
+                <Button isIconOnly radius="full" size="sm" variant="light">
+                  <VerticalDotsIcon className="text-default-400" />
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
@@ -363,18 +371,6 @@ export default function Page() {
         return cellValue;
     }
   }, []);
-
-  const onNextPage = useCallback(() => {
-    if (page < pages) {
-      setPage(page + 1);
-    }
-  }, [page, pages]);
-
-  const onPreviousPage = useCallback(() => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  }, [page]);
 
   const onRowsPerPageChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     setRowsPerPage(Number(e.target.value));
@@ -394,17 +390,26 @@ export default function Page() {
         <div className="flex justify-between gap-3 items-end">
           <Input
             isClearable
-            className="w-full sm:max-w-[44%]"
+            classNames={{
+              base: "w-full sm:max-w-[44%]",
+              inputWrapper: "border-1",
+            }}
             placeholder="Search by name..."
-            startContent={<SearchIcon />}
+            size="sm"
+            startContent={<SearchIcon className="text-default-300" />}
             value={filterValue}
+            variant="bordered"
             onClear={() => setFilterValue("")}
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} variant="flat">
+                <Button
+                  endContent={<ChevronDownIcon className="text-small" />}
+                  size="sm"
+                  variant="flat"
+                >
                   Status
                 </Button>
               </DropdownTrigger>
@@ -425,7 +430,11 @@ export default function Page() {
             </Dropdown>
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} variant="flat">
+                <Button
+                  endContent={<ChevronDownIcon className="text-small" />}
+                  size="sm"
+                  variant="flat"
+                >
                   Columns
                 </Button>
               </DropdownTrigger>
@@ -444,7 +453,11 @@ export default function Page() {
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <Button color="primary" endContent={<PlusLinearIcon />}>
+            <Button
+              className="bg-foreground text-background"
+              endContent={<PlusLinearIcon />}
+              size="sm"
+            >
               Add New
             </Button>
           </div>
@@ -478,43 +491,60 @@ export default function Page() {
   const bottomContent = useMemo(() => {
     return (
       <div className="py-2 px-2 flex justify-between items-center">
-        <span className="w-[30%] text-small text-default-400">
+        <Pagination
+          showControls
+          classNames={{
+            cursor: "bg-foreground text-background",
+          }}
+          color="default"
+          isDisabled={hasSearchFilter}
+          page={page}
+          total={pages}
+          variant="light"
+          onChange={setPage}
+        />
+        <span className="text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
             : `${selectedKeys.size} of ${items.length} selected`}
         </span>
-        <Pagination
-          isCompact
-          showControls
-          showShadow
-          color="primary"
-          isDisabled={hasSearchFilter}
-          page={page}
-          total={pages}
-          onChange={setPage}
-        />
-        <div className="hidden sm:flex w-[30%] justify-end gap-2">
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onPreviousPage}>
-            Previous
-          </Button>
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onNextPage}>
-            Next
-          </Button>
-        </div>
       </div>
     );
   }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
 
+  const classNames = useMemo(
+    () => ({
+      wrapper: ["max-h-[382px]", "max-w-3xl"],
+      th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
+      td: [
+        // changing the rows border radius
+        // first
+        "group-data-[first=true]:first:before:rounded-none",
+        "group-data-[first=true]:last:before:rounded-none",
+        // middle
+        "group-data-[middle=true]:before:rounded-none",
+        // last
+        "group-data-[last=true]:first:before:rounded-none",
+        "group-data-[last=true]:last:before:rounded-none",
+      ],
+    }),
+    [],
+  );
+
   return (
     <div className="p-6">
       <Table
-        isHeaderSticky
+        isCompact
+        removeWrapper
         aria-label="Example table with custom cells, pagination and sorting"
         bottomContent={bottomContent}
         bottomContentPlacement="outside"
-        classNames={{
-          wrapper: "max-h-[382px]",
+        checkboxesProps={{
+          classNames: {
+            wrapper: "after:bg-foreground after:text-background text-background",
+          },
         }}
+        classNames={classNames}
         selectedKeys={selectedKeys}
         selectionMode="multiple"
         sortDescriptor={sortDescriptor}

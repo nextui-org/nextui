@@ -140,17 +140,23 @@ const ControlledTemplate: ComponentStory<typeof Input> = (args) => {
   );
 };
 
-const LabelPositionTemplate: ComponentStory<typeof Input> = (args) => (
+const LabelPlacementTemplate: ComponentStory<typeof Input> = (args) => (
   <div className="w-full flex flex-col items-center gap-12">
-    <div className="w-full max-w-xl flex flex-row items-end gap-4">
-      <Input {...args} />
-      <Input {...args} labelPlacement="inside" />
-      <Input {...args} labelPlacement="inside" />
+    <div className="flex flex-col gap-3">
+      <h3>Without placeholder</h3>
+      <div className="w-full max-w-xl flex flex-row items-end gap-4">
+        <Input {...args} />
+        <Input {...args} labelPlacement="outside" />
+        <Input {...args} labelPlacement="outside-left" />
+      </div>
     </div>
-    <div className="w-full max-w-xl flex flex-row items-end gap-4">
-      <Input {...args} placeholder="Enter your email" />
-      <Input {...args} labelPlacement="outside" placeholder="Enter your email" />
-      <Input {...args} labelPlacement="outside-left" placeholder="Enter your email" />
+    <div className="flex flex-col gap-3">
+      <h3>With placeholder</h3>
+      <div className="w-full max-w-xl flex flex-row items-end gap-4">
+        <Input {...args} placeholder="Enter your email" />
+        <Input {...args} labelPlacement="outside" placeholder="Enter your email" />
+        <Input {...args} labelPlacement="outside-left" placeholder="Enter your email" />
+      </div>
     </div>
   </div>
 );
@@ -475,8 +481,8 @@ Password.args = {
   variant: "bordered",
 };
 
-export const LabelPosition = LabelPositionTemplate.bind({});
-LabelPosition.args = {
+export const LabelPlacement = LabelPlacementTemplate.bind({});
+LabelPlacement.args = {
   ...defaultProps,
 };
 

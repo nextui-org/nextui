@@ -1,8 +1,8 @@
 const App = `import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue} from "@nextui-org/react";
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasMore, setHasMore] = useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [hasMore, setHasMore] = React.useState(false);
 
   let list = useAsyncList({
     async load({signal, cursor}) {

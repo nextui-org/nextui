@@ -26,6 +26,11 @@ export const tv: TV = (options, config) =>
             "min-w": ["unit", ...mappedSpacingScaleKeys],
           },
         ],
+        "min-h": [
+          {
+            "min-h": ["unit", ...mappedSpacingScaleKeys],
+          },
+        ],
       },
     },
   });

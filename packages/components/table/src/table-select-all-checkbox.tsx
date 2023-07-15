@@ -24,7 +24,8 @@ const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((pr
   const Component = as || "th";
   const domRef = useDOMRef(ref);
 
-  const {slots, state, selectionMode, color, disableAnimation, classNames} = useTableContext();
+  const {slots, state, selectionMode, color, checkboxesProps, disableAnimation, classNames} =
+    useTableContext();
 
   const {columnHeaderProps} = useTableColumnHeader({node}, state, domRef);
   const {isFocusVisible, focusProps} = useFocusRing();
@@ -56,7 +57,7 @@ const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((pr
           color={color}
           disableAnimation={disableAnimation}
           onValueChange={onChange}
-          {...otherCheckboxProps}
+          {...mergeProps(checkboxesProps, otherCheckboxProps)}
         />
       )}
     </Component>

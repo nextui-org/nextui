@@ -1,7 +1,6 @@
 import {Spinner} from "@nextui-org/spinner";
 import {Ripple} from "@nextui-org/ripple";
 import {forwardRef} from "@nextui-org/system";
-import {memo} from "react";
 
 import {UseButtonProps, useButton} from "./use-button";
 
@@ -41,4 +40,4 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
 
 Button.displayName = "NextUI.Button";
 
-export default memo(Button);
+export default Button;

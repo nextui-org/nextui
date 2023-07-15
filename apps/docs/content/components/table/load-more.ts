@@ -2,8 +2,8 @@ const App = `import {Table, TableHeader, TableColumn, TableBody, TableRow, Table
 import {useAsyncList} from "@react-stately/data";
 
 export default function App() {
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = React.useState(1);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   let list = useAsyncList({
     async load({signal, cursor}) {

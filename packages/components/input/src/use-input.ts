@@ -37,9 +37,12 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariant
    * <Input classNames={{
    *    base:"base-classes",
    *    label: "label-classes",
+   *    mainWrapper: "main-wrapper-classes",
    *    inputWrapper: "input-wrapper-classes",
+   *    innerWrapper: "inner-wrapper-classes",
    *    input: "input-classes",
    *    clearButton: "clear-button-classes",
+   *    helperWrapper: "helper-wrapper-classes",
    *    description: "description-classes",
    *    errorMessage: "error-message-classes",
    * }} />
@@ -134,15 +137,21 @@ export function useInput(originalProps: UseInputProps) {
 
   const isInvalid = props.validationState === "invalid";
 
-  const labelPlacement = (
-    originalProps.labelPlacement ?? label ? "inside" : "outside"
-  ) as InputVariantProps["labelPlacement"];
+  const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
+    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+      return "outside";
+    }
+
+    return originalProps.labelPlacement ?? "inside";
+  }, [originalProps.labelPlacement, label]);
 
   const isLabelPlaceholder =
     !props.placeholder && labelPlacement !== "outside-left" && !isMultiline;
 
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
+  const hasPlaceholder = !!props.placeholder;
+  const hasHelper = !!description || !!errorMessage;
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
   const shouldLabelBeInside = labelPlacement === "inside";
@@ -180,6 +189,7 @@ export function useInput(originalProps: UseInputProps) {
         "data-invalid": dataAttr(isInvalid),
         "data-disabled": dataAttr(originalProps.isDisabled),
         "data-has-elements": dataAttr(hasElements),
+        "data-has-helper": dataAttr(hasHelper),
         ...props,
       };
     },
@@ -189,6 +199,7 @@ export function useInput(originalProps: UseInputProps) {
       isFocused,
       isHovered,
       isInvalid,
+      hasHelper,
       hasElements,
       isFocusVisible,
       originalProps.isReadOnly,
@@ -267,6 +278,30 @@ export function useInput(originalProps: UseInputProps) {
     [slots, classNames?.innerWrapper],
   );
 
+  const getMainWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.mainWrapper({
+          class: clsx(classNames?.mainWrapper, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.mainWrapper],
+  );
+
+  const getHelperWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.helperWrapper({
+          class: clsx(classNames?.helperWrapper, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.helperWrapper],
+  );
+
   const getDescriptionProps: PropGetter = useCallback(
     (props = {}) => {
       return {
@@ -314,14 +349,18 @@ export function useInput(originalProps: UseInputProps) {
     labelPlacement,
     isClearable,
     isInvalid,
+    hasHelper,
     shouldLabelBeOutside,
     shouldLabelBeInside,
+    hasPlaceholder,
     errorMessage,
     getBaseProps,
     getLabelProps,
     getInputProps,
+    getMainWrapperProps,
     getInputWrapperProps,
     getInnerWrapperProps,
+    getHelperWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
