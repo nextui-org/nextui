@@ -1,6 +1,6 @@
 import type {GridNode} from "@react-types/grid";
 
-import {Key} from "react";
+import {Key, useMemo} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
@@ -37,7 +37,15 @@ const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
   const {isFocusVisible, focusProps} = useFocusRing();
   const isRowSelected = state.selectionManager.isSelected(rowKey);
 
-  const cell = typeof node.rendered === "string" ? <span>{node.rendered}</span> : node.rendered;
+  const cell = useMemo(() => {
+    const cellType = typeof node.rendered;
+
+    return cellType !== "object" && cellType !== "function" ? (
+      <span>{node.rendered}</span>
+    ) : (
+      node.rendered
+    );
+  }, [node.rendered]);
 
   return (
     <Component
