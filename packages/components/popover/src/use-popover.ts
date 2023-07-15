@@ -4,7 +4,7 @@ import type {RefObject, Ref} from "react";
 
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {useOverlayTrigger, usePreventScroll, ariaHideOutside} from "@react-aria/overlays";
+import {useOverlayTrigger, ariaHideOutside} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
@@ -222,8 +222,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     }),
     [arrowProps, ariaPlacement, placementProp, slots, classNames],
   );
-
-  usePreventScroll({isDisabled: !shouldBlockScroll});
 
   useLayoutEffect(() => {
     if (state.isOpen && popoverRef.current) {
