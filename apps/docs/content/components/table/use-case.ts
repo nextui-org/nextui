@@ -474,6 +474,8 @@ export default function App() {
     if (value) {
       setFilterValue(value);
       setPage(1);
+    } else {
+      setFilterValue("");
     }
   }, []);
 
@@ -794,6 +796,8 @@ export default function App() {
     if (value) {
       setFilterValue(value);
       setPage(1);
+    } else {
+      setFilterValue("");
     }
   }, []);
 

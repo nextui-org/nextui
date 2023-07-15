@@ -381,6 +381,8 @@ export default function Page() {
     if (value) {
       setFilterValue(value);
       setPage(1);
+    } else {
+      setFilterValue("");
     }
   }, []);
 
