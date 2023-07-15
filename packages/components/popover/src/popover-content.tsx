@@ -9,7 +9,6 @@ import {motion} from "framer-motion";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
-import {RemoveScroll} from "react-remove-scroll";
 
 import {usePopoverContext} from "./popover-context";
 
@@ -22,13 +21,11 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
 
   const {
     Component: OverlayComponent,
-    isOpen,
     placement,
     showArrow,
     motionProps,
     backdrop,
     disableAnimation,
-    shouldBlockScroll,
     getPopoverProps,
     getArrowProps,
     getDialogProps,
@@ -86,24 +83,22 @@ const PopoverContent = forwardRef<PopoverContentProps, "section">((props, _) => 
   return (
     <div {...getPopoverProps()}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-        {disableAnimation ? (
-          content
-        ) : (
-          <motion.div
-            animate="enter"
-            exit="exit"
-            initial="initial"
-            style={{
-              ...getTransformOrigins(placement === "center" ? "top" : placement),
-            }}
-            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-            {...motionProps}
-          >
-            {content}
-          </motion.div>
-        )}
-      </RemoveScroll>
+      {disableAnimation ? (
+        content
+      ) : (
+        <motion.div
+          animate="enter"
+          exit="exit"
+          initial="initial"
+          style={{
+            ...getTransformOrigins(placement === "center" ? "top" : placement),
+          }}
+          variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+          {...motionProps}
+        >
+          {content}
+        </motion.div>
+      )}
     </div>
   );
 });
