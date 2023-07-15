@@ -9,23 +9,39 @@ import {useFocusRing} from "@react-aria/focus";
 import {Checkbox} from "@nextui-org/checkbox";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
 export interface TableSelectAllCheckboxProps<T = object> extends HTMLNextUIProps<"th"> {
   /**
    * The table column.
    */
   node: GridNode<T>;
+  slots: ValuesType["slots"];
+  state: ValuesType["state"];
+  color: ValuesType["color"];
+  disableAnimation: ValuesType["disableAnimation"];
+  checkboxesProps: ValuesType["checkboxesProps"];
+  selectionMode: ValuesType["selectionMode"];
+  classNames?: ValuesType["classNames"];
 }
 
 const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((props, ref) => {
-  const {as, className, node, ...otherProps} = props;
+  const {
+    as,
+    className,
+    node,
+    slots,
+    state,
+    selectionMode,
+    color,
+    checkboxesProps,
+    disableAnimation,
+    classNames,
+    ...otherProps
+  } = props;
 
   const Component = as || "th";
   const domRef = useDOMRef(ref);
-
-  const {slots, state, selectionMode, color, checkboxesProps, disableAnimation, classNames} =
-    useTableContext();
 
   const {columnHeaderProps} = useTableColumnHeader({node}, state, domRef);
   const {isFocusVisible, focusProps} = useFocusRing();

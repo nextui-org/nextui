@@ -4,15 +4,18 @@ import {clsx} from "@nextui-org/shared-utils";
 import {useTableRowGroup} from "@react-aria/table";
 import {mergeProps} from "@react-aria/utils";
 
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
-const TableRowGroup = forwardRef<HTMLNextUIProps, "thead">((props, ref) => {
-  const {as, className, children, ...otherProps} = props;
+export interface TableRowGroupProps extends HTMLNextUIProps<"thead"> {
+  slots: ValuesType["slots"];
+  classNames?: ValuesType["classNames"];
+}
+
+const TableRowGroup = forwardRef<TableRowGroupProps, "thead">((props, ref) => {
+  const {as, className, children, slots, classNames, ...otherProps} = props;
 
   const Component = as || "thead";
   const domRef = useDOMRef(ref);
-
-  const {slots, classNames} = useTableContext();
 
   const {rowGroupProps} = useTableRowGroup();
 

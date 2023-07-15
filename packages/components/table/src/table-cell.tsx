@@ -8,8 +8,9 @@ import {useTableCell} from "@react-aria/table";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
+// @internal
 export interface TableCellProps<T = object> extends HTMLNextUIProps<"td"> {
   /**
    * The key of the table row.
@@ -19,15 +20,16 @@ export interface TableCellProps<T = object> extends HTMLNextUIProps<"td"> {
    * The table cell.
    */
   node: GridNode<T>;
+  slots: ValuesType["slots"];
+  state: ValuesType["state"];
+  classNames?: ValuesType["classNames"];
 }
 
 const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
-  const {as, className, node, rowKey, ...otherProps} = props;
+  const {as, className, node, rowKey, slots, state, classNames, ...otherProps} = props;
 
   const Component = as || "td";
   const domRef = useDOMRef(ref);
-
-  const {slots, state, classNames} = useTableContext();
 
   const {gridCellProps} = useTableCell({node}, state, domRef);
 

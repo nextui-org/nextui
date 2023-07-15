@@ -33,7 +33,7 @@ const Input = forwardRef<InputProps, "input">((props, ref) => {
     getClearButtonProps,
   } = useInput({ref, ...props});
 
-  const labelContent = <label {...getLabelProps()}>{label}</label>;
+  const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
   const end = useMemo(() => {
     if (isClearable) {

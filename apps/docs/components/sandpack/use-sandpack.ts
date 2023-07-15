@@ -1,13 +1,10 @@
 import {useMemo} from "react";
-import {
-  SandpackFiles,
-  SandpackPredefinedTemplate,
-  SandpackSetup,
-} from "@codesandbox/sandpack-react";
+import {SandpackFiles, SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
+import {useTheme} from "next-themes";
 
 import {HighlightedLines} from "./types";
 import {getHighlightedLines, getFileName} from "./utils";
-import {defaultEntry, stylesConfig, postcssConfig, tailwindConfig} from "./entries";
+import {getFileEntry, stylesConfig, postcssConfig, tailwindConfig} from "./entries";
 
 import {useLocalStorage} from "@/hooks/use-local-storage";
 
@@ -16,6 +13,9 @@ export interface UseSandpackProps {
   template?: SandpackPredefinedTemplate;
   highlightedLines?: HighlightedLines;
 }
+
+const importReact = 'import React from "react";';
+const importAllReact = 'import * as React from "react";';
 
 export const useSandpack = ({
   files = {},
@@ -30,6 +30,8 @@ export const useSandpack = ({
   const hasTypescript = Object.keys(files).some(
     (file) => file.includes(".ts") || file.includes(".tsx"),
   );
+
+  const {theme} = useTheme();
 
   const decorators = getHighlightedLines(highlightedLines, currentTemplate);
 
@@ -61,6 +63,11 @@ export const useSandpack = ({
     return acc;
   }, {});
 
+  let dependencies = {
+    "framer-motion": "10.12.16",
+    "@nextui-org/react": "dev-v2",
+  };
+
   // sort files by dependency
   const sortedFiles = Object.keys(filteredFiles)
     .sort((a: string, b: string) => {
@@ -80,12 +87,24 @@ export const useSandpack = ({
     })
     .reduce((acc, key) => {
       let fileContent = files[key] as string;
-      const importReact = 'import React from "react";';
-      const importAllReact = 'import * as React from "react";';
 
       // Check if the file content includes 'React' import statements, if not, add it
       if (!fileContent.includes(importReact) && !fileContent.includes(importAllReact)) {
         fileContent = `${importReact}\n${fileContent}`;
+      }
+
+      // Check if file content includes any other dependencies, if yes, add it to dependencies
+      const importRegex = /import .* from ["'](.*)["']/g;
+      let match;
+
+      while ((match = importRegex.exec(fileContent)) !== null) {
+        const dependencyName = match[1];
+
+        if (!dependencies.hasOwnProperty(dependencyName)) {
+          // add the dependency to the dependencies object with version 'latest'
+          // @ts-ignore
+          dependencies[dependencyName] = "latest";
+        }
       }
 
       return {
@@ -139,28 +158,22 @@ export const useSandpack = ({
   //   [tailwindConfig, nextUIComponents],
   // );
 
-  const customSetup = useMemo<SandpackSetup>(
-    () => ({
-      entry: entryFile,
-      dependencies: {
-        "framer-motion": "10.12.16",
-        "@nextui-org/react": "dev-v2",
-      },
-      devDependencies: {
-        autoprefixer: "^10.4.14",
-        postcss: "^8.4.21",
-        tailwindcss: "^3.2.7",
-      },
-    }),
-    [entryFile],
-  );
+  const customSetup = {
+    dependencies,
+    entry: entryFile,
+    devDependencies: {
+      autoprefixer: "^10.4.14",
+      postcss: "^8.4.21",
+      tailwindcss: "^3.2.7",
+    },
+  };
 
   return {
     customSetup,
     files: {
       ...sortedFiles,
       [entryFile]: {
-        code: defaultEntry,
+        code: getFileEntry(theme ?? "light"),
         hidden: true,
       },
       "tailwind.config.js": {

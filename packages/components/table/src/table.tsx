@@ -2,7 +2,6 @@ import {forwardRef} from "@nextui-org/system";
 import {Spacer} from "@nextui-org/spacer";
 import {useCallback} from "react";
 
-import {TableProvider} from "./table-context";
 import {UseTableProps, useTable} from "./use-table";
 import TableRowGroup from "./table-row-group";
 import TableHeaderRow from "./table-header-row";
@@ -18,7 +17,7 @@ const Table = forwardRef<TableProps, "table">((props, ref) => {
     BaseComponent,
     Component,
     collection,
-    context,
+    values,
     topContent,
     topContentPlacement,
     bottomContentPlacement,
@@ -44,35 +43,65 @@ const Table = forwardRef<TableProps, "table">((props, ref) => {
   );
 
   return (
-    <TableProvider value={context}>
-      <div {...getBaseProps()}>
-        {topContentPlacement === "outside" && topContent}
-        <Wrapper>
-          <>
-            {topContentPlacement === "inside" && topContent}
-            <Component {...getTableProps()}>
-              <TableRowGroup>
-                {collection.headerRows.map((headerRow) => (
-                  <TableHeaderRow key={headerRow?.key} node={headerRow}>
-                    {[...headerRow.childNodes].map((column) =>
-                      column?.props?.isSelectionCell ? (
-                        <TableSelectAllCheckbox key={column?.key} node={column} />
-                      ) : (
-                        <TableColumnHeader key={column?.key} node={column} />
-                      ),
-                    )}
-                  </TableHeaderRow>
-                ))}
-                <Spacer as="tr" tabIndex={-1} y={1} />
-              </TableRowGroup>
-              <TableBody />
-            </Component>
-            {bottomContentPlacement === "inside" && bottomContent}
-          </>
-        </Wrapper>
-        {bottomContentPlacement === "outside" && bottomContent}
-      </div>
-    </TableProvider>
+    <div {...getBaseProps()}>
+      {topContentPlacement === "outside" && topContent}
+      <Wrapper>
+        <>
+          {topContentPlacement === "inside" && topContent}
+          <Component {...getTableProps()}>
+            <TableRowGroup classNames={values.classNames} slots={values.slots}>
+              {collection.headerRows.map((headerRow) => (
+                <TableHeaderRow
+                  key={headerRow?.key}
+                  classNames={values.classNames}
+                  node={headerRow}
+                  slots={values.slots}
+                  state={values.state}
+                >
+                  {[...headerRow.childNodes].map((column) =>
+                    column?.props?.isSelectionCell ? (
+                      <TableSelectAllCheckbox
+                        key={column?.key}
+                        checkboxesProps={values.checkboxesProps}
+                        classNames={values.classNames}
+                        color={values.color}
+                        disableAnimation={values.disableAnimation}
+                        node={column}
+                        selectionMode={values.selectionMode}
+                        slots={values.slots}
+                        state={values.state}
+                      />
+                    ) : (
+                      <TableColumnHeader
+                        key={column?.key}
+                        classNames={values.classNames}
+                        node={column}
+                        slots={values.slots}
+                        state={values.state}
+                      />
+                    ),
+                  )}
+                </TableHeaderRow>
+              ))}
+              <Spacer as="tr" tabIndex={-1} y={1} />
+            </TableRowGroup>
+            <TableBody
+              checkboxesProps={values.checkboxesProps}
+              classNames={values.classNames}
+              collection={values.collection}
+              color={values.color}
+              disableAnimation={values.disableAnimation}
+              isSelectable={values.isSelectable}
+              selectionMode={values.selectionMode}
+              slots={values.slots}
+              state={values.state}
+            />
+          </Component>
+          {bottomContentPlacement === "inside" && bottomContent}
+        </>
+      </Wrapper>
+      {bottomContentPlacement === "outside" && bottomContent}
+    </div>
   );
 });
 

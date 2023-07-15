@@ -19,8 +19,8 @@ export default function App() {
     async sort({items, sortDescriptor}) {
       return {
         items: items.sort((a, b) => {
-          let first = a[sortDescriptor.column!];
-          let second = b[sortDescriptor.column!];
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
           let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
 
           if (sortDescriptor.direction === "descending") {
@@ -38,6 +38,9 @@ export default function App() {
       aria-label="Example table with client side sorting"
       sortDescriptor={list.sortDescriptor}
       onSortChange={list.sort}
+      classNames={{
+        table: "min-h-[400px]",
+      }}
     >
       <TableHeader>
         <TableColumn key="name" allowsSorting>

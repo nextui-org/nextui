@@ -17,5 +17,3 @@ export {getKeyValue} from "@nextui-org/shared-utils";
 // export component
 export {default as Table} from "./table";
 export * from "./base";
-
-//

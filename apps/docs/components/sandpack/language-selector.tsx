@@ -41,13 +41,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
       <Tab
         key="vite-react-ts"
         title={
-          <TypescriptIcon className="text-lg text-[#6b6b6b] group-data-[selected=true]:text-[#fafafa]" />
+          <TypescriptIcon className="text-lg text-white dark:text-[#6b6b6b] group-data-[selected=true]:text-[#fafafa]" />
         }
       />
       <Tab
         key="vite-react"
         title={
-          <JavascriptIcon className="text-lg text-[#6b6b6b] group-data-[selected=true]:text-[#fafafa]" />
+          <JavascriptIcon className="text-lg text-white dark:text-[#6b6b6b] group-data-[selected=true]:text-[#fafafa]" />
         }
       />
     </Tabs>

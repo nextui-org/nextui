@@ -9,23 +9,27 @@ import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useMemo} from "react";
 
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
+// @internal
 export interface TableRowProps<T = object> extends HTMLNextUIProps<"tr"> {
   /**
    * The table row.
    */
   node: GridNode<T>;
+  slots: ValuesType["slots"];
+  state: ValuesType["state"];
+  isSelectable?: ValuesType["isSelectable"];
+  classNames?: ValuesType["classNames"];
 }
 
 const TableRow = forwardRef<TableRowProps, "tr">((props, ref) => {
-  const {as, className, children, node, ...otherProps} = props;
+  const {as, className, children, node, slots, state, isSelectable, classNames, ...otherProps} =
+    props;
 
   const Component = as || "tr";
 
   const domRef = useDOMRef(ref);
-
-  const {slots, state, isSelectable, classNames} = useTableContext();
 
   const {rowProps} = useTableRow({node}, state, domRef);
 

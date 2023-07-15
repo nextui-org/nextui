@@ -30,7 +30,7 @@ export const CodeSandboxButton = () => {
             cursor: "pointer",
           }}
         >
-          <CodeSandboxIcon className="text-zinc-500" height={20} width={20} />
+          <CodeSandboxIcon className="text-white dark:text-zinc-500" height={20} width={20} />
         </UnstyledOpenInCodeSandboxButton>
       </Button>
     </Tooltip>

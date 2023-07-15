@@ -10,9 +10,13 @@ import {useFocusRing} from "@react-aria/focus";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {useHover} from "@react-aria/interactions";
 
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
+// @internal
 export interface TableColumnHeaderProps<T = object> extends HTMLNextUIProps<"th"> {
+  slots: ValuesType["slots"];
+  state: ValuesType["state"];
+  classNames?: ValuesType["classNames"];
   /**
    * The table node to render.
    */
@@ -20,12 +24,10 @@ export interface TableColumnHeaderProps<T = object> extends HTMLNextUIProps<"th"
 }
 
 const TableColumnHeader = forwardRef<TableColumnHeaderProps, "th">((props, ref) => {
-  const {as, className, node, ...otherProps} = props;
+  const {as, className, state, node, slots, classNames, ...otherProps} = props;
 
   const Component = as || "th";
   const domRef = useDOMRef(ref);
-
-  const {slots, state, classNames} = useTableContext();
 
   const {columnHeaderProps} = useTableColumnHeader({node}, state, domRef);
 

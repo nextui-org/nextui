@@ -68,7 +68,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "200px",
+    margin: "300px",
   });
 
   const {noInline, code} = useCodeDemo({

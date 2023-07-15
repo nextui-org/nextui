@@ -8,19 +8,44 @@ import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import TableRow from "./table-row";
 import TableCell from "./table-cell";
 import TableCheckboxCell from "./table-checkbox-cell";
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
-const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
-  const {as, className, ...otherProps} = props;
+// @internal
+export interface TableBodyProps extends HTMLNextUIProps<"tbody"> {
+  slots: ValuesType["slots"];
+  collection: ValuesType["collection"];
+  state: ValuesType["state"];
+  isSelectable: ValuesType["isSelectable"];
+  color: ValuesType["color"];
+  disableAnimation: ValuesType["disableAnimation"];
+  checkboxesProps: ValuesType["checkboxesProps"];
+  selectionMode: ValuesType["selectionMode"];
+  classNames?: ValuesType["classNames"];
+}
+
+const TableBody = forwardRef<TableBodyProps, "tbody">((props, ref) => {
+  const {
+    as,
+    className,
+    slots,
+    state,
+    collection,
+    isSelectable,
+    color,
+    disableAnimation,
+    checkboxesProps,
+    selectionMode,
+    classNames,
+    ...otherProps
+  } = props;
 
   const Component = as || "tbody";
   const domRef = useDOMRef(ref);
 
-  const {slots, collection, classNames} = useTableContext();
   const {rowGroupProps} = useTableRowGroup();
 
   const tbodyStyles = clsx(classNames?.tbody, className);
-  const bodyProps = collection.body.props;
+  const bodyProps = collection?.body.props;
 
   const isLoading =
     bodyProps?.isLoading ||
@@ -29,17 +54,42 @@ const TableBody = forwardRef<HTMLNextUIProps, "tbody">((props, ref) => {
 
   const renderRows = useMemo(() => {
     return [...collection.body.childNodes].map((row) => (
-      <TableRow key={row.key} node={row}>
+      <TableRow
+        key={row.key}
+        classNames={classNames}
+        isSelectable={isSelectable}
+        node={row}
+        slots={slots}
+        state={state}
+      >
         {[...row.childNodes].map((cell) =>
           cell.props.isSelectionCell ? (
-            <TableCheckboxCell key={cell.key} node={cell} rowKey={row.key} />
+            <TableCheckboxCell
+              key={cell.key}
+              checkboxesProps={checkboxesProps}
+              classNames={classNames}
+              color={color}
+              disableAnimation={disableAnimation}
+              node={cell}
+              rowKey={row.key}
+              selectionMode={selectionMode}
+              slots={slots}
+              state={state}
+            />
           ) : (
-            <TableCell key={cell.key} node={cell} rowKey={row.key} />
+            <TableCell
+              key={cell.key}
+              classNames={classNames}
+              node={cell}
+              rowKey={row.key}
+              slots={slots}
+              state={state}
+            />
           ),
         )}
       </TableRow>
     ));
-  }, [collection.body.childNodes]);
+  }, [collection.body.childNodes, classNames, isSelectable, slots, state]);
 
   let emptyContent;
   let loadingContent;

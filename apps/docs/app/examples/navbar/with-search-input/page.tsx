@@ -55,7 +55,6 @@ export default function Page() {
             inputWrapper: "font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
           }}
           placeholder="Type to search..."
-          size="sm"
           startContent={<SearchLinearIcon size={18} />}
           type="search"
         />

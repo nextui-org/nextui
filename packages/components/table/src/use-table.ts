@@ -116,7 +116,7 @@ export type UseTableProps<T = object> = Props &
   AriaTableProps<T> &
   TableVariantProps;
 
-export type ContextType<T = object> = {
+export type ValuesType<T = object> = {
   state: TableState<T>;
   slots: TableReturnType;
   collection: TableCollection<T>;
@@ -191,7 +191,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const context = useMemo<ContextType<T>>(
+  const values = useMemo<ValuesType<T>>(
     () => ({
       state,
       slots,
@@ -261,7 +261,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     children,
     state,
     collection,
-    context,
+    values,
     topContent,
     bottomContent,
     removeWrapper,

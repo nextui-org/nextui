@@ -6,22 +6,24 @@ import {clsx} from "@nextui-org/shared-utils";
 import {useTableHeaderRow} from "@react-aria/table";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
 
-import {useTableContext} from "./table-context";
+import {ValuesType} from "./use-table";
 
+// @internal
 export interface TableHeaderRowProps<T = object> extends HTMLNextUIProps<"tr"> {
   /**
    * The table node to render.
    */
   node: GridNode<T>;
+  slots: ValuesType["slots"];
+  state: ValuesType["state"];
+  classNames?: ValuesType["classNames"];
 }
 
 const TableHeaderRow = forwardRef<TableHeaderRowProps, "tr">((props, ref) => {
-  const {as, className, children, node, ...otherProps} = props;
+  const {as, className, children, node, slots, classNames, state, ...otherProps} = props;
 
   const Component = as || "tr";
   const domRef = useDOMRef(ref);
-
-  const {slots, state, classNames} = useTableContext();
 
   const {rowProps} = useTableHeaderRow({node}, state, domRef);
 

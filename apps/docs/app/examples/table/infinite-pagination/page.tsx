@@ -27,16 +27,15 @@ export default function Page() {
 
   let list = useAsyncList<SWCharacter>({
     async load({signal, cursor}) {
+      if (cursor) {
+        setIsLoading(false);
+      }
       // If no cursor is available, then we're loading the first page.
       // Otherwise, the cursor is the next URL to load, as returned from the previous page.
       const res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
       let json = await res.json();
 
       setHasMore(json.next !== null);
-
-      if (cursor) {
-        setIsLoading(false);
-      }
 
       return {
         items: json.results,

@@ -1,4 +1,5 @@
 const App = `import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue} from "@nextui-org/react";
+import {useAsyncList} from "@react-stately/data";
 
 export default function App() {
   const [page, setPage] = React.useState(1);
