@@ -61,6 +61,7 @@ const navbar = tv({
       "z-40",
       "flex",
       "px-6",
+      "gap-4",
       "w-full",
       "flex-row",
       "relative",
