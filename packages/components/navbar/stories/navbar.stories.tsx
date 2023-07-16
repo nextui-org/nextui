@@ -106,25 +106,33 @@ const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
           <p className="font-bold hidden sm:block text-inherit">ACME</p>
         </NavbarBrand>
         <NavbarContent className="hidden md:flex">
-          <NavbarItem as={Link} color="foreground" href="#">
-            Features
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Features
+            </Link>
           </NavbarItem>
-          <NavbarItem isActive as={Link} href="#">
-            Customers
+          <NavbarItem isActive>
+            <Link href="#">Customers</Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Integrations
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Integrations
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Pricing
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Pricing
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} className="hidden lg:block" color="foreground" href="#">
-            Company
+          <NavbarItem className="hidden lg:block">
+            <Link color="foreground" href="#">
+              Company
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
-          <NavbarItem as={Link} href="#">
-            Login
+          <NavbarItem>
+            <Link href="#">Login</Link>
           </NavbarItem>
           <NavbarItem>
             <Button as={Link} color="primary" href="#" variant="flat">
@@ -169,25 +177,33 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
           </NavbarBrand>
         </NavbarContent>
         <NavbarContent className="hidden sm:flex">
-          <NavbarItem as={Link} color="foreground" href="#">
-            Features
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Features
+            </Link>
           </NavbarItem>
-          <NavbarItem isActive as={Link} href="#">
-            Customers
+          <NavbarItem isActive>
+            <Link href="#">Customers</Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Integrations
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Integrations
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Pricing
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Pricing
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} className="hidden lg:block" color="foreground" href="#">
-            Company
+          <NavbarItem className="hidden lg:block">
+            <Link color="foreground" href="#">
+              Company
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
-          <NavbarItem as={Link} href="#">
-            Login
+          <NavbarItem>
+            <Link href="#">Login</Link>
           </NavbarItem>
           <NavbarItem>
             <Button as={Link} color="primary" href="#" variant="flat">
@@ -294,22 +310,30 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          <NavbarItem isActive as={Link} className="px-4" href="#">
-            Customers
+          <NavbarItem isActive>
+            <Link className="px-4" href="#">
+              Customers
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} className="px-4" color="foreground" href="#">
-            Integrations
+          <NavbarItem>
+            <Link className="px-4" color="foreground" href="#">
+              Integrations
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} className="px-4" color="foreground" href="#">
-            Pricing
+          <NavbarItem>
+            <Link className="px-4" color="foreground" href="#">
+              Pricing
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} className="hidden px-4 lg:block" color="foreground" href="#">
-            Company
+          <NavbarItem className="hidden px-4 lg:block">
+            <Link color="foreground" href="#">
+              Company
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
-          <NavbarItem as={Link} href="#">
-            Login
+          <NavbarItem>
+            <Link href="#">Login</Link>
           </NavbarItem>
           <NavbarItem>
             <Button as={Link} color="primary" href="#" variant="flat">
@@ -360,20 +384,30 @@ const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps
           <p className="font-bold text-inherit">ACME</p>
         </NavbarBrand>
         <NavbarContent className="hidden gap-3 md:flex">
-          <NavbarItem as={Link} color="foreground" href="#">
-            Dashboard
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Dashboard
+            </Link>
           </NavbarItem>
-          <NavbarItem isActive as={Link} color="secondary" href="#">
-            Team
+          <NavbarItem isActive>
+            <Link color="secondary" href="#">
+              Team
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Deployments
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Deployments
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Activity
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Activity
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Settings
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Settings
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">
@@ -451,20 +485,30 @@ const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProp
             <AcmeLogo />
             <p className="font-bold text-inherit">ACME</p>
           </NavbarBrand>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Dashboard
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Dashboard
+            </Link>
           </NavbarItem>
-          <NavbarItem isActive as={Link} color="secondary" href="#">
-            Team
+          <NavbarItem isActive>
+            <Link color="secondary" href="#">
+              Team
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Deployments
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Deployments
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Activity
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Activity
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Settings
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Settings
+            </Link>
           </NavbarItem>
         </NavbarContent>
         <NavbarContent justify="end">

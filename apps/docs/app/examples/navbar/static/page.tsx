@@ -1,6 +1,16 @@
 "use client";
 
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link as NextUiLink,
+  LinkProps,
+  Button,
+} from "@nextui-org/react";
+
+const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
 
 const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -21,19 +31,25 @@ export default function Page() {
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem as={Link} color="foreground" href="#">
-          Features
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Features
+          </Link>
         </NavbarItem>
-        <NavbarItem isActive as={Link} href="#">
-          Customers
+        <NavbarItem isActive>
+          <Link aria-current="page" href="#">
+            Customers
+          </Link>
         </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Integrations
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem as={Link} className="hidden lg:flex" href="#">
-          Login
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">

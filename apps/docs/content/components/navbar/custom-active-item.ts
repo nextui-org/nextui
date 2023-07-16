@@ -30,26 +30,32 @@ export default function App() {
           "data-[active=true]:after:rounded-[2px]",
           "data-[active=true]:after:bg-primary",
         ],
-      }}  
+      }}
     >
       <NavbarBrand>
         <AcmeLogo />
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem as={Link} color="foreground" href="#">
-          Features
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Features
+          </Link>
         </NavbarItem>
-        <NavbarItem isActive as={Link} href="#">
-          Customers
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page">
+            Customers
+          </Link>
         </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Integrations
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem as={Link} className="hidden lg:flex" href="#">
-          Login
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">

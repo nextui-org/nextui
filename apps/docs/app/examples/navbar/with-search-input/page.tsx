@@ -5,7 +5,8 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
+  Link as NextUiLink,
+  LinkProps,
   Input,
   DropdownItem,
   DropdownTrigger,
@@ -13,6 +14,8 @@ import {
   DropdownMenu,
   Avatar,
 } from "@nextui-org/react";
+
+const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
 
 import {SearchLinearIcon} from "@/components/icons";
 
@@ -36,14 +39,20 @@ export default function Page() {
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
-          <NavbarItem as={Link} color="foreground" href="#">
-            Features
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Features
+            </Link>
           </NavbarItem>
-          <NavbarItem isActive as={Link} color="secondary" href="#">
-            Customers
+          <NavbarItem isActive>
+            <Link aria-current="page" color="secondary" href="#">
+              Customers
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Integrations
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Integrations
+            </Link>
           </NavbarItem>
         </NavbarContent>
       </NavbarContent>
@@ -59,13 +68,14 @@ export default function Page() {
           type="search"
         />
         <Dropdown placement="bottom-end">
-          <NavbarItem as={Link} href="#">
+          <NavbarItem>
             <DropdownTrigger>
               <Avatar
                 isBordered
-                as="button"
+                as={Link}
                 className="transition-transform"
                 color="secondary"
+                href="#"
                 name="Jason Hughes"
                 size="sm"
                 src="https://i.pravatar.cc/150?u=a042581f4e29026704d"

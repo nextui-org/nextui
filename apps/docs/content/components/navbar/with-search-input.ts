@@ -57,14 +57,20 @@ export default function App() {
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
-          <NavbarItem as={Link} color="foreground" href="#">
-            Features
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Features
+            </Link>
           </NavbarItem>
-          <NavbarItem isActive as={Link} color="secondary" href="#">
-            Customers
+          <NavbarItem isActive>
+            <Link href="#" aria-current="page" color="secondary">
+              Customers
+            </Link>
           </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
-            Integrations
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Integrations
+            </Link>
           </NavbarItem>
         </NavbarContent>
       </NavbarContent>
@@ -81,11 +87,12 @@ export default function App() {
           type="search"
         />
         <Dropdown placement="bottom-end">
-          <NavbarItem as={Link} href="#">
+          <NavbarItem>
             <DropdownTrigger>
               <Avatar
                 isBordered
-                as="button"
+                as={Link}
+                href="#"
                 className="transition-transform"
                 color="secondary"
                 name="Jason Hughes"

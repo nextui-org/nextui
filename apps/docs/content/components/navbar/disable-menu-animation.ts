@@ -44,20 +44,26 @@ export default function App() {
           <AcmeLogo />
           <p className="font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Features
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Features
+          </Link>
         </NavbarItem>
-        <NavbarItem isActive as={Link} color="warning" href="#">
-          Customers
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page" color="warning">
+            Customers
+          </Link>
         </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Integrations
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem as={Link} className="hidden md:flex" href="#">
-          Login
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="warning" href="#" variant="flat">
