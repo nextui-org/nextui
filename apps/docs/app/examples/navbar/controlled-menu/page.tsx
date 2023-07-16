@@ -5,13 +5,16 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
   Avatar,
+  Link as NextUiLink,
+  LinkProps,
 } from "@nextui-org/react";
 import React from "react";
+
+const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
 
 const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -58,14 +61,20 @@ export default function Page() {
           <AcmeLogo />
           <p className="font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Features
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Features
+          </Link>
         </NavbarItem>
-        <NavbarItem isActive as={Link} color="warning" href="#">
-          Customers
+        <NavbarItem isActive>
+          <Link aria-current="page" color="warning" href="#">
+            Customers
+          </Link>
         </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Integrations
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
         </NavbarItem>
       </NavbarContent>
 

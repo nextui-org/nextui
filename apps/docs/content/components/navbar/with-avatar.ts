@@ -20,23 +20,30 @@ export default function App() {
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem as={Link} color="foreground" href="#">
+        <NavbarItem>
+          <Link color="foreground" href="#">
             Features
-          </NavbarItem>
-          <NavbarItem isActive as={Link} color="secondary" href="#">
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page" color="secondary">
             Customers
-          </NavbarItem>
-          <NavbarItem as={Link} color="foreground" href="#">
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
             Integrations
-          </NavbarItem>
+          </Link>
+        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <Dropdown placement="bottom-end">
-          <NavbarItem as={Link} href="#">
+          <NavbarItem>
             <DropdownTrigger>
               <Avatar
                 isBordered
-                as="button"
+                as={Link}
+                href="#"
                 className="transition-transform"
                 color="secondary"
                 name="Jason Hughes"

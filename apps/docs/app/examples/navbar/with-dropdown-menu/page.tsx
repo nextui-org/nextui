@@ -5,7 +5,8 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
+  Link as NextUiLink,
+  LinkProps,
   Button,
   DropdownItem,
   DropdownTrigger,
@@ -13,6 +14,8 @@ import {
   DropdownMenu,
 } from "@nextui-org/react";
 import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "@nextui-org/shared-icons";
+
+const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
 
 const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -101,16 +104,20 @@ export default function Page() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <NavbarItem isActive as={Link} href="#">
-          Customers
+        <NavbarItem isActive>
+          <Link aria-current="page" href="#">
+            Customers
+          </Link>
         </NavbarItem>
-        <NavbarItem as={Link} color="foreground" href="#">
-          Integrations
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem as={Link} className="hidden lg:flex" href="#">
-          Login
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
