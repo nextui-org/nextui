@@ -17,9 +17,9 @@ import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
 import {createSpacingUnits, generateSpacingScale, isBaseTheme} from "./utils/theme";
-import {baseStyles} from "./utils/classes";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, layouts, defaultLayout} from "./default-layout";
+import {baseStyles} from "./utils/classes";
 
 const DEFAULT_PREFIX = "nextui";
 

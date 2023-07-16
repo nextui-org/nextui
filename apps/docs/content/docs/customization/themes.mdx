@@ -1,0 +1,234 @@
+---
+title: Themes
+description: NextUI provides a TailwindCSS plugin to customize the theme.
+---
+
+# Themes
+
+To give you a quick start and avoid overwriting your TailwindCSS configuration, NextUI provides a
+TailwindCSS plugin to customize the themes.
+
+## Setup
+
+As described in the installation sections, you need to add the plugin to your `tailwind.config.js` file:
+
+```js {8,13-14}
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [nextui()],
+};
+```
+
+### Usage
+
+Once you have added the plugin to your `tailwind.config.js` file, you can use any of the themes defined in the 
+plugin options.
+
+Go to the src directory and inside `main.jsx` or `main.tsx`, apply the following class names to the root element:
+
+- `light` for the light theme.
+- `dark` for the dark theme.
+- `text-foreground` to set the text color.
+- `bg-background` to set the background color.
+
+```jsx
+// main.tsx or main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import {NextUIProvider} from '@nextui-org/react'
+import App from './App'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <NextUIProvider>
+      <main className="dark text-foreground bg-background">
+        <App />
+      </main>  
+    </NextUIProvider>
+  </React.StrictMode>,
+)
+```
+
+> **Note**: See the [Colors](/docs/customization/colors) section to learn more about the color classes.
+
+### Default Plugin Options
+
+The `nextui` plugin has a default theme structure, which is:
+
+```js
+module.exports = {
+  plugins: [
+    nextui({
+      prefix: "nextui", // prefix for themes variables
+      omitCommonColors: false, // omit common colors (e.g. "blue", "green", "pink").
+      defaultTheme: "light", // default theme from the themes object
+      defaultExtendTheme: "light", // default theme to extend on custom themes
+      themes: {
+        light: {},
+        dark: {},
+        // ... custom themes
+      }
+    })
+  ]
+}
+```
+
+> **Note**: If you want to keep the default [TailwindCSS colors](https://tailwindcss.com/docs/customizing-colors#default-color-palette) set `omitCommonColors` to `true`.
+
+### Themes Options
+
+Each theme can be customized with the following options:
+
+```js {6-7,10-11}
+module.exports = {
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          layout: {},
+          colors: {}
+        },
+        dark: {
+          layout: {},
+          colors: {}
+        },
+        ... // custom themes
+      }
+    })
+  ]
+}
+```
+
+### API Reference
+
+| Attribute          | Type                           | Description                                                                                           | Default  |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------- | -------- |
+| prefix             | string                         | The prefix for the css variables.                                                                     | `nextui` |
+| omitCommonColors   | boolean                        | If true, the common nextui colors (e.g. "blue", "green", "purple") will not be extended on the theme. | false    |
+| defaultTheme       | `light` \| `dark`              | The default theme to use.                                                                             | `light`  |
+| defaultExtendTheme | `light` \| `dark`              | The default theme to extend.                                                                          | `light`  |
+| themes             | [ConfigThemes](#configthemes) | The theme definitions.                                                                                |          |
+
+### Types
+
+#### ConfigThemes
+
+```ts
+type ConfigTheme = {
+  extend?: "light" | "dark"; // base theme to extend
+  layout?: LayoutTheme; // see LayoutTheme
+  colors?: ThemeColors; // see ThemeColors
+};
+
+type ConfigThemes = Record<string, ConfigTheme>;
+```
+
+
+#### LayoutTheme
+
+```ts
+type BaseThemeUnit = {
+  small?: string;
+  medium?: string;
+  large?: string;
+};
+
+type FontThemeUnit = {
+  small?: string;
+  medium?: string;
+  large?: string;
+  tiny?: string;
+};
+
+interface LayoutTheme {
+  /**
+   * Base unit token that defines a consistent spacing scale across 
+   * the components.
+   */
+  spacingUnit?: number;
+  /**
+   * The default font size applied across the components.
+   */
+  fontSize?: FontThemeUnit;
+  /**
+   * The default line height applied across the components.
+   */
+  lineHeight?: FontThemeUnit;
+  /**
+   * The default radius applied across the components.
+   * we recommend to use `rem` units.
+   */
+  radius?: BaseThemeUnit;
+  /**
+   * A number between 0 and 1 that is applied as opacity-[value] when
+   * the component is disabled.
+   */
+  disabledOpacity?: string | number;
+  /**
+   * The default height applied to the divider component.
+   * we recommend to use `px` units.
+   */
+  dividerWeight?: string;
+  /**
+   * The border width applied across the components.
+   */
+  borderWidth?: BaseThemeUnit;
+  /**
+   * The box shadow applied across the components.
+   */
+  boxShadow?: BaseThemeUnit;
+}
+```
+
+#### ThemeColors
+
+```ts
+type ColorScale = {
+  50: string;
+  100: string;
+  200: string;
+  300: string;
+  400: string;
+  500: string;
+  600: string;
+  700: string;
+  800: string;
+  900: string;
+  foreground: string; // contrast color
+  DEFAULT: string;
+};
+
+type BaseColors = {
+  background: ColorScale; // the page background color
+  foreground: ColorScale; // the page text color
+  divider: ColorScale; // used for divider and single line border
+  overlay: ColorScale; // used for modal, popover, etc.
+  focus: ColorScale; // used for focus state outline
+  content1: ColorScale; // used for card, modal, popover, etc.
+  content2: ColorScale; 
+  content3: ColorScale;
+  content4: ColorScale;
+};
+
+// brand colors
+type ThemeColors = BaseColors & {
+  default: ColorScale;
+  primary: ColorScale;
+  secondary: ColorScale;
+  success: ColorScale;
+  warning: ColorScale;
+  danger: ColorScale;
+}
+```

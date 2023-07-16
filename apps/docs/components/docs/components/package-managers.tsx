@@ -63,7 +63,7 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
                 copyButton: "text-lg text-zinc-500 mr-2",
               }}
             >
-              <Codeblock codeString={commands[name] as string} language="bash" />
+              <Codeblock removeIndent codeString={commands[name] as string} language="bash" />
             </Snippet>
           </Tab>
         );

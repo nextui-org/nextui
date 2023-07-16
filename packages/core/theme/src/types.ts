@@ -189,5 +189,5 @@ export type NextUIPluginConfig = {
    * The default theme to extend.
    * @default "light"
    */
-  defaultExtendTheme?: "light" | "dark";
+  defaultExtendTheme?: DefaultThemeType;
 };

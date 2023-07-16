@@ -4,6 +4,8 @@ import * as Components from "@nextui-org/react";
 import {Language} from "prism-react-renderer";
 import NextImage from "next/image";
 
+import {ThemeSwitch} from "./theme-switch";
+
 import {Sandpack} from "@/components/sandpack";
 import * as DocsComponents from "@/components/docs/components";
 import {Codeblock} from "@/components/docs/components";
@@ -170,6 +172,7 @@ export const MDXComponents = {
    */
   ...DocsComponents,
   Sandpack,
+  ThemeSwitch,
   /**
    * Markdown components
    */

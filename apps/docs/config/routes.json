@@ -59,41 +59,40 @@
       ]
     },
     {
-      "key": "theme",
-      "title": "Theme",
-      "keywords": "themeable, theme, customize, palette",
+      "key": "customization",
+      "title": "Customization",
+      "keywords": "customization, nextui, themes, colors, dark mode, override styles",
       "defaultOpen": true,
       "routes": [
         {
-          "key": "default-theme",
-          "title": "Default theme",
-          "path": "/docs/theme/default-theme.mdx",
-          "updated": true
+          "key": "themes",
+          "title": "Themes",
+          "path": "/docs/customization/themes.mdx"
         },
         {
-          "key": "customize-theme",
-          "title": "Customize theme",
-          "path": "/docs/theme/customize-theme.mdx"
+          "key": "layout",
+          "title": "Layout",
+          "path": "/docs/customization/layout.mdx"
+        },
+        {
+          "key": "colors",
+          "title": "Colors",
+          "path": "/docs/customization/colors.mdx"
+        },
+        {
+          "key": "customize-themes",
+          "title": "Customize themes",
+          "path": "/docs/customization/customize-themes.mdx"
         },
         {
           "key": "dark-mode",
           "title": "Dark mode",
-          "path": "/docs/theme/dark-mode.mdx"
+          "path": "/docs/customization/dark-mode.mdx"
         },
         {
           "key": "override-styles",
           "title": "Override styles",
-          "path": "/docs/theme/override-styles.mdx"
-        },
-        {
-          "key": "typescript",
-          "title": "Typescript",
-          "path": "/docs/theme/typescript.mdx"
-        },
-        {
-          "key": "utilities",
-          "title": "Utilities",
-          "path": "/docs/theme/utilities.mdx"
+          "path": "/docs/customization/override-styles.mdx"
         }
       ]
     },

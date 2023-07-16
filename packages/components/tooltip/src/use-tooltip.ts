@@ -4,7 +4,7 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
-import {ReactNode, Ref, useEffect, useId, useImperativeHandle} from "react";
+import {ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -119,6 +119,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     closeDelay,
     isDisabled,
     defaultOpen,
+    isOpen: isOpenProp,
     onOpenChange: (isOpen) => {
       onOpenChange?.(isOpen);
       if (!isOpen) {
@@ -139,15 +140,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
     // @ts-ignore
     createDOMRef(overlayRef),
   );
-
-  // control open state from outside
-  useEffect(() => {
-    if (isOpenProp === undefined) return;
-
-    if (isOpenProp !== state.isOpen) {
-      isOpenProp ? state.open() : state.close();
-    }
-  }, [isOpenProp]);
 
   const {triggerProps, tooltipProps: triggerTooltipProps} = useTooltipTrigger(
     {

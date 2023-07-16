@@ -87,7 +87,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                     {...lineProps}
                     className={clsx(
                       lineProps.className,
-                      language === "bash" || removeIndent ? "pr-4" : "px-4",
+                      removeIndent ? "pr-4" : "px-4",
                       "relative [&>span]:relative [&>span]:z-10",
                       {
                         "px-2": showLines,

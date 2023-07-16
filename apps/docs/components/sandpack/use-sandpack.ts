@@ -90,7 +90,7 @@ export const useSandpack = ({
 
       // Check if the file content includes 'React' import statements, if not, add it
       if (!fileContent.includes(importReact) && !fileContent.includes(importAllReact)) {
-        fileContent = `${importReact}\n${fileContent}`;
+        fileContent = `${importReact}\n${fileContent}\n`;
       }
 
       // Check if file content includes any other dependencies, if yes, add it to dependencies
