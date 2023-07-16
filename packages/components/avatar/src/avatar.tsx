@@ -29,26 +29,20 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   const fallback = useMemo(() => {
     if (!showFallback && src) return null;
 
-    const ariaLabel = alt || name || "avatar";
-
     if (fallbackComponent) {
       return (
-        <div
-          aria-label={ariaLabel}
-          className={slots.fallback({class: classNames?.fallback})}
-          role="img"
-        >
+        <div aria-label={alt} className={slots.fallback({class: classNames?.fallback})} role="img">
           {fallbackComponent}
         </div>
       );
     }
 
     return name ? (
-      <span aria-label={ariaLabel} className={slots.name({class: classNames?.name})} role="img">
+      <span aria-label={alt} className={slots.name({class: classNames?.name})} role="img">
         {getInitials(name)}
       </span>
     ) : (
-      <span aria-label={ariaLabel} className={slots.icon({class: classNames?.icon})} role="img">
+      <span aria-label={alt} className={slots.icon({class: classNames?.icon})} role="img">
         {icon}
       </span>
     );

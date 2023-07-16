@@ -109,7 +109,7 @@ export function useAvatar(props: UseAvatarProps = {}) {
     icon,
     classNames,
     fallback,
-    alt = name,
+    alt = name || "avatar",
     imgRef: imgRefProp,
     color = groupContext?.color ?? "default",
     radius = groupContext?.radius ?? "full",
