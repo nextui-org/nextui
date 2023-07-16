@@ -27,7 +27,7 @@ const CheckboxGroup = forwardRef<CheckboxGroupProps, "div">((props, ref) => {
 
   return (
     <div {...getGroupProps()}>
-      {label && <label {...getLabelProps()}>{label}</label>}
+      {label && <span {...getLabelProps()}>{label}</span>}
       <div {...getWrapperProps()}>{memoizedProvider}</div>
       {errorMessage ? (
         <div {...getErrorMessageProps()}>{errorMessage}</div>
