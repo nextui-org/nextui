@@ -21,7 +21,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const checkbox = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2",
     wrapper: [
       "relative",
       "inline-flex",
