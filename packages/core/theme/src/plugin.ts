@@ -18,7 +18,7 @@ import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
 import {createSpacingUnits, generateSpacingScale, isBaseTheme} from "./utils/theme";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
-import {lightLayout, darkLayout, layouts, defaultLayout} from "./default-layout";
+import {lightLayout, darkLayout, defaultLayout} from "./default-layout";
 import {baseStyles} from "./utils/classes";
 
 const DEFAULT_PREFIX = "nextui";
@@ -149,7 +149,7 @@ const corePlugin = (
   themes: ConfigThemes = {},
   defaultTheme: DefaultThemeType,
   prefix: string,
-  omitCommonColors: boolean,
+  addCommonColors: boolean,
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
   const minSizes = {
@@ -192,7 +192,7 @@ const corePlugin = (
         extend: {
           // @ts-ignore
           colors: {
-            ...(omitCommonColors ? {} : commonColors),
+            ...(addCommonColors ? commonColors : {}),
             ...resolved.colors,
           },
           height: {
@@ -259,15 +259,33 @@ const corePlugin = (
 };
 
 export const nextui = (config: NextUIPluginConfig = {}) => {
-  const themeObject = config.themes;
+  const {
+    themes: themeObject = {},
+    defaultTheme = "light",
+    layout: userLayout,
+    defaultExtendTheme = "light",
+    prefix: defaultPrefix = DEFAULT_PREFIX,
+    addCommonColors = false,
+  } = config;
 
   const userLightColors = get(themeObject, "light.colors", {});
   const userDarkColors = get(themeObject, "dark.colors", {});
 
-  const defaultTheme = config.defaultTheme || "light";
-  const defaultExtendTheme = config.defaultExtendTheme || "light";
-  const defaultPrefix = config.prefix || DEFAULT_PREFIX;
-  const omitCommonColors = config.omitCommonColors || false;
+  const defaultLayoutObj =
+    userLayout && typeof userLayout === "object"
+      ? deepMerge(defaultLayout, userLayout)
+      : defaultLayout;
+
+  const baseLayouts = {
+    light: {
+      ...defaultLayoutObj,
+      ...lightLayout,
+    },
+    dark: {
+      ...defaultLayoutObj,
+      ...darkLayout,
+    },
+  };
 
   // get other themes from the config different from light and dark
   let otherThemes = omit(themeObject, ["light", "dark"]) || {};
@@ -279,17 +297,20 @@ export const nextui = (config: NextUIPluginConfig = {}) => {
       otherThemes[themeName].colors = deepMerge(semanticColors[baseTheme], colors);
     }
     if (layout && typeof layout === "object") {
-      otherThemes[themeName].layout = deepMerge(extend ? layouts[extend] : defaultLayout, layout);
+      otherThemes[themeName].layout = deepMerge(
+        extend ? baseLayouts[extend] : defaultLayoutObj,
+        layout,
+      );
     }
   });
 
   const light: ConfigTheme = {
-    layout: deepMerge(lightLayout, get(themeObject, "light.layout", {})),
+    layout: deepMerge(baseLayouts.light, get(themeObject, "light.layout", {})),
     colors: deepMerge(semanticColors.light, userLightColors),
   };
 
   const dark = {
-    layout: deepMerge(darkLayout, get(themeObject, "dark.layout", {})),
+    layout: deepMerge(baseLayouts.dark, get(themeObject, "dark.layout", {})),
     colors: deepMerge(semanticColors.dark, userDarkColors),
   };
 
@@ -299,5 +320,5 @@ export const nextui = (config: NextUIPluginConfig = {}) => {
     ...otherThemes,
   };
 
-  return corePlugin(themes, defaultTheme, defaultPrefix, omitCommonColors);
+  return corePlugin(themes, defaultTheme, defaultPrefix, addCommonColors);
 };

@@ -1,0 +1,138 @@
+---
+title: Customize theme
+description: NextUI provides a simple way to customize the default themes.
+---
+
+# Customize theme
+
+As mentioned in the previous sections, NextUI offers two predefined themes: `light` and `dark`. These
+themes are highly customizable to better align with your specific preferences or project
+requirements.
+
+Moreover, you have the option to create your own theme based on the default ones. All themes
+have [Layout](/docs/customization/layout) tokens and [Color](/docs/customization/colors) tokens to
+facilitate your customization process.
+
+## Customizing Layout
+
+You can change the spacing units, the font sizes, the line heights, radius and more.
+
+It is possible to change the layout tokens for all themes or for a specific theme.
+
+### Customizing Layout for all themes
+
+Let's say you need smaller border radius, smaller border width and more opaque disabled elements for `dark` theme. You can do it by
+adding the following code to your `tailwind.config.js` file.
+
+```js {9-19}
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  plugins: [
+    nextui({
+      layout: {
+        disabledOpacity: "0.3", // opacity-[0.3]
+        radius: {
+          small: "2px", // rounded-small
+          medium: "4px", // rounded-medium
+          large: "6px", // rounded-large
+        },
+        borderWidth: {
+          small: "1px", // border-small
+          medium: "1px", // border-medium
+          large: "2px", // border-large
+        },
+      },
+      themes: {
+        light: {},
+        dark: {},
+      },
+    }),
+  ],
+};
+```
+
+As NextUI components use the layout tokens, you will see the changes in all components that use
+them. For example, the `Button` component uses the `radius` token to define the border radius and
+the `borderWidth` token to define the border width when the `variant` is `bordered`.
+
+```jsx
+import {Button} from "@nextui-org/react";
+
+export default function App() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="bordered" radius="md">
+        Button
+      </Button>
+      <Button isDisabled color="primary" radius="md">
+        Disabled
+      </Button>
+    </div>
+  );
+}
+```
+
+<Spacer y={4} />
+
+import customLayout from "@/content/customization/customize-theme/custom-layout";
+
+<CodeDemo title="Custom layout example" showEditor={false} files={customLayout} />
+
+> See the [Layout](/docs/customization/layout#default-layout) section for more details about the available tokens.
+
+### Customizing Colors
+
+Now, let's say you need to change the `primary` and `focus` colors of the `dark` theme. You
+can do it by adding the following code to your `tailwind.config.js` file.
+
+```js {10-16}
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  plugins: [
+    nextui({
+      themes: {
+        dark: {
+          colors: {
+            primary: {
+              DEFAULT: "#BEF264",
+              foreground: "#000000",
+            },
+            focus: "#BEF264",
+          },
+        },
+      },
+    }),
+  ],
+};
+```
+
+All components that use the `primary` color will be affected by this change. For example, the
+`Button` component uses the `primary` color to define the background color when the `variant` is
+`solid` or `ghost`.
+
+```jsx
+import {Button} from "@nextui-org/react";
+
+export default function App() {
+  return (
+    <div className="flex gap-4">
+      <Button variant="solid">Solid</Button>
+      <Button variant="ghost">Ghost</Button>
+    </div>
+  );
+}
+```
+
+<Spacer y={4} />
+
+import customColors from "@/content/customization/customize-theme/custom-colors";
+
+<CodeDemo title="Custom colors example" showEditor={false} files={customColors} />
+
+> See the [Colors](/docs/customization/colors) section for more details about the available semantic colors and color tokens.

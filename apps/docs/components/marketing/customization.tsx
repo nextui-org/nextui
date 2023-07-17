@@ -58,7 +58,7 @@ export const Customization = () => {
             aria-label="Learn more about customization"
             as={NextLink}
             className="max-w-fit bg-pink-100 text-pink-500 dark:bg-pink-900 dark:text-pink-300"
-            href="/docs/theme/customize-theme"
+            href="/docs/customization/customize-theme"
             radius="full"
             size="sm"
             variant="flat"

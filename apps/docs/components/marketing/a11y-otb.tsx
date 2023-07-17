@@ -129,7 +129,7 @@ export const A11yOtb = () => {
               as={Link}
               className="max-w-fit"
               color="success"
-              href="/docs/theme/customize-theme"
+              href="/docs/customization/customize-theme"
               radius="full"
               size="sm"
               variant="flat"

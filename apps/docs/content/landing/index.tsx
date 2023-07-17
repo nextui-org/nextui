@@ -102,10 +102,14 @@ module.exports = {
     nextui({
       themes: {
         light: {
-          primary: "#0072f5",
+          colors: {
+            primary: "#0072f5",
+          }
         },
         dark: {
-          primary: "#0072f5",
+          colors: {
+            primary: "#0072f5",
+          }
         },
       },
     }),
@@ -118,10 +122,14 @@ module.exports = {
     nextui({
       themes: {
         light: {
-          primary: "#7828c8",
+          colors: {
+            primary: "#7828c8",
+          }
         },
         dark: {
-          primary: "#9353d3",
+          colors: {
+            primary: "#9353d3",
+          }
         },
       },
     }),
@@ -134,10 +142,14 @@ module.exports = {
     nextui({
       themes: {
         light: {
-          primary: "#FFFFFF",
+          colors: {
+            primary: "#FFFFFF",
+          }
         },
         dark: {
-          primary: "#000000",
+          colors: {
+            primary: "#000000",
+          }
         },
       },
     }),
@@ -150,14 +162,18 @@ module.exports = {
     nextui({
       themes: {
         light: {
-          primary: "#FFD34E",
-          secondary: "#EE457E",
-          background:"#F4E8D1"
+          colors: {
+            primary: "#FFD34E",
+            secondary: "#EE457E",
+            background:"#F4E8D1"
+          }
         },
         dark: {
-          primary: "#FFD34E",
-          secondary: "#EE457E",
-          background: "#E1CA9E"
+          colors: {
+            primary: "#FFD34E",
+            secondary: "#EE457E",
+            background: "#E1CA9E"
+          }
         },
       },
     }),

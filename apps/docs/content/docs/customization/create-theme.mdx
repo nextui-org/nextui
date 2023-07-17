@@ -1,0 +1,135 @@
+---
+title: Create theme
+description: NextUI provides a simple way to create new themes.
+---
+
+# Create theme
+
+You can create a new theme based on the default ones. Let's say you need a `purple-dark` theme. You can
+create it by adding the following code to your `tailwind.config.js` file.
+
+We recommend adding a palette that ranges from `50` to `900`. You can use tools like [Eva Design System](https://colors.eva.design/),
+[Smart Watch](https://smart-swatch.netlify.app/), [Palette](https://palettte.app/) or [Color Box](https://colorbox.io/) to generate your palette.
+
+### Add the new theme to the plugin
+
+```js {9-43}
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  plugins: [
+    nextui({
+      themes: {
+        "purple-dark": {
+          extend: "dark", // <- inherit default values from dark theme
+          colors: {
+            background: "#0D001A",
+            foreground: "#ffffff",
+            primary: {
+              50: "#3B096C",
+              100: "#520F83",
+              200: "#7318A2",
+              300: "#9823C2",
+              400: "#c031e2",
+              500: "#DD62ED",
+              600: "#F182F6",
+              700: "#FCADF9",
+              800: "#FDD5F9",
+              900: "#FEECFE",
+              DEFAULT: "#DD62ED",
+              foreground: "#ffffff",
+            },
+            focus: "#F182F6",
+          },
+          layout: {
+            disabledOpacity: "0.3",
+            radius: {
+              small: "4px",
+              medium: "6px",
+              large: "8px",
+            },
+            borderWidth: {
+              small: "1px",
+              medium: "2px",
+              large: "3px",
+            },
+          },
+        },
+      },
+    }),
+  ],
+};
+```
+
+### Apply the new theme
+
+Now, applying the new theme is as simple as adding the theme name `purple-dark` to the `className` of the
+`html` / `body` or `main` element.
+
+```jsx {11}
+// main.tsx or main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {NextUIProvider} from "@nextui-org/react";
+import App from "./App";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <NextUIProvider>
+      <main className="purple-dark text-foreground bg-background">
+        <App />
+      </main>
+    </NextUIProvider>
+  </React.StrictMode>,
+);
+```
+
+### Use the new theme
+
+All components that use the `primary` color will be affected by this change.
+
+```jsx
+import {Button} from "@nextui-org/react";
+
+export default function App() {
+  return (
+    <div className="flex flex-wrap gap-4 items-center">
+      <Button color="primary" variant="solid">
+        Solid
+      </Button>
+      <Button color="primary" variant="faded">
+        Faded
+      </Button>
+      <Button color="primary" variant="bordered">
+        Bordered
+      </Button>
+      <Button color="primary" variant="light">
+        Light
+      </Button>
+      <Button color="primary" variant="flat">
+        Flat
+      </Button>
+      <Button color="primary" variant="ghost">
+        Ghost
+      </Button>
+      <Button color="primary" variant="shadow">
+        Shadow
+      </Button>
+    </div>
+  );
+}
+```
+
+<Spacer y={4} />
+
+import customTheme from "@/content/customization/create-theme/custom-theme";
+
+<CodeDemo
+  title="Custom theme example"
+  showEditor={false}
+  files={customTheme}
+  className="bg-[#0D001A] text-[#FFFFFF]"
+/>

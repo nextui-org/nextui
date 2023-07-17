@@ -42,6 +42,7 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   defaultExpanded?: boolean;
   previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
+  className?: string;
 }
 
 export const CodeDemo: React.FC<CodeDemoProps> = ({
@@ -64,6 +65,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   highlightedLines,
   iframeInitialWidth,
   iframeSrc,
+  className,
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -102,6 +104,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
       />
     ) : (
       <DynamicReactLiveDemo
+        className={className}
         code={code}
         gradientColor={gradientColor}
         isCentered={isPreviewCentered}
@@ -112,7 +115,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     );
 
     return renderContent(content);
-  }, [displayMode, previewHeight, asIframe, showPreview, isInView]);
+  }, [displayMode, previewHeight, asIframe, showPreview, isInView, className]);
 
   const editorContent = useMemo(() => {
     if (!showEditor) return null;
@@ -141,9 +144,17 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     showOpenInCodeSandbox,
   ]);
 
+  const shouldRenderTabs = useMemo(() => {
+    if (!showTabs) return false;
+    if (!showPreview) return false;
+    if (!showEditor) return false;
+
+    return true;
+  }, [showTabs, showPreview, showEditor]);
+
   return (
     <div ref={ref} className="flex flex-col gap-2">
-      {showTabs && showPreview ? (
+      {shouldRenderTabs ? (
         <Tabs
           disableAnimation
           aria-label="Code demo tabs"

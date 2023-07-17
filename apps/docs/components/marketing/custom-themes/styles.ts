@@ -67,6 +67,7 @@ export const shopCartStyles = tv({
     buyButton: ["text-sm", "font-normal"],
     addToBagButton: ["text-sm", "font-normal"],
     starButton: "absolute top-3 right-3 text-default-400 data-[liked=true]:text-warning",
+    learnMoreButton: "max-w-fit",
   },
   variants: {
     theme: {
@@ -77,6 +78,7 @@ export const shopCartStyles = tv({
           "group-data-[selected=true]:bg-primary",
           "group-data-[selected=true]:text-primary-foreground",
         ],
+        learnMoreButton: "bg-primary/20 text-primary",
       },
       modern: {
         wrapper: "rounded-3xl",
@@ -111,6 +113,7 @@ export const shopCartStyles = tv({
           "rounded-full",
           "data-[focus-visible=true]:ring-secondary",
         ],
+        learnMoreButton: "bg-secondary/20 text-secondary",
       },
       elegant: {
         wrapper: "rounded-sm",
@@ -150,6 +153,7 @@ export const shopCartStyles = tv({
           "rounded-sm",
           "data-[focus-visible=true]:ring-foreground",
         ],
+        learnMoreButton: "bg-foreground/10 text-foreground",
       },
       retro: {
         wrapper: "bg-[#F4E8D1] dark:bg-[#E1CA9E] rounded-sm",
@@ -202,6 +206,7 @@ export const shopCartStyles = tv({
           "data-[focus-visible=true]:ring-offset-[#F4E8D1]",
           "data-[focus-visible=true]:dark:ring-offset-[#F4E8D1]",
         ],
+        learnMoreButton: "bg-warning/20 text-warning",
       },
     },
   },

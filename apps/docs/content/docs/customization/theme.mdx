@@ -1,16 +1,17 @@
 ---
-title: Themes
+title: Theme
 description: NextUI provides a TailwindCSS plugin to customize the theme.
 ---
 
-# Themes
+# Theme
 
 To give you a quick start and avoid overwriting your TailwindCSS configuration, NextUI provides a
-TailwindCSS plugin to customize the themes.
+TailwindCSS plugin to customize the themes. The NextUI plugin is based on the [tw-colors](https://github.com/L-Blondy/tw-colors)
+plugin developed by [L-Blondy](https://github.com/L-Blondy).
 
 ## Setup
 
-As described in the installation sections, you need to add the plugin to your `tailwind.config.js` file:
+As described in the installation sections, you need to add the `nextui` plugin to your `tailwind.config.js` file:
 
 ```js {8,13-14}
 // tailwind.config.js
@@ -32,7 +33,7 @@ module.exports = {
 
 ### Usage
 
-Once you have added the plugin to your `tailwind.config.js` file, you can use any of the themes defined in the 
+Once you have added the plugin to your `tailwind.config.js` file, you can use any of the themes defined in the
 plugin options.
 
 Go to the src directory and inside `main.jsx` or `main.tsx`, apply the following class names to the root element:
@@ -42,23 +43,23 @@ Go to the src directory and inside `main.jsx` or `main.tsx`, apply the following
 - `text-foreground` to set the text color.
 - `bg-background` to set the background color.
 
-```jsx
+```jsx {11}
 // main.tsx or main.jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {NextUIProvider} from '@nextui-org/react'
-import App from './App'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {NextUIProvider} from "@nextui-org/react";
+import App from "./App";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <NextUIProvider>
       <main className="dark text-foreground bg-background">
         <App />
-      </main>  
+      </main>
     </NextUIProvider>
   </React.StrictMode>,
-)
+);
 ```
 
 > **Note**: See the [Colors](/docs/customization/colors) section to learn more about the color classes.
@@ -72,20 +73,25 @@ module.exports = {
   plugins: [
     nextui({
       prefix: "nextui", // prefix for themes variables
-      omitCommonColors: false, // omit common colors (e.g. "blue", "green", "pink").
+      addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
       defaultTheme: "light", // default theme from the themes object
       defaultExtendTheme: "light", // default theme to extend on custom themes
+      layout: {}, // common layout tokens (applied to all themes)
       themes: {
-        light: {},
-        dark: {},
+        light: {
+          layout: {}, // light theme layout tokens
+          colors: {}, // light theme colors
+        },
+        dark: {
+          layout: {}, // dark theme layout tokens
+          colors: {}, // dark theme colors
+        },
         // ... custom themes
-      }
-    })
-  ]
-}
+      },
+    }),
+  ],
+};
 ```
-
-> **Note**: If you want to keep the default [TailwindCSS colors](https://tailwindcss.com/docs/customizing-colors#default-color-palette) set `omitCommonColors` to `true`.
 
 ### Themes Options
 
@@ -111,15 +117,48 @@ module.exports = {
 }
 ```
 
+### Nested themes
+
+NextUI supports nested themes, it means that you can apply different themes to different parts of your application.
+
+```html
+<html class="dark">
+  ...
+  <div class="light">...</div>
+  <div class="purple-dark">...</div>
+</html>
+```
+
+### Theme based variants
+
+It is possible to apply TailwindCSS styles based on the current theme.
+
+```html
+<!-- In dark theme, background will be dark and text will be light. 
+  In light theme, background will be light and text will be dark -->
+
+<div class="dark dark:bg-gray-800 dark:text-white bg-white text-black">
+  ...
+  <div>Text color changes based on theme</div>
+</div>
+
+<div class="light light:bg-gray-100 light:text-black bg-black text-white">
+  ...
+  <div>Text color changes based on theme</div>
+</div>
+```
+
+
 ### API Reference
 
-| Attribute          | Type                           | Description                                                                                           | Default  |
-| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------- | -------- |
-| prefix             | string                         | The prefix for the css variables.                                                                     | `nextui` |
-| omitCommonColors   | boolean                        | If true, the common nextui colors (e.g. "blue", "green", "purple") will not be extended on the theme. | false    |
-| defaultTheme       | `light` \| `dark`              | The default theme to use.                                                                             | `light`  |
-| defaultExtendTheme | `light` \| `dark`              | The default theme to extend.                                                                          | `light`  |
-| themes             | [ConfigThemes](#configthemes) | The theme definitions.                                                                                |          |
+| Attribute          | Type                          | Description                                                                                                     | Default  |
+| ------------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
+| prefix             | `string`                      | The prefix for the css variables.                                                                               | `nextui` |
+| addCommonColors    | `boolean`                     | If true, the common nextui colors (e.g. "blue", "green", "purple") will replace the TailwindCSS default colors. | `false`  |
+| defaultTheme       | `light` \| `dark`             | The default theme to use.                                                                                       | `light`  |
+| defaultExtendTheme | `light` \| `dark`             | The default theme to extend.                                                                                    | `light`  |
+| layout             | [LayoutTheme](#layouttheme)   | The layout definitions.                                                                                         | -        |
+| themes             | [ConfigThemes](#configthemes) | The theme definitions.                                                                                          | -        |
 
 ### Types
 
@@ -134,7 +173,6 @@ type ConfigTheme = {
 
 type ConfigThemes = Record<string, ConfigTheme>;
 ```
-
 
 #### LayoutTheme
 
@@ -154,7 +192,7 @@ type FontThemeUnit = {
 
 interface LayoutTheme {
   /**
-   * Base unit token that defines a consistent spacing scale across 
+   * Base unit token that defines a consistent spacing scale across
    * the components.
    */
   spacingUnit?: number;
@@ -217,7 +255,7 @@ type BaseColors = {
   overlay: ColorScale; // used for modal, popover, etc.
   focus: ColorScale; // used for focus state outline
   content1: ColorScale; // used for card, modal, popover, etc.
-  content2: ColorScale; 
+  content2: ColorScale;
   content3: ColorScale;
   content4: ColorScale;
 };
@@ -230,5 +268,5 @@ type ThemeColors = BaseColors & {
   success: ColorScale;
   warning: ColorScale;
   danger: ColorScale;
-}
+};
 ```

@@ -60,10 +60,10 @@ type Tab = {id: string; title: () => JSX.Element; icon: () => JSX.Element};
 const itemSizes = ["xs", "s", "m", "l", "xl"];
 
 const codeHighlights = {
-  nextui: "6-15",
-  modern: "22-31",
-  elegant: "38-47",
-  retro: "54-67",
+  nextui: "6-19",
+  modern: "26-39",
+  elegant: "46-59",
+  retro: "66-84",
 };
 
 const CustomThemesExample = ({
@@ -194,9 +194,9 @@ const CustomThemesExample = ({
       <Button
         aria-label="Learn more about theme customization"
         as={NextLink}
-        className="max-w-fit"
+        className={slots.learnMoreButton()}
         color="primary"
-        href="/docs/theme/customize-theme"
+        href="/docs/customization/customize-theme"
         radius="full"
         size="sm"
         variant="flat"

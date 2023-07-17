@@ -163,7 +163,7 @@ export type ConfigThemes = Record<string, ConfigTheme>;
 
 /**
  * The NextUI config.
- * @see https://nextui.org/docs/theme/customize-theme
+ * @see https://nextui.org/docs/customization/customize-theme
  */
 export type NextUIPluginConfig = {
   /**
@@ -175,7 +175,11 @@ export type NextUIPluginConfig = {
    * If true, the common nextui colors (e.g. "blue", "green", "purple") will not be extended on the theme.
    * @default false
    */
-  omitCommonColors?: boolean;
+  addCommonColors?: boolean;
+  /**
+   * Common layout definitions. These definitions are applied to all themes.
+   */
+  layout?: LayoutTheme;
   /**
    * The theme definitions.
    */

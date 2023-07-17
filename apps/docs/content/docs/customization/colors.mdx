@@ -22,17 +22,17 @@ module.exports = {
           colors: {},
         },
         // ... custom themes
-      }
-    })
-  ]
-}
+      },
+    }),
+  ],
+};
 ```
 
 > Colors options are applied to all components.
 
 ## Default Colors
 
-NextUI includes a default color palette out-of-the-box that is a great starting point if you don't have your 
+NextUI includes a default color palette out-of-the-box that is a great starting point if you don't have your
 own specific branding in mind.
 
 They are separated into [Common Colors](#common-colors) and [Semantic Colors](#semantic-colors).
@@ -44,6 +44,21 @@ They are separated into [Common Colors](#common-colors) and [Semantic Colors](#s
 
 You can see the common colors as the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors
 they don't change with the theme, they are always the same. They extend the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors.
+
+Common colors are omitted by default to avoid conflicts with the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors.
+You can enable them with the `addCommonColors` option.
+
+```js {4}
+module.exports = {
+  plugins: [
+    nextui({
+      addCommonColors: true,
+    }),
+  ],
+};
+```
+
+It will add the following colors to the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors.
 
 ```js
 module.exports = {
@@ -64,36 +79,35 @@ module.exports = {
           800: "#002e62",
           900: "#001731",
         },
-        // .. rest of the colors 
-      }
+        // .. rest of the colors
+      },
     },
   },
-}
+};
 ```
-
-> Common colors replace some of the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) default colors. 
-> See the [Removing Common Colors](#removing-common-colors) section to disable this feature.
 
 <CommonColors />
 
-#### Removing Common Colors
+> Common colors replace some of the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) default colors.
+> See the [Removing Common Colors](#removing-common-colors) section to disable this feature.
 
-In case you don't want NextUI adds the common colors, you can disable it with the `ommitCommonColors` option. This
-allows you to keep the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) default colors.
+You can also import the common colors in your JavaScript files.
 
-```js {4}
-module.exports = {
-  plugins: [
-    nextui({
-      omitCommonColors: true,
-    })
-  ]
-}
+```js
+import {commonColors} from "@nextui-org/theme";
+
+console.log(commonColors.white); // #FFFFFF
+console.log(commonColors.blue[500]); // #006FEE
 ```
 
-### Sematic Colors
+### Semantic Colors
 
 Semantic colors automatically change with the theme, they help communicate meaning and reinforce the brand.
+
+We recommend adding a palette that ranges from `50` to `900`. You can use tools like [Eva Design System](https://colors.eva.design/),
+[Smart Watch](https://smart-swatch.netlify.app/), [Palette](https://palettte.app/) or [Color Box](https://colorbox.io/) to generate your palette.
+
+> Semantic colors are placed inside the `nextui` plugin options and not inside the TailwindCSS `theme` object.
 
 ```js {7-13,19-25,32-36}
 module.exports = {
@@ -109,7 +123,7 @@ module.exports = {
               foreground: "#FFFFFF",
               DEFAULT: "#006FEE",
             },
-           // ... rest of the colors
+            // ... rest of the colors
           },
         },
         dark: {
@@ -124,25 +138,84 @@ module.exports = {
           },
           // ... rest of the colors
         },
-        mytheme: { // custom theme
-          extend: "dark", 
+        mytheme: {
+          // custom theme
+          extend: "dark",
           colors: {
-            primary:{
+            primary: {
               DEFAULT: "#BEF264",
               foreground: "#000000",
             },
             focus: "#BEF264",
           },
         },
-      }
-    })
-  ]
-}
+      },
+    }),
+  ],
+};
 ```
 
 <Blockquote className="flex items-center gap-2">
   Change the docs theme to see the semantic colors in action.
-  <ThemeSwitch/>
+  <ThemeSwitch />
 </Blockquote>
 
 <SemanticColors />
+
+### Using Semantic Colors
+
+Semantic colors are available to use everywhere in your preoject where you use colors,
+like the text color utilities, border color utilities, background color utilities, and more.
+
+```html
+<div class="bg-primary-500 text-primary-50 rounded-small px-unit-2 py-unit-1">
+  This is a primary color box
+</div>
+```
+
+<Spacer y={4} />
+
+import semanticColorsExample from "@/content/customization/colors/semantic-colors";
+
+<CodeDemo title="Semantic Colors Example" showEditor={false} files={semanticColorsExample} />
+
+> **Note**: To know more about units see the [Layout Units](/docs/customization/layout#using-units) section.
+
+### Javascript Variables
+
+You can also import the semantic colors in your JavaScript files.
+
+```js
+import {semanticColors} from "@nextui-org/theme";
+
+console.log(semanticColors.dark.warning.DEFAULT); // #FFC107
+console.log(semanticColors.light.primary.DEFAULT); // #006FEE
+```
+
+### CSS Variables
+
+NextUI creates CSS variables using the format `--prefix-colorname-shade` for each semantic color. By
+default the prefix is `nextui`, but you can change it with the `prefix` option.
+
+```js {4}
+module.exports = {
+  plugins: [
+    nextui({
+      prefix: "myapp",
+    }),
+  ],
+};
+```
+
+Then you can use the CSS variables in your CSS files.
+
+```css
+/* With default prefix */
+.my-component {
+  background-color: var(--nextui-primary-500);
+}
+/*  With custom prefix */
+.my-component {
+  background-color: var(--myapp-primary-500);
+}
+```

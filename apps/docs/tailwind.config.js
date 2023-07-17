@@ -315,6 +315,7 @@ module.exports = {
   },
   plugins: [
     nextui({
+      addCommonColors: true,
       themes: {
         light: {
           colors: {
@@ -331,7 +332,7 @@ module.exports = {
         // only for testing purpose
         olive: {
           extend: "dark",
-          layout:{
+          layout: {
             radius: {
               small: "2px",
               medium: "4px",
@@ -344,7 +345,7 @@ module.exports = {
             },
           },
           colors: {
-            primary:{
+            primary: {
               DEFAULT: "#BEF264",
               foreground: "#000000",
             },

@@ -11,24 +11,25 @@ the font sizes, the line heights, radius and more.
 Layout tokens guarantee a consistent look and feel across the components without the need to customize the
 default Tailwind CSS theme.
 
-```js {6,10}
+```js {4,6,10}
 module.exports = {
   plugins: [
     nextui({
+      layout: {}, // common layout options
       themes: {
         light: {
-          layout: {},
+          layout: {}, // light theme layout options
           // ...
         },
         dark: {
-          layout: {},
+          layout: {}, // dark theme layout options
           // ...
         },
-      // ... custom themes
-      }
-    })
-  ]
-}
+        // ... custom themes
+      },
+    }),
+  ],
+};
 ```
 
 > Layout options are applied to all components.
@@ -38,61 +39,71 @@ module.exports = {
 Default values for the layout tokens are:
 
 ```js
-{
-  //...
-  light: {
-    layout: {
-      spacingUnit: 4, // in px
-      disabledOpacity: ".5", // this value is applied as opacity-[value] when the component is disabled
-      dividerWeight: "1px", // h-divider the default height applied to the divider component
-      fontSize: {
-        tiny: "0.75rem", // text-tiny
-        small: "0.875rem", // text-small
-        medium: "1rem", // text-medium
-        large: "1.125rem", // text-large
+module.exports = {
+  plugins: [
+    nextui({
+      layout: {
+        spacingUnit: 4, // in px
+        disabledOpacity: ".5", // this value is applied as opacity-[value] when the component is disabled
+        dividerWeight: "1px", // h-divider the default height applied to the divider component
+        fontSize: {
+          tiny: "0.75rem", // text-tiny
+          small: "0.875rem", // text-small
+          medium: "1rem", // text-medium
+          large: "1.125rem", // text-large
+        },
+        lineHeight: {
+          tiny: "1rem", // text-tiny
+          small: "1.25rem", // text-small
+          medium: "1.5rem", // text-medium
+          large: "1.75rem", // text-large
+        },
+        radius: {
+          small: "8px", // rounded-small
+          medium: "12px", // rounded-medium
+          large: "14px", // rounded-large
+        },
+        borderWidth: {
+          small: "1px", // border-small
+          medium: "2px", // border-medium (default)
+          large: "3px", // border-large
+        },
       },
-      lineHeight: {
-        tiny: "1rem", // text-tiny
-        small: "1.25rem", // text-small
-        medium: "1.5rem", // text-medium
-        large: "1.75rem", // text-large
+      themes: {
+        light: {
+          layout: {
+            boxShadow: {
+              // shadow-small
+              small:
+                "0px 0px 5px 0px rgb(0 0 0 / 0.02), 0px 2px 10px 0px rgb(0 0 0 / 0.06), 0px 0px 1px 0px rgb(0 0 0 / 0.3)",
+              // shadow-medium
+              medium:
+                "0px 0px 15px 0px rgb(0 0 0 / 0.03), 0px 2px 30px 0px rgb(0 0 0 / 0.08), 0px 0px 1px 0px rgb(0 0 0 / 0.3)",
+              // shadow-large
+              large:
+                "0px 0px 30px 0px rgb(0 0 0 / 0.04), 0px 30px 60px 0px rgb(0 0 0 / 0.12), 0px 0px 1px 0px rgb(0 0 0 / 0.3)",
+            },
+          },
+        },
+        dark: {
+          layout: {
+            boxShadow: {
+              // shadow-small
+              small:
+                "0px 0px 5px 0px rgb(0 0 0 / 0.05), 0px 2px 10px 0px rgb(0 0 0 / 0.2), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
+              // shadow-medium
+              medium:
+                "0px 0px 15px 0px rgb(0 0 0 / 0.06), 0px 2px 30px 0px rgb(0 0 0 / 0.22), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
+              // shadow-large
+              large:
+                "0px 0px 30px 0px rgb(0 0 0 / 0.07), 0px 30px 60px 0px rgb(0 0 0 / 0.26), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
+            },
+          },
+        },
       },
-      radius: {
-        small: "8px", // rounded-small
-        medium: "12px", // rounded-medium
-        large: "14px", // rounded-large
-      },
-      borderWidth: {
-        small: "1px", // border-small
-        medium: "2px", // border-medium (default)
-        large: "3px", // border-large
-      },
-      boxShadow: {
-        small: // shadow-small
-          "0px 0px 5px 0px rgb(0 0 0 / 0.02), 0px 2px 10px 0px rgb(0 0 0 / 0.06), 0px 0px 1px 0px rgb(0 0 0 / 0.3)",
-        medium: // shadow-medium
-          "0px 0px 15px 0px rgb(0 0 0 / 0.03), 0px 2px 30px 0px rgb(0 0 0 / 0.08), 0px 0px 1px 0px rgb(0 0 0 / 0.3)",
-        large: // shadow-large
-          "0px 0px 30px 0px rgb(0 0 0 / 0.04), 0px 30px 60px 0px rgb(0 0 0 / 0.12), 0px 0px 1px 0px rgb(0 0 0 / 0.3)",
-      },
-    },
-    // ...
-  },
-  dark: {
-    layout: {
-      // ... same as light
-      boxShadow: {
-        small: // shadow-small
-        "0px 0px 5px 0px rgb(0 0 0 / 0.05), 0px 2px 10px 0px rgb(0 0 0 / 0.2), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
-        medium: // shadow-medium
-        "0px 0px 15px 0px rgb(0 0 0 / 0.06), 0px 2px 30px 0px rgb(0 0 0 / 0.22), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
-        large: // shadow-large
-        "0px 0px 30px 0px rgb(0 0 0 / 0.07), 0px 30px 60px 0px rgb(0 0 0 / 0.26), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
-      }
-    },
-    // ...
-  },
-}
+    }),
+  ],
+};
 ```
 
 ## Units
@@ -160,15 +171,53 @@ NextUI automatically generates the following units based on the `spacingUnit` to
 NextUI units behave like [Tailwind CSS spacing](https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale) units. You can use them in the `margin`, `padding`,
 `width`, `height`, `min-width`, `min-height`, `gap`, `top`, `right`, `bottom`, and `left` properties.
 
-```jsx {6}
+```jsx {5}
 import {Button} from "@nextui-org/react";
 
 export const MyButton = () => {
-  return <Button className="px-unit-2 py-unit-1 min-w-unit-3xl">My Button</Button>;
+  return (
+    <Button className="px-unit-2 py-unit-1 min-w-unit-3xl">
+      My Button
+    </Button>
+  );
 };
 ```
 
 > If you change the `spacingUnit` token, the units will be updated automatically.
+
+### CSS Variables
+
+NextUI creates CSS variables using the format `--prefix-prop-name-scale` for each layout token. By
+default the prefix is `nextui`, but you can change it with the `prefix` option.
+
+```js {4}
+module.exports = {
+  plugins: [
+    nextui({
+      prefix: "myapp",
+    }),
+  ],
+};
+```
+
+Then you can use the CSS variables in your CSS files.
+
+```css
+/* With default prefix */
+.my-button {
+  padding: var(--nextui-spacing-unit-4);
+  font-size: var(--nextui-font-size-small);
+  line-height: var(--nextui-line-height-small);
+  border-radius: var(--nextui-radius-medium);
+}
+/*  With custom prefix */
+.my-component {
+  padding: var(--myapp-spacing-unit-4);
+  font-size: var(--myapp-font-size-small);
+  line-height: var(--myapp-line-height-small);
+  border-radius: var(--myapp-radius-medium);
+}
+```
 
 #### API Reference
 

@@ -65,9 +65,9 @@
       "defaultOpen": true,
       "routes": [
         {
-          "key": "themes",
-          "title": "Themes",
-          "path": "/docs/customization/themes.mdx"
+          "key": "theme",
+          "title": "Theme",
+          "path": "/docs/customization/theme.mdx"
         },
         {
           "key": "layout",
@@ -80,9 +80,14 @@
           "path": "/docs/customization/colors.mdx"
         },
         {
-          "key": "customize-themes",
-          "title": "Customize themes",
-          "path": "/docs/customization/customize-themes.mdx"
+          "key": "customize-theme",
+          "title": "Customize theme",
+          "path": "/docs/customization/customize-theme.mdx"
+        },
+        {
+          "key": "create-theme",
+          "title": "Create theme",
+          "path": "/docs/customization/create-theme.mdx"
         },
         {
           "key": "dark-mode",

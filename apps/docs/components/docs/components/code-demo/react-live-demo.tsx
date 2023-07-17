@@ -11,6 +11,7 @@ export interface ReactLiveDemoProps {
   noInline?: boolean;
   isCentered?: boolean;
   isGradientBox?: boolean;
+  className?: string;
   gradientColor?: GradientBoxProps["color"];
   overflow?: "auto" | "visible" | "hidden";
 }
@@ -24,6 +25,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   isGradientBox,
   gradientColor = "orange",
   isCentered = false,
+  className,
   noInline,
 }) => {
   const content = (
@@ -42,7 +44,10 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
       {isGradientBox ? (
         <GradientBox
           isCentered
-          className="relative overflow-y-hidden flex items-center border border-default-200 dark:border-default-100 px-2 py-4 rounded-lg overflow-hidden"
+          className={clsx(
+            className,
+            "relative overflow-y-hidden flex items-center border border-default-200 dark:border-default-100 px-2 py-4 rounded-lg overflow-hidden",
+          )}
           color={gradientColor}
           to="top-right"
         >
@@ -51,7 +56,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
           </div>
         </GradientBox>
       ) : (
-        <BgGridContainer>{content}</BgGridContainer>
+        <BgGridContainer className={className}>{content}</BgGridContainer>
       )}
     </LiveProvider>
   );

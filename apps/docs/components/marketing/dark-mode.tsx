@@ -78,7 +78,7 @@ export const DarkMode = () => {
             as={NextLink}
             className="max-w-fit"
             color="warning"
-            href="/docs/theme/dark-mode"
+            href="/docs/customization/dark-mode"
             radius="full"
             size="sm"
             variant="flat"

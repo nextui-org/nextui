@@ -5,9 +5,240 @@ description: NextUI comes with two palette modes light (the default) and dark.
 
 # Dark mode
 
+As we mentioned before in the [Theme](/docs/customization/theme) section NextUI comes with two default
+themes `light`and `dark`. So using the `dark` theme is as simple as adding it to the `className` of the
+`html` / `body` or `main` element.
 
-<Blockquote
- color="warning"
->
-  This section is under construction. Please check back later. 🚧
-</Blockquote>
+```jsx {11}
+// main.tsx or main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {NextUIProvider} from "@nextui-org/react";
+import App from "./App";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <NextUIProvider>
+      <main className="dark text-foreground bg-background">
+        <App />
+      </main>
+    </NextUIProvider>
+  </React.StrictMode>,
+);
+```
+
+This will enable the dark mode for the whole application. But we know that applications
+not always have only one theme, you usually need a way to switch between themes. To do so
+we recommend to use a `theme` switch library or create your own. 
+
+## Using next-themes
+
+If you're using [Next.js](/docs/frameworks/nextjs) the best option at the moment is to use [next-themes](https://github.com/pacocoursey/next-themes)
+library. It comes with features that improves the experience of switching between themes. 
+
+> See the [next-themes](https://github.com/pacocoursey/next-themes) documentation for more details.
+
+### Next.js App Directory Setup
+
+<Steps>
+
+### Install next-themes
+
+Install `next-themes` in your project.
+
+<PackageManagers
+  commands={{
+    npm: 'npm install next-themes',
+    yarn: 'yarn add next-themes',
+    pnpm: 'pnpm add next-themes',
+  }}
+/>
+
+
+### Add next-themes provider
+
+Wrap your app with the `ThemeProvider` component from `next-themes`.
+
+Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the 
+Component with the `NextUIProvider` and the `next-themes` provider components.
+
+
+```jsx
+// app/providers.tsx
+'use client'
+
+import {NextUIProvider} from '@nextui-org/react'
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        {children}
+      </NextThemesProvider>
+    </NextUIProvider>
+  )
+}
+```
+
+> Note: We're using the `class` attribute to switch between themes, this is because NextUI uses the `className` attribute.
+
+### Add the theme switcher
+
+Add the theme switcher to your app.
+
+```jsx
+// app/components/ThemeSwitcher.tsx
+import {useTheme} from "next-themes";
+
+export const ThemeSwitcher = () => {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme('light')}>Light Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    </div>
+  )
+};
+```
+
+> **Note**: You can use any theme name you want, but make sure it exits in your 
+`tailwind.config.js` file. See [Create Theme](/docs/customization/create-theme) for more details.
+
+</Steps>
+
+### Next.js Pages Directory Setup
+
+<Steps>
+
+### Install next-themes
+
+Install `next-themes` in your project.
+
+<PackageManagers
+  commands={{
+    npm: 'npm install next-themes',
+    yarn: 'yarn add next-themes',
+    pnpm: 'pnpm add next-themes',
+  }}
+/>
+
+### Add next-themes provider
+
+Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and  wrap the
+Component with the `NextUIProvider` and the `next-themes` provider components.
+
+```jsx
+// pages/_app.js
+import {NextUIProvider} from '@nextui-org/react'
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <NextUIProvider>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        <Component {...pageProps} />
+      </NextThemesProvider>
+    </NextUIProvider>
+  )
+}
+
+export default MyApp;
+```
+
+> Note: We're using the `class` attribute to switch between themes, this is because NextUI uses the `className` attribute.
+
+### Add the theme switcher
+
+Add the theme switcher to your app.
+
+```jsx
+// components/ThemeSwitcher.tsx
+import {useTheme} from "next-themes";
+
+export const ThemeSwitcher = () => {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme('light')}>Light Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    </div>
+  )
+};
+```
+
+> **Note**: You can use any theme name you want, but make sure it exits in your
+`tailwind.config.js` file. See [Create Theme](/docs/customization/create-theme) for more details.
+
+</Steps>
+
+
+## Using use-dark-mode hook
+
+In case you're using plain React with [Vite](/docs/frameworks/vite) or [Create React App](https://create-react-app.dev/) 
+you can use the [use-dark-mode](https://github.com/donavon/use-dark-mode) hook to switch between themes.
+
+> See the [use-dark-mode](https://github.com/donavon/use-dark-mode) documentation for more details.
+
+<Steps>
+
+### Install use-dark-mode
+
+Install `use-dark-mode` in your project.
+
+<PackageManagers
+  commands={{
+    npm: 'npm install use-dark-mode',
+    yarn: 'yarn add use-dark-mode',
+    pnpm: 'pnpm add use-dark-mode',
+  }}
+/> 
+
+### Add the theme switcher
+
+Add the theme switcher to your app.
+
+```jsx
+// components/ThemeSwitcher.tsx
+import useDarkMode from "use-dark-mode";
+
+export const ThemeSwitcher = () => {
+  const darkMode = useDarkMode(false);
+
+  return (
+    <div>
+      <button onClick={darkMode.disable}>Light Mode</button>
+      <button onClick={darkMode.enable}>Dark Mode</button>
+    </div>
+  )
+};
+```
+
+### Add the current theme to the main element
+
+```jsx
+// App.tsx or App.jsx
+import React from "react";
+import useDarkMode from "use-dark-mode";
+
+export default function App() {
+  const darkMode = useDarkMode(false);
+
+  return (
+    <main className={`${darkMode.value ? 'dark' : ''} text-foreground bg-background`}>
+      <App />
+    </main>
+  )
+}
+```
+
+> **Note**: You can use any theme name you want, but make sure it exits in your
+`tailwind.config.js` file. See [Create Theme](/docs/customization/create-theme) for more details.
+
+
+</Steps>
