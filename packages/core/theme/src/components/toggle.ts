@@ -105,9 +105,6 @@ const toggle = tv({
           "w-4 h-4 text-tiny",
           //selected
           "group-data-[selected=true]:ml-4",
-          // pressed
-          "group-data-[pressed=true]:w-5",
-          "group-data-[selected]:group-data-[pressed]:ml-4",
         ],
         endContent: "text-tiny",
         startContent: "text-tiny",
@@ -119,9 +116,6 @@ const toggle = tv({
           "w-5 h-5 text-small",
           //selected
           "group-data-[selected=true]:ml-5",
-          // pressed
-          "group-data-[pressed=true]:w-6",
-          "group-data-[selected]:group-data-[pressed]:ml-4",
         ],
         endContent: "text-small",
         startContent: "text-small",
@@ -133,9 +127,6 @@ const toggle = tv({
           "w-6 h-6 text-medium",
           //selected
           "group-data-[selected=true]:ml-6",
-          // pressed
-          "group-data-[pressed=true]:w-7",
-          "group-data-[selected]:group-data-[pressed]:ml-5",
         ],
         endContent: "text-medium",
         startContent: "text-medium",
@@ -177,6 +168,29 @@ const toggle = tv({
     isDisabled: false,
     disableAnimation: false,
   },
+  compoundVariants: [
+    {
+      disableAnimation: false,
+      size: "sm",
+      class: {
+        thumb: ["group-data-[pressed=true]:w-5", "group-data-[selected]:group-data-[pressed]:ml-4"],
+      },
+    },
+    {
+      disableAnimation: false,
+      size: "md",
+      class: {
+        thumb: ["group-data-[pressed=true]:w-6", "group-data-[selected]:group-data-[pressed]:ml-4"],
+      },
+    },
+    {
+      disableAnimation: false,
+      size: "lg",
+      class: {
+        thumb: ["group-data-[pressed=true]:w-7", "group-data-[selected]:group-data-[pressed]:ml-5"],
+      },
+    },
+  ],
 });
 
 export type ToggleVariantProps = VariantProps<typeof toggle>;

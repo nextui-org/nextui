@@ -35,7 +35,6 @@ const button = tv({
     "min-w-max",
     "font-normal",
     "subpixel-antialiased",
-    "data-[pressed=true]:scale-95",
     "overflow-hidden",
     "tap-highlight-transparent",
     // focus ring
@@ -89,7 +88,8 @@ const button = tv({
     },
     disableAnimation: {
       true: "!transition-none",
-      false: "transition-transform-colors motion-reduce:transition-none",
+      false:
+        "data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none",
     },
   },
   defaultVariants: {
