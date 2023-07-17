@@ -70,7 +70,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
     [value, isActive],
   );
 
-  const {pressProps} = usePress({
+  const {isPressed, pressProps} = usePress({
     isDisabled,
     onPress,
   });
@@ -90,6 +90,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
       "data-active": dataAttr(isActive),
       "data-focus": dataAttr(isFocused),
       "data-hover": dataAttr(isHovered),
+      "data-pressed": dataAttr(isPressed),
       "data-focus-visible": dataAttr(isFocusVisible),
       ...mergeProps(props, pressProps, focusProps, hoverProps, otherProps),
       className: clsx(className, props.className),

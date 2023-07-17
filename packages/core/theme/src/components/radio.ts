@@ -125,7 +125,7 @@ const radio = tv({
     disableAnimation: {
       true: {},
       false: {
-        wrapper: "transition-background",
+        wrapper: ["group-data-[pressed=true]:scale-95", "transition-transform-background"],
         control: "transition-transform-opacity",
       },
     },

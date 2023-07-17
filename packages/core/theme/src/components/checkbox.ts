@@ -48,7 +48,6 @@ const checkbox = tv({
       "group-data-[selected=true]:after:opacity-100",
       // hover
       "group-data-[hover=true]:before:bg-default-100",
-      "group-data-[hover=true]:before:bg-default-100",
       // focus ring
       ...groupDataFocusVisibleClasses,
     ],
@@ -167,6 +166,8 @@ const checkbox = tv({
       false: {
         wrapper: [
           "before:transition-background",
+          "group-data-[pressed=true]:scale-95",
+          "transition-transform",
           "after:transition-transform-opacity",
           "after:!ease-linear",
           "after:!duration-200",
