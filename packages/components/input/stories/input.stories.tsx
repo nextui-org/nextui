@@ -90,7 +90,12 @@ const PasswordTemplate: ComponentStory<typeof Input> = (args) => {
       <Input
         {...args}
         endContent={
-          <button className="focus:outline-none" type="button" onClick={togglePasswordVisibility}>
+          <button
+            aria-label="show password"
+            aria-pressed={isPasswordVisible}
+            type="button"
+            onClick={togglePasswordVisibility}
+          >
             {isPasswordVisible ? (
               <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
             ) : (
