@@ -8,3 +8,101 @@ description: NextUI allows you to override the default styles of the components 
 <Blockquote color="warning">
   This section is under construction. Please check back later. 🚧
 </Blockquote>
+
+
+All NextUI components styles are created using [Tailwind Variants](https://tailwind-variants.org), a 
+library that we created specifically for this purpose. This library makes it easy to override the
+default styles of the components and automatically removes conflicting classes.
+
+Overriding default component styles is as simple as passing your own class names to the `className`
+or to the `classNames` prop for components with slots.
+
+
+### Overriding a component
+
+Let's override the default styles of the [Button](/docs/components/button) component, which is a component that has no slots.
+
+
+```jsx {7}
+import {Button} from "@nextui-org/react";
+
+export default function App() {
+  return (
+    <Button
+      disableRipple
+      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-medium bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+      size="lg"
+    >
+      Press me
+    </Button>
+  );
+}
+```
+
+<Spacer y={4}/>
+
+import buttonOverrideExample from "@/content/customization/override-styles/button-example";
+
+<CodeDemo
+  isCentered
+  title="Override Button styles"
+  files={buttonOverrideExample}
+  showEditor={false}
+  isPreviewCentered={true}
+  className="py-5"
+/>
+
+### Components with slots
+
+Some NextUI components have slots, which means that you can style all the parts inside the component
+using the `classNames` prop. For example, the [CircularProgress](/docs/components/circular-progress) 
+component has the following slots:
+
+- **base**: The base slot of the circular progress, it is the main container.
+- **svgWrapper**: The wrapper of the svg circles and the value label.
+- **svg**: The svg element of the circles.
+- **track**: The track is the background circle of the circular progress.
+- **indicator**: The indicator is the one that is filled according to the `value`.
+- **value**: The value content.
+- **label**: The label content.
+
+Each slot can be styled using the `classNames` prop, the example below shows how
+to change the styles of some slots to create a circular progress with a different
+style.
+
+import slotsOverrideExample from "@/content/customization/override-styles/slots-example";
+
+```jsx {9-12}
+import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+
+export default function App() {
+  return (
+    <Card className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
+      <CardBody className="justify-center items-center pb-0">
+        <CircularProgress
+          classNames={{
+            svg: "w-36 h-36 drop-shadow-md",
+            indicator: "stroke-white",
+            track: "stroke-white/10",
+            value: "text-3xl font-semibold text-white",
+          }}
+          value={70}
+          strokeWidth={4}
+          showValueLabel={true}
+        />
+      </CardBody>
+    </Card>
+  );
+}
+```
+
+<Spacer y={4}/>
+
+<CodeDemo
+  title="Override CircularProgress styles"
+  files={slotsOverrideExample}
+  showEditor={false}
+/>
+
+> **Note**: You will find a `Slots` section in the documentation of each component that has slots.
+
