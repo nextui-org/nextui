@@ -5,23 +5,19 @@ description: NextUI allows you to override the default styles of the components 
 
 # Override styles
 
-<Blockquote color="warning">
-  This section is under construction. Please check back later. 🚧
-</Blockquote>
-
-
-All NextUI components styles are created using [Tailwind Variants](https://tailwind-variants.org), a 
-library that we created specifically for this purpose. This library makes it easy to override the
-default styles of the components and automatically removes conflicting classes.
-
 Overriding default component styles is as simple as passing your own class names to the `className`
 or to the `classNames` prop for components with slots.
 
+### What's is a Slot?
+
+A slot is a part of a component that can be styled separately. For example, the [CircularProgress](/docs/components/circular-progress) component
+has multiple slots/parts that can be styled separately, such as the `track`, `indicator`, `value`, etc.
+
+Components with slots have a `classNames` prop that allows you to style each slot separately.
 
 ### Overriding a component
 
 Let's override the default styles of the [Button](/docs/components/button) component, which is a component that has no slots.
-
 
 ```jsx {7}
 import {Button} from "@nextui-org/react";
@@ -30,7 +26,7 @@ export default function App() {
   return (
     <Button
       disableRipple
-      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-medium bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
       size="lg"
     >
       Press me
@@ -49,6 +45,9 @@ import buttonOverrideExample from "@/content/customization/override-styles/butto
   files={buttonOverrideExample}
   showEditor={false}
   isPreviewCentered={true}
+  gradientColor="orange"
+  isGradientBox={true}
+  previewHeight={160}
   className="py-5"
 />
 
@@ -77,8 +76,8 @@ import {CircularProgress, Card, CardBody} from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Card className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
-      <CardBody className="justify-center items-center pb-0">
+    <Card className="w-[240px] h-[240px] bg-gradient-to-br from-violet-500 to-fuchsia-500">
+      <CardBody className="justify-center items-center py-0">
         <CircularProgress
           classNames={{
             svg: "w-36 h-36 drop-shadow-md",
@@ -106,3 +105,121 @@ export default function App() {
 
 > **Note**: You will find a `Slots` section in the documentation of each component that has slots.
 
+
+### CSS Modules
+
+CSS Modules allow for the creation of local scope classes and variables. Here's how 
+you can use it to override styles:
+
+```jsx
+import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import styles from './App.module.css';
+
+export default function App() {
+  return (
+    <Card className={styles.card}>
+      <CardBody className={styles.cardBody}>
+        <CircularProgress
+          classNames={{
+            svg: styles.svg,
+            indicator: styles.indicator,
+            track: styles.track,
+            value: styles.value,
+          }}
+          value={70}
+          strokeWidth={4}
+          showValueLabel={true}
+        />
+      </CardBody>
+    </Card>
+  );
+}
+```
+
+With the corresponding CSS module:
+
+```css
+/* App.module.css */
+.card {
+  width: 240px;
+  height: 240px;
+  background: linear-gradient(to bottom right, violet, fuchsia);
+}
+
+.cardBody {
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+.svg {
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.indicator {
+  stroke: white;
+}
+
+.track {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.value {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+```
+
+### CSS-in-JS
+
+If you are a CSS-in-JS library such as [styled-components](https://styled-components.com/) or [emotion](https://emotion.sh/), you can use the following
+example to override the styles of a component:
+
+
+```jsx
+import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import styled from 'styled-components';
+
+const StyledCard = styled(Card)`
+  width: 240px;
+  height: 240px;
+  background: linear-gradient(to bottom right, violet, fuchsia);
+`;
+
+const StyledCardBody = styled(CardBody)`
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0;
+`;
+
+const StyledCircularProgress = styled(CircularProgress).attrs({
+  classNames: {
+    svg: 'w-36 h-36 drop-shadow-md',
+    indicator: 'stroke-white',
+    track: 'stroke-white/10',
+    value: 'text-3xl font-semibold text-white',
+  }
+})``;
+
+export default function App() {
+  return (
+    <StyledCard>
+      <StyledCardBody>
+        <StyledCircularProgress
+          value={70}
+          strokeWidth={4}
+          showValueLabel={true}
+        />
+      </StyledCardBody>
+    </StyledCard>
+  );
+}
+```
+
+In this example, the `StyledCard`, `StyledCardBody`, and `StyledCircularProgress` components have 
+the combined styles of the original components and the custom styles defined in the template 
+strings. The `.attrs` method is used to add the classNames prop to the StyledCircularProgress 
+component.

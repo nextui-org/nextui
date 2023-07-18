@@ -11,9 +11,16 @@ Requirements:
 - [Tailwind CSS 3](https://tailwindcss.com/) or later
 - [Framer Motion 4](https://www.framer.com/motion/) or later
 
-------
+---
 
 To use NextUI in your project, you need to follow the following steps:
+
+## Global Installation
+
+The easiest way to get started with NextUI is to use the global installation. Which means
+that all the components are imported from a single package.
+
+Follow the steps below to install all NextUI components:
 
 <Steps>
 
@@ -23,47 +30,45 @@ To install NextUI, run one of the following commands in your terminal:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react@dev-v2 framer-motion',
-    yarn: 'yarn add @nextui-org/react@dev-v2 framer-motion',
-    pnpm: 'pnpm add @nextui-org/react@dev-v2 framer-motion',
+    npm: "npm i @nextui-org/react@dev-v2 framer-motion",
+    yarn: "yarn add @nextui-org/react@dev-v2 framer-motion",
+    pnpm: "pnpm add @nextui-org/react@dev-v2 framer-motion",
   }}
 />
 
 ### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
-[installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add 
+[installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
-
 
 ```js {8,13-14}
 // tailwind.config.js
-const { nextui } = require("@nextui-org/react");
+const {nextui} = require("@nextui-org/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
-}
+  plugins: [nextui()],
+};
 ```
 
 ### Provider Setup
 
 It is essential to add the `NextUIProvider` at the `root` of your application.
 
-
 ```jsx
-import * as React from 'react'
+import * as React from "react";
 
 // 1. import `NextUIProvider` component
-import {NextUIProvider} from '@nextui-org/react'
+import {NextUIProvider} from "@nextui-org/react";
 
 function App() {
   // 2. Wrap NextUIProvider at the root of your app
@@ -71,7 +76,7 @@ function App() {
     <NextUIProvider>
       <YourApplication />
     </NextUIProvider>
-  )
+  );
 }
 ```
 
@@ -87,10 +92,123 @@ After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 </Steps>
 
-<Blockquote
- color="warning"
->
-  Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please use <Link href="https://v1.nextui.org/docs/getting-started" isExternal>version 1 of NextUI</Link>.
+## Individual Installation
+
+NextUI is also available as individual packages. You can install each package separately. This
+is useful if you want to reduce the size of your CSS bundle as it will only include styles for the components
+you're actually using.
+
+> **Note**: JavaScript bundle size will not change due to tree shaking support in NextUI.
+
+Follow the steps below to install each package separately:
+
+<Steps>
+
+### Install Core Packages
+
+Although you can install each package separately, you need to install the core packages first
+to ensure that all components work correctly.
+
+Run one of the following commands in your terminal to install the core packages:
+
+<PackageManagers
+  commands={{
+    npm: "npm i @nextui-org/theme @nextui-org/system framer-motion",
+    yarn: "yarn add @nextui-org/theme @nextui-org/system framer-motion",
+    pnpm: "pnpm add @nextui-org/theme @nextui-org/system framer-motion",
+  }}
+/>{" "}
+
+### Install Component
+
+Now, let's install the component you want to use. For example, if you want to use the
+[Button](/docs/components/button) component, you need to run one of the following commands
+in your terminal:
+
+<PackageManagers
+  commands={{
+    npm: "npm i @nextui-org/button",
+    yarn: "yarn add @nextui-org/button",
+    pnpm: "pnpm add @nextui-org/button",
+  }}
+/>
+
+### Tailwind CSS Setup
+
+TailwindCSS setup changes a bit when you use individual packages. You only need to add the
+styles of the components your using to your `tailwind.config.js` file. For example, for the
+[Button](/docs/components/button) component, you need to add the following code to your
+`tailwind.config.js` file:
+
+```js {8,13-14}
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    "./node_modules/@nextui-org/button/dist/button.js", // <- single component styles
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [nextui()],
+};
+```
+
+### Provider Setup
+
+It is essential to add the `NextUIProvider` at the `root` of your application.
+
+```jsx
+import * as React from "react";
+
+// 1. import `NextUIProvider` component
+import {NextUIProvider} from "@nextui-org/system";
+
+function App() {
+  // 2. Wrap NextUIProvider at the root of your app
+  return (
+    <NextUIProvider>
+      <YourApplication />
+    </NextUIProvider>
+  );
+}
+```
+
+### Use the Component
+
+Now, you can use the component you installed in your application:
+
+```jsx
+import * as React from "react";
+import {Button} from "@nextui-org/button";
+
+function App() {
+  return (
+    <Button>Press me</Button>
+  );
+}
+```
+
+
+### Setup pnpm (optional)
+
+If you are using pnpm, you need to add the following code to your `.npmrc` file:
+
+```bash
+public-hoist-pattern[]=*@nextui-org/theme*
+```
+
+After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+
+</Steps>
+
+<Blockquote color="warning">
+  Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please
+  use <Link href="https://v1.nextui.org/docs/getting-started" isExternal> version 1 of NextUI</Link>.
 </Blockquote>
 
 ## Framework Guides

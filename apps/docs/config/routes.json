@@ -19,6 +19,12 @@
           "path": "/docs/guide/installation.mdx"
         },
         {
+          "key": "design-principles",
+          "title": "Design Principles",
+          "keywords": "design principles, nextui",
+          "path": "/docs/guide/design-principles.mdx"
+        },
+        {
           "key": "upgrade-to-v2",
           "title": "Upgrade to v2",
           "keywords": "upgrade, v2, nextui",

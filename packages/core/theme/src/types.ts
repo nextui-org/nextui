@@ -156,7 +156,7 @@ export interface LayoutTheme {
 export type ConfigTheme = {
   extend?: "light" | "dark";
   layout?: LayoutTheme;
-  colors?: ThemeColors;
+  colors?: Partial<ThemeColors>;
 };
 
 export type ConfigThemes = Record<string, ConfigTheme>;

@@ -28,16 +28,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-This will enable the dark mode for the whole application. But we know that applications
-not always have only one theme, you usually need a way to switch between themes. To do so
-we recommend to use a `theme` switch library or create your own. 
+This will enable the dark mode for the whole application. However, many applications require 
+the capability to switch between different themes. For this purpose, we recommend using a 
+theme switch library or creating your own implementation.
 
 ## Using next-themes
 
-If you're using [Next.js](/docs/frameworks/nextjs) the best option at the moment is to use [next-themes](https://github.com/pacocoursey/next-themes)
-library. It comes with features that improves the experience of switching between themes. 
+For applications using [Next.js](/docs/frameworks/nextjs), the [next-themes](https://github.com/pacocoursey/next-themes)
+library is an excellent choice. It comes packed with features that enhance the user experience
+when transitioning between themes.
 
-> See the [next-themes](https://github.com/pacocoursey/next-themes) documentation for more details.
+> For more information, refer to the [next-themes](https://github.com/pacocoursey/next-themes) documentation.
 
 ### Next.js App Directory Setup
 
@@ -199,6 +200,24 @@ Install `use-dark-mode` in your project.
   }}
 /> 
 
+### Add the current theme to the main element
+
+```jsx
+// App.tsx or App.jsx
+import React from "react";
+import useDarkMode from "use-dark-mode";
+
+export default function App() {
+  const darkMode = useDarkMode(false);
+
+  return (
+    <main className={`${darkMode.value ? 'dark' : ''} text-foreground bg-background`}>
+      <App />
+    </main>
+  )
+}
+```
+
 ### Add the theme switcher
 
 Add the theme switcher to your app.
@@ -219,23 +238,7 @@ export const ThemeSwitcher = () => {
 };
 ```
 
-### Add the current theme to the main element
 
-```jsx
-// App.tsx or App.jsx
-import React from "react";
-import useDarkMode from "use-dark-mode";
-
-export default function App() {
-  const darkMode = useDarkMode(false);
-
-  return (
-    <main className={`${darkMode.value ? 'dark' : ''} text-foreground bg-background`}>
-      <App />
-    </main>
-  )
-}
-```
 
 > **Note**: You can use any theme name you want, but make sure it exits in your
 `tailwind.config.js` file. See [Create Theme](/docs/customization/create-theme) for more details.

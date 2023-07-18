@@ -2,8 +2,8 @@ const App = `import {CircularProgress, Card, CardBody, CardFooter, Chip} from "@
 
 export default function App() {
   return (
-    <Card className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
-      <CardBody className="justify-center items-center pb-0">
+    <Card className="w-[240px] h-[240px] bg-gradient-to-br from-violet-500 to-fuchsia-500">
+      <CardBody className="justify-center items-center py-0">
         <CircularProgress
           classNames={{
             svg: "w-36 h-36 drop-shadow-md",

@@ -1,12 +1,13 @@
 ---
 title: Colors
-description: NextUI colors configuration.
+description: Learn how to configure and customize colors with NextUI.
 ---
 
 # Colors
 
-The `nextui` plugin allows you to customize the semantic colors of the theme, for example, the `primary`,
-`secondary`, `success`, etc...
+NextUI's plugin enables you to personalize the semantic colors of the theme such as `primary`,
+`secondary`, `success`, etc.
+
 
 ```js {7,11}
 module.exports = {
@@ -28,25 +29,25 @@ module.exports = {
 };
 ```
 
-> Colors options are applied to all components.
+> **Note**: Colors configurations apply globally across all components.
 
 ## Default Colors
 
-NextUI includes a default color palette out-of-the-box that is a great starting point if you don't have your
-own specific branding in mind.
+NextUI offers a default color palette right out of the box, perfect for when you're 
+still undecided about your specific branding colors.
 
-They are separated into [Common Colors](#common-colors) and [Semantic Colors](#semantic-colors).
+These colors are split into [Common Colors](#common-colors) and [Semantic Colors](#semantic-colors).
 
-- [Common Colors](#common-colors) colors that are always the same, they don't change with the theme.
-- [Semantic Colors](#semantic-colors) colors that change with the theme.
+- [Common Colors](#common-colors): Consistent across themes.
+- [Semantic Colors](#semantic-colors): Adjust according to the chosen theme.
 
 ### Common Colors
 
-You can see the common colors as the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors
-they don't change with the theme, they are always the same. They extend the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors.
+Common colors, like [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors, 
+remain consistent regardless of the theme. 
 
-Common colors are omitted by default to avoid conflicts with the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors.
-You can enable them with the `addCommonColors` option.
+To prevent conflicts with TailwindCSS colors, common colors are initially disabled but can 
+be activated with the `addCommonColors` option.
 
 ```js {4}
 module.exports = {
@@ -58,7 +59,7 @@ module.exports = {
 };
 ```
 
-It will add the following colors to the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) colors.
+Enabling this option supplements some TailwindCSS default colors with the following:
 
 ```js
 module.exports = {
@@ -88,28 +89,16 @@ module.exports = {
 
 <CommonColors />
 
-> Common colors replace some of the [TailwindCSS](https://tailwindcss.com/docs/customizing-colors) default colors.
-> See the [Removing Common Colors](#removing-common-colors) section to disable this feature.
-
-You can also import the common colors in your JavaScript files.
-
-```js
-import {commonColors} from "@nextui-org/theme";
-
-console.log(commonColors.white); // #FFFFFF
-console.log(commonColors.blue[500]); // #006FEE
-```
-
 ### Semantic Colors
 
-Semantic colors automatically change with the theme, they help communicate meaning and reinforce the brand.
+Semantic colors adapt with the theme, delivering meaning and reinforcing your brand identity.
 
-We recommend adding a palette that ranges from `50` to `900`. You can use tools like [Eva Design System](https://colors.eva.design/),
+For an effective palette, we recommend using color ranges from `50` to `900`. You can use tools like [Eva Design System](https://colors.eva.design/),
 [Smart Watch](https://smart-swatch.netlify.app/), [Palette](https://palettte.app/) or [Color Box](https://colorbox.io/) to generate your palette.
 
-> Semantic colors are placed inside the `nextui` plugin options and not inside the TailwindCSS `theme` object.
+> Semantic colors should be placed inside the `nextui` plugin options, not inside the TailwindCSS theme object.
 
-```js {7-13,19-25,32-36}
+```js {7-13,19-25,33-37}
 module.exports = {
   plugins: [
     nextui({
@@ -164,8 +153,8 @@ module.exports = {
 
 ### Using Semantic Colors
 
-Semantic colors are available to use everywhere in your preoject where you use colors,
-like the text color utilities, border color utilities, background color utilities, and more.
+Semantic colors can be applied anywhere in your project where colors are used, such as 
+text color, border color, background color utilities, and more.
 
 ```html
 <div class="bg-primary-500 text-primary-50 rounded-small px-unit-2 py-unit-1">
@@ -183,10 +172,13 @@ import semanticColorsExample from "@/content/customization/colors/semantic-color
 
 ### Javascript Variables
 
-You can also import the semantic colors in your JavaScript files.
+Import semantic and common colors into your JavaScript files as follows:
 
 ```js
-import {semanticColors} from "@nextui-org/theme";
+import {commonColors, semanticColors} from "@nextui-org/theme";
+
+console.log(commonColors.white); // #FFFFFF
+console.log(commonColors.blue[500]); // #006FEE
 
 console.log(semanticColors.dark.warning.DEFAULT); // #FFC107
 console.log(semanticColors.light.primary.DEFAULT); // #006FEE

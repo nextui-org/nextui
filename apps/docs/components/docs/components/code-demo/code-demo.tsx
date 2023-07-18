@@ -107,6 +107,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         className={className}
         code={code}
         gradientColor={gradientColor}
+        height={previewHeight}
         isCentered={isPreviewCentered}
         isGradientBox={isGradientBox}
         noInline={noInline}
@@ -115,7 +116,16 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     );
 
     return renderContent(content);
-  }, [displayMode, previewHeight, asIframe, showPreview, isInView, className]);
+  }, [
+    displayMode,
+    isGradientBox,
+    gradientColor,
+    previewHeight,
+    asIframe,
+    showPreview,
+    isInView,
+    className,
+  ]);
 
   const editorContent = useMemo(() => {
     if (!showEditor) return null;

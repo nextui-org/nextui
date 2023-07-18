@@ -9,6 +9,7 @@ import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
 export interface ReactLiveDemoProps {
   code: string;
   noInline?: boolean;
+  height?: string | number;
   isCentered?: boolean;
   isGradientBox?: boolean;
   className?: string;
@@ -25,6 +26,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   isGradientBox,
   gradientColor = "orange",
   isCentered = false,
+  height,
   className,
   noInline,
 }) => {
@@ -34,6 +36,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
         className={clsx("live-preview flex h-full w-full not-prose", {
           "justify-center items-center": isCentered,
         })}
+        style={{height}}
       />
       <LiveError />
     </>

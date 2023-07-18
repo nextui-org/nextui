@@ -5,11 +5,12 @@ description: NextUI offers a set of layout options to customize the theme.
 
 # Layout
 
-The `nextui` plugin allows you to customize the layout for each theme. You can change the spacing units,
-the font sizes, the line heights, radius and more.
+NextUI's plugin provides a variety of layout customization options. Alter spacing units, 
+font sizes, line heights, radii and more to personalize each theme to your liking. 
 
-Layout tokens guarantee a consistent look and feel across the components without the need to customize the
-default Tailwind CSS theme.
+Using layout tokens, you can ensure a uniform aesthetic across all components without 
+needing to override the default Tailwind CSS configuration.
+
 
 ```js {4,7,11}
 module.exports = {
@@ -108,9 +109,8 @@ module.exports = {
 
 ## Units
 
-Units tokens define consistent spacing, padding, margin, gap and sizes across the components.
-
-NextUI automatically generates the following units based on the `spacingUnit` token, which is `4px` by default:
+Units tokens define consistent spacing, padding, margin, gap and sizes across the components. Based on the 
+`spacingUnit` token (default 4px), NextUI auto-generates the following units:
 
 ```ts
 // spacingUnit = 4px
@@ -183,7 +183,7 @@ export const MyButton = () => {
 };
 ```
 
-> If you change the `spacingUnit` token, the units will be updated automatically.
+> **Remember**: Any changes to the `spacingUnit` token will automatically update the units.
 
 ### CSS Variables
 
