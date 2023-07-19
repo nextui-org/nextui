@@ -95,6 +95,7 @@ module.exports = {
             },
             "h2 a": {
               fontSize: `${theme("fontSize.2xl")[0]} !important`,
+              fontWeight: theme("fontWeight.semibold"),
               ...theme("fontSize.2xl")[1],
             },
             "h3 a": {

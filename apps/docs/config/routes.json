@@ -104,6 +104,11 @@
           "key": "override-styles",
           "title": "Override styles",
           "path": "/docs/customization/override-styles.mdx"
+        },
+        {
+          "key": "custom-variants",
+          "title": "Custom variants",
+          "path": "/docs/customization/custom-variants.mdx"
         }
       ]
     },
