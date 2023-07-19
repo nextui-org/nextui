@@ -173,7 +173,7 @@ const toggle = tv({
       disableAnimation: false,
       size: "sm",
       class: {
-        thumb: ["group-data-[pressed=true]:w-5", "group-data-[selected]:group-data-[pressed]:ml-4"],
+        thumb: ["group-data-[pressed=true]:w-5", "group-data-[selected]:group-data-[pressed]:ml-3"],
       },
     },
     {
