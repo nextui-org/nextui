@@ -99,6 +99,7 @@ export function useChip(originalProps: UseChipProps) {
         hasStartContent,
         hasEndContent,
         isOneChar,
+        isCloseable,
         isCloseButtonFocusVisible,
       }),
     [
@@ -107,6 +108,7 @@ export function useChip(originalProps: UseChipProps) {
       hasStartContent,
       hasEndContent,
       isOneChar,
+      isCloseable,
     ],
   );
 
