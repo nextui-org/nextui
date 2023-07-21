@@ -4,5 +4,5 @@ export * from "./colors";
 export * from "./plugin";
 export * from "./types";
 
-export {tv} from "tailwind-variants";
-export type {VariantProps} from "tailwind-variants";
+export {tv} from "./utils/tv";
+export type {VariantProps, TV} from "tailwind-variants";

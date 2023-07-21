@@ -1,17 +1,32 @@
-import type {As, RightJoinProps, PropsOf, ComponentWithAs} from "./types";
+import type {As, RightJoinProps, PropsOf, ComponentWithAs, TVReturnType} from "./types";
 
 import clsx from "clsx";
 import {forwardRef as baseForwardRef} from "react";
 
-export function forwardRef<Props extends object, Component extends As>(
+export function forwardRef<
+  Props extends object,
+  Component extends As,
+  TVRT extends TVReturnType = () => any,
+>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
       as?: As;
     }
   >,
+  tvReturn?: TVRT,
 ) {
-  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props>;
+  const componentWithAs = baseForwardRef(component) as unknown as ComponentWithAs<
+    Component,
+    Props,
+    TVRT
+  >;
+
+  // Tailwind-Variants return props
+  componentWithAs.variants = tvReturn?.variants;
+  componentWithAs.variantKeys = tvReturn?.variantKeys;
+
+  return componentWithAs;
 }
 
 export const toIterator = (obj: any) => {
@@ -53,6 +68,30 @@ export const mapPropsVariants = <T extends Record<string, any>, K extends keyof 
   const picked = variantKeys.reduce((acc, key) => ({...acc, [key]: props[key]}), {});
 
   return [omitted, picked] as [Omit<T, K>, Pick<T, K>];
+};
+
+export const mapPropsVariantsWithCommon = <
+  P extends Record<any, any>,
+  VK extends keyof P,
+  CK extends keyof P = never,
+>(
+  originalProps: P,
+  variantKeys: VK[],
+  commonKeys?: CK[],
+) => {
+  const props = Object.keys(originalProps)
+    .filter((key) => !variantKeys.includes(key as VK) || commonKeys?.includes(key as CK))
+    .reduce((acc, key) => ({...acc, [key]: originalProps[key as keyof P]}), {}) as Omit<
+    P,
+    Exclude<VK, CK>
+  >;
+
+  const variants = variantKeys.reduce(
+    (acc, key) => ({...acc, [key]: originalProps[key]}),
+    {},
+  ) as Pick<P, VK>;
+
+  return [props, variants] as const;
 };
 
 /**

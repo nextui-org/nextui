@@ -18,9 +18,7 @@ import {useRipple} from "@nextui-org/ripple";
 
 import {useButtonGroupContext} from "./button-group-context";
 
-export interface UseButtonProps
-  extends HTMLNextUIProps<"button", Omit<AriaButtonProps, keyof ButtonVariantProps>>,
-    Omit<ButtonVariantProps, "isInGroup"> {
+interface Props extends HTMLNextUIProps<"button"> {
   /**
    * Ref to the DOM node.
    */
@@ -54,6 +52,10 @@ export interface UseButtonProps
    */
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export type UseButtonProps = Props &
+  Omit<AriaButtonProps, keyof ButtonVariantProps> &
+  Omit<ButtonVariantProps, "isInGroup">;
 
 export function useButton(props: UseButtonProps) {
   const groupContext = useButtonGroupContext();

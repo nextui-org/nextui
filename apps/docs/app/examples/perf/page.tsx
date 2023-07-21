@@ -3,15 +3,17 @@
 import {
   RadioGroup,
   Radio,
-  Accordion,
-  Tabs,
-  Tab,
-  Textarea,
-  Input,
-  AccordionItem,
+  // Accordion,
+  // Tabs,
+  // Tab,
+  // Textarea,
+  // Input,
+  // AccordionItem,
   Button,
 } from "@nextui-org/react";
 import {useState} from "react";
+
+import {CustomButtonVariants} from "@/components/demos/custom-button-variants";
 
 const MyRadioGroup = () => {
   const [radio, setRadio] = useState("1");
@@ -85,13 +87,13 @@ const MyRadioGroup = () => {
 };
 
 export default function NextUIPerf() {
-  const [textA, setTextA] = useState("");
-  const [textB, setTextB] = useState("");
-  const [textC, setTextC] = useState("");
+  // const [textA, setTextA] = useState("");
+  // const [textB, setTextB] = useState("");
+  // const [textC, setTextC] = useState("");
 
   return (
     <div className="w-full p-24 gap-4 flex flex-col">
-      <Accordion>
+      {/* <Accordion>
         <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
           Non est aliqua tempor occaecat laborum. Lorem culpa minim irure mollit. Est qui
           reprehenderit commodo magna proident anim ipsum ex. Mollit id amet officia nisi excepteur
@@ -147,7 +149,9 @@ export default function NextUIPerf() {
       <Textarea label="Text B" placeholder="Text B" value={textB} onValueChange={setTextB} />
       <Textarea label="Text C" placeholder="Text C" value={textC} onValueChange={setTextC} />
 
-      <MyRadioGroup />
+      <MyRadioGroup /> */}
+
+      <CustomButtonVariants />
 
       <Button>Click Me!</Button>
     </div>

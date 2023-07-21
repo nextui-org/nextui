@@ -2057,6 +2057,9 @@ importers:
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
+      tailwind-variants:
+        specifier: ^0.1.13
+        version: 0.1.13(tailwindcss@3.2.7)
     devDependencies:
       clean-package:
         specifier: 2.2.0

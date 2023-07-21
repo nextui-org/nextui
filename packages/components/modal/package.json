@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/modal",
-  "version": "0.0.0-dev-v2-20230718133109",
+  "version": "0.0.0-dev-v2-20230719131057",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"

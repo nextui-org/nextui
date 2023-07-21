@@ -14,3 +14,5 @@ export * from "./button-group-context";
 
 // export component
 export {Button, ButtonGroup};
+
+export * from "./button2";
