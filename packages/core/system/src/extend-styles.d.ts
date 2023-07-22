@@ -1,61 +1,59 @@
-import type {ClassValue} from "tailwind-variants";
-import type {ForwardRefRenderFunction, ReactElement} from "react";
-
-/**
- * Legend:
- *
- * C = Component
- * V = Variants
- * CP = Component Props
- * OV = Original Variants
- * CV = Composed Variants
- */
+import type {ClassValue, StringToBoolean, OmitUndefined} from "tailwind-variants";
+import type {ForwardRefRenderFunction, JSXElementConstructor, ReactElement} from "react";
 
 type Variants = {[K: string]: {[P: string]: ClassValue}};
 
-type ComposeVariants<C extends ComponentType<any>, OV = C["variants"]> =
-  | {
-      [K in keyof OV]?:
-        | {
-            [K2 in keyof OV[K]]?: ClassValue;
-          };
-    }
-  | Variants;
+type ComponentProps<C> = C extends JSXElementConstructor<infer P> ? P : never;
 
-type GetVariantProps<V> = {
-  [K in keyof V]?: StringToBoolean<keyof V[K]>;
-};
+type ValidateSubtype<T, U> = OmitUndefined<T> extends U ? "true" : "false";
 
-type MergeProps<T, U> = {
-  [K in keyof T | keyof U]: K extends keyof T
-    ? K extends keyof U
-      ? T[K] | U[K]
-      : T[K]
-    : K extends keyof U
-    ? U[K]
+type SuggestedVariants<CP> = {
+  [K in keyof CP]?: ValidateSubtype<CP[K], string> extends "true"
+    ? {[K2 in CP[K]]?: ClassValue}
+    : ValidateSubtype<CP[K], boolean> extends "true"
+    ? {
+        true?: ClassValue;
+        false?: ClassValue;
+      }
     : never;
 };
 
-type ExtendProps<
-  CP,
-  VP,
-  // C extends ComponentType<any>,
-  // // CV extends ComposeVariants<C>,
-  // CV extends Variants,
-  // OV extends C["variants"] = C["variants"],
-  // CP extends object = React.ComponentProps<C>,
-  // VP extends object = GetVariantProps<CV>,
-> = CP | VP;
+type ComposeVariants<CP> = SuggestedVariants<CP> | Variants;
 
-type ComponentType<P extends object = {}> = ComponentWithAs<"button", P>;
+type DefaultVariants<
+  CP,
+  V extends ComposeVariants<CP> = ComposeVariants<CP>,
+  SV extends SuggestedVariants<CP> = SuggestedVariants<CP>,
+> = {
+  [K in keyof V | keyof SV]?:
+    | (K extends keyof V ? StringToBoolean<keyof V[K]> : never)
+    | (K extends keyof SV
+        ? ValidateSubtype<SV[K], object> extends "true"
+          ? keyof OmitUndefined<SV[K]>
+          : never
+        : never);
+};
 
 export type extendStyles = {
-  <C extends ComponentType<any>, V extends Variants>(
+  <
+    C extends JSXElementConstructor<any>,
+    CP extends ComponentProps<C>,
+    V extends ComposeVariants<CP>,
+    DV extends DefaultVariants<CP, V>,
+  >(
     BaseComponent: C,
-    styles: {base?: string; variants?: V},
+    styles: {
+      base?: ClassValue;
+      variants?: V;
+      defaultVariants?: DV;
+    },
   ): ForwardRefRenderFunction<
     ReactElement,
-    ExtendProps<React.ComponentProps<C>, GetVariantProps<V>>
+    {
+      [key in keyof CP | keyof V]?:
+        | (key extends keyof CP ? CP[key] : never)
+        | (key extends keyof V ? StringToBoolean<keyof V[key]> : never);
+    }
   >;
 };
 

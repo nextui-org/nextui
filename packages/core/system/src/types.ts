@@ -6,13 +6,6 @@ export type As<Props = any> = React.ElementType<Props>;
 export type DOMElements = keyof JSX.IntrinsicElements;
 export type CapitalizedDOMElements = Capitalize<DOMElements>;
 
-export type TVReturnProps = Partial<{
-  variants: any;
-  variantKeys: string[];
-}>;
-
-export type TVReturnType = ((...args: any) => any) & TVReturnProps;
-
 export interface NextUIProps {
   /**
    * The HTML element to render.
@@ -55,11 +48,7 @@ export type MergeWithAs<
     as?: AsComponent;
   };
 
-export type ComponentWithAs<
-  Component extends As,
-  Props extends object = {},
-  TVRT extends TVReturnType = () => any,
-> = {
+export type ComponentWithAs<Component extends As, Props extends object = {}> = {
   <AsComponent extends As = Component>(
     props: MergeWithAs<
       React.ComponentProps<Component>,
@@ -70,8 +59,6 @@ export type ComponentWithAs<
   ): JSX.Element;
 
   displayName?: string;
-  variants?: TVRT["variants"];
-  variantKeys?: TVRT["variantKeys"];
   propTypes?: React.WeakValidationMap<any>;
   defaultProps?: Partial<any>;
 };

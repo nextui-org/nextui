@@ -1,32 +1,17 @@
-import type {As, RightJoinProps, PropsOf, ComponentWithAs, TVReturnType} from "./types";
+import type {As, RightJoinProps, PropsOf, ComponentWithAs} from "./types";
 
 import clsx from "clsx";
 import {forwardRef as baseForwardRef} from "react";
 
-export function forwardRef<
-  Props extends object,
-  Component extends As,
-  TVRT extends TVReturnType = () => any,
->(
+export function forwardRef<Props extends object, Component extends As>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
       as?: As;
     }
   >,
-  tvReturn?: TVRT,
 ) {
-  const componentWithAs = baseForwardRef(component) as unknown as ComponentWithAs<
-    Component,
-    Props,
-    TVRT
-  >;
-
-  // Tailwind-Variants return props
-  componentWithAs.variants = tvReturn?.variants;
-  componentWithAs.variantKeys = tvReturn?.variantKeys;
-
-  return componentWithAs;
+  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props>;
 }
 
 export const toIterator = (obj: any) => {

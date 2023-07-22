@@ -1,13 +1,12 @@
 import {Spinner} from "@nextui-org/spinner";
 import {Ripple} from "@nextui-org/ripple";
-import {button} from "@nextui-org/theme";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 
 import {UseButtonProps, useButton} from "./use-button";
 
 export interface ButtonProps extends Omit<UseButtonProps, "ref"> {}
 
-const Button = forwardRef<ButtonProps, "button", typeof button>((props, ref) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     Component,
     domRef,
@@ -37,7 +36,7 @@ const Button = forwardRef<ButtonProps, "button", typeof button>((props, ref) => 
       {!disableRipple && <Ripple ripples={ripples} />}
     </Component>
   );
-}, button);
+});
 
 Button.displayName = "NextUI.Button";
 

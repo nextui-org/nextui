@@ -25,11 +25,11 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src --dts",
+    "build": "tsup src !src/extend-styles.d.ts --dts",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
+    "build:fast": "tsup src !src/extend-styles.d.ts",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -50,6 +50,7 @@
     ]
   },
   "dependencies": {
+    "@nextui-org/theme": "workspace:*",
     "tailwind-variants": "^0.1.13",
     "@react-aria/i18n": "^3.8.0",
     "@react-aria/overlays": "^3.15.0",

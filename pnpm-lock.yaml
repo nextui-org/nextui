@@ -2048,6 +2048,9 @@ importers:
 
   packages/core/system:
     dependencies:
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../theme
       '@react-aria/i18n':
         specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
