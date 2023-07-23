@@ -100,7 +100,7 @@ export const useSandpack = ({
       while ((match = importRegex.exec(fileContent)) !== null) {
         const dependencyName = match[1];
 
-        if (!dependencies.hasOwnProperty(dependencyName)) {
+        if (!dependencies.hasOwnProperty(dependencyName) && !dependencyName.includes("./")) {
           // add the dependency to the dependencies object with version 'latest'
           // @ts-ignore
           dependencies[dependencyName] = "latest";
