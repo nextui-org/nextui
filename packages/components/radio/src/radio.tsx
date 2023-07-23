@@ -1,11 +1,11 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {UseRadioProps, useRadio} from "./use-radio";
 
 export interface RadioProps extends Omit<UseRadioProps, "ref"> {}
 
-const Radio = forwardRef<RadioProps, "label">((props, ref) => {
+const Radio = forwardRef<HTMLLabelElement, RadioProps>((props, ref) => {
   const {
     Component,
     children,

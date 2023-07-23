@@ -1,10 +1,10 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 
 import {UseSpinnerProps, useSpinner} from "./use-spinner";
 
 export interface SpinnerProps extends UseSpinnerProps {}
 
-const Spinner = forwardRef<SpinnerProps, "div">((props, ref) => {
+const Spinner = forwardRef<HTMLElement, SpinnerProps>((props, ref) => {
   const {domRef, slots, classNames, label, getSpinnerProps} = useSpinner({ref, ...props});
 
   return (

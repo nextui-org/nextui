@@ -30,7 +30,7 @@ describe("Button", () => {
 
   it("should ignore events when disabled", () => {
     const onPress = jest.fn();
-    const {getByRole} = render(<Button disableRipple disabled onPress={onPress} />);
+    const {getByRole} = render(<Button disableRipple isDisabled onPress={onPress} />);
 
     act(() => {
       getByRole("button").click();

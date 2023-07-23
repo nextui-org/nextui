@@ -1,8 +1,7 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {cloneElement, isValidElement, ReactNode, useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {cloneElement, isValidElement, ReactNode, useMemo, forwardRef} from "react";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {CloseIcon} from "@nextui-org/shared-icons";
@@ -10,16 +9,19 @@ import {RemoveScroll} from "react-remove-scroll";
 import {motion} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
+import {HTMLNextUIProps} from "@nextui-org/system";
 
 import {useModalContext} from "./modal-context";
 import {scaleInOut} from "./modal-transition";
 
-export interface ModalContentProps extends AriaDialogProps {
+export interface ModalContentProps
+  extends AriaDialogProps,
+    Omit<HTMLNextUIProps<"div">, "children" | "role"> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
-const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
-  const {as, children, ...otherProps} = props;
+const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>((props, _) => {
+  const {as, children, role = "dialog", ...otherProps} = props;
 
   const {
     Component: DialogComponent,
@@ -39,11 +41,11 @@ const ModalContent = forwardRef<ModalContentProps, "section">((props, _) => {
     onClose,
   } = useModalContext();
 
-  const Component = as || DialogComponent || "section";
+  const Component = as || DialogComponent || "div";
 
   const {dialogProps} = useDialog(
     {
-      role: "dialog",
+      role,
     },
     dialogRef,
   );

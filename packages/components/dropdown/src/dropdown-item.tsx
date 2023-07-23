@@ -1,5 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
-import {useMemo, ReactNode} from "react";
+import {useMemo, ReactNode, forwardRef} from "react";
 
 import {UseDropdownItemProps, useDropdownItem} from "./use-dropdown-item";
 import {DropdownSelectedIcon} from "./dropdown-selected-icon";
@@ -9,7 +8,7 @@ export interface DropdownItemProps<T extends object = object> extends UseDropdow
 /**
  * @internal
  */
-const DropdownItem = forwardRef<DropdownItemProps, "li">((props, _) => {
+const DropdownItem = forwardRef<HTMLLIElement, DropdownItemProps>((props, _) => {
   const {
     Component,
     slots,

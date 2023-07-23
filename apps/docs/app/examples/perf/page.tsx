@@ -10,6 +10,7 @@ import {
   Input,
   Tab,
   AccordionItem,
+  extendVariants,
 } from "@nextui-org/react";
 import {useState} from "react";
 
@@ -84,6 +85,28 @@ const MyRadioGroup = () => {
   );
 };
 
+const MyButton2 = extendVariants(Button, {
+  variants: {
+    color: {
+      foreground:
+        "bg-foreground text-background data-[hover=true]:bg-foreground/90 data-[pressed=true]:bg-foreground/80",
+    },
+    isScalable: {
+      true: "scale-125",
+      false: "",
+    },
+    size: {
+      xl: "size--xl",
+      "2xl": "size--2xl",
+    },
+    mySize: {
+      lg: "px-12 py-6 text-lg",
+      xl: "px-12 py-6 text-xl",
+    },
+  },
+  defaultVariants: {},
+});
+
 export default function NextUIPerf() {
   const [textA, setTextA] = useState<string | undefined>("");
   const [textB, setTextB] = useState<string | undefined>("");
@@ -150,6 +173,10 @@ export default function NextUIPerf() {
       <MyRadioGroup />
 
       <Button>Click Me!</Button>
+
+      <MyButton2 disableRipple color="foreground">
+        Press Me!
+      </MyButton2>
     </div>
   );
 }

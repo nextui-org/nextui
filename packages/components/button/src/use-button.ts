@@ -1,5 +1,5 @@
 import type {ButtonVariantProps} from "@nextui-org/theme";
-import type {AriaButtonProps} from "@react-types/button";
+import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
 
@@ -7,7 +7,7 @@ import {dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {MouseEventHandler, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {chain, mergeProps} from "@react-aria/utils";
+import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
@@ -47,6 +47,11 @@ interface Props extends HTMLNextUIProps<"button"> {
    */
   spinnerPlacement?: "start" | "end";
   /**
+   * Whether the button should display a loading spinner.
+   * @default false
+   */
+  isLoading?: boolean;
+  /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
    */
@@ -77,7 +82,7 @@ export function useButton(props: UseButtonProps) {
     disableAnimation = groupContext?.disableAnimation ?? false,
     radius = groupContext?.radius,
     disableRipple = groupContext?.disableRipple ?? false,
-    isDisabled = groupContext?.isDisabled ?? false,
+    isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     isIconOnly = groupContext?.isIconOnly ?? false,
     isLoading = false,
     spinnerPlacement = "start",
@@ -94,6 +99,8 @@ export function useButton(props: UseButtonProps) {
     autoFocus,
   });
 
+  const isDisabled = isDisabledProp || isLoading;
+
   const styles = useMemo(
     () =>
       button({
@@ -106,7 +113,6 @@ export function useButton(props: UseButtonProps) {
         isInGroup,
         disableAnimation,
         isIconOnly,
-        isLoading,
         className,
       }),
     [
@@ -117,7 +123,6 @@ export function useButton(props: UseButtonProps) {
       fullWidth,
       isDisabled,
       isInGroup,
-      isLoading,
       isIconOnly,
       disableAnimation,
       className,
@@ -155,7 +160,13 @@ export function useButton(props: UseButtonProps) {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hover": dataAttr(isHovered),
       "data-loading": dataAttr(isLoading),
-      ...mergeProps(ariaButtonProps, focusProps, hoverProps, otherProps, props),
+      ...mergeProps(
+        ariaButtonProps,
+        focusProps,
+        hoverProps,
+        filterDOMProps(otherProps, {labelable: true}),
+        filterDOMProps(props, {labelable: true}),
+      ),
     }),
     [
       isLoading,

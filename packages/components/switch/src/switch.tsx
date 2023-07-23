@@ -1,12 +1,11 @@
-import {forwardRef} from "@nextui-org/system";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
-import {cloneElement, ReactElement} from "react";
+import {cloneElement, ReactElement, forwardRef} from "react";
 
 import {UseSwitchProps, useSwitch} from "./use-switch";
 
 export interface SwitchProps extends Omit<UseSwitchProps, "ref"> {}
 
-const Switch = forwardRef<SwitchProps, "div">((props, ref) => {
+const Switch = forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
   const {
     Component,
     children,

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 import {pickChildren} from "@nextui-org/react-utils";
 import {motion} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
@@ -12,7 +12,7 @@ export interface NavbarProps extends Omit<UseNavbarProps, "ref" | "hideOnScroll"
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const Navbar = forwardRef<NavbarProps, "div">((props, ref) => {
+const Navbar = forwardRef<HTMLDivElement, NavbarProps>((props, ref) => {
   const {children, ...otherProps} = props;
 
   const context = useNavbar({ref, ...otherProps});

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {AnimatePresence, motion, useWillChange} from "framer-motion";
@@ -8,7 +8,7 @@ import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
 export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {}
 
-const AccordionItem = forwardRef<AccordionItemProps, "div">((props, ref) => {
+const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, ref) => {
   const {
     Component,
     classNames,

@@ -1,18 +1,18 @@
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "@nextui-org/theme";
+import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 
 import {card} from "@nextui-org/theme";
 import {MouseEvent, useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {callAllHandlers, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useRipple} from "@nextui-org/ripple";
-import {AriaButtonProps} from "@react-aria/button";
 
 export interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -93,10 +93,10 @@ export function useCard(originalProps: UseCardProps) {
       onPress,
       elementType: as,
       isDisabled: !originalProps.isPressable,
-      onClick: callAllHandlers(onClick, handleClick),
+      onClick: chain(onClick, handleClick),
       allowTextSelectionOnPress,
       ...otherProps,
-    } as AriaButtonProps,
+    } as unknown as AriaButtonProps<"button">,
     domRef,
   );
 
@@ -150,8 +150,8 @@ export function useCard(originalProps: UseCardProps) {
         ...mergeProps(
           originalProps.isPressable ? {...buttonProps, ...focusProps, role: "button"} : {},
           originalProps.isHoverable ? hoverProps : {},
-          otherProps,
-          props,
+          filterDOMProps(otherProps, {labelable: true}),
+          filterDOMProps(props, {labelable: true}),
         ),
       };
     },

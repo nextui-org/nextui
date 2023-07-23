@@ -1,11 +1,11 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 
 import {RadioGroupProvider} from "./radio-group-context";
 import {UseRadioGroupProps, useRadioGroup} from "./use-radio-group";
 
 export interface RadioGroupProps extends Omit<UseRadioGroupProps, "ref" | "defaultChecked"> {}
 
-const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
+const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const {
     Component,
     children,
@@ -22,7 +22,7 @@ const RadioGroup = forwardRef<RadioGroupProps, "div">((props, ref) => {
 
   return (
     <Component {...getGroupProps()}>
-      {label && <label {...getLabelProps()}>{label}</label>}
+      {label && <span {...getLabelProps()}>{label}</span>}
       <div {...getWrapperProps()}>
         <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
       </div>

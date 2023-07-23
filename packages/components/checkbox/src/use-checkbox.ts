@@ -31,7 +31,7 @@ interface Props extends HTMLNextUIProps<"label"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: Ref<HTMLElement>;
+  ref?: Ref<HTMLLabelElement>;
   /**
    * The label of the checkbox.
    */

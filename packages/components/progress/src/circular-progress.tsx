@@ -1,10 +1,10 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 
 import {UseCircularProgressProps, useCircularProgress} from "./use-circular-progress";
 
 export interface CircularProgressProps extends Omit<UseCircularProgressProps, "ref"> {}
 
-const CircularProgress = forwardRef<CircularProgressProps, "div">((props, ref) => {
+const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps>((props, ref) => {
   const {
     Component,
     slots,

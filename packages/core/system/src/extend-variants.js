@@ -1,29 +1,28 @@
 import * as React from "react";
 import {tv} from "@nextui-org/theme";
 
-import {cn, mapPropsVariantsWithCommon} from "./utils";
+import {cn, mapPropsVariants} from "./utils";
 
-export function extendStyles(BaseComponent, styles = {}) {
-  const componentStyles = tv({
-    base: styles?.base,
-    variants: styles?.variants,
+export function extendVariants(BaseComponent, styles = {}) {
+  const {variants, defaultVariants, compoundVariants} = styles || {};
+
+  const customTv = tv({
+    variants,
+    defaultVariants,
+    compoundVariants,
   });
 
   const ForwardedComponent = React.forwardRef((originalProps, ref) => {
-    const [baseProps, variantProps] = mapPropsVariantsWithCommon(
-      originalProps,
-      componentStyles.variantKeys,
-      BaseComponent.variantKeys,
-    );
+    const [baseProps, variantProps] = mapPropsVariants(originalProps, customTv.variantKeys, false);
 
     const customClassname = React.useMemo(
-      () => componentStyles(variantProps),
+      () => customTv(variantProps),
       [...Object.values(variantProps)],
     );
 
     const className = cn(customClassname, originalProps.className);
 
-    const newProps = {...baseProps, ref, className};
+    const newProps = {...baseProps, ...defaultVariants, ref, className};
 
     return React.createElement(BaseComponent, newProps);
   });

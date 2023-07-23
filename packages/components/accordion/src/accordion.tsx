@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 import {LayoutGroup} from "framer-motion";
 import {Divider} from "@nextui-org/divider";
 import {Fragment, Key, useCallback, useMemo} from "react";
@@ -8,7 +8,7 @@ import AccordionItem from "./accordion-item";
 
 export interface AccordionProps extends Omit<UseAccordionProps, "ref"> {}
 
-const AccordionGroup = forwardRef<AccordionProps, "div">((props, ref) => {
+const AccordionGroup = forwardRef<HTMLDivElement, AccordionProps>((props, ref) => {
   const {
     Component,
     values,

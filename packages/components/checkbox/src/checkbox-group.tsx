@@ -1,11 +1,11 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 
 import {CheckboxGroupProvider} from "./checkbox-group-context";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
 
 export interface CheckboxGroupProps extends Omit<UseCheckboxGroupProps, "ref"> {}
 
-const CheckboxGroup = forwardRef<CheckboxGroupProps, "div">((props, ref) => {
+const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>((props, ref) => {
   const {
     children,
     context,

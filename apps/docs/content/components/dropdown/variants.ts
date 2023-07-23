@@ -34,7 +34,7 @@ export default function App() {
   return (
     <div className="flex flex-wrap gap-4">
       {variants.map((variant) => (
-        <DropdownContent color={selectedColor} variant={variant} />
+        <DropdownContent key={variant} color={selectedColor} variant={variant} />
       ))}
       <RadioGroup
         label="Select dropdown color"

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";
 
@@ -7,7 +7,7 @@ import {CheckboxIcon} from "./checkbox-icon";
 
 export interface CheckboxProps extends Omit<UseCheckboxProps, "ref"> {}
 
-const Checkbox = forwardRef<CheckboxProps, "label">((props, ref) => {
+const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
   const {
     Component,
     children,

@@ -76,9 +76,6 @@ const button = tv({
     isDisabled: {
       true: "opacity-disabled pointer-events-none",
     },
-    isLoading: {
-      true: "opacity-disabled pointer-events-none",
-    },
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
@@ -98,7 +95,6 @@ const button = tv({
     color: "default",
     fullWidth: false,
     isDisabled: false,
-    isLoading: false,
     isInGroup: false,
     disableAnimation: false,
   },

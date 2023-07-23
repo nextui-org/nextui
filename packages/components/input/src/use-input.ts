@@ -8,15 +8,16 @@ import {useDOMRef} from "@nextui-org/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, RefObject, useCallback} from "react";
+import {useMemo, Ref, useCallback} from "react";
 import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
-export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
+export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
+  extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
   /**
    * Ref to the DOM node.
    */
-  ref?: Ref<HTMLInputElement>;
+  ref?: Ref<T>;
   /**
    * Element to be rendered in the left side of the input.
    */
@@ -60,9 +61,12 @@ export interface Props extends Omit<HTMLNextUIProps<"input">, keyof InputVariant
   onValueChange?: (value: string | undefined) => void;
 }
 
-export type UseInputProps = Props & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
+export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
+  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
 
-export function useInput(originalProps: UseInputProps) {
+export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
+  originalProps: UseInputProps<T>,
+) {
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
 
   const {
@@ -92,9 +96,7 @@ export function useInput(originalProps: UseInputProps) {
   const baseStyles = clsx(classNames?.base, className, !!inputValue ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
 
-  const domRef = useDOMRef(ref) as typeof isMultiline extends "true"
-    ? RefObject<HTMLTextAreaElement>
-    : RefObject<HTMLInputElement>;
+  const domRef = useDOMRef<T>(ref);
 
   const handleClear = useCallback(() => {
     setInputValue("");

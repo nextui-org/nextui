@@ -4,15 +4,14 @@ import {SeparatorProps as AriaSeparatorProps, useSeparator} from "@react-aria/se
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {divider} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {ReactRef} from "@nextui-org/react-utils";
-import {useCallback, useMemo} from "react";
+import {Ref, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 interface Props extends HTMLNextUIProps<"hr", DividerVariantProps> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLElement | null>;
+  ref?: Ref<HTMLElement> | undefined;
 }
 
 export type UseDividerProps = Props & Omit<AriaSeparatorProps, "elementType">;

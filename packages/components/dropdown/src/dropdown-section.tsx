@@ -1,9 +1,8 @@
-import {forwardRef} from "@nextui-org/system";
 import {dropdownSection} from "@nextui-org/theme";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
 import {useMenuSection} from "@react-aria/menu";
-import {useMemo, Key} from "react";
+import {useMemo, Key, forwardRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {Divider} from "@nextui-org/divider";
@@ -41,7 +40,7 @@ export interface DropdownSectionProps<T extends object = object> extends Dropdow
 /**
  * @internal
  */
-const DropdownSection = forwardRef<DropdownSectionProps, "li">(
+const DropdownSection = forwardRef<HTMLLIElement, DropdownSectionProps>(
   (
     {
       item,
@@ -71,7 +70,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
     const slots = useMemo(() => dropdownSection(), []);
 
     const baseStyles = clsx(classNames?.base, className);
-    const dividerStyles = clsx(classNames?.divider, dividerProps.className);
+    const dividerStyles = clsx(classNames?.divider, dividerProps?.className);
 
     const {itemProps, headingProps, groupProps} = useMenuSection({
       heading: item.rendered,
@@ -101,9 +100,11 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
           data-slot="group"
         >
           {[...item.childNodes].map((node) => {
+            const {key: nodeKey, props: nodeProps} = node;
+
             let dropdownItem = (
               <DropdownItem
-                key={node.key}
+                key={nodeKey}
                 classNames={itemClasses}
                 closeOnSelect={closeOnSelect}
                 color={color}
@@ -112,7 +113,7 @@ const DropdownSection = forwardRef<DropdownSectionProps, "li">(
                 state={state}
                 variant={variant}
                 onAction={onAction}
-                {...node.props}
+                {...nodeProps}
               />
             );
 

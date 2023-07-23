@@ -41,18 +41,30 @@ export const toIterator = (obj: any) => {
 export const mapPropsVariants = <T extends Record<string, any>, K extends keyof T>(
   props: T,
   variantKeys?: K[],
-): readonly [Omit<T, K>, Pick<T, K> | {}] => {
+  removeVariantProps = true,
+): readonly [Omit<T, K> | T, Pick<T, K> | {}] => {
   if (!variantKeys) {
     return [props, {}];
   }
 
-  const omitted = Object.keys(props)
-    .filter((key) => !variantKeys.includes(key as K))
-    .reduce((acc, key) => ({...acc, [key]: props[key as keyof T]}), {});
+  const picked = variantKeys.reduce((acc, key) => {
+    // Only include the key in `picked` if it exists in `props`
+    if (key in props) {
+      return {...acc, [key]: props[key]};
+    } else {
+      return acc;
+    }
+  }, {});
 
-  const picked = variantKeys.reduce((acc, key) => ({...acc, [key]: props[key]}), {});
+  if (removeVariantProps) {
+    const omitted = Object.keys(props)
+      .filter((key) => !variantKeys.includes(key as K))
+      .reduce((acc, key) => ({...acc, [key]: props[key as keyof T]}), {});
 
-  return [omitted, picked] as [Omit<T, K>, Pick<T, K>];
+    return [omitted, picked] as [Omit<T, K>, Pick<T, K>];
+  } else {
+    return [props, picked] as [T, Pick<T, K>];
+  }
 };
 
 export const mapPropsVariantsWithCommon = <

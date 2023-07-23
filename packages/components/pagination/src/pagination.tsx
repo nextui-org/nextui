@@ -1,6 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
 import {PaginationItemValue} from "@nextui-org/use-pagination";
-import {useCallback} from "react";
+import {useCallback, forwardRef} from "react";
 import {PaginationItemType} from "@nextui-org/use-pagination";
 import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@nextui-org/shared-icons";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
@@ -11,7 +10,7 @@ import PaginationCursor from "./pagination-cursor";
 
 export interface PaginationProps extends Omit<UsePaginationProps, "ref"> {}
 
-const Pagination = forwardRef<PaginationProps, "nav">((props, ref) => {
+const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) => {
   const {
     Component,
     dotsJump,

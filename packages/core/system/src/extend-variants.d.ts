@@ -1,4 +1,4 @@
-import type {ClassValue, StringToBoolean, OmitUndefined} from "tailwind-variants";
+import type {ClassValue, StringToBoolean, OmitUndefined, ClassProp} from "tailwind-variants";
 import type {ForwardRefRenderFunction, JSXElementConstructor, ReactElement} from "react";
 
 type Variants = {[K: string]: {[P: string]: ClassValue}};
@@ -20,11 +20,7 @@ type SuggestedVariants<CP> = {
 
 type ComposeVariants<CP> = SuggestedVariants<CP> | Variants;
 
-type DefaultVariants<
-  CP,
-  V extends ComposeVariants<CP> = ComposeVariants<CP>,
-  SV extends SuggestedVariants<CP> = SuggestedVariants<CP>,
-> = {
+type VariantValue<V, SV> = {
   [K in keyof V | keyof SV]?:
     | (K extends keyof V ? StringToBoolean<keyof V[K]> : never)
     | (K extends keyof SV
@@ -34,18 +30,30 @@ type DefaultVariants<
         : never);
 };
 
-export type extendStyles = {
+type DefaultVariants<V, SV> = VariantValue<V, SV>;
+
+type CompoundVariants<V, SV> = Array<VariantValue<V, SV> & ClassProp<ClassValue>>;
+
+export type ExtendVariantProps = {
+  variants?: Record<string, Record<string, string>>;
+  defaultVariants?: Record<string, string>;
+  compoundVariants?: Array<Record<string, boolean | string | Record<string, string>>>;
+};
+
+export type extendVariants = {
   <
     C extends JSXElementConstructor<any>,
     CP extends ComponentProps<C>,
     V extends ComposeVariants<CP>,
-    DV extends DefaultVariants<CP, V>,
+    SV extends SuggestedVariants<CP>,
+    DV extends DefaultVariants<V, SV>,
+    CV extends CompoundVariants<V, SV>,
   >(
     BaseComponent: C,
     styles: {
-      base?: ClassValue;
       variants?: V;
       defaultVariants?: DV;
+      compoundVariants?: CV;
     },
   ): ForwardRefRenderFunction<
     ReactElement,
@@ -58,4 +66,4 @@ export type extendStyles = {
 };
 
 // main function
-export declare const extendStyles: extendStyles;
+export declare const extendVariants: extendVariants;

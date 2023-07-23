@@ -9,11 +9,16 @@ import {
   InputHTMLAttributes,
   RefObject,
 } from "react";
-import {AriaButtonProps} from "@react-types/button";
+import {AriaButtonProps as BaseAriaButtonProps} from "@react-types/button";
 import {DOMAttributes} from "@react-types/shared";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusable} from "@react-aria/focus";
 import {usePress} from "@react-aria/interactions";
+
+export type AriaButtonProps<T extends ElementType = "button"> = BaseAriaButtonProps<T> & {
+  /** Whether text selection should be enabled on the pressable element. */
+  allowTextSelectionOnPress?: boolean;
+};
 
 export interface ButtonAria<T> {
   /** Props for the button element. */
@@ -74,6 +79,7 @@ export function useAriaButton(
     target,
     rel,
     type = "button",
+    allowTextSelectionOnPress,
   } = props;
   let additionalProps;
 
@@ -102,6 +108,7 @@ export function useAriaButton(
     onPress,
     isDisabled,
     preventFocusOnPress,
+    allowTextSelectionOnPress,
     ref,
   });
 

@@ -1,5 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
-import {useMemo} from "react";
+import {useMemo, forwardRef} from "react";
 import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, motion} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
@@ -12,7 +11,7 @@ import {UseTooltipProps, useTooltip} from "./use-tooltip";
 export interface TooltipProps
   extends Omit<UseTooltipProps, "ref" | "disableTriggerFocus" | "backdrop"> {}
 
-const Tooltip = forwardRef<TooltipProps, "div">((props, ref) => {
+const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
   const {
     Component,
     children,

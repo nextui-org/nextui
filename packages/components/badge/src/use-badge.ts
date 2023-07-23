@@ -12,7 +12,7 @@ export interface Props extends Omit<HTMLNextUIProps<"span">, "content"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLDivElement | null>;
+  ref?: ReactRef<HTMLSpanElement | null>;
   /**
    * The children of the badge.
    */
