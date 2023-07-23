@@ -30,7 +30,7 @@ export default function App() {
   return (
     <ButtonGroup variant="flat">
       <Button>{labelsMap[selectedOptionValue]}</Button>
-      <Dropdown placement="bottom-start">
+      <Dropdown placement="bottom-end">
         <DropdownTrigger>
           <Button isIconOnly>
             <ChevronDownIcon />
