@@ -67,6 +67,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       getLabelProps,
       getInputProps,
       getInputWrapperProps,
+      getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
     } = useInput<HTMLTextAreaElement>({ref, ...otherProps, isMultiline: true});
@@ -88,11 +89,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             onHeightChange={onHeightChange}
           />
         </div>
-        {errorMessage ? (
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
-          <div {...getDescriptionProps()}>{description}</div>
-        ) : null}
+        <div {...getHelperWrapperProps()}>
+          {errorMessage ? (
+            <div {...getErrorMessageProps()}>{errorMessage}</div>
+          ) : description ? (
+            <div {...getDescriptionProps()}>{description}</div>
+          ) : null}
+        </div>
       </Component>
     );
   },
