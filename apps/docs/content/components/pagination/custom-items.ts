@@ -61,7 +61,7 @@ export default function App() {
   }: PaginationItemRenderProps<HTMLButtonElement>) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onPress={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -69,7 +69,7 @@ export default function App() {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onPress={onPrevious}>
           <ChevronIcon />
         </button>
       );
@@ -88,7 +88,7 @@ export default function App() {
           isActive &&
             "text-white bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
         )}
-        onClick={() => setPage(value)}
+        onPress={() => setPage(value)}
       >
         {value}
       </button>
@@ -124,7 +124,7 @@ export default function App() {
   }) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onPress={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -132,7 +132,7 @@ export default function App() {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
+        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onPress={onPrevious}>
           <ChevronIcon />
         </button>
       );
@@ -151,7 +151,7 @@ export default function App() {
           isActive &&
           "text-white bg-gradient-to-br from-indigo-500 to-pink-500 font-bold",
         )}
-        onClick={() => setPage(value)}
+        onPress={() => setPage(value)}
       >
         {value}
       </button>
