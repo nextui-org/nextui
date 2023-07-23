@@ -112,24 +112,28 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   );
 
   // TODO: Remove this once the issue is fixed.
-  let treeChildren: any = [];
+  const treeChildren = useMemo(() => {
+    let treeChildren: any = [];
 
-  /**
-   * This is a workaround for rendering ReactNode children in the AccordionItem.
-   * @see https://github.com/adobe/react-spectrum/issues/3882
-   */
-  React.Children.map(children, (child) => {
-    if (React.isValidElement(child) && typeof child.props?.children !== "string") {
-      const clonedChild = React.cloneElement(child, {
-        // @ts-ignore
-        hasChildItems: false,
-      });
+    /**
+     * This is a workaround for rendering ReactNode children in the AccordionItem.
+     * @see https://github.com/adobe/react-spectrum/issues/3882
+     */
+    React.Children.map(children, (child) => {
+      if (React.isValidElement(child) && typeof child.props?.children !== "string") {
+        const clonedChild = React.cloneElement(child, {
+          // @ts-ignore
+          hasChildItems: false,
+        });
 
-      treeChildren.push(clonedChild);
-    } else {
-      treeChildren.push(child);
-    }
-  });
+        treeChildren.push(clonedChild);
+      } else {
+        treeChildren.push(child);
+      }
+    });
+
+    return treeChildren;
+  }, [children]);
 
   const commonProps = {
     children: treeChildren,

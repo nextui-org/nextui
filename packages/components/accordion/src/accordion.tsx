@@ -45,7 +45,7 @@ const AccordionGroup = forwardRef<HTMLDivElement, AccordionProps>((props, ref) =
         </Fragment>
       );
     });
-  }, [values, itemClasses, handleFocusChanged, isSplitted, showDivider]);
+  }, [values, itemClasses, handleFocusChanged, isSplitted, showDivider, state.collection]);
 
   return (
     <Component {...getBaseProps()}>
