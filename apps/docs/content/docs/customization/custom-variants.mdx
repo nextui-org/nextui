@@ -46,7 +46,7 @@ allows you to create a new component based on the original component, and custom
 import { extendVariants, Button } from "@nextui-org/react";
 
 export const MyButton = extendVariants(Button, {
-  variants: {// <- modify/create variants
+  variants: {// <- modify/add variants
     color: { 
       olive: "text-[#000] bg-[#84cc16]",
       orange: "bg-[#ff8c00] text-[#fff]",
@@ -60,11 +60,11 @@ export const MyButton = extendVariants(Button, {
       xl: "px-unit-8 min-w-unit-28 h-unit-14 text-large gap-unit-4 rounded-medium",
     },
   },
-  defaultVariants: { // <- change the default variants
+  defaultVariants: { // <- modify/add the default variants
     color: "olive",
     size: "xl",
   },
-  componentVariants: [ // <- change the component variants
+  componentVariants: [ // <- modify/add the component variants
     {
       isDisabled: true,
       color: "olive",
