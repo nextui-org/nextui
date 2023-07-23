@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/avatar",
-  "version": "0.0.0-dev-v2-20230723192723",
+  "version": "0.0.0-dev-v2-20230723212205",
   "description": "The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.",
   "keywords": [
     "avatar"
