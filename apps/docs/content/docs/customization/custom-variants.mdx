@@ -14,163 +14,95 @@ description: Learn how to create new variants for the NextUI components.
 NextUI allows you to create new variants for components that better suit your project's needs.
 This can be done by extending the component and its properties, and customizing the styles.
 
-> **Note**: For one-off customizations, refer to the [Override Styles](/docs/customization/override-styles) documentation.
-
-## Creating the SpeedProgress component
-
-Here's an example of creating a new component called `SpeedProgress` that is based
-on the [CircularProgress](/docs/components/circular-progress) component, but with a different
-extra colors and diferrent sizes.
-
 All NextUI components has the `Styles source` link on top of the page. This link will take you to
 the styles source code of the component. You can use this as a reference when creating your own
 custom component.
 
-For this example, we will be using the `CircularProgress` component's styles source code as a
+> **Note**: For one-off customizations, refer to the [Override Styles](/docs/customization/override-styles) documentation.
+
+## Creating new variants for non-slots components
+
+Here's an example of creating a new component called `MyButton` that is based
+on the [Button](/docs/components/button) component, but with extra colors and sizes. The 
+[Button](/docs/components/button) component is a non-slots component, meaning that it does not
+have any slots that can be customized.
+
+For this example, we will be using the `Button` component's styles source code as a
 reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/core/theme/src/components/circular-progress.ts) to view the styles source code.
+
+You can create or override the component `variants`, `defaultVariants` and `componentVariants`.
+
+> **Note**: If you are not familiar with the variants concept, please refer to the [Tailwind Variants](https://www.tailwind-variants.org/docs/variants) documentation.
 
 <Steps>
 
-### Extend the original component with new variants and sizes
+### Extend the original component variants
 
-Import the original component parts, in this case, `CircularProgress` from NextUI, and define your 
-new variant. This includes defining the new colors, sizes, or other attributes that you want 
-for your component.
+To create or override variants you need to use the `extendVariants` function. This function
+allows you to create a new component based on the original component, and customize its variants.
 
-```tsx {12}
-// SpeedProgress.tsx
-import {
-  tv,
-  CircularProgress,
-  CircularProgressVariantProps,
-  CircularProgressProps,
-  circularProgress,
-  VariantProps,
-} from "@nextui-org/react";
+```tsx
+// MyButton.tsx
+import { extendVariants, Button } from "@nextui-org/react";
 
-const speedProgress = tv({
-  extend: circularProgress, // <- extend the original tv function
-  slots: { // <- define slots you want to customize
-    svg: "", 
-    label: "",
-    value: "",
-  },
-  variants: {
-    color: { // <- modify/create colors
-      olive: {
-        svg: "text-[#84cc16]",
-      },
-      orange: {
-        svg: "text-[#ff8c00]",
-      },
-      violet: {
-        svg: "text-[#8b5cf6]",
-      },
+export const MyButton = extendVariants(Button, {
+  variants: {// <- modify/create variants
+    color: { 
+      olive: "text-[#000] bg-[#84cc16]",
+      orange: "bg-[#ff8c00] text-[#fff]",
+      violet: "bg-[#8b5cf6] text-[#fff]",
     },
-    size: { // <- modify/create sizes
-      sm: {
-        svg: "w-10 h-10",
-        label: "text-small",
-        value: "text-[0.5rem]",
-      },
-      md: {
-        svg: "w-12 h-12",
-        label: "text-medium",
-        value: "text-small",
-      },
-      lg: {
-        svg: "w-14 h-14",
-        label: "text-medium",
-        value: "text-[0.6rem]",
-      },
-      xl: {
-        svg: "w-16 h-16",
-        label: "text-large",
-        value: "text-small",
-      },
+    isDisabled: {
+      true: "bg-[#eaeaea] text-[#000] opacity-50 cursor-not-allowed",
+    },
+    size: { 
+      xs: "px-unit-2 min-w-unit-12 h-unit-6 text-tiny gap-unit-1 rounded-small",
+      xl: "px-unit-8 min-w-unit-28 h-unit-14 text-large gap-unit-4 rounded-medium",
     },
   },
   defaultVariants: { // <- change the default variants
     color: "olive",
-    size: "sm",
+    size: "xl",
   },
+  componentVariants: [ // <- change the component variants
+    {
+      isDisabled: true,
+      color: "olive",
+      class: "bg-[#84cc16]/80 opacity-100"
+    }
+  ],
 });
-
-// New type that includes the new variants
-type SpeedProgressVariants = VariantProps<typeof speedProgress>;
-```
-
-Imports explained:
-
-- `CircularProgress`: The original `CircularProgress` component from NextUI.
-- `CircularProgressProps`: The props for the `CircularProgress` component.
-- `tv`: The `tv` function is used to defined the variants for the component. See [Tailwind Variants](https://www.tailwind-variants.org/docs/variants) for more information.
-- `circularProgress`: NextUI internal `tv` function that defines the slots, styles and variants for the `CircularProgress` component.
-- `CircularProgressVariantProps`: NextUI internal type that defines the variants for the `CircularProgress` component. It is generated by the `VariantProps`.
-- `VariantProps`: Type utility that extract the variants definitions from a `tv` function. See [Tailwind Variants](https://www.tailwind-variants.org/docs/typescript) for more information.
-
-
-### Declare your new variants and sizes
-
-Declare the new variants and sizes that you created in the component's interface. This lets 
-the original component know that these new variants and sizes were added.
-
-> Refer to the [Typescript Global Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation) documentation for more information.
-
-```ts
-// SpeedProgress.tsx
-declare module "@nextui-org/react" {
-  interface CircularProgressProps {
-    size?: CircularProgressVariantProps["size"] | SpeedProgressVariants["size"];
-    color?: CircularProgressVariantProps["color"] | SpeedProgressVariants["color"];
-  }
-}
-```
-
-### Use the new variants in your custom component
-
-Now, use these new variants and sizes in your custom component. In this example, the 
-`SpeedProgress` component uses the new `color` and `size` variants, and pass them into the 
-`CircularProgress` component via the `classNames` prop.
-
-```tsx
-// SpeedProgress.tsx
-export const SpeedProgress: FC<CircularProgressProps> = ({color, size, ...otherProps}) => {
-  const slots = speedProgress({size, color});
-
-  return (
-    <CircularProgress
-      classNames={{
-        svg: slots.svg(),
-        label: slots.label(),
-        value: slots.value(),
-      }}
-      color={color}
-      formatOptions={{style: "unit", unit: "kilometer"}}
-      label="Speed"
-      showValueLabel={true}
-      size={size}
-      {...otherProps}
-    />
-  );
-};
 ```
 
 ### Use your custom component in your application
 
-Finally, you can now use your custom component in your application. Here, `SpeedProgress` is 
-used with the color set to `orange` and the size set to `xl`.
+Then, you can now use your custom component in your application. Here, `MyButton` is 
+used with the color set to `olive` and the size set to `xl`.
+
 
 ```tsx
 // App.tsx
-import {SpeedProgress} from "./SpeedProgress";
+import {MyButton} from "./MyButton";
 
 const MyApp = () => {
   return (
-    <SpeedProgress color="orange" size="xl" value={50} />
+    <MyButton fullWidth color="olive" size="xl">
+      Press Me
+    </MyButton>  
   );
 }
 ``` 
 
+The new component will include the original props of the `Button` component, plus the new
+variants that you have created.
+
+
+import customVariantsNoSlots from "@/content/customization/custom-variants/no-slots-component";
+
+<CodeDemo
+  title="Custom Variants for non-slots components"
+  showEditor={false}
+  files={customVariantsNoSlots}
+/>
 
 </Steps>
