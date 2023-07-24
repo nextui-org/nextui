@@ -120,12 +120,6 @@ const chip = tv({
     hasEndContent: {
       true: {},
     },
-    isOneChar: {
-      true: {
-        base: "px-0 justify-center",
-        content: "px-0 flex-none",
-      },
-    },
     isDisabled: {
       true: {base: "opacity-disabled pointer-events-none"},
     },
@@ -423,6 +417,22 @@ const chip = tv({
         base: "w-7 h-7 min-w-unit-7 min-h-7",
       },
     },
+    // isOneChar / isCloseable
+    {
+      isOneChar: true,
+      isCloseable: false,
+      class: {
+        base: "px-0 justify-center",
+        content: "px-0 flex-none",        
+      }
+    },
+    {
+      isOneChar: true,
+      isCloseable: true,
+      class: {
+        base: "w-auto",
+      }
+    },    
     // hasStartContent / size
     {
       hasStartContent: true,
