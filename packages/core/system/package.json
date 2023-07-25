@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "0.0.0-dev-v2-20230723212205",
+  "version": "0.0.0-dev-v2-20230725193627",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -38,7 +38,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "@nextui-org/react-utils": "workspace:*"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

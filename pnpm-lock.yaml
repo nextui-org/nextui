@@ -399,6 +399,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-icons:
+        specifier: ^4.10.1
+        version: 4.10.1(react@18.2.0)
       react-live:
         specifier: ^2.3.0
         version: 2.3.0(react-dom@18.2.0)(react@18.2.0)
@@ -2064,6 +2067,9 @@ importers:
         specifier: ^0.1.13
         version: 0.1.13(tailwindcss@3.2.7)
     devDependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -2529,6 +2535,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../shared-utils
+      '@react-aria/utils':
+        specifier: ^3.18.0
+        version: 3.18.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -22771,6 +22780,14 @@ packages:
       '@babel/runtime': 7.22.5
       react: 18.2.0
     dev: true
+
+  /react-icons@4.10.1(react@18.2.0):
+    resolution: {integrity: sha512-/ngzDP/77tlCfqthiiGNZeYFACw85fUjZtLbedmJ5DTlNDIwETxhwBzdOJ21zj4iJdvc0J3y7yOsX3PpxAJzrw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-inspector@5.1.1(react@18.2.0):
     resolution: {integrity: sha512-GURDaYzoLbW8pMGXwYPDBIv6nqei4kK7LPRZ9q9HCZF54wqXz/dnylBp/kfE9XmekBhHvLDdcYeyIwSrvtOiWg==}

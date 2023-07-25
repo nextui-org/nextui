@@ -2,8 +2,9 @@ import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableRowGroup} from "@react-aria/table";
+import {filterDOMProps} from "@nextui-org/react-utils";
+import {mergeProps} from "@react-aria/utils";
 import {useMemo} from "react";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
 
 import TableRow from "./table-row";
 import TableCell from "./table-cell";
@@ -125,7 +126,7 @@ const TableBody = forwardRef<TableBodyProps, "tbody">((props, ref) => {
   return (
     <Component
       ref={domRef}
-      {...mergeProps(rowGroupProps, filterDOMProps(bodyProps, {labelable: true}), otherProps)}
+      {...mergeProps(rowGroupProps, filterDOMProps(bodyProps), otherProps)}
       className={slots.tbody?.({class: tbodyStyles})}
       data-empty={dataAttr(collection.size === 0)}
       data-loading={dataAttr(isLoading)}

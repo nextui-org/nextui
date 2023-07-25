@@ -4,13 +4,13 @@ import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 
 import {card} from "@nextui-org/theme";
 import {MouseEvent, useCallback, useMemo} from "react";
-import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useRipple} from "@nextui-org/ripple";
 
@@ -150,8 +150,8 @@ export function useCard(originalProps: UseCardProps) {
         ...mergeProps(
           originalProps.isPressable ? {...buttonProps, ...focusProps, role: "button"} : {},
           originalProps.isHoverable ? hoverProps : {},
-          filterDOMProps(otherProps, {labelable: true}),
-          filterDOMProps(props, {labelable: true}),
+          filterDOMProps(otherProps),
+          filterDOMProps(props),
         ),
       };
     },

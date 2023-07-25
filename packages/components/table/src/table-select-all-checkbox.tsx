@@ -1,10 +1,10 @@
 import type {GridNode} from "@react-types/grid";
 
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableColumnHeader, useTableSelectAllCheckbox} from "@react-aria/table";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {Checkbox} from "@nextui-org/checkbox";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -61,8 +61,8 @@ const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((pr
       {...mergeProps(
         columnHeaderProps,
         focusProps,
-        filterDOMProps(node.props, {labelable: true}),
-        filterDOMProps(otherProps, {labelable: true}),
+        filterDOMProps(node.props),
+        filterDOMProps(otherProps),
       )}
       className={slots.th?.({class: thStyles})}
     >

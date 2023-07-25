@@ -1,10 +1,10 @@
 import type {GridNode} from "@react-types/grid";
 
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {useTableHeaderRow} from "@react-aria/table";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 
 import {ValuesType} from "./use-table";
 
@@ -32,7 +32,7 @@ const TableHeaderRow = forwardRef<TableHeaderRowProps, "tr">((props, ref) => {
   return (
     <Component
       ref={domRef}
-      {...mergeProps(rowProps, filterDOMProps(node.props, {labelable: true}), otherProps)}
+      {...mergeProps(rowProps, filterDOMProps(node.props), otherProps)}
       className={slots.tr?.({class: trStyles})}
     >
       {children}

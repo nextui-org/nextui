@@ -114,6 +114,14 @@ const chip = tv({
         base: "rounded-full",
       },
     },
+    isOneChar: {
+      true: {},
+      false: {},
+    },
+    isCloseable: {
+      true: {},
+      false: {},
+    },
     hasStartContent: {
       true: {},
     },
@@ -423,16 +431,16 @@ const chip = tv({
       isCloseable: false,
       class: {
         base: "px-0 justify-center",
-        content: "px-0 flex-none",        
-      }
+        content: "px-0 flex-none",
+      },
     },
     {
       isOneChar: true,
       isCloseable: true,
       class: {
         base: "w-auto",
-      }
-    },    
+      },
+    },
     // hasStartContent / size
     {
       hasStartContent: true,

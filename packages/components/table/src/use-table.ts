@@ -13,8 +13,8 @@ import {useTableState} from "@react-stately/table";
 import {AriaTableProps, useTable as useReactAriaTable} from "@react-aria/table";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {table} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
@@ -248,7 +248,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
 
   const getTableProps: PropGetter = useCallback(
     (props) => ({
-      ...mergeProps(gridProps, filterDOMProps(otherProps, {labelable: true}), props),
+      ...mergeProps(gridProps, filterDOMProps(otherProps), props),
       ref: domRef,
       className: slots.table({class: clsx(classNames?.table, props?.className)}),
     }),

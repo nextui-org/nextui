@@ -4,11 +4,11 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, RefObject, useCallback} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
 import {AriaTabListProps, useTabList} from "@react-aria/tabs";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {HTMLMotionProps} from "framer-motion";
@@ -123,7 +123,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     (props) => ({
       "data-slot": "base",
       className: slots.base({class: clsx(baseStyles, props?.className)}),
-      ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
+      ...mergeProps(filterDOMProps(otherProps), props),
     }),
     [baseStyles, otherProps, slots],
   );

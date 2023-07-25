@@ -1,7 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
@@ -103,7 +103,7 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
               ...hoverProps,
             }
           : {},
-        filterDOMProps(otherProps, {labelable: true}),
+        filterDOMProps(otherProps),
       )}
       className={slots.tab?.({class: tabStyles})}
       onClick={handleClick}

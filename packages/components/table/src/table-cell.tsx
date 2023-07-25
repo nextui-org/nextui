@@ -2,10 +2,10 @@ import type {GridNode} from "@react-types/grid";
 
 import {Key, useMemo} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableCell} from "@react-aria/table";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 
 import {ValuesType} from "./use-table";
@@ -52,12 +52,7 @@ const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
       ref={domRef}
       data-focus-visible={dataAttr(isFocusVisible)}
       data-selected={dataAttr(isRowSelected)}
-      {...mergeProps(
-        gridCellProps,
-        focusProps,
-        filterDOMProps(node.props, {labelable: true}),
-        otherProps,
-      )}
+      {...mergeProps(gridCellProps, focusProps, filterDOMProps(node.props), otherProps)}
       className={slots.td?.({class: tdStyles})}
     >
       {cell}

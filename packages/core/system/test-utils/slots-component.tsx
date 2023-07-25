@@ -1,22 +1,11 @@
-import type {VariantProps} from "tailwind-variants";
+import type {HTMLNextUIProps} from "../src/types";
 
-import {tv} from "../utils/tv";
-import {dataFocusVisibleClasses} from "../utils";
+import React, {useMemo} from "react";
+import {SlotsToClasses, tv, type VariantProps} from "@nextui-org/theme";
+import {filterDOMProps} from "@nextui-org/react-utils";
 
-/**
- * Card **Tailwind Variants** component
- *
- * @example
- * ```js
- * const {base, header, body, footer} = card({...})
- *
- * <div className={base()}>
- *    <div className={header()}>Header</div>
- *    <div className={body()}>Body</div>
- *    <div className={footer()}>Footer</div>
- * </div>
- * ```
- */
+import {cn, mapPropsVariants} from "../src/utils";
+
 const card = tv({
   slots: {
     base: [
@@ -29,8 +18,6 @@ const card = tv({
       "text-foreground",
       "box-border",
       "bg-content1",
-      // focus ring
-      ...dataFocusVisibleClasses,
     ],
     header: [
       "flex",
@@ -150,7 +137,7 @@ const card = tv({
     {
       isPressable: true,
       disableAnimation: false,
-      class: "data-[pressed=true]:scale-[0.97] tap-highlight-transparent",
+      class: "data-[pressed=true]:scale-95 tap-highlight-transparent",
     },
   ],
   defaultVariants: {
@@ -165,8 +152,43 @@ const card = tv({
   },
 });
 
-export type CardVariantProps = VariantProps<typeof card>;
-export type CardSlots = keyof ReturnType<typeof card>;
-export type CardReturnType = ReturnType<typeof card>;
+type CardVariantProps = VariantProps<typeof card>;
+type CardSlots = keyof ReturnType<typeof card>;
 
-export {card};
+interface CardProps extends HTMLNextUIProps<"div">, CardVariantProps {
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  children: React.ReactNode;
+  classNames?: SlotsToClasses<CardSlots>;
+}
+
+export const Card = React.forwardRef<HTMLDivElement, CardProps>((originalProps, ref) => {
+  const [props, variantProps] = mapPropsVariants(originalProps, card.variantKeys);
+
+  const {header, footer, className, children, classNames, ...otherProps} = props;
+
+  const styles = useMemo(() => card({...variantProps}), [...Object.values(variantProps)]);
+
+  const baseStyles = cn(classNames?.base, className);
+
+  return (
+    <div
+      ref={ref}
+      className={styles.base({class: baseStyles})}
+      data-testid="base"
+      {...filterDOMProps(otherProps)}
+    >
+      <div className={styles.header({class: classNames?.header})} data-testid="header">
+        {header}
+      </div>
+      <div className={styles.body({class: classNames?.body})} data-testid="body">
+        {children}
+      </div>
+      <div className={styles.footer({class: classNames?.footer})} data-testid="footer">
+        {footer}
+      </div>
+    </div>
+  );
+});
+
+Card.displayName = "Card";

@@ -5,32 +5,20 @@ description: Learn how to create new variants for the NextUI components.
 
 # Custom Variants
 
-
-<Blockquote color="warning">
-  This section is under construction. Please check back later. 🚧
-</Blockquote>
-
-
 NextUI allows you to create new variants for components that better suit your project's needs.
 This can be done by extending the component and its properties, and customizing the styles.
 
-All NextUI components has the `Styles source` link on top of the page. This link will take you to
-the styles source code of the component. You can use this as a reference when creating your own
-custom component.
+You can create or override the component `variants`, `defaultVariants` and `componentVariants`.
 
 > **Note**: For one-off customizations, refer to the [Override Styles](/docs/customization/override-styles) documentation.
 
 ## Creating new variants for non-slots components
 
-Here's an example of creating a new component called `MyButton` that is based
-on the [Button](/docs/components/button) component, but with extra colors and sizes. The 
-[Button](/docs/components/button) component is a non-slots component, meaning that it does not
+The  [Button](/docs/components/button) component is a non-slots component, meaning that it does not
 have any slots that can be customized.
 
 For this example, we will be using the `Button` component's styles source code as a
 reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/core/theme/src/components/button.ts) to view the styles source code.
-
-You can create or override the component `variants`, `defaultVariants` and `componentVariants`.
 
 > **Note**: If you are not familiar with the variants concept, please refer to the [Tailwind Variants](https://www.tailwind-variants.org/docs/variants) documentation.
 
@@ -79,7 +67,6 @@ export const MyButton = extendVariants(Button, {
 Then, you can now use your custom component in your application. Here, `MyButton` is 
 used with the color set to `olive` and the size set to `xl`.
 
-
 ```tsx
 // App.tsx
 import {MyButton} from "./MyButton";
@@ -96,7 +83,6 @@ const MyApp = () => {
 The new component will include the original props of the `Button` component, plus the new
 variants that you have created.
 
-
 import customVariantsNoSlots from "@/content/customization/custom-variants/no-slots-component";
 
 <CodeDemo
@@ -106,3 +92,125 @@ import customVariantsNoSlots from "@/content/customization/custom-variants/no-sl
 />
 
 </Steps>
+
+
+## Creating new variants for slots components
+
+It is also possible to use the `extendVariants` function to add or override variants for
+components that have slots.
+
+The [Input](/docs/components/input) component is a slots component, meaning that it has slots that can be
+customized. 
+
+
+For this example, we will be using the `Input` component's styles source code as a
+reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/core/theme/src/components/input.ts) to view the styles source code.
+
+> **Note**: If you are not familiar with the variants/slots concept, please refer to the [Tailwind Variants](https://www.tailwind-variants.org/docs/slots#slots-with-variants) documentation.
+
+<Steps>
+
+### Extend the original component variants
+
+To create or override variants you need to use the `extendVariants` function. This function
+allows you to create a new component based on the original component, and customize its variants.
+
+```tsx
+// MyInput.tsx
+import { extendVariants, Input } from "@nextui-org/react";
+
+const MyInput = extendVariants(Input, {
+  variants: { // <- modify/add variants
+    color: { 
+      slate: { // <- add a new color variant
+        inputWrapper: [ // <- inputWrapper slot
+          "bg-slate-100",
+          "border",
+          "shadow",
+          "hover:bg-slate-200",
+          "focus-within:!bg-slate-100",
+          "dark:bg-slate-900",
+          "dark:hover:bg-slate-800",
+          "dark:border-slate-800",
+          "dark:focus-within:!bg-slate-900",
+        ],
+        input: [ // <- input slot
+          "text-slate-500",
+          "placeholder:text-slate-500",
+          "dark:text-slate-400",
+          "dark:placeholder:text-slate-400",
+        ],
+      },
+    },
+    size: {
+      xs: {
+        inputWrapper: "h-unit-6 min-h-unit-6 px-1", // <- inputWrapper slot
+        input: "text-tiny", // <- input slot
+        clearButton: "text-tiny", // <- clearButton slot
+      },
+      xl: {
+        inputWrapper: "h-unit-14 min-h-unit-14", // <- inputWrapper slot
+        input: "text-medium", // <- input slot
+        clearButton: "text-large", // <- clearButton slot
+      },
+    },
+    radius: {
+      xs: {
+        inputWrapper: "rounded-none",
+      },
+    },
+    textSize: {
+      base: {
+        input: "text-base",
+      },
+    },
+    removeLabel: {
+      true: {
+        label: "hidden",
+      },
+      false: {},
+    },
+  },
+  defaultVariants: {
+    color: "slate",
+    textSize: "base",
+    removeLabel: true,
+  },
+});
+```
+
+### Use your custom component in your application
+
+Then, you can now use your custom component in your application. Here, `MyInput` is
+used with the color set to `slate` and the size set to `xl`.
+  
+```tsx
+// App.tsx
+import {MyInput} from "./MyInput";
+
+const MyApp = () => {
+  return (
+    <MyInput isClearable placeholder="Search..." radius="xs" size="xl" />
+  );
+}
+```
+
+The new component will include the original props of the [Input](/docs/components/input) component, plus the new
+variants that you have created.
+
+import customVariantsSlots from "@/content/customization/custom-variants/slots-component";
+
+<CodeDemo
+  title="Custom Variants for slots components"
+  showEditor={false}
+  files={customVariantsSlots}
+/>
+
+
+</Steps>
+
+<Blockquote>
+  All NextUI components have the `Styles source` link on top of the page. This link will take you to
+  the styles source code of the component. You can use this as a reference when creating your own
+  custom component.
+</Blockquote>

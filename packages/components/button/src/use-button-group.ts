@@ -31,9 +31,11 @@ export type ContextType = {
 };
 
 export type UseButtonGroupProps = Props &
-  Pick<
-    ButtonProps,
-    "size" | "color" | "radius" | "variant" | "isIconOnly" | "disableAnimation" | "disableRipple"
+  Partial<
+    Pick<
+      ButtonProps,
+      "size" | "color" | "radius" | "variant" | "isIconOnly" | "disableAnimation" | "disableRipple"
+    >
   >;
 
 export function useButtonGroup(originalProps: UseButtonGroupProps) {

@@ -1,10 +1,10 @@
 import type {GridNode} from "@react-types/grid";
 
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableColumnHeader} from "@react-aria/table";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {useFocusRing} from "@react-aria/focus";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -49,7 +49,7 @@ const TableColumnHeader = forwardRef<TableColumnHeaderProps, "th">((props, ref) 
       {...mergeProps(
         columnHeaderProps,
         focusProps,
-        filterDOMProps(columnProps, {labelable: true}),
+        filterDOMProps(columnProps),
         allowsSorting ? hoverProps : {},
         otherProps,
       )}

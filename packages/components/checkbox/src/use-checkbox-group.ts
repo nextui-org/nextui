@@ -47,9 +47,11 @@ interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
 }
 
 export type UseCheckboxGroupProps = Props &
-  Pick<
-    CheckboxProps,
-    "color" | "size" | "radius" | "lineThrough" | "isDisabled" | "disableAnimation"
+  Partial<
+    Pick<
+      CheckboxProps,
+      "color" | "size" | "radius" | "lineThrough" | "isDisabled" | "disableAnimation"
+    >
   >;
 
 export type ContextType = {

@@ -48,7 +48,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
   Omit<AriaRadioGroupProps, "onChange"> &
-  Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">;
+  Partial<Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">>;
 
 export type ContextType = {
   groupState: RadioGroupState;

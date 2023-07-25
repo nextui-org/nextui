@@ -4,12 +4,12 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback} from "react";
-import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
@@ -226,7 +226,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ref: domRef,
         className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
-        ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps, {labelable: true}), props),
+        ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps), props),
         required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
         "aria-required": dataAttr(originalProps.isRequired),
@@ -265,7 +265,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         },
       };
     },
-    [slots, isHovered, inputValue],
+    [slots, isHovered, inputValue, classNames?.inputWrapper],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(

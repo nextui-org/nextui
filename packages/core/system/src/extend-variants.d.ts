@@ -1,24 +1,34 @@
 import type {ClassValue, StringToBoolean, OmitUndefined, ClassProp} from "tailwind-variants";
 import type {ForwardRefRenderFunction, JSXElementConstructor, ReactElement} from "react";
 
-type Variants = {[K: string]: {[P: string]: ClassValue}};
+type SlotsClassValue<S> = {
+  [K in keyof S]?: ClassValue;
+};
+
+type Variants<S> = {
+  [K: string]: {[P: string]: S extends undefined ? ClassValue : SlotsClassValue<S>};
+};
 
 type ComponentProps<C> = C extends JSXElementConstructor<infer P> ? P : never;
 
+type ComponentSlots<CP> = CP extends {classNames?: infer S} ? S : undefined;
+
 type ValidateSubtype<T, U> = OmitUndefined<T> extends U ? "true" : "false";
 
-type SuggestedVariants<CP> = {
+type GetSuggestedValues<S> = S extends undefined ? ClassValue : SlotsClassValue<S>;
+
+type SuggestedVariants<CP, S> = {
   [K in keyof CP]?: ValidateSubtype<CP[K], string> extends "true"
-    ? {[K2 in CP[K]]?: ClassValue}
+    ? {[K2 in CP[K]]?: GetSuggestedValues<S>}
     : ValidateSubtype<CP[K], boolean> extends "true"
     ? {
-        true?: ClassValue;
-        false?: ClassValue;
+        true?: GetSuggestedValues<S>;
+        false?: GetSuggestedValues<S>;
       }
     : never;
 };
 
-type ComposeVariants<CP> = SuggestedVariants<CP> | Variants;
+type ComposeVariants<CP, S> = SuggestedVariants<CP, S> | Variants<S>;
 
 type VariantValue<V, SV> = {
   [K in keyof V | keyof SV]?:
@@ -40,12 +50,19 @@ export type ExtendVariantProps = {
   compoundVariants?: Array<Record<string, boolean | string | Record<string, string>>>;
 };
 
+export type ExtendVariantWithSlotsProps = {
+  variants?: Record<string, Record<string, string | Record<string, string>>>;
+  defaultVariants?: Record<string, string>;
+  compoundVariants?: Array<Record<string, boolean | string | Record<string, string>>>;
+};
+
 export type extendVariants = {
   <
     C extends JSXElementConstructor<any>,
     CP extends ComponentProps<C>,
-    V extends ComposeVariants<CP>,
-    SV extends SuggestedVariants<CP>,
+    S extends ComponentSlots<CP>,
+    V extends ComposeVariants<CP, S>,
+    SV extends SuggestedVariants<CP, S>,
     DV extends DefaultVariants<V, SV>,
     CV extends CompoundVariants<V, SV>,
   >(
@@ -54,6 +71,7 @@ export type extendVariants = {
       variants?: V;
       defaultVariants?: DV;
       compoundVariants?: CV;
+      slots?: S;
     },
   ): ForwardRefRenderFunction<
     ReactElement,

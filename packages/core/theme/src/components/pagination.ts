@@ -134,7 +134,7 @@ const pagination = tv({
         cursor: "transition-none",
       },
       false: {
-        item: ["data-[pressed=true]:scale-95", "transition-transform-background"],
+        item: ["data-[pressed=true]:scale-[0.97]", "transition-transform-background"],
         cursor: ["transition-transform", "!duration-300"],
       },
     },

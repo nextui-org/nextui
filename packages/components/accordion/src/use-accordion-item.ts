@@ -2,11 +2,11 @@ import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
 import {clsx, callAllHandlers, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {NodeWithProps} from "@nextui-org/aria-utils";
 import {useAriaAccordionItem} from "@nextui-org/use-aria-accordion-item";
 import {useCallback, useMemo} from "react";
-import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {TreeState} from "@react-stately/tree";
 
@@ -132,7 +132,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
         className: slots.base({class: baseStyles}),
-        ...mergeProps(filterDOMProps(otherProps, {labelable: true}), props),
+        ...mergeProps(filterDOMProps(otherProps), props),
       };
     },
     [baseStyles, otherProps, slots, item.props, isOpen, isDisabled],

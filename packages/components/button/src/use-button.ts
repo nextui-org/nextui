@@ -7,8 +7,8 @@ import {dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {MouseEventHandler, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {chain, mergeProps} from "@react-aria/utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {button} from "@nextui-org/theme";
 import {isValidElement, cloneElement, useMemo} from "react";
 import {useAriaButton} from "@nextui-org/use-aria-button";
@@ -164,8 +164,8 @@ export function useButton(props: UseButtonProps) {
         ariaButtonProps,
         focusProps,
         hoverProps,
-        filterDOMProps(otherProps, {labelable: true}),
-        filterDOMProps(props, {labelable: true}),
+        filterDOMProps(otherProps),
+        filterDOMProps(props),
       ),
     }),
     [

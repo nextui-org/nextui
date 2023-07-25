@@ -86,7 +86,7 @@ const button = tv({
     disableAnimation: {
       true: "!transition-none",
       false:
-        "data-[pressed=true]:scale-95 transition-transform-colors motion-reduce:transition-none",
+        "data-[pressed=true]:scale-[0.97] transition-transform-colors motion-reduce:transition-none",
     },
   },
   defaultVariants: {

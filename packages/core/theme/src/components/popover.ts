@@ -133,7 +133,7 @@ const popover = tv({
     },
     triggerScaleOnOpen: {
       true: {
-        trigger: ["aria-expanded:scale-95", "aria-expanded:opacity-70", "subpixel-antialiased"],
+        trigger: ["aria-expanded:scale-[0.97]", "aria-expanded:opacity-70", "subpixel-antialiased"],
       },
       false: {},
     },

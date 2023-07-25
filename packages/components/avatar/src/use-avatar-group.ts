@@ -34,7 +34,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseAvatarGroupProps = Props &
-  Pick<AvatarProps, "size" | "color" | "radius" | "isDisabled" | "isBordered">;
+  Partial<Pick<AvatarProps, "size" | "color" | "radius" | "isDisabled" | "isBordered">>;
 
 export type ContextType = {
   size?: AvatarProps["size"];

@@ -5,10 +5,11 @@ import {dropdownItem} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
+import {filterDOMProps} from "@nextui-org/react-utils";
 import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
 import {useMenuItem} from "@react-aria/menu";
-import {chain, filterDOMProps, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 
@@ -126,7 +127,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       itemProps,
       isReadOnly ? {} : mergeProps(focusProps, pressProps),
       hoverProps,
-      filterDOMProps(otherProps, {labelable: true}),
+      filterDOMProps(otherProps),
       props,
     ),
     "data-focus": dataAttr(isFocused),
