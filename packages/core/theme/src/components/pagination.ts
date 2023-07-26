@@ -139,6 +139,7 @@ const pagination = tv({
         cursor: [
           "data-[moving=true]:transition-transform",
           "!data-[moving=true]:duration-300",
+          // this hides the cursor and only shows it once it has been moved to its initial position
           "opacity-0",
           "data-[moving]:opacity-100",
         ],
