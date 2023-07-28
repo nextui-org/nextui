@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "0.0.0-dev-v2-20230725193627",
+  "version": "0.0.0-dev-v2-20230728014036",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -25,11 +25,11 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src !src/extend-styles.d.ts --dts",
+    "build": "tsup src !src/extend-variants.d.ts --dts",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src !src/extend-styles.d.ts",
+    "build:fast": "tsup src !src/extend-variants.d.ts",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
