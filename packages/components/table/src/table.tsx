@@ -9,8 +9,7 @@ import TableColumnHeader from "./table-column-header";
 import TableSelectAllCheckbox from "./table-select-all-checkbox";
 import TableBody from "./table-body";
 
-export interface TableProps
-  extends Omit<UseTableProps, "ref" | "isSelectable" | "isMultiSelectable"> {}
+export interface TableProps extends Omit<UseTableProps, "isSelectable" | "isMultiSelectable"> {}
 
 const Table = forwardRef<"table", TableProps>((props, ref) => {
   const {
@@ -27,8 +26,8 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
     getWrapperProps,
     getTableProps,
   } = useTable({
-    ref,
     ...props,
+    ref,
   });
 
   const Wrapper = useCallback(

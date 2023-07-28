@@ -24,7 +24,7 @@ export type TextareaHeightChangeMeta = {
   rowHeight: number;
 };
 
-export interface TextAreaProps extends Omit<UseInputProps, "ref" | OmittedInputProps> {
+export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
   /**
    * Minimum number of rows to show for textarea
    * @default 3
@@ -70,7 +70,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
-    } = useInput<HTMLTextAreaElement>({ref, ...otherProps, isMultiline: true});
+    } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const labelContent = <label {...getLabelProps()}>{label}</label>;
     const inputProps = getInputProps();

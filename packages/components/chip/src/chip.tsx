@@ -4,8 +4,7 @@ import {useMemo} from "react";
 
 import {UseChipProps, useChip} from "./use-chip";
 
-export interface ChipProps
-  extends Omit<UseChipProps, "ref" | "isOneChar" | "isCloseButtonFocusVisible"> {}
+export interface ChipProps extends Omit<UseChipProps, "isOneChar" | "isCloseButtonFocusVisible"> {}
 
 const Chip = forwardRef<"div", ChipProps>((props, ref) => {
   const {
@@ -20,8 +19,8 @@ const Chip = forwardRef<"div", ChipProps>((props, ref) => {
     getCloseButtonProps,
     getChipProps,
   } = useChip({
-    ref,
     ...props,
+    ref,
   });
 
   const start = useMemo(() => {

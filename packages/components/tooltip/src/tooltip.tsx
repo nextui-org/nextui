@@ -9,8 +9,7 @@ import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
-export interface TooltipProps
-  extends Omit<UseTooltipProps, "ref" | "disableTriggerFocus" | "backdrop"> {}
+export interface TooltipProps extends Omit<UseTooltipProps, "disableTriggerFocus" | "backdrop"> {}
 
 const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   const {
@@ -27,8 +26,8 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     getTooltipProps,
     getArrowProps,
   } = useTooltip({
-    ref,
     ...props,
+    ref,
   });
 
   let trigger: React.ReactElement;

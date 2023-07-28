@@ -3,7 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseImageProps, useImage} from "./use-image";
 
-export interface ImageProps extends Omit<UseImageProps, "ref" | "showSkeleton"> {}
+export interface ImageProps extends Omit<UseImageProps, "showSkeleton"> {}
 
 const Image = forwardRef<"img", ImageProps>((props, ref) => {
   const {
@@ -20,8 +20,8 @@ const Image = forwardRef<"img", ImageProps>((props, ref) => {
     getWrapperProps,
     getBlurredImgProps,
   } = useImage({
-    ref,
     ...props,
+    ref,
   });
 
   const img = <Component ref={domRef} {...getImgProps()} />;

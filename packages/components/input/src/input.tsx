@@ -4,8 +4,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
 
-export interface InputProps
-  extends Omit<UseInputProps, "ref" | "isLabelPlaceholder" | "isMultiline"> {}
+export interface InputProps extends Omit<UseInputProps, "isLabelPlaceholder" | "isMultiline"> {}
 
 const Input = forwardRef<"input", InputProps>((props, ref) => {
   const {
@@ -31,7 +30,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
-  } = useInput({ref, ...props});
+  } = useInput({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
