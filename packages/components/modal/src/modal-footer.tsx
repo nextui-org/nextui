@@ -6,7 +6,7 @@ import {useModalContext} from "./modal-context";
 
 export interface ModalFooterProps extends HTMLNextUIProps<"footer"> {}
 
-const ModalFooter = forwardRef<ModalFooterProps, "footer">((props, ref) => {
+const ModalFooter = forwardRef<"footer", ModalFooterProps>((props, ref) => {
   const {as, children, className, ...otherProps} = props;
 
   const {slots, classNames} = useModalContext();

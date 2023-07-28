@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {spinner} from "@nextui-org/theme";
 
 import {Spinner, SpinnerProps} from "../src";
@@ -40,7 +40,7 @@ const defaultProps = {
   ...spinner.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Spinner> = (args: SpinnerProps) => <Spinner {...args} />;
+const Template = (args: SpinnerProps) => <Spinner {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

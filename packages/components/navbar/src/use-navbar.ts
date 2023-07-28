@@ -11,7 +11,7 @@ import {useScrollPosition} from "@nextui-org/use-scroll-position";
 import {useControlledState} from "@react-stately/utils";
 import {HTMLMotionProps} from "framer-motion";
 
-export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProps> {
+interface Props extends HTMLNextUIProps<"nav"> {
   /**
    * Ref to the DOM node.
    */
@@ -82,6 +82,8 @@ export interface UseNavbarProps extends HTMLNextUIProps<"nav", NavbarVariantProp
    */
   classNames?: SlotsToClasses<NavbarSlots>;
 }
+
+export type UseNavbarProps = Props & NavbarVariantProps;
 
 export function useNavbar(originalProps: UseNavbarProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, navbar.variantKeys);

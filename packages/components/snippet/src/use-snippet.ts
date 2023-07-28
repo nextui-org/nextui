@@ -10,9 +10,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback, ReactElement, useRef} from "react";
 import {TooltipProps} from "@nextui-org/tooltip";
 import {ButtonProps} from "@nextui-org/button";
-export interface UseSnippetProps
-  extends Omit<HTMLNextUIProps<"div">, "onCopy">,
-    SnippetVariantProps {
+export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, SnippetVariantProps {
   /**
    * Ref to the DOM node.
    */

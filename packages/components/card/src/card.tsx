@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {Ripple} from "@nextui-org/ripple";
 
 import {CardProvider} from "./card-context";
@@ -6,7 +6,7 @@ import {useCard, UseCardProps} from "./use-card";
 
 export interface CardProps extends Omit<UseCardProps, "ref"> {}
 
-const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
+const Card = forwardRef<"div", CardProps>((props, ref) => {
   const {
     children,
     context,

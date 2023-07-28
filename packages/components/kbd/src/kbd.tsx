@@ -1,11 +1,12 @@
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseKbdProps, useKbd} from "./use-kbd";
 import {kbdKeysLabelMap, kbdKeysMap} from "./utils";
 
 export interface KbdProps extends Omit<UseKbdProps, "ref"> {}
 
-const Kbd = forwardRef<HTMLElement, KbdProps>((props, ref) => {
+const Kbd = forwardRef<"kbd", KbdProps>((props, ref) => {
   const {Component, children, slots, classNames, keysToRender, getKbdProps} = useKbd({
     ref,
     ...props,

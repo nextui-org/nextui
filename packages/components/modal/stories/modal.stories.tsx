@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {modal} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
@@ -129,7 +129,7 @@ const content = (
   </ModalContent>
 );
 
-const Template: ComponentStory<typeof Modal> = (args: ModalProps) => {
+const Template = (args: ModalProps) => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure({defaultOpen: args.defaultOpen});
 
   return (
@@ -142,7 +142,7 @@ const Template: ComponentStory<typeof Modal> = (args: ModalProps) => {
   );
 };
 
-const InsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
+const InsideScrollTemplate = (args: ModalProps) => {
   const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
 
   return (
@@ -163,7 +163,7 @@ const InsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =>
   );
 };
 
-const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
+const OutsideScrollTemplate = (args: ModalProps) => {
   const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
 
   return (
@@ -183,7 +183,7 @@ const OutsideScrollTemplate: ComponentStory<typeof Modal> = (args: ModalProps) =
     </>
   );
 };
-const OpenChangeTemplate: ComponentStory<typeof Modal> = (args: ModalProps) => {
+const OpenChangeTemplate = (args: ModalProps) => {
   const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
 
   return (

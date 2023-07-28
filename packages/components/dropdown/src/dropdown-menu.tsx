@@ -6,8 +6,8 @@ import {AriaMenuProps} from "@react-types/menu";
 import {useTreeState} from "@react-stately/tree";
 import {dropdownMenu} from "@nextui-org/theme";
 import {FocusScope} from "@react-aria/focus";
-import {useMemo, forwardRef} from "react";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {useMemo} from "react";
+import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
 
 import DropdownSection from "./dropdown-section";
 import DropdownItem, {DropdownItemProps} from "./dropdown-item";
@@ -42,7 +42,7 @@ export interface DropdownMenuProps<T = object>
   itemClasses?: DropdownItemProps["classNames"];
 }
 
-const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(
+const DropdownMenu = forwardRef<"ul", DropdownMenuProps>(
   (
     {
       as,

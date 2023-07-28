@@ -1,11 +1,11 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {RadioGroupProvider} from "./radio-group-context";
 import {UseRadioGroupProps, useRadioGroup} from "./use-radio-group";
 
 export interface RadioGroupProps extends Omit<UseRadioGroupProps, "ref" | "defaultChecked"> {}
 
-const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
+const RadioGroup = forwardRef<"div", RadioGroupProps>((props, ref) => {
   const {
     Component,
     children,

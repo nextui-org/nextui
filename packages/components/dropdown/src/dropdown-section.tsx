@@ -2,7 +2,8 @@ import {dropdownSection} from "@nextui-org/theme";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
 import {useMenuSection} from "@react-aria/menu";
-import {useMemo, Key, forwardRef} from "react";
+import {useMemo, Key} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {Divider} from "@nextui-org/divider";
@@ -40,7 +41,7 @@ export interface DropdownSectionProps<T extends object = object> extends Dropdow
 /**
  * @internal
  */
-const DropdownSection = forwardRef<HTMLLIElement, DropdownSectionProps>(
+const DropdownSection = forwardRef<"li", DropdownSectionProps>(
   (
     {
       item,

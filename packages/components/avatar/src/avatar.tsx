@@ -1,11 +1,12 @@
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {AvatarIcon} from "./avatar-icon";
 import {useAvatar, UseAvatarProps} from "./use-avatar";
 
 export interface AvatarProps extends Omit<UseAvatarProps, "ref"> {}
 
-const Avatar = forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
+const Avatar = forwardRef<"span", AvatarProps>((props, ref) => {
   const {
     Component,
     ImgComponent,

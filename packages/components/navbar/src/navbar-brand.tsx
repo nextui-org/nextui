@@ -8,7 +8,7 @@ export interface NavbarBrandProps extends HTMLNextUIProps<"div"> {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const NavbarBrand = forwardRef<NavbarBrandProps, "div">((props, ref) => {
+const NavbarBrand = forwardRef<"div", NavbarBrandProps>((props, ref) => {
   const {as, className, children, ...otherProps} = props;
 
   const Component = as || "div";

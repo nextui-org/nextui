@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
@@ -48,7 +48,7 @@ const defaultProps = {
   ...checkbox.defaultVariants,
 };
 
-const Template: ComponentStory<typeof CheckboxGroup> = (args: CheckboxGroupProps) => (
+const Template = (args: CheckboxGroupProps) => (
   <CheckboxGroup {...args}>
     <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
     <Checkbox value="sydney">Sydney</Checkbox>

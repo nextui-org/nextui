@@ -1,6 +1,6 @@
 import type {VariantProps} from "@nextui-org/theme";
 
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import React from "react";
 import {tv} from "@nextui-org/theme";
 import {link} from "@nextui-org/theme";
@@ -46,7 +46,7 @@ const defaultProps = {
   children,
 };
 
-const Template: ComponentStory<typeof Link> = (args: LinkProps) => <Link {...args} href="#" />;
+const Template = (args: LinkProps) => <Link {...args} href="#" />;
 
 export const Default = Template.bind({});
 Default.args = {

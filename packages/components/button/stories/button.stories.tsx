@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {button} from "@nextui-org/theme";
 import {Camera, HeadphonesIcon, Notification} from "@nextui-org/shared-icons";
 
@@ -68,9 +68,9 @@ const defaultProps = {
   ...button.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Button> = (args: ButtonProps) => <Button {...args} />;
+const Template = (args: ButtonProps) => <Button {...args} />;
 
-const StateTemplate: ComponentStory<typeof Button> = (args: ButtonProps) => {
+const StateTemplate = (args: ButtonProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleClick = () => {

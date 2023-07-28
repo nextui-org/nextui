@@ -14,7 +14,7 @@ import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 
 import {CheckboxProps} from "./index";
 
-interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -47,6 +47,7 @@ interface Props extends HTMLNextUIProps<"div", AriaCheckboxGroupProps> {
 }
 
 export type UseCheckboxGroupProps = Props &
+  AriaCheckboxGroupProps &
   Partial<
     Pick<
       CheckboxProps,

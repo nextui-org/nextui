@@ -1,4 +1,5 @@
-import {Children, ReactNode, forwardRef} from "react";
+import {Children, ReactNode} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {AnimatePresence} from "framer-motion";
 import {Overlay} from "@react-aria/overlays";
 
@@ -13,7 +14,7 @@ export interface PopoverProps extends Omit<UsePopoverProps, "ref"> {
   children: ReactNode[];
 }
 
-const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => {
+const Popover = forwardRef<"div", PopoverProps>((props, ref) => {
   const {children, ...otherProps} = props;
   const context = usePopover({ref, ...otherProps});
 

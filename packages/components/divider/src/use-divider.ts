@@ -7,14 +7,14 @@ import {useDOMRef} from "@nextui-org/react-utils";
 import {Ref, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-interface Props extends HTMLNextUIProps<"hr", DividerVariantProps> {
+interface Props extends HTMLNextUIProps<"hr"> {
   /**
    * Ref to the DOM node.
    */
   ref?: Ref<HTMLElement> | undefined;
 }
 
-export type UseDividerProps = Props & Omit<AriaSeparatorProps, "elementType">;
+export type UseDividerProps = Props & DividerVariantProps & Omit<AriaSeparatorProps, "elementType">;
 
 export function useDivider(props: UseDividerProps) {
   const {ref, as, className, orientation, ...otherProps} = props;

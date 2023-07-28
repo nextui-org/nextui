@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 
@@ -104,9 +104,9 @@ const defaultProps = {
   children: <Button>Hover me</Button>,
 };
 
-const Template: ComponentStory<typeof Tooltip> = (args: TooltipProps) => <Tooltip {...args} />;
+const Template = (args: TooltipProps) => <Tooltip {...args} />;
 
-const DelayTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
+const DelayTemplate = (args: TooltipProps) => (
   <div className="flex gap-2">
     <Tooltip {...args} content="Tooltip 1" delay={1000}>
       <Button color="success" variant="faded">
@@ -121,7 +121,7 @@ const DelayTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
   </div>
 );
 
-const OpenChangeTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => {
+const OpenChangeTemplate = (args: TooltipProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -134,7 +134,7 @@ const OpenChangeTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) 
   );
 };
 
-const OffsetTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
+const OffsetTemplate = (args: TooltipProps) => (
   <div className="flex gap-2">
     <Tooltip {...args} content="Tooltip 1">
       <Button color="secondary" variant="faded">
@@ -154,7 +154,7 @@ const OffsetTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
   </div>
 );
 
-const MultipleTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => (
+const MultipleTemplate = (args: TooltipProps) => (
   <div className="flex gap-2">
     <Tooltip {...args} content="Tooltip 1" delay={1000}>
       <Button>Hover me (delay 1000ms)</Button>
@@ -165,7 +165,7 @@ const MultipleTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) =>
   </div>
 );
 
-const PlacementsTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => {
+const PlacementsTemplate = (args: TooltipProps) => {
   return (
     <div className="inline-grid grid-cols-3 gap-4">
       <Tooltip {...args} content="Top Start" placement="top-start">
@@ -243,7 +243,7 @@ const PlacementsTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) 
   );
 };
 
-const ControlledTemplate: ComponentStory<typeof Tooltip> = (args: TooltipProps) => {
+const ControlledTemplate = (args: TooltipProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleOpen = () => {

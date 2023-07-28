@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {progress} from "@nextui-org/theme";
 
 import {Progress, ProgressProps} from "../src";
@@ -39,13 +39,13 @@ const defaultProps = {
   value: 55,
 };
 
-const Template: ComponentStory<typeof Progress> = (args: ProgressProps) => (
+const Template = (args: ProgressProps) => (
   <div className="max-w-[400px]">
     <Progress {...args} />
   </div>
 );
 
-const IntervalTemplate: ComponentStory<typeof Progress> = (args: ProgressProps) => {
+const IntervalTemplate = (args: ProgressProps) => {
   const [value, setValue] = React.useState(0);
 
   React.useEffect(() => {

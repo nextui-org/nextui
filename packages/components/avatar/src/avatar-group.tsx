@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {AvatarGroupProvider} from "./avatar-group-context";
 import {useAvatarGroup, UseAvatarGroupProps} from "./use-avatar-group";
@@ -6,7 +6,7 @@ import Avatar from "./avatar";
 
 export interface AvatarGroupProps extends Omit<UseAvatarGroupProps, "ref"> {}
 
-const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
+const AvatarGroup = forwardRef<"div", AvatarGroupProps>((props, ref) => {
   const {
     Component,
     clones,

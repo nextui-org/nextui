@@ -1,12 +1,12 @@
 import {Spinner} from "@nextui-org/spinner";
 import {Ripple} from "@nextui-org/ripple";
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseButtonProps, useButton} from "./use-button";
 
 export interface ButtonProps extends Omit<UseButtonProps, "ref"> {}
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const Button = forwardRef<"button", ButtonProps>((props, ref) => {
   const {
     Component,
     domRef,

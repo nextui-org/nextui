@@ -1,10 +1,10 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseDividerProps, useDivider} from "./use-divider";
 
 export interface DividerProps extends Omit<UseDividerProps, "children"> {}
 
-const Divider = forwardRef<HTMLElement, DividerProps>((props, ref) => {
+const Divider = forwardRef<"div", DividerProps>((props, ref) => {
   const {Component, getDividerProps} = useDivider({ref, ...props});
 
   return <Component {...getDividerProps()} />;

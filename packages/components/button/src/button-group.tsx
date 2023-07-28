@@ -1,11 +1,11 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {ButtonGroupProvider} from "./button-group-context";
 import {UseButtonGroupProps, useButtonGroup} from "./use-button-group";
 
 export interface ButtonGroupProps extends Omit<UseButtonGroupProps, "ref"> {}
 
-const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) => {
+const ButtonGroup = forwardRef<"div", ButtonGroupProps>((props, ref) => {
   const {Component, domRef, context, children, classNames, getButtonGroupProps} = useButtonGroup({
     ref,
     ...props,

@@ -1,4 +1,5 @@
-import {ReactNode, useCallback, useMemo, cloneElement, forwardRef} from "react";
+import {ReactNode, useCallback, useMemo, cloneElement} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {Tooltip} from "@nextui-org/tooltip";
 import {CopyLinearIcon, CheckLinearIcon} from "@nextui-org/shared-icons";
 import {Button} from "@nextui-org/button";
@@ -7,7 +8,7 @@ import {useSnippet, UseSnippetProps} from "./use-snippet";
 
 export interface SnippetProps extends Omit<UseSnippetProps, "ref"> {}
 
-const Snippet = forwardRef<HTMLDivElement, SnippetProps>((props, ref) => {
+const Snippet = forwardRef<"div", SnippetProps>((props, ref) => {
   const {
     Component,
     domRef,

@@ -1,5 +1,6 @@
-import {useCallback, forwardRef} from "react";
+import {useCallback} from "react";
 import {Spacer} from "@nextui-org/spacer";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseTableProps, useTable} from "./use-table";
 import TableRowGroup from "./table-row-group";
@@ -11,7 +12,7 @@ import TableBody from "./table-body";
 export interface TableProps
   extends Omit<UseTableProps, "ref" | "isSelectable" | "isMultiSelectable"> {}
 
-const Table = forwardRef<HTMLTableElement, TableProps>((props, ref) => {
+const Table = forwardRef<"table", TableProps>((props, ref) => {
   const {
     BaseComponent,
     Component,

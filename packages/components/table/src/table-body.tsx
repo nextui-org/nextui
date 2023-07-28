@@ -24,7 +24,7 @@ export interface TableBodyProps extends HTMLNextUIProps<"tbody"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableBody = forwardRef<TableBodyProps, "tbody">((props, ref) => {
+const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
   const {
     as,
     className,

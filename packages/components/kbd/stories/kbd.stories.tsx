@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {kbd} from "@nextui-org/theme";
 
 import {Kbd, KbdProps} from "../src";
@@ -42,7 +42,7 @@ const defaultProps = {
   keys: ["command"],
 };
 
-const Template: ComponentStory<typeof Kbd> = (args: KbdProps) => <Kbd {...args} />;
+const Template = (args: KbdProps) => <Kbd {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,9 +1,14 @@
-import type {As, RightJoinProps, PropsOf, ComponentWithAs} from "./types";
+import type {As, RightJoinProps, PropsOf, InternalForwardRefRenderFunction} from "./types";
 
+import * as React from "react";
 import clsx from "clsx";
 import {forwardRef as baseForwardRef} from "react";
 
-export function forwardRef<Props extends object, Component extends As>(
+export function forwardRef<
+  Component extends As,
+  Props extends object,
+  OmitKeys extends keyof any = never,
+>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
@@ -11,7 +16,7 @@ export function forwardRef<Props extends object, Component extends As>(
     }
   >,
 ) {
-  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props>;
+  return baseForwardRef(component) as InternalForwardRefRenderFunction<Component, Props, OmitKeys>;
 }
 
 export const toIterator = (obj: any) => {

@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -51,7 +51,7 @@ export interface TextAreaProps extends Omit<UseInputProps, "ref" | OmittedInputP
   onHeightChange?: (height: number, meta: TextareaHeightChangeMeta) => void;
 }
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+const Textarea = forwardRef<"textarea", TextAreaProps>(
   (
     {style, minRows = 3, maxRows = 8, cacheMeasurements = false, onHeightChange, ...otherProps},
     ref,

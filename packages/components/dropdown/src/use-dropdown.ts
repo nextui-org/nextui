@@ -10,8 +10,7 @@ import {PopoverProps} from "@nextui-org/popover";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-export interface UseDropdownProps
-  extends HTMLNextUIProps<"div", Omit<PopoverProps, "children" | "color" | "variant">> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Type of overlay that is opened by the trigger.
    */
@@ -36,6 +35,8 @@ export interface UseDropdownProps
    */
   closeOnSelect?: boolean;
 }
+
+export type UseDropdownProps = Props & Omit<PopoverProps, "children" | "color" | "variant">;
 
 export function useDropdown(props: UseDropdownProps) {
   const {

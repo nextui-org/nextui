@@ -7,7 +7,7 @@ import {ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
 
-export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantProps> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -33,6 +33,8 @@ export interface UseSpinnerProps extends HTMLNextUIProps<"div", SpinnerVariantPr
    */
   classNames?: SlotsToClasses<SpinnerSlots>;
 }
+
+export type UseSpinnerProps = Props & SpinnerVariantProps;
 
 export function useSpinner(originalProps: UseSpinnerProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, spinner.variantKeys);

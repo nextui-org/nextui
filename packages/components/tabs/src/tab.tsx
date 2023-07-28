@@ -27,7 +27,7 @@ export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
 /**
  * @internal
  */
-const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
+const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   const {
     className,
     as,

@@ -23,7 +23,7 @@ export interface TableColumnHeaderProps<T = object> extends HTMLNextUIProps<"th"
   node: GridNode<T>;
 }
 
-const TableColumnHeader = forwardRef<TableColumnHeaderProps, "th">((props, ref) => {
+const TableColumnHeader = forwardRef<"th", TableColumnHeaderProps>((props, ref) => {
   const {as, className, state, node, slots, classNames, ...otherProps} = props;
 
   const Component = as || "th";

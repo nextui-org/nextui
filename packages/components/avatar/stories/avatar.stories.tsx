@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {Activity, Camera} from "@nextui-org/shared-icons";
 import {avatar} from "@nextui-org/theme";
 
@@ -30,7 +30,7 @@ export default {
   },
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => <Avatar {...args} />;
+const Template = (args: AvatarProps) => <Avatar {...args} />;
 
 const defaultProps = {
   ...avatar.defaultVariants,

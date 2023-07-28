@@ -1,10 +1,11 @@
-import {cloneElement, forwardRef} from "react";
+import {cloneElement} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseImageProps, useImage} from "./use-image";
 
 export interface ImageProps extends Omit<UseImageProps, "ref" | "showSkeleton"> {}
 
-const Image = forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
+const Image = forwardRef<"img", ImageProps>((props, ref) => {
   const {
     Component,
     domRef,

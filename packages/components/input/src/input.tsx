@@ -1,12 +1,13 @@
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
 
 export interface InputProps
   extends Omit<UseInputProps, "ref" | "isLabelPlaceholder" | "isMultiline"> {}
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Input = forwardRef<"input", InputProps>((props, ref) => {
   const {
     Component,
     label,

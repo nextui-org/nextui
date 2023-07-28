@@ -12,7 +12,7 @@ import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, isValidElement, cloneElement} from "react";
 import {PressEvent} from "@react-types/shared";
 
-export interface UseChipProps extends HTMLNextUIProps<"div">, ChipVariantProps {
+export interface UseChipProps extends HTMLNextUIProps, ChipVariantProps {
   /**
    * Ref to the DOM node.
    */

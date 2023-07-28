@@ -26,7 +26,7 @@ const createExtendNoSlotsComponent = (styles: ExtendVariantProps = {}) =>
       size: "xl",
       ...styles?.defaultVariants,
     },
-    compoundVariants: styles.compoundVariants ?? [
+    compoundVariants: styles?.compoundVariants ?? [
       {
         isScalable: true,
         size: "2xl",
@@ -76,7 +76,7 @@ const createExtendSlotsComponent = () =>
 describe("extendVariants function - no slots", () => {
   it("should render correctly", () => {
     const Button2 = createExtendNoSlotsComponent();
-    const wrapper = render(<Button2 />);
+    const wrapper = render(<Button2 disableRipple />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -85,7 +85,7 @@ describe("extendVariants function - no slots", () => {
     const ref = React.createRef<HTMLButtonElement>();
     const Button2 = createExtendNoSlotsComponent();
 
-    render(<Button2 ref={ref} />);
+    render(<Button2 ref={ref} disableRipple />);
     expect(ref.current).not.toBeNull();
   });
 

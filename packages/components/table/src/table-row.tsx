@@ -23,7 +23,7 @@ export interface TableRowProps<T = object> extends HTMLNextUIProps<"tr"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableRow = forwardRef<TableRowProps, "tr">((props, ref) => {
+const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
   const {as, className, children, node, slots, state, isSelectable, classNames, ...otherProps} =
     props;
 
