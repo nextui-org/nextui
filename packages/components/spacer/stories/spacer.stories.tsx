@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {spacer} from "@nextui-org/theme";
 
 import {Spacer, SpacerProps} from "../src";
@@ -41,7 +41,7 @@ const content = (
   <div className="flex flex-col w-[300px] h-[100px] bg-primary rounded-xl shadow-lg" />
 );
 
-const VerticalTemplate: ComponentStory<typeof Spacer> = (args: SpacerProps) => (
+const VerticalTemplate = (args: SpacerProps) => (
   <div className="flex flex-col">
     {content}
     <Spacer {...args} />
@@ -51,7 +51,7 @@ const VerticalTemplate: ComponentStory<typeof Spacer> = (args: SpacerProps) => (
   </div>
 );
 
-const HorizontalTemplate: ComponentStory<typeof Spacer> = (args: SpacerProps) => (
+const HorizontalTemplate = (args: SpacerProps) => (
   <div className="flex flex-row">
     {content}
     <Spacer {...args} />

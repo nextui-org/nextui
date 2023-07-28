@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {parseToRgba, readableColor} from "color2k";
 
 import {commonColors} from "../src/colors";
@@ -99,9 +99,7 @@ export default {
   },
 } as ComponentMeta<typeof SwatchSet>;
 
-const Template: ComponentStory<typeof SwatchSet> = (args: SwatchSetProps) => (
-  <SwatchSet {...args} />
-);
+const Template = (args: SwatchSetProps) => <SwatchSet {...args} />;
 
 const getCommonItems = (colors: string[]) => {
   return colors.map((color) => ({

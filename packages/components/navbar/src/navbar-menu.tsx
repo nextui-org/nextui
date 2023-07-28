@@ -23,7 +23,7 @@ export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
   motionProps?: HTMLMotionProps<"ul">;
 }
 
-const NavbarMenu = forwardRef<NavbarMenuProps, "ul">((props, ref) => {
+const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
   const domRef = useDOMRef(ref);
 

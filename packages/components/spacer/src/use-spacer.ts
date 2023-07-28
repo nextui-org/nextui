@@ -9,7 +9,7 @@ import {useMemo} from "react";
 
 import {spacing, Space} from "./utils";
 
-export interface UseSpacerProps extends HTMLNextUIProps<"span", SpacerVariantProps> {
+interface Props extends HTMLNextUIProps<"span"> {
   /**
    * Ref to the DOM node.
    */
@@ -29,6 +29,8 @@ export interface UseSpacerProps extends HTMLNextUIProps<"span", SpacerVariantPro
    */
   y?: Space;
 }
+
+export type UseSpacerProps = Props & SpacerVariantProps;
 
 export const getMargin = (value: Space) => {
   return spacing[value] ?? value;

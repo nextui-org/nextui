@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {AnimatePresence, motion, useWillChange} from "framer-motion";
@@ -6,9 +6,9 @@ import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
-export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {}
+export interface AccordionItemProps extends UseAccordionItemProps {}
 
-const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, ref) => {
+const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {
     Component,
     classNames,
@@ -30,7 +30,7 @@ const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, 
     getSubtitleProps,
     getContentProps,
     getIndicatorProps,
-  } = useAccordionItem({ref, ...props});
+  } = useAccordionItem({...props, ref});
 
   const willChange = useWillChange();
 

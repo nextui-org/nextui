@@ -19,7 +19,7 @@ export interface TableHeaderRowProps<T = object> extends HTMLNextUIProps<"tr"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableHeaderRow = forwardRef<TableHeaderRowProps, "tr">((props, ref) => {
+const TableHeaderRow = forwardRef<"tr", TableHeaderRowProps>((props, ref) => {
   const {as, className, children, node, slots, classNames, state, ...otherProps} = props;
 
   const Component = as || "tr";

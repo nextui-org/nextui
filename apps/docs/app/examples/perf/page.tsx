@@ -235,9 +235,7 @@ export default function NextUIPerf() {
 
       <Button>Click Me!</Button>
 
-      <MyButton2 disableRipple color="foreground">
-        Press Me!
-      </MyButton2>
+      <MyButton2 color="foreground">Press Me!</MyButton2>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {toggle} from "@nextui-org/theme";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SunFilledIcon, MoonFilledIcon} from "@nextui-org/shared-icons";
@@ -41,9 +41,9 @@ const defaultProps = {
   ...toggle.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Switch> = (args: SwitchProps) => <Switch {...args} />;
+const Template = (args: SwitchProps) => <Switch {...args} />;
 
-const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
+const WithIconsTemplate = (args: SwitchProps) => {
   const [isSelected, setIsSelected] = React.useState<boolean>(true);
 
   return (
@@ -63,7 +63,7 @@ const WithIconsTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => 
   );
 };
 
-const ControlledTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
+const ControlledTemplate = (args: SwitchProps) => {
   const [isSelected, setIsSelected] = React.useState<boolean>(true);
 
   return (
@@ -74,7 +74,7 @@ const ControlledTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) =>
   );
 };
 
-const CustomWithClassNamesTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
+const CustomWithClassNamesTemplate = (args: SwitchProps) => {
   const [isSelected, setIsSelected] = React.useState<boolean>(true);
 
   return (
@@ -105,7 +105,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Switch> = (args: Switc
   );
 };
 
-const CustomWithHooksTemplate: ComponentStory<typeof Switch> = (args: SwitchProps) => {
+const CustomWithHooksTemplate = (args: SwitchProps) => {
   const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} =
     useSwitch(args);
 

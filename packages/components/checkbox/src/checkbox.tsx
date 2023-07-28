@@ -1,13 +1,13 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";
 
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";
 import {CheckboxIcon} from "./checkbox-icon";
 
-export interface CheckboxProps extends Omit<UseCheckboxProps, "ref"> {}
+export interface CheckboxProps extends UseCheckboxProps {}
 
-const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
+const Checkbox = forwardRef<"label", CheckboxProps>((props, ref) => {
   const {
     Component,
     children,
@@ -18,8 +18,8 @@ const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref) => {
     getIconProps,
     getLabelProps,
   } = useCheckbox({
-    ref,
     ...props,
+    ref,
   });
 
   const clonedIcon =

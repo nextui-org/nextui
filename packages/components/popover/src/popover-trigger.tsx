@@ -1,4 +1,5 @@
-import React, {Children, cloneElement, useMemo, forwardRef} from "react";
+import React, {Children, cloneElement, useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
@@ -14,7 +15,7 @@ export interface PopoverTriggerProps {
  * PopoverTrigger opens the popover's content. It must be an interactive element
  * such as `button` or `a`.
  */
-const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>((props, _) => {
+const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
   const {triggerRef, getTriggerProps} = usePopoverContext();
 
   const {children, ...otherProps} = props;

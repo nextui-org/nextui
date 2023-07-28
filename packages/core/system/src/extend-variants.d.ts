@@ -44,6 +44,21 @@ type DefaultVariants<V, SV> = VariantValue<V, SV>;
 
 type CompoundVariants<V, SV> = Array<VariantValue<V, SV> & ClassProp<ClassValue>>;
 
+type Options = {
+  /**
+   * Whether to merge the class names with `tailwind-merge` library.
+   * It's avoid to have duplicate tailwind classes. (Recommended)
+   * @see https://github.com/dcastil/tailwind-merge/blob/v1.8.1/README.md
+   * @default true
+   */
+  twMerge?: boolean;
+  /**
+   * The config object for `tailwind-merge` library.
+   * @see https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md
+   */
+  twMergeConfig?: any;
+};
+
 export type ExtendVariantProps = {
   variants?: Record<string, Record<string, string>>;
   defaultVariants?: Record<string, string>;
@@ -56,7 +71,7 @@ export type ExtendVariantWithSlotsProps = {
   compoundVariants?: Array<Record<string, boolean | string | Record<string, string>>>;
 };
 
-export type extendVariants = {
+export type ExtendVariants = {
   <
     C extends JSXElementConstructor<any>,
     CP extends ComponentProps<C>,
@@ -73,6 +88,7 @@ export type extendVariants = {
       compoundVariants?: CV;
       slots?: S;
     },
+    opts?: Options,
   ): ForwardRefRenderFunction<
     ReactElement,
     {
@@ -84,4 +100,4 @@ export type extendVariants = {
 };
 
 // main function
-export declare const extendVariants: extendVariants;
+export declare const extendVariants: ExtendVariants;

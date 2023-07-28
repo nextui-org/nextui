@@ -1,4 +1,5 @@
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, motion} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
@@ -8,10 +9,9 @@ import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
-export interface TooltipProps
-  extends Omit<UseTooltipProps, "ref" | "disableTriggerFocus" | "backdrop"> {}
+export interface TooltipProps extends Omit<UseTooltipProps, "disableTriggerFocus" | "backdrop"> {}
 
-const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
+const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   const {
     Component,
     children,
@@ -26,8 +26,8 @@ const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
     getTooltipProps,
     getArrowProps,
   } = useTooltip({
-    ref,
     ...props,
+    ref,
   });
 
   let trigger: React.ReactElement;

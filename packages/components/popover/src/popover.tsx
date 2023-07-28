@@ -1,11 +1,12 @@
-import {Children, ReactNode, forwardRef} from "react";
+import {Children, ReactNode} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {AnimatePresence} from "framer-motion";
 import {Overlay} from "@react-aria/overlays";
 
 import {UsePopoverProps, usePopover} from "./use-popover";
 import {PopoverProvider} from "./popover-context";
 
-export interface PopoverProps extends Omit<UsePopoverProps, "ref"> {
+export interface PopoverProps extends UsePopoverProps {
   /**
    * The content of the popover. It is usually the `PopoverTrigger`,
    * and `PopoverContent`
@@ -13,9 +14,9 @@ export interface PopoverProps extends Omit<UsePopoverProps, "ref"> {
   children: ReactNode[];
 }
 
-const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => {
+const Popover = forwardRef<"div", PopoverProps>((props, ref) => {
   const {children, ...otherProps} = props;
-  const context = usePopover({ref, ...otherProps});
+  const context = usePopover({...otherProps, ref});
 
   const [trigger, content] = Children.toArray(children);
 

@@ -7,7 +7,7 @@ import {useModalContext} from "./modal-context";
 
 export interface ModalHeaderProps extends HTMLNextUIProps<"header"> {}
 
-const ModalHeader = forwardRef<ModalHeaderProps, "header">((props, ref) => {
+const ModalHeader = forwardRef<"header", ModalHeaderProps>((props, ref) => {
   const {as, children, className, ...otherProps} = props;
 
   const {slots, classNames, headerId, setHeaderMounted} = useModalContext();

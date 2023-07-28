@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 
 import {Textarea, TextAreaProps} from "../src";
@@ -59,13 +59,13 @@ const defaultProps = {
   placeholder: "Enter your description",
 };
 
-const Template: ComponentStory<typeof Textarea> = (args: TextAreaProps) => (
+const Template = (args: TextAreaProps) => (
   <div className="w-full max-w-[440px]">
     <Textarea {...args} />
   </div>
 );
 
-const MinRowsTemplate: ComponentStory<typeof Textarea> = (args: TextAreaProps) => (
+const MinRowsTemplate = (args: TextAreaProps) => (
   <div className="w-full max-w-xl flex flex-row gap-4">
     <Textarea {...args} description="Default minRows is 3" />
     <Textarea {...args} description="minRows is 5" minRows={5} />
@@ -73,7 +73,7 @@ const MinRowsTemplate: ComponentStory<typeof Textarea> = (args: TextAreaProps) =
   </div>
 );
 
-const MaxRowsTemplate: ComponentStory<typeof Textarea> = (args: TextAreaProps) => (
+const MaxRowsTemplate = (args: TextAreaProps) => (
   <div className="w-full max-w-xl flex flex-row gap-4">
     <Textarea {...args} description="Default maxRows is 8" />
     <Textarea {...args} description="maxRows is 5" maxRows={5} />

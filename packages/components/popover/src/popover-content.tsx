@@ -1,7 +1,8 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {DOMAttributes, ReactNode, useMemo, useRef, forwardRef} from "react";
+import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
@@ -15,11 +16,11 @@ import {usePopoverContext} from "./popover-context";
 
 export interface PopoverContentProps
   extends AriaDialogProps,
-    Omit<HTMLNextUIProps<"div">, "children" | "role"> {
+    Omit<HTMLNextUIProps, "children" | "role"> {
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
-const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>((props, _) => {
+const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;
 
   const {

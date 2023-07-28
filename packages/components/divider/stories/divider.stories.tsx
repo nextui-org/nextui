@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {divider} from "@nextui-org/theme";
 
 import {Divider, DividerProps} from "../src";
@@ -28,7 +28,7 @@ const defaultProps = {
   ...divider.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Divider> = (args: DividerProps) => (
+const Template = (args: DividerProps) => (
   <div className="max-w-md">
     <div className="space-y-1">
       <h4 className="text-base font-medium">NextUI Components</h4>

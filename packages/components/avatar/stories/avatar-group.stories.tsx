@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 
 import {Avatar, AvatarGroup, AvatarGroupProps} from "../src";
 
@@ -34,7 +34,7 @@ export default {
   },
 } as ComponentMeta<typeof AvatarGroup>;
 
-const Template: ComponentStory<typeof AvatarGroup> = (args: AvatarGroupProps) => (
+const Template = (args: AvatarGroupProps) => (
   <AvatarGroup {...args}>
     <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026705d" />
     <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026706d" />

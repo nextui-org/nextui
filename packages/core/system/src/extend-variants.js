@@ -19,18 +19,24 @@ function getSlots(variants) {
     }, {});
 }
 
-export function extendVariants(BaseComponent, styles = {}) {
+export function extendVariants(BaseComponent, styles = {}, opts = {}) {
   const {variants, defaultVariants, compoundVariants} = styles || {};
 
   const slots = getSlots(variants);
   const hasSlots = typeof slots === "object" && Object.keys(slots).length !== 0;
 
-  const customTv = tv({
-    variants,
-    defaultVariants,
-    compoundVariants,
-    ...(hasSlots && {slots}),
-  });
+  const customTv = tv(
+    {
+      variants,
+      defaultVariants,
+      compoundVariants,
+      ...(hasSlots && {slots}),
+    },
+    {
+      twMerge: opts.twMerge ?? true,
+      twMergeConfig: opts.twMergeConfig ?? {},
+    },
+  );
 
   const ForwardedComponent = React.forwardRef((originalProps, ref) => {
     const [baseProps, variantProps] = mapPropsVariants(originalProps, customTv.variantKeys, false);

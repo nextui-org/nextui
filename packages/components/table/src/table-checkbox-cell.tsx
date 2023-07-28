@@ -31,7 +31,7 @@ export interface TableCheckboxCellProps<T = object> extends HTMLNextUIProps<"td"
   classNames?: ValuesType["classNames"];
 }
 
-const TableCheckboxCell = forwardRef<TableCheckboxCellProps, "td">((props, ref) => {
+const TableCheckboxCell = forwardRef<"td", TableCheckboxCellProps>((props, ref) => {
   const {
     as,
     className,

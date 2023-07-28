@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {image} from "@nextui-org/theme";
 
 import {Image, ImageProps} from "../src";
@@ -52,9 +52,9 @@ const defaultProps = {
   disableSkeleton: true,
 };
 
-const Template: ComponentStory<typeof Image> = (args: ImageProps) => <Image {...args} />;
+const Template = (args: ImageProps) => <Image {...args} />;
 
-const LoadingTemplate: ComponentStory<typeof Image> = (args: ImageProps) => {
+const LoadingTemplate = (args: ImageProps) => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {

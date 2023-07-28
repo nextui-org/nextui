@@ -2,9 +2,9 @@ import type {HTMLNextUIProps} from "../src/types";
 
 import React, {useMemo} from "react";
 import {SlotsToClasses, tv, type VariantProps} from "@nextui-org/theme";
-import {filterDOMProps} from "@nextui-org/react-utils";
+import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 
-import {cn, mapPropsVariants} from "../src/utils";
+import {cn, forwardRef, mapPropsVariants} from "../src/utils";
 
 const card = tv({
   slots: {
@@ -155,14 +155,15 @@ const card = tv({
 type CardVariantProps = VariantProps<typeof card>;
 type CardSlots = keyof ReturnType<typeof card>;
 
-interface CardProps extends HTMLNextUIProps<"div">, CardVariantProps {
+interface CardProps extends HTMLNextUIProps, CardVariantProps {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   children: React.ReactNode;
+  ref?: ReactRef<HTMLDivElement | null>;
   classNames?: SlotsToClasses<CardSlots>;
 }
 
-export const Card = React.forwardRef<HTMLDivElement, CardProps>((originalProps, ref) => {
+export const Card = forwardRef<"div", CardProps>((originalProps, ref) => {
   const [props, variantProps] = mapPropsVariants(originalProps, card.variantKeys);
 
   const {header, footer, className, children, classNames, ...otherProps} = props;
@@ -171,9 +172,11 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>((originalProps, 
 
   const baseStyles = cn(classNames?.base, className);
 
+  const domRef = useDOMRef(ref);
+
   return (
     <div
-      ref={ref}
+      ref={domRef}
       className={styles.base({class: baseStyles})}
       data-testid="base"
       {...filterDOMProps(otherProps)}

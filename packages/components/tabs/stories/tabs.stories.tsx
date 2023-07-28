@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {button, link, tabs} from "@nextui-org/theme";
 import Lorem from "react-lorem-component";
 import {Input} from "@nextui-org/input";
@@ -61,7 +61,7 @@ const defaultProps = {
   ...tabs.defaultVariants,
 };
 
-const StaticTemplate: ComponentStory<any> = (args: TabsProps) => (
+const StaticTemplate = (args: TabsProps) => (
   <Tabs aria-label="Tabs example" {...args}>
     <Tab key="world" title="World">
       <Lorem count={1} sentenceUpperBound={20} />
@@ -81,7 +81,7 @@ const StaticTemplate: ComponentStory<any> = (args: TabsProps) => (
   </Tabs>
 );
 
-const WithIconsTemplate: ComponentStory<any> = (args: TabsProps) => (
+const WithIconsTemplate = (args: TabsProps) => (
   <Tabs
     aria-label="Tabs example"
     {...args}
@@ -98,7 +98,7 @@ const WithIconsTemplate: ComponentStory<any> = (args: TabsProps) => (
   </Tabs>
 );
 
-const ControlledTemplate: ComponentStory<any> = (args: TabsProps) => {
+const ControlledTemplate = (args: TabsProps) => {
   const [selected, setSelected] = React.useState<React.Key>("world");
 
   return (
@@ -152,7 +152,7 @@ type Item = {
   content?: React.ReactNode;
 };
 
-const DynamicTemplate: ComponentStory<any> = (args: TabsProps<Item>) => {
+const DynamicTemplate = (args: TabsProps<Item>) => {
   let tabs: Item[] = [
     {
       id: "world",
@@ -196,7 +196,7 @@ const DynamicTemplate: ComponentStory<any> = (args: TabsProps<Item>) => {
   );
 };
 
-const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
+const WithFormTemplate = (args: TabsProps) => {
   const [selected, setSelected] = React.useState<React.Key>("login");
 
   return (

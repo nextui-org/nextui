@@ -25,7 +25,7 @@ export interface TableSelectAllCheckboxProps<T = object> extends HTMLNextUIProps
   classNames?: ValuesType["classNames"];
 }
 
-const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((props, ref) => {
+const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((props, ref) => {
   const {
     as,
     className,

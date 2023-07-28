@@ -17,7 +17,7 @@ import {createDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 
-interface Props extends Omit<HTMLNextUIProps<"div">, "content"> {
+interface Props extends Omit<HTMLNextUIProps, "content"> {
   /**
    * Ref to the DOM node.
    */

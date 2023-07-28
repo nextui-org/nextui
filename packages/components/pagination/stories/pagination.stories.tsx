@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {button, pagination} from "@nextui-org/theme";
 import {cn} from "@nextui-org/system";
 import {ChevronIcon} from "@nextui-org/shared-icons";
@@ -76,9 +76,7 @@ const defaultProps = {
   initialPage: 1,
 };
 
-const Template: ComponentStory<typeof Pagination> = (args: PaginationProps) => (
-  <Pagination {...args} />
-);
+const Template = (args: PaginationProps) => <Pagination {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

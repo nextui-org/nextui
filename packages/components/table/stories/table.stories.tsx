@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
 import {Chip, ChipProps} from "@nextui-org/chip";
@@ -118,7 +118,7 @@ type SWCharacter = {
   birth_year: string;
 };
 
-const StaticTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+const StaticTemplate = (args: TableProps) => (
   <Table aria-label="Example static collection table" {...args}>
     <TableHeader>
       <TableColumn>NAME</TableColumn>
@@ -150,7 +150,7 @@ const StaticTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
   </Table>
 );
 
-const EmptyTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+const EmptyTemplate = (args: TableProps) => (
   <Table aria-label="Example empty table" {...args}>
     <TableHeader>
       <TableColumn>NAME</TableColumn>
@@ -161,7 +161,7 @@ const EmptyTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
   </Table>
 );
 
-const DynamicTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+const DynamicTemplate = (args: TableProps) => (
   <Table aria-label="Example table with dynamic content" {...args}>
     <TableHeader columns={columns}>
       {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
@@ -176,7 +176,7 @@ const DynamicTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
   </Table>
 );
 
-const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const CustomCellTemplate = (args: TableProps) => {
   const columns = [
     {name: "NAME", uid: "name"},
     {name: "ROLE", uid: "role"},
@@ -316,7 +316,7 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const CustomCellWithClassnamesTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const CustomCellWithClassnamesTemplate = (args: TableProps) => {
   const columns = [
     {name: "NAME", uid: "name"},
     {name: "ROLE", uid: "role"},
@@ -464,7 +464,7 @@ const CustomCellWithClassnamesTemplate: ComponentStory<typeof Table> = (args: Ta
   );
 };
 
-const SortableTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const SortableTemplate = (args: TableProps) => {
   let list = useAsyncList<SWCharacter>({
     async load({signal}) {
       let res = await fetch(`https://swapi.py4e.com/api/people/?search`, {
@@ -525,7 +525,7 @@ const SortableTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const LoadMoreTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const LoadMoreTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
 
   let list = useAsyncList<SWCharacter>({
@@ -580,7 +580,7 @@ const LoadMoreTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const PaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const PaginatedTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
 
   const rowsPerPage = 4;
@@ -758,7 +758,7 @@ const PaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const AsyncPaginatedTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
   const [total, setTotal] = React.useState(0);
 
@@ -833,7 +833,7 @@ const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) 
   );
 };
 
-const InfinitePaginationTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const InfinitePaginationTemplate = (args: TableProps) => {
   const [hasMore, setHasMore] = React.useState(false);
 
   let list = useAsyncList<SWCharacter>({

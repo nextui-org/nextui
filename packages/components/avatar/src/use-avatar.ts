@@ -1,4 +1,4 @@
-import type {AvatarVariantProps, AvatarSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
 import {avatar} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
@@ -13,11 +13,7 @@ import {useHover} from "@react-aria/interactions";
 
 import {useAvatarGroupContext} from "./avatar-group-context";
 
-export interface UseAvatarProps
-  extends Omit<
-    HTMLNextUIProps<"span", AvatarVariantProps>,
-    "children" | "isInGroup" | "isInGridGroup"
-  > {
+interface Props extends HTMLNextUIProps<"span"> {
   /**
    * Ref to the DOM node.
    */
@@ -96,6 +92,9 @@ export interface UseAvatarProps
    */
   classNames?: SlotsToClasses<AvatarSlots>;
 }
+
+export type UseAvatarProps = Props &
+  Omit<AvatarVariantProps, "children" | "isInGroup" | "isInGridGroup">;
 
 export function useAvatar(props: UseAvatarProps = {}) {
   const groupContext = useAvatarGroupContext();

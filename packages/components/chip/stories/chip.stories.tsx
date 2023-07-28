@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {chip} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";
 import {CheckIcon} from "@nextui-org/shared-icons";
@@ -47,7 +47,7 @@ const defaultProps = {
   children: "Chip",
 };
 
-const Template: ComponentStory<typeof Chip> = (args: ChipProps) => <Chip {...args} />;
+const Template = (args: ChipProps) => <Chip {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

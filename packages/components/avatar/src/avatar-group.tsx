@@ -1,12 +1,12 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {AvatarGroupProvider} from "./avatar-group-context";
 import {useAvatarGroup, UseAvatarGroupProps} from "./use-avatar-group";
 import Avatar from "./avatar";
 
-export interface AvatarGroupProps extends Omit<UseAvatarGroupProps, "ref"> {}
+export interface AvatarGroupProps extends UseAvatarGroupProps {}
 
-const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
+const AvatarGroup = forwardRef<"div", AvatarGroupProps>((props, ref) => {
   const {
     Component,
     clones,
@@ -15,8 +15,8 @@ const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) =>
     renderCount = (count) => <Avatar className="hover:-translate-x-0" name={`+${count}`} />,
     getAvatarGroupProps,
   } = useAvatarGroup({
-    ref,
     ...props,
+    ref,
   });
 
   return (

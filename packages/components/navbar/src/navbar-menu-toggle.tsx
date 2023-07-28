@@ -28,7 +28,7 @@ export interface Props extends Omit<HTMLNextUIProps<"button">, keyof AriaToggleB
 
 export type NavbarMenuToggleProps = Props & AriaToggleButtonProps;
 
-const NavbarMenuToggle = forwardRef<NavbarMenuToggleProps, "button">((props, ref) => {
+const NavbarMenuToggle = forwardRef<"button", NavbarMenuToggleProps>((props, ref) => {
   const {
     as,
     icon,

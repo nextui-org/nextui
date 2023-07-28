@@ -25,7 +25,7 @@ export interface TableCellProps<T = object> extends HTMLNextUIProps<"td"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableCell = forwardRef<TableCellProps, "td">((props, ref) => {
+const TableCell = forwardRef<"td", TableCellProps>((props, ref) => {
   const {as, className, node, rowKey, slots, state, classNames, ...otherProps} = props;
 
   const Component = as || "td";
