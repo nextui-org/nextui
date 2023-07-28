@@ -54,7 +54,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
   const [commandKey, setCommandKey] = useState<"ctrl" | "command">("command");
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isMounted = useIsMounted();
 
   const pathname = usePathname();

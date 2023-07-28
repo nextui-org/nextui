@@ -8,14 +8,14 @@ import {UseNavbarProps, useNavbar} from "./use-navbar";
 import {NavbarProvider} from "./navbar-context";
 import NavbarMenu from "./navbar-menu";
 
-export interface NavbarProps extends Omit<UseNavbarProps, "ref" | "hideOnScroll"> {
+export interface NavbarProps extends Omit<UseNavbarProps, "hideOnScroll"> {
   children?: React.ReactNode | React.ReactNode[];
 }
 
 const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   const {children, ...otherProps} = props;
 
-  const context = useNavbar({ref, ...otherProps});
+  const context = useNavbar({...otherProps, ref});
 
   const Component = context.Component;
 

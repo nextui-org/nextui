@@ -9,7 +9,7 @@ import {UsePaginationProps, usePagination} from "./use-pagination";
 import PaginationItem from "./pagination-item";
 import PaginationCursor from "./pagination-cursor";
 
-export interface PaginationProps extends Omit<UsePaginationProps, "ref"> {}
+export interface PaginationProps extends UsePaginationProps {}
 
 const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
   const {
@@ -33,7 +33,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
     getWrapperProps,
     getItemProps,
     getCursorProps,
-  } = usePagination({ref, ...props});
+  } = usePagination({...props, ref});
 
   const renderItem = useCallback(
     (value: PaginationItemValue, index: number) => {

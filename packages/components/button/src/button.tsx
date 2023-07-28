@@ -4,7 +4,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseButtonProps, useButton} from "./use-button";
 
-export interface ButtonProps extends Omit<UseButtonProps, "ref"> {}
+export interface ButtonProps extends UseButtonProps {}
 
 const Button = forwardRef<"button", ButtonProps>((props, ref) => {
   const {
@@ -22,8 +22,8 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     disableRipple,
     getButtonProps,
   } = useButton({
-    ref,
     ...props,
+    ref,
   });
 
   return (

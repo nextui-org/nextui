@@ -6,7 +6,7 @@ import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
-export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {}
+export interface AccordionItemProps extends UseAccordionItemProps {}
 
 const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {
@@ -30,7 +30,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
     getSubtitleProps,
     getContentProps,
     getIndicatorProps,
-  } = useAccordionItem({ref, ...props});
+  } = useAccordionItem({...props, ref});
 
   const willChange = useWillChange();
 

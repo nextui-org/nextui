@@ -4,7 +4,7 @@ import {forwardRef} from "@nextui-org/system";
 import {AvatarIcon} from "./avatar-icon";
 import {useAvatar, UseAvatarProps} from "./use-avatar";
 
-export interface AvatarProps extends Omit<UseAvatarProps, "ref"> {}
+export interface AvatarProps extends UseAvatarProps {}
 
 const Avatar = forwardRef<"span", AvatarProps>((props, ref) => {
   const {
@@ -22,8 +22,8 @@ const Avatar = forwardRef<"span", AvatarProps>((props, ref) => {
     getAvatarProps,
     getImageProps,
   } = useAvatar({
-    ref,
     ...props,
+    ref,
   });
 
   const fallback = useMemo(() => {

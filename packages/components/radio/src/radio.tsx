@@ -3,7 +3,7 @@ import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {UseRadioProps, useRadio} from "./use-radio";
 
-export interface RadioProps extends Omit<UseRadioProps, "ref"> {}
+export interface RadioProps extends UseRadioProps {}
 
 const Radio = forwardRef<"label", RadioProps>((props, ref) => {
   const {
@@ -18,7 +18,7 @@ const Radio = forwardRef<"label", RadioProps>((props, ref) => {
     getLabelProps,
     getLabelWrapperProps,
     getControlProps,
-  } = useRadio({ref, ...props});
+  } = useRadio({...props, ref});
 
   return (
     <Component {...getBaseProps()}>

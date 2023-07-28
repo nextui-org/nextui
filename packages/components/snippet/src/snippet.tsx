@@ -6,7 +6,7 @@ import {Button} from "@nextui-org/button";
 
 import {useSnippet, UseSnippetProps} from "./use-snippet";
 
-export interface SnippetProps extends Omit<UseSnippetProps, "ref"> {}
+export interface SnippetProps extends UseSnippetProps {}
 
 const Snippet = forwardRef<"div", SnippetProps>((props, ref) => {
   const {
@@ -29,7 +29,7 @@ const Snippet = forwardRef<"div", SnippetProps>((props, ref) => {
     onCopy,
     getSnippetProps,
     getCopyButtonProps,
-  } = useSnippet({ref, ...props});
+  } = useSnippet({...props, ref});
 
   const TooltipContent = useCallback(
     ({children}: {children?: ReactNode}) => (

@@ -4,7 +4,7 @@ import {linkAnchorClasses} from "@nextui-org/theme";
 
 import {UseLinkProps, useLink} from "./use-link";
 
-export interface LinkProps extends Omit<UseLinkProps, "ref"> {}
+export interface LinkProps extends UseLinkProps {}
 
 const Link = forwardRef<"a", LinkProps>((props, ref) => {
   const {
@@ -14,8 +14,8 @@ const Link = forwardRef<"a", LinkProps>((props, ref) => {
     anchorIcon = <LinkIcon className={linkAnchorClasses} />,
     getLinkProps,
   } = useLink({
-    ...props,
     ref,
+    ...props,
   });
 
   return (

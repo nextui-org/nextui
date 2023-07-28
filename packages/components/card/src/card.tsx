@@ -4,7 +4,7 @@ import {Ripple} from "@nextui-org/ripple";
 import {CardProvider} from "./card-context";
 import {useCard, UseCardProps} from "./use-card";
 
-export interface CardProps extends Omit<UseCardProps, "ref"> {}
+export interface CardProps extends UseCardProps {}
 
 const Card = forwardRef<"div", CardProps>((props, ref) => {
   const {
@@ -17,8 +17,8 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
     disableRipple,
     getCardProps,
   } = useCard({
-    ref,
     ...props,
+    ref,
   });
 
   return (

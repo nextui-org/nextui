@@ -5,7 +5,7 @@ import {cloneElement, ReactElement} from "react";
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";
 import {CheckboxIcon} from "./checkbox-icon";
 
-export interface CheckboxProps extends Omit<UseCheckboxProps, "ref"> {}
+export interface CheckboxProps extends UseCheckboxProps {}
 
 const Checkbox = forwardRef<"label", CheckboxProps>((props, ref) => {
   const {
@@ -18,8 +18,8 @@ const Checkbox = forwardRef<"label", CheckboxProps>((props, ref) => {
     getIconProps,
     getLabelProps,
   } = useCheckbox({
-    ref,
     ...props,
+    ref,
   });
 
   const clonedIcon =

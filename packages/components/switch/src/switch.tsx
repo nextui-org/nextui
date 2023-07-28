@@ -4,7 +4,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseSwitchProps, useSwitch} from "./use-switch";
 
-export interface SwitchProps extends Omit<UseSwitchProps, "ref"> {}
+export interface SwitchProps extends UseSwitchProps {}
 
 const Switch = forwardRef<"label", SwitchProps>((props, ref) => {
   const {
@@ -21,7 +21,7 @@ const Switch = forwardRef<"label", SwitchProps>((props, ref) => {
     getLabelProps,
     getStartContentProps,
     getEndContentProps,
-  } = useSwitch({ref, ...props});
+  } = useSwitch({...props, ref});
 
   const clonedThumbIcon =
     typeof thumbIcon === "function"

@@ -6,7 +6,7 @@ import {Fragment, Key, useCallback, useMemo} from "react";
 import {UseAccordionProps, useAccordion} from "./use-accordion";
 import AccordionItem from "./accordion-item";
 
-export interface AccordionProps extends Omit<UseAccordionProps, "ref"> {}
+export interface AccordionProps extends UseAccordionProps {}
 
 const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
   const {
@@ -20,8 +20,8 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
     handleFocusChanged: handleFocusChangedProps,
     itemClasses,
   } = useAccordion({
-    ref,
     ...props,
+    ref,
   });
   const handleFocusChanged = useCallback(
     (isFocused: boolean, key: Key) => handleFocusChangedProps(isFocused, key),
