@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {badge} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";
 import {CheckIcon} from "@nextui-org/shared-icons";
@@ -65,7 +65,7 @@ const defaultProps = {
   content: 5,
 };
 
-const Template: ComponentStory<typeof Badge> = (args: BadgeProps) => (
+const Template = (args: BadgeProps) => (
   <Badge {...args}>
     <Avatar
       isBordered={args.classNames?.badge?.includes("bottom")}
@@ -75,7 +75,7 @@ const Template: ComponentStory<typeof Badge> = (args: BadgeProps) => (
   </Badge>
 );
 
-const ShapesTemplate: ComponentStory<typeof Badge> = (args: BadgeProps) => (
+const ShapesTemplate = (args: BadgeProps) => (
   <div className="flex gap-4 items-center">
     <Badge {...args} shape="rectangle">
       <Avatar isBordered radius="lg" src="https://i.pravatar.cc/150?u=a042f81f4e29026024d" />
@@ -86,7 +86,7 @@ const ShapesTemplate: ComponentStory<typeof Badge> = (args: BadgeProps) => (
   </div>
 );
 
-const InvisibleTemplate: ComponentStory<typeof Badge> = (args: BadgeProps) => {
+const InvisibleTemplate = (args: BadgeProps) => {
   const [isInvisible, setIsInvisible] = React.useState(false);
 
   return (

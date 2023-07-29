@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {skeleton} from "@nextui-org/theme";
 
 import {Skeleton, SkeletonProps} from "../src";
@@ -30,7 +30,7 @@ const defaultProps = {
   children: <div className="w-[200px] h-[100px]">NextUI</div>,
 };
 
-const Template: ComponentStory<typeof Skeleton> = (args: SkeletonProps) => <Skeleton {...args} />;
+const Template = (args: SkeletonProps) => <Skeleton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

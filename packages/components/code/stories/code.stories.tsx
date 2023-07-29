@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {code} from "@nextui-org/theme";
 
 import {Code, CodeProps} from "../src";
@@ -34,7 +34,7 @@ const defaultProps = {
   ...code.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Code> = (args: CodeProps) => <Code {...args} />;
+const Template = (args: CodeProps) => <Code {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -9,7 +9,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
-export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {
+export interface UseUserProps extends Omit<HTMLNextUIProps, "children"> {
   /**
    * Ref to the DOM node.
    */

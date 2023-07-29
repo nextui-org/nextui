@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {snippet} from "@nextui-org/theme";
 
 import {Snippet, SnippetProps} from "../src";
@@ -82,7 +82,7 @@ const defaultProps = {
   ...snippet.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Snippet> = (args: SnippetProps) => <Snippet {...args} />;
+const Template = (args: SnippetProps) => <Snippet {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

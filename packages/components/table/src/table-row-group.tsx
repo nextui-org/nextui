@@ -11,7 +11,7 @@ export interface TableRowGroupProps extends HTMLNextUIProps<"thead"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableRowGroup = forwardRef<TableRowGroupProps, "thead">((props, ref) => {
+const TableRowGroup = forwardRef<"thead", TableRowGroupProps>((props, ref) => {
   const {as, className, children, slots, classNames, ...otherProps} = props;
 
   const Component = as || "thead";

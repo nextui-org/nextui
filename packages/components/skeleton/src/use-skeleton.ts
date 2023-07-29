@@ -7,7 +7,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
-export interface UseSkeletonProps extends HTMLNextUIProps<"div", SkeletonVariantProps> {
+interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -31,6 +31,8 @@ export interface UseSkeletonProps extends HTMLNextUIProps<"div", SkeletonVariant
    */
   classNames?: SlotsToClasses<SkeletonSlots>;
 }
+
+export type UseSkeletonProps = Props & SkeletonVariantProps;
 
 export function useSkeleton(originalProps: UseSkeletonProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, skeleton.variantKeys);

@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {circularProgress} from "@nextui-org/theme";
 import {Card, CardBody, CardFooter} from "@nextui-org/card";
 import {Chip} from "@nextui-org/chip";
@@ -34,11 +34,9 @@ const defaultProps = {
   ...circularProgress.defaultVariants,
 };
 
-const Template: ComponentStory<typeof CircularProgress> = (args: CircularProgressProps) => (
-  <CircularProgress {...args} />
-);
+const Template = (args: CircularProgressProps) => <CircularProgress {...args} />;
 
-const IntervalTemplate: ComponentStory<typeof CircularProgress> = (args: CircularProgressProps) => {
+const IntervalTemplate = (args: CircularProgressProps) => {
   const [value, setValue] = React.useState(0);
 
   React.useEffect(() => {
@@ -52,9 +50,7 @@ const IntervalTemplate: ComponentStory<typeof CircularProgress> = (args: Circula
   return <CircularProgress {...args} value={value} />;
 };
 
-const CustomClassnamesTemplate: ComponentStory<typeof CircularProgress> = (
-  args: CircularProgressProps,
-) => (
+const CustomClassnamesTemplate = (args: CircularProgressProps) => (
   <Card className="w-[240px] h-[240px] border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
     <CardBody className="justify-center items-center pb-0">
       <CircularProgress

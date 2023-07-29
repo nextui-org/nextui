@@ -1,7 +1,8 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {cloneElement, isValidElement, ReactNode, useMemo, forwardRef} from "react";
+import {cloneElement, isValidElement, ReactNode, useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {CloseIcon} from "@nextui-org/shared-icons";
@@ -14,13 +15,13 @@ import {HTMLNextUIProps} from "@nextui-org/system";
 import {useModalContext} from "./modal-context";
 import {scaleInOut} from "./modal-transition";
 
-export interface ModalContentProps
-  extends AriaDialogProps,
-    Omit<HTMLNextUIProps<"div">, "children" | "role"> {
+type KeysToOmit = "children" | "role";
+
+export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div", KeysToOmit> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
-const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>((props, _) => {
+const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;
 
   const {

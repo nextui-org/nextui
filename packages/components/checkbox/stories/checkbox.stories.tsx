@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {checkbox, colors} from "@nextui-org/theme";
 import {CheckIcon, CloseIcon} from "@nextui-org/shared-icons";
 import {User} from "@nextui-org/user";
@@ -56,9 +56,9 @@ const defaultProps: CheckboxProps = {
   children: "Option",
 };
 
-const Template: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => <Checkbox {...args} />;
+const Template = (args: CheckboxProps) => <Checkbox {...args} />;
 
-const ControlledTemplate: ComponentStory<typeof Checkbox> = (args: CheckboxProps) => {
+const ControlledTemplate = (args: CheckboxProps) => {
   const [selected, setSelected] = React.useState<boolean>(true);
 
   React.useEffect(() => {

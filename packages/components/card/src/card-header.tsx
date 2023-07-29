@@ -4,7 +4,7 @@ import {clsx} from "@nextui-org/shared-utils";
 
 import {useCardContext} from "./card-context";
 
-const CardHeader = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
+const CardHeader = forwardRef<"div", HTMLNextUIProps<"div">>((props, ref) => {
   const {as, className, children, ...otherProps} = props;
   const Component = as || "div";
 

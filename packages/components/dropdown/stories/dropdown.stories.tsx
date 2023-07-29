@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {dropdown, popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Avatar} from "@nextui-org/avatar";
@@ -113,11 +113,7 @@ const defaultProps = {
   disableAnimation: false,
 };
 
-const Template: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => (
+const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -133,11 +129,7 @@ const Template: ComponentStory<any> = ({
   </Dropdown>
 );
 
-const DividerTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => (
+const DividerTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -153,11 +145,7 @@ const DividerTemplate: ComponentStory<any> = ({
   </Dropdown>
 );
 
-const DisabledKeysTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => (
+const DisabledKeysTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -179,11 +167,7 @@ const DisabledKeysTemplate: ComponentStory<any> = ({
   </Dropdown>
 );
 
-const SingleSelectionTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => {
+const SingleSelectionTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => {
   const [selected, setSelected] = React.useState<string | Set<React.Key>>(new Set(["text"]));
 
   const selectedValue = React.useMemo(
@@ -218,7 +202,7 @@ const SingleSelectionTemplate: ComponentStory<any> = ({
   );
 };
 
-const MultipleSelectionTemplate: ComponentStory<any> = ({
+const MultipleSelectionTemplate = ({
   color,
   variant,
   ...args
@@ -258,7 +242,7 @@ const MultipleSelectionTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithShortcutTemplate: ComponentStory<any> = ({color, variant, ...args}) => (
+const WithShortcutTemplate = ({color, variant, ...args}) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -280,12 +264,12 @@ const WithShortcutTemplate: ComponentStory<any> = ({color, variant, ...args}) =>
   </Dropdown>
 );
 
-const WithStartContentTemplate: ComponentStory<any> = ({
+const WithStartContentTemplate = ({
   color,
   variant,
   disableAnimation,
   ...args
-}) => {
+}: DropdownProps & DropdownMenuProps) => {
   const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
 
   return (
@@ -331,12 +315,7 @@ const WithStartContentTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithEndContentTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  disableAnimation,
-  ...args
-}) => {
+const WithEndContentTemplate = ({color, variant, disableAnimation, ...args}) => {
   const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
@@ -369,12 +348,7 @@ const WithEndContentTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithDescriptionTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  disableAnimation,
-  ...args
-}) => {
+const WithDescriptionTemplate = ({color, variant, disableAnimation, ...args}) => {
   const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
 
   return (
@@ -424,7 +398,7 @@ const WithDescriptionTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithSectionsTemplate: ComponentStory<any> = ({color, variant, disableAnimation, ...args}) => {
+const WithSectionsTemplate = ({color, variant, disableAnimation, ...args}) => {
   const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
 
   return (
@@ -484,7 +458,7 @@ const WithSectionsTemplate: ComponentStory<any> = ({color, variant, disableAnima
   );
 };
 
-const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
+const CustomTriggerTemplate = ({variant, ...args}) => {
   return (
     <div className="flex items-center gap-10">
       <Dropdown {...args} placement="bottom-end">

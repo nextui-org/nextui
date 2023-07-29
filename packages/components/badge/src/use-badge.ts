@@ -8,7 +8,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
-export interface Props extends Omit<HTMLNextUIProps<"span">, "content"> {
+interface Props extends HTMLNextUIProps<"span", "content"> {
   /**
    * Ref to the DOM node.
    */

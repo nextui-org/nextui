@@ -2,10 +2,10 @@ import type {HTMLNextUIProps} from "../src/types";
 
 import React, {useMemo} from "react";
 import {tv, type VariantProps} from "@nextui-org/theme";
-import {filterDOMProps} from "@nextui-org/react-utils";
+import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 
 import {mapPropsVariants} from "../src/utils";
-
+import {forwardRef} from "../src/utils";
 /**
  * No slots
  */
@@ -55,9 +55,12 @@ const button = tv({
 
 interface ButtonProps extends HTMLNextUIProps<"button">, VariantProps<typeof button> {
   children: React.ReactNode;
+  disableRipple?: boolean;
+  ref?: ReactRef<HTMLButtonElement | null>;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((originalProps, ref) => {
+export const Button = forwardRef<"button", ButtonProps>((originalProps, ref) => {
+  // export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((originalProps, ref) => {
   const [props, variantProps] = mapPropsVariants(originalProps, button.variantKeys);
 
   const styles = useMemo(
@@ -65,8 +68,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((original
     [...Object.values(variantProps), props.className],
   );
 
+  const domRef = useDOMRef(ref);
+
   return (
-    <button ref={ref} {...filterDOMProps(props)} className={styles}>
+    <button ref={domRef} {...filterDOMProps(props)} className={styles}>
       {props.children}
     </button>
   );

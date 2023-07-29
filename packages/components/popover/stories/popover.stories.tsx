@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {popover, ButtonVariantProps} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
@@ -113,7 +113,7 @@ const content = (
   </PopoverContent>
 );
 
-const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+const Template = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
@@ -124,7 +124,7 @@ const Template: ComponentStory<typeof Popover> = (args: PopoverProps) => {
   );
 };
 
-const WithTitlePropsTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+const WithTitlePropsTemplate = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
@@ -144,7 +144,7 @@ const WithTitlePropsTemplate: ComponentStory<typeof Popover> = (args: PopoverPro
   );
 };
 
-const OpenChangeTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+const OpenChangeTemplate = (args: PopoverProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -165,7 +165,7 @@ const OpenChangeTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) 
   );
 };
 
-const PlacementsTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => {
+const PlacementsTemplate = (args: PopoverProps) => {
   const buttonColor = args.color as ButtonVariantProps["color"];
 
   return (
@@ -281,7 +281,7 @@ const PlacementsTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) 
   );
 };
 
-const OffsetTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
+const OffsetTemplate = (args: PopoverProps) => (
   <div className="flex gap-2">
     <Popover {...args}>
       <PopoverTrigger>
@@ -310,7 +310,7 @@ const OffsetTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
   </div>
 );
 
-const WithFormTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
+const WithFormTemplate = (args: PopoverProps) => (
   <Popover {...args}>
     <PopoverTrigger>
       <Button color="primary">Open Popover</Button>
@@ -333,7 +333,7 @@ const WithFormTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) =>
   </Popover>
 );
 
-const WithBackdropTemplate: ComponentStory<typeof Popover> = (args: PopoverProps) => (
+const WithBackdropTemplate = (args: PopoverProps) => (
   <Card isFooterBlurred className="w-[420px] h-[400px] col-span-12 sm:col-span-7">
     <CardHeader className="absolute z-10 top-1 flex-col items-start">
       <p className="text-xs text-white/60 uppercase font-bold">Your day your way</p>

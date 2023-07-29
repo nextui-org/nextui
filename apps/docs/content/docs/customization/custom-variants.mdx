@@ -232,3 +232,50 @@ import customVariantsSlots from "@/content/customization/custom-variants/slots-c
   the styles source code of the component. You can use this as a reference when creating your own
   custom component.
 </Blockquote>
+
+
+### Types
+
+### Main Function
+
+```jsx
+const Component = extendVariants(BaseComponent, options, config)
+
+/**
+ * BaseComponent -> NextUI component to extend
+ * options -> the variants to add/modify
+ * config -> config to extend the component
+ */
+
+```
+
+### Options
+
+```ts
+type ExtendVariantsOptions = {
+  variants?: Record<string, Record<string, ClassValue>>,
+  defaultVariants?: Record<string, ClassValue>,
+  compoundVariants?: Array<Record<string, string> & ClassProp>
+}
+
+```
+
+### Config
+
+```ts
+  /**
+   * Whether to merge the class names with `tailwind-merge` library.
+   * It's avoid to have duplicate tailwind classes. (Recommended)
+   * @see https://github.com/dcastil/tailwind-merge/blob/v1.8.1/README.md
+   * @default true
+   */
+  twMerge?: boolean;
+  /**
+   * The config object for `tailwind-merge` library.
+   * @see https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md
+   */
+  twMergeConfig?: TWMergeConfig;
+ ``` 
+
+> **Note**: See the [Tailwind Merge Config](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md) to learn more about it.
+

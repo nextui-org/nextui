@@ -1,10 +1,10 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseProgressProps, useProgress} from "./use-progress";
 
-export interface ProgressProps extends Omit<UseProgressProps, "ref"> {}
+export interface ProgressProps extends UseProgressProps {}
 
-const Progress = forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
+const Progress = forwardRef<"div", ProgressProps>((props, ref) => {
   const {
     Component,
     slots,
@@ -14,7 +14,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
     showValueLabel,
     getProgressBarProps,
     getLabelProps,
-  } = useProgress({ref, ...props});
+  } = useProgress({...props, ref});
 
   const progressBarProps = getProgressBarProps();
   const shouldShowLabelWrapper = label || showValueLabel;

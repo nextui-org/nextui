@@ -1,14 +1,14 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {Avatar} from "@nextui-org/avatar";
 
 import {UseUserProps, useUser} from "./use-user";
 
-export interface UserProps extends Omit<UseUserProps, "ref"> {}
+export interface UserProps extends UseUserProps {}
 
-const User = forwardRef<HTMLDivElement, UserProps>((props, ref) => {
+const User = forwardRef<"div", UserProps>((props, ref) => {
   const {Component, name, slots, classNames, description, avatarProps, getUserProps} = useUser({
-    ref,
     ...props,
+    ref,
   });
 
   return (

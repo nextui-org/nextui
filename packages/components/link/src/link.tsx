@@ -1,12 +1,12 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {LinkIcon} from "@nextui-org/shared-icons";
 import {linkAnchorClasses} from "@nextui-org/theme";
 
 import {UseLinkProps, useLink} from "./use-link";
 
-export interface LinkProps extends Omit<UseLinkProps, "ref"> {}
+export interface LinkProps extends UseLinkProps {}
 
-const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
+const Link = forwardRef<"a", LinkProps>((props, ref) => {
   const {
     Component,
     children,
@@ -14,8 +14,8 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     anchorIcon = <LinkIcon className={linkAnchorClasses} />,
     getLinkProps,
   } = useLink({
-    ...props,
     ref,
+    ...props,
   });
 
   return (

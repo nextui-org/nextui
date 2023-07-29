@@ -6,7 +6,7 @@ import {useCardContext} from "./card-context";
 
 export interface CardFooterProps extends HTMLNextUIProps<"div"> {}
 
-const CardFooter = forwardRef<CardFooterProps, "div">((props, ref) => {
+const CardFooter = forwardRef<"div", CardFooterProps>((props, ref) => {
   const {as, className, children, ...otherProps} = props;
 
   const Component = as || "div";

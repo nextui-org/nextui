@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {radio, button} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
@@ -43,7 +43,7 @@ const defaultProps = {
   label: "Options",
 };
 
-const Template: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => {
+const Template = (args: RadioGroupProps) => {
   const radioProps = args.description
     ? {
         a: {
@@ -101,7 +101,7 @@ const Template: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => {
   );
 };
 
-const ControlledTemplate: ComponentStory<typeof RadioGroup> = (args: RadioGroupProps) => {
+const ControlledTemplate = (args: RadioGroupProps) => {
   const [selectedItem, setSelectedItem] = React.useState<string>("london");
 
   React.useEffect(() => {

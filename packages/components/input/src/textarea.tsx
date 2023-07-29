@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -24,7 +24,7 @@ export type TextareaHeightChangeMeta = {
   rowHeight: number;
 };
 
-export interface TextAreaProps extends Omit<UseInputProps, "ref" | OmittedInputProps> {
+export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
   /**
    * Minimum number of rows to show for textarea
    * @default 3
@@ -51,7 +51,7 @@ export interface TextAreaProps extends Omit<UseInputProps, "ref" | OmittedInputP
   onHeightChange?: (height: number, meta: TextareaHeightChangeMeta) => void;
 }
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+const Textarea = forwardRef<"textarea", TextAreaProps>(
   (
     {style, minRows = 3, maxRows = 8, cacheMeasurements = false, onHeightChange, ...otherProps},
     ref,
@@ -70,7 +70,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
-    } = useInput<HTMLTextAreaElement>({ref, ...otherProps, isMultiline: true});
+    } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const labelContent = <label {...getLabelProps()}>{label}</label>;
     const inputProps = getInputProps();

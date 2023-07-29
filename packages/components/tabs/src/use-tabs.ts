@@ -13,7 +13,7 @@ import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {HTMLMotionProps} from "framer-motion";
 
-export interface Props extends Omit<HTMLNextUIProps<"div">, "children"> {
+export interface Props extends Omit<HTMLNextUIProps, "children"> {
   /**
    * Ref to the DOM node.
    */

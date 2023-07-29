@@ -6,13 +6,6 @@ export type As<Props = any> = React.ElementType<Props>;
 export type DOMElements = keyof JSX.IntrinsicElements;
 export type CapitalizedDOMElements = Capitalize<DOMElements>;
 
-export interface NextUIProps {
-  /**
-   * The HTML element to render.
-   */
-  as?: As;
-}
-
 export interface DOMElement extends Element, HTMLOrSVGElement {}
 
 type DataAttributes = {
@@ -43,24 +36,27 @@ export type MergeWithAs<
   AsProps extends object,
   AdditionalProps extends object = {},
   AsComponent extends As = As,
-> = RightJoinProps<ComponentProps, AdditionalProps> &
-  RightJoinProps<AsProps, AdditionalProps> & {
-    as?: AsComponent;
-  };
+> = (RightJoinProps<ComponentProps, AdditionalProps> | RightJoinProps<AsProps, AdditionalProps>) & {
+  as?: AsComponent;
+};
 
-export type ComponentWithAs<Component extends As, Props extends object = {}> = {
+export type InternalForwardRefRenderFunction<
+  Component extends As,
+  Props extends object = {},
+  OmitKeys extends keyof any = never,
+> = {
   <AsComponent extends As = Component>(
     props: MergeWithAs<
-      React.ComponentProps<Component>,
-      React.ComponentProps<AsComponent>,
+      React.ComponentPropsWithoutRef<Component>,
+      Omit<React.ComponentPropsWithoutRef<AsComponent>, OmitKeys>,
       Props,
       AsComponent
     >,
-  ): JSX.Element;
-
-  displayName?: string;
-  propTypes?: React.WeakValidationMap<any>;
-  defaultProps?: Partial<any>;
+  ): React.ReactElement | null;
+  readonly $$typeof: symbol;
+  defaultProps?: Partial<Props> | undefined;
+  propTypes?: React.WeakValidationMap<Props> | undefined;
+  displayName?: string | undefined;
 };
 
 /**
@@ -72,14 +68,12 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
 
 export type Merge<M, N> = N extends Record<string, unknown> ? M : Omit<M, keyof N> & N;
 
-export type HTMLNextUIProps<T extends As = "div", K extends object = {}> = Omit<
-  Omit<PropsOf<T>, "ref" | "color" | "slot"> & NextUIProps,
-  keyof K
-> &
-  K;
-
-export interface NextUIComponent<C extends As, P = {}>
-  extends ComponentWithAs<C, NextUIProps & P> {}
+export type HTMLNextUIProps<T extends As = "div", OmitKeys extends keyof any = never> = Omit<
+  PropsOf<T>,
+  "ref" | "color" | "slot" | OmitKeys
+> & {
+  as?: As;
+};
 
 export type PropGetter<P = Record<string, unknown>, R = DOMAttributes> = (
   props?: Merge<DOMAttributes, P>,

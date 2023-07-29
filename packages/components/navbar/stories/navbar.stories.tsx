@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {navbar} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
@@ -94,7 +94,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
 
 App.displayName = "App";
 
-const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const Template = (args: NavbarProps) => {
   // for hide on scroll cases
   const parentRef = React.useRef(null);
 
@@ -145,7 +145,7 @@ const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
   );
 };
 
-const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithMenuTemplate = (args: NavbarProps) => {
   const parentRef = React.useRef(null);
 
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean | undefined>(false);
@@ -231,7 +231,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
   );
 };
 
-const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithDropdownTemplate = (args: NavbarProps) => {
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -346,7 +346,7 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
   );
 };
 
-const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithAvatarUserTemplate = (args: NavbarProps) => {
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -446,7 +446,7 @@ const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps
   );
 };
 
-const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithSearchInputTemplate = (args: NavbarProps) => {
   const menuItems = [
     "Profile",
     "Dashboard",

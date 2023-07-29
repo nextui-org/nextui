@@ -10,7 +10,7 @@ import {mergeProps} from "@react-aria/utils";
 
 import {KbdKey} from "./utils";
 
-export interface UseKbdProps extends HTMLNextUIProps<"kbd", KbdVariantProps> {
+interface Props extends HTMLNextUIProps<"kbd"> {
   /**
    * Ref to the DOM node.
    */
@@ -34,6 +34,8 @@ export interface UseKbdProps extends HTMLNextUIProps<"kbd", KbdVariantProps> {
    */
   classNames?: SlotsToClasses<KbdSlots>;
 }
+
+export type UseKbdProps = Props & KbdVariantProps;
 
 export function useKbd(originalProps: UseKbdProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, kbd.variantKeys);

@@ -7,7 +7,7 @@ import {useModalContext} from "./modal-context";
 
 export interface ModalBodyProps extends HTMLNextUIProps<"div"> {}
 
-const ModalBody = forwardRef<ModalBodyProps, "div">((props, ref) => {
+const ModalBody = forwardRef<"div", ModalBodyProps>((props, ref) => {
   const {as, children, className, ...otherProps} = props;
 
   const {slots, classNames, bodyId, setBodyMounted} = useModalContext();

@@ -8,7 +8,7 @@ export interface PaginationCursorProps extends HTMLNextUIProps<"span"> {
   activePage?: number;
 }
 
-const PaginationCursor = forwardRef<PaginationCursorProps, "span">((props, ref) => {
+const PaginationCursor = forwardRef<"span", PaginationCursorProps>((props, ref) => {
   const {as, activePage, ...otherProps} = props;
 
   const Component = as || "span";

@@ -1,20 +1,21 @@
-import {ReactNode, forwardRef} from "react";
+import {ReactNode} from "react";
 import {AnimatePresence} from "framer-motion";
 import {Overlay} from "@react-aria/overlays";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseModalProps, useModal} from "./use-modal";
 import {ModalProvider} from "./modal-context";
 
-export interface ModalProps extends Omit<UseModalProps, "ref"> {
+export interface ModalProps extends UseModalProps {
   /**
    * The content of the modal. Usually the ModalContent
    */
   children: ReactNode;
 }
 
-const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
+const Modal = forwardRef<"div", ModalProps>((props, ref) => {
   const {children, ...otherProps} = props;
-  const context = useModal({ref, ...otherProps});
+  const context = useModal({...otherProps, ref});
 
   const overlay = <Overlay portalContainer={context.portalContainer}>{children}</Overlay>;
 

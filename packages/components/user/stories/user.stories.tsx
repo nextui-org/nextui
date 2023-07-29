@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {ComponentMeta} from "@storybook/react";
 import {Link} from "@nextui-org/link";
 
 import {User, UserProps} from "../src";
@@ -11,7 +11,7 @@ export default {
 
 const url = "https://avatars.githubusercontent.com/u/30373425?v=4";
 
-const Template: ComponentStory<typeof User> = (args: UserProps) => <User {...args} />;
+const Template = (args: UserProps) => <User {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
