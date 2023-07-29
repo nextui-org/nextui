@@ -1,7 +1,6 @@
 module.exports = {
   stories: [
     "./welcome.stories.mdx",
-    // default page
     "../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
@@ -10,7 +9,6 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-essentials",
     "@storybook/addon-links",
-    "@storybook/addon-styling",
     "storybook-dark-mode",
   ],
   framework: "@storybook/react-vite",
