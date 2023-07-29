@@ -25,13 +25,9 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "dev": "concurrently \"pnpm watch:css\" \"pnpm watch:sb\"",
-    "build": "concurrently \"pnpm:build:*\"",
-    "build:css": "npx tailwindcss -i ./.storybook/style.css -o ./public/tailwind.css",
-    "build:sb": "pnpm sb build",
-    "watch:css": "npx tailwindcss -i ./.storybook/style.css -o ./public/tailwind.css --watch",
-    "watch:sb": "pnpm sb dev -p 6006",
-    "start:sb": "pnpx http-server storybook-static"
+    "dev": "pnpm sb dev -p 6006",
+    "build": "pnpm sb build",
+    "start:sb": "pnpm dlx http-server storybook-static"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
@@ -55,13 +51,13 @@
     "@storybook/addon-storysource": "^7.1.1",
     "@storybook/addons": "^7.1.1",
     "@storybook/builder-vite": "^7.1.1",
+    "vite": "^4.4.7",
     "@storybook/cli": "^7.1.1",
     "@storybook/react": "^7.1.1",
     "@storybook/theming": "^7.1.1",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "concurrently": "^7.6.0",
-    "lightningcss": "^1.21.5",
     "storybook-dark-mode": "^3.0.0",
     "tailwindcss": "^3.2.7"
   },

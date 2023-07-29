@@ -2,7 +2,7 @@ import React from "react";
 import {themes} from "@storybook/theming";
 import {NextUIProvider} from "@nextui-org/system/src/provider";
 import type { Preview } from '@storybook/react';
-import './style.css';
+import './style.css'
 
 const decorators: Preview['decorators'] = [
     (Story, {globals: {locale}}) => {

@@ -7,18 +7,11 @@ module.exports = {
   ],
   staticDirs: ["../public"],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "storybook-dark-mode",
     "@storybook/addon-a11y",
-    {
-      name: "@storybook/addon-styling",
-      options: {
-        postCss: {
-          implementation: require.resolve("lightningcss"),
-        },
-      },
-    },
+    "@storybook/addon-essentials",
+    "@storybook/addon-links",
+    "@storybook/addon-styling",
+    "storybook-dark-mode",
   ],
   framework: "@storybook/react-vite",
   core: {
