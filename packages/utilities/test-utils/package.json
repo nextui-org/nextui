@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/test-utils",
-  "version": "0.0.0-dev-v2-20230728014036",
+  "version": "0.0.0-dev-v2-20230729132654",
   "description": "A set of utilities for react testing",
   "keywords": [
     "test-utils"

@@ -31,7 +31,7 @@ allows you to create a new component based on the original component, and custom
 
 ```tsx
 // MyButton.tsx
-import { extendVariants, Button } from "@nextui-org/react";
+import {extendVariants, Button} from "@nextui-org/react";
 
 export const MyButton = extendVariants(Button, {
   variants: {// <- modify/add variants
@@ -45,6 +45,7 @@ export const MyButton = extendVariants(Button, {
     },
     size: { 
       xs: "px-unit-2 min-w-unit-12 h-unit-6 text-tiny gap-unit-1 rounded-small",
+      md: "px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-small",
       xl: "px-unit-8 min-w-unit-28 h-unit-14 text-large gap-unit-4 rounded-medium",
     },
   },
@@ -73,7 +74,7 @@ import {MyButton} from "./MyButton";
 
 const MyApp = () => {
   return (
-    <MyButton fullWidth color="olive" size="xl">
+    <MyButton color="olive" size="md">
       Press Me
     </MyButton>  
   );
@@ -117,46 +118,56 @@ allows you to create a new component based on the original component, and custom
 
 ```tsx
 // MyInput.tsx
-import { extendVariants, Input } from "@nextui-org/react";
+import {extendVariants, Input} from "@nextui-org/react";
 
 const MyInput = extendVariants(Input, {
   variants: { // <- modify/add variants
     color: { 
-      slate: { // <- add a new color variant
-        inputWrapper: [ // <- inputWrapper slot
-          "bg-slate-100",
+      stone: { // <- add a new color variant
+        inputWrapper: [ // <- Input wrapper slot
+          "bg-zinc-100",
           "border",
           "shadow",
-          "hover:bg-slate-200",
-          "focus-within:!bg-slate-100",
-          "dark:bg-slate-900",
-          "dark:hover:bg-slate-800",
-          "dark:border-slate-800",
-          "dark:focus-within:!bg-slate-900",
+          "transition-colors",
+          "focus-within:bg-zinc-100",
+          "data-[hover=true]:border-zinc-600",
+          "data-[hover=true]:bg-zinc-100",
+          "group-data-[focus=true]:border-zinc-600",
+          // dark theme
+          "dark:bg-zinc-900",
+          "dark:border-zinc-800",
+          "dark:data-[hover=true]:bg-zinc-900",
+          "dark:focus-within:bg-zinc-900",
         ],
-        input: [ // <- input slot
-          "text-slate-500",
-          "placeholder:text-slate-500",
-          "dark:text-slate-400",
-          "dark:placeholder:text-slate-400",
+        input: [ // Input element slot
+          "text-zinc-800",
+          "placeholder:text-zinc-600",
+          // dark theme
+          "dark:text-zinc-400",
+          "dark:placeholder:text-zinc-600",
         ],
       },
     },
     size: {
       xs: {
-        inputWrapper: "h-unit-6 min-h-unit-6 px-1", // <- inputWrapper slot
-        input: "text-tiny", // <- input slot
-        clearButton: "text-tiny", // <- clearButton slot
+        inputWrapper: "h-unit-6 min-h-unit-6 px-1",
+        input: "text-tiny",
+      },
+      md: {
+        inputWrapper: "h-unit-10 min-h-unit-10",
+        input: "text-small",
       },
       xl: {
-        inputWrapper: "h-unit-14 min-h-unit-14", // <- inputWrapper slot
-        input: "text-medium", // <- input slot
-        clearButton: "text-large", // <- clearButton slot
+        inputWrapper: "h-unit-14 min-h-unit-14",
+        input: "text-medium",
       },
     },
     radius: {
       xs: {
-        inputWrapper: "rounded-none",
+        inputWrapper: "rounded",
+      },
+      sm: {
+        inputWrapper: "rounded-[4px]",
       },
     },
     textSize: {
@@ -172,7 +183,7 @@ const MyInput = extendVariants(Input, {
     },
   },
   defaultVariants: {
-    color: "slate",
+    color: "stone",
     textSize: "base",
     removeLabel: true,
   },
@@ -187,10 +198,17 @@ used with the color set to `slate` and the size set to `xl`.
 ```tsx
 // App.tsx
 import {MyInput} from "./MyInput";
+import {SearchIcon} from "your-icons-library";
 
 const MyApp = () => {
   return (
-    <MyInput isClearable placeholder="Search..." radius="xs" size="xl" />
+    <MyInput
+      isClearable
+      placeholder="Search..."
+      radius="md"
+      size="md"
+      startContent={<SearchIcon className="text-zinc-500" size={16} />}
+    />
   );
 }
 ```

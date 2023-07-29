@@ -30,6 +30,8 @@ const input = tv({
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
     clearButton: [
+      "p-2",
+      "-m-2",
       "z-10",
       "hidden",
       "absolute",

@@ -12,6 +12,7 @@ const MyButton = extendVariants(Button, {
     },
     size: { 
       xs: "px-unit-2 min-w-unit-12 h-unit-6 text-tiny gap-unit-1 rounded-small",
+      md: "px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-small",
       xl: "px-unit-8 min-w-unit-28 h-unit-14 text-large gap-unit-4 rounded-medium",
     },
   },
@@ -30,7 +31,7 @@ const MyButton = extendVariants(Button, {
 
 export default function App() {
   return (
-    <MyButton fullWidth color="olive" size="xl">
+    <MyButton color="olive" size="md">
       Press Me
     </MyButton>  
   );
