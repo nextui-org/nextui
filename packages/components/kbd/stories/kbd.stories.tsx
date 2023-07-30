@@ -1,8 +1,7 @@
-import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {kbd} from "@nextui-org/theme";
 
-import {Kbd, KbdProps} from "../src";
+import {Kbd} from "../src";
 
 export default {
   title: "Components/Kbd",
@@ -35,17 +34,16 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof Kbd>;
+} as Meta<typeof Kbd>;
 
 const defaultProps = {
   ...kbd.defaultVariants,
   keys: ["command"],
 };
 
-const Template = (args: KbdProps) => <Kbd {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-  children: "K",
+export const Default = {
+  args: {
+    ...defaultProps,
+    children: "K",
+  },
 };

@@ -1,8 +1,8 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {spinner} from "@nextui-org/theme";
 
-import {Spinner, SpinnerProps} from "../src";
+import {Spinner} from "../src";
 
 export default {
   title: "Components/Spinner",
@@ -34,21 +34,21 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Spinner>;
+} as Meta<typeof Spinner>;
 
 const defaultProps = {
   ...spinner.defaultVariants,
 };
 
-const Template = (args: SpinnerProps) => <Spinner {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  ...defaultProps,
-  label: "Loading...",
+export const WithLabel = {
+  args: {
+    ...defaultProps,
+    label: "Loading...",
+  },
 };

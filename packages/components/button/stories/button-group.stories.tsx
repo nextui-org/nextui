@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {button, buttonGroup} from "@nextui-org/theme";
 
 import {Button, ButtonGroup, ButtonGroupProps} from "../src";
@@ -48,7 +48,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ButtonGroup>;
+} as Meta<typeof ButtonGroup>;
 
 const defaultProps = {
   ...button.defaultVariants,
@@ -63,7 +63,10 @@ const Template = (args: ButtonGroupProps) => (
   </ButtonGroup>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };

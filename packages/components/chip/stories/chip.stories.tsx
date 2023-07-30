@@ -1,10 +1,10 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {chip} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";
 import {CheckIcon} from "@nextui-org/shared-icons";
 
-import {Chip, ChipProps} from "../src";
+import {Chip} from "../src";
 
 export default {
   title: "Components/Chip",
@@ -40,59 +40,63 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Chip>;
+} as Meta<typeof Chip>;
 
 const defaultProps = {
   ...chip.defaultVariants,
   children: "Chip",
 };
 
-const Template = (args: ChipProps) => <Chip {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const StartContent = Template.bind({});
-StartContent.args = {
-  ...defaultProps,
-  startContent: (
-    <span aria-label="celebration" className="ml-1" role="img">
-      🎉
-    </span>
-  ),
+export const StartContent = {
+  args: {
+    ...defaultProps,
+    startContent: (
+      <span aria-label="celebration" className="ml-1" role="img">
+        🎉
+      </span>
+    ),
+  },
 };
 
-export const EndContent = Template.bind({});
-EndContent.args = {
-  ...defaultProps,
-  endContent: (
-    <span aria-label="rocket" className="mr-1" role="img">
-      🚀
-    </span>
-  ),
+export const EndContent = {
+  args: {
+    ...defaultProps,
+    endContent: (
+      <span aria-label="rocket" className="mr-1" role="img">
+        🚀
+      </span>
+    ),
+  },
 };
 
-export const Closeable = Template.bind({});
-Closeable.args = {
-  ...defaultProps,
-  // eslint-disable-next-line
-  onClose: () => console.log("Close"),
+export const Closeable = {
+  args: {
+    ...defaultProps,
+    // eslint-disable-next-line
+    onClose: () => console.log("Close"),
+  },
 };
 
-export const CustomCloseIcon = Template.bind({});
-CustomCloseIcon.args = {
-  ...defaultProps,
-  endContent: <CheckIcon />,
-  // eslint-disable-next-line
-  onClose: () => console.log("Close"),
+export const CustomCloseIcon = {
+  args: {
+    ...defaultProps,
+    endContent: <CheckIcon />,
+    // eslint-disable-next-line
+    onClose: () => console.log("Close"),
+  },
 };
 
-export const WithAvatar = Template.bind({});
-WithAvatar.args = {
-  ...defaultProps,
-  variant: "flat",
-  color: "secondary",
-  avatar: <Avatar name="JW" src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />,
+export const WithAvatar = {
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    color: "secondary",
+    avatar: <Avatar name="JW" src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />,
+  },
 };

@@ -1,6 +1,6 @@
 import type {VariantProps} from "@nextui-org/theme";
 
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import React from "react";
 import {tv} from "@nextui-org/theme";
 import {link} from "@nextui-org/theme";
@@ -35,7 +35,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Link>;
+} as Meta<typeof Link>;
 
 const children = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
@@ -48,12 +48,15 @@ const defaultProps = {
 
 const Template = (args: LinkProps) => <Link {...args} href="#" />;
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-  isDisabled: false,
-  color: "foreground",
-  size: "md",
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isDisabled: false,
+    color: "foreground",
+    size: "md",
+  },
 };
 
 export const Underline = Template.bind({}) as any;

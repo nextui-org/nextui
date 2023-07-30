@@ -1,8 +1,7 @@
-import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {code} from "@nextui-org/theme";
 
-import {Code, CodeProps} from "../src";
+import {Code} from "../src";
 
 export default {
   title: "Components/Code",
@@ -27,16 +26,15 @@ export default {
       options: ["sm", "md", "lg"],
     },
   },
-} as ComponentMeta<typeof Code>;
+} as Meta<typeof Code>;
 
 const defaultProps = {
   children: "npm install @nextui-org/react",
   ...code.defaultVariants,
 };
 
-const Template = (args: CodeProps) => <Code {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
