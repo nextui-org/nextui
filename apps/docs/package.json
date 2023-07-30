@@ -62,6 +62,7 @@
     "react-icons": "^4.10.1",
     "react-live": "^2.3.0",
     "react-multi-ref": "^1.0.1",
+    "react-wrap-balancer": "^1.0.0",
     "refractor": "3.3.1",
     "rehype": "11.0.0",
     "rehype-parse": "7.0.1",

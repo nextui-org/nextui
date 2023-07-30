@@ -4,19 +4,21 @@ import {tv} from "@nextui-org/theme";
 import {cn, mapPropsVariants} from "./utils";
 
 function getSlots(variants) {
-  return Object.values(variants)
-    .flatMap(Object.values)
-    .reduce((acc, slot) => {
-      if (typeof slot === "object" && slot !== null && !(slot instanceof String)) {
-        Object.keys(slot).forEach((key) => {
-          if (!acc.hasOwnProperty(key)) {
-            acc[key] = "";
+  return variants
+    ? Object.values(variants)
+        .flatMap(Object.values)
+        .reduce((acc, slot) => {
+          if (typeof slot === "object" && slot !== null && !(slot instanceof String)) {
+            Object.keys(slot).forEach((key) => {
+              if (!acc.hasOwnProperty(key)) {
+                acc[key] = "";
+              }
+            });
           }
-        });
-      }
 
-      return acc;
-    }, {});
+          return acc;
+        }, {})
+    : {};
 }
 
 export function extendVariants(BaseComponent, styles = {}, opts = {}) {

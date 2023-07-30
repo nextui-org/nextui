@@ -3,7 +3,7 @@ import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "
 import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 
 import {card} from "@nextui-org/theme";
-import {MouseEvent, useCallback, useMemo} from "react";
+import {MouseEvent, ReactNode, useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
@@ -18,7 +18,11 @@ export interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
-  ref: ReactRef<HTMLDivElement | null>;
+  ref?: ReactRef<HTMLDivElement | null>;
+  /**
+   * Usually the Card parts, `CardHeader`, `CardBody` and `CardFooter`.
+   */
+  children?: ReactNode | ReactNode[];
   /**
    * Whether the card should show a ripple animation on press, this prop is ignored if `disableAnimation` is true or `isPressable` is false.
    * @default false

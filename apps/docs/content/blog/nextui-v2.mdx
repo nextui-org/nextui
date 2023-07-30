@@ -1,0 +1,301 @@
+---
+title: "Introducing NextUI Version 2"
+description: "Discover NextUI v2. TailwindCSS integration, enhanced theming, improved animations, and more."
+date: "2023-07-29"
+image: "/blog/nextuiv2.jpg"
+author:
+  name: "Junior Garcia"
+  username: "@jrgarciadev"
+  link: "https://twitter.com/jrgarciadev"
+  avatar: "/avatars/junior-garcia.jpeg"
+---
+
+<img
+  src="/blog/nextuiv2.jpg"
+  width={700}
+  height={350}
+  alt="NextUI v2"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+We're thrilled to announce the release of **NextUI v2.0**. Our mission has always been to create a more
+efficient, flexible, **beautiful** and customizable UI library for you. And, this update is a huge leap
+towards achieving that.
+
+## Table of Contents
+
+- [Transition to TailwindCSS](#transition-to-tailwindcss) - Our shift to TailwindCSS.
+- [TailwindCSS Plugin](#tailwindcss-plugin) - Introducing theme customization plugin.
+- [React Server Components](#react-server-components) - Enhanced performance with React Server Components.
+- [Custom Themes, Layouts, Colors](#custom-themes-layouts-colors) - New customizability options.
+- [Enhanced Documentation](#enhanced-documentation) - A better navigation experience.
+- [New Templates & Guides](#new-templates-guides) - Easier app creation process.
+- [Custom Variants](#custom-variants) - Customization of components' variants.
+- [Enhanced Styling Model](#enhanced-styling-model) - Effortless component styling.
+- [Tailwind Variants](#tailwind-variants) - Our new library for better TailwindCSS handling.
+- [Revamped Components](#revamped-components) - Rewritten components with react-aria hooks.
+- [Optimized Animations](#optimized-animations) - Smoother app animations.
+- [Individual Packages](#individual-packages) - Install only what you need.
+- [Dark Mode Support](#dark-mode-support) - Easier implementation of dark mode.
+- [New Components](#new-components) - Six new components added.
+- [Figma Community File](#figma-community-file) - Streamlining design-to-development process.
+- [Get Started](#get-started) - Get on board with NextUI v2.0.
+
+<Spacer y={4} />
+
+## What's New in Version 2?
+
+<Spacer y={4} />
+
+### Transition from Stitches to TailwindCSS
+
+We've transitioned from [Stitches](https://stitches.dev/) to [TailwindCSS](https://tailwindcss.com/),
+eliminating runtime styles and bringing you a more flexible and customizable UI library. This change allows
+you to use NextUI v2 with the latest versions of [React](https://reactjs.org/) and [Next.js](https://nextjs.org/) without running
+into React Server Components issues.
+
+### TailwindCSS Plugin
+
+NextUI v2.0 comes with a TailwindCSS plugin that enables the customization and addition of default themes.
+This plugin allows you to customize colors and layouts tokens that are used by NextUI components.
+
+```js {8,13-14}
+// tailwind.config.js
+const {nextui} = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // ...
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [nextui()],
+};
+```
+
+> Go to [Themes](/docs/customization/theme) documentation to learn more about the plugin and how to use it.
+
+### React Server Components Support
+
+Thanks to the switch to TailwindCSS, **NextUI v2.0** now supports React Server Components by default. This
+improves performance and allows you to use it with the latest versions of [React](https://reactjs.org/) and
+[Next.js](https://nextjs.org/).
+
+NextUI components already inclue the `use client;` directive so you can import them
+server components.
+
+```jsx
+// app/page.tsx
+import {Button} from "@nextui-org/button";
+
+export default function Page() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  );
+}
+```
+
+### Custom Themes, Layouts and Colors
+
+The `nextui` TailwindCSS plugin allows you to customize the default themes, layouts and colors tokens. It
+also allows you to add new themes and customize them.
+
+```js
+module.exports = {
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          layout: {}, // light theme layout tokens
+          colors: {}, // light theme colors
+        },
+        dark: {
+          layout: {}, // dark theme layout tokens
+          colors: {}, // dark theme colors
+        },
+        custom: {
+          layout: {
+            // custom theme layout tokens
+            extend: "light" / "dark", // extend from light or dark theme
+          },
+          colors: {}, // custom theme colors
+        },
+        // ... custom themes
+      },
+    }),
+  ],
+};
+```
+
+> Check out the [Layout](/docs/customization/layout) and [Colors](/docs/customization/colors) documentation
+> for better understanding of the layout and colors tokens.
+
+### Enhanced Documentation
+
+We've built our new documentation on top of Next.js 13 using the App directory, making it simpler, more
+robust, and more helpful than ever before. Additionally, we've improved the structure by placing useful
+links at the top of each component documentation, such as the component storybook, npm, react-aria hooks, and links to
+the source code and styles source code.
+
+<VideoInView
+  src="https://nextui-public-resources.s3.amazonaws.com/new-docs.mp4"
+  width={700}
+  height={350}
+/>
+
+### New Templates and Guides
+
+Two Next.js templates for App and Pages directories, alongside Vite, Remix, and Astro
+installation guides, are introduced to aid your app creation process.
+
+#### Next.js Templates
+
+<NextJsTemplates />
+
+#### Frameworks
+
+<Frameworks />
+
+### Custom Variants
+
+We've added a new function, `extendVariants`, that allows you to customize any NextUI components's variants.
+
+<VideoInView
+  src="https://nextui-public-resources.s3.amazonaws.com/custom-variants.mp4"
+  width={700}
+  height={350}
+/>
+
+You can create or override the component `variants`, `defaultVariants` and `componentVariants`.
+
+> Check out the [Custom Variants](/docs/customization/variants) documentation for more information.
+
+### Enhanced Styling Model
+
+With the new slots model, you can style every part of your components effortlessly.
+
+<VideoInView
+  src="https://nextui-public-resources.s3.amazonaws.com/override-styles.mp4"
+  width={700}
+  height={350}
+/>
+
+> Check out the [Override Styles](/docs/customization/override-styles) documentation for more information.
+
+### Tailwind Variants
+
+Our new library, [Tailwind Variants](https://tailwind-variants.org), allows you to write TailwindCSS for large components in a reusable
+and clear way. It automatically handles TailwindCSS class conflicts and all NextUI components are built on top of it.
+
+> Check out the [Tailwind Variants](https://tailwind-variants.org) documentation for more information.
+
+### Revamped Components
+
+All components are written from scratch and integrated with [react-aria](https://react-spectrum.adobe.com/react-aria/index.html) hooks, ensuring enhanced performance
+and better accessibility.
+
+### Optimized Animations
+
+Thanks to [framer-motion](https://www.framer.com/motion/), we've significantly improved and optimized animations to make your
+app feel more fluid and smooth.
+
+<VideoInView
+  src="https://nextui-public-resources.s3.amazonaws.com/dropdown-animation.mp4"
+  width={700}
+  height={350}
+/>
+
+### Individual Packages Support
+
+Install only what you need, reducing CSS bundle as it will only include styles for the components
+you're actually using.
+
+<PackageManagers
+  commands={{
+    npm: "npm i @nextui-org/button",
+    yarn: "yarn add @nextui-org/button",
+    pnpm: "pnpm add @nextui-org/button",
+  }}
+/>
+
+> Check out the [Individual Packages](/docs/guide/installation#individual-installation) documentation for more information.
+
+### Dark Mode Support
+
+Implementing dark mode has never been easier. Thanks to the `nextui` TailwindCSS plugin, you can now use the `dark` theme
+by just adding the `dark` class to the `body` / `html` or `main` tag.
+
+```jsx {11}
+// main.tsx or main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {NextUIProvider} from "@nextui-org/react";
+import App from "./App";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <NextUIProvider>
+      <main className="dark text-foreground bg-background">
+        <App />
+      </main>
+    </NextUIProvider>
+  </React.StrictMode>,
+);
+```
+
+<VideoInView
+  src="https://nextui-public-resources.s3.amazonaws.com/dark-mode.mp4"
+  width={700}
+  height={350}
+/>
+
+> **Note**: **text-foreground** and **bg-background** changes the text and background colors to the current theme.
+
+### New Components
+
+We've added 6 new components, expanding the possibilities of what you can create.
+
+- [Chip](/docs/components/chip): Small block of essential information that represent an input, attribute, or action.
+- [Divider](/docs/components/divider): A line that separates content in a page.
+- [Kbd](/docs/components/kbd): Displays which `key` or combination of keys performs a given action.
+- [Skeleton](/docs/components/skeleton): Placeholder for loading content.
+- [Snippet](/docs/components/snippet): Displays a code snippet.
+- [Tabs](/docs/components/tabs): Organize content into separate views where only one view is visible at a time.
+
+## Figma Community File
+
+We're excited to also announce our **Figma Community File**. This file will enable you to easily translate
+your designs into NextUI components. Whether you're a solo developer or working with a design team, our Figma
+file helps streamline the process of transforming design ideas into functioning UI components.
+
+<Blockquote color="warning">
+  This file is still in development and will be continuously updated.
+</Blockquote>
+
+<iframe
+  height="450"
+  width="800"
+  src="https://embed.figma.com/file/1267584376234254760/hf_embed?community_viewer=true&embed_host=nextui"
+  className="aspect-video w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+<Spacer y={10} />
+
+<Button color="default" variant="bordered">
+  <Link isExternal className="text-current" href="https://www.figma.com/community/file/1267584376234254760">
+    Open in Figma
+  </Link>
+</Button>
+
+## Get Started
+
+To start using **NextUI v2.0**, head over to our [installation guide](/docs/guide/installation).
+
+We can't wait to see the amazing things you'll build with **NextUI v2.0**!

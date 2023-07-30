@@ -8,6 +8,7 @@ import {ThemeSwitch} from "./theme-switch";
 
 import {Sandpack} from "@/components/sandpack";
 import * as DocsComponents from "@/components/docs/components";
+import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components";
 
@@ -173,6 +174,10 @@ export const MDXComponents = {
   ...DocsComponents,
   Sandpack,
   ThemeSwitch,
+  /**
+   * Blog components
+   */
+  ...BlogComponents,
   /**
    * Markdown components
    */

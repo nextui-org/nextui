@@ -408,6 +408,9 @@ importers:
       react-multi-ref:
         specifier: ^1.0.1
         version: 1.0.1
+      react-wrap-balancer:
+        specifier: ^1.0.0
+        version: 1.0.0(react@18.2.0)
       refractor:
         specifier: 3.3.1
         version: 3.3.1
@@ -22976,6 +22979,14 @@ packages:
       use-latest: 1.2.1(@types/react@18.2.8)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-wrap-balancer@1.0.0(react@18.2.0):
+    resolution: {integrity: sha512-yjDH+I8WGyDfh95gKhX/6ckfSBAltwQkxiYxtLPlyIRQNUVSjvz1uHR6Hpy+zHyOkJQw6GEC5RPglA41QXvzyw==}
+    peerDependencies:
+      react: '>=16.8.0 || ^17.0.0 || ^18'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react@18.2.0:

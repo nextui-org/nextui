@@ -14,7 +14,7 @@ You can create or override the component `variants`, `defaultVariants` and `comp
 
 ## Creating new variants for non-slots components
 
-The  [Button](/docs/components/button) component is a non-slots component, meaning that it does not
+The [Button](/docs/components/button) component is a non-slots component, meaning that it does not
 have any slots that can be customized.
 
 For this example, we will be using the `Button` component's styles source code as a
@@ -34,8 +34,9 @@ allows you to create a new component based on the original component, and custom
 import {extendVariants, Button} from "@nextui-org/react";
 
 export const MyButton = extendVariants(Button, {
-  variants: {// <- modify/add variants
-    color: { 
+  variants: {
+    // <- modify/add variants
+    color: {
       olive: "text-[#000] bg-[#84cc16]",
       orange: "bg-[#ff8c00] text-[#fff]",
       violet: "bg-[#8b5cf6] text-[#fff]",
@@ -43,29 +44,31 @@ export const MyButton = extendVariants(Button, {
     isDisabled: {
       true: "bg-[#eaeaea] text-[#000] opacity-50 cursor-not-allowed",
     },
-    size: { 
+    size: {
       xs: "px-unit-2 min-w-unit-12 h-unit-6 text-tiny gap-unit-1 rounded-small",
       md: "px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-small",
       xl: "px-unit-8 min-w-unit-28 h-unit-14 text-large gap-unit-4 rounded-medium",
     },
   },
-  defaultVariants: { // <- modify/add the default variants
+  defaultVariants: {
+    // <- modify/add the default variants
     color: "olive",
     size: "xl",
   },
-  componentVariants: [ // <- modify/add the component variants
+  componentVariants: [
+    // <- modify/add the component variants
     {
       isDisabled: true,
       color: "olive",
-      class: "bg-[#84cc16]/80 opacity-100"
-    }
+      class: "bg-[#84cc16]/80 opacity-100",
+    },
   ],
 });
 ```
 
 ### Use your custom component in your application
 
-Then, you can now use your custom component in your application. Here, `MyButton` is 
+Then, you can now use your custom component in your application. Here, `MyButton` is
 used with the color set to `olive` and the size set to `xl`.
 
 ```tsx
@@ -76,10 +79,10 @@ const MyApp = () => {
   return (
     <MyButton color="olive" size="md">
       Press Me
-    </MyButton>  
+    </MyButton>
   );
-}
-``` 
+};
+```
 
 The new component will include the original props of the `Button` component, plus the new
 variants that you have created.
@@ -94,15 +97,13 @@ import customVariantsNoSlots from "@/content/customization/custom-variants/no-sl
 
 </Steps>
 
-
 ## Creating new variants for slots components
 
 It is also possible to use the `extendVariants` function to add or override variants for
 components that have slots.
 
 The [Input](/docs/components/input) component is a slots component, meaning that it has slots that can be
-customized. 
-
+customized.
 
 For this example, we will be using the `Input` component's styles source code as a
 reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/core/theme/src/components/input.ts) to view the styles source code.
@@ -121,10 +122,13 @@ allows you to create a new component based on the original component, and custom
 import {extendVariants, Input} from "@nextui-org/react";
 
 const MyInput = extendVariants(Input, {
-  variants: { // <- modify/add variants
-    color: { 
-      stone: { // <- add a new color variant
-        inputWrapper: [ // <- Input wrapper slot
+  variants: {
+    // <- modify/add variants
+    color: {
+      stone: {
+        // <- add a new color variant
+        inputWrapper: [
+          // <- Input wrapper slot
           "bg-zinc-100",
           "border",
           "shadow",
@@ -139,7 +143,8 @@ const MyInput = extendVariants(Input, {
           "dark:data-[hover=true]:bg-zinc-900",
           "dark:focus-within:bg-zinc-900",
         ],
-        input: [ // Input element slot
+        input: [
+          // Input element slot
           "text-zinc-800",
           "placeholder:text-zinc-600",
           // dark theme
@@ -194,7 +199,7 @@ const MyInput = extendVariants(Input, {
 
 Then, you can now use your custom component in your application. Here, `MyInput` is
 used with the color set to `slate` and the size set to `xl`.
-  
+
 ```tsx
 // App.tsx
 import {MyInput} from "./MyInput";
@@ -210,7 +215,7 @@ const MyApp = () => {
       startContent={<SearchIcon className="text-zinc-500" size={16} />}
     />
   );
-}
+};
 ```
 
 The new component will include the original props of the [Input](/docs/components/input) component, plus the new
@@ -224,7 +229,6 @@ import customVariantsSlots from "@/content/customization/custom-variants/slots-c
   files={customVariantsSlots}
 />
 
-
 </Steps>
 
 <Blockquote>
@@ -233,31 +237,28 @@ import customVariantsSlots from "@/content/customization/custom-variants/slots-c
   custom component.
 </Blockquote>
 
-
 ### Types
 
 ### Main Function
 
 ```jsx
-const Component = extendVariants(BaseComponent, options, config)
+const Component = extendVariants(BaseComponent, options, config);
 
 /**
  * BaseComponent -> NextUI component to extend
  * options -> the variants to add/modify
  * config -> config to extend the component
  */
-
 ```
 
 ### Options
 
 ```ts
 type ExtendVariantsOptions = {
-  variants?: Record<string, Record<string, ClassValue>>,
-  defaultVariants?: Record<string, ClassValue>,
-  compoundVariants?: Array<Record<string, string> & ClassProp>
-}
-
+  variants?: Record<string, Record<string, ClassValue>>;
+  defaultVariants?: Record<string, ClassValue>;
+  compoundVariants?: Array<Record<string, string> & ClassProp>;
+};
 ```
 
 ### Config
@@ -275,7 +276,6 @@ type ExtendVariantsOptions = {
    * @see https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md
    */
   twMergeConfig?: TWMergeConfig;
- ``` 
+```
 
 > **Note**: See the [Tailwind Merge Config](https://github.com/dcastil/tailwind-merge/blob/v1.8.1/docs/configuration.md) to learn more about it.
-

@@ -5,27 +5,25 @@ description: Learn how to customize your application's appearance using NextUI's
 
 # Theme
 
-Theming is a key element in designing user interfaces (UIs). It enables the application of a 
-consistent aesthetic across your application, enhancing the user experience and maintaining 
+Theming is a key element in designing user interfaces (UIs). It enables the application of a
+consistent aesthetic across your application, enhancing the user experience and maintaining
 visual uniformity.
 
-In NextUI, we facilitate easy and flexible theme customization using a 
-TailwindCSS plugin. This plugin, which is based on the [tw-colors](https://github.com/L-Blondy/tw-colors) 
-plugin developed by [L-Blondy](https://github.com/L-Blondy), allows you to customize color schemes, 
+In NextUI, we facilitate easy and flexible theme customization using a
+TailwindCSS plugin. This plugin, which is based on the [tw-colors](https://github.com/L-Blondy/tw-colors)
+plugin developed by [L-Blondy](https://github.com/L-Blondy), allows you to customize color schemes,
 layout configurations, and more, across different components of your application.
-
 
 ## What is a Theme?
 
-A theme, in the context of NextUI, is a predefined set of colors, layout attributes, and other 
-UI elements that you can consistently apply across your application. Themes ensure visual 
-consistency, enrich the user experience, and simplify the management and updates of your 
+A theme, in the context of NextUI, is a predefined set of colors, layout attributes, and other
+UI elements that you can consistently apply across your application. Themes ensure visual
+consistency, enrich the user experience, and simplify the management and updates of your
 app's look and feel.
-
 
 ## Setup
 
-The first step to using NextUI's theming capability is adding the `nextui` plugin to your 
+The first step to using NextUI's theming capability is adding the `nextui` plugin to your
 `tailwind.config.js` file. Below is an example of how to do this:
 
 ```js {8,13-14}
@@ -48,7 +46,7 @@ module.exports = {
 
 ### Usage
 
-After adding the plugin to your `tailwind.config.js` file, you can utilize any of the default 
+After adding the plugin to your `tailwind.config.js` file, you can utilize any of the default
 themes (light/dark) or a custom one. Here's how you can apply these themes in your `main.jsx` or `main.tsx`:
 
 Go to the src directory and inside `main.jsx` or `main.tsx`, apply the following class names to the root element:
@@ -165,12 +163,10 @@ examples of how to do this:
 </div>
 ```
 
-
 ### API Reference
 
-The following table provides an overview of the various attributes you can use when working 
+The following table provides an overview of the various attributes you can use when working
 with themes in NextUI:
-
 
 | Attribute          | Type                          | Description                                                                                                     | Default  |
 | ------------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------- | -------- |

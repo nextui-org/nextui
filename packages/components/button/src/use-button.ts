@@ -53,7 +53,7 @@ interface Props extends HTMLNextUIProps<"button"> {
   isLoading?: boolean;
   /**
    * The native button click event handler.
-   * @deprecated - use `onPress` instead.
+   * use `onPress` instead.
    */
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }

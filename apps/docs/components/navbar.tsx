@@ -42,6 +42,7 @@ import {
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
+import {__PROD__} from "@/utils";
 
 export interface NavbarProps {
   routes: Route[];
@@ -108,6 +109,11 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     return null;
   }
 
+  const navLinkClasses = clsx(
+    link({color: "foreground"}),
+    "data-[active=true]:text-primary data-[active=true]:font-medium",
+  );
+
   return (
     <NextUINavbar
       ref={ref}
@@ -166,10 +172,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
         <ul className="hidden lg:flex gap-4 justify-start">
           <NavbarItem>
             <NextLink
-              className={clsx(
-                link({color: "foreground"}),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
+              className={navLinkClasses}
               color="foreground"
               data-active={includes(docsPaths, pathname)}
               href="/docs/guide/introduction"
@@ -179,10 +182,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           </NavbarItem>
           <NavbarItem>
             <NextLink
-              className={clsx(
-                link({color: "foreground"}),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
+              className={navLinkClasses}
               color="foreground"
               data-active={includes(pathname, "components")}
               href="/docs/components/avatar"
@@ -190,14 +190,23 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               Components
             </NextLink>
           </NavbarItem>
+          {!__PROD__ && (
+            <NavbarItem>
+              <NextLink
+                className={navLinkClasses}
+                color="foreground"
+                data-active={includes(pathname, "blog")}
+                href="/blog"
+              >
+                Blog
+              </NextLink>
+            </NavbarItem>
+          )}
           <NavbarItem>
             <NextLink
-              className={clsx(
-                link({color: "foreground"}),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
+              className={navLinkClasses}
               color="foreground"
-              data-active={pathname === "/figma"}
+              data-active={includes(pathname, "figma")}
               href="/figma"
             >
               Figma

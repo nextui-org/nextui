@@ -206,6 +206,10 @@ export const CommonColors = () => {
           title: "Cyan",
           items: getCommonItems([...Object.values(commonColors.cyan)]),
         },
+        {
+          title: "Zinc",
+          items: getCommonItems([...Object.values(commonColors.zinc)]),
+        },
       ]}
     />
   );
