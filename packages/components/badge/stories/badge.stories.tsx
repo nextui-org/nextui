@@ -20,32 +20,32 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "flat", "faded", "shadow"],
       },
+      options: ["solid", "flat", "faded", "shadow"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     shape: {
       control: {
         type: "select",
-        options: ["rectangle", "circle"],
       },
+      options: ["rectangle", "circle"],
     },
     placement: {
       control: {
         type: "select",
-        options: ["top-right", "top-left", "bottom-right", "bottom-left"],
       },
+      options: ["top-right", "top-left", "bottom-right", "bottom-left"],
     },
     isInvisible: {
       control: {

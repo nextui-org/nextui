@@ -22,8 +22,8 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["default", "shadow", "bordered", "splitted"],
       },
+      options: ["default", "shadow", "bordered", "splitted"],
     },
     isDisabled: {
       control: {
@@ -33,8 +33,8 @@ export default {
     selectionMode: {
       control: {
         type: "select",
-        options: ["single", "multiple"],
       },
+      options: ["single", "multiple"],
     },
     disableAnimation: {
       control: {

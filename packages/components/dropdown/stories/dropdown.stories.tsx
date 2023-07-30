@@ -29,45 +29,45 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
       },
+      options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     placement: {
       control: {
         type: "select",
-        options: [
-          "top",
-          "bottom",
-          "right",
-          "left",
-          "top-start",
-          "top-end",
-          "bottom-start",
-          "bottom-end",
-          "left-start",
-          "left-end",
-          "right-start",
-          "right-end",
-        ],
       },
+      options: [
+        "top",
+        "bottom",
+        "right",
+        "left",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+        "left-start",
+        "left-end",
+        "right-start",
+        "right-end",
+      ],
     },
     backdrop: {
       control: {
         type: "select",
-        options: ["transparent", "blur", "opaque"],
       },
+      options: ["transparent", "blur", "opaque"],
     },
     offset: {
       control: {

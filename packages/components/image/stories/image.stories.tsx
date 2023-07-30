@@ -11,14 +11,14 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     shadow: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     isBlurred: {
       control: {

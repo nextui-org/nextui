@@ -11,8 +11,8 @@ export default {
     orientation: {
       control: {
         type: "select",
-        options: ["horizontal", "vertical"],
       },
+      options: ["horizontal", "vertical"],
     },
   },
   decorators: [

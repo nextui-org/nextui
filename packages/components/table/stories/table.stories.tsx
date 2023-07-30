@@ -29,32 +29,32 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     layout: {
       control: {
         type: "select",
-        options: ["auto", "fixed"],
       },
+      options: ["auto", "fixed"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     shadow: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     selectionMode: {
       control: {
         type: "select",
-        options: ["none", "single", "multiple"],
       },
+      options: ["none", "single", "multiple"],
     },
     isStriped: {
       control: {

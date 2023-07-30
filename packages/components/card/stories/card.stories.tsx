@@ -15,14 +15,14 @@ export default {
     shadow: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     fullWidth: {
       control: {

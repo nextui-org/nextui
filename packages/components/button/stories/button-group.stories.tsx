@@ -11,26 +11,26 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "shadow", "ghost"],
       },
+      options: ["solid", "bordered", "light", "flat", "shadow", "ghost"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     fullWidth: {
       control: {

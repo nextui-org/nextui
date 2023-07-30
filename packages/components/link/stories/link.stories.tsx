@@ -14,20 +14,20 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     underline: {
       control: {
         type: "select",
-        options: ["none", "hover", "always", "active", "focus"],
       },
+      options: ["none", "hover", "always", "active", "focus"],
     },
     isDisabled: {
       control: {

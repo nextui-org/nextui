@@ -27,20 +27,20 @@ export default {
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "full"],
       },
+      options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "full"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     backdrop: {
       control: {
         type: "select",
-        options: ["transparent", "blur", "opaque"],
       },
+      options: ["transparent", "blur", "opaque"],
     },
     disableAnimation: {
       control: {

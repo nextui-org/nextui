@@ -36,14 +36,14 @@ export default {
     position: {
       control: {
         type: "select",
-        options: ["static", "fixed"],
       },
+      options: ["static", "fixed"],
     },
     maxWidth: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg", "xl", "2xl", "full"],
       },
+      options: ["sm", "md", "lg", "xl", "2xl", "full"],
     },
     isBlurred: {
       control: {

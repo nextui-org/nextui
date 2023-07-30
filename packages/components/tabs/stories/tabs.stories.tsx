@@ -23,26 +23,26 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "underlined", "bordered", "light"],
       },
+      options: ["solid", "underlined", "bordered", "light"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
