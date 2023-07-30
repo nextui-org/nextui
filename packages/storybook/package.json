@@ -27,7 +27,7 @@
   "scripts": {
     "dev": "pnpm sb dev -p 6006",
     "build": "pnpm sb build",
-    "start:sb": "pnpm dlx http-server storybook-static"
+    "start": "pnpm dlx http-server storybook-static"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
