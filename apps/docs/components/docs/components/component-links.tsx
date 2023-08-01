@@ -44,7 +44,7 @@ export const ComponentLinks = ({
   return (
     <div className="flex flex-wrap gap-3 mt-6">
       <ButtonLink
-        href={`https://storiesv2.nextui.org/?path=/story/components-${storybook || component}`}
+        href={`https://storybook.nextui.org/?path=/story/components-${storybook || component}`}
         startContent={<StorybookIcon className="text-lg text-[#ff4785]" />}
       >
         Storybook
