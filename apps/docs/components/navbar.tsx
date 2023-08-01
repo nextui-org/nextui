@@ -1,6 +1,6 @@
 "use client";
 
-import {useRef, useState, FC, ReactNode} from "react";
+import {useRef, useState, FC, ReactNode, Key} from "react";
 import {
   link,
   Navbar as NextUINavbar,
@@ -112,6 +112,14 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const navLinkClasses = clsx(link({color: "foreground"}), "data-[active=true]:text-primary");
 
+  const handleVersionChange = (key: Key) => {
+    if (key === "v1") {
+      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
+
+      if (newWindow) newWindow.opener = null;
+    }
+  };
+
   return (
     <NextUINavbar
       ref={ref}
@@ -156,6 +164,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
                 aria-label="NextUI versions"
                 defaultSelectedKeys={["v2"]}
                 selectionMode="single"
+                onAction={handleVersionChange}
               >
                 <DropdownItem key="v2">v2.0.0</DropdownItem>
                 <DropdownItem key="v1" endContent={<LinkIcon />}>
