@@ -124,13 +124,10 @@ allows you to create a new component based on the original component, and custom
 import {extendVariants, Input} from "@nextui-org/react";
 
 const MyInput = extendVariants(Input, {
-  variants: {
-    // <- modify/add variants
+  variants: { // <- modify/add variants
     color: {
-      stone: {
-        // <- add a new color variant
-        inputWrapper: [
-          // <- Input wrapper slot
+      stone: { // <- add a new color variant
+        inputWrapper: [ // <- Input wrapper slot
           "bg-zinc-100",
           "border",
           "shadow",
@@ -145,8 +142,7 @@ const MyInput = extendVariants(Input, {
           "dark:data-[hover=true]:bg-zinc-900",
           "dark:focus-within:bg-zinc-900",
         ],
-        input: [
-          // Input element slot
+        input: [  // <- Input element slot
           "text-zinc-800",
           "placeholder:text-zinc-600",
           // dark theme
