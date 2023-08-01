@@ -39,6 +39,7 @@ async function redirect() {
     {
       source: "/v2",
       destination: "/blog/nextui-v2",
+      permanent: true,
     },
     {
       source: "/docs/intro",
@@ -171,7 +172,6 @@ async function redirect() {
       destination: "/docs/components/button",
       permanent: true,
     }
-
   ];
 }
 
