@@ -4,6 +4,9 @@ export const siteConfig = {
   name: "NextUI - Beautiful, fast and modern React UI Library",
   description: "Make beautiful websites regardless of your design experience.",
   ogImage: "https://nextui.org/twitter-cards/nextui.jpeg",
+  author: "Junior Garcia",
+  email: "jrgarciadev@gmail.com",
+  siteUrl: "https://nextui.org",
   creator: "@getnextui",
   openGraph: {
     type: "website",

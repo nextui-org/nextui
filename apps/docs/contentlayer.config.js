@@ -48,6 +48,7 @@ export const BlogPost = defineDocumentType(() => ({
     title: {type: "string", required: true},
     description: {type: "string", required: true},
     date: {type: "date", required: true},
+    tags: { type: 'list', of: { type: 'string' } },
     author: {type: "nested",of: AuthorProperties, required: false},
     image: {type: "string", required: false},
   },
