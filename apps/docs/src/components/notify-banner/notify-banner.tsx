@@ -35,7 +35,9 @@ const NotifyBanner: React.FC<Props> = (props) => {
       const isExternal = href.startsWith("http");
 
       if (isExternal) {
-        window.open(href, "_blank");
+        const newWindow = window.open(href, "_blank", "noopener,noreferrer");
+
+        if (newWindow) newWindow.opener = null;
       } else {
         router.push(href);
       }
