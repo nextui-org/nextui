@@ -103,6 +103,11 @@ async function redirect() {
     },
     // v1 to v2 redirects
     {
+      source:"/docs/guide/getting-started",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
       source: "/docs/theme/dark-mode",
       destination: "/docs/customization/dark-mode",
       permanent: true,
