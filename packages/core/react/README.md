@@ -12,9 +12,9 @@
   <a href="https://codecov.io/gh/jrgarciadev/nextui">
     <img src="https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4" alt="codecov badge">
   </a>
-  <a href="https://github.com/nextui-org/nextui/actions/workflows/main.yaml">
+  <!-- <a href="https://github.com/nextui-org/nextui/actions/workflows/main.yaml">
     <img src="https://github.com/nextui-org/nextui/actions/workflows/main.yaml/badge.svg" alt="CI/CD nextui">
-  </a>
+  </a> -->
   <a href="https://www.npmjs.com/package/@nextui-org/react">
     <img src="https://img.shields.io/npm/dm/@nextui-org/react.svg?style=flat-round" alt="npm downloads">
   </a>
