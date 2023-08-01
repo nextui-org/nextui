@@ -220,7 +220,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           <NavbarItem>
             <Chip
               as={NextLink}
-              className="hover:bg-default-100 border-default-200 dark:border-default-100 transition-colors cursor-pointer"
+              className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
               color="secondary"
               href="/blog/nextui-v2"
               variant="dot"
