@@ -65,7 +65,7 @@ export const useSandpack = ({
 
   let dependencies = {
     "framer-motion": "10.12.16",
-    "@nextui-org/react": "dev-v2",
+    "@nextui-org/react": "latest",
   };
 
   // sort files by dependency
