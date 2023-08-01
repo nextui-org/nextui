@@ -1,8 +1,8 @@
 # @nextui-org/radio
 
-A Quick description of the component
+Radio Group allow users to select a single option from a list of mutually exclusive options.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/radio-group) for more information.
 
 ## Installation
 

@@ -16,6 +16,7 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
+  Chip,
 } from "@nextui-org/react";
 import {dataFocusVisibleClasses} from "@nextui-org/theme";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
@@ -42,16 +43,16 @@ import {
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
-import {__PROD__} from "@/utils";
 
 export interface NavbarProps {
   routes: Route[];
+  mobileRoutes?: Route[];
   tag?: string;
   slug?: string;
   children?: ReactNode;
 }
 
-export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
+export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], slug, tag}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
   const [commandKey, setCommandKey] = useState<"ctrl" | "command">("command");
 
@@ -109,10 +110,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
     return null;
   }
 
-  const navLinkClasses = clsx(
-    link({color: "foreground"}),
-    "data-[active=true]:text-primary data-[active=true]:font-medium",
-  );
+  const navLinkClasses = clsx(link({color: "foreground"}), "data-[active=true]:text-primary");
 
   return (
     <NextUINavbar
@@ -169,7 +167,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <div className="w-[74px]" />
           )}
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start">
+        <ul className="hidden lg:flex gap-4 justify-start items-center">
           <NavbarItem>
             <NextLink
               className={navLinkClasses}
@@ -190,18 +188,16 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
               Components
             </NextLink>
           </NavbarItem>
-          {!__PROD__ && (
-            <NavbarItem>
-              <NextLink
-                className={navLinkClasses}
-                color="foreground"
-                data-active={includes(pathname, "blog")}
-                href="/blog"
-              >
-                Blog
-              </NextLink>
-            </NavbarItem>
-          )}
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={includes(pathname, "blog")}
+              href="/blog"
+            >
+              Blog
+            </NextLink>
+          </NavbarItem>
           <NavbarItem>
             <NextLink
               className={navLinkClasses}
@@ -211,6 +207,17 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             >
               Figma
             </NextLink>
+          </NavbarItem>
+          <NavbarItem>
+            <Chip
+              as={NextLink}
+              className="hover:bg-default-100 transition-colors cursor-pointer"
+              color="secondary"
+              href="/blog/nextui-v2"
+              variant="dot"
+            >
+              Introducing NextUI v2.0
+            </Chip>
           </NavbarItem>
         </ul>
       </NavbarContent>
@@ -243,7 +250,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <SearchLinearIcon className="mt-px text-default-600 dark:text-default-500" size={20} />
           </button>
         </NavbarItem>
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="ml-2" />
+        <NavbarItem className="w-10 h-full">
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="w-full h-full pt-1"
+          />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
@@ -273,15 +285,15 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           >
             Sponsor
           </Button>
-        </NavbarItem>{" "}
+        </NavbarItem>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="hidden sm:flex lg:hidden"
+          className="hidden sm:flex lg:hidden ml-4"
         />
       </NavbarContent>
 
       <NavbarMenu>
-        <DocsSidebar className="mt-4" routes={routes} slug={slug} tag={tag} />
+        <DocsSidebar className="mt-4" routes={[...mobileRoutes, ...routes]} slug={slug} tag={tag} />
         {children}
       </NavbarMenu>
     </NextUINavbar>

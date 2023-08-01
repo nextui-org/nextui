@@ -64,7 +64,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
           <div className="relative flex flex-col" id="app-container">
-            <Navbar routes={manifest.routes} />
+            <Navbar mobileRoutes={manifest.mobileRoutes} routes={manifest.routes} />
             {children}
             <Footer />
           </div>

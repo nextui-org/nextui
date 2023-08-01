@@ -1,8 +1,8 @@
 # @nextui-org/ripple
 
-A Quick description of the component
+This is a component that creates a ripple effect on the screen.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/button) for more information.
 
 ## Installation
 

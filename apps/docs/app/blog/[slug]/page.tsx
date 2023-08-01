@@ -11,7 +11,6 @@ import {MDXContent} from "@/components/mdx-content";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {ChevronRightLinearIcon} from "@/components/icons";
-import {__PROD__} from "@/utils";
 
 interface BlogPostProps {
   params: {
@@ -79,7 +78,7 @@ export async function generateStaticParams(): Promise<BlogPostProps["params"][]>
 export default async function DocPage({params}: BlogPostProps) {
   const {post} = await getBlogPostFromParams({params});
 
-  if (!post || __PROD__) {
+  if (!post) {
     notFound();
   }
 

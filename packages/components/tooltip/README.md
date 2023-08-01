@@ -1,8 +1,8 @@
 # @nextui-org/tooltip
 
-A Quick description of the component
+Tooltips display a brief, informative message that appears when a user interacts with an element.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/tooltip) for more information.
 
 ## Installation
 

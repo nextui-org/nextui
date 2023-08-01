@@ -1,8 +1,8 @@
 # @nextui-org/avatar
 
-A Quick description of the component
+The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/avatar) for more information.
 
 ## Installation
 

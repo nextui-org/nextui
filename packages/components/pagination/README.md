@@ -1,8 +1,8 @@
 # @nextui-org/pagination
 
-A Quick description of the component
+The Pagination component allows you to display active page and navigate between multiple pages.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/pagination) for more information.
 
 ## Installation
 

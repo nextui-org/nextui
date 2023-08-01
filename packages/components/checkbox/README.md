@@ -1,8 +1,8 @@
 # @nextui-org/checkbox
 
-A Quick description of the component
+Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/checkbox) for more information.
 
 ## Installation
 

@@ -1,8 +1,8 @@
 # @nextui-org/loading
 
-A Quick description of the component
+Spinner express an unspecified wait time or display the length of a process.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/loading) for more information.
 
 ## Installation
 

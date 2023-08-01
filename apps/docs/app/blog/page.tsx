@@ -2,14 +2,9 @@ import {allBlogPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
 
 import {BlogPostList} from "@/components/blog-post";
-import {__PROD__} from "@/utils";
 
 export default function Blog() {
   const posts = allBlogPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
-
-  if (__PROD__) {
-    return null;
-  }
 
   return (
     <div className="w-full lg:px-16 mt-12">

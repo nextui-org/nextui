@@ -1,8 +1,8 @@
 # @nextui-org/button
 
-A Quick description of the component
+Buttons allow users to perform actions and choose with a single tap.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/button) for more information.
 
 ## Installation
 

@@ -1,8 +1,8 @@
 # @nextui-org/input
 
-A Quick description of the component
+Input is a component that allows users to enter text. It can be used to get user inputs in forms, search fields, and more.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/input) for more information.
 
 ## Installation
 

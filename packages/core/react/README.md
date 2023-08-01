@@ -28,8 +28,6 @@
 
 > **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
 
-> **Warning 🚧:** This project is still in development, it might have bugs and breaking changes so it is not recommended to use it in production.
-
 ## Getting Started
 
 Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextui.org/guide</a> to get started with NextUI.
@@ -37,48 +35,6 @@ Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextu
 ## Documentation
 
 Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
-
-## Quick Start
-
-1. Installation: Inside your React project directory, install NextUI by running either of the following:
-
-```bash
-yarn add @nextui-org/react
-# or
-npm i @nextui-org/react
-```
-
-2. Setup: For NextUI to work correctly, you need to set up the `NextUIProvider` at the root of your application.
-
-Go to the root of your application and do this:
-
-```jsx
-import {NextUIProvider} from "@nextui-org/react";
-
-const Application = () => (
-  <NextUIProvider>
-    <AppComponent /> // ---> Your App Component
-  </NextUIProvider>
-);
-```
-
-3. Using NextUI components: Once NextUI is installed you can use any of the components as follows.
-   NextUI uses tree-shaking so the unused modules will not be included in the bundle during the build process and
-   each component is exported separately.
-
-```jsx
-import {Button} from "@nextui-org/react";
-
-const Component = () => <Button>Click me</Button>;
-```
-
-4. NextUI allows to manually import components if you need. E.g.
-
-```jsx
-import Button from "@nextui-org/react/button";
-
-const Component = () => <Button>Click me</Button>;
-```
 
 ### Community
 

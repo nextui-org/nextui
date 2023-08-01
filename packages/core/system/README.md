@@ -1,8 +1,8 @@
 # @nextui-org/system
 
-A Quick description of the component
+NextUI system primitives, here you can find the `extendVariants` utility, `NextUIProvider` and some other utilities.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org) for more information.
 
 ## Installation
 
