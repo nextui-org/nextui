@@ -10,7 +10,7 @@ function App() {
         <Text>NextUI example with create-react-app</Text>
         <Link
           color
-          href="https://nextui.org"
+          href="https://v1.nextui.org"
           target="_blank"
           rel="noopener noreferrer"
         >

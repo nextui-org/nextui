@@ -11,14 +11,14 @@ function App() {
         </Link>
         &nbsp;+&nbsp;
         <Link
-          href="https://nextui.org?utm_source=with-tailwindcss-example"
+          href="https://v1.nextui.org?utm_source=with-tailwindcss-example"
           target="_blank"
         >
           NextUI
         </Link>
       </h1>
       <Button
-        href="https://nextui.org?utm_source=with-tailwindcss-example"
+        href="https://v1.nextui.org?utm_source=with-tailwindcss-example"
         target="_blank"
         as="a"
       >

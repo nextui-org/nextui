@@ -21,7 +21,7 @@ To learn more about React.js, take a look at the following resources:
 
 - [React.js Documentation](https://reactjs.org/docs/getting-started.html) - learn about React.js features and API.
 - [Learn Vite](https://vitejs.dev/guide/) - Next Generation Frontend Tooling.
-- [Learn Next UI](https://nextui.org/) - Beautiful, fast and modern React UI library.
+- [Learn Next UI](https://v1.nextui.org/) - Beautiful, fast and modern React UI library.
 
 You can check out [the Next UI GitHub repository](https://github.com/nextui-org/nextui) - your feedback and contributions are welcome!
 

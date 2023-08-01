@@ -15,7 +15,7 @@ export default function Index() {
     <Container>
       <Text h1 margin={"0 0 $4 0"} css={{ ta: "center" }}>
         Welcome to <Link href="https://remix.run/">Remix</Link> with{" "}
-        <Link color={"secondary"} href="https://nextui.org/">
+        <Link color={"secondary"} href="https://v1.nextui.org/">
           NextUI
         </Link>
       </Text>

@@ -144,10 +144,6 @@
               "path": "/docs/components/input.mdx"
             },
             {
-              "title": "Autocomplete",
-              "comingSoon": true
-            },
-            {
               "title": "Textarea",
               "keywords": "textarea, input, text input, large text input",
               "path": "/docs/components/textarea.mdx"
@@ -186,10 +182,6 @@
               "title": "Progress",
               "keywords": "progress, bar, task, display, activity",
               "path": "/docs/components/progress.mdx"
-            },
-            {
-              "title": "Select",
-              "comingSoon": true
             },
             {
               "title": "Modal",

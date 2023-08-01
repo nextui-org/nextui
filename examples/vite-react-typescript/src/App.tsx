@@ -49,7 +49,7 @@ function App() {
             Vite Docs
           </Link>
           {' | '}
-          <Link block href="https://nextui.org/">
+          <Link block href="https://v1.nextui.org/">
             NextUI Docs
           </Link>
         </Text>

@@ -7,17 +7,17 @@ describe("Link", () => {
   it("should render correctly", () => {
     const wrapper = mount(
       <div>
-        <Link href="https://nextui.org">link</Link>
-        <Link color="secondary" href="https://nextui.org">
+        <Link href="https://v1.nextui.org">link</Link>
+        <Link color="secondary" href="https://v1.nextui.org">
           link
         </Link>
-        <Link isExternal color="success" href="https://nextui.org">
+        <Link isExternal color="success" href="https://v1.nextui.org">
           link
         </Link>
-        <Link underline href="https://nextui.org">
+        <Link underline href="https://v1.nextui.org">
           link
         </Link>
-        <Link block href="https://nextui.org">
+        <Link block href="https://v1.nextui.org">
           link
         </Link>
       </div>,

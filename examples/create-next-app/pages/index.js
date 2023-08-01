@@ -46,7 +46,7 @@ export default function Home() {
           &nbsp;&&nbsp;
           <Link
             color
-            href="https://nextui.org"
+            href="https://v1.nextui.org"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,9 +1,9 @@
 # *
 User-agent: *
-Allow: /
+Disallow: /v1/
 
 # Host
-Host: https://nextui.org
+Host: https://v1.nextui.org
 
 # Sitemaps
-Sitemap: https://nextui.org/sitemap.xml
+Sitemap: https://v1.nextui.org/sitemap.xml

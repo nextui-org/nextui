@@ -51,7 +51,7 @@ export default function App() {
           <Card isPressable>
             <Card.Body css={{ p: 0 }}>
               <Card.Image
-                src={"https://nextui.org" + item.img}
+                src={"https://v1.nextui.org" + item.img}
                 objectFit="cover"
                 width="100%"
                 height={140}

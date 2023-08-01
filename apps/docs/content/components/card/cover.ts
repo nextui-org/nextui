@@ -13,7 +13,7 @@ export const Card1 = () => (
       </Col>
     </Card.Header>
     <Card.Image
-      src="https://nextui.org/images/card-example-4.jpeg"
+      src="https://v1.nextui.org/images/card-example-4.jpeg"
       objectFit="cover"
       width="100%"
       height={340}
@@ -37,7 +37,7 @@ export const Card2 = () => (
       </Col>
     </Card.Header>
     <Card.Image
-      src="https://nextui.org/images/card-example-3.jpeg"
+      src="https://v1.nextui.org/images/card-example-3.jpeg"
       width="100%"
       height={340}
       objectFit="cover"
@@ -61,7 +61,7 @@ export const Card3 = () => (
       </Col>
     </Card.Header>
     <Card.Image
-      src="https://nextui.org/images/card-example-2.jpeg"
+      src="https://v1.nextui.org/images/card-example-2.jpeg"
       width="100%"
       height={340}
       objectFit="cover"
@@ -86,7 +86,7 @@ export const Card4 = () => (
     </Card.Header>
     <Card.Body css={{ p: 0 }}>
       <Card.Image
-        src="https://nextui.org/images/card-example-6.jpeg"
+        src="https://v1.nextui.org/images/card-example-6.jpeg"
         width="100%"
         height="100%"
         objectFit="cover"
@@ -147,7 +147,7 @@ export const Card5 = () => (
     </Card.Header>
     <Card.Body css={{ p: 0 }}>
       <Card.Image
-        src="https://nextui.org/images/card-example-5.jpeg"
+        src="https://v1.nextui.org/images/card-example-5.jpeg"
         objectFit="cover"
         width="100%"
         height="100%"
@@ -169,7 +169,7 @@ export const Card5 = () => (
           <Row>
             <Col span={3}>
               <Card.Image
-                src="https://nextui.org/images/breathing-app-icon.jpeg"
+                src="https://v1.nextui.org/images/breathing-app-icon.jpeg"
                 css={{ bg: "black", br: "50%" }}
                 height={40}
                 width={40}

@@ -261,7 +261,7 @@ export const CoverImage = () => (
           alt="Card image background"
           height={340}
           objectFit="cover"
-          src="https://nextui.org/images/card-example-4.jpeg"
+          src="https://v1.nextui.org/images/card-example-4.jpeg"
           width="100%"
         />
       </Card>
@@ -282,7 +282,7 @@ export const CoverImage = () => (
           alt="Card image background"
           height={340}
           objectFit="cover"
-          src="https://nextui.org/images/card-example-3.jpeg"
+          src="https://v1.nextui.org/images/card-example-3.jpeg"
           width="100%"
         />
       </Card>
@@ -303,7 +303,7 @@ export const CoverImage = () => (
           alt="Card image background"
           height={340}
           objectFit="cover"
-          src="https://nextui.org/images/card-example-2.jpeg"
+          src="https://v1.nextui.org/images/card-example-2.jpeg"
           width="100%"
         />
       </Card>
@@ -325,7 +325,7 @@ export const CoverImage = () => (
             alt="Card example background"
             height="100%"
             objectFit="cover"
-            src="https://nextui.org/images/card-example-6.jpeg"
+            src="https://v1.nextui.org/images/card-example-6.jpeg"
             width="100%"
           />
         </Card.Body>
@@ -378,7 +378,7 @@ export const CoverImage = () => (
             alt="Relaxing app background"
             height="100%"
             objectFit="cover"
-            src="https://nextui.org/images/card-example-5.jpeg"
+            src="https://v1.nextui.org/images/card-example-5.jpeg"
             width="100%"
           />
         </Card.Body>
@@ -400,7 +400,7 @@ export const CoverImage = () => (
                     alt="Breathing app icon"
                     css={{bg: "black", br: "50%"}}
                     height={40}
-                    src="https://nextui.org/images/breathing-app-icon.jpeg"
+                    src="https://v1.nextui.org/images/breathing-app-icon.jpeg"
                     width={40}
                   />
                 </Col>
@@ -484,7 +484,7 @@ export const PrimaryAction = () => {
                 alt={item.title}
                 height={140}
                 objectFit="cover"
-                src={"https://nextui.org" + item.img}
+                src={"https://v1.nextui.org" + item.img}
                 width="100%"
               />
             </Card.Body>
