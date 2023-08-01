@@ -106,6 +106,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
         filterDOMProps(otherProps),
       )}
       className={slots.tab?.({class: tabStyles})}
+      type={Component === "button" ? "button" : undefined}
       onClick={handleClick}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
