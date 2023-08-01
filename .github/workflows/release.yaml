@@ -1,17 +1,58 @@
-name: Tagged Release
+name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    paths:
+      - ".changeset/**"
+      - "packages/**"
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  tagged-release:
-    name: Tagged Release
-    runs-on: ubuntu-18.04
-
+  release:
+    name: Release
+    runs-on: ubuntu-latest
     steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Tests
+        run: pnpm test  
+
+      - name: Create Release Pull Request or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
         with:
-          repo_token: "${{ github.token }}"
-          prerelease: false
+          publish: pnpm release
+          commit: "ci(changesets): version packages"
+          setupGitUser: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create @dev release
+        if: steps.changesets.outputs.published != 'true'
+        run: |
+          git checkout main
+          pnpm version:dev
+          pnpm release:dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update changelog
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          pnpm changelog:latest
+          pnpm changelog:format
+          pnpm changelog:commit
