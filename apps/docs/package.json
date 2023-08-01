@@ -11,7 +11,8 @@
     "typecheck": "contentlayer build && tsc --noEmit",
     "preinstall": "node preinstall.js",
     "build:sponsors": "tsx scripts/build-sponsors.ts",
-    "update:search-meta": "tsx scripts/update-search-meta.ts"
+    "update:search-meta": "tsx scripts/update-search-meta.ts",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.6.4",
@@ -50,7 +51,7 @@
     "match-sorter": "^6.3.1",
     "mini-svg-data-uri": "^1.4.3",
     "mitt": "3.0.0",
-    "next": "13.4.9",
+    "next": "13.4.12",
     "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",
@@ -83,7 +84,7 @@
   "devDependencies": {
     "@docusaurus/utils": "2.0.0-beta.3",
     "@next/bundle-analyzer": "^13.4.6",
-    "@next/env": "^13.4.8",
+    "@next/env": "^13.4.12",
     "@react-types/shared": "^3.18.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
@@ -103,7 +104,7 @@
     "dotenv": "^16.0.1",
     "eslint-config-next": "^11.0.0",
     "markdown-toc": "^1.2.0",
-    "next-sitemap": "^4.0.7",
+    "next-sitemap": "^4.1.8",
     "node-fetch": "^3.2.10",
     "postcss": "^8.4.21",
     "prettier": "^2.7.1",
