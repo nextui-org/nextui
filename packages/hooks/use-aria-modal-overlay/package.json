@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-modal-overlay",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A custom implementation of react aria modal overlay, this removes the prevent scroll",
   "keywords": [
     "use-aria-modal-overlay"

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-update-effect",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React effect hook that invokes only on update",
   "keywords": [
     "use-update-effect"
