@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install
-        uses: ./.github/composite-actions/install
+        uses: ./.github/common-actions/install
 
       - name: Run tests
         run: pnpm test
