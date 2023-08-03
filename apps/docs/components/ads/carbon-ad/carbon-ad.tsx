@@ -7,7 +7,7 @@ import {loadScript} from "@/utils/scripts";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {__PROD__} from "@/utils";
 
-const EA_PROVIDER_RATIO = 0.5;
+const EA_PROVIDER_RATIO = 0.8;
 
 export const CarbonAd: React.FC<unknown> = () => {
   const carbonRef = React.useRef(null);
