@@ -61,7 +61,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const pathname = usePathname();
 
-  const cmkdStore = useCmdkStore();
+  const cmdkStore = useCmdkStore();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -74,7 +74,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   }, []);
 
   const {pressProps} = usePress({
-    onPress: () => cmkdStore.onOpen(),
+    onPress: () => cmdkStore.onOpen(),
   });
   const {focusProps, isFocusVisible} = useFocusRing();
 
@@ -100,7 +100,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           strokeWidth={2}
         />
       }
-      onPress={() => cmkdStore.onOpen()}
+      onPress={() => cmdkStore.onOpen()}
     >
       Quick Search...
     </Button>
