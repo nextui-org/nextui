@@ -7,20 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./.github/common-actions/install
-
-      - name: Build packages
-        run: pnpm build
-
-  tests:
-    name: Tests
+    name: QA - Steps
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -33,43 +20,13 @@ jobs:
         run: pnpm build
 
       - name: Run tests
-        run: pnpm test
-
-  eslint:
-    name: ESLint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./.github/common-actions/install
+        run: pnpm test  
 
       - name: Run ESLint
         run: pnpm lint
-
-  types:
-    name: TypeScript
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./.github/common-actions/install
-
+      
       - name: Run typecheck
         run: pnpm typecheck
-
-  prettier:
-    name: Prettier
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./.github/common-actions/install
 
       - name: Run prettier
         run: pnpm format:check
