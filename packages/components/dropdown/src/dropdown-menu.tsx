@@ -74,7 +74,6 @@ const DropdownMenu = forwardRef<"ul", DropdownMenuProps>(
           <Component {...getMenuProps({...menuProps}, domRef)} className={classNames}>
             {[...state.collection].map((item) => {
               const itemProps = {
-                key: item.key,
                 closeOnSelect,
                 color,
                 disableAnimation,
@@ -86,9 +85,11 @@ const DropdownMenu = forwardRef<"ul", DropdownMenuProps>(
               };
 
               if (item.type === "section") {
-                return <DropdownSection {...itemProps} itemClasses={itemClasses} />;
+                return <DropdownSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
               }
-              let dropdownItem = <DropdownItem {...itemProps} classNames={itemClasses} />;
+              let dropdownItem = (
+                <DropdownItem key={item.key} {...itemProps} classNames={itemClasses} />
+              );
 
               if (item.wrapper) {
                 dropdownItem = item.wrapper(dropdownItem);
