@@ -2,8 +2,8 @@ import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@nextui-org/th
 import type {ReactNode} from "react";
 
 import {badge} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
+import {mapPropsVariants} from "@nextui-org/system/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
@@ -41,11 +41,9 @@ export type UseBadgeProps = Props & BadgeVariantProps;
 export function useBadge(originalProps: UseBadgeProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, badge.variantKeys);
 
-  const {as, ref, children, className, content, classNames, ...otherProps} = props;
+  const {as, children, className, content, classNames, ...otherProps} = props;
 
   const Component = as || "span";
-
-  const domRef = useDOMRef(ref);
 
   const isOneChar = useMemo(
     () => String(content)?.length === 1 || originalProps?.isOneChar,
@@ -68,7 +66,6 @@ export function useBadge(originalProps: UseBadgeProps) {
 
   const getBadgeProps: PropGetter = () => {
     return {
-      ref: domRef,
       className: slots.badge({class: baseStyles}),
       "data-invisible": originalProps.isInvisible,
       ...otherProps,

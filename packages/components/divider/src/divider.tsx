@@ -1,13 +1,13 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system/utils";
 
 import {UseDividerProps, useDivider} from "./use-divider";
 
 export interface DividerProps extends Omit<UseDividerProps, "children"> {}
 
 const Divider = forwardRef<"div", DividerProps>((props, ref) => {
-  const {Component, getDividerProps} = useDivider({ref, ...props});
+  const {Component, getDividerProps} = useDivider({...props});
 
-  return <Component {...getDividerProps()} />;
+  return <Component ref={ref} {...getDividerProps()} />;
 });
 
 Divider.displayName = "NextUI.Divider";

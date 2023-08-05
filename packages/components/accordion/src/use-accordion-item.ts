@@ -67,6 +67,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef<HTMLButtonElement>(ref);
 
@@ -132,10 +133,15 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
         className: slots.base({class: baseStyles}),
-        ...mergeProps(filterDOMProps(otherProps), props),
+        ...mergeProps(
+          filterDOMProps(otherProps, {
+            enabled: shouldFilterDOMProps,
+          }),
+          props,
+        ),
       };
     },
-    [baseStyles, otherProps, slots, item.props, isOpen, isDisabled],
+    [baseStyles, shouldFilterDOMProps, otherProps, slots, item.props, isOpen, isDisabled],
   );
 
   const getButtonProps: PropGetter = (props = {}) => {

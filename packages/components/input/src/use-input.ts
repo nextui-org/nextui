@@ -93,6 +93,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   );
 
   const Component = as || "div";
+
   const baseStyles = clsx(classNames?.base, className, !!inputValue ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
 

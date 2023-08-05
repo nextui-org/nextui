@@ -1,7 +1,7 @@
 "use client";
 
 import {BlogPost} from "contentlayer/generated";
-import {Card, CardFooter, CardBody, CardHeader, Link, Avatar} from "@nextui-org/react";
+import {Card, CardFooter, CardBody, CardHeader, Link, Avatar, Image} from "@nextui-org/react";
 import Balancer from "react-wrap-balancer";
 import {format, parseISO} from "date-fns";
 import NextLink from "next/link";
@@ -39,10 +39,9 @@ const BlogPostCard = (post: BlogPost) => {
                 <Balancer>{post.title}</Balancer>
               </Link>
             </CardHeader>
-            <CardBody className="px-3 pt-0 pb-1">
-              <p className="font-normal text-default-600">
-                <Balancer>{post.description}</Balancer>
-              </p>
+            <CardBody className="pt-0 px-2 pb-1">
+              <Image className="mb-3" src={post.image} />
+              <p className="font-normal px-1 text-default-600">{post.description}</p>
             </CardBody>
             <CardFooter className="flex justify-between items-center">
               <time className="block text-small text-default-500" dateTime={post.date}>

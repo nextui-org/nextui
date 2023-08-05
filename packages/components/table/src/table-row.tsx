@@ -28,6 +28,7 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
     props;
 
   const Component = as || "tr";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -70,7 +71,9 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
       {...mergeProps(
         rowProps,
         isSelectable ? {...hoverProps, ...focusProps} : {},
-        filterDOMProps(node.props),
+        filterDOMProps(node.props, {
+          enabled: shouldFilterDOMProps,
+        }),
         otherProps,
       )}
       className={slots.tr?.({class: trStyles})}

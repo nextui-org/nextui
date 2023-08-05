@@ -81,6 +81,7 @@ export function useCard(originalProps: UseCardProps) {
 
   const domRef = useDOMRef<HTMLDivElement>(ref);
   const Component = as || (originalProps.isPressable ? "button" : "div");
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -154,7 +155,9 @@ export function useCard(originalProps: UseCardProps) {
         ...mergeProps(
           originalProps.isPressable ? {...buttonProps, ...focusProps, role: "button"} : {},
           originalProps.isHoverable ? hoverProps : {},
-          filterDOMProps(otherProps),
+          filterDOMProps(otherProps, {
+            enabled: shouldFilterDOMProps,
+          }),
           filterDOMProps(props),
         ),
       };
@@ -163,6 +166,7 @@ export function useCard(originalProps: UseCardProps) {
       domRef,
       slots,
       baseStyles,
+      shouldFilterDOMProps,
       originalProps.isPressable,
       originalProps.isHoverable,
       originalProps.isDisabled,

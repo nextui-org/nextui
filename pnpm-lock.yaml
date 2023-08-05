@@ -273,6 +273,18 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../packages/utilities/aria-utils
+      '@nextui-org/badge':
+        specifier: workspace:*
+        version: link:../../packages/components/badge
+      '@nextui-org/code':
+        specifier: workspace:*
+        version: link:../../packages/components/code
+      '@nextui-org/divider':
+        specifier: workspace:*
+        version: link:../../packages/components/divider
+      '@nextui-org/kbd':
+        specifier: workspace:*
+        version: link:../../packages/components/kbd
       '@nextui-org/react':
         specifier: workspace:*
         version: link:../../packages/core/react
@@ -282,6 +294,15 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../packages/utilities/shared-utils
+      '@nextui-org/skeleton':
+        specifier: workspace:*
+        version: link:../../packages/components/skeleton
+      '@nextui-org/spacer':
+        specifier: workspace:*
+        version: link:../../packages/components/spacer
+      '@nextui-org/spinner':
+        specifier: workspace:*
+        version: link:../../packages/components/spinner
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../packages/core/theme
@@ -930,9 +951,9 @@ importers:
 
   packages/components/divider:
     dependencies:
-      '@nextui-org/react-utils':
+      '@nextui-org/react-rsc-utils':
         specifier: workspace:*
-        version: link:../../utilities/react-utils
+        version: link:../../utilities/react-rsc-utils
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
@@ -942,12 +963,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@react-aria/separator':
-        specifier: ^3.3.3
-        version: 3.3.3(react@18.2.0)
-      '@react-aria/utils':
-        specifier: ^3.18.0
-        version: 3.18.0(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.18.1
+        version: 3.18.1(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2539,14 +2557,20 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/utilities/react-rsc-utils:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+
   packages/utilities/react-utils:
     dependencies:
+      '@nextui-org/react-rsc-utils':
+        specifier: workspace:*
+        version: link:../react-rsc-utils
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../shared-utils
-      '@react-aria/utils':
-        specifier: ^3.18.0
-        version: 3.18.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -7777,17 +7801,6 @@ packages:
       '@react-aria/utils': 3.18.0(react@18.2.0)
       '@react-stately/collections': 3.9.0(react@18.2.0)
       '@react-stately/selection': 3.13.2(react@18.2.0)
-      '@react-types/shared': 3.18.1(react@18.2.0)
-      '@swc/helpers': 0.5.1
-      react: 18.2.0
-    dev: false
-
-  /@react-aria/separator@3.3.3(react@18.2.0):
-    resolution: {integrity: sha512-kBGEXSSUiJLPS9foS5/7jgzpdp3/Yb1aMvVuvRGuNxDUsPAmvaYUT3qZ44Zf3hoxKfRFb4452KcoZ03w3Jfcvg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    dependencies:
-      '@react-aria/utils': 3.18.0(react@18.2.0)
       '@react-types/shared': 3.18.1(react@18.2.0)
       '@swc/helpers': 0.5.1
       react: 18.2.0

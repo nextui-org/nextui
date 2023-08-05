@@ -11,7 +11,13 @@
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "utils.js",
+    "utils.d.ts",
+    "types.js",
+    "types.d.ts",
+    "extend-variants.js",
+    "extend-variants.d.ts"
   ],
   "publishConfig": {
     "access": "public"

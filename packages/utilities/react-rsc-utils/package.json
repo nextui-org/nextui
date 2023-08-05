@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/divider",
-  "version": "2.0.2",
-  "description": ". A separator is a visual divider between two groups of content",
+  "name": "@nextui-org/react-rsc-utils",
+  "version": "2.0.1",
+  "description": "A set of utilities for react compatible with RSC",
   "keywords": [
-    "divider"
+    "react-rsc-utils"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -11,7 +11,11 @@
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "children.d.ts",
+    "children.js",
+    "filter-dom-props.d.ts",
+    "filter-dom-props.js"
   ],
   "publishConfig": {
     "access": "public"
@@ -19,7 +23,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/divider"
+    "directory": "packages/utilities/react-rsc-utils"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -33,19 +37,16 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "peerDependencies": {
-    "react": ">=18"
-  },
-  "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-rsc-utils": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@react-types/shared": "^3.18.1"
-  },
   "devDependencies": {
-    "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "clean-package": "2.2.0"
   },
-  "clean-package": "../../../clean-package.config.json"
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
 }
