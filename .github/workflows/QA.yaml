@@ -29,6 +29,9 @@ jobs:
       - name: Install
         uses: ./.github/common-actions/install
 
+      - name: Build packages
+        run: pnpm build
+
       - name: Run tests
         run: pnpm test
 
