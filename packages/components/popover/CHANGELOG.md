@@ -1,5 +1,16 @@
 # @nextui-org/popover
 
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`eefda8d6`](https://github.com/nextui-org/nextui/commit/eefda8d6e2088526e0dbb2026d807b53d2a97782)]:
+  - @nextui-org/react-utils@2.0.2
+  - @nextui-org/button@2.0.3
+  - @nextui-org/system@2.0.3
+  - @nextui-org/aria-utils@2.0.3
+  - @nextui-org/framer-transitions@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes
