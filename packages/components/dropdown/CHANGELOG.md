@@ -1,5 +1,24 @@
 # @nextui-org/dropdown
 
+## 2.0.2
+
+### Patch Changes
+
+- [`459ac5ed`](https://github.com/nextui-org/nextui/commit/459ac5ed4537942517803ba14129226a791d6feb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Modal
+
+  Outside scroll fixed on mobile devices
+
+  - Dropdown
+
+  Next.js key destructuring warning fixed
+
+- Updated dependencies [[`459ac5ed`](https://github.com/nextui-org/nextui/commit/459ac5ed4537942517803ba14129226a791d6feb)]:
+  - @nextui-org/theme@2.0.2
+  - @nextui-org/divider@2.0.2
+  - @nextui-org/popover@2.0.2
+  - @nextui-org/system@2.0.2
+  - @nextui-org/aria-utils@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes
