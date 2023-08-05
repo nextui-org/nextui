@@ -23,7 +23,7 @@
     "deploy:stage-docs": "pnpm --filter @nextui-org/docs deploy:stage",
     "sb": "pnpm --filter @nextui-org/storybook storybook",
     "build:sb": "pnpm --filter @nextui-org/storybook build-storybook",
-    "start:sb": "pnpx serve  --filter @nextui-org/storybook start-storybook",
+    "start:sb": "pnpm --filter @nextui-org/storybook start:storybook",
     "test": "jest --verbose --config ./jest.config.js",
     "typecheck": "turbo typecheck",
     "lint": "pnpm lint:pkg && pnpm lint:docs",
