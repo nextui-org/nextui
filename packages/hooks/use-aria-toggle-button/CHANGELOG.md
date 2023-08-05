@@ -1,5 +1,20 @@
 # @nextui-org/use-aria-toggle-button
 
+## 2.0.2
+
+### Patch Changes
+
+- [`9c4bb22e`](https://github.com/nextui-org/nextui/commit/9c4bb22e87a44671a3d7a2711f33d0008064359f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Modal
+
+  Outside scroll fixed on mobile devices
+
+  - Dropdown
+
+  Next.js key destructuring warning fixed
+
+- Updated dependencies [[`9c4bb22e`](https://github.com/nextui-org/nextui/commit/9c4bb22e87a44671a3d7a2711f33d0008064359f)]:
+  - @nextui-org/use-aria-button@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

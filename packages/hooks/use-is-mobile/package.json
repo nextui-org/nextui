@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-is-mobile",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A hook that returns whether the device is mobile or not",
   "keywords": [
     "use-is-mobile"

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-image",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React hook for progressing image loading",
   "keywords": [
     "use-image"
