@@ -1,17 +1,16 @@
 import type {SkeletonVariantProps, SkeletonSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {mapPropsVariants} from "@nextui-org/system/utils";
 import {skeleton} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
-import {useMemo} from "react";
+import {useMemo, Ref} from "react";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLElement | null>;
+  ref?: Ref<HTMLElement | null>;
   /**
    * The skeleton will be visible while isLoading is `false`.
    * @default false
@@ -37,11 +36,9 @@ export type UseSkeletonProps = Props & SkeletonVariantProps;
 export function useSkeleton(originalProps: UseSkeletonProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, skeleton.variantKeys);
 
-  const {ref, as, children, isLoaded = false, className, classNames, ...otherProps} = props;
+  const {as, children, isLoaded = false, className, classNames, ...otherProps} = props;
 
   const Component = as || "div";
-
-  const domRef = useDOMRef(ref);
 
   const slots = useMemo(
     () =>
@@ -55,7 +52,6 @@ export function useSkeleton(originalProps: UseSkeletonProps) {
 
   const getSkeletonProps: PropGetter = (props = {}) => {
     return {
-      ref: domRef,
       "data-loaded": dataAttr(isLoaded),
       className: slots.base({class: clsx(baseStyles, props?.className)}),
       ...otherProps,
@@ -68,7 +64,7 @@ export function useSkeleton(originalProps: UseSkeletonProps) {
     };
   };
 
-  return {Component, domRef, children, slots, classNames, getSkeletonProps, getContentProps};
+  return {Component, children, slots, classNames, getSkeletonProps, getContentProps};
 }
 
 export type UseSkeletonReturn = ReturnType<typeof useSkeleton>;

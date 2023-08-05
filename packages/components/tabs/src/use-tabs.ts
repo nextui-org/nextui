@@ -76,6 +76,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -123,7 +124,12 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     (props) => ({
       "data-slot": "base",
       className: slots.base({class: clsx(baseStyles, props?.className)}),
-      ...mergeProps(filterDOMProps(otherProps), props),
+      ...mergeProps(
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        props,
+      ),
     }),
     [baseStyles, otherProps, slots],
   );

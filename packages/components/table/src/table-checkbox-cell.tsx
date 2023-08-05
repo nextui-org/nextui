@@ -48,6 +48,8 @@ const TableCheckboxCell = forwardRef<"td", TableCheckboxCellProps>((props, ref) 
   } = props;
 
   const Component = as || "td";
+  const shouldFilterDOMProps = typeof Component === "string";
+
   const domRef = useDOMRef(ref);
 
   const {gridCellProps} = useTableCell({node}, state, domRef);
@@ -67,7 +69,14 @@ const TableCheckboxCell = forwardRef<"td", TableCheckboxCellProps>((props, ref) 
       ref={domRef}
       data-focus-visible={dataAttr(isFocusVisible)}
       data-selected={dataAttr(isRowSelected)}
-      {...mergeProps(gridCellProps, focusProps, filterDOMProps(node.props), otherProps)}
+      {...mergeProps(
+        gridCellProps,
+        focusProps,
+        filterDOMProps(node.props, {
+          enabled: shouldFilterDOMProps,
+        }),
+        otherProps,
+      )}
       className={slots.td?.({class: tdStyles})}
     >
       {isSingleSelectionMode ? (

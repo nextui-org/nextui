@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@react-aria/utils": "^3.18.0"
+    "@nextui-org/react-rsc-utils": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

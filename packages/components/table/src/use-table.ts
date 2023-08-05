@@ -162,6 +162,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
   } = props;
 
   const Component = as || "table";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
   const domBaseRef = useDOMRef(baseRef);
@@ -248,11 +249,17 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
 
   const getTableProps: PropGetter = useCallback(
     (props) => ({
-      ...mergeProps(gridProps, filterDOMProps(otherProps), props),
+      ...mergeProps(
+        gridProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        props,
+      ),
       ref: domRef,
       className: slots.table({class: clsx(classNames?.table, props?.className)}),
     }),
-    [classNames?.table, slots, gridProps, otherProps],
+    [classNames?.table, shouldFilterDOMProps, slots, gridProps, otherProps],
   );
 
   return {

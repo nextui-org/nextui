@@ -15,6 +15,10 @@ const DOMPropNames = new Set([
 
 interface Options {
   /**
+   * If the filter should be enabled.
+   */
+  enabled?: boolean;
+  /**
    * If labelling associated aria properties should be included in the filter.
    */
   labelable?: boolean;
@@ -37,10 +41,15 @@ export function filterDOMProps(
   props: DOMProps & AriaLabelingProps,
   opts: Options = {
     labelable: true,
+    enabled: true,
   },
 ): DOMProps & AriaLabelingProps {
   let {labelable, propNames} = opts;
   let filteredProps = {};
+
+  if (!opts.enabled) {
+    return props;
+  }
 
   for (const prop in props) {
     if (

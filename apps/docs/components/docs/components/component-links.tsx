@@ -1,12 +1,15 @@
-import {Button, ButtonProps, Link} from "@nextui-org/react";
+import {Button, ButtonProps, Code, Link, Tooltip} from "@nextui-org/react";
+import {ReactNode} from "react";
+import Balancer from "react-wrap-balancer";
 
-import {GithubIcon, NpmIcon, AdobeIcon, StorybookIcon} from "@/components/icons";
+import {GithubIcon, NpmIcon, AdobeIcon, StorybookIcon, NextJsIcon} from "@/components/icons";
 import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
 
 export interface ComponentLinksProps {
   component: string;
   styles?: string;
   storybook?: string;
+  rscCompatible?: boolean;
   reactAriaHook?: string;
 }
 
@@ -14,27 +17,40 @@ const ButtonLink = ({
   children,
   href,
   startContent,
+  tooltip,
   ...props
 }: ButtonProps & {
   href: string;
-}) => (
-  <Button
-    isExternal
-    as={Link}
-    className="!text-small py-4 bg-default-100 dark:bg-default-50 text-default-700"
-    href={href}
-    size="sm"
-    startContent={startContent}
-    {...props}
-  >
-    {children}
-  </Button>
-);
+  tooltip?: string | ReactNode;
+}) => {
+  const button = (
+    <Button
+      isExternal
+      as={Link}
+      className="!text-small py-4 bg-default-100 dark:bg-default-50 text-default-700"
+      href={href}
+      size="sm"
+      startContent={startContent}
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+
+  return tooltip ? (
+    <Tooltip className="max-w-[230px]" content={tooltip}>
+      {button}
+    </Tooltip>
+  ) : (
+    button
+  );
+};
 
 export const ComponentLinks = ({
   component,
   storybook,
   styles,
+  rscCompatible,
   reactAriaHook,
 }: ComponentLinksProps) => {
   if (!component) {
@@ -63,6 +79,26 @@ export const ComponentLinks = ({
           React Aria
         </ButtonLink>
       )}
+      {rscCompatible && (
+        <ButtonLink
+          href="https://nextjs.org/docs/getting-started/react-essentials#server-components"
+          startContent={<NextJsIcon size={18} />}
+          tooltip={
+            <p>
+              <Balancer>
+                This component doesn&apos;t use the
+                <Code className="font-normal bg-transparent px-0 py-0 text-code-mdx">
+                  `use client;`
+                </Code>
+                directive making it compatible with RSC.
+              </Balancer>
+            </p>
+          }
+        >
+          Server component
+        </ButtonLink>
+      )}
+
       <ButtonLink href={`${COMPONENT_PATH}/${component}`} startContent={<GithubIcon size={20} />}>
         Source
       </ButtonLink>

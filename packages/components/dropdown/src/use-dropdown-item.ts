@@ -59,6 +59,7 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
   const domRef = useRef<HTMLLIElement>(null);
 
   const Component = as || "li";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const {rendered, key} = item;
 
@@ -127,7 +128,9 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
       itemProps,
       isReadOnly ? {} : mergeProps(focusProps, pressProps),
       hoverProps,
-      filterDOMProps(otherProps),
+      filterDOMProps(otherProps, {
+        enabled: shouldFilterDOMProps,
+      }),
       props,
     ),
     "data-focus": dataAttr(isFocused),

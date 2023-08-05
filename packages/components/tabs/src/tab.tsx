@@ -49,6 +49,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   const domRef = useDOMRef(ref);
 
   const Component = as || "button";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const {
     tabProps,
@@ -103,7 +104,9 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
               ...hoverProps,
             }
           : {},
-        filterDOMProps(otherProps),
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
       )}
       className={slots.tab?.({class: tabStyles})}
       type={Component === "button" ? "button" : undefined}
