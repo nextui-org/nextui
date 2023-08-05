@@ -1,5 +1,11 @@
 # @nextui-org/tooltip
 
+## 2.0.3
+
+### Patch Changes
+
+- [#1278](https://github.com/nextui-org/nextui/pull/1278) [`a1a02dc0`](https://github.com/nextui-org/nextui/commit/a1a02dc0db6dc6f9c3355e6f58173433c2e41e19) Thanks [@tianenpang](https://github.com/tianenpang)! - Fix the trigger behavior to prevent it from opening again after the delay is not reached and the cursor moves out.
+
 ## 2.0.2
 
 ### Patch Changes
