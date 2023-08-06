@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-callback-ref",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React hook to persist any value between renders, but keeps it up-to-date if it changes.",
   "keywords": [
     "use-callback-ref"

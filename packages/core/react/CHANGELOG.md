@@ -1,5 +1,44 @@
 # @nextui-org/react
 
+## 2.0.4
+
+### Patch Changes
+
+- [`e3e13a09`](https://github.com/nextui-org/nextui/commit/e3e13a095f2347ff279c85e6a5d3798f36c6533f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New package created to exports system RSC-compatible functions
+  Component exports changed to named exports
+- Updated dependencies [[`eefda8d6`](https://github.com/nextui-org/nextui/commit/eefda8d6e2088526e0dbb2026d807b53d2a97782), [`e3e13a09`](https://github.com/nextui-org/nextui/commit/e3e13a095f2347ff279c85e6a5d3798f36c6533f)]:
+  - @nextui-org/accordion@2.0.3
+  - @nextui-org/dropdown@2.0.3
+  - @nextui-org/skeleton@2.0.3
+  - @nextui-org/divider@2.0.3
+  - @nextui-org/spinner@2.0.3
+  - @nextui-org/button@2.0.3
+  - @nextui-org/spacer@2.0.3
+  - @nextui-org/badge@2.0.3
+  - @nextui-org/input@2.0.3
+  - @nextui-org/table@2.0.3
+  - @nextui-org/card@2.0.3
+  - @nextui-org/code@2.0.3
+  - @nextui-org/tabs@2.0.3
+  - @nextui-org/kbd@2.0.3
+  - @nextui-org/system@2.0.3
+  - @nextui-org/avatar@2.0.3
+  - @nextui-org/checkbox@2.0.3
+  - @nextui-org/chip@2.0.3
+  - @nextui-org/image@2.0.3
+  - @nextui-org/link@2.0.3
+  - @nextui-org/modal@2.0.3
+  - @nextui-org/navbar@2.0.3
+  - @nextui-org/pagination@2.0.3
+  - @nextui-org/popover@2.0.3
+  - @nextui-org/progress@2.0.3
+  - @nextui-org/radio@2.0.3
+  - @nextui-org/snippet@2.0.4
+  - @nextui-org/switch@2.0.3
+  - @nextui-org/tooltip@2.0.4
+  - @nextui-org/user@2.0.3
+  - @nextui-org/theme@2.0.3
+
 ## 2.0.3
 
 ### Patch Changes
