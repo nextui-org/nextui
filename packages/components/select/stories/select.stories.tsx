@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {select} from "@nextui-org/theme";
 
 import {Select} from "../src";
@@ -32,13 +32,13 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
 const defaultProps = {
   ...select.defaultVariants,
 };
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
