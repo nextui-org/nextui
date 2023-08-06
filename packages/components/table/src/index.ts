@@ -16,4 +16,7 @@ export {getKeyValue} from "@nextui-org/shared-utils";
 
 // export component
 export {default as Table} from "./table";
-export * from "./base";
+
+// export base components
+export {TableBody, TableCell, TableColumn, TableHeader, TableRow} from "./base";
+export type {TableBodyProps, TableCellProps, TableColumnProps, TableHeaderProps} from "./base";

@@ -693,9 +693,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -935,9 +935,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -957,9 +957,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -1129,9 +1129,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -1573,9 +1573,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -1638,9 +1638,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -1660,9 +1660,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../../core/system
+        version: link:../../core/system-rsc
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -2078,15 +2078,25 @@ importers:
 
   packages/core/system:
     dependencies:
-      '@nextui-org/theme':
+      '@nextui-org/system-rsc':
         specifier: workspace:*
-        version: link:../theme
+        version: link:../system-rsc
       '@react-aria/i18n':
         specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
       '@react-aria/overlays':
         specifier: ^3.15.0
         version: 3.15.0(react-dom@18.2.0)(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/core/system-rsc:
+    dependencies:
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -2097,6 +2107,9 @@ importers:
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../theme
       clean-package:
         specifier: 2.2.0
         version: 2.2.0

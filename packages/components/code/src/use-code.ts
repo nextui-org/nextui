@@ -1,8 +1,8 @@
 import type {CodeVariantProps} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {code} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
-import {mapPropsVariants} from "@nextui-org/system/utils";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 

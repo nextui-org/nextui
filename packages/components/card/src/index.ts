@@ -6,7 +6,7 @@ export type {CardFooterProps} from "./card-footer";
 export {useCard} from "./use-card";
 
 // export context
-export * from "./card-context";
+export {CardProvider, useCardContext} from "./card-context";
 
 // export components
 export {default as Card} from "./card";

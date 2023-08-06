@@ -1,9 +1,9 @@
 import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {ReactNode} from "react";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {badge} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
-import {mapPropsVariants} from "@nextui-org/system/utils";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";

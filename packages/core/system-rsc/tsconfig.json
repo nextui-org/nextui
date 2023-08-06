@@ -1,0 +1,13 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "tailwind-variants": ["../../../node_modules/tailwind-variants"]
+    }
+  },
+  "include": ["src", "index.ts"],
+  "exclude": ["node_modules", "dist"]
+}

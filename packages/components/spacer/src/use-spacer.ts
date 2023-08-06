@@ -1,7 +1,7 @@
 import type {SpacerVariantProps} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
-import {mapPropsVariants} from "@nextui-org/system/utils";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {spacer} from "@nextui-org/theme";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";

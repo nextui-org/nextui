@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/skeleton",
+  "name": "@nextui-org/system-rsc",
   "version": "2.0.2",
-  "description": "Skeleton is used to display the loading state of some component.",
+  "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
-    "skeleton"
+    "system-rsc"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/skeleton"
+    "directory": "packages/core/system-rsc"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -36,15 +36,23 @@
   "peerDependencies": {
     "react": ">=18"
   },
-  "dependencies": {
-    "@nextui-org/system-rsc": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*"
-  },
   "devDependencies": {
-    "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "clean-package": "2.2.0"
   },
-  "clean-package": "../../../clean-package.config.json"
+  "dependencies": {
+    "tailwind-variants": "^0.1.13",
+    "clsx": "^1.2.1"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
 }

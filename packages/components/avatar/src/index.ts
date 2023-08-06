@@ -13,7 +13,7 @@ export {useAvatarGroup} from "./use-avatar-group";
 export {AvatarIcon} from "./avatar-icon";
 
 // export context
-export * from "./avatar-group-context";
+export {AvatarGroupProvider, useAvatarGroupContext} from "./avatar-group-context";
 
 // export component
 export {Avatar, AvatarGroup};

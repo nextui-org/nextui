@@ -44,8 +44,7 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "@nextui-org/react-utils": "workspace:*"
+    "react": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {
@@ -57,10 +56,8 @@
     ]
   },
   "dependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "tailwind-variants": "^0.1.13",
+    "@nextui-org/system-rsc": "workspace:*",
     "@react-aria/i18n": "^3.8.0",
-    "@react-aria/overlays": "^3.15.0",
-    "clsx": "^1.2.1"
+    "@react-aria/overlays": "^3.15.0"
   }
 }
