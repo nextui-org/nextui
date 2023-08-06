@@ -1,3 +1,7 @@
+import type {MenuItemProps, MenuSectionProps} from "@nextui-org/menu";
+
+import {MenuItem, MenuSection} from "@nextui-org/menu";
+
 import Dropdown from "./dropdown";
 import DropdownTrigger from "./dropdown-trigger";
 import DropdownMenu from "./dropdown-menu";
@@ -6,13 +10,17 @@ import DropdownMenu from "./dropdown-menu";
 export type {DropdownProps} from "./dropdown";
 export type {DropdownTriggerProps} from "./dropdown-trigger";
 export type {DropdownMenuProps} from "./dropdown-menu";
-export type {DropdownItemBaseProps as DropdownItemProps} from "./base/dropdown-item-base";
-export type {DropdownSectionBaseProps as DropdownSectionProps} from "./base/dropdown-section-base";
+export type {MenuItemProps as DropdownItemProps};
+export type {MenuSectionProps as DropdownSectionProps};
 
 // export hooks
 export {useDropdown} from "./use-dropdown";
 
-// export component
-export {Dropdown, DropdownTrigger, DropdownMenu};
-export {default as DropdownItem} from "./base/dropdown-item-base";
-export {default as DropdownSection} from "./base/dropdown-section-base";
+// export components
+export {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  MenuItem as DropdownItem,
+  MenuSection as DropdownSection,
+};

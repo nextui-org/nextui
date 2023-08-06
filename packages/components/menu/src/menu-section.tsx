@@ -49,7 +49,6 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
       as,
       variant,
       color,
-      key: keyProp,
       disableAnimation,
       onAction,
       closeOnSelect,
@@ -80,7 +79,7 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
 
     return (
       <Component
-        key={keyProp || item.key}
+        key={item.key}
         data-slot="base"
         {...mergeProps(itemProps, otherProps)}
         className={slots.base({class: baseStyles})}

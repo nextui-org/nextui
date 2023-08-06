@@ -29,7 +29,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     item,
     state,
     shortcut,
-    key: keyProp,
     description,
     startContent,
     endContent,
@@ -115,7 +114,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
   }
 
   const getItemProps: PropGetter = (props = {}) => ({
-    key: keyProp || key,
     ref: domRef,
     ...mergeProps(
       itemProps,

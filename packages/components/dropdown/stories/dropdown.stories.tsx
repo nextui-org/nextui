@@ -468,7 +468,7 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
             as="button"
             className="transition-transform"
             color="secondary"
-            size="lg"
+            size="md"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         </DropdownTrigger>
@@ -495,7 +495,7 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
             avatarProps={{
               isBordered: true,
               color: "primary",
-              size: "lg",
+              size: "md",
               src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
             }}
             className="transition-transform"
