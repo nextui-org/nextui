@@ -1613,6 +1613,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/menu':
+        specifier: workspace:*
+        version: link:../menu
       '@nextui-org/popover':
         specifier: workspace:*
         version: link:../popover
@@ -1628,6 +1631,15 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
+      '@react-aria/focus':
+        specifier: ^3.13.0
+        version: 3.13.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
       '@react-aria/select':
         specifier: ^3.11.0
         version: 3.11.0(react-dom@18.2.0)(react@18.2.0)
@@ -1637,6 +1649,9 @@ importers:
       '@react-stately/select':
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
+      '@react-stately/tree':
+        specifier: ^3.7.0
+        version: 3.7.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0

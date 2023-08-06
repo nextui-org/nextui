@@ -3,7 +3,7 @@ import type {AriaMenuProps} from "@react-types/menu";
 
 import {AriaMenuOptions, useMenu as useAriaMenu} from "@react-aria/menu";
 import {menu} from "@nextui-org/theme";
-import {useTreeState} from "@react-stately/tree";
+import {TreeState, useTreeState} from "@react-stately/tree";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useCallback, useMemo} from "react";
 
@@ -14,6 +14,7 @@ interface Props<T> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  state?: TreeState<T>;
   /**
    * The menu aria props.
    */
@@ -57,6 +58,7 @@ export function useMenu(props: UseMenuProps) {
     closeOnSelect,
     itemClasses,
     className,
+    state: propState,
     menuProps: userMenuProps,
     onClose,
     ...otherProps
@@ -66,7 +68,10 @@ export function useMenu(props: UseMenuProps) {
 
   const domRef = useDOMRef(ref);
 
-  const state = useTreeState(otherProps);
+  const innerState = useTreeState(otherProps);
+
+  const state = propState || innerState;
+
   const {menuProps} = useAriaMenu(otherProps, state, domRef);
 
   const styles = useMemo(() => menu({className}), [className]);

@@ -37,15 +37,20 @@
     "react": ">=18"
   },
   "dependencies": {
+    "@nextui-org/menu": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/popover": "workspace:*",
     "@react-aria/utils": "^3.18.0",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/use-aria-button": "workspace:*",
+    "@react-aria/interactions": "^3.16.0",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@react-aria/focus": "^3.13.0",
     "@react-aria/select": "^3.11.0",
-    "@react-stately/select": "^3.5.2"
+    "@react-stately/select": "^3.5.2",
+    "@react-stately/tree": "^3.7.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

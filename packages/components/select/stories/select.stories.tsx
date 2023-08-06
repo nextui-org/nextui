@@ -2,7 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {select} from "@nextui-org/theme";
 
-import {Select} from "../src";
+import {Select, SelectItem, SelectProps} from "../src";
 
 export default {
   title: "Components/Select",
@@ -32,13 +32,36 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center w-screen h-screen">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Select>;
 
 const defaultProps = {
   ...select.defaultVariants,
 };
 
-const Template = (args) => <Select {...args} />;
+const Template = ({color, variant, ...args}: SelectProps) => (
+  <Select
+    aria-label="Favorite Animal"
+    color={color}
+    label="Favorite Animal"
+    variant={variant}
+    onSelectionChange={alert}
+    {...args}
+  >
+    <SelectItem key="new">New file</SelectItem>
+    <SelectItem key="copy">Copy link</SelectItem>
+    <SelectItem key="edit">Edit file</SelectItem>
+    <SelectItem key="delete" className="text-danger" color="danger">
+      Delete file
+    </SelectItem>
+  </Select>
+);
 
 export const Default = Template.bind({});
 Default.args = {
