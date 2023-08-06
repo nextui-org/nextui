@@ -1,5 +1,15 @@
 # @nextui-org/divider
 
+## 2.0.4
+
+### Patch Changes
+
+- [#1301](https://github.com/nextui-org/nextui/pull/1301) [`d794225c`](https://github.com/nextui-org/nextui/commit/d794225cb75121db3a72f430739b4eaacd1cf8b7) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Plugin types adapted to work with latest version of postcss
+
+- Updated dependencies [[`d794225c`](https://github.com/nextui-org/nextui/commit/d794225cb75121db3a72f430739b4eaacd1cf8b7)]:
+  - @nextui-org/theme@2.0.4
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.3
 
 ### Patch Changes
