@@ -1,5 +1,12 @@
 # @nextui-org/ripple
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`d794225c`](https://github.com/nextui-org/nextui/commit/d794225cb75121db3a72f430739b4eaacd1cf8b7)]:
+  - @nextui-org/theme@2.0.4
+
 ## 2.0.3
 
 ### Patch Changes
