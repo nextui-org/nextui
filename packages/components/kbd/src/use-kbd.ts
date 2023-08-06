@@ -1,7 +1,7 @@
 import type {KbdVariantProps, KbdSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
-import {mapPropsVariants} from "@nextui-org/system/utils";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {kbd} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";

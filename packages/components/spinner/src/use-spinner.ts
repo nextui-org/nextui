@@ -1,7 +1,7 @@
 import type {SpinnerVariantProps, SpinnerSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {mapPropsVariants} from "@nextui-org/system/utils";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {spinner} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, Ref} from "react";

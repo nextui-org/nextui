@@ -1,6 +1,6 @@
 import type {DividerVariantProps} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system/types";
 import {divider} from "@nextui-org/theme";
 import {Ref, useCallback, useMemo} from "react";
 
