@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 
 import {Textarea, TextAreaProps} from "../src";
@@ -11,32 +11,32 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["flat", "faded", "bordered", "underlined"],
       },
+      options: ["flat", "faded", "bordered", "underlined"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
       },
+      options: ["none", "base", "sm", "md", "lg", "xl", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     labelPlacement: {
       control: {
         type: "select",
-        options: ["inside", "outside", "outside-left"],
       },
+      options: ["inside", "outside", "outside-left"],
     },
     isDisabled: {
       control: {
@@ -51,7 +51,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Textarea>;
+} as Meta<typeof Textarea>;
 
 const defaultProps = {
   ...input.defaultVariants,
@@ -81,55 +81,79 @@ const MaxRowsTemplate = (args: TextAreaProps) => (
   </div>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Required = Template.bind({});
-Required.args = {
-  ...defaultProps,
-  isRequired: true,
+export const Required = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...defaultProps,
-  defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  variant: "faded",
-  isDisabled: true,
+export const Disabled = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    variant: "faded",
+    isDisabled: true,
+  },
 };
 
-export const ReadOnly = Template.bind({});
-ReadOnly.args = {
-  ...defaultProps,
-  defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  variant: "bordered",
-  isReadOnly: true,
+export const ReadOnly = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    variant: "bordered",
+    isReadOnly: true,
+  },
 };
 
-export const MinRows = MinRowsTemplate.bind({});
-MinRows.args = {
-  ...defaultProps,
+export const MinRows = {
+  render: MinRowsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const MaxRows = MaxRowsTemplate.bind({});
-MaxRows.args = {
-  ...defaultProps,
-  defaultValue:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec",
+export const MaxRows = {
+  render: MaxRowsTemplate,
+
+  args: {
+    ...defaultProps,
+    defaultValue:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec ultricies ultricies, nisl nisl aliquam nisl, eget tincidunt nunc nisl eget nisl. Nullam euismod, nisl nec",
+  },
 };
 
-export const WithErrorMessage = Template.bind({});
-WithErrorMessage.args = {
-  ...defaultProps,
-  errorMessage: "Please enter a valid description",
+export const WithErrorMessage = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    errorMessage: "Please enter a valid description",
+  },
 };
 
-export const InvalidValidationState = Template.bind({});
-InvalidValidationState.args = {
-  ...defaultProps,
-  validationState: "invalid",
-  defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  errorMessage: "Please enter a valid description",
+export const InvalidValidationState = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    validationState: "invalid",
+    defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    errorMessage: "Please enter a valid description",
+  },
 };

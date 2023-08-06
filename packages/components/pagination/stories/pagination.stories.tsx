@@ -1,16 +1,10 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {button, pagination} from "@nextui-org/theme";
 import {cn} from "@nextui-org/system";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 
-import {
-  Pagination,
-  PaginationItemRenderProps,
-  PaginationItemType,
-  PaginationProps,
-  usePagination,
-} from "../src";
+import {Pagination, PaginationItemRenderProps, PaginationItemType, usePagination} from "../src";
 
 export default {
   title: "Components/Pagination",
@@ -34,26 +28,26 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["flat", "bordered", "light", "faded"],
       },
+      options: ["flat", "bordered", "light", "faded"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     showShadow: {
       control: {
@@ -66,7 +60,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Pagination>;
+} as Meta<typeof Pagination>;
 
 const defaultProps = {
   ...pagination.defaultVariants,
@@ -76,37 +70,40 @@ const defaultProps = {
   initialPage: 1,
 };
 
-const Template = (args: PaginationProps) => <Pagination {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithControls = Template.bind({});
-WithControls.args = {
-  ...defaultProps,
-  showControls: true,
+export const WithControls = {
+  args: {
+    ...defaultProps,
+    showControls: true,
+  },
 };
 
-export const PaginationLoop = Template.bind({});
-PaginationLoop.args = {
-  ...defaultProps,
-  showControls: true,
-  loop: true,
+export const PaginationLoop = {
+  args: {
+    ...defaultProps,
+    showControls: true,
+    loop: true,
+  },
 };
 
-export const InitialPage = Template.bind({});
-InitialPage.args = {
-  ...defaultProps,
-  initialPage: 3,
+export const InitialPage = {
+  args: {
+    ...defaultProps,
+    initialPage: 3,
+  },
 };
 
-export const IsCompact = Template.bind({});
-IsCompact.args = {
-  ...defaultProps,
-  showControls: true,
-  isCompact: true,
+export const IsCompact = {
+  args: {
+    ...defaultProps,
+    showControls: true,
+    isCompact: true,
+  },
 };
 
 export const Controlled = () => {
@@ -198,15 +195,16 @@ export const CustomItems = () => {
   );
 };
 
-export const CustomWithClassNames = Template.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
-  showShadow: true,
-  classNames: {
-    base: "gap-0 rounded border-2 border-default",
-    item: "w-8 h-8 text-sm rounded-none bg-transparent",
-    cursor:
-      "bg-gradient-to-b shadow-lg shadow-default from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",
+export const CustomWithClassNames = {
+  args: {
+    ...defaultProps,
+    showShadow: true,
+    classNames: {
+      base: "gap-0 rounded border-2 border-default",
+      item: "w-8 h-8 text-sm rounded-none bg-transparent",
+      cursor:
+        "bg-gradient-to-b shadow-lg shadow-default from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",
+    },
   },
 };
 

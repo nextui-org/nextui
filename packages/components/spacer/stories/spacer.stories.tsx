@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {spacer} from "@nextui-org/theme";
 
 import {Spacer, SpacerProps} from "../src";
@@ -31,7 +31,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Spacer>;
+} as Meta<typeof Spacer>;
 
 const defaultProps = {
   ...spacer.defaultVariants,
@@ -61,15 +61,21 @@ const HorizontalTemplate = (args: SpacerProps) => (
   </div>
 );
 
-export const Vertical = VerticalTemplate.bind({});
-Vertical.args = {
-  ...defaultProps,
-  y: 1,
+export const Vertical = {
+  render: VerticalTemplate,
+
+  args: {
+    ...defaultProps,
+    y: 1,
+  },
 };
 
-export const Horizontal = HorizontalTemplate.bind({});
-Horizontal.args = {
-  ...defaultProps,
-  x: 1,
-  isInline: true,
+export const Horizontal = {
+  render: HorizontalTemplate,
+
+  args: {
+    ...defaultProps,
+    x: 1,
+    isInline: true,
+  },
 };

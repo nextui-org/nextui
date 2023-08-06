@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {popover, ButtonVariantProps} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
@@ -15,51 +15,51 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
       },
+      options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "foreground", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "foreground", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     placement: {
       control: {
         type: "select",
-        options: [
-          "top",
-          "bottom",
-          "right",
-          "left",
-          "top-start",
-          "top-end",
-          "bottom-start",
-          "bottom-end",
-          "left-start",
-          "left-end",
-          "right-start",
-          "right-end",
-        ],
       },
+      options: [
+        "top",
+        "bottom",
+        "right",
+        "left",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+        "left-start",
+        "left-end",
+        "right-start",
+        "right-end",
+      ],
     },
     backdrop: {
       control: {
         type: "select",
-        options: ["transparent", "blur", "opaque"],
       },
+      options: ["transparent", "blur", "opaque"],
     },
     offset: {
       control: {
@@ -94,7 +94,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Popover>;
+} as Meta<typeof Popover>;
 
 const defaultProps = {
   ...popover.defaultVariants,
@@ -382,83 +382,116 @@ const WithBackdropTemplate = (args: PopoverProps) => (
   </Card>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const DisableAnimation = Template.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };
 
-export const WithoutScaleTrigger = Template.bind({});
-WithoutScaleTrigger.args = {
-  ...defaultProps,
-  triggerScaleOnOpen: false,
+export const WithoutScaleTrigger = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    triggerScaleOnOpen: false,
+  },
 };
 
-export const WithArrow = Template.bind({});
-WithArrow.args = {
-  ...defaultProps,
-  showArrow: true,
+export const WithArrow = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+  },
 };
 
-export const OpenChange = OpenChangeTemplate.bind({});
-OpenChange.args = {
-  ...defaultProps,
+export const OpenChange = {
+  render: OpenChangeTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Placements = PlacementsTemplate.bind({});
-Placements.args = {
-  ...defaultProps,
-  color: "secondary",
+export const Placements = {
+  render: PlacementsTemplate,
+
+  args: {
+    ...defaultProps,
+    color: "secondary",
+  },
 };
 
-export const WithOffset = OffsetTemplate.bind({});
-WithOffset.args = {
-  ...defaultProps,
-  color: "warning",
+export const WithOffset = {
+  render: OffsetTemplate,
+
+  args: {
+    ...defaultProps,
+    color: "warning",
+  },
 };
 
-export const WithTitleProps = WithTitlePropsTemplate.bind({});
-WithTitleProps.args = {
-  ...defaultProps,
+export const WithTitleProps = {
+  render: WithTitlePropsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithForm = WithFormTemplate.bind({});
-WithForm.args = {
-  ...defaultProps,
-  showArrow: true,
-  offset: 10,
-  placement: "top",
-  className: "w-[280px] bg-content1",
+export const WithForm = {
+  render: WithFormTemplate,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+    offset: 10,
+    placement: "top",
+    className: "w-[280px] bg-content1",
+  },
 };
 
-export const WithBackdrop = WithBackdropTemplate.bind({});
-WithBackdrop.args = {
-  ...defaultProps,
-  showArrow: true,
-  offset: 10,
-  placement: "left",
-  backdrop: "blur",
-  className: "bg-content1",
+export const WithBackdrop = {
+  render: WithBackdropTemplate,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+    offset: 10,
+    placement: "left",
+    backdrop: "blur",
+    className: "bg-content1",
+  },
 };
 
-export const CustomMotion = Template.bind({});
-CustomMotion.args = {
-  ...defaultProps,
-  placement: "bottom",
-  motionProps: {
-    variants: {
-      enter: {
-        opacity: 1,
-        duration: 0.2,
-      },
-      exit: {
-        opacity: 0,
-        duration: 0.1,
+export const CustomMotion = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    placement: "bottom",
+    motionProps: {
+      variants: {
+        enter: {
+          opacity: 1,
+          duration: 0.2,
+        },
+        exit: {
+          opacity: 0,
+          duration: 0.1,
+        },
       },
     },
   },

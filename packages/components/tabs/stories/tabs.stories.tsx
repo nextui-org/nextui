@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {button, link, tabs} from "@nextui-org/theme";
 import Lorem from "react-lorem-component";
 import {Input} from "@nextui-org/input";
@@ -23,26 +23,26 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "underlined", "bordered", "light"],
       },
+      options: ["solid", "underlined", "bordered", "light"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -55,7 +55,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
 const defaultProps = {
   ...tabs.defaultVariants,
@@ -261,53 +261,80 @@ const WithFormTemplate = (args: TabsProps) => {
   );
 };
 
-export const Static = StaticTemplate.bind({});
-Static.args = {
-  ...defaultProps,
+export const Static = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Dynamic = DynamicTemplate.bind({});
-Dynamic.args = {
-  ...defaultProps,
+export const Dynamic = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithIcons = WithIconsTemplate.bind({});
-WithIcons.args = {
-  ...defaultProps,
+export const WithIcons = {
+  render: WithIconsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithForm = WithFormTemplate.bind({});
-WithForm.args = {
-  ...defaultProps,
-  fullWidth: true,
-  variant: "underlined",
+export const WithForm = {
+  render: WithFormTemplate,
+
+  args: {
+    ...defaultProps,
+    fullWidth: true,
+    variant: "underlined",
+  },
 };
 
-export const ManualKeyboardActivation = StaticTemplate.bind({});
-ManualKeyboardActivation.args = {
-  ...defaultProps,
-  keyboardActivation: "manual",
+export const ManualKeyboardActivation = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    keyboardActivation: "manual",
+  },
 };
 
-export const DisabledItems = StaticTemplate.bind({});
-DisabledItems.args = {
-  ...defaultProps,
-  disabledKeys: ["ny", "arts"],
+export const DisabledItems = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    disabledKeys: ["ny", "arts"],
+  },
 };
 
-export const Disabled = StaticTemplate.bind({});
-Disabled.args = {
-  ...defaultProps,
-  isDisabled: true,
+export const Disabled = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    isDisabled: true,
+  },
 };
 
-export const DisableAnimation = StaticTemplate.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };

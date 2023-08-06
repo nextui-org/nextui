@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {modal} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
@@ -27,20 +27,20 @@ export default {
     size: {
       control: {
         type: "select",
-        options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "full"],
       },
+      options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "full"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     backdrop: {
       control: {
         type: "select",
-        options: ["transparent", "blur", "opaque"],
       },
+      options: ["transparent", "blur", "opaque"],
     },
     disableAnimation: {
       control: {
@@ -70,7 +70,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Modal>;
+} as Meta<typeof Modal>;
 
 const defaultProps = {
   ...modal.defaultVariants,
@@ -205,54 +205,75 @@ const OpenChangeTemplate = (args: ModalProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const DefaultOpen = Template.bind({});
-DefaultOpen.args = {
-  ...defaultProps,
-  defaultOpen: true,
+export const DefaultOpen = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultOpen: true,
+  },
 };
 
-export const OpenChange = OpenChangeTemplate.bind({});
-OpenChange.args = {
-  ...defaultProps,
-  scrollBehavior: "inside",
+export const OpenChange = {
+  render: OpenChangeTemplate,
+
+  args: {
+    ...defaultProps,
+    scrollBehavior: "inside",
+  },
 };
 
-export const InsideScroll = InsideScrollTemplate.bind({});
-InsideScroll.args = {
-  ...defaultProps,
-  scrollBehavior: "inside",
+export const InsideScroll = {
+  render: InsideScrollTemplate,
+
+  args: {
+    ...defaultProps,
+    scrollBehavior: "inside",
+  },
 };
 
-export const OutsideScroll = OutsideScrollTemplate.bind({});
-OutsideScroll.args = {
-  ...defaultProps,
+export const OutsideScroll = {
+  render: OutsideScrollTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const DisableAnimation = Template.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };
 
-export const CustomMotion = Template.bind({});
-CustomMotion.args = {
-  ...defaultProps,
-  motionProps: {
-    variants: {
-      enter: {
-        opacity: 1,
-        y: 0,
-        duration: 0.3,
-      },
-      exit: {
-        y: 20,
-        opacity: 0,
-        duration: 0.3,
+export const CustomMotion = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    motionProps: {
+      variants: {
+        enter: {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+        },
+        exit: {
+          y: 20,
+          opacity: 0,
+          duration: 0.3,
+        },
       },
     },
   },

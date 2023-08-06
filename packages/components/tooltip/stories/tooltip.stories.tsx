@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 
@@ -12,45 +12,45 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
       },
+      options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "foreground", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "foreground", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     placement: {
       control: {
         type: "select",
-        options: [
-          "top",
-          "bottom",
-          "right",
-          "left",
-          "top-start",
-          "top-end",
-          "bottom-start",
-          "bottom-end",
-          "left-start",
-          "left-end",
-          "right-start",
-          "right-end",
-        ],
       },
+      options: [
+        "top",
+        "bottom",
+        "right",
+        "left",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+        "left-start",
+        "left-end",
+        "right-start",
+        "right-end",
+      ],
     },
     delay: {
       control: {
@@ -90,7 +90,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Tooltip>;
+} as Meta<typeof Tooltip>;
 
 const defaultProps = {
   ...popover.defaultVariants,
@@ -103,8 +103,6 @@ const defaultProps = {
   content: "I am a tooltip",
   children: <Button>Hover me</Button>,
 };
-
-const Template = (args: TooltipProps) => <Tooltip {...args} />;
 
 const DelayTemplate = (args: TooltipProps) => (
   <div className="flex gap-2">
@@ -267,109 +265,135 @@ const ControlledTemplate = (args: TooltipProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const DisableAnimation = Template.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };
 
-export const WithArrow = Template.bind({});
-WithArrow.args = {
-  ...defaultProps,
-  showArrow: true,
+export const WithArrow = {
+  args: {
+    ...defaultProps,
+    showArrow: true,
+  },
 };
 
-export const OpenChange = OpenChangeTemplate.bind({});
-OpenChange.args = {
-  ...defaultProps,
+export const OpenChange = {
+  render: OpenChangeTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Placements = PlacementsTemplate.bind({});
-Placements.args = {
-  ...defaultProps,
-  color: "primary",
+export const Placements = {
+  render: PlacementsTemplate,
+
+  args: {
+    ...defaultProps,
+    color: "primary",
+  },
 };
 
-export const WithOffset = OffsetTemplate.bind({});
-WithOffset.args = {
-  ...defaultProps,
-  color: "secondary",
+export const WithOffset = {
+  render: OffsetTemplate,
+
+  args: {
+    ...defaultProps,
+    color: "secondary",
+  },
 };
 
-export const withDelay = DelayTemplate.bind({});
-withDelay.args = {
-  ...defaultProps,
+export const withDelay = {
+  render: DelayTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomContent = Template.bind({});
-CustomContent.args = {
-  ...defaultProps,
-  shouldCloseOnInteractOutside: false,
-  content: (
-    <div className="px-1 py-2">
-      <div className="text-sm font-bold">Custom Content</div>
-      <div className="text-xs">This is a custom tooltip content</div>
-    </div>
-  ),
+export const CustomContent = {
+  args: {
+    ...defaultProps,
+    shouldCloseOnInteractOutside: false,
+    content: (
+      <div className="px-1 py-2">
+        <div className="text-sm font-bold">Custom Content</div>
+        <div className="text-xs">This is a custom tooltip content</div>
+      </div>
+    ),
+  },
 };
 
-export const CustomMotion = Template.bind({});
-CustomMotion.args = {
-  ...defaultProps,
-  motionProps: {
-    variants: {
-      exit: {
-        opacity: 0,
-        transition: {
-          opacity: {duration: 0.1, easings: "easeInOut"},
+export const CustomMotion = {
+  args: {
+    ...defaultProps,
+    motionProps: {
+      variants: {
+        exit: {
+          opacity: 0,
+          transition: {
+            opacity: {duration: 0.1, easings: "easeInOut"},
+          },
         },
-      },
-      enter: {
-        opacity: 1,
-        transition: {
-          opacity: {easings: "easeOut", duration: 0.15},
+        enter: {
+          opacity: 1,
+          transition: {
+            opacity: {easings: "easeOut", duration: 0.15},
+          },
         },
       },
     },
   },
 };
 
-export const Multiple = MultipleTemplate.bind({});
-Multiple.args = {
-  ...defaultProps,
+export const Multiple = {
+  render: MultipleTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const DefaultOpen = Template.bind({});
-DefaultOpen.args = {
-  ...defaultProps,
-  defaultOpen: true,
+export const DefaultOpen = {
+  args: {
+    ...defaultProps,
+    defaultOpen: true,
+  },
 };
 
-export const AlwaysOpen = Template.bind({});
-AlwaysOpen.args = {
-  ...defaultProps,
-  isOpen: true,
-  showArrow: true,
-  content: (
-    <div className="px-1 py-2">
-      <div className="text-sm font-bold">Custom Content</div>
-      <div className="text-xs">This is a custom tooltip content</div>
-    </div>
-  ),
+export const AlwaysOpen = {
+  args: {
+    ...defaultProps,
+    isOpen: true,
+    showArrow: true,
+    content: (
+      <div className="px-1 py-2">
+        <div className="text-sm font-bold">Custom Content</div>
+        <div className="text-xs">This is a custom tooltip content</div>
+      </div>
+    ),
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...defaultProps,
-  isDisabled: true,
+export const Disabled = {
+  args: {
+    ...defaultProps,
+    isDisabled: true,
+  },
 };

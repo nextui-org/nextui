@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {StoryFn, Meta} from "@storybook/react";
 import { {{componentName}} } from "@nextui-org/theme";
 
 import { {{capitalize componentName}}, {{capitalize componentName}}Props } from "../src";
@@ -9,22 +9,16 @@ export default {
   component: {{capitalize componentName}},
   argTypes: {
     color: {
-      control: {
-        type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
-      },
+      control: { type: "select" },
+      options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
-      control: {
-        type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
-      },
+      control: { type: "select" },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
-      control: {
-        type: "select",
-        options: ["sm", "md", "lg"],
-      },
+      control: { type: "select" },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -32,16 +26,18 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof {{capitalize componentName}}>;
+} as Meta<typeof {{capitalize componentName}}>;
 
 const defaultProps = {
   ...{{componentName}}.defaultVariants,
 };
 
-const Template: ComponentStory<typeof {{capitalize componentName}}> = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;
+const Template: StoryFn<typeof {{capitalize componentName}}> = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;
 
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-};
+export const Default = {
+  render: Template,
+  args: {
+    ...defaultProps,
+  }
+}

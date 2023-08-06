@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {divider} from "@nextui-org/theme";
 
 import {Divider, DividerProps} from "../src";
@@ -11,8 +11,8 @@ export default {
     orientation: {
       control: {
         type: "select",
-        options: ["horizontal", "vertical"],
       },
+      options: ["horizontal", "vertical"],
     },
   },
   decorators: [
@@ -22,7 +22,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Divider>;
+} as Meta<typeof Divider>;
 
 const defaultProps = {
   ...divider.defaultVariants,
@@ -45,7 +45,10 @@ const Template = (args: DividerProps) => (
   </div>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
