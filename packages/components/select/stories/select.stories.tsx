@@ -1,12 +1,12 @@
 import React from "react";
 import {ComponentStory, ComponentMeta} from "@storybook/react";
-import { {{componentName}} } from "@nextui-org/theme";
+import {select} from "@nextui-org/theme";
 
-import { {{capitalize componentName}}, {{capitalize componentName}}Props } from "../src";
+import {Select} from "../src";
 
 export default {
-  title: "Components/{{capitalize componentName}}",
-  component: {{capitalize componentName}},
+  title: "Components/Select",
+  component: Select,
   argTypes: {
     color: {
       control: {
@@ -32,14 +32,13 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof {{capitalize componentName}}>;
+} as ComponentMeta<typeof Select>;
 
 const defaultProps = {
-  ...{{componentName}}.defaultVariants,
+  ...select.defaultVariants,
 };
 
-const Template: ComponentStory<typeof {{capitalize componentName}}> = (args) => <{{capitalize componentName}} {...args} />;
-
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

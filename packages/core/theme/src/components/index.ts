@@ -28,3 +28,5 @@ export * from "./divider";
 export * from "./kbd";
 export * from "./tabs";
 export * from "./skeleton";
+export * from "./select";
+export * from "./menu";
