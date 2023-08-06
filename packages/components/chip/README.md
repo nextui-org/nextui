@@ -1,8 +1,8 @@
 # @nextui-org/chip
 
-A Quick description of the component
+A Chip is a small block of essential information that represent an input, attribute, or action.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/chip) for more information.
 
 ## Installation
 

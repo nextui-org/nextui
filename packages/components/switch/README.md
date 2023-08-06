@@ -1,8 +1,8 @@
 # @nextui-org/switch
 
-A Quick description of the component
+The Switch component is used as an alternative between checked and not checked states.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/switch) for more information.
 
 ## Installation
 

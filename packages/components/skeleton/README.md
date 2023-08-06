@@ -1,8 +1,8 @@
 # @nextui-org/skeleton
 
-A Quick description of the component
+Skeleton is a placeholder to show a loading state and the expected shape of a component.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/skeleton) for more information.
 
 ## Installation
 

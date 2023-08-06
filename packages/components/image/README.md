@@ -1,8 +1,8 @@
 # @nextui-org/image
 
-A Quick description of the component
+The Image component is used to display images with support for fallback.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/image) for more information.
 
 ## Installation
 

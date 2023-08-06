@@ -1,0 +1,32 @@
+name: QA
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: QA - Steps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test  
+
+      - name: Run ESLint
+        run: pnpm lint
+      
+      - name: Run typecheck
+        run: pnpm typecheck
+
+      - name: Run prettier
+        run: pnpm format:check

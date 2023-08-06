@@ -78,8 +78,6 @@ export async function generateStaticParams(): Promise<DocPageProps["params"][]> 
 }
 
 export default async function DocPage({params}: DocPageProps) {
-  // const {doc, source, tag, slug, currentRoute, headings} = await getDocData({params});
-
   const {doc, headings, currentRoute} = await getDocFromParams({params});
 
   if (!doc) {

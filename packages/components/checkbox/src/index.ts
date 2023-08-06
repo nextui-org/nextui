@@ -11,8 +11,8 @@ export type {CheckboxGroupProps} from "./checkbox-group";
 export type {CheckboxIconProps} from "./use-checkbox";
 
 // export context
-export * from "./checkbox-group-context";
+export {CheckboxGroupProvider, useCheckboxGroupContext} from "./checkbox-group-context";
 
 // export components
 export {Checkbox, CheckboxGroup};
-export * from "./checkbox-icon";
+export {CheckboxIcon} from "./checkbox-icon";

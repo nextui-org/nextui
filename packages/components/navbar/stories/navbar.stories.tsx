@@ -410,19 +410,17 @@ const WithAvatarUserTemplate = (args: NavbarProps) => {
             </Link>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent justify="end">
+        <NavbarContent as="div" justify="end">
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <NavbarItem>
-                <Avatar
-                  isBordered
-                  as="button"
-                  className="transition-transform"
-                  color="secondary"
-                  size="sm"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                />
-              </NavbarItem>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" color="secondary">
               <DropdownItem key="profile" className="h-14 gap-2">
@@ -511,33 +509,30 @@ const WithSearchInputTemplate = (args: NavbarProps) => {
             </Link>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden md:flex">
-            <Input
-              classNames={{
-                input: "text-base",
-              }}
-              placeholder="Search..."
-              size="sm"
-              startContent={<SearchIcon className="text-base pointer-events-none flex-shrink-0" />}
-              onClear={() => {
-                // eslint-disable-next-line no-console
-                console.log("clear");
-              }}
-            />
-          </NavbarItem>
+        <NavbarContent as="div" justify="end">
+          <Input
+            className="w-fit"
+            classNames={{
+              input: "text-base",
+            }}
+            placeholder="Search..."
+            size="sm"
+            startContent={<SearchIcon className="text-base pointer-events-none flex-shrink-0" />}
+            onClear={() => {
+              // eslint-disable-next-line no-console
+              console.log("clear");
+            }}
+          />
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <NavbarItem>
-                <Avatar
-                  isBordered
-                  as="button"
-                  className="transition-transform"
-                  color="secondary"
-                  size="sm"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                />
-              </NavbarItem>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" color="secondary">
               <DropdownItem key="profile" className="h-14 gap-2">

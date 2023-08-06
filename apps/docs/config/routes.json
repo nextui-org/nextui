@@ -318,5 +318,39 @@
         }
       ]
     }
+  ],
+  "mobileRoutes": [
+    {
+      "key": "getting-started",
+      "title": "Getting Started",
+      "defaultOpen": true,
+      "keywords": "getting started, main routes, blog, docs, components, nextui",
+      "routes": [
+        {
+          "key": "docs",
+          "title": "Documentation",
+          "keywords": "documentation, guide, nextui",
+          "path": "/docs/guide/introduction.mdx"
+        },
+        {
+          "key": "components",
+          "title": "Components",
+          "keywords": "components, nextui",
+          "path": "/docs/components/avatar"
+        },
+        {
+          "key": "blog",
+          "title": "Blog",
+          "keywords": "blog, nextui, news, updates",
+          "path": "/blog"
+        },
+        {
+          "key": "figma",
+          "title": "Figma",
+          "keywords": "figma, nextui, design, ui kit",
+          "path": "/figma"
+        }
+      ]
+    }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/storybook",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0",
   "description": "The NextUI react components storybook ",
   "keywords": [
     "storybook"

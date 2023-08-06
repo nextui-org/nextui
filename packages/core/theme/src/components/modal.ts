@@ -169,7 +169,7 @@ const modal = tv({
         body: "overflow-y-auto",
       },
       outside: {
-        wrapper: "sm:items-start overflow-y-auto",
+        wrapper: "items-start sm:items-start overflow-y-auto",
         base: "my-16",
       },
     },

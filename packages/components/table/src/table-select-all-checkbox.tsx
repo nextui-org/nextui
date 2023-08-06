@@ -41,6 +41,8 @@ const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((pr
   } = props;
 
   const Component = as || "th";
+  const shouldFilterDOMProps = typeof Component === "string";
+
   const domRef = useDOMRef(ref);
 
   const {columnHeaderProps} = useTableColumnHeader({node}, state, domRef);
@@ -61,8 +63,12 @@ const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((pr
       {...mergeProps(
         columnHeaderProps,
         focusProps,
-        filterDOMProps(node.props),
-        filterDOMProps(otherProps),
+        filterDOMProps(node.props, {
+          enabled: shouldFilterDOMProps,
+        }),
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
       )}
       className={slots.th?.({class: thStyles})}
     >

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react-utils",
-  "version": "0.0.0-dev-v2-20230729152229",
+  "version": "2.0.2",
   "description": "A set of utilities for react on client side",
   "keywords": [
     "react-utils"
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@react-aria/utils": "^3.18.0"
+    "@nextui-org/react-rsc-utils": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

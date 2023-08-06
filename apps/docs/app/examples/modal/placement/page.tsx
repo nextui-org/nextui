@@ -16,7 +16,7 @@ import {useState} from "react";
 
 export default function Page() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
-  const [modalPlacement, setModalPlacement] = useState<ModalProps["placement"]>("auto");
+  const [modalPlacement, setModalPlacement] = useState("auto");
 
   return (
     <div className="flex px-10 min-h-[80vh] justify-center items-center flex-col gap-4">
@@ -36,7 +36,11 @@ export default function Page() {
         <Radio value="top-center">top-center</Radio>
         <Radio value="bottom-center">bottom-center</Radio>
       </RadioGroup>
-      <Modal isOpen={isOpen} placement={modalPlacement} onOpenChange={onOpenChange}>
+      <Modal
+        isOpen={isOpen}
+        placement={modalPlacement as ModalProps["placement"]}
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {(onClose) => (
             <>

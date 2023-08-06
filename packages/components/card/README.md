@@ -1,8 +1,8 @@
 # @nextui-org/card
 
-A Quick description of the component
+Card is a container for text, photos, and actions in the context of a single subject.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/card) for more information.
 
 ## Installation
 

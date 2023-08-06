@@ -1,8 +1,8 @@
 # @nextui-org/divider
 
-A Quick description of the component
+Divider is a component that separates content in a page.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/divider) for more information.
 
 ## Installation
 

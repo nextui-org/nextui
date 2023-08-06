@@ -11,7 +11,7 @@ export type {PopoverContentProps} from "./popover-content";
 export {usePopover} from "./use-popover";
 
 // export context
-export * from "./popover-context";
+export {PopoverProvider, usePopoverContext} from "./popover-context";
 
 // export components
 export {Popover, PopoverTrigger, PopoverContent};

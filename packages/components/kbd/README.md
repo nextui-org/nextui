@@ -1,8 +1,8 @@
 # @nextui-org/kbd
 
-A Quick description of the component
+Keyboard key or kbd is a component to display which key or combination of keys performs a given action.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/kbd) for more information.
 
 ## Installation
 

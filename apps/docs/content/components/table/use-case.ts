@@ -682,6 +682,8 @@ export default function App() {
     column: "age",
     direction: "ascending",
   });
+
+  const [page, setPage] = useState(1);
   const pages = Math.ceil(users.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);

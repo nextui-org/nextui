@@ -1,8 +1,8 @@
 # @nextui-org/modal
 
-A Quick description of the component
+Displays a dialog with a custom content that requires attention or provides additional information.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/modal) for more information.
 
 ## Installation
 

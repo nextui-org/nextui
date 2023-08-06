@@ -1,8 +1,8 @@
 # @nextui-org/progress
 
-A Quick description of the component
+The Progress component allows you to view the progress of any activity.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/progress) for more information.
 
 ## Installation
 

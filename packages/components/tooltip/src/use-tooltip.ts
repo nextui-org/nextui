@@ -208,8 +208,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
       ...mergeProps(triggerProps, props),
       ref: mergeRefs(_ref, triggerRef),
       "aria-describedby": isOpen ? tooltipId : undefined,
-      onPointerEnter: () => state.open(),
-      onPointerLeave: () => state.isOpen && state.close(),
     }),
     [triggerProps, isOpen, tooltipId, state],
   );

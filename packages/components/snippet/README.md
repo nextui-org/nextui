@@ -1,8 +1,8 @@
 # @nextui-org/snippet
 
-A Quick description of the component
+Snippet is a component that can be used to display inline or multiline code snippets.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/snippet) for more information.
 
 ## Installation
 

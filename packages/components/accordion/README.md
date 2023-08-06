@@ -1,8 +1,8 @@
 # @nextui-org/accordion
 
-A Quick description of the component
+Accordion display a list of high-level options that can expand/collapse to reveal more information.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org//docs/components/accordion) for more information.
 
 ## Installation
 

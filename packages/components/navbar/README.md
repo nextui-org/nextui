@@ -1,8 +1,8 @@
 # @nextui-org/navbar
 
-A Quick description of the component
+A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse menu and more.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/navbar) for more information.
 
 ## Installation
 

@@ -66,7 +66,11 @@ export function useReactAriaPopover(
     popoverRef,
   );
 
-  const {overlayProps: positionProps, arrowProps, placement} = useOverlayPosition({
+  const {
+    overlayProps: positionProps,
+    arrowProps,
+    placement,
+  } = useOverlayPosition({
     ...otherProps,
     scrollRef,
     crossOffset,

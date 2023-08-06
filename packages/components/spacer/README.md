@@ -1,8 +1,8 @@
 # @nextui-org/spacer
 
-A Quick description of the component
+Spacer is a component used to add space between components.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/spacer) for more information.
 
 ## Installation
 

@@ -1,8 +1,8 @@
 # @nextui-org/tabs
 
-A Quick description of the component
+Tabs organize content into multiple sections and allow users to navigate between them.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/tabs) for more information.
 
 ## Installation
 
