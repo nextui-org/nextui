@@ -1,5 +1,19 @@
 # @nextui-org/pagination
 
+## 2.0.3
+
+### Patch Changes
+
+- [`e3e13a09`](https://github.com/nextui-org/nextui/commit/e3e13a095f2347ff279c85e6a5d3798f36c6533f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New package created to exports system RSC-compatible functions
+  Component exports changed to named exports
+- Updated dependencies [[`eefda8d6`](https://github.com/nextui-org/nextui/commit/eefda8d6e2088526e0dbb2026d807b53d2a97782), [`e3e13a09`](https://github.com/nextui-org/nextui/commit/e3e13a095f2347ff279c85e6a5d3798f36c6533f)]:
+  - @nextui-org/react-utils@2.0.2
+  - @nextui-org/system@2.0.3
+  - @nextui-org/theme@2.0.3
+  - @nextui-org/use-pagination@2.0.2
+  - @nextui-org/shared-icons@2.0.2
+  - @nextui-org/shared-utils@2.0.2
+
 ## 2.0.2
 
 ### Patch Changes
