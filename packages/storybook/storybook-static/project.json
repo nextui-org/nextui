@@ -1,6 +1,5 @@
 {
-  "generatedAt": 1691244329978,
-  "builder": {"name": "webpack5"},
+  "generatedAt": 1691347227211,
   "hasCustomBabel": false,
   "hasCustomWebpack": false,
   "hasStaticDirs": true,
@@ -9,34 +8,26 @@
   "monorepo": "Turborepo",
   "packageManager": {"type": "pnpm", "version": "8.6.0"},
   "typescriptOptions": {"reactDocgen": false},
-  "storybookVersion": "6.5.16",
+  "preview": {"usesGlobals": true},
+  "framework": {"name": "@storybook/react-vite", "options": {}},
+  "builder": "@storybook/builder-vite",
+  "renderer": "@storybook/react",
+  "storybookVersion": "7.1.1",
+  "storybookVersionSpecifier": "^7.1.1",
   "language": "javascript",
   "storybookPackages": {
-    "@storybook/addon-actions": {"version": "6.5.16"},
-    "@storybook/addon-docs": {"version": "6.5.16"},
-    "@storybook/addon-interactions": {"version": "6.5.16"},
-    "@storybook/addons": {"version": "6.5.16"},
-    "@storybook/builder-webpack5": {"version": "6.5.16"},
-    "@storybook/manager-webpack5": {"version": "6.5.16"},
-    "@storybook/react": {"version": "6.5.16"},
-    "@storybook/theming": {"version": "6.5.16"}
+    "@storybook/addon-actions": {"version": "7.1.1"},
+    "@storybook/addon-docs": {"version": "7.1.1"},
+    "@storybook/builder-vite": {"version": "7.1.1"},
+    "@storybook/cli": {"version": "7.1.1"},
+    "@storybook/react-vite": {"version": "7.1.1"},
+    "@storybook/react": {"version": "7.1.1"},
+    "@storybook/theming": {"version": "7.1.1"}
   },
-  "framework": {"name": "react"},
   "addons": {
-    "@storybook/addon-links": {"version": "6.5.16"},
-    "@storybook/addon-essentials": {"version": "6.5.16"},
-    "storybook-dark-mode": {"version": "2.1.1"},
-    "@storybook/addon-a11y": {"version": "6.5.16"},
-    "@storybook/addon-storysource": {
-      "options": {
-        "rule": {"test": [{}]},
-        "loaderOptions": {"prettierConfig": {"printWidth": 80, "singleQuote": false}}
-      },
-      "version": "6.5.16"
-    },
-    "@storybook/addon-postcss": {
-      "options": {"cssLoaderOptions": {"importLoaders": 1}, "postcssLoaderOptions": {}},
-      "version": "2.0.0"
-    }
+    "@storybook/addon-a11y": {"version": "7.1.1"},
+    "@storybook/addon-essentials": {"version": "7.1.1"},
+    "@storybook/addon-links": {"version": "7.1.1"},
+    "storybook-dark-mode": {"version": "3.0.0"}
   }
 }
