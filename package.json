@@ -13,8 +13,8 @@
   },
   "scripts": {
     "dev": "pnpm sb && pnpm dev:docs",
-    "build": "turbo build --filter=!@nextui-org/docs",
-    "build:fast": "turbo build:fast --filter=!@nextui-org/docs ",
+    "build": "turbo build --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
+    "build:fast": "turbo build:fast --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
     "build:docs": "turbo build --filter=@nextui-org/docs",
     "build:docs-meta": "node ./scripts/update-index-docs.js",
