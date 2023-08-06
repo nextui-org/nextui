@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {card} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
@@ -15,14 +15,14 @@ export default {
     shadow: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     fullWidth: {
       control: {
@@ -67,7 +67,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
 const defaultProps = {
   ...card.defaultVariants,
@@ -406,47 +406,74 @@ const CenterImgWithHeaderTemplate = (args: CardProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithDivider = WithDividerTemplate.bind({});
-WithDivider.args = {
-  ...defaultProps,
+export const WithDivider = {
+  render: WithDividerTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithFooter = WithFooterTemplate.bind({});
-WithFooter.args = {
-  ...defaultProps,
+export const WithFooter = {
+  render: WithFooterTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithAbsImageHeader = WithAbsImageHeaderTemplate.bind({});
-WithAbsImageHeader.args = {
-  ...defaultProps,
+export const WithAbsImageHeader = {
+  render: WithAbsImageHeaderTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithAbsImgHeaderFooter = WithAbsImgHeaderFooterTemplate.bind({});
-WithAbsImgHeaderFooter.args = {
-  ...defaultProps,
+export const WithAbsImgHeaderFooter = {
+  render: WithAbsImgHeaderFooterTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CoverImg = CoverImgTemplate.bind({});
-CoverImg.args = {
-  ...defaultProps,
+export const CoverImg = {
+  render: CoverImgTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CenterImg = CenterImgTemplate.bind({});
-CenterImg.args = {
-  ...defaultProps,
+export const CenterImg = {
+  render: CenterImgTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const PrimaryAction = PrimaryActionTemplate.bind({});
-PrimaryAction.args = {
-  ...defaultProps,
+export const PrimaryAction = {
+  render: PrimaryActionTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CenterImgWithHeader = CenterImgWithHeaderTemplate.bind({});
-CenterImgWithHeader.args = {
-  ...defaultProps,
+export const CenterImgWithHeader = {
+  render: CenterImgWithHeaderTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

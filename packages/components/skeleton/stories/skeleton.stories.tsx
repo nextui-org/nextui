@@ -1,8 +1,8 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {skeleton} from "@nextui-org/theme";
 
-import {Skeleton, SkeletonProps} from "../src";
+import {Skeleton} from "../src";
 
 export default {
   title: "Components/Skeleton",
@@ -22,7 +22,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Skeleton>;
+} as Meta<typeof Skeleton>;
 
 const defaultProps = {
   ...skeleton.defaultVariants,
@@ -30,10 +30,9 @@ const defaultProps = {
   children: <div className="w-[200px] h-[100px]">NextUI</div>,
 };
 
-const Template = (args: SkeletonProps) => <Skeleton {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-  className: "rounded-xl",
+export const Default = {
+  args: {
+    ...defaultProps,
+    className: "rounded-xl",
+  },
 };

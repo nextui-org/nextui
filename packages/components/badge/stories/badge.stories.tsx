@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {badge} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";
 import {CheckIcon} from "@nextui-org/shared-icons";
@@ -20,32 +20,32 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "flat", "faded", "shadow"],
       },
+      options: ["solid", "flat", "faded", "shadow"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     shape: {
       control: {
         type: "select",
-        options: ["rectangle", "circle"],
       },
+      options: ["rectangle", "circle"],
     },
     placement: {
       control: {
         type: "select",
-        options: ["top-right", "top-left", "bottom-right", "bottom-left"],
       },
+      options: ["top-right", "top-left", "bottom-right", "bottom-left"],
     },
     isInvisible: {
       control: {
@@ -58,7 +58,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Badge>;
+} as Meta<typeof Badge>;
 
 const defaultProps = {
   ...badge.defaultVariants,
@@ -106,53 +106,71 @@ const InvisibleTemplate = (args: BadgeProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-};
+export const Default = {
+  render: Template,
 
-export const Dot = Template.bind({});
-Dot.args = {
-  ...defaultProps,
-  content: "",
-  color: "success",
-  size: "sm",
-};
-
-export const HorizontalOffset = Template.bind({});
-HorizontalOffset.args = {
-  ...defaultProps,
-  variant: "shadow",
-  color: "secondary",
-  content: <CheckIcon />,
-  placement: "bottom-right",
-  size: "md",
-  classNames: {
-    badge: "p-0.5 right-[50%]",
+  args: {
+    ...defaultProps,
   },
 };
 
-export const VerticalOffset = Template.bind({});
-VerticalOffset.args = {
-  ...defaultProps,
-  variant: "shadow",
-  color: "secondary",
-  content: <CheckIcon />,
-  placement: "bottom-right",
-  size: "md",
-  classNames: {
-    badge: "p-0.5 right-[50%] bottom-[50%]",
+export const Dot = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    content: "",
+    color: "success",
+    size: "sm",
   },
 };
 
-export const Shapes = ShapesTemplate.bind({});
-Shapes.args = {
-  ...defaultProps,
-  color: "danger",
+export const HorizontalOffset = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "shadow",
+    color: "secondary",
+    content: <CheckIcon />,
+    placement: "bottom-right",
+    size: "md",
+    classNames: {
+      badge: "p-0.5 right-[50%]",
+    },
+  },
 };
 
-export const Invisible = InvisibleTemplate.bind({});
-Invisible.args = {
-  ...defaultProps,
-  color: "danger",
+export const VerticalOffset = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "shadow",
+    color: "secondary",
+    content: <CheckIcon />,
+    placement: "bottom-right",
+    size: "md",
+    classNames: {
+      badge: "p-0.5 right-[50%] bottom-[50%]",
+    },
+  },
+};
+
+export const Shapes = {
+  render: ShapesTemplate,
+
+  args: {
+    ...defaultProps,
+    color: "danger",
+  },
+};
+
+export const Invisible = {
+  render: InvisibleTemplate,
+
+  args: {
+    ...defaultProps,
+    color: "danger",
+  },
 };

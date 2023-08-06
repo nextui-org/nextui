@@ -1,8 +1,8 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {snippet} from "@nextui-org/theme";
 
-import {Snippet, SnippetProps} from "../src";
+import {Snippet} from "../src";
 
 export default {
   title: "Components/Snippet",
@@ -11,26 +11,26 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["flat", "solid", "bordered", "shadow"],
       },
+      options: ["flat", "solid", "bordered", "shadow"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
       },
+      options: ["none", "base", "sm", "md", "lg", "xl", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     fullWidth: {
       control: {
@@ -70,7 +70,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Snippet>;
+} as Meta<typeof Snippet>;
 
 const defaultProps = {
   children: "npm install @nextui-org/react",
@@ -82,19 +82,19 @@ const defaultProps = {
   ...snippet.defaultVariants,
 };
 
-const Template = (args: SnippetProps) => <Snippet {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const MultiLine = Template.bind({});
-MultiLine.args = {
-  ...defaultProps,
-  children: [
-    "npm install @nextui-org/react",
-    "yarn add @nextui-org/react",
-    "pnpm add @nextui-org/react",
-  ],
+export const MultiLine = {
+  args: {
+    ...defaultProps,
+    children: [
+      "npm install @nextui-org/react",
+      "yarn add @nextui-org/react",
+      "pnpm add @nextui-org/react",
+    ],
+  },
 };

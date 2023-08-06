@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {radio, button} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
@@ -21,14 +21,14 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -36,7 +36,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof RadioGroup>;
+} as Meta<typeof RadioGroup>;
 
 const defaultProps = {
   ...radio.defaultVariants,
@@ -127,63 +127,93 @@ const ControlledTemplate = (args: RadioGroupProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const IsDisabled = Template.bind({});
-IsDisabled.args = {
-  ...defaultProps,
-  isDisabled: true,
+export const IsDisabled = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isDisabled: true,
+  },
 };
 
-export const DefaultChecked = Template.bind({});
-DefaultChecked.args = {
-  ...defaultProps,
-  defaultValue: "C",
+export const DefaultChecked = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultValue: "C",
+  },
 };
 
-export const IsRequired = Template.bind({});
-IsRequired.args = {
-  ...defaultProps,
-  isRequired: true,
+export const IsRequired = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+  },
 };
 
-export const WithDescription = Template.bind({});
-WithDescription.args = {
-  ...defaultProps,
-  description: "Please select an option",
+export const WithDescription = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    description: "Please select an option",
+  },
 };
 
-export const Invalid = Template.bind({});
-Invalid.args = {
-  ...defaultProps,
-  validationState: "invalid",
+export const Invalid = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    validationState: "invalid",
+  },
 };
 
-export const WithErrorMessage = Template.bind({});
-WithErrorMessage.args = {
-  ...defaultProps,
-  validationState: "invalid",
-  errorMessage: "The selected option is invalid",
+export const WithErrorMessage = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    validationState: "invalid",
+    errorMessage: "The selected option is invalid",
+  },
 };
 
-export const Row = Template.bind({});
-Row.args = {
-  ...defaultProps,
-  orientation: "horizontal",
+export const Row = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    orientation: "horizontal",
+  },
 };
 
-export const DisableAnimation = Template.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
 const CustomRadio = (props: RadioProps) => {

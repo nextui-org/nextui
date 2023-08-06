@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {circularProgress} from "@nextui-org/theme";
 import {Card, CardBody, CardFooter} from "@nextui-org/card";
 import {Chip} from "@nextui-org/chip";
@@ -13,14 +13,14 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -28,13 +28,11 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof CircularProgress>;
+} as Meta<typeof CircularProgress>;
 
 const defaultProps = {
   ...circularProgress.defaultVariants,
 };
-
-const Template = (args: CircularProgressProps) => <CircularProgress {...args} />;
 
 const IntervalTemplate = (args: CircularProgressProps) => {
   const [value, setValue] = React.useState(0);
@@ -78,43 +76,52 @@ const CustomClassnamesTemplate = (args: CircularProgressProps) => (
   </Card>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-  "aria-label": "Loading...",
+export const Default = {
+  args: {
+    ...defaultProps,
+    "aria-label": "Loading...",
+  },
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  ...defaultProps,
-  label: "Loading...",
+export const WithLabel = {
+  args: {
+    ...defaultProps,
+    label: "Loading...",
+  },
 };
 
-export const WithValueLabel = IntervalTemplate.bind({});
-WithValueLabel.args = {
-  ...defaultProps,
-  size: "lg",
-  value: 70,
-  color: "secondary",
-  showValueLabel: true,
+export const WithValueLabel = {
+  render: IntervalTemplate,
+
+  args: {
+    ...defaultProps,
+    size: "lg",
+    value: 70,
+    color: "secondary",
+    showValueLabel: true,
+  },
 };
 
-export const WithValueFormatting = Template.bind({});
-WithValueFormatting.args = {
-  ...defaultProps,
-  label: "Loading...",
-  size: "xl",
-  value: 70,
-  color: "warning",
-  showValueLabel: true,
-  formatOptions: {style: "unit", unit: "kilometer"},
+export const WithValueFormatting = {
+  args: {
+    ...defaultProps,
+    label: "Loading...",
+    size: "xl",
+    value: 70,
+    color: "warning",
+    showValueLabel: true,
+    formatOptions: {style: "unit", unit: "kilometer"},
+  },
 };
 
-export const CustomClassnames = CustomClassnamesTemplate.bind({});
-CustomClassnames.args = {
-  ...defaultProps,
-  size: "xl",
-  strokeWidth: 4,
-  value: 70,
-  showValueLabel: true,
+export const CustomClassnames = {
+  render: CustomClassnamesTemplate,
+
+  args: {
+    ...defaultProps,
+    size: "xl",
+    strokeWidth: 4,
+    value: 70,
+    showValueLabel: true,
+  },
 };

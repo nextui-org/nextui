@@ -5,7 +5,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**", "lib/**"]
+      "outputs": [".next/**", "dist/**", "lib/**", "storybook-static/**"]
     },
     "build:fast": {
       "outputs": ["dist/**"],

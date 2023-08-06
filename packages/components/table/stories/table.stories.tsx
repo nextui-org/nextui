@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
 import {Chip, ChipProps} from "@nextui-org/chip";
@@ -29,32 +29,32 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     layout: {
       control: {
         type: "select",
-        options: ["auto", "fixed"],
       },
+      options: ["auto", "fixed"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     shadow: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     selectionMode: {
       control: {
         type: "select",
-        options: ["none", "single", "multiple"],
       },
+      options: ["none", "single", "multiple"],
     },
     isStriped: {
       control: {
@@ -62,7 +62,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Table>;
+} as Meta<typeof Table>;
 
 const defaultProps = {
   ...table.defaultVariants,
@@ -884,136 +884,193 @@ const InfinitePaginationTemplate = (args: TableProps) => {
   );
 };
 
-export const Static = StaticTemplate.bind({});
-Static.args = {
-  ...defaultProps,
-};
+export const Static = {
+  render: StaticTemplate,
 
-export const Dynamic = DynamicTemplate.bind({});
-Dynamic.args = {
-  ...defaultProps,
-};
-
-export const EmptyState = EmptyTemplate.bind({});
-EmptyState.args = {
-  ...defaultProps,
-};
-
-export const NoHeader = StaticTemplate.bind({});
-NoHeader.args = {
-  ...defaultProps,
-  hideHeader: true,
-};
-
-export const CustomCells = CustomCellTemplate.bind({});
-CustomCells.args = {
-  ...defaultProps,
-  className: "max-w-3xl",
-};
-
-export const Striped = StaticTemplate.bind({});
-Striped.args = {
-  ...defaultProps,
-  isStriped: true,
-};
-
-export const RemoveWrapper = StaticTemplate.bind({});
-RemoveWrapper.args = {
-  ...defaultProps,
-  classNames: {
-    table: "max-w-lg",
-  },
-  removeWrapper: true,
-};
-
-export const SingleSelection = StaticTemplate.bind({});
-SingleSelection.args = {
-  ...defaultProps,
-  selectionMode: "single",
-};
-
-export const MultipleSelection = StaticTemplate.bind({});
-MultipleSelection.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
-  color: "secondary",
-};
-
-export const DisabledKeys = StaticTemplate.bind({});
-DisabledKeys.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
-  disabledKeys: ["2"],
-  color: "warning",
-};
-
-export const DisallowEmptySelection = StaticTemplate.bind({});
-DisallowEmptySelection.args = {
-  ...defaultProps,
-  disallowEmptySelection: true,
-  color: "primary",
-  defaultSelectedKeys: ["2"],
-  selectionMode: "multiple",
-};
-
-export const Sortable = SortableTemplate.bind({});
-Sortable.args = {
-  ...defaultProps,
-};
-
-export const LoadMore = LoadMoreTemplate.bind({});
-LoadMore.args = {
-  ...defaultProps,
-  className: "max-w-3xl max-h-auto",
-};
-
-export const Paginated = PaginatedTemplate.bind({});
-Paginated.args = {
-  ...defaultProps,
-  className: "max-w-lg min-h-[292px]",
-};
-
-export const AsyncPaginated = AsyncPaginatedTemplate.bind({});
-AsyncPaginated.args = {
-  ...defaultProps,
-  className: "max-w-3xl max-h-auto min-h-[400px]",
-};
-
-export const InfinityPagination = InfinitePaginationTemplate.bind({});
-InfinityPagination.args = {
-  ...defaultProps,
-  className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
-};
-
-export const HeaderSticky = InfinitePaginationTemplate.bind({});
-HeaderSticky.args = {
-  ...defaultProps,
-  layout: "fixed",
-  isHeaderSticky: true,
-  className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
-};
-
-export const CustomWithClassNames = CustomCellWithClassnamesTemplate.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
-  classNames: {
-    base: ["max-w-3xl", "bg-gradient-to-br", "from-purple-500", "to-indigo-900/90", "shadow-xl"],
-    th: ["bg-transparent", "text-white/70", "border-b", "border-white/10"],
-    td: [
-      "py-4",
-      "text-sm",
-      "text-white/90",
-      "border-b",
-      "border-white/10",
-      "group-data-[last=true]:border-b-0",
-    ],
+  args: {
+    ...defaultProps,
   },
 };
 
-export const DisableAnimation = StaticTemplate.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
-  color: "secondary",
-  disableAnimation: true,
+export const Dynamic = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const EmptyState = {
+  render: EmptyTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const NoHeader = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    hideHeader: true,
+  },
+};
+
+export const CustomCells = {
+  render: CustomCellTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl",
+  },
+};
+
+export const Striped = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    isStriped: true,
+  },
+};
+
+export const RemoveWrapper = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    classNames: {
+      table: "max-w-lg",
+    },
+    removeWrapper: true,
+  },
+};
+
+export const SingleSelection = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "single",
+  },
+};
+
+export const MultipleSelection = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    color: "secondary",
+  },
+};
+
+export const DisabledKeys = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    disabledKeys: ["2"],
+    color: "warning",
+  },
+};
+
+export const DisallowEmptySelection = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    disallowEmptySelection: true,
+    color: "primary",
+    defaultSelectedKeys: ["2"],
+    selectionMode: "multiple",
+  },
+};
+
+export const Sortable = {
+  render: SortableTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const LoadMore = {
+  render: LoadMoreTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl max-h-auto",
+  },
+};
+
+export const Paginated = {
+  render: PaginatedTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-lg min-h-[292px]",
+  },
+};
+
+export const AsyncPaginated = {
+  render: AsyncPaginatedTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl max-h-auto min-h-[400px]",
+  },
+};
+
+export const InfinityPagination = {
+  render: InfinitePaginationTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
+  },
+};
+
+export const HeaderSticky = {
+  render: InfinitePaginationTemplate,
+
+  args: {
+    ...defaultProps,
+    layout: "fixed",
+    isHeaderSticky: true,
+    className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
+  },
+};
+
+export const CustomWithClassNames = {
+  render: CustomCellWithClassnamesTemplate,
+
+  args: {
+    ...defaultProps,
+    classNames: {
+      base: ["max-w-3xl", "bg-gradient-to-br", "from-purple-500", "to-indigo-900/90", "shadow-xl"],
+      th: ["bg-transparent", "text-white/70", "border-b", "border-white/10"],
+      td: [
+        "py-4",
+        "text-sm",
+        "text-white/90",
+        "border-b",
+        "border-white/10",
+        "group-data-[last=true]:border-b-0",
+      ],
+    },
+  },
+};
+
+export const DisableAnimation = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    color: "secondary",
+    disableAnimation: true,
+  },
 };

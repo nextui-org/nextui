@@ -1,25 +1,26 @@
 import React from "react";
 import {themes} from "@storybook/theming";
-import {NextUIProvider} from "@nextui-org/react";
-import Style from "./style";
+import {NextUIProvider} from "@nextui-org/system/src/provider";
+import type { Preview } from '@storybook/react';
+import './style.css'
 
-export const decorators = [
-  (Story, {globals: {locale}}) => {
-    const direction =
-      locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
+const decorators: Preview['decorators'] = [
+    (Story, {globals: {locale}}) => {
+      const direction =
+        // @ts-ignore
+        locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
-    return (
-      <NextUIProvider locale={locale}>
-        <div className="bg-dark" lang={locale} dir={direction}>
-          <Style />
-          <Story />
-        </div>
-      </NextUIProvider>
-    );
-  },
-];
+      return (
+        <NextUIProvider locale={locale}>
+          <div className="bg-dark" lang={locale} dir={direction}>
+            <Story />
+          </div>
+        </NextUIProvider>
+      );
+    },
+  ]
 
-export const parameters = {
+const parameters: Preview['parameters'] = {
   actions: {argTypesRegex: "^on[A-Z].*"},
   options: {
     storySort: {
@@ -91,15 +92,22 @@ const locales = [
   "zh-TW",
 ];
 
-export const globalTypes = {
+const globalTypes: Preview['globalTypes'] = {
   locale: {
     toolbar: {
       icon: "globe",
       items: locales.map((locale) => ({
         value: locale,
         title: new Intl.DisplayNames(undefined, {type: "language"}).of(locale),
+        // @ts-ignore
         right: new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "Right to Left" : undefined,
       })),
     },
   },
 };
+
+export default {
+  decorators,
+  parameters,
+  globalTypes
+} satisfies Preview;

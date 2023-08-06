@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {accordionItem} from "@nextui-org/theme";
 import {
   AnchorIcon,
@@ -22,8 +22,8 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["default", "shadow", "bordered", "splitted"],
       },
+      options: ["default", "shadow", "bordered", "splitted"],
     },
     isDisabled: {
       control: {
@@ -33,8 +33,8 @@ export default {
     selectionMode: {
       control: {
         type: "select",
-        options: ["single", "multiple"],
       },
+      options: ["single", "multiple"],
     },
     disableAnimation: {
       control: {
@@ -42,7 +42,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Accordion>;
+} as Meta<typeof Accordion>;
 
 const defaultProps = {
   ...accordionItem.defaultVariants,
@@ -311,84 +311,111 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const IsCompact = Template.bind({});
-IsCompact.args = {
-  ...defaultProps,
-  isCompact: true,
+export const IsCompact = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isCompact: true,
+  },
 };
 
-export const Multiple = Template.bind({});
-Multiple.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
+export const Multiple = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+  },
 };
 
-export const DefaultExpanded = Template.bind({});
-DefaultExpanded.args = {
-  ...defaultProps,
-  defaultExpandedKeys: ["2"],
+export const DefaultExpanded = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultExpandedKeys: ["2"],
+  },
 };
 
-export const DisabledKeys = Template.bind({});
-DisabledKeys.args = {
-  ...defaultProps,
-  disabledKeys: ["2"],
+export const DisabledKeys = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disabledKeys: ["2"],
+  },
 };
 
-export const WithSubtitle = TemplateWithSubtitle.bind({});
-WithSubtitle.args = {
-  ...defaultProps,
+export const WithSubtitle = {
+  render: TemplateWithSubtitle,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithStartContent = TemplateWithStartContent.bind({});
-WithStartContent.args = {
-  ...defaultProps,
+export const WithStartContent = {
+  render: TemplateWithStartContent,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Variants = VariantsTemplate.bind({});
-Variants.args = {
-  ...defaultProps,
+export const Variants = {
+  render: VariantsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomMotion = Template.bind({});
-CustomMotion.args = {
-  ...defaultProps,
-  motionProps: {
-    variants: {
-      enter: {
-        y: 0,
-        opacity: 1,
-        height: "auto",
-        transition: {
-          height: {
-            type: "spring",
-            stiffness: 500,
-            damping: 30,
-            duration: 1,
-          },
-          opacity: {
-            easings: "ease",
-            duration: 1,
+export const CustomMotion = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    motionProps: {
+      variants: {
+        enter: {
+          y: 0,
+          opacity: 1,
+          height: "auto",
+          transition: {
+            height: {
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+              duration: 1,
+            },
+            opacity: {
+              easings: "ease",
+              duration: 1,
+            },
           },
         },
-      },
-      exit: {
-        y: -10,
-        opacity: 0,
-        height: 0,
-        transition: {
-          height: {
-            easings: "ease",
-            duration: 0.25,
-          },
-          opacity: {
-            easings: "ease",
-            duration: 0.3,
+        exit: {
+          y: -10,
+          opacity: 0,
+          height: 0,
+          transition: {
+            height: {
+              easings: "ease",
+              duration: 0.25,
+            },
+            opacity: {
+              easings: "ease",
+              duration: 0.3,
+            },
           },
         },
       },
@@ -396,17 +423,26 @@ CustomMotion.args = {
   },
 };
 
-export const CustomIndicator = CustomInidicatorTemplate.bind({});
-CustomIndicator.args = {
-  ...defaultProps,
+export const CustomIndicator = {
+  render: CustomInidicatorTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
+export const CustomWithClassNames = {
+  render: CustomWithClassNamesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

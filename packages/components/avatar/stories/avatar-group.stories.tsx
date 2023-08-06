@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 
 import {Avatar, AvatarGroup, AvatarGroupProps} from "../src";
 
@@ -9,22 +9,16 @@ export default {
   component: AvatarGroup,
   argTypes: {
     color: {
-      control: {
-        type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
-      },
+      control: {type: "select"},
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
-      control: {
-        type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
-      },
+      control: {type: "select"},
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
-      control: {
-        type: "select",
-        options: ["sm", "md", "lg"],
-      },
+      control: {type: "select"},
+      options: ["sm", "md", "lg"],
     },
     spacing: {
       control: {
@@ -32,7 +26,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof AvatarGroup>;
+} as Meta<typeof AvatarGroup>;
 
 const Template = (args: AvatarGroupProps) => (
   <AvatarGroup {...args}>
@@ -48,49 +42,67 @@ const Template = (args: AvatarGroupProps) => (
   </AvatarGroup>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  color: "primary",
-  isBordered: true,
+export const Default = {
+  render: Template,
+
+  args: {
+    color: "primary",
+    isBordered: true,
+  },
 };
 
-export const Grid = Template.bind({});
-Grid.args = {
-  color: "primary",
-  isBordered: true,
-  max: 7,
-  isGrid: true,
+export const Grid = {
+  render: Template,
+
+  args: {
+    color: "primary",
+    isBordered: true,
+    max: 7,
+    isGrid: true,
+  },
 };
 
-export const isDisabled = Template.bind({});
-isDisabled.args = {
-  color: "warning",
-  isBordered: true,
-  isDisabled: true,
+export const isDisabled = {
+  render: Template,
+
+  args: {
+    color: "warning",
+    isBordered: true,
+    isDisabled: true,
+  },
 };
 
-export const WithMaxCount = Template.bind({});
-WithMaxCount.args = {
-  color: "primary",
-  isBordered: true,
-  max: 3,
+export const WithMaxCount = {
+  render: Template,
+
+  args: {
+    color: "primary",
+    isBordered: true,
+    max: 3,
+  },
 };
 
-export const WithTotal = Template.bind({});
-WithTotal.args = {
-  color: "primary",
-  isBordered: true,
-  max: 3,
-  total: 10,
+export const WithTotal = {
+  render: Template,
+
+  args: {
+    color: "primary",
+    isBordered: true,
+    max: 3,
+    total: 10,
+  },
 };
 
-export const CustomCount = Template.bind({});
-CustomCount.args = {
-  color: "primary",
-  isBordered: true,
-  max: 3,
-  total: 10,
-  renderCount: (count: number) => (
-    <p className="text-sm text-black dark:text-white ml-2">+{count}</p>
-  ),
+export const CustomCount = {
+  render: Template,
+
+  args: {
+    color: "primary",
+    isBordered: true,
+    max: 3,
+    total: 10,
+    renderCount: (count: number) => (
+      <p className="text-sm text-black dark:text-white ml-2">+{count}</p>
+    ),
+  },
 };

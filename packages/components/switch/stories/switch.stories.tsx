@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {toggle} from "@nextui-org/theme";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SunFilledIcon, MoonFilledIcon} from "@nextui-org/shared-icons";
@@ -15,14 +15,14 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -35,13 +35,11 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Switch>;
+} as Meta<typeof Switch>;
 
 const defaultProps = {
   ...toggle.defaultVariants,
 };
-
-const Template = (args: SwitchProps) => <Switch {...args} />;
 
 const WithIconsTemplate = (args: SwitchProps) => {
   const [isSelected, setIsSelected] = React.useState<boolean>(true);
@@ -133,59 +131,76 @@ const CustomWithHooksTemplate = (args: SwitchProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const IsReadOnly = Template.bind({});
-IsReadOnly.args = {
-  ...defaultProps,
-  isReadOnly: true,
-  defaultSelected: true,
+export const IsReadOnly = {
+  args: {
+    ...defaultProps,
+    isReadOnly: true,
+    defaultSelected: true,
+  },
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  ...defaultProps,
-  children: "Bluetooth",
+export const WithLabel = {
+  args: {
+    ...defaultProps,
+    children: "Bluetooth",
+  },
 };
 
-export const DisableAnimation = Template.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };
 
-export const WiththumbIcon = Template.bind({});
-WiththumbIcon.args = {
-  ...defaultProps,
-  size: "xl",
-  thumbIcon: (props: SwitchThumbIconProps) =>
-    props.isSelected ? (
-      <SunFilledIcon className={props.className} />
-    ) : (
-      <MoonFilledIcon className={props.className} />
-    ),
+export const WiththumbIcon = {
+  args: {
+    ...defaultProps,
+    size: "xl",
+    thumbIcon: (props: SwitchThumbIconProps) =>
+      props.isSelected ? (
+        <SunFilledIcon className={props.className} />
+      ) : (
+        <MoonFilledIcon className={props.className} />
+      ),
+  },
 };
 
-export const WithIcons = WithIconsTemplate.bind({});
-WithIcons.args = {
-  ...defaultProps,
-  size: "xl",
+export const WithIcons = {
+  render: WithIconsTemplate,
+
+  args: {
+    ...defaultProps,
+    size: "xl",
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
+export const CustomWithClassNames = {
+  render: CustomWithClassNamesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomWithHooks = CustomWithHooksTemplate.bind({});
-CustomWithHooks.args = {
-  ...defaultProps,
+export const CustomWithHooks = {
+  render: CustomWithHooksTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

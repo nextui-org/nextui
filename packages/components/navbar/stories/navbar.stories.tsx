@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {navbar} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
@@ -36,14 +36,14 @@ export default {
     position: {
       control: {
         type: "select",
-        options: ["static", "fixed"],
       },
+      options: ["static", "fixed"],
     },
     maxWidth: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg", "xl", "2xl", "full"],
       },
+      options: ["sm", "md", "lg", "xl", "2xl", "full"],
     },
     isBlurred: {
       control: {
@@ -58,7 +58,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Navbar>;
+} as Meta<typeof Navbar>;
 
 const defaultProps = {
   ...navbar.defaultVariants,
@@ -556,41 +556,62 @@ const WithSearchInputTemplate = (args: NavbarProps) => {
   );
 };
 
-export const Static = Template.bind({});
-Static.args = {
-  ...defaultProps,
-  position: "static",
+export const Static = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    position: "static",
+  },
 };
 
-export const Sticky = Template.bind({});
-Sticky.args = {
-  ...defaultProps,
-  position: "sticky",
+export const Sticky = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    position: "sticky",
+  },
 };
 
-export const HideOnScroll = Template.bind({});
-HideOnScroll.args = {
-  ...defaultProps,
-  position: "sticky",
-  shouldHideOnScroll: true,
+export const HideOnScroll = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    position: "sticky",
+    shouldHideOnScroll: true,
+  },
 };
 
-export const WithMenu = WithMenuTemplate.bind({});
-WithMenu.args = {
-  ...defaultProps,
+export const WithMenu = {
+  render: WithMenuTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithDropdown = WithDropdownTemplate.bind({});
-WithDropdown.args = {
-  ...defaultProps,
+export const WithDropdown = {
+  render: WithDropdownTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithAvatarUser = WithAvatarUserTemplate.bind({});
-WithAvatarUser.args = {
-  ...defaultProps,
+export const WithAvatarUser = {
+  render: WithAvatarUserTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithSearchInput = WithSearchInputTemplate.bind({});
-WithSearchInput.args = {
-  ...defaultProps,
+export const WithSearchInput = {
+  render: WithSearchInputTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

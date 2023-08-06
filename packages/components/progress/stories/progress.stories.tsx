@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {progress} from "@nextui-org/theme";
 
 import {Progress, ProgressProps} from "../src";
@@ -11,20 +11,20 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -32,7 +32,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Progress>;
+} as Meta<typeof Progress>;
 
 const defaultProps = {
   ...progress.defaultVariants,
@@ -63,44 +63,62 @@ const IntervalTemplate = (args: ProgressProps) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
-  "aria-label": "Loading...",
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    "aria-label": "Loading...",
+  },
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  ...defaultProps,
-  label: "Loading...",
+export const WithLabel = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Loading...",
+  },
 };
 
-export const WithValueLabel = IntervalTemplate.bind({});
-WithValueLabel.args = {
-  ...defaultProps,
-  label: "Downloading...",
-  color: "success",
-  showValueLabel: true,
+export const WithValueLabel = {
+  render: IntervalTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Downloading...",
+    color: "success",
+    showValueLabel: true,
+  },
 };
 
-export const WithValueFormatting = Template.bind({});
-WithValueFormatting.args = {
-  ...defaultProps,
-  label: "Loading...",
-  showValueLabel: true,
-  formatOptions: {style: "currency", currency: "ARS"},
+export const WithValueFormatting = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Loading...",
+    showValueLabel: true,
+    formatOptions: {style: "currency", currency: "ARS"},
+  },
 };
 
-export const Indeterminate = Template.bind({});
-Indeterminate.args = {
-  ...defaultProps,
-  size: "xs",
-  radius: "none",
-  isIndeterminate: true,
+export const Indeterminate = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    size: "xs",
+    radius: "none",
+    isIndeterminate: true,
+  },
 };
 
-export const Striped = Template.bind({});
-Striped.args = {
-  ...defaultProps,
-  isStriped: true,
+export const Striped = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isStriped: true,
+  },
 };
