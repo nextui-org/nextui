@@ -70,7 +70,8 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
       data-selected={dataAttr(isSelected)}
       {...mergeProps(
         rowProps,
-        isSelectable ? {...hoverProps, ...focusProps} : {},
+        focusProps,
+        isSelectable ? hoverProps : {},
         filterDOMProps(node.props, {
           enabled: shouldFilterDOMProps,
         }),
