@@ -1,5 +1,16 @@
 # @nextui-org/spinner
 
+## 2.0.3
+
+### Patch Changes
+
+- [#1289](https://github.com/nextui-org/nextui/pull/1289) [`eefda8d6`](https://github.com/nextui-org/nextui/commit/eefda8d6e2088526e0dbb2026d807b53d2a97782) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - "use client" directive removed from components that didn't need it
+  - packages adapted to support RSC imports
+  - filterDomProps function was modified to enable/disabled it
+- Updated dependencies [[`eefda8d6`](https://github.com/nextui-org/nextui/commit/eefda8d6e2088526e0dbb2026d807b53d2a97782)]:
+  - @nextui-org/react-utils@2.0.2
+  - @nextui-org/system-rsc@2.0.2
+
 ## 2.0.2
 
 ### Patch Changes
