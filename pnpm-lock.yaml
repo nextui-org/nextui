@@ -1231,6 +1231,9 @@ importers:
         specifier: ^3.18.1
         version: 3.18.1(react@18.2.0)
     devDependencies:
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
