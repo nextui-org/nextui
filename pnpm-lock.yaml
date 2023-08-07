@@ -1168,6 +1168,61 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/listbox:
+    dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
+      '@nextui-org/divider':
+        specifier: workspace:*
+        version: link:../divider
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-is-mobile':
+        specifier: workspace:*
+        version: link:../../hooks/use-is-mobile
+      '@react-aria/focus':
+        specifier: ^3.13.0
+        version: 3.13.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+      '@react-aria/listbox':
+        specifier: ^3.10.0
+        version: 3.10.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.18.0
+        version: 3.18.0(react@18.2.0)
+      '@react-stately/list':
+        specifier: ^3.9.0
+        version: 3.9.0(react@18.2.0)
+      '@react-types/menu':
+        specifier: ^3.9.2
+        version: 3.9.2(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.18.1
+        version: 3.18.1(react@18.2.0)
+    devDependencies:
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/menu:
     dependencies:
       '@nextui-org/aria-utils':
@@ -1613,15 +1668,18 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/menu':
+      '@nextui-org/listbox':
         specifier: workspace:*
-        version: link:../menu
+        version: link:../listbox
       '@nextui-org/popover':
         specifier: workspace:*
         version: link:../popover
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils

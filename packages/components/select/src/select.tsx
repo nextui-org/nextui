@@ -1,7 +1,9 @@
-import {Menu} from "@nextui-org/menu";
+import {Listbox} from "@nextui-org/listbox";
 import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/popover";
+import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
 import {HiddenSelect} from "@react-aria/select";
+import {cloneElement, ReactElement} from "react";
 
 import {UseSelectProps, useSelect} from "./use-select";
 
@@ -12,14 +14,19 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     Component,
     state,
     label,
+    icon = <ChevronDownIcon />,
+    placeholder,
     getBaseProps,
     getLabelProps,
     getTriggerProps,
     getInputProps,
     getValueProps,
-    getMenuProps,
+    getListboxProps,
     getPopoverProps,
+    getIconProps,
   } = useSelect({...props, ref});
+
+  const clonedIcon = cloneElement(icon as ReactElement, getIconProps());
 
   return (
     <div {...getBaseProps()}>
@@ -29,15 +36,13 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
         <PopoverTrigger>
           <Component {...getTriggerProps()}>
             <span {...getValueProps()}>
-              {state.selectedItem ? state.selectedItem.rendered : "Select an option"}
+              {state.selectedItem ? state.selectedItem.rendered : placeholder}
             </span>
-            <span aria-hidden="true" style={{paddingLeft: 5, paddingRight: 5}}>
-              ▼
-            </span>
+            <span aria-hidden="true">{clonedIcon}</span>
           </Component>
         </PopoverTrigger>
         <PopoverContent>
-          <Menu {...getMenuProps()} />
+          <Listbox {...getListboxProps()} />
         </PopoverContent>
       </Popover>
     </div>

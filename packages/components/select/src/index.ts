@@ -1,16 +1,16 @@
-import type {MenuItemProps, MenuSectionProps} from "@nextui-org/menu";
+import type {ListboxItemProps, ListboxSectionProps} from "@nextui-org/listbox";
 
-import {MenuItem, MenuSection} from "@nextui-org/menu";
+import {ListboxItem, ListboxSection} from "@nextui-org/listbox";
 
 import Select from "./select";
 
 // export types
 export type {SelectProps} from "./select";
-export type {MenuItemProps as SelectItemProps};
-export type {MenuSectionProps as SelectSectionProps};
+export type {ListboxItemProps as SelectItemProps};
+export type {ListboxSectionProps as SelectSectionProps};
 
 // export hooks
 export {useSelect} from "./use-select";
 
 // export component
-export {Select, MenuItem as SelectItem, MenuSection as SelectSection};
+export {Select, ListboxItem as SelectItem, ListboxSection as SelectSection};

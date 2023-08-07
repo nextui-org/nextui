@@ -3,9 +3,9 @@ import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {useMemo, useCallback, useRef} from "react";
-import {MenuProps} from "@nextui-org/menu";
-import {AriaSelectProps} from "@react-aria/select";
+import {useMemo, useCallback, useRef, Key, ReactNode} from "react";
+import {ListboxProps} from "@nextui-org/listbox";
+import {AriaSelectProps, HiddenSelectProps} from "@react-aria/select";
 import {useSelectState} from "@react-stately/select";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useSelect as useAriaSelect} from "@react-aria/select";
@@ -14,7 +14,6 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
-import {useTreeState} from "@react-stately/tree";
 
 interface Props extends HTMLNextUIProps<"button"> {
   /**
@@ -23,7 +22,16 @@ interface Props extends HTMLNextUIProps<"button"> {
   ref?: ReactRef<HTMLElement | null>;
   popoverProps?: PopoverProps;
   disableAnimation?: boolean;
-  menuProps?: Omit<MenuProps, "menuProps">;
+  listboxProps?: ListboxProps;
+  /**
+   * The icon that represents the select open state. Usually a chevron icon.
+   */
+  icon?: ReactNode;
+  /**
+   * The placeholder for the select to display when no option is selected.
+   * @default "Select an option"
+   */
+  placeholder?: string;
   /**
    * Callback fired when the select menu is closed.
    */
@@ -36,25 +44,26 @@ interface Props extends HTMLNextUIProps<"button"> {
 
 export type UseSelectProps<T = object> = Props & AriaSelectProps<T> & SelectVariantProps;
 
-export function useSelect(originalProps: UseSelectProps) {
+export function useSelect<T extends object = object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
 
   const {
     ref,
     as,
+    icon,
     isOpen,
     defaultOpen,
     onOpenChange,
     disableAnimation,
     onSelectionChange,
+    placeholder = "Select an option",
     popoverProps = {
       placement: "bottom",
       triggerScaleOnOpen: false,
       disableAnimation,
     },
-    menuProps: userMenuProps = {
+    listboxProps: userListboxProps = {
       disableAnimation,
-      closeOnSelect: true,
     },
     onClose,
     className,
@@ -66,10 +75,10 @@ export function useSelect(originalProps: UseSelectProps) {
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
-  const menuRef = useRef<HTMLUListElement>(null);
+  const listboxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const selectState = useSelectState({
+  const state = useSelectState<T>({
     ...props,
     isOpen,
     defaultOpen,
@@ -79,16 +88,10 @@ export function useSelect(originalProps: UseSelectProps) {
         onClose?.();
       }
     },
-    onSelectionChange,
+    onSelectionChange: (key: Key) => {
+      onSelectionChange?.(key);
+    },
   });
-
-  const menuState = useTreeState({
-    ...selectState,
-    selectionMode: "single",
-    disallowEmptySelection: true,
-  });
-
-  const state = mergeProps(menuState, selectState);
 
   const {labelProps, triggerProps, valueProps, menuProps} = useAriaSelect(props, state, domRef);
 
@@ -159,14 +162,15 @@ export function useSelect(originalProps: UseSelectProps) {
     ],
   );
 
-  const getInputProps: PropGetter = useCallback(
-    (props = {}) => ({
-      state,
-      label: originalProps?.label,
-      name: originalProps?.name,
-      triggerRef: domRef,
-      ...props,
-    }),
+  const getInputProps = useCallback(
+    (props = {}) =>
+      ({
+        state,
+        label: originalProps?.label,
+        name: originalProps?.name,
+        triggerRef: domRef,
+        ...props,
+      } as HiddenSelectProps<T>),
     [state, originalProps?.label, originalProps?.name, domRef],
   );
 
@@ -192,31 +196,42 @@ export function useSelect(originalProps: UseSelectProps) {
     [slots, classNames?.value, valueProps],
   );
 
-  const getMenuProps: PropGetter = (props = {}) => ({
-    state,
-    ref: menuRef,
-    className: slots.menu({
-      class: clsx(classNames?.menu, props.className),
-    }),
-    menuProps, // aria menu props
-    onClose: () => {
-      state.close();
-    },
-    ...mergeProps(userMenuProps, props),
-  });
+  const getListboxProps = (props: any = {}) => {
+    return {
+      state,
+      ref: listboxRef,
+      className: slots.menu({
+        class: clsx(classNames?.menu, props?.className),
+      }),
+      ...mergeProps(menuProps, userListboxProps, props),
+    } as ListboxProps;
+  };
 
   const getPopoverProps: PropGetter = (props = {}) => ({
     state,
     ref: popoverRef,
-    scrollRef: menuRef,
+    scrollRef: listboxRef,
     triggerRef: domRef,
+    className: slots.popover({
+      class: clsx(classNames?.popover, props.className),
+    }),
     ...mergeProps(popoverProps, props),
   });
+
+  const getIconProps = useCallback(
+    () => ({
+      "data-open": dataAttr(state.isOpen),
+      className: slots.icon({class: classNames?.icon}),
+    }),
+    [slots, classNames?.icon, state?.isOpen],
+  );
 
   return {
     Component,
     domRef,
     state,
+    placeholder,
+    icon,
     label: originalProps?.label,
     name: originalProps?.name,
     getBaseProps,
@@ -224,8 +239,9 @@ export function useSelect(originalProps: UseSelectProps) {
     getInputProps,
     getLabelProps,
     getValueProps,
-    getMenuProps,
+    getListboxProps,
     getPopoverProps,
+    getIconProps,
   };
 }
 

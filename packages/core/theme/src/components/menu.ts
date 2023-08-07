@@ -10,7 +10,7 @@ import {dataFocusVisibleClasses} from "../utils";
 
  */
 const menu = tv({
-  base: "w-full flex flex-col gap-0.5 p-1",
+  base: "w-full flex flex-col gap-0.5 p-1 outline-none max-h-72 scrollbar-hide overflow-auto",
 });
 
 /**
@@ -53,7 +53,6 @@ const menuItem = tv({
       "outline-none",
       "cursor-pointer",
       "tap-highlight-transparent",
-      "data-[pressed=true]:opacity-70",
       // focus ring
       ...dataFocusVisibleClasses,
       "data-[focus-visible=true]:dark:ring-offset-background-content1",

@@ -34,7 +34,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center w-screen h-screen">
+      <div className="flex items-start justify-center w-screen h-screen">
         <Story />
       </div>
     ),
@@ -51,15 +51,22 @@ const Template = ({color, variant, ...args}: SelectProps) => (
     color={color}
     label="Favorite Animal"
     variant={variant}
-    onSelectionChange={alert}
     {...args}
   >
-    <SelectItem key="new">New file</SelectItem>
-    <SelectItem key="copy">Copy link</SelectItem>
-    <SelectItem key="edit">Edit file</SelectItem>
-    <SelectItem key="delete" className="text-danger" color="danger">
-      Delete file
-    </SelectItem>
+    <SelectItem key="cat">Cat</SelectItem>
+    <SelectItem key="dog">Dog</SelectItem>
+    <SelectItem key="elephant">Elephant</SelectItem>
+    <SelectItem key="lion">Lion</SelectItem>
+    <SelectItem key="tiger">Tiger</SelectItem>
+    <SelectItem key="giraffe">Giraffe</SelectItem>
+    <SelectItem key="dolphin">Dolphin</SelectItem>
+    <SelectItem key="penguin">Penguin</SelectItem>
+    <SelectItem key="zebra">Zebra</SelectItem>
+    <SelectItem key="shark">Shark</SelectItem>
+    <SelectItem key="whale">Whale</SelectItem>
+    <SelectItem key="seal">Seal</SelectItem>
+    <SelectItem key="otter">Otter</SelectItem>
+    <SelectItem key="crocodile">Crocodile</SelectItem>
   </Select>
 );
 
