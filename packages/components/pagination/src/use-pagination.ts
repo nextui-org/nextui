@@ -267,7 +267,7 @@ export function usePagination(originalProps: UsePaginationProps) {
       ...props,
       ref: domRef,
       role: "navigation",
-      ariaLabel: props["aria-label"] || "pagination navigation",
+      "aria-label": props["aria-label"] || "pagination navigation",
       "data-slot": "base",
       "data-controls": dataAttr(showControls),
       "data-loop": dataAttr(loop),
