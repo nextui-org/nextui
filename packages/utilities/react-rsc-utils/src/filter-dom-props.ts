@@ -26,6 +26,10 @@ interface Options {
    * A Set of other property names that should be included in the filter.
    */
   propNames?: Set<string>;
+  /**
+   * A Set of property names that should be excluded from the filter.
+   */
+  omitNames?: Set<string>;
 }
 
 const propRe = /^(data-.*)$/;
@@ -44,14 +48,17 @@ export function filterDOMProps(
     enabled: true,
   },
 ): DOMProps & AriaLabelingProps {
-  let {labelable, propNames} = opts;
+  let {labelable, propNames, omitNames} = opts;
   let filteredProps = {};
 
   if (!opts.enabled) {
     return props;
   }
-
   for (const prop in props) {
+    if (omitNames?.has(prop)) {
+      continue;
+    }
+
     if (
       (Object.prototype.hasOwnProperty.call(props, prop) &&
         (DOMPropNames.has(prop) ||
