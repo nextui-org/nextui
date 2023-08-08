@@ -179,9 +179,9 @@ const MyButton2 = extendVariants(Button, {
 });
 
 export default function NextUIPerf() {
-  const [textA, setTextA] = useState<string | undefined>("");
-  const [textB, setTextB] = useState<string | undefined>("");
-  const [textC, setTextC] = useState<string | undefined>("");
+  const [textA, setTextA] = useState<string>("");
+  const [textB, setTextB] = useState<string>("");
+  const [textC, setTextC] = useState<string>("");
 
   return (
     <div className="w-full p-24 gap-4 flex flex-col">
