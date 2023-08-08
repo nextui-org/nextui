@@ -4,11 +4,11 @@ import {usePaginationItem, UsePaginationItemProps} from "./use-pagination-item";
 
 export interface PaginationItemProps extends UsePaginationItemProps {}
 
-const PaginationItem = forwardRef<"li", PaginationItemProps>(({key, ...props}, ref) => {
+const PaginationItem = forwardRef<"li", PaginationItemProps>((props, ref) => {
   const {Component, children, getItemProps} = usePaginationItem({...props, ref});
 
   return (
-    <Component key={key} {...getItemProps()}>
+    <Component {...getItemProps()}>
       {children}
     </Component>
   );
