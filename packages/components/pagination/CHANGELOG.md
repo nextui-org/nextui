@@ -1,5 +1,11 @@
 # @nextui-org/pagination
 
+## 2.0.5
+
+### Patch Changes
+
+- [`8de209bf`](https://github.com/nextui-org/nextui/commit/8de209bff75e7e1b8126f89e4a5c3e6d515c316f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pagination warnings fixed
+
 ## 2.0.4
 
 ### Patch Changes
