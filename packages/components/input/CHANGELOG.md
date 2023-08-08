@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.0.5
+
+### Patch Changes
+
+- [#1309](https://github.com/nextui-org/nextui/pull/1309) [`ac605eb7`](https://github.com/nextui-org/nextui/commit/ac605eb71f8aa945525a1c659b7bd17037303762) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - onValueChange returned value fixed, it nows return a plain string
+
 ## 2.0.4
 
 ### Patch Changes

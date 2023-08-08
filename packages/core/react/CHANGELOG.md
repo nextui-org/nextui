@@ -1,5 +1,16 @@
 # @nextui-org/react
 
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`ac605eb7`](https://github.com/nextui-org/nextui/commit/ac605eb71f8aa945525a1c659b7bd17037303762)]:
+  - @nextui-org/input@2.0.5
+  - @nextui-org/modal@2.0.4
+  - @nextui-org/navbar@2.0.4
+  - @nextui-org/popover@2.0.4
+  - @nextui-org/tabs@2.0.4
+
 ## 2.0.5
 
 ### Patch Changes
