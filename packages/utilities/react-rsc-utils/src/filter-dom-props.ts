@@ -26,6 +26,10 @@ interface Options {
    * A Set of other property names that should be included in the filter.
    */
   propNames?: Set<string>;
+  /**
+   * A Set of event names that should be excluded from the filter.
+   */
+  omitEventNames?: Set<string>;
 }
 
 const propRe = /^(data-.*)$/;
@@ -44,14 +48,17 @@ export function filterDOMProps(
     enabled: true,
   },
 ): DOMProps & AriaLabelingProps {
-  let {labelable, propNames} = opts;
+  let {labelable, propNames, omitEventNames} = opts;
   let filteredProps = {};
 
   if (!opts.enabled) {
     return props;
   }
-
   for (const prop in props) {
+    if (omitEventNames?.has(prop) && funcRe.test(prop)) {
+      continue;
+    }
+
     if (
       (Object.prototype.hasOwnProperty.call(props, prop) &&
         (DOMPropNames.has(prop) ||
