@@ -58,7 +58,7 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
   /**
    * React aria onChange event.
    */
-  onValueChange?: (value: string | undefined) => void;
+  onValueChange?: (value: string) => void;
 }
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
@@ -86,10 +86,17 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     ...otherProps
   } = props;
 
+  const handleValueChange = useCallback(
+    (value: string | undefined) => {
+      onValueChange(value ?? "");
+    },
+    [onValueChange],
+  );
+
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value,
-    props.defaultValue,
-    onValueChange,
+    props.value ?? undefined,
+    props.defaultValue ?? undefined,
+    handleValueChange,
   );
 
   const Component = as || "div";
