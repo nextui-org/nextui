@@ -13,7 +13,7 @@ import {link, button} from "@nextui-org/theme";
 
 <br />
 
-<p className="!text-base !text-foreground max-w-xl">
+<p className="!text-base !text-foreground max-w-xl [&>p]:text-foreground [&>p]:text-base">
   Here you can find the guidelines, components APIs and examples to help you build your next project
   with NextUI.
 </p>
@@ -26,7 +26,7 @@ import {link, button} from "@nextui-org/theme";
       className={button({
         color: "primary",
         variant: "flat",
-        className: "!text-primary gap-1 [&>svg]:fill-none",
+        className: "[&>p]:text-primary gap-1 [&>svg]:fill-none",
       })}
     >
       Website
@@ -54,7 +54,7 @@ import {link, button} from "@nextui-org/theme";
       className={button({
         color: "default",
         variant: "bordered",
-        className: "!text-foreground gap-1 [&>svg]:fill-none",
+        className: "[&>p]:text-foreground gap-1 [&>svg]:fill-none",
       })}
     >
       Github
@@ -82,7 +82,7 @@ import {link, button} from "@nextui-org/theme";
       className={button({
         color: "default",
         variant: "bordered",
-        className: "!text-foreground gap-1 [&>svg]:fill-none",
+        className: "[&>p]:text-foreground gap-1 [&>svg]:fill-none",
       })}
     >
       Discord
@@ -127,6 +127,6 @@ import {link, button} from "@nextui-org/theme";
 <br />
 
 
-<div class="block text-xs text-default-400">
+<div class="block text-xs [&>p]:text-default-400">
   Last updated on <time datetime="2023-03-07">Jul 31, 2023</time>
 </div>

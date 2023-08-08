@@ -2,6 +2,7 @@ import React from "react";
 import {themes} from "@storybook/theming";
 import {NextUIProvider} from "@nextui-org/system/src/provider";
 import type { Preview } from '@storybook/react';
+
 import './style.css'
 
 const decorators: Preview['decorators'] = [
@@ -19,6 +20,12 @@ const decorators: Preview['decorators'] = [
       );
     },
   ]
+
+  const commonTheme = {
+    brandTitle: "NextUI",
+    brandUrl: "https://nextui.org",
+    brandTarget: "_self",
+  }
 
 const parameters: Preview['parameters'] = {
   actions: {argTypesRegex: "^on[A-Z].*"},
@@ -42,15 +49,19 @@ const parameters: Preview['parameters'] = {
     classTarget: "html",
     dark: {
       ...themes.dark,
+      ...commonTheme,
       appBg: "#161616",
       barBg: "black",
       background: "black",
       appContentBg: "black",
       appBorderRadius: 14,
+      brandImage: "/dark-logo.svg",
     },
     light: {
       ...themes.light,
+      ...commonTheme,
       appBorderRadius: 14,
+      brandImage: "/light-logo.svg",
     },
   },
 };
