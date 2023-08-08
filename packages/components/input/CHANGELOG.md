@@ -1,5 +1,14 @@
 # @nextui-org/input
 
+## 2.0.6
+
+### Patch Changes
+
+- [#1323](https://github.com/nextui-org/nextui/pull/1323) [`42001647`](https://github.com/nextui-org/nextui/commit/4200164712b6eb4b37a14fe9e005844ff770a180) Thanks [@tianenpang](https://github.com/tianenpang)! - Fixed event functions call twice.
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.3
+
 ## 2.0.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/skeleton
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.3
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/card
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.3
+  - @nextui-org/ripple@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

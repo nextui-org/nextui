@@ -1,5 +1,14 @@
 # @nextui-org/dropdown
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.5
+  - @nextui-org/react-utils@2.0.3
+  - @nextui-org/popover@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes
