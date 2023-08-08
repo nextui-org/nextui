@@ -7,11 +7,7 @@ export interface PaginationItemProps extends UsePaginationItemProps {}
 const PaginationItem = forwardRef<"li", PaginationItemProps>((props, ref) => {
   const {Component, children, getItemProps} = usePaginationItem({...props, ref});
 
-  return (
-    <Component {...getItemProps()}>
-      {children}
-    </Component>
-  );
+  return <Component {...getItemProps()}>{children}</Component>;
 });
 
 PaginationItem.displayName = "NextUI.PaginationItem";
