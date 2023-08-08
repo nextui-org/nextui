@@ -240,7 +240,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           filterDOMProps(otherProps, {
             enabled: true,
             labelable: true,
-            omitNames: new Set(Object.keys(inputProps)),
+            omitEventNames: new Set(Object.keys(inputProps)),
           }),
           props,
         ),
