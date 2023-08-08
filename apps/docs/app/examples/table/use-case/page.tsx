@@ -271,8 +271,6 @@ export default function Page() {
 
   const [page, setPage] = useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
-
   const hasSearchFilter = Boolean(filterValue);
 
   const headerColumns = useMemo(() => {
@@ -297,6 +295,8 @@ export default function Page() {
 
     return filteredUsers;
   }, [users, filterValue, statusFilter]);
+
+  const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
@@ -390,6 +390,11 @@ export default function Page() {
     }
   }, []);
 
+  const onClear = useCallback(() => {
+    setFilterValue("");
+    setPage(1);
+  }, []);
+
   const topContent = useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
@@ -400,7 +405,7 @@ export default function Page() {
             placeholder="Search by name..."
             startContent={<SearchIcon />}
             value={filterValue}
-            onClear={() => setFilterValue("")}
+            onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
@@ -483,23 +488,22 @@ export default function Page() {
         <span className="w-[30%] text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
-            : `${selectedKeys.size} of ${items.length} selected`}
+            : `${selectedKeys.size} of ${filteredItems.length} selected`}
         </span>
         <Pagination
           isCompact
           showControls
           showShadow
           color="primary"
-          isDisabled={hasSearchFilter}
           page={page}
           total={pages}
           onChange={setPage}
         />
         <div className="hidden sm:flex w-[30%] justify-end gap-2">
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onPreviousPage}>
+          <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onPreviousPage}>
             Previous
           </Button>
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onNextPage}>
+          <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onNextPage}>
             Next
           </Button>
         </div>
