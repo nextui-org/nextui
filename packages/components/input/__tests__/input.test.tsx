@@ -88,4 +88,15 @@ describe("Input", () => {
 
     expect(container6.querySelector("input")).toHaveAttribute("type", "text");
   });
+
+  it("should call dom event handlers only once", () => {
+    const onFocus = jest.fn();
+
+    const {container} = render(<Input label="test input" onFocus={onFocus} />);
+
+    container.querySelector("input")?.focus();
+    container.querySelector("input")?.blur();
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
 });

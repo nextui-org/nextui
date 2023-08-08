@@ -1,7 +1,7 @@
 import type {ListboxItemBaseProps} from "./base/listbox-item-base";
 
 import {useMemo, useRef, useCallback} from "react";
-import {menuItem} from "@nextui-org/theme";
+import {listboxItem} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
@@ -22,7 +22,7 @@ export type UseListboxItemProps<T extends object> = Props<T> &
   Omit<HTMLNextUIProps<"li">, keyof Props<T>>;
 
 export function useListboxItem<T extends object>(originalProps: UseListboxItemProps<T>) {
-  const [props, variantProps] = mapPropsVariants(originalProps, menuItem.variantKeys);
+  const [props, variantProps] = mapPropsVariants(originalProps, listboxItem.variantKeys);
 
   const {
     as,
@@ -85,7 +85,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   const slots = useMemo(
     () =>
-      menuItem({
+      listboxItem({
         ...variantProps,
         isDisabled,
         disableAnimation,
@@ -163,4 +163,4 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   };
 }
 
-export type UseMenuReturn = ReturnType<typeof useListboxItem>;
+export type UseListboxItemReturn = ReturnType<typeof useListboxItem>;

@@ -1,4 +1,3 @@
-import {FocusScope} from "@react-aria/focus";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseListboxProps, useListbox} from "./use-listbox";
@@ -12,31 +11,29 @@ const Listbox = forwardRef<"ul", ListboxProps>((props, ref) => {
     useListbox({...props, ref});
 
   return (
-    <FocusScope contain restoreFocus>
-      <Component {...getBaseProps()}>
-        {[...state.collection].map((item) => {
-          const itemProps = {
-            color,
-            disableAnimation,
-            item,
-            state,
-            variant,
-            ...item.props,
-          };
+    <Component {...getBaseProps()}>
+      {[...state.collection].map((item) => {
+        const itemProps = {
+          color,
+          disableAnimation,
+          item,
+          state,
+          variant,
+          ...item.props,
+        };
 
-          if (item.type === "section") {
-            return <ListboxSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
-          }
-          let listboxItem = <ListboxItem key={item.key} {...itemProps} classNames={itemClasses} />;
+        if (item.type === "section") {
+          return <ListboxSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
+        }
+        let listboxItem = <ListboxItem key={item.key} {...itemProps} classNames={itemClasses} />;
 
-          if (item.wrapper) {
-            listboxItem = item.wrapper(listboxItem);
-          }
+        if (item.wrapper) {
+          listboxItem = item.wrapper(listboxItem);
+        }
 
-          return listboxItem;
-        })}
-      </Component>
-    </FocusScope>
+        return listboxItem;
+      })}
+    </Component>
   );
 });
 

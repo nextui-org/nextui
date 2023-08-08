@@ -1,4 +1,3 @@
-import {FocusScope} from "@react-aria/focus";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseMenuProps, useMenu} from "./use-menu";
@@ -22,34 +21,32 @@ const Menu = forwardRef<"ul", MenuProps>((props, ref) => {
   } = useMenu({...props, ref});
 
   return (
-    <FocusScope contain restoreFocus>
-      <Component {...getMenuProps()}>
-        {[...state.collection].map((item) => {
-          const itemProps = {
-            closeOnSelect,
-            color,
-            disableAnimation,
-            item,
-            state,
-            variant,
-            onClose,
-            onAction,
-            ...item.props,
-          };
+    <Component {...getMenuProps()}>
+      {[...state.collection].map((item) => {
+        const itemProps = {
+          closeOnSelect,
+          color,
+          disableAnimation,
+          item,
+          state,
+          variant,
+          onClose,
+          onAction,
+          ...item.props,
+        };
 
-          if (item.type === "section") {
-            return <MenuSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
-          }
-          let menuItem = <MenuItem key={item.key} {...itemProps} classNames={itemClasses} />;
+        if (item.type === "section") {
+          return <MenuSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
+        }
+        let menuItem = <MenuItem key={item.key} {...itemProps} classNames={itemClasses} />;
 
-          if (item.wrapper) {
-            menuItem = item.wrapper(menuItem);
-          }
+        if (item.wrapper) {
+          menuItem = item.wrapper(menuItem);
+        }
 
-          return menuItem;
-        })}
-      </Component>
-    </FocusScope>
+        return menuItem;
+      })}
+    </Component>
   );
 });
 

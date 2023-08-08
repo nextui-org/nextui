@@ -1,5 +1,13 @@
 # @nextui-org/accordion
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.5
+  - @nextui-org/react-utils@2.0.3
+
 ## 2.0.4
 
 ### Patch Changes

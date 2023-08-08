@@ -1,4 +1,4 @@
-import {menuSection} from "@nextui-org/theme";
+import {listboxSection} from "@nextui-org/theme";
 import {Node} from "@react-types/shared";
 import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
@@ -56,7 +56,7 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
   ) => {
     const Component = as || "li";
 
-    const slots = useMemo(() => menuSection(), []);
+    const slots = useMemo(() => listboxSection(), []);
 
     const baseStyles = clsx(classNames?.base, className);
     const dividerStyles = clsx(classNames?.divider, dividerProps?.className);

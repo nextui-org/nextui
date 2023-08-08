@@ -1,4 +1,4 @@
-import type {MenuItemVariantProps, MenuItemSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ListboxItemVariantProps, ListboxItemSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaOptionProps} from "@react-aria/listbox";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
@@ -27,32 +27,32 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    */
   children?: ReactNode | null;
   /**
-   * The menu item title.
+   * The listbox item title.
    */
   title?: ReactNode | string;
   /**
-   * The menu item subtitle.
+   * The listbox item subtitle.
    */
   description?: ReactNode | string;
   /**
-   * The menu item start content.
+   * The listbox item start content.
    */
   startContent?: ReactNode;
   /**
-   * The menu item end content.
+   * The listbox item end content.
    */
   endContent?: ReactNode;
   /**
-   * Whether the menu press events are disabled.
+   * Whether the listbox press events are disabled.
    * @default false
    */
   isReadOnly?: boolean;
   /**
-   * The menu item `selected` icon, it's usually an checkmark icon.
+   * The listbox item `selected` icon, it's usually an checkmark icon.
    * If you pass a function, NextUI will expose the current selected icon and the selected status,
    * In case you want to use a custom indicator or modify the current one.
    *
-   * Important: The selected icon will be rendered only if the menu selection mode is different than `none`.
+   * Important: The selected icon will be rendered only if the listbox selection mode is different than `none`.
    */
   selectedIcon?: ReactNode | ((props: ListboxItemSelectedIconProps) => ReactNode) | null;
   /**
@@ -76,11 +76,11 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    * }} />
    * ```
    */
-  classNames?: SlotsToClasses<MenuItemSlots>;
+  classNames?: SlotsToClasses<ListboxItemSlots>;
 }
 
 export type ListboxItemBaseProps<T extends object = {}> = Props<T> &
-  MenuItemVariantProps &
+  ListboxItemVariantProps &
   AriaOptionProps &
   FocusableProps &
   PressEvents;

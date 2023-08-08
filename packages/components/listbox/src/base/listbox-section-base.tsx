@@ -1,4 +1,4 @@
-import type {MenuSectionSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ListboxSectionSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {BaseSection, SectionProps} from "@nextui-org/aria-utils";
 import {DividerProps} from "@nextui-org/divider";
@@ -7,11 +7,11 @@ import {ListboxItemProps} from "../listbox-item";
 
 export interface ListboxSectionBaseProps<T extends object = {}> extends SectionProps<"ul", T> {
   /**
-   * The menu section classNames.
+   * The listbox section classNames.
    */
-  classNames?: SlotsToClasses<MenuSectionSlots>;
+  classNames?: SlotsToClasses<ListboxSectionSlots>;
   /**
-   * The menu items classNames.
+   * The listbox items classNames.
    */
   itemClasses?: ListboxItemProps["classNames"];
   /**

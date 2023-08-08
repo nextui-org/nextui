@@ -2,6 +2,7 @@ import {Listbox} from "@nextui-org/listbox";
 import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/popover";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
+import {FocusScope} from "@react-aria/focus";
 import {HiddenSelect} from "@react-aria/select";
 import {cloneElement, ReactElement} from "react";
 
@@ -42,7 +43,9 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
           </Component>
         </PopoverTrigger>
         <PopoverContent>
-          <Listbox {...getListboxProps()} />
+          <FocusScope contain restoreFocus>
+            <Listbox {...getListboxProps()} />
+          </FocusScope>
         </PopoverContent>
       </Popover>
     </div>

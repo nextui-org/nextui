@@ -1,6 +1,6 @@
 import {AriaListBoxOptions, useListBox as useAriaListbox} from "@react-aria/listbox";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import {menu} from "@nextui-org/theme";
+import {listbox} from "@nextui-org/theme";
 import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
@@ -62,7 +62,7 @@ export function useListbox(props: UseListboxProps) {
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);
 
-  const styles = useMemo(() => menu({className}), [className]);
+  const styles = useMemo(() => listbox({className}), [className]);
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {

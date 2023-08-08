@@ -234,7 +234,16 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ref: domRef,
         className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
-        ...mergeProps(focusProps, inputProps, filterDOMProps(otherProps), props),
+        ...mergeProps(
+          focusProps,
+          inputProps,
+          filterDOMProps(otherProps, {
+            enabled: true,
+            labelable: true,
+            omitEventNames: new Set(Object.keys(inputProps)),
+          }),
+          props,
+        ),
         required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
         "aria-required": dataAttr(originalProps.isRequired),
