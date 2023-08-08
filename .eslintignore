@@ -1,6 +1,7 @@
 .now/*
 .next/*
 *.css
+.changeset
 dist
 esm/*
 public/*
