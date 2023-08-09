@@ -360,8 +360,6 @@ export default function App() {
   });
   const [page, setPage] = React.useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
-
   const hasSearchFilter = Boolean(filterValue);
 
   const headerColumns = React.useMemo(() => {
@@ -386,6 +384,8 @@ export default function App() {
 
     return filteredUsers;
   }, [users, filterValue, statusFilter]);
+
+  const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
   const items = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage;
@@ -452,7 +452,7 @@ export default function App() {
         return cellValue;
     }
   }, []);
-  
+
   const onNextPage = React.useCallback(() => {
     if (page < pages) {
       setPage(page + 1);
@@ -479,6 +479,11 @@ export default function App() {
     }
   }, []);
 
+  const onClear = useCallback(()=>{
+    setFilterValue("")
+    setPage(1)
+  },[])
+
   const topContent = React.useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
@@ -489,7 +494,7 @@ export default function App() {
             placeholder="Search by name..."
             startContent={<SearchIcon />}
             value={filterValue}
-            onClear={() => setFilterValue("")}
+            onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
@@ -572,23 +577,22 @@ export default function App() {
         <span className="w-[30%] text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
-            : \`\${selectedKeys.size} of \${items.length} selected\`}
+            : \`\${selectedKeys.size} of \${filteredItems.length} selected\`}
         </span>
         <Pagination
           isCompact
           showControls
           showShadow
           color="primary"
-          isDisabled={hasSearchFilter}
           page={page}
           total={pages}
           onChange={setPage}
         />
         <div className="hidden sm:flex w-[30%] justify-end gap-2">
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onPreviousPage}>
+          <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onPreviousPage}>
             Previous
           </Button>
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onNextPage}>
+          <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onNextPage}>
             Next
           </Button>
         </div>
@@ -684,7 +688,6 @@ export default function App() {
   });
 
   const [page, setPage] = useState(1);
-  const pages = Math.ceil(users.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -710,6 +713,8 @@ export default function App() {
 
     return filteredUsers;
   }, [users, filterValue, statusFilter]);
+
+  const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
   const items = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage;
@@ -776,7 +781,7 @@ export default function App() {
         return cellValue;
     }
   }, []);
-  
+
   const onNextPage = React.useCallback(() => {
     if (page < pages) {
       setPage(page + 1);
@@ -803,6 +808,11 @@ export default function App() {
     }
   }, []);
 
+  const onClear = useCallback(()=>{
+    setFilterValue("")
+    setPage(1)
+  },[])
+
   const topContent = React.useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
@@ -813,7 +823,7 @@ export default function App() {
             placeholder="Search by name..."
             startContent={<SearchIcon />}
             value={filterValue}
-            onClear={() => setFilterValue("")}
+            onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
           <div className="flex gap-3">
@@ -896,23 +906,22 @@ export default function App() {
         <span className="w-[30%] text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
-            : \`\${selectedKeys.size} of \${items.length} selected\`}
+            : \`\${selectedKeys.size} of \${filteredItems.length} selected\`}
         </span>
         <Pagination
           isCompact
           showControls
           showShadow
           color="primary"
-          isDisabled={hasSearchFilter}
           page={page}
           total={pages}
           onChange={setPage}
         />
         <div className="hidden sm:flex w-[30%] justify-end gap-2">
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onPreviousPage}>
+          <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onPreviousPage}>
             Previous
           </Button>
-          <Button isDisabled={hasSearchFilter} size="sm" variant="flat" onPress={onNextPage}>
+          <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onNextPage}>
             Next
           </Button>
         </div>
