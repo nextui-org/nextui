@@ -60,14 +60,12 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
   );
 
   const content = (
-    <>
+    <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
       <DismissButton onDismiss={onClose} />
-      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
-        {!hideCloseButton && closeButtonContent}
-        {typeof children === "function" ? children(onClose) : children}
-      </Component>
+      {!hideCloseButton && closeButtonContent}
+      {typeof children === "function" ? children(onClose) : children}
       <DismissButton onDismiss={onClose} />
-    </>
+    </Component>
   );
 
   const backdropContent = useMemo(() => {
