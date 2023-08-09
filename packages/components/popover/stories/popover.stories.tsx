@@ -66,6 +66,11 @@ export default {
         type: "number",
       },
     },
+    isOpen: {
+      control: {
+        type: "boolean",
+      },
+    },
     defaultOpen: {
       control: {
         type: "boolean",
