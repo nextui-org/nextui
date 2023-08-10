@@ -28,7 +28,6 @@ const decorators: Preview['decorators'] = [
   }
 
 const parameters: Preview['parameters'] = {
-  layout: 'fullscreen',
   actions: {argTypesRegex: "^on[A-Z].*"},
   options: {
     storySort: {
