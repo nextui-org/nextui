@@ -23,7 +23,7 @@ export interface Props extends Omit<HTMLNextUIProps<"button">, keyof AriaToggleB
   /**
    * The icon to display.
    */
-  icon?: ReactNode | ((isOpen: boolean | undefined) => ReactNode) | null;
+  icon?: ReactNode | ((isOpen: boolean) => ReactNode) | null;
 }
 
 export type NavbarMenuToggleProps = Props & AriaToggleButtonProps;
@@ -59,7 +59,7 @@ const NavbarMenuToggle = forwardRef<"button", NavbarMenuToggleProps>((props, ref
 
   const child = useMemo(() => {
     if (typeof icon === "function") {
-      return icon(isMenuOpen);
+      return icon(isMenuOpen ?? false);
     }
 
     return icon || <span className={slots.toggleIcon({class: classNames?.toggleIcon})} />;

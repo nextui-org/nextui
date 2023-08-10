@@ -5,7 +5,7 @@ import {navbar} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useEffect, useMemo, useRef, useState} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {mergeProps, useResizeObserver} from "@react-aria/utils";
 import {useScrollPosition} from "@nextui-org/use-scroll-position";
 import {useControlledState} from "@react-stately/utils";
@@ -57,7 +57,7 @@ interface Props extends HTMLNextUIProps<"nav"> {
    * @param isOpen boolean
    * @returns void
    */
-  onMenuOpenChange?: (isOpen: boolean | undefined) => void;
+  onMenuOpenChange?: (isOpen: boolean) => void;
   /**
    * The scroll event handler for the navbar. The event fires when the navbar parent element is scrolled.
    * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
@@ -114,10 +114,17 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const [isHidden, setIsHidden] = useState(false);
 
+  const handleMenuOpenChange = useCallback(
+    (isOpen: boolean | undefined) => {
+      onMenuOpenChange(isOpen || false);
+    },
+    [onMenuOpenChange],
+  );
+
   const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean | undefined>(
     isMenuOpenProp,
     isMenuDefaultOpen,
-    onMenuOpenChange,
+    handleMenuOpenChange,
   );
 
   const updateWidth = () => {

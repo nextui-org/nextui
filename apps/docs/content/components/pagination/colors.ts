@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="flex flex-wrap gap-4 items-center">
       {colors.map((color) => (
-        <Pagination total={10} initialPage={1} color={color} />
+        <Pagination key={color} total={10} initialPage={1} color={color} />
       ))}
     </div>
   );
