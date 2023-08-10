@@ -20,7 +20,7 @@ const MyButton = extendVariants(Button, {
     color: "olive",
     size: "xl",
   },
-  componentVariants: [
+  compoundVariants: [
     {
       isDisabled: true,
       color: "olive",
