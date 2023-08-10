@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="flex flex-wrap gap-4 items-center">
       {variants.map((variant) => (
-        <Pagination total={10} initialPage={1} variant={variant} />
+        <Pagination key={variant} total={10} initialPage={1} variant={variant} />
       ))}
     </div>
   );

@@ -16,6 +16,7 @@ export default function App() {
       <div className="flex flex-wrap gap-3">
         {backdrops.map((b) => (
           <Button  
+            key={b}
             variant="flat" 
             color="warning" 
             onPress={() => handleOpen(b)}
