@@ -60,6 +60,7 @@
     "@react-stately/tree": "^3.7.0"
   },
   "devDependencies": {
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
     "@react-types/accordion": "3.0.0-alpha.14",

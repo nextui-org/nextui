@@ -18,6 +18,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
     title,
     subtitle,
     startContent,
+    endContent,
     isOpen,
     isDisabled,
     hideIndicator,
@@ -83,6 +84,9 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
             {title && <span {...getTitleProps()}>{title}</span>}
             {subtitle && <span {...getSubtitleProps()}>{subtitle}</span>}
           </div>
+          {endContent && (
+            <div className={slots.endContent({class: classNames?.endContent})}>{endContent}</div>
+          )}
           {!hideIndicator && indicatorComponent && (
             <span {...getIndicatorProps()}>{indicatorComponent}</span>
           )}
