@@ -1,5 +1,13 @@
 # @nextui-org/user
 
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d)]:
+  - @nextui-org/system@2.0.4
+  - @nextui-org/avatar@2.0.7
+
 ## 2.0.6
 
 ### Patch Changes

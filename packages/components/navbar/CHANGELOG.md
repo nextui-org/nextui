@@ -1,5 +1,13 @@
 # @nextui-org/navbar
 
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d)]:
+  - @nextui-org/system@2.0.4
+  - @nextui-org/framer-transitions@2.0.4
+
 ## 2.0.6
 
 ### Patch Changes
