@@ -1,5 +1,12 @@
 # @nextui-org/react
 
+## 2.0.9
+
+### Patch Changes
+
+- Updated dependencies [[`5a50390e`](https://github.com/nextui-org/nextui/commit/5a50390e3f675828bff6ce68ee424fcda52cf829)]:
+  - @nextui-org/modal@2.0.6
+
 ## 2.0.8
 
 ### Patch Changes

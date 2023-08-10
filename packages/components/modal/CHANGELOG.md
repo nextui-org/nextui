@@ -1,5 +1,11 @@
 # @nextui-org/modal
 
+## 2.0.6
+
+### Patch Changes
+
+- [#1333](https://github.com/nextui-org/nextui/pull/1333) [`5a50390e`](https://github.com/nextui-org/nextui/commit/5a50390e3f675828bff6ce68ee424fcda52cf829) Thanks [@jguddas](https://github.com/jguddas)! - fix: moved sr only modal close buttons to not show unnecessary scroll bar
+
 ## 2.0.5
 
 ### Patch Changes
