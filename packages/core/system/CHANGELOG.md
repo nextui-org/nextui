@@ -1,5 +1,11 @@
 # @nextui-org/system
 
+## 2.0.4
+
+### Patch Changes
+
+- [#1350](https://github.com/nextui-org/nextui/pull/1350) [`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Needless exports removed from system pkg
+
 ## 2.0.3
 
 ### Patch Changes
