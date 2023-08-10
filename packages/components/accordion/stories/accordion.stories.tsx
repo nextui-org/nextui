@@ -346,6 +346,15 @@ export const DefaultExpanded = {
   },
 };
 
+export const KeepContentMounted = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    keepContentMounted: true,
+  },
+};
+
 export const DisabledKeys = {
   render: Template,
 

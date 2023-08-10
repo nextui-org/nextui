@@ -10,7 +10,7 @@ This can be done by extending the component and its properties, and customizing 
 
 <CarbonAd />
 
-You can create or override the component `variants`, `defaultVariants` and `componentVariants`.
+You can create or override the component `variants`, `defaultVariants` and `compoundVariants`.
 
 > **Note**: For one-off customizations, refer to the [Override Styles](/docs/customization/override-styles) documentation.
 
@@ -52,13 +52,11 @@ export const MyButton = extendVariants(Button, {
       xl: "px-unit-8 min-w-unit-28 h-unit-14 text-large gap-unit-4 rounded-medium",
     },
   },
-  defaultVariants: {
-    // <- modify/add the default variants
+  defaultVariants: { // <- modify/add default variants
     color: "olive",
     size: "xl",
   },
-  componentVariants: [
-    // <- modify/add the component variants
+  compoundVariants: [ // <- modify/add compound variants
     {
       isDisabled: true,
       color: "olive",

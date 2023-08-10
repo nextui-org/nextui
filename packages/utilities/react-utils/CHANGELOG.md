@@ -1,5 +1,12 @@
 # @nextui-org/react-utils
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`d13a14fa`](https://github.com/nextui-org/nextui/commit/d13a14facc1a92dac72e58a93e0452a86a2243c6)]:
+  - @nextui-org/react-rsc-utils@2.0.4
+
 ## 2.0.3
 
 ### Patch Changes

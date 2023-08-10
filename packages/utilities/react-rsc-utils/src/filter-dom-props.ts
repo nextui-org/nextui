@@ -1,17 +1,6 @@
 import {AriaLabelingProps, DOMProps} from "@react-types/shared";
 
-const DOMPropNames = new Set([
-  "id",
-  "type",
-  "className",
-  "style",
-  "title",
-  "role",
-  "tabIndex",
-  "htmlFor",
-  "width",
-  "height",
-]);
+import {DOMPropNames, DOMEventNames} from "./dom-props";
 
 interface Options {
   /**
@@ -64,6 +53,10 @@ export function filterDOMProps(
     }
 
     if (omitEventNames?.has(prop) && funcRe.test(prop)) {
+      continue;
+    }
+
+    if (funcRe.test(prop) && !DOMEventNames.has(prop)) {
       continue;
     }
 

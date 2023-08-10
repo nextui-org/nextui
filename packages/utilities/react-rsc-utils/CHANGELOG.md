@@ -1,5 +1,14 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.4
+
+### Patch Changes
+
+- [#1351](https://github.com/nextui-org/nextui/pull/1351) [`d13a14fa`](https://github.com/nextui-org/nextui/commit/d13a14facc1a92dac72e58a93e0452a86a2243c6) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - filterDOMProps function modified to filter non-default event/props this avoid passing non-valid props to HTML elements
+  - NavbarMenu onMenuOpenChange open state modified, undefined type removed
+  - keepContentMounted prop added to accordion and accordion item
+  - Some bug fixes..
+
 ## 2.0.3
 
 ### Patch Changes
