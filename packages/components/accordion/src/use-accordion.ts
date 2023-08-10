@@ -3,7 +3,7 @@ import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 
-import {ReactRef} from "@nextui-org/react-utils";
+import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import React, {Key, useCallback} from "react";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {useAccordion as useReactAriaAccordion} from "@react-aria/accordion";
@@ -36,6 +36,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   selectionBehavior?: SelectionBehavior;
   /**
+   * Whether to keep the accordion content mounted when collapsed.
+   * @default false
+   */
+  keepContentMounted?: boolean;
+  /**
    * The accordion items classNames.
    */
   itemClasses?: AccordionItemProps["classNames"];
@@ -62,6 +67,7 @@ export type ValuesType<T extends object = {}> = {
   isDisabled?: AccordionItemProps["isDisabled"];
   hideIndicator?: AccordionItemProps["hideIndicator"];
   disableAnimation?: AccordionItemProps["disableAnimation"];
+  keepContentMounted?: Props["keepContentMounted"];
   disableIndicatorAnimation?: AccordionItemProps["disableAnimation"];
   motionProps?: AccordionItemProps["motionProps"];
 };
@@ -81,6 +87,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     defaultExpandedKeys,
     selectionMode = "single",
     selectionBehavior = "toggle",
+    keepContentMounted = false,
     disallowEmptySelection,
     defaultSelectedKeys,
     onExpandedChange,
@@ -99,6 +106,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   const [focusedKey, setFocusedKey] = useState<Key | null>(null);
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -182,6 +190,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       isDisabled,
       hideIndicator,
       disableAnimation,
+      keepContentMounted,
       disableIndicatorAnimation,
     }),
     [
@@ -190,10 +199,11 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       isDisabled,
       hideIndicator,
       disableAnimation,
+      keepContentMounted,
       state?.expandedKeys.values,
       disableIndicatorAnimation,
-      ...[...state?.expandedKeys],
-      ...[...state?.disabledKeys],
+      state.expandedKeys.size,
+      state.disabledKeys.size,
       motionProps,
     ],
   );
@@ -203,7 +213,13 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       ref: domRef,
       className: classNames,
       "data-orientation": "vertical",
-      ...mergeProps(accordionProps, otherProps, props),
+      ...mergeProps(
+        accordionProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        props,
+      ),
     };
   }, []);
 

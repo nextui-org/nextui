@@ -246,4 +246,36 @@ describe("Accordion", () => {
 
     expect(button).toHaveAttribute("aria-expanded", "true");
   });
+
+  it("should support keepContentMounted", async () => {
+    const wrapper = render(
+      <Accordion keepContentMounted>
+        <AccordionItem key="1" data-testid="item-1" title="Accordion Item 1">
+          Accordion Item 1 description
+        </AccordionItem>
+        <AccordionItem key="2" data-testid="item-2" title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    const item1 = wrapper.getByTestId("item-1");
+    const button = item1.querySelector("button") as HTMLElement;
+
+    expect(item1.querySelector("[role='region']")).toBeInTheDocument();
+
+    await act(async () => {
+      await userEvent.click(button);
+    });
+
+    const item2 = wrapper.getByTestId("item-2");
+    const button2 = item2.querySelector("button") as HTMLElement;
+
+    await act(async () => {
+      await userEvent.click(button2);
+    });
+
+    expect(item1.querySelector("[role='region']")).toBeInTheDocument();
+    expect(item2.querySelector("[role='region']")).toBeInTheDocument();
+  });
 });

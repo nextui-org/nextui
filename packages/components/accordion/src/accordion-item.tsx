@@ -21,6 +21,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
     isOpen,
     isDisabled,
     hideIndicator,
+    keepContentMounted,
     disableAnimation,
     motionProps,
     getBaseProps,
@@ -51,7 +52,19 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
       return <div {...getContentProps()}>{children}</div>;
     }
 
-    return (
+    return keepContentMounted ? (
+      <motion.section
+        key="accordion-content"
+        animate={isOpen ? "enter" : "exit"}
+        exit="exit"
+        initial="exit"
+        style={{overflowY: "hidden", willChange}}
+        variants={TRANSITION_VARIANTS.collapse}
+        {...motionProps}
+      >
+        <div {...getContentProps()}>{children}</div>
+      </motion.section>
+    ) : (
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.section
@@ -68,7 +81,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
         )}
       </AnimatePresence>
     );
-  }, [isOpen, disableAnimation, children, motionProps]);
+  }, [isOpen, disableAnimation, keepContentMounted, children, motionProps]);
 
   return (
     <Component {...getBaseProps()}>
