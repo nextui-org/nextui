@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="flex flex-wrap gap-4 items-center">
       {radius.map((r) => (
-        <Pagination total={10} initialPage={1} radius={r} />
+        <Pagination key={r} total={10} initialPage={1} radius={r} />
       ))}
     </div>
   );
