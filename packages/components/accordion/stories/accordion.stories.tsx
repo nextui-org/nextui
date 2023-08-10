@@ -152,7 +152,12 @@ const TemplateWithEndContent = (args: AccordionProps) => (
     <AccordionItem
       key="1"
       aria-label="Chung Miller"
-      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
+      endContent={
+        <div className="flex flex-wrap gap-4 items-center">
+          <Button onClick={() => alert("Action 1 is clicked")}>Action1</Button>
+          <Button onClick={() => alert("Action 2 is clicked")}>Action2</Button>
+        </div>
+      }
       subtitle="4 unread messages"
       title="Chung Miller"
     >

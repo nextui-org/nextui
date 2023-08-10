@@ -62,14 +62,14 @@ const accordionItem = tv({
       "group-[.is-splitted]:shadow-medium",
       "group-[.is-splitted]:rounded-medium",
     ],
-    heading: "",
+    heading: "relative",
     trigger: [
-      "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
+      "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent ",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
     startContent: "flex-shrink-0",
-    endContent: "flex-shrink-0",
+    endContent: "flex-shrink-0 absolute top-1/2 -translate-y-1/2 right-10",
     indicator: "text-default-400",
     titleWrapper: "flex-1 flex flex-col text-left",
     title: "text-foreground text-large",
@@ -94,6 +94,7 @@ const accordionItem = tv({
     hideIndicator: {
       true: {
         indicator: "hidden",
+        endContent: "right-1",
       },
     },
     disableAnimation: {
