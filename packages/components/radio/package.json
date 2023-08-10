@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/radio",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Radios allow users to select a single option from a list of mutually exclusive options.",
   "keywords": [
     "radio"
