@@ -110,6 +110,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
       }),
       props,
     ),
+    "data-selectable": dataAttr(isSelectable),
     "data-focus": dataAttr(isFocused),
     "data-hover": dataAttr(isMobile ? isHovered || isPressed : isHovered),
     "data-disabled": dataAttr(isDisabled),
@@ -122,6 +123,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   const getLabelProps: PropGetter = (props = {}) => ({
     ...mergeProps(labelProps, props),
+    "data-label": dataAttr(true),
     className: slots.title({class: classNames?.title}),
   });
 

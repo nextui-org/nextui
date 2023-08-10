@@ -1,6 +1,6 @@
 import {IconSvgProps} from "./types";
 
-export const ChevronDownIcon = ({strokeWidth = 1.5, ...props}: IconSvgProps) => (
+export const ChevronUpIcon = ({strokeWidth = 1.5, ...props}: IconSvgProps) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -15,6 +15,6 @@ export const ChevronDownIcon = ({strokeWidth = 1.5, ...props}: IconSvgProps) => 
     width="1em"
     {...props}
   >
-    <path d="m6 9 6 6 6-6" />
+    <path d="m18 15-6-6-6 6" />
   </svg>
 );

@@ -55,4 +55,5 @@ export type {
   MenuSectionSlots as ListboxSectionSlots,
   MenuItemVariantProps as ListboxItemVariantProps,
   MenuItemSlots as ListboxItemSlots,
+  MenuVariantProps as ListboxVariantProps,
 } from "./menu";

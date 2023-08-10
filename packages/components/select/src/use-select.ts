@@ -3,7 +3,7 @@ import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {useMemo, useCallback, useRef, Key, ReactNode} from "react";
+import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
 import {ListboxProps} from "@nextui-org/listbox";
 import {AriaSelectProps, HiddenSelectProps} from "@react-aria/select";
 import {useSelectState} from "@react-stately/select";
@@ -28,10 +28,23 @@ interface Props extends HTMLNextUIProps<"button"> {
    */
   icon?: ReactNode;
   /**
+   * Element to be rendered in the left side of the select.
+   */
+  startContent?: React.ReactNode;
+  /**
+   * Element to be rendered in the right side of the select.
+   */
+  endContent?: React.ReactNode;
+  /**
    * The placeholder for the select to display when no option is selected.
    * @default "Select an option"
    */
   placeholder?: string;
+  /**
+   * Whether to display a top and bottom arrow indicators when the listbox is scrollable.
+   * @default true
+   */
+  showScrollIndicators?: boolean;
   /**
    * Callback fired when the select menu is closed.
    */
@@ -54,6 +67,10 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     isOpen,
     defaultOpen,
     onOpenChange,
+    startContent,
+    endContent,
+    description,
+    errorMessage,
     disableAnimation,
     onSelectionChange,
     placeholder = "Select an option",
@@ -93,12 +110,15 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     },
   });
 
-  const {labelProps, triggerProps, valueProps, menuProps} = useAriaSelect(props, state, domRef);
+  const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
+    useAriaSelect(props, state, domRef);
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, domRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
   const {isHovered, hoverProps} = useHover({isDisabled: originalProps?.isDisabled});
+
+  const hasHelper = !!description || !!errorMessage;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -111,6 +131,24 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     [...Object.values(variantProps), className],
   );
 
+  // scroll the listbox to the selected item
+  useEffect(() => {
+    if (state.isOpen && popoverRef.current && listboxRef.current) {
+      let selectedItem = listboxRef.current.querySelector("[aria-selected=true] [data-label=true]");
+      let listBox = listboxRef.current;
+      let popoverRect = popoverRef.current.getBoundingClientRect();
+      const popoverHeight = popoverRect.height;
+
+      // scroll the listbox to the selected item
+      if (selectedItem && listBox && selectedItem.parentElement) {
+        listBox.scrollTop =
+          selectedItem.parentElement.offsetTop -
+          popoverHeight / 2 +
+          selectedItem.parentElement.clientHeight / 2;
+      }
+    }
+  }, [state.isOpen]);
+
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
       className: slots.base({
@@ -121,7 +159,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     [slots, baseStyles],
   );
 
-  const getTriggerProps: PropGetter = useCallback(
+  const getInputWrapperProps: PropGetter = useCallback(
     (props = {}) => {
       // These props are not needed for the menu trigger since it is handled by the popover trigger.
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -134,7 +172,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
         "data-pressed": dataAttr(isPressed),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-hover": dataAttr(isHovered),
-        className: slots.trigger({class: classNames?.trigger}),
+        className: slots.inputWrapper({class: classNames?.inputWrapper}),
         ...mergeProps(
           otherButtonProps,
           focusProps,
@@ -148,7 +186,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     },
     [
       slots,
-      classNames?.trigger,
+      classNames?.inputWrapper,
       originalProps?.isDisabled,
       isFocused,
       isPressed,
@@ -220,27 +258,82 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
 
   const getIconProps = useCallback(
     () => ({
+      "aria-hidden": dataAttr(true),
       "data-open": dataAttr(state.isOpen),
       className: slots.icon({class: classNames?.icon}),
     }),
     [slots, classNames?.icon, state?.isOpen],
+  );
+  const getInnerWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.innerWrapper({
+          class: clsx(classNames?.innerWrapper, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.innerWrapper],
+  );
+
+  const getHelperWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.helperWrapper({
+          class: clsx(classNames?.helperWrapper, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.helperWrapper],
+  );
+
+  const getDescriptionProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...descriptionProps,
+        className: slots.description({class: clsx(classNames?.description, props?.className)}),
+      };
+    },
+    [slots, classNames?.description],
+  );
+
+  const getErrorMessageProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...errorMessageProps,
+        className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
+      };
+    },
+    [slots, errorMessageProps, classNames?.errorMessage],
   );
 
   return {
     Component,
     domRef,
     state,
-    placeholder,
     icon,
+    hasHelper,
+    placeholder,
+    startContent,
+    endContent,
+    description,
+    errorMessage,
     label: originalProps?.label,
     name: originalProps?.name,
     getBaseProps,
-    getTriggerProps,
+    getInputWrapperProps,
     getInputProps,
     getLabelProps,
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getInnerWrapperProps,
+    getHelperWrapperProps,
+    getDescriptionProps,
+    getErrorMessageProps,
     getIconProps,
   };
 }

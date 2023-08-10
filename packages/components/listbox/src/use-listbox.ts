@@ -1,9 +1,10 @@
 import {AriaListBoxOptions, useListBox as useAriaListbox} from "@react-aria/listbox";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import {listbox} from "@nextui-org/theme";
+import {listbox, ListboxVariantProps} from "@nextui-org/theme";
 import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
+import {useDataScrollOverflow} from "@nextui-org/use-data-scroll-overflow";
 
 import {ListboxItemProps} from "./listbox-item";
 
@@ -35,7 +36,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
   itemClasses?: ListboxItemProps["classNames"];
 }
 
-export type UseListboxProps<T = object> = Props<T> & AriaListBoxOptions<T>;
+export type UseListboxProps<T = object> = Props<T> & AriaListBoxOptions<T> & ListboxVariantProps;
 
 export function useListbox(props: UseListboxProps) {
   const {
@@ -45,6 +46,7 @@ export function useListbox(props: UseListboxProps) {
     variant,
     color,
     onAction,
+    shouldApplyScrollMask = true,
     onSelectionChange,
     disableAnimation,
     itemClasses,
@@ -62,7 +64,12 @@ export function useListbox(props: UseListboxProps) {
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);
 
-  const styles = useMemo(() => listbox({className}), [className]);
+  const styles = useMemo(
+    () => listbox({shouldApplyScrollMask, className}),
+    [shouldApplyScrollMask, className],
+  );
+
+  useDataScrollOverflow({domRef, isEnabled: shouldApplyScrollMask});
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {

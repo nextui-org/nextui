@@ -21,6 +21,8 @@ const popover = tv({
   slots: {
     base: [
       "z-10",
+      "relative",
+      "overflow-hidden",
       "inline-flex",
       "flex-col",
       "items-center",

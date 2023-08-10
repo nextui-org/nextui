@@ -44,6 +44,7 @@
     "@nextui-org/use-is-mobile": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/use-data-scroll-overflow": "workspace:*",
     "@react-aria/menu": "^3.10.0",
     "@react-aria/utils": "^3.18.0",
     "@react-stately/menu": "^3.5.3",

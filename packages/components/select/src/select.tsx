@@ -4,7 +4,7 @@ import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
 import {FocusScope} from "@react-aria/focus";
 import {HiddenSelect} from "@react-aria/select";
-import {cloneElement, ReactElement} from "react";
+import {cloneElement, ReactElement, useMemo} from "react";
 
 import {UseSelectProps, useSelect} from "./use-select";
 
@@ -15,31 +15,67 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     Component,
     state,
     label,
+    hasHelper,
     icon = <ChevronDownIcon />,
+    description,
+    errorMessage,
+    startContent,
+    endContent,
     placeholder,
     getBaseProps,
     getLabelProps,
-    getTriggerProps,
+    getInnerWrapperProps,
+    getInputWrapperProps,
     getInputProps,
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getHelperWrapperProps,
+    getDescriptionProps,
+    getErrorMessageProps,
     getIconProps,
   } = useSelect({...props, ref});
 
+  const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
+
   const clonedIcon = cloneElement(icon as ReactElement, getIconProps());
+
+  const helperWrapper = useMemo(() => {
+    if (!hasHelper) return null;
+
+    return (
+      <div {...getHelperWrapperProps()}>
+        {errorMessage ? (
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
+        ) : description ? (
+          <div {...getDescriptionProps()}>{description}</div>
+        ) : null}
+      </div>
+    );
+  }, [
+    hasHelper,
+    errorMessage,
+    description,
+    getHelperWrapperProps,
+    getErrorMessageProps,
+    getDescriptionProps,
+  ]);
 
   return (
     <div {...getBaseProps()}>
-      <div {...getLabelProps()}>{label}</div>
       <HiddenSelect {...getInputProps()} />
       <Popover {...getPopoverProps()}>
         <PopoverTrigger>
-          <Component {...getTriggerProps()}>
-            <span {...getValueProps()}>
-              {state.selectedItem ? state.selectedItem.rendered : placeholder}
-            </span>
-            <span aria-hidden="true">{clonedIcon}</span>
+          <Component {...getInputWrapperProps()}>
+            {labelContent}
+            <div {...getInnerWrapperProps()}>
+              {startContent}
+              <span {...getValueProps()}>
+                {state.selectedItem ? state.selectedItem.rendered : placeholder}
+              </span>
+              {endContent}
+            </div>
+            {clonedIcon}
           </Component>
         </PopoverTrigger>
         <PopoverContent>
@@ -48,6 +84,7 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
           </FocusScope>
         </PopoverContent>
       </Popover>
+      {helperWrapper}
     </div>
   );
 });

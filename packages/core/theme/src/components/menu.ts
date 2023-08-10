@@ -10,7 +10,19 @@ import {dataFocusVisibleClasses} from "../utils";
 
  */
 const menu = tv({
-  base: "w-full flex flex-col gap-0.5 p-1 outline-none max-h-72 scrollbar-hide overflow-auto",
+  base: ["w-full flex flex-col gap-0.5 p-1 outline-none max-h-64 scrollbar-hide overflow-auto"],
+  variants: {
+    shouldApplyScrollMask: {
+      true: [
+        "data-[has-top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_40px),transparent)]",
+        "data-[has-bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_40px),transparent)]",
+        "data-[has-both-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_40px,#000_calc(100%_-_40px),transparent)]",
+      ],
+    },
+  },
+  defaultVariants: {
+    shouldApplyScrollMask: true,
+  },
 });
 
 /**
@@ -85,7 +97,10 @@ const menuItem = tv({
         base: "bg-transparent",
       },
       faded: {
-        base: "border-small border-transparent hover:border-default data-[hover=true]:bg-default-100",
+        base: [
+          "border-small border-transparent hover:border-default data-[hover=true]:bg-default-100",
+          "data-[selectable=true]:focus:border-default data-[selectable=true]:focus:bg-default-100",
+        ],
       },
       flat: {
         base: "",
@@ -123,42 +138,62 @@ const menuItem = tv({
       variant: "solid",
       color: "default",
       class: {
-        base: "data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
+        base: [
+          "data-[hover=true]:bg-default",
+          "data-[hover=true]:text-default-foreground",
+          "data-[selectable=true]:focus:bg-default",
+          "data-[selectable=true]:focus:text-default-foreground",
+        ],
       },
     },
     {
       variant: "solid",
       color: "primary",
       class: {
-        base: "data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
+        base: [
+          "data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
+          "data-[selectable=true]:focus:bg-primary data-[selectable=true]:focus:text-primary-foreground",
+        ],
       },
     },
     {
       variant: "solid",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
+        base: [
+          "data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
+          "data-[selectable=true]:focus:bg-secondary data-[selectable=true]:focus:text-secondary-foreground",
+        ],
       },
     },
     {
       variant: "solid",
       color: "success",
       class: {
-        base: "data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
+        base: [
+          "data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
+          "data-[selectable=true]:focus:bg-success data-[selectable=true]:focus:text-success-foreground",
+        ],
       },
     },
     {
       variant: "solid",
       color: "warning",
       class: {
-        base: "data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
+        base: [
+          "data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
+          "data-[selectable=true]:focus:bg-warning data-[selectable=true]:focus:text-warning-foreground",
+        ],
       },
     },
     {
       variant: "solid",
       color: "danger",
       class: {
-        base: "data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
+        base: [
+          "data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
+          "data-[selectable=true]:focus:bg-danger data-[selectable=true]:focus:text-danger-foreground",
+        ],
       },
     },
     // shadow / color
@@ -166,42 +201,60 @@ const menuItem = tv({
       variant: "shadow",
       color: "default",
       class: {
-        base: "data-[hover=true]:shadow-default/50 data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
+        base: [
+          "data-[hover=true]:shadow-default/50 data-[hover=true]:bg-default data-[hover=true]:text-default-foreground",
+          "data-[selectable=true]:focus:shadow-default/50 data-[selectable=true]:focus:bg-default data-[selectable=true]:focus:text-default-foreground",
+        ],
       },
     },
     {
       variant: "shadow",
       color: "primary",
       class: {
-        base: "data-[hover=true]:shadow-primary/30 data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
+        base: [
+          "data-[hover=true]:shadow-primary/30 data-[hover=true]:bg-primary data-[hover=true]:text-primary-foreground",
+          "data-[selectable=true]:focus:shadow-primary/30 data-[selectable=true]:focus:bg-primary data-[selectable=true]:focus:text-primary-foreground",
+        ],
       },
     },
     {
       variant: "shadow",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:shadow-secondary/30 data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
+        base: [
+          "data-[hover=true]:shadow-secondary/30 data-[hover=true]:bg-secondary data-[hover=true]:text-secondary-foreground",
+          "data-[selectable=true]:focus:shadow-secondary/30 data-[selectable=true]:focus:bg-secondary data-[selectable=true]:focus:text-secondary-foreground",
+        ],
       },
     },
     {
       variant: "shadow",
       color: "success",
       class: {
-        base: "data-[hover=true]:shadow-success/30 data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
+        base: [
+          "data-[hover=true]:shadow-success/30 data-[hover=true]:bg-success data-[hover=true]:text-success-foreground",
+          "data-[selectable=true]:focus:shadow-success/30 data-[selectable=true]:focus:bg-success data-[selectable=true]:focus:text-success-foreground",
+        ],
       },
     },
     {
       variant: "shadow",
       color: "warning",
       class: {
-        base: "data-[hover=true]:shadow-warning/30 data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
+        base: [
+          "data-[hover=true]:shadow-warning/30 data-[hover=true]:bg-warning data-[hover=true]:text-warning-foreground",
+          "data-[selectable=true]:focus:shadow-warning/30 data-[selectable=true]:focus:bg-warning data-[selectable=true]:focus:text-warning-foreground",
+        ],
       },
     },
     {
       variant: "shadow",
       color: "danger",
       class: {
-        base: "data-[hover=true]:shadow-danger/30 data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
+        base: [
+          "data-[hover=true]:shadow-danger/30 data-[hover=true]:bg-danger data-[hover=true]:text-danger-foreground",
+          "data-[selectable=true]:focus:shadow-danger/30 data-[selectable=true]:focus:bg-danger data-[selectable=true]:focus:text-danger-foreground",
+        ],
       },
     },
     // bordered / color
@@ -209,42 +262,57 @@ const menuItem = tv({
       variant: "bordered",
       color: "default",
       class: {
-        base: "data-[hover=true]:border-default",
+        base: ["data-[hover=true]:border-default", "data-[selectable=true]:focus:border-default"],
       },
     },
     {
       variant: "bordered",
       color: "primary",
       class: {
-        base: "data-[hover=true]:border-primary data-[hover=true]:text-primary",
+        base: [
+          "data-[hover=true]:border-primary data-[hover=true]:text-primary",
+          "data-[selectable=true]:focus:border-primary data-[selectable=true]:focus:text-primary",
+        ],
       },
     },
     {
       variant: "bordered",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:border-secondary data-[hover=true]:text-secondary",
+        base: [
+          "data-[hover=true]:border-secondary data-[hover=true]:text-secondary",
+          "data-[selectable=true]:focus:border-secondary data-[selectable=true]:focus:text-secondary",
+        ],
       },
     },
     {
       variant: "bordered",
       color: "success",
       class: {
-        base: "data-[hover=true]:border-success data-[hover=true]:text-success",
+        base: [
+          "data-[hover=true]:border-success data-[hover=true]:text-success",
+          "data-[selectable=true]:focus:border-success data-[selectable=true]:focus:text-success",
+        ],
       },
     },
     {
       variant: "bordered",
       color: "warning",
       class: {
-        base: "data-[hover=true]:border-warning data-[hover=true]:text-warning",
+        base: [
+          "data-[hover=true]:border-warning data-[hover=true]:text-warning",
+          "data-[selectable=true]:focus:border-warning data-[selectable=true]:focus:text-warning",
+        ],
       },
     },
     {
       variant: "bordered",
       color: "danger",
       class: {
-        base: "data-[hover=true]:border-danger data-[hover=true]:text-danger",
+        base: [
+          "data-[hover=true]:border-danger data-[hover=true]:text-danger",
+          "data-[selectable=true]:focus:border-danger data-[selectable=true]:focus:text-danger",
+        ],
       },
     },
     // flat / color
@@ -252,42 +320,62 @@ const menuItem = tv({
       variant: "flat",
       color: "default",
       class: {
-        base: "data-[hover=true]:bg-default/40 data-[hover=true]:text-default-foreground",
+        base: [
+          "data-[hover=true]:bg-default/40",
+          "data-[hover=true]:text-default-foreground",
+          "data-[selectable=true]:focus:bg-default/40",
+          "data-[selectable=true]:focus:text-default-foreground",
+        ],
       },
     },
     {
       variant: "flat",
       color: "primary",
       class: {
-        base: "data-[hover=true]:bg-primary/20 data-[hover=true]:text-primary",
+        base: [
+          "data-[hover=true]:bg-primary/20 data-[hover=true]:text-primary",
+          "data-[selectable=true]:focus:bg-primary/20 data-[selectable=true]:focus:text-primary",
+        ],
       },
     },
     {
       variant: "flat",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:bg-secondary/20 data-[hover=true]:text-secondary",
+        base: [
+          "data-[hover=true]:bg-secondary/20 data-[hover=true]:text-secondary",
+          "data-[selectable=true]:focus:bg-secondary/20 data-[selectable=true]:focus:text-secondary",
+        ],
       },
     },
     {
       variant: "flat",
       color: "success",
       class: {
-        base: "data-[hover=true]:bg-success/20 data-[hover=true]:text-success ",
+        base: [
+          "data-[hover=true]:bg-success/20 data-[hover=true]:text-success",
+          "data-[selectable=true]:focus:bg-success/20 data-[selectable=true]:focus:text-success",
+        ],
       },
     },
     {
       variant: "flat",
       color: "warning",
       class: {
-        base: "data-[hover=true]:bg-warning/20 data-[hover=true]:text-warning",
+        base: [
+          "data-[hover=true]:bg-warning/20 data-[hover=true]:text-warning",
+          "data-[selectable=true]:focus:bg-warning/20 data-[selectable=true]:focus:text-warning",
+        ],
       },
     },
     {
       variant: "flat",
       color: "danger",
       class: {
-        base: "data-[hover=true]:bg-danger/20 data-[hover=true]:text-danger",
+        base: [
+          "data-[hover=true]:bg-danger/20 data-[hover=true]:text-danger",
+          "data-[selectable=true]:focus:bg-danger/20 data-[selectable=true]:focus:text-danger",
+        ],
       },
     },
     // faded / color
@@ -295,42 +383,45 @@ const menuItem = tv({
       variant: "faded",
       color: "default",
       class: {
-        base: "data-[hover=true]:text-default-foreground",
+        base: [
+          "data-[hover=true]:text-default-foreground",
+          "data-[selectable=true]:focus:text-default-foreground",
+        ],
       },
     },
     {
       variant: "faded",
       color: "primary",
       class: {
-        base: "data-[hover=true]:text-primary",
+        base: ["data-[hover=true]:text-primary", "data-[selectable=true]:focus:text-primary"],
       },
     },
     {
       variant: "faded",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:text-secondary",
+        base: ["data-[hover=true]:text-secondary", "data-[selectable=true]:focus:text-secondary"],
       },
     },
     {
       variant: "faded",
       color: "success",
       class: {
-        base: "data-[hover=true]:text-success",
+        base: ["data-[hover=true]:text-success", "data-[selectable=true]:focus:text-success"],
       },
     },
     {
       variant: "faded",
       color: "warning",
       class: {
-        base: "data-[hover=true]:text-warning",
+        base: ["data-[hover=true]:text-warning", "data-[selectable=true]:focus:text-warning"],
       },
     },
     {
       variant: "faded",
       color: "danger",
       class: {
-        base: "data-[hover=true]:text-danger",
+        base: ["data-[hover=true]:text-danger", "data-[selectable=true]:focus:text-danger"],
       },
     },
     // light / color
@@ -338,42 +429,45 @@ const menuItem = tv({
       variant: "light",
       color: "default",
       class: {
-        base: "data-[hover=true]:text-default-500",
+        base: [
+          "data-[hover=true]:text-default-500",
+          "data-[selectable=true]:focus:text-default-500",
+        ],
       },
     },
     {
       variant: "light",
       color: "primary",
       class: {
-        base: "data-[hover=true]:text-primary",
+        base: ["data-[hover=true]:text-primary", "data-[selectable=true]:focus:text-primary"],
       },
     },
     {
       variant: "light",
       color: "secondary",
       class: {
-        base: "data-[hover=true]:text-secondary",
+        base: ["data-[hover=true]:text-secondary", "data-[selectable=true]:focus:text-secondary"],
       },
     },
     {
       variant: "light",
       color: "success",
       class: {
-        base: "data-[hover=true]:text-success",
+        base: ["data-[hover=true]:text-success", "data-[selectable=true]:focus:text-success"],
       },
     },
     {
       variant: "light",
       color: "warning",
       class: {
-        base: "data-[hover=true]:text-warning",
+        base: ["data-[hover=true]:text-warning", "data-[selectable=true]:focus:text-warning"],
       },
     },
     {
       variant: "light",
       color: "danger",
       class: {
-        base: "data-[hover=true]:text-danger",
+        base: ["data-[hover=true]:text-danger", "data-[selectable=true]:focus:text-danger"],
       },
     },
   ],
@@ -402,6 +496,7 @@ const menuSection = tv({
   },
 });
 
+export type MenuVariantProps = VariantProps<typeof menu>;
 export type MenuSectionVariantProps = VariantProps<typeof menuSection>;
 export type MenuSectionSlots = keyof ReturnType<typeof menuSection>;
 export type MenuItemVariantProps = VariantProps<typeof menuItem>;

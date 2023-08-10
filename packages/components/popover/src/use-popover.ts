@@ -10,10 +10,8 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs, useLayoutEffect} from "@react-aria/utils";
-import {createDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
-import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
+import {useId, useMemo, useCallback, useRef} from "react";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -21,7 +19,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLElement | null>;
+  ref?: RefObject<HTMLDivElement>;
   /**
    * The controlled state of the popover.
    */
@@ -76,11 +74,12 @@ export type UsePopoverProps = Props &
 
 export function usePopover(originalProps: UsePopoverProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
+  const ref = useRef<HTMLDivElement>(null);
 
   const {
-    ref,
     as,
     children,
+    ref: popoverRef = ref,
     state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
@@ -107,18 +106,11 @@ export function usePopover(originalProps: UsePopoverProps) {
   const Component = as || "div";
   const popoverId = useId();
 
-  const popoverRef = useRef<HTMLDivElement>(null);
   const domTriggerRef = useRef<HTMLElement>(null);
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation = originalProps.disableAnimation ?? false;
-
-  // Sync ref with popoverRef from passed ref.
-  useImperativeHandle(ref, () =>
-    // @ts-ignore
-    createDOMRef(popoverRef),
-  );
 
   const innerState = useOverlayTriggerState({
     isOpen,
