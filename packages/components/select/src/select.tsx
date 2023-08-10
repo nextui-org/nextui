@@ -8,7 +8,7 @@ import {cloneElement, ReactElement, useMemo} from "react";
 
 import {UseSelectProps, useSelect} from "./use-select";
 
-export interface SelectProps extends UseSelectProps {}
+export interface SelectProps extends Omit<UseSelectProps, "isLabelPlaceholder"> {}
 
 const Select = forwardRef<"button", SelectProps>((props, ref) => {
   const {
@@ -24,8 +24,8 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     placeholder,
     getBaseProps,
     getLabelProps,
+    getTriggerProps,
     getInnerWrapperProps,
-    getInputWrapperProps,
     getInputProps,
     getValueProps,
     getListboxProps,
@@ -66,7 +66,7 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
       <HiddenSelect {...getInputProps()} />
       <Popover {...getPopoverProps()}>
         <PopoverTrigger>
-          <Component {...getInputWrapperProps()}>
+          <Component {...getTriggerProps()}>
             {labelContent}
             <div {...getInnerWrapperProps()}>
               {startContent}

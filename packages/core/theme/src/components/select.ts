@@ -5,14 +5,14 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: "group inline-flex flex-col relative w-52 gap-2",
+    base: "group inline-flex flex-col relative w-full gap-2",
     label: "block text-small font-medium text-foreground-500",
-    inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
+    trigger: "relative outline-none w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    icon: "absolute right-2 w-4 h-4 data-[open=true]:rotate-180 transition-transform duration-150 ease",
-    value: "w-full h-full font-normal text-left",
+    icon: "absolute right-3 w-4 h-4 data-[open=true]:rotate-180",
+    value: "font-normal text-left",
     menu: "",
-    popover: "w-full p-1 w-52 min-w-[200px] overflow-hidden",
+    popover: "w-full p-1 overflow-hidden",
     helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
@@ -20,14 +20,14 @@ const select = tv({
   variants: {
     variant: {
       flat: {
-        inputWrapper: [
+        trigger: [
           "bg-default-100",
           "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
       },
       faded: {
-        inputWrapper: [
+        trigger: [
           "bg-default-100",
           "border-medium",
           "border-default-200",
@@ -35,15 +35,16 @@ const select = tv({
         ],
       },
       bordered: {
-        inputWrapper: [
+        trigger: [
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
-          "group-data-[focus=true]:border-foreground",
+          "data-[open=true]:border-foreground",
+          "data-[focus=true]:border-foreground",
         ],
       },
       underlined: {
-        inputWrapper: [
+        trigger: [
           "!px-1",
           "!pb-0",
           "!gap-0",
@@ -63,58 +64,49 @@ const select = tv({
           "after:-translate-x-1/2",
           "after:-bottom-[2px]",
           "after:h-[2px]",
-          "group-data-[focus=true]:after:w-full",
+          "data-[open=true]:after:w-full",
+          "data-[focus=true]:after:w-full",
         ],
       },
     },
     color: {
       default: {},
-      primary: {
-        label: "text-primary",
-      },
-      secondary: {
-        label: "text-secondary",
-      },
-      success: {
-        label: "text-success-600 dark:text-success",
-      },
-      warning: {
-        label: "text-warning-600 dark:text-warning",
-      },
-      danger: {
-        label: "text-danger dark:text-danger-500",
-      },
+      primary: {},
+      secondary: {},
+      success: {},
+      warning: {},
+      danger: {},
     },
     size: {
       sm: {
         label: "text-tiny",
-        inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        trigger: "h-unit-8 min-h-unit-8 px-2 rounded-small",
         value: "text-small",
       },
       md: {
-        inputWrapper: "h-unit-10 min-h-unit-10 rounded-medium",
+        trigger: "h-unit-10 min-h-unit-10 rounded-medium",
         value: "text-small",
       },
       lg: {
-        inputWrapper: "h-unit-12 min-h-unit-12 rounded-large",
+        trigger: "h-unit-12 min-h-unit-12 rounded-large",
         value: "text-medium",
       },
     },
     radius: {
       none: {
-        inputWrapper: "rounded-none",
+        trigger: "rounded-none",
       },
       sm: {
-        inputWrapper: "rounded-small",
+        trigger: "rounded-small",
       },
       md: {
-        inputWrapper: "rounded-medium",
+        trigger: "rounded-medium",
       },
       lg: {
-        inputWrapper: "rounded-large",
+        trigger: "rounded-large",
       },
       full: {
-        inputWrapper: "rounded-full",
+        trigger: "rounded-full",
       },
     },
     labelPlacement: {
@@ -132,40 +124,48 @@ const select = tv({
       },
       inside: {
         label: "text-tiny",
-        inputWrapper: "flex-col items-start justify-center gap-0",
+        trigger: "flex-col items-start justify-center gap-0",
       },
-      fullWidth: {
-        true: {
-          base: "w-full",
-        },
+    },
+    fullWidth: {
+      true: {
+        base: "w-full",
       },
-      isInvalid: {
-        true: {
-          label: "!text-danger",
-          value: "placeholder:text-danger text-danger",
-        },
+    },
+    isLabelPlaceholder: {
+      true: {
+        label: "absolute z-10 pointer-events-none",
       },
-      isRequired: {
-        true: {
-          label: "after:content-['*'] after:text-danger after:ml-0.5",
-        },
+    },
+    isInvalid: {
+      true: {
+        label: "!text-danger",
+        value: "text-danger",
       },
-      disableAnimation: {
-        true: {
-          base: "transition-none",
-          label: "transition-none",
-        },
-        false: {
-          base: "transition-background motion-reduce:transition-none !duration-150",
-          label: [
-            "will-change-auto",
-            "origin-top-left",
-            "transition-all",
-            "!duration-200",
-            "!ease-[cubic-bezier(0,0,0.2,1)]",
-            "motion-reduce:transition-none",
-          ],
-        },
+    },
+    isRequired: {
+      true: {
+        label: "after:content-['*'] after:text-danger after:ml-0.5",
+      },
+    },
+    disableAnimation: {
+      true: {
+        trigger: "after:transition-none",
+        base: "transition-none",
+        label: "transition-none",
+        icon: "transition-none",
+      },
+      false: {
+        base: "transition-background motion-reduce:transition-none !duration-150",
+        label: [
+          "will-change-auto",
+          "origin-top-left",
+          "transition-all",
+          "!duration-200",
+          "!ease-[cubic-bezier(0,0,0.2,1)]",
+          "motion-reduce:transition-none",
+        ],
+        icon: "transition-transform duration-150 ease motion-reduce:transition-none",
       },
     },
   },
@@ -174,19 +174,337 @@ const select = tv({
     color: "default",
     size: "md",
     labelPlacement: "inside",
-    fullWidth: false, // TODO: implement
+    fullWidth: false,
     isDisabled: false,
     disableAnimation: false,
   },
   compoundVariants: [
+    // flat & color
+    {
+      variant: "flat",
+      color: "primary",
+      class: {
+        trigger: [
+          "bg-primary-50",
+          "text-primary",
+          "data-[hover=true]:bg-primary-100",
+          "group-data-[focus=true]:bg-primary-50",
+        ],
+        value: "text-primary",
+        label: "text-primary",
+      },
+    },
+    {
+      variant: "flat",
+      color: "secondary",
+      class: {
+        trigger: [
+          "bg-secondary-50",
+          "text-secondary",
+          "data-[hover=true]:bg-secondary-100",
+          "group-data-[focus=true]:bg-secondary-50",
+        ],
+        value: "text-secondary",
+        label: "text-secondary",
+      },
+    },
+    {
+      variant: "flat",
+      color: "success",
+      class: {
+        trigger: [
+          "bg-success-50",
+          "text-success-600",
+          "dark:text-success",
+          "data-[hover=true]:bg-success-100",
+          "group-data-[focus=true]:bg-success-50",
+        ],
+        value: "text-success-600 dark:text-success",
+        label: "text-success-600 dark:text-success",
+      },
+    },
+    {
+      variant: "flat",
+      color: "warning",
+      class: {
+        trigger: [
+          "bg-warning-50",
+          "text-warning-600",
+          "dark:text-warning",
+          "data-[hover=true]:bg-warning-100",
+          "group-data-[focus=true]:bg-warning-50",
+        ],
+        value: "text-warning-600 dark:text-warning",
+        label: "text-warning-600 dark:text-warning",
+      },
+    },
+    {
+      variant: "flat",
+      color: "danger",
+      class: {
+        trigger: [
+          "bg-danger-50",
+          "text-danger",
+          "dark:text-danger-500",
+          "data-[hover=true]:bg-danger-100",
+          "group-data-[focus=true]:bg-danger-50",
+        ],
+        value: "text-danger dark:text-danger-500",
+        label: "text-danger dark:text-danger-500",
+      },
+    },
+    // faded & color
+    {
+      variant: "faded",
+      color: "primary",
+      class: {
+        trigger: "data-[hover=true]:border-primary",
+        label: "text-primary",
+      },
+    },
+    {
+      variant: "faded",
+      color: "secondary",
+      class: {
+        trigger: "data-[hover=true]:border-secondary",
+        label: "text-secondary",
+      },
+    },
+    {
+      variant: "faded",
+      color: "success",
+      class: {
+        trigger: "data-[hover=true]:border-success",
+        label: "text-success",
+      },
+    },
+    {
+      variant: "faded",
+      color: "warning",
+      class: {
+        trigger: "data-[hover=true]:border-warning",
+        label: "text-warning",
+      },
+    },
+    {
+      variant: "faded",
+      color: "danger",
+      class: {
+        trigger: "data-[hover=true]:border-danger",
+        label: "text-danger",
+      },
+    },
+    // underlined & color
+    {
+      variant: "underlined",
+      color: "primary",
+      class: {
+        trigger: "after:bg-primary",
+        label: "text-primary",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "secondary",
+      class: {
+        trigger: "after:bg-secondary",
+        label: "text-secondary",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "success",
+      class: {
+        trigger: "after:bg-success",
+        label: "text-success",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "warning",
+      class: {
+        trigger: "after:bg-warning",
+        label: "text-warning",
+      },
+    },
+    {
+      variant: "underlined",
+      color: "danger",
+      class: {
+        trigger: "after:bg-danger",
+        label: "text-danger",
+      },
+    },
+    // bordered & color
+    {
+      variant: "bordered",
+      color: "primary",
+      class: {
+        trigger: ["data-[open=true]:border-primary", "data-[focus=true]:border-primary"],
+        label: "text-primary",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "secondary",
+      class: {
+        trigger: ["data-[open=true]:border-secondary", "data-[focus=true]:border-secondary"],
+        label: "text-secondary",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "success",
+      class: {
+        trigger: ["data-[open=true]:border-success", "data-[focus=true]:border-success"],
+        label: "text-success",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "warning",
+      class: {
+        trigger: ["data-[open=true]:border-warning", "data-[focus=true]:border-warning"],
+        label: "text-warning",
+      },
+    },
+    {
+      variant: "bordered",
+      color: "danger",
+      class: {
+        trigger: ["data-[open=true]:border-danger", "data-[focus=true]:border-danger"],
+        label: "text-danger",
+      },
+    },
+    // radius-full & size
+    {
+      radius: "full",
+      size: ["sm"],
+      class: {
+        trigger: "px-3",
+      },
+    },
+    {
+      radius: "full",
+      size: "md",
+      class: {
+        trigger: "px-4",
+      },
+    },
+    {
+      radius: "full",
+      size: "lg",
+      class: {
+        trigger: "px-5",
+      },
+    },
+    // !disableAnimation & variant
+    {
+      disableAnimation: false,
+      variant: ["faded", "bordered"],
+      class: {
+        trigger: "transition-colors motion-reduce:transition-none",
+      },
+    },
+    {
+      disableAnimation: false,
+      variant: "underlined",
+      class: {
+        trigger: "after:transition-width motion-reduce:after:transition-none",
+      },
+    },
     // flat & faded
     {
       variant: ["flat", "faded"],
       class: {
-        inputWrapper: [
+        trigger: [
           // focus ring
           ...dataFocusVisibleClasses,
         ],
+      },
+    },
+    // size & labelPlacement
+    {
+      labelPlacement: "inside",
+      size: "sm",
+      class: {
+        trigger: "h-12 py-1.5 px-3",
+      },
+    },
+    {
+      labelPlacement: "inside",
+      size: "md",
+      class: {
+        trigger: "h-14 py-2",
+      },
+    },
+    {
+      labelPlacement: "inside",
+      size: "lg",
+      class: {
+        label: "text-small",
+        trigger: "h-16 py-2.5 gap-1",
+      },
+    },
+    // isLabelPlaceholder & labelPlacement
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: [
+          "font-normal",
+          "group-[.is-filled]:font-medium",
+          "group-[.is-filled]:pointer-events-auto",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "outside",
+      class: {
+        base: "group relative justify-end",
+        label: ["pb-0", "group-[.is-filled]:left-0", "group-[.is-filled]:text-foreground"],
+      },
+    },
+    // isLabelPlaceholder & inside & size
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      size: ["sm", "md"],
+      class: {
+        label: ["text-small", "group-[.is-filled]:text-tiny"],
+        input: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      size: "sm",
+      class: {
+        label: ["group-[.is-filled]:-translate-y-2.5"],
+        innerWrapper: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      size: "md",
+      class: {
+        label: ["group-[.is-filled]:-translate-y-3"],
+        innerWrapper: "pt-4",
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "group-[.is-filled]:text-small",
+          "group-[.is-filled]:-translate-y-3",
+        ],
+        innerWrapper: "pt-6",
       },
     },
   ],

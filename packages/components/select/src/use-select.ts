@@ -1,6 +1,6 @@
 import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
@@ -60,20 +60,23 @@ export type UseSelectProps<T = object> = Props & AriaSelectProps<T> & SelectVari
 export function useSelect<T extends object = object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
 
+  const disableAnimation = originalProps.disableAnimation ?? false;
+
   const {
     ref,
     as,
     icon,
     isOpen,
+    label,
+    name,
     defaultOpen,
     onOpenChange,
     startContent,
     endContent,
     description,
     errorMessage,
-    disableAnimation,
     onSelectionChange,
-    placeholder = "Select an option",
+    placeholder,
     popoverProps = {
       placement: "bottom",
       triggerScaleOnOpen: false,
@@ -118,7 +121,20 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
   const {isHovered, hoverProps} = useHover({isDisabled: originalProps?.isDisabled});
 
+  const labelPlacement = useMemo<SelectVariantProps["labelPlacement"]>(() => {
+    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+      return "outside";
+    }
+
+    return originalProps.labelPlacement ?? "inside";
+  }, [originalProps.labelPlacement, label]);
+
   const hasHelper = !!description || !!errorMessage;
+  const hasPlaceholder = !!placeholder;
+  const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
+  const shouldLabelBeInside = labelPlacement === "inside";
+  const isLabelPlaceholder = !hasPlaceholder && labelPlacement !== "outside-left";
+  const isFilled = !!state.selectedItem;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -126,9 +142,10 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     () =>
       select({
         ...variantProps,
+        isLabelPlaceholder,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [...Object.values(variantProps), isLabelPlaceholder, className],
   );
 
   // scroll the listbox to the selected item
@@ -149,17 +166,27 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     }
   }, [state.isOpen]);
 
+  // apply the same with to the popover as the select
+  useEffect(() => {
+    if (state.isOpen && popoverRef.current && domRef.current) {
+      let selectRect = domRef.current.getBoundingClientRect();
+      let popover = popoverRef.current;
+
+      popover.style.width = selectRect.width + "px";
+    }
+  }, [state.isOpen]);
+
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
       className: slots.base({
-        class: clsx(baseStyles, props.className),
+        class: clsx(baseStyles, props.className, isFilled || state.isOpen ? "is-filled" : ""),
       }),
       ...props,
     }),
-    [slots, baseStyles],
+    [slots, isFilled, state.isOpen, baseStyles],
   );
 
-  const getInputWrapperProps: PropGetter = useCallback(
+  const getTriggerProps: PropGetter = useCallback(
     (props = {}) => {
       // These props are not needed for the menu trigger since it is handled by the popover trigger.
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -167,12 +194,13 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
         buttonProps;
 
       return {
+        "data-open": dataAttr(state.isOpen),
         "data-disabled": dataAttr(originalProps?.isDisabled),
         "data-focus": dataAttr(isFocused),
         "data-pressed": dataAttr(isPressed),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-hover": dataAttr(isHovered),
-        className: slots.inputWrapper({class: classNames?.inputWrapper}),
+        className: slots.trigger({class: classNames?.trigger}),
         ...mergeProps(
           otherButtonProps,
           focusProps,
@@ -186,7 +214,8 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     },
     [
       slots,
-      classNames?.inputWrapper,
+      state.isOpen,
+      classNames?.trigger,
       originalProps?.isDisabled,
       isFocused,
       isPressed,
@@ -245,16 +274,21 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     } as ListboxProps;
   };
 
-  const getPopoverProps: PropGetter = (props = {}) => ({
-    state,
-    ref: popoverRef,
-    scrollRef: listboxRef,
-    triggerRef: domRef,
-    className: slots.popover({
-      class: clsx(classNames?.popover, props.className),
-    }),
-    ...mergeProps(popoverProps, props),
-  });
+  const getPopoverProps = useCallback(
+    (props: DOMAttributes = {}) => {
+      return {
+        state,
+        ref: popoverRef,
+        scrollRef: listboxRef,
+        triggerRef: domRef,
+        className: slots.popover({
+          class: clsx(classNames?.popover, props.className),
+        }),
+        ...mergeProps(popoverProps, props),
+      } as PopoverProps;
+    },
+    [slots, classNames?.popover, popoverProps, state],
+  );
 
   const getIconProps = useCallback(
     () => ({
@@ -315,16 +349,20 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     domRef,
     state,
     icon,
-    hasHelper,
+    label,
+    name,
     placeholder,
     startContent,
     endContent,
     description,
     errorMessage,
-    label: originalProps?.label,
-    name: originalProps?.name,
+    hasHelper,
+    labelPlacement,
+    hasPlaceholder,
+    shouldLabelBeOutside,
+    shouldLabelBeInside,
     getBaseProps,
-    getInputWrapperProps,
+    getTriggerProps,
     getInputProps,
     getLabelProps,
     getValueProps,

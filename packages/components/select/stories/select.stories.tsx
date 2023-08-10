@@ -8,23 +8,35 @@ export default {
   title: "Components/Select",
   component: Select,
   argTypes: {
+    variant: {
+      control: {
+        type: "select",
+      },
+      options: ["flat", "faded", "bordered", "underlined"],
+    },
     color: {
       control: {
         type: "select",
-        options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
+    },
+    labelPlacement: {
+      control: {
+        type: "select",
+      },
+      options: ["inside", "outside", "outside-left"],
     },
     isDisabled: {
       control: {
@@ -45,32 +57,70 @@ const defaultProps = {
   ...select.defaultVariants,
 };
 
-const Template = ({color, variant, ...args}: SelectProps) => (
-  <Select
-    aria-label="Favorite Animal"
-    color={color}
-    label="Favorite Animal"
-    variant={variant}
-    {...args}
-  >
-    <SelectItem key="cat">Cat</SelectItem>
-    <SelectItem key="dog">Dog</SelectItem>
-    <SelectItem key="elephant">Elephant</SelectItem>
-    <SelectItem key="lion">Lion</SelectItem>
-    <SelectItem key="tiger">Tiger</SelectItem>
-    <SelectItem key="giraffe">Giraffe</SelectItem>
-    <SelectItem key="dolphin">Dolphin</SelectItem>
-    <SelectItem key="penguin">Penguin</SelectItem>
-    <SelectItem key="zebra">Zebra</SelectItem>
-    <SelectItem key="shark">Shark</SelectItem>
-    <SelectItem key="whale">Whale</SelectItem>
-    <SelectItem key="seal">Seal</SelectItem>
-    <SelectItem key="otter">Otter</SelectItem>
-    <SelectItem key="crocodile">Crocodile</SelectItem>
-  </Select>
+const items = [
+  {label: "Cat", value: "cat"},
+  {label: "Dog", value: "dog"},
+  {label: "Elephant", value: "elephant"},
+  {label: "Lion", value: "lion"},
+  {label: "Tiger", value: "tiger"},
+  {label: "Giraffe", value: "giraffe"},
+  {label: "Dolphin", value: "dolphin"},
+  {label: "Penguin", value: "penguin"},
+  {label: "Zebra", value: "zebra"},
+  {label: "Shark", value: "shark"},
+  {label: "Whale", value: "whale"},
+  {label: "Seal", value: "seal"},
+  {label: "Otter", value: "otter"},
+  {label: "Crocodile", value: "crocodile"},
+].map((item) => (
+  <SelectItem key={item.value} value={item.value}>
+    {item.label}
+  </SelectItem>
+));
+
+// const Template = ({color, variant, ...args}: SelectProps) => (
+//   <Select
+//     aria-label="Favorite Animal"
+//     className="max-w-xs"
+//     color={color}
+//     label="Favorite Animal"
+//     variant={variant}
+//     {...args}
+//   >
+//     {items}
+//   </Select>
+// );
+
+const MirrorTemplate = ({color, variant, ...args}: SelectProps) => (
+  <div className="w-full max-w-xl flex flex-row gap-4">
+    <Select
+      aria-label="Favorite Animal"
+      className="max-w-xs"
+      color={color}
+      label="Favorite Animal"
+      variant={variant}
+      {...args}
+    >
+      {items}
+    </Select>
+    <Select
+      aria-label="Favorite Animal"
+      className="max-w-xs"
+      color={color}
+      label="Favorite Animal"
+      placeholder="Select an animal"
+      variant={variant}
+      {...args}
+    >
+      {items}
+    </Select>
+  </div>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
