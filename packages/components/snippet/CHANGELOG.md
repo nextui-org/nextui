@@ -1,5 +1,14 @@
 # @nextui-org/snippet
 
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.4
+  - @nextui-org/button@2.0.6
+  - @nextui-org/tooltip@2.0.7
+
 ## 2.0.6
 
 ### Patch Changes

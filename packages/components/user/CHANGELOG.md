@@ -1,5 +1,13 @@
 # @nextui-org/user
 
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.4
+  - @nextui-org/avatar@2.0.6
+
 ## 2.0.5
 
 ### Patch Changes
