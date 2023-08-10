@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import {Meta} from "@storybook/react";
 import {dropdown, popover} from "@nextui-org/theme";
@@ -114,19 +115,34 @@ const defaultProps = {
 };
 
 const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
-  <Dropdown {...args}>
-    <DropdownTrigger>
-      <Button>Trigger</Button>
-    </DropdownTrigger>
-    <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
-      <DropdownItem key="new">New file</DropdownItem>
-      <DropdownItem key="copy">Copy link</DropdownItem>
-      <DropdownItem key="edit">Edit file</DropdownItem>
-      <DropdownItem key="delete" className="text-danger" color="danger">
-        Delete file
-      </DropdownItem>
-    </DropdownMenu>
-  </Dropdown>
+  <>
+    <Dropdown {...args}>
+      <DropdownTrigger>
+        <a href="#">Trigger</a>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+        <DropdownItem key="new">New file</DropdownItem>
+        <DropdownItem key="copy">Copy link</DropdownItem>
+        <DropdownItem key="edit">Edit file</DropdownItem>
+        <DropdownItem key="delete" className="text-danger" color="danger">
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+    <Dropdown {...args}>
+      <DropdownTrigger>
+        <a href="#">Trigger</a>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+        <DropdownItem key="new">New file</DropdownItem>
+        <DropdownItem key="copy">Copy link</DropdownItem>
+        <DropdownItem key="edit">Edit file</DropdownItem>
+        <DropdownItem key="delete" className="text-danger" color="danger">
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  </>
 );
 
 const DividerTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (

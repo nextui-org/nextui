@@ -11,6 +11,7 @@ import {
   InvalidCardIcon,
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
+import {Button} from "@nextui-org/button";
 
 import {Accordion, AccordionProps, AccordionItem, Selection} from "../src";
 import {AccordionItemProps} from "../src";
@@ -89,6 +90,41 @@ const TemplateWithSubtitle = (args: AccordionProps) => (
   </Accordion>
 );
 
+const TemplateWithEndContent = (args: AccordionProps) => (
+  <Accordion {...args} variant="shadow">
+    <AccordionItem
+      key="1"
+      aria-label="Chung Miller"
+      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
+      subtitle="4 unread messages"
+      title="Chung Miller"
+    >
+      {defaultContent}
+    </AccordionItem>
+    <AccordionItem
+      key="2"
+      aria-label="Janelle Lenard"
+      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
+      subtitle="3 incompleted steps"
+      title="Janelle Lenard"
+    >
+      {defaultContent}
+    </AccordionItem>
+    <AccordionItem
+      key="3"
+      aria-label="Zoey Lang"
+      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
+      subtitle={
+        <p className="flex">
+          2 issues to&nbsp;<p className="text-primary">fix now</p>
+        </p>
+      }
+      title="Zoey Lang"
+    >
+      {defaultContent}
+    </AccordionItem>
+  </Accordion>
+);
 const TemplateWithStartContent = (args: AccordionProps) => (
   <Accordion {...args} variant="shadow">
     <AccordionItem
@@ -126,6 +162,65 @@ const TemplateWithStartContent = (args: AccordionProps) => (
     <AccordionItem
       key="3"
       aria-label="Zoey Lang"
+      startContent={
+        <Avatar
+          isBordered
+          color="warning"
+          radius="lg"
+          src="https://i.pravatar.cc/150?u=a04258114e29026702d"
+        />
+      }
+      subtitle={
+        <p className="flex">
+          2 issues to&nbsp;<p className="text-primary">fix now</p>
+        </p>
+      }
+      title="Zoey Lang"
+    >
+      {defaultContent}
+    </AccordionItem>
+  </Accordion>
+);
+const TemplateWithStartAndEndContent = (args: AccordionProps) => (
+  <Accordion {...args} variant="shadow">
+    <AccordionItem
+      key="1"
+      aria-label="Chung Miller"
+      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
+      startContent={
+        <Avatar
+          isBordered
+          color="primary"
+          radius="lg"
+          src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+        />
+      }
+      subtitle="4 unread messages"
+      title="Chung Miller"
+    >
+      {defaultContent}
+    </AccordionItem>
+    <AccordionItem
+      key="2"
+      aria-label="Janelle Lenard"
+      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
+      startContent={
+        <Avatar
+          isBordered
+          color="success"
+          radius="lg"
+          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+        />
+      }
+      subtitle="3 incompleted steps"
+      title="Janelle Lenard"
+    >
+      {defaultContent}
+    </AccordionItem>
+    <AccordionItem
+      key="3"
+      aria-label="Zoey Lang"
+      endContent={<Button onClick={() => alert("Button is clicked")}>Action</Button>}
       startContent={
         <Avatar
           isBordered
@@ -365,6 +460,20 @@ export const WithSubtitle = {
 
 export const WithStartContent = {
   render: TemplateWithStartContent,
+
+  args: {
+    ...defaultProps,
+  },
+};
+export const WithEndContent = {
+  render: TemplateWithEndContent,
+
+  args: {
+    ...defaultProps,
+  },
+};
+export const WithStartAndEndContent = {
+  render: TemplateWithStartAndEndContent,
 
   args: {
     ...defaultProps,

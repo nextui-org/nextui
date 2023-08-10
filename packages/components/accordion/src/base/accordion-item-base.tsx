@@ -52,6 +52,10 @@ export interface Props<T extends object = {}>
    */
   startContent?: ReactNode;
   /**
+   * The accordion item end content, it's usually an icon or avatar.
+   */
+  endContent?: ReactNode;
+  /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: HTMLMotionProps<"section">;

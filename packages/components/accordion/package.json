@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
     "@react-types/accordion": "3.0.0-alpha.14",
     "@react-types/shared": "^3.18.1",
