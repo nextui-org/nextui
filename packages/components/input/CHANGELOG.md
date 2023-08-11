@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.0.11
+
+### Patch Changes
+
+- [#1369](https://github.com/nextui-org/nextui/pull/1369) [`abe1ba58`](https://github.com/nextui-org/nextui/commit/abe1ba58de03d8651c24d01de5e2d0a91334b50e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix #1332 undefined value removed from input value
+
 ## 2.0.10
 
 ### Patch Changes
