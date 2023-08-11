@@ -249,7 +249,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
     children,
     isOpen,
     triggerRef,
-    triggerProps,
     showArrow,
     portalContainer,
     placement: placementProp,

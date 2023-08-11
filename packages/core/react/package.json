@@ -72,7 +72,7 @@
     "@nextui-org/kbd": "workspace:*",
     "@nextui-org/tabs": "workspace:*",
     "@nextui-org/skeleton": "workspace:*",
-    "@react-aria/visually-hidden": "^3.8.2"
+    "@react-aria/visually-hidden": "^3.8.3"
   },
   "peerDependencies": {
     "react": ">=18",

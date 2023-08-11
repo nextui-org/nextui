@@ -38,10 +38,10 @@
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
-    "@react-aria/utils": "^3.18.0",
-    "@react-stately/collections": "^3.9.0",
-    "@react-types/shared": "^3.18.1",
-    "@react-types/overlays": "^3.8.0"
+    "@react-aria/utils": "^3.19.0",
+    "@react-stately/collections": "^3.10.0",
+    "@react-types/shared": "^3.19.0",
+    "@react-types/overlays": "^3.8.1"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

@@ -6,7 +6,6 @@ export type {AccordionProps} from "./accordion";
 export type {AccordionItemProps} from "./accordion-item";
 export type {AccordionItemIndicatorProps} from "./base/accordion-item-base";
 export type {AccordionItemBaseProps} from "./base/accordion-item-base";
-export type {Selection} from "@react-types/shared";
 
 // export hooks
 export {useAccordionItem} from "./use-accordion-item";
