@@ -94,8 +94,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   );
 
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value ?? undefined,
-    props.defaultValue ?? undefined,
+    props.value,
+    props.defaultValue,
     handleValueChange,
   );
 
@@ -125,7 +125,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         originalProps?.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
-      value: inputValue,
+      value: inputValue ?? "",
       onChange: setInputValue,
     },
     domRef,
