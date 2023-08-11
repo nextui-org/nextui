@@ -4,7 +4,7 @@ module.exports = {
     "../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
-  staticDirs: ["../public"],
+  staticDirs: ["../public", "../../components/image/stories/assets"],
   addons: [
     "@storybook/addon-a11y",
     "@storybook/addon-essentials",
