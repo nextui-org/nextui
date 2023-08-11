@@ -272,7 +272,6 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     topContent,
     bottomContent,
     removeWrapper,
-    selectionMode,
     topContentPlacement,
     bottomContentPlacement,
     getBaseProps,

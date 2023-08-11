@@ -1,5 +1,38 @@
 # @nextui-org/input
 
+## 2.0.11
+
+### Patch Changes
+
+- [#1369](https://github.com/nextui-org/nextui/pull/1369) [`abe1ba58`](https://github.com/nextui-org/nextui/commit/abe1ba58de03d8651c24d01de5e2d0a91334b50e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix #1332 undefined value removed from input value
+
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.5
+
+## 2.0.9
+
+### Patch Changes
+
+- [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
+
+  - react-aria packages updgraded to the latest version
+  - image storybooks fixed
+  - other bug fixes..
+
+- Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
+  - @nextui-org/system@2.0.5
+
+## 2.0.8
+
+### Patch Changes
+
+- Updated dependencies [[`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d)]:
+  - @nextui-org/system@2.0.4
+
 ## 2.0.7
 
 ### Patch Changes

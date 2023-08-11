@@ -1,5 +1,13 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.5
+
+### Patch Changes
+
+- [#1365](https://github.com/nextui-org/nextui/pull/1365) [`fe03c42f`](https://github.com/nextui-org/nextui/commit/fe03c42fa144b5066ebc8ad39c144aeef437d2c6) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Update react aria types package
+
+- [#1365](https://github.com/nextui-org/nextui/pull/1365) [`fe03c42f`](https://github.com/nextui-org/nextui/commit/fe03c42fa144b5066ebc8ad39c144aeef437d2c6) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pointer events added to the default filter dom props function event list
+
 ## 2.0.4
 
 ### Patch Changes

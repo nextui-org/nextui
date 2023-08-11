@@ -1,5 +1,21 @@
 # @nextui-org/system
 
+## 2.0.5
+
+### Patch Changes
+
+- [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
+
+  - react-aria packages updgraded to the latest version
+  - image storybooks fixed
+  - other bug fixes..
+
+## 2.0.4
+
+### Patch Changes
+
+- [#1350](https://github.com/nextui-org/nextui/pull/1350) [`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Needless exports removed from system pkg
+
 ## 2.0.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/dropdown",
-  "version": "2.0.6",
+  "version": "2.0.9",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"
@@ -44,18 +44,18 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/menu": "^3.10.0",
-    "@react-aria/utils": "^3.18.0",
-    "@react-stately/menu": "^3.5.3",
-    "@react-aria/focus": "^3.13.0",
-    "@react-types/menu": "^3.9.2"
+    "@react-aria/menu": "^3.10.1",
+    "@react-aria/utils": "^3.19.0",
+    "@react-stately/menu": "^3.5.4",
+    "@react-aria/focus": "^3.14.0",
+    "@react-types/menu": "^3.9.3"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/user": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "framer-motion": "^10.12.18",
+    "framer-motion": "^10.15.1",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },
