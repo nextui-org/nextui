@@ -30,6 +30,7 @@ import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
+import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
@@ -154,7 +155,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
                         size="sm"
                         variant="flat"
                       >
-                        v2.0.0
+                        v{currentVersion}
                       </Button>
                     </DropdownTrigger>
                   </motion.div>
@@ -166,7 +167,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
                 selectionMode="single"
                 onAction={handleVersionChange}
               >
-                <DropdownItem key="v2">v2.0.0</DropdownItem>
+                <DropdownItem key="v2">v{currentVersion}</DropdownItem>
                 <DropdownItem key="v1" endContent={<LinkIcon />}>
                   v1.0.0
                 </DropdownItem>
