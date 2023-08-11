@@ -1,5 +1,13 @@
 # @nextui-org/code
 
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.5
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.6
 
 ### Patch Changes
