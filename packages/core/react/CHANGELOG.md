@@ -1,5 +1,40 @@
 # @nextui-org/react
 
+## 2.0.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.8
+  - @nextui-org/accordion@2.0.9
+  - @nextui-org/dropdown@2.0.9
+  - @nextui-org/avatar@2.0.9
+  - @nextui-org/badge@2.0.7
+  - @nextui-org/button@2.0.9
+  - @nextui-org/card@2.0.9
+  - @nextui-org/checkbox@2.0.9
+  - @nextui-org/chip@2.0.9
+  - @nextui-org/code@2.0.7
+  - @nextui-org/image@2.0.9
+  - @nextui-org/input@2.0.10
+  - @nextui-org/kbd@2.0.8
+  - @nextui-org/link@2.0.9
+  - @nextui-org/modal@2.0.10
+  - @nextui-org/navbar@2.0.9
+  - @nextui-org/pagination@2.0.10
+  - @nextui-org/popover@2.0.9
+  - @nextui-org/progress@2.0.9
+  - @nextui-org/radio@2.0.9
+  - @nextui-org/skeleton@2.0.7
+  - @nextui-org/snippet@2.0.10
+  - @nextui-org/spacer@2.0.7
+  - @nextui-org/spinner@2.0.7
+  - @nextui-org/switch@2.0.9
+  - @nextui-org/table@2.0.9
+  - @nextui-org/tabs@2.0.9
+  - @nextui-org/tooltip@2.0.10
+  - @nextui-org/user@2.0.9
+
 ## 2.0.12
 
 ### Patch Changes
