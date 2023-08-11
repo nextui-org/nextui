@@ -31,3 +31,4 @@ export * from "./skeleton";
 export * from "./select";
 export * from "./menu";
 export * from "./listbox";
+export * from "./scroll-shadow";

@@ -1,0 +1,36 @@
+import * as React from "react";
+import {render} from "@testing-library/react";
+import Lorem from "react-lorem-component";
+
+import {ScrollShadow} from "../src";
+
+describe("ScrollShadow", () => {
+  it("should render correctly", () => {
+    const wrapper = render(<ScrollShadow />);
+
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("ref should be forwarded", () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    render(<ScrollShadow ref={ref} />);
+    expect(ref.current).not.toBeNull();
+  });
+
+  it("should add bottom shadow", () => {
+    const wrapper = render(
+      <ScrollShadow
+        style={{
+          width: 300,
+          height: 400,
+        }}
+      >
+        <Lorem count={10} />
+      </ScrollShadow>,
+    );
+    const scrollShadow = wrapper.getByTestId("scroll-shadow");
+
+    expect(scrollShadow).toHaveAttribute("data-has-bottom-scroll");
+  });
+});

@@ -1669,6 +1669,34 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/scroll-shadow:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-data-scroll-overflow':
+        specifier: workspace:*
+        version: link:../../hooks/use-data-scroll-overflow
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-lorem-component:
+        specifier: 0.13.0
+        version: 0.13.0(react@18.2.0)
+
   packages/components/select:
     dependencies:
       '@nextui-org/aria-utils':
