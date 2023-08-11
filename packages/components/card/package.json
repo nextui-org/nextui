@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/card",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Card is a container for text, photos, and actions in the context of a single subject.",
   "keywords": [
     "card"

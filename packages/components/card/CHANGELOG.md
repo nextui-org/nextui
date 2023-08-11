@@ -1,5 +1,20 @@
 # @nextui-org/card
 
+## 2.0.8
+
+### Patch Changes
+
+- [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
+
+  - react-aria packages updgraded to the latest version
+  - image storybooks fixed
+  - other bug fixes..
+
+- Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
+  - @nextui-org/use-aria-button@2.0.3
+  - @nextui-org/ripple@2.0.8
+  - @nextui-org/system@2.0.5
+
 ## 2.0.7
 
 ### Patch Changes
