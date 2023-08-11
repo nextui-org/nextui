@@ -6,10 +6,10 @@ import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {user} from "@nextui-org/theme";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {filterDOMProps, ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
-export interface UseUserProps extends Omit<HTMLNextUIProps, "children"> {
+interface Props {
   /**
    * Ref to the DOM node.
    */
@@ -49,6 +49,8 @@ export interface UseUserProps extends Omit<HTMLNextUIProps, "children"> {
   classNames?: SlotsToClasses<UserSlots>;
 }
 
+export type UseUserProps = Props & Omit<HTMLNextUIProps<"div">, "children">;
+
 export function useUser(props: UseUserProps) {
   const {
     as,
@@ -66,6 +68,7 @@ export function useUser(props: UseUserProps) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -88,7 +91,12 @@ export function useUser(props: UseUserProps) {
       className: slots.base({
         class: baseStyles,
       }),
-      ...mergeProps(otherProps, canBeFocused ? focusProps : {}),
+      ...mergeProps(
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        canBeFocused ? focusProps : {},
+      ),
     }),
     [canBeFocused, slots, baseStyles, focusProps, otherProps],
   );
@@ -101,7 +109,6 @@ export function useUser(props: UseUserProps) {
     description,
     classNames,
     baseStyles,
-    focusProps,
     avatarProps,
     getUserProps,
   };

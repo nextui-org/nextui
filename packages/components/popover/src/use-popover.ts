@@ -243,7 +243,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "transparent",
     motionProps,
-    focusProps,
     getBackdropProps,
     getPopoverProps,
     getTriggerProps,

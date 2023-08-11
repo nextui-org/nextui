@@ -47,7 +47,7 @@ export default {
 
 const defaultProps = {
   ...image.defaultVariants,
-  src: require("./assets/local-image-1.jpeg"),
+  src: "./images/local-image-1.jpeg",
   alt: "NextUI hero image",
   disableSkeleton: true,
 };
@@ -82,7 +82,7 @@ export const Blurred = {
     ...defaultProps,
     width: 300,
     isBlurred: true,
-    src: require("./assets/local-image-small.jpg"),
+    src: "/images/local-image-small.jpg",
     // src:
     //   "https://images.unsplash.com/photo-1519638831568-d9897f54ed69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
   },
@@ -105,7 +105,7 @@ export const Shadow = {
     isZoomed: true,
     radius: "lg",
     shadow: "md",
-    src: require("./assets/local-image-small.jpg"),
+    src: "/images/local-image-small.jpg",
   },
 };
 
@@ -126,7 +126,7 @@ export const Fallback = {
     width: 300,
     radius: "lg",
     src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
-    fallbackSrc: "https://via.placeholder.com/300x450",
+    fallbackSrc: "/images/placeholder_300x450.png",
   },
 };
 
