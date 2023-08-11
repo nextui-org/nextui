@@ -1761,6 +1761,9 @@ importers:
       '@react-stately/table':
         specifier: ^3.11.0
         version: 3.11.0(react@18.2.0)
+      '@react-stately/virtualizer':
+        specifier: ^3.6.0
+        version: 3.6.1(react@18.2.0)
       '@react-types/grid':
         specifier: ^3.2.0
         version: 3.2.0(react@18.2.0)

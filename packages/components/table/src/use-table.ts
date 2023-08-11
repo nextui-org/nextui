@@ -4,7 +4,8 @@ import type {
   TableReturnType,
   TableSlots,
 } from "@nextui-org/theme";
-import type {SelectionBehavior, DisabledBehavior} from "@react-types/shared";
+import type {Layout} from "@react-stately/virtualizer";
+import type {SelectionBehavior, DisabledBehavior, Node} from "@react-types/shared";
 import type {TableState, TableStateProps} from "@react-stately/table";
 import type {TableCollection} from "@react-types/table";
 
@@ -22,7 +23,7 @@ import {CheckboxProps} from "@nextui-org/checkbox";
 
 type TableContentPlacement = "inside" | "outside";
 
-interface Props extends HTMLNextUIProps<"table"> {
+interface Props<T> extends HTMLNextUIProps<"table"> {
   /**
    * Ref to the DOM node.
    */
@@ -31,6 +32,10 @@ interface Props extends HTMLNextUIProps<"table"> {
    * The elements that make up the table. Includes the TableHeader, TableBody, Columns, and Rows.
    */
   children?: ReactNode;
+  /*
+   * The layout object for the table. Computes what content is visible and how to position and style them.
+   */
+  layoutNode?: Layout<Node<T>>;
   /**
    * A custom wrapper component for the table.
    * @default "div"
@@ -111,9 +116,9 @@ interface Props extends HTMLNextUIProps<"table"> {
   classNames?: SlotsToClasses<TableSlots>;
 }
 
-export type UseTableProps<T = object> = Props &
+export type UseTableProps<T = object> = Props<T> &
   TableStateProps<T> &
-  AriaTableProps<T> &
+  Omit<AriaTableProps<T>, "layout"> &
   TableVariantProps;
 
 export type ValuesType<T = object> = {
@@ -144,6 +149,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     children,
     className,
     classNames,
+    layoutNode,
     removeWrapper = false,
     disableAnimation = false,
     selectionMode = "none",
@@ -175,7 +181,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
 
   const {collection} = state;
 
-  const {gridProps} = useReactAriaTable<T>(originalProps, state, domRef);
+  const {gridProps} = useReactAriaTable<T>({...originalProps, layout: layoutNode}, state, domRef);
 
   const isSelectable = selectionMode !== "none";
   const isMultiSelectable = selectionMode === "multiple";
