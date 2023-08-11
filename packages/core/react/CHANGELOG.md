@@ -1,5 +1,43 @@
 # @nextui-org/react
 
+## 2.0.12
+
+### Patch Changes
+
+- [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
+
+  - react-aria packages updgraded to the latest version
+  - image storybooks fixed
+  - other bug fixes..
+
+- Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
+  - @nextui-org/pagination@2.0.9
+  - @nextui-org/accordion@2.0.8
+  - @nextui-org/checkbox@2.0.8
+  - @nextui-org/dropdown@2.0.8
+  - @nextui-org/progress@2.0.8
+  - @nextui-org/divider@2.0.7
+  - @nextui-org/popover@2.0.8
+  - @nextui-org/snippet@2.0.9
+  - @nextui-org/tooltip@2.0.9
+  - @nextui-org/avatar@2.0.8
+  - @nextui-org/button@2.0.8
+  - @nextui-org/navbar@2.0.8
+  - @nextui-org/switch@2.0.8
+  - @nextui-org/image@2.0.8
+  - @nextui-org/input@2.0.9
+  - @nextui-org/modal@2.0.9
+  - @nextui-org/radio@2.0.8
+  - @nextui-org/table@2.0.8
+  - @nextui-org/card@2.0.8
+  - @nextui-org/chip@2.0.8
+  - @nextui-org/link@2.0.8
+  - @nextui-org/tabs@2.0.8
+  - @nextui-org/user@2.0.8
+  - @nextui-org/kbd@2.0.7
+  - @nextui-org/system@2.0.5
+  - @nextui-org/badge@2.0.6
+
 ## 2.0.11
 
 ### Patch Changes
