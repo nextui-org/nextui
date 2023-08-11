@@ -13,12 +13,12 @@ const removeIgnoredFiles = async (files) => {
 };
 
 module.exports = {
-  "**/*.{cjs,mjs,js,ts,jsx,tsx}": async (files) => {
+  "**/*.{js,ts,jsx,tsx}": async (files) => {
     const filesToLint = await removeIgnoredFiles(files);
 
     return [`eslint -c .eslintrc.json --max-warnings=0 --fix ${filesToLint}`];
   },
-  "**/*.{css,json,md}": async (files) => {
+  "**/*.css": async (files) => {
     const filesToLint = await removeIgnoredFiles(files);
 
     return [`prettier --config .prettierrc.json --ignore-path --write ${filesToLint}`];

@@ -140,7 +140,7 @@ const ShuffleIcon = `export const ShuffleIcon = ({size = 24, width, height, ...p
   </svg>
 );`;
 
-const App = `import {Card, CardFooter, Image, Button, Progress} from "@nextui-org/react";
+const App = `import {Card, CardBody, Image, Button, Progress} from "@nextui-org/react";
 import {HeartIcon} from "./HeartIcon";
 import {PauseCircleIcon} from "./PauseCircleIcon";
 import {NextIcon} from "./NextIcon";

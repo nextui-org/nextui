@@ -1,5 +1,14 @@
 # @nextui-org/button
 
+## 2.0.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.5
+  - @nextui-org/ripple@2.0.9
+  - @nextui-org/spinner@2.0.7
+
 ## 2.0.8
 
 ### Patch Changes
