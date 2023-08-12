@@ -37,7 +37,6 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
     item,
     state,
     shortcut,
-    key: keyProp,
     description,
     startContent,
     endContent,
@@ -122,7 +121,6 @@ export function useDropdownItem<T extends object>(originalProps: UseDropdownItem
   }
 
   const getItemProps: PropGetter = (props = {}) => ({
-    key: keyProp || key,
     ref: domRef,
     ...mergeProps(
       itemProps,
