@@ -1,5 +1,13 @@
 # @nextui-org/react
 
+## 2.0.16
+
+### Patch Changes
+
+- Updated dependencies [[`fd4e01dc`](https://github.com/nextui-org/nextui/commit/fd4e01dcfa5039e363089ada2bd18d7f57ef2d42)]:
+  - @nextui-org/dropdown@2.0.10
+  - @nextui-org/navbar@2.0.9
+
 ## 2.0.15
 
 ### Patch Changes
