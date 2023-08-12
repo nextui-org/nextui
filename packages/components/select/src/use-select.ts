@@ -265,19 +265,19 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
 
   const getListboxWrapperProps: PropGetter = useCallback(
     (props = {}) => ({
-      className: slots.menuWrapper({
-        class: clsx(classNames?.menuWrapper, props?.className),
+      className: slots.listboxWrapper({
+        class: clsx(classNames?.listboxWrapper, props?.className),
       }),
     }),
-    [slots.menuWrapper, classNames?.menuWrapper],
+    [slots.listboxWrapper, classNames?.listboxWrapper],
   );
 
   const getListboxProps = (props: any = {}) => {
     return {
       state,
       ref: listboxRef,
-      className: slots.menu({
-        class: clsx(classNames?.menu, props?.className),
+      className: slots.listbox({
+        class: clsx(classNames?.listbox, props?.className),
       }),
       ...mergeProps(menuProps, userListboxProps, props),
     } as ListboxProps;

@@ -2,6 +2,7 @@ import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-or
 import type {HTMLMotionProps} from "framer-motion";
 import type {RefObject, Ref} from "react";
 
+import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
 import {useOverlayTrigger, ariaHideOutside} from "@react-aria/overlays";
@@ -19,7 +20,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: RefObject<HTMLDivElement>;
+  ref?: ReactRef<HTMLDivElement | null>;
   /**
    * The controlled state of the popover.
    */
@@ -74,12 +75,11 @@ export type UsePopoverProps = Props &
 
 export function usePopover(originalProps: UsePopoverProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
-  const ref = useRef<HTMLDivElement>(null);
 
   const {
     as,
     children,
-    ref: popoverRef = ref,
+    ref,
     state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
@@ -105,6 +105,8 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const Component = as || "div";
   const popoverId = useId();
+
+  const domRef = useDOMRef(ref);
 
   const domTriggerRef = useRef<HTMLElement>(null);
 
@@ -133,7 +135,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   } = useReactAriaPopover(
     {
       triggerRef,
-      popoverRef,
+      popoverRef: domRef,
       placement: placementProp,
       offset: offset,
       scrollRef,
@@ -160,7 +162,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   const baseStyles = clsx(classNames?.base, className);
 
   const getPopoverProps: PropGetter = (props = {}) => ({
-    ref: popoverRef,
+    ref: domRef,
     ...mergeProps(popoverProps, otherProps, props),
     id: popoverId,
   });
@@ -216,10 +218,10 @@ export function usePopover(originalProps: UsePopoverProps) {
   );
 
   useLayoutEffect(() => {
-    if (state.isOpen && popoverRef.current) {
-      return ariaHideOutside([popoverRef.current]);
+    if (state.isOpen && domRef?.current) {
+      return ariaHideOutside([domRef?.current]);
     }
-  }, [state.isOpen, popoverRef]);
+  }, [state.isOpen, domRef]);
 
   return {
     Component,

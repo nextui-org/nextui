@@ -50,6 +50,7 @@ const menuItem = tv({
       "h-full",
       "box-border",
       "rounded-small",
+      "subpixel-antialiased",
       "outline-none",
       "cursor-pointer",
       "tap-highlight-transparent",

@@ -24,7 +24,7 @@ describe("Popover", () => {
     const ref = React.createRef<HTMLDivElement>();
 
     render(
-      <Popover ref={ref}>
+      <Popover ref={ref} defaultOpen>
         <PopoverTrigger>
           <button>Open popover</button>
         </PopoverTrigger>
