@@ -106,6 +106,20 @@ const menuItem = tv({
       warning: {},
       danger: {},
     },
+    showDivider: {
+      true: {
+        base: [
+          "after:content-['']",
+          "after:absolute",
+          "after:bottom-0",
+          "after:left-0",
+          "after:right-0",
+          "after:h-divider",
+          "after:bg-divider",
+        ],
+      },
+      false: {},
+    },
     isDisabled: {
       true: {
         base: "opacity-disabled pointer-events-none",
@@ -120,6 +134,7 @@ const menuItem = tv({
     variant: "solid",
     color: "default",
     disableAnimation: false,
+    showDivider: false,
   },
   compoundVariants: [
     // solid / color
