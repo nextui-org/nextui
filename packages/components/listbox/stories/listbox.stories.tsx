@@ -483,6 +483,7 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
             <TagIcon className="text-lg " />
           </IconWrapper>
         }
+        textValue="Releases"
       >
         <div className="flex flex-col gap-1">
           <span>Releases</span>

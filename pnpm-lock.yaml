@@ -1735,12 +1735,18 @@ importers:
       '@react-aria/utils':
         specifier: ^3.18.0
         version: 3.19.0(react@18.2.0)
+      '@react-aria/visually-hidden':
+        specifier: ^3.8.3
+        version: 3.8.3(react@18.2.0)
       '@react-stately/select':
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
       '@react-stately/tree':
         specifier: ^3.7.0
         version: 3.7.1(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2198,6 +2204,12 @@ importers:
       '@nextui-org/link':
         specifier: workspace:*
         version: link:../../components/link
+      '@nextui-org/listbox':
+        specifier: workspace:*
+        version: link:../../components/listbox
+      '@nextui-org/menu':
+        specifier: workspace:*
+        version: link:../../components/menu
       '@nextui-org/modal':
         specifier: workspace:*
         version: link:../../components/modal
@@ -2219,6 +2231,9 @@ importers:
       '@nextui-org/scroll-shadow':
         specifier: workspace:*
         version: link:../../components/scroll-shadow
+      '@nextui-org/select':
+        specifier: workspace:*
+        version: link:../../components/select
       '@nextui-org/skeleton':
         specifier: workspace:*
         version: link:../../components/skeleton

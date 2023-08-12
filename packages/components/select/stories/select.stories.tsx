@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {select} from "@nextui-org/theme";
+import {select, button} from "@nextui-org/theme";
 
 import {Select, SelectItem, SelectProps} from "../src";
 
@@ -78,26 +78,53 @@ const items = [
   </SelectItem>
 ));
 
-// const Template = ({color, variant, ...args}: SelectProps) => (
-//   <Select
-//     aria-label="Favorite Animal"
-//     className="max-w-xs"
-//     color={color}
-//     label="Favorite Animal"
-//     variant={variant}
-//     {...args}
-//   >
-//     {items}
-//   </Select>
-// );
+const Template = ({color, variant, ...args}: SelectProps) => (
+  <Select
+    aria-label="Favorite Animal"
+    className="max-w-xs"
+    color={color}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {items}
+  </Select>
+);
+
+const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
+  return (
+    <form
+      className="w-full max-w-xs items-end flex flex-col gap-4"
+      onSubmit={(e) => {
+        alert("Submitted");
+        e.preventDefault();
+      }}
+    >
+      <Select
+        isRequired
+        aria-label="Favorite Animal"
+        color={color}
+        label="Favorite Animal"
+        name="favorite-animal"
+        variant={variant}
+        {...args}
+      >
+        {items}
+      </Select>
+      <button className={button({className: "max-w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
 
 const MirrorTemplate = ({color, variant, ...args}: SelectProps) => (
   <div className="w-full max-w-xl flex flex-row gap-4">
     <Select
-      aria-label="Favorite Animal"
+      aria-label="Select an animal"
       className="max-w-xs"
       color={color}
-      label="Favorite Animal"
+      label="Select an animal"
       variant={variant}
       {...args}
     >
@@ -122,5 +149,24 @@ export const Default = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const Required = {
+  render: RequiredTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Disabled = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    selectedKey: "cat",
+    variant: "faded",
+    isDisabled: true,
   },
 };

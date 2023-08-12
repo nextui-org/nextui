@@ -20,8 +20,18 @@ interface Props extends HTMLNextUIProps<"button"> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * Whether the select is required.
+   * @default false
+   */
+  isRequired?: boolean;
+  /**
+   * Props to be passed to the popover component.
+   */
   popoverProps?: PopoverProps;
-  disableAnimation?: boolean;
+  /**
+   * Props to be passed to the listbox component.
+   */
   listboxProps?: ListboxProps;
   /**
    * The icon that represents the select open state. Usually a chevron icon.
@@ -45,6 +55,12 @@ interface Props extends HTMLNextUIProps<"button"> {
    * @default true
    */
   showScrollIndicators?: boolean;
+  /**
+   *
+   * @param value
+   * @returns
+   */
+  renderValue?: (value: any) => React.ReactNode;
   /**
    * Callback fired when the select menu is closed.
    */
@@ -101,6 +117,8 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
   const state = useSelectState<T>({
     ...props,
     isOpen,
+    isRequired: originalProps?.isRequired,
+    isDisabled: originalProps?.isDisabled,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
@@ -114,7 +132,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
   });
 
   const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useAriaSelect(props, state, domRef);
+    useAriaSelect({...props, isDisabled: originalProps?.isDisabled}, state, domRef);
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, domRef);
 
@@ -178,8 +196,9 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
 
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-filled": dataAttr(isFilled || state.isOpen),
       className: slots.base({
-        class: clsx(baseStyles, props.className, isFilled || state.isOpen ? "is-filled" : ""),
+        class: clsx(baseStyles, props.className),
       }),
       ...props,
     }),
@@ -229,16 +248,26 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     ],
   );
 
-  const getInputProps = useCallback(
+  const getHiddenSelectProps = useCallback(
     (props = {}) =>
       ({
         state,
         label: originalProps?.label,
         name: originalProps?.name,
         triggerRef: domRef,
+        isRequired: originalProps?.isRequired,
+        autoComplete: originalProps?.autoComplete,
+        isDisabled: originalProps?.isDisabled,
         ...props,
       } as HiddenSelectProps<T>),
-    [state, originalProps?.label, originalProps?.name, domRef],
+    [
+      state,
+      originalProps?.label,
+      originalProps?.autoComplete,
+      originalProps?.name,
+      originalProps?.isDisabled,
+      domRef,
+    ],
   );
 
   const getLabelProps: PropGetter = useCallback(
@@ -372,11 +401,11 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     shouldLabelBeInside,
     getBaseProps,
     getTriggerProps,
-    getInputProps,
     getLabelProps,
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getHiddenSelectProps,
     getListboxWrapperProps,
     getInnerWrapperProps,
     getHelperWrapperProps,

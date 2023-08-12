@@ -4,9 +4,9 @@ import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
 import {FocusScope} from "@react-aria/focus";
-import {HiddenSelect} from "@react-aria/select";
 import {cloneElement, ReactElement, useMemo} from "react";
 
+import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
 
 export interface SelectProps extends Omit<UseSelectProps, "isLabelPlaceholder"> {}
@@ -23,14 +23,16 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     startContent,
     endContent,
     placeholder,
+    labelPlacement,
     getBaseProps,
     getLabelProps,
     getTriggerProps,
-    getInnerWrapperProps,
-    getInputProps,
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    shouldLabelBeOutside,
+    getInnerWrapperProps,
+    getHiddenSelectProps,
     getListboxWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,
@@ -65,11 +67,12 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
 
   return (
     <div {...getBaseProps()}>
-      <HiddenSelect {...getInputProps()} />
+      <HiddenSelect {...getHiddenSelectProps()} />
+      {shouldLabelBeOutside ? labelContent : null}
       <Popover {...getPopoverProps()}>
         <PopoverTrigger>
           <Component {...getTriggerProps()}>
-            {labelContent}
+            {labelPlacement === "inside" ? labelContent : null}
             <div {...getInnerWrapperProps()}>
               {startContent}
               <span {...getValueProps()}>

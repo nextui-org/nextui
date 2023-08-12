@@ -49,10 +49,12 @@
     "@react-aria/interactions": "^3.16.0",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@react-aria/visually-hidden": "^3.8.3",
     "@react-aria/focus": "^3.13.0",
     "@react-aria/select": "^3.11.0",
     "@react-stately/select": "^3.5.2",
-    "@react-stately/tree": "^3.7.0"
+    "@react-stately/tree": "^3.7.0",
+    "@react-types/shared": "^3.19.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

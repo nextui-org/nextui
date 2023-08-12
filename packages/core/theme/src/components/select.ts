@@ -10,7 +10,7 @@ const select = tv({
     trigger: "relative outline-none w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     icon: "absolute right-3 w-4 h-4 data-[open=true]:rotate-180",
-    value: "font-normal text-left",
+    value: "font-normal text-left opacity-60 group-data-[filled=true]:opacity-100",
     listboxWrapper: "max-h-64 w-full",
     listbox: "",
     popover: "w-full p-1 overflow-hidden",
@@ -112,13 +112,13 @@ const select = tv({
     },
     labelPlacement: {
       outside: {
-        base: "data-[has-helper=true]:pb-4 lex flex-col",
+        base: "data-[has-helper=true]:pb-4 lex flex-col gap-0",
         label: "text-foreground pb-1.5",
         description: "absolute left-1",
         errorMessage: "absolute left-1",
       },
       "outside-left": {
-        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4",
+        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4 gap-0",
         label: "text-foreground pr-2",
         description: "absolute left-1",
         errorMessage: "absolute left-1",
@@ -136,6 +136,13 @@ const select = tv({
     isLabelPlaceholder: {
       true: {
         label: "absolute z-10 pointer-events-none",
+      },
+    },
+    isDisabled: {
+      true: {
+        base: "opacity-disabled !pointer-events-none",
+        trigger: "!pointer-events-none",
+        label: "!pointer-events-none",
       },
     },
     isInvalid: {
@@ -454,8 +461,8 @@ const select = tv({
       class: {
         label: [
           "font-normal",
-          "group-[.is-filled]:font-medium",
-          "group-[.is-filled]:pointer-events-auto",
+          "group-data-[filled=true]:font-medium",
+          "group-data-[filled=true]:pointer-events-auto",
         ],
       },
     },
@@ -464,7 +471,13 @@ const select = tv({
       labelPlacement: "outside",
       class: {
         base: "group relative justify-end",
-        label: ["pb-0", "group-[.is-filled]:left-0", "group-[.is-filled]:text-foreground"],
+        label: [
+          "pb-0",
+          "z-20",
+          "opacity-60",
+          "group-data-[filled=true]:opacity-100",
+          "group-data-[filled=true]:left-0",
+        ],
       },
     },
     // isLabelPlaceholder & inside & size
@@ -473,7 +486,7 @@ const select = tv({
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-small", "group-[.is-filled]:text-tiny"],
+        label: ["text-small", "group-data-[filled=true]:text-tiny"],
         input: "pt-4",
       },
     },
@@ -482,7 +495,7 @@ const select = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        label: ["group-[.is-filled]:-translate-y-2.5"],
+        label: ["group-data-[filled=true]:-translate-y-2.5"],
         innerWrapper: "pt-4",
       },
     },
@@ -491,7 +504,7 @@ const select = tv({
       labelPlacement: "inside",
       size: "md",
       class: {
-        label: ["group-[.is-filled]:-translate-y-3"],
+        label: ["group-data-[filled=true]:-translate-y-3"],
         innerWrapper: "pt-4",
       },
     },
@@ -502,10 +515,47 @@ const select = tv({
       class: {
         label: [
           "text-medium",
-          "group-[.is-filled]:text-small",
-          "group-[.is-filled]:-translate-y-3",
+          "group-data-[filled=true]:text-small",
+          "group-data-[filled=true]:-translate-y-3",
         ],
         innerWrapper: "pt-6",
+      },
+    },
+    // isLabelPlaceholder & outside & size
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "outside",
+      size: "sm",
+      class: {
+        label: [
+          "text-small",
+          "bottom-1.5",
+          "left-2",
+          "group-data-[filled=true]:text-tiny",
+          "group-data-[filled=true]:bottom-10",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "outside",
+      size: "md",
+      class: {
+        label: ["text-small", "bottom-2.5", "left-3", "group-data-[filled=true]:bottom-12"],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "outside",
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "bottom-3",
+          "left-3",
+          "group-data-[filled=true]:text-small",
+          "group-data-[filled=true]:bottom-14",
+        ],
       },
     },
   ],
