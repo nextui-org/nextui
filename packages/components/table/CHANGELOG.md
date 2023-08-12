@@ -1,5 +1,11 @@
 # @nextui-org/table
 
+## 2.0.10
+
+### Patch Changes
+
+- [#1372](https://github.com/nextui-org/nextui/pull/1372) [`3e263aa8`](https://github.com/nextui-org/nextui/commit/3e263aa882ca3385d63498ec33d86dcb818097ef) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React aria layout property renamed to layoutNode to avoid conflicts with the variants one
+
 ## 2.0.9
 
 ### Patch Changes
