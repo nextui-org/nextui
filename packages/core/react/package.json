@@ -72,6 +72,7 @@
     "@nextui-org/kbd": "workspace:*",
     "@nextui-org/tabs": "workspace:*",
     "@nextui-org/skeleton": "workspace:*",
+    "@nextui-org/scroll-shadow": "workspace:*",
     "@react-aria/visually-hidden": "^3.8.3"
   },
   "peerDependencies": {

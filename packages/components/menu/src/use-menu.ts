@@ -6,7 +6,6 @@ import {menu, MenuVariantProps} from "@nextui-org/theme";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
-import {useDataScrollOverflow} from "@nextui-org/use-data-scroll-overflow";
 
 import {MenuItemProps} from "./menu-item";
 
@@ -65,7 +64,6 @@ export function useMenu(props: UseMenuProps) {
     className,
     state: propState,
     menuProps: userMenuProps,
-    shouldApplyScrollMask = true,
     onClose,
     ...otherProps
   } = props;
@@ -80,12 +78,7 @@ export function useMenu(props: UseMenuProps) {
 
   const {menuProps} = useAriaMenu(otherProps, state, domRef);
 
-  const styles = useMemo(
-    () => menu({className, shouldApplyScrollMask}),
-    [shouldApplyScrollMask, className],
-  );
-
-  useDataScrollOverflow({domRef, isEnabled: shouldApplyScrollMask});
+  const styles = useMemo(() => menu({className}), [className]);
 
   const getMenuProps: PropGetter = (props = {}) => {
     return {

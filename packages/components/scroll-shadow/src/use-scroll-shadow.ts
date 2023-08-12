@@ -12,10 +12,15 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
-   * The shadow height in pixels.
+   * The shadow size in pixels.
    * @default 40
    */
-  height?: number;
+  size?: number;
+  /**
+   * The scroll offset to show the shadow.
+   * @default 0
+   */
+  offset?: number;
 }
 
 export type UseScrollShadowProps = Props & ScrollShadowVariantProps;
@@ -23,13 +28,13 @@ export type UseScrollShadowProps = Props & ScrollShadowVariantProps;
 export function useScrollShadow(originalProps: UseScrollShadowProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, scrollShadow.variantKeys);
 
-  const {ref, as, children, className, height = 40, style, ...otherProps} = props;
+  const {ref, as, children, className, size = 40, offset = 0, style, ...otherProps} = props;
 
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
 
-  useDataScrollOverflow({domRef});
+  useDataScrollOverflow({domRef, offset, overflowCheck: originalProps.orientation ?? "vertical"});
 
   const styles = useMemo(
     () =>
@@ -43,8 +48,9 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
   const getBaseProps: PropGetter = (props = {}) => ({
     ref: domRef,
     className: styles,
+    "data-orientation": originalProps.orientation ?? "vertical",
     style: {
-      "--scroll-shadow-height": `${height}px`,
+      "--scroll-shadow-size": `${size}px`,
       ...style,
       ...props.style,
     },

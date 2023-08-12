@@ -1,5 +1,6 @@
 import {Listbox} from "@nextui-org/listbox";
 import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/popover";
+import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
 import {FocusScope} from "@react-aria/focus";
@@ -30,6 +31,7 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getListboxWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
@@ -80,7 +82,9 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
         </PopoverTrigger>
         <PopoverContent>
           <FocusScope contain restoreFocus>
-            <Listbox {...getListboxProps()} />
+            <ScrollShadow hideScrollBar {...getListboxWrapperProps()}>
+              <Listbox {...getListboxProps()} />
+            </ScrollShadow>
           </FocusScope>
         </PopoverContent>
       </Popover>

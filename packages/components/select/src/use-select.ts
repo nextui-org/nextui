@@ -263,6 +263,15 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     [slots, classNames?.value, valueProps],
   );
 
+  const getListboxWrapperProps: PropGetter = useCallback(
+    (props = {}) => ({
+      className: slots.menuWrapper({
+        class: clsx(classNames?.menuWrapper, props?.className),
+      }),
+    }),
+    [slots.menuWrapper, classNames?.menuWrapper],
+  );
+
   const getListboxProps = (props: any = {}) => {
     return {
       state,
@@ -368,6 +377,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getListboxWrapperProps,
     getInnerWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,

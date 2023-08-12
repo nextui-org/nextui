@@ -1,12 +1,34 @@
 import {useEffect} from "react";
 
 export interface UseDataScrollOverflowProps {
+  /**
+   * The reference to the DOM element on which we're checking overflow.
+   */
   domRef?: React.RefObject<HTMLElement>;
+  /**
+   * Determines the direction of overflow to check.
+   * - "horizontal" will check for overflow on the x-axis.
+   * - "vertical" will check for overflow on the y-axis.
+   * - "both" (default) will check for overflow on both axes.
+   *
+   * @default "both"
+   */
+  overflowCheck?: "horizontal" | "vertical" | "both";
+  /**
+   * Enables or disables the overflow checking mechanism.
+   * @default true
+   */
   isEnabled?: boolean;
+  /**
+   * Defines a buffer or margin within which we won't treat the scroll as reaching the edge.
+   *
+   * @default 0 - meaning the check will behave exactly at the edge.
+   */
+  offset?: number;
 }
 
 export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
-  const {domRef, isEnabled = true} = props;
+  const {domRef, isEnabled = true, overflowCheck = "vertical", offset = 0} = props;
 
   useEffect(() => {
     const el = domRef?.current;
@@ -14,17 +36,36 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
     const checkOverflow = () => {
       if (!el) return;
 
-      const hasElementsAbove = el.scrollTop > 0;
-      const hasElementsBelow = el.scrollTop + el.clientHeight < el.scrollHeight;
+      // Vertical overflow
+      if (overflowCheck === "vertical" || overflowCheck === "both") {
+        const hasElementsAbove = el.scrollTop > offset;
+        const hasElementsBelow = el.scrollTop + el.clientHeight + offset < el.scrollHeight;
 
-      if (hasElementsAbove && hasElementsBelow) {
-        el.dataset.hasBothScroll = "true";
-        el.dataset.hasTopScroll = "false";
-        el.dataset.hasBottomScroll = "false";
-      } else {
-        el.dataset.hasBothScroll = "false";
-        el.dataset.hasTopScroll = hasElementsAbove.toString();
-        el.dataset.hasBottomScroll = hasElementsBelow.toString();
+        if (hasElementsAbove && hasElementsBelow) {
+          el.dataset.topBottomScroll = "true";
+          el.removeAttribute("data-top-scroll");
+          el.removeAttribute("data-bottom-scroll");
+        } else {
+          el.dataset.topScroll = hasElementsAbove.toString();
+          el.dataset.bottomScroll = hasElementsBelow.toString();
+          el.removeAttribute("data-top-bottom-scroll");
+        }
+      }
+
+      // Horizontal overflow
+      if (overflowCheck === "horizontal" || overflowCheck === "both") {
+        const hasElementsLeft = el.scrollLeft > offset;
+        const hasElementsRight = el.scrollLeft + el.clientWidth + offset < el.scrollWidth;
+
+        if (hasElementsLeft && hasElementsRight) {
+          el.dataset.leftRightScroll = "true";
+          el.removeAttribute("data-left-scroll");
+          el.removeAttribute("data-right-scroll");
+        } else {
+          el.dataset.leftScroll = hasElementsLeft.toString();
+          el.dataset.rightScroll = hasElementsRight.toString();
+          el.removeAttribute("data-left-right-scroll");
+        }
       }
     };
 
@@ -36,7 +77,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
       // Cleanup listener when component unmounts
       el?.removeEventListener("scroll", checkOverflow);
     };
-  }, [isEnabled]);
+  }, [isEnabled, overflowCheck, domRef]);
 }
 
 export type UseDataScrollOverflowReturn = ReturnType<typeof useDataScrollOverflow>;

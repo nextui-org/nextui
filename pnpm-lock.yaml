@@ -1188,9 +1188,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@nextui-org/use-data-scroll-overflow':
-        specifier: workspace:*
-        version: link:../../hooks/use-data-scroll-overflow
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
@@ -1246,9 +1243,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@nextui-org/use-data-scroll-overflow':
-        specifier: workspace:*
-        version: link:../../hooks/use-data-scroll-overflow
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
@@ -1711,6 +1705,9 @@ importers:
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
+      '@nextui-org/scroll-shadow':
+        specifier: workspace:*
+        version: link:../scroll-shadow
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
@@ -2216,6 +2213,9 @@ importers:
       '@nextui-org/radio':
         specifier: workspace:*
         version: link:../../components/radio
+      '@nextui-org/scroll-shadow':
+        specifier: workspace:*
+        version: link:../../components/scroll-shadow
       '@nextui-org/skeleton':
         specifier: workspace:*
         version: link:../../components/skeleton

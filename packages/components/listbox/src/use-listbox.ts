@@ -4,7 +4,6 @@ import {listbox, ListboxVariantProps} from "@nextui-org/theme";
 import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
-import {useDataScrollOverflow} from "@nextui-org/use-data-scroll-overflow";
 
 import {ListboxItemProps} from "./listbox-item";
 
@@ -46,7 +45,6 @@ export function useListbox(props: UseListboxProps) {
     variant,
     color,
     onAction,
-    shouldApplyScrollMask = true,
     onSelectionChange,
     disableAnimation,
     itemClasses,
@@ -64,12 +62,7 @@ export function useListbox(props: UseListboxProps) {
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);
 
-  const styles = useMemo(
-    () => listbox({shouldApplyScrollMask, className}),
-    [shouldApplyScrollMask, className],
-  );
-
-  useDataScrollOverflow({domRef, isEnabled: shouldApplyScrollMask});
+  const styles = useMemo(() => listbox({className}), [className]);
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {

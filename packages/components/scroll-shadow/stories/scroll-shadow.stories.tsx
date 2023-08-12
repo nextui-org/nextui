@@ -9,21 +9,16 @@ export default {
   title: "Components/ScrollShadow",
   component: ScrollShadow,
   argTypes: {
-    color: {
+    orientation: {
       control: {type: "select"},
-      options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+      options: ["horizontal", "vertical"],
     },
-    radius: {
-      control: {type: "select"},
-      options: ["none", "sm", "md", "lg", "full"],
+    offset: {
+      control: {type: "number"},
     },
-    size: {
-      control: {type: "select"},
-      options: ["sm", "md", "lg"],
-    },
-    isDisabled: {
-      control: {
-        type: "boolean",
+    children: {
+      table: {
+        disable: true,
       },
     },
   },
@@ -41,5 +36,50 @@ export const Default = {
   render: Template,
   args: {
     ...defaultProps,
+  },
+};
+
+export const HideScrollBar = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    hideScrollBar: true,
+  },
+};
+
+export const CustomShadowSize = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    size: 100,
+  },
+};
+
+export const HorizontalOrientation = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    orientation: "horizontal",
+    className: "max-w-[400px] max-h-[500px]",
+    children: (
+      <div className="w-[800px]">
+        <Lorem count={10} />,
+      </div>
+    ),
+  },
+};
+
+export const ShadowOffset = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    offset: 100,
+    orientation: "horizontal",
+    className: "max-w-[400px] max-h-[500px]",
+    children: (
+      <div className="w-[800px]">
+        <Lorem count={10} />,
+      </div>
+    ),
   },
 };

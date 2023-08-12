@@ -21,6 +21,7 @@ describe("ScrollShadow", () => {
   it("should add bottom shadow", () => {
     const wrapper = render(
       <ScrollShadow
+        data-testid="scroll-shadow"
         style={{
           width: 300,
           height: 400,
@@ -31,6 +32,24 @@ describe("ScrollShadow", () => {
     );
     const scrollShadow = wrapper.getByTestId("scroll-shadow");
 
-    expect(scrollShadow).toHaveAttribute("data-has-bottom-scroll");
+    expect(scrollShadow).toHaveAttribute("data-bottom-scroll");
+  });
+
+  it("should add right shadow", () => {
+    const wrapper = render(
+      <ScrollShadow
+        data-testid="scroll-shadow"
+        orientation="horizontal"
+        style={{
+          width: 300,
+          height: 400,
+        }}
+      >
+        <Lorem count={10} />
+      </ScrollShadow>,
+    );
+    const scrollShadow = wrapper.getByTestId("scroll-shadow");
+
+    expect(scrollShadow).toHaveAttribute("data-right-scroll");
   });
 });

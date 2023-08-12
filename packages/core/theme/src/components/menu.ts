@@ -10,19 +10,7 @@ import {dataFocusVisibleClasses} from "../utils";
 
  */
 const menu = tv({
-  base: ["w-full flex flex-col gap-0.5 p-1 outline-none max-h-64 scrollbar-hide overflow-auto"],
-  variants: {
-    shouldApplyScrollMask: {
-      true: [
-        "data-[has-top-scroll=true]:[mask-image:linear-gradient(0deg,#000_calc(100%_-_40px),transparent)]",
-        "data-[has-bottom-scroll=true]:[mask-image:linear-gradient(180deg,#000_calc(100%_-_40px),transparent)]",
-        "data-[has-both-scroll=true]:[mask-image:linear-gradient(#000,#000,transparent_0,#000_40px,#000_calc(100%_-_40px),transparent)]",
-      ],
-    },
-  },
-  defaultVariants: {
-    shouldApplyScrollMask: true,
-  },
+  base: "w-full flex flex-col gap-0.5 p-1 outline-none",
 });
 
 /**

@@ -44,6 +44,7 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/scroll-shadow": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@react-aria/interactions": "^3.16.0",
     "@nextui-org/system": "workspace:*",

@@ -11,6 +11,7 @@ const select = tv({
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     icon: "absolute right-3 w-4 h-4 data-[open=true]:rotate-180",
     value: "font-normal text-left",
+    menuWrapper: "max-h-64 w-full",
     menu: "",
     popover: "w-full p-1 overflow-hidden",
     helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
