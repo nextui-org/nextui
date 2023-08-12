@@ -1,5 +1,12 @@
 # @nextui-org/react
 
+## 2.0.15
+
+### Patch Changes
+
+- Updated dependencies [[`3e263aa8`](https://github.com/nextui-org/nextui/commit/3e263aa882ca3385d63498ec33d86dcb818097ef)]:
+  - @nextui-org/table@2.0.10
+
 ## 2.0.14
 
 ### Patch Changes

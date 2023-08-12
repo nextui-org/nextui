@@ -79,7 +79,6 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
 
     return (
       <Component
-        key={item.key}
         data-slot="base"
         {...mergeProps(itemProps, otherProps)}
         className={slots.base({class: baseStyles})}
