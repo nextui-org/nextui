@@ -7,7 +7,7 @@ import {CheckboxIcon} from "./checkbox-icon";
 
 export interface CheckboxProps extends UseCheckboxProps {}
 
-const Checkbox = forwardRef<"label", CheckboxProps>((props, ref) => {
+const Checkbox = forwardRef<"input", CheckboxProps>((props, ref) => {
   const {
     Component,
     children,

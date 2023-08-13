@@ -5,7 +5,7 @@ import {UseRadioProps, useRadio} from "./use-radio";
 
 export interface RadioProps extends UseRadioProps {}
 
-const Radio = forwardRef<"label", RadioProps>((props, ref) => {
+const Radio = forwardRef<"input", RadioProps>((props, ref) => {
   const {
     Component,
     children,
