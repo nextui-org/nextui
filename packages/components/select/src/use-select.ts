@@ -152,7 +152,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
   const shouldLabelBeInside = labelPlacement === "inside";
   const isLabelPlaceholder = !hasPlaceholder && labelPlacement !== "outside-left";
-  const isFilled = !!state.selectedItem;
+  const isFilled = state.isOpen || !!state.selectedItem || !!startContent || !!endContent;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -196,13 +196,13 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
 
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
-      "data-filled": dataAttr(isFilled || state.isOpen),
+      "data-filled": dataAttr(isFilled),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
       ...props,
     }),
-    [slots, isFilled, state.isOpen, baseStyles],
+    [slots, isFilled, baseStyles],
   );
 
   const getTriggerProps: PropGetter = useCallback(

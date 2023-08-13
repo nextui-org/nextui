@@ -225,7 +225,7 @@ const input = tv({
           "origin-top-left",
           "transition-all",
           "!duration-200",
-          "!ease-[cubic-bezier(0,0,0.2,1)]",
+          "!ease-out",
           "motion-reduce:transition-none",
         ],
         clearButton: ["transition-opacity", "motion-reduce:transition-none"],

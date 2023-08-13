@@ -1,6 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
+import {PetBoldIcon} from "@nextui-org/shared-icons";
 
 import {Select, SelectItem, SelectProps} from "../src";
 
@@ -144,6 +145,97 @@ const MirrorTemplate = ({color, variant, ...args}: SelectProps) => (
   </div>
 );
 
+const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
+  <div className="w-full flex flex-col items-center gap-12">
+    <div className="w-full max-w-2xl flex flex-col gap-3">
+      <h3>Without placeholder</h3>
+      <div className="w-full flex flex-row items-end gap-4">
+        <Select
+          aria-label="Select an animal"
+          color={color}
+          label="Select an animal"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+        <Select
+          aria-label="Select an animal"
+          color={color}
+          label="Select an animal"
+          labelPlacement="outside"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+        <Select
+          aria-label="Select an animal"
+          color={color}
+          label="Select an animal"
+          labelPlacement="outside-left"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+      </div>
+    </div>
+    <div className="w-full max-w-2xl flex flex-col gap-3">
+      <h3>With placeholder</h3>
+      <div className="w-full flex flex-row items-end gap-4">
+        <Select
+          aria-label="Select an animal"
+          color={color}
+          label="Favorite Animal"
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+        <Select
+          aria-label="Select an animal"
+          color={color}
+          label="Favorite Animal"
+          labelPlacement="outside"
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+        <Select
+          aria-label="Select an animal"
+          color={color}
+          label="Favorite Animal"
+          labelPlacement="outside-left"
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+      </div>
+    </div>
+  </div>
+);
+
+const StartContentTemplate = ({color, variant, ...args}: SelectProps) => (
+  <Select
+    aria-label="Favorite Animal"
+    className="max-w-xs"
+    color={color}
+    defaultSelectedKey="cat"
+    label="Favorite Animal"
+    startContent={<PetBoldIcon />}
+    variant={variant}
+    {...args}
+  >
+    {items}
+  </Select>
+);
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -177,5 +269,20 @@ export const WithDescription = {
   args: {
     ...defaultProps,
     description: "Select your favorite animal",
+  },
+};
+
+export const LabelPlacement = {
+  render: LabelPlacementTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+export const StartContent = {
+  render: StartContentTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
