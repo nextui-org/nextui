@@ -13,6 +13,16 @@ body:
       value: |
         This issue form is for requesting features only! For example, requesting a new component, behavior ... etc
         If you want to report a bug, please use the [bug report form](https://github.com/nextui-org/nextui/issues/new?assignees=&labels=&template=bug_report.yml).
+  - type: input
+    id: version
+    attributes:
+      label: NextUI Version
+      description: |
+        Please provide the version of NextUI you are using.
+        You can find the version number in the package.json file.
+      placeholder: ex. 2.0.10
+    validations:
+      required: true
   - type: textarea
     validations:
       required: true
