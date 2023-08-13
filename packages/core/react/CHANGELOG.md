@@ -1,5 +1,15 @@
 # @nextui-org/react
 
+## 2.0.17
+
+### Patch Changes
+
+- Updated dependencies [[`e2b0497b`](https://github.com/nextui-org/nextui/commit/e2b0497b07e99eca937fe62d13a6930b7d2832eb)]:
+  - @nextui-org/checkbox@2.0.10
+  - @nextui-org/radio@2.0.10
+  - @nextui-org/modal@2.0.10
+  - @nextui-org/table@2.0.11
+
 ## 2.0.16
 
 ### Patch Changes

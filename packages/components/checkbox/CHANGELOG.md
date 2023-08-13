@@ -1,5 +1,11 @@
 # @nextui-org/checkbox
 
+## 2.0.10
+
+### Patch Changes
+
+- [#1381](https://github.com/nextui-org/nextui/pull/1381) [`e2b0497b`](https://github.com/nextui-org/nextui/commit/e2b0497b07e99eca937fe62d13a6930b7d2832eb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix #1380 checkbox and radio onChange function type fixed
+
 ## 2.0.9
 
 ### Patch Changes
