@@ -120,12 +120,6 @@ export default {
       },
       options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
-    radius: {
-      control: {
-        type: "select",
-      },
-      options: ["none", "sm", "md", "lg", "full"],
-    },
   },
   decorators: [
     (Story) => (

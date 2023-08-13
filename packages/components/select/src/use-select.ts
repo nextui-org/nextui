@@ -17,7 +17,7 @@ import {PopoverProps} from "@nextui-org/popover";
 import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
-
+import scrollIntoView from "scroll-into-view-if-needed";
 interface Props extends HTMLNextUIProps<"select"> {
   /**
    * Ref to the DOM node.
@@ -88,6 +88,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
 
   const disableAnimation = originalProps.disableAnimation ?? false;
+  const scrollShadowRef = useRef<HTMLDivElement>(null);
 
   const {
     ref,
@@ -111,6 +112,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       disableAnimation,
     },
     scrollShadowProps = {
+      ref: scrollShadowRef,
       hideScrollBar: true,
       offset: 40,
     },
@@ -189,19 +191,21 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   useEffect(() => {
     if (state.isOpen && popoverRef.current && listboxRef.current) {
       let selectedItem = listboxRef.current.querySelector("[aria-selected=true] [data-label=true]");
-      let listBox = listboxRef.current;
-      let popoverRect = popoverRef.current.getBoundingClientRect();
-      const popoverHeight = popoverRect.height;
+      let scrollShadow = scrollShadowRef.current;
 
       // scroll the listbox to the selected item
-      if (selectedItem && listBox && selectedItem.parentElement) {
-        listBox.scrollTop =
-          selectedItem.parentElement.offsetTop -
-          popoverHeight / 2 +
-          selectedItem.parentElement.clientHeight / 2;
+      if (selectedItem && scrollShadow && selectedItem.parentElement) {
+        // scroll parent to the item
+        scrollIntoView(selectedItem, {
+          scrollMode: "always",
+          behavior: disableAnimation ? "auto" : "smooth",
+          block: "start",
+          inline: "start",
+          boundary: scrollShadow,
+        });
       }
     }
-  }, [state.isOpen]);
+  }, [state.isOpen, disableAnimation]);
 
   // apply the same with to the popover as the select
   useEffect(() => {
@@ -311,13 +315,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, classNames?.value, valueProps],
   );
 
-  const getListboxWrapperProps: PropGetter = useCallback(
+  const getScrollShadowProps: PropGetter = useCallback(
     (props = {}) => ({
-      className: slots.listboxWrapper({
-        class: clsx(classNames?.listboxWrapper, props?.className),
+      className: slots.scrollShadow({
+        class: clsx(classNames?.scrollShadow, props?.className),
       }),
+      ...mergeProps(scrollShadowProps, props),
     }),
-    [slots.listboxWrapper, classNames?.listboxWrapper],
+    [slots.scrollShadow, classNames?.scrollShadow, scrollShadowProps],
   );
 
   const getListboxProps = (props: any = {}) => {
@@ -418,15 +423,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     hasPlaceholder,
     shouldLabelBeOutside,
     shouldLabelBeInside,
-    scrollShadowProps,
     getBaseProps,
     getTriggerProps,
     getLabelProps,
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getScrollShadowProps,
     getHiddenSelectProps,
-    getListboxWrapperProps,
     getInnerWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,

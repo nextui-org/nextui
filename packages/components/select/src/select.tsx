@@ -30,12 +30,11 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getValueProps,
     getListboxProps,
     getPopoverProps,
-    scrollShadowProps,
     shouldLabelBeOutside,
     getInnerWrapperProps,
     getHiddenSelectProps,
-    getListboxWrapperProps,
     getHelperWrapperProps,
+    getScrollShadowProps,
     getDescriptionProps,
     getErrorMessageProps,
     getIconProps,
@@ -86,7 +85,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
         </PopoverTrigger>
         <PopoverContent>
           <FocusScope contain restoreFocus>
-            <ScrollShadow {...scrollShadowProps} {...getListboxWrapperProps()}>
+            <ScrollShadow {...getScrollShadowProps()}>
               <Listbox {...getListboxProps()} />
             </ScrollShadow>
           </FocusScope>

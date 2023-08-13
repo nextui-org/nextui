@@ -1747,6 +1747,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
+      scroll-into-view-if-needed:
+        specifier: 3.0.10
+        version: 3.0.10
     devDependencies:
       clean-package:
         specifier: 2.2.0
