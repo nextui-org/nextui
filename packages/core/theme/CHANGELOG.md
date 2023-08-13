@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.0.5
+
+### Patch Changes
+
+- [#1384](https://github.com/nextui-org/nextui/pull/1384) [`d0341020`](https://github.com/nextui-org/nextui/commit/d0341020e6d865ad3f0d3646fa70a24de75a722b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1382 navbar with search input example, input main wrapper h-full class applied
+
 ## 2.0.4
 
 ### Patch Changes
