@@ -150,7 +150,9 @@ const {nextui} = require("@nextui-org/theme");
 module.exports = {
   content: [
     // ...
-    "./node_modules/@nextui-org/button/dist/button.js", // <- single component styles
+    "./node_modules/@nextui-org/theme/dist/components/button.js", // <- single component styles
+    // or you can use a glob pattern
+    './node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js' // <- multiple component styles
   ],
   theme: {
     extend: {},
