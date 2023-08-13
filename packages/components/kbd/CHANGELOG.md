@@ -1,5 +1,13 @@
 # @nextui-org/kbd
 
+## 2.0.9
+
+### Patch Changes
+
+- Updated dependencies [[`d0341020`](https://github.com/nextui-org/nextui/commit/d0341020e6d865ad3f0d3646fa70a24de75a722b)]:
+  - @nextui-org/theme@2.0.5
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.8
 
 ### Patch Changes

@@ -1,5 +1,51 @@
 # @nextui-org/react
 
+## 2.0.18
+
+### Patch Changes
+
+- Updated dependencies [[`d0341020`](https://github.com/nextui-org/nextui/commit/d0341020e6d865ad3f0d3646fa70a24de75a722b)]:
+  - @nextui-org/theme@2.0.5
+  - @nextui-org/accordion@2.0.10
+  - @nextui-org/avatar@2.0.10
+  - @nextui-org/badge@2.0.8
+  - @nextui-org/button@2.0.10
+  - @nextui-org/card@2.0.10
+  - @nextui-org/checkbox@2.0.11
+  - @nextui-org/chip@2.0.10
+  - @nextui-org/code@2.0.8
+  - @nextui-org/divider@2.0.9
+  - @nextui-org/dropdown@2.0.11
+  - @nextui-org/image@2.0.10
+  - @nextui-org/input@2.0.12
+  - @nextui-org/kbd@2.0.9
+  - @nextui-org/link@2.0.10
+  - @nextui-org/modal@2.0.11
+  - @nextui-org/navbar@2.0.10
+  - @nextui-org/pagination@2.0.11
+  - @nextui-org/popover@2.0.10
+  - @nextui-org/progress@2.0.10
+  - @nextui-org/radio@2.0.11
+  - @nextui-org/skeleton@2.0.8
+  - @nextui-org/snippet@2.0.11
+  - @nextui-org/spacer@2.0.8
+  - @nextui-org/spinner@2.0.8
+  - @nextui-org/switch@2.0.10
+  - @nextui-org/table@2.0.12
+  - @nextui-org/tabs@2.0.10
+  - @nextui-org/tooltip@2.0.11
+  - @nextui-org/user@2.0.10
+
+## 2.0.17
+
+### Patch Changes
+
+- Updated dependencies [[`e2b0497b`](https://github.com/nextui-org/nextui/commit/e2b0497b07e99eca937fe62d13a6930b7d2832eb)]:
+  - @nextui-org/checkbox@2.0.10
+  - @nextui-org/radio@2.0.10
+  - @nextui-org/modal@2.0.10
+  - @nextui-org/table@2.0.11
+
 ## 2.0.16
 
 ### Patch Changes
