@@ -170,3 +170,12 @@ export const Disabled = {
     isDisabled: true,
   },
 };
+
+export const WithDescription = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Select your favorite animal",
+  },
+};

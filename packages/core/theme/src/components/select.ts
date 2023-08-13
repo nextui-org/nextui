@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: "group inline-flex flex-col relative w-full gap-2",
+    base: "group inline-flex flex-col relative w-full",
     label: "block text-small font-medium text-foreground-500",
     trigger: "relative outline-none w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
@@ -112,13 +112,13 @@ const select = tv({
     },
     labelPlacement: {
       outside: {
-        base: "data-[has-helper=true]:pb-4 lex flex-col gap-0",
+        base: "data-[has-helper=true]:pb-4 lex flex-col",
         label: "text-foreground pb-1.5",
         description: "absolute left-1",
         errorMessage: "absolute left-1",
       },
       "outside-left": {
-        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4 gap-0",
+        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4",
         label: "text-foreground pr-2",
         description: "absolute left-1",
         errorMessage: "absolute left-1",

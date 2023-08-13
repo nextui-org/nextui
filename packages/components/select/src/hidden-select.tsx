@@ -68,6 +68,9 @@ export function useHiddenSelect<T>(
       style: {fontSize: 16},
       onFocus: () => triggerRef.current?.focus(),
       disabled: isDisabled,
+      // The onChange is handled by the `select` element. This avoids the `form` with input `value`
+      // and no `onChange` warning.
+      onChange: () => {},
     },
     selectProps: {
       name,
