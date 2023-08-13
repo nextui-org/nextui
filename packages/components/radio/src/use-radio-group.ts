@@ -14,7 +14,7 @@ import {mergeProps} from "@react-aria/utils";
 
 import {RadioProps} from "./index";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Ref to the DOM node.
    */

@@ -14,7 +14,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 
 import {useRadioGroupContext} from "./radio-group-context";
 
-interface Props extends HTMLNextUIProps<"label"> {
+interface Props extends Omit<HTMLNextUIProps<"input">, keyof RadioVariantProps> {
   /**
    * Ref to the DOM node.
    */

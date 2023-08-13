@@ -27,7 +27,7 @@ export type CheckboxIconProps = {
   className: string;
 };
 
-interface Props extends HTMLNextUIProps<"label"> {
+interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProps> {
   /**
    * Ref to the DOM node.
    */
