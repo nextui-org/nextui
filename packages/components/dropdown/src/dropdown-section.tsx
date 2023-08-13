@@ -49,7 +49,6 @@ const DropdownSection = forwardRef<"li", DropdownSectionProps>(
       as,
       variant,
       color,
-      key: keyProp,
       disableAnimation,
       onAction,
       closeOnSelect,
@@ -80,7 +79,6 @@ const DropdownSection = forwardRef<"li", DropdownSectionProps>(
 
     return (
       <Component
-        key={keyProp || item.key}
         data-slot="base"
         {...mergeProps(itemProps, otherProps)}
         className={slots.base({class: baseStyles})}

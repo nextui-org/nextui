@@ -1,5 +1,11 @@
 # @nextui-org/dropdown
 
+## 2.0.10
+
+### Patch Changes
+
+- [#1377](https://github.com/nextui-org/nextui/pull/1377) [`fd4e01dc`](https://github.com/nextui-org/nextui/commit/fd4e01dcfa5039e363089ada2bd18d7f57ef2d42) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix #1376 Dropdown item spread key warning
+
 ## 2.0.9
 
 ### Patch Changes
