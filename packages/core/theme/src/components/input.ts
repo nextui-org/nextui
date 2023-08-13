@@ -25,7 +25,7 @@ const input = tv({
   slots: {
     base: "group flex flex-col",
     label: "block text-small font-medium text-foreground-600",
-    mainWrapper: "",
+    mainWrapper: "h-full",
     inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
