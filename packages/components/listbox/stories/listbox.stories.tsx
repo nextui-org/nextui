@@ -476,18 +476,18 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       <ListboxItem
         key="releases"
         showDivider
-        className="h-auto py-3"
+        className="group h-auto py-3"
         endContent={<ItemCounter number={399} />}
         startContent={
           <IconWrapper className="bg-primary/10 text-primary">
-            <TagIcon className="text-lg " />
+            <TagIcon className="text-lg" />
           </IconWrapper>
         }
         textValue="Releases"
       >
         <div className="flex flex-col gap-1">
           <span>Releases</span>
-          <div className="px-2 py-1 rounded-small bg-default-100">
+          <div className="px-2 py-1 rounded-small bg-default-100 group-data-[hover=true]:bg-default-200">
             <span className="text-tiny text-default-600">@nextui-org/react@2.0.10</span>
             <div className="flex gap-2 text-tiny">
               <span className="text-default-500">49 minutes ago</span>

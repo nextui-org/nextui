@@ -58,7 +58,12 @@ const defaultProps = {
   ...select.defaultVariants,
 };
 
-const items = [
+type Item = {
+  label: string;
+  value: string;
+};
+
+const itemsData: Item[] = [
   {label: "Cat", value: "cat"},
   {label: "Dog", value: "dog"},
   {label: "Elephant", value: "elephant"},
@@ -70,10 +75,11 @@ const items = [
   {label: "Zebra", value: "zebra"},
   {label: "Shark", value: "shark"},
   {label: "Whale", value: "whale"},
-  {label: "Seal", value: "seal"},
   {label: "Otter", value: "otter"},
   {label: "Crocodile", value: "crocodile"},
-].map((item) => (
+];
+
+const items = itemsData.map((item) => (
   <SelectItem key={item.value} value={item.value}>
     {item.label}
   </SelectItem>
@@ -91,6 +97,43 @@ const Template = ({color, variant, ...args}: SelectProps) => (
     {items}
   </Select>
 );
+
+const DynamicTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
+  <Select
+    aria-label="Favorite Animal"
+    className="max-w-xs"
+    color={color}
+    items={itemsData}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+  </Select>
+);
+
+const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
+  const [value, setValue] = React.useState<React.Key>("cat");
+
+  return (
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <Select
+        fullWidth
+        aria-label="Favorite Animal"
+        color={color}
+        items={itemsData}
+        label="Favorite Animal"
+        selectedKey={value}
+        variant={variant}
+        onSelectionChange={setValue}
+        {...args}
+      >
+        {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+      </Select>
+      <p className="text-default-500">Selected: {value}</p>
+    </div>
+  );
+};
 
 const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
   return (
@@ -263,6 +306,15 @@ export const Disabled = {
   },
 };
 
+export const DisabledOptions = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disabledKeys: ["zebra", "tiger", "lion", "elephant", "crocodile", "whale"],
+  },
+};
+
 export const WithDescription = {
   render: MirrorTemplate,
 
@@ -281,6 +333,35 @@ export const LabelPlacement = {
 };
 export const StartContent = {
   render: StartContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithErrorMessage = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+    errorMessage: "Please select an animal",
+  },
+};
+
+export const InvalidValidationState = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    defaultSelectedKey: "dog",
+    validationState: "invalid",
+    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
 
   args: {
     ...defaultProps,

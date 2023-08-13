@@ -21,6 +21,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    * @default 0
    */
   offset?: number;
+  /**
+   * Whether the shadow is enabled.
+   * @default true
+   */
+  isEnabled?: boolean;
 }
 
 export type UseScrollShadowProps = Props & ScrollShadowVariantProps;
@@ -28,13 +33,28 @@ export type UseScrollShadowProps = Props & ScrollShadowVariantProps;
 export function useScrollShadow(originalProps: UseScrollShadowProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, scrollShadow.variantKeys);
 
-  const {ref, as, children, className, size = 40, offset = 0, style, ...otherProps} = props;
+  const {
+    ref,
+    as,
+    children,
+    className,
+    size = 40,
+    offset = 0,
+    isEnabled = true,
+    style,
+    ...otherProps
+  } = props;
 
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
 
-  useDataScrollOverflow({domRef, offset, overflowCheck: originalProps.orientation ?? "vertical"});
+  useDataScrollOverflow({
+    domRef,
+    offset,
+    isEnabled,
+    overflowCheck: originalProps.orientation ?? "vertical",
+  });
 
   const styles = useMemo(
     () =>

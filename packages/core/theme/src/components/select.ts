@@ -125,7 +125,7 @@ const select = tv({
         errorMessage: "absolute left-1",
       },
       inside: {
-        label: "text-tiny",
+        label: "text-tiny cursor-pointer",
         trigger: "flex-col items-start justify-center gap-0",
       },
     },
@@ -150,6 +150,7 @@ const select = tv({
       true: {
         label: "!text-danger",
         value: "text-danger",
+        icon: "text-danger",
       },
     },
     isRequired: {
@@ -183,7 +184,7 @@ const select = tv({
     color: "default",
     size: "md",
     labelPlacement: "inside",
-    fullWidth: false,
+    fullWidth: true,
     isDisabled: false,
     disableAnimation: false,
   },
@@ -430,6 +431,32 @@ const select = tv({
           // focus ring
           ...dataFocusVisibleClasses,
         ],
+      },
+    },
+    // isInvalid & variant
+    {
+      isInvalid: true,
+      variant: "flat",
+      class: {
+        trigger: [
+          "bg-danger-50",
+          "data-[hover=true]:bg-danger-100",
+          "group-data-[focus=true]:bg-danger-50",
+        ],
+      },
+    },
+    {
+      isInvalid: true,
+      variant: "bordered",
+      class: {
+        trigger: "!border-danger group-data-[focus=true]:border-danger",
+      },
+    },
+    {
+      isInvalid: true,
+      variant: "underlined",
+      class: {
+        trigger: "after:bg-danger",
       },
     },
     // size & labelPlacement

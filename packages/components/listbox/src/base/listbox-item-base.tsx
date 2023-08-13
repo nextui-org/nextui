@@ -85,6 +85,8 @@ export type ListboxItemBaseProps<T extends object = {}> = Props<T> &
   FocusableProps &
   PressEvents;
 
-const ListboxItemBase = BaseItem as (props: ListboxItemBaseProps) => JSX.Element;
+const ListboxItemBase = BaseItem as <T extends object>(
+  props: ListboxItemBaseProps<T>,
+) => JSX.Element;
 
 export default ListboxItemBase;

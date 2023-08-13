@@ -89,6 +89,6 @@ export type MenuItemBaseProps<T extends object = {}> = Props<T> &
   FocusableProps &
   PressEvents;
 
-const MenuItemBase = BaseItem as (props: MenuItemBaseProps) => JSX.Element;
+const MenuItemBase = BaseItem as <T extends object>(props: MenuItemBaseProps<T>) => JSX.Element;
 
 export default MenuItemBase;

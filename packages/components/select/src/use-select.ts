@@ -14,8 +14,11 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
+import {CollectionProps} from "@nextui-org/aria-utils";
+import {CollectionChildren} from "@react-types/shared";
+import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 
-interface Props extends HTMLNextUIProps<"button"> {
+interface Props extends HTMLNextUIProps<"select"> {
   /**
    * Ref to the DOM node.
    */
@@ -33,6 +36,11 @@ interface Props extends HTMLNextUIProps<"button"> {
    * Props to be passed to the listbox component.
    */
   listboxProps?: ListboxProps;
+  /**
+   * Props to be passed to the scroll shadow component. This component
+   * adds a shadow to the top and bottom of the listbox when it is scrollable.
+   */
+  scrollShadowProps?: ScrollShadowProps;
   /**
    * The icon that represents the select open state. Usually a chevron icon.
    */
@@ -71,9 +79,12 @@ interface Props extends HTMLNextUIProps<"button"> {
   classNames?: SlotsToClasses<SelectSlots>;
 }
 
-export type UseSelectProps<T = object> = Props & AriaSelectProps<T> & SelectVariantProps;
+export type UseSelectProps<T> = Omit<Props, keyof AriaSelectProps<T>> &
+  Omit<AriaSelectProps<T>, "children"> &
+  SelectVariantProps &
+  CollectionProps<T>;
 
-export function useSelect<T extends object = object>(originalProps: UseSelectProps<T>) {
+export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
 
   const disableAnimation = originalProps.disableAnimation ?? false;
@@ -85,6 +96,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     isOpen,
     label,
     name,
+    children,
     defaultOpen,
     onOpenChange,
     startContent,
@@ -97,6 +109,10 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
       placement: "bottom",
       triggerScaleOnOpen: false,
       disableAnimation,
+    },
+    scrollShadowProps = {
+      hideScrollBar: true,
+      offset: 40,
     },
     listboxProps: userListboxProps = {
       disableAnimation,
@@ -117,6 +133,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
   const state = useSelectState<T>({
     ...props,
     isOpen,
+    children: children as CollectionChildren<T>,
     isRequired: originalProps?.isRequired,
     isDisabled: originalProps?.isDisabled,
     defaultOpen,
@@ -149,6 +166,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
 
   const hasHelper = !!description || !!errorMessage;
   const hasPlaceholder = !!placeholder;
+  const isInvalid = props.validationState === "invalid";
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
   const shouldLabelBeInside = labelPlacement === "inside";
   const isLabelPlaceholder = !hasPlaceholder && labelPlacement !== "outside-left";
@@ -161,9 +179,10 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
       select({
         ...variantProps,
         isLabelPlaceholder,
+        isInvalid,
         className,
       }),
-    [...Object.values(variantProps), isLabelPlaceholder, className],
+    [...Object.values(variantProps), isInvalid, isLabelPlaceholder, className],
   );
 
   // scroll the listbox to the selected item
@@ -399,6 +418,7 @@ export function useSelect<T extends object = object>(originalProps: UseSelectPro
     hasPlaceholder,
     shouldLabelBeOutside,
     shouldLabelBeInside,
+    scrollShadowProps,
     getBaseProps,
     getTriggerProps,
     getLabelProps,

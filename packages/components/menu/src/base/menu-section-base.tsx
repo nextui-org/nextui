@@ -25,6 +25,8 @@ export interface MenuSectionBaseProps<T extends object = {}> extends SectionProp
   dividerProps?: DividerProps;
 }
 
-const MenuSectionBase = BaseSection as (props: MenuSectionBaseProps) => JSX.Element;
+const MenuSectionBase = BaseSection as <T extends object>(
+  props: MenuSectionBaseProps<T>,
+) => JSX.Element;
 
 export default MenuSectionBase;

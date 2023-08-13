@@ -4,14 +4,14 @@ import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
 import {FocusScope} from "@react-aria/focus";
-import {cloneElement, ReactElement, useMemo} from "react";
+import {cloneElement, ForwardedRef, ReactElement, Ref, useMemo} from "react";
 
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
 
-export interface SelectProps extends Omit<UseSelectProps, "isLabelPlaceholder"> {}
+interface Props<T> extends Omit<UseSelectProps<T>, "isLabelPlaceholder"> {}
 
-const Select = forwardRef<"button", SelectProps>((props, ref) => {
+function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectElement>) {
   const {
     Component,
     state,
@@ -30,6 +30,7 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    scrollShadowProps,
     shouldLabelBeOutside,
     getInnerWrapperProps,
     getHiddenSelectProps,
@@ -38,7 +39,7 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
     getDescriptionProps,
     getErrorMessageProps,
     getIconProps,
-  } = useSelect({...props, ref});
+  } = useSelect<T>({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
@@ -85,7 +86,7 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
         </PopoverTrigger>
         <PopoverContent>
           <FocusScope contain restoreFocus>
-            <ScrollShadow hideScrollBar {...getListboxWrapperProps()}>
+            <ScrollShadow {...scrollShadowProps} {...getListboxWrapperProps()}>
               <Listbox {...getListboxProps()} />
             </ScrollShadow>
           </FocusScope>
@@ -94,8 +95,11 @@ const Select = forwardRef<"button", SelectProps>((props, ref) => {
       {helperWrapper}
     </div>
   );
-});
+}
+
+export type SelectProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+
+// forwardRef doesn't support generic parameters, so cast the result to the correct type
+export default forwardRef(Select) as <T = object>(props: SelectProps<T>) => ReactElement;
 
 Select.displayName = "NextUI.Select";
-
-export default Select;
