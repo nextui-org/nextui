@@ -1,5 +1,12 @@
 # @nextui-org/input
 
+## 2.0.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.6
+
 ## 2.0.12
 
 ### Patch Changes

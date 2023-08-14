@@ -1,5 +1,11 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.6
+
+### Patch Changes
+
+- [#1391](https://github.com/nextui-org/nextui/pull/1391) [`94d65df53`](https://github.com/nextui-org/nextui/commit/94d65df53392f0013438f4ca48716011e79a3c56) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix #1388 slot prop added to filter dom props.
+
 ## 2.0.5
 
 ### Patch Changes
