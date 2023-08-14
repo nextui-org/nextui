@@ -199,8 +199,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         scrollIntoView(selectedItem, {
           scrollMode: "always",
           behavior: disableAnimation ? "auto" : "smooth",
-          block: "start",
-          inline: "start",
+          block: "nearest",
+          inline: "nearest",
           boundary: scrollShadow,
         });
       }
