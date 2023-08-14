@@ -17,7 +17,6 @@ import {PopoverProps} from "@nextui-org/popover";
 import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
-import scrollIntoView from "scroll-into-view-if-needed";
 interface Props extends HTMLNextUIProps<"select"> {
   /**
    * Ref to the DOM node.
@@ -195,14 +194,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
       // scroll the listbox to the selected item
       if (selectedItem && scrollShadow && selectedItem.parentElement) {
-        // scroll parent to the item
-        scrollIntoView(selectedItem, {
-          scrollMode: "always",
-          behavior: "auto",
-          block: "nearest",
-          inline: "nearest",
-          boundary: scrollShadow,
-        });
+        let scrollShadowRect = scrollShadow?.getBoundingClientRect();
+        let scrollShadowHeight = scrollShadowRect.height;
+
+        scrollShadow.scrollTop =
+          selectedItem.parentElement.offsetTop -
+          scrollShadowHeight / 2 +
+          selectedItem.parentElement.clientHeight / 2;
       }
     }
   }, [state.isOpen, disableAnimation]);
@@ -315,14 +313,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, classNames?.value, valueProps],
   );
 
-  const getScrollShadowProps: PropGetter = useCallback(
+  const getListboxWrapperProps: PropGetter = useCallback(
     (props = {}) => ({
-      className: slots.scrollShadow({
-        class: clsx(classNames?.scrollShadow, props?.className),
+      className: slots.listboxWrapper({
+        class: clsx(classNames?.listboxWrapper, props?.className),
       }),
       ...mergeProps(scrollShadowProps, props),
     }),
-    [slots.scrollShadow, classNames?.scrollShadow, scrollShadowProps],
+    [slots.listboxWrapper, classNames?.listboxWrapper, scrollShadowProps],
   );
 
   const getListboxProps = (props: any = {}) => {
@@ -429,7 +427,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     getValueProps,
     getListboxProps,
     getPopoverProps,
-    getScrollShadowProps,
+    getListboxWrapperProps,
     getHiddenSelectProps,
     getInnerWrapperProps,
     getHelperWrapperProps,

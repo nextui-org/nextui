@@ -50,7 +50,6 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@react-aria/visually-hidden": "^3.8.3",
-    "scroll-into-view-if-needed": "3.0.10",
     "@react-aria/focus": "^3.13.0",
     "@react-aria/select": "^3.11.0",
     "@react-stately/select": "^3.5.2",
