@@ -1,4 +1,4 @@
-import {RefObject, useLayoutEffect} from "react";
+import {RefObject, useEffect} from "react";
 import {AriaPopoverProps, useOverlay, PopoverAria, useOverlayPosition} from "@react-aria/overlays";
 import {OverlayPlacement, toReactAriaPlacement, ariaHideOutside} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
@@ -84,7 +84,7 @@ export function useReactAriaPopover(
     onClose: () => {},
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (state.isOpen && !isNonModal && popoverRef.current) {
       return ariaHideOutside([popoverRef.current]);
     }

@@ -9,11 +9,11 @@ import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
-import {mergeProps, mergeRefs, useLayoutEffect} from "@react-aria/utils";
+import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {createDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
-import {useId, useMemo, useCallback, useImperativeHandle, useRef} from "react";
+import {useId, useMemo, useEffect, useCallback, useImperativeHandle, useRef} from "react";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -223,7 +223,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     [arrowProps, ariaPlacement, placementProp, slots, classNames],
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (state.isOpen && popoverRef.current) {
       return ariaHideOutside([popoverRef.current]);
     }
