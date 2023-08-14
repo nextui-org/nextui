@@ -108,6 +108,7 @@ export const DOMPropNames = new Set([
   "shape",
   "size",
   "sizes",
+  "slot",
   "sortable",
   "span",
   "spellCheck",
