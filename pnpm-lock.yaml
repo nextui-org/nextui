@@ -1751,6 +1751,9 @@ importers:
         specifier: 3.0.10
         version: 3.0.10
     devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
       clean-package:
         specifier: 2.2.0
         version: 2.2.0

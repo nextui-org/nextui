@@ -198,7 +198,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         // scroll parent to the item
         scrollIntoView(selectedItem, {
           scrollMode: "always",
-          behavior: disableAnimation ? "auto" : "smooth",
+          behavior: "auto",
           block: "nearest",
           inline: "nearest",
           boundary: scrollShadow,
