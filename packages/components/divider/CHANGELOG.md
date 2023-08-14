@@ -1,5 +1,13 @@
 # @nextui-org/divider
 
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies [[`94d65df53`](https://github.com/nextui-org/nextui/commit/94d65df53392f0013438f4ca48716011e79a3c56)]:
+  - @nextui-org/react-rsc-utils@2.0.6
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.9
 
 ### Patch Changes

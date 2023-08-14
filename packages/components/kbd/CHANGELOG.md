@@ -1,5 +1,13 @@
 # @nextui-org/kbd
 
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.6
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.9
 
 ### Patch Changes
