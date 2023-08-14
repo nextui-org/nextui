@@ -4,6 +4,8 @@
 
 ### Patch Changes
 
+- [`406336269`](https://github.com/nextui-org/nextui/commit/40633626991d11f251619508f151dd7f435bda25) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix #1386 useLayoutEffect on the server warning
+
 - Updated dependencies []:
   - @nextui-org/react-utils@2.0.6
   - @nextui-org/button@2.0.11

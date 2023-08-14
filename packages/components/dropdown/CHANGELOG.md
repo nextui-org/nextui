@@ -4,10 +4,10 @@
 
 ### Patch Changes
 
-- Updated dependencies []:
+- Updated dependencies [[`406336269`](https://github.com/nextui-org/nextui/commit/40633626991d11f251619508f151dd7f435bda25)]:
+  - @nextui-org/popover@2.0.11
   - @nextui-org/divider@2.0.10
   - @nextui-org/react-utils@2.0.6
-  - @nextui-org/popover@2.0.11
 
 ## 2.0.11
 

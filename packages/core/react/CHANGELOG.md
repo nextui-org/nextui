@@ -4,10 +4,11 @@
 
 ### Patch Changes
 
-- Updated dependencies []:
+- Updated dependencies [[`406336269`](https://github.com/nextui-org/nextui/commit/40633626991d11f251619508f151dd7f435bda25)]:
+  - @nextui-org/popover@2.0.11
   - @nextui-org/divider@2.0.10
-  - @nextui-org/accordion@2.0.11
   - @nextui-org/dropdown@2.0.12
+  - @nextui-org/accordion@2.0.11
   - @nextui-org/avatar@2.0.11
   - @nextui-org/badge@2.0.9
   - @nextui-org/button@2.0.11
@@ -22,7 +23,6 @@
   - @nextui-org/modal@2.0.12
   - @nextui-org/navbar@2.0.11
   - @nextui-org/pagination@2.0.12
-  - @nextui-org/popover@2.0.11
   - @nextui-org/progress@2.0.11
   - @nextui-org/radio@2.0.12
   - @nextui-org/skeleton@2.0.9
