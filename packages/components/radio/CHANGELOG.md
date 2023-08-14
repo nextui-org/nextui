@@ -1,5 +1,12 @@
 # @nextui-org/radio
 
+## 2.0.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.6
+
 ## 2.0.11
 
 ### Patch Changes
