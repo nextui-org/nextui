@@ -923,9 +923,17 @@ export const CustomRenderValue = {
     },
     renderValue: (items: SelectedItems<User>) => {
       return items.map((item) => (
-        <div key={item.key} className="flex flex-col gap-0">
-          <span>{item.data?.name}</span>
-          <span className="text-default-500 text-tiny">({item.data?.email})</span>
+        <div key={item.key} className="flex items-center gap-2">
+          <Avatar
+            alt={item.data?.name}
+            className="flex-shrink-0"
+            size="sm"
+            src={item.data?.avatar}
+          />
+          <div className="flex flex-col">
+            <span>{item.data?.name}</span>
+            <span className="text-default-500 text-tiny">({item.data?.email})</span>
+          </div>
         </div>
       ));
     },
