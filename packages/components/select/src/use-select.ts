@@ -7,7 +7,6 @@ import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
 import {ListboxProps} from "@nextui-org/listbox";
 import {useAriaButton} from "@nextui-org/use-aria-button";
-// import {useSelect as useAriaSelect} from "@react-aria/select";
 import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -45,7 +44,7 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLElement | null>;
+  ref?: ReactRef<HTMLSelectElement | null>;
   /**
    * Whether the select is required.
    * @default false
@@ -53,17 +52,20 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
   isRequired?: boolean;
   /**
    * Props to be passed to the popover component.
+   * @default { placement: "bottom", triggerScaleOnOpen: false, offset: 5 }
    */
-  popoverProps?: PopoverProps;
+  popoverProps?: Partial<PopoverProps>;
   /**
    * Props to be passed to the listbox component.
+   * @default { disableAnimation: false }
    */
-  listboxProps?: ListboxProps;
+  listboxProps?: Partial<ListboxProps>;
   /**
    * Props to be passed to the scroll shadow component. This component
    * adds a shadow to the top and bottom of the listbox when it is scrollable.
+   * @default { hideScrollBar: true, offset: 40 }
    */
-  scrollShadowProps?: ScrollShadowProps;
+  scrollShadowProps?: Partial<ScrollShadowProps>;
   /**
    * The icon that represents the select open state. Usually a chevron icon.
    */
@@ -113,7 +115,28 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const disableAnimation = originalProps.disableAnimation ?? false;
   const scrollShadowRef = useRef<HTMLDivElement>(null);
 
-  const {
+  const defaultRelatedComponentsProps: {
+    popoverProps: UseSelectProps<T>["popoverProps"];
+    scrollShadowProps: UseSelectProps<T>["scrollShadowProps"];
+    listboxProps: UseSelectProps<T>["listboxProps"];
+  } = {
+    popoverProps: {
+      placement: "bottom",
+      triggerScaleOnOpen: false,
+      offset: 5,
+      disableAnimation,
+    },
+    scrollShadowProps: {
+      ref: scrollShadowRef,
+      hideScrollBar: true,
+      offset: 40,
+    },
+    listboxProps: {
+      disableAnimation,
+    },
+  };
+
+  let {
     ref,
     as,
     icon,
@@ -131,30 +154,28 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     onSelectionChange,
     placeholder,
     selectionMode = "single",
-    popoverProps = {
-      placement: "bottom",
-      triggerScaleOnOpen: false,
-      offset: 5,
-      disableAnimation,
-    },
-    scrollShadowProps = {
-      ref: scrollShadowRef,
-      hideScrollBar: true,
-      offset: 40,
-    },
-    listboxProps: userListboxProps = {
-      disableAnimation,
-    },
+    popoverProps: userPopoverProps,
+    scrollShadowProps: userScrollShadowProps,
+    listboxProps: userListboxProps,
+    onChange,
     onClose,
     className,
     classNames,
     ...otherProps
   } = props;
 
+  userPopoverProps = {...defaultRelatedComponentsProps.popoverProps, ...userPopoverProps};
+  userScrollShadowProps = {
+    ...defaultRelatedComponentsProps.scrollShadowProps,
+    ...userScrollShadowProps,
+  };
+  userListboxProps = {...defaultRelatedComponentsProps.listboxProps, ...userListboxProps};
+
   const Component = as || "button";
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
+  const triggerRef = useRef<HTMLElement>(null);
   const listboxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
@@ -174,13 +195,21 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     onSelectionChange: (keys) => {
       onSelectionChange?.(keys);
+      if (onChange && typeof onChange === "function" && domRef.current) {
+        domRef.current.value = [...keys].join(",");
+        const event = {
+          target: domRef.current,
+        } as React.ChangeEvent<HTMLSelectElement>;
+
+        onChange(event);
+      }
     },
   });
 
   const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useMultiSelect({...props, isDisabled: originalProps?.isDisabled}, state, domRef);
+    useMultiSelect({...props, isDisabled: originalProps?.isDisabled}, state, triggerRef);
 
-  const {isPressed, buttonProps} = useAriaButton(triggerProps, domRef);
+  const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
   const {isHovered, hoverProps} = useHover({isDisabled: originalProps?.isDisabled});
@@ -236,8 +265,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   // apply the same with to the popover as the select
   useEffect(() => {
-    if (state.isOpen && popoverRef.current && domRef.current) {
-      let selectRect = domRef.current.getBoundingClientRect();
+    if (state.isOpen && popoverRef.current && triggerRef.current) {
+      let selectRect = triggerRef.current.getBoundingClientRect();
       let popover = popoverRef.current;
 
       popover.style.width = selectRect.width + "px";
@@ -302,13 +331,15 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) =>
       ({
         state,
+        triggerRef,
+        selectRef: domRef,
         selectionMode,
         label: originalProps?.label,
         name: originalProps?.name,
-        triggerRef: domRef,
         isRequired: originalProps?.isRequired,
         autoComplete: originalProps?.autoComplete,
         isDisabled: originalProps?.isDisabled,
+        onChange,
         ...props,
       } as HiddenSelectProps<T>),
     [
@@ -318,7 +349,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       originalProps?.autoComplete,
       originalProps?.name,
       originalProps?.isDisabled,
-      domRef,
+      triggerRef,
     ],
   );
 
@@ -349,9 +380,9 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       className: slots.listboxWrapper({
         class: clsx(classNames?.listboxWrapper, props?.className),
       }),
-      ...mergeProps(scrollShadowProps, props),
+      ...mergeProps(userScrollShadowProps, props),
     }),
-    [slots.listboxWrapper, classNames?.listboxWrapper, scrollShadowProps],
+    [slots.listboxWrapper, classNames?.listboxWrapper, userScrollShadowProps],
   );
 
   const getListboxProps = (props: any = {}) => {
@@ -369,22 +400,22 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props: DOMAttributes = {}) => {
       return {
         state,
+        triggerRef,
         ref: popoverRef,
         scrollRef: listboxRef,
 
-        triggerRef: domRef,
         className: slots.popover({
           class: clsx(classNames?.popover, props.className),
         }),
-        ...mergeProps(popoverProps, props),
+        ...mergeProps(userPopoverProps, props),
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
-              state.selectedItems.length * 0.00000001 + (popoverProps.offset || 0)
-            : popoverProps.offset,
+              state.selectedItems.length * 0.00000001 + (userPopoverProps?.offset || 0)
+            : userPopoverProps?.offset,
       } as PopoverProps;
     },
-    [slots, classNames?.popover, popoverProps, state, state.selectedItems],
+    [slots, classNames?.popover, userPopoverProps, triggerRef, state, state.selectedItems],
   );
 
   const getIconProps = useCallback(

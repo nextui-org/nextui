@@ -2,7 +2,9 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {
   AsyncLoadable,
   CollectionBase,
+  DOMProps,
   FocusableProps,
+  HelpTextProps,
   InputBase,
   LabelableProps,
   MultipleSelection,
@@ -19,6 +21,8 @@ export interface MultiSelectProps<T>
   extends CollectionBase<T>,
     AsyncLoadable,
     Omit<InputBase, "isReadOnly">,
+    DOMProps,
+    HelpTextProps,
     Validation,
     LabelableProps,
     TextInputBase,

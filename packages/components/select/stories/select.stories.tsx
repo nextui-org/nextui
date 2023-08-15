@@ -1,11 +1,11 @@
 /* eslint-disable react/display-name */
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
 import {PetBoldIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
-import {Selection} from "@react-types/shared";
 import {Chip} from "@nextui-org/chip";
+import {Selection} from "@react-types/shared";
 
 import {Select, SelectedItems, SelectItem, SelectProps, SelectSection} from "../src";
 
@@ -65,6 +65,7 @@ const defaultProps = {
 type Item = {
   label: string;
   value: string;
+  description?: string;
 };
 
 type User = {
@@ -79,19 +80,31 @@ type User = {
 };
 
 const itemsData: Item[] = [
-  {label: "Cat", value: "cat"},
-  {label: "Dog", value: "dog"},
-  {label: "Elephant", value: "elephant"},
-  {label: "Lion", value: "lion"},
-  {label: "Tiger", value: "tiger"},
-  {label: "Giraffe", value: "giraffe"},
-  {label: "Dolphin", value: "dolphin"},
-  {label: "Penguin", value: "penguin"},
-  {label: "Zebra", value: "zebra"},
-  {label: "Shark", value: "shark"},
-  {label: "Whale", value: "whale"},
-  {label: "Otter", value: "otter"},
-  {label: "Crocodile", value: "crocodile"},
+  {label: "Cat", value: "cat", description: "The second most popular pet in the world"},
+  {label: "Dog", value: "dog", description: "The most popular pet in the world"},
+  {label: "Elephant", value: "elephant", description: "The largest land animal"},
+  {label: "Lion", value: "lion", description: "The king of the jungle"},
+  {label: "Tiger", value: "tiger", description: "The largest cat species"},
+  {label: "Giraffe", value: "giraffe", description: "The tallest land animal"},
+  {
+    label: "Dolphin",
+    value: "dolphin",
+    description: "A widely distributed and diverse group of aquatic mammals",
+  },
+  {label: "Penguin", value: "penguin", description: "A group of aquatic flightless birds"},
+  {label: "Zebra", value: "zebra", description: "A several species of African equids"},
+  {
+    label: "Shark",
+    value: "shark",
+    description: "A group of elasmobranch fish characterized by a cartilaginous skeleton",
+  },
+  {
+    label: "Whale",
+    value: "whale",
+    description: "Diverse group of fully aquatic placental marine mammals",
+  },
+  {label: "Otter", value: "otter", description: "A carnivorous mammal in the subfamily Lutrinae"},
+  {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
 ];
 
 const usersData: User[] = [
@@ -330,11 +343,98 @@ const DynamicTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
   </Select>
 );
 
-const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
-  const [value, setValue] = React.useState<React.Key>("cat");
+const DynamicTemplateWithDescriptions = ({color, variant, ...args}: SelectProps<Item>) => (
+  <Select
+    aria-label="Favorite Animal"
+    className="max-w-xs"
+    color={color}
+    items={itemsData}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {(item) => (
+      <SelectItem key={item.value} description={item.description}>
+        {item.label}
+      </SelectItem>
+    )}
+  </Select>
+);
 
-  const handleSelectionChange = (keys: Selection) => {
-    setValue(keys[0]);
+const ItemStartContentTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
+  <Select
+    aria-label="Select country"
+    className="max-w-xs"
+    color={color}
+    items={itemsData}
+    label="Select country"
+    variant={variant}
+    {...args}
+  >
+    <SelectItem
+      key="argentina"
+      startContent={<Avatar alt="Argentina" className="w-6 h-6" src="https://flagcdn.com/ar.svg" />}
+    >
+      Argentina
+    </SelectItem>
+    <SelectItem
+      key="venezuela"
+      startContent={<Avatar alt="Venezuela" className="w-6 h-6" src="https://flagcdn.com/ve.svg" />}
+    >
+      Venezuela
+    </SelectItem>
+    <SelectItem
+      key="brazil"
+      startContent={<Avatar alt="Brazil" className="w-6 h-6" src="https://flagcdn.com/br.svg" />}
+    >
+      Brazil
+    </SelectItem>
+    <SelectItem
+      key="switzerland"
+      startContent={
+        <Avatar alt="Switzerland" className="w-6 h-6" src="https://flagcdn.com/ch.svg" />
+      }
+    >
+      Switzerland
+    </SelectItem>
+    <SelectItem
+      key="germany"
+      startContent={<Avatar alt="Germany" className="w-6 h-6" src="https://flagcdn.com/de.svg" />}
+    >
+      Germany
+    </SelectItem>
+    <SelectItem
+      key="spain"
+      startContent={<Avatar alt="Spain" className="w-6 h-6" src="https://flagcdn.com/es.svg" />}
+    >
+      Spain
+    </SelectItem>
+    <SelectItem
+      key="france"
+      startContent={<Avatar alt="France" className="w-6 h-6" src="https://flagcdn.com/fr.svg" />}
+    >
+      France
+    </SelectItem>
+    <SelectItem
+      key="italy"
+      startContent={<Avatar alt="Italy" className="w-6 h-6" src="https://flagcdn.com/it.svg" />}
+    >
+      Italy
+    </SelectItem>
+    <SelectItem
+      key="mexico"
+      startContent={<Avatar alt="Mexico" className="w-6 h-6" src="https://flagcdn.com/mx.svg" />}
+    >
+      Mexico
+    </SelectItem>
+  </Select>
+);
+
+const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
+  const [value, setValue] = React.useState<Selection>(new Set(["cat"]));
+
+  const handleSelectionChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setValue(new Set([e.target.value]));
   };
 
   return (
@@ -345,14 +445,69 @@ const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
         color={color}
         items={itemsData}
         label="Favorite Animal"
-        selectedKey={value}
+        selectedKeys={value}
+        variant={variant}
+        onChange={handleSelectionChange}
+        {...args}
+      >
+        {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+      </Select>
+      <p className="text-default-500">Selected: {value}</p>
+    </div>
+  );
+};
+
+const ControlledOpenTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div className="flex w-full max-w-xs items-center gap-2">
+      <Select
+        aria-label="Favorite Animal"
+        className="max-w-xs"
+        color={color}
+        isOpen={isOpen}
+        label="Favorite Animal"
+        variant={variant}
+        {...args}
+      >
+        {items}
+      </Select>
+      <button
+        className={button({className: "max-w-fit"})}
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? "Close" : "Open"}
+      </button>
+    </div>
+  );
+};
+
+const ControlledMultipleTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
+  const [values, setValues] = React.useState<Selection>(new Set(["cat", "dog"]));
+
+  const handleSelectionChange = (items: Selection) => {
+    setValues(items);
+  };
+
+  return (
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <Select
+        fullWidth
+        aria-label="Favorite Animal"
+        color={color}
+        items={itemsData}
+        label="Favorite Animal"
+        selectedKeys={values}
+        selectionMode="multiple"
         variant={variant}
         onSelectionChange={handleSelectionChange}
         {...args}
       >
         {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
       </Select>
-      <p className="text-default-500">Selected: {value}</p>
+      <p className="text-default-500">Selected: {[...values].join(", ")}</p>
     </div>
   );
 };
@@ -491,7 +646,7 @@ const StartContentTemplate = ({color, variant, ...args}: SelectProps) => (
     aria-label="Favorite Animal"
     className="max-w-xs"
     color={color}
-    defaultSelectedKey="cat"
+    defaultSelectedKeys={["cat"]}
     label="Favorite Animal"
     startContent={<PetBoldIcon />}
     variant={variant}
@@ -678,6 +833,33 @@ export const StartContent = {
   },
 };
 
+export const WithoutScrollShadow = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    scrollShadowProps: {
+      isEnabled: false,
+    },
+  },
+};
+
+export const WithItemDescriptions = {
+  render: DynamicTemplateWithDescriptions,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithItemStartContent = {
+  render: ItemStartContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const WithErrorMessage = {
   render: DynamicTemplate,
 
@@ -693,7 +875,7 @@ export const InvalidValidationState = {
   args: {
     ...defaultProps,
     variant: "bordered",
-    defaultSelectedKey: "dog",
+    defaultSelectedKeys: ["dog"],
     validationState: "invalid",
     errorMessage: "Please select a valid animal",
   },
@@ -701,6 +883,22 @@ export const InvalidValidationState = {
 
 export const Controlled = {
   render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const ControlledMultiple = {
+  render: ControlledMultipleTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const ControlledOpen = {
+  render: ControlledOpenTemplate,
 
   args: {
     ...defaultProps,

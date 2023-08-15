@@ -3,7 +3,7 @@
  * custom input/select props.
  */
 import {FocusableElement} from "@react-types/shared";
-import React, {ReactNode, RefObject, useRef} from "react";
+import React, {ReactNode, RefObject} from "react";
 import {useFormReset} from "@react-aria/utils";
 import {useInteractionModality} from "@react-aria/interactions";
 import {useVisuallyHidden} from "@react-aria/visually-hidden";
@@ -27,16 +27,25 @@ export interface AriaHiddenSelectProps {
   isRequired?: boolean;
 }
 
-export interface HiddenSelectProps<T> extends AriaHiddenSelectProps {
+type NativeHTMLSelectProps = Omit<
+  React.SelectHTMLAttributes<HTMLSelectElement>,
+  keyof AriaHiddenSelectProps
+>;
+
+type CombinedAriaSelectProps = NativeHTMLSelectProps & AriaHiddenSelectProps;
+
+export interface HiddenSelectProps<T> extends CombinedAriaSelectProps {
   /** State for the select. */
   state: MultiSelectState<T>;
   /** The selection mode for the select. */
   selectionMode: MultiSelectProps<T>["selectionMode"];
   /** A ref to the trigger element. */
   triggerRef: RefObject<FocusableElement>;
+  /** A ref to the hidden `<select>` element. */
+  selectRef?: RefObject<HTMLSelectElement>;
 }
 
-export interface AriaHiddenSelectOptions<T> extends AriaHiddenSelectProps {
+export interface AriaHiddenSelectOptions<T> extends CombinedAriaSelectProps {
   /** A ref to the hidden `<select>` element. */
   selectRef?: RefObject<HTMLSelectElement>;
   /** The selection mode for the select. */
@@ -53,7 +62,7 @@ export function useHiddenSelect<T>(
   state: MultiSelectState<T>,
   triggerRef: RefObject<FocusableElement>,
 ) {
-  let {autoComplete, name, isDisabled, isRequired, selectionMode} = props;
+  let {autoComplete, name, isDisabled, isRequired, selectionMode, onChange} = props;
   let modality = useInteractionModality();
   let {visuallyHiddenProps} = useVisuallyHidden();
 
@@ -90,7 +99,10 @@ export function useHiddenSelect<T>(
           ? [...state.selectedKeys].map((k) => String(k))
           : [...state.selectedKeys][0],
       multiple: selectionMode === "multiple",
-      onChange: (e: React.ChangeEvent<HTMLSelectElement>) => state.setSelectedKeys(e.target.value),
+      onChange: (e: React.ChangeEvent<HTMLSelectElement>) => {
+        state.setSelectedKeys(e.target.value);
+        onChange?.(e);
+      },
     },
   };
 }
@@ -100,8 +112,8 @@ export function useHiddenSelect<T>(
  * form autofill, mobile form navigation, and native form submission.
  */
 export function HiddenSelect<T>(props: HiddenSelectProps<T>) {
-  let {state, triggerRef, label, name, isDisabled} = props;
-  let selectRef = useRef(null);
+  let {state, triggerRef, selectRef, label, name, isDisabled} = props;
+
   let {containerProps, inputProps, selectProps} = useHiddenSelect(
     {...props, selectRef},
     state,

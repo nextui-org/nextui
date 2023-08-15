@@ -66,7 +66,7 @@ describe("Select", () => {
   });
 
   it("ref should be forwarded", () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLSelectElement>();
 
     render(
       <Select ref={ref} aria-label="Favorite Animal" label="Favorite Animal">
@@ -172,6 +172,46 @@ describe("Select", () => {
       await userEvent.click(listboxItems[1]);
 
       expect(onSelectionChange).toBeCalledTimes(1);
+    });
+  });
+
+  it("should work with multiple selection (controlled)", async () => {
+    let onSelectionChange = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disallowEmptySelection
+        isOpen
+        aria-label="Favorite Animal"
+        label="Favorite Animal"
+        selectionMode="multiple"
+        onSelectionChange={onSelectionChange}
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    let listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(3);
+
+    await act(async () => {
+      await userEvent.click(listboxItems[1]);
+      await userEvent.click(listboxItems[2]);
+
+      expect(onSelectionChange).toBeCalledTimes(2);
     });
   });
 });

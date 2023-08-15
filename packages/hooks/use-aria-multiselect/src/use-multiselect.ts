@@ -3,7 +3,6 @@ import type {
   MultiSelectState,
 } from "./use-multiselect-state";
 import type {AriaButtonProps} from "@react-types/button";
-import type {AriaSelectProps} from "@react-types/select";
 
 import {useCollator} from "@react-aria/i18n";
 import {setInteractionModality} from "@react-aria/interactions";
@@ -14,11 +13,7 @@ import {ListKeyboardDelegate, useTypeSelect} from "@react-aria/selection";
 import {chain, filterDOMProps, mergeProps, useId} from "@react-aria/utils";
 import {FocusEvent, HTMLAttributes, RefObject, useMemo} from "react";
 
-export type MultiSelectProps<T> = Omit<AriaSelectProps<T>, "onSelectionChange"> & {
-  disallowEmptySelection?: boolean;
-  selectionMode?: MultiSelectStateProps<T>["selectionMode"];
-  onSelectionChange?: MultiSelectStateProps<T>["onSelectionChange"];
-};
+export type MultiSelectProps<T> = MultiSelectStateProps<T>;
 
 export interface MultiSelectAria<T> {
   /** Props for the label element. */
