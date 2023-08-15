@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.0.14
+
+### Patch Changes
+
+- [#1406](https://github.com/nextui-org/nextui/pull/1406) [`4e7789c1f`](https://github.com/nextui-org/nextui/commit/4e7789c1f6c283b2c2116d0d80cd1ea94e5da025) Thanks [@remorses](https://github.com/remorses)! - Input is no more always controlled, supporting mutations via ref
+
 ## 2.0.13
 
 ### Patch Changes
