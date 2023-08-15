@@ -26,7 +26,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
 
   const {
     Component: DialogComponent,
-    dialogRef,
+    domRef,
     slots,
     isOpen,
     classNames,
@@ -48,7 +48,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     {
       role,
     },
-    dialogRef,
+    domRef,
   );
 
   const closeButtonContent = isValidElement(closeButton) ? (
