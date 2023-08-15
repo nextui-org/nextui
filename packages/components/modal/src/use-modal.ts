@@ -109,7 +109,7 @@ export function useModal(originalProps: UseModalProps) {
   const headerId = useId();
   const bodyId = useId();
 
-  // Sync ref with popoverRef from passed ref.
+  // Sync ref with modalRef from passed ref.
   useImperativeHandle(ref, () =>
     // @ts-ignore
     createDOMRef(dialogRef),
