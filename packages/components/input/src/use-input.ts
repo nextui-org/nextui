@@ -125,7 +125,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         originalProps?.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
-      value: inputValue ?? "",
+      value: inputValue, // don't pass "" if value === undefined, it will switch the input to controlled mode
       onChange: setInputValue,
     },
     domRef,
