@@ -1253,7 +1253,7 @@ importers:
         specifier: ^3.16.0
         version: 3.17.0(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.10.0
+        specifier: ^3.10.1
         version: 3.10.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.18.0
@@ -1723,6 +1723,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-aria-multiselect':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-multiselect
       '@react-aria/focus':
         specifier: ^3.13.0
         version: 3.14.0(react@18.2.0)
@@ -1738,12 +1741,27 @@ importers:
       '@react-aria/visually-hidden':
         specifier: ^3.8.3
         version: 3.8.3(react@18.2.0)
+      '@react-stately/list':
+        specifier: ^3.9.0
+        version: 3.9.1(react@18.2.0)
+      '@react-stately/menu':
+        specifier: ^3.5.4
+        version: 3.5.4(react@18.2.0)
       '@react-stately/select':
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
+      '@react-stately/selection':
+        specifier: ^3.13.3
+        version: 3.13.3(react@18.2.0)
       '@react-stately/tree':
         specifier: ^3.7.0
         version: 3.7.1(react@18.2.0)
+      '@react-types/menu':
+        specifier: ^3.9.3
+        version: 3.9.3(react@18.2.0)
+      '@react-types/select':
+        specifier: ^3.8.2
+        version: 3.8.2(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
@@ -1751,6 +1769,9 @@ importers:
       '@nextui-org/avatar':
         specifier: workspace:*
         version: link:../avatar
+      '@nextui-org/chip':
+        specifier: workspace:*
+        version: link:../chip
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -2444,6 +2465,55 @@ importers:
       '@react-stately/overlays':
         specifier: ^3.6.1
         version: 3.6.1(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-multiselect:
+    dependencies:
+      '@react-aria/i18n':
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.17.0
+        version: 3.17.0(react@18.2.0)
+      '@react-aria/label':
+        specifier: ^3.6.1
+        version: 3.6.1(react@18.2.0)
+      '@react-aria/listbox':
+        specifier: ^3.10.0
+        version: 3.10.0(react@18.2.0)
+      '@react-aria/menu':
+        specifier: ^3.10.1
+        version: 3.10.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection':
+        specifier: ^3.16.1
+        version: 3.16.1(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+      '@react-stately/list':
+        specifier: ^3.9.0
+        version: 3.9.1(react@18.2.0)
+      '@react-stately/menu':
+        specifier: ^3.5.4
+        version: 3.5.4(react@18.2.0)
+      '@react-types/button':
+        specifier: ^3.7.4
+        version: 3.7.4(react@18.2.0)
+      '@react-types/overlays':
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.2.0)
+      '@react-types/select':
+        specifier: ^3.8.2
+        version: 3.8.2(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)

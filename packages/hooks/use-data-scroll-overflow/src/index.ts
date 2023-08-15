@@ -69,13 +69,24 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
       }
     };
 
-    el?.addEventListener("scroll", checkOverflow);
+    const clearOverflow = () => {
+      if (!el) return;
 
-    isEnabled && checkOverflow();
+      el.removeAttribute("data-top-scroll");
+      el.removeAttribute("data-bottom-scroll");
+      el.removeAttribute("data-top-bottom-scroll");
+
+      el.removeAttribute("data-left-scroll");
+      el.removeAttribute("data-right-scroll");
+      el.removeAttribute("data-left-right-scroll");
+    };
+
+    isEnabled ? el?.addEventListener("scroll", checkOverflow) : clearOverflow();
 
     return () => {
       // Cleanup listener when component unmounts
       el?.removeEventListener("scroll", checkOverflow);
+      clearOverflow();
     };
   }, [isEnabled, overflowCheck, domRef]);
 }

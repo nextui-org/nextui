@@ -40,6 +40,7 @@ export function useReactAriaPopover(
     crossOffset = 0,
     scrollRef,
     shouldFlip,
+    boundaryElement,
     placement: placementProp = "top",
     containerPadding,
     isNonModal: isNonModalProp,
@@ -73,6 +74,7 @@ export function useReactAriaPopover(
   } = useOverlayPosition({
     ...otherProps,
     scrollRef,
+    boundaryElement,
     crossOffset,
     shouldFlip,
     containerPadding,

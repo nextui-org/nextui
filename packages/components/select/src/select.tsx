@@ -23,7 +23,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     startContent,
     endContent,
     placeholder,
-    labelPlacement,
+    renderValue,
     getBaseProps,
     getLabelProps,
     getTriggerProps,
@@ -65,6 +65,26 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getDescriptionProps,
   ]);
 
+  const renderSelectedItem = useMemo(() => {
+    if (!state.selectedItems) return placeholder;
+
+    if (renderValue && typeof renderValue === "function") {
+      const mappedItems = [...state.selectedItems].map((item) => ({
+        key: item.key,
+        data: item.value,
+        type: item.type,
+        props: item.props,
+        textValue: item.textValue,
+        rendered: item.rendered,
+        "aria-label": item["aria-label"],
+      }));
+
+      return renderValue(mappedItems);
+    }
+
+    return state.selectedItems.map((item) => item.textValue).join(", ");
+  }, [state.selectedItems, renderValue]);
+
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
@@ -72,12 +92,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
       <Popover {...getPopoverProps()}>
         <PopoverTrigger>
           <Component {...getTriggerProps()}>
-            {labelPlacement === "inside" ? labelContent : null}
+            {!shouldLabelBeOutside ? labelContent : null}
             <div {...getInnerWrapperProps()}>
               {startContent}
-              <span {...getValueProps()}>
-                {state.selectedItem ? state.selectedItem.rendered : placeholder}
-              </span>
+              <span {...getValueProps()}>{renderSelectedItem}</span>
               {endContent}
             </div>
             {clonedIcon}

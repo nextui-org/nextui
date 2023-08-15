@@ -1,14 +1,13 @@
 import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {HiddenSelectProps} from "./hidden-select";
 
 import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
 import {ListboxProps} from "@nextui-org/listbox";
-import {AriaSelectProps, HiddenSelectProps} from "@react-aria/select";
-import {useSelectState} from "@react-stately/select";
 import {useAriaButton} from "@nextui-org/use-aria-button";
-import {useSelect as useAriaSelect} from "@react-aria/select";
+// import {useSelect as useAriaSelect} from "@react-aria/select";
 import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -17,7 +16,32 @@ import {PopoverProps} from "@nextui-org/popover";
 import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
-interface Props extends HTMLNextUIProps<"select"> {
+import {
+  MultiSelectProps,
+  useMultiSelect,
+  useMultiSelectState,
+} from "@nextui-org/use-aria-multiselect";
+
+export type SelectedItemProps<T = object> = {
+  /** A unique key for the item. */
+  key?: Key;
+  /** The props passed to the item. */
+  props?: Record<string, any>;
+  /** The item data. */
+  data?: T | null;
+  /** An accessibility label for this item. */
+  "aria-label"?: string;
+  /** The rendered contents of this item (e.g. JSX). */
+  rendered?: ReactNode;
+  /** A string value for this item, used for features like typeahead. */
+  textValue?: string;
+  /** The type of item this item represents. */
+  type?: string;
+};
+
+export type SelectedItems<T = object> = Array<SelectedItemProps<T>>;
+
+interface Props<T> extends HTMLNextUIProps<"select"> {
   /**
    * Ref to the DOM node.
    */
@@ -51,7 +75,7 @@ interface Props extends HTMLNextUIProps<"select"> {
   /**
    * Element to be rendered in the right side of the select.
    */
-  endContent?: React.ReactNode;
+  endContent?: ReactNode;
   /**
    * The placeholder for the select to display when no option is selected.
    * @default "Select an option"
@@ -63,11 +87,11 @@ interface Props extends HTMLNextUIProps<"select"> {
    */
   showScrollIndicators?: boolean;
   /**
-   *
+   * Function to render the value of the select. It renders the selected item by default.
    * @param value
    * @returns
    */
-  renderValue?: (value: any) => React.ReactNode;
+  renderValue?: (items: SelectedItems<T>) => ReactNode;
   /**
    * Callback fired when the select menu is closed.
    */
@@ -78,8 +102,8 @@ interface Props extends HTMLNextUIProps<"select"> {
   classNames?: SlotsToClasses<SelectSlots>;
 }
 
-export type UseSelectProps<T> = Omit<Props, keyof AriaSelectProps<T>> &
-  Omit<AriaSelectProps<T>, "children"> &
+export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
+  MultiSelectProps<T> &
   SelectVariantProps &
   CollectionProps<T>;
 
@@ -103,11 +127,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     endContent,
     description,
     errorMessage,
+    renderValue,
     onSelectionChange,
     placeholder,
+    selectionMode = "single",
     popoverProps = {
       placement: "bottom",
       triggerScaleOnOpen: false,
+      offset: 5,
       disableAnimation,
     },
     scrollShadowProps = {
@@ -131,9 +158,10 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const listboxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useSelectState<T>({
+  const state = useMultiSelectState<T>({
     ...props,
     isOpen,
+    selectionMode,
     children: children as CollectionChildren<T>,
     isRequired: originalProps?.isRequired,
     isDisabled: originalProps?.isDisabled,
@@ -144,13 +172,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         onClose?.();
       }
     },
-    onSelectionChange: (key: Key) => {
-      onSelectionChange?.(key);
+    onSelectionChange: (keys) => {
+      onSelectionChange?.(keys);
     },
   });
 
   const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useAriaSelect({...props, isDisabled: originalProps?.isDisabled}, state, domRef);
+    useMultiSelect({...props, isDisabled: originalProps?.isDisabled}, state, domRef);
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, domRef);
 
@@ -168,10 +196,11 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const hasHelper = !!description || !!errorMessage;
   const hasPlaceholder = !!placeholder;
   const isInvalid = props.validationState === "invalid";
-  const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
+  const shouldLabelBeOutside =
+    labelPlacement === "outside-left" || (labelPlacement === "outside" && hasPlaceholder);
   const shouldLabelBeInside = labelPlacement === "inside";
   const isLabelPlaceholder = !hasPlaceholder && labelPlacement !== "outside-left";
-  const isFilled = state.isOpen || !!state.selectedItem || !!startContent || !!endContent;
+  const isFilled = state.isOpen || !!state.selectedItems || !!startContent || !!endContent;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -273,6 +302,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) =>
       ({
         state,
+        selectionMode,
         label: originalProps?.label,
         name: originalProps?.name,
         triggerRef: domRef,
@@ -283,6 +313,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       } as HiddenSelectProps<T>),
     [
       state,
+      selectionMode,
       originalProps?.label,
       originalProps?.autoComplete,
       originalProps?.name,
@@ -340,14 +371,20 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         state,
         ref: popoverRef,
         scrollRef: listboxRef,
+
         triggerRef: domRef,
         className: slots.popover({
           class: clsx(classNames?.popover, props.className),
         }),
         ...mergeProps(popoverProps, props),
+        offset:
+          state.selectedItems && state.selectedItems.length > 0
+            ? // forces the popover to update its position when the selected items change
+              state.selectedItems.length * 0.00000001 + (popoverProps.offset || 0)
+            : popoverProps.offset,
       } as PopoverProps;
     },
-    [slots, classNames?.popover, popoverProps, state],
+    [slots, classNames?.popover, popoverProps, state, state.selectedItems],
   );
 
   const getIconProps = useCallback(
@@ -419,6 +456,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     hasHelper,
     labelPlacement,
     hasPlaceholder,
+    renderValue,
+    selectionMode,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     getBaseProps,

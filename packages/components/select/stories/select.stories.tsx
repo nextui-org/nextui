@@ -1,10 +1,13 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
 import {PetBoldIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
+import {Selection} from "@react-types/shared";
+import {Chip} from "@nextui-org/chip";
 
-import {Select, SelectItem, SelectProps} from "../src";
+import {Select, SelectedItems, SelectItem, SelectProps, SelectSection} from "../src";
 
 export default {
   title: "Components/Select",
@@ -99,7 +102,7 @@ const usersData: User[] = [
     team: "Management",
     status: "active",
     age: "29",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/1.png",
     email: "tony.reichert@example.com",
   },
   {
@@ -109,7 +112,7 @@ const usersData: User[] = [
     team: "Development",
     status: "paused",
     age: "25",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/1.png",
     email: "zoey.lang@example.com",
   },
   {
@@ -119,7 +122,7 @@ const usersData: User[] = [
     team: "Development",
     status: "active",
     age: "22",
-    avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/2.png",
     email: "jane.fisher@example.com",
   },
   {
@@ -129,7 +132,7 @@ const usersData: User[] = [
     team: "Marketing",
     status: "vacation",
     age: "28",
-    avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/2.png",
     email: "william.howard@example.com",
   },
   {
@@ -139,7 +142,7 @@ const usersData: User[] = [
     team: "Sales",
     status: "active",
     age: "24",
-    avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/3.png",
     email: "kristen.cooper@example.com",
   },
   {
@@ -148,7 +151,7 @@ const usersData: User[] = [
     role: "P. Manager",
     team: "Management",
     age: "29",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/3.png",
     email: "brian.kim@example.com",
     status: "Active",
   },
@@ -159,7 +162,7 @@ const usersData: User[] = [
     team: "Design",
     status: "paused",
     age: "27",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29027007d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/4.png",
     email: "michael.hunt@example.com",
   },
   {
@@ -169,7 +172,7 @@ const usersData: User[] = [
     team: "HR",
     status: "active",
     age: "31",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e27027008d",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/4.png",
     email: "samantha.brooks@example.com",
   },
   {
@@ -179,7 +182,7 @@ const usersData: User[] = [
     team: "Finance",
     status: "vacation",
     age: "33",
-    avatar: "https://i.pravatar.cc/150?img=4",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/5.png",
     email: "frank.harrison@example.com",
   },
   {
@@ -189,7 +192,7 @@ const usersData: User[] = [
     team: "Operations",
     status: "active",
     age: "35",
-    avatar: "https://i.pravatar.cc/150?img=5",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/5.png",
     email: "emma.adams@example.com",
   },
   {
@@ -199,7 +202,7 @@ const usersData: User[] = [
     team: "Development",
     status: "active",
     age: "22",
-    avatar: "https://i.pravatar.cc/150?img=8",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/7.png",
     email: "brandon.stevens@example.com",
   },
   {
@@ -209,7 +212,7 @@ const usersData: User[] = [
     team: "Product",
     status: "paused",
     age: "28",
-    avatar: "https://i.pravatar.cc/150?img=10",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/7.png",
     email: "megan.richards@example.com",
   },
   {
@@ -219,7 +222,7 @@ const usersData: User[] = [
     team: "Security",
     status: "active",
     age: "37",
-    avatar: "https://i.pravatar.cc/150?img=12",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/8.png",
     email: "oliver.scott@example.com",
   },
   {
@@ -229,7 +232,7 @@ const usersData: User[] = [
     team: "Marketing",
     status: "active",
     age: "30",
-    avatar: "https://i.pravatar.cc/150?img=16",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/8.png",
     email: "grace.allen@example.com",
   },
   {
@@ -239,7 +242,7 @@ const usersData: User[] = [
     team: "I. Technology",
     status: "paused",
     age: "31",
-    avatar: "https://i.pravatar.cc/150?img=15",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/9.png",
     email: "noah.carter@example.com",
   },
   {
@@ -249,7 +252,7 @@ const usersData: User[] = [
     team: "Sales",
     status: "active",
     age: "29",
-    avatar: "https://i.pravatar.cc/150?img=20",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/9.png",
     email: "ava.perez@example.com",
   },
   {
@@ -259,7 +262,7 @@ const usersData: User[] = [
     team: "Analysis",
     status: "active",
     age: "28",
-    avatar: "https://i.pravatar.cc/150?img=33",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/11.png",
     email: "liam.johnson@example.com",
   },
   {
@@ -269,7 +272,7 @@ const usersData: User[] = [
     team: "Testing",
     status: "active",
     age: "27",
-    avatar: "https://i.pravatar.cc/150?img=29",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/11.png",
     email: "sophia.taylor@example.com",
   },
   {
@@ -279,7 +282,7 @@ const usersData: User[] = [
     team: "Information Technology",
     status: "paused",
     age: "32",
-    avatar: "https://i.pravatar.cc/150?img=50",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/12.png",
     email: "lucas.harris@example.com",
   },
   {
@@ -289,7 +292,7 @@ const usersData: User[] = [
     team: "Operations",
     status: "active",
     age: "26",
-    avatar: "https://i.pravatar.cc/150?img=45",
+    avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/12.png",
     email: "mia.robinson@example.com",
   },
 ];
@@ -330,6 +333,10 @@ const DynamicTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
 const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
   const [value, setValue] = React.useState<React.Key>("cat");
 
+  const handleSelectionChange = (keys: Selection) => {
+    setValue(keys[0]);
+  };
+
   return (
     <div className="flex w-full max-w-xs flex-col gap-2">
       <Select
@@ -340,7 +347,7 @@ const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
         label="Favorite Animal"
         selectedKey={value}
         variant={variant}
-        onSelectionChange={setValue}
+        onSelectionChange={handleSelectionChange}
         {...args}
       >
         {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
@@ -355,7 +362,7 @@ const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
     <form
       className="w-full max-w-xs items-end flex flex-col gap-4"
       onSubmit={(e) => {
-        alert("Submitted");
+        alert(`Submitted value: ${e.target["favorite-animal"].value}`);
         e.preventDefault();
       }}
     >
@@ -498,9 +505,6 @@ const CustomItemsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
   <Select
     aria-label="Assigned to"
     className="max-w-xs mt-8"
-    classNames={{
-      trigger: "h-unit-12 min-h-unit-12",
-    }}
     color={color}
     items={usersData}
     label="Assigned to"
@@ -523,11 +527,102 @@ const CustomItemsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
   </Select>
 );
 
+const WithSectionsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
+  <Select
+    aria-label="Favorite Animal"
+    className="max-w-xs"
+    color={color}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    <SelectSection showDivider title="Mammals">
+      <SelectItem key="Lion">Lion</SelectItem>
+      <SelectItem key="Tiger">Tiger</SelectItem>
+      <SelectItem key="Elephant">Elephant</SelectItem>
+      <SelectItem key="Kangaroo">Kangaroo</SelectItem>
+      <SelectItem key="Panda">Panda</SelectItem>
+      <SelectItem key="Giraffe">Giraffe</SelectItem>
+      <SelectItem key="Zebra">Zebra</SelectItem>
+      <SelectItem key="Cheetah">Cheetah</SelectItem>
+    </SelectSection>
+    <SelectSection title="Birds">
+      <SelectItem key="Eagle">Eagle</SelectItem>
+      <SelectItem key="Parrot">Parrot</SelectItem>
+      <SelectItem key="Penguin">Penguin</SelectItem>
+      <SelectItem key="Ostrich">Ostrich</SelectItem>
+      <SelectItem key="Peacock">Peacock</SelectItem>
+      <SelectItem key="Swan">Swan</SelectItem>
+      <SelectItem key="Falcon">Falcon</SelectItem>
+      <SelectItem key="Flamingo">Flamingo</SelectItem>
+    </SelectSection>
+  </Select>
+);
+
+const WithCustomSectionsStylesTemplate = ({color, variant, ...args}: SelectProps<User>) => {
+  const headingClasses =
+    "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-100 shadow-small rounded-small";
+
+  return (
+    <Select
+      aria-label="Favorite Animal"
+      className="max-w-xs"
+      color={color}
+      label="Favorite Animal"
+      scrollShadowProps={{
+        isEnabled: false,
+      }}
+      variant={variant}
+      {...args}
+    >
+      <SelectSection
+        classNames={{
+          heading: headingClasses,
+        }}
+        title="Mammals"
+      >
+        <SelectItem key="Lion">Lion</SelectItem>
+        <SelectItem key="Tiger">Tiger</SelectItem>
+        <SelectItem key="Elephant">Elephant</SelectItem>
+        <SelectItem key="Kangaroo">Kangaroo</SelectItem>
+        <SelectItem key="Panda">Panda</SelectItem>
+        <SelectItem key="Giraffe">Giraffe</SelectItem>
+        <SelectItem key="Zebra">Zebra</SelectItem>
+        <SelectItem key="Cheetah">Cheetah</SelectItem>
+      </SelectSection>
+      <SelectSection
+        classNames={{
+          heading: headingClasses,
+        }}
+        title="Birds"
+      >
+        <SelectItem key="Eagle">Eagle</SelectItem>
+        <SelectItem key="Parrot">Parrot</SelectItem>
+        <SelectItem key="Penguin">Penguin</SelectItem>
+        <SelectItem key="Ostrich">Ostrich</SelectItem>
+        <SelectItem key="Peacock">Peacock</SelectItem>
+        <SelectItem key="Swan">Swan</SelectItem>
+        <SelectItem key="Falcon">Falcon</SelectItem>
+        <SelectItem key="Flamingo">Flamingo</SelectItem>
+      </SelectSection>
+    </Select>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const Multiple = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
   },
 };
 
@@ -614,6 +709,65 @@ export const Controlled = {
 
 export const CustomItems = {
   render: CustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomRenderValue = {
+  render: CustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
+    classNames: {
+      trigger: "h-12",
+    },
+    renderValue: (items: SelectedItems<User>) => {
+      return items.map((item) => (
+        <div key={item.key} className="flex flex-col gap-0">
+          <span>{item.data?.name}</span>
+          <span className="text-default-500 text-tiny">({item.data?.email})</span>
+        </div>
+      ));
+    },
+  },
+};
+
+export const WithChips = {
+  render: CustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    selectionMode: "multiple",
+    isMultiline: true,
+    placeholder: "Select users",
+    classNames: {
+      trigger: "min-h-unit-12 py-2",
+    },
+    renderValue: (items: SelectedItems<User>) => {
+      return (
+        <div className="flex flex-wrap gap-2">
+          {items.map((item) => (
+            <Chip key={item.key}>{item.data?.name}</Chip>
+          ))}
+        </div>
+      );
+    },
+  },
+};
+
+export const WithSections = {
+  render: WithSectionsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithCustomSectionsStyles = {
+  render: WithCustomSectionsStylesTemplate,
 
   args: {
     ...defaultProps,

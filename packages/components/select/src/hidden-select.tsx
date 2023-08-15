@@ -4,10 +4,13 @@
  */
 import {FocusableElement} from "@react-types/shared";
 import React, {ReactNode, RefObject, useRef} from "react";
-import {SelectState} from "@react-stately/select";
 import {useFormReset} from "@react-aria/utils";
 import {useInteractionModality} from "@react-aria/interactions";
 import {useVisuallyHidden} from "@react-aria/visually-hidden";
+import {
+  MultiSelectProps,
+  MultiSelectState,
+} from "@nextui-org/use-aria-multiselect/src/use-multiselect-state";
 
 export interface AriaHiddenSelectProps {
   /**
@@ -26,14 +29,18 @@ export interface AriaHiddenSelectProps {
 
 export interface HiddenSelectProps<T> extends AriaHiddenSelectProps {
   /** State for the select. */
-  state: SelectState<T>;
+  state: MultiSelectState<T>;
+  /** The selection mode for the select. */
+  selectionMode: MultiSelectProps<T>["selectionMode"];
   /** A ref to the trigger element. */
   triggerRef: RefObject<FocusableElement>;
 }
 
-export interface AriaHiddenSelectOptions extends AriaHiddenSelectProps {
+export interface AriaHiddenSelectOptions<T> extends AriaHiddenSelectProps {
   /** A ref to the hidden `<select>` element. */
   selectRef?: RefObject<HTMLSelectElement>;
+  /** The selection mode for the select. */
+  selectionMode: MultiSelectProps<T>["selectionMode"];
 }
 
 /**
@@ -42,11 +49,11 @@ export interface AriaHiddenSelectOptions extends AriaHiddenSelectProps {
  * navigation, and native HTML form submission.
  */
 export function useHiddenSelect<T>(
-  props: AriaHiddenSelectOptions,
-  state: SelectState<T>,
+  props: AriaHiddenSelectOptions<T>,
+  state: MultiSelectState<T>,
   triggerRef: RefObject<FocusableElement>,
 ) {
-  let {autoComplete, name, isDisabled, isRequired} = props;
+  let {autoComplete, name, isDisabled, isRequired, selectionMode} = props;
   let modality = useInteractionModality();
   let {visuallyHiddenProps} = useVisuallyHidden();
 
@@ -63,7 +70,7 @@ export function useHiddenSelect<T>(
       type: "text",
       tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
       autoComplete,
-      value: state.selectedKey ?? "",
+      value: [...state.selectedKeys].join(",") ?? "",
       required: isRequired,
       style: {fontSize: 16},
       onFocus: () => triggerRef.current?.focus(),
@@ -78,8 +85,12 @@ export function useHiddenSelect<T>(
       autoComplete,
       disabled: isDisabled,
       size: state.collection.size,
-      value: state.selectedKey ?? "",
-      onChange: (e: React.ChangeEvent<HTMLSelectElement>) => state.setSelectedKey(e.target.value),
+      value:
+        selectionMode === "multiple"
+          ? [...state.selectedKeys].map((k) => String(k))
+          : [...state.selectedKeys][0],
+      multiple: selectionMode === "multiple",
+      onChange: (e: React.ChangeEvent<HTMLSelectElement>) => state.setSelectedKeys(e.target.value),
     },
   };
 }
@@ -130,7 +141,7 @@ export function HiddenSelect<T>(props: HiddenSelectProps<T>) {
         disabled={isDisabled}
         name={name}
         type="hidden"
-        value={state.selectedKey ?? ""}
+        value={[...state.selectedKeys].join(",") ?? ""}
       />
     );
   }

@@ -158,6 +158,14 @@ const select = tv({
         label: "after:content-['*'] after:text-danger after:ml-0.5",
       },
     },
+    isMultiline: {
+      true: {
+        trigger: "h-auto",
+      },
+      false: {
+        value: "truncate",
+      },
+    },
     disableAnimation: {
       true: {
         trigger: "after:transition-none",
@@ -186,6 +194,7 @@ const select = tv({
     labelPlacement: "inside",
     fullWidth: true,
     isDisabled: false,
+    isMultiline: false,
     disableAnimation: false,
   },
   compoundVariants: [
@@ -503,6 +512,8 @@ const select = tv({
           "pb-0",
           "z-20",
           "opacity-60",
+          "top-1/2",
+          "-translate-y-1/2",
           "group-data-[filled=true]:opacity-100",
           "group-data-[filled=true]:left-0",
         ],
@@ -523,7 +534,7 @@ const select = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        label: ["group-data-[filled=true]:-translate-y-2.5"],
+        label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_3px)]"],
         innerWrapper: "pt-4",
       },
     },
@@ -532,7 +543,9 @@ const select = tv({
       labelPlacement: "inside",
       size: "md",
       class: {
-        label: ["group-data-[filled=true]:-translate-y-3"],
+        label: [
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+        ],
         innerWrapper: "pt-4",
       },
     },
@@ -544,7 +557,7 @@ const select = tv({
         label: [
           "text-medium",
           "group-data-[filled=true]:text-small",
-          "group-data-[filled=true]:-translate-y-3",
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
         ],
         innerWrapper: "pt-6",
       },
@@ -556,11 +569,10 @@ const select = tv({
       size: "sm",
       class: {
         label: [
-          "text-small",
-          "bottom-1.5",
           "left-2",
+          "text-small",
           "group-data-[filled=true]:text-tiny",
-          "group-data-[filled=true]:bottom-10",
+          "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
       },
     },
@@ -569,7 +581,11 @@ const select = tv({
       labelPlacement: "outside",
       size: "md",
       class: {
-        label: ["text-small", "bottom-2.5", "left-3", "group-data-[filled=true]:bottom-12"],
+        label: [
+          "left-3",
+          "text-small",
+          "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
+        ],
       },
     },
     {
@@ -578,11 +594,10 @@ const select = tv({
       size: "lg",
       class: {
         label: [
-          "text-medium",
-          "bottom-3",
           "left-3",
+          "text-medium",
           "group-data-[filled=true]:text-small",
-          "group-data-[filled=true]:bottom-14",
+          "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
       },
     },

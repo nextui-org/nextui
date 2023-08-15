@@ -8,6 +8,7 @@ import Select from "./select";
 export type {SelectProps} from "./select";
 export type {ListboxItemProps as SelectItemProps};
 export type {ListboxSectionProps as SelectSectionProps};
+export type {SelectedItemProps, SelectedItems} from "./use-select";
 
 // export hooks
 export {useSelect} from "./use-select";

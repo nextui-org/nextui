@@ -195,6 +195,9 @@ const corePlugin = (
             ...(addCommonColors ? commonColors : {}),
             ...resolved.colors,
           },
+          scale: {
+            "80": "0.8",
+          },
           height: {
             divider: `var(--${prefix}-divider-weight)`,
           },
