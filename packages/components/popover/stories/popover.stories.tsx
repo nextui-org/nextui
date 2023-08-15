@@ -154,7 +154,13 @@ const OpenChangeTemplate = (args: PopoverProps) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <Popover {...args} onOpenChange={(open) => setIsOpen(open)}>
+      <Popover
+        {...args}
+        style={{
+          zIndex: 10,
+        }}
+        onOpenChange={(open) => setIsOpen(open)}
+      >
         <PopoverTrigger>
           <Button>Open Popover</Button>
         </PopoverTrigger>

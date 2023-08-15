@@ -1,5 +1,30 @@
 # @nextui-org/react
 
+## 2.0.21
+
+### Patch Changes
+
+- Updated dependencies [[`6e7e834c2`](https://github.com/nextui-org/nextui/commit/6e7e834c2dc14c21b087da792c0576ab464a4a4a)]:
+  - @nextui-org/accordion@2.0.12
+  - @nextui-org/popover@2.0.12
+  - @nextui-org/snippet@2.0.13
+  - @nextui-org/user@2.0.12
+  - @nextui-org/dropdown@2.0.13
+  - @nextui-org/checkbox@2.0.12
+  - @nextui-org/table@2.0.13
+  - @nextui-org/navbar@2.0.11
+
+## 2.0.20
+
+### Patch Changes
+
+- Updated dependencies [[`4e7789c1f`](https://github.com/nextui-org/nextui/commit/4e7789c1f6c283b2c2116d0d80cd1ea94e5da025)]:
+  - @nextui-org/input@2.0.14
+  - @nextui-org/modal@2.0.12
+  - @nextui-org/navbar@2.0.11
+  - @nextui-org/popover@2.0.11
+  - @nextui-org/tabs@2.0.11
+
 ## 2.0.19
 
 ### Patch Changes

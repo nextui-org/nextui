@@ -29,7 +29,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * The divider props.
    */
-  dividerProps?: DividerProps;
+  dividerProps?: Partial<DividerProps>;
   /**
    * The accordion selection behavior.
    * @default "toggle"

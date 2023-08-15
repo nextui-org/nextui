@@ -1,5 +1,11 @@
 # @nextui-org/user
 
+## 2.0.12
+
+### Patch Changes
+
+- [#1410](https://github.com/nextui-org/nextui/pull/1410) [`6e7e834c2`](https://github.com/nextui-org/nextui/commit/6e7e834c2dc14c21b087da792c0576ab464a4a4a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Popover style prop merged with the one returned by react-aria, other components merge props improvements
+
 ## 2.0.11
 
 ### Patch Changes
