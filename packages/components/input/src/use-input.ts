@@ -125,7 +125,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         originalProps?.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
-      value: inputValue ?? "",
       onChange: setInputValue,
     },
     domRef,
