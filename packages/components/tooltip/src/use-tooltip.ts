@@ -219,7 +219,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
       className: slots.base({class: baseStyles}),
-      ...mergeProps(tooltipProps, positionProps, overlayProps, otherProps),
+      ...mergeProps(tooltipProps, overlayProps, otherProps),
+      style: mergeProps(positionProps.style, otherProps.style, props.style),
       id: tooltipId,
     }),
     [
