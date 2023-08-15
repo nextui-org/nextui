@@ -62,7 +62,11 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
 }
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
+  Props<T> &
+    Omit<AriaTextFieldProps, "value" | "onChange"> &
+    InputVariantProps & {
+      value?: string | number | (readonly string[] & string);
+    };
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
@@ -94,8 +98,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   );
 
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value,
-    props.defaultValue,
+    typeof props.value === "number" ? String(props.value) : props.value,
+    typeof props.defaultValue === "number" ? String(props.defaultValue) : props.defaultValue,
     handleValueChange,
   );
 
