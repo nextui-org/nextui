@@ -31,7 +31,7 @@ interface Props {
    * The user avatar props
    * @see https://nextui.org/docs/components/avatar
    */
-  avatarProps?: AvatarProps;
+  avatarProps?: Partial<AvatarProps>;
   /**
    * Classname or List of classes to change the classNames of the avatar.
    * if `className` is passed, it will be added to the base slot.
@@ -60,12 +60,15 @@ export function useUser(props: UseUserProps) {
     className,
     classNames,
     isFocusable = false,
-    avatarProps = {
-      isFocusable: false,
-      name: typeof name === "string" ? name : undefined,
-    },
+    avatarProps: userAvatarProps = {},
     ...otherProps
   } = props;
+
+  const avatarProps = {
+    isFocusable: false,
+    name: typeof name === "string" ? name : undefined,
+    ...userAvatarProps,
+  };
 
   const Component = as || "div";
   const shouldFilterDOMProps = typeof Component === "string";

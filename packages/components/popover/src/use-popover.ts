@@ -170,6 +170,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getPopoverProps: PropGetter = (props = {}) => ({
     ref: popoverRef,
     ...mergeProps(popoverProps, otherProps, props),
+    style: mergeProps(popoverProps.style, otherProps.style, props.style),
     id: popoverId,
   });
 
