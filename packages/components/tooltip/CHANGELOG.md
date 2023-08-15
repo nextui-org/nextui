@@ -1,5 +1,11 @@
 # @nextui-org/tooltip
 
+## 2.0.13
+
+### Patch Changes
+
+- [#1413](https://github.com/nextui-org/nextui/pull/1413) [`f06855277`](https://github.com/nextui-org/nextui/commit/f0685527744f598e2aa032414f92a301b3195c1e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Tooltip style prop merged, this allows users change the z-index
+
 ## 2.0.12
 
 ### Patch Changes
