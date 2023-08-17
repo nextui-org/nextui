@@ -100,7 +100,14 @@ const DeleteDocumentIcon = `export const DeleteDocumentIcon = (props) => (
   </svg>
 );`;
 
-const App = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, cn} from "@nextui-org/react";
+const ListboxWrapper = `const ListboxWrapper = ({children}) => (
+  <div className="w-full max-w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">
+    {children}
+  </div>
+);`;
+
+const App = `import {Listbox, ListboxItem, ListboxSection, cn} from "@nextui-org/react";
+import {ListboxWrapper} from "./ListboxWrapper";
 import {AddNoteIcon} from "./AddNoteIcon.jsx";
 import {CopyDocumentIcon} from "./CopyDocumentIcon.jsx";
 import {EditDocumentIcon} from "./EditDocumentIcon.jsx";
@@ -110,52 +117,50 @@ export default function App() {
   const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
-    <Dropdown>
-      <DropdownTrigger>
-        <Button 
-          variant="bordered" 
-        >
-          Open Menu
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-        <DropdownItem
-          key="new"
-          shortcut="⌘N"
-          startContent={<AddNoteIcon className={iconClasses} />}
-        >
-          New file
-        </DropdownItem>
-        <DropdownItem
-          key="copy"
-          shortcut="⌘C"
-          startContent={<CopyDocumentIcon className={iconClasses} />}
-        >
-          Copy link
-        </DropdownItem>
-        <DropdownItem
-          key="edit"
-          shortcut="⌘⇧E"
-          startContent={<EditDocumentIcon className={iconClasses} />}
-        >
-          Edit file
-        </DropdownItem>
-        <DropdownItem
-          key="delete"
-          className="text-danger"
-          color="danger"
-          shortcut="⌘⇧D"
-          startContent={<DeleteDocumentIcon className={cn(iconClasses, "text-danger")} />}
-        >
-          Delete file
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+    <ListboxWrapper>
+      <Listbox variant="flat" aria-label="Listbox menu with sections">
+        <ListboxSection title="Actions" showDivider>  
+          <ListboxItem
+            key="new"
+            description="Create a new file"
+            startContent={<AddNoteIcon className={iconClasses} />}
+          >
+            New file
+          </ListboxItem>
+          <ListboxItem
+            key="copy"
+            description="Copy the file link"
+            startContent={<CopyDocumentIcon className={iconClasses} />}
+          >
+            Copy link
+          </ListboxItem>
+          <ListboxItem
+            key="edit"
+            description="Allows you to edit the file"
+            startContent={<EditDocumentIcon className={iconClasses} />}
+          >
+            Edit file
+          </ListboxItem>
+        </ListboxSection> 
+        <ListboxSection title="Danger zone">  
+          <ListboxItem
+            key="delete"
+            className="text-danger"
+            color="danger"
+            description="Permanently delete the file"
+            startContent={<DeleteDocumentIcon className={cn(iconClasses, "text-danger")} />}
+          >
+            Delete file
+          </ListboxItem>
+        </ListboxSection> 
+      </Listbox>
+    </ListboxWrapper>
   );
 }`;
 
 const react = {
   "/App.jsx": App,
+  "/ListboxWrapper.jsx": ListboxWrapper,
   "/AddNoteIcon.jsx": AddNoteIcon,
   "/CopyDocumentIcon.jsx": CopyDocumentIcon,
   "/EditDocumentIcon.jsx": EditDocumentIcon,

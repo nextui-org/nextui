@@ -109,9 +109,10 @@ const menuItem = tv({
     showDivider: {
       true: {
         base: [
+          "mb-1.5",
           "after:content-['']",
           "after:absolute",
-          "after:bottom-0",
+          "after:-bottom-1",
           "after:left-0",
           "after:right-0",
           "after:h-divider",

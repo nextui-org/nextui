@@ -137,7 +137,9 @@ const DividerTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenu
     <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
-      <DropdownItem key="edit">Edit file</DropdownItem>
+      <DropdownItem key="edit" showDivider>
+        Edit file
+      </DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>

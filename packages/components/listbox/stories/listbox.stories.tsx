@@ -402,9 +402,9 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       variant={variant}
       onAction={(key: Key) => alert(key)}
       {...args}
-      className="p-0 gap-0 bg-content1 max-w-[300px] overflow-hidden shadow-small rounded-medium"
+      className="p-0 gap-0 bg-content1 max-w-[300px] overflow-visible shadow-small rounded-medium"
       itemClasses={{
-        base: "px-3 rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 after:bg-default-300/50 dark:after:bg-default-100/80",
+        base: "px-3 mb-0 first:rounded-t-medium last:rounded-b-medium after:bottom-0 rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 after:bg-default-300/50 dark:after:bg-default-100/80",
       }}
     >
       <ListboxItem

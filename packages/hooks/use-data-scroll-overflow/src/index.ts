@@ -81,7 +81,14 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
       el.removeAttribute("data-left-right-scroll");
     };
 
-    isEnabled ? el?.addEventListener("scroll", checkOverflow) : clearOverflow();
+    if (isEnabled) {
+      // first check
+      checkOverflow();
+
+      el?.addEventListener("scroll", checkOverflow);
+    } else {
+      clearOverflow();
+    }
 
     return () => {
       // Cleanup listener when component unmounts

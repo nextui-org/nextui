@@ -191,11 +191,11 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
+        "aria-controls": popoverId,
+        "aria-haspopup": "dialog",
         ...mergeProps(triggerProps, props),
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
-        "aria-controls": popoverId,
-        "aria-haspopup": "dialog",
       };
     },
     [isOpen, popoverId, state, triggerProps, triggerRef],

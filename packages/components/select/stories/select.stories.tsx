@@ -317,21 +317,13 @@ const items = itemsData.map((item) => (
 ));
 
 const Template = ({color, variant, ...args}: SelectProps) => (
-  <Select
-    aria-label="Favorite Animal"
-    className="max-w-xs"
-    color={color}
-    label="Favorite Animal"
-    variant={variant}
-    {...args}
-  >
+  <Select className="max-w-xs" color={color} label="Favorite Animal" variant={variant} {...args}>
     {items}
   </Select>
 );
 
 const DynamicTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
   <Select
-    aria-label="Favorite Animal"
     className="max-w-xs"
     color={color}
     items={itemsData}
@@ -345,7 +337,6 @@ const DynamicTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
 
 const DynamicTemplateWithDescriptions = ({color, variant, ...args}: SelectProps<Item>) => (
   <Select
-    aria-label="Favorite Animal"
     className="max-w-xs"
     color={color}
     items={itemsData}
@@ -363,7 +354,6 @@ const DynamicTemplateWithDescriptions = ({color, variant, ...args}: SelectProps<
 
 const ItemStartContentTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
   <Select
-    aria-label="Select country"
     className="max-w-xs"
     color={color}
     items={itemsData}
@@ -441,7 +431,6 @@ const ControlledTemplate = ({color, variant, ...args}: SelectProps<Item>) => {
     <div className="flex w-full max-w-xs flex-col gap-2">
       <Select
         fullWidth
-        aria-label="Favorite Animal"
         color={color}
         items={itemsData}
         label="Favorite Animal"
@@ -463,7 +452,6 @@ const ControlledOpenTemplate = ({color, variant, ...args}: SelectProps<Item>) =>
   return (
     <div className="flex w-full max-w-xs items-center gap-2">
       <Select
-        aria-label="Favorite Animal"
         className="max-w-xs"
         color={color}
         isOpen={isOpen}
@@ -495,7 +483,6 @@ const ControlledMultipleTemplate = ({color, variant, ...args}: SelectProps<Item>
     <div className="flex w-full max-w-xs flex-col gap-2">
       <Select
         fullWidth
-        aria-label="Favorite Animal"
         color={color}
         items={itemsData}
         label="Favorite Animal"
@@ -523,7 +510,6 @@ const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
     >
       <Select
         isRequired
-        aria-label="Favorite Animal"
         color={color}
         label="Favorite Animal"
         name="favorite-animal"
@@ -541,14 +527,7 @@ const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
 
 const MirrorTemplate = ({color, variant, ...args}: SelectProps) => (
   <div className="w-full max-w-xl flex flex-row gap-4">
-    <Select
-      aria-label="Select an animal"
-      className="max-w-xs"
-      color={color}
-      label="Select an animal"
-      variant={variant}
-      {...args}
-    >
+    <Select className="max-w-xs" color={color} label="Select an animal" variant={variant} {...args}>
       {items}
     </Select>
     <Select
@@ -570,17 +549,10 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
     <div className="w-full max-w-2xl flex flex-col gap-3">
       <h3>Without placeholder</h3>
       <div className="w-full flex flex-row items-end gap-4">
-        <Select
-          aria-label="Select an animal"
-          color={color}
-          label="Select an animal"
-          variant={variant}
-          {...args}
-        >
+        <Select color={color} label="Select an animal" variant={variant} {...args}>
           {items}
         </Select>
         <Select
-          aria-label="Select an animal"
           color={color}
           label="Select an animal"
           variant={variant}
@@ -590,7 +562,6 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
           {items}
         </Select>
         <Select
-          aria-label="Select an animal"
           color={color}
           label="Select an animal"
           variant={variant}
@@ -605,7 +576,6 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
       <h3>With placeholder</h3>
       <div className="w-full flex flex-row items-end gap-4">
         <Select
-          aria-label="Select an animal"
           color={color}
           label="Favorite Animal"
           placeholder="Select an animal"
@@ -615,7 +585,6 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
           {items}
         </Select>
         <Select
-          aria-label="Select an animal"
           color={color}
           label="Favorite Animal"
           placeholder="Select an animal"
@@ -626,7 +595,6 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
           {items}
         </Select>
         <Select
-          aria-label="Select an animal"
           color={color}
           label="Favorite Animal"
           placeholder="Select an animal"
@@ -643,7 +611,6 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
 
 const StartContentTemplate = ({color, variant, ...args}: SelectProps) => (
   <Select
-    aria-label="Favorite Animal"
     className="max-w-xs"
     color={color}
     defaultSelectedKeys={["cat"]}
@@ -658,7 +625,6 @@ const StartContentTemplate = ({color, variant, ...args}: SelectProps) => (
 
 const CustomItemsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
   <Select
-    aria-label="Assigned to"
     className="max-w-xs mt-8"
     color={color}
     items={usersData}
@@ -683,14 +649,7 @@ const CustomItemsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
 );
 
 const WithSectionsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
-  <Select
-    aria-label="Favorite Animal"
-    className="max-w-xs"
-    color={color}
-    label="Favorite Animal"
-    variant={variant}
-    {...args}
-  >
+  <Select className="max-w-xs" color={color} label="Favorite Animal" variant={variant} {...args}>
     <SelectSection showDivider title="Mammals">
       <SelectItem key="Lion">Lion</SelectItem>
       <SelectItem key="Tiger">Tiger</SelectItem>
@@ -720,7 +679,6 @@ const WithCustomSectionsStylesTemplate = ({color, variant, ...args}: SelectProps
 
   return (
     <Select
-      aria-label="Favorite Animal"
       className="max-w-xs"
       color={color}
       label="Favorite Animal"
