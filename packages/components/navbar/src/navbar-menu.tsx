@@ -43,23 +43,25 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   );
 
   const contents = disableAnimation ? (
-    <MenuWrapper>
-      <ul
-        ref={domRef}
-        className={slots.menu?.({class: styles})}
-        data-open={dataAttr(isMenuOpen)}
-        style={{
-          // @ts-expect-error
-          "--navbar-height": height,
-        }}
-        {...otherProps}
-      >
-        {children}
-      </ul>
-    </MenuWrapper>
+    isMenuOpen && (
+      <MenuWrapper>
+        <ul
+          ref={domRef}
+          className={slots.menu?.({class: styles})}
+          data-open={dataAttr(isMenuOpen)}
+          style={{
+            // @ts-expect-error
+            "--navbar-height": height,
+          }}
+          {...otherProps}
+        >
+          {children}
+        </ul>
+      </MenuWrapper>
+    )
   ) : (
     <AnimatePresence>
-      {isMenuOpen ? (
+      {isMenuOpen && (
         <MenuWrapper>
           <motion.ul
             ref={domRef}
@@ -80,7 +82,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
             {children}
           </motion.ul>
         </MenuWrapper>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 
