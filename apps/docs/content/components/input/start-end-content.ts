@@ -1,4 +1,4 @@
-const MailFilledIcon = `export const MailFilledIcon = (props) => (
+const MailIcon = `export const MailIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -17,7 +17,7 @@ const MailFilledIcon = `export const MailFilledIcon = (props) => (
 );`;
 
 const App = `import {Input} from "@nextui-org/react";
-import {MailFilledIcon} from './MailFilledIcon';
+import {MailIcon} from './MailIcon';
 
 export default function App() {
   return (
@@ -29,7 +29,7 @@ export default function App() {
           placeholder="you@example.com"
           labelPlacement="outside"
           startContent={
-            <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
         />
         <Input
@@ -62,7 +62,7 @@ export default function App() {
           placeholder="you@example.com"
           labelPlacement="outside"
           endContent={
-            <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
         />
         <Input
@@ -94,7 +94,7 @@ export default function App() {
           placeholder="nextui"
           labelPlacement="outside"
           startContent={
-            <MailFilledIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
+            <MailIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
           }
           endContent={
             <div className="pointer-events-none flex items-center">
@@ -152,7 +152,7 @@ export default function App() {
 
 const react = {
   "/App.jsx": App,
-  "/MailFilledIcon.jsx": MailFilledIcon,
+  "/MailIcon.jsx": MailIcon,
 };
 
 export default {
