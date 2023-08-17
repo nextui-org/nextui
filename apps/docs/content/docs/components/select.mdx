@@ -1,0 +1,105 @@
+---
+title: "Select"
+description: "A select displays a collapsible list of options and allows a user to select one or more of them."
+---
+
+import {selectContent} from "@/content/components/select";
+
+# Select
+
+A select displays a collapsible list of options and allows a user to select one or more of them.
+
+<ComponentLinks component="select" reactAriaHook="useSelect" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+NextUI exports 3 select-related components:
+
+- **Select**: The main component, which is a wrapper for the other components.
+- **SelectSection**: The component that contains a group of select items.
+- **SelectItem**: The component that represents a select item.
+
+<ImportTabs
+  commands={{
+    main: 'import {Select, SelectSection, SelectItem} from "@nextui-org/react";',
+    individual: 'import {Select, SelectSection, SelectItem} from "@nextui-org/select";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={selectContent.usage} />
+
+### Dynamic items
+
+Select follows the [Collection Components API](https://react-spectrum.adobe.com/react-stately/collections.html), accepting both static and dynamic collections.
+
+- **Static**: The usage example above shows the static implementation, which can be used when the full list of options is known ahead of time.
+- **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
+
+<CodeDemo title="Dynamic items" highlightedLines="8" files={selectContent.dynamic} />
+
+### Disabled
+
+<CodeDemo title="Disabled" highlightedLines="8" files={selectContent.disabled} />
+
+### Disabled Items
+
+You can disable specific items by using the `disabledKeys` property.
+
+<CodeDemo title="Disabled Items" highlightedLines="8" files={selectContent.disabledItems} />
+
+### Required
+
+If you pass the `isRequired` property to the select, it will have a `danger` asterisk at
+the end of the label and the select will be required.
+
+<CodeDemo title="Required" highlightedLines="8" files={selectContent.required} />
+
+### Sizes
+
+<CodeDemo title="Sizes" highlightedLines="13,26" files={selectContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={selectContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={selectContent.variants} />
+
+### Radius
+
+<CodeDemo title="Radius" files={selectContent.radius} />
+
+### Label Placements
+
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
+
+<CodeDemo title="Label Placements" highlightedLines="20,37" files={selectContent.labelPlacements} />
+
+> **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
+### Start Content
+
+You can use the `startContent` and `endContent` properties to add content to the start and end of
+the select.
+
+<CodeDemo title="Start Content" highlightedLines="9" files={selectContent.startContent} />
+
+### With Description
+
+You can add a description to the select by passing the `description` property.
+
+<CodeDemo title="With Description" files={selectContent.description} />
+
+### With Error Message
+
+You can combine the `validationState="invalid"` and `errorMessage` properties to show an invalid select.
+
+<CodeDemo title="With Error Message" files={selectContent.errorMessage} />
+

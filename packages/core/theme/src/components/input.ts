@@ -525,7 +525,7 @@ const input = tv({
       size: "lg",
       class: {
         label: "text-small",
-        inputWrapper: "h-16 py-2.5 gap-1",
+        inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
     // isLabelPlaceholder & labelPlacement
@@ -674,7 +674,7 @@ const input = tv({
           "group-[.is-filled]:text-small",
           "group-[.is-filled]:-translate-y-3",
         ],
-        input: "pt-6",
+        input: "pt-5",
       },
     },
     // isLabelPlaceholder & outside & size

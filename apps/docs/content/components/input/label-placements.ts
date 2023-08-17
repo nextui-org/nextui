@@ -1,7 +1,7 @@
 const App = `import {Input} from "@nextui-org/react";
 
 export default function App() {
-  const positions = [
+  const placements = [
     "inside",
     "outside",
     "outside-left",
@@ -12,13 +12,13 @@ export default function App() {
       <div className="flex flex-col gap-2">
         <h3 className="text-default-500 text-small">Without placeholder</h3>
         <div className="flex w-full flex-wrap items-end md:flex-nowrap mb-6 md:mb-0 gap-4">
-          {positions.map((position) => (
+          {placements.map((placement) => (
             <Input
-              key={position}
+              key={placement}
               type="email"
               label="Email"
-              labelPlacement={position}
-              description={position}
+              labelPlacement={placement}
+              description={placement}
             />
           ))}
         </div>
@@ -26,14 +26,14 @@ export default function App() {
       <div className="flex flex-col gap-2">
         <h3 className="text-default-500 text-small">With placeholder</h3>
         <div className="flex w-full flex-wrap items-end md:flex-nowrap mb-6 md:mb-0 gap-4">
-          {positions.map((position) => (
+          {placements.map((placement) => (
             <Input
-              key={position}
+              key={placement}
               type="email"
               label="Email"
-              labelPlacement={position}
+              labelPlacement={placement}
               placeholder="Enter your email"
-              description={position}
+              description={placement}
             />
           ))}
         </div>

@@ -531,7 +531,6 @@ const MirrorTemplate = ({color, variant, ...args}: SelectProps) => (
       {items}
     </Select>
     <Select
-      aria-label="Favorite Animal"
       className="max-w-xs"
       color={color}
       label="Favorite Animal"

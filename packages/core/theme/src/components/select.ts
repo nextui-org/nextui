@@ -488,7 +488,7 @@ const select = tv({
       size: "lg",
       class: {
         label: "text-small",
-        trigger: "h-16 py-2.5 gap-1",
+        trigger: "h-16 py-2.5 gap-0",
       },
     },
     // isLabelPlaceholder & labelPlacement
@@ -559,7 +559,7 @@ const select = tv({
           "group-data-[filled=true]:text-small",
           "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
         ],
-        innerWrapper: "pt-6",
+        innerWrapper: "pt-5",
       },
     },
     // isLabelPlaceholder & outside & size
