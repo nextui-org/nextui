@@ -34,7 +34,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const MenuWrapper = useCallback(
     ({children}: {children: ReactElement}) => {
       return (
-        <RemoveScroll forwardProps enabled={isMenuOpen} removeScrollBar={false}>
+        <RemoveScroll forwardProps enabled={!!isMenuOpen} removeScrollBar={false}>
           {children}
         </RemoveScroll>
       );
@@ -43,22 +43,20 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   );
 
   const contents = disableAnimation ? (
-    isMenuOpen && (
-      <MenuWrapper>
-        <ul
-          ref={domRef}
-          className={slots.menu?.({class: styles})}
-          data-open={dataAttr(isMenuOpen)}
-          style={{
-            // @ts-expect-error
-            "--navbar-height": height,
-          }}
-          {...otherProps}
-        >
-          {children}
-        </ul>
-      </MenuWrapper>
-    )
+    <MenuWrapper>
+      <ul
+        ref={domRef}
+        className={slots.menu?.({class: styles})}
+        data-open={dataAttr(isMenuOpen)}
+        style={{
+          // @ts-expect-error
+          "--navbar-height": height,
+        }}
+        {...otherProps}
+      >
+        {children}
+      </ul>
+    </MenuWrapper>    
   ) : (
     <AnimatePresence>
       {isMenuOpen && (
