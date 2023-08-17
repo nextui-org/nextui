@@ -34,7 +34,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const MenuWrapper = useCallback(
     ({children}: {children: ReactElement}) => {
       return (
-        <RemoveScroll forwardProps enabled={isMenuOpen} removeScrollBar={false}>
+        <RemoveScroll forwardProps enabled={!!isMenuOpen} removeScrollBar={false}>
           {children}
         </RemoveScroll>
       );
@@ -56,10 +56,10 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
       >
         {children}
       </ul>
-    </MenuWrapper>
+    </MenuWrapper>    
   ) : (
     <AnimatePresence>
-      {isMenuOpen ? (
+      {isMenuOpen && (
         <MenuWrapper>
           <motion.ul
             ref={domRef}
@@ -80,7 +80,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
             {children}
           </motion.ul>
         </MenuWrapper>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 
