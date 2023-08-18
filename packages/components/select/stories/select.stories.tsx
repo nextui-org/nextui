@@ -782,6 +782,7 @@ export const LabelPlacement = {
     ...defaultProps,
   },
 };
+
 export const StartContent = {
   render: StartContentTemplate,
 

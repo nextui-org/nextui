@@ -63,7 +63,7 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
   /**
    * Props to be passed to the scroll shadow component. This component
    * adds a shadow to the top and bottom of the listbox when it is scrollable.
-   * @default { hideScrollBar: true, offset: 40 }
+   * @default { hideScrollBar: true, offset: 15 }
    */
   scrollShadowProps?: Partial<ScrollShadowProps>;
   /**
@@ -129,7 +129,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     scrollShadowProps: {
       ref: scrollShadowRef,
       hideScrollBar: true,
-      offset: 40,
+      offset: 15,
     },
     listboxProps: {
       disableAnimation,

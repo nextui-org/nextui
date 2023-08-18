@@ -9,8 +9,14 @@ import variants from "./variants";
 import radius from "./radius";
 import labelPlacements from "./label-placements";
 import startContent from "./start-content";
+import withoutScrollShadow from "./without-scroll-shadow";
 import description from "./description";
 import errorMessage from "./error-message";
+import singleControlled from "./single-controlled";
+import singleControlledOnChange from "./single-controlled-onchange";
+import openState from "./open-state";
+import customItems from "./custom-items";
+import customRenderValue from "./custom-render-value";
 
 export const selectContent = {
   usage,
@@ -25,5 +31,11 @@ export const selectContent = {
   labelPlacements,
   description,
   startContent,
+  withoutScrollShadow,
   errorMessage,
+  singleControlled,
+  singleControlledOnChange,
+  openState,
+  customItems,
+  customRenderValue,
 };

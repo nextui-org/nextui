@@ -91,6 +91,13 @@ the select.
 
 <CodeDemo title="Start Content" highlightedLines="9" files={selectContent.startContent} />
 
+### Without Scroll Shadow
+
+Select component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the select content is scrollable.
+You can disable this shadow by passing using the `scrollShadowProps` property.
+
+<CodeDemo title="Without Scroll Shadow" files={selectContent.withoutScrollShadow} />
+
 ### With Description
 
 You can add a description to the select by passing the `description` property.
@@ -102,4 +109,69 @@ You can add a description to the select by passing the `description` property.
 You can combine the `validationState="invalid"` and `errorMessage` properties to show an invalid select.
 
 <CodeDemo title="With Error Message" files={selectContent.errorMessage} />
+
+### Controlled
+
+You can use the `selectedKeys` and `onSelectionChange` / `onChange` properties to control the select value.
+
+Using `onSelectionChange`:
+
+<CodeDemo title="Controlled with onSelectionChange" files={selectContent.singleControlled} />
+
+Using `onChange`:
+
+<CodeDemo title="Controlled with onChange" files={selectContent.singleControlledOnChange} />
+
+### Controlling the open state
+
+You can control the open state of the select by using the `isOpen` and `onOpenChange` / `onClose` properties.
+
+<CodeDemo title="Controlling the open state" files={selectContent.openState} />
+
+### Custom Items
+
+You can customize the select items by modifying the `SelectItem` children.
+
+<CodeDemo title="Custom Items" files={selectContent.customItems} />
+
+### Custom Render Value
+
+By default the select will render the selected item's text value, but you can customize this by passing a `renderValue` function.
+
+<CodeDemo title="Custom Render Value" files={selectContent.customRenderValue} />
+
+The `renderValue` function receives the selected items as a parameter and must return a 
+`ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
+
+
+---
+
+### Types
+
+#### Render Value Function
+
+The `T` type is the type of the data passed to the select `items`.
+
+```tsx
+export type SelectedItemProps<T> = {
+  /** A unique key for the item. */
+  key?: Key;
+  /** The props passed to the item. */
+  props?: Record<string, any>;
+  /** The item data. */
+  data?: T | null;
+  /** An accessibility label for this item. */
+  "aria-label"?: string;
+  /** The rendered contents of this item (e.g. JSX). */
+  rendered?: ReactNode;
+  /** A string value for this item, used for features like typeahead. */
+  textValue?: string;
+  /** The type of item this item represents. */
+  type?: string;
+};
+
+type SelectedItems<T> = Array<SelectedItemProps<T>>;
+
+renderValue: (items: SelectedItems<T>) => ReactNode;
+```
 
