@@ -155,7 +155,7 @@ export function useButton(props: UseButtonProps) {
 
   const getButtonProps: PropGetter = useCallback(
     (props = {}) => {
-      if (Component !== 'button') {
+      if (Component !== 'button' && !onClick) {
         delete ariaButtonProps['onClick'];
       }
       
@@ -189,6 +189,7 @@ export function useButton(props: UseButtonProps) {
       ariaButtonProps,
       focusProps,
       hoverProps,
+      onClick,
       otherProps,
     ],
   );
