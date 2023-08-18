@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/link",
+  "name": "@nextui-org/use-aria-link",
   "version": "2.0.11",
-  "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
+  "description": "Internal hook to handle link a11y and events, this is based on react-aria link hook but without the onClick warning",
   "keywords": [
-    "link"
+    "use-aria-link"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,17 +19,17 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/link"
+    "directory": "packages/hooks/use-aria-link"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -37,20 +37,23 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-aria-link": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@react-aria/link": "^3.5.3",
+    "@react-types/link": "^3.4.4",
+    "@react-types/shared": "^3.19.0",
     "@react-aria/utils": "^3.19.0",
     "@react-aria/focus": "^3.14.0",
-    "@react-types/link": "^3.4.4"
+    "@react-aria/interactions": "^3.17.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },
-  "clean-package": "../../../clean-package.config.json"
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
 }
