@@ -1,5 +1,12 @@
 # @nextui-org/react
 
+## 2.0.24
+
+### Patch Changes
+
+- Updated dependencies [[`c186f37c9`](https://github.com/nextui-org/nextui/commit/c186f37c98a95e1c74b640f2ae2a99bc2c9a2b74)]:
+  - @nextui-org/accordion@2.0.13
+
 ## 2.0.23
 
 ### Patch Changes
