@@ -17,6 +17,12 @@ import singleControlledOnChange from "./single-controlled-onchange";
 import openState from "./open-state";
 import customItems from "./custom-items";
 import customRenderValue from "./custom-render-value";
+import sections from "./sections";
+import customSectionsStyle from "./custom-sections-style";
+import multiple from "./multiple";
+import multipleControlled from "./multiple-controlled";
+import multipleControlledOnChange from "./multiple-controlled-onchange";
+import multipleWithChips from "./multiple-chips";
 
 export const selectContent = {
   usage,
@@ -38,4 +44,10 @@ export const selectContent = {
   openState,
   customItems,
   customRenderValue,
+  sections,
+  customSectionsStyle,
+  multiple,
+  multipleControlled,
+  multipleControlledOnChange,
+  multipleWithChips,
 };

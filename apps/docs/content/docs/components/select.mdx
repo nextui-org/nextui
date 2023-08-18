@@ -143,6 +143,49 @@ By default the select will render the selected item's text value, but you can cu
 The `renderValue` function receives the selected items as a parameter and must return a 
 `ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
 
+### With Sections
+
+You can use the `SelectSection` component to group select items.
+
+<CodeDemo title="With Sections" files={selectContent.sections} />
+
+
+### Custom Sections Style
+
+You can customize the sections style by using the `classNames` property of the `SelectSection` component.
+
+<CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} />
+
+### Multiple Select
+
+You can use the `selectionMode="multiple"` property to allow multiple selection.
+
+<CodeDemo title="Multiple Selection" files={selectContent.multiple} />
+
+### Multiple Select Controlled
+
+You can use the same properties as the single select to control the multiple select, `selectedKeys` and `onSelectionChange` / `onChange`.
+
+Using `onSelectionChange`:
+
+<CodeDemo title="Multiple Selection Controlled with onSelectionChange" files={selectContent.multipleControlled} />
+
+Using `onChange`:
+
+<CodeDemo title="Multiple Selection Controlled with onChange" files={selectContent.multipleControlledOnChange} />
+
+
+### Mutliple With Chips
+
+You can render any component as the select value by using the `renderValue` property. In this example we are 
+using the [Chip](/docs/components/chip) component to render the selected items.
+
+<CodeDemo title="Multiple Selection with Chips" files={selectContent.multipleWithChips} />
+
+> **Note**: Make sure to pass the `isMultiline` property to the `Select` component to allow the chips to wrap.
+
+The `renderValue` function receives the selected items as a parameter and must return a 
+`ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
 
 ---
 
@@ -174,4 +217,6 @@ type SelectedItems<T> = Array<SelectedItemProps<T>>;
 
 renderValue: (items: SelectedItems<T>) => ReactNode;
 ```
+
+
 

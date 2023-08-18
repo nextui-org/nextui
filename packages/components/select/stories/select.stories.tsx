@@ -721,6 +721,12 @@ const WithCustomSectionsStylesTemplate = ({color, variant, ...args}: SelectProps
   );
 };
 
+const WithAriaLabelTemplate = ({color, variant, ...args}: SelectProps) => (
+  <Select className="max-w-xs" color={color} label="Favorite Animal" variant={variant} {...args}>
+    {items}
+  </Select>
+);
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -937,12 +943,6 @@ export const WithCustomSectionsStyles = {
     ...defaultProps,
   },
 };
-
-const WithAriaLabelTemplate = ({color, variant, ...args}: SelectProps) => (
-  <Select className="max-w-xs" color={color} label="Favorite Animal" variant={variant} {...args}>
-    {items}
-  </Select>
-);
 
 export const WithAriaLabel = {
   render: WithAriaLabelTemplate,

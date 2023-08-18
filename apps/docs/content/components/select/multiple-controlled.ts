@@ -30,21 +30,17 @@ const App = `import {Select, SelectItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
-  const [value, setValue] = React.useState(new Set([]));
-
-  const handleSelectionChange = (e) => {
-    setValue(new Set([e.target.value]));
-  };
+  const [values, setValues] = React.useState(new Set(["cat", "dog"]));
 
   return (
     <div className="flex w-full max-w-xs flex-col gap-2">
       <Select
         label="Favorite Animal"
-        variant="bordered"
+        selectionMode="multiple"
         placeholder="Select an animal"
-        selectedKeys={value}
+        selectedKeys={values}
         className="max-w-xs"
-        onChange={handleSelectionChange}
+        onSelectionChange={setValues}
       >
         {animals.map((animal) => (
           <SelectItem key={animal.value} value={animal.value}>
@@ -52,7 +48,7 @@ export default function App() {
           </SelectItem>
         ))}
       </Select>
-      <p className="text-default-500">Selected: {value}</p>
+      <p className="text-default-500">Selected: {Array.from(values).join(", ")}</p>
     </div>
   );
 }`;

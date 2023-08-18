@@ -33,20 +33,23 @@ export default function App() {
   const [value, setValue] = React.useState(new Set([]));
 
   return (
-    <Select
-      label="Favorite Animal"
-      variant="underlined"
-      placeholder="Select an animal"
-      selectedKeys={value}
-      className="max-w-xs"
-      onSelectionChange={setValue}
-    >
-      {animals.map((animal) => (
-        <SelectItem key={animal.value} value={animal.value}>
-          {animal.label}
-        </SelectItem>
-      ))}
-    </Select>
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <Select
+        label="Favorite Animal"
+        variant="bordered"
+        placeholder="Select an animal"
+        selectedKeys={value}
+        className="max-w-xs"
+        onSelectionChange={setValue}
+      >
+        {animals.map((animal) => (
+          <SelectItem key={animal.value} value={animal.value}>
+            {animal.label}
+          </SelectItem>
+        ))}
+      </Select>
+      <p className="text-default-500">Selected: {value}</p>
+    </div>
   );
 }`;
 
