@@ -2,7 +2,7 @@
 import React, {ChangeEvent} from "react";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
-import {PetBoldIcon} from "@nextui-org/shared-icons";
+import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Chip} from "@nextui-org/chip";
 import {Selection} from "@react-types/shared";
@@ -727,6 +727,57 @@ const WithAriaLabelTemplate = ({color, variant, ...args}: SelectProps) => (
   </Select>
 );
 
+const CustomStylesTemplate = ({color, variant, ...args}: SelectProps<User>) => {
+  return (
+    <Select
+      className="max-w-xs"
+      classNames={{
+        label: "group-data-[filled=true]:-translate-y-5",
+        trigger: "min-h-unit-16",
+        listboxWrapper: "max-h-[400px]",
+      }}
+      color={color}
+      items={usersData}
+      label="Assigned to"
+      listboxProps={{
+        itemClasses: {
+          base: [
+            "rounded-md",
+            "text-default-500",
+            "transition-opacity",
+            "data-[hover=true]:text-foreground",
+            "data-[hover=true]:bg-default-100",
+            "dark:data-[hover=true]:bg-default-50",
+            "data-[selectable=true]:focus:bg-default-50",
+            "data-[pressed=true]:opacity-70",
+            "data-[focus-visible=true]:ring-default-500",
+          ],
+        },
+      }}
+      popoverProps={{
+        classNames: {
+          base: "p-0 border-small border-divider bg-background",
+          arrow: "bg-default-200",
+        },
+      }}
+      variant={variant}
+      {...args}
+    >
+      {(item) => (
+        <SelectItem key={item.id} textValue={item.name}>
+          <div className="flex gap-2 items-center">
+            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <div className="flex flex-col">
+              <span className="text-small">{item.name}</span>
+              <span className="text-tiny text-default-400">{item.email}</span>
+            </div>
+          </div>
+        </SelectItem>
+      )}
+    </Select>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -869,6 +920,16 @@ export const ControlledOpen = {
   },
 };
 
+export const CustomSelectorIcon = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disableSelectorIconRotation: true,
+    selectorIcon: <SelectorIcon />,
+  },
+};
+
 export const CustomItems = {
   render: CustomItemsTemplate,
 
@@ -951,5 +1012,30 @@ export const WithAriaLabel = {
     ...defaultProps,
     label: "Select an animal 🐹",
     "aria-label": "Select an animal",
+  },
+};
+
+export const CustomStyles = {
+  render: CustomStylesTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    renderValue: (items: SelectedItems<User>) => {
+      return items.map((item) => (
+        <div key={item.key} className="flex items-center gap-2">
+          <Avatar
+            alt={item.data?.name}
+            className="flex-shrink-0"
+            size="sm"
+            src={item.data?.avatar}
+          />
+          <div className="flex flex-col">
+            <span>{item.data?.name}</span>
+            <span className="text-default-500 text-tiny">({item.data?.email})</span>
+          </div>
+        </div>
+      ));
+    },
   },
 };

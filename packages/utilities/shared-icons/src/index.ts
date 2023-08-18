@@ -32,6 +32,7 @@ export * from "./eye";
 export * from "./arrow-right";
 export * from "./arrow-left";
 export * from "./link";
+export * from "./selector";
 
 // sets
 export * from "./bulk";

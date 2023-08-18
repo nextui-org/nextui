@@ -7,10 +7,11 @@ const select = tv({
   slots: {
     base: "group inline-flex flex-col relative w-full",
     label: "block text-small font-medium text-foreground-500",
-    trigger: "relative outline-none w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
+    trigger:
+      "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
-    icon: "absolute right-3 w-unit-4 h-unit-4 data-[open=true]:rotate-180",
+    selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
     value: "font-normal w-full text-left opacity-60 group-data-[filled=true]:opacity-100",
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
@@ -150,7 +151,7 @@ const select = tv({
       true: {
         label: "!text-danger",
         value: "text-danger",
-        icon: "text-danger",
+        selectorIcon: "text-danger",
       },
     },
     isRequired: {
@@ -160,7 +161,7 @@ const select = tv({
     },
     isMultiline: {
       true: {
-        trigger: "h-auto",
+        trigger: "!h-auto",
       },
       false: {
         value: "truncate",
@@ -171,7 +172,7 @@ const select = tv({
         trigger: "after:transition-none",
         base: "transition-none",
         label: "transition-none",
-        icon: "transition-none",
+        selectorIcon: "transition-none",
       },
       false: {
         base: "transition-background motion-reduce:transition-none !duration-150",
@@ -183,7 +184,13 @@ const select = tv({
           "!ease-out",
           "motion-reduce:transition-none",
         ],
-        icon: "transition-transform duration-150 ease motion-reduce:transition-none",
+        selectorIcon: "transition-transform duration-150 ease motion-reduce:transition-none",
+      },
+    },
+    disableSelectorIconRotation: {
+      true: {},
+      false: {
+        selectorIcon: "data-[open=true]:rotate-180",
       },
     },
   },
@@ -196,6 +203,7 @@ const select = tv({
     isDisabled: false,
     isMultiline: false,
     disableAnimation: false,
+    disableSelectorIconRotation: false,
   },
   compoundVariants: [
     // flat & color

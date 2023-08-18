@@ -17,7 +17,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     state,
     label,
     hasHelper,
-    icon = <ChevronDownIcon />,
+    selectorIcon = <ChevronDownIcon />,
     description,
     errorMessage,
     startContent,
@@ -37,12 +37,12 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getListboxWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
-    getIconProps,
+    getSelectorIconProps,
   } = useSelect<T>({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
-  const clonedIcon = cloneElement(icon as ReactElement, getIconProps());
+  const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
 
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;

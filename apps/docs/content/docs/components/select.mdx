@@ -91,6 +91,15 @@ the select.
 
 <CodeDemo title="Start Content" highlightedLines="9" files={selectContent.startContent} />
 
+### Custom Selector Icon
+
+By default the select uses a `crevron-down` icon as the selector icon which rotates when the select is open. You can
+customize this icon by passing a custom one to the `selectorIcon` property.
+
+<CodeDemo title="Custom Selector Icon" files={selectContent.customSelectorIcon} />
+
+> **Note**: Use the `disableSelectionIconRotation` property to disable the rotation of the icon.
+
 ### Without Scroll Shadow
 
 Select component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the select content is scrollable.
@@ -140,7 +149,7 @@ By default the select will render the selected item's text value, but you can cu
 
 <CodeDemo title="Custom Render Value" files={selectContent.customRenderValue} />
 
-The `renderValue` function receives the selected items as a parameter and must return a 
+The `renderValue` function receives the selected items as a parameter and must return a
 `ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
 
 ### With Sections
@@ -148,7 +157,6 @@ The `renderValue` function receives the selected items as a parameter and must r
 You can use the `SelectSection` component to group select items.
 
 <CodeDemo title="With Sections" files={selectContent.sections} />
-
 
 ### Custom Sections Style
 
@@ -168,24 +176,55 @@ You can use the same properties as the single select to control the multiple sel
 
 Using `onSelectionChange`:
 
-<CodeDemo title="Multiple Selection Controlled with onSelectionChange" files={selectContent.multipleControlled} />
+<CodeDemo
+  title="Multiple Selection Controlled with onSelectionChange"
+  files={selectContent.multipleControlled}
+/>
 
 Using `onChange`:
 
-<CodeDemo title="Multiple Selection Controlled with onChange" files={selectContent.multipleControlledOnChange} />
-
+<CodeDemo
+  title="Multiple Selection Controlled with onChange"
+  files={selectContent.multipleControlledOnChange}
+/>
 
 ### Mutliple With Chips
 
-You can render any component as the select value by using the `renderValue` property. In this example we are 
+You can render any component as the select value by using the `renderValue` property. In this example we are
 using the [Chip](/docs/components/chip) component to render the selected items.
 
 <CodeDemo title="Multiple Selection with Chips" files={selectContent.multipleWithChips} />
 
 > **Note**: Make sure to pass the `isMultiline` property to the `Select` component to allow the chips to wrap.
 
-The `renderValue` function receives the selected items as a parameter and must return a 
+The `renderValue` function receives the selected items as a parameter and must return a
 `ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
+
+## Data Attributes
+
+## Slots
+
+- **base**: The main wrapper of the select. This wraps the rest of the slots. 
+- **label**: The label of the select.
+- **trigger**: The trigger of the select. This wraps the label the inner wrapper and the selector icon.  
+- **innerWrapper**: The wrapper of the select content. This wraps the start/end content and the select value.
+- **selectorIcon**: The selector icon of the select. This is the icon that rotates when the select is open (`data-open`).
+- **value**: The select value. This is also the slot that wraps the `renderValue` function result.
+- **listboxWrapper**: The wrapper of the listbox. This wraps the listbox component, this slot is used on top of the scroll shadow component.
+- **listbox**: The listbox component. This is the component that wraps the select items.
+- **popover**: The popover component. This is the component that wraps the listbox component.
+- **helperWrapper**: The wrapper of the helper text. This wraps the helper text and the error message.
+- **description**: The description of the select.
+- **errorMessage**: The error message of the select.
+
+### Customizing the select
+
+You can customize the any slot of the select by using the `classNames` property. Select 
+component also provides the [popoverProps](/docs/components/popover#api) and [listboxProps](/docs/components/listbox#api) properties to customize 
+the popover and listbox components.
+
+<CodeDemo title="Custom Styles" files={selectContent.customStyles} />
+
 
 ---
 
@@ -217,6 +256,3 @@ type SelectedItems<T> = Array<SelectedItemProps<T>>;
 
 renderValue: (items: SelectedItems<T>) => ReactNode;
 ```
-
-
-

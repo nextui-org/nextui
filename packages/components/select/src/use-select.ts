@@ -69,7 +69,7 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
   /**
    * The icon that represents the select open state. Usually a chevron icon.
    */
-  icon?: ReactNode;
+  selectorIcon?: ReactNode;
   /**
    * Element to be rendered in the left side of the select.
    */
@@ -139,11 +139,11 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   let {
     ref,
     as,
-    icon,
     isOpen,
     label,
     name,
     children,
+    selectorIcon,
     defaultOpen,
     onOpenChange,
     startContent,
@@ -418,13 +418,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, classNames?.popover, userPopoverProps, triggerRef, state, state.selectedItems],
   );
 
-  const getIconProps = useCallback(
+  const getSelectorIconProps = useCallback(
     () => ({
       "aria-hidden": dataAttr(true),
       "data-open": dataAttr(state.isOpen),
-      className: slots.icon({class: classNames?.icon}),
+      className: slots.selectorIcon({class: classNames?.selectorIcon}),
     }),
-    [slots, classNames?.icon, state?.isOpen],
+    [slots, classNames?.selectorIcon, state?.isOpen],
   );
   const getInnerWrapperProps: PropGetter = useCallback(
     (props = {}) => {
@@ -476,13 +476,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     Component,
     domRef,
     state,
-    icon,
     label,
     name,
     placeholder,
     startContent,
     endContent,
     description,
+    selectorIcon,
     errorMessage,
     hasHelper,
     labelPlacement,
@@ -503,7 +503,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     getHelperWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
-    getIconProps,
+    getSelectorIconProps,
   };
 }
 

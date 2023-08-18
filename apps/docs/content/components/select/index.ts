@@ -23,6 +23,8 @@ import multiple from "./multiple";
 import multipleControlled from "./multiple-controlled";
 import multipleControlledOnChange from "./multiple-controlled-onchange";
 import multipleWithChips from "./multiple-chips";
+import customSelectorIcon from "./custom-selector-icon";
+import customStyles from "./custom-styles";
 
 export const selectContent = {
   usage,
@@ -50,4 +52,6 @@ export const selectContent = {
   multipleControlled,
   multipleControlledOnChange,
   multipleWithChips,
+  customSelectorIcon,
+  customStyles,
 };
