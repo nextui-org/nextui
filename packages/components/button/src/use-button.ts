@@ -154,24 +154,31 @@ export function useButton(props: UseButtonProps) {
   const {isHovered, hoverProps} = useHover({isDisabled});
 
   const getButtonProps: PropGetter = useCallback(
-    (props = {}) => ({
-      "data-disabled": dataAttr(isDisabled),
-      "data-focus": dataAttr(isFocused),
-      "data-pressed": dataAttr(isPressed),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-hover": dataAttr(isHovered),
-      "data-loading": dataAttr(isLoading),
-      ...mergeProps(
-        ariaButtonProps,
-        focusProps,
-        hoverProps,
-        filterDOMProps(otherProps, {
-          enabled: shouldFilterDOMProps,
-        }),
-        filterDOMProps(props),
-      ),
-    }),
+    (props = {}) => {
+      if (Component !== 'button') {
+        delete ariaButtonProps['onClick'];
+      }
+      
+      return {
+        "data-disabled": dataAttr(isDisabled),
+        "data-focus": dataAttr(isFocused),
+        "data-pressed": dataAttr(isPressed),
+        "data-focus-visible": dataAttr(isFocusVisible),
+        "data-hover": dataAttr(isHovered),
+        "data-loading": dataAttr(isLoading),
+        ...mergeProps(
+          ariaButtonProps,
+          focusProps,
+          hoverProps,
+          filterDOMProps(otherProps, {
+            enabled: shouldFilterDOMProps,
+          }),
+          filterDOMProps(props),
+        ),        
+      };
+    },
     [
+      Component,
       isLoading,
       isDisabled,
       isFocused,
