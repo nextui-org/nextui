@@ -1,3 +1,5 @@
+import type {Selection} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {accordionItem} from "@nextui-org/theme";
@@ -12,7 +14,7 @@ import {
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 
-import {Accordion, AccordionProps, AccordionItem, Selection} from "../src";
+import {Accordion, AccordionProps, AccordionItem} from "../src";
 import {AccordionItemProps} from "../src";
 
 export default {

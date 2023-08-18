@@ -37,8 +37,8 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
           <AccordionItem
             item={item}
             onFocusChange={handleFocusChanged}
-            {...item.props}
             {...values}
+            {...item.props}
             classNames={classNames}
           />
           {!isSplitted && showDivider && index < state.collection.size - 1 && <Divider />}
