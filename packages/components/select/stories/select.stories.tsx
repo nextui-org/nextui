@@ -937,3 +937,19 @@ export const WithCustomSectionsStyles = {
     ...defaultProps,
   },
 };
+
+const WithAriaLabelTemplate = ({color, variant, ...args}: SelectProps) => (
+  <Select className="max-w-xs" color={color} label="Favorite Animal" variant={variant} {...args}>
+    {items}
+  </Select>
+);
+
+export const WithAriaLabel = {
+  render: WithAriaLabelTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Select an animal 🐹",
+    "aria-label": "Select an animal",
+  },
+};
