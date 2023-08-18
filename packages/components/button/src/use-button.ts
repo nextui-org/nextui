@@ -175,7 +175,7 @@ export function useButton(props: UseButtonProps) {
           }),
           filterDOMProps(props),
         ),
-      }
+      };
     },
     [
       Component,
