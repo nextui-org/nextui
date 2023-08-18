@@ -1,5 +1,11 @@
 # @nextui-org/accordion
 
+## 2.0.13
+
+### Patch Changes
+
+- [#1433](https://github.com/nextui-org/nextui/pull/1433) [`c186f37c9`](https://github.com/nextui-org/nextui/commit/c186f37c98a95e1c74b640f2ae2a99bc2c9a2b74) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1430 hideIndicator fixed on AccordionItem
+
 ## 2.0.12
 
 ### Patch Changes
