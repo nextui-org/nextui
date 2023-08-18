@@ -129,10 +129,14 @@ export function useMultiSelect<T>(
       ...triggerProps,
       onKeyDown: chain(triggerProps.onKeyDown, triggerOnKeyDown, props.onKeyDown),
       onKeyUp: props.onKeyUp,
-      "aria-labelledby":
+      "aria-labelledby": [
+        valueId,
         domProps["aria-label"] !== undefined
-          ? domProps["aria-labelledby"]
+          ? domProps["aria-labelledby"] !== undefined
+            ? domProps["aria-labelledby"]
+            : triggerProps.id
           : triggerProps["aria-labelledby"],
+      ].join(" "),
       onFocus(e: FocusEvent) {
         if (state.isFocused) {
           return;

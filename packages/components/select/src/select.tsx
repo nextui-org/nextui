@@ -4,6 +4,7 @@ import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {forwardRef} from "@nextui-org/system";
 import {FocusScope} from "@react-aria/focus";
+import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ForwardedRef, ReactElement, Ref, useMemo} from "react";
 
 import {HiddenSelect} from "./hidden-select";
@@ -95,7 +96,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
             {!shouldLabelBeOutside ? labelContent : null}
             <div {...getInnerWrapperProps()}>
               {startContent}
-              <span {...getValueProps()}>{renderSelectedItem}</span>
+              <span {...getValueProps()}>
+                {renderSelectedItem}
+                <VisuallyHidden>,</VisuallyHidden>
+              </span>
               {endContent}
             </div>
             {clonedIcon}
