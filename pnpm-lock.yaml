@@ -55,8 +55,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       '@react-types/link':
-        specifier: ^3.3.3
-        version: 3.4.3(react@18.2.0)
+        specifier: ^3.4.4
+        version: 3.4.4(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
@@ -1163,6 +1163,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-link':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-link
       '@react-aria/focus':
         specifier: ^3.14.0
         version: 3.14.0(react@18.2.0)
@@ -2217,6 +2220,31 @@ importers:
       '@react-types/button':
         specifier: ^3.7.4
         version: 3.7.4(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-link:
+    dependencies:
+      '@react-aria/focus':
+        specifier: ^3.14.0
+        version: 3.14.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.17.0
+        version: 3.17.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+      '@react-types/link':
+        specifier: ^3.4.4
+        version: 3.4.4(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
@@ -9551,16 +9579,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-types/link@3.4.3(react@18.2.0):
-    resolution: {integrity: sha512-opKfkcaeV0cir64jPcy7DS0BrmdfuWMjua+MSeNv7FfT/b65rFgPfAOKZcvLWDsaxT5HYb7pivYPBfjKqHsQKw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    dependencies:
-      '@react-aria/interactions': 3.17.0(react@18.2.0)
-      '@react-types/shared': 3.19.0(react@18.2.0)
-      react: 18.2.0
-    dev: true
-
   /@react-types/link@3.4.4(react@18.2.0):
     resolution: {integrity: sha512-/FnKf7W6nCNZ2E96Yo1gaX63eSxERmtovQbkRRdsgPLfgRcqzQIVzQtNJThIbVNncOnAw3qvIyhrS0weUTFacQ==}
     peerDependencies:
@@ -9569,7 +9587,6 @@ packages:
       '@react-aria/interactions': 3.17.0(react@18.2.0)
       '@react-types/shared': 3.19.0(react@18.2.0)
       react: 18.2.0
-    dev: false
 
   /@react-types/menu@3.9.3(react@18.2.0):
     resolution: {integrity: sha512-0dgIIM9z3hzjFltT+1/L8Hj3oDEcdYkexQhaA+jv6xBHUI5Bqs4SaJAeSGrGz5u6tsrHBPEgf/TLk9Dg9c7XMA==}
