@@ -21,7 +21,7 @@ export interface PopoverContentProps
 }
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
-  const {as, children, role = "dialog", ...otherProps} = props;
+  const {as, children, ...otherProps} = props;
 
   const {
     Component: OverlayComponent,
@@ -42,12 +42,10 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const Component = as || OverlayComponent || "div";
 
   const dialogRef = useRef(null);
-  const {dialogProps, titleProps} = useDialog(
-    {
-      role,
-    },
-    dialogRef,
-  );
+  const {dialogProps, titleProps} = useDialog({}, dialogRef);
+
+  // Not needed in the popover context, the popover role comes from getPopoverProps
+  delete dialogProps.role;
 
   const arrowContent = useMemo(() => {
     if (!showArrow) return null;
