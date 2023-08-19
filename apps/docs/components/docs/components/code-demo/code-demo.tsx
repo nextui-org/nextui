@@ -33,6 +33,7 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   enableResize?: boolean;
   showTabs?: boolean;
   showPreview?: boolean;
+  hideWindowActions?: boolean;
   showOpenInCodeSandbox?: boolean;
   isPreviewCentered?: boolean;
   resizeEnabled?: boolean;
@@ -52,6 +53,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showPreview = true,
   asIframe = false,
   resizeEnabled = true,
+  hideWindowActions = false,
   showSandpackPreview = false,
   isPreviewCentered = false,
   showOpenInCodeSandbox,
@@ -96,6 +98,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
 
     const content = asIframe ? (
       <WindowResizer
+        hideWindowActions={hideWindowActions}
         iframeHeight={previewHeight}
         iframeInitialWidth={iframeInitialWidth}
         iframeSrc={iframeSrc}
@@ -121,6 +124,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     isGradientBox,
     gradientColor,
     previewHeight,
+    hideWindowActions,
     asIframe,
     showPreview,
     isInView,

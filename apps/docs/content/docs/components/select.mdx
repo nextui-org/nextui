@@ -174,6 +174,37 @@ You can customize the sections style by using the `classNames` property of the `
 
 <CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} />
 
+### Asyncronous Loading
+
+Select supports asyncronous loading, in the example below we are using a custom hook to fetch the [Pokemon API](https://pokeapi.co/api/v2/pokemon) data in combination with the `useInfinityScroll` hook to load more data when the user reaches the end of the list.
+
+The `isLoading` prop is used to show a loading indicator intead of the selector icon when the data is being fetched.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @nextui-org/use-infinity-scroll",
+    yarn: "yarn add @nextui-org/use-infinity-scroll",
+    pnpm: "pnpm add @nextui-org/use-infinity-scroll",
+  }}
+/>
+
+```jsx
+import {useInfinityScroll} from "@nextui-org/use-infinity-scroll";
+```
+
+<Spacer y={2} />
+
+<CodeDemo
+  asIframe
+  title="Asyncronous Loading"
+  hideWindowActions={true}
+  resizeEnabled={false}
+  displayMode="always"
+  files={selectContent.asyncLoadingItems}
+  previewHeight="400px"
+  iframeSrc="/examples/select/async-items-loading"
+/>
+
 ### Multiple Select
 
 You can use the `selectionMode="multiple"` property to allow multiple selection.
@@ -321,6 +352,8 @@ the popover and listbox components.
 | startContent                 | `ReactNode`                                                                                                                                                                                    | Element to be rendered in the left side of the select.                                                  | -                  |
 | endContent                   | `ReactNode`                                                                                                                                                                                    | Element to be rendered in the right side of the select.                                                 | -                  |
 | selectorIcon                 | `ReactNode`                                                                                                                                                                                    | Element to be rendered as the selector icon.                                                            | -                  |
+| scrollRef                    | `React.RefObject<HTMLElement>`                                                                                                                                                                 | A ref to the scrollable element.                                                                        | -                  |
+| spinnerRef                   | `React.RefObject<HTMLElement>`                                                                                                                                                                 | A ref to the spinner element.                                                                           | -                  |
 | fullWidth                    | `boolean`                                                                                                                                                                                      | Whether the select should take up the width of its parent.                                              | `true`             |
 | isOpen                       | `boolean`                                                                                                                                                                                      | Whether the select is open by default (controlled).                                                     | -                  |
 | defaultOpen                  | `boolean`                                                                                                                                                                                      | Whether the select is open by default (uncontrolled).                                                   | -                  |
@@ -339,13 +372,27 @@ the popover and listbox components.
 
 ### Select Events
 
-| Attribute         | Type                                          | Description                                                                                                     |
-| ----------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| onClose           | `() => void`                                  | Callback fired when the select popover is closed.                                                               |
-| onOpenChange      | `(isOpen: boolean) => void`                   | Callback fired when the select popover is opened or closed.                                                     |
-| onSelectionChange | `(keys: React.Key[]) => void`                 | Callback fired when the selected keys change.                                                                   |
-| onChange          | `React.ChangeEvent<HTMLSelectElement>`        | Native select change event, fired when the selected value changes.                                              |
-| renderValue       | [RenderValueFunction](#render-value-function) | Function to render the value of the select. It renders the selected item by default.                            |
+| Attribute         | Type                                          | Description                                                                          |
+| ----------------- | --------------------------------------------- | ------------------------------------------------------------------------------------ |
+| onClose           | `() => void`                                  | Callback fired when the select popover is closed.                                    |
+| onOpenChange      | `(isOpen: boolean) => void`                   | Callback fired when the select popover is opened or closed.                          |
+| onSelectionChange | `(keys: React.Key[]) => void`                 | Callback fired when the selected keys change.                                        |
+| onChange          | `React.ChangeEvent<HTMLSelectElement>`        | Native select change event, fired when the selected value changes.                   |
+| renderValue       | [RenderValueFunction](#render-value-function) | Function to render the value of the select. It renders the selected item by default. |
+
+---
+
+### SelectItem Props
+
+Check the [ListboxItem](/docs/components/listbox#listboxitem-props) props.
+
+### SelectItem Events
+
+Check the [ListboxItem](/docs/components/listbox#listboxitem-events) events.
+
+### SelectSection Props
+
+Check the [ListboxSection](/docs/components/listbox#listboxsection-props) props.
 
 ---
 

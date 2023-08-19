@@ -49,6 +49,7 @@ const resizer = tv({
 
 export interface WindowResizerProps {
   resizeEnabled?: boolean;
+  hideWindowActions?: boolean;
   iframeHeight?: string | number;
   iframeMinWidth?: number;
   iframeSrc?: string;
@@ -70,6 +71,7 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
     iframeSrc,
     iframeTitle,
     resizeEnabled,
+    hideWindowActions = false,
     iframeHeight: height = "420px",
     iframeInitialWidth,
     iframeMinWidth: minWidth = MIN_WIDTH,
@@ -120,7 +122,7 @@ const WindowResizer: React.FC<WindowResizerProps> = (props) => {
           width: isMobile ? "100%" : browserWidth,
         }}
       >
-        <WindowActions className="bg-default-100 dark:bg-default-50" />
+        {!hideWindowActions && <WindowActions className="bg-default-100 dark:bg-default-50" />}
         <motion.iframe ref={iframeRef} className={iframe()} src={iframeSrc} title={iframeTitle} />
       </motion.div>
       {resizeEnabled && (
