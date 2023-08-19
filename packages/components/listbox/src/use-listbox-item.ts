@@ -8,7 +8,7 @@ import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
 import {useOption} from "@react-aria/listbox";
-import {chain, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 import {ListState} from "@react-stately/list";
@@ -102,6 +102,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
     ...mergeProps(
+      {onClick},
       itemProps,
       isReadOnly ? {} : mergeProps(focusProps, pressProps),
       hoverProps,
@@ -118,7 +119,6 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     "data-pressed": dataAttr(isPressed),
     "data-focus-visible": dataAttr(isFocusVisible),
     className: slots.base({class: clsx(baseStyles, props.className)}),
-    onClick: chain(pressProps.onClick, onClick),
   });
 
   const getLabelProps: PropGetter = (props = {}) => ({
