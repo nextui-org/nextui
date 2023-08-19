@@ -6,8 +6,11 @@ import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Chip} from "@nextui-org/chip";
 import {Selection} from "@react-types/shared";
+import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 
 import {Select, SelectedItems, SelectItem, SelectProps, SelectSection} from "../src";
+
+import {Pokemon, usePokemonList} from "./utils";
 
 export default {
   title: "Components/Select",
@@ -353,14 +356,7 @@ const DynamicTemplateWithDescriptions = ({color, variant, ...args}: SelectProps<
 );
 
 const ItemStartContentTemplate = ({color, variant, ...args}: SelectProps<Item>) => (
-  <Select
-    className="max-w-xs"
-    color={color}
-    items={itemsData}
-    label="Select country"
-    variant={variant}
-    {...args}
-  >
+  <Select className="max-w-xs" color={color} label="Select country" variant={variant} {...args}>
     <SelectItem
       key="argentina"
       startContent={<Avatar alt="Argentina" className="w-6 h-6" src="https://flagcdn.com/ar.svg" />}
@@ -778,6 +774,41 @@ const CustomStylesTemplate = ({color, variant, ...args}: SelectProps<User>) => {
   );
 };
 
+const AsyncLoadingTemplate = ({color, variant, ...args}: SelectProps<Pokemon>) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const {items, hasMore, isLoading, onLoadMore} = usePokemonList({fetchDelay: 1500});
+
+  const [, scrollerRef] = useInfiniteScroll({
+    hasMore,
+    distance: 20,
+    isEnabled: isOpen,
+    shouldUseLoader: false, // We don't want to show the loader at the bottom of the list
+    onLoadMore,
+  });
+
+  return (
+    <Select
+      className="max-w-xs"
+      color={color}
+      isLoading={isLoading}
+      items={items}
+      label="Pick a Pokemon"
+      placeholder="Select a Pokemon"
+      scrollRef={scrollerRef}
+      selectionMode="single"
+      variant={variant}
+      onOpenChange={setIsOpen}
+      {...args}
+    >
+      {(item) => (
+        <SelectItem key={item.name} className="capitalize">
+          {item.name}
+        </SelectItem>
+      )}
+    </Select>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -834,6 +865,14 @@ export const WithDescription = {
 
 export const LabelPlacement = {
   render: LabelPlacementTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const AsyncLoading = {
+  render: AsyncLoadingTemplate,
 
   args: {
     ...defaultProps,

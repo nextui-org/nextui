@@ -2,6 +2,7 @@ import {Listbox} from "@nextui-org/listbox";
 import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/popover";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import {Spinner} from "@nextui-org/spinner";
 import {forwardRef} from "@nextui-org/system";
 import {FocusScope} from "@react-aria/focus";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -18,6 +19,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     state,
     label,
     hasHelper,
+    isLoading,
     selectorIcon = <ChevronDownIcon />,
     description,
     errorMessage,
@@ -31,6 +33,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getSpinnerProps,
     shouldLabelBeOutside,
     getInnerWrapperProps,
     getHiddenSelectProps,
@@ -86,6 +89,14 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     return state.selectedItems.map((item) => item.textValue).join(", ");
   }, [state.selectedItems, renderValue]);
 
+  const renderIndicator = useMemo(() => {
+    if (isLoading) {
+      return <Spinner {...getSpinnerProps()} />;
+    }
+
+    return clonedIcon;
+  }, [isLoading, clonedIcon, getSpinnerProps]);
+
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
@@ -102,7 +113,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
               </span>
               {endContent}
             </div>
-            {clonedIcon}
+            {renderIndicator}
           </Component>
         </PopoverTrigger>
         <PopoverContent>

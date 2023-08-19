@@ -12,6 +12,7 @@ const select = tv({
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
+    spinner: "absolute right-3",
     value: "font-normal w-full text-left opacity-60 group-data-[filled=true]:opacity-100",
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",

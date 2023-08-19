@@ -9,6 +9,7 @@ import variants from "./variants";
 import radius from "./radius";
 import labelPlacements from "./label-placements";
 import startContent from "./start-content";
+import itemStartContent from "./item-start-content";
 import withoutScrollShadow from "./without-scroll-shadow";
 import description from "./description";
 import errorMessage from "./error-message";
@@ -39,6 +40,7 @@ export const selectContent = {
   labelPlacements,
   description,
   startContent,
+  itemStartContent,
   withoutScrollShadow,
   errorMessage,
   singleControlled,

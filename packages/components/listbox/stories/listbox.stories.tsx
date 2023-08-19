@@ -402,14 +402,13 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       variant={variant}
       onAction={(key: Key) => alert(key)}
       {...args}
-      className="p-0 gap-0 bg-content1 max-w-[300px] overflow-visible shadow-small rounded-medium"
+      className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 bg-content1 max-w-[300px] overflow-visible shadow-small rounded-medium"
       itemClasses={{
-        base: "px-3 mb-0 first:rounded-t-medium last:rounded-b-medium after:bottom-0 rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 after:bg-default-300/50 dark:after:bg-default-100/80",
+        base: "px-3 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80",
       }}
     >
       <ListboxItem
         key="issues"
-        showDivider
         endContent={<ItemCounter number={13} />}
         startContent={
           <IconWrapper className="bg-success/10 text-success">
@@ -421,7 +420,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="pull_requests"
-        showDivider
         endContent={<ItemCounter number={6} />}
         startContent={
           <IconWrapper className="bg-primary/10 text-primary">
@@ -433,7 +431,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="discussions"
-        showDivider
         endContent={<ItemCounter number={293} />}
         startContent={
           <IconWrapper className="bg-secondary/10 text-secondary">
@@ -445,7 +442,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="actions"
-        showDivider
         endContent={<ItemCounter number={2} />}
         startContent={
           <IconWrapper className="bg-warning/10 text-warning">
@@ -457,7 +453,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="projects"
-        showDivider
         endContent={<ItemCounter number={4} />}
         startContent={
           <IconWrapper className="bg-default/50 text-foreground">
@@ -469,7 +464,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="releases"
-        showDivider
         className="group h-auto py-3"
         endContent={<ItemCounter number={399} />}
         startContent={
@@ -492,7 +486,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="contributors"
-        showDivider
         endContent={<ItemCounter number={79} />}
         startContent={
           <IconWrapper className="bg-warning/10 text-warning">
@@ -504,7 +497,6 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
       </ListboxItem>
       <ListboxItem
         key="watchers"
-        showDivider
         endContent={<ItemCounter number={82} />}
         startContent={
           <IconWrapper className="bg-default/50 text-foreground">

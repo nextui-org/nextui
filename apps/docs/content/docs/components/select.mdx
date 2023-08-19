@@ -91,6 +91,14 @@ the select.
 
 <CodeDemo title="Start Content" highlightedLines="9" files={selectContent.startContent} />
 
+### Item Start Content
+
+Since the `Select` component uses the [Listbox](/docs/components/listbox) component under the hood, you can
+use the `startContent` and `endContent` properties of the `SelectItem` component to add content to the start
+and end of the select item.
+
+<CodeDemo title="Item Start Content" files={selectContent.itemStartContent} />
+
 ### Custom Selector Icon
 
 By default the select uses a `crevron-down` icon as the selector icon which rotates when the select is open. You can
@@ -106,6 +114,8 @@ Select component uses the [ScrollShadow](/docs/components/scroll-shadow) under t
 You can disable this shadow by passing using the `scrollShadowProps` property.
 
 <CodeDemo title="Without Scroll Shadow" files={selectContent.withoutScrollShadow} />
+
+> **Note**: You can also use the `showScrollIndicators` property to disable the scroll indicators.
 
 ### With Description
 
@@ -200,13 +210,19 @@ using the [Chip](/docs/components/chip) component to render the selected items.
 The `renderValue` function receives the selected items as a parameter and must return a
 `ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
 
-## Data Attributes
+### Customizing the select
+
+You can customize the any slot of the select by using the `classNames` property. Select
+component also provides the [popoverProps](/docs/components/popover#api) and [listboxProps](/docs/components/listbox#api) properties to customize
+the popover and listbox components.
+
+<CodeDemo title="Custom Styles" files={selectContent.customStyles} />
 
 ## Slots
 
-- **base**: The main wrapper of the select. This wraps the rest of the slots. 
+- **base**: The main wrapper of the select. This wraps the rest of the slots.
 - **label**: The label of the select.
-- **trigger**: The trigger of the select. This wraps the label the inner wrapper and the selector icon.  
+- **trigger**: The trigger of the select. This wraps the label the inner wrapper and the selector icon.
 - **innerWrapper**: The wrapper of the select content. This wraps the start/end content and the select value.
 - **selectorIcon**: The selector icon of the select. This is the icon that rotates when the select is open (`data-open`).
 - **value**: The select value. This is also the slot that wraps the `renderValue` function result.
@@ -217,14 +233,119 @@ The `renderValue` function receives the selected items as a parameter and must r
 - **description**: The description of the select.
 - **errorMessage**: The error message of the select.
 
-### Customizing the select
+## Data Attributes
 
-You can customize the any slot of the select by using the `classNames` property. Select 
-component also provides the [popoverProps](/docs/components/popover#api) and [listboxProps](/docs/components/listbox#api) properties to customize 
-the popover and listbox components.
+`Select` has the following attributes on the `base` element:
 
-<CodeDemo title="Custom Styles" files={selectContent.customStyles} />
+- **data-filled**:
+  Indicates if the select has a value, is focused, has start/end content or is open.
 
+`Select` has the following attributes on the `trigger` element:
+
+- **data-open**:
+  Indicates if the select is open.
+- **data-disabled**:
+  When the select trigger is disabled. Based on select `isDisabled` prop.
+- **data-focus**:
+  When the select trigger is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the select trigger is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-pressed**:
+  When the select trigger is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-hover**:
+  When the select trigger is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+
+`Select` has the following attributes on the `selectorIcon` element:
+
+- **data-open**:
+  Indicates if the select is open.
+
+`SelectItem` has the following attributes on the `base` element:
+
+- **data-disabled**:
+  When the select item is disabled. Based on select `disabledKeys` prop.
+- **data-selected**:
+  When the select item is selected. Based on select `selectedKeys` prop.
+- **data-hover**:
+  When the select item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-pressed**:
+  When the select item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-focus**:
+  When the select item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the select item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Exposed to assistive technology as a button with a listbox popup using ARIA (combined with [Listbox](/docs/components/listbox)).
+- Support for selecting a single option.
+- Support for selecting multiple options.
+- Support for disabled options.
+- Support for sections.
+- Labeling support for accessibility.
+- Support for description and error message help text linked to the input via ARIA.
+- Support for mouse, touch, and keyboard interactions.
+- Tab stop focus management.
+- Keyboard support for opening the listbox using the arrow keys, including automatically focusing the first or last item accordingly.
+- Typeahead to allow selecting options by typing text, even without opening the listbox.
+- Browser autofill integration via a hidden native `<select>` element.
+- Support for mobile form navigation via software keyboard.
+- Mobile screen reader listbox dismissal support.
+
+<Spacer y={4} />
+
+## API
+
+### Select Props
+
+| Attribute                    | Type                                                                                                                                                                                           | Description                                                                                             | Default            |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------ |
+| children\*                   | `ReactNode[]`                                                                                                                                                                                  | The children to render. Usually a list of `SelectItem` and `SelectSection` elements.                    | -                  |
+| items                        | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)                                                                                         | Item objects in the select. (dynamic)                                                                   | -                  |
+| selectionMode                | `single` \| `multiple`                                                                                                                                                                         | The type of selection that is allowed in the collection.                                                | -                  |
+| selectedKeys                 | `all` \| `React.Key[]`                                                                                                                                                                         | The currently selected keys in the collection (controlled).                                             | -                  |
+| disabledKeys                 | `all` \| `React.Key[]`                                                                                                                                                                         | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -                  |
+| defaultSelectedKeys          | `all` \| `React.Key[]`                                                                                                                                                                         | The initial selected keys in the collection (uncontrolled).                                             | -                  |
+| variant                      | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                                                                | The variant of the select.                                                                              | `flat`             |
+| color                        | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                                                    | The color of the select.                                                                                | `default`          |
+| size                         | `sm` \| `md` \| `lg`                                                                                                                                                                           | The size of the select.                                                                                 | `md`               |
+| radius                       | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                                                       | The radius of the select.                                                                               | -                  |
+| placeholder                  | `string`                                                                                                                                                                                       | The placeholder of the select.                                                                          | `Select an option` |
+| labelPlacement               | `inside` \| `outside` \| `outside-left`                                                                                                                                                        | The position of the label.                                                                              | `inside`           |
+| validationState              | `valid` \| `invalid`                                                                                                                                                                           | Whether the select should display its "valid" or "invalid" visual styling.                              | -                  |
+| label                        | `ReactNode`                                                                                                                                                                                    | The content to display as the label.                                                                    | -                  |
+| description                  | `ReactNode`                                                                                                                                                                                    | A description for the select. Provides a hint such as specific requirements for what to choose.         | -                  |
+| errorMessage                 | `ReactNode`                                                                                                                                                                                    | An error message for the select.                                                                        | -                  |
+| startContent                 | `ReactNode`                                                                                                                                                                                    | Element to be rendered in the left side of the select.                                                  | -                  |
+| endContent                   | `ReactNode`                                                                                                                                                                                    | Element to be rendered in the right side of the select.                                                 | -                  |
+| selectorIcon                 | `ReactNode`                                                                                                                                                                                    | Element to be rendered as the selector icon.                                                            | -                  |
+| fullWidth                    | `boolean`                                                                                                                                                                                      | Whether the select should take up the width of its parent.                                              | `true`             |
+| isOpen                       | `boolean`                                                                                                                                                                                      | Whether the select is open by default (controlled).                                                     | -                  |
+| defaultOpen                  | `boolean`                                                                                                                                                                                      | Whether the select is open by default (uncontrolled).                                                   | -                  |
+| isRequired                   | `boolean`                                                                                                                                                                                      | Whether user select is required on the select before form submission.                                   | `false`            |
+| isDisabled                   | `boolean`                                                                                                                                                                                      | Whether the select is disabled.                                                                         | `false`            |
+| isMultiline                  | `boolean`                                                                                                                                                                                      | Whether the select should allow multiple lines of text.                                                 | `false`            |
+| showScrollIndicators         | `boolean`                                                                                                                                                                                      | Whether the select should show scroll indicators when the listbox is scrollable.                        | `true`             |
+| autoFocus                    | `boolean`                                                                                                                                                                                      | Whether the select should be focused on the first mount.                                                | `false`            |
+| disallowEmptySelection       | `boolean`                                                                                                                                                                                      | Whether the collection allows empty selection.                                                          | `false`            |
+| disableAnimation             | `boolean`                                                                                                                                                                                      | Whether the select should be animated.                                                                  | `true`             |
+| disableSelectionIconRotation | `boolean`                                                                                                                                                                                      | Whether the select should disable the rotation of the selector icon.                                    | `false`            |
+| popoverProps                 | [PopoverProps](/docs/components/popover#api)                                                                                                                                                   | Props to be passed to the popover component.                                                            | -                  |
+| listboxProps                 | [ListboxProps](/docs/components/listbox#api)                                                                                                                                                   | Props to be passed to the listbox component.                                                            | -                  |
+| scrollShadowProps            | [ScrollShadowProps](/docs/components/scroll-shadow#api)                                                                                                                                        | Props to be passed to the scroll shadow component.                                                      | -                  |
+| classNames                   | `Record<"base"｜ "label"｜ "trigger"｜ "innerWrapper"｜ "selectorIcon" ｜ "value" ｜ "listboxWrapper"｜ "listbox" ｜ "popover" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the dropdown item slots.                                           | -                  |
+
+### Select Events
+
+| Attribute         | Type                                          | Description                                                                                                     |
+| ----------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| onClose           | `() => void`                                  | Callback fired when the select popover is closed.                                                               |
+| onOpenChange      | `(isOpen: boolean) => void`                   | Callback fired when the select popover is opened or closed.                                                     |
+| onSelectionChange | `(keys: React.Key[]) => void`                 | Callback fired when the selected keys change.                                                                   |
+| onChange          | `React.ChangeEvent<HTMLSelectElement>`        | Native select change event, fired when the selected value changes.                                              |
+| renderValue       | [RenderValueFunction](#render-value-function) | Function to render the value of the select. It renders the selected item by default.                            |
 
 ---
 

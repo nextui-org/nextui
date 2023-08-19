@@ -53,7 +53,7 @@ export function useMultiSelect<T>(
   );
 
   const triggerOnKeyDown = (e: KeyboardEvent) => {
-    // Select items when trigger has focus - imitating default `<select>` behaviour.
+    // Select items when trigger has focus - imitating default `<select>` behavior.
     // In multi selection mode it does not make sense.
     if (state.selectionMode === "single") {
       switch (e.key) {

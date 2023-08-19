@@ -20,6 +20,7 @@ import {
   useMultiSelect,
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
+import {SpinnerProps} from "@nextui-org/spinner";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -46,26 +47,18 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
    */
   ref?: ReactRef<HTMLSelectElement | null>;
   /**
+   * The ref to the scroll element. Useful when having async loading of items.
+   */
+  scrollRef?: ReactRef<HTMLElement | null>;
+  /**
+   * The ref to the spinner element.
+   */
+  spinnerRef?: ReactRef<HTMLElement | null>;
+  /**
    * Whether the select is required.
    * @default false
    */
   isRequired?: boolean;
-  /**
-   * Props to be passed to the popover component.
-   * @default { placement: "bottom", triggerScaleOnOpen: false, offset: 5 }
-   */
-  popoverProps?: Partial<PopoverProps>;
-  /**
-   * Props to be passed to the listbox component.
-   * @default { disableAnimation: false }
-   */
-  listboxProps?: Partial<ListboxProps>;
-  /**
-   * Props to be passed to the scroll shadow component. This component
-   * adds a shadow to the top and bottom of the listbox when it is scrollable.
-   * @default { hideScrollBar: true, offset: 15 }
-   */
-  scrollShadowProps?: Partial<ScrollShadowProps>;
   /**
    * The icon that represents the select open state. Usually a chevron icon.
    */
@@ -88,6 +81,31 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
    * @default true
    */
   showScrollIndicators?: boolean;
+  /**
+   * Props to be passed to the popover component.
+   *
+   * @default { placement: "bottom", triggerScaleOnOpen: false, offset: 5 }
+   */
+  popoverProps?: Partial<PopoverProps>;
+  /**
+   * Props to be passed to the listbox component.
+   *
+   * @default { disableAnimation: false }
+   */
+  listboxProps?: Partial<ListboxProps>;
+  /**
+   * Props to be passed to the scroll shadow component. This component
+   * adds a shadow to the top and bottom of the listbox when it is scrollable.
+   *
+   * @default { hideScrollBar: true, offset: 15 }
+   */
+  scrollShadowProps?: Partial<ScrollShadowProps>;
+  /**
+   * Props to be passed to the spinner component.
+   *
+   * @default { size: "sm" , color: "current" }
+   */
+  spinnerProps?: Partial<SpinnerProps>;
   /**
    * Function to render the value of the select. It renders the selected item by default.
    * @param value
@@ -113,7 +131,40 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
 
   const disableAnimation = originalProps.disableAnimation ?? false;
-  const scrollShadowRef = useRef<HTMLDivElement>(null);
+
+  let {
+    ref,
+    as,
+    isOpen,
+    label,
+    name,
+    children,
+    isLoading,
+    selectorIcon,
+    defaultOpen,
+    onOpenChange,
+    startContent,
+    endContent,
+    description,
+    errorMessage,
+    renderValue,
+    onSelectionChange,
+    placeholder,
+    selectionMode = "single",
+    spinnerRef,
+    scrollRef: scrollRefProp,
+    popoverProps: userPopoverProps,
+    scrollShadowProps: userScrollShadowProps,
+    listboxProps: userListboxProps,
+    spinnerProps,
+    onChange,
+    onClose,
+    className,
+    classNames,
+    ...otherProps
+  } = props;
+
+  const scrollShadowRef = useDOMRef(scrollRefProp);
 
   const defaultRelatedComponentsProps: {
     popoverProps: UseSelectProps<T>["popoverProps"];
@@ -128,6 +179,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     scrollShadowProps: {
       ref: scrollShadowRef,
+      isEnabled: originalProps.showScrollIndicators ?? true,
       hideScrollBar: true,
       offset: 15,
     },
@@ -135,34 +187,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       disableAnimation,
     },
   };
-
-  let {
-    ref,
-    as,
-    isOpen,
-    label,
-    name,
-    children,
-    selectorIcon,
-    defaultOpen,
-    onOpenChange,
-    startContent,
-    endContent,
-    description,
-    errorMessage,
-    renderValue,
-    onSelectionChange,
-    placeholder,
-    selectionMode = "single",
-    popoverProps: userPopoverProps,
-    scrollShadowProps: userScrollShadowProps,
-    listboxProps: userListboxProps,
-    onChange,
-    onClose,
-    className,
-    classNames,
-    ...otherProps
-  } = props;
 
   userPopoverProps = {...defaultRelatedComponentsProps.popoverProps, ...userPopoverProps};
   userScrollShadowProps = {
@@ -426,6 +450,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     }),
     [slots, classNames?.selectorIcon, state?.isOpen],
   );
+
   const getInnerWrapperProps: PropGetter = useCallback(
     (props = {}) => {
       return {
@@ -472,12 +497,28 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, errorMessageProps, classNames?.errorMessage],
   );
 
+  const getSpinnerProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        "aria-hidden": dataAttr(true),
+        color: "current",
+        size: "sm",
+        ...spinnerProps,
+        ...props,
+        ref: spinnerRef,
+        className: slots.spinner({class: clsx(classNames?.spinner, props?.className)}),
+      };
+    },
+    [slots, spinnerRef, spinnerProps, classNames?.spinner],
+  );
+
   return {
     Component,
     domRef,
     state,
     label,
     name,
+    isLoading,
     placeholder,
     startContent,
     endContent,
@@ -497,6 +538,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     getValueProps,
     getListboxProps,
     getPopoverProps,
+    getSpinnerProps,
     getListboxWrapperProps,
     getHiddenSelectProps,
     getInnerWrapperProps,

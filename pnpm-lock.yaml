@@ -1717,6 +1717,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/spinner':
+        specifier: workspace:*
+        version: link:../spinner
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
@@ -1751,6 +1754,12 @@ importers:
       '@nextui-org/chip':
         specifier: workspace:*
         version: link:../chip
+      '@nextui-org/use-infinite-scroll':
+        specifier: workspace:*
+        version: link:../../hooks/use-infinite-scroll
+      '@react-stately/data':
+        specifier: ^3.10.1
+        version: 3.10.1(react@18.2.0)
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -2618,6 +2627,13 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-infinite-scroll:
+    dependencies:
+      '@types/lodash.debounce':
+        specifier: ^4.0.7
+        version: 4.0.7
+      lodash.debounce:
+        specifier: ^4.0.8
+        version: 4.0.8
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -11973,6 +11989,12 @@ packages:
       '@types/node': 15.12.4
     dev: true
 
+  /@types/lodash.debounce@4.0.7:
+    resolution: {integrity: sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: false
+
   /@types/lodash.foreach@4.5.7:
     resolution: {integrity: sha512-YjBEB6/Bl19V+R70IpyB/MhMb2IvrSgD26maRNyqbGRNDTH9AnPrQoT+ECvhFJ/hwhQ+RgYWaZKvF+knCguMJw==}
     dependencies:
@@ -19686,7 +19708,6 @@ packages:
 
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-    dev: true
 
   /lodash.foreach@4.5.0:
     resolution: {integrity: sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==}
