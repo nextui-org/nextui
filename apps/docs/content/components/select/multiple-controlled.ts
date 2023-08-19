@@ -48,7 +48,7 @@ export default function App() {
           </SelectItem>
         ))}
       </Select>
-      <p className="text-default-500">Selected: {Array.from(values).join(", ")}</p>
+      <p className="text-small text-default-500">Selected: {Array.from(values).join(", ")}</p>
     </div>
   );
 }`;
@@ -75,7 +75,7 @@ export default function App() {
           </SelectItem>
         ))}
       </Select>
-      <p className="text-default-500">Selected: {Array.from(values).join(", ")}</p>
+      <p className="text-small text-default-500">Selected: {Array.from(values).join(", ")}</p>
     </div>
   );
 }`;

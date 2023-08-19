@@ -33,7 +33,7 @@ export default function App() {
           <ListboxItem key="iteration">Iteration</ListboxItem>
         </Listbox>
       </ListboxWrapper>
-      <p className="text-default-500">Selected value: {selectedValue}</p>
+      <p className="text-small text-default-500">Selected value: {selectedValue}</p>
     </div>
   );
 }`;

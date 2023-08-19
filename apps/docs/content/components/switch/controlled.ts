@@ -8,7 +8,7 @@ export default function App() {
       <Switch isSelected={isSelected} onValueChange={setIsSelected}>
         Airplane mode
       </Switch>  
-      <p className="text-default-500">Selected: {isSelected ? "true" : "false"}</p>
+      <p className="text-small text-default-500">Selected: {isSelected ? "true" : "false"}</p>
     </div>
   )  
 }`;

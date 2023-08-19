@@ -48,7 +48,7 @@ export default function App() {
           </SelectItem>
         ))}
       </Select>
-      <p className="text-default-500">Selected: {value}</p>
+      <p className="text-default-500 text-small">Selected: {value}</p>
     </div>
   );
 }`;
@@ -75,7 +75,7 @@ export default function App() {
           </SelectItem>
         ))}
       </Select>
-      <p className="text-default-500">Selected: {value}</p>
+      <p className="text-small text-default-500">Selected: {value}</p>
     </div>
   );
 }`;
