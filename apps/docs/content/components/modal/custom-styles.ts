@@ -44,7 +44,7 @@ export default function App() {
                 </p>
               </ModalBody>
               <ModalFooter>
-                <Button color="foreground" variant="light" onClick={onClose}>
+                <Button color="foreground" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button className="bg-[#6f4ef2] shadow-lg shadow-indigo-500/20" onPress={onClose}>
