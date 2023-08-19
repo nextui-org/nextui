@@ -1,5 +1,24 @@
 # @nextui-org/react
 
+## 2.0.24
+
+### Patch Changes
+
+- Updated dependencies [[`c186f37c9`](https://github.com/nextui-org/nextui/commit/c186f37c98a95e1c74b640f2ae2a99bc2c9a2b74)]:
+  - @nextui-org/accordion@2.0.13
+
+## 2.0.23
+
+### Patch Changes
+
+- Updated dependencies [[`453f792a7`](https://github.com/nextui-org/nextui/commit/453f792a7a35ed9dc0234479d55f694ff0f4b21c)]:
+  - @nextui-org/link@2.0.12
+  - @nextui-org/card@2.0.11
+  - @nextui-org/checkbox@2.0.12
+  - @nextui-org/modal@2.0.13
+  - @nextui-org/navbar@2.0.11
+  - @nextui-org/user@2.0.12
+
 ## 2.0.22
 
 ### Patch Changes
