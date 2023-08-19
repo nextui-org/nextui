@@ -10,6 +10,7 @@ import {useLocalStorage} from "@/hooks/use-local-storage";
 
 export interface UseSandpackProps {
   files?: SandpackFiles;
+  typescriptStrict?: boolean;
   template?: SandpackPredefinedTemplate;
   highlightedLines?: HighlightedLines;
 }
@@ -19,6 +20,7 @@ const importAllReact = 'import * as React from "react";';
 
 export const useSandpack = ({
   files = {},
+  typescriptStrict = false,
   template = "vite-react",
   highlightedLines,
 }: UseSandpackProps) => {
@@ -57,6 +59,9 @@ export const useSandpack = ({
     if (key.includes("App") && !key.includes(mimeType)) {
       return acc;
     }
+    if (typescriptStrict && key.includes("js")) {
+      return acc;
+    }
     // @ts-ignore
     acc[key] = files[key];
 
@@ -75,6 +80,11 @@ export const useSandpack = ({
       const bFile = files[b] as string;
       const aName = getFileName(a);
       const bName = getFileName(b);
+
+      // if bName includes "App" should be first
+      if (bName.includes("App")) {
+        return 1;
+      }
 
       if (aFile?.includes(bName)) {
         return -1;

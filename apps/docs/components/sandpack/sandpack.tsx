@@ -26,6 +26,7 @@ export const Sandpack: FC<SandpackProps> = ({
   files: filesProp,
   template,
   highlightedLines,
+  typescriptStrict = false,
   showPreview = false,
   showEditor = true,
   defaultExpanded = false,
@@ -41,6 +42,7 @@ export const Sandpack: FC<SandpackProps> = ({
     useSandpack({
       files: filesProp,
       template,
+      typescriptStrict,
       highlightedLines,
     });
 

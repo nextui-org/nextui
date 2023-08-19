@@ -37,6 +37,7 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   showOpenInCodeSandbox?: boolean;
   isPreviewCentered?: boolean;
   resizeEnabled?: boolean;
+  typescriptStrict?: boolean;
   displayMode?: "always" | "visible";
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
@@ -56,6 +57,8 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   hideWindowActions = false,
   showSandpackPreview = false,
   isPreviewCentered = false,
+  // when false .js files will be used
+  typescriptStrict = false,
   showOpenInCodeSandbox,
   isGradientBox = false,
   defaultExpanded = false,
@@ -142,6 +145,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         showEditor={showEditor}
         showOpenInCodeSandbox={showOpenInCodeSandbox || showPreview}
         showPreview={showSandpackPreview}
+        typescriptStrict={typescriptStrict}
       />
     );
 

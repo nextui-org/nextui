@@ -115,7 +115,7 @@ const select = tv({
     },
     labelPlacement: {
       outside: {
-        base: "data-[has-helper=true]:pb-4 lex flex-col",
+        base: "data-[has-helper=true]:pb-4 flex flex-col",
         label: "text-foreground pb-1.5",
         description: "absolute left-1",
         errorMessage: "absolute left-1",
@@ -143,9 +143,9 @@ const select = tv({
     },
     isDisabled: {
       true: {
-        base: "opacity-disabled !pointer-events-none",
-        trigger: "!pointer-events-none",
-        label: "!pointer-events-none",
+        base: "opacity-disabled pointer-events-none",
+        trigger: "pointer-events-none",
+        label: "pointer-events-none",
       },
     },
     isInvalid: {

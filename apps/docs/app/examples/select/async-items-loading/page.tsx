@@ -20,7 +20,7 @@ function usePokemonList({fetchDelay = 0}: UsePokemonListProps = {}) {
   const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [offset, setOffset] = useState(0);
-  const limit = 20; // Number of items per page, adjust as necessary
+  const limit = 10; // Number of items per page, adjust as necessary
 
   const loadPokemon = async (currentOffset: number) => {
     const controller = new AbortController();

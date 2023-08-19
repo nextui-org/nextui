@@ -57,11 +57,48 @@ export default function App() {
   );
 }`;
 
+const AppTs = `import {Select, SelectItem, Selection} from "@nextui-org/react";
+import {animals} from "./data";
+
+export default function App() {
+  const [values, setValues] = React.useState<Selection>(new Set([]));
+
+  const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setValues(new Set([e.target.value]));
+  };
+
+  return (
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <Select
+        label="Favorite Animal"
+        selectionMode="multiple"
+        placeholder="Select an animal"
+        selectedKeys={values}
+        className="max-w-xs"
+        onChange={handleSelectionChange}
+      >
+        {animals.map((animal) => (
+          <SelectItem key={animal.value} value={animal.value}>
+            {animal.label}
+          </SelectItem>
+        ))}
+      </Select>
+      <p className="text-default-500">Selected: {Array.from(values).join(", ")}</p>
+    </div>      
+  );
+}`;
+
 const react = {
   "/App.jsx": App,
   "/data.js": data,
 };
 
+const reactTs = {
+  "/App.tsx": AppTs,
+  "/data.ts": data,
+};
+
 export default {
   ...react,
+  ...reactTs,
 };
