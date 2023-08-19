@@ -1,8 +1,8 @@
 # @nextui-org/scroll-shadow
 
-A Quick description of the component
+A component that applies top and bottom shadows when content overflows on scroll.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/listbox) for more information.
 
 ## Installation
 

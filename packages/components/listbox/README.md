@@ -1,8 +1,8 @@
 # @nextui-org/listbox
 
-A Quick description of the component
-
 A listbox displays a list of options and allows a user to select one or more of them.
+
+Please refer to the [documentation](https://nextui.org/docs/components/listbox) for more information.
 
 ## Installation
 
