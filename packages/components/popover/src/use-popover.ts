@@ -12,7 +12,7 @@ import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-uti
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {useId, useMemo, useCallback, useRef} from "react";
+import {useMemo, useCallback, useRef} from "react";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -86,9 +86,11 @@ export function usePopover(originalProps: UsePopoverProps) {
     isOpen,
     defaultOpen,
     onOpenChange,
+    isNonModal = true,
     shouldFlip = true,
     containerPadding = 12,
     shouldBlockScroll = false,
+    shouldCloseOnBlur,
     portalContainer,
     placement: placementProp = "top",
     triggerType = "dialog",
@@ -105,7 +107,6 @@ export function usePopover(originalProps: UsePopoverProps) {
   } = props;
 
   const Component = as || "div";
-  const popoverId = useId();
 
   const domRef = useDOMRef(ref);
 
@@ -136,10 +137,12 @@ export function usePopover(originalProps: UsePopoverProps) {
   } = useReactAriaPopover(
     {
       triggerRef,
+      isNonModal,
       popoverRef: domRef,
       placement: placementProp,
       offset: offset,
       scrollRef,
+      shouldCloseOnBlur,
       boundaryElement,
       crossOffset,
       shouldFlip,
@@ -167,7 +170,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     ref: domRef,
     ...mergeProps(popoverProps, otherProps, props),
     style: mergeProps(popoverProps.style, otherProps.style, props.style),
-    id: popoverId,
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
@@ -191,14 +193,13 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
-        "aria-controls": popoverId,
         "aria-haspopup": "dialog",
         ...mergeProps(triggerProps, props),
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
       };
     },
-    [isOpen, popoverId, state, triggerProps, triggerRef],
+    [isOpen, state, triggerProps, triggerRef],
   );
 
   const getBackdropProps = useCallback<PropGetter>(
@@ -233,6 +234,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     showArrow,
     triggerRef,
     placement,
+    isNonModal,
     portalContainer,
     isOpen: state.isOpen,
     onClose: state.close,

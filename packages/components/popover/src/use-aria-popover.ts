@@ -1,5 +1,11 @@
 import {RefObject, useEffect} from "react";
-import {AriaPopoverProps, useOverlay, PopoverAria, useOverlayPosition} from "@react-aria/overlays";
+import {
+  AriaPopoverProps,
+  useOverlay,
+  PopoverAria,
+  useOverlayPosition,
+  AriaOverlayProps,
+} from "@react-aria/overlays";
 import {OverlayPlacement, toReactAriaPlacement, ariaHideOutside} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
@@ -22,7 +28,7 @@ export interface Props {
   scrollRef?: RefObject<HTMLElement>;
 }
 
-export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement">;
+export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement"> & AriaOverlayProps;
 
 /**
  * Provides the behavior and accessibility implementation for a popover component.
@@ -41,6 +47,7 @@ export function useReactAriaPopover(
     scrollRef,
     shouldFlip,
     boundaryElement,
+    shouldCloseOnBlur = false,
     placement: placementProp = "top",
     containerPadding,
     isNonModal: isNonModalProp,
@@ -54,15 +61,9 @@ export function useReactAriaPopover(
     {
       isOpen: state.isOpen,
       onClose: state.close,
-      shouldCloseOnBlur: true,
-      isDismissable: !isNonModal,
+      shouldCloseOnBlur,
+      isDismissable: isNonModal,
       isKeyboardDismissDisabled,
-      shouldCloseOnInteractOutside(element) {
-        // Don't close if the click is within the trigger or the popover itself
-        let trigger = triggerRef?.current;
-
-        return !trigger || !trigger.contains(element);
-      },
     },
     popoverRef,
   );

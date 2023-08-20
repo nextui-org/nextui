@@ -1,10 +1,10 @@
 import {Listbox} from "@nextui-org/listbox";
 import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/popover";
-import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {Spinner} from "@nextui-org/spinner";
 import {forwardRef} from "@nextui-org/system";
-import {FocusScope} from "@react-aria/focus";
+// import {FocusScope} from "@react-aria/focus";
+import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ForwardedRef, ReactElement, Ref, useMemo} from "react";
 
@@ -109,7 +109,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
               {startContent}
               <span {...getValueProps()}>
                 {renderSelectedItem}
-                <VisuallyHidden>,</VisuallyHidden>
+                {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
               </span>
               {endContent}
             </div>
@@ -117,11 +117,11 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
           </Component>
         </PopoverTrigger>
         <PopoverContent>
-          <FocusScope contain restoreFocus>
-            <ScrollShadow {...getListboxWrapperProps()}>
-              <Listbox {...getListboxProps()} />
-            </ScrollShadow>
-          </FocusScope>
+          {/* <FocusScope contain restoreFocus> */}
+          <ScrollShadow {...getListboxWrapperProps()}>
+            <Listbox {...getListboxProps()} />
+          </ScrollShadow>
+          {/* </FocusScope> */}
         </PopoverContent>
       </Popover>
       {helperWrapper}

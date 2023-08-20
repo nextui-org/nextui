@@ -91,7 +91,7 @@ export function useMultiSelect<T>(
     }
   };
 
-  // Typeahead functionality - imitating default `<select>` behaviour.
+  // Typeahead functionality - imitating default `<select>` behavior.
   const {typeSelectProps} = useTypeSelect({
     keyboardDelegate: delegate,
     selectionManager: state.selectionManager,

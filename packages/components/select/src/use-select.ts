@@ -150,6 +150,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     renderValue,
     onSelectionChange,
     placeholder,
+    disallowEmptySelection = true,
     selectionMode = "single",
     spinnerRef,
     scrollRef: scrollRefProp,
@@ -207,6 +208,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     ...props,
     isOpen,
     selectionMode,
+    disallowEmptySelection,
     children: children as CollectionChildren<T>,
     isRequired: originalProps?.isRequired,
     isDisabled: originalProps?.isDisabled,
@@ -231,7 +233,11 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   });
 
   const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useMultiSelect({...props, isDisabled: originalProps?.isDisabled}, state, triggerRef);
+    useMultiSelect(
+      {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
+      state,
+      triggerRef,
+    );
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
@@ -416,7 +422,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),
       }),
-      ...mergeProps(menuProps, userListboxProps, props),
+      ...mergeProps(userListboxProps, props, menuProps),
     } as ListboxProps;
   };
 
@@ -427,7 +433,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         triggerRef,
         ref: popoverRef,
         scrollRef: listboxRef,
-
+        triggerType: "listbox",
         className: slots.popover({
           class: clsx(classNames?.popover, props.className),
         }),
