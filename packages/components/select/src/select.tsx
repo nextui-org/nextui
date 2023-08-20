@@ -1,11 +1,12 @@
 import {Listbox} from "@nextui-org/listbox";
-import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/popover";
+import {FreeSoloPopover} from "@nextui-org/popover";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {Spinner} from "@nextui-org/spinner";
 import {forwardRef} from "@nextui-org/system";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
-import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ForwardedRef, ReactElement, Ref, useMemo} from "react";
+import {VisuallyHidden} from "@react-aria/visually-hidden";
+import {AnimatePresence} from "framer-motion";
 
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
@@ -19,6 +20,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     label,
     hasHelper,
     isLoading,
+    triggerRef,
     selectorIcon = <ChevronDownIcon />,
     description,
     errorMessage,
@@ -26,6 +28,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     endContent,
     placeholder,
     renderValue,
+    disableAnimation,
     getBaseProps,
     getLabelProps,
     getTriggerProps,
@@ -96,31 +99,35 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     return clonedIcon;
   }, [isLoading, clonedIcon, getSpinnerProps]);
 
+  const popoverContent = useMemo(
+    () =>
+      state.isOpen ? (
+        <FreeSoloPopover {...getPopoverProps()} state={state} triggerRef={triggerRef}>
+          <ScrollShadow {...getListboxWrapperProps()}>
+            <Listbox {...getListboxProps()} />
+          </ScrollShadow>
+        </FreeSoloPopover>
+      ) : null,
+    [state.isOpen, getPopoverProps, state, triggerRef, getListboxWrapperProps, getListboxProps],
+  );
+
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
       {shouldLabelBeOutside ? labelContent : null}
-      <Popover {...getPopoverProps()}>
-        <PopoverTrigger>
-          <Component {...getTriggerProps()}>
-            {!shouldLabelBeOutside ? labelContent : null}
-            <div {...getInnerWrapperProps()}>
-              {startContent}
-              <span {...getValueProps()}>
-                {renderSelectedItem}
-                {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
-              </span>
-              {endContent}
-            </div>
-            {renderIndicator}
-          </Component>
-        </PopoverTrigger>
-        <PopoverContent>
-          <ScrollShadow {...getListboxWrapperProps()}>
-            <Listbox {...getListboxProps()} />
-          </ScrollShadow>
-        </PopoverContent>
-      </Popover>
+      <Component {...getTriggerProps()}>
+        {!shouldLabelBeOutside ? labelContent : null}
+        <div {...getInnerWrapperProps()}>
+          {startContent}
+          <span {...getValueProps()}>
+            {renderSelectedItem}
+            {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
+          </span>
+          {endContent}
+        </div>
+        {renderIndicator}
+      </Component>
+      {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
       {helperWrapper}
     </div>
   );

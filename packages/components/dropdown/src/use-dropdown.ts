@@ -113,12 +113,8 @@ export function useDropdown(props: UseDropdownProps) {
     props = {},
     _ref: Ref<any> | null | undefined = null,
   ) => {
-    // These props are not needed for the menu trigger since it is handled by the popover trigger.
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
-
     return {
-      ...mergeProps(otherMenuTriggerProps, props),
+      ...mergeProps(menuTriggerProps, props),
       ref: mergeRefs(_ref, triggerRef),
     };
   };

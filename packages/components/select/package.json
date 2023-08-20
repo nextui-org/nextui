@@ -34,7 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "framer-motion": ">=4.0.0"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/chip": "workspace:*",
+    "framer-motion": "^10.15.1",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@react-stately/data": "^3.10.1",
     "clean-package": "2.2.0",

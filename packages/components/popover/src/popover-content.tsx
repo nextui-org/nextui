@@ -6,11 +6,11 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
-import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
-import {RemoveScroll} from "react-remove-scroll";
 import {HTMLNextUIProps} from "@nextui-org/system";
+import {RemoveScroll} from "react-remove-scroll";
+import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {usePopoverContext} from "./popover-context";
 

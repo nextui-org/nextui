@@ -6,7 +6,7 @@ import {
   useOverlayPosition,
   AriaOverlayProps,
 } from "@react-aria/overlays";
-import {OverlayPlacement, toReactAriaPlacement, ariaHideOutside} from "@nextui-org/aria-utils";
+import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 
@@ -47,7 +47,7 @@ export function useReactAriaPopover(
     scrollRef,
     shouldFlip,
     boundaryElement,
-    shouldCloseOnBlur = false,
+    shouldCloseOnBlur = true,
     placement: placementProp = "top",
     containerPadding,
     isNonModal: isNonModalProp,
@@ -62,7 +62,7 @@ export function useReactAriaPopover(
       isOpen: state.isOpen,
       onClose: state.close,
       shouldCloseOnBlur,
-      isDismissable: isNonModal,
+      isDismissable: !isNonModal,
       isKeyboardDismissDisabled,
     },
     popoverRef,
@@ -74,14 +74,14 @@ export function useReactAriaPopover(
     placement,
   } = useOverlayPosition({
     ...otherProps,
-    scrollRef,
-    boundaryElement,
-    crossOffset,
     shouldFlip,
-    containerPadding,
+    crossOffset,
     targetRef: triggerRef,
     overlayRef: popoverRef,
     isOpen: state.isOpen,
+    scrollRef,
+    boundaryElement,
+    containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
     onClose: () => {},

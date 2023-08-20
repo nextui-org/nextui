@@ -5,7 +5,7 @@ import {RefObject, Ref, useEffect} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {useOverlayTrigger, ariaHideOutside} from "@react-aria/overlays";
+import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
@@ -194,7 +194,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
         "aria-haspopup": "dialog",
-        ...mergeProps(triggerProps, props),
+        ...mergeProps(!triggerRefProp ? triggerProps : {}, props),
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
       };
@@ -228,6 +228,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   }, [state.isOpen, domRef]);
 
   return {
+    state,
     Component,
     children,
     classNames,
@@ -235,6 +236,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     triggerRef,
     placement,
     isNonModal,
+    popoverRef: domRef,
     portalContainer,
     isOpen: state.isOpen,
     onClose: state.close,

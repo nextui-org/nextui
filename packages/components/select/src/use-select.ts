@@ -316,12 +316,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getTriggerProps: PropGetter = useCallback(
     (props = {}) => {
-      // These props are not needed for the menu trigger since it is handled by the popover trigger.
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const {onKeyDown, onClick, onMouseDown, onPointerDown, onPointerUp, ...otherButtonProps} =
-        buttonProps;
-
       return {
+        ref: triggerRef,
         "data-open": dataAttr(state.isOpen),
         "data-disabled": dataAttr(originalProps?.isDisabled),
         "data-focus": dataAttr(isFocused),
@@ -330,7 +326,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         "data-hover": dataAttr(isHovered),
         className: slots.trigger({class: classNames?.trigger}),
         ...mergeProps(
-          otherButtonProps,
+          buttonProps,
           focusProps,
           hoverProps,
           filterDOMProps(otherProps, {
@@ -342,6 +338,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     [
       slots,
+      triggerRef,
       state.isOpen,
       classNames?.trigger,
       originalProps?.isDisabled,
@@ -524,6 +521,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     state,
     label,
     name,
+    triggerRef,
     isLoading,
     placeholder,
     startContent,
@@ -536,6 +534,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     hasPlaceholder,
     renderValue,
     selectionMode,
+    disableAnimation,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     getBaseProps,
