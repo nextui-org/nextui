@@ -91,7 +91,7 @@ export default function App() {
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onClick={onClose}>
+                <Button color="danger" variant="flat" onPress={onClose}>
                   Close
                 </Button>
                 <Button color="primary" onPress={onClose}>
