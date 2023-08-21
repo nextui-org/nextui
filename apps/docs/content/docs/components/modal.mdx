@@ -141,7 +141,7 @@ You can customize the `Modal` component by passing custom Tailwind CSS classes t
 
 ## Data Attributes
 
-`Modal` has the following attributes on the `root` element:
+`Modal` has the following attributes on the `base` element:
 
 - **data-open**:
   When the modal is open. Based on modal state.
@@ -153,7 +153,7 @@ You can customize the `Modal` component by passing custom Tailwind CSS classes t
 ## Accessibility
 
 - Content outside the modal is hidden from assistive technologies while it is open.
-- The modal optionally closes when interacting outside, or pressing the <kbd>Esc</kbd> key.
+- The modal optionally closes when interacting outside, or pressing the <Kbd>Esc</Kbd> key.
 - Focus is moved into the modal on mount, and restored to the trigger element on unmount.
 - While open, focus is contained within the modal, preventing the user from tabbing outside.
 - Scrolling the page behind the modal is prevented while it is open, including in mobile browsers.

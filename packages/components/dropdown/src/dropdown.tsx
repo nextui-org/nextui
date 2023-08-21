@@ -6,8 +6,8 @@ import {UseDropdownProps, useDropdown} from "./use-dropdown";
 
 export interface DropdownProps extends UseDropdownProps {
   /**
-   * The content of the dropdown. It is usually the `Dropdown.Trigger`,
-   * and `Dropdown.Menu`
+   * The content of the dropdown. It is usually the `DropdownTrigger`,
+   * and `DropdownMenu`
    */
   children: ReactNode[];
 }

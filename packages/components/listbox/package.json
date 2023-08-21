@@ -1,0 +1,61 @@
+{
+  "name": "@nextui-org/listbox",
+  "version": "2.0.0",
+  "description": "A listbox displays a list of options and allows a user to select one or more of them.",
+  "keywords": [
+    "listbox"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/listbox"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/divider": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/use-is-mobile": "workspace:*",
+    "@react-aria/utils": "^3.18.0",
+    "@react-aria/listbox": "^3.10.0",
+    "@react-stately/list": "^3.9.0",
+    "@react-aria/focus": "^3.13.0",
+    "@react-aria/interactions": "^3.16.0",
+    "@react-types/menu": "^3.9.2",
+    "@react-types/shared": "^3.18.1"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "@nextui-org/shared-icons": "workspace:*",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

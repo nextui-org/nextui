@@ -57,13 +57,13 @@
     "@react-aria/interactions": "^3.17.0",
     "@react-aria/focus": "^3.14.0",
     "@react-aria/utils": "^3.19.0",
-    "@react-stately/tree": "^3.7.1"
+    "@react-stately/tree": "^3.7.1",
+    "@react-types/accordion": "3.0.0-alpha.15",
+    "@react-types/shared": "^3.19.0"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
-    "@react-types/accordion": "3.0.0-alpha.15",
-    "@react-types/shared": "^3.19.0",
     "framer-motion": "^10.15.1",
     "clean-package": "2.2.0",
     "react": "^18.0.0"

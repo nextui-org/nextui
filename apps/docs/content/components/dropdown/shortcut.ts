@@ -14,7 +14,7 @@ export default function App() {
         <DropdownItem key="new" shortcut="⌘N">New file</DropdownItem>
         <DropdownItem key="copy" shortcut="⌘C">Copy link</DropdownItem>
         <DropdownItem key="edit" shortcut="⌘⇧E">Edit file</DropdownItem>
-        <DropdownItem key="delete" showDivider shortcut="⌘⇧D" className="text-danger" color="danger">
+        <DropdownItem key="delete" shortcut="⌘⇧D" className="text-danger" color="danger">
           Delete file
         </DropdownItem>
       </DropdownMenu>

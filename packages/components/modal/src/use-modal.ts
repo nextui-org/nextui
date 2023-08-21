@@ -3,14 +3,13 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";
-import {useCallback, useId, useRef, useState, useMemo, useImperativeHandle, ReactNode} from "react";
+import {useCallback, useId, useRef, useState, useMemo, ReactNode} from "react";
 import {modal} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
-import {createDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useOverlayTriggerState} from "@react-stately/overlays";
 import {OverlayTriggerProps} from "@react-stately/overlays";
 import {mergeRefs, mergeProps} from "@react-aria/utils";
@@ -99,7 +98,7 @@ export function useModal(originalProps: UseModalProps) {
 
   const Component = as || "section";
 
-  const dialogRef = useRef<HTMLElement>(null);
+  const domRef = useDOMRef(ref);
   const closeButtonRef = useRef<HTMLElement>(null);
 
   const [headerMounted, setHeaderMounted] = useState(false);
@@ -108,12 +107,6 @@ export function useModal(originalProps: UseModalProps) {
   const dialogId = useId();
   const headerId = useId();
   const bodyId = useId();
-
-  // Sync ref with modalRef from passed ref.
-  useImperativeHandle(ref, () =>
-    // @ts-ignore
-    createDOMRef(dialogRef),
-  );
 
   const state = useOverlayTriggerState({
     isOpen,
@@ -132,7 +125,7 @@ export function useModal(originalProps: UseModalProps) {
       isKeyboardDismissDisabled,
     },
     state,
-    dialogRef,
+    domRef,
   );
 
   const {buttonProps: closeButtonProps} = useAriaButton({onPress: state.close}, closeButtonRef);
@@ -150,7 +143,7 @@ export function useModal(originalProps: UseModalProps) {
   );
 
   const getDialogProps: PropGetter = (props = {}, ref = null) => ({
-    ref: mergeRefs(ref, dialogRef),
+    ref: mergeRefs(ref, domRef),
     ...mergeProps(modalProps, otherProps, props),
     className: slots.base({class: clsx(baseStyles, props.className)}),
     id: dialogId,
@@ -185,7 +178,7 @@ export function useModal(originalProps: UseModalProps) {
   return {
     Component,
     slots,
-    dialogRef,
+    domRef,
     headerId,
     bodyId,
     motionProps,

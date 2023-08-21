@@ -164,8 +164,7 @@
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",
-          "path": "/docs/components/chip.mdx",
-          "newPost": true
+          "path": "/docs/components/chip.mdx"
         },
         {
           "key": "circular-progress",
@@ -183,8 +182,7 @@
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",
-          "path": "/docs/components/divider.mdx",
-          "newPost": true
+          "path": "/docs/components/divider.mdx"
         },
         {
           "key": "dropdown",
@@ -208,14 +206,20 @@
           "key": "kbd",
           "title": "Kbd",
           "keywords": "keyboard input, shortcut, keys, user input display",
-          "path": "/docs/components/kbd.mdx",
-          "newPost": true
+          "path": "/docs/components/kbd.mdx"
         },
         {
           "key": "link",
           "title": "Link",
           "keywords": "link, navigation, href, web page connection",
           "path": "/docs/components/link.mdx"
+        },
+        {
+          "key": "listbox",
+          "title": "Listbox",
+          "keywords": "listbox, selection, option list, multiple choice",
+          "path": "/docs/components/listbox.mdx",
+          "newPost": true
         },
         {
           "key": "modal",
@@ -254,17 +258,29 @@
           "path": "/docs/components/radio-group.mdx"
         },
         {
+          "key": "select",
+          "title": "Select",
+          "keywords": "select, selection, option list, multiple choice",
+          "path": "/docs/components/select.mdx",
+          "newPost": true
+        },
+        {
           "key": "skeleton",
           "title": "Skeleton",
           "keywords": "skeleton, loading state, placeholder, content preview",
-          "path": "/docs/components/skeleton.mdx",
-          "newPost": true
+          "path": "/docs/components/skeleton.mdx"
         },
         {
           "key": "snippet",
           "title": "Snippet",
           "keywords": "snippet, code block, programming, code example",
-          "path": "/docs/components/snippet.mdx",
+          "path": "/docs/components/snippet.mdx"
+        },
+        {
+          "key": "scroll-shadow",
+          "title": "Scroll Shadow",
+          "keywords": "scroll shadow, scroll indicator, scroll bar, scroll position",
+          "path": "/docs/components/scroll-shadow.mdx",
           "newPost": true
         },
         {
@@ -295,8 +311,7 @@
           "key": "tabs",
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
-          "path": "/docs/components/tabs.mdx",
-          "newPost": true
+          "path": "/docs/components/tabs.mdx"
         },
         {
           "key": "textarea",

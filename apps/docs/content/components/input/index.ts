@@ -6,7 +6,7 @@ import sizes from "./sizes";
 import colors from "./colors";
 import variants from "./variants";
 import radius from "./radius";
-import labelPositions from "./label-positions";
+import labelPlacements from "./label-placements";
 import description from "./description";
 import password from "./password";
 import clearButton from "./clear-button";
@@ -26,7 +26,7 @@ export const inputContent = {
   colors,
   variants,
   radius,
-  labelPositions,
+  labelPlacements,
   description,
   password,
   clearButton,

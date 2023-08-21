@@ -1,0 +1,292 @@
+---
+title: "Listbox"
+description: "A listbox displays a list of options and allows a user to select one or more of them."
+---
+
+import {listboxContent} from "@/content/components/listbox";
+
+# Listbox
+
+A listbox displays a list of options and allows a user to select one or more of them.
+
+<ComponentLinks component="listbox" reactAriaHook="useListBox" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+NextUI exports 3 listbox-related components:
+
+- **Listbox**: The main component, which is a wrapper for the other components.
+- **ListboxSection**: The component that contains a group of listbox items.
+- **ListboxItem**: The component that represents a listbox item.
+
+<ImportTabs
+  commands={{
+    main: `import {
+  Listbox,
+  ListboxSection,
+  ListboxItem
+} from "@nextui-org/react";`,
+    individual: `import {
+  Listbox,
+  ListboxSection,
+  ListboxItem
+} from "@nextui-org/listbox";`,
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={listboxContent.usage} />
+
+### Dynamic items
+
+Listbox follows the [Collection Components API](https://react-spectrum.adobe.com/react-stately/collections.html), accepting both static and dynamic collections.
+
+- **Static**: The usage example above shows the static implementation, which can be used when the full list of options is known ahead of time.
+- **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
+
+<CodeDemo title="Dynamic items" files={listboxContent.dynamic} />
+
+### Disabled Keys
+
+Listbox items can be disabled using the `disabledKeys` prop to the `Listbox` component.
+
+<CodeDemo title="Disabled Keys" highlightedLines="10" files={listboxContent.disabledKeys} />
+
+> **Note**: It's important to have a unique key for each item, otherwise the disabled keys will not work.
+
+### Variants
+
+You can use the `variant` in the `Listbox` component to change the `hover` style of the listbox items.
+
+<CodeDemo title="Variants" highlightedLines="18" files={listboxContent.variants} />
+
+### Single Selection
+
+You can set the `selectionMode` property as `single` to allow the user to select only one item at a time.
+
+<CodeDemo
+  title="Single Selection"
+  highlightedLines="20-22"
+  files={listboxContent.singleSelection}
+/>
+
+### Multiple Selection
+
+You can set the `selectionMode` property as `multiple` to allow the user to select multiple items at a time.
+
+<CodeDemo
+  title="Multiple Selection"
+  highlightedLines="20-22"
+  files={listboxContent.multipleSelection}
+/>
+
+> **Note**: To allow empty selection, you can set the `disallowEmptySelection` property as `false`.
+
+### With Icons
+
+It is possible to add icons to the listbox items using the `startContent` / `endContent` props.
+
+<CodeDemo title="With Icons" highlightedLines="23,30,38" files={listboxContent.icons} />
+
+> **Note**: Note: If you use `currentColor` as the icon color, the icon will have the same color as the item text.
+
+### With Description
+
+You can use the `description` prop to add a description to the listbox item.
+
+<CodeDemo
+  title="With Description"
+  highlightedLines="17,24,32,41"
+  files={listboxContent.description}
+/>
+
+### With Sections
+
+You can use the `ListboxSection` component to group listbox items.
+
+<CodeDemo title="With Sections" highlightedLines="15,38" files={listboxContent.sections} />
+
+> **Note**: Sections without a `title` must provide an `aria-label` for accessibility.
+
+## Slots
+
+Listbox has 2 components with slots the `ListboxItem` and `ListboxSection` components.
+
+### ListboxItem
+
+- **base**: The main slot for the listbox item. It wraps all the other slots.
+- **wrapper**: The `title` and `description` wrapper.
+- **title**: The title of the listbox item.
+- **description**: The description of the listbox item.
+- **selectedIcon**: The selected icon slot. This is only visible when the item is selected.
+
+### ListboxSection
+
+- **base**: The main slot for the listbox section. It wraps all the other slots.
+- **heading**: The title that is render on top of the section group.
+- **group**: The group of listbox items.
+- **divider**: The divider that is render between the groups. This is only visible when `showDivider` is `true`.
+
+### Customizing the listbox
+
+You can customize the `Listbox` items style by using the `itemClasses` prop and passing custom Tailwind CSS classes.
+
+<CodeDemo title="Custom Styles" files={listboxContent.customStyles} />
+
+> **Note**: In the above example, we've utilized the [Boxicons](https://boxicons.com/) icons collection.
+
+<Spacer y={4} />
+
+### Keyboard Interactions
+
+| Key                                  | Description                                                                                                      |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| <Kbd>Home</Kbd>                      | Moves focus to the first item.                                                                                   |
+| <Kbd>End</Kbd>                       | Moves focus to the last item.                                                                                    |
+| <Kbd>ArrowDown</Kbd>                 | When focus is on an item, moves focus to the next item.                                                          |
+| <Kbd>ArrowUp</Kbd>                   | When focus is on an item, moves focus to the previous item.                                                      |
+| <Kbd>Enter</Kbd> or <Kbd>Space</Kbd> | When focus is on an item, selects the item.                                                                      |
+| <Kbd>A-Z</Kbd> or <Kbd>a-z</Kbd>     | Moves focus to the next menu item with a label that starts with the typed character if such an menu item exists. |
+
+## Data Attributes
+
+`ListboxItem` has the following attributes on the `base` element:
+
+- **data-disabled**:
+  When the listbox item is disabled. Based on listbox `disabledKeys` prop.
+- **data-selected**:
+  When the listbox item is selected. Based on listbox `selectedKeys` prop.
+- **data-selectable**:
+  When the listbox item is selectable. Based on listbox `selectionMode` prop.  
+- **data-hover**:
+  When the listbox item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-pressed**:
+  When the listbox item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-focus**:
+  When the listbox item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the listbox item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Exposed to assistive technology as a `listbox` using ARIA.
+- Support for single, multiple, or no selection.
+- Support for disabled items.
+- Support for sections.
+- Labeling support for accessibility.
+- Support for mouse, touch, and keyboard interactions.
+- Tab stop focus management.
+- Keyboard navigation support including arrow keys, home/end, page up/down, select all, and clear.
+- Automatic scrolling support during keyboard navigation.
+- Typeahead to allow focusing options by typing text.
+
+<Spacer y={4} />
+
+## API
+
+### Listbox Props
+
+| Attribute              | Type                                                                                                   | Description                                                                                             | Default   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
+| children\*             | `ReactNode[]`                                                                                          | The children to render. Usually a list of `ListboxItem` or `ListboxSection`                             | -         |
+| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -         |
+| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The listbox items appearance style.                                                                     | `solid`   |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The listbox items color theme.                                                                          | `default` |
+| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -         |
+| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -         |
+| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
+| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -         |
+| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`   |
+| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`   |
+| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`   |
+| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the listbox items.                                                  | `false`   |
+| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>`                        | Allows to set custom class names for the listbox item slots.                                            | -         |
+
+### Listbox Events
+
+| Attribute         | Type                          | Description                                        |
+| ----------------- | ----------------------------- | -------------------------------------------------- |
+| onAction          | `(key: React.Key) => void`    | Handler that is called when an item is selected.   |
+| onSelectionChange | `(keys: React.Key[]) => void` | Handler that is called when the selection changes. |
+
+---
+
+### ListboxSection Props
+
+| Attribute    | Type                                                                                                   | Description                                                                               | Default |
+| ------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ------- |
+| children\*   | `ReactNode`                                                                                            | The contents of the listbox section. Usually a list of `ListboxItem` components. (static) | -       |
+| title        | `string`                                                                                               | The title of the listbox section.                                                         | -       |
+| items        | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                 | -       |
+| showDivider  | `boolean`                                                                                              | Whether to show the divider between the groups.                                           | `false` |
+| DividerProps | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                              | -       |
+| classNames   | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the listbox section slots.                           | -       |
+| itemClasses  | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the listbox item slots.                              | -       |
+
+---
+
+### ListboxItem Props
+
+| Attribute    | Type                                                                                          | Description                                                                                               | Default |
+| ------------ | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------- |
+| children\*   | `ReactNode`                                                                                   | The contents of the listbox item.                                                                         | -       |
+| key          | `React.Key`                                                                                   | The unique key for the listbox item.                                                                      | -       |
+| title        | `string` \| `ReactNode`                                                                       | The title of the listbox item.                                                                            | -       |
+| textValue    | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                         | -       |
+| description  | `string` \| `ReactNode`                                                                       | The description of the listbox item.                                                                      | -       |
+| shortcut     | `string` \| `ReactNode`                                                                       | The listbox item keyboard shortcut.                                                                       | -       |
+| startContent | `ReactNode`                                                                                   | The start content of the listbox item.                                                                    | -       |
+| endContent   | `ReactNode`                                                                                   | The end content of the listbox item. This is positioned after the shortcut and the selected icon.         | -       |
+| selectedIcon | [SelectedIconProps](#listbox-item-selected-icon-props)                                        | Custom icon to render when the item is selected.                                                          | -       |
+| showDivider  | `boolean`                                                                                     | Whether to show a divider below the item.                                                                 | `false` |
+| isDisabled   | `boolean`                                                                                     | Whether the listbox item should be disabled. (**Deprecated**) pass **disabledKeys** to `Listbox` instead. | `false` |
+| isSelected   | `boolean`                                                                                     | Whether the listbox item should be selected. (**Deprecated**) pass **selectedKeys** to `Listbox` instead. | `false` |
+| isReadOnly   | `boolean`                                                                                     | Whether the listbox item press events should be ignored.                                                  | `false` |
+| classNames   | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the listbox item slots.                                              | -       |
+
+### ListboxItem Events
+
+| Attribute     | Type                           | Description                                                                                                     |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| onAction      | `() => void`                   | Handler that is called when the listbox item is selected. (**Deprecated**) pass to `Listbox` instead.           |
+| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      |
+| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 |
+| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     |
+| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    |
+| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. |
+| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                           |
+| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                          |
+| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                 |
+
+---
+
+### Types
+
+#### Listbox Item Selected Icon Props
+
+```ts
+export type ListboxItemSelectedIconProps = {
+  /**
+   * The current icon, usually an checkmark icon.
+   */
+  icon?: ReactNode;
+  /**
+   * The current selected status.
+   */
+  isSelected?: boolean;
+  /**
+   * The current disabled status.
+   * @default false
+   */
+  isDisabled?: boolean;
+};
+
+type selectedIcon?: ReactNode | ((props: ListboxItemSelectedIconProps) => ReactNode) | null;
+```

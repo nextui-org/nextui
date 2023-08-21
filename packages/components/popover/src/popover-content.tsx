@@ -6,11 +6,11 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
-import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
-import {RemoveScroll} from "react-remove-scroll";
 import {HTMLNextUIProps} from "@nextui-org/system";
+import {RemoveScroll} from "react-remove-scroll";
+import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {usePopoverContext} from "./popover-context";
 
@@ -21,7 +21,7 @@ export interface PopoverContentProps
 }
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
-  const {as, children, role = "dialog", ...otherProps} = props;
+  const {as, children, ...otherProps} = props;
 
   const {
     Component: OverlayComponent,
@@ -36,18 +36,17 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     getArrowProps,
     getDialogProps,
     getBackdropProps,
+    isNonModal,
     onClose,
   } = usePopoverContext();
 
   const Component = as || OverlayComponent || "div";
 
   const dialogRef = useRef(null);
-  const {dialogProps, titleProps} = useDialog(
-    {
-      role,
-    },
-    dialogRef,
-  );
+  const {dialogProps, titleProps} = useDialog({}, dialogRef);
+
+  // Not needed in the popover context, the popover role comes from getPopoverProps
+  delete dialogProps.role;
 
   const arrowContent = useMemo(() => {
     if (!showArrow) return null;
@@ -57,7 +56,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
 
   const content = (
     <>
-      <DismissButton onDismiss={onClose} />
+      {!isNonModal && <DismissButton onDismiss={onClose} />}
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
         {typeof children === "function" ? children(titleProps) : children}
         {arrowContent}

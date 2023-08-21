@@ -622,6 +622,12 @@ importers:
       '@react-stately/tree':
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
+      '@react-types/accordion':
+        specifier: 3.0.0-alpha.15
+        version: 3.0.0-alpha.15(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -629,12 +635,6 @@ importers:
       '@nextui-org/test-utils':
         specifier: workspace:*
         version: link:../../utilities/test-utils
-      '@react-types/accordion':
-        specifier: 3.0.0-alpha.15
-        version: 3.0.0-alpha.15(react@18.2.0)
-      '@react-types/shared':
-        specifier: ^3.19.0
-        version: 3.19.0(react@18.2.0)
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -976,12 +976,9 @@ importers:
 
   packages/components/dropdown:
     dependencies:
-      '@nextui-org/aria-utils':
+      '@nextui-org/menu':
         specifier: workspace:*
-        version: link:../../utilities/aria-utils
-      '@nextui-org/divider':
-        specifier: workspace:*
-        version: link:../divider
+        version: link:../menu
       '@nextui-org/popover':
         specifier: workspace:*
         version: link:../popover
@@ -997,15 +994,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@nextui-org/use-is-mobile':
-        specifier: workspace:*
-        version: link:../../hooks/use-is-mobile
       '@react-aria/focus':
         specifier: ^3.14.0
         version: 3.14.0(react@18.2.0)
-      '@react-aria/interactions':
-        specifier: ^3.17.0
-        version: 3.17.0(react@18.2.0)
       '@react-aria/menu':
         specifier: ^3.10.1
         version: 3.10.1(react-dom@18.2.0)(react@18.2.0)
@@ -1015,15 +1006,9 @@ importers:
       '@react-stately/menu':
         specifier: ^3.5.4
         version: 3.5.4(react@18.2.0)
-      '@react-stately/tree':
-        specifier: ^3.7.1
-        version: 3.7.1(react@18.2.0)
       '@react-types/menu':
         specifier: ^3.9.3
         version: 3.9.3(react@18.2.0)
-      '@react-types/shared':
-        specifier: ^3.19.0
-        version: 3.19.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1179,6 +1164,119 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4(react@18.2.0)
     devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/components/listbox:
+    dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
+      '@nextui-org/divider':
+        specifier: workspace:*
+        version: link:../divider
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-is-mobile':
+        specifier: workspace:*
+        version: link:../../hooks/use-is-mobile
+      '@react-aria/focus':
+        specifier: ^3.13.0
+        version: 3.14.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.16.0
+        version: 3.17.0(react@18.2.0)
+      '@react-aria/listbox':
+        specifier: ^3.10.0
+        version: 3.10.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.18.0
+        version: 3.19.0(react@18.2.0)
+      '@react-stately/list':
+        specifier: ^3.9.0
+        version: 3.9.1(react@18.2.0)
+      '@react-types/menu':
+        specifier: ^3.9.2
+        version: 3.9.3(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.18.1
+        version: 3.19.0(react@18.2.0)
+    devDependencies:
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/components/menu:
+    dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
+      '@nextui-org/divider':
+        specifier: workspace:*
+        version: link:../divider
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-is-mobile':
+        specifier: workspace:*
+        version: link:../../hooks/use-is-mobile
+      '@react-aria/focus':
+        specifier: ^3.13.0
+        version: 3.14.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.16.0
+        version: 3.17.0(react@18.2.0)
+      '@react-aria/menu':
+        specifier: ^3.10.1
+        version: 3.10.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.18.0
+        version: 3.19.0(react@18.2.0)
+      '@react-stately/menu':
+        specifier: ^3.5.3
+        version: 3.5.4(react@18.2.0)
+      '@react-stately/tree':
+        specifier: ^3.7.0
+        version: 3.7.1(react@18.2.0)
+      '@react-types/menu':
+        specifier: ^3.9.2
+        version: 3.9.3(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.18.1
+        version: 3.19.0(react@18.2.0)
+    devDependencies:
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -1558,6 +1656,110 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
     devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      framer-motion:
+        specifier: ^10.15.1
+        version: 10.15.1(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/components/scroll-shadow:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-data-scroll-overflow':
+        specifier: workspace:*
+        version: link:../../hooks/use-data-scroll-overflow
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-lorem-component:
+        specifier: 0.13.0
+        version: 0.13.0(react@18.2.0)
+
+  packages/components/select:
+    dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
+      '@nextui-org/listbox':
+        specifier: workspace:*
+        version: link:../listbox
+      '@nextui-org/popover':
+        specifier: workspace:*
+        version: link:../popover
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/scroll-shadow':
+        specifier: workspace:*
+        version: link:../scroll-shadow
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/spinner':
+        specifier: workspace:*
+        version: link:../spinner
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
+      '@nextui-org/use-aria-multiselect':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-multiselect
+      '@react-aria/focus':
+        specifier: ^3.13.0
+        version: 3.14.0(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.16.0
+        version: 3.17.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.18.0
+        version: 3.19.0(react@18.2.0)
+      '@react-aria/visually-hidden':
+        specifier: ^3.8.3
+        version: 3.8.3(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+    devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
+      '@nextui-org/chip':
+        specifier: workspace:*
+        version: link:../chip
+      '@nextui-org/use-infinite-scroll':
+        specifier: workspace:*
+        version: link:../../hooks/use-infinite-scroll
+      '@react-stately/data':
+        specifier: ^3.10.1
+        version: 3.10.1(react@18.2.0)
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -2017,6 +2219,12 @@ importers:
       '@nextui-org/link':
         specifier: workspace:*
         version: link:../../components/link
+      '@nextui-org/listbox':
+        specifier: workspace:*
+        version: link:../../components/listbox
+      '@nextui-org/menu':
+        specifier: workspace:*
+        version: link:../../components/menu
       '@nextui-org/modal':
         specifier: workspace:*
         version: link:../../components/modal
@@ -2035,6 +2243,12 @@ importers:
       '@nextui-org/radio':
         specifier: workspace:*
         version: link:../../components/radio
+      '@nextui-org/scroll-shadow':
+        specifier: workspace:*
+        version: link:../../components/scroll-shadow
+      '@nextui-org/select':
+        specifier: workspace:*
+        version: link:../../components/select
       '@nextui-org/skeleton':
         specifier: workspace:*
         version: link:../../components/skeleton
@@ -2125,6 +2339,27 @@ importers:
 
   packages/core/theme:
     dependencies:
+      '@types/color':
+        specifier: ^3.0.3
+        version: 3.0.3
+      '@types/flat':
+        specifier: ^5.0.2
+        version: 5.0.2
+      '@types/lodash.foreach':
+        specifier: ^4.5.7
+        version: 4.5.7
+      '@types/lodash.get':
+        specifier: ^4.4.7
+        version: 4.4.7
+      '@types/lodash.kebabcase':
+        specifier: ^4.1.7
+        version: 4.1.7
+      '@types/lodash.mapkeys':
+        specifier: ^4.6.7
+        version: 4.6.7
+      '@types/lodash.omit':
+        specifier: ^4.5.7
+        version: 4.5.7
       color:
         specifier: ^4.2.3
         version: 4.2.3
@@ -2159,27 +2394,6 @@ importers:
         specifier: ^3.2.7
         version: 3.2.7(postcss@8.4.28)(ts-node@10.9.1)
     devDependencies:
-      '@types/color':
-        specifier: ^3.0.3
-        version: 3.0.3
-      '@types/flat':
-        specifier: ^5.0.2
-        version: 5.0.2
-      '@types/lodash.foreach':
-        specifier: ^4.5.7
-        version: 4.5.7
-      '@types/lodash.get':
-        specifier: ^4.4.7
-        version: 4.4.7
-      '@types/lodash.kebabcase':
-        specifier: ^4.1.7
-        version: 4.1.7
-      '@types/lodash.mapkeys':
-        specifier: ^4.6.7
-        version: 4.6.7
-      '@types/lodash.omit':
-        specifier: ^4.5.7
-        version: 4.5.7
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -2278,6 +2492,55 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-aria-multiselect:
+    dependencies:
+      '@react-aria/i18n':
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.17.0
+        version: 3.17.0(react@18.2.0)
+      '@react-aria/label':
+        specifier: ^3.6.1
+        version: 3.6.1(react@18.2.0)
+      '@react-aria/listbox':
+        specifier: ^3.10.0
+        version: 3.10.0(react@18.2.0)
+      '@react-aria/menu':
+        specifier: ^3.10.1
+        version: 3.10.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection':
+        specifier: ^3.16.1
+        version: 3.16.1(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+      '@react-stately/list':
+        specifier: ^3.9.0
+        version: 3.9.1(react@18.2.0)
+      '@react-stately/menu':
+        specifier: ^3.5.4
+        version: 3.5.4(react@18.2.0)
+      '@react-types/button':
+        specifier: ^3.7.4
+        version: 3.7.4(react@18.2.0)
+      '@react-types/overlays':
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.2.0)
+      '@react-types/select':
+        specifier: ^3.8.2
+        version: 3.8.2(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.19.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-aria-toggle-button:
     dependencies:
       '@nextui-org/use-aria-button':
@@ -2325,6 +2588,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-data-scroll-overflow:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-disclosure:
     dependencies:
       '@nextui-org/use-callback-ref':
@@ -2358,6 +2630,13 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-infinite-scroll:
+    dependencies:
+      '@types/lodash.debounce':
+        specifier: ^4.0.7
+        version: 4.0.7
+      lodash.debounce:
+        specifier: ^4.0.8
+        version: 4.0.8
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -9350,6 +9629,24 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/listbox@3.10.0(react@18.2.0):
+    resolution: {integrity: sha512-4NelMDZAPoy2W4uoKZsMpdrC6XJQiZU+vpuhnzUT1eWTneDsEHKHSHQFtymoe8VrUEPrCV16EeMk1vRVvjCfAw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.14.0(react@18.2.0)
+      '@react-aria/interactions': 3.17.0(react@18.2.0)
+      '@react-aria/label': 3.6.1(react@18.2.0)
+      '@react-aria/selection': 3.16.1(react@18.2.0)
+      '@react-aria/utils': 3.19.0(react@18.2.0)
+      '@react-stately/collections': 3.10.0(react@18.2.0)
+      '@react-stately/list': 3.9.1(react@18.2.0)
+      '@react-types/listbox': 3.4.3(react@18.2.0)
+      '@react-types/shared': 3.19.0(react@18.2.0)
+      '@swc/helpers': 0.5.1
+      react: 18.2.0
+    dev: false
+
   /@react-aria/live-announcer@3.3.1:
     resolution: {integrity: sha512-hsc77U7S16trM86d+peqJCOCQ7/smO1cybgdpOuzXyiwcHQw8RQ4GrXrS37P4Ux/44E9nMZkOwATQRT2aK8+Ew==}
     dependencies:
@@ -9868,6 +10165,7 @@ packages:
     dependencies:
       '@react-types/shared': 3.19.0(react@18.2.0)
       react: 18.2.0
+    dev: false
 
   /@react-types/button@3.7.4(react@18.2.0):
     resolution: {integrity: sha512-y1JOnJ3pqg2ezZz/fdwMMToPj+8fgj/He7z1NRWtIy1/I7HP+ilSK6S/MLO2jRsM2QfCq8KSw5MQEZBPiPWsjw==}
@@ -9924,6 +10222,15 @@ packages:
       '@react-types/shared': 3.19.0(react@18.2.0)
       react: 18.2.0
 
+  /@react-types/listbox@3.4.3(react@18.2.0):
+    resolution: {integrity: sha512-AHOnx5z+q/uIsBnGqrNJ25OSTbOe2/kWXWUcPDdfZ29OBqoDZu86psAOA97glYod97w/KzU5xq8EaxDrWupKuQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.19.0(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
   /@react-types/menu@3.9.3(react@18.2.0):
     resolution: {integrity: sha512-0dgIIM9z3hzjFltT+1/L8Hj3oDEcdYkexQhaA+jv6xBHUI5Bqs4SaJAeSGrGz5u6tsrHBPEgf/TLk9Dg9c7XMA==}
     peerDependencies:
@@ -9963,6 +10270,15 @@ packages:
 
   /@react-types/radio@3.5.0(react@18.2.0):
     resolution: {integrity: sha512-jpAG03eYxLvD1+zLoHXVUR7BCXfzbaQnOv5vu2R4EXhBA7t1/HBOAY/WHbUEgrnyDYa2na7dr/RbY81H9JqR0g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.19.0(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
+  /@react-types/select@3.8.2(react@18.2.0):
+    resolution: {integrity: sha512-m11J/xBR8yFwPLuueoFHzr4DiLyY7nKLCbZCz1W2lwIyd8Tl2iJwcLcuJiyUTJwdSTcCDgvbkY4vdTfLOIktYQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
@@ -11468,17 +11784,17 @@ packages:
     resolution: {integrity: sha512-m7GG7IKKGuJUXvkZ1qqG3ChccdIM/qBBo913z+Xft0nKCX4hAU/IxKwZBU4cpRZ7GS5kV4vOblUkILtSShCPXQ==}
     dependencies:
       '@types/color-name': 1.1.1
-    dev: true
+    dev: false
 
   /@types/color-name@1.1.1:
     resolution: {integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==}
-    dev: true
+    dev: false
 
   /@types/color@3.0.3:
     resolution: {integrity: sha512-X//qzJ3d3Zj82J9sC/C18ZY5f43utPbAJ6PhYt/M7uG6etcF6MRpKdN880KBy43B0BMzSfeT96MzrsNjFI3GbA==}
     dependencies:
       '@types/color-convert': 2.0.0
-    dev: true
+    dev: false
 
   /@types/connect@3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
@@ -11581,7 +11897,7 @@ packages:
 
   /@types/flat@5.0.2:
     resolution: {integrity: sha512-3zsplnP2djeps5P9OyarTxwRpMLoe5Ash8aL9iprw0JxB+FAHjY+ifn4yZUuW4/9hqtnmor6uvjSRzJhiVbrEQ==}
-    dev: true
+    dev: false
 
   /@types/github-slugger@1.3.0:
     resolution: {integrity: sha512-J/rMZa7RqiH/rT29TEVZO4nBoDP9XJOjnbbIofg7GQKs4JIduEO3WLpte+6WeUz/TcrXKlY+bM7FYrp8yFB+3g==}
@@ -11676,39 +11992,44 @@ packages:
       '@types/node': 15.12.4
     dev: true
 
+  /@types/lodash.debounce@4.0.7:
+    resolution: {integrity: sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: false
+
   /@types/lodash.foreach@4.5.7:
     resolution: {integrity: sha512-YjBEB6/Bl19V+R70IpyB/MhMb2IvrSgD26maRNyqbGRNDTH9AnPrQoT+ECvhFJ/hwhQ+RgYWaZKvF+knCguMJw==}
     dependencies:
       '@types/lodash': 4.14.194
-    dev: true
+    dev: false
 
   /@types/lodash.get@4.4.7:
     resolution: {integrity: sha512-af34Mj+KdDeuzsJBxc/XeTtOx0SZHZNLd+hdrn+PcKGQs0EG2TJTzQAOTCZTgDJCArahlCzLWSy8c2w59JRz7Q==}
     dependencies:
       '@types/lodash': 4.14.194
-    dev: true
+    dev: false
 
   /@types/lodash.kebabcase@4.1.7:
     resolution: {integrity: sha512-qzrcpK5uiADZ9OyZaegalM0b9Y3WetoBQ04RAtP3xZFGC5ul1UxmbjZ3j6suCh0BDkvgQmoMh8t5e9cVrdJYMw==}
     dependencies:
       '@types/lodash': 4.14.194
-    dev: true
+    dev: false
 
   /@types/lodash.mapkeys@4.6.7:
     resolution: {integrity: sha512-mfK0jlh4Itdhmy69/7r/vYftWaltahoS9kCF62UyvbDtXzMkUjuypaf2IASeoeoUPqBo/heoJSZ/vntbXC6LAA==}
     dependencies:
       '@types/lodash': 4.14.194
-    dev: true
+    dev: false
 
   /@types/lodash.omit@4.5.7:
     resolution: {integrity: sha512-6q6cNg0tQ6oTWjSM+BcYMBhan54P/gLqBldG4AuXd3nKr0oeVekWNS4VrNEu3BhCSDXtGapi7zjhnna0s03KpA==}
     dependencies:
       '@types/lodash': 4.14.194
-    dev: true
+    dev: false
 
   /@types/lodash@4.14.194:
     resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
-    dev: true
 
   /@types/long@4.0.2:
     resolution: {integrity: sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==}
@@ -19390,7 +19711,6 @@ packages:
 
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-    dev: true
 
   /lodash.foreach@4.5.0:
     resolution: {integrity: sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==}

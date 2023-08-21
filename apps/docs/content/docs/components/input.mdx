@@ -63,15 +63,9 @@ the end of the label and the input will be required.
 
 You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
 
-<CodeDemo title="Label Positions" files={inputContent.labelPositions} />
+<CodeDemo title="Label Placements" files={inputContent.labelPlacements} />
 
 > **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
-
-### With Description
-
-You can add a description to the input by passing the `description` property.
-
-<CodeDemo title="With Description" files={inputContent.description} />
 
 ### Password Input
 
@@ -91,6 +85,12 @@ end of the input, it will be visible when the input has a value.
 You can use the `startContent` and `endContent` properties to add content to the start and end of the input.
 
 <CodeDemo title="Start and End Content" files={inputContent.startEndContent} />
+
+### With Description
+
+You can add a description to the input by passing the `description` property.
+
+<CodeDemo title="With Description" files={inputContent.description} />
 
 ### With Error Message
 
@@ -145,7 +145,7 @@ In case you need to customize the input even further, you can use the `useInput`
 
 ## Data Attributes
 
-`Input` has the following attributes on the `root` element:
+`Input` has the following attributes on the `base` element:
 
 - **data-invalid**:
   When the input is invalid. Based on `validationState` prop.
@@ -157,6 +157,8 @@ In case you need to customize the input even further, you can use the `useInput`
   When the input is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
 - **data-focus**:
   When the input is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-within**:
+  When the input is being focused or any of its children. Based on [useFocusWithin](https://react-spectrum.adobe.com/react-aria/useFocusWithin.html).
 - **data-focus-visible**:
   When the input is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
 - **data-disabled**:

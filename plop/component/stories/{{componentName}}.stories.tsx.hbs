@@ -1,5 +1,5 @@
 import React from "react";
-import {StoryFn, Meta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import { {{componentName}} } from "@nextui-org/theme";
 
 import { {{capitalize componentName}}, {{capitalize componentName}}Props } from "../src";
@@ -32,7 +32,7 @@ const defaultProps = {
   ...{{componentName}}.defaultVariants,
 };
 
-const Template: StoryFn<typeof {{capitalize componentName}}> = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;
+const Template = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;
 
 
 export const Default = {

@@ -1,10 +1,10 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import { Use{{capitalize componentName}}Props, use{{capitalize componentName}} } from "./use-{{componentName}}";
 
 export interface {{capitalize componentName}}Props extends Use{{capitalize componentName}}Props {}
 
-const {{capitalize componentName}} = forwardRef<HTMLElement, {{capitalize componentName}}Props>((props, ref) => {
+const {{capitalize componentName}} = forwardRef<"div", {{capitalize componentName}}Props>((props, ref) => {
   const {Component, domRef, children, styles, ...otherProps} =  use{{capitalize componentName}}({...props, ref});
 
   return (

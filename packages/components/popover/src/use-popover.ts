@@ -1,19 +1,18 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
-import type {RefObject, Ref} from "react";
 
+import {RefObject, Ref, useEffect} from "react";
+import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {useOverlayTrigger, ariaHideOutside} from "@react-aria/overlays";
+import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
-import {createDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
-import {useId, useMemo, useEffect, useCallback, useImperativeHandle, useRef} from "react";
+import {useMemo, useCallback, useRef} from "react";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -21,7 +20,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLElement | null>;
+  ref?: ReactRef<HTMLDivElement | null>;
   /**
    * The controlled state of the popover.
    */
@@ -78,24 +77,27 @@ export function usePopover(originalProps: UsePopoverProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
 
   const {
-    ref,
     as,
     children,
+    ref,
     state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
     isOpen,
     defaultOpen,
     onOpenChange,
+    isNonModal = true,
     shouldFlip = true,
     containerPadding = 12,
     shouldBlockScroll = false,
+    shouldCloseOnBlur,
     portalContainer,
     placement: placementProp = "top",
     triggerType = "dialog",
     showArrow = false,
     offset = 7,
     crossOffset = 0,
+    boundaryElement,
     isKeyboardDismissDisabled,
     motionProps,
     className,
@@ -105,20 +107,14 @@ export function usePopover(originalProps: UsePopoverProps) {
   } = props;
 
   const Component = as || "div";
-  const popoverId = useId();
 
-  const popoverRef = useRef<HTMLDivElement>(null);
+  const domRef = useDOMRef(ref);
+
   const domTriggerRef = useRef<HTMLElement>(null);
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation = originalProps.disableAnimation ?? false;
-
-  // Sync ref with popoverRef from passed ref.
-  useImperativeHandle(ref, () =>
-    // @ts-ignore
-    createDOMRef(popoverRef),
-  );
 
   const innerState = useOverlayTriggerState({
     isOpen,
@@ -141,10 +137,13 @@ export function usePopover(originalProps: UsePopoverProps) {
   } = useReactAriaPopover(
     {
       triggerRef,
-      popoverRef,
+      isNonModal,
+      popoverRef: domRef,
       placement: placementProp,
       offset: offset,
       scrollRef,
+      shouldCloseOnBlur,
+      boundaryElement,
       crossOffset,
       shouldFlip,
       containerPadding,
@@ -168,10 +167,9 @@ export function usePopover(originalProps: UsePopoverProps) {
   const baseStyles = clsx(classNames?.base, className);
 
   const getPopoverProps: PropGetter = (props = {}) => ({
-    ref: popoverRef,
+    ref: domRef,
     ...mergeProps(popoverProps, otherProps, props),
     style: mergeProps(popoverProps.style, otherProps.style, props.style),
-    id: popoverId,
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
@@ -195,14 +193,13 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
-        ...mergeProps(triggerProps, props),
+        "aria-haspopup": "dialog",
+        ...mergeProps(!triggerRefProp ? triggerProps : {}, props),
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
-        "aria-controls": popoverId,
-        "aria-haspopup": "dialog",
       };
     },
-    [isOpen, popoverId, state, triggerProps, triggerRef],
+    [isOpen, state, triggerProps, triggerRef],
   );
 
   const getBackdropProps = useCallback<PropGetter>(
@@ -225,18 +222,21 @@ export function usePopover(originalProps: UsePopoverProps) {
   );
 
   useEffect(() => {
-    if (state.isOpen && popoverRef.current) {
-      return ariaHideOutside([popoverRef.current]);
+    if (state.isOpen && domRef?.current) {
+      return ariaHideOutside([domRef?.current]);
     }
-  }, [state.isOpen, popoverRef]);
+  }, [state.isOpen, domRef]);
 
   return {
+    state,
     Component,
     children,
     classNames,
     showArrow,
     triggerRef,
     placement,
+    isNonModal,
+    popoverRef: domRef,
     portalContainer,
     isOpen: state.isOpen,
     onClose: state.close,

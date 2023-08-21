@@ -33,6 +33,10 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "@types/lodash.debounce": "^4.0.7"
+  },
   "peerDependencies": {
     "react": ">=18"
   },

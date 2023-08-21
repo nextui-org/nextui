@@ -67,7 +67,7 @@ const users = [
     email: "kristen.cooper@example.com",
   },
   {
-    key: 6,
+    id: 6,
     name: "Brian Kim",
     role: "P. Manager",
     team: "Management",

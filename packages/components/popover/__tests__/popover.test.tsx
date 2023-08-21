@@ -24,7 +24,7 @@ describe("Popover", () => {
     const ref = React.createRef<HTMLDivElement>();
 
     render(
-      <Popover ref={ref}>
+      <Popover ref={ref} defaultOpen>
         <PopoverTrigger>
           <button>Open popover</button>
         </PopoverTrigger>
@@ -76,11 +76,15 @@ describe("Popover", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should hide the popover on blur ", () => {
+  it("should hide the popover on blur (shouldCloseOnBlur=true)", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover isOpen onOpenChange={(isOpen) => (!isOpen ? onClose() : undefined)}>
+      <Popover
+        isOpen
+        shouldCloseOnBlur
+        onOpenChange={(isOpen) => (!isOpen ? onClose() : undefined)}
+      >
         <PopoverTrigger>
           <button>Open popover</button>
         </PopoverTrigger>

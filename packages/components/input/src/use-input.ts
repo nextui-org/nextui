@@ -5,10 +5,10 @@ import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {useHover, usePress} from "@react-aria/interactions";
+import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, useCallback} from "react";
+import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
@@ -98,10 +98,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     props.defaultValue,
     handleValueChange,
   );
+  const [isFocusWithin, setFocusWithin] = useState(false);
 
   const Component = as || "div";
 
-  const baseStyles = clsx(classNames?.base, className, !!inputValue ? "is-filled" : "");
+  const isFilled = !!inputValue;
+  const isFilledWithin = isFilled || isFocusWithin;
+  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
 
   const domRef = useDOMRef<T>(ref);
@@ -138,6 +141,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
 
   const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
+
+  const {focusWithinProps} = useFocusWithin({
+    onFocusWithinChange: setFocusWithin,
+  });
 
   const {pressProps: clearPressProps} = usePress({
     isDisabled: !!originalProps?.isDisabled,
@@ -190,6 +197,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         className: slots.base({class: baseStyles}),
+        "data-filled": dataAttr(isFilled),
+        "data-filled-within": dataAttr(isFilledWithin),
+        "data-focus-within": dataAttr(isFocusWithin),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-readonly": dataAttr(originalProps.isReadOnly),
         "data-focus": dataAttr(isFocused),
@@ -199,18 +209,23 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-disabled": dataAttr(originalProps.isDisabled),
         "data-has-elements": dataAttr(hasElements),
         "data-has-helper": dataAttr(hasHelper),
+        ...focusWithinProps,
         ...props,
       };
     },
     [
       slots,
       baseStyles,
+      isFilled,
       isFocused,
       isHovered,
       isInvalid,
       hasHelper,
       hasElements,
+      isFocusWithin,
       isFocusVisible,
+      isFilledWithin,
+      focusWithinProps,
       originalProps.isReadOnly,
       originalProps.isRequired,
       originalProps.isDisabled,
@@ -232,6 +247,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ref: domRef,
+        "data-filled": dataAttr(isFilled),
+        "data-filled-within": dataAttr(isFilledWithin),
         className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
         ...mergeProps(
           focusProps,
@@ -255,6 +272,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       focusProps,
       inputProps,
       otherProps,
+      isFilled,
+      isFilledWithin,
       classNames?.input,
       originalProps.isReadOnly,
       originalProps.isRequired,

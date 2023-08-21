@@ -223,10 +223,13 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               as={NextLink}
               className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
               color="secondary"
-              href="/blog/nextui-v2"
+              href="/blog/v2.1.0"
               variant="dot"
             >
-              Introducing NextUI v2.0
+              New components v2.1.0&nbsp;
+              <span aria-label="party emoji" role="img">
+                🎉
+              </span>
             </Chip>
           </NavbarItem>
         </ul>

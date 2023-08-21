@@ -1,12 +1,13 @@
-import {Ref} from "react";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {PopoverProps} from "@nextui-org/popover";
+import type {MenuTriggerType} from "@react-types/menu";
+import type {Ref} from "react";
+
 import {useMenuTriggerState} from "@react-stately/menu";
-import {MenuTriggerType} from "@react-types/menu";
 import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {PopoverProps} from "@nextui-org/popover";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 
@@ -77,7 +78,7 @@ export function useDropdown(props: UseDropdownProps) {
     },
   });
 
-  const {menuTriggerProps, menuProps} = useMenuTrigger(
+  const {menuTriggerProps, menuProps} = useMenuTrigger<object>(
     {type, trigger, isDisabled},
     state,
     menuTriggerRef,
@@ -112,23 +113,16 @@ export function useDropdown(props: UseDropdownProps) {
     props = {},
     _ref: Ref<any> | null | undefined = null,
   ) => {
-    // These props are not needed for the menu trigger since it is handled by the popover trigger.
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
-
     return {
-      ...mergeProps(otherMenuTriggerProps, props),
+      ...mergeProps(menuTriggerProps, props),
       ref: mergeRefs(_ref, triggerRef),
     };
   };
 
-  const getMenuProps: PropGetter = (props = {}, _ref: Ref<any> | null | undefined = null) => ({
-    ...mergeProps(menuProps, props),
-    ref: mergeRefs(_ref, menuRef),
-  });
-
   return {
     Component,
+    menuRef,
+    menuProps,
     classNames,
     closeOnSelect,
     onClose: state.close,
@@ -136,7 +130,6 @@ export function useDropdown(props: UseDropdownProps) {
     disableAnimation,
     getPopoverProps,
     getMenuTriggerProps,
-    getMenuProps,
   };
 }
 

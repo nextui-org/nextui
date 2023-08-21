@@ -1,0 +1,69 @@
+{
+  "name": "@nextui-org/select",
+  "version": "2.0.0",
+  "description": "A select displays a collapsible list of options and allows a user to select one of them.",
+  "keywords": [
+    "select"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/select"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "framer-motion": ">=4.0.0"
+  },
+  "dependencies": {
+    "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/listbox": "workspace:*",
+    "@nextui-org/popover": "workspace:*",
+    "@nextui-org/spinner": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/scroll-shadow": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/use-aria-multiselect": "workspace:*",
+    "@react-aria/focus": "^3.13.0",
+    "@react-aria/interactions": "^3.16.0",
+    "@react-aria/utils": "^3.18.0",
+    "@react-aria/visually-hidden": "^3.8.3",
+    "@react-types/shared": "^3.19.0"
+  },
+  "devDependencies": {
+    "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/chip": "workspace:*",
+    "framer-motion": "^10.15.1",
+    "@nextui-org/use-infinite-scroll": "workspace:*",
+    "@react-stately/data": "^3.10.1",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

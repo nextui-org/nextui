@@ -38,22 +38,17 @@
     "framer-motion": ">=4.0.0"
   },
   "dependencies": {
-    "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/menu": "workspace:*",
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@nextui-org/divider": "workspace:*",
-    "@nextui-org/use-is-mobile": "workspace:*",
     "@react-aria/menu": "^3.10.1",
     "@react-aria/utils": "^3.19.0",
     "@react-stately/menu": "^3.5.4",
-    "@react-stately/tree": "^3.7.1",
     "@react-aria/focus": "^3.14.0",
-    "@react-aria/interactions": "^3.17.0",
-    "@react-types/menu": "^3.9.3",
-    "@react-types/shared": "^3.19.0"
+    "@react-types/menu": "^3.9.3"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",

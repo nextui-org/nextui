@@ -33,6 +33,10 @@ export * from "@nextui-org/divider";
 export * from "@nextui-org/kbd";
 export * from "@nextui-org/tabs";
 export * from "@nextui-org/skeleton";
+export * from "@nextui-org/scroll-shadow";
+export * from "@nextui-org/select";
+export * from "@nextui-org/listbox";
+export * from "@nextui-org/menu";
 
 /**
  * React Aria - Exports

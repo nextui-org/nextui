@@ -137,7 +137,9 @@ const DividerTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenu
     <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
-      <DropdownItem key="edit">Edit file</DropdownItem>
+      <DropdownItem key="edit" showDivider>
+        Edit file
+      </DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>
@@ -468,7 +470,7 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
             as="button"
             className="transition-transform"
             color="secondary"
-            size="lg"
+            size="md"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         </DropdownTrigger>
@@ -495,7 +497,7 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
             avatarProps={{
               isBordered: true,
               color: "primary",
-              size: "lg",
+              size: "md",
               src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
             }}
             className="transition-transform"

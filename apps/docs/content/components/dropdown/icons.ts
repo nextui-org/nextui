@@ -142,7 +142,6 @@ export default function App() {
         </DropdownItem>
         <DropdownItem
           key="delete"
-          showDivider
           className="text-danger"
           color="danger"
           shortcut="⌘⇧D"

@@ -1,0 +1,68 @@
+---
+title: "Scroll Shadow"
+description: "Applies top and bottom shadows when content overflows on scroll."
+---
+
+import {scrollShadowContent} from "@/content/components/scroll-shadow";
+
+# Scroll Shadow
+
+Applies top and bottom shadows when content overflows on scroll.
+
+<ComponentLinks component="scroll-shadow" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {ScrollShadow} from "@nextui-org/react";',
+    individual: 'import {ScrollShadow} from "@nextui-org/scroll-shadow";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={scrollShadowContent.usage} />
+
+### Hide Scrollbar
+
+You can use the `hideScrollBar` property to hide vertical and horizontal scrollbars.
+
+<CodeDemo title="Hide Scrollbar" files={scrollShadowContent.hideScrollbar} />
+
+### Custom Shadow Size
+
+By default, the shadow size is `40` in pixels, but you can change it using the `size` property.
+
+<CodeDemo title="Custom Shadow Size" files={scrollShadowContent.customSize} />
+
+### Horizontal Orientation
+
+In case you need to apply the shadow on the horizontal scroll, you can set the `orientation` property to `horizontal`.
+
+<CodeDemo title="Horizontal Orientation" files={scrollShadowContent.horizontal} />
+
+### Shadow Offset
+
+By default the shadow offset is `0` in pixels, but you can change it using the `offset` property. This allows you to apply the shadow on
+a specific position.
+
+<CodeDemo title="Shadow Offset" files={scrollShadowContent.offset} />
+
+<Spacer y={4} />{" "}
+
+## API
+
+### ShadowScroll Props
+
+| Attribute     | Type                       | Description                                     | Default    |
+| ------------- | -------------------------- | ----------------------------------------------- | ---------- |
+| size          | `number`                   | The shadow size in pixels.                      | `40`       |
+| offset        | `number`                   | The scroll offset to show the shadow in pixels. | `0`        |
+| hideScrollBar | `boolean`                  | Whether to hide the scrollbar or not.           | `false`    |
+| orientation   | `horizontal` \| `vertical` | The scroll orientation.                         | `vertical` |
+| isEnabled     | `boolean`                  | Whether the shadow is enabled or not.           | `true`     |
