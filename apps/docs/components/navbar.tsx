@@ -124,9 +124,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   return (
     <NextUINavbar
       ref={ref}
-      className={clsx({
-        "z-[100001]": isMenuOpen,
-      })}
+      className="z-[100001]"
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
