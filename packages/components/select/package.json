@@ -52,7 +52,7 @@
     "@nextui-org/use-aria-multiselect": "workspace:*",
     "@react-aria/focus": "^3.13.0",
     "@react-aria/interactions": "^3.16.0",
-    "@react-aria/utils": "^3.18.0",
+    "@react-aria/utils": "^3.19.0",
     "@react-aria/visually-hidden": "^3.8.3",
     "@react-types/shared": "^3.19.0"
   },

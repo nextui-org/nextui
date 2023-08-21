@@ -45,7 +45,7 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@react-aria/menu": "^3.10.1",
-    "@react-aria/utils": "^3.18.0",
+    "@react-aria/utils": "^3.19.0",
     "@react-stately/menu": "^3.5.3",
     "@react-stately/tree": "^3.7.0",
     "@react-aria/focus": "^3.13.0",

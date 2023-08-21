@@ -44,7 +44,7 @@
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
-    "@react-aria/utils": "^3.18.0",
+    "@react-aria/utils": "^3.19.0",
     "@react-aria/listbox": "^3.10.0",
     "@react-stately/list": "^3.9.0",
     "@react-aria/focus": "^3.13.0",

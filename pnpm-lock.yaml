@@ -1204,7 +1204,7 @@ importers:
         specifier: ^3.10.0
         version: 3.10.0(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.18.0
+        specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
       '@react-stately/list':
         specifier: ^3.9.0
@@ -1259,7 +1259,7 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.18.0
+        specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
       '@react-stately/menu':
         specifier: ^3.5.3
@@ -1739,7 +1739,7 @@ importers:
         specifier: ^3.16.0
         version: 3.17.0(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.18.0
+        specifier: ^3.19.0
         version: 3.19.0(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: ^3.8.3
