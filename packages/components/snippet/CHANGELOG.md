@@ -1,5 +1,16 @@
 # @nextui-org/snippet
 
+## 2.0.17
+
+### Patch Changes
+
+- [#1458](https://github.com/nextui-org/nextui/pull/1458) [`4e94c115`](https://github.com/nextui-org/nextui/commit/4e94c115281c2774424d687877e036a9af1bce01) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix dropdown trigger events and popover arrow styles
+
+- Updated dependencies [[`4e94c115`](https://github.com/nextui-org/nextui/commit/4e94c115281c2774424d687877e036a9af1bce01)]:
+  - @nextui-org/tooltip@2.0.16
+  - @nextui-org/button@2.0.14
+  - @nextui-org/theme@2.1.2
+
 ## 2.0.16
 
 ### Patch Changes

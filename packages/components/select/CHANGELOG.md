@@ -1,5 +1,18 @@
 # @nextui-org/select
 
+## 2.1.2
+
+### Patch Changes
+
+- [#1458](https://github.com/nextui-org/nextui/pull/1458) [`4e94c115`](https://github.com/nextui-org/nextui/commit/4e94c115281c2774424d687877e036a9af1bce01) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix dropdown trigger events and popover arrow styles
+
+- Updated dependencies [[`4e94c115`](https://github.com/nextui-org/nextui/commit/4e94c115281c2774424d687877e036a9af1bce01)]:
+  - @nextui-org/scroll-shadow@2.1.2
+  - @nextui-org/listbox@2.1.2
+  - @nextui-org/popover@2.1.2
+  - @nextui-org/spinner@2.0.12
+  - @nextui-org/theme@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes
