@@ -1,5 +1,14 @@
 # @nextui-org/pagination
 
+## 2.0.13
+
+### Patch Changes
+
+- Updated dependencies [[`baec5502`](https://github.com/nextui-org/nextui/commit/baec55029de7f17ba84d3e6c8c98358fd1f2695e)]:
+  - @nextui-org/theme@2.1.0
+  - @nextui-org/shared-icons@2.0.3
+  - @nextui-org/react-utils@2.0.7
+
 ## 2.0.12
 
 ### Patch Changes

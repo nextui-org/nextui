@@ -1,5 +1,14 @@
 # @nextui-org/spacer
 
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies [[`baec5502`](https://github.com/nextui-org/nextui/commit/baec55029de7f17ba84d3e6c8c98358fd1f2695e)]:
+  - @nextui-org/theme@2.1.0
+  - @nextui-org/system-rsc@2.0.3
+  - @nextui-org/react-utils@2.0.7
+
 ## 2.0.9
 
 ### Patch Changes
