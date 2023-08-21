@@ -73,6 +73,8 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => 
     getArrowProps,
   } = usePopover({
     ...props,
+    // avoid closing the popover when navigating with the keyboard
+    shouldCloseOnInteractOutside: undefined,
     ref,
   });
 

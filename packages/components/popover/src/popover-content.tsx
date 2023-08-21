@@ -59,8 +59,8 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
       {!isNonModal && <DismissButton onDismiss={onClose} />}
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
         {typeof children === "function" ? children(titleProps) : children}
-        {arrowContent}
       </Component>
+      {arrowContent}
       <DismissButton onDismiss={onClose} />
     </>
   );

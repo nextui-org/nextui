@@ -22,7 +22,6 @@ const popover = tv({
     base: [
       "z-10",
       "relative",
-      "overflow-hidden",
       "inline-flex",
       "flex-col",
       "items-center",
@@ -39,7 +38,7 @@ const popover = tv({
     trigger: ["z-10"],
     backdrop: ["hidden"],
     arrow: [
-      "-z-10",
+      "z-[-1]",
       "absolute",
       "rotate-45",
       "bg-inherit",

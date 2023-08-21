@@ -10,6 +10,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
+import {MenuProps} from "@nextui-org/menu";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -92,6 +93,15 @@ export function useDropdown(props: UseDropdownProps) {
     [className],
   );
 
+  const onMenuAction = (menuCloseOnSelect?: boolean) => {
+    if (menuCloseOnSelect !== undefined && !menuCloseOnSelect) {
+      return;
+    }
+    if (closeOnSelect) {
+      state.close();
+    }
+  };
+
   const getPopoverProps: PropGetter = (props = {}) => ({
     state,
     placement,
@@ -113,10 +123,22 @@ export function useDropdown(props: UseDropdownProps) {
     props = {},
     _ref: Ref<any> | null | undefined = null,
   ) => {
+    // These props are not needed for the menu trigger since it is handled by the popover trigger.
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
+
     return {
-      ...mergeProps(menuTriggerProps, props),
+      ...mergeProps(otherMenuTriggerProps, props),
       ref: mergeRefs(_ref, triggerRef),
     };
+  };
+
+  const getMenuProps = (props?: Partial<MenuProps>, _ref: Ref<any> | null | undefined = null) => {
+    return {
+      ref: mergeRefs(_ref, menuRef),
+      menuProps,
+      ...mergeProps(props, {onAction: () => onMenuAction(props?.closeOnSelect)}),
+    } as MenuProps;
   };
 
   return {
@@ -129,6 +151,7 @@ export function useDropdown(props: UseDropdownProps) {
     autoFocus: state.focusStrategy || true,
     disableAnimation,
     getPopoverProps,
+    getMenuProps,
     getMenuTriggerProps,
   };
 }

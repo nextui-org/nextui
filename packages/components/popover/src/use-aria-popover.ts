@@ -50,6 +50,7 @@ export function useReactAriaPopover(
     shouldCloseOnBlur = true,
     placement: placementProp = "top",
     containerPadding,
+    shouldCloseOnInteractOutside,
     isNonModal: isNonModalProp,
     isKeyboardDismissDisabled,
     ...otherProps
@@ -64,6 +65,14 @@ export function useReactAriaPopover(
       shouldCloseOnBlur,
       isDismissable: !isNonModal,
       isKeyboardDismissDisabled,
+      shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
+        ? shouldCloseOnInteractOutside
+        : (element) => {
+            // Don't close if the click is within the trigger or the popover itself
+            let trigger = triggerRef?.current;
+
+            return !trigger || !trigger.contains(element);
+          },
     },
     popoverRef,
   );
