@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.1
+
+### Patch Changes
+
+- [#1455](https://github.com/nextui-org/nextui/pull/1455) [`cc839cdd`](https://github.com/nextui-org/nextui/commit/cc839cdd1fd54931bfba137e2f9b5e8007a7e47d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix select close when clicking the label
+
 ## 2.1.0
 
 ### Minor Changes
