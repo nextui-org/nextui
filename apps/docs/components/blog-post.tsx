@@ -15,7 +15,7 @@ const BlogPostCard = (post: BlogPost) => {
   return (
     <AnimatePresence>
       {isMounted && (
-        <motion.div
+        <motion.article
           animate={{opacity: 1, y: 0}}
           exit={{opacity: 0, y: 5}}
           initial={{opacity: 0, y: 5}}
@@ -24,7 +24,7 @@ const BlogPostCard = (post: BlogPost) => {
           <Card
             isBlurred
             as={NextLink}
-            className="p-2 border-transparent text-start bg-white/5 dark:bg-default-400/10 backdrop-blur-lg backdrop-saturate-[1.8]"
+            className="p-2 h-full border-transparent text-start bg-white/5 dark:bg-default-400/10 backdrop-blur-lg backdrop-saturate-[1.8]"
             href={post.url}
             isPressable={!!post.url}
           >
@@ -40,8 +40,8 @@ const BlogPostCard = (post: BlogPost) => {
               </Link>
             </CardHeader>
             <CardBody className="pt-0 px-2 pb-1">
-              <Image className="mb-3" src={post.image} />
-              <p className="font-normal px-1 text-default-600">{post.description}</p>
+              <Image className="mb-4" src={post.image} />
+              <p className="font-normal w-full text-default-600">{post.description}</p>
             </CardBody>
             <CardFooter className="flex justify-between items-center">
               <time className="block text-small text-default-500" dateTime={post.date}>
@@ -50,7 +50,7 @@ const BlogPostCard = (post: BlogPost) => {
               <Avatar size="sm" src={post.author?.avatar} />
             </CardFooter>
           </Card>
-        </motion.div>
+        </motion.article>
       )}
     </AnimatePresence>
   );
@@ -58,7 +58,7 @@ const BlogPostCard = (post: BlogPost) => {
 
 export const BlogPostList = ({posts}: {posts: BlogPost[]}) => {
   return (
-    <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="mt-10 grid gap-4 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
       {posts.map((post, idx) => (
         <BlogPostCard key={idx} {...post} />
       ))}

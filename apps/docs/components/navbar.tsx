@@ -226,7 +226,10 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               href="/blog/v2.1.0"
               variant="dot"
             >
-              New components v2.1.0
+              New components v2.1.0&nbsp;
+              <span aria-label="party emoji" role="img">
+                🎉
+              </span>
             </Chip>
           </NavbarItem>
         </ul>

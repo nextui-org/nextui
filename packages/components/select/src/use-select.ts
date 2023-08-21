@@ -150,7 +150,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     renderValue,
     onSelectionChange,
     placeholder,
-    disallowEmptySelection = true,
+    disallowEmptySelection = false,
     selectionMode = "single",
     spinnerRef,
     scrollRef: scrollRefProp,

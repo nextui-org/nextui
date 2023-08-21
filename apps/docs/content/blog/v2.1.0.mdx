@@ -1,0 +1,167 @@
+---
+title: "New components v2.1.0 🎉"
+description: "NextUI v2.1.0 is here with new components, Select, Listbox and ScrollShadow."
+date: "2023-08-22"
+image: "/blog/v2.1.0.jpg"
+tags: ["nextui", "select", "listbox", "scroll-shadow", "multi-select"]
+author:
+  name: "Junior Garcia"
+  username: "@jrgarciadev"
+  link: "https://twitter.com/jrgarciadev"
+  avatar: "/avatars/junior-garcia.jpeg"
+---
+
+import {selectContent} from "@/content/components/select";
+import {listboxContent} from "@/content/components/listbox";
+import {scrollShadowContent} from "@/content/components/scroll-shadow";
+
+
+<img
+  src="/blog/v2.1.0.jpg"
+  width={700}
+  height={350}
+  alt="NextUI v2"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+We are thrilled to announce the latest update to NextUI, version **2.1.0**! This release introduces some game-changing
+additions that many of you have eagerly been waiting for.
+
+First on the list is the highly-anticipated **Select** component. Fully customizable and beautifully designed, supports both single and
+multi-select modes and is accessible out of the box.
+
+But that's not all. We're also rolling out two more incredible components **Listbox** and **ScrollShadow**. The new
+**Listbox** allows you to make list manipulations more efficient and visually appealing. Meanwhile, the
+**ScrollShadow** component adds an elegant shadow effect to scrollable areas, enhancing the UI aesthetics while
+also improving usability.
+
+## Select
+
+Creating a select component that is both accessible and customizable is a challenging task. We've spent a lot of time
+researching and testing different approaches to come up with a solution that works for everyone. The result is a
+component that is easy to use, fully accessible, and highly customizable.
+
+The new **Select** component includes:
+
+- Support for selecting a single option.
+- Support for selecting multiple options.
+- Support for disabled options.
+- Support for sections.
+- Labeling support for accessibility.
+- Exposed to assistive technology as a button with a listbox popup using ARIA (combined with [Listbox](/docs/components/listbox)).
+- Support for description and error message help text linked to the input via ARIA.
+- Support for mouse, touch, and keyboard interactions.
+- Tab stop focus management.
+- Asyncronous options loading.
+- Keyboard support for opening the listbox using the arrow keys, including automatically focusing the first or last item accordingly.
+- Typeahead to allow selecting options by typing text, even without opening the listbox.
+- Browser autofill integration via a hidden native `<select>` element.
+- Support for mobile form navigation via software keyboard.
+- Mobile screen reader listbox dismissal support.
+- And much more...
+
+### Single Select
+
+The single select component is used to select a single option from a list of options. It is a combination of a button
+and a listbox. The button displays the currently selected option and the listbox displays the available options.
+
+<CodeDemo title="Usage" files={selectContent.usage} />
+
+### Multiple Select
+
+The multiple select component can be used to select multiple options from a list of options.
+
+You only need to pass the `selectionMode="multiple"` prop to the `Select` component.
+
+<CodeDemo title="Multiple Selection" files={selectContent.multiple} />
+
+### Multiple Variants
+
+The select component comes with multiple variants.
+
+<CodeDemo title="Variants" files={selectContent.variants} />
+
+
+### Chips Support
+
+The select component is flexible and allows you to render any component as an option and as a selected option.
+
+<CodeDemo title="Multiple Selection with Chips" files={selectContent.multipleWithChips} />
+
+
+### Customizable
+
+The select component is highly customizable, you can customize the selected option, the options, the listbox,
+the popover and the scrollable area.
+
+<CodeDemo title="Custom Styles" files={selectContent.customStyles} />
+
+
+Go to the [Select](/docs/components/select) component page to learn more about sizes, colors, and more.
+
+
+## Listbox
+
+The listbox component allows you to make list manipulations more efficient and visually appealing.
+
+The new **Listbox** component includes:
+
+- Support for single, multiple, or no selection.
+- Exposed to assistive technology as a `listbox` using ARIA.
+- Support for disabled items.
+- Support for sections.
+- Labeling support for accessibility.
+- Support for mouse, touch, and keyboard interactions.
+- Tab stop focus management.
+- Keyboard navigation support including arrow keys, home/end, page up/down, select all, and clear.
+- Automatic scrolling support during keyboard navigation.
+- Typeahead to allow focusing options by typing text.
+
+
+### Usage
+
+<CodeDemo title="Usage" files={listboxContent.usage} />
+
+### Custom Styles
+
+The Listbox components offers multiple customization options. 
+
+<CodeDemo title="Custom Styles" files={listboxContent.customStyles} />
+
+> **Note**: In the above example, we've utilized the [Boxicons](https://boxicons.com/) icons collection.
+
+Go to the [Listbox](/docs/components/listbox) component page to learn more about it.
+
+
+## ScrollShadow
+
+The ScrollShadow component gives a nice shadow effect to scrollable areas. These shadows are handled by using
+the CSS `mask-image` property, which makes the shadows adapt to the background color.
+
+### Usage
+
+<CodeDemo title="Usage" files={scrollShadowContent.usage} />
+
+You can hide the scrollbars, customize the shadows size, change the orientation, and more.
+
+Go to the [ScrollShadow](/docs/components/scroll-shadow) component page to learn more about it.
+
+
+<Spacer y={6}/>
+
+We hope you enjoy these new components and the new features. We're excited to see what you build with them!
+
+Thanks for reading and happy coding! 🚀
+
+---
+
+## Community
+
+We're excited to see the community adopt NextUI, raise issues, and provide feedback.
+Whether it's a feature request, bug report, or a project to showcase, please get involved!
+
+<Community />
+
+## Contributing
+
+PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) to learn how you can contribute to this project.
