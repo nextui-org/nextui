@@ -1,5 +1,15 @@
 # @nextui-org/shared-icons
 
+## 2.0.3
+
+### Patch Changes
+
+- [#1313](https://github.com/nextui-org/nextui/pull/1313) [`baec5502`](https://github.com/nextui-org/nextui/commit/baec55029de7f17ba84d3e6c8c98358fd1f2695e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New components:
+
+  - Select
+  - Listbox
+  - ScrollShadow
+
 ## 2.0.2
 
 ### Patch Changes
