@@ -194,7 +194,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
         "aria-haspopup": "dialog",
-        ...mergeProps(!triggerRefProp ? triggerProps : {}, props),
+        ...mergeProps(triggerProps, props),
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
       };
