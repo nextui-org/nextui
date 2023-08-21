@@ -1,5 +1,11 @@
 # @nextui-org/menu
 
+## 2.0.4
+
+### Patch Changes
+
+- [#1463](https://github.com/nextui-org/nextui/pull/1463) [`904f53877`](https://github.com/nextui-org/nextui/commit/904f5387793cf8cc594d4ff8c32e378439a8e4fa) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React aria utils pkg updated
+
 ## 2.0.3
 
 ### Patch Changes

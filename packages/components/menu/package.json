@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/menu",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A menu displays a list of options and allows a user to select one or more of them.",
   "keywords": [
     "menu"
