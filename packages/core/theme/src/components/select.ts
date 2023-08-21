@@ -6,7 +6,7 @@ import {tv} from "../utils/tv";
 const select = tv({
   slots: {
     base: "group inline-flex flex-col relative w-full",
-    label: "block text-small font-medium text-foreground-500",
+    label: "block text-small font-medium text-foreground-500 pointer-events-none",
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
@@ -138,14 +138,13 @@ const select = tv({
     },
     isLabelPlaceholder: {
       true: {
-        label: "absolute z-10 pointer-events-none",
+        label: "absolute z-10",
       },
     },
     isDisabled: {
       true: {
         base: "opacity-disabled pointer-events-none",
         trigger: "pointer-events-none",
-        label: "pointer-events-none",
       },
     },
     isInvalid: {
