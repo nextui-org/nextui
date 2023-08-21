@@ -33,7 +33,7 @@ export default function App() {
   const [values, setValues] = React.useState(new Set([]));
 
   const handleSelectionChange = (e) => {
-    setValues(new Set([e.target.value]));
+    setValues(new Set(e.target.value.split(",")));
   };
 
   return (
@@ -64,7 +64,7 @@ export default function App() {
   const [values, setValues] = React.useState<Selection>(new Set([]));
 
   const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValues(new Set([e.target.value]));
+    setValues(new Set(e.target.value.split(",")));
   };
 
   return (
