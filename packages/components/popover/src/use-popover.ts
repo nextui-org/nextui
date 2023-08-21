@@ -99,6 +99,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     crossOffset = 0,
     boundaryElement,
     isKeyboardDismissDisabled,
+    shouldCloseOnInteractOutside,
     motionProps,
     className,
     classNames,
@@ -148,6 +149,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       shouldFlip,
       containerPadding,
       isKeyboardDismissDisabled,
+      shouldCloseOnInteractOutside,
     },
     state,
   );

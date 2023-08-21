@@ -60,6 +60,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
         {typeof children === "function" ? children(titleProps) : children}
       </Component>
+      {arrowContent}
       <DismissButton onDismiss={onClose} />
     </>
   );
@@ -105,7 +106,6 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
           </motion.div>
         )}
       </RemoveScroll>
-      {arrowContent}
     </div>
   );
 });
