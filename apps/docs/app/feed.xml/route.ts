@@ -24,7 +24,8 @@ export async function GET() {
       url: `${siteConfig.siteUrl}/blog/${post.slug}`,
       guid: `${siteConfig.siteUrl}/blog/${post.slug}`,
       date: post.date,
-      author: `${author} <${siteConfig.email}>`,
+      // @ts-ignore - name does exist
+      author: `${author.name} <${siteConfig.email}>`,
       categories: post.tags ?? [],
     });
   });
