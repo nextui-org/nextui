@@ -1,5 +1,12 @@
 # @nextui-org/react
 
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies [[`ae9f300d4`](https://github.com/nextui-org/nextui/commit/ae9f300d4571aab367935d996fe95fbbfa36e22b)]:
+  - @nextui-org/select@2.1.4
+
 ## 2.1.3
 
 ### Patch Changes
