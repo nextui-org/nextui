@@ -41,7 +41,7 @@ export type SelectedItemProps<T = object> = {
 
 export type SelectedItems<T = object> = Array<SelectedItemProps<T>>;
 
-interface Props<T> extends HTMLNextUIProps<"select"> {
+interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantProps> {
   /**
    * Ref to the DOM node.
    */
@@ -124,12 +124,11 @@ interface Props<T> extends HTMLNextUIProps<"select"> {
 
 export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
   MultiSelectProps<T> &
-  SelectVariantProps &
-  CollectionProps<T>;
+  CollectionProps<T> &
+  SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
-
   const disableAnimation = originalProps.disableAnimation ?? false;
 
   let {
