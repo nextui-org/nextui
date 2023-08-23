@@ -59,7 +59,10 @@ export const useSandpack = ({
     if (key.includes("App") && !key.includes(mimeType)) {
       return acc;
     }
-    if (typescriptStrict && key.includes("js")) {
+    if (typescriptStrict && currentTemplate === "vite-react-ts" && key.includes("js")) {
+      return acc;
+    }
+    if (currentTemplate === "vite-react" && key.includes("ts")) {
       return acc;
     }
     // @ts-ignore
