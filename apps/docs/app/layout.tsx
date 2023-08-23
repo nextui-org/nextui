@@ -53,6 +53,12 @@ export const metadata: Metadata = {
     },
   ],
   creator: "jrgarciadev",
+  alternates: {
+    canonical: "https://nextui.org",
+    types: {
+      "application/rss+xml": [{url: "https://nextui.org/feed.xml", title: "NextUI RSS Feed"}],
+    },
+  },
   viewport:
     "viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
 };
