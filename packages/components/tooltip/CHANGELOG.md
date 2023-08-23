@@ -1,5 +1,11 @@
 # @nextui-org/tooltip
 
+## 2.0.17
+
+### Patch Changes
+
+- [#1474](https://github.com/nextui-org/nextui/pull/1474) [`a371e1a5f`](https://github.com/nextui-org/nextui/commit/a371e1a5fa698aaf1d2aa1c8beb6d3df6eaad57a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Tooltip arrow position fixed
+
 ## 2.0.16
 
 ### Patch Changes
