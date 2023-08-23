@@ -32,6 +32,8 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
 
   let trigger: React.ReactElement;
 
+  const {className, ...otherTooltipProps} = getTooltipProps();
+
   try {
     /**
      * Ensure tooltip has only one child node
@@ -53,8 +55,6 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   }, [showArrow, getArrowProps]);
 
   const animatedContent = useMemo(() => {
-    const {className, ...otherTooltipProps} = getTooltipProps();
-
     return (
       <div {...otherTooltipProps}>
         <motion.div
@@ -67,24 +67,22 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
           variants={TRANSITION_VARIANTS.scaleSpring}
           {...motionProps}
         >
-          <Component className={className}>
-            {content}
-            {arrowContent}
-          </Component>
+          <Component className={className}>{content}</Component>
+          {arrowContent}
         </motion.div>
       </div>
     );
-  }, [getTooltipProps, placement, motionProps, Component, content, arrowContent]);
+  }, [otherTooltipProps, className, placement, motionProps, Component, content, arrowContent]);
 
   return (
     <>
       {trigger}
       {disableAnimation && isOpen ? (
         <OverlayContainer portalContainer={portalContainer}>
-          <Component {...getTooltipProps()}>
-            {content}
+          <div {...otherTooltipProps}>
+            <Component className={className}>{content}</Component>
             {arrowContent}
-          </Component>
+          </div>
         </OverlayContainer>
       ) : (
         <AnimatePresence>
