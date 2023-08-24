@@ -54,7 +54,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
 
     return keepContentMounted ? (
       <motion.section
-        key="accordion-content"
+        key="accordion"
         animate={isOpen ? "enter" : "exit"}
         exit="exit"
         initial="exit"
