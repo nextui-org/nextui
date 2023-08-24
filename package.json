@@ -1,15 +1,15 @@
 {
-  "name": "nextui",
+  "name": "test-cake-ui",
   "private": true,
   "version": "2.0.0",
   "license": "MIT",
   "author": {
     "name": "Junior Garcia",
-    "email": "jrgarciadev@gmail.com"
+    "email": "nghngtran68@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nextui-org/nextui"
+    "url": "https://github.com/nghngtran/test-gcloud/actions"
   },
   "scripts": {
     "dev": "pnpm sb && pnpm dev:docs",
