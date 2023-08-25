@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "@nextui-org/checkbox": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
@@ -49,22 +49,23 @@
     "@react-aria/table": "^3.11.0",
     "@react-aria/utils": "^3.19.0",
     "@react-aria/visually-hidden": "^3.8.3",
-    "@react-stately/virtualizer": "^3.6.0",
     "@react-stately/table": "^3.11.0",
+    "@react-stately/virtualizer": "^3.6.0",
     "@react-types/grid": "^3.2.0",
     "@react-types/table": "^3.8.0"
   },
   "devDependencies": {
-    "@nextui-org/chip": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
+    "@nextui-org/chip": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
-    "@nextui-org/use-infinite-scroll": "workspace:*",
+    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
+    "@nextui-org/use-infinite-scroll": "workspace:*",
     "@nextui-org/user": "workspace:*",
     "@react-stately/data": "^3.10.1",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "swr": "^2.2.1"
   },
   "clean-package": "../../../clean-package.config.json"
 }
