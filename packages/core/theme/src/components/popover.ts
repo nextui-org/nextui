@@ -41,7 +41,6 @@ const popover = tv({
       "z-[-1]",
       "absolute",
       "rotate-45",
-      "bg-inherit",
       "w-2.5",
       "h-2.5",
       "rounded-sm",
@@ -84,25 +83,31 @@ const popover = tv({
     color: {
       default: {
         base: "bg-content1",
-        arrow: "shadow-small",
+        arrow: "shadow-small bg-content1",
       },
       foreground: {
         base: colorVariants.solid.foreground,
+        arrow: "bg-foreground",
       },
       primary: {
         base: colorVariants.solid.primary,
+        arrow: "bg-primary",
       },
       secondary: {
         base: colorVariants.solid.secondary,
+        arrow: "bg-secondary",
       },
       success: {
         base: colorVariants.solid.success,
+        arrow: "bg-success",
       },
       warning: {
         base: colorVariants.solid.warning,
+        arrow: "bg-warning",
       },
       danger: {
         base: colorVariants.solid.danger,
+        arrow: "bg-danger",
       },
     },
     radius: {
