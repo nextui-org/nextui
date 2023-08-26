@@ -1,5 +1,12 @@
 # @nextui-org/tooltip
 
+## 2.0.18
+
+### Patch Changes
+
+- Updated dependencies [[`5702287e5`](https://github.com/nextui-org/nextui/commit/5702287e5622a8f0a0326c7cc0c200808c7971a8)]:
+  - @nextui-org/theme@2.1.3
+
 ## 2.0.17
 
 ### Patch Changes
