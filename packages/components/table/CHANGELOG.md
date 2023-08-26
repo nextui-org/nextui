@@ -1,5 +1,16 @@
 # @nextui-org/table
 
+## 2.0.17
+
+### Patch Changes
+
+- [#1303](https://github.com/nextui-org/nextui/pull/1303) [`290cce15b`](https://github.com/nextui-org/nextui/commit/290cce15be86273eea2c5e524d2a702b06b6d788) Thanks [@jguddas](https://github.com/jguddas)! - fix: show focus ring when table row is focused in read mode
+
+- Updated dependencies [[`5702287e5`](https://github.com/nextui-org/nextui/commit/5702287e5622a8f0a0326c7cc0c200808c7971a8)]:
+  - @nextui-org/theme@2.1.3
+  - @nextui-org/checkbox@2.0.16
+  - @nextui-org/spacer@2.0.13
+
 ## 2.0.16
 
 ### Patch Changes
