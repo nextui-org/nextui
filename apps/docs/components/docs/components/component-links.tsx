@@ -81,7 +81,7 @@ export const ComponentLinks = ({
       )}
       {rscCompatible && (
         <ButtonLink
-          href="https://nextjs.org/docs/getting-started/react-essentials#server-components"
+          href="https://nextjs.org/docs/app/building-your-application/rendering/server-components"
           startContent={<NextJsIcon size={18} />}
           tooltip={
             <p>

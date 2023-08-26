@@ -1,5 +1,21 @@
 # @nextui-org/react
 
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [[`a371e1a5f`](https://github.com/nextui-org/nextui/commit/a371e1a5fa698aaf1d2aa1c8beb6d3df6eaad57a)]:
+  - @nextui-org/tooltip@2.0.17
+  - @nextui-org/snippet@2.0.18
+  - @nextui-org/table@2.0.16
+
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies [[`ae9f300d4`](https://github.com/nextui-org/nextui/commit/ae9f300d4571aab367935d996fe95fbbfa36e22b)]:
+  - @nextui-org/select@2.1.4
+
 ## 2.1.3
 
 ### Patch Changes

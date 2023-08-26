@@ -1,5 +1,11 @@
 # @nextui-org/select
 
+## 2.1.4
+
+### Patch Changes
+
+- [#1472](https://github.com/nextui-org/nextui/pull/1472) [`ae9f300d4`](https://github.com/nextui-org/nextui/commit/ae9f300d4571aab367935d996fe95fbbfa36e22b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1468 size prop fixed in Select component
+
 ## 2.1.3
 
 ### Patch Changes
