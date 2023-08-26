@@ -61,7 +61,7 @@ module.exports = {
         highlighted: `${commonColors.purple[500]} 1px 0 0, ${commonColors.purple[500]} -1px 0 0`,
       },
       fontFamily: {
-        sans: ["DM Sans, sans-serif", ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
         serif: defaultTheme.fontFamily.serif,
         mono: defaultTheme.fontFamily.mono,
       },
