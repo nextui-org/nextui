@@ -91,7 +91,7 @@ the select.
 
 <CodeDemo title="Start Content" highlightedLines="9" files={selectContent.startContent} />
 
-### Item Start Content
+### Item Start & End Content
 
 Since the `Select` component uses the [Listbox](/docs/components/listbox) component under the hood, you can
 use the `startContent` and `endContent` properties of the `SelectItem` component to add content to the start
@@ -174,22 +174,22 @@ You can customize the sections style by using the `classNames` property of the `
 
 <CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} />
 
-### Asyncronous Loading
+### Asynchronous Loading
 
-Select supports asyncronous loading, in the example below we are using a custom hook to fetch the [Pokemon API](https://pokeapi.co/api/v2/pokemon) data in combination with the `useInfinityScroll` hook to load more data when the user reaches the end of the list.
+Select supports asynchronous loading, in the example below we are using a custom hook to fetch the [Pokemon API](https://pokeapi.co/api/v2/pokemon) data in combination with the `useInfiniteScroll` hook to load more data when the user reaches the end of the list.
 
-The `isLoading` prop is used to show a loading indicator intead of the selector icon when the data is being fetched.
+The `isLoading` prop is used to show a loading indicator instead of the selector icon when the data is being fetched.
 
 <PackageManagers
   commands={{
-    npm: "npm install @nextui-org/use-infinity-scroll",
-    yarn: "yarn add @nextui-org/use-infinity-scroll",
-    pnpm: "pnpm add @nextui-org/use-infinity-scroll",
+    npm: "npm install @nextui-org/use-infinite-scroll",
+    yarn: "yarn add @nextui-org/use-infinite-scroll",
+    pnpm: "pnpm add @nextui-org/use-infinite-scroll",
   }}
 />
 
 ```jsx
-import {useInfinityScroll} from "@nextui-org/use-infinity-scroll";
+import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 ```
 
 <Spacer y={2} />
@@ -197,7 +197,7 @@ import {useInfinityScroll} from "@nextui-org/use-infinity-scroll";
 <CodeDemo
   asIframe
   typescriptStrict={true}
-  title="Asyncronous Loading"
+  title="Asynchronous Loading"
   hideWindowActions={true}
   resizeEnabled={false}
   displayMode="always"
@@ -230,7 +230,7 @@ Using `onChange`:
   files={selectContent.multipleControlledOnChange}
 />
 
-### Mutliple With Chips
+### Multiple With Chips
 
 You can render any component as the select value by using the `renderValue` property. In this example we are
 using the [Chip](/docs/components/chip) component to render the selected items.
