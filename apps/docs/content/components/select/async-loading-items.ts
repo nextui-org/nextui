@@ -137,7 +137,7 @@ const usePokemonList = `export function usePokemonList({fetchDelay = 0} = {}) {
 };`;
 
 const App = `import {Select, SelectItem} from "@nextui-org/react";
-import {useInfiniteScroll} from "@nextui-org/use-infinity-scroll";
+import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {usePokemonList} from "./usePokemonList";
 
 export default function App() {
