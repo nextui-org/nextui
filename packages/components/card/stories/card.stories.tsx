@@ -137,7 +137,7 @@ const WithAbsImageHeaderTemplate = (args: CardProps) => (
       alt="Card background"
       className="w-full h-[440px] object-cover"
       height={440}
-      src={require("./assets/apple-event.jpeg")}
+      src="/apple-event.jpeg"
       width={330}
     />
   </Card>
@@ -159,7 +159,7 @@ const WithAbsImgHeaderFooterTemplate = (args: CardProps) => (
       alt="Card background"
       className="w-full h-[440px] pt-10 object-contain"
       height={440}
-      src={require("./assets/homepod.jpeg")}
+      src="/homepod.jpeg"
       width={300}
     />
     <CardFooter className="justify-between absolute bottom-0 z-10">
@@ -244,7 +244,7 @@ const CoverImgTemplate = (args: CardProps) => (
           <img
             alt="Breathing app icon"
             className="rounded-full w-10 h-11 bg-black"
-            src={require("./assets/breathing-app-icon.jpeg")}
+            src="/breathing-app-icon.jpeg"
           />
           <div className="flex flex-col">
             <p className="text-xs text-white/60">Breathing App</p>
@@ -265,12 +265,7 @@ const CenterImgTemplate = (args: CardProps) => (
       <h4 className="font-bold text-lg">Frontend Radio</h4>
     </CardHeader>
     <CardBody className="overflow-visible py-2">
-      <Image
-        isBlurred
-        alt="Card background"
-        src={require("./assets/local-image-1.jpeg")}
-        width={300}
-      />
+      <Image isBlurred alt="Card background" src="/images/local-image-1.jpeg" width={300} />
     </CardBody>
   </Card>
 );
@@ -352,39 +347,39 @@ const CenterImgWithHeaderTemplate = (args: CardProps) => {
   const list = [
     {
       title: "Mac",
-      img: require("./assets/mac.png"),
+      img: "/mac.png",
     },
     {
       title: "iPhone",
-      img: require("./assets/iphone.png"),
+      img: "/iphone.png",
     },
     {
       title: "iPad",
-      img: require("./assets/ipad.png"),
+      img: "/ipad.png",
     },
     {
       title: "Apple Watch",
-      img: require("./assets/apple-watch.png"),
+      img: "/apple-watch.png",
     },
     {
       title: "AirPods",
-      img: require("./assets/airpods.png"),
+      img: "/airpods.png",
     },
     {
       title: "AirTag",
-      img: require("./assets/airtag.png"),
+      img: "/airtag.png",
     },
     {
       title: "Apple TV",
-      img: require("./assets/appletv.png"),
+      img: "/appletv.png",
     },
     {
       title: "HomePod mini",
-      img: require("./assets/homepod-mini.png"),
+      img: "/homepod-mini.png",
     },
     {
       title: "Accessories",
-      img: require("./assets/accessories.png"),
+      img: "/accessories.png",
     },
   ];
 
