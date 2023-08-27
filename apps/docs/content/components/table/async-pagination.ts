@@ -6,7 +6,9 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function App() {
   const [page, setPage] = React.useState(1);
 
-  const {data, isLoading} = useSWR(\`https://swapi.py4e.com/api/people?page=\$\{page\}\`, fetcher);
+  const {data, isLoading} = useSWR(\`https://swapi.py4e.com/api/people?page=\$\{page\}\`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {Meta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
@@ -767,11 +767,15 @@ const AsyncPaginatedTemplate = (args: TableProps) => {
   const {data, isLoading} = useSWR<{
     count: number;
     results: SWCharacter[];
-  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher);
+  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 
-  const pages = data?.count ? Math.ceil(data.count / rowsPerPage) : 0;
+  const pages = useMemo(() => {
+    return data?.count ? Math.ceil(data?.count / rowsPerPage) : 0;
+  }, [data?.count, rowsPerPage]);
 
   const loadingState = isLoading || data?.results.length === 0 ? "loading" : "idle";
 

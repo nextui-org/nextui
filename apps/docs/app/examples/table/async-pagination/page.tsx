@@ -29,7 +29,9 @@ export default function Page() {
   const {data, isLoading} = useSWR<{
     count: number;
     results: SWCharacter[];
-  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher);
+  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 
