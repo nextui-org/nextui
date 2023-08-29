@@ -100,7 +100,7 @@ const DeleteDocumentIcon = `export const DeleteDocumentIcon = (props) => (
   </svg>
 );`;
 
-const App = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, cn} from "@nextui-org/react";
+const App = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownSection DropdownItem, Button, cn} from "@nextui-org/react";
 import {AddNoteIcon} from "./AddNoteIcon.jsx";
 import {CopyDocumentIcon} from "./CopyDocumentIcon.jsx";
 import {EditDocumentIcon} from "./EditDocumentIcon.jsx";
