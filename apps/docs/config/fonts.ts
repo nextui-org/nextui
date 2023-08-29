@@ -1,6 +1,6 @@
-import {DM_Sans} from "next/font/google";
+import {Inter} from "next/font/google";
 
-export const fontSans = DM_Sans({
+export const fontSans = Inter({
   variable: "--font-sans",
   adjustFontFallback: true,
   display: "optional",

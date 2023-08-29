@@ -1,5 +1,16 @@
 # @nextui-org/select
 
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [[`5702287e5`](https://github.com/nextui-org/nextui/commit/5702287e5622a8f0a0326c7cc0c200808c7971a8)]:
+  - @nextui-org/theme@2.1.3
+  - @nextui-org/listbox@2.1.4
+  - @nextui-org/popover@2.1.3
+  - @nextui-org/scroll-shadow@2.1.3
+  - @nextui-org/spinner@2.0.13
+
 ## 2.1.4
 
 ### Patch Changes

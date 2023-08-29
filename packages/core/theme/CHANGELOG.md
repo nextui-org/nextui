@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.3
+
+### Patch Changes
+
+- [#1501](https://github.com/nextui-org/nextui/pull/1501) [`5702287e5`](https://github.com/nextui-org/nextui/commit/5702287e5622a8f0a0326c7cc0c200808c7971a8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix Popover/Tooltip arrow color
+
 ## 2.1.2
 
 ### Patch Changes
