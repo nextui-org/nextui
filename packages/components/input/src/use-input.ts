@@ -292,6 +292,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         "data-hover": dataAttr(isHovered),
+        "data-focus-visible": dataAttr(isFocusVisible),
+        "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
           class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
         }),
@@ -307,7 +309,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         },
       };
     },
-    [slots, isHovered, inputValue, classNames?.inputWrapper],
+    [slots, isHovered, isFocusVisible, isFocused, inputValue, classNames?.inputWrapper],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(
