@@ -147,19 +147,14 @@ const input = tv({
     },
     labelPlacement: {
       outside: {
-        base: "data-[has-helper=true]:pb-4",
         label: "text-foreground pb-1.5",
         mainWrapper: "flex flex-col",
-        description: "absolute left-1",
-        errorMessage: "absolute left-1",
       },
       "outside-left": {
-        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4",
+        base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
         label: "text-foreground pr-2",
-        description: "absolute left-1",
-        errorMessage: "absolute left-1",
       },
       inside: {
         label: "text-tiny cursor-text",
@@ -646,6 +641,29 @@ const input = tv({
           "group-data-[filled-within=true]:text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
+      },
+    },
+
+    // outside-left & size & hasHelper
+    {
+      labelPlacement: "outside-left",
+      size: "sm",
+      class: {
+        label: "group-data-[has-helper=true]:pt-2",
+      },
+    },
+    {
+      labelPlacement: "outside-left",
+      size: "md",
+      class: {
+        label: "group-data-[has-helper=true]:pt-3",
+      },
+    },
+    {
+      labelPlacement: "outside-left",
+      size: "lg",
+      class: {
+        label: "group-data-[has-helper=true]:pt-4",
       },
     },
   ],

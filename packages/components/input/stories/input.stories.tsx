@@ -74,7 +74,7 @@ const Template = (args) => (
 );
 
 const MirrorTemplate = (args) => (
-  <div className="w-full max-w-xl flex flex-row gap-4">
+  <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input {...args} />
     <Input {...args} placeholder="Enter your email" />
   </div>
@@ -170,7 +170,7 @@ const StartContentTemplate = (args) => (
   <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input
       {...args}
-      placeholder="you@example.com"
+      // placeholder="you@example.com"
       startContent={
         <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
       }
@@ -489,7 +489,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    description: "We'll never share your email with anyone else.",
+    description: "We'll never share your email with anyone else. ",
   },
 };
 

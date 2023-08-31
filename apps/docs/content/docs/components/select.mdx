@@ -254,6 +254,7 @@ the popover and listbox components.
 
 - **base**: The main wrapper of the select. This wraps the rest of the slots.
 - **label**: The label of the select.
+- **mainWrapper**: Wraps the `helperWrapper` and the `trigger` slots.
 - **trigger**: The trigger of the select. This wraps the label the inner wrapper and the selector icon.
 - **innerWrapper**: The wrapper of the select content. This wraps the start/end content and the select value.
 - **selectorIcon**: The selector icon of the select. This is the icon that rotates when the select is open (`data-open`).
@@ -369,7 +370,7 @@ the popover and listbox components.
 | popoverProps                 | [PopoverProps](/docs/components/popover#api)                                                                                                                                                   | Props to be passed to the popover component.                                                            | -                  |
 | listboxProps                 | [ListboxProps](/docs/components/listbox#api)                                                                                                                                                   | Props to be passed to the listbox component.                                                            | -                  |
 | scrollShadowProps            | [ScrollShadowProps](/docs/components/scroll-shadow#api)                                                                                                                                        | Props to be passed to the scroll shadow component.                                                      | -                  |
-| classNames                   | `Record<"base"｜ "label"｜ "trigger"｜ "innerWrapper"｜ "selectorIcon" ｜ "value" ｜ "listboxWrapper"｜ "listbox" ｜ "popover" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the dropdown item slots.                                           | -                  |
+| classNames                   | `Record<"base"｜ "label"｜ "trigger"｜ "mainWrapper" ｜ "innerWrapper"｜ "selectorIcon" ｜ "value" ｜ "listboxWrapper"｜ "listbox" ｜ "popover" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the dropdown item slots.                                           | -                  |
 
 ### Select Events
 

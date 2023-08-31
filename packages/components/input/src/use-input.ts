@@ -173,6 +173,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const shouldLabelBeInside = labelPlacement === "inside";
 
   const hasStartContent = !!startContent;
+  const isLabelOutside = shouldLabelBeOutside
+    ? labelPlacement === "outside-left" ||
+      hasPlaceholder ||
+      (labelPlacement === "outside" && hasStartContent)
+    : false;
+  const isLabelOutsideAsPlaceholder =
+    labelPlacement === "outside" && !hasPlaceholder && !hasStartContent;
 
   const slots = useMemo(
     () =>
@@ -387,6 +394,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     isClearable,
     isInvalid,
     hasHelper,
+    hasStartContent,
+    isLabelOutside,
+    isLabelOutsideAsPlaceholder,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     hasPlaceholder,
