@@ -201,7 +201,6 @@ const MultipleSelectionTemplate = ({color, variant, ...args}: ListboxProps) => {
     <Listbox
       disallowEmptySelection
       aria-label="Actions"
-      closeOnSelect={false}
       color={color}
       selectedKeys={selected}
       selectionMode="multiple"

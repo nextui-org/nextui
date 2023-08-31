@@ -1,14 +1,16 @@
+import type {ForwardedRef, ReactElement, Ref} from "react";
+
 import {forwardRef} from "@nextui-org/system";
 
 import {UseListboxProps, useListbox} from "./use-listbox";
 import ListboxSection from "./listbox-section";
 import ListboxItem from "./listbox-item";
 
-export interface ListboxProps extends UseListboxProps {}
+interface Props<T> extends UseListboxProps<T> {}
 
-const Listbox = forwardRef<"ul", ListboxProps>((props, ref) => {
+function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
   const {Component, state, getBaseProps, color, disableAnimation, variant, itemClasses} =
-    useListbox({...props, ref});
+    useListbox<T>({...props, ref});
 
   return (
     <Component {...getBaseProps()}>
@@ -35,8 +37,13 @@ const Listbox = forwardRef<"ul", ListboxProps>((props, ref) => {
       })}
     </Component>
   );
-});
+}
 
 Listbox.displayName = "NextUI.Listbox";
 
-export default Listbox;
+export type ListboxProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+
+// forwardRef doesn't support generic parameters, so cast the result to the correct type
+export default forwardRef(Listbox) as <T = object>(props: ListboxProps<T>) => ReactElement;
+
+Listbox.displayName = "NextUI.Listbox";
