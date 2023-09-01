@@ -1,5 +1,16 @@
 # @nextui-org/navbar
 
+## 2.0.17
+
+### Patch Changes
+
+- [#1542](https://github.com/nextui-org/nextui/pull/1542) [`57909accd`](https://github.com/nextui-org/nextui/commit/57909accdeda233c9ea0c0bb3409f7fed260a9b0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1298 navbar-menu focus trapping fixed
+
+- Updated dependencies [[`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592), [`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5)]:
+  - @nextui-org/theme@2.1.4
+  - @nextui-org/system@2.0.6
+  - @nextui-org/framer-transitions@2.0.6
+
 ## 2.0.16
 
 ### Patch Changes
