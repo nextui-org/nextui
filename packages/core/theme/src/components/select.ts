@@ -7,6 +7,7 @@ const select = tv({
   slots: {
     base: "group inline-flex flex-col relative w-full",
     label: "block text-small font-medium text-foreground-500 pointer-events-none",
+    mainWrapper: "w-full flex flex-col",
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
@@ -117,14 +118,10 @@ const select = tv({
       outside: {
         base: "data-[has-helper=true]:pb-4 flex flex-col",
         label: "text-foreground pb-1.5",
-        description: "absolute left-1",
-        errorMessage: "absolute left-1",
       },
       "outside-left": {
-        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4",
+        base: "flex-row items-center flex-nowrap items-start",
         label: "text-foreground pr-2",
-        description: "absolute left-1",
-        errorMessage: "absolute left-1",
       },
       inside: {
         label: "text-tiny cursor-pointer",

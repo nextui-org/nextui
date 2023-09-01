@@ -308,12 +308,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
       "data-filled": dataAttr(isFilled),
+      "data-has-helper": dataAttr(hasHelper),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
       ...props,
     }),
-    [slots, isFilled, baseStyles],
+    [slots, hasHelper, isFilled, baseStyles],
   );
 
   const getTriggerProps: PropGetter = useCallback(
@@ -491,6 +492,18 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, classNames?.description],
   );
 
+  const getMainWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.mainWrapper({
+          class: clsx(classNames?.mainWrapper, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.mainWrapper],
+  );
+
   const getErrorMessageProps: PropGetter = useCallback(
     (props = {}) => {
       return {
@@ -546,6 +559,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     getListboxProps,
     getPopoverProps,
     getSpinnerProps,
+    getMainWrapperProps,
     getListboxWrapperProps,
     getHiddenSelectProps,
     getInnerWrapperProps,

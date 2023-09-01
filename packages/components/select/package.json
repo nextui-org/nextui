@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/input": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "framer-motion": "^10.15.1",
     "@nextui-org/use-infinite-scroll": "workspace:*",

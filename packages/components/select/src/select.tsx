@@ -36,6 +36,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getListboxProps,
     getPopoverProps,
     getSpinnerProps,
+    getMainWrapperProps,
     shouldLabelBeOutside,
     getInnerWrapperProps,
     getHiddenSelectProps,
@@ -115,20 +116,22 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
       {shouldLabelBeOutside ? labelContent : null}
-      <Component {...getTriggerProps()}>
-        {!shouldLabelBeOutside ? labelContent : null}
-        <div {...getInnerWrapperProps()}>
-          {startContent}
-          <span {...getValueProps()}>
-            {renderSelectedItem}
-            {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
-          </span>
-          {endContent}
-        </div>
-        {renderIndicator}
-      </Component>
+      <div {...getMainWrapperProps()}>
+        <Component {...getTriggerProps()}>
+          {!shouldLabelBeOutside ? labelContent : null}
+          <div {...getInnerWrapperProps()}>
+            {startContent}
+            <span {...getValueProps()}>
+              {renderSelectedItem}
+              {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
+            </span>
+            {endContent}
+          </div>
+          {renderIndicator}
+        </Component>
+        {helperWrapper}
+      </div>
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
-      {helperWrapper}
     </div>
   );
 }
