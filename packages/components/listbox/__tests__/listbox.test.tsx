@@ -107,9 +107,9 @@ describe("Listbox", () => {
 
     const wrapper = render(
       <Listbox aria-label="Actions" items={listboxItems}>
-        {(section: any) => (
+        {(section) => (
           <ListboxSection aria-label={section.title} items={section.children} title={section.title}>
-            {(item: any) => <ListboxItem key={item.key}>{item.name}</ListboxItem>}
+            {(item) => <ListboxItem key={item.key}>{item.name}</ListboxItem>}
           </ListboxSection>
         )}
       </Listbox>,

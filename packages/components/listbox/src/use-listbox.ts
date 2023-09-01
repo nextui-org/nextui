@@ -1,4 +1,6 @@
-import {AriaListBoxOptions, useListBox as useAriaListbox} from "@react-aria/listbox";
+import type {KeyboardDelegate} from "@react-types/shared";
+
+import {AriaListBoxProps, useListBox as useAriaListbox} from "@react-aria/listbox";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {listbox, ListboxVariantProps} from "@nextui-org/theme";
 import {ListState, useListState} from "@react-stately/list";
@@ -6,6 +8,24 @@ import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
 import {ListboxItemProps} from "./listbox-item";
+
+interface AriaListBoxOptions<T> extends AriaListBoxProps<T> {
+  /** Whether the listbox uses virtual scrolling. */
+  isVirtualized?: boolean;
+  /**
+   * An optional keyboard delegate implementation for type to select,
+   * to override the default.
+   */
+  keyboardDelegate?: KeyboardDelegate;
+  /**
+   * Whether the listbox items should use virtual focus instead of being focused directly.
+   */
+  shouldUseVirtualFocus?: boolean;
+  /** Whether selection should occur on press up instead of press down. */
+  shouldSelectOnPressUp?: boolean;
+  /** Whether options should be focused when the user hovers over them. */
+  shouldFocusOnHover?: boolean;
+}
 
 interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
   /**
@@ -37,7 +57,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
 
 export type UseListboxProps<T = object> = Props<T> & AriaListBoxOptions<T> & ListboxVariantProps;
 
-export function useListbox(props: UseListboxProps) {
+export function useListbox<T extends object>(props: UseListboxProps<T>) {
   const {
     ref,
     as,
