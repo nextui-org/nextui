@@ -1,4 +1,6 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
+import type {TabItemProps as BaseTabItemProps} from "./base/tab-item-base";
+
+import {forwardRef} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -12,7 +14,7 @@ import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
 
-export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
+export interface TabItemProps<T extends object = object> extends BaseTabItemProps<T> {
   item: Node<T>;
   state: ValuesType["state"];
   slots: ValuesType["slots"];
@@ -106,9 +108,11 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
           : {},
         filterDOMProps(otherProps, {
           enabled: shouldFilterDOMProps,
+          omitPropNames: new Set(["title"]),
         }),
       )}
       className={slots.tab?.({class: tabStyles})}
+      title={otherProps?.titleValue}
       type={Component === "button" ? "button" : undefined}
       onClick={handleClick}
     >
