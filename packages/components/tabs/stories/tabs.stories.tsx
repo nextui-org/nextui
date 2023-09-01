@@ -89,12 +89,16 @@ const WithIconsTemplate = (args: TabsProps) => (
       tab: "text-lg",
     }}
   >
-    <Tab key="align-left" title={<AlignLeftBoldIcon />} />
-    <Tab key="align-vertically" title={<AlignVerticallyBoldIcon />} />
-    <Tab key="align-right" title={<AlignRightBoldIcon />} />
-    <Tab key="align-top" title={<AlignTopBoldIcon />} />
-    <Tab key="align-horizontally" title={<AlignHorizontallyBoldIcon />} />
-    <Tab key="align-bottom" title={<AlignBottomBoldIcon />} />
+    <Tab key="align-left" title={<AlignLeftBoldIcon />} titleValue="Align left" />
+    <Tab key="align-vertically" title={<AlignVerticallyBoldIcon />} titleValue="Align vertically" />
+    <Tab key="align-right" title={<AlignRightBoldIcon />} titleValue="Align right" />
+    <Tab key="align-top" title={<AlignTopBoldIcon />} titleValue="Align top" />
+    <Tab
+      key="align-horizontally"
+      title={<AlignHorizontallyBoldIcon />}
+      titleValue="Align horizontally"
+    />
+    <Tab key="align-bottom" title={<AlignBottomBoldIcon />} titleValue="Align bottom" />
   </Tabs>
 );
 
