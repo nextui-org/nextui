@@ -8,7 +8,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"div", T>, "childr
   /**
    * The title of the component.
    */
-  title?: ReactNode | null;
+  title?: string;
 }
 
 export type TabItemProps<T extends object = {}> = Props<T>;
