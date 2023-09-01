@@ -1,5 +1,14 @@
 # @nextui-org/system
 
+## 2.0.6
+
+### Patch Changes
+
+- [#1513](https://github.com/nextui-org/nextui/pull/1513) [`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5) Thanks [@tianenpang](https://github.com/tianenpang)! - Extend props for NextUIProvider and update default locale from en to en-US.
+
+- Updated dependencies []:
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/divider
 
+## 2.0.15
+
+### Patch Changes
+
+- Updated dependencies [[`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592)]:
+  - @nextui-org/theme@2.1.4
+  - @nextui-org/system-rsc@2.0.3
+
 ## 2.0.14
 
 ### Patch Changes

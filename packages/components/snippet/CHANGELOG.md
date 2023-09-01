@@ -1,5 +1,17 @@
 # @nextui-org/snippet
 
+## 2.0.20
+
+### Patch Changes
+
+- [#1546](https://github.com/nextui-org/nextui/pull/1546) [`faf26acd2`](https://github.com/nextui-org/nextui/commit/faf26acd239dcffcab71ef63d1d2708990f19bec) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Snippet invalid props fixed
+
+- Updated dependencies [[`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592), [`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5)]:
+  - @nextui-org/theme@2.1.4
+  - @nextui-org/system@2.0.6
+  - @nextui-org/button@2.0.16
+  - @nextui-org/tooltip@2.0.19
+
 ## 2.0.19
 
 ### Patch Changes

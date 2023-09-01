@@ -1,5 +1,24 @@
 # @nextui-org/select
 
+## 2.1.6
+
+### Patch Changes
+
+- [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
+
+  - Select adn Input spaces fixed on helper wrapper
+  - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
+  - Outside input with start content fixed
+
+- Updated dependencies [[`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592), [`a9e324b35`](https://github.com/nextui-org/nextui/commit/a9e324b3515bab9883f3911747351ee69f9afb9d), [`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5)]:
+  - @nextui-org/theme@2.1.4
+  - @nextui-org/listbox@2.1.5
+  - @nextui-org/system@2.0.6
+  - @nextui-org/popover@2.1.4
+  - @nextui-org/scroll-shadow@2.1.4
+  - @nextui-org/spinner@2.0.14
+  - @nextui-org/aria-utils@2.0.6
+
 ## 2.1.5
 
 ### Patch Changes
