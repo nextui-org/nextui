@@ -85,6 +85,10 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     });
   };
 
+  if (otherProps && otherProps.title && typeof otherProps.title !== "string") {
+    otherProps.title = "";
+  }
+
   return (
     <Component
       ref={domRef}
