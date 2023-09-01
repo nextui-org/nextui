@@ -2,7 +2,7 @@ import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-or
 
 import {snippet} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
@@ -141,6 +141,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const tooltipProps: Partial<TooltipProps> = {
     offset: 15,
@@ -184,7 +185,9 @@ export function useSnippet(originalProps: UseSnippetProps) {
       className: slots.base({
         class: baseStyles,
       }),
-      ...otherProps,
+      ...filterDOMProps(otherProps, {
+        enabled: shouldFilterDOMProps,
+      }),
     }),
     [slots, baseStyles, isMultiLine, otherProps],
   );
