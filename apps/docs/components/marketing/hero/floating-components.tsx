@@ -105,7 +105,6 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         {isMounted && (
           <Tooltip
-            showArrow
             className="text-sm animate-[levitate_14s_ease_infinite]"
             color="secondary"
             content="Developers love Next.js"
