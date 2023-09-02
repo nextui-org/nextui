@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {Meta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
@@ -10,6 +10,7 @@ import {Tooltip} from "@nextui-org/tooltip";
 import {EditIcon, DeleteIcon, EyeIcon} from "@nextui-org/shared-icons";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
+import useSWR from "swr";
 
 import {
   Table,
@@ -236,7 +237,7 @@ const CustomCellTemplate = (args: TableProps) => {
     },
   ];
 
-  type User = (typeof users)[0];
+  type User = typeof users[0];
 
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
@@ -376,7 +377,7 @@ const CustomCellWithClassnamesTemplate = (args: TableProps) => {
     },
   ];
 
-  type User = (typeof users)[0];
+  type User = typeof users[0];
 
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
@@ -758,38 +759,25 @@ const PaginatedTemplate = (args: TableProps) => {
   );
 };
 
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+
 const AsyncPaginatedTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
-  const [total, setTotal] = React.useState(0);
+
+  const {data, isLoading} = useSWR<{
+    count: number;
+    results: SWCharacter[];
+  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 
-  let list = useAsyncList<SWCharacter>({
-    async load({signal, cursor}) {
-      // If no cursor is available, then we're loading the first page.
-      // Otherwise, the cursor is the next URL to load, as returned from the previous page.
-      const res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
-      let json = await res.json();
+  const pages = useMemo(() => {
+    return data?.count ? Math.ceil(data?.count / rowsPerPage) : 0;
+  }, [data?.count, rowsPerPage]);
 
-      setTotal(json.count);
-
-      return {
-        items: json.results,
-        cursor: json.next,
-      };
-    },
-  });
-
-  const pages = Math.ceil(total / rowsPerPage);
-
-  const items = React.useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-
-    return list.items.slice(start, end);
-  }, [page, list.items?.length, list.loadingState]);
-
-  const loadingState = items.length === 0 ? "loading" : list.loadingState;
+  const loadingState = isLoading || data?.results.length === 0 ? "loading" : "idle";
 
   return (
     <Table
@@ -804,12 +792,7 @@ const AsyncPaginatedTemplate = (args: TableProps) => {
               color="primary"
               page={page}
               total={pages}
-              onChange={(page) => {
-                if (page >= list.items.length / rowsPerPage) {
-                  list.loadMore();
-                }
-                setPage(page);
-              }}
+              onChange={(page) => setPage(page)}
             />
           </div>
         ) : null
@@ -822,9 +805,13 @@ const AsyncPaginatedTemplate = (args: TableProps) => {
         <TableColumn key="mass">Mass</TableColumn>
         <TableColumn key="birth_year">Birth year</TableColumn>
       </TableHeader>
-      <TableBody items={items} loadingContent={<Spinner />} loadingState={loadingState}>
+      <TableBody
+        items={data?.results ?? []}
+        loadingContent={<Spinner />}
+        loadingState={loadingState}
+      >
         {(item) => (
-          <TableRow key={item.name}>
+          <TableRow key={item?.name}>
             {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
           </TableRow>
         )}

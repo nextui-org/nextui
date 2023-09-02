@@ -1,50 +1,22 @@
 const App = `import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue} from "@nextui-org/react";
-import {useAsyncList} from "@react-stately/data";
+import useSWR from "swr";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App() {
   const [page, setPage] = React.useState(1);
-  const [total, setTotal] = React.useState(0);
-  const [isLoading, setIsLoading] = React.useState(true);
+
+  const {data, isLoading} = useSWR(\`https://swapi.py4e.com/api/people?page=\$\{page\}\`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 
-  let list = useAsyncList({
-    async load({signal, cursor}) {
-      // If no cursor is available, then we're loading the first page.
-      // Otherwise, the cursor is the next URL to load, as returned from the previous page.
-      const res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
-      let json = await res.json();
+  const pages = useMemo(() => {
+    return data?.count ? Math.ceil(data.count / rowsPerPage) : 0;
+  }, [data?.count, rowsPerPage]);
 
-      setTotal(json.count);
-
-      setIsLoading(false);
-
-      return {
-        items: json.results,
-        cursor: json.next,
-      };
-    },
-  });
-
-  const pages = Math.ceil(total / rowsPerPage);
-
-  const items = React.useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-
-    return list.items.slice(start, end);
-  }, [page, list.items?.length]);
-
-  const onPaginationChange = React.useCallback(
-    (page) => {
-      setIsLoading(true);
-      if (page >= list.items.length / rowsPerPage) {
-        list.loadMore();
-      }
-      setPage(page);
-    },
-    [list.items.length],
-  );
+  const loadingState = isLoading || data?.results.length === 0 ? "loading" : "idle";
 
   return (
     <Table
@@ -59,14 +31,12 @@ export default function App() {
               color="primary"
               page={page}
               total={pages}
-              onChange={onPaginationChange}
+              onChange={(page) => setPage(page)}
             />
           </div>
         ) : null
       }
-      classNames={{
-        table: "min-h-[400px]",
-      }}
+      {...args}
     >
       <TableHeader>
         <TableColumn key="name">Name</TableColumn>
@@ -75,12 +45,12 @@ export default function App() {
         <TableColumn key="birth_year">Birth year</TableColumn>
       </TableHeader>
       <TableBody
-        isLoading={isLoading && !items.length}
-        items={items}
+        items={data?.results ?? []}
         loadingContent={<Spinner />}
+        loadingState={loadingState}
       >
         {(item) => (
-          <TableRow key={item.name}>
+          <TableRow key={item?.name}>
             {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
           </TableRow>
         )}

@@ -471,6 +471,9 @@ importers:
       shelljs:
         specifier: ^0.8.4
         version: 0.8.5
+      swr:
+        specifier: ^2.2.1
+        version: 2.2.1(react@18.2.0)
       tailwind-variants:
         specifier: ^0.1.13
         version: 0.1.13(tailwindcss@3.3.3)
@@ -2009,6 +2012,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      swr:
+        specifier: ^2.2.1
+        version: 2.2.1(react@18.2.0)
 
   packages/components/tabs:
     dependencies:
@@ -22956,6 +22962,15 @@ packages:
       stable: 0.1.8
     dev: true
 
+  /swr@2.2.1(react@18.2.0):
+    resolution: {integrity: sha512-KJVA7dGtOBeZ+2sycEuzUfVIP5lZ/cd0xjevv85n2YG0x1uHJQicjAtahVZL6xG3+TjqhbBqimwYzVo3saeVXQ==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: true
@@ -24036,7 +24051,6 @@ packages:
       react: ^18.2.0
     dependencies:
       react: 18.2.0
-    dev: false
 
   /use@3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}

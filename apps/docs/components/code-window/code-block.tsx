@@ -108,9 +108,9 @@ function CodeTypewriter({value, className, css, ...props}: any) {
   return (
     <Pre className={className} css={css} {...props}>
       <code
-        dangerouslySetInnerHTML={{__html: value}}
         ref={wrapperRef}
         className={className}
+        dangerouslySetInnerHTML={{__html: value}}
         style={{opacity: 0}}
       />
     </Pre>
@@ -155,7 +155,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
       {...props}
     >
       {showWindowIcons && <WindowActions title={title} />}
-      <code dangerouslySetInnerHTML={{__html: result}} className={clsx(classes, codeClasses)} />
+      <code className={clsx(classes, codeClasses)} dangerouslySetInnerHTML={{__html: result}} />
     </Pre>
   );
 });
