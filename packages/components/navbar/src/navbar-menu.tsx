@@ -5,7 +5,7 @@ import {AnimatePresence, HTMLMotionProps, motion} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {ReactElement, useCallback} from "react";
 import {RemoveScroll} from "react-remove-scroll";
-import {Overlay, DismissButton} from "@react-aria/overlays";
+import {Overlay} from "@react-aria/overlays";
 
 import {menuVariants} from "./navbar-menu-transitions";
 import {useNavbarContext} from "./navbar-context";
@@ -27,8 +27,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
   const domRef = useDOMRef(ref);
 
-  const {slots, isMenuOpen, setIsMenuOpen, height, disableAnimation, classNames} =
-    useNavbarContext();
+  const {slots, isMenuOpen, height, disableAnimation, classNames} = useNavbarContext();
 
   const styles = clsx(classNames?.menu, className);
 
@@ -36,11 +35,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
     ({children}: {children: ReactElement}) => {
       return (
         <RemoveScroll forwardProps enabled={isMenuOpen} removeScrollBar={false}>
-          <>
-            <DismissButton onDismiss={() => setIsMenuOpen(false)} />
-            {children}
-            <DismissButton onDismiss={() => setIsMenuOpen(false)} />
-          </>
+          {children}
         </RemoveScroll>
       );
     },
