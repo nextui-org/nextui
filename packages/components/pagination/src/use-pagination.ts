@@ -201,6 +201,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     if (skipAnimation) {
       cursorRef.current.setAttribute("data-moving", "false");
       cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
+
       return;
     }
 
@@ -211,10 +212,13 @@ export function usePagination(originalProps: UsePaginationProps) {
     cursorTimer.current = setTimeout(() => {
       // reset the scale of the cursor
       if (cursorRef.current) {
-        cursorRef.current.setAttribute("data-moving", "false");
         cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
       }
-      cursorTimer.current && clearTimeout(cursorTimer.current);
+      cursorTimer.current = setTimeout(() => {
+        // remove the data-moving attribute
+        cursorRef.current?.setAttribute("data-moving", "false");
+        cursorTimer.current && clearTimeout(cursorTimer.current);
+      }, CURSOR_TRANSITION_TIMEOUT);
     }, CURSOR_TRANSITION_TIMEOUT);
   }
 
@@ -229,6 +233,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   });
 
   const activePageRef = useRef(activePage);
+
   useEffect(() => {
     if (activePage && !originalProps.disableAnimation) {
       scrollTo(activePage, activePage === activePageRef.current);
