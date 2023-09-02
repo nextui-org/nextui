@@ -55,7 +55,7 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.mapkeys": "^4.6.0",
     "lodash.omit": "^4.5.0",
-    "tailwind-variants": "^0.1.13",
+    "tailwind-variants": "^0.1.14",
     "tailwindcss": "^3.2.7",
     "@types/color": "^3.0.3",
     "@types/flat": "^5.0.2",
