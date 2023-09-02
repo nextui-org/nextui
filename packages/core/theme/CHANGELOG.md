@@ -1,5 +1,17 @@
 # @nextui-org/theme
 
+## 2.1.5
+
+### Patch Changes
+
+- [#1222](https://github.com/nextui-org/nextui/pull/1222) [`28477447d`](https://github.com/nextui-org/nextui/commit/28477447d3dc9d87fdc6dea666ae4ce76e7c5bfb) Thanks [@jguddas](https://github.com/jguddas)! - fix: resolved cursor issues in pagination
+
+  - The cursor does not animate anymore on initial render and non page change prop changes.
+  - The cursor hover state now looks good with disableAnimation set.
+  - The animated cursor is now transparent to the cursor (pointer-events: none).
+
+- [#1551](https://github.com/nextui-org/nextui/pull/1551) [`fc3c6b943`](https://github.com/nextui-org/nextui/commit/fc3c6b9431c0c6bcb4af5e2a0be0fc50f652b182) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Tailwind variants upgraded to the latest version v0.1.14
+
 ## 2.1.4
 
 ### Patch Changes

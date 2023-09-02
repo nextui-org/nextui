@@ -1,5 +1,46 @@
 # @nextui-org/react
 
+## 2.1.9
+
+### Patch Changes
+
+- Updated dependencies [[`28477447d`](https://github.com/nextui-org/nextui/commit/28477447d3dc9d87fdc6dea666ae4ce76e7c5bfb), [`59fda3772`](https://github.com/nextui-org/nextui/commit/59fda3772fe4f05dc24266e69f4f6ac5e201506d), [`fc3c6b943`](https://github.com/nextui-org/nextui/commit/fc3c6b9431c0c6bcb4af5e2a0be0fc50f652b182), [`8fcc8b376`](https://github.com/nextui-org/nextui/commit/8fcc8b37670fc1c7823d2ef78ad459078d6c76f4)]:
+  - @nextui-org/pagination@2.0.18
+  - @nextui-org/theme@2.1.5
+  - @nextui-org/navbar@2.0.18
+  - @nextui-org/table@2.0.19
+  - @nextui-org/accordion@2.0.19
+  - @nextui-org/avatar@2.0.17
+  - @nextui-org/badge@2.0.15
+  - @nextui-org/button@2.0.17
+  - @nextui-org/card@2.0.17
+  - @nextui-org/checkbox@2.0.18
+  - @nextui-org/chip@2.0.17
+  - @nextui-org/code@2.0.15
+  - @nextui-org/divider@2.0.16
+  - @nextui-org/dropdown@2.1.6
+  - @nextui-org/image@2.0.17
+  - @nextui-org/input@2.1.5
+  - @nextui-org/kbd@2.0.16
+  - @nextui-org/link@2.0.18
+  - @nextui-org/listbox@2.1.6
+  - @nextui-org/menu@2.0.7
+  - @nextui-org/modal@2.0.19
+  - @nextui-org/popover@2.1.5
+  - @nextui-org/progress@2.0.17
+  - @nextui-org/radio@2.0.18
+  - @nextui-org/scroll-shadow@2.1.5
+  - @nextui-org/select@2.1.7
+  - @nextui-org/skeleton@2.0.15
+  - @nextui-org/snippet@2.0.21
+  - @nextui-org/spacer@2.0.15
+  - @nextui-org/spinner@2.0.15
+  - @nextui-org/switch@2.0.17
+  - @nextui-org/tabs@2.0.17
+  - @nextui-org/tooltip@2.0.20
+  - @nextui-org/user@2.0.18
+  - @nextui-org/system@2.0.7
+
 ## 2.1.8
 
 ### Patch Changes
