@@ -1,5 +1,45 @@
 # @nextui-org/react
 
+## 2.1.10
+
+### Patch Changes
+
+- Updated dependencies [[`7c8341035`](https://github.com/nextui-org/nextui/commit/7c8341035dbdd120cd78221b3cabab2e40e7478d)]:
+  - @nextui-org/pagination@2.0.19
+  - @nextui-org/theme@2.1.6
+  - @nextui-org/table@2.0.20
+  - @nextui-org/accordion@2.0.20
+  - @nextui-org/avatar@2.0.18
+  - @nextui-org/badge@2.0.16
+  - @nextui-org/button@2.0.18
+  - @nextui-org/card@2.0.18
+  - @nextui-org/checkbox@2.0.19
+  - @nextui-org/chip@2.0.18
+  - @nextui-org/code@2.0.16
+  - @nextui-org/divider@2.0.17
+  - @nextui-org/dropdown@2.1.7
+  - @nextui-org/image@2.0.18
+  - @nextui-org/input@2.1.6
+  - @nextui-org/kbd@2.0.17
+  - @nextui-org/link@2.0.19
+  - @nextui-org/listbox@2.1.7
+  - @nextui-org/menu@2.0.8
+  - @nextui-org/modal@2.0.20
+  - @nextui-org/navbar@2.0.19
+  - @nextui-org/popover@2.1.6
+  - @nextui-org/progress@2.0.18
+  - @nextui-org/radio@2.0.19
+  - @nextui-org/scroll-shadow@2.1.6
+  - @nextui-org/select@2.1.8
+  - @nextui-org/skeleton@2.0.16
+  - @nextui-org/snippet@2.0.22
+  - @nextui-org/spacer@2.0.16
+  - @nextui-org/spinner@2.0.16
+  - @nextui-org/switch@2.0.18
+  - @nextui-org/tabs@2.0.18
+  - @nextui-org/tooltip@2.0.21
+  - @nextui-org/user@2.0.19
+
 ## 2.1.9
 
 ### Patch Changes

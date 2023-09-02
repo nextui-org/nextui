@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.6
+
+### Patch Changes
+
+- [#1558](https://github.com/nextui-org/nextui/pull/1558) [`7c8341035`](https://github.com/nextui-org/nextui/commit/7c8341035dbdd120cd78221b3cabab2e40e7478d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pagination changeset
+
 ## 2.1.5
 
 ### Patch Changes
