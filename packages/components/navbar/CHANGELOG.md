@@ -1,5 +1,16 @@
 # @nextui-org/navbar
 
+## 2.0.18
+
+### Patch Changes
+
+- [#1555](https://github.com/nextui-org/nextui/pull/1555) [`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Navbar menu scroll fixed
+
+- Updated dependencies [[`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23), [`4db10a47e`](https://github.com/nextui-org/nextui/commit/4db10a47e96ad8315b5b96c2ff15574ac0fdeecc)]:
+  - @nextui-org/theme@2.1.5
+  - @nextui-org/system@2.0.7
+  - @nextui-org/framer-transitions@2.0.7
+
 ## 2.0.17
 
 ### Patch Changes
