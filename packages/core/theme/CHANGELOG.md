@@ -1,5 +1,13 @@
 # @nextui-org/theme
 
+## 2.1.5
+
+### Patch Changes
+
+- [#1555](https://github.com/nextui-org/nextui/pull/1555) [`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Tailwind variants upgraded to the latest version v0.1.14
+
+- [`4db10a47e`](https://github.com/nextui-org/nextui/commit/4db10a47e96ad8315b5b96c2ff15574ac0fdeecc) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pagination changes reverted
+
 ## 2.1.4
 
 ### Patch Changes
