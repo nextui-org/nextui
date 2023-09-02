@@ -175,47 +175,42 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
   }
 
-  function scrollTo(value: number, skipAnimation: boolean) {
+  function scrollTo(value: number) {
     const map = getItemsRefMap();
 
     const node = map.get(value);
 
-    if (!node || !cursorRef.current) return;
-
     // clean up the previous cursor timer (if any)
     cursorTimer.current && clearTimeout(cursorTimer.current);
 
-    // scroll parent to the item
-    scrollIntoView(node, {
-      scrollMode: "always",
-      behavior: "smooth",
-      block: "start",
-      inline: "start",
-      boundary: domRef.current,
-    });
+    if (node) {
+      // scroll parent to the item
+      scrollIntoView(node, {
+        scrollMode: "always",
+        behavior: "smooth",
+        block: "start",
+        inline: "start",
+        boundary: domRef.current,
+      });
 
-    // get position of the item
-    const {offsetLeft} = node;
+      // get position of the item
+      const {offsetLeft} = node;
 
-    // only shows the animation when the page changes, not on intial render or layout shift
-    if (skipAnimation) {
-      cursorRef.current.setAttribute("data-moving", "false");
-      cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
-      return;
-    }
-
-    // move the cursor to the item
-    cursorRef.current.setAttribute("data-moving", "true");
-    cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1.1)`;
-
-    cursorTimer.current = setTimeout(() => {
-      // reset the scale of the cursor
+      // move the cursor to the item
       if (cursorRef.current) {
-        cursorRef.current.setAttribute("data-moving", "false");
-        cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
+        cursorRef.current.setAttribute("data-moving", "true");
+        cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1.1)`;
       }
-      cursorTimer.current && clearTimeout(cursorTimer.current);
-    }, CURSOR_TRANSITION_TIMEOUT);
+
+      cursorTimer.current = setTimeout(() => {
+        // reset the scale of the cursor
+        if (cursorRef.current) {
+          cursorRef.current.setAttribute("data-moving", "false");
+          cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
+        }
+        cursorTimer.current && clearTimeout(cursorTimer.current);
+      }, CURSOR_TRANSITION_TIMEOUT);
+    }
   }
 
   const {range, activePage, setPage, previous, next, first, last} = useBasePagination({
@@ -228,19 +223,15 @@ export function usePagination(originalProps: UsePaginationProps) {
     onChange,
   });
 
-  const activePageRef = useRef(activePage);
   useEffect(() => {
     if (activePage && !originalProps.disableAnimation) {
-      scrollTo(activePage, activePage === activePageRef.current);
+      scrollTo(activePage);
     }
-    activePageRef.current = activePage;
   }, [
     activePage,
     originalProps.disableAnimation,
-    originalProps.disableCursorAnimation,
-    originalProps.dotsJump,
     originalProps.isCompact,
-    originalProps.showControls,
+    originalProps.disableCursorAnimation,
   ]);
 
   const slots = useMemo(
