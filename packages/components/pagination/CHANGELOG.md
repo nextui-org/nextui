@@ -1,24 +1,5 @@
 # @nextui-org/pagination
 
-## 2.0.18
-
-### Patch Changes
-
-- [#1222](https://github.com/nextui-org/nextui/pull/1222) [`28477447d`](https://github.com/nextui-org/nextui/commit/28477447d3dc9d87fdc6dea666ae4ce76e7c5bfb) Thanks [@jguddas](https://github.com/jguddas)! - fix: resolved cursor issues in pagination
-
-  - The cursor does not animate anymore on initial render and non page change prop changes.
-  - The cursor hover state now looks good with disableAnimation set.
-  - The animated cursor is now transparent to the cursor (pointer-events: none).
-
-- [#1552](https://github.com/nextui-org/nextui/pull/1552) [`8fcc8b376`](https://github.com/nextui-org/nextui/commit/8fcc8b37670fc1c7823d2ef78ad459078d6c76f4) Thanks [@jguddas](https://github.com/jguddas)! - fix: fixed pagination scale animation
-
-  For animations of the pagination cursor to be enabled data-moving needs to be set to true.
-  We are now setting the data-moving to false 300ms after setting the cursor scale to 1.
-
-- Updated dependencies [[`28477447d`](https://github.com/nextui-org/nextui/commit/28477447d3dc9d87fdc6dea666ae4ce76e7c5bfb), [`fc3c6b943`](https://github.com/nextui-org/nextui/commit/fc3c6b9431c0c6bcb4af5e2a0be0fc50f652b182)]:
-  - @nextui-org/theme@2.1.5
-  - @nextui-org/system@2.0.7
-
 ## 2.0.17
 
 ### Patch Changes
