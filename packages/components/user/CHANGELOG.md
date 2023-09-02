@@ -1,5 +1,13 @@
 # @nextui-org/user
 
+## 2.0.19
+
+### Patch Changes
+
+- Updated dependencies [[`7c8341035`](https://github.com/nextui-org/nextui/commit/7c8341035dbdd120cd78221b3cabab2e40e7478d)]:
+  - @nextui-org/theme@2.1.6
+  - @nextui-org/avatar@2.0.18
+
 ## 2.0.18
 
 ### Patch Changes
