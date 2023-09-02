@@ -43,7 +43,7 @@
     "clean-package": "2.2.0"
   },
   "dependencies": {
-    "tailwind-variants": "^0.1.13",
+    "tailwind-variants": "^0.1.14",
     "clsx": "^1.2.1"
   },
   "clean-package": "../../../clean-package.config.json",
