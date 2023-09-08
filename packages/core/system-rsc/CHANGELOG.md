@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.0.4
+
+### Patch Changes
+
+- [#1555](https://github.com/nextui-org/nextui/pull/1555) [`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Tailwind variants upgraded to the latest version v0.1.14
+
 ## 2.0.3
 
 ### Patch Changes

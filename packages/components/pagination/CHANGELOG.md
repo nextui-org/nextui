@@ -1,5 +1,29 @@
 # @nextui-org/pagination
 
+## 2.0.19
+
+### Patch Changes
+
+- [#1558](https://github.com/nextui-org/nextui/pull/1558) [`7c8341035`](https://github.com/nextui-org/nextui/commit/7c8341035dbdd120cd78221b3cabab2e40e7478d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pagination changeset
+
+- Updated dependencies [[`7c8341035`](https://github.com/nextui-org/nextui/commit/7c8341035dbdd120cd78221b3cabab2e40e7478d)]:
+  - @nextui-org/theme@2.1.6
+
+## 2.0.18
+
+### Patch Changes
+
+- [#1555](https://github.com/nextui-org/nextui/pull/1555) [`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix: fixed pagination scale animation
+
+  For animations of the pagination cursor to be enabled data-moving needs to be set to true.
+  We are now setting the data-moving to false 300ms after setting the cursor scale to 1.
+
+- [`4db10a47e`](https://github.com/nextui-org/nextui/commit/4db10a47e96ad8315b5b96c2ff15574ac0fdeecc) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pagination changes reverted
+
+- Updated dependencies [[`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23), [`4db10a47e`](https://github.com/nextui-org/nextui/commit/4db10a47e96ad8315b5b96c2ff15574ac0fdeecc)]:
+  - @nextui-org/theme@2.1.5
+  - @nextui-org/system@2.0.7
+
 ## 2.0.17
 
 ### Patch Changes

@@ -175,12 +175,10 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
   }
 
-  function scrollTo(value: number, skipAnimation: boolean) {
+  function scrollTo(value: number) {
     const map = getItemsRefMap();
 
     const node = map.get(value);
-
-    if (!node || !cursorRef.current) return;
 
     // clean up the previous cursor timer (if any)
     cursorTimer.current && clearTimeout(cursorTimer.current);
@@ -236,16 +234,13 @@ export function usePagination(originalProps: UsePaginationProps) {
 
   useEffect(() => {
     if (activePage && !originalProps.disableAnimation) {
-      scrollTo(activePage, activePage === activePageRef.current);
+      scrollTo(activePage);
     }
-    activePageRef.current = activePage;
   }, [
     activePage,
     originalProps.disableAnimation,
-    originalProps.disableCursorAnimation,
-    originalProps.dotsJump,
     originalProps.isCompact,
-    originalProps.showControls,
+    originalProps.disableCursorAnimation,
   ]);
 
   const slots = useMemo(

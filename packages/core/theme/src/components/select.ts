@@ -116,7 +116,7 @@ const select = tv({
     },
     labelPlacement: {
       outside: {
-        base: "data-[has-helper=true]:pb-4 flex flex-col",
+        base: "flex flex-col",
         label: "text-foreground pb-1.5",
       },
       "outside-left": {
