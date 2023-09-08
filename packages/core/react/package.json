@@ -76,7 +76,7 @@
     "@nextui-org/select": "workspace:*",
     "@nextui-org/listbox": "workspace:*",
     "@nextui-org/menu": "workspace:*",
-    "@react-aria/visually-hidden": "^3.8.3"
+    "@react-aria/visually-hidden": "^3.8.4"
   },
   "peerDependencies": {
     "react": ">=18",

@@ -53,13 +53,13 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/divider": "workspace:*",
-    "@react-aria/accordion": "3.0.0-alpha.20",
-    "@react-aria/interactions": "^3.17.0",
-    "@react-aria/focus": "^3.14.0",
-    "@react-aria/utils": "^3.19.0",
-    "@react-stately/tree": "^3.7.1",
-    "@react-types/accordion": "3.0.0-alpha.15",
-    "@react-types/shared": "^3.19.0"
+    "@react-aria/accordion": "3.0.0-alpha.21",
+    "@react-aria/interactions": "^3.18.0",
+    "@react-aria/focus": "^3.14.1",
+    "@react-aria/utils": "^3.20.0",
+    "@react-stately/tree": "^3.7.2",
+    "@react-types/accordion": "3.0.0-alpha.16",
+    "@react-types/shared": "^3.20.0"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",

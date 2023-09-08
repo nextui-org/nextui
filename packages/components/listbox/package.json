@@ -44,13 +44,13 @@
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
-    "@react-aria/utils": "^3.19.0",
-    "@react-aria/listbox": "^3.10.0",
-    "@react-stately/list": "^3.9.0",
-    "@react-aria/focus": "^3.13.0",
-    "@react-aria/interactions": "^3.16.0",
-    "@react-types/menu": "^3.9.2",
-    "@react-types/shared": "^3.18.1"
+    "@react-aria/utils": "^3.20.0",
+    "@react-aria/listbox": "^3.10.2",
+    "@react-stately/list": "^3.9.2",
+    "@react-aria/focus": "^3.14.1",
+    "@react-aria/interactions": "^3.18.0",
+    "@react-types/menu": "^3.9.4",
+    "@react-types/shared": "^3.20.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
