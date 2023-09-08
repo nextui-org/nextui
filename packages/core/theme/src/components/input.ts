@@ -25,11 +25,14 @@ const input = tv({
   slots: {
     base: "group flex flex-col",
     label: "block text-small font-medium text-foreground-600",
-    mainWrapper: "",
-    inputWrapper: "relative w-full inline-flex flex-row items-center shadow-sm px-3 gap-3",
+    mainWrapper: "h-full",
+    inputWrapper:
+      "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
     input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
     clearButton: [
+      "p-2",
+      "-m-2",
       "z-10",
       "hidden",
       "absolute",
@@ -101,21 +104,11 @@ const input = tv({
     },
     color: {
       default: {},
-      primary: {
-        label: "text-primary",
-      },
-      secondary: {
-        label: "text-secondary",
-      },
-      success: {
-        label: "text-success-600 dark:text-success",
-      },
-      warning: {
-        label: "text-warning-600 dark:text-warning",
-      },
-      danger: {
-        label: "text-danger dark:text-danger-500",
-      },
+      primary: {},
+      secondary: {},
+      success: {},
+      warning: {},
+      danger: {},
     },
     size: {
       sm: {
@@ -154,22 +147,17 @@ const input = tv({
     },
     labelPlacement: {
       outside: {
-        base: "data-[has-helper=true]:pb-4",
         label: "text-foreground pb-1.5",
         mainWrapper: "flex flex-col",
-        description: "absolute left-1",
-        errorMessage: "absolute left-1",
       },
       "outside-left": {
-        base: "flex-row items-center flex-nowrap data-[has-helper=true]:pb-4",
+        base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
         label: "text-foreground pr-2",
-        description: "absolute left-1",
-        errorMessage: "absolute left-1",
       },
       inside: {
-        label: "text-tiny",
+        label: "text-tiny cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",
       },
     },
@@ -186,12 +174,14 @@ const input = tv({
     isClearable: {
       true: {
         input: "peer pr-6",
-        clearButton: "peer-[.is-filled]:opacity-70 peer-[.is-filled]:block",
+        clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
     isDisabled: {
       true: {
         base: "opacity-disabled pointer-events-none",
+        inputWrapper: "pointer-events-none",
+        label: "pointer-events-none",
       },
     },
     isInvalid: {
@@ -223,7 +213,7 @@ const input = tv({
           "origin-top-left",
           "transition-all",
           "!duration-200",
-          "!ease-[cubic-bezier(0,0,0.2,1)]",
+          "!ease-out",
           "motion-reduce:transition-none",
         ],
         clearButton: ["transition-opacity", "motion-reduce:transition-none"],
@@ -253,6 +243,7 @@ const input = tv({
           "placeholder:text-primary",
         ],
         input: "placeholder:text-primary",
+        label: "text-primary",
       },
     },
     {
@@ -267,6 +258,7 @@ const input = tv({
           "placeholder:text-secondary",
         ],
         input: "placeholder:text-secondary",
+        label: "text-secondary",
       },
     },
     {
@@ -283,6 +275,7 @@ const input = tv({
           "group-data-[focus=true]:bg-success-50",
         ],
         input: "placeholder:text-success-600 dark:placeholder:text-success",
+        label: "text-success-600 dark:text-success",
       },
     },
     {
@@ -299,6 +292,7 @@ const input = tv({
           "group-data-[focus=true]:bg-warning-50",
         ],
         input: "placeholder:text-warning-600 dark:placeholder:text-warning",
+        label: "text-warning-600 dark:text-warning",
       },
     },
     {
@@ -315,6 +309,7 @@ const input = tv({
           "group-data-[focus=true]:bg-danger-50",
         ],
         input: "placeholder:text-danger dark:placeholder:text-danger-500",
+        label: "text-danger dark:text-danger-500",
       },
     },
     // faded & color
@@ -364,6 +359,7 @@ const input = tv({
       color: "primary",
       class: {
         inputWrapper: "after:bg-primary",
+        label: "text-primary",
       },
     },
     {
@@ -371,6 +367,7 @@ const input = tv({
       color: "secondary",
       class: {
         inputWrapper: "after:bg-secondary",
+        label: "text-secondary",
       },
     },
     {
@@ -378,6 +375,7 @@ const input = tv({
       color: "success",
       class: {
         inputWrapper: "after:bg-success",
+        label: "text-success",
       },
     },
     {
@@ -385,6 +383,7 @@ const input = tv({
       color: "warning",
       class: {
         inputWrapper: "after:bg-warning",
+        label: "text-warning",
       },
     },
     {
@@ -392,6 +391,7 @@ const input = tv({
       color: "danger",
       class: {
         inputWrapper: "after:bg-danger",
+        label: "text-danger",
       },
     },
     // bordered & color
@@ -400,6 +400,7 @@ const input = tv({
       color: "primary",
       class: {
         inputWrapper: "group-data-[focus=true]:border-primary",
+        label: "text-primary",
       },
     },
     {
@@ -407,6 +408,7 @@ const input = tv({
       color: "secondary",
       class: {
         inputWrapper: "group-data-[focus=true]:border-secondary",
+        label: "text-secondary",
       },
     },
     {
@@ -414,6 +416,7 @@ const input = tv({
       color: "success",
       class: {
         inputWrapper: "group-data-[focus=true]:border-success",
+        label: "text-success",
       },
     },
     {
@@ -421,6 +424,7 @@ const input = tv({
       color: "warning",
       class: {
         inputWrapper: "group-data-[focus=true]:border-warning",
+        label: "text-warning",
       },
     },
     {
@@ -428,6 +432,7 @@ const input = tv({
       color: "danger",
       class: {
         inputWrapper: "group-data-[focus=true]:border-danger",
+        label: "text-danger",
       },
     },
     // radius-full & size
@@ -523,7 +528,7 @@ const input = tv({
       size: "lg",
       class: {
         label: "text-small",
-        inputWrapper: "h-16 py-2.5 gap-1",
+        inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
     // isLabelPlaceholder & labelPlacement
@@ -533,20 +538,9 @@ const input = tv({
       class: {
         label: [
           "font-normal",
-          "text-foreground-500",
-          "group-focus-within:font-medium",
-          "group-[.is-filled]:font-medium",
-          "group-focus-within:pointer-events-auto",
-          "group-[.is-filled]:pointer-events-auto",
+          "group-data-[filled-within=true]:font-medium",
+          "group-data-[filled-within=true]:pointer-events-auto",
         ],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      labelPlacement: "inside",
-      class: {
-        inputWrapper: "group",
-        label: ["group-focus-within:text-foreground-600", "group-[.is-filled]:text-foreground-600"],
       },
     },
     {
@@ -556,80 +550,13 @@ const input = tv({
         base: "group relative justify-end",
         label: [
           "pb-0",
-          "group-focus-within:left-0",
-          "group-[.is-filled]:left-0",
-          "group-focus-within:text-foreground",
-          "group-[.is-filled]:text-foreground",
+          "z-20",
+          "opacity-60",
+          "top-1/2",
+          "-translate-y-1/2",
+          "group-data-[filled-within=true]:left-0",
+          "group-data-[filled-within=true]:opacity-100",
         ],
-      },
-    },
-    // isLabelPlaceholder & color
-    {
-      isLabelPlaceholder: true,
-      color: "primary",
-      class: {
-        label: ["group-focus-within:text-primary", "group-[.is-filled]:text-primary"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      color: "secondary",
-      class: {
-        label: ["group-focus-within:text-secondary", "group-[.is-filled]:text-secondary"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      color: "success",
-      class: {
-        label: ["group-focus-within:text-success", "group-[.is-filled]:text-success"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      color: "warning",
-      class: {
-        label: ["group-focus-within:text-warning", "group-[.is-filled]:text-warning"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      color: "danger",
-      class: {
-        label: ["group-focus-within:text-danger", "group-[.is-filled]:text-danger"],
-      },
-    },
-    // isLabelPlaceholder & underlined
-    {
-      isLabelPlaceholder: true,
-      variant: "underlined",
-      class: {
-        label: ["group-focus-within:pt-0", "group-[.is-filled]:pt-0"],
-      },
-    },
-    // isLabelPlaceholder & underlined & size
-    {
-      isLabelPlaceholder: true,
-      variant: "underlined",
-      size: "sm",
-      class: {
-        label: ["pt-3"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      variant: "underlined",
-      size: "md",
-      class: {
-        label: ["pt-4"],
-      },
-    },
-    {
-      isLabelPlaceholder: true,
-      variant: "underlined",
-      size: "lg",
-      class: {
-        label: ["pt-5"],
       },
     },
     // isLabelPlaceholder & inside & size
@@ -638,7 +565,7 @@ const input = tv({
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-small", "group-focus-within:text-tiny", "group-[.is-filled]:text-tiny"],
+        label: ["text-small", "group-data-[filled-within=true]:text-tiny"],
         input: "pt-4",
       },
     },
@@ -647,7 +574,9 @@ const input = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        label: ["group-focus-within:-translate-y-2.5", "group-[.is-filled]:-translate-y-2.5"],
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_3px)]",
+        ],
         input: "pt-4",
       },
     },
@@ -656,7 +585,9 @@ const input = tv({
       labelPlacement: "inside",
       size: "md",
       class: {
-        label: ["group-focus-within:-translate-y-3", "group-[.is-filled]:-translate-y-3"],
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+        ],
         input: "pt-4",
       },
     },
@@ -667,12 +598,10 @@ const input = tv({
       class: {
         label: [
           "text-medium",
-          "group-focus-within:text-small",
-          "group-focus-within:-translate-y-3",
-          "group-[.is-filled]:text-small",
-          "group-[.is-filled]:-translate-y-3",
+          "group-data-[filled-within=true]:text-small",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
         ],
-        input: "pt-6",
+        input: "pt-5",
       },
     },
     // isLabelPlaceholder & outside & size
@@ -682,11 +611,10 @@ const input = tv({
       size: "sm",
       class: {
         label: [
-          "text-tiny",
-          "bottom-2",
           "left-2",
-          "group-focus-within:bottom-10",
-          "group-[.is-filled]:bottom-10",
+          "text-small",
+          "group-data-[filled-within=true]:text-tiny",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
       },
     },
@@ -696,11 +624,9 @@ const input = tv({
       size: "md",
       class: {
         label: [
-          "text-small",
-          "bottom-2.5",
           "left-3",
-          "group-focus-within:bottom-12",
-          "group-[.is-filled]:bottom-12",
+          "text-small",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
       },
     },
@@ -710,14 +636,34 @@ const input = tv({
       size: "lg",
       class: {
         label: [
-          "text-medium",
-          "bottom-3",
           "left-3",
-          "group-focus-within:text-small",
-          "group-[.is-filled]:bottom-sm",
-          "group-focus-within:bottom-14",
-          "group-[.is-filled]:bottom-14",
+          "text-medium",
+          "group-data-[filled-within=true]:text-small",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
+      },
+    },
+
+    // outside-left & size & hasHelper
+    {
+      labelPlacement: "outside-left",
+      size: "sm",
+      class: {
+        label: "group-data-[has-helper=true]:pt-2",
+      },
+    },
+    {
+      labelPlacement: "outside-left",
+      size: "md",
+      class: {
+        label: "group-data-[has-helper=true]:pt-3",
+      },
+    },
+    {
+      labelPlacement: "outside-left",
+      size: "lg",
+      class: {
+        label: "group-data-[has-helper=true]:pt-4",
       },
     },
   ],

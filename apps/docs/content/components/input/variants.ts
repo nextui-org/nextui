@@ -1,7 +1,6 @@
 const App = `import {Input} from "@nextui-org/react";
 
 export default function App() {
-
   const variants = ["flat", "bordered", "underlined", "faded"];
 
   return (

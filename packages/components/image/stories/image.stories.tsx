@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {image} from "@nextui-org/theme";
 
 import {Image, ImageProps} from "../src";
@@ -11,14 +11,14 @@ export default {
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     shadow: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     isBlurred: {
       control: {
@@ -43,18 +43,16 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Image>;
+} as Meta<typeof Image>;
 
 const defaultProps = {
   ...image.defaultVariants,
-  src: require("./assets/local-image-1.jpeg"),
+  src: "./images/local-image-1.jpeg",
   alt: "NextUI hero image",
   disableSkeleton: true,
 };
 
-const Template: ComponentStory<typeof Image> = (args: ImageProps) => <Image {...args} />;
-
-const LoadingTemplate: ComponentStory<typeof Image> = (args: ImageProps) => {
+const LoadingTemplate = (args: ImageProps) => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -72,64 +70,75 @@ const LoadingTemplate: ComponentStory<typeof Image> = (args: ImageProps) => {
   return <Image {...args} isLoading={isLoading} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  width: 300,
-  ...defaultProps,
+export const Default = {
+  args: {
+    width: 300,
+    ...defaultProps,
+  },
 };
 
-export const Blurred = Template.bind({});
-Blurred.args = {
-  ...defaultProps,
-  width: 300,
-  isBlurred: true,
-  src: require("./assets/local-image-small.jpg"),
-  // src:
-  //   "https://images.unsplash.com/photo-1519638831568-d9897f54ed69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+export const Blurred = {
+  args: {
+    ...defaultProps,
+    width: 300,
+    isBlurred: true,
+    src: "/images/local-image-small.jpg",
+    // src:
+    //   "https://images.unsplash.com/photo-1519638831568-d9897f54ed69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+  },
 };
 
-export const Zoomed = Template.bind({});
-Zoomed.args = {
-  ...defaultProps,
-  width: 300,
-  isZoomed: true,
-  radius: "lg",
-  src: "https://nextui.org/images/card-example-2.jpeg",
+export const Zoomed = {
+  args: {
+    ...defaultProps,
+    width: 300,
+    isZoomed: true,
+    radius: "lg",
+    src: "https://nextui.org/images/card-example-2.jpeg",
+  },
 };
 
-export const Shadow = Template.bind({});
-Shadow.args = {
-  ...defaultProps,
-  width: 300,
-  isZoomed: true,
-  radius: "lg",
-  shadow: "md",
-  src: require("./assets/local-image-small.jpg"),
+export const Shadow = {
+  args: {
+    ...defaultProps,
+    width: 300,
+    isZoomed: true,
+    radius: "lg",
+    shadow: "md",
+    src: "/images/local-image-small.jpg",
+  },
 };
 
-export const AnimatedLoad = Template.bind({});
-AnimatedLoad.args = {
-  ...defaultProps,
-  width: 300,
-  radius: "lg",
-  src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+export const AnimatedLoad = {
+  args: {
+    ...defaultProps,
+    width: 300,
+    radius: "lg",
+    src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+  },
 };
 
-export const Fallback = LoadingTemplate.bind({});
-Fallback.args = {
-  ...defaultProps,
-  width: 300,
-  radius: "lg",
-  src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
-  fallbackSrc: "https://via.placeholder.com/300x450",
+export const Fallback = {
+  render: LoadingTemplate,
+
+  args: {
+    ...defaultProps,
+    width: 300,
+    radius: "lg",
+    src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+    fallbackSrc: "/images/placeholder_300x450.png",
+  },
 };
 
-export const Skeleton = LoadingTemplate.bind({});
-Skeleton.args = {
-  ...defaultProps,
-  width: 300,
-  height: 450,
-  radius: "lg",
-  src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-  disableSkeleton: false,
+export const Skeleton = {
+  render: LoadingTemplate,
+
+  args: {
+    ...defaultProps,
+    width: 300,
+    height: 450,
+    radius: "lg",
+    src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    disableSkeleton: false,
+  },
 };

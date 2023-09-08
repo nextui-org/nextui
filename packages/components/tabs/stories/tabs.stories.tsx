@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {button, link, tabs} from "@nextui-org/theme";
 import Lorem from "react-lorem-component";
 import {Input} from "@nextui-org/input";
@@ -23,26 +23,26 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "underlined", "bordered", "light"],
       },
+      options: ["solid", "underlined", "bordered", "light"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     isDisabled: {
       control: {
@@ -55,13 +55,13 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
 const defaultProps = {
   ...tabs.defaultVariants,
 };
 
-const StaticTemplate: ComponentStory<any> = (args: TabsProps) => (
+const StaticTemplate = (args: TabsProps) => (
   <Tabs aria-label="Tabs example" {...args}>
     <Tab key="world" title="World">
       <Lorem count={1} sentenceUpperBound={20} />
@@ -81,7 +81,7 @@ const StaticTemplate: ComponentStory<any> = (args: TabsProps) => (
   </Tabs>
 );
 
-const WithIconsTemplate: ComponentStory<any> = (args: TabsProps) => (
+const WithIconsTemplate = (args: TabsProps) => (
   <Tabs
     aria-label="Tabs example"
     {...args}
@@ -89,16 +89,20 @@ const WithIconsTemplate: ComponentStory<any> = (args: TabsProps) => (
       tab: "text-lg",
     }}
   >
-    <Tab key="align-left" title={<AlignLeftBoldIcon />} />
-    <Tab key="align-vertically" title={<AlignVerticallyBoldIcon />} />
-    <Tab key="align-right" title={<AlignRightBoldIcon />} />
-    <Tab key="align-top" title={<AlignTopBoldIcon />} />
-    <Tab key="align-horizontally" title={<AlignHorizontallyBoldIcon />} />
-    <Tab key="align-bottom" title={<AlignBottomBoldIcon />} />
+    <Tab key="align-left" title={<AlignLeftBoldIcon />} titleValue="Align left" />
+    <Tab key="align-vertically" title={<AlignVerticallyBoldIcon />} titleValue="Align vertically" />
+    <Tab key="align-right" title={<AlignRightBoldIcon />} titleValue="Align right" />
+    <Tab key="align-top" title={<AlignTopBoldIcon />} titleValue="Align top" />
+    <Tab
+      key="align-horizontally"
+      title={<AlignHorizontallyBoldIcon />}
+      titleValue="Align horizontally"
+    />
+    <Tab key="align-bottom" title={<AlignBottomBoldIcon />} titleValue="Align bottom" />
   </Tabs>
 );
 
-const ControlledTemplate: ComponentStory<any> = (args: TabsProps) => {
+const ControlledTemplate = (args: TabsProps) => {
   const [selected, setSelected] = React.useState<React.Key>("world");
 
   return (
@@ -152,7 +156,7 @@ type Item = {
   content?: React.ReactNode;
 };
 
-const DynamicTemplate: ComponentStory<any> = (args: TabsProps<Item>) => {
+const DynamicTemplate = (args: TabsProps<Item>) => {
   let tabs: Item[] = [
     {
       id: "world",
@@ -196,7 +200,7 @@ const DynamicTemplate: ComponentStory<any> = (args: TabsProps<Item>) => {
   );
 };
 
-const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
+const WithFormTemplate = (args: TabsProps) => {
   const [selected, setSelected] = React.useState<React.Key>("login");
 
   return (
@@ -261,53 +265,80 @@ const WithFormTemplate: ComponentStory<any> = (args: TabsProps) => {
   );
 };
 
-export const Static = StaticTemplate.bind({});
-Static.args = {
-  ...defaultProps,
+export const Static = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Dynamic = DynamicTemplate.bind({});
-Dynamic.args = {
-  ...defaultProps,
+export const Dynamic = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithIcons = WithIconsTemplate.bind({});
-WithIcons.args = {
-  ...defaultProps,
+export const WithIcons = {
+  render: WithIconsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithForm = WithFormTemplate.bind({});
-WithForm.args = {
-  ...defaultProps,
-  fullWidth: true,
-  variant: "underlined",
+export const WithForm = {
+  render: WithFormTemplate,
+
+  args: {
+    ...defaultProps,
+    fullWidth: true,
+    variant: "underlined",
+  },
 };
 
-export const ManualKeyboardActivation = StaticTemplate.bind({});
-ManualKeyboardActivation.args = {
-  ...defaultProps,
-  keyboardActivation: "manual",
+export const ManualKeyboardActivation = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    keyboardActivation: "manual",
+  },
 };
 
-export const DisabledItems = StaticTemplate.bind({});
-DisabledItems.args = {
-  ...defaultProps,
-  disabledKeys: ["ny", "arts"],
+export const DisabledItems = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    disabledKeys: ["ny", "arts"],
+  },
 };
 
-export const Disabled = StaticTemplate.bind({});
-Disabled.args = {
-  ...defaultProps,
-  isDisabled: true,
+export const Disabled = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    isDisabled: true,
+  },
 };
 
-export const DisableAnimation = StaticTemplate.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  disableAnimation: true,
+export const DisableAnimation = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    disableAnimation: true,
+  },
 };

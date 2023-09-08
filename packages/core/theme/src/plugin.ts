@@ -195,6 +195,9 @@ const corePlugin = (
             ...(addCommonColors ? commonColors : {}),
             ...resolved.colors,
           },
+          scale: {
+            "80": "0.8",
+          },
           height: {
             divider: `var(--${prefix}-divider-weight)`,
           },
@@ -258,7 +261,7 @@ const corePlugin = (
   );
 };
 
-export const nextui = (config: NextUIPluginConfig = {}) => {
+export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugin> => {
   const {
     themes: themeObject = {},
     defaultTheme = "light",

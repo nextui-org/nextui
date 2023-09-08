@@ -17,7 +17,7 @@ import {createDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 
-interface Props extends Omit<HTMLNextUIProps<"div">, "content"> {
+interface Props extends Omit<HTMLNextUIProps, "content"> {
   /**
    * Ref to the DOM node.
    */
@@ -208,8 +208,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
       ...mergeProps(triggerProps, props),
       ref: mergeRefs(_ref, triggerRef),
       "aria-describedby": isOpen ? tooltipId : undefined,
-      onPointerEnter: () => state.open(),
-      onPointerLeave: () => state.isOpen && state.close(),
     }),
     [triggerProps, isOpen, tooltipId, state],
   );
@@ -221,7 +219,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
       "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
       className: slots.base({class: baseStyles}),
-      ...mergeProps(tooltipProps, positionProps, overlayProps, otherProps),
+      ...mergeProps(tooltipProps, overlayProps, otherProps),
+      style: mergeProps(positionProps.style, otherProps.style, props.style),
       id: tooltipId,
     }),
     [
@@ -251,7 +250,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
     children,
     isOpen,
     triggerRef,
-    triggerProps,
     showArrow,
     portalContainer,
     placement: placementProp,

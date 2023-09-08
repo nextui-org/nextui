@@ -1,7 +1,7 @@
 {
   "name": "@nextui-org/use-infinite-scroll",
-  "version": "0.0.0-dev-v2-20230725193627",
-  "description": "A hook for handling infinity scroll based on the IntersectionObserver API",
+  "version": "2.1.0",
+  "description": "A hook for handling infinite scroll based on the IntersectionObserver API",
   "keywords": [
     "use-infinite-scroll"
   ],
@@ -32,6 +32,10 @@
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "@types/lodash.debounce": "^4.0.7"
   },
   "peerDependencies": {
     "react": ">=18"

@@ -5,7 +5,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-5">
-      <p className="text-default-500">Selected Page: {currentPage}</p>
+      <p className="text-small text-default-500">Selected Page: {currentPage}</p>
       <Pagination
         total={10}
         color="secondary"

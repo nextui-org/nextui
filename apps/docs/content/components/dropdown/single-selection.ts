@@ -19,7 +19,7 @@ export default function App() {
         </Button>
       </DropdownTrigger>
       <DropdownMenu 
-        aria-label="Single selection actions"
+        aria-label="Single selection example"
         variant="flat"
         disallowEmptySelection
         selectionMode="single"

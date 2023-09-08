@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/badge",
-  "version": "0.0.0-dev-v2-20230725193627",
+  "version": "2.0.14",
   "description": "Badges are used as a small numerical value or status descriptor for UI elements.",
   "keywords": [
     "badge"
@@ -37,7 +37,7 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
+    "@nextui-org/system-rsc": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*"

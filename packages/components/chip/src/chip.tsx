@@ -1,12 +1,12 @@
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {useMemo, forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
+import {useMemo} from "react";
 
 import {UseChipProps, useChip} from "./use-chip";
 
-export interface ChipProps
-  extends Omit<UseChipProps, "ref" | "isOneChar" | "isCloseButtonFocusVisible"> {}
+export interface ChipProps extends Omit<UseChipProps, "isOneChar" | "isCloseButtonFocusVisible"> {}
 
-const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
+const Chip = forwardRef<"div", ChipProps>((props, ref) => {
   const {
     Component,
     children,
@@ -19,8 +19,8 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
     getCloseButtonProps,
     getChipProps,
   } = useChip({
-    ref,
     ...props,
+    ref,
   });
 
   const start = useMemo(() => {

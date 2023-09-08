@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/table",
-  "version": "0.0.0-dev-v2-20230725193627",
+  "version": "2.0.18",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"
@@ -38,32 +38,34 @@
   },
   "dependencies": {
     "@nextui-org/checkbox": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/focus": "^3.13.0",
-    "@react-aria/interactions": "^3.16.0",
-    "@react-aria/table": "^3.10.0",
-    "@react-aria/utils": "^3.18.0",
-    "@react-aria/visually-hidden": "^3.8.2",
-    "@react-stately/table": "^3.10.0",
-    "@react-types/grid": "^3.1.8",
-    "@react-types/table": "^3.7.0"
+    "@react-aria/focus": "^3.14.0",
+    "@react-aria/interactions": "^3.17.0",
+    "@react-aria/table": "^3.11.0",
+    "@react-aria/utils": "^3.19.0",
+    "@react-aria/visually-hidden": "^3.8.3",
+    "@react-stately/table": "^3.11.0",
+    "@react-stately/virtualizer": "^3.6.0",
+    "@react-types/grid": "^3.2.0",
+    "@react-types/table": "^3.8.0"
   },
   "devDependencies": {
-    "@nextui-org/chip": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
+    "@nextui-org/chip": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
-    "@nextui-org/use-infinite-scroll": "workspace:*",
+    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
+    "@nextui-org/use-infinite-scroll": "workspace:*",
     "@nextui-org/user": "workspace:*",
-    "@react-stately/data": "^3.10.0",
+    "@react-stately/data": "^3.10.1",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "swr": "^2.2.1"
   },
   "clean-package": "../../../clean-package.config.json"
 }

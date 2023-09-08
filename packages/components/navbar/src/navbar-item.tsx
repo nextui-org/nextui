@@ -13,7 +13,7 @@ export interface NavbarItemProps extends HTMLNextUIProps<"li"> {
   isActive?: boolean;
 }
 
-const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
+const NavbarItem = forwardRef<"li", NavbarItemProps>((props, ref) => {
   const {as, className, children, isActive, ...otherProps} = props;
 
   const Component = as || "li";

@@ -1,8 +1,8 @@
 # @nextui-org/user
 
-A Quick description of the component
+Display user information with avatar and name.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/user) for more information.
 
 ## Installation
 

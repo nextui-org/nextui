@@ -1,4 +1,4 @@
-const App = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Avatar, User} from "@nextui-org/react";
+const App = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, User} from "@nextui-org/react";
 
 export default function App() {
   return (

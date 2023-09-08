@@ -1,11 +1,12 @@
 import {VisuallyHidden} from "@react-aria/visually-hidden";
-import {cloneElement, ReactElement, forwardRef} from "react";
+import {cloneElement, ReactElement} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseSwitchProps, useSwitch} from "./use-switch";
 
-export interface SwitchProps extends Omit<UseSwitchProps, "ref"> {}
+export interface SwitchProps extends UseSwitchProps {}
 
-const Switch = forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
+const Switch = forwardRef<"label", SwitchProps>((props, ref) => {
   const {
     Component,
     children,
@@ -20,7 +21,7 @@ const Switch = forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => {
     getLabelProps,
     getStartContentProps,
     getEndContentProps,
-  } = useSwitch({ref, ...props});
+  } = useSwitch({...props, ref});
 
   const clonedThumbIcon =
     typeof thumbIcon === "function"

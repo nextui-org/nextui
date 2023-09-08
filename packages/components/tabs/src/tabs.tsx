@@ -1,16 +1,17 @@
-import {forwardRef, ForwardedRef, ReactElement, Ref, useId} from "react";
+import {ForwardedRef, ReactElement, Ref, useId} from "react";
 import {LayoutGroup} from "framer-motion";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseTabsProps, useTabs} from "./use-tabs";
 import Tab from "./tab";
 import TabPanel from "./tab-panel";
 
-interface Props<T> extends Omit<UseTabsProps<T>, "ref"> {}
+interface Props<T> extends UseTabsProps<T> {}
 
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {Component, values, state, getBaseProps, getTabListProps} = useTabs<T>({
-    ref,
     ...props,
+    ref,
   });
 
   const layoutId = useId();

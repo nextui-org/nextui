@@ -1,15 +1,15 @@
 import type {SpacerVariantProps} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {spacer} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
 import {spacing, Space} from "./utils";
 
-export interface UseSpacerProps extends HTMLNextUIProps<"span", SpacerVariantProps> {
+interface Props extends HTMLNextUIProps<"span"> {
   /**
    * Ref to the DOM node.
    */
@@ -30,6 +30,8 @@ export interface UseSpacerProps extends HTMLNextUIProps<"span", SpacerVariantPro
   y?: Space;
 }
 
+export type UseSpacerProps = Props & SpacerVariantProps;
+
 export const getMargin = (value: Space) => {
   return spacing[value] ?? value;
 };
@@ -37,11 +39,9 @@ export const getMargin = (value: Space) => {
 export function useSpacer(originalProps: UseSpacerProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, spacer.variantKeys);
 
-  const {ref, as, className, x = 1, y = 1, ...otherProps} = props;
+  const {as, className, x = 1, y = 1, ...otherProps} = props;
 
   const Component = as || "span";
-
-  const domRef = useDOMRef(ref);
 
   const styles = useMemo(
     () =>
@@ -56,7 +56,6 @@ export function useSpacer(originalProps: UseSpacerProps) {
   const marginTop = getMargin(y);
 
   const getSpacerProps: PropGetter = (props = {}) => ({
-    ref: domRef,
     ...props,
     ...otherProps,
     "aria-hidden": dataAttr(true),

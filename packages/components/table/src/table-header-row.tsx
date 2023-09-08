@@ -19,10 +19,11 @@ export interface TableHeaderRowProps<T = object> extends HTMLNextUIProps<"tr"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableHeaderRow = forwardRef<TableHeaderRowProps, "tr">((props, ref) => {
+const TableHeaderRow = forwardRef<"tr", TableHeaderRowProps>((props, ref) => {
   const {as, className, children, node, slots, classNames, state, ...otherProps} = props;
 
   const Component = as || "tr";
+  const shouldFilterDOMProps = typeof Component === "string";
   const domRef = useDOMRef(ref);
 
   const {rowProps} = useTableHeaderRow({node}, state, domRef);
@@ -32,7 +33,13 @@ const TableHeaderRow = forwardRef<TableHeaderRowProps, "tr">((props, ref) => {
   return (
     <Component
       ref={domRef}
-      {...mergeProps(rowProps, filterDOMProps(node.props), otherProps)}
+      {...mergeProps(
+        rowProps,
+        filterDOMProps(node.props, {
+          enabled: shouldFilterDOMProps,
+        }),
+        otherProps,
+      )}
       className={slots.tr?.({class: trStyles})}
     >
       {children}

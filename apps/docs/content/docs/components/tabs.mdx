@@ -13,6 +13,8 @@ Tabs organize content into multiple sections and allow users to navigate between
 
 ---
 
+<CarbonAd />
+
 ## Import
 
 NextUI exports 2 tabs-related components:
@@ -94,7 +96,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ## Data Attributes
 
-`Tab` has the following attributes on the `root` element:
+`Tab` has the following attributes on the `base` element:
 
 - **data-selected**:
   When the tab is selected.
@@ -155,10 +157,11 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ### Tab Props
 
-| Attribute  | Type        | Description             | Default |
-| ---------- | ----------- | ----------------------- | ------- |
-| children\* | `ReactNode` | The content of the tab. | -       |
-| title      | `ReactNode` | The title of the tab.   | -       |
+| Attribute  | Type        | Description                                                                                | Default |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------ | ------- |
+| children\* | `ReactNode` | The content of the tab.                                                                    | -       |
+| title      | `ReactNode` | The title of the tab.                                                                      | -       |
+| titleValue | `string`    | A string representation of the item's contents. Use this when the `title` is not readable. | -       |
 
 #### Motion Props
 

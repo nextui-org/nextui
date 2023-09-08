@@ -16,7 +16,7 @@ export interface NavbarContentProps extends HTMLNextUIProps<"ul"> {
   justify?: "start" | "end" | "center";
 }
 
-const NavbarContent = forwardRef<NavbarContentProps, "ul">((props, ref) => {
+const NavbarContent = forwardRef<"ul", NavbarContentProps>((props, ref) => {
   const {as, className, children, justify = "start", ...otherProps} = props;
 
   const Component = as || "ul";

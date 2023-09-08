@@ -1,4 +1,4 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {AnimatePresence, motion, useWillChange} from "framer-motion";
@@ -6,9 +6,9 @@ import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
-export interface AccordionItemProps extends Omit<UseAccordionItemProps, "ref"> {}
+export interface AccordionItemProps extends UseAccordionItemProps {}
 
-const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, ref) => {
+const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {
     Component,
     classNames,
@@ -21,6 +21,7 @@ const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, 
     isOpen,
     isDisabled,
     hideIndicator,
+    keepContentMounted,
     disableAnimation,
     motionProps,
     getBaseProps,
@@ -30,7 +31,7 @@ const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, 
     getSubtitleProps,
     getContentProps,
     getIndicatorProps,
-  } = useAccordionItem({ref, ...props});
+  } = useAccordionItem({...props, ref});
 
   const willChange = useWillChange();
 
@@ -51,7 +52,19 @@ const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, 
       return <div {...getContentProps()}>{children}</div>;
     }
 
-    return (
+    return keepContentMounted ? (
+      <motion.section
+        key="accordion-content"
+        animate={isOpen ? "enter" : "exit"}
+        exit="exit"
+        initial="exit"
+        style={{overflowY: "hidden", willChange}}
+        variants={TRANSITION_VARIANTS.collapse}
+        {...motionProps}
+      >
+        <div {...getContentProps()}>{children}</div>
+      </motion.section>
+    ) : (
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.section
@@ -68,7 +81,7 @@ const AccordionItem = forwardRef<HTMLButtonElement, AccordionItemProps>((props, 
         )}
       </AnimatePresence>
     );
-  }, [isOpen, disableAnimation, children, motionProps]);
+  }, [isOpen, disableAnimation, keepContentMounted, children, motionProps]);
 
   return (
     <Component {...getBaseProps()}>

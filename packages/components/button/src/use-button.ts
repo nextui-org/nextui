@@ -53,7 +53,7 @@ interface Props extends HTMLNextUIProps<"button"> {
   isLoading?: boolean;
   /**
    * The native button click event handler.
-   * @deprecated - use `onPress` instead.
+   * use `onPress` instead.
    */
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
@@ -92,6 +92,7 @@ export function useButton(props: UseButtonProps) {
   } = props;
 
   const Component = as || "button";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -164,7 +165,9 @@ export function useButton(props: UseButtonProps) {
         ariaButtonProps,
         focusProps,
         hoverProps,
-        filterDOMProps(otherProps),
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
         filterDOMProps(props),
       ),
     }),
@@ -173,6 +176,7 @@ export function useButton(props: UseButtonProps) {
       isDisabled,
       isFocused,
       isPressed,
+      shouldFilterDOMProps,
       isFocusVisible,
       isHovered,
       ariaButtonProps,

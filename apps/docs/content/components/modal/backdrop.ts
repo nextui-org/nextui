@@ -16,6 +16,7 @@ export default function App() {
       <div className="flex flex-wrap gap-3">
         {backdrops.map((b) => (
           <Button  
+            key={b}
             variant="flat" 
             color="warning" 
             onPress={() => handleOpen(b)}
@@ -50,7 +51,7 @@ export default function App() {
                 </p>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onClick={onClose}>
+                <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button color="primary" onPress={onClose}>

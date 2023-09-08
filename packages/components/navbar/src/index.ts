@@ -11,7 +11,7 @@ export type {NavbarMenuItemProps} from "./navbar-menu-item";
 export {useNavbar} from "./use-navbar";
 
 // export context
-export * from "./navbar-context";
+export {NavbarProvider, useNavbarContext} from "./navbar-context";
 
 // export components
 export {default as Navbar} from "./navbar";

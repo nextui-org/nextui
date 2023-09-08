@@ -1,6 +1,12 @@
-import {RefObject, useLayoutEffect} from "react";
-import {AriaPopoverProps, useOverlay, PopoverAria, useOverlayPosition} from "@react-aria/overlays";
-import {OverlayPlacement, toReactAriaPlacement, ariaHideOutside} from "@nextui-org/aria-utils";
+import {RefObject, useEffect} from "react";
+import {
+  AriaPopoverProps,
+  useOverlay,
+  PopoverAria,
+  useOverlayPosition,
+  AriaOverlayProps,
+} from "@react-aria/overlays";
+import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 
@@ -22,7 +28,7 @@ export interface Props {
   scrollRef?: RefObject<HTMLElement>;
 }
 
-export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement">;
+export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement"> & AriaOverlayProps;
 
 /**
  * Provides the behavior and accessibility implementation for a popover component.
@@ -40,8 +46,11 @@ export function useReactAriaPopover(
     crossOffset = 0,
     scrollRef,
     shouldFlip,
+    boundaryElement,
+    shouldCloseOnBlur = true,
     placement: placementProp = "top",
     containerPadding,
+    shouldCloseOnInteractOutside,
     isNonModal: isNonModalProp,
     isKeyboardDismissDisabled,
     ...otherProps
@@ -53,34 +62,41 @@ export function useReactAriaPopover(
     {
       isOpen: state.isOpen,
       onClose: state.close,
-      shouldCloseOnBlur: true,
+      shouldCloseOnBlur,
       isDismissable: !isNonModal,
       isKeyboardDismissDisabled,
-      shouldCloseOnInteractOutside(element) {
-        // Don't close if the click is within the trigger or the popover itself
-        let trigger = triggerRef?.current;
+      shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
+        ? shouldCloseOnInteractOutside
+        : (element) => {
+            // Don't close if the click is within the trigger or the popover itself
+            let trigger = triggerRef?.current;
 
-        return !trigger || !trigger.contains(element);
-      },
+            return !trigger || !trigger.contains(element);
+          },
     },
     popoverRef,
   );
 
-  const {overlayProps: positionProps, arrowProps, placement} = useOverlayPosition({
+  const {
+    overlayProps: positionProps,
+    arrowProps,
+    placement,
+  } = useOverlayPosition({
     ...otherProps,
-    scrollRef,
-    crossOffset,
     shouldFlip,
-    containerPadding,
+    crossOffset,
     targetRef: triggerRef,
     overlayRef: popoverRef,
     isOpen: state.isOpen,
+    scrollRef,
+    boundaryElement,
+    containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
     onClose: () => {},
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (state.isOpen && !isNonModal && popoverRef.current) {
       return ariaHideOutside([popoverRef.current]);
     }

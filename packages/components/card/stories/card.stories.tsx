@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {card} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
@@ -15,14 +15,14 @@ export default {
     shadow: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     fullWidth: {
       control: {
@@ -67,14 +67,14 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
 const defaultProps = {
   ...card.defaultVariants,
   disableRipple: false,
 };
 
-const Template: ComponentStory<typeof Card> = (args: CardProps) => (
+const Template = (args: CardProps) => (
   <Card {...args} className="max-w-md">
     <CardBody>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed</p>
@@ -82,7 +82,7 @@ const Template: ComponentStory<typeof Card> = (args: CardProps) => (
   </Card>
 );
 
-const WithDividerTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+const WithDividerTemplate = (args: CardProps) => (
   <Card {...args} className="max-w-md">
     <CardHeader className="border-b border-divider dark:border-divider-dark">
       <strong>Description</strong>
@@ -99,7 +99,7 @@ const WithDividerTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   </Card>
 );
 
-const WithFooterTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+const WithFooterTemplate = (args: CardProps) => (
   <Card {...args} className="p-4 max-w-md">
     <CardHeader className="flex gap-3">
       <Image
@@ -125,7 +125,7 @@ const WithFooterTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   </Card>
 );
 
-const WithAbsImageHeaderTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+const WithAbsImageHeaderTemplate = (args: CardProps) => (
   <Card {...args} className="max-w-[330px]">
     <CardHeader className="absolute top-2 z-20">
       <div className="flex flex-col">
@@ -143,7 +143,7 @@ const WithAbsImageHeaderTemplate: ComponentStory<typeof Card> = (args: CardProps
   </Card>
 );
 
-const WithAbsImgHeaderFooterTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+const WithAbsImgHeaderFooterTemplate = (args: CardProps) => (
   <Card className="w-[330px] bg-zinc-100 dark:bg-zinc-100" {...args}>
     <CardHeader className="absolute top-2 z-10">
       <div className="flex flex-col gap-2">
@@ -174,7 +174,7 @@ const WithAbsImgHeaderFooterTemplate: ComponentStory<typeof Card> = (args: CardP
   </Card>
 );
 
-const CoverImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+const CoverImgTemplate = (args: CardProps) => (
   <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
     <Card {...args} className="col-span-12 sm:col-span-4">
       <CardHeader className="absolute z-10 top-1 flex-col !items-start">
@@ -257,7 +257,7 @@ const CoverImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   </div>
 );
 
-const CenterImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
+const CenterImgTemplate = (args: CardProps) => (
   <Card {...args} className="max-w-fit py-4 px-0">
     <CardHeader className="pb-0 pt-2 px-4 flex-col !items-start">
       <p className="text-xs uppercase font-bold">Daily Mix</p>
@@ -275,7 +275,7 @@ const CenterImgTemplate: ComponentStory<typeof Card> = (args: CardProps) => (
   </Card>
 );
 
-const PrimaryActionTemplate: ComponentStory<typeof Card> = (args: CardProps) => {
+const PrimaryActionTemplate = (args: CardProps) => {
   const list = [
     {
       title: "Orange",
@@ -348,7 +348,7 @@ const PrimaryActionTemplate: ComponentStory<typeof Card> = (args: CardProps) => 
   );
 };
 
-const CenterImgWithHeaderTemplate: ComponentStory<typeof Card> = (args: CardProps) => {
+const CenterImgWithHeaderTemplate = (args: CardProps) => {
   const list = [
     {
       title: "Mac",
@@ -406,47 +406,74 @@ const CenterImgWithHeaderTemplate: ComponentStory<typeof Card> = (args: CardProp
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithDivider = WithDividerTemplate.bind({});
-WithDivider.args = {
-  ...defaultProps,
+export const WithDivider = {
+  render: WithDividerTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithFooter = WithFooterTemplate.bind({});
-WithFooter.args = {
-  ...defaultProps,
+export const WithFooter = {
+  render: WithFooterTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithAbsImageHeader = WithAbsImageHeaderTemplate.bind({});
-WithAbsImageHeader.args = {
-  ...defaultProps,
+export const WithAbsImageHeader = {
+  render: WithAbsImageHeaderTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithAbsImgHeaderFooter = WithAbsImgHeaderFooterTemplate.bind({});
-WithAbsImgHeaderFooter.args = {
-  ...defaultProps,
+export const WithAbsImgHeaderFooter = {
+  render: WithAbsImgHeaderFooterTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CoverImg = CoverImgTemplate.bind({});
-CoverImg.args = {
-  ...defaultProps,
+export const CoverImg = {
+  render: CoverImgTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CenterImg = CenterImgTemplate.bind({});
-CenterImg.args = {
-  ...defaultProps,
+export const CenterImg = {
+  render: CenterImgTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const PrimaryAction = PrimaryActionTemplate.bind({});
-PrimaryAction.args = {
-  ...defaultProps,
+export const PrimaryAction = {
+  render: PrimaryActionTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CenterImgWithHeader = CenterImgWithHeaderTemplate.bind({});
-CenterImgWithHeader.args = {
-  ...defaultProps,
+export const CenterImgWithHeader = {
+  render: CenterImgWithHeaderTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

@@ -138,6 +138,7 @@ export default function App() {
         <DropdownItem
           key="edit"
           shortcut="⌘⇧E"
+          showDivider
           description="Allows you to edit the file"
           startContent={<EditDocumentIcon className={iconClasses} />}
         >
@@ -145,7 +146,6 @@ export default function App() {
         </DropdownItem>
         <DropdownItem
           key="delete"
-          showDivider
           className="text-danger"
           color="danger"
           shortcut="⌘⇧D"

@@ -13,6 +13,8 @@ The Pagination component allows you to display active page and navigate between 
 
 ---
 
+<CarbonAd/>
+
 ## Import
 
 NextUI exports 3 pagination-related components:
@@ -44,7 +46,7 @@ NextUI exports 3 pagination-related components:
 ### Colors
 
 <CodeDemo title="Radius" files={paginationContent.colors} />
-
+{/* 
 ### Variants
 
 You can use the `variant` property to change the pagination items style.
@@ -127,13 +129,13 @@ You can customize the `Pagination` component by passing custom Tailwind CSS clas
 In case you need to customize the pagination even further, you can use the `usePagination` hook to create
 your own implementation.
 
-<CodeDemo title="Custom Implementation" files={paginationContent.customImpl} />
+<CodeDemo title="Custom Implementation" files={paginationContent.customImpl} /> */}
 
 <Spacer y={4} />
 
 ## Data Attributes
 
-`Pagination` has the following attributes on the `root` element:
+`Pagination` has the following attributes on the `base` element:
 
 - **data-controls**:
   Indicates whether the pagination has controls. Based on `showControls` prop.

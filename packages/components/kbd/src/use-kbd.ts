@@ -1,16 +1,15 @@
 import type {KbdVariantProps, KbdSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {kbd} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
 
 import {KbdKey} from "./utils";
 
-export interface UseKbdProps extends HTMLNextUIProps<"kbd", KbdVariantProps> {
+interface Props extends HTMLNextUIProps<"kbd"> {
   /**
    * Ref to the DOM node.
    */
@@ -35,14 +34,14 @@ export interface UseKbdProps extends HTMLNextUIProps<"kbd", KbdVariantProps> {
   classNames?: SlotsToClasses<KbdSlots>;
 }
 
+export type UseKbdProps = Props & KbdVariantProps;
+
 export function useKbd(originalProps: UseKbdProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, kbd.variantKeys);
 
-  const {ref, as, children, className, keys, title, classNames, ...otherProps} = props;
+  const {as, children, className, keys, title, classNames, ...otherProps} = props;
 
   const Component = as || "kbd";
-
-  const domRef = useDOMRef(ref);
 
   const slots = useMemo(
     () =>
@@ -57,8 +56,8 @@ export function useKbd(originalProps: UseKbdProps) {
   const keysToRender = typeof keys === "string" ? [keys] : Array.isArray(keys) ? keys : [];
 
   const getKbdProps: PropGetter = (props = {}) => ({
-    ref: domRef,
-    ...mergeProps(otherProps, props),
+    ...otherProps,
+    ...props,
     className: clsx(slots.base({class: clsx(baseStyles, props.className)})),
   });
 

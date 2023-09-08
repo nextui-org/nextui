@@ -16,7 +16,7 @@ export default function App() {
     <>
       <div className="flex flex-wrap gap-3">
         {sizes.map((size) => (
-          <Button onPress={() => handleOpen(size)}>Open {size}</Button>
+          <Button key={size} onPress={() => handleOpen(size)}>Open {size}</Button>
         ))}  
       </div>
       <Modal 
@@ -46,7 +46,7 @@ export default function App() {
                 </p>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onClick={onClose}>
+                <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button color="primary" onPress={onClose}>

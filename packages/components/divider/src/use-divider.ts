@@ -1,27 +1,24 @@
 import type {DividerVariantProps} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
-import {SeparatorProps as AriaSeparatorProps, useSeparator} from "@react-aria/separator";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {divider} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
 import {Ref, useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
 
-interface Props extends HTMLNextUIProps<"hr", DividerVariantProps> {
+import {SeparatorProps as AriaSeparatorProps, useSeparator} from "./use-separator";
+
+interface Props extends HTMLNextUIProps<"hr"> {
   /**
    * Ref to the DOM node.
    */
   ref?: Ref<HTMLElement> | undefined;
 }
 
-export type UseDividerProps = Props & Omit<AriaSeparatorProps, "elementType">;
+export type UseDividerProps = Props & DividerVariantProps & Omit<AriaSeparatorProps, "elementType">;
 
 export function useDivider(props: UseDividerProps) {
-  const {ref, as, className, orientation, ...otherProps} = props;
+  const {as, className, orientation, ...otherProps} = props;
 
   let Component = as || "hr";
-
-  const domRef = useDOMRef(ref);
 
   if (Component === "hr" && orientation === "vertical") {
     Component = "div";
@@ -43,13 +40,14 @@ export function useDivider(props: UseDividerProps) {
 
   const getDividerProps: PropGetter = useCallback(
     (props = {}) => ({
-      ref: domRef,
       className: styles,
       role: "separator",
       "data-orientation": orientation,
-      ...mergeProps(separatorProps, otherProps, props),
+      ...separatorProps,
+      ...otherProps,
+      ...props,
     }),
-    [domRef, styles, orientation, separatorProps, otherProps],
+    [styles, orientation, separatorProps, otherProps],
   );
 
   return {Component, getDividerProps};

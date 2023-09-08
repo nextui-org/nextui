@@ -1,6 +1,6 @@
 "use client";
 
-import {useRef, useState, FC, ReactNode} from "react";
+import {useRef, useState, FC, ReactNode, Key} from "react";
 import {
   link,
   Navbar as NextUINavbar,
@@ -16,6 +16,7 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
+  Chip,
 } from "@nextui-org/react";
 import {dataFocusVisibleClasses} from "@nextui-org/theme";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
@@ -29,6 +30,7 @@ import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
+import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
@@ -45,21 +47,22 @@ import {useCmdkStore} from "@/components/cmdk";
 
 export interface NavbarProps {
   routes: Route[];
+  mobileRoutes?: Route[];
   tag?: string;
   slug?: string;
   children?: ReactNode;
 }
 
-export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
+export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], slug, tag}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
   const [commandKey, setCommandKey] = useState<"ctrl" | "command">("command");
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isMounted = useIsMounted();
 
   const pathname = usePathname();
 
-  const cmkdStore = useCmdkStore();
+  const cmdkStore = useCmdkStore();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -72,7 +75,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   }, []);
 
   const {pressProps} = usePress({
-    onPress: () => cmkdStore.onOpen(),
+    onPress: () => cmdkStore.onOpen(),
   });
   const {focusProps, isFocusVisible} = useFocusRing();
 
@@ -98,7 +101,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           strokeWidth={2}
         />
       }
-      onPress={() => cmkdStore.onOpen()}
+      onPress={() => cmdkStore.onOpen()}
     >
       Quick Search...
     </Button>
@@ -107,6 +110,16 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
   if (pathname.includes("/examples")) {
     return null;
   }
+
+  const navLinkClasses = clsx(link({color: "foreground"}), "data-[active=true]:text-primary");
+
+  const handleVersionChange = (key: Key) => {
+    if (key === "v1") {
+      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
+
+      if (newWindow) newWindow.opener = null;
+    }
+  };
 
   return (
     <NextUINavbar
@@ -142,7 +155,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                         size="sm"
                         variant="flat"
                       >
-                        v2.0.0
+                        v{currentVersion}
                       </Button>
                     </DropdownTrigger>
                   </motion.div>
@@ -152,8 +165,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
                 aria-label="NextUI versions"
                 defaultSelectedKeys={["v2"]}
                 selectionMode="single"
+                onAction={handleVersionChange}
               >
-                <DropdownItem key="v2">v2.0.0</DropdownItem>
+                <DropdownItem key="v2">v{currentVersion}</DropdownItem>
                 <DropdownItem key="v1" endContent={<LinkIcon />}>
                   v1.0.0
                 </DropdownItem>
@@ -163,13 +177,10 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <div className="w-[74px]" />
           )}
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start">
+        <ul className="hidden lg:flex gap-4 justify-start items-center">
           <NavbarItem>
             <NextLink
-              className={clsx(
-                link({color: "foreground"}),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
+              className={navLinkClasses}
               color="foreground"
               data-active={includes(docsPaths, pathname)}
               href="/docs/guide/introduction"
@@ -179,10 +190,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           </NavbarItem>
           <NavbarItem>
             <NextLink
-              className={clsx(
-                link({color: "foreground"}),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
+              className={navLinkClasses}
               color="foreground"
               data-active={includes(pathname, "components")}
               href="/docs/components/avatar"
@@ -192,16 +200,37 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           </NavbarItem>
           <NavbarItem>
             <NextLink
-              className={clsx(
-                link({color: "foreground"}),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
+              className={navLinkClasses}
               color="foreground"
-              data-active={pathname === "/figma"}
+              data-active={includes(pathname, "blog")}
+              href="/blog"
+            >
+              Blog
+            </NextLink>
+          </NavbarItem>
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={includes(pathname, "figma")}
               href="/figma"
             >
               Figma
             </NextLink>
+          </NavbarItem>
+          <NavbarItem>
+            <Chip
+              as={NextLink}
+              className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
+              color="secondary"
+              href="/blog/v2.1.0"
+              variant="dot"
+            >
+              New components v2.1.0&nbsp;
+              <span aria-label="party emoji" role="img">
+                🎉
+              </span>
+            </Chip>
           </NavbarItem>
         </ul>
       </NavbarContent>
@@ -234,7 +263,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
             <SearchLinearIcon className="mt-px text-default-600 dark:text-default-500" size={20} />
           </button>
         </NavbarItem>
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="ml-2" />
+        <NavbarItem className="w-10 h-full">
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="w-full h-full pt-1"
+          />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
@@ -264,15 +298,15 @@ export const Navbar: FC<NavbarProps> = ({children, routes, slug, tag}) => {
           >
             Sponsor
           </Button>
-        </NavbarItem>{" "}
+        </NavbarItem>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="hidden sm:flex lg:hidden"
+          className="hidden sm:flex lg:hidden ml-4"
         />
       </NavbarContent>
 
       <NavbarMenu>
-        <DocsSidebar className="mt-4" routes={routes} slug={slug} tag={tag} />
+        <DocsSidebar className="mt-4" routes={[...mobileRoutes, ...routes]} slug={slug} tag={tag} />
         {children}
       </NavbarMenu>
     </NextUINavbar>

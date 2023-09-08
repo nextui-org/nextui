@@ -24,7 +24,7 @@ export interface TableBodyProps extends HTMLNextUIProps<"tbody"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableBody = forwardRef<TableBodyProps, "tbody">((props, ref) => {
+const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
   const {
     as,
     className,
@@ -41,6 +41,8 @@ const TableBody = forwardRef<TableBodyProps, "tbody">((props, ref) => {
   } = props;
 
   const Component = as || "tbody";
+  const shouldFilterDOMProps = typeof Component === "string";
+
   const domRef = useDOMRef(ref);
 
   const {rowGroupProps} = useTableRowGroup();
@@ -126,7 +128,13 @@ const TableBody = forwardRef<TableBodyProps, "tbody">((props, ref) => {
   return (
     <Component
       ref={domRef}
-      {...mergeProps(rowGroupProps, filterDOMProps(bodyProps), otherProps)}
+      {...mergeProps(
+        rowGroupProps,
+        filterDOMProps(bodyProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        otherProps,
+      )}
       className={slots.tbody?.({class: tbodyStyles})}
       data-empty={dataAttr(collection.size === 0)}
       data-loading={dataAttr(isLoading)}

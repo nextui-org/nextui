@@ -1,0 +1,177 @@
+/* 
+* --------------------------------------------------
+* Carbon Ads
+* --------------------------------------------------
+*/
+
+.carbon-ad-container {
+  @apply relative my-4 min-h-[135px] w-full z-10 rounded-medium bg-background dark:bg-default-50/50 shadow-small p-4;
+}
+
+#carbonads * {
+  margin: initial;
+  padding: initial;
+}
+#carbonads {
+  font-family: inherit;
+  max-width: 100%;
+  padding: 0px;
+}
+#carbonads {
+  display: flex;
+  width: 100%;
+  z-index: 100;
+}
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+#carbonads a:hover {
+  @apply !text-default-500;
+}
+#carbonads span {
+  width: 100%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+#carbonads .carbon-wrap {
+  display: flex;
+  flex-direction: row;
+}
+#carbonads .carbon-img {
+  @apply shadow-xl;
+  display: block;
+  line-height: 1;
+  max-width: 130px;
+  width: 100%;
+}
+#carbonads .carbon-img img {
+  display: block;
+  max-width: 100% !important;
+  width: 100%;
+  border-radius: 10px;
+  border: 0px;
+  margin: 0px;
+}
+#carbonads .carbon-text {
+  @apply !text-default-500;
+  display: block;
+  font-size: 1rem;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#carbonads .carbon-poweredby {
+  @apply text-default-400 dark:!text-default-300;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 0;
+  text-transform: uppercase;
+  letter-space: .value 0.5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 0;
+  transition: all 0.25 ease;
+}
+
+@media only screen and (max-width:600px) {
+  #carbonads .carbon-text {
+    font-size: 0.9rem;
+  }
+}
+
+/*
+* --------------------------------------------------
+* Ethical Ads
+* --------------------------------------------------
+*/
+
+.ea-container {
+  @apply relative my-4 min-h-[135px] w-full z-10 rounded-medium bg-background dark:bg-default-50/50 shadow-small p-4;
+}
+.ea-container .ea-type-image {
+  width: 100%;
+}
+.ea-container .ea-pixel {
+  display: none !important;
+}
+.ea-container .ea-type-image .ea-content {
+  width: 100%;
+  height: 100% !important;
+  max-width: 100% !important;
+  display: flex;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.ea-container .ea-type-image .ea-callout {
+  display: flex !important;
+  max-width: 100% !important;
+  justify-content: flex-end !important;
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+.ea-container .ea-type-image .ea-callout a,
+.ea-container .ea-type-image .ea-callout a .ea-headline,
+.ea-container .ea-type-image .ea-callout a .ea-cta {
+  @apply text-default-400 dark:!text-default-300;
+  font-weight: 600 !important;
+  font-size: 9px !important;
+}
+
+[data-ea-publisher].loaded .ea-content a strong {
+  @apply !text-default-500;
+}
+
+.ea-container .ea-type-image .ea-content a {
+  display: block;
+  line-height: 1;
+  max-width: 130px;
+  width: 100%;
+}
+
+.ea-container .ea-type-image .ea-text {
+  width: 100%;
+  text-align: left !important;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.ea-container .ea-type-image .ea-text a {
+  @apply !text-default-300;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.ea-container .ea-type-image .ea-text .ea-body {
+  @apply !text-default-500;
+}
+
+.ea-container .ea-type-image img {
+  display: block;
+  max-width: 100% !important;
+  width: 100%;
+  border-radius: 10px;
+  border: 0px;
+  margin: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .ea-container .ea-type-image .ea-text a {
+    font-size: 0.9rem;
+  }
+}

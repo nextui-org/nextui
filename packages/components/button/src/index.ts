@@ -10,7 +10,7 @@ export {useButton} from "./use-button";
 export {useButtonGroup} from "./use-button-group";
 
 // export context
-export * from "./button-group-context";
+export {ButtonGroupProvider, useButtonGroupContext} from "./button-group-context";
 
 // export component
 export {Button, ButtonGroup};

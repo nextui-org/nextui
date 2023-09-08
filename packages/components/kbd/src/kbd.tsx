@@ -1,13 +1,13 @@
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system-rsc";
 
 import {UseKbdProps, useKbd} from "./use-kbd";
 import {kbdKeysLabelMap, kbdKeysMap} from "./utils";
 
-export interface KbdProps extends Omit<UseKbdProps, "ref"> {}
+export interface KbdProps extends UseKbdProps {}
 
-const Kbd = forwardRef<HTMLElement, KbdProps>((props, ref) => {
+const Kbd = forwardRef<"kbd", KbdProps>((props, ref) => {
   const {Component, children, slots, classNames, keysToRender, getKbdProps} = useKbd({
-    ref,
     ...props,
   });
 
@@ -24,7 +24,7 @@ const Kbd = forwardRef<HTMLElement, KbdProps>((props, ref) => {
   }, [keysToRender]);
 
   return (
-    <Component {...getKbdProps()}>
+    <Component ref={ref} {...getKbdProps()}>
       {keysContent}
       {children && <span className={slots.content({class: classNames?.content})}>{children}</span>}
     </Component>

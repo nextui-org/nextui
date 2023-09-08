@@ -11,7 +11,7 @@ import {usePathname, useRouter} from "next/navigation";
 import MultiRef from "react-multi-ref";
 import {clsx} from "@nextui-org/shared-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
-import {isAppleDevice} from "@react-aria/utils";
+import {isAppleDevice, isWebKit} from "@react-aria/utils";
 import {create} from "zustand";
 import {intersectionBy, isEmpty} from "lodash";
 import {writeStorage, useLocalStorage} from "@rehooks/local-storage";
@@ -194,8 +194,6 @@ export const Cmdk: FC<{}> = () => {
     };
 
     document.addEventListener("keydown", onKeyDown);
-
-    return () => document.removeEventListener("keydown", onKeyDown);
   }, [isOpen]);
 
   const onItemSelect = useCallback(
@@ -366,14 +364,14 @@ export const Cmdk: FC<{}> = () => {
       placement="top-center"
       scrollBehavior="inside"
       size="xl"
-      onClose={onClose}
+      onClose={() => onClose()}
     >
       <ModalContent>
         <Command className={slots.base()} label="Quick search command" shouldFilter={false}>
           <div className={slots.header()}>
             <SearchLinearIcon className={slots.searchIcon()} strokeWidth={2} />
             <Command.Input
-              autoFocus
+              autoFocus={!isWebKit()}
               className={slots.input()}
               placeholder="Search documentation"
               value={query}

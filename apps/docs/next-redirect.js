@@ -37,6 +37,11 @@ async function redirect() {
       permanent: true,
     },
     {
+      source: "/v2",
+      destination: "/blog/nextui-v2",
+      permanent: true,
+    },
+    {
       source: "/docs/intro",
       destination: "/docs/guide/introduction",
       permanent: true,
@@ -73,12 +78,12 @@ async function redirect() {
     },
     {
       source: "/theme",
-      destination: "/docs/theme/default-theme",
+      destination: "/docs/customization/theme",
       permanent: true,
     },
     {
       source: "/docs/theme",
-      destination: "/docs/theme/default-theme",
+      destination: "/docs/customization/theme",
       permanent: true,
     },
     {
@@ -96,6 +101,82 @@ async function redirect() {
       destination: "/docs/components/button",
       permanent: true,
     },
+    // v1 to v2 redirects
+    {
+      source:"/docs/guide/getting-started",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/dark-mode",
+      destination: "/docs/customization/dark-mode",
+      permanent: true,
+    },
+    {
+      source: "/docs/guide/nextui-plus-nextjs",
+      destination: "/docs/frameworks/nextjs",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/default-theme",
+      destination: "/docs/customization/theme",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/customize-theme",
+      destination: "/docs/customization/customize-theme",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/override-styles",
+      destination: "/docs/customization/override-styles",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/typescript",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/utilities",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/theme/media",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/layout/container",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/layout/grid",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/layout/spacer",
+      destination: "/docs/components/spacer",
+      permanent: true,
+    },
+    {
+      source: "/docs/components/collapse",
+      destination: "/docs/components/accordion",
+      permanent: true,
+    },
+    {
+      source: "/docs/components/text",
+      destination: "/docs/guide/introduction",
+      permanent: true,
+    },
+    {
+      source: "/docs/components/button-group",
+      destination: "/docs/components/button",
+      permanent: true,
+    }
   ];
 }
 

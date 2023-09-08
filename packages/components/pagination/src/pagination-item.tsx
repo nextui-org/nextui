@@ -1,17 +1,13 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {usePaginationItem, UsePaginationItemProps} from "./use-pagination-item";
 
-export interface PaginationItemProps extends Omit<UsePaginationItemProps, "ref"> {}
+export interface PaginationItemProps extends UsePaginationItemProps {}
 
-const PaginationItem = forwardRef<HTMLLIElement, PaginationItemProps>(({key, ...props}, ref) => {
-  const {Component, children, getItemProps} = usePaginationItem({ref, ...props});
+const PaginationItem = forwardRef<"li", PaginationItemProps>((props, ref) => {
+  const {Component, children, getItemProps} = usePaginationItem({...props, ref});
 
-  return (
-    <Component key={key} {...getItemProps()}>
-      {children}
-    </Component>
-  );
+  return <Component {...getItemProps()}>{children}</Component>;
 });
 
 PaginationItem.displayName = "NextUI.PaginationItem";

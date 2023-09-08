@@ -14,6 +14,8 @@ Requirements:
 
 ----- 
 
+<CarbonAd />
+
 ## Next.js upgrade steps
 
 Make sure to follow the previous steps since they are required to upgrade to v2.
@@ -34,9 +36,9 @@ In your Next.js project, run one of the following command to install NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react@dev-v2 framer-motion',
-    yarn: 'yarn add @nextui-org/react@dev-v2 framer-motion',
-    pnpm: 'pnpm add @nextui-org/react@dev-v2 framer-motion',
+    npm: 'npm i @nextui-org/react framer-motion',
+    yarn: 'yarn add @nextui-org/react framer-motion',
+    pnpm: 'pnpm add @nextui-org/react framer-motion',
   }}
 />
 
@@ -55,7 +57,7 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
@@ -134,7 +136,7 @@ export default function Page() {
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/theme*
+public-hoist-pattern[]=*@nextui-org/*
 ```
 
 After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -154,9 +156,9 @@ In your Next.js project, run one of the following command to install NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react@dev-v2 framer-motion',
-    yarn: 'yarn add @nextui-org/react@dev-v2 framer-motion',
-    pnpm: 'pnpm add @nextui-org/react@dev-v2 framer-motion',
+    npm: 'npm i @nextui-org/react framer-motion',
+    yarn: 'yarn add @nextui-org/react framer-motion',
+    pnpm: 'pnpm add @nextui-org/react framer-motion',
   }}
 />
 
@@ -175,7 +177,7 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
@@ -225,7 +227,7 @@ export default function Page() {
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/theme*
+public-hoist-pattern[]=*@nextui-org/*
 ```
 
 After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -273,7 +275,7 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
@@ -325,7 +327,7 @@ export default function Page() {
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/theme*
+public-hoist-pattern[]=*@nextui-org/*
 ```
 
 After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.

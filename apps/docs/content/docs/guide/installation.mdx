@@ -13,6 +13,8 @@ Requirements:
 
 ---
 
+<CarbonAd />
+
 To use NextUI in your project, you need to follow the following steps:
 
 ## Global Installation
@@ -30,9 +32,9 @@ To install NextUI, run one of the following commands in your terminal:
 
 <PackageManagers
   commands={{
-    npm: "npm i @nextui-org/react@dev-v2 framer-motion",
-    yarn: "yarn add @nextui-org/react@dev-v2 framer-motion",
-    pnpm: "pnpm add @nextui-org/react@dev-v2 framer-motion",
+    npm: "npm i @nextui-org/react framer-motion",
+    yarn: "yarn add @nextui-org/react framer-motion",
+    pnpm: "pnpm add @nextui-org/react framer-motion",
   }}
 />
 
@@ -85,7 +87,7 @@ function App() {
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/theme*
+public-hoist-pattern[]=*@nextui-org/*
 ```
 
 After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -140,15 +142,17 @@ styles of the components your using to your `tailwind.config.js` file. For examp
 [Button](/docs/components/button) component, you need to add the following code to your
 `tailwind.config.js` file:
 
-```js {8,13-14}
+```js {8,10,16}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/react");
+const {nextui} = require("@nextui-org/theme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    // ...
-    "./node_modules/@nextui-org/button/dist/button.js", // <- single component styles
+    // single component styles
+    "./node_modules/@nextui-org/theme/dist/components/button.js", 
+    // or you can use a glob pattern (multiple component styles)
+    './node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js'
   ],
   theme: {
     extend: {},
@@ -199,7 +203,7 @@ function App() {
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/theme*
+public-hoist-pattern[]=*@nextui-org/*
 ```
 
 After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.

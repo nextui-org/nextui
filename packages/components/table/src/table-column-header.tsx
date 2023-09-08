@@ -23,10 +23,12 @@ export interface TableColumnHeaderProps<T = object> extends HTMLNextUIProps<"th"
   node: GridNode<T>;
 }
 
-const TableColumnHeader = forwardRef<TableColumnHeaderProps, "th">((props, ref) => {
+const TableColumnHeader = forwardRef<"th", TableColumnHeaderProps>((props, ref) => {
   const {as, className, state, node, slots, classNames, ...otherProps} = props;
 
   const Component = as || "th";
+  const shouldFilterDOMProps = typeof Component === "string";
+
   const domRef = useDOMRef(ref);
 
   const {columnHeaderProps} = useTableColumnHeader({node}, state, domRef);
@@ -49,7 +51,9 @@ const TableColumnHeader = forwardRef<TableColumnHeaderProps, "th">((props, ref) 
       {...mergeProps(
         columnHeaderProps,
         focusProps,
-        filterDOMProps(columnProps),
+        filterDOMProps(columnProps, {
+          enabled: shouldFilterDOMProps,
+        }),
         allowsSorting ? hoverProps : {},
         otherProps,
       )}

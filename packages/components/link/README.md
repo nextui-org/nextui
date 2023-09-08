@@ -1,8 +1,8 @@
 # @nextui-org/link
 
-A Quick description of the component
+Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an `<a>` tag.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/link) for more information.
 
 ## Installation
 

@@ -14,7 +14,8 @@ h3 {
   @apply text-xl font-bold !text-neutral-600;
 }
 
-.dark .sbdocs-wrapper, .dark .sbdocs-preview  {
+.dark .sbdocs-wrapper,
+.dark .sbdocs-preview {
   background-color: #000000;
   color: #fff;
 }
@@ -28,12 +29,11 @@ h3 {
   color: #d4d4d4;
 }
 
-
-.dark div:has(.docblock-code-toggle) { 
-  background: transparent;  
+.dark div:has(.docblock-code-toggle) {
+  background: transparent;
 }
 
-.dark .os-theme-dark  {
+.dark .os-theme-dark {
   background: #161616;
   color: #fff;
 }

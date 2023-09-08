@@ -1,8 +1,8 @@
 # @nextui-org/code
 
-A Quick description of the component
+Code is a component used to display inline code.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/code) for more information.
 
 ## Installation
 

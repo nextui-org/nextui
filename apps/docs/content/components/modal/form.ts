@@ -40,7 +40,7 @@ const LockIcon = `export const LockIcon = (props) => (
 );`;
 
 const App = `import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link} from "@nextui-org/react";
-import {MailFilledIcon} from './MailIcon.jsx';
+import {MailIcon} from './MailIcon.jsx';
 import {LockIcon} from './LockIcon.jsx';
 
 export default function App() {
@@ -91,7 +91,7 @@ export default function App() {
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onClick={onClose}>
+                <Button color="danger" variant="flat" onPress={onClose}>
                   Close
                 </Button>
                 <Button color="primary" onPress={onClose}>

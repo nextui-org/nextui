@@ -65,7 +65,7 @@ export const spacingScaleKeys = [
 
 export const mappedSpacingScaleKeys = spacingScaleKeys.map((key) => `unit-${key}`);
 
-export type SpacingScaleKeys = typeof spacingScaleKeys[number];
+export type SpacingScaleKeys = (typeof spacingScaleKeys)[number];
 
 export type SpacingScale = Partial<Record<SpacingScaleKeys, string>>;
 

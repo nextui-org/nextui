@@ -1,8 +1,8 @@
 # @nextui-org/badge
 
-A Quick description of the component
+Badges are used as a small numerical value or status descriptor for UI elements.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/badge) for more information.
 
 ## Installation
 

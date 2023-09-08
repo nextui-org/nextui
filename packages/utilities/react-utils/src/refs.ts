@@ -1,7 +1,7 @@
 import * as React from "react";
 import {isFunction} from "@nextui-org/shared-utils";
 
-export type ReactRef<T> = React.Ref<T> | React.RefObject<T> | React.MutableRefObject<T>;
+export type ReactRef<T> = React.RefObject<T> | React.MutableRefObject<T> | React.Ref<T>;
 
 /**
  * Assigns a value to a ref function or object

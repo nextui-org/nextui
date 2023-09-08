@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 import {
   MailFilledIcon,
@@ -11,7 +11,7 @@ import {
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
 
-import {Input, useInput} from "../src";
+import {Input, InputProps, useInput} from "../src";
 
 export default {
   title: "Components/Input",
@@ -20,32 +20,32 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["flat", "faded", "bordered", "underlined"],
       },
+      options: ["flat", "faded", "bordered", "underlined"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "base", "sm", "md", "lg", "xl", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg"],
       },
+      options: ["sm", "md", "lg"],
     },
     labelPlacement: {
       control: {
         type: "select",
-        options: ["inside", "outside", "outside-left"],
       },
+      options: ["inside", "outside", "outside-left"],
     },
     isDisabled: {
       control: {
@@ -60,27 +60,27 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Input>;
+} as Meta<typeof Input>;
 
 const defaultProps = {
   ...input.defaultVariants,
   label: "Email",
 };
 
-const Template: ComponentStory<typeof Input> = (args) => (
+const Template = (args) => (
   <div className="w-full max-w-[240px]">
     <Input {...args} size="sm" />
   </div>
 );
 
-const MirrorTemplate: ComponentStory<typeof Input> = (args) => (
-  <div className="w-full max-w-xl flex flex-row gap-4">
+const MirrorTemplate = (args) => (
+  <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input {...args} />
     <Input {...args} placeholder="Enter your email" />
   </div>
 );
 
-const PasswordTemplate: ComponentStory<typeof Input> = (args) => {
+const PasswordTemplate = (args) => {
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
 
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
@@ -109,7 +109,7 @@ const PasswordTemplate: ComponentStory<typeof Input> = (args) => {
   );
 };
 
-const RegexValidationTemplate: ComponentStory<typeof Input> = (args) => {
+const RegexValidationTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
   const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
@@ -134,7 +134,7 @@ const RegexValidationTemplate: ComponentStory<typeof Input> = (args) => {
   );
 };
 
-const ControlledTemplate: ComponentStory<typeof Input> = (args) => {
+const ControlledTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
   return (
@@ -145,7 +145,7 @@ const ControlledTemplate: ComponentStory<typeof Input> = (args) => {
   );
 };
 
-const LabelPlacementTemplate: ComponentStory<typeof Input> = (args) => (
+const LabelPlacementTemplate = (args) => (
   <div className="w-full flex flex-col items-center gap-12">
     <div className="flex flex-col gap-3">
       <h3>Without placeholder</h3>
@@ -166,11 +166,11 @@ const LabelPlacementTemplate: ComponentStory<typeof Input> = (args) => (
   </div>
 );
 
-const StartContentTemplate: ComponentStory<typeof Input> = (args) => (
+const StartContentTemplate = (args) => (
   <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input
       {...args}
-      placeholder="you@example.com"
+      // placeholder="you@example.com"
       startContent={
         <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
       }
@@ -200,7 +200,7 @@ const StartContentTemplate: ComponentStory<typeof Input> = (args) => (
   </div>
 );
 
-const EndContentTemplate: ComponentStory<typeof Input> = (args) => (
+const EndContentTemplate = (args) => (
   <div className="w-full max-w-xl flex flex-row items-end gap-4">
     <Input
       {...args}
@@ -234,7 +234,7 @@ const EndContentTemplate: ComponentStory<typeof Input> = (args) => (
   </div>
 );
 
-const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args) => (
+const StartAndEndContentTemplate = (args) => (
   <div className="w-full max-w-xs flex flex-col items-end gap-4">
     <Input
       {...args}
@@ -294,7 +294,7 @@ const StartAndEndContentTemplate: ComponentStory<typeof Input> = (args) => (
   </div>
 );
 
-const InputTypesTemplate: ComponentStory<typeof Input> = (args) => (
+const InputTypesTemplate = (args) => (
   <div className="grid grid-cols-3 gap-4">
     <Input {...args} label="Text" placeholder="Enter your text" />
     <Input {...args} label="Number" placeholder="Enter your number" type="number" />
@@ -311,7 +311,7 @@ const InputTypesTemplate: ComponentStory<typeof Input> = (args) => (
   </div>
 );
 
-const CustomWithClassNamesTemplate: ComponentStory<typeof Input> = (args) => (
+const CustomWithClassNamesTemplate = (args) => (
   <div className="w-full max-w-[340px]">
     <Input
       {...args}
@@ -355,7 +355,7 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Input> = (args) => (
   </div>
 );
 
-const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args) => {
+const CustomWithHooksTemplate = (args: InputProps) => {
   const {
     Component,
     label,
@@ -445,127 +445,181 @@ const CustomWithHooksTemplate: ComponentStory<typeof Input> = (args) => {
   );
 };
 
-export const Default = MirrorTemplate.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Required = MirrorTemplate.bind({});
-Required.args = {
-  ...defaultProps,
-  isRequired: true,
+export const Required = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...defaultProps,
-  defaultValue: "junior@nextui.org",
-  variant: "faded",
-  isDisabled: true,
+export const Disabled = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultValue: "junior@nextui.org",
+    variant: "faded",
+    isDisabled: true,
+  },
 };
 
-export const ReadOnly = Template.bind({});
-ReadOnly.args = {
-  ...defaultProps,
-  defaultValue: "junior@nextui.org",
-  variant: "bordered",
-  isReadOnly: true,
+export const ReadOnly = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultValue: "junior@nextui.org",
+    variant: "bordered",
+    isReadOnly: true,
+  },
 };
 
-export const WithDescription = MirrorTemplate.bind({});
-WithDescription.args = {
-  ...defaultProps,
-  description: "We'll never share your email with anyone else.",
+export const WithDescription = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "We'll never share your email with anyone else. ",
+  },
 };
 
-export const Password = PasswordTemplate.bind({});
-Password.args = {
-  ...defaultProps,
-  label: "Password",
-  placeholder: "Enter your password",
-  variant: "bordered",
+export const Password = {
+  render: PasswordTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Password",
+    placeholder: "Enter your password",
+    variant: "bordered",
+  },
 };
 
-export const LabelPlacement = LabelPlacementTemplate.bind({});
-LabelPlacement.args = {
-  ...defaultProps,
+export const LabelPlacement = {
+  render: LabelPlacementTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Clearable = Template.bind({});
-Clearable.args = {
-  ...defaultProps,
-  variant: "bordered",
-  placeholder: "Enter your email",
-  defaultValue: "junior@nextui.org",
-  // eslint-disable-next-line no-console
-  onClear: () => console.log("input cleared"),
+export const Clearable = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    placeholder: "Enter your email",
+    defaultValue: "junior@nextui.org",
+    // eslint-disable-next-line no-console
+    onClear: () => console.log("input cleared"),
+  },
 };
 
-export const StartContent = StartContentTemplate.bind({});
-StartContent.args = {
-  ...defaultProps,
-  labelPlacement: "outside",
+export const StartContent = {
+  render: StartContentTemplate,
+
+  args: {
+    ...defaultProps,
+    labelPlacement: "outside",
+  },
 };
 
-export const EndContent = EndContentTemplate.bind({});
-EndContent.args = {
-  ...defaultProps,
-  variant: "bordered",
-  labelPlacement: "outside",
+export const EndContent = {
+  render: EndContentTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    labelPlacement: "outside",
+  },
 };
 
-export const StartAndEndContent = StartAndEndContentTemplate.bind({});
-StartAndEndContent.args = {
-  ...defaultProps,
-  variant: "bordered",
-  labelPlacement: "outside",
+export const StartAndEndContent = {
+  render: StartAndEndContentTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    labelPlacement: "outside",
+  },
 };
 
-export const WithErrorMessage = Template.bind({});
-WithErrorMessage.args = {
-  ...defaultProps,
-  errorMessage: "Please enter a valid email address",
+export const WithErrorMessage = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    errorMessage: "Please enter a valid email address",
+  },
 };
 
-export const InvalidValidationState = Template.bind({});
-InvalidValidationState.args = {
-  ...defaultProps,
-  variant: "bordered",
-  defaultValue: "invalid@email.com",
-  validationState: "invalid",
-  placeholder: "Enter your email",
-  errorMessage: "Please enter a valid email address",
+export const InvalidValidationState = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    defaultValue: "invalid@email.com",
+    validationState: "invalid",
+    placeholder: "Enter your email",
+    errorMessage: "Please enter a valid email address",
+  },
 };
 
-export const RegexValidation = RegexValidationTemplate.bind({});
-RegexValidation.args = {
-  ...defaultProps,
-  variant: "faded",
+export const RegexValidation = {
+  render: RegexValidationTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "faded",
+  },
 };
 
-export const InputTypes = InputTypesTemplate.bind({});
-InputTypes.args = {
-  ...defaultProps,
+export const InputTypes = {
+  render: InputTypesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
-  variant: "bordered",
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+  },
 };
 
-export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
+export const CustomWithClassNames = {
+  render: CustomWithClassNamesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomWithHooks = CustomWithHooksTemplate.bind({});
-CustomWithHooks.args = {
-  ...defaultProps,
-  label: "Search",
-  type: "search",
-  placeholder: "Type to search...",
-  startContent: (
-    <SearchIcon className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
-  ),
+export const CustomWithHooks = {
+  render: CustomWithHooksTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Search",
+    type: "search",
+    placeholder: "Type to search...",
+    startContent: (
+      <SearchIcon className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+    ),
+  },
 };

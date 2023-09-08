@@ -1,8 +1,8 @@
 # @nextui-org/dropdown
 
-A Quick description of the component
+Displays a list of actions or options that a user can choose.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/dropdown) for more information.
 
 ## Installation
 

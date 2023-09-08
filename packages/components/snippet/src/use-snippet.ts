@@ -2,7 +2,7 @@ import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-or
 
 import {snippet} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
@@ -10,9 +10,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback, ReactElement, useRef} from "react";
 import {TooltipProps} from "@nextui-org/tooltip";
 import {ButtonProps} from "@nextui-org/button";
-export interface UseSnippetProps
-  extends Omit<HTMLNextUIProps<"div">, "onCopy">,
-    SnippetVariantProps {
+export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, SnippetVariantProps {
   /**
    * Ref to the DOM node.
    */
@@ -98,7 +96,7 @@ export interface UseSnippetProps
    *  isDisabled: disableCopy,
    * }
    */
-  tooltipProps?: TooltipProps;
+  tooltipProps?: Partial<TooltipProps>;
   /**
    * Copy button props.
    * @see [Button](https://nextui.org/components/button) for more details.
@@ -110,7 +108,7 @@ export interface UseSnippetProps
    *   isIconOnly: true,
    * }
    */
-  copyButtonProps?: ButtonProps;
+  copyButtonProps?: Partial<ButtonProps>;
   /**
    * Callback when the text is copied.
    */
@@ -136,19 +134,23 @@ export function useSnippet(originalProps: UseSnippetProps) {
     autoFocus = false,
     hideSymbol = false,
     onCopy: onCopyProp,
-    tooltipProps = {
-      offset: 15,
-      delay: 1000,
-      content: "Copy to clipboard",
-      color: originalProps?.color as TooltipProps["color"],
-      isDisabled: disableCopy,
-    },
-    copyButtonProps,
+    tooltipProps: userTooltipProps = {},
+    copyButtonProps: userButtonProps = {},
     className,
     ...otherProps
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
+
+  const tooltipProps: Partial<TooltipProps> = {
+    offset: 15,
+    delay: 1000,
+    content: "Copy to clipboard",
+    color: originalProps?.color as TooltipProps["color"],
+    isDisabled: props.disableCopy,
+    ...userTooltipProps,
+  };
 
   const domRef = useDOMRef(ref);
   const preRef = useRef<HTMLPreElement>(null);
@@ -183,7 +185,9 @@ export function useSnippet(originalProps: UseSnippetProps) {
       className: slots.base({
         class: baseStyles,
       }),
-      ...otherProps,
+      ...filterDOMProps(otherProps, {
+        enabled: shouldFilterDOMProps,
+      }),
     }),
     [slots, baseStyles, isMultiLine, otherProps],
   );
@@ -214,7 +218,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     onCopyProp?.(valueToCopy);
   }, [copy, codeString, disableCopy, onCopyProp, children]);
 
-  const defaultCopyButtonProps: ButtonProps = {
+  const copyButtonProps: Partial<ButtonProps> = {
     "aria-label":
       typeof tooltipProps.content === "string" ? tooltipProps.content : "Copy to clipboard",
     size: "sm",
@@ -222,13 +226,13 @@ export function useSnippet(originalProps: UseSnippetProps) {
     isDisabled: disableCopy,
     onPress: onCopy,
     isIconOnly: true,
-    ...copyButtonProps,
+    ...userButtonProps,
   };
 
   const getCopyButtonProps = useCallback(
     () =>
       ({
-        ...defaultCopyButtonProps,
+        ...copyButtonProps,
         "data-copied": dataAttr(copied),
         className: slots.copyButton({
           class: clsx(classNames?.copyButton),
@@ -240,7 +244,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
       isFocused,
       disableCopy,
       classNames?.copyButton,
-      defaultCopyButtonProps,
+      copyButtonProps,
       focusProps,
     ],
   );

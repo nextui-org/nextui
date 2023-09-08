@@ -21,6 +21,16 @@ body:
          - NextUI's [Discussions tab](https://github.com/nextui-org/nextui/discussions)
 
         The more information you fill in, the better the community can help you.
+  - type: input
+    id: version
+    attributes:
+      label: NextUI Version
+      description: |
+        Please provide the version of NextUI you are using.
+        You can find the version number in the package.json file.
+      placeholder: ex. 2.0.10
+    validations:
+      required: true
   - type: textarea
     id: description
     attributes:

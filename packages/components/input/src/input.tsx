@@ -1,12 +1,12 @@
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
 
-export interface InputProps
-  extends Omit<UseInputProps, "ref" | "isLabelPlaceholder" | "isMultiline"> {}
+export interface InputProps extends Omit<UseInputProps, "isLabelPlaceholder" | "isMultiline"> {}
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Input = forwardRef<"input", InputProps>((props, ref) => {
   const {
     Component,
     label,
@@ -17,8 +17,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     labelPlacement,
     hasPlaceholder,
     hasHelper,
+    isLabelOutside,
+    isLabelOutsideAsPlaceholder,
     shouldLabelBeOutside,
-    shouldLabelBeInside,
     errorMessage,
     getBaseProps,
     getLabelProps,
@@ -30,7 +31,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
-  } = useInput({ref, ...props});
+  } = useInput({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
@@ -82,7 +83,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       return (
         <div {...getMainWrapperProps()}>
           <div {...getInputWrapperProps()}>
-            {labelPlacement === "outside" && !hasPlaceholder ? labelContent : null}
+            {isLabelOutsideAsPlaceholder ? labelContent : null}
             {innerWrapper}
           </div>
           {helperWrapper}
@@ -103,7 +104,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     labelPlacement,
     helperWrapper,
     shouldLabelBeOutside,
-    shouldLabelBeInside,
+    isLabelOutsideAsPlaceholder,
     hasPlaceholder,
     labelContent,
     innerWrapper,
@@ -117,9 +118,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {shouldLabelBeOutside && (labelPlacement === "outside-left" || hasPlaceholder)
-        ? labelContent
-        : null}
+      {isLabelOutside ? labelContent : null}
       {mainWrapper}
     </Component>
   );

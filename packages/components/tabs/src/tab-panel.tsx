@@ -29,7 +29,7 @@ export type TabPanelProps = Props & AriaTabPanelProps;
 /**
  * @internal
  */
-const TabPanel = forwardRef<TabPanelProps, "div">((props, ref) => {
+const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
   const {as, state, className, slots, classNames, ...otherProps} = props;
 
   const Component = as || "div";

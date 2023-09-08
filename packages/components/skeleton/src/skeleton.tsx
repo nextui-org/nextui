@@ -1,14 +1,14 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system-rsc";
 
 import {UseSkeletonProps, useSkeleton} from "./use-skeleton";
 
-export interface SkeletonProps extends Omit<UseSkeletonProps, "ref"> {}
+export interface SkeletonProps extends UseSkeletonProps {}
 
-const Skeleton = forwardRef<HTMLElement, SkeletonProps>((props, ref) => {
-  const {Component, children, getSkeletonProps, getContentProps} = useSkeleton({ref, ...props});
+const Skeleton = forwardRef<"div", SkeletonProps>((props, ref) => {
+  const {Component, children, getSkeletonProps, getContentProps} = useSkeleton({...props});
 
   return (
-    <Component {...getSkeletonProps()}>
+    <Component ref={ref} {...getSkeletonProps()}>
       <div {...getContentProps()}>{children}</div>
     </Component>
   );

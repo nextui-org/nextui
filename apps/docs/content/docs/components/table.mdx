@@ -13,6 +13,8 @@ Tables are used to display tabular data using rows and columns. They allow users
 
 ---
 
+<CarbonAd/>
+
 ## Import
 
 NextUI exports 6 table-related components:
@@ -231,7 +233,7 @@ import {useAsyncList} from "@react-stately/data";
 
 ### Loading more data
 
-Table sllows you to add a custom component at the end of the table, on the example below we are
+Table allows you to add a custom component at the end of the table, on the example below we are
 using a button to load more data.
 
 <CodeDemo
@@ -255,8 +257,7 @@ You can use the [Pagination](/components/pagination) component to paginate the t
 
 ### Async Pagination
 
-It is also possible to use the [Pagination](/components/pagination) component to paginate the table asynchronously. To fetch the data, we are using the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html).
-Please check the installation instructions in the [Sorting Rows](#sorting-rows) section.
+It is also possible to use the [Pagination](/components/pagination) component to paginate the table asynchronously. To fetch the data, we are using the `useSWR` hook from [SWR](https://swr.vercel.app/docs/pagination).
 
 <CodeDemo
   asIframe

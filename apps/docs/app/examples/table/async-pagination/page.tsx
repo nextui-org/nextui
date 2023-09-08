@@ -11,8 +11,8 @@ import {
   Spinner,
   Pagination,
 } from "@nextui-org/react";
-import {useAsyncList} from "@react-stately/data";
-import {useCallback, useMemo, useState} from "react";
+import {useMemo, useState} from "react";
+import useSWR from "swr";
 
 type SWCharacter = {
   name: string;
@@ -21,50 +21,23 @@ type SWCharacter = {
   birth_year: string;
 };
 
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+
 export default function Page() {
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+
+  const {data, isLoading} = useSWR<{
+    count: number;
+    results: SWCharacter[];
+  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 
-  let list = useAsyncList<SWCharacter>({
-    async load({signal, cursor}) {
-      // If no cursor is available, then we're loading the first page.
-      // Otherwise, the cursor is the next URL to load, as returned from the previous page.
-      const res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
-      let json = await res.json();
-
-      setTotal(json.count);
-
-      setIsLoading(false);
-
-      return {
-        items: json.results,
-        cursor: json.next,
-      };
-    },
-  });
-
-  const pages = Math.ceil(total / rowsPerPage);
-
-  const items = useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-
-    return list.items.slice(start, end);
-  }, [page, list.items?.length]);
-
-  const onPaginationChange = useCallback(
-    (page: number) => {
-      setIsLoading(true);
-      if (page >= list.items.length / rowsPerPage) {
-        list.loadMore();
-      }
-      setPage(page);
-    },
-    [list.items.length],
-  );
+  const pages = useMemo(() => {
+    return data?.count ? Math.ceil(data.count / rowsPerPage) : 0;
+  }, [data?.count, rowsPerPage]);
 
   return (
     <div className="p-6">
@@ -80,7 +53,7 @@ export default function Page() {
                 color="primary"
                 page={page}
                 total={pages}
-                onChange={onPaginationChange}
+                onChange={(page) => setPage(page)}
               />
             </div>
           ) : null
@@ -96,8 +69,8 @@ export default function Page() {
           <TableColumn key="birth_year">Birth year</TableColumn>
         </TableHeader>
         <TableBody
-          isLoading={isLoading && !items.length}
-          items={items}
+          isLoading={isLoading || data?.results.length === 0}
+          items={data?.results ?? []}
           loadingContent={<Spinner />}
         >
           {(item) => (

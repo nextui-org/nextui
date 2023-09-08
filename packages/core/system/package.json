@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "0.0.0-dev-v2-20230725193627",
+  "version": "2.0.6",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -25,11 +25,11 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src !src/extend-styles.d.ts --dts",
+    "build": "tsup src !src/extend-variants.d.ts --dts",
     "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup src !src/extend-styles.d.ts",
+    "build:fast": "tsup src !src/extend-variants.d.ts",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
@@ -38,8 +38,7 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "@nextui-org/react-utils": "workspace:*"
+    "react": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {
@@ -51,10 +50,8 @@
     ]
   },
   "dependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "tailwind-variants": "^0.1.13",
-    "@react-aria/i18n": "^3.8.0",
-    "@react-aria/overlays": "^3.15.0",
-    "clsx": "^1.2.1"
+    "@nextui-org/system-rsc": "workspace:*",
+    "@react-aria/i18n": "^3.8.1",
+    "@react-aria/overlays": "^3.16.0"
   }
 }

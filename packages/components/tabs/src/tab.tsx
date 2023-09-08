@@ -1,4 +1,6 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
+import type {TabItemProps as BaseTabItemProps} from "./base/tab-item-base";
+
+import {forwardRef} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -12,7 +14,7 @@ import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
 
-export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
+export interface TabItemProps<T extends object = object> extends BaseTabItemProps<T> {
   item: Node<T>;
   state: ValuesType["state"];
   slots: ValuesType["slots"];
@@ -27,7 +29,7 @@ export interface TabItemProps<T = object> extends HTMLNextUIProps<"button"> {
 /**
  * @internal
  */
-const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
+const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   const {
     className,
     as,
@@ -49,6 +51,7 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
   const domRef = useDOMRef(ref);
 
   const Component = as || "button";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const {
     tabProps,
@@ -103,9 +106,14 @@ const Tab = forwardRef<TabItemProps, "button">((props, ref) => {
               ...hoverProps,
             }
           : {},
-        filterDOMProps(otherProps),
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+          omitPropNames: new Set(["title"]),
+        }),
       )}
       className={slots.tab?.({class: tabStyles})}
+      title={otherProps?.titleValue}
+      type={Component === "button" ? "button" : undefined}
       onClick={handleClick}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (

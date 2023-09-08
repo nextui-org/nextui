@@ -1,7 +1,8 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {cloneElement, isValidElement, ReactNode, useMemo, forwardRef} from "react";
+import {cloneElement, isValidElement, ReactNode, useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {CloseIcon} from "@nextui-org/shared-icons";
@@ -14,18 +15,18 @@ import {HTMLNextUIProps} from "@nextui-org/system";
 import {useModalContext} from "./modal-context";
 import {scaleInOut} from "./modal-transition";
 
-export interface ModalContentProps
-  extends AriaDialogProps,
-    Omit<HTMLNextUIProps<"div">, "children" | "role"> {
+type KeysToOmit = "children" | "role";
+
+export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div", KeysToOmit> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
-const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>((props, _) => {
+const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;
 
   const {
     Component: DialogComponent,
-    dialogRef,
+    domRef,
     slots,
     isOpen,
     classNames,
@@ -47,7 +48,7 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>((props, _) =>
     {
       role,
     },
-    dialogRef,
+    domRef,
   );
 
   const closeButtonContent = isValidElement(closeButton) ? (
@@ -59,14 +60,12 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>((props, _) =>
   );
 
   const content = (
-    <>
+    <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
       <DismissButton onDismiss={onClose} />
-      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
-        {!hideCloseButton && closeButtonContent}
-        {typeof children === "function" ? children(onClose) : children}
-      </Component>
+      {!hideCloseButton && closeButtonContent}
+      {typeof children === "function" ? children(onClose) : children}
       <DismissButton onDismiss={onClose} />
-    </>
+    </Component>
   );
 
   const backdropContent = useMemo(() => {

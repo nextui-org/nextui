@@ -1,8 +1,8 @@
 # @nextui-org/table
 
-A Quick description of the component
+Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/table) for more information.
 
 ## Installation
 

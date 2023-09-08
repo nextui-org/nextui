@@ -8,7 +8,7 @@ export interface NavbarMenuItemProps extends HTMLNextUIProps<"li"> {
   children?: React.ReactNode;
 }
 
-const NavbarMenuItem = forwardRef<NavbarMenuItemProps, "li">((props, ref) => {
+const NavbarMenuItem = forwardRef<"li", NavbarMenuItemProps>((props, ref) => {
   const {className, children, ...otherProps} = props;
 
   const domRef = useDOMRef(ref);

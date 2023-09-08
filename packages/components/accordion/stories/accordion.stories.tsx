@@ -1,5 +1,7 @@
+import type {Selection} from "@react-types/shared";
+
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {accordionItem} from "@nextui-org/theme";
 import {
   AnchorIcon,
@@ -12,7 +14,7 @@ import {
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 
-import {Accordion, AccordionProps, AccordionItem, Selection} from "../src";
+import {Accordion, AccordionProps, AccordionItem} from "../src";
 import {AccordionItemProps} from "../src";
 
 export default {
@@ -22,8 +24,8 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["default", "shadow", "bordered", "splitted"],
       },
+      options: ["default", "shadow", "bordered", "splitted"],
     },
     isDisabled: {
       control: {
@@ -33,8 +35,8 @@ export default {
     selectionMode: {
       control: {
         type: "select",
-        options: ["single", "multiple"],
       },
+      options: ["single", "multiple"],
     },
     disableAnimation: {
       control: {
@@ -42,7 +44,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Accordion>;
+} as Meta<typeof Accordion>;
 
 const defaultProps = {
   ...accordionItem.defaultVariants,
@@ -52,7 +54,7 @@ const defaultProps = {
 const defaultContent =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
-const Template: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
+const Template = (args: AccordionProps) => (
   <Accordion {...args}>
     <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
       {defaultContent}
@@ -66,7 +68,7 @@ const Template: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
   </Accordion>
 );
 
-const TemplateWithSubtitle: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
+const TemplateWithSubtitle = (args: AccordionProps) => (
   <Accordion {...args}>
     <AccordionItem key="1" aria-label="Accordion 1" subtitle="Press to expand" title="Accordion 1">
       {defaultContent}
@@ -89,7 +91,7 @@ const TemplateWithSubtitle: ComponentStory<typeof Accordion> = (args: AccordionP
   </Accordion>
 );
 
-const TemplateWithStartContent: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
+const TemplateWithStartContent = (args: AccordionProps) => (
   <Accordion {...args} variant="shadow">
     <AccordionItem
       key="1"
@@ -146,7 +148,7 @@ const TemplateWithStartContent: ComponentStory<typeof Accordion> = (args: Accord
   </Accordion>
 );
 
-const VariantsTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
+const VariantsTemplate = (args: AccordionProps) => (
   <div className="flex flex-col gap-8 mb-24">
     <div className="flex flex-col gap-4">
       <h3>Default</h3>
@@ -207,7 +209,7 @@ const VariantsTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps
   </div>
 );
 
-const CustomInidicatorTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => (
+const CustomInidicatorTemplate = (args: AccordionProps) => (
   <Accordion {...args}>
     <AccordionItem key="anchor" aria-label="Anchor" indicator={<AnchorIcon />} title="Anchor">
       {defaultContent}
@@ -221,7 +223,7 @@ const CustomInidicatorTemplate: ComponentStory<typeof Accordion> = (args: Accord
   </Accordion>
 );
 
-const ControlledTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
+const ControlledTemplate = (args: AccordionProps) => {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["1"]));
 
   // eslint-disable-next-line no-console
@@ -242,7 +244,7 @@ const ControlledTemplate: ComponentStory<typeof Accordion> = (args: AccordionPro
   );
 };
 
-const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: AccordionProps) => {
+const CustomWithClassNamesTemplate = (args: AccordionProps) => {
   const itemClasses: AccordionItemProps["classNames"] = {
     base: "py-0 w-full",
     title: "font-normal text-base",
@@ -311,84 +313,120 @@ const CustomWithClassNamesTemplate: ComponentStory<typeof Accordion> = (args: Ac
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const IsCompact = Template.bind({});
-IsCompact.args = {
-  ...defaultProps,
-  isCompact: true,
+export const IsCompact = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isCompact: true,
+  },
 };
 
-export const Multiple = Template.bind({});
-Multiple.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
+export const Multiple = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+  },
 };
 
-export const DefaultExpanded = Template.bind({});
-DefaultExpanded.args = {
-  ...defaultProps,
-  defaultExpandedKeys: ["2"],
+export const DefaultExpanded = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    defaultExpandedKeys: ["2"],
+  },
 };
 
-export const DisabledKeys = Template.bind({});
-DisabledKeys.args = {
-  ...defaultProps,
-  disabledKeys: ["2"],
+export const KeepContentMounted = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    keepContentMounted: true,
+  },
 };
 
-export const WithSubtitle = TemplateWithSubtitle.bind({});
-WithSubtitle.args = {
-  ...defaultProps,
+export const DisabledKeys = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disabledKeys: ["2"],
+  },
 };
 
-export const WithStartContent = TemplateWithStartContent.bind({});
-WithStartContent.args = {
-  ...defaultProps,
+export const WithSubtitle = {
+  render: TemplateWithSubtitle,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Variants = VariantsTemplate.bind({});
-Variants.args = {
-  ...defaultProps,
+export const WithStartContent = {
+  render: TemplateWithStartContent,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomMotion = Template.bind({});
-CustomMotion.args = {
-  ...defaultProps,
-  motionProps: {
-    variants: {
-      enter: {
-        y: 0,
-        opacity: 1,
-        height: "auto",
-        transition: {
-          height: {
-            type: "spring",
-            stiffness: 500,
-            damping: 30,
-            duration: 1,
-          },
-          opacity: {
-            easings: "ease",
-            duration: 1,
+export const Variants = {
+  render: VariantsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomMotion = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    motionProps: {
+      variants: {
+        enter: {
+          y: 0,
+          opacity: 1,
+          height: "auto",
+          transition: {
+            height: {
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+              duration: 1,
+            },
+            opacity: {
+              easings: "ease",
+              duration: 1,
+            },
           },
         },
-      },
-      exit: {
-        y: -10,
-        opacity: 0,
-        height: 0,
-        transition: {
-          height: {
-            easings: "ease",
-            duration: 0.25,
-          },
-          opacity: {
-            easings: "ease",
-            duration: 0.3,
+        exit: {
+          y: -10,
+          opacity: 0,
+          height: 0,
+          transition: {
+            height: {
+              easings: "ease",
+              duration: 0.25,
+            },
+            opacity: {
+              easings: "ease",
+              duration: 0.3,
+            },
           },
         },
       },
@@ -396,17 +434,26 @@ CustomMotion.args = {
   },
 };
 
-export const CustomIndicator = CustomInidicatorTemplate.bind({});
-CustomIndicator.args = {
-  ...defaultProps,
+export const CustomIndicator = {
+  render: CustomInidicatorTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const Controlled = ControlledTemplate.bind({});
-Controlled.args = {
-  ...defaultProps,
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const CustomWithClassNames = CustomWithClassNamesTemplate.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
+export const CustomWithClassNames = {
+  render: CustomWithClassNamesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

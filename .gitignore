@@ -20,6 +20,7 @@ coverage
 dist/
 storybook-static
 /packages/storybook/public/tailwind.css
+
 # misc
 .DS_Store
 .env

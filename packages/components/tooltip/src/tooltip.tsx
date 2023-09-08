@@ -1,4 +1,5 @@
-import {useMemo, forwardRef} from "react";
+import {useMemo} from "react";
+import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, motion} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
@@ -8,10 +9,9 @@ import {getTransformOrigins} from "@nextui-org/aria-utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
-export interface TooltipProps
-  extends Omit<UseTooltipProps, "ref" | "disableTriggerFocus" | "backdrop"> {}
+export interface TooltipProps extends Omit<UseTooltipProps, "disableTriggerFocus" | "backdrop"> {}
 
-const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
+const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   const {
     Component,
     children,
@@ -26,11 +26,13 @@ const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
     getTooltipProps,
     getArrowProps,
   } = useTooltip({
-    ref,
     ...props,
+    ref,
   });
 
   let trigger: React.ReactElement;
+
+  const {className, ...otherTooltipProps} = getTooltipProps();
 
   try {
     /**
@@ -53,8 +55,6 @@ const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
   }, [showArrow, getArrowProps]);
 
   const animatedContent = useMemo(() => {
-    const {className, ...otherTooltipProps} = getTooltipProps();
-
     return (
       <div {...otherTooltipProps}>
         <motion.div
@@ -67,24 +67,22 @@ const Tooltip = forwardRef<HTMLElement, TooltipProps>((props, ref) => {
           variants={TRANSITION_VARIANTS.scaleSpring}
           {...motionProps}
         >
-          <Component className={className}>
-            {content}
-            {arrowContent}
-          </Component>
+          <Component className={className}>{content}</Component>
+          {arrowContent}
         </motion.div>
       </div>
     );
-  }, [getTooltipProps, placement, motionProps, Component, content, arrowContent]);
+  }, [otherTooltipProps, className, placement, motionProps, Component, content, arrowContent]);
 
   return (
     <>
       {trigger}
       {disableAnimation && isOpen ? (
         <OverlayContainer portalContainer={portalContainer}>
-          <Component {...getTooltipProps()}>
-            {content}
+          <div {...otherTooltipProps}>
+            <Component className={className}>{content}</Component>
             {arrowContent}
-          </Component>
+          </div>
         </OverlayContainer>
       ) : (
         <AnimatePresence>

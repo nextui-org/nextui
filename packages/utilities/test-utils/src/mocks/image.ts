@@ -8,6 +8,7 @@ export function mockImage() {
   //@ts-expect-error
   window.Image = class Image {
     onload: VoidFunction = () => {
+      // eslint-disable-next-line no-console
       console.log("called");
     };
     onerror: VoidFunction = () => {};

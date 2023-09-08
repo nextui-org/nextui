@@ -1,5 +1,5 @@
-import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import React, {useMemo} from "react";
+import {Meta} from "@storybook/react";
 import {table} from "@nextui-org/theme";
 import {User} from "@nextui-org/user";
 import {Chip, ChipProps} from "@nextui-org/chip";
@@ -10,6 +10,7 @@ import {Tooltip} from "@nextui-org/tooltip";
 import {EditIcon, DeleteIcon, EyeIcon} from "@nextui-org/shared-icons";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
+import useSWR from "swr";
 
 import {
   Table,
@@ -29,32 +30,32 @@ export default {
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     layout: {
       control: {
         type: "select",
-        options: ["auto", "fixed"],
       },
+      options: ["auto", "fixed"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     shadow: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg"],
       },
+      options: ["none", "sm", "md", "lg"],
     },
     selectionMode: {
       control: {
         type: "select",
-        options: ["none", "single", "multiple"],
       },
+      options: ["none", "single", "multiple"],
     },
     isStriped: {
       control: {
@@ -62,7 +63,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Table>;
+} as Meta<typeof Table>;
 
 const defaultProps = {
   ...table.defaultVariants,
@@ -118,7 +119,7 @@ type SWCharacter = {
   birth_year: string;
 };
 
-const StaticTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+const StaticTemplate = (args: TableProps) => (
   <Table aria-label="Example static collection table" {...args}>
     <TableHeader>
       <TableColumn>NAME</TableColumn>
@@ -150,7 +151,7 @@ const StaticTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
   </Table>
 );
 
-const EmptyTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+const EmptyTemplate = (args: TableProps) => (
   <Table aria-label="Example empty table" {...args}>
     <TableHeader>
       <TableColumn>NAME</TableColumn>
@@ -161,7 +162,7 @@ const EmptyTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
   </Table>
 );
 
-const DynamicTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
+const DynamicTemplate = (args: TableProps) => (
   <Table aria-label="Example table with dynamic content" {...args}>
     <TableHeader columns={columns}>
       {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
@@ -176,7 +177,7 @@ const DynamicTemplate: ComponentStory<typeof Table> = (args: TableProps) => (
   </Table>
 );
 
-const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const CustomCellTemplate = (args: TableProps) => {
   const columns = [
     {name: "NAME", uid: "name"},
     {name: "ROLE", uid: "role"},
@@ -316,7 +317,7 @@ const CustomCellTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const CustomCellWithClassnamesTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const CustomCellWithClassnamesTemplate = (args: TableProps) => {
   const columns = [
     {name: "NAME", uid: "name"},
     {name: "ROLE", uid: "role"},
@@ -464,7 +465,7 @@ const CustomCellWithClassnamesTemplate: ComponentStory<typeof Table> = (args: Ta
   );
 };
 
-const SortableTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const SortableTemplate = (args: TableProps) => {
   let list = useAsyncList<SWCharacter>({
     async load({signal}) {
       let res = await fetch(`https://swapi.py4e.com/api/people/?search`, {
@@ -525,7 +526,7 @@ const SortableTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const LoadMoreTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const LoadMoreTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
 
   let list = useAsyncList<SWCharacter>({
@@ -580,7 +581,7 @@ const LoadMoreTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const PaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const PaginatedTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
 
   const rowsPerPage = 4;
@@ -758,38 +759,25 @@ const PaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
   );
 };
 
-const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json());
+
+const AsyncPaginatedTemplate = (args: TableProps) => {
   const [page, setPage] = React.useState(1);
-  const [total, setTotal] = React.useState(0);
+
+  const {data, isLoading} = useSWR<{
+    count: number;
+    results: SWCharacter[];
+  }>(`https://swapi.py4e.com/api/people?page=${page}`, fetcher, {
+    keepPreviousData: true,
+  });
 
   const rowsPerPage = 10;
 
-  let list = useAsyncList<SWCharacter>({
-    async load({signal, cursor}) {
-      // If no cursor is available, then we're loading the first page.
-      // Otherwise, the cursor is the next URL to load, as returned from the previous page.
-      const res = await fetch(cursor || "https://swapi.py4e.com/api/people/?search=", {signal});
-      let json = await res.json();
+  const pages = useMemo(() => {
+    return data?.count ? Math.ceil(data?.count / rowsPerPage) : 0;
+  }, [data?.count, rowsPerPage]);
 
-      setTotal(json.count);
-
-      return {
-        items: json.results,
-        cursor: json.next,
-      };
-    },
-  });
-
-  const pages = Math.ceil(total / rowsPerPage);
-
-  const items = React.useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-
-    return list.items.slice(start, end);
-  }, [page, list.items?.length, list.loadingState]);
-
-  const loadingState = items.length === 0 ? "loading" : list.loadingState;
+  const loadingState = isLoading || data?.results.length === 0 ? "loading" : "idle";
 
   return (
     <Table
@@ -804,12 +792,7 @@ const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) 
               color="primary"
               page={page}
               total={pages}
-              onChange={(page) => {
-                if (page >= list.items.length / rowsPerPage) {
-                  list.loadMore();
-                }
-                setPage(page);
-              }}
+              onChange={(page) => setPage(page)}
             />
           </div>
         ) : null
@@ -822,9 +805,13 @@ const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) 
         <TableColumn key="mass">Mass</TableColumn>
         <TableColumn key="birth_year">Birth year</TableColumn>
       </TableHeader>
-      <TableBody items={items} loadingContent={<Spinner />} loadingState={loadingState}>
+      <TableBody
+        items={data?.results ?? []}
+        loadingContent={<Spinner />}
+        loadingState={loadingState}
+      >
         {(item) => (
-          <TableRow key={item.name}>
+          <TableRow key={item?.name}>
             {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
           </TableRow>
         )}
@@ -833,7 +820,7 @@ const AsyncPaginatedTemplate: ComponentStory<typeof Table> = (args: TableProps) 
   );
 };
 
-const InfinitePaginationTemplate: ComponentStory<typeof Table> = (args: TableProps) => {
+const InfinitePaginationTemplate = (args: TableProps) => {
   const [hasMore, setHasMore] = React.useState(false);
 
   let list = useAsyncList<SWCharacter>({
@@ -884,136 +871,193 @@ const InfinitePaginationTemplate: ComponentStory<typeof Table> = (args: TablePro
   );
 };
 
-export const Static = StaticTemplate.bind({});
-Static.args = {
-  ...defaultProps,
-};
+export const Static = {
+  render: StaticTemplate,
 
-export const Dynamic = DynamicTemplate.bind({});
-Dynamic.args = {
-  ...defaultProps,
-};
-
-export const EmptyState = EmptyTemplate.bind({});
-EmptyState.args = {
-  ...defaultProps,
-};
-
-export const NoHeader = StaticTemplate.bind({});
-NoHeader.args = {
-  ...defaultProps,
-  hideHeader: true,
-};
-
-export const CustomCells = CustomCellTemplate.bind({});
-CustomCells.args = {
-  ...defaultProps,
-  className: "max-w-3xl",
-};
-
-export const Striped = StaticTemplate.bind({});
-Striped.args = {
-  ...defaultProps,
-  isStriped: true,
-};
-
-export const RemoveWrapper = StaticTemplate.bind({});
-RemoveWrapper.args = {
-  ...defaultProps,
-  classNames: {
-    table: "max-w-lg",
-  },
-  removeWrapper: true,
-};
-
-export const SingleSelection = StaticTemplate.bind({});
-SingleSelection.args = {
-  ...defaultProps,
-  selectionMode: "single",
-};
-
-export const MultipleSelection = StaticTemplate.bind({});
-MultipleSelection.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
-  color: "secondary",
-};
-
-export const DisabledKeys = StaticTemplate.bind({});
-DisabledKeys.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
-  disabledKeys: ["2"],
-  color: "warning",
-};
-
-export const DisallowEmptySelection = StaticTemplate.bind({});
-DisallowEmptySelection.args = {
-  ...defaultProps,
-  disallowEmptySelection: true,
-  color: "primary",
-  defaultSelectedKeys: ["2"],
-  selectionMode: "multiple",
-};
-
-export const Sortable = SortableTemplate.bind({});
-Sortable.args = {
-  ...defaultProps,
-};
-
-export const LoadMore = LoadMoreTemplate.bind({});
-LoadMore.args = {
-  ...defaultProps,
-  className: "max-w-3xl max-h-auto",
-};
-
-export const Paginated = PaginatedTemplate.bind({});
-Paginated.args = {
-  ...defaultProps,
-  className: "max-w-lg min-h-[292px]",
-};
-
-export const AsyncPaginated = AsyncPaginatedTemplate.bind({});
-AsyncPaginated.args = {
-  ...defaultProps,
-  className: "max-w-3xl max-h-auto min-h-[400px]",
-};
-
-export const InfinityPagination = InfinitePaginationTemplate.bind({});
-InfinityPagination.args = {
-  ...defaultProps,
-  className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
-};
-
-export const HeaderSticky = InfinitePaginationTemplate.bind({});
-HeaderSticky.args = {
-  ...defaultProps,
-  layout: "fixed",
-  isHeaderSticky: true,
-  className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
-};
-
-export const CustomWithClassNames = CustomCellWithClassnamesTemplate.bind({});
-CustomWithClassNames.args = {
-  ...defaultProps,
-  classNames: {
-    base: ["max-w-3xl", "bg-gradient-to-br", "from-purple-500", "to-indigo-900/90", "shadow-xl"],
-    th: ["bg-transparent", "text-white/70", "border-b", "border-white/10"],
-    td: [
-      "py-4",
-      "text-sm",
-      "text-white/90",
-      "border-b",
-      "border-white/10",
-      "group-data-[last=true]:border-b-0",
-    ],
+  args: {
+    ...defaultProps,
   },
 };
 
-export const DisableAnimation = StaticTemplate.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  selectionMode: "multiple",
-  color: "secondary",
-  disableAnimation: true,
+export const Dynamic = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const EmptyState = {
+  render: EmptyTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const NoHeader = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    hideHeader: true,
+  },
+};
+
+export const CustomCells = {
+  render: CustomCellTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl",
+  },
+};
+
+export const Striped = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    isStriped: true,
+  },
+};
+
+export const RemoveWrapper = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    classNames: {
+      table: "max-w-lg",
+    },
+    removeWrapper: true,
+  },
+};
+
+export const SingleSelection = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "single",
+  },
+};
+
+export const MultipleSelection = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    color: "secondary",
+  },
+};
+
+export const DisabledKeys = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    disabledKeys: ["2"],
+    color: "warning",
+  },
+};
+
+export const DisallowEmptySelection = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    disallowEmptySelection: true,
+    color: "primary",
+    defaultSelectedKeys: ["2"],
+    selectionMode: "multiple",
+  },
+};
+
+export const Sortable = {
+  render: SortableTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const LoadMore = {
+  render: LoadMoreTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl max-h-auto",
+  },
+};
+
+export const Paginated = {
+  render: PaginatedTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-lg min-h-[292px]",
+  },
+};
+
+export const AsyncPaginated = {
+  render: AsyncPaginatedTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl max-h-auto min-h-[400px]",
+  },
+};
+
+export const InfinityPagination = {
+  render: InfinitePaginationTemplate,
+
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
+  },
+};
+
+export const HeaderSticky = {
+  render: InfinitePaginationTemplate,
+
+  args: {
+    ...defaultProps,
+    layout: "fixed",
+    isHeaderSticky: true,
+    className: "max-w-3xl max-h-[440px] min-h-[400px] overflow-auto",
+  },
+};
+
+export const CustomWithClassNames = {
+  render: CustomCellWithClassnamesTemplate,
+
+  args: {
+    ...defaultProps,
+    classNames: {
+      base: ["max-w-3xl", "bg-gradient-to-br", "from-purple-500", "to-indigo-900/90", "shadow-xl"],
+      th: ["bg-transparent", "text-white/70", "border-b", "border-white/10"],
+      td: [
+        "py-4",
+        "text-sm",
+        "text-white/90",
+        "border-b",
+        "border-white/10",
+        "group-data-[last=true]:border-b-0",
+      ],
+    },
+  },
+};
+
+export const DisableAnimation = {
+  render: StaticTemplate,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    color: "secondary",
+    disableAnimation: true,
+  },
 };

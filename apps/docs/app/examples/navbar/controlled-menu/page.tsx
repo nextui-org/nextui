@@ -8,7 +8,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  Avatar,
+  Button,
   Link as NextUiLink,
   LinkProps,
 } from "@nextui-org/react";
@@ -79,16 +79,13 @@ export default function Page() {
       </NavbarContent>
 
       <NavbarContent justify="end">
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
+        </NavbarItem>
         <NavbarItem>
-          <Avatar
-            isBordered
-            as="button"
-            className="transition-transform"
-            color="warning"
-            name="Jane Lee"
-            size="sm"
-            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-          />
+          <Button as={Link} color="warning" href="#" variant="flat">
+            Sign Up
+          </Button>
         </NavbarItem>
       </NavbarContent>
 

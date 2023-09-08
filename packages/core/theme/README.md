@@ -1,8 +1,8 @@
 # @nextui-org/theme
 
-A Quick description of the component
+NextUI theme primitives, here you can find the TailwindCSS `plugin`, `colors`, `layout`, `spacing`, `typography` and some other utilities.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/theme) for more information.
 
 ## Installation
 

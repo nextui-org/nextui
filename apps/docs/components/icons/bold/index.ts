@@ -14,3 +14,5 @@ export * from "./info";
 export * from "./document-code";
 export * from "./hash";
 export * from "./more-square";
+export * from "./play";
+export * from "./pause";

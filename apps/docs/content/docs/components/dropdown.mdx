@@ -13,6 +13,8 @@ Displays a list of actions or options that a user can choose.
 
 ---
 
+<CarbonAd/>
+
 ## Import
 
 NextUI exports 5 dropdown-related components:
@@ -95,6 +97,8 @@ You can set the `selectionMode` property as `multiple` to allow the user to sele
   files={dropdownContent.multipleSelection}
 />
 
+> **Note**: To allow empty selection, you can set the `disallowEmptySelection` property as `false`.
+
 ### With Shortcut
 
 You can use the `shortcut` prop to add a shortcut to the dropdown item.
@@ -109,7 +113,7 @@ It is possible to add icons to the dropdown items using the `startContent` / `en
 
 <CodeDemo title="With Icons" highlightedLines="23,30,37,47" files={dropdownContent.icons} />
 
-> **Note**: Note: If you use `currentColor` as the icon color, the icon will have the same color as the item text.
+> **Note**: If you use `currentColor` as the icon color, the icon will have the same color as the item text.
 
 ### With Description
 
@@ -152,7 +156,7 @@ Dropdown has 2 components with slots the `DropdownItem` and `DropdownSection` co
 - **wrapper**: The `title` and `description` wrapper.
 - **title**: The title of the dropdown item.
 - **description**: The description of the dropdown item.
-- **shortcut**: The shorcut slot.
+- **shortcut**: The shortcut slot.
 - **selectedIcon**: The selected icon slot. This is only visible when the item is selected.
 
 ### DropdownSection
@@ -187,18 +191,18 @@ you to customize each item individually.
 
 | Key                              | Description                                                                                                                                   |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Space</kbd>                 | When focus is on `DropdownTrigger`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
-| <kbd>Enter</kbd>                 | When focus is on `DropdownTrigger`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
-| <kbd>ArrowDown</kbd>             | When focus is on `DropdownTrigger`, opens the dropdown menu. When focus is on an item, moves focus to the next item.                          |
-| <kbd>ArrowUp</kbd>               | When focus is on an item, moves focus to the previous item.                                                                                   |
-| <kbd>Esc</kbd>                   | Closes the dropdown menu and moves focus to `DropdownTrigger`.                                                                                |
-| <kbd>A-Z</kbd> or <kbd>a-z</kbd> | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists.       |
+| <Kbd>Space</Kbd>                 | When focus is on `DropdownTrigger`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
+| <Kbd>Enter</Kbd>                 | When focus is on `DropdownTrigger`, opens the dropdown menu and focuses the first item. When focus is on an item, activates the focused item. |
+| <Kbd>ArrowDown</Kbd>             | When focus is on `DropdownTrigger`, opens the dropdown menu. When focus is on an item, moves focus to the next item.                          |
+| <Kbd>ArrowUp</Kbd>               | When focus is on an item, moves focus to the previous item.                                                                                   |
+| <Kbd>Esc</Kbd>                   | Closes the dropdown menu and moves focus to `DropdownTrigger`.                                                                                |
+| <Kbd>A-Z</Kbd> or <Kbd>a-z</Kbd> | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists.       |
 
 <Spacer y={4} />
 
 ## Data Attributes
 
-`DropdownItem` has the following attributes on the `root` element:
+`DropdownItem` has the following attributes on the `base` element:
 
 - **data-disabled**:
   When the dropdown item is disabled. Based on dropdown `disabledKeys` prop.
@@ -217,7 +221,7 @@ you to customize each item individually.
 
 ## Accessibility
 
-- Exposed to assistive technology as a button with a menu using ARIA.
+- Exposed to assistive technology as a `button` with a `menu` using ARIA.
 - Support for single, multiple, or no selection.
 - Support for disabled items.
 - Support for sections.
@@ -258,7 +262,7 @@ you to customize each item individually.
 
 | Attribute | Type        | Description                                                                                                                                                                    | Default |
 | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| children  | `ReactNode` | TThe dropdown trigger component, ensure the `children` passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility. | -       |
+| children  | `ReactNode` | The dropdown trigger component, ensure the `children` passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility. | -       |
 
 ---
 
@@ -318,6 +322,7 @@ you to customize each item individually.
 | startContent  | `ReactNode`                                                                                   | The start content of the dropdown item.                                                                         | -       |
 | endContent    | `ReactNode`                                                                                   | The end content of the dropdown item. This is positioned after the shortcut and the selected icon.              | -       |
 | selectedIcon  | [SelectedIconProps](#dropdown-item-selected-icon-props)                                       | Custom icon to render when the item is selected.                                                                | -       |
+| showDivider   | `boolean`                                                                                     | Whether to show a divider below the item.                                                                       | `false` |
 | isDisabled    | `boolean`                                                                                     | Whether the dropdown item should be disabled. (**Deprecated**) pass **disabledKeys** to `DropdownMenu` instead. | `false` |
 | isSelected    | `boolean`                                                                                     | Whether the dropdown item should be selected. (**Deprecated**) pass **selectedKeys** to `DropdownMenu` instead. | `false` |
 | isReadOnly    | `boolean`                                                                                     | Whether the dropdown item press events should be ignored.                                                       | `false` |

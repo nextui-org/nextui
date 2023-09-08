@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {dropdown, popover} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 import {Avatar} from "@nextui-org/avatar";
@@ -29,45 +29,45 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
       },
+      options: ["solid", "bordered", "light", "flat", "faded", "shadow"],
     },
     color: {
       control: {
         type: "select",
-        options: ["default", "primary", "secondary", "success", "warning", "danger"],
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {
         type: "select",
-        options: ["none", "sm", "md", "lg", "full"],
       },
+      options: ["none", "sm", "md", "lg", "full"],
     },
     placement: {
       control: {
         type: "select",
-        options: [
-          "top",
-          "bottom",
-          "right",
-          "left",
-          "top-start",
-          "top-end",
-          "bottom-start",
-          "bottom-end",
-          "left-start",
-          "left-end",
-          "right-start",
-          "right-end",
-        ],
       },
+      options: [
+        "top",
+        "bottom",
+        "right",
+        "left",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+        "left-start",
+        "left-end",
+        "right-start",
+        "right-end",
+      ],
     },
     backdrop: {
       control: {
         type: "select",
-        options: ["transparent", "blur", "opaque"],
       },
+      options: ["transparent", "blur", "opaque"],
     },
     offset: {
       control: {
@@ -102,7 +102,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Dropdown>;
+} as Meta<typeof Dropdown>;
 
 const defaultProps = {
   ...popover.defaultVariants,
@@ -113,11 +113,7 @@ const defaultProps = {
   disableAnimation: false,
 };
 
-const Template: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => (
+const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -133,11 +129,7 @@ const Template: ComponentStory<any> = ({
   </Dropdown>
 );
 
-const DividerTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => (
+const DividerTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -145,7 +137,9 @@ const DividerTemplate: ComponentStory<any> = ({
     <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
-      <DropdownItem key="edit">Edit file</DropdownItem>
+      <DropdownItem key="edit" showDivider>
+        Edit file
+      </DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>
@@ -153,11 +147,7 @@ const DividerTemplate: ComponentStory<any> = ({
   </Dropdown>
 );
 
-const DisabledKeysTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => (
+const DisabledKeysTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -179,11 +169,7 @@ const DisabledKeysTemplate: ComponentStory<any> = ({
   </Dropdown>
 );
 
-const SingleSelectionTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  ...args
-}: DropdownProps & DropdownMenuProps) => {
+const SingleSelectionTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => {
   const [selected, setSelected] = React.useState<string | Set<React.Key>>(new Set(["text"]));
 
   const selectedValue = React.useMemo(
@@ -218,7 +204,7 @@ const SingleSelectionTemplate: ComponentStory<any> = ({
   );
 };
 
-const MultipleSelectionTemplate: ComponentStory<any> = ({
+const MultipleSelectionTemplate = ({
   color,
   variant,
   ...args
@@ -258,7 +244,7 @@ const MultipleSelectionTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithShortcutTemplate: ComponentStory<any> = ({color, variant, ...args}) => (
+const WithShortcutTemplate = ({color, variant, ...args}) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
@@ -280,12 +266,12 @@ const WithShortcutTemplate: ComponentStory<any> = ({color, variant, ...args}) =>
   </Dropdown>
 );
 
-const WithStartContentTemplate: ComponentStory<any> = ({
+const WithStartContentTemplate = ({
   color,
   variant,
   disableAnimation,
   ...args
-}) => {
+}: DropdownProps & DropdownMenuProps) => {
   const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
 
   return (
@@ -331,12 +317,7 @@ const WithStartContentTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithEndContentTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  disableAnimation,
-  ...args
-}) => {
+const WithEndContentTemplate = ({color, variant, disableAnimation, ...args}) => {
   const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
@@ -369,12 +350,7 @@ const WithEndContentTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithDescriptionTemplate: ComponentStory<any> = ({
-  color,
-  variant,
-  disableAnimation,
-  ...args
-}) => {
+const WithDescriptionTemplate = ({color, variant, disableAnimation, ...args}) => {
   const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
 
   return (
@@ -424,7 +400,7 @@ const WithDescriptionTemplate: ComponentStory<any> = ({
   );
 };
 
-const WithSectionsTemplate: ComponentStory<any> = ({color, variant, disableAnimation, ...args}) => {
+const WithSectionsTemplate = ({color, variant, disableAnimation, ...args}) => {
   const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
 
   return (
@@ -484,7 +460,7 @@ const WithSectionsTemplate: ComponentStory<any> = ({color, variant, disableAnima
   );
 };
 
-const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
+const CustomTriggerTemplate = ({variant, ...args}) => {
   return (
     <div className="flex items-center gap-10">
       <Dropdown {...args} placement="bottom-end">
@@ -494,7 +470,7 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
             as="button"
             className="transition-transform"
             color="secondary"
-            size="lg"
+            size="md"
             src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
           />
         </DropdownTrigger>
@@ -521,7 +497,7 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
             avatarProps={{
               isBordered: true,
               color: "primary",
-              size: "lg",
+              size: "md",
               src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
             }}
             className="transition-transform"
@@ -549,84 +525,123 @@ const CustomTriggerTemplate: ComponentStory<any> = ({variant, ...args}) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultProps,
+export const Default = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithArrow = Template.bind({});
-WithArrow.args = {
-  ...defaultProps,
-  showArrow: true,
+export const WithArrow = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+  },
 };
 
-export const WithDivider = DividerTemplate.bind({});
-WithDivider.args = {
-  ...defaultProps,
+export const WithDivider = {
+  render: DividerTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const DisabledKeys = DisabledKeysTemplate.bind({});
-DisabledKeys.args = {
-  ...defaultProps,
+export const DisabledKeys = {
+  render: DisabledKeysTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const SingleSelection = SingleSelectionTemplate.bind({});
-SingleSelection.args = {
-  ...defaultProps,
+export const SingleSelection = {
+  render: SingleSelectionTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const MultipleSelection = MultipleSelectionTemplate.bind({});
-MultipleSelection.args = {
-  ...defaultProps,
+export const MultipleSelection = {
+  render: MultipleSelectionTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithShortcut = WithShortcutTemplate.bind({});
-WithShortcut.args = {
-  ...defaultProps,
+export const WithShortcut = {
+  render: WithShortcutTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithStartContent = WithStartContentTemplate.bind({});
-WithStartContent.args = {
-  ...defaultProps,
-  variant: "flat",
-  color: "secondary",
+export const WithStartContent = {
+  render: WithStartContentTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    color: "secondary",
+  },
 };
 
-export const WithEndContent = WithEndContentTemplate.bind({});
-WithEndContent.args = {
-  ...defaultProps,
-  variant: "faded",
-  color: "success",
+export const WithEndContent = {
+  render: WithEndContentTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "faded",
+    color: "success",
+  },
 };
 
-export const WithDescription = WithDescriptionTemplate.bind({});
-WithDescription.args = {
-  ...defaultProps,
-  variant: "flat",
-  color: "secondary",
-  className: "min-w-[240px]",
+export const WithDescription = {
+  render: WithDescriptionTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    color: "secondary",
+    className: "min-w-[240px]",
+  },
 };
 
-export const WithSections = WithSectionsTemplate.bind({});
-WithSections.args = {
-  ...defaultProps,
-  variant: "flat",
-  color: "secondary",
-  className: "min-w-[240px]",
+export const WithSections = {
+  render: WithSectionsTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    color: "secondary",
+    className: "min-w-[240px]",
+  },
 };
 
-export const WithCustomTrigger = CustomTriggerTemplate.bind({});
-WithCustomTrigger.args = {
-  ...defaultProps,
-  variant: "flat",
-  offset: 14,
+export const WithCustomTrigger = {
+  render: CustomTriggerTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    offset: 14,
+  },
 };
 
-export const DisableAnimation = WithStartContentTemplate.bind({});
-DisableAnimation.args = {
-  ...defaultProps,
-  showArrow: true,
-  variant: "flat",
-  color: "secondary",
-  disableAnimation: true,
+export const DisableAnimation = {
+  render: WithStartContentTemplate,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+    variant: "flat",
+    color: "secondary",
+    disableAnimation: true,
+  },
 };

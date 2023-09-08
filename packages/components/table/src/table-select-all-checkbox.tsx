@@ -25,7 +25,7 @@ export interface TableSelectAllCheckboxProps<T = object> extends HTMLNextUIProps
   classNames?: ValuesType["classNames"];
 }
 
-const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((props, ref) => {
+const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((props, ref) => {
   const {
     as,
     className,
@@ -41,6 +41,8 @@ const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((pr
   } = props;
 
   const Component = as || "th";
+  const shouldFilterDOMProps = typeof Component === "string";
+
   const domRef = useDOMRef(ref);
 
   const {columnHeaderProps} = useTableColumnHeader({node}, state, domRef);
@@ -61,8 +63,12 @@ const TableSelectAllCheckbox = forwardRef<TableSelectAllCheckboxProps, "th">((pr
       {...mergeProps(
         columnHeaderProps,
         focusProps,
-        filterDOMProps(node.props),
-        filterDOMProps(otherProps),
+        filterDOMProps(node.props, {
+          enabled: shouldFilterDOMProps,
+        }),
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
       )}
       className={slots.th?.({class: thStyles})}
     >

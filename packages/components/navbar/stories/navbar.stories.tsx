@@ -1,5 +1,5 @@
 import React from "react";
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import {navbar} from "@nextui-org/theme";
 import {Link} from "@nextui-org/link";
 import {Button} from "@nextui-org/button";
@@ -36,14 +36,14 @@ export default {
     position: {
       control: {
         type: "select",
-        options: ["static", "fixed"],
       },
+      options: ["static", "fixed"],
     },
     maxWidth: {
       control: {
         type: "select",
-        options: ["sm", "md", "lg", "xl", "2xl", "full"],
       },
+      options: ["sm", "md", "lg", "xl", "2xl", "full"],
     },
     isBlurred: {
       control: {
@@ -58,7 +58,7 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Navbar>;
+} as Meta<typeof Navbar>;
 
 const defaultProps = {
   ...navbar.defaultVariants,
@@ -94,7 +94,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
 
 App.displayName = "App";
 
-const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const Template = (args: NavbarProps) => {
   // for hide on scroll cases
   const parentRef = React.useRef(null);
 
@@ -145,7 +145,7 @@ const Template: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
   );
 };
 
-const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithMenuTemplate = (args: NavbarProps) => {
   const parentRef = React.useRef(null);
 
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean | undefined>(false);
@@ -231,7 +231,7 @@ const WithMenuTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
   );
 };
 
-const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithDropdownTemplate = (args: NavbarProps) => {
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -346,7 +346,7 @@ const WithDropdownTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) 
   );
 };
 
-const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithAvatarUserTemplate = (args: NavbarProps) => {
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -410,19 +410,17 @@ const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps
             </Link>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent justify="end">
+        <NavbarContent as="div" justify="end">
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <NavbarItem>
-                <Avatar
-                  isBordered
-                  as="button"
-                  className="transition-transform"
-                  color="secondary"
-                  size="sm"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                />
-              </NavbarItem>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" color="secondary">
               <DropdownItem key="profile" className="h-14 gap-2">
@@ -446,7 +444,7 @@ const WithAvatarUserTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps
   );
 };
 
-const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProps) => {
+const WithSearchInputTemplate = (args: NavbarProps) => {
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -511,33 +509,30 @@ const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProp
             </Link>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden md:flex">
-            <Input
-              classNames={{
-                input: "text-base",
-              }}
-              placeholder="Search..."
-              size="sm"
-              startContent={<SearchIcon className="text-base pointer-events-none flex-shrink-0" />}
-              onClear={() => {
-                // eslint-disable-next-line no-console
-                console.log("clear");
-              }}
-            />
-          </NavbarItem>
+        <NavbarContent as="div" justify="end">
+          <Input
+            className="w-fit"
+            classNames={{
+              input: "text-base",
+            }}
+            placeholder="Search..."
+            size="sm"
+            startContent={<SearchIcon className="text-base pointer-events-none flex-shrink-0" />}
+            onClear={() => {
+              // eslint-disable-next-line no-console
+              console.log("clear");
+            }}
+          />
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <NavbarItem>
-                <Avatar
-                  isBordered
-                  as="button"
-                  className="transition-transform"
-                  color="secondary"
-                  size="sm"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                />
-              </NavbarItem>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" color="secondary">
               <DropdownItem key="profile" className="h-14 gap-2">
@@ -561,41 +556,62 @@ const WithSearchInputTemplate: ComponentStory<typeof Navbar> = (args: NavbarProp
   );
 };
 
-export const Static = Template.bind({});
-Static.args = {
-  ...defaultProps,
-  position: "static",
+export const Static = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    position: "static",
+  },
 };
 
-export const Sticky = Template.bind({});
-Sticky.args = {
-  ...defaultProps,
-  position: "sticky",
+export const Sticky = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    position: "sticky",
+  },
 };
 
-export const HideOnScroll = Template.bind({});
-HideOnScroll.args = {
-  ...defaultProps,
-  position: "sticky",
-  shouldHideOnScroll: true,
+export const HideOnScroll = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    position: "sticky",
+    shouldHideOnScroll: true,
+  },
 };
 
-export const WithMenu = WithMenuTemplate.bind({});
-WithMenu.args = {
-  ...defaultProps,
+export const WithMenu = {
+  render: WithMenuTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithDropdown = WithDropdownTemplate.bind({});
-WithDropdown.args = {
-  ...defaultProps,
+export const WithDropdown = {
+  render: WithDropdownTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithAvatarUser = WithAvatarUserTemplate.bind({});
-WithAvatarUser.args = {
-  ...defaultProps,
+export const WithAvatarUser = {
+  render: WithAvatarUserTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
 
-export const WithSearchInput = WithSearchInputTemplate.bind({});
-WithSearchInput.args = {
-  ...defaultProps,
+export const WithSearchInput = {
+  render: WithSearchInputTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };

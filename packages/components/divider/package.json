@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/divider",
-  "version": "0.0.0-dev-v2-20230725193627",
+  "version": "2.0.15",
   "description": ". A separator is a visual divider between two groups of content",
   "keywords": [
     "divider"
@@ -38,11 +38,10 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/system": "workspace:*",
+    "@nextui-org/react-rsc-utils": "workspace:*",
+    "@nextui-org/system-rsc": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/separator": "^3.3.3",
-    "@react-aria/utils": "^3.18.0"
+    "@react-types/shared": "^3.19.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

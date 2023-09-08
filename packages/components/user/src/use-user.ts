@@ -6,10 +6,10 @@ import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {user} from "@nextui-org/theme";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {filterDOMProps, ReactRef} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
-export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {
+interface Props {
   /**
    * Ref to the DOM node.
    */
@@ -31,7 +31,7 @@ export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {
    * The user avatar props
    * @see https://nextui.org/docs/components/avatar
    */
-  avatarProps?: AvatarProps;
+  avatarProps?: Partial<AvatarProps>;
   /**
    * Classname or List of classes to change the classNames of the avatar.
    * if `className` is passed, it will be added to the base slot.
@@ -49,6 +49,8 @@ export interface UseUserProps extends Omit<HTMLNextUIProps<"div">, "children"> {
   classNames?: SlotsToClasses<UserSlots>;
 }
 
+export type UseUserProps = Props & Omit<HTMLNextUIProps<"div">, "children">;
+
 export function useUser(props: UseUserProps) {
   const {
     as,
@@ -58,14 +60,18 @@ export function useUser(props: UseUserProps) {
     className,
     classNames,
     isFocusable = false,
-    avatarProps = {
-      isFocusable: false,
-      name: typeof name === "string" ? name : undefined,
-    },
+    avatarProps: userAvatarProps = {},
     ...otherProps
   } = props;
 
+  const avatarProps = {
+    isFocusable: false,
+    name: typeof name === "string" ? name : undefined,
+    ...userAvatarProps,
+  };
+
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -88,7 +94,12 @@ export function useUser(props: UseUserProps) {
       className: slots.base({
         class: baseStyles,
       }),
-      ...mergeProps(otherProps, canBeFocused ? focusProps : {}),
+      ...mergeProps(
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        canBeFocused ? focusProps : {},
+      ),
     }),
     [canBeFocused, slots, baseStyles, focusProps, otherProps],
   );
@@ -101,7 +112,6 @@ export function useUser(props: UseUserProps) {
     description,
     classNames,
     baseStyles,
-    focusProps,
     avatarProps,
     getUserProps,
   };

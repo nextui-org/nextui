@@ -6,6 +6,8 @@ export * from "./close";
 export * from "./close-filled";
 export * from "./chevron";
 export * from "./chevron-down";
+export * from "./chevron-right";
+export * from "./chevron-up";
 export * from "./ellipsis";
 export * from "./forward";
 export * from "./sun";
@@ -30,6 +32,7 @@ export * from "./eye";
 export * from "./arrow-right";
 export * from "./arrow-left";
 export * from "./link";
+export * from "./selector";
 
 // sets
 export * from "./bulk";

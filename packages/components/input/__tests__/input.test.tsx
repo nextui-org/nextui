@@ -1,5 +1,5 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {render, waitFor} from "@testing-library/react";
 
 import {Input} from "../src";
 
@@ -87,5 +87,37 @@ describe("Input", () => {
     const {container: container6} = render(<Input label="test input" type="text" />);
 
     expect(container6.querySelector("input")).toHaveAttribute("type", "text");
+  });
+
+  it("should call dom event handlers only once", () => {
+    const onFocus = jest.fn();
+
+    const {container} = render(<Input label="test input" onFocus={onFocus} />);
+
+    container.querySelector("input")?.focus();
+    container.querySelector("input")?.blur();
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
+  it("ref should update the value", async () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {container} = render(<Input ref={ref} type="text" />);
+
+    if (!ref.current) {
+      throw new Error("ref is null");
+    }
+    const value = "value";
+
+    ref.current!.value = value;
+
+    container.querySelector("input")?.focus();
+
+    await waitFor(() => {
+      return expect(ref.current?.value)?.toBe(value);
+    });
+    await waitFor(() => {
+      return expect(ref.current?.value)?.toBe(value);
+    });
   });
 });

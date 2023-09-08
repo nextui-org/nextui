@@ -14,6 +14,8 @@ additional rich content on top of something.
 
 ---
 
+<CarbonAd/>
+
 ## Import
 
 NextUI exports 3 popover-related components:
@@ -122,7 +124,7 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 
 - The trigger and popover are automatically associated semantically via ARIA.
 - Content outside the popover is hidden from assistive technologies while it is open.
-- The popover closes when interacting outside, or pressing the <kbd>Escape</kbd> key.
+- The popover closes when interacting outside, or pressing the <Kbd>Escape</Kbd> key.
 - Focus is moved into the popover on mount, and restored to the trigger element on unmount.
 - The popover is positioned relative to the trigger element, and automatically flips and adjusts to avoid overlapping with the edge of the browser window.
 - Scrolling is prevented outside the popover to avoid unintentionally repositioning or closing it.
@@ -138,7 +140,7 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 | children\*                | `ReactNode[]`                                                               | The content of the popover. It's usually the `PopoverTrigger` and `PopoverContent`.                                                                          | -               |
 | size                      | `sm` \| `md` \| `lg`                                                        | The popover content font size.                                                                                                                               | `md`            |
 | color                     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The popover color theme.                                                                                                                                     | `default`       |
-| radius                    | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The popover border radius.                                                                                                                                   | `xl`            |
+| radius                    | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The popover border radius.                                                                                                                                   | `lg`            |
 | shadow                    | `none` \| `sm` \| `md` \| `lg`                                              | The popover shadow.                                                                                                                                          | `lg`            |
 | backdrop                  | `transparent` \| `opaque` \| `blur`                                         | The popover backdrop type.                                                                                                                                   | `transparent`   |
 | placement                 | [PopoverPlacement](#popover-placement)                                      | The placement of the popover relative to its trigger reference.                                                                                              | `bottom`        |

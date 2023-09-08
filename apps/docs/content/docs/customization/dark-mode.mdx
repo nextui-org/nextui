@@ -32,6 +32,8 @@ This will enable the dark mode for the whole application. However, many applicat
 the capability to switch between different themes. For this purpose, we recommend using a 
 theme switch library or creating your own implementation.
 
+<CarbonAd />
+
 ## Using next-themes
 
 For applications using [Next.js](/docs/frameworks/nextjs), the [next-themes](https://github.com/pacocoursey/next-themes)
@@ -67,7 +69,7 @@ Component with the `NextUIProvider` and the `next-themes` provider components.
 
 ```jsx
 // app/providers.tsx
-'use client'
+"use client";
 
 import {NextUIProvider} from '@nextui-org/react'
 import {ThemeProvider as NextThemesProvider} from "next-themes";
@@ -91,10 +93,20 @@ Add the theme switcher to your app.
 
 ```jsx
 // app/components/ThemeSwitcher.tsx
-import {useTheme} from "next-themes";
+"use client";
 
-export const ThemeSwitcher = () => {
+import {useTheme} from "next-themes";
+import { useEffect, useState } from "react";
+
+export function ThemeSwitcher() {
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if(!mounted) return null
 
   return (
     <div>
@@ -134,7 +146,7 @@ Component with the `NextUIProvider` and the `next-themes` provider components.
 
 ```jsx
 // pages/_app.js
-import {NextUIProvider} from '@nextui-org/react'
+import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 
 function MyApp({ Component, pageProps }) {
@@ -223,6 +235,8 @@ export default function App() {
 Add the theme switcher to your app.
 
 ```jsx
+// 'use client'; // uncomment this line if you're using Next.js App Directory Setup
+
 // components/ThemeSwitcher.tsx
 import useDarkMode from "use-dark-mode";
 

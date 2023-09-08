@@ -56,6 +56,11 @@ export interface Props<T extends object = {}>
    */
   motionProps?: HTMLMotionProps<"section">;
   /**
+   * Whether to keep the accordion content mounted when collapsed.
+   * @default false
+   */
+  keepContentMounted?: boolean;
+  /**
    * The native button click event handler.
    * @deprecated - use `onPress` instead.
    */

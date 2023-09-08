@@ -1,13 +1,13 @@
-import {forwardRef} from "react";
+import {forwardRef} from "@nextui-org/system-rsc";
 
 import {UseSpacerProps, useSpacer} from "./use-spacer";
 
-export interface SpacerProps extends Omit<UseSpacerProps, "ref"> {}
+export interface SpacerProps extends UseSpacerProps {}
 
-const Spacer = forwardRef<HTMLElement, SpacerProps>((props, ref) => {
-  const {Component, getSpacerProps} = useSpacer({ref, ...props});
+const Spacer = forwardRef<"span", SpacerProps>((props, ref) => {
+  const {Component, getSpacerProps} = useSpacer({...props});
 
-  return <Component {...getSpacerProps()} />;
+  return <Component ref={ref} {...getSpacerProps()} />;
 });
 
 Spacer.displayName = "NextUI.Spacer";
