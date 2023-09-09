@@ -9,7 +9,7 @@ const select = tv({
     label: "block text-small font-medium text-foreground-500 pointer-events-none",
     mainWrapper: "w-full flex flex-col",
     trigger:
-      "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
+      "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent pr-10",
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
