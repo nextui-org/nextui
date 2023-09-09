@@ -63,7 +63,7 @@ export function useReactAriaPopover(
       isOpen: state.isOpen,
       onClose: state.close,
       shouldCloseOnBlur,
-      isDismissable: !isNonModal,
+      isDismissable: true,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside

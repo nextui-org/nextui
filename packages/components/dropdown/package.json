@@ -44,11 +44,11 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/menu": "^3.10.1",
-    "@react-aria/utils": "^3.19.0",
-    "@react-stately/menu": "^3.5.4",
-    "@react-aria/focus": "^3.14.0",
-    "@react-types/menu": "^3.9.3"
+    "@react-aria/menu": "^3.10.2",
+    "@react-aria/utils": "^3.20.0",
+    "@react-stately/menu": "^3.5.5",
+    "@react-aria/focus": "^3.14.1",
+    "@react-types/menu": "^3.9.4"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",

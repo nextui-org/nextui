@@ -60,7 +60,7 @@ describe("Popover", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover isOpen onOpenChange={(isOpen) => (!isOpen ? onClose() : undefined)}>
+      <Popover isOpen onClose={onClose}>
         <PopoverTrigger>
           <button>Open popover</button>
         </PopoverTrigger>
@@ -80,11 +80,7 @@ describe("Popover", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover
-        isOpen
-        shouldCloseOnBlur
-        onOpenChange={(isOpen) => (!isOpen ? onClose() : undefined)}
-      >
+      <Popover isOpen shouldCloseOnBlur onClose={onClose}>
         <PopoverTrigger>
           <button>Open popover</button>
         </PopoverTrigger>
@@ -96,7 +92,10 @@ describe("Popover", () => {
 
     const content = wrapper.getByTestId("content-test");
 
-    fireEvent.blur(content);
+    act(() => {
+      content.blur();
+    });
+
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -104,7 +103,7 @@ describe("Popover", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover onOpenChange={(isOpen) => (!isOpen ? onClose() : undefined)}>
+      <Popover onClose={onClose}>
         <PopoverTrigger>
           <Button disableRipple data-testid="trigger-test">
             Open popover
@@ -128,6 +127,7 @@ describe("Popover", () => {
     act(() => {
       trigger.click();
     });
+
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 });
