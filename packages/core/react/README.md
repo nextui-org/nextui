@@ -36,7 +36,7 @@ Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextu
 
 Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
 
-### Community
+## Community
 
 We're excited to see the community adopt NextUI, raise issues, and provide feedback.
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
@@ -44,6 +44,17 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 - [Discord](https://discord.gg/9b6yyZKmH4)
 - [Twitter](https://twitter.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
+
+## Star History
+
+<a href="https://star-history.com/#nextui-org/nextui&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nextui-org/nextui&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nextui-org/nextui&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=nextui-org/nextui&type=Date" />
+  </picture>
+</a>
+
 
 ## Contributing
 
