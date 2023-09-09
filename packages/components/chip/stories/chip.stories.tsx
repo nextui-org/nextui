@@ -100,3 +100,17 @@ export const WithAvatar = {
     avatar: <Avatar name="JW" src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />,
   },
 };
+
+const HiddenOverflowTemplate = (args: ChipProps) => (
+  <div className="w-20 border-danger-500 border-2">
+    <Chip {...args} />
+  </div>
+);
+
+export const HiddenOverflow = {
+  render: HiddenOverflowTemplate,
+  args: {
+    ...defaultProps,
+    children: "Hello World!",
+  },
+};
