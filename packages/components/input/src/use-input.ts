@@ -122,6 +122,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
     {
       ...originalProps,
+      description,
+      errorMessage,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
         originalProps?.label,
