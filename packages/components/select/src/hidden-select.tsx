@@ -7,10 +7,7 @@ import React, {ReactNode, RefObject} from "react";
 import {useFormReset} from "@react-aria/utils";
 import {useInteractionModality} from "@react-aria/interactions";
 import {useVisuallyHidden} from "@react-aria/visually-hidden";
-import {
-  MultiSelectProps,
-  MultiSelectState,
-} from "@nextui-org/use-aria-multiselect/src/use-multiselect-state";
+import {MultiSelectProps, MultiSelectState} from "@nextui-org/use-aria-multiselect";
 
 export interface AriaHiddenSelectProps {
   /**
