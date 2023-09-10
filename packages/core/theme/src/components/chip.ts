@@ -22,7 +22,15 @@ import {ringClasses, colorVariants} from "../utils";
  */
 const chip = tv({
   slots: {
-    base: ["relative", "max-w-fit", "inline-flex", "items-center", "justify-between", "box-border"],
+    base: [
+      "relative",
+      "max-w-fit",
+      "inline-flex",
+      "items-center",
+      "justify-between",
+      "box-border",
+      "whitespace-nowrap",
+    ],
     content: "flex-1 text-inherit font-normal",
     dot: ["w-2", "h-2", "ml-1", "rounded-full"],
     avatar: "flex-shrink-0",
