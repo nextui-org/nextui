@@ -1,5 +1,14 @@
 # @nextui-org/aria-utils
 
+## 2.0.8
+
+### Patch Changes
+
+- [#1589](https://github.com/nextui-org/nextui/pull/1589) [`1612532ee`](https://github.com/nextui-org/nextui/commit/1612532eeeabbc49165546b1a2e7aebf89e7a1c2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React aria packages upgraded
+
+- Updated dependencies [[`1612532ee`](https://github.com/nextui-org/nextui/commit/1612532eeeabbc49165546b1a2e7aebf89e7a1c2)]:
+  - @nextui-org/system@2.0.8
+
 ## 2.0.7
 
 ### Patch Changes
