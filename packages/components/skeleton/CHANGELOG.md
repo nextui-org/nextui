@@ -1,5 +1,13 @@
 # @nextui-org/skeleton
 
+## 2.0.17
+
+### Patch Changes
+
+- Updated dependencies [[`a3be419cb`](https://github.com/nextui-org/nextui/commit/a3be419cb3c693ae8cace15f9a863274d759ddb1), [`5c30e0481`](https://github.com/nextui-org/nextui/commit/5c30e04811ef9f973d6b59107c909db72d9876b5)]:
+  - @nextui-org/theme@2.1.7
+  - @nextui-org/system-rsc@2.0.4
+
 ## 2.0.16
 
 ### Patch Changes
