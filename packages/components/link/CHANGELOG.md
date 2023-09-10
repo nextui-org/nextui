@@ -1,5 +1,19 @@
 # @nextui-org/link
 
+## 2.0.21
+
+### Patch Changes
+
+- [#1600](https://github.com/nextui-org/nextui/pull/1600) [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix npm deploy
+
+- Updated dependencies [[`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572)]:
+  - @nextui-org/system@2.0.9
+  - @nextui-org/theme@2.1.8
+  - @nextui-org/use-aria-link@2.0.14
+  - @nextui-org/react-utils@2.0.8
+  - @nextui-org/shared-icons@2.0.4
+  - @nextui-org/shared-utils@2.0.3
+
 ## 2.0.20
 
 ### Patch Changes

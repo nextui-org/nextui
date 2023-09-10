@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.1.2
+
+### Patch Changes
+
+- [`8b3998909`](https://github.com/nextui-org/nextui/commit/8b39989090d9cd577e886edde01b081d37e65bb7) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Exported types fixed
+
+- [#1600](https://github.com/nextui-org/nextui/pull/1600) [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix npm deploy
+
 ## 2.1.1
 
 ### Patch Changes

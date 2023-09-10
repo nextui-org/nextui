@@ -1,5 +1,27 @@
 # @nextui-org/select
 
+## 2.1.10
+
+### Patch Changes
+
+- [`8b3998909`](https://github.com/nextui-org/nextui/commit/8b39989090d9cd577e886edde01b081d37e65bb7) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Exported types fixed
+
+- [#1600](https://github.com/nextui-org/nextui/pull/1600) [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix npm deploy
+
+- Updated dependencies [[`8b3998909`](https://github.com/nextui-org/nextui/commit/8b39989090d9cd577e886edde01b081d37e65bb7), [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572)]:
+  - @nextui-org/use-aria-multiselect@2.1.2
+  - @nextui-org/listbox@2.1.9
+  - @nextui-org/popover@2.1.8
+  - @nextui-org/scroll-shadow@2.1.8
+  - @nextui-org/spinner@2.0.18
+  - @nextui-org/system@2.0.9
+  - @nextui-org/theme@2.1.8
+  - @nextui-org/use-aria-button@2.0.5
+  - @nextui-org/aria-utils@2.0.9
+  - @nextui-org/react-utils@2.0.8
+  - @nextui-org/shared-icons@2.0.4
+  - @nextui-org/shared-utils@2.0.3
+
 ## 2.1.9
 
 ### Patch Changes

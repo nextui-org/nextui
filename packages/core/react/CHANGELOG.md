@@ -1,5 +1,48 @@
 # @nextui-org/react
 
+## 2.1.12
+
+### Patch Changes
+
+- [#1600](https://github.com/nextui-org/nextui/pull/1600) [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix npm deploy
+
+- Updated dependencies [[`8b3998909`](https://github.com/nextui-org/nextui/commit/8b39989090d9cd577e886edde01b081d37e65bb7), [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572)]:
+  - @nextui-org/select@2.1.10
+  - @nextui-org/accordion@2.0.22
+  - @nextui-org/avatar@2.0.20
+  - @nextui-org/badge@2.0.18
+  - @nextui-org/button@2.0.20
+  - @nextui-org/card@2.0.20
+  - @nextui-org/checkbox@2.0.21
+  - @nextui-org/chip@2.0.20
+  - @nextui-org/code@2.0.18
+  - @nextui-org/divider@2.0.19
+  - @nextui-org/dropdown@2.1.9
+  - @nextui-org/image@2.0.20
+  - @nextui-org/input@2.1.8
+  - @nextui-org/kbd@2.0.19
+  - @nextui-org/link@2.0.21
+  - @nextui-org/listbox@2.1.9
+  - @nextui-org/menu@2.0.10
+  - @nextui-org/modal@2.0.22
+  - @nextui-org/navbar@2.0.21
+  - @nextui-org/pagination@2.0.21
+  - @nextui-org/popover@2.1.8
+  - @nextui-org/progress@2.0.20
+  - @nextui-org/radio@2.0.21
+  - @nextui-org/scroll-shadow@2.1.8
+  - @nextui-org/skeleton@2.0.18
+  - @nextui-org/snippet@2.0.24
+  - @nextui-org/spacer@2.0.18
+  - @nextui-org/spinner@2.0.18
+  - @nextui-org/switch@2.0.20
+  - @nextui-org/table@2.0.22
+  - @nextui-org/tabs@2.0.20
+  - @nextui-org/tooltip@2.0.23
+  - @nextui-org/user@2.0.21
+  - @nextui-org/system@2.0.9
+  - @nextui-org/theme@2.1.8
+
 ## 2.1.11
 
 ### Patch Changes
