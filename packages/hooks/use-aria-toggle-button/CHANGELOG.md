@@ -1,5 +1,14 @@
 # @nextui-org/use-aria-toggle-button
 
+## 2.0.5
+
+### Patch Changes
+
+- [#1600](https://github.com/nextui-org/nextui/pull/1600) [`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix npm deploy
+
+- Updated dependencies [[`b1b30b797`](https://github.com/nextui-org/nextui/commit/b1b30b7976f1d6652808fbf12ffde044f0861572)]:
+  - @nextui-org/use-aria-button@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes
