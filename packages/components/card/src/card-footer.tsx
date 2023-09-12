@@ -14,7 +14,7 @@ const CardFooter = forwardRef<"div", CardFooterProps>((props, ref) => {
 
   const {slots, classNames} = useCardContext();
 
-  const footerStyles = clsx(classNames?.body, className);
+  const footerStyles = clsx(classNames?.footer, className);
 
   return (
     <Component ref={domRef} className={slots.footer?.({class: footerStyles})} {...otherProps}>
