@@ -3,7 +3,7 @@ import va from "@vercel/analytics";
 import {__PROD__} from "./env";
 
 export function getUniqueID(prefix: string) {
-  return `${prefix}-${Math.floor(Math.random() * 1000000)}`;
+  return `${prefix}-${new Date().getTime()}`;
 }
 
 export type TrackEvent = {

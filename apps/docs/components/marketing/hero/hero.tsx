@@ -9,6 +9,7 @@ import {FloatingComponents} from "./floating-components";
 
 import {title, subtitle} from "@/components/primitives";
 import {GithubIcon} from "@/components/icons";
+import {trackEvent} from "@/utils/va";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
   ssr: false,
@@ -42,6 +43,14 @@ export const Hero = () => {
             href="/docs/guide/introduction"
             radius="full"
             size="lg"
+            onPress={() => {
+              trackEvent("Hero - Get Started", {
+                name: "Get Started",
+                action: "click",
+                category: "landing-page",
+                data: "/docs/guide/introduction",
+              });
+            }}
           >
             Get Started
           </Button>
@@ -56,6 +65,14 @@ export const Hero = () => {
             size="lg"
             startContent={<GithubIcon />}
             variant="bordered"
+            onPress={() => {
+              trackEvent("Hero - Github", {
+                name: "Github",
+                action: "click",
+                category: "landing-page",
+                data: "https://github.com/nextui-org/nextui",
+              });
+            }}
           >
             Github
           </Button>
