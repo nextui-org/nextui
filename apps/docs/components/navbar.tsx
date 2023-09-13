@@ -44,6 +44,7 @@ import {
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
+import {trackEvent} from "@/utils/va";
 
 export interface NavbarProps {
   routes: Route[];
@@ -74,8 +75,17 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
     setCommandKey(isAppleDevice() ? "command" : "ctrl");
   }, []);
 
+  const handleOpenCmdk = () => {
+    cmdkStore.onOpen();
+    trackEvent("Navbar - Search", {
+      name: "navbar - search",
+      action: "press",
+      category: "cmdk",
+    });
+  };
+
   const {pressProps} = usePress({
-    onPress: () => cmdkStore.onOpen(),
+    onPress: handleOpenCmdk,
   });
   const {focusProps, isFocusVisible} = useFocusRing();
 
@@ -101,7 +111,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           strokeWidth={2}
         />
       }
-      onPress={() => cmdkStore.onOpen()}
+      onPress={handleOpenCmdk}
     >
       Quick Search...
     </Button>
@@ -121,6 +131,15 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
     }
   };
 
+  const handlePressNavbarItem = (name: string, url: string) => {
+    trackEvent("NavbarItem", {
+      name,
+      action: "press",
+      category: "navbar",
+      data: url,
+    });
+  };
+
   return (
     <NextUINavbar
       ref={ref}
@@ -138,6 +157,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             aria-label="Home"
             className="flex justify-start items-center gap-2 tap-highlight-transparent transition-opacity active:opacity-50"
             href="/"
+            onClick={() => handlePressNavbarItem("Home", "/")}
           >
             <SmallLogo className="w-6 h-6 md:hidden" />
             <LargeLogo className="h-5 md:h-6" />
@@ -184,6 +204,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               color="foreground"
               data-active={includes(docsPaths, pathname)}
               href="/docs/guide/introduction"
+              onClick={() => handlePressNavbarItem("Docs", "/docs/guide/introduction")}
             >
               Docs
             </NextLink>
@@ -194,6 +215,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               color="foreground"
               data-active={includes(pathname, "components")}
               href="/docs/components/avatar"
+              onClick={() => handlePressNavbarItem("Components", "/docs/components/avatar")}
             >
               Components
             </NextLink>
@@ -204,6 +226,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               color="foreground"
               data-active={includes(pathname, "blog")}
               href="/blog"
+              onClick={() => handlePressNavbarItem("Blog", "/blog")}
             >
               Blog
             </NextLink>
@@ -214,6 +237,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               color="foreground"
               data-active={includes(pathname, "figma")}
               href="/figma"
+              onClick={() => handlePressNavbarItem("Figma", "/figma")}
             >
               Figma
             </NextLink>
@@ -225,6 +249,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               color="secondary"
               href="/blog/v2.1.0"
               variant="dot"
+              onClick={() => handlePressNavbarItem("New components v2.1.0", "/blog/v2.1.0")}
             >
               New components v2.1.0&nbsp;
               <span aria-label="party emoji" role="img">
@@ -242,6 +267,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             aria-label="Github"
             className="p-1"
             href="https://github.com/nextui-org/nextui"
+            onClick={() => handlePressNavbarItem("Github", "https://github.com/nextui-org/nextui")}
           >
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
@@ -273,13 +299,31 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex">
-          <Link isExternal aria-label="Twitter" className="p-1" href={siteConfig.links.twitter}>
+          <Link
+            isExternal
+            aria-label="Twitter"
+            className="p-1"
+            href={siteConfig.links.twitter}
+            onPress={() => handlePressNavbarItem("Twitter", siteConfig.links.twitter)}
+          >
             <TwitterIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal aria-label="Discord" className="p-1" href={siteConfig.links.discord}>
+          <Link
+            isExternal
+            aria-label="Discord"
+            className="p-1"
+            href={siteConfig.links.discord}
+            onPress={() => handlePressNavbarItem("Discord", siteConfig.links.discord)}
+          >
             <DiscordIcon className="text-default-600 dark:text-default-500" />
           </Link>
-          <Link isExternal aria-label="Github" className="p-1" href={siteConfig.links.github}>
+          <Link
+            isExternal
+            aria-label="Github"
+            className="p-1"
+            href={siteConfig.links.github}
+            onPress={() => handlePressNavbarItem("Github", siteConfig.links.github)}
+          >
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <ThemeSwitch />
@@ -295,6 +339,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               <HeartFilledIcon className="text-danger group-data-[hover=true]:animate-heartbeat" />
             }
             variant="flat"
+            onPress={() => handlePressNavbarItem("Sponsor", siteConfig.links.sponsor)}
           >
             Sponsor
           </Button>

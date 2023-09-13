@@ -4,6 +4,7 @@ import Balancer from "react-wrap-balancer";
 
 import {GithubIcon, NpmIcon, AdobeIcon, StorybookIcon, NextJsIcon} from "@/components/icons";
 import {COMPONENT_PATH, COMPONENT_THEME_PATH} from "@/libs/github/constants";
+import {trackEvent} from "@/utils/va";
 
 export interface ComponentLinksProps {
   component: string;
@@ -23,6 +24,16 @@ const ButtonLink = ({
   href: string;
   tooltip?: string | ReactNode;
 }) => {
+  const handlePress = () => {
+    if (!href) return;
+
+    trackEvent("ComponentLinks - Click", {
+      category: "docs",
+      action: "click",
+      data: href || "",
+    });
+  };
+
   const button = (
     <Button
       isExternal
@@ -31,6 +42,7 @@ const ButtonLink = ({
       href={href}
       size="sm"
       startContent={startContent}
+      onPress={handlePress}
       {...props}
     >
       {children}

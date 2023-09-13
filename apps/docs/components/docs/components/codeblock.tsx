@@ -1,8 +1,10 @@
-import React, {forwardRef} from "react";
+import React, {forwardRef, useEffect} from "react";
 import {clsx, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
+import {debounce} from "lodash";
 
 import defaultTheme from "@/libs/prism-theme";
+import {trackEvent} from "@/utils/va";
 
 interface CodeblockProps {
   language: Language;
@@ -59,6 +61,45 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
     const theme = themeProp || defaultTheme;
     const shouldHighlightLine = calculateLinesToHighlight(metastring);
     const isMultiLine = codeString.split("\n").length > 2;
+
+    const lastSelectionText = React.useRef<string | null>(null);
+
+    useEffect(() => {
+      const handleSelectionChange = () => {
+        if (!window.getSelection) return;
+
+        const el = window.getSelection()?.anchorNode?.parentNode;
+
+        if (!el) return;
+
+        const selectionText = window.getSelection()?.toString();
+
+        if (!selectionText) return;
+
+        if (
+          !selectionText ||
+          selectionText === lastSelectionText.current ||
+          !codeString.includes(selectionText)
+        )
+          return;
+
+        lastSelectionText.current = selectionText;
+
+        trackEvent("Codeblock - Selection", {
+          action: "selectText",
+          category: "docs",
+          data: selectionText,
+        });
+      };
+
+      const debouncedHandleSelectionChange = debounce(handleSelectionChange, 1000);
+
+      document.addEventListener("selectionchange", debouncedHandleSelectionChange);
+
+      return () => {
+        document.removeEventListener("selectionchange", debouncedHandleSelectionChange);
+      };
+    }, []);
 
     return (
       <BaseHighlight

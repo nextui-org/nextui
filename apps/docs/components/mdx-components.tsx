@@ -12,6 +12,7 @@ import * as DocsComponents from "@/components/docs/components";
 import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components";
+import {trackEvent} from "@/utils/va";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
@@ -144,6 +145,13 @@ const Code = ({
         copyButton: "text-lg text-zinc-500 mr-2",
       }}
       codeString={codeString}
+      onCopy={() => {
+        trackEvent("MDXComponents - Copy", {
+          category: "docs",
+          action: "copyCode",
+          data: codeString,
+        });
+      }}
     >
       <Codeblock codeString={codeString} language={language} metastring={meta} />
     </Components.Snippet>
@@ -153,8 +161,21 @@ const Code = ({
 const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => {
   const isExternal = href?.startsWith("http");
 
+  const handlePress = () => {
+    trackEvent("MDXComponents - Click", {
+      category: "docs",
+      action: "click",
+      data: href || "",
+    });
+  };
+
   return (
-    <Components.Link href={href} isExternal={isExternal} showAnchorIcon={isExternal}>
+    <Components.Link
+      href={href}
+      isExternal={isExternal}
+      showAnchorIcon={isExternal}
+      onPress={handlePress}
+    >
       {children}
     </Components.Link>
   );

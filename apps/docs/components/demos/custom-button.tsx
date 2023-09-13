@@ -3,6 +3,8 @@
 import {useRef} from "react";
 import {Button} from "@nextui-org/react";
 
+import {trackEvent} from "@/utils/va";
+
 export const CustomButton = () => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -25,6 +27,11 @@ export const CustomButton = () => {
         y: targetY / clientHeight,
         x: targetCenterX / clientWidth,
       },
+    });
+
+    trackEvent("LandingPage - Confetti Button", {
+      action: "press",
+      category: "landing-page",
     });
   };
 

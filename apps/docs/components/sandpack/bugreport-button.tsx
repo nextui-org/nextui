@@ -1,15 +1,27 @@
 import React from "react";
 import {usePathname} from "next/navigation";
-import {Tooltip, Link, Button} from "@nextui-org/react";
+import {Tooltip, Button} from "@nextui-org/react";
 import {capitalize, last} from "lodash";
 
 import {BugIcon} from "@/components/icons";
 import {ISSUE_REPORT_URL} from "@/libs/github/constants";
+import {trackEvent} from "@/utils/va";
 
 export const BugReportButton = () => {
   const pathname = usePathname();
 
   const componentTitle = capitalize(last(pathname?.split("/")));
+
+  const handlePress = () => {
+    trackEvent("BugReportButton - Sandpack", {
+      name: "sandpack - bug report",
+      action: "press",
+      category: "docs",
+      data: `${ISSUE_REPORT_URL}${componentTitle}`,
+    });
+
+    window.open(`${ISSUE_REPORT_URL}${componentTitle}`, "_blank");
+  };
 
   return (
     <Tooltip
@@ -19,15 +31,7 @@ export const BugReportButton = () => {
       placement="top"
       radius="md"
     >
-      <Button
-        isExternal
-        isIconOnly
-        as={Link}
-        href={`${ISSUE_REPORT_URL}${componentTitle}`}
-        size="sm"
-        title="Report a bug"
-        variant="light"
-      >
+      <Button isIconOnly size="sm" title="Report a bug" variant="light" onPress={handlePress}>
         <BugIcon className="text-white dark:text-zinc-500" height={16} width={16} />
       </Button>
     </Tooltip>

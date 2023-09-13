@@ -26,6 +26,7 @@ import {getRoutePaths} from "./utils";
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
 import {useScrollPosition} from "@/hooks/use-scroll-position";
+import {trackEvent} from "@/utils/va";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
   slug?: string;
@@ -88,6 +89,12 @@ function TreeItem<T>(props: TreeItemProps<T>) {
         state.toggleKey(item.key);
       } else {
         router.push(paths.pathname);
+
+        trackEvent("SidebarDocs", {
+          category: "docs",
+          action: "click",
+          data: paths.pathname || "",
+        });
       }
     },
   });

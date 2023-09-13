@@ -12,6 +12,7 @@ import {OpenCollectiveIcon, PatreonIcon, HeartBoldIcon, PlusLinearIcon} from "@/
 import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@/libs/docs/sponsors";
 import {SonarPulse} from "@/components/sonar-pulse";
 import {useIsMobile} from "@/hooks/use-media-query";
+import {trackEvent} from "@/utils/va";
 
 export interface SupportProps {
   sponsors: Sponsor[];
@@ -100,6 +101,14 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
     window.open(href, "_blank");
   };
 
+  const handleBecomeSponsor = () => {
+    trackEvent("Support - Become a sponsor", {
+      action: "click",
+      category: "landing-page",
+    });
+
+    handleExternalLinkClick(supportAccounts[0].href);
+  };
   const renderSponsors = useMemo(() => {
     if (!sponsors.length) return null;
 
@@ -181,7 +190,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
                     aria-label="Become a sponsor"
                     className="z-50 w-auto h-auto bg-gradient-to-b from-[#FF1CF7] to-[#7928CA]"
                     radius="full"
-                    onPress={() => handleExternalLinkClick(supportAccounts[0].href)}
+                    onPress={handleBecomeSponsor}
                   >
                     <PlusLinearIcon
                       className="flex items-center justify-center rounded-full text-white"

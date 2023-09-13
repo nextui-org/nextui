@@ -1,10 +1,14 @@
 import React from "react";
 import {UnstyledOpenInCodeSandboxButton} from "@codesandbox/sandpack-react";
 import {Tooltip, Button} from "@nextui-org/react";
+import {useSandpack} from "@codesandbox/sandpack-react";
 
 import {CodeSandboxIcon} from "@/components/icons";
+import {trackEvent} from "@/utils/va";
 
 export const CodeSandboxButton = () => {
+  const {sandpack} = useSandpack();
+
   return (
     <Tooltip
       className="text-xs px-2"
@@ -13,7 +17,20 @@ export const CodeSandboxButton = () => {
       placement="top"
       radius="md"
     >
-      <Button isIconOnly as="span" size="sm" title="Open in CodeSandbox" variant="light">
+      <Button
+        isIconOnly
+        as="span"
+        size="sm"
+        title="Open in CodeSandbox"
+        variant="light"
+        onPress={() => {
+          trackEvent("CodeSandboxButton - Sandpack", {
+            action: "press",
+            category: "docs",
+            data: sandpack.files[sandpack.activeFile],
+          });
+        }}
+      >
         <UnstyledOpenInCodeSandboxButton
           style={{
             width: "100%",

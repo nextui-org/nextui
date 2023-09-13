@@ -6,6 +6,8 @@ import {Card, CardHeader, CardBody, LinkProps, SlotsToClasses} from "@nextui-org
 import {useRouter} from "next/navigation";
 import {LinkIcon} from "@nextui-org/shared-icons";
 
+import {trackEvent} from "@/utils/va";
+
 const styles = tv({
   slots: {
     base: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4",
@@ -38,6 +40,13 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({features, classNames,
   const slots = styles();
 
   const handleClick = (feat: Feature) => {
+    trackEvent("FeaturesGrid - Click", {
+      name: feat.title,
+      action: "click",
+      category: "docs",
+      data: feat.href ?? "",
+    });
+
     if (!feat.href) {
       return;
     }

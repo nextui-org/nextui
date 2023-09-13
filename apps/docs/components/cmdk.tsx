@@ -25,6 +25,7 @@ import {
 
 import searchData from "@/config/search-meta.json";
 import {useUpdateEffect} from "@/hooks/use-update-effect";
+import {trackEvent} from "@/utils/va";
 
 const hideOnPaths = ["examples"];
 
@@ -175,6 +176,13 @@ export const Cmdk: FC<{}> = () => {
 
       const matches = intersectionBy(...matchesForEachWord, "objectID").slice(0, MAX_RESULTS);
 
+      trackEvent("Cmdk - Search", {
+        name: "cmdk - search",
+        action: "search",
+        category: "cmdk",
+        data: {query, words, matches: matches?.map((match) => match.url).join(", ")},
+      });
+
       return matches;
     },
     [query],
@@ -190,10 +198,21 @@ export const Cmdk: FC<{}> = () => {
       if (e?.key?.toLowerCase() === "k" && e[hotkey]) {
         e.preventDefault();
         isOpen ? onClose() : onOpen();
+
+        trackEvent("Cmdk - Open/Close", {
+          name: "cmdk - open/close",
+          action: "keydown",
+          category: "cmdk",
+          data: isOpen ? "close" : "open",
+        });
       }
     };
 
     document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [isOpen]);
 
   const onItemSelect = useCallback(
@@ -201,6 +220,13 @@ export const Cmdk: FC<{}> = () => {
       onClose();
       router.push(item.url);
       addToRecentSearches(item);
+
+      trackEvent("Cmdk - ItemSelect", {
+        name: item.content,
+        action: "click",
+        category: "cmdk",
+        data: item.url,
+      });
     },
     [router, recentSearches],
   );

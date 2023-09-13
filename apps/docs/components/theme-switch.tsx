@@ -8,6 +8,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import {useIsSSR} from "@react-aria/ssr";
 
 import {SunFilledIcon, MoonFilledIcon} from "@/components/icons";
+import {trackEvent} from "@/utils/va";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -20,6 +21,12 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
 
   const onChange = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
+
+    trackEvent("ThemeChange", {
+      action: "click",
+      category: "theme",
+      data: theme === "light" ? "dark" : "light",
+    });
   };
 
   const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} = useSwitch({

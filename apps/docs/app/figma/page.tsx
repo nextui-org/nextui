@@ -1,6 +1,7 @@
-import {Button, Image, Link} from "@nextui-org/react";
+import {Image} from "@nextui-org/react";
 
 import {Blockquote} from "@/components/docs/components/blockquote";
+import {FigmaButton} from "@/components/figma-button";
 
 export default function FigmaPage() {
   return (
@@ -23,16 +24,7 @@ export default function FigmaPage() {
             width="800"
           />
           <div className="text-center max-w-2xl m-auto">
-            <Button className="max-w-fit" color="default" variant="bordered">
-              <Link
-                isExternal
-                showAnchorIcon
-                className="text-current"
-                href="https://www.figma.com/community/file/1267584376234254760"
-              >
-                Open in Figma
-              </Link>
-            </Button>
+            <FigmaButton />
             <Blockquote color="warning">
               This file is still in development and will be continuously updated.
             </Blockquote>

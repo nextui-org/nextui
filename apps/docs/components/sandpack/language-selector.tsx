@@ -3,6 +3,7 @@ import {Tabs, Tab} from "@nextui-org/react";
 import {SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
 
 import {TypescriptIcon, JavascriptIcon} from "@/components/icons";
+import {trackEvent} from "@/utils/va";
 
 interface Props {
   template: SandpackPredefinedTemplate;
@@ -20,6 +21,12 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
     setSelectedTemplate(newTemplate);
 
     setTimeout(() => {
+      trackEvent("LanguageSelector - Selection", {
+        name: "template",
+        action: "tabChange",
+        category: "docs",
+        data: newTemplate ?? "",
+      });
       onChange?.(newTemplate);
     }, 250);
   }, [template, onChange]);

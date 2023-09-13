@@ -3,6 +3,7 @@ import {Tabs, Tab, Snippet} from "@nextui-org/react";
 import Codeblock from "./codeblock";
 
 import {YarnIcon, NpmSmallIcon, PnpmIcon} from "@/components/icons";
+import {trackEvent} from "@/utils/va";
 
 type PackageManagerName = "npm" | "yarn" | "pnpm";
 
@@ -27,7 +28,7 @@ const packageManagers: PackageManager[] = [
 ];
 
 export interface PackageManagersProps {
-  commands: Partial<Record<PackageManagerName, string>>;
+  commands: Partial<Record<PackageManagerName, React.Key>>;
 }
 
 export const PackageManagers = ({commands}: PackageManagersProps) => {
@@ -39,6 +40,14 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
         tabList: "h-10",
       }}
       variant="underlined"
+      onSelectionChange={(tabKey) => {
+        trackEvent("PackageManagers - Selection", {
+          name: tabKey as string,
+          action: "tabChange",
+          category: "docs",
+          data: commands[tabKey as unknown as PackageManagerName] ?? "",
+        });
+      }}
     >
       {packageManagers.map(({name, icon}) => {
         if (!commands[name]) return null;
@@ -61,6 +70,14 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
                 base: "bg-code-background text-code-foreground",
                 pre: "font-light text-base",
                 copyButton: "text-lg text-zinc-500 mr-2",
+              }}
+              onCopy={() => {
+                trackEvent("PackageManagers - Copy", {
+                  name,
+                  action: "copyScript",
+                  category: "docs",
+                  data: commands[name] ?? "",
+                });
               }}
             >
               <Codeblock removeIndent codeString={commands[name] as string} language="bash" />

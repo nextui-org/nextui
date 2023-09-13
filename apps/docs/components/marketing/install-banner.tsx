@@ -11,6 +11,7 @@ import {FeaturesGrid} from "./features-grid";
 import {sectionWrapper, subtitle, title} from "@/components/primitives";
 import {GithubIcon, NoteLinearIcon, NextJsIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
+import {trackEvent} from "@/utils/va";
 
 const bannerSuggestions = [
   {
@@ -69,6 +70,13 @@ export const InstallBanner = () => {
               href="/docs/guide/installation"
               radius="full"
               size="md"
+              onClick={() => {
+                trackEvent("InstallBanner - Get Started", {
+                  action: "press",
+                  category: "landing-page",
+                  data: "/docs/guide/installation",
+                });
+              }}
             >
               Get Started
             </Button>
@@ -81,6 +89,13 @@ export const InstallBanner = () => {
               size="md"
               startContent={<GithubIcon />}
               variant="bordered"
+              onClick={() => {
+                trackEvent("InstallBanner - Github", {
+                  action: "press",
+                  category: "landing-page",
+                  data: "https://github.com/nextui-org/nextui",
+                });
+              }}
             >
               Github
             </Button>

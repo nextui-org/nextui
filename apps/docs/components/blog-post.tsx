@@ -8,9 +8,19 @@ import NextLink from "next/link";
 import {AnimatePresence, motion} from "framer-motion";
 
 import {useIsMounted} from "@/hooks/use-is-mounted";
+import {trackEvent} from "@/utils/va";
 
 const BlogPostCard = (post: BlogPost) => {
   const isMounted = useIsMounted();
+
+  const handlePress = () => {
+    trackEvent("BlogPostCard - Selection", {
+      name: post.title,
+      action: "click",
+      category: "blog",
+      data: post.url ?? "",
+    });
+  };
 
   return (
     <AnimatePresence>
@@ -27,6 +37,7 @@ const BlogPostCard = (post: BlogPost) => {
             className="p-2 h-full border-transparent text-start bg-white/5 dark:bg-default-400/10 backdrop-blur-lg backdrop-saturate-[1.8]"
             href={post.url}
             isPressable={!!post.url}
+            onPress={handlePress}
           >
             <CardHeader>
               <Link
@@ -35,6 +46,7 @@ const BlogPostCard = (post: BlogPost) => {
                 href={post.url}
                 size="lg"
                 underline="hover"
+                onPress={handlePress}
               >
                 <Balancer>{post.title}</Balancer>
               </Link>
