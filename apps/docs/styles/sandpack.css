@@ -39,6 +39,10 @@
 .cm-scroller::-webkit-scrollbar {
   width: 0px
 }
+.sp-tabs {
+  padding-right: 110px;
+}
+
 .sp-tab-button {
   @apply block !font-sans bg-transparent appearance-none;
 

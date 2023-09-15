@@ -59,10 +59,10 @@ export const useSandpack = ({
     if (key.includes("App") && !key.includes(mimeType)) {
       return acc;
     }
-    if (typescriptStrict && currentTemplate === "vite-react-ts" && key.includes("js")) {
+    if (typescriptStrict && currentTemplate === "vite-react-ts" && key.includes(".js")) {
       return acc;
     }
-    if (currentTemplate === "vite-react" && key.includes("ts")) {
+    if (currentTemplate === "vite-react" && key.includes(".ts")) {
       return acc;
     }
     // @ts-ignore
@@ -103,7 +103,7 @@ export const useSandpack = ({
 
       // Check if the file content includes 'React' import statements, if not, add it
       if (!fileContent.includes(importReact) && !fileContent.includes(importAllReact)) {
-        fileContent = `${importReact}\n${fileContent}\n`;
+        fileContent = `${importReact}\n\n${fileContent}\n`;
       }
 
       // Check if file content includes any other dependencies, if yes, add it to dependencies
