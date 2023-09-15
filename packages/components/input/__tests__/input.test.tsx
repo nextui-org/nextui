@@ -18,7 +18,7 @@ describe("Input", () => {
   });
 
   it("should have aria-invalid when invalid", () => {
-    const {container} = render(<Input label="test input" validationState="invalid" />);
+    const {container} = render(<Input isInvalid={true} label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-invalid", "true");
   });

@@ -13,7 +13,7 @@ Radio Group allow users to select a single option from a list of mutually exclus
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Import
 
@@ -52,6 +52,10 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 
 > **Note**: NextUI `Radio` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+### Invalid
+
+<CodeDemo title="Invalid" files={radioGroupContent.invalid} />
 
 ## Slots
 
@@ -140,12 +144,13 @@ In case you need to customize the radio group even further, you can use the `use
 | name             | `string`                                                                    | The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons). | -          |
 | value            | `string[]`                                                                  | The current selected value. (controlled).                                                                                                                         | -          |
 | defaultValue     | `string[]`                                                                  | The default selected value. (uncontrolled).                                                                                                                       | -          |
-| validationState  | `valid` \| `invalid`                                                        | Whether the inputs should display its "valid" or "invalid" visual styling.                                                                                        | `false`    |
 | description      | `ReactNode`                                                                 | Radio group description .                                                                                                                                         | -          |
 | errorMessage     | `ReactNode`                                                                 | Radio group error message.                                                                                                                                        | -          |
 | isDisabled       | `boolean`                                                                   | Whether the radio group is disabled.                                                                                                                              | `false`    |
 | isRequired       | `boolean`                                                                   | Whether user checkboxes are required on the input before form submission.                                                                                         | `false`    |
 | isReadOnly       | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.                                                                                               | -          |
+| isInvalid        | `boolean`                                                                   | Whether the radio group is invalid.                                                                                                                               | `false`    |
+| validationState  | `valid` \| `invalid`                                                        | Whether the inputs should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead.                                            | `false`    |
 | disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                                                                                                         | `false`    |
 | classNames       | `Record<"base"｜ "wrapper"｜ "label", string>`                              | Allows to set custom class names for the radio group slots.                                                                                                       | -          |
 

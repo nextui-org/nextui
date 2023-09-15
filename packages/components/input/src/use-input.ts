@@ -82,6 +82,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     endContent,
     onClear,
     onChange,
+    validationState,
     onValueChange = () => {},
     ...otherProps
   } = props;
@@ -151,7 +152,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onPress: handleClear,
   });
 
-  const isInvalid = props.validationState === "invalid";
+  const isInvalid = validationState === "invalid" || originalProps.isInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {

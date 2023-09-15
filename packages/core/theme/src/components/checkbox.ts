@@ -157,6 +157,12 @@ const checkbox = tv({
         base: "opacity-disabled pointer-events-none",
       },
     },
+    isInvalid: {
+      true: {
+        wrapper: "before:border-danger",
+        label: "text-danger",
+      },
+    },
     disableAnimation: {
       true: {
         wrapper: "transition-none",
@@ -165,15 +171,16 @@ const checkbox = tv({
       },
       false: {
         wrapper: [
-          "before:transition-background",
+          "before:transition-colors",
           "group-data-[pressed=true]:scale-95",
           "transition-transform",
           "after:transition-transform-opacity",
           "after:!ease-linear",
           "after:!duration-200",
+          "motion-reduce:transition-none",
         ],
-        icon: "transition-opacity",
-        label: "transition-opacity before:transition-width",
+        icon: "transition-opacity motion-reduce:transition-none",
+        label: "transition-colors-opacity before:transition-width motion-reduce:transition-none",
       },
     },
   },
@@ -206,6 +213,29 @@ const checkboxGroup = tv({
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
     description: "text-small text-foreground-400",
     errorMessage: "text-small text-danger",
+  },
+  variants: {
+    isRequired: {
+      true: {
+        label: "after:content-['*'] after:text-danger after:ml-0.5",
+      },
+    },
+    isInvalid: {
+      true: {
+        description: "text-danger",
+      },
+    },
+    disableAnimation: {
+      true: {},
+      false: {
+        description: "transition-colors !duration-150 motion-reduce:transition-none",
+      },
+    },
+  },
+  defaultVariants: {
+    isInvalid: false,
+    isRequired: false,
+    disableAnimation: false,
   },
 });
 

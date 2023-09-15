@@ -125,8 +125,14 @@ const radio = tv({
     disableAnimation: {
       true: {},
       false: {
-        wrapper: ["group-data-[pressed=true]:scale-95", "transition-transform-background"],
-        control: "transition-transform-opacity",
+        wrapper: [
+          "group-data-[pressed=true]:scale-95",
+          "transition-transform-colors",
+          "motion-reduce:transition-none",
+        ],
+        control: "transition-transform-opacity motion-reduce:transition-none",
+        label: "transition-colors motion-reduce:transition-none",
+        description: "transition-colors motion-reduce:transition-none",
       },
     },
   },
@@ -159,6 +165,29 @@ const radioGroup = tv({
     wrapper: "flex flex-col flex-wrap gap-2 data-[orientation=horizontal]:flex-row",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
+  },
+  variants: {
+    isRequired: {
+      true: {
+        label: "after:content-['*'] after:text-danger after:ml-0.5",
+      },
+    },
+    isInvalid: {
+      true: {
+        description: "text-danger",
+      },
+    },
+    disableAnimation: {
+      true: {},
+      false: {
+        description: "transition-colors !duration-150 motion-reduce:transition-none",
+      },
+    },
+  },
+  defaultVariants: {
+    isInvalid: false,
+    isRequired: false,
+    disableAnimation: false,
   },
 });
 

@@ -147,12 +147,12 @@ export const WithErrorMessage = {
   },
 };
 
-export const InvalidValidationState = {
+export const IsInvalid = {
   render: Template,
 
   args: {
     ...defaultProps,
-    validationState: "invalid",
+    isInvalid: true,
     defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     errorMessage: "Please enter a valid description",
   },

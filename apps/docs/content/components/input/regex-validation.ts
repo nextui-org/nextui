@@ -5,10 +5,10 @@ export default function App() {
 
   const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
 
-  const validationState = React.useMemo(() => {
-    if (value === "") return undefined;
+  const isInvalid = React.useMemo(() => {
+    if (value === "") return false;
 
-    return validateEmail(value) ? "valid" : "invalid";
+    return validateEmail(value) ? false : true;
   }, [value]);
 
   return (
@@ -17,9 +17,9 @@ export default function App() {
       type="email"
       label="Email"
       variant="bordered"
-      color={validationState === "invalid" ? "danger" : "success"}
-      errorMessage={validationState === "invalid" && "Please enter a valid email"}
-      validationState={validationState}
+      isInvalid={isInvalid}
+      color={isInvalid ? "danger" : "success"}
+      errorMessage={isInvalid && "Please enter a valid email"}
       onValueChange={setValue}
       className="max-w-xs"
     />

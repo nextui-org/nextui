@@ -13,7 +13,7 @@ Checkboxes allow users to select multiple items from a list of individual items,
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Import
 
@@ -134,19 +134,20 @@ In case you need to customize the checkbox even further, you can use the `useChe
 | ---------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
 | children         | `ReactNode`                                                                 | The label of the checkbox.                                                                                            | -         |
 | icon             | [CheckboxIconProps](#checkbox-icon-props)                                   | The icon to be displayed when the checkbox is checked.                                                                | -         |
-| value            | `string`                                                                    | The value of the input element, used when submitting an HTML form.                                                    |           |
-| name             | `string`                                                                    | The name of the input element, used when submitting an HTML form.                                                     |           |
+| value            | `string`                                                                    | The value of the checkbox element, used when submitting an HTML form.                                                    |           |
+| name             | `string`                                                                    | The name of the checkbox element, used when submitting an HTML form.                                                     |           |
 | size             | `sm` \| `md` \| `lg`                                                        | The size of the checkbox.                                                                                             | `md`      |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the checkbox.                                                                                            | `primary` |
 | radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The radius of the checkbox.                                                                                           | -         |
 | lineThrough      | `boolean`                                                                   | Whether the label should be crossed out.                                                                              | `false`   |
 | isSelected       | `boolean`                                                                   | Whether the element should be selected (controlled).                                                                  |           |
 | defaultSelected  | `boolean`                                                                   | Whether the element should be selected (uncontrolled).                                                                |           |
-| validationState  | `valid` \| `invalid`                                                        | Whether the input should display its "valid" or "invalid" visual styling.                                             | -         |
-| isRequired       | `boolean`                                                                   | Whether user input is required on the input before form submission.                                                   | `false`   |
-| isReadOnly       | `boolean`                                                                   | Whether the input can be selected but not changed by the user.                                                        |           |
+| isRequired       | `boolean`                                                                   | Whether user checkbox is required on the checkbox before form submission.                                                   | `false`   |
+| isReadOnly       | `boolean`                                                                   | Whether the checkbox can be selected but not changed by the user.                                                        |           |
 | isDisabled       | `boolean`                                                                   | Whether the checkbox is disabled.                                                                                     | `false`   |
 | isIndeterminate  | `boolean`                                                                   | Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction. |           |
+| isInvalid        | `boolean`                                                                   | Whether the checkbox is invalid.                                                                                         | `false`   |
+| validationState  | `valid` \| `invalid`                                                        | Whether the checkbox should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead. | -         |
 | disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                                                             | `false`   |
 | classNames       | `Record<"base"｜ "wrapper"｜ "icon"｜ "label", string>`                     | Allows to set custom class names for the checkbox slots.                                                              | -         |
 

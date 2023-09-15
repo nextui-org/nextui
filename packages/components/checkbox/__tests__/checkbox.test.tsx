@@ -105,7 +105,7 @@ describe("Checkbox", () => {
         <Checkbox
           {...props}
           isSelected={value}
-          onChange={(checked) => {
+          onValueChange={(checked) => {
             act(() => {
               setValue(checked);
               onChange(checked);

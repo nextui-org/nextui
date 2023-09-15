@@ -53,6 +53,31 @@ const Template = (args: CheckboxGroupProps) => (
   </CheckboxGroup>
 );
 
+const InvalidTemplate = (args: CheckboxGroupProps) => {
+  const [isInvalid, setIsInvalid] = React.useState(true);
+
+  return (
+    <>
+      <CheckboxGroup
+        {...args}
+        isRequired
+        description="Select the cities you want to visit"
+        isInvalid={isInvalid}
+        label="Select cities"
+        onValueChange={(value) => {
+          setIsInvalid(value.length < 1);
+        }}
+      >
+        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
+        <Checkbox value="sydney">Sydney</Checkbox>
+        <Checkbox value="san-francisco">San Francisco</Checkbox>
+        <Checkbox value="london">London</Checkbox>
+        <Checkbox value="tokyo">Tokyo</Checkbox>
+      </CheckboxGroup>
+    </>
+  );
+};
+
 export const Default = {
   render: Template,
 
@@ -115,12 +140,11 @@ export const WithDescription = {
   },
 };
 
-export const Invalid = {
-  render: Template,
+export const IsInvalid = {
+  render: InvalidTemplate,
 
   args: {
     ...defaultProps,
-    validationState: "invalid",
   },
 };
 
@@ -129,7 +153,6 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
-    validationState: "invalid",
     errorMessage: "The selected cities cannot be visited at the same time",
   },
 };

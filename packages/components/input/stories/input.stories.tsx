@@ -563,14 +563,14 @@ export const WithErrorMessage = {
   },
 };
 
-export const InvalidValidationState = {
+export const IsInvalid = {
   render: Template,
 
   args: {
     ...defaultProps,
     variant: "bordered",
+    isInvalid: true,
     defaultValue: "invalid@email.com",
-    validationState: "invalid",
     placeholder: "Enter your email",
     errorMessage: "Please enter a valid email address",
   },
