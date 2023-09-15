@@ -12,8 +12,6 @@ export interface ListboxItemProps<T extends object = object> extends UseListboxI
 const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
   const {
     Component,
-    slots,
-    classNames,
     rendered,
     description,
     isSelectable,
@@ -25,6 +23,7 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
     disableAnimation,
     getItemProps,
     getLabelProps,
+    getWrapperProps,
     getDescriptionProps,
     getSelectedIconProps,
   } = useListboxItem(props);
@@ -47,7 +46,7 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
     <Component {...getItemProps()}>
       {startContent}
       {description ? (
-        <div className={slots.wrapper({class: classNames?.wrapper})}>
+        <div {...getWrapperProps()}>
           <span {...getLabelProps()}>{rendered}</span>
           <span {...getDescriptionProps()}>{description}</span>
         </div>

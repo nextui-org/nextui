@@ -1,6 +1,7 @@
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
 import {forwardRef} from "@nextui-org/system";
+import {mergeProps} from "@react-aria/utils";
 
 import {UseListboxProps, useListbox} from "./use-listbox";
 import ListboxSection from "./listbox-section";
@@ -27,7 +28,13 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
         if (item.type === "section") {
           return <ListboxSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
         }
-        let listboxItem = <ListboxItem key={item.key} {...itemProps} classNames={itemClasses} />;
+        let listboxItem = (
+          <ListboxItem
+            key={item.key}
+            {...itemProps}
+            classNames={mergeProps(itemClasses, item.props?.classNames)}
+          />
+        );
 
         if (item.wrapper) {
           listboxItem = item.wrapper(listboxItem);
