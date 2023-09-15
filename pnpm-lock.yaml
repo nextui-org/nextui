@@ -613,12 +613,12 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      '@nextui-org/use-aria-accordion-item':
+      '@nextui-org/use-aria-accordion':
         specifier: workspace:*
-        version: link:../../hooks/use-aria-accordion-item
-      '@react-aria/accordion':
-        specifier: 3.0.0-alpha.21
-        version: 3.0.0-alpha.21(react@18.2.0)
+        version: link:../../hooks/use-aria-accordion
+      '@react-aria/button':
+        specifier: ^3.8.2
+        version: 3.8.2(react@18.2.0)
       '@react-aria/focus':
         specifier: ^3.14.1
         version: 3.14.1(react@18.2.0)
@@ -641,6 +641,9 @@ importers:
       '@nextui-org/avatar':
         specifier: workspace:*
         version: link:../avatar
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
       '@nextui-org/test-utils':
         specifier: workspace:*
         version: link:../../utilities/test-utils
@@ -2412,6 +2415,37 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+
+  packages/hooks/use-aria-accordion:
+    dependencies:
+      '@react-aria/button':
+        specifier: ^3.8.2
+        version: 3.8.2(react@18.2.0)
+      '@react-aria/focus':
+        specifier: ^3.14.1
+        version: 3.14.1(react@18.2.0)
+      '@react-aria/selection':
+        specifier: ^3.16.2
+        version: 3.16.2(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.20.0
+        version: 3.20.0(react@18.2.0)
+      '@react-stately/tree':
+        specifier: ^3.7.2
+        version: 3.7.2(react@18.2.0)
+      '@react-types/accordion':
+        specifier: 3.0.0-alpha.16
+        version: 3.0.0-alpha.16(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.20.0
+        version: 3.20.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/hooks/use-aria-accordion-item:
     dependencies:
@@ -8630,23 +8664,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.15
     dev: true
-
-  /@react-aria/accordion@3.0.0-alpha.21(react@18.2.0):
-    resolution: {integrity: sha512-M9qSIWhakDC9h/5T7iJkPriBDhzUyVh7F0PIg7ygwPTytpd6rKxtn81yVvHAXqAX9kXZA7yozfGp1cu8eyZZ3w==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@react-aria/button': 3.8.2(react@18.2.0)
-      '@react-aria/interactions': 3.18.0(react@18.2.0)
-      '@react-aria/selection': 3.16.2(react@18.2.0)
-      '@react-aria/utils': 3.20.0(react@18.2.0)
-      '@react-stately/tree': 3.7.2(react@18.2.0)
-      '@react-types/accordion': 3.0.0-alpha.16(react@18.2.0)
-      '@react-types/button': 3.8.0(react@18.2.0)
-      '@react-types/shared': 3.20.0(react@18.2.0)
-      '@swc/helpers': 0.5.2
-      react: 18.2.0
-    dev: false
 
   /@react-aria/button@3.8.2(react@18.2.0):
     resolution: {integrity: sha512-d1Fgx2XrSk8WMFtGu/ta76m5Rx+f2CuHY1k6nD45QciszD26GbzHdLOSjxev97M6vHj/BOsGL01XcwmTL4fZHA==}
