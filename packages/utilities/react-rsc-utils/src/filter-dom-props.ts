@@ -36,15 +36,12 @@ const funcRe = /^(on[A-Z].*)$/;
  */
 export function filterDOMProps(
   props: DOMProps & AriaLabelingProps,
-  opts: Options = {
-    labelable: true,
-    enabled: true,
-  },
+  opts: Options = {},
 ): DOMProps & AriaLabelingProps {
-  let {labelable, propNames, omitPropNames, omitEventNames} = opts;
+  let {labelable = true, enabled = true, propNames, omitPropNames, omitEventNames} = opts;
   let filteredProps = {};
 
-  if (!opts.enabled) {
+  if (!enabled) {
     return props;
   }
   for (const prop in props) {
