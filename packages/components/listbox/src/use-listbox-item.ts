@@ -132,6 +132,11 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     className: slots.description({class: classNames?.description}),
   });
 
+  const getWrapperProps: PropGetter = (props = {}) => ({
+    ...mergeProps(props),
+    className: slots.wrapper({class: classNames?.wrapper}),
+  });
+
   const getSelectedIconProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
@@ -160,6 +165,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     disableAnimation,
     getItemProps,
     getLabelProps,
+    getWrapperProps,
     getDescriptionProps,
     getSelectedIconProps,
   };
