@@ -1,0 +1,61 @@
+{
+  "name": "@nextui-org/use-aria-accordion",
+  "version": "2.0.0",
+  "description": "React-aria useAccordion hooks with custom implementations",
+  "keywords": [
+    "use-aria-accordion"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/hooks/use-aria-accordion"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "@react-aria/focus": "^3.14.1",
+    "@react-stately/tree": "^3.7.2",
+    "@react-aria/button": "^3.8.2",
+    "@react-types/shared": "^3.20.0",
+    "@react-aria/utils": "^3.20.0",
+    "@react-aria/selection": "^3.16.2",
+    "@react-types/accordion": "3.0.0-alpha.16"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}

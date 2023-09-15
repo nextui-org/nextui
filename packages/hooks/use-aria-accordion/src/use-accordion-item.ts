@@ -24,10 +24,7 @@ export interface AccordionItemAria {
   regionProps: DOMAttributes;
 }
 
-/**
- * @deprecated use useReactAriaAccordionItem instead from @nextui-org/use-aria-accordion
- */
-export function useAriaAccordionItem<T>(
+export function useReactAriaAccordionItem<T>(
   props: AccordionItemAriaProps<T>,
   state: TreeState<T> & {
     focusedKey?: Key | null;

@@ -4,7 +4,7 @@ import {accordionItem} from "@nextui-org/theme";
 import {clsx, callAllHandlers, dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {NodeWithProps} from "@nextui-org/aria-utils";
-import {useAriaAccordionItem} from "@nextui-org/use-aria-accordion-item";
+import {useReactAriaAccordionItem} from "@nextui-org/use-aria-accordion";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
@@ -75,7 +75,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
   const isDisabled = state.disabledKeys.has(item.key) || isDisabledProp;
   const isOpen = state.selectionManager.isSelected(item.key);
 
-  const {buttonProps: buttonCompleteProps, regionProps} = useAriaAccordionItem(
+  const {buttonProps: buttonCompleteProps, regionProps} = useReactAriaAccordionItem(
     {item, isDisabled},
     {...state, focusedKey: focusedKey},
     domRef,
