@@ -79,7 +79,7 @@ const button = tv({
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
-    isIsolate: {
+    isIsolated: {
       true: "mr-0 ml-0",
     },
     isIconOnly: {
@@ -347,7 +347,7 @@ const button = tv({
     // isInGroup / bordered / ghost
     {
       isInGroup: true,
-      isIsolate: false,
+      isIsolated: false,
       variant: ["ghost", "bordered"],
       class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.medium)*-1)]",
     },
