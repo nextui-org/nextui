@@ -9,7 +9,7 @@ export interface RippleProps extends HTMLNextUIProps<"span"> {
   color?: string;
   motionProps?: HTMLMotionProps<"span">;
   style?: React.CSSProperties;
-  onClear: (key: number) => void;
+  onClear: (key: React.Key) => void;
 }
 
 const clamp = (value: number, min: number, max: number) => {

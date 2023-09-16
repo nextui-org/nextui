@@ -1,7 +1,8 @@
-import {useCallback, useState} from "react";
+import {getUniqueID} from "@nextui-org/shared-utils";
+import React, {useCallback, useState} from "react";
 
 export type RippleType = {
-  key: number;
+  key: React.Key;
   x: number;
   y: number;
   size: number;
@@ -21,7 +22,7 @@ export function useRipple(props: UseRippleProps = {}) {
     setRipples((prevRipples) => [
       ...prevRipples,
       {
-        key: Date.now(),
+        key: getUniqueID(prevRipples.length.toString()),
         size,
         x: event.clientX - rect.x - size / 2,
         y: event.clientY - rect.y - size / 2,
@@ -29,7 +30,7 @@ export function useRipple(props: UseRippleProps = {}) {
     ]);
   }, []);
 
-  const onClear = useCallback((key: number) => {
+  const onClear = useCallback((key: React.Key) => {
     setRipples((prevState) => prevState.filter((ripple) => ripple.key !== key));
   }, []);
 
