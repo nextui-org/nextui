@@ -6,7 +6,6 @@ const MyButton = forwardRef((props, ref) => {
   const {
     domRef,
     children,
-    ripples,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -15,10 +14,13 @@ const MyButton = forwardRef((props, ref) => {
     isLoading,
     disableRipple,
     getButtonProps,
+    getRippleProps,
   } = useButton({
     ref,
     ...props,
   });
+
+  const {ripples} = getRippleProps();
 
   return (
     <button ref={domRef} {...getButtonProps()}>
@@ -45,7 +47,6 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     domRef,
     children,
-    ripples,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -54,10 +55,13 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     isLoading,
     disableRipple,
     getButtonProps,
+    getRippleProps,
   } = useButton({
     ref,
     ...props,
   });
+
+  const {ripples} = getRippleProps();
 
   return (
     <button ref={domRef} {...getButtonProps()}>
