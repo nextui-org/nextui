@@ -319,7 +319,11 @@ const button = tv({
       color: "danger",
       class: colorVariants.ghost.danger,
     },
-    // isInGroup / size
+    // isInGroup / radius
+    {
+      isInGroup: true,
+      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
+    },
     {
       isInGroup: true,
       radius: "sm",
