@@ -1,5 +1,14 @@
 # @nextui-org/badge
 
+## 2.0.19
+
+### Patch Changes
+
+- Updated dependencies [[`f6531c5f6`](https://github.com/nextui-org/nextui/commit/f6531c5f603d7f6308a597962ec6fab62c92fa93), [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87)]:
+  - @nextui-org/system-rsc@2.0.6
+  - @nextui-org/theme@2.1.9
+  - @nextui-org/react-utils@2.0.9
+
 ## 2.0.18
 
 ### Patch Changes

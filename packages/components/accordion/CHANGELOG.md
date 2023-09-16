@@ -1,5 +1,22 @@
 # @nextui-org/accordion
 
+## 2.0.23
+
+### Patch Changes
+
+- [#1630](https://github.com/nextui-org/nextui/pull/1630) [`bc424948c`](https://github.com/nextui-org/nextui/commit/bc424948c70ddbc5b00a9d732dafcd5008c78b1f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1405 and #1608 accordion is no longer preventing spacebar key for Input/Textarea components
+
+- [#1639](https://github.com/nextui-org/nextui/pull/1639) [`bb8ed5874`](https://github.com/nextui-org/nextui/commit/bb8ed58749fa50666a1c8a5fa005376fec185710) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1402 controlled accordion
+
+- Updated dependencies [[`bc424948c`](https://github.com/nextui-org/nextui/commit/bc424948c70ddbc5b00a9d732dafcd5008c78b1f), [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87)]:
+  - @nextui-org/use-aria-accordion@2.0.1
+  - @nextui-org/theme@2.1.9
+  - @nextui-org/divider@2.0.20
+  - @nextui-org/system@2.0.10
+  - @nextui-org/react-utils@2.0.9
+  - @nextui-org/aria-utils@2.0.10
+  - @nextui-org/framer-transitions@2.0.10
+
 ## 2.0.22
 
 ### Patch Changes

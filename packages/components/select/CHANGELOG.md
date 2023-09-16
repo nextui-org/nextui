@@ -1,5 +1,21 @@
 # @nextui-org/select
 
+## 2.1.11
+
+### Patch Changes
+
+- [#1631](https://github.com/nextui-org/nextui/pull/1631) [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - validationState prop deprecated, "isInvalid" prop adjusted, invalid checkbox and radios state improved
+
+- Updated dependencies [[`3aa86423a`](https://github.com/nextui-org/nextui/commit/3aa86423aa4b0c56d2e14772bc081f98a5fbdb05), [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87)]:
+  - @nextui-org/listbox@2.1.10
+  - @nextui-org/theme@2.1.9
+  - @nextui-org/popover@2.1.9
+  - @nextui-org/spinner@2.0.19
+  - @nextui-org/system@2.0.10
+  - @nextui-org/scroll-shadow@2.1.9
+  - @nextui-org/react-utils@2.0.9
+  - @nextui-org/aria-utils@2.0.10
+
 ## 2.1.10
 
 ### Patch Changes

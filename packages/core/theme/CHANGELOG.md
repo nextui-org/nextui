@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.9
+
+### Patch Changes
+
+- [#1631](https://github.com/nextui-org/nextui/pull/1631) [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - validationState prop deprecated, "isInvalid" prop adjusted, invalid checkbox and radios state improved
+
 ## 2.1.8
 
 ### Patch Changes

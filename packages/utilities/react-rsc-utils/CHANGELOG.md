@@ -1,5 +1,11 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.9
+
+### Patch Changes
+
+- [#1629](https://github.com/nextui-org/nextui/pull/1629) [`cdc30db14`](https://github.com/nextui-org/nextui/commit/cdc30db14c75d9c2e05d928e52c08a49cc1b6437) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1620 filterDomProps labelable prop is true by default
+
 ## 2.0.8
 
 ### Patch Changes
