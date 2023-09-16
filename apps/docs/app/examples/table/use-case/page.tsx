@@ -256,7 +256,7 @@ const users = [
   },
 ];
 
-type User = typeof users[0];
+type User = (typeof users)[number];
 
 export default function Page() {
   const [filterValue, setFilterValue] = useState("");
