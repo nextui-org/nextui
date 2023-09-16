@@ -182,7 +182,7 @@ pnpm test:update src/button  # or npm run test:update src/button
 pnpm build # or npm run build
 ```
 
-> Note: ensure your version of Node is 14 or higher to run scripts
+> Note: ensure your version of Node is 16 or higher to run scripts
 
 6. Send your pull request:
 
