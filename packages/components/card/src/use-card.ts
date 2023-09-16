@@ -192,8 +192,8 @@ export function useCard(originalProps: UseCardProps) {
     isHoverable: originalProps.isHoverable,
     disableAnimation: originalProps.disableAnimation,
     disableRipple,
-    isFocusVisible,
     handleClick,
+    isFocusVisible,
     getCardProps,
     getRippelProps: () => ({ripples, onClear: onClearRipple}),
   };
