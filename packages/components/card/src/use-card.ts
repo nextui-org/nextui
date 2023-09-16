@@ -1,6 +1,7 @@
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@nextui-org/use-aria-button";
+import type {RippleProps} from "@nextui-org/ripple";
 
 import {card} from "@nextui-org/theme";
 import {MouseEvent, ReactNode, useCallback, useMemo} from "react";
@@ -85,7 +86,7 @@ export function useCard(originalProps: UseCardProps) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const {onClick: onRippleClickHandler, ripples} = useRipple();
+  const {onClick: onRippleClickHandler, onClear: onClearRipple, ripples} = useRipple();
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     if (!originalProps.disableAnimation && !disableRipple && domRef.current) {
@@ -180,13 +181,17 @@ export function useCard(originalProps: UseCardProps) {
     ],
   );
 
+  const getRippleProps = useCallback<() => RippleProps>(
+    () => ({ripples, onClear: onClearRipple}),
+    [ripples, onClearRipple],
+  );
+
   return {
     context,
     domRef,
     Component,
     classNames,
     children,
-    ripples,
     isHovered,
     isPressed,
     isPressable: originalProps.isPressable,
@@ -196,6 +201,7 @@ export function useCard(originalProps: UseCardProps) {
     handleClick,
     isFocusVisible,
     getCardProps,
+    getRippleProps,
   };
 }
 

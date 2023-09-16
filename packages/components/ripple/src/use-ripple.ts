@@ -1,38 +1,17 @@
-import {useCallback, useEffect, useState} from "react";
+import {getUniqueID} from "@nextui-org/shared-utils";
+import React, {useCallback, useState} from "react";
 
 export type RippleType = {
-  key: number;
+  key: React.Key;
   x: number;
   y: number;
   size: number;
 };
 
-export interface UseRippleProps {
-  /**
-  /**
-   * The time to remove the ripples in ms.
-   * @default 1000
-   */
-  removeAfter?: number;
-}
+export interface UseRippleProps {}
 
 export function useRipple(props: UseRippleProps = {}) {
-  const {removeAfter = 1000, ...otherProps} = props;
-
   const [ripples, setRipples] = useState<RippleType[]>([]);
-
-  useEffect(() => {
-    const timeoutIds = ripples.map(
-      (_, i) =>
-        setTimeout(() => {
-          setRipples((prevState) => prevState.filter((_, index) => index !== i));
-        }, removeAfter), // remove after 1s
-    );
-
-    return () => {
-      timeoutIds.forEach((id) => clearTimeout(id));
-    };
-  }, [ripples]);
 
   const onClick = useCallback((event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const trigger = event.currentTarget;
@@ -43,7 +22,7 @@ export function useRipple(props: UseRippleProps = {}) {
     setRipples((prevRipples) => [
       ...prevRipples,
       {
-        key: new Date().getTime(),
+        key: getUniqueID(prevRipples.length.toString()),
         size,
         x: event.clientX - rect.x - size / 2,
         y: event.clientY - rect.y - size / 2,
@@ -51,7 +30,11 @@ export function useRipple(props: UseRippleProps = {}) {
     ]);
   }, []);
 
-  return {ripples, onClick, ...otherProps};
+  const onClear = useCallback((key: React.Key) => {
+    setRipples((prevState) => prevState.filter((ripple) => ripple.key !== key));
+  }, []);
+
+  return {ripples, onClick, onClear, ...props};
 }
 
 export type UseRippleReturn = ReturnType<typeof useRipple>;

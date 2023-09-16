@@ -2,6 +2,7 @@ import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
+import type {RippleProps} from "@nextui-org/ripple";
 
 import {dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
@@ -130,7 +131,7 @@ export function useButton(props: UseButtonProps) {
     ],
   );
 
-  const {onClick: onRippleClickHandler, ripples} = useRipple();
+  const {onClick: onRippleClickHandler, onClear: onClearRipple, ripples} = useRipple();
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -209,11 +210,15 @@ export function useButton(props: UseButtonProps) {
     return buttonSpinnerSizeMap[size];
   }, [size]);
 
+  const getRippleProps = useCallback<() => RippleProps>(
+    () => ({ripples, onClear: onClearRipple}),
+    [ripples, onClearRipple],
+  );
+
   return {
     Component,
     children,
     domRef,
-    ripples,
     spinner,
     styles,
     startContent,
@@ -223,6 +228,7 @@ export function useButton(props: UseButtonProps) {
     spinnerSize,
     disableRipple,
     getButtonProps,
+    getRippleProps,
   };
 }
 

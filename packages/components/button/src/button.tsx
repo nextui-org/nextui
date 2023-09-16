@@ -12,7 +12,6 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     domRef,
     children,
     styles,
-    ripples,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -21,10 +20,8 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     isLoading,
     disableRipple,
     getButtonProps,
-  } = useButton({
-    ...props,
-    ref,
-  });
+    getRippleProps,
+  } = useButton({...props, ref});
 
   return (
     <Component ref={domRef} className={styles} {...getButtonProps()}>
@@ -33,7 +30,7 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
-      {!disableRipple && <Ripple ripples={ripples} />}
+      {!disableRipple && <Ripple {...getRippleProps()} />}
     </Component>
   );
 });
