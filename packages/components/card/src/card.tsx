@@ -11,16 +11,14 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
     children,
     context,
     Component,
-    ripples,
     isPressable,
     disableAnimation,
     disableRipple,
     getCardProps,
-    onClear,
-  } = useCard({
-    ...props,
-    ref,
-  });
+    getRippelProps,
+  } = useCard({...props, ref});
+
+  const {ripples, onClear} = getRippelProps();
 
   return (
     <Component {...getCardProps()}>

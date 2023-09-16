@@ -186,17 +186,16 @@ export function useCard(originalProps: UseCardProps) {
     Component,
     classNames,
     children,
-    ripples,
     isHovered,
     isPressed,
     isPressable: originalProps.isPressable,
     isHoverable: originalProps.isHoverable,
     disableAnimation: originalProps.disableAnimation,
     disableRipple,
-    handleClick,
-    onClear,
     isFocusVisible,
+    handleClick,
     getCardProps,
+    getRippelProps: () => ({ripples, onClear}),
   };
 }
 

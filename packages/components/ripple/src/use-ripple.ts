@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 
 export type RippleType = {
   key: number;
@@ -7,18 +7,9 @@ export type RippleType = {
   size: number;
 };
 
-export interface UseRippleProps {
-  /**
-  /**
-   * The time to remove the ripples in ms.
-   * @default 1000
-   */
-  removeAfter?: number;
-}
+export interface UseRippleProps {}
 
 export function useRipple(props: UseRippleProps = {}) {
-  const { ...otherProps } = props;
-
   const [ripples, setRipples] = useState<RippleType[]>([]);
 
   const onClick = useCallback((event: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -42,7 +33,7 @@ export function useRipple(props: UseRippleProps = {}) {
     setRipples((prevState) => prevState.filter((ripple) => ripple.key !== key));
   }, []);
 
-  return {ripples, onClick, onClear, ...otherProps};
+  return {ripples, onClick, onClear, ...props};
 }
 
 export type UseRippleReturn = ReturnType<typeof useRipple>;

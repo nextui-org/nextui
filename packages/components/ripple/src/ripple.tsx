@@ -18,6 +18,7 @@ const clamp = (value: number, min: number, max: number) => {
 
 const Ripple: FC<RippleProps> = (props) => {
   const {ripples = [], motionProps, color = "currentColor", style, onClear} = props;
+
   return (
     <>
       {ripples.map((ripple) => {
@@ -30,8 +31,6 @@ const Ripple: FC<RippleProps> = (props) => {
               className="nextui-ripple"
               exit={{opacity: 0}}
               initial={{transform: "scale(0)", opacity: 0.35}}
-              onTransitionEnd={() => onClear(ripple.key)}
-              onAnimationEnd={() => onClear(ripple.key)}
               style={{
                 position: "absolute",
                 backgroundColor: color,
@@ -46,6 +45,8 @@ const Ripple: FC<RippleProps> = (props) => {
                 ...style,
               }}
               transition={{duration}}
+              onAnimationEnd={() => onClear(ripple.key)}
+              onTransitionEnd={() => onClear(ripple.key)}
               {...motionProps}
             />
           </AnimatePresence>

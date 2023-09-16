@@ -213,7 +213,6 @@ export function useButton(props: UseButtonProps) {
     Component,
     children,
     domRef,
-    ripples,
     spinner,
     styles,
     startContent,
@@ -223,7 +222,7 @@ export function useButton(props: UseButtonProps) {
     spinnerSize,
     disableRipple,
     getButtonProps,
-    onClear,
+    getRippelProps: () => ({ripples, onClear}),
   };
 }
 
