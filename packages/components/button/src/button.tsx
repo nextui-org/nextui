@@ -32,7 +32,7 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
-      {!disableRipple && <Ripple ripples={ripples} onClear={onClear} />}
+      {!disableRipple && <Ripple {...getRippelProps()} />}
     </Component>
   );
 });
