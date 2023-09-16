@@ -1,5 +1,16 @@
 # @nextui-org/checkbox
 
+## 2.0.22
+
+### Patch Changes
+
+- [#1631](https://github.com/nextui-org/nextui/pull/1631) [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - validationState prop deprecated, "isInvalid" prop adjusted, invalid checkbox and radios state improved
+
+- Updated dependencies [[`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87)]:
+  - @nextui-org/theme@2.1.9
+  - @nextui-org/system@2.0.10
+  - @nextui-org/react-utils@2.0.9
+
 ## 2.0.21
 
 ### Patch Changes

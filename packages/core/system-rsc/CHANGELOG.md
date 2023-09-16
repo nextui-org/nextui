@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.0.6
+
+### Patch Changes
+
+- [#1642](https://github.com/nextui-org/nextui/pull/1642) [`f6531c5f6`](https://github.com/nextui-org/nextui/commit/f6531c5f603d7f6308a597962ec6fab62c92fa93) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1541 `extendVariants`function gives more priority to final component props over the `extendVariants` props
+
 ## 2.0.5
 
 ### Patch Changes

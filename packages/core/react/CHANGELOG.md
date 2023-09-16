@@ -1,5 +1,49 @@
 # @nextui-org/react
 
+## 2.1.13
+
+### Patch Changes
+
+- [#1641](https://github.com/nextui-org/nextui/pull/1641) [`37d5f1216`](https://github.com/nextui-org/nextui/commit/37d5f121627a8cffa07ea8152c43e997522b40a2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Ripple component added to @nextui-org/react exports
+
+- Updated dependencies [[`3aa86423a`](https://github.com/nextui-org/nextui/commit/3aa86423aa4b0c56d2e14772bc081f98a5fbdb05), [`ceddd0d1d`](https://github.com/nextui-org/nextui/commit/ceddd0d1d941a669bab78ef7439a29531cff99a2), [`05c966e8a`](https://github.com/nextui-org/nextui/commit/05c966e8a46accff1fa271d50a3161f10d1e203d), [`bc424948c`](https://github.com/nextui-org/nextui/commit/bc424948c70ddbc5b00a9d732dafcd5008c78b1f), [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87), [`bb8ed5874`](https://github.com/nextui-org/nextui/commit/bb8ed58749fa50666a1c8a5fa005376fec185710)]:
+  - @nextui-org/listbox@2.1.10
+  - @nextui-org/button@2.0.21
+  - @nextui-org/card@2.0.21
+  - @nextui-org/ripple@2.0.21
+  - @nextui-org/accordion@2.0.23
+  - @nextui-org/checkbox@2.0.22
+  - @nextui-org/select@2.1.11
+  - @nextui-org/input@2.1.9
+  - @nextui-org/radio@2.0.22
+  - @nextui-org/theme@2.1.9
+  - @nextui-org/dropdown@2.1.10
+  - @nextui-org/modal@2.0.23
+  - @nextui-org/navbar@2.0.22
+  - @nextui-org/popover@2.1.9
+  - @nextui-org/snippet@2.0.25
+  - @nextui-org/table@2.0.23
+  - @nextui-org/tabs@2.0.21
+  - @nextui-org/tooltip@2.0.24
+  - @nextui-org/progress@2.0.21
+  - @nextui-org/badge@2.0.19
+  - @nextui-org/code@2.0.19
+  - @nextui-org/divider@2.0.20
+  - @nextui-org/kbd@2.0.20
+  - @nextui-org/skeleton@2.0.19
+  - @nextui-org/spacer@2.0.19
+  - @nextui-org/spinner@2.0.19
+  - @nextui-org/system@2.0.10
+  - @nextui-org/avatar@2.0.21
+  - @nextui-org/chip@2.0.21
+  - @nextui-org/image@2.0.21
+  - @nextui-org/link@2.0.22
+  - @nextui-org/menu@2.0.11
+  - @nextui-org/pagination@2.0.22
+  - @nextui-org/scroll-shadow@2.1.9
+  - @nextui-org/switch@2.0.21
+  - @nextui-org/user@2.0.22
+
 ## 2.1.12
 
 ### Patch Changes

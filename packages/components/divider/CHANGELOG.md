@@ -1,5 +1,14 @@
 # @nextui-org/divider
 
+## 2.0.20
+
+### Patch Changes
+
+- Updated dependencies [[`f6531c5f6`](https://github.com/nextui-org/nextui/commit/f6531c5f603d7f6308a597962ec6fab62c92fa93), [`425a034bc`](https://github.com/nextui-org/nextui/commit/425a034bca4aa5a86cfe4bc47c084366a7ad7e87), [`cdc30db14`](https://github.com/nextui-org/nextui/commit/cdc30db14c75d9c2e05d928e52c08a49cc1b6437)]:
+  - @nextui-org/system-rsc@2.0.6
+  - @nextui-org/theme@2.1.9
+  - @nextui-org/react-rsc-utils@2.0.9
+
 ## 2.0.19
 
 ### Patch Changes
