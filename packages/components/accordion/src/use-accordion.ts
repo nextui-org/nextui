@@ -198,6 +198,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
       isCompact,
       isDisabled,
       hideIndicator,
+      selectedKeys,
       disableAnimation,
       keepContentMounted,
       state?.expandedKeys.values,

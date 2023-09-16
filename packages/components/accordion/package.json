@@ -62,6 +62,7 @@
     "@react-types/shared": "^3.20.0"
   },
   "devDependencies": {
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
