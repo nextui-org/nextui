@@ -195,7 +195,7 @@ export function useCard(originalProps: UseCardProps) {
     isFocusVisible,
     handleClick,
     getCardProps,
-    getRippelProps: () => ({ripples, onClear}),
+    getRippelProps: () => ({ripples, onClear: onClearRipple}),
   };
 }
 
