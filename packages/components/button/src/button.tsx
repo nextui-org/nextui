@@ -23,8 +23,6 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     getRippelProps,
   } = useButton({...props, ref});
 
-  const {ripples, onClear} = getRippelProps();
-
   return (
     <Component ref={domRef} className={styles} {...getButtonProps()}>
       {startContent}
