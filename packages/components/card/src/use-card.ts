@@ -85,7 +85,7 @@ export function useCard(originalProps: UseCardProps) {
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const {onClick: onRippleClickHandler, onClear, ripples} = useRipple();
+  const {onClick: onRippleClickHandler, onClear: onClearRipple, ripples} = useRipple();
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     if (!originalProps.disableAnimation && !disableRipple && domRef.current) {
