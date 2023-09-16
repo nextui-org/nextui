@@ -66,7 +66,7 @@ const Template = (args: ButtonGroupProps) => (
 const VariantButtonTemplate = (args: ButtonGroupProps) => (
   <ButtonGroup {...args}>
     <Button>One</Button>
-    <Button variant={args.variant}>Two</Button>
+    <Button variant="bordered">Two</Button>
     <Button>Three</Button>
   </ButtonGroup>
 );
