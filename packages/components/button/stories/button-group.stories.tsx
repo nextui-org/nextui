@@ -63,8 +63,24 @@ const Template = (args: ButtonGroupProps) => (
   </ButtonGroup>
 );
 
+const VariantButtonTemplate = (args: ButtonGroupProps) => (
+  <ButtonGroup {...args} variant="solid">
+    <Button>One</Button>
+    <Button variant={args.variant}>Two</Button>
+    <Button>Three</Button>
+  </ButtonGroup>
+);
+
 export const Default = {
   render: Template,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const VariantButton = {
+  render: VariantButtonTemplate,
 
   args: {
     ...defaultProps,
