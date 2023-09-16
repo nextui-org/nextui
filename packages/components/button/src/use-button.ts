@@ -65,6 +65,7 @@ export type UseButtonProps = Props &
 export function useButton(props: UseButtonProps) {
   const groupContext = useButtonGroupContext();
   const isInGroup = !!groupContext;
+  const isIsolate = isInGroup && !!props.variant;
 
   const {
     ref,
@@ -112,6 +113,7 @@ export function useButton(props: UseButtonProps) {
         fullWidth,
         isDisabled,
         isInGroup,
+        isIsolate,
         disableAnimation,
         isIconOnly,
         className,
@@ -124,6 +126,7 @@ export function useButton(props: UseButtonProps) {
       fullWidth,
       isDisabled,
       isInGroup,
+      isIsolate,
       isIconOnly,
       disableAnimation,
       className,
