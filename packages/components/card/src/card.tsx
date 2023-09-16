@@ -18,8 +18,6 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
     getRippelProps,
   } = useCard({...props, ref});
 
-  const {ripples, onClear} = getRippelProps();
-
   return (
     <Component {...getCardProps()}>
       <CardProvider value={context}>{children}</CardProvider>
