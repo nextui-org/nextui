@@ -130,7 +130,7 @@ export function useButton(props: UseButtonProps) {
     ],
   );
 
-  const {onClick: onRippleClickHandler, onClear, ripples} = useRipple();
+  const {onClick: onRippleClickHandler, onClear: onClearRipple, ripples} = useRipple();
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -222,7 +222,7 @@ export function useButton(props: UseButtonProps) {
     spinnerSize,
     disableRipple,
     getButtonProps,
-    getRippelProps: () => ({ripples, onClear}),
+    getRippelProps: () => ({ripples, onClear: onClearRipple}),
   };
 }
 
