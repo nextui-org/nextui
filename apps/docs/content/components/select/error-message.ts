@@ -42,7 +42,7 @@ export default function App() {
       placeholder="Select an animal"
       description="The second most popular pet in the world"
       errorMessage={isValid || !touched ? "" : "You must select a cat"}
-      validationState={isValid || !touched ? "valid" : "invalid"}
+      isInvalid={isValid || !touched ? false : true}
       selectedKeys={value}
       className="max-w-xs"
       onSelectionChange={setValue}

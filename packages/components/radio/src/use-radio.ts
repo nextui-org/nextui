@@ -88,10 +88,7 @@ export function useRadio(props: UseRadioProps) {
   const labelId = useId();
 
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
-  const isInvalid = useMemo(
-    () => groupContext.validationState === "invalid",
-    [groupContext.validationState],
-  );
+  const isInvalid = groupContext.isInvalid;
 
   const ariaRadioProps = useMemo(() => {
     const ariaLabel =

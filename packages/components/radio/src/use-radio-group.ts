@@ -53,7 +53,7 @@ export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
 export type ContextType = {
   groupState: RadioGroupState;
   isRequired?: UseRadioGroupProps["isRequired"];
-  validationState?: UseRadioGroupProps["validationState"];
+  isInvalid?: UseRadioGroupProps["isInvalid"];
   color?: RadioProps["color"];
   size?: RadioProps["size"];
   isDisabled?: RadioProps["isDisabled"];
@@ -76,10 +76,11 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
+    validationState,
+    isInvalid = validationState === "invalid",
     isReadOnly,
     errorMessage,
     description,
-    validationState,
     className,
     onChange,
     onValueChange,
@@ -98,10 +99,21 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       isRequired,
       isReadOnly,
+      isInvalid,
       orientation,
       onChange: onValueChange,
     };
-  }, [otherProps, value, name, label, isRequired, isReadOnly, orientation, onValueChange]);
+  }, [
+    otherProps,
+    value,
+    name,
+    label,
+    isRequired,
+    isReadOnly,
+    isInvalid,
+    orientation,
+    onValueChange,
+  ]);
 
   const groupState = useRadioGroupState(otherPropsWithOrientation);
 
@@ -118,7 +130,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       color,
       groupState,
       isRequired,
-      validationState,
+      isInvalid,
       isDisabled,
       disableAnimation,
       onChange,
@@ -128,19 +140,22 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       color,
       isRequired,
       isDisabled,
-      disableAnimation,
+      isInvalid,
       onChange,
+      disableAnimation,
       groupState.name,
       groupState?.isDisabled,
       groupState?.isReadOnly,
       groupState?.isRequired,
       groupState?.selectedValue,
-      groupState?.validationState,
       groupState?.lastFocusedValue,
     ],
   );
 
-  const slots = useMemo(() => radioGroup(), []);
+  const slots = useMemo(
+    () => radioGroup({isRequired, isInvalid, disableAnimation}),
+    [isInvalid, isRequired, disableAnimation],
+  );
 
   const baseStyles = clsx(classNames?.base, className);
 

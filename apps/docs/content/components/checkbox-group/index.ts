@@ -4,6 +4,7 @@ import horizontal from "./horizontal";
 import controlled from "./controlled";
 import customStyles from "./custom-styles";
 import customImplementation from "./custom-implementation";
+import invalid from "./invalid";
 
 export const checkboxGroupContent = {
   usage,
@@ -11,5 +12,6 @@ export const checkboxGroupContent = {
   horizontal,
   controlled,
   customStyles,
+  invalid,
   customImplementation,
 };

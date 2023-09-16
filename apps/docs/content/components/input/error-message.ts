@@ -7,7 +7,7 @@ export default function App() {
       label="Email"
       variant="bordered"
       defaultValue="junior2nextui.org"
-      validationState="invalid"
+      isInvalid={true}
       errorMessage="Please enter a valid email"
       className="max-w-xs"
     />

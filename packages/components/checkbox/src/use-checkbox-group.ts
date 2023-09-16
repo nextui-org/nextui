@@ -60,6 +60,7 @@ export type ContextType = {
   color?: CheckboxProps["color"];
   size?: CheckboxProps["size"];
   radius?: CheckboxProps["radius"];
+  isInvalid?: UseCheckboxGroupProps["isInvalid"];
   lineThrough?: CheckboxProps["lineThrough"];
   isDisabled?: CheckboxProps["isDisabled"];
   disableAnimation?: CheckboxProps["disableAnimation"];
@@ -83,6 +84,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     isDisabled = false,
     disableAnimation = false,
     validationState,
+    isInvalid = validationState === "invalid",
     isReadOnly,
     isRequired,
     onValueChange,
@@ -103,10 +105,10 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       defaultValue,
       isRequired,
+      isInvalid,
       isReadOnly,
       orientation,
       onChange: onValueChange,
-      validationState,
       ...otherProps,
     }),
     [
@@ -116,9 +118,9 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       defaultValue,
       isRequired,
       isReadOnly,
+      isInvalid,
       orientation,
       onValueChange,
-      validationState,
       otherProps["aria-label"],
       otherProps,
     ],
@@ -137,6 +139,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       color,
       radius,
       lineThrough,
+      isInvalid,
       isDisabled,
       disableAnimation,
       groupState,
@@ -148,15 +151,19 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       lineThrough,
       isDisabled,
       disableAnimation,
+      isInvalid,
       groupState?.value,
       groupState?.isDisabled,
       groupState?.isReadOnly,
-      groupState?.validationState,
+      groupState?.isInvalid,
       groupState?.isSelected,
     ],
   );
 
-  const slots = useMemo(() => checkboxGroup(), []);
+  const slots = useMemo(
+    () => checkboxGroup({isRequired, isInvalid, disableAnimation}),
+    [isRequired, isInvalid, disableAnimation],
+  );
 
   const baseStyles = clsx(classNames?.base, className);
 

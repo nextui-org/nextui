@@ -923,14 +923,14 @@ export const WithErrorMessage = {
   },
 };
 
-export const InvalidValidationState = {
+export const IsInvalid = {
   render: Template,
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     variant: "bordered",
     defaultSelectedKeys: ["dog"],
-    validationState: "invalid",
     errorMessage: "Please select a valid animal",
   },
 };

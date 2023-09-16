@@ -85,14 +85,15 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,
+    validationState,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     radius = groupContext?.radius,
     lineThrough = groupContext?.lineThrough ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
+    isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
-    validationState,
     defaultSelected,
     classNames,
     onChange,
@@ -132,10 +133,10 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       defaultSelected,
       isIndeterminate,
       isRequired,
+      isInvalid,
       isSelected: isSelectedProp,
       isDisabled: isDisabledProp,
       isReadOnly: isReadOnlyProp,
-      validationState,
       "aria-label": safeAriaLabel(otherProps["aria-label"], children),
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       onChange: onValueChange,
@@ -146,12 +147,12 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     labelId,
     children,
     autoFocus,
+    isInvalid,
     isIndeterminate,
     isDisabledProp,
     isReadOnlyProp,
     isSelectedProp,
     defaultSelected,
-    validationState,
     otherProps["aria-label"],
     otherProps["aria-labelledby"],
     onValueChange,
@@ -168,14 +169,13 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       useReactAriaCheckboxGroupItem(
         {
           ...ariaCheckboxProps,
-          validationState,
+          isInvalid,
         },
         groupContext.groupState,
         inputRef,
       )
     : useReactAriaCheckbox(ariaCheckboxProps, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
 
-  const isInvalid = useMemo(() => validationState === "invalid", [validationState]);
   const isInteractionDisabled = isDisabled || isReadOnly;
 
   // Handle press state for full label. Keyboard press state is returned by useCheckbox
@@ -215,11 +215,12 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         color,
         size,
         radius,
+        isInvalid,
         lineThrough,
         isDisabled,
         disableAnimation,
       }),
-    [color, size, radius, lineThrough, isDisabled, disableAnimation],
+    [color, size, radius, isInvalid, lineThrough, isDisabled, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);
