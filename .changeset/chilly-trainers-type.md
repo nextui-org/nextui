@@ -3,5 +3,5 @@
 "@nextui-org/theme": patch
 ---
 
-fix(button): not show the correct borders
-fix(button-group): radius not work
+Fix #1626 The radius now works, and the border is displayed correctly in the buttonGroup.
+
