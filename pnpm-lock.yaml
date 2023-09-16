@@ -2264,6 +2264,9 @@ importers:
       '@nextui-org/radio':
         specifier: workspace:*
         version: link:../../components/radio
+      '@nextui-org/ripple':
+        specifier: workspace:*
+        version: link:../../components/ripple
       '@nextui-org/scroll-shadow':
         specifier: workspace:*
         version: link:../../components/scroll-shadow

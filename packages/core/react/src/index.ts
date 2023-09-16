@@ -37,6 +37,7 @@ export * from "@nextui-org/scroll-shadow";
 export * from "@nextui-org/select";
 export * from "@nextui-org/listbox";
 export * from "@nextui-org/menu";
+export * from "@nextui-org/ripple";
 
 /**
  * React Aria - Exports
