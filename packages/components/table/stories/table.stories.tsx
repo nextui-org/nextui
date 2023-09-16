@@ -237,7 +237,7 @@ const CustomCellTemplate = (args: TableProps) => {
     },
   ];
 
-  type User = typeof users[0];
+  type User = (typeof users)[number];
 
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
@@ -377,7 +377,7 @@ const CustomCellWithClassnamesTemplate = (args: TableProps) => {
     },
   ];
 
-  type User = typeof users[0];
+  type User = (typeof users)[number];
 
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
