@@ -43,7 +43,7 @@ export function extendVariants(BaseComponent, styles = {}, opts = {}) {
   const ForwardedComponent = React.forwardRef((originalProps, ref) => {
     const [baseProps, variantProps] = mapPropsVariants(originalProps, customTv.variantKeys, false);
 
-    const newProps = {...baseProps, ...defaultVariants, ref};
+    const newProps = {...defaultVariants, ...baseProps, ref};
 
     let classNames = {};
 
