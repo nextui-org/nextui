@@ -16,6 +16,7 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
     disableAnimation,
     disableRipple,
     getCardProps,
+    onClear,
   } = useCard({
     ...props,
     ref,
@@ -24,7 +25,9 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
   return (
     <Component {...getCardProps()}>
       <CardProvider value={context}>{children}</CardProvider>
-      {isPressable && !disableAnimation && !disableRipple && <Ripple ripples={ripples} />}
+      {isPressable && !disableAnimation && !disableRipple && (
+        <Ripple ripples={ripples} onClear={onClear} />
+      )}
     </Component>
   );
 });

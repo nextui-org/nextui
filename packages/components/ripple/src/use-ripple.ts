@@ -17,22 +17,9 @@ export interface UseRippleProps {
 }
 
 export function useRipple(props: UseRippleProps = {}) {
-  const {removeAfter = 1000, ...otherProps} = props;
+  const { ...otherProps } = props;
 
   const [ripples, setRipples] = useState<RippleType[]>([]);
-
-  useEffect(() => {
-    const timeoutIds = ripples.map(
-      (_, i) =>
-        setTimeout(() => {
-          setRipples((prevState) => prevState.filter((_, index) => index !== i));
-        }, removeAfter), // remove after 1s
-    );
-
-    return () => {
-      timeoutIds.forEach((id) => clearTimeout(id));
-    };
-  }, [ripples]);
 
   const onClick = useCallback((event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const trigger = event.currentTarget;
@@ -43,7 +30,7 @@ export function useRipple(props: UseRippleProps = {}) {
     setRipples((prevRipples) => [
       ...prevRipples,
       {
-        key: new Date().getTime(),
+        key: Date.now(),
         size,
         x: event.clientX - rect.x - size / 2,
         y: event.clientY - rect.y - size / 2,
@@ -51,7 +38,11 @@ export function useRipple(props: UseRippleProps = {}) {
     ]);
   }, []);
 
-  return {ripples, onClick, ...otherProps};
+  const onClear = useCallback((key: number) => {
+    setRipples((prevState) => prevState.filter((ripple) => ripple.key !== key));
+  }, []);
+
+  return {ripples, onClick, onClear, ...otherProps};
 }
 
 export type UseRippleReturn = ReturnType<typeof useRipple>;

@@ -9,13 +9,15 @@ export interface RippleProps extends HTMLNextUIProps<"span"> {
   color?: string;
   motionProps?: HTMLMotionProps<"span">;
   style?: React.CSSProperties;
+  onClear: (key: number) => void;
 }
 
 const clamp = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 };
 
-const Ripple: FC<RippleProps> = ({ripples = [], motionProps, color = "currentColor", style}) => {
+const Ripple: FC<RippleProps> = (props) => {
+  const {ripples = [], motionProps, color = "currentColor", style, onClear} = props;
   return (
     <>
       {ripples.map((ripple) => {
@@ -28,6 +30,8 @@ const Ripple: FC<RippleProps> = ({ripples = [], motionProps, color = "currentCol
               className="nextui-ripple"
               exit={{opacity: 0}}
               initial={{transform: "scale(0)", opacity: 0.35}}
+              onTransitionEnd={() => onClear(ripple.key)}
+              onAnimationEnd={() => onClear(ripple.key)}
               style={{
                 position: "absolute",
                 backgroundColor: color,
