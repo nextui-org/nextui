@@ -326,22 +326,22 @@ const button = tv({
     },
     {
       isInGroup: true,
-      radius: "sm",
+      size: "sm",
       class: "rounded-none first:rounded-l-small last:rounded-r-small",
     },
     {
       isInGroup: true,
-      radius: "md",
+      size: "md",
       class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
     },
     {
       isInGroup: true,
-      radius: "lg",
+      size: "lg",
       class: "rounded-none first:rounded-l-large last:rounded-r-large",
     },
     {
       isInGroup: true,
-      radius: "full",
+      isRounded: true,
       class: "rounded-none first:rounded-l-full last:rounded-r-full",
     },
     // isInGroup / bordered / ghost
