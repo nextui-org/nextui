@@ -222,7 +222,7 @@ export function useButton(props: UseButtonProps) {
     spinnerSize,
     disableRipple,
     getButtonProps,
-    getRippelProps: () => ({ripples, onClear: onClearRipple}),
+    getRippleProps: () => ({ripples, onClear: onClearRipple}),
   };
 }
 
