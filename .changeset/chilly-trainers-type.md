@@ -4,4 +4,4 @@
 ---
 
 fix(button): not show the correct borders
-fix(button-group): radis not work
+fix(button-group): radius not work
