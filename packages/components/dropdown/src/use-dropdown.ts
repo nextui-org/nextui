@@ -8,7 +8,7 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {useMemo, useRef} from "react";
+import {useEffect, useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
 
@@ -66,6 +66,7 @@ export function useDropdown(props: UseDropdownProps) {
   const menuTriggerRef = triggerRefProp || triggerRef;
   const menuRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const menuActionTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const state = useMenuTriggerState({
     trigger,
@@ -93,13 +94,25 @@ export function useDropdown(props: UseDropdownProps) {
     [className],
   );
 
+  useEffect(() => {
+    return () => {
+      if (menuActionTimeoutRef.current) clearTimeout(menuActionTimeoutRef.current);
+    };
+  }, []);
+
   const onMenuAction = (menuCloseOnSelect?: boolean) => {
-    if (menuCloseOnSelect !== undefined && !menuCloseOnSelect) {
-      return;
-    }
-    if (closeOnSelect) {
-      state.close();
-    }
+    menuActionTimeoutRef.current = setTimeout(() => {
+      if (
+        (menuCloseOnSelect !== undefined && !menuCloseOnSelect) ||
+        document.querySelector("[data-modal-open=true]")
+      ) {
+        return;
+      }
+
+      if (closeOnSelect) {
+        state.close();
+      }
+    }, 0);
   };
 
   const getPopoverProps: PropGetter = (props = {}) => ({

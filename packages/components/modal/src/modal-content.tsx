@@ -89,7 +89,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
   }, [backdrop, disableAnimation, getBackdropProps]);
 
   return (
-    <div tabIndex={-1}>
+    <div data-modal-open={isOpen} tabIndex={-1}>
       {backdropContent}
       <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
         {disableAnimation ? (

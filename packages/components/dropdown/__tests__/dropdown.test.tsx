@@ -1,6 +1,8 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
+import {Modal, ModalContent} from "@nextui-org/modal";
+import {useDisclosure} from "@nextui-org/use-disclosure";
 import userEvent from "@testing-library/user-event";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
@@ -385,5 +387,71 @@ describe("Dropdown", () => {
     });
 
     expect(onSelectionChange).toBeCalledTimes(0);
+  });
+
+  it("should not close the modal content", async () => {
+    const ModalItem = () => {
+      const {isOpen, onOpen, onClose} = useDisclosure();
+
+      return (
+        <>
+          <button
+            data-testid="trigger-test-modal"
+            onClick={() => {
+              onOpen();
+            }}
+          >
+            Open Modal
+          </button>
+          <Modal backdrop={"opaque"} isOpen={isOpen} onClose={onClose}>
+            <ModalContent>
+              <div data-testid="modal-content">Modal Content</div>
+            </ModalContent>
+          </Modal>
+        </>
+      );
+    };
+
+    const wrapper = render(
+      <Dropdown placement="bottom-end">
+        <DropdownTrigger className="mt-10 ml-10">
+          <button data-testid="trigger-test">trigger</button>
+        </DropdownTrigger>
+        <DropdownMenu variant="flat">
+          <DropdownItem>
+            <ModalItem />
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    expect(triggerButton).toBeTruthy();
+
+    act(() => {
+      triggerButton.click();
+    });
+
+    let menu = wrapper.getByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let triggerModalButton = wrapper.getByTestId("trigger-test-modal");
+
+    expect(triggerModalButton).toBeTruthy();
+
+    act(() => {
+      triggerModalButton.click();
+    });
+
+    let modal = document.querySelector("[data-modal-open=true]");
+
+    expect(modal).toBeTruthy();
+
+    let modalContent = wrapper.getByTestId("modal-content");
+
+    expect(modalContent).toBeTruthy();
+    expect(modalContent.textContent).toBe("Modal Content");
   });
 });

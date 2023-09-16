@@ -1028,9 +1028,15 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/modal':
+        specifier: workspace:*
+        version: link:../modal
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
+      '@nextui-org/use-disclosure':
+        specifier: workspace:*
+        version: link:../../hooks/use-disclosure
       '@nextui-org/user':
         specifier: workspace:*
         version: link:../user

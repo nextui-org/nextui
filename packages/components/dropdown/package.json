@@ -53,7 +53,9 @@
   "devDependencies": {
     "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/modal": "workspace:*",
     "@nextui-org/user": "workspace:*",
+    "@nextui-org/use-disclosure": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "framer-motion": "^10.15.1",
     "clean-package": "2.2.0",
