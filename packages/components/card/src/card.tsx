@@ -15,7 +15,7 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
     disableAnimation,
     disableRipple,
     getCardProps,
-    getRippelProps,
+    getRippleProps,
   } = useCard({...props, ref});
 
   return (
