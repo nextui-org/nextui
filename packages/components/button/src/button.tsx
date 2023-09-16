@@ -20,7 +20,7 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     isLoading,
     disableRipple,
     getButtonProps,
-    getRippelProps,
+    getRippleProps,
   } = useButton({...props, ref});
 
   return (
