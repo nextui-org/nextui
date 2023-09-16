@@ -14,6 +14,7 @@ import {
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Input} from "@nextui-org/input";
+import {Button} from "@nextui-org/button";
 
 import {Accordion, AccordionProps, AccordionItem} from "../src";
 import {AccordionItemProps} from "../src";
@@ -231,17 +232,43 @@ const ControlledTemplate = (args: AccordionProps) => {
   console.log(selectedKeys);
 
   return (
-    <Accordion {...args} selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
-      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
-        {defaultContent}
-      </AccordionItem>
-    </Accordion>
+    <div className="flex flex-col gap-4">
+      <Accordion {...args} selectedKeys={selectedKeys}>
+        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+          {defaultContent}
+        </AccordionItem>
+        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+          {defaultContent}
+        </AccordionItem>
+      </Accordion>
+
+      <div className="flex gap-2">
+        <Button
+          onPress={() => {
+            setSelectedKeys(new Set(["1"]));
+          }}
+        >
+          Open 1
+        </Button>
+        <Button
+          onPress={() => {
+            setSelectedKeys(new Set(["2"]));
+          }}
+        >
+          Open 2
+        </Button>
+        <Button
+          onPress={() => {
+            setSelectedKeys(new Set(["3"]));
+          }}
+        >
+          Open 3
+        </Button>
+      </div>
+    </div>
   );
 };
 
