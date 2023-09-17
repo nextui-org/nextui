@@ -344,7 +344,6 @@ const button = tv({
     // isInGroup / bordered / ghost
     {
       isInGroup: true,
-      isIsolated: false,
       variant: ["ghost", "bordered"],
     },
     {
