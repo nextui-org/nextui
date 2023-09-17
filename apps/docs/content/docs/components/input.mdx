@@ -94,7 +94,7 @@ You can add a description to the input by passing the `description` property.
 
 ### With Error Message
 
-You can combine the `validationState="invalid"` and `errorMessage` properties to show an invalid input.
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
 
 <CodeDemo title="With Error Message" files={inputContent.errorMessage} />
 
@@ -148,7 +148,7 @@ In case you need to customize the input even further, you can use the `useInput`
 `Input` has the following attributes on the `base` element:
 
 - **data-invalid**:
-  When the input is invalid. Based on `validationState` prop.
+  When the input is invalid. Based on `isInvalid` prop.
 - **data-required**:
   When the input is required. Based on `isRequired` prop.
 - **data-readonly**:
