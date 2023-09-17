@@ -79,9 +79,6 @@ const button = tv({
     isInGroup: {
       true: "[&:not(:first-child):not(:last-child)]:rounded-none",
     },
-    isIsolated: {
-      true: "mr-0 ml-0",
-    },
     isIconOnly: {
       true: "px-unit-0 !gap-unit-0",
       false: "[&>svg]:max-w-[theme(spacing.unit-8)]",
@@ -349,7 +346,6 @@ const button = tv({
       isInGroup: true,
       isIsolated: false,
       variant: ["ghost", "bordered"],
-      class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.medium)*-1)]",
     },
     {
       isIconOnly: true,
