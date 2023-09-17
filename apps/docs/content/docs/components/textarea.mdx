@@ -56,7 +56,7 @@ it using the `minRows` and `maxRows` properties. It is based on [react-textarea-
 
 ### With Error Message
 
-You can combine the `validationState="invalid"` and `errorMessage` properties to show an invalid textarea.
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid textarea.
 
 <CodeDemo title="With Error Message" files={textareaContent.errorMessage} />
 
@@ -89,7 +89,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 `Textarea` has the following attributes on the `base` element:
 
 - **data-invalid**:
-  When the textarea is invalid. Based on `validationState` prop.
+  When the textarea is invalid. Based on `isInvalid` prop.
 - **data-required**:
   When the textarea is required. Based on `isRequired` prop.
 - **data-readonly**:
