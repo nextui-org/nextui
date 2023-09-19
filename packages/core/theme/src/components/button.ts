@@ -345,6 +345,44 @@ const button = tv({
     {
       isInGroup: true,
       variant: ["ghost", "bordered"],
+      color: "default",
+      className:
+        "nextui-adjacent-default [&+.nextui-adjacent-default]:ml-[calc(theme(borderWidth.medium)*-1)]",
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "primary",
+      className:
+        "nextui-adjacent-primary [&+.nextui-adjacent-primary]:ml-[calc(theme(borderWidth.medium)*-1)]",
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "secondary",
+      className:
+        "nextui-adjacent-secondary [&+.nextui-adjacent-secondary]:ml-[calc(theme(borderWidth.medium)*-1)]",
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "success",
+      className:
+        "nextui-adjacent-success [&+.nextui-adjacent-success]:ml-[calc(theme(borderWidth.medium)*-1)]",
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "warning",
+      className:
+        "nextui-adjacent-warning [&+.nextui-adjacent-warning]:ml-[calc(theme(borderWidth.medium)*-1)]",
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "danger",
+      className:
+        "nextui-adjacent-danger [&+.nextui-adjacent-danger]:ml-[calc(theme(borderWidth.medium)*-1)]",
     },
     {
       isIconOnly: true,
