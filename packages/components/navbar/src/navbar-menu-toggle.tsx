@@ -63,7 +63,7 @@ const NavbarMenuToggle = forwardRef<"button", NavbarMenuToggleProps>((props, ref
     }
 
     return icon || <span className={slots.toggleIcon({class: classNames?.toggleIcon})} />;
-  }, [icon, slots.toggleIcon, classNames?.toggleIcon]);
+  }, [icon, isMenuOpen, slots.toggleIcon, classNames?.toggleIcon]);
 
   const srOnlyText = useMemo(() => {
     if (srOnlyTextProp) {
