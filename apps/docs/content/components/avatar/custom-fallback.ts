@@ -18,7 +18,7 @@ const CameraIcon = `export const CameraIcon = ({fill, size, height, width, ...pr
   );
 };`;
 
-const App = `import {Avatar} from "@nextui-org/react
+const App = `import {Avatar} from "@nextui-org/react";
 import {CameraIcon} from './CameraIcon';
 
 export default function App() {
