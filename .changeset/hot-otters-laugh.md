@@ -2,4 +2,4 @@
 "@nextui-org/radio": patch
 ---
 
-correct the style of radio in invalid and selected states
+fix: when radio is selected in invalid state, the border of the radio controller should be danger color
