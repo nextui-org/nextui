@@ -112,13 +112,13 @@ const ChevronRightIcon = `export const ChevronRightIcon = (props) => (
 
 const IconWrapper = `import {cn} from "@nextui-org/react";
 
-const IconWrapper = ({children, className}) => (
+export const IconWrapper = ({children, className}) => (
   <div className={cn(className, "flex items-center rounded-small justify-center w-7 h-7")}>
     {children}
   </div>
 );`;
 
-const ItemCounter = `const ItemCounter = ({number}) => (
+const ItemCounter = `export const ItemCounter = ({number}) => (
   <div className="flex items-center gap-1 text-default-400">
     <span className="text-small">{number}</span>
     <ChevronRightIcon className="text-xl" />
