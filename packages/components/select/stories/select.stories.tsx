@@ -601,6 +601,23 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
         </Select>
       </div>
     </div>
+    <div className="w-full max-w-2xl flex flex-col gap-3">
+      <h3>With falsy label</h3>
+      <div className="w-full flex flex-row items-end gap-4">
+        <Select
+          className="w-1/3"
+          color={color}
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+        <Select className="w-1/3" color={color} variant={variant} {...args}>
+          {items}
+        </Select>
+      </div>
+    </div>
   </div>
 );
 

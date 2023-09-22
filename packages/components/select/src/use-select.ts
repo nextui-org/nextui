@@ -463,7 +463,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         className: slots.innerWrapper({
-          class: clsx(classNames?.innerWrapper, props?.className),
+          class: clsx(classNames?.innerWrapper, !label && "pt-0", props?.className),
         }),
       };
     },
