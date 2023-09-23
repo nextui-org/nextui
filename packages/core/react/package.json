@@ -81,6 +81,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
+    "react-dom": ">=18",
     "framer-motion": ">=4.0.0"
   },
   "devDependencies": {
