@@ -8,6 +8,9 @@ export default {
   title: "Components/Slider",
   component: Slider,
   argTypes: {
+    label: {
+      control: {type: "text"},
+    },
     color: {
       control: {type: "select"},
       options: ["default", "primary", "secondary", "success", "warning", "danger"],
@@ -34,5 +37,13 @@ export const Default = {
   render: Template,
   args: {
     ...defaultProps,
+  },
+};
+
+export const Range = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    defaultValue: [20, 80],
   },
 };
