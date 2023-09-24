@@ -116,7 +116,7 @@ const slider = tv({
         thumb: "data-[dragging=true]:after:scale-100",
       },
       false: {
-        thumb: "after:transition-all",
+        thumb: "motion-reduce:after:transition-all",
       },
     },
   },
