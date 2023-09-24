@@ -49,7 +49,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   classNames?: SlotsToClasses<SliderSlots>;
 }
 
-export type UseSliderProps = Props & AriaSliderProps & SliderVariantProps;
+export type UseSliderProps = Props & Omit<AriaSliderProps, "orientation"> & SliderVariantProps;
 
 export function useSlider(originalProps: UseSliderProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, slider.variantKeys);
@@ -75,13 +75,8 @@ export function useSlider(originalProps: UseSliderProps) {
   const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
-    () =>
-      slider({
-        ...variantProps,
-        isRangeSlider: state.values.length > 1,
-        className,
-      }),
-    [...Object.values(variantProps), state.values?.length, className],
+    () => slider({...variantProps, className}),
+    [...Object.values(variantProps), className],
   );
 
   const startOffset = state.values.length > 1 ? state.getThumbPercent(0) : 0;
@@ -134,6 +129,7 @@ export function useSlider(originalProps: UseSliderProps) {
     return {
       ref: trackRef,
       className: slots.track({class: classNames?.track}),
+      "data-thumb-count": state.values.length,
       ...trackProps,
       ...props,
     };

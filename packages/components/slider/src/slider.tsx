@@ -3,7 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import Thumb from "./slider-thumb";
 import {UseSliderProps, useSlider} from "./use-slider";
 
-export interface SliderProps extends Omit<UseSliderProps, "isRangeSlider"> {}
+export interface SliderProps extends UseSliderProps {}
 
 const Slider = forwardRef<"div", SliderProps>((props, ref) => {
   const {

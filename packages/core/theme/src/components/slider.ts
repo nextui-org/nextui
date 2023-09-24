@@ -19,12 +19,18 @@ const slider = tv({
     labelWrapper: "w-full flex justify-between",
     label: "font-medium text-medium",
     output: "",
-    track:
-      "flex w-full h-7 relative bg-default-300/50 border-x-[calc(theme(spacing.7)/2)] rounded-full border-transparent",
-    filler: "bg-primary h-full absolute",
+    track: [
+      "flex",
+      "w-full",
+      "relative",
+      "rounded-full",
+      "bg-default-300/50",
+      "border-transparent",
+    ],
+    filler: "h-full absolute",
     thumb: [
-      "rounded-full cursor-grab top-1/2 w-7 h-7 bg-primary before:w-",
-      "data-[dragging=true]:cursor-grabbing",
+      "rounded-full",
+      "top-1/2",
       "flex",
       "justify-center",
       "items-center",
@@ -34,8 +40,6 @@ const slider = tv({
       "before:rounded-full",
       "data-[dragging=true]:after:scale-95",
       "after:transition-all",
-      "after:w-5",
-      "after:h-5",
       "after:bg-white",
       "after:shadow-small",
       "after:rounded-full",
@@ -58,13 +62,50 @@ const slider = tv({
         label: "text-small",
         output: "text-small",
       },
-      lg: {track: "h-7", label: "text-medium", output: "text-medium"},
+      lg: {
+        track:
+          "h-7 my-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-x-[calc(theme(spacing.7)/2)]",
+        thumb: "h-7 w-7 after:w-5 after:h-5",
+        label: "text-medium",
+        output: "text-medium",
+      },
     },
-    isRangeSlider: {
-      true: {track: ""},
-      false: {track: "border-s-primary"},
+    color: {
+      default: {
+        filler: "bg-default",
+        thumb: "bg-default",
+        track: 'data-[thumb-count="1"]:border-s-default',
+      },
+      primary: {
+        filler: "bg-primary",
+        thumb: "bg-primary",
+        track: 'data-[thumb-count="1"]:border-s-primary',
+      },
+      secondary: {
+        filler: "bg-secondary",
+        thumb: "bg-secondary",
+        track: 'data-[thumb-count="1"]:border-s-secondary',
+      },
+      success: {
+        filler: "bg-success",
+        thumb: "bg-success",
+        track: 'data-[thumb-count="1"]:border-s-success',
+      },
+      warning: {
+        filler: "bg-warning",
+        thumb: "bg-warning",
+        track: 'data-[thumb-count="1"]:border-s-warning',
+      },
+      danger: {
+        filler: "bg-danger",
+        thumb: "bg-danger",
+        track: 'data-[thumb-count="1"]:border-s-danger',
+      },
     },
     isDisabled: {
+      false: {
+        thumb: ["cursor-grab", "data-[dragging=true]:cursor-grabbing"],
+      },
       true: {
         base: "opacity-disabled",
         thumb: "cursor-default",
@@ -73,6 +114,7 @@ const slider = tv({
   },
   defaultVariants: {
     size: "md",
+    color: "primary",
     isDisabled: false,
   },
 });
