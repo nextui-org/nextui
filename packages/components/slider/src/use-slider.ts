@@ -5,7 +5,7 @@ import {slider} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useSliderState} from "@react-stately/slider";
 import {useMemo, useRef} from "react";
-import {useNumberFormatter} from "@react-aria/i18n";
+import {useNumberFormatter, useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
 import {AriaSliderProps, useSlider as useAriaSlider} from "@react-aria/slider";
 import {clsx} from "@nextui-org/shared-utils";
@@ -64,6 +64,7 @@ export function useSlider(originalProps: UseSliderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const numberFormatter = useNumberFormatter(formatOptions);
+  const {direction} = useLocale();
   const state = useSliderState({...otherProps, numberFormatter});
   const {groupProps, trackProps, labelProps, outputProps} = useAriaSlider(
     otherProps,
@@ -140,7 +141,7 @@ export function useSlider(originalProps: UseSliderProps) {
       ...props,
       style: {
         ...props.style,
-        left: `${startOffset * 100}%`,
+        [direction === "rtl" ? "right" : "left"]: `${startOffset * 100}%`,
         width: `${(endOffset - startOffset) * 100}%`,
       },
     };

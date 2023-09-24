@@ -62,7 +62,7 @@ const slider = tv({
     },
     isRangeSlider: {
       true: {track: ""},
-      false: {track: "border-l-primary"},
+      false: {track: "border-s-primary"},
     },
     isDisabled: {
       true: {
