@@ -55,7 +55,7 @@ export type UseTabsProps<T> = Props &
   Omit<AriaTabListProps<T>, "children" | "orientation"> &
   CollectionProps<T>;
 
-export type ValuesType<T extends object = object> = {
+export type ValuesType<T = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
   disableCursorAnimation?: boolean;
