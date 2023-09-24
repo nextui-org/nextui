@@ -17,7 +17,7 @@ const slider = tv({
   slots: {
     base: "flex flex-col w-full gap-1",
     labelWrapper: "w-full flex justify-between",
-    label: "font-medium text-medium",
+    label: "",
     output: "",
     track: [
       "flex",
@@ -38,10 +38,11 @@ const slider = tv({
       "before:w-11",
       "before:h-11",
       "before:rounded-full",
-      "data-[dragging=true]:after:scale-95",
-      "after:transition-all",
+      "data-[dragging=true]:after:scale-80",
       "after:shadow-small",
       "after:rounded-full",
+      "after:shadow-small",
+      "after:bg-background",
       dataFocusVisibleClasses,
     ],
   },
@@ -52,12 +53,12 @@ const slider = tv({
           "h-1 my-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-x-[calc(theme(spacing.5)/2)]",
         label: "text-small",
         output: "text-small",
-        thumb: "w-5 h-5 after:w-3 after:h-3",
+        thumb: "w-5 h-5 after:w-4 after:h-4",
       },
       md: {
         track:
           "h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)]",
-        thumb: "w-6 h-6 after:w-4 after:h-4",
+        thumb: "w-6 h-6 after:w-5 after:h-5",
         label: "text-small",
         output: "text-small",
       },
@@ -70,34 +71,34 @@ const slider = tv({
       },
     },
     color: {
-      default: {
+      foreground: {
         filler: "bg-foreground",
-        thumb: "bg-foreground after:bg-default-100",
+        thumb: "bg-foreground",
         track: 'data-[thumb-count="1"]:border-s-foreground',
       },
       primary: {
         filler: "bg-primary",
-        thumb: "bg-primary after:bg-primary-foreground",
+        thumb: "bg-primary",
         track: 'data-[thumb-count="1"]:border-s-primary',
       },
       secondary: {
         filler: "bg-secondary",
-        thumb: "bg-secondary after:bg-secondary-foreground",
+        thumb: "bg-secondary",
         track: 'data-[thumb-count="1"]:border-s-secondary',
       },
       success: {
         filler: "bg-success",
-        thumb: "bg-success after:bg-success-foreground",
+        thumb: "bg-success",
         track: 'data-[thumb-count="1"]:border-s-success',
       },
       warning: {
         filler: "bg-warning",
-        thumb: "bg-warning after:bg-warning-foreground",
+        thumb: "bg-warning",
         track: 'data-[thumb-count="1"]:border-s-warning',
       },
       danger: {
         filler: "bg-danger",
-        thumb: "bg-danger after:bg-danger-foreground",
+        thumb: "bg-danger",
         track: 'data-[thumb-count="1"]:border-s-danger',
       },
     },
@@ -110,11 +111,20 @@ const slider = tv({
         thumb: "cursor-default",
       },
     },
+    disableAnimation: {
+      true: {
+        thumb: "data-[dragging=true]:after:scale-100",
+      },
+      false: {
+        thumb: "after:transition-all",
+      },
+    },
   },
   defaultVariants: {
     size: "md",
     color: "primary",
     isDisabled: false,
+    disableAnimation: false,
   },
 });
 

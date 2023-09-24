@@ -13,7 +13,7 @@ export default {
     },
     color: {
       control: {type: "select"},
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
+      options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
     },
     size: {
       control: {type: "select"},
@@ -25,6 +25,13 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex max-w-md items-center justify-start">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Slider>;
 
 const defaultProps = {
