@@ -140,7 +140,7 @@ export function useSlider(originalProps: UseSliderProps) {
     return {
       ref: trackRef,
       className: slots.track({class: classNames?.track}),
-      "data-thumb-count": state.values.length,
+      "data-thumb-count": fillOffset !== undefined ? state.values.length : undefined,
       ...trackProps,
       ...props,
     };
