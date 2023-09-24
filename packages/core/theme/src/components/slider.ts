@@ -20,7 +20,7 @@ const slider = tv({
     label: "font-medium text-medium",
     output: "",
     track:
-      "flex w-full h-7 relative bg-default-300/50 border-x-[calc(theme(spacing.7)/2)] rounded-full",
+      "flex w-full h-7 relative bg-default-300/50 border-x-[calc(theme(spacing.7)/2)] rounded-full border-transparent",
     filler: "bg-primary h-full absolute",
     thumb: [
       "rounded-full cursor-grab top-1/2 w-7 h-7 bg-primary before:w-",
