@@ -37,6 +37,7 @@ export const Default = {
   render: Template,
   args: {
     ...defaultProps,
+    label: "Select a number",
   },
 };
 
@@ -44,6 +45,8 @@ export const Range = {
   render: Template,
   args: {
     ...defaultProps,
+    label: "Select a range",
+    formatOptions: {style: "currency", currency: "USD"},
     defaultValue: [20, 80],
   },
 };
