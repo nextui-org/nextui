@@ -1894,6 +1894,52 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/slider:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@react-aria/focus':
+        specifier: ^3.14.1
+        version: 3.14.1(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: ^3.8.2
+        version: 3.8.2(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.18.0
+        version: 3.18.0(react@18.2.0)
+      '@react-aria/slider':
+        specifier: ^3.7.0
+        version: 3.7.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.20.0
+        version: 3.20.0(react@18.2.0)
+      '@react-aria/visually-hidden':
+        specifier: ^3.8.4
+        version: 3.8.4(react@18.2.0)
+      '@react-stately/slider':
+        specifier: ^3.4.2
+        version: 3.4.2(react@18.2.0)
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/snippet:
     dependencies:
       '@nextui-org/button':
@@ -9047,6 +9093,25 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/slider@3.7.0(react@18.2.0):
+    resolution: {integrity: sha512-aQ3d89M3scWIBJjpjQ0OxeNGuklxX9gxeAhSvYkhsyFd37DCBNNtHIiLfPzQpsSJOjSJofBsEzrG4y+JHGcrdg==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-aria/focus': 3.14.1(react@18.2.0)
+      '@react-aria/i18n': 3.8.2(react@18.2.0)
+      '@react-aria/interactions': 3.18.0(react@18.2.0)
+      '@react-aria/label': 3.7.0(react@18.2.0)
+      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-stately/radio': 3.9.0(react@18.2.0)
+      '@react-stately/slider': 3.4.2(react@18.2.0)
+      '@react-types/radio': 3.5.1(react@18.2.0)
+      '@react-types/shared': 3.20.0(react@18.2.0)
+      '@react-types/slider': 3.6.1(react@18.2.0)
+      '@swc/helpers': 0.5.2
+      react: 18.2.0
+    dev: false
+
   /@react-aria/ssr@3.8.0(react@18.2.0):
     resolution: {integrity: sha512-Y54xs483rglN5DxbwfCPHxnkvZ+gZ0LbSYmR72LyWPGft8hN/lrl1VRS1EW2SMjnkEWlj+Km2mwvA3kEHDUA0A==}
     engines: {node: '>= 12'}
@@ -9365,6 +9430,20 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-stately/slider@3.4.2(react@18.2.0):
+    resolution: {integrity: sha512-3Acil4Pu1aQnTGYUcGCeO7gO7C6LpmUCwjnjcRlJbYf1VibLWrMC+EGYKcha+2dsXYAvvsI4HD6Zuf5HmFkomA==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-aria/i18n': 3.8.2(react@18.2.0)
+      '@react-aria/utils': 3.20.0(react@18.2.0)
+      '@react-stately/utils': 3.7.0(react@18.2.0)
+      '@react-types/shared': 3.20.0(react@18.2.0)
+      '@react-types/slider': 3.6.1(react@18.2.0)
+      '@swc/helpers': 0.5.2
+      react: 18.2.0
+    dev: false
+
   /@react-stately/table@3.11.1(react@18.2.0):
     resolution: {integrity: sha512-iI0IeEmg91bwR/2UX2PTB8k34MrfxlMVD/XlZ+6XWQGjXftdeB8QNKDAClWMZwQmYA7HTq6bLvP2CochJ68k5w==}
     peerDependencies:
@@ -9576,6 +9655,15 @@ packages:
       react: ^18.2.0
     dependencies:
       react: 18.2.0
+
+  /@react-types/slider@3.6.1(react@18.2.0):
+    resolution: {integrity: sha512-K234amXGLfDekJOQimhPpd2OE14Set7+LrzZZx1ut5ayIK3QgeneUqaybQcB7plfO1thNaAoDOy7JPqZ13k1JA==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-types/shared': 3.20.0(react@18.2.0)
+      react: 18.2.0
+    dev: false
 
   /@react-types/switch@3.4.1(react@18.2.0):
     resolution: {integrity: sha512-2XfPsu2Yiap+pthO2rvCNlLjzo9mDejrYY3rsYMw/jLzCHvuR8Xe2/l01svHcq3pVuNIMElqZR4vTq9OvGNBnQ==}
