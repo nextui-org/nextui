@@ -142,6 +142,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 | selectedKey            | `React.Key`                                                                                            | The key for the currently selected item.                                                                     | -           |
 | defaultSelectedKey     | `React.Key`                                                                                            | The key for the initially selected item.                                                                     | -           |
 | disallowEmptySelection | `boolean`                                                                                              | Whether the tabs should allow empty selection.                                                               | `false`     |
+| shouldSelectOnPressUp  | `boolean`                                                                                              | Whether the tabs selection should occur on press up instead of press down.                                   | `true`      |
 | keyboardActivation     | `automatic` \| `manual`                                                                                | Whether tabs are activated automatically on focus or manually.                                               | `automatic` |
 | motionProps            | [MotionProps](#motion-props)                                                                           | The props to modify the cursor framer motion animation. Use the `variants` API to create your own animation. | -           |
 | disableCursorAnimation | `boolean`                                                                                              | Whether the cursor should be hidden.                                                                         | `false`     |
@@ -157,11 +158,12 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ### Tab Props
 
-| Attribute  | Type        | Description                                                                                | Default |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------ | ------- |
-| children\* | `ReactNode` | The content of the tab.                                                                    | -       |
-| title      | `ReactNode` | The title of the tab.                                                                      | -       |
-| titleValue | `string`    | A string representation of the item's contents. Use this when the `title` is not readable. | -       |
+| Attribute             | Type        | Description                                                                                | Default |
+| --------------------- | ----------- | ------------------------------------------------------------------------------------------ | ------- |
+| children\*            | `ReactNode` | The content of the tab.                                                                    | -       |
+| title                 | `ReactNode` | The title of the tab.                                                                      | -       |
+| titleValue            | `string`    | A string representation of the item's contents. Use this when the `title` is not readable. | -       |
+| shouldSelectOnPressUp | `boolean`   | Whether the tab selection should occur on press up instead of press down.                  | -       |
 
 #### Motion Props
 

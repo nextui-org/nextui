@@ -499,7 +499,7 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
         endContent={<ItemCounter number={82} />}
         startContent={
           <IconWrapper className="bg-default/50 text-foreground">
-            <WatchersIcon/>
+            <WatchersIcon />
           </IconWrapper>
         }
       >

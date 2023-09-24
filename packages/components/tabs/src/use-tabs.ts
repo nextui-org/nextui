@@ -23,6 +23,11 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
    */
   motionProps?: HTMLMotionProps<"span">;
   /**
+   * Whether the tabs selection should occur on press up instead of press down.
+   * @default true
+   */
+  shouldSelectOnPressUp?: boolean;
+  /**
    * Whether the cursor should be hidden.
    * @default false
    */
@@ -50,11 +55,12 @@ export type UseTabsProps<T> = Props &
   Omit<AriaTabListProps<T>, "children" | "orientation"> &
   CollectionProps<T>;
 
-export type ValuesType<T = object> = {
+export type ValuesType<T extends object = object> = {
   state: TabListState<T>;
   slots: TabsReturnType;
   disableCursorAnimation?: boolean;
   listRef?: RefObject<HTMLElement>;
+  shouldSelectOnPressUp?: boolean;
   classNames?: SlotsToClasses<TabsSlots>;
   motionProps?: HTMLMotionProps<"span">;
   disableAnimation?: boolean;
@@ -71,6 +77,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     children,
     classNames,
     disableCursorAnimation,
+    shouldSelectOnPressUp = true,
     motionProps,
     ...otherProps
   } = props;
@@ -104,6 +111,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       classNames,
       motionProps,
       listRef: domRef,
+      shouldSelectOnPressUp,
       disableCursorAnimation,
       isDisabled: originalProps?.isDisabled,
       disableAnimation: originalProps?.disableAnimation,
@@ -114,6 +122,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       domRef,
       motionProps,
       disableCursorAnimation,
+      shouldSelectOnPressUp,
       originalProps?.disableAnimation,
       originalProps?.isDisabled,
       classNames,

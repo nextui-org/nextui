@@ -42,6 +42,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     motionProps,
     disableAnimation,
     disableCursorAnimation,
+    shouldSelectOnPressUp,
     onClick,
     ...otherProps
   } = props;
@@ -58,7 +59,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     isSelected,
     isDisabled: isDisabledItem,
     isPressed,
-  } = useTab({key}, state, domRef);
+  } = useTab({key, isDisabled: isDisabledProp, shouldSelectOnPressUp}, state, domRef);
 
   const isDisabled = isDisabledProp || isDisabledItem;
 
