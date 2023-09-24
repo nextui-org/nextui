@@ -123,6 +123,10 @@ export function useSlider(originalProps: UseSliderProps) {
       className: slots.output({class: classNames?.output}),
       ...outputProps,
       ...props,
+      children:
+        state.values.length === 1
+          ? numberFormatter.format(state.values[0])
+          : numberFormatter.formatRange(state.values[0], state.values[state.values.length - 1]),
     };
   };
 

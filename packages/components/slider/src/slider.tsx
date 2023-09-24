@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {Fragment} from "react";
 
 import Thumb from "./slider-thumb";
 import {UseSliderProps, useSlider} from "./use-slider";
@@ -25,14 +24,7 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
       {label && (
         <div {...getLabelWrapperProps()}>
           <label {...getLabelProps()}>{label}</label>
-          <output {...getOutputProps()}>
-            {state.values.map((_, index) => (
-              <Fragment key={index}>
-                {index > 0 && " - "}
-                {state.getThumbValueLabel(index)}
-              </Fragment>
-            ))}
-          </output>
+          <output {...getOutputProps()} />
         </div>
       )}
       <div {...getTrackProps()}>
