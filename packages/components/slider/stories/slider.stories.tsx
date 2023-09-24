@@ -11,6 +11,9 @@ export default {
     label: {
       control: {type: "text"},
     },
+    fillOffset: {
+      control: {type: "number"},
+    },
     color: {
       control: {type: "select"},
       options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
@@ -55,5 +58,17 @@ export const Range = {
     label: "Select a range",
     formatOptions: {style: "currency", currency: "USD"},
     defaultValue: [20, 80],
+  },
+};
+
+export const FillOffset = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    label: "Select a value",
+    maxValue: 50,
+    minValue: -50,
+    fillOffset: 0,
+    defaultValue: 20,
   },
 };

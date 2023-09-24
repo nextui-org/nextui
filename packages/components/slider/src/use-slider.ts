@@ -26,6 +26,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   name?: string;
   /**
+   * The offset from which to start the fill.
+   */
+  fillOffset?: number;
+  /**
    * The display format of the value label.
    */
   formatOptions?: Intl.NumberFormatOptions;
@@ -54,7 +58,8 @@ export type UseSliderProps = Props & Omit<AriaSliderProps, "orientation"> & Slid
 export function useSlider(originalProps: UseSliderProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, slider.variantKeys);
 
-  const {ref, as, name, label, formatOptions, className, classNames, ...otherProps} = props;
+  const {ref, as, name, label, formatOptions, className, classNames, fillOffset, ...otherProps} =
+    props;
 
   const Component = as || "div";
   const shouldFilterDOMProps = typeof Component === "string";
@@ -79,8 +84,14 @@ export function useSlider(originalProps: UseSliderProps) {
     [...Object.values(variantProps), className],
   );
 
-  const startOffset = state.values.length > 1 ? state.getThumbPercent(0) : 0;
-  const endOffset = state.getThumbPercent(state.values.length - 1);
+  const [startOffset, endOffset] = [
+    state.values.length > 1
+      ? state.getThumbPercent(0)
+      : fillOffset !== undefined
+      ? state.getValuePercent(fillOffset)
+      : 0,
+    state.getThumbPercent(state.values.length - 1),
+  ].sort();
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {
