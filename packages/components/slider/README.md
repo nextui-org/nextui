@@ -1,8 +1,8 @@
 # @nextui-org/slider
 
-A Quick description of the component
+Slider allows a user to select one or more values within a range.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/slider) for more information.
 
 ## Installation
 
