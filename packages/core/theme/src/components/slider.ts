@@ -19,7 +19,17 @@ const slider = tv({
     labelWrapper: "w-full flex justify-between",
     label: "",
     output: "",
-    step: "h-2 w-2 absolute rounded-full top-1/2 bg-default-300/50 -translate-x-1/2 -translate-y-1/2",
+    step: [
+      "h-2",
+      "w-2",
+      "absolute",
+      "rounded-full",
+      "top-1/2",
+      "bg-default-300/50",
+      "data-[in-range=true]:bg-background/50",
+      "-translate-x-1/2",
+      "-translate-y-1/2",
+    ],
     track: [
       "flex",
       "w-full",
