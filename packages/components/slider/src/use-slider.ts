@@ -34,6 +34,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   formatOptions?: Intl.NumberFormatOptions;
   /**
+   * Show and hide step indicator.
+   */
+  showSteps?: boolean;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -170,11 +174,27 @@ export function useSlider(originalProps: UseSliderProps) {
     } as SliderThumbProps;
   };
 
+  const {maxValue = 100, minValue = 0, step = 1, showSteps} = props;
+  const stepsCount = showSteps ? Math.floor((maxValue - minValue) / step) + 1 : 0;
+  const getStepsProps = (index: number) => {
+    const percent = state.getValuePercent(index * step + minValue);
+
+    return {
+      className: slots.step({class: classNames?.step}),
+      "data-in-range": percent <= endOffset && percent >= startOffset,
+      style: {
+        [direction === "rtl" ? "right" : "left"]: `${percent * 100}%`,
+      },
+    };
+  };
+
   return {
     Component,
     state,
     domRef,
     label,
+    stepsCount,
+    getStepsProps,
     getBaseProps,
     getLabelWrapperProps,
     getLabelProps,
