@@ -175,8 +175,8 @@ export function useSlider(originalProps: UseSliderProps) {
   };
 
   const {maxValue = 100, minValue = 0, step = 1, showSteps} = props;
-  const stepsCount = showSteps ? Math.floor((maxValue - minValue) / step) + 1 : 0;
-  const getStepsProps = (index: number) => {
+  const steps = showSteps ? Math.floor((maxValue - minValue) / step) + 1 : 0;
+  const getStepProps = (index: number) => {
     const percent = state.getValuePercent(index * step + minValue);
 
     return {
@@ -193,8 +193,8 @@ export function useSlider(originalProps: UseSliderProps) {
     state,
     domRef,
     label,
-    stepsCount,
-    getStepsProps,
+    steps,
+    getStepProps,
     getBaseProps,
     getLabelWrapperProps,
     getLabelProps,
