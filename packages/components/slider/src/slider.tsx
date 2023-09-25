@@ -31,9 +31,8 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
       )}
       <div {...getTrackProps()}>
         <div {...getFillerProps()} />
-        {Array.from({length: steps}, (_, index) => (
-          <div key={index} {...getStepProps(index)} />
-        ))}
+        {Number.isFinite(steps) &&
+          Array.from({length: steps}, (_, index) => <div key={index} {...getStepProps(index)} />)}
         {state.values.map((_, index) => (
           <Thumb key={index} {...getThumbProps(index)} />
         ))}
