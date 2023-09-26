@@ -65,6 +65,7 @@ const slider = tv({
         label: "text-small",
         output: "text-small",
         thumb: "w-5 h-5 after:w-4 after:h-4",
+        step: "data-[in-range=false]:bg-default-200",
       },
       md: {
         track:
