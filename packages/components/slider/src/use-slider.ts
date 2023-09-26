@@ -66,7 +66,6 @@ export function useSlider(originalProps: UseSliderProps) {
 
   const domRef = useDOMRef(ref);
   const trackRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const numberFormatter = useNumberFormatter(formatOptions);
   const {direction} = useLocale();
@@ -164,7 +163,6 @@ export function useSlider(originalProps: UseSliderProps) {
       index,
       state,
       trackRef,
-      inputRef,
       className: slots.thumb({class: classNames?.thumb}),
       ...props,
     } as SliderThumbProps;

@@ -3,7 +3,7 @@ import type {SliderVariantProps} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {useSliderThumb as useAriaSliderThumb} from "@react-aria/slider";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {RefObject} from "react";
+import {RefObject, useRef} from "react";
 import {AriaSliderThumbProps} from "@react-aria/slider";
 import {SliderState} from "@react-stately/slider";
 import {useHover, usePress} from "@react-aria/interactions";
@@ -24,20 +24,17 @@ interface Props extends HTMLNextUIProps<"div"> {
    * A ref to the track element.
    */
   trackRef: RefObject<HTMLDivElement>;
-  /**
-   * A ref to the thumb input element.
-   */
-  inputRef: RefObject<HTMLInputElement>;
 }
 
 export type UseSliderThumbProps = Props & AriaSliderThumbProps & SliderVariantProps;
 
 export function useSliderThumb(props: UseSliderThumbProps) {
-  const {ref, as, state, index, name, inputRef, trackRef, className, ...otherProps} = props;
+  const {ref, as, state, index, name, trackRef, className, ...otherProps} = props;
 
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const {thumbProps, inputProps, isDragging} = useAriaSliderThumb(
     {
