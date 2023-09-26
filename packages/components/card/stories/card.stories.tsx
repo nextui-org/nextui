@@ -8,6 +8,8 @@ import {Image} from "@nextui-org/image";
 
 import {Card, CardBody, CardHeader, CardFooter, CardProps} from "../src";
 
+const getImageSrc = (path: string) => new URL(path, import.meta.url).href;
+
 export default {
   title: "Components/Card",
   component: Card,
@@ -137,7 +139,7 @@ const WithAbsImageHeaderTemplate = (args: CardProps) => (
       alt="Card background"
       className="w-full h-[440px] object-cover"
       height={440}
-      src={require("./assets/apple-event.jpeg")}
+      src={getImageSrc("./assets/apple-event.jpeg")}
       width={330}
     />
   </Card>
@@ -159,7 +161,7 @@ const WithAbsImgHeaderFooterTemplate = (args: CardProps) => (
       alt="Card background"
       className="w-full h-[440px] pt-10 object-contain"
       height={440}
-      src={require("./assets/homepod.jpeg")}
+      src={getImageSrc("./assets/homepod.jpeg")}
       width={300}
     />
     <CardFooter className="justify-between absolute bottom-0 z-10">
@@ -244,7 +246,7 @@ const CoverImgTemplate = (args: CardProps) => (
           <img
             alt="Breathing app icon"
             className="rounded-full w-10 h-11 bg-black"
-            src={require("./assets/breathing-app-icon.jpeg")}
+            src={getImageSrc("./assets/breathing-app-icon.jpeg")}
           />
           <div className="flex flex-col">
             <p className="text-xs text-white/60">Breathing App</p>
@@ -268,7 +270,7 @@ const CenterImgTemplate = (args: CardProps) => (
       <Image
         isBlurred
         alt="Card background"
-        src={require("./assets/local-image-1.jpeg")}
+        src={getImageSrc("./assets/local-image-1.jpeg")}
         width={300}
       />
     </CardBody>
@@ -352,39 +354,39 @@ const CenterImgWithHeaderTemplate = (args: CardProps) => {
   const list = [
     {
       title: "Mac",
-      img: require("./assets/mac.png"),
+      img: getImageSrc("./assets/mac.png"),
     },
     {
       title: "iPhone",
-      img: require("./assets/iphone.png"),
+      img: getImageSrc("./assets/iphone.png"),
     },
     {
       title: "iPad",
-      img: require("./assets/ipad.png"),
+      img: getImageSrc("./assets/ipad.png"),
     },
     {
       title: "Apple Watch",
-      img: require("./assets/apple-watch.png"),
+      img: getImageSrc("./assets/apple-watch.png"),
     },
     {
       title: "AirPods",
-      img: require("./assets/airpods.png"),
+      img: getImageSrc("./assets/airpods.png"),
     },
     {
       title: "AirTag",
-      img: require("./assets/airtag.png"),
+      img: getImageSrc("./assets/airtag.png"),
     },
     {
       title: "Apple TV",
-      img: require("./assets/appletv.png"),
+      img: getImageSrc("./assets/appletv.png"),
     },
     {
       title: "HomePod mini",
-      img: require("./assets/homepod-mini.png"),
+      img: getImageSrc("./assets/homepod-mini.png"),
     },
     {
       title: "Accessories",
-      img: require("./assets/accessories.png"),
+      img: getImageSrc("./assets/accessories.png"),
     },
   ];
 
