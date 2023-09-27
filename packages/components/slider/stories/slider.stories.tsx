@@ -27,6 +27,16 @@ export default {
         type: "boolean",
       },
     },
+    step: {
+      control: {
+        type: "number",
+      },
+    },
+    showSteps: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -47,6 +57,16 @@ export const Default = {
   render: Template,
   args: {
     ...defaultProps,
+    label: "Select a number",
+  },
+};
+
+export const ShowSteps = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    showSteps: true,
+    step: 5,
     label: "Select a number",
   },
 };

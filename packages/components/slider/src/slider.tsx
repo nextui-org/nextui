@@ -10,6 +10,8 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     Component,
     state,
     label,
+    steps,
+    getStepProps,
     getBaseProps,
     getLabelWrapperProps,
     getLabelProps,
@@ -29,6 +31,8 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
       )}
       <div {...getTrackProps()}>
         <div {...getFillerProps()} />
+        {Number.isFinite(steps) &&
+          Array.from({length: steps}, (_, index) => <div key={index} {...getStepProps(index)} />)}
         {state.values.map((_, index) => (
           <Thumb key={index} {...getThumbProps(index)} />
         ))}

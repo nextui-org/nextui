@@ -19,6 +19,17 @@ const slider = tv({
     labelWrapper: "w-full flex justify-between",
     label: "",
     output: "",
+    step: [
+      "h-2",
+      "w-2",
+      "absolute",
+      "rounded-full",
+      "top-1/2",
+      "bg-default-300/50",
+      "data-[in-range=true]:bg-background/50",
+      "-translate-x-1/2",
+      "-translate-y-1/2",
+    ],
     track: [
       "flex",
       "w-full",
@@ -54,6 +65,7 @@ const slider = tv({
         label: "text-small",
         output: "text-small",
         thumb: "w-5 h-5 after:w-4 after:h-4",
+        step: "data-[in-range=false]:bg-default-200",
       },
       md: {
         track:
@@ -120,6 +132,50 @@ const slider = tv({
       },
     },
   },
+  compoundVariants: [
+    {
+      size: "sm",
+      color: "foreground",
+      class: {
+        step: "data-[in-range=true]:bg-foreground",
+      },
+    },
+    {
+      size: "sm",
+      color: "primary",
+      class: {
+        step: "data-[in-range=true]:bg-primary",
+      },
+    },
+    {
+      size: "sm",
+      color: "secondary",
+      class: {
+        step: "data-[in-range=true]:bg-secondary",
+      },
+    },
+    {
+      size: "sm",
+      color: "success",
+      class: {
+        step: "data-[in-range=true]:bg-success",
+      },
+    },
+    {
+      size: "sm",
+      color: "warning",
+      class: {
+        step: "data-[in-range=true]:bg-warning",
+      },
+    },
+    {
+      size: "sm",
+      color: "danger",
+      class: {
+        step: "data-[in-range=true]:bg-danger",
+      },
+    },
+  ],
   defaultVariants: {
     size: "md",
     color: "primary",
