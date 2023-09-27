@@ -34,7 +34,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   formatOptions?: Intl.NumberFormatOptions;
   /**
-   * Show and hide step indicator.
+   * Whether to show the step indicators.
    */
   showSteps?: boolean;
   /**
