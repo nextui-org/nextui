@@ -45,8 +45,9 @@ const Ripple: FC<RippleProps> = (props) => {
                 ...style,
               }}
               transition={{duration}}
-              onAnimationEnd={() => onClear(ripple.key)}
-              onTransitionEnd={() => onClear(ripple.key)}
+              onAnimationComplete={() => {
+                onClear(ripple.key);
+              }}
               {...motionProps}
             />
           </AnimatePresence>
