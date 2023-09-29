@@ -18,7 +18,7 @@ import {useState} from "react";
 import {MultiSelectListState, useMultiSelectListState} from "./use-multiselect-list-state";
 
 export interface MultiSelectProps<T>
-  extends CollectionBase<T>,
+  extends Omit<CollectionBase<T>, "children">,
     AsyncLoadable,
     Omit<InputBase, "isReadOnly">,
     DOMProps,
