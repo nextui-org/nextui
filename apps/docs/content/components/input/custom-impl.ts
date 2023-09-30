@@ -43,9 +43,7 @@ const CloseFilledIcon = `export const CloseFilledIcon = (props) => (
   </svg>
 );`;
 
-const App = `import React, {forwardRef} from "react";
-import {useInput} from "@nextui-org/react";
-
+const App = `import {useInput} from "@nextui-org/react";
 
 import {SearchIcon} from "./SearchIcon";
 import {CloseFilledIcon} from "./CloseFilledIcon";
@@ -72,7 +70,7 @@ const styles = {
   ],
 };
 
-const MyInput = forwardRef((props, ref) => {
+const MyInput = React.forwardRef((props, ref) => {
   const {
     Component,
     label,
