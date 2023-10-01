@@ -87,6 +87,13 @@
         "prev": ["const", "let", "var"],
         "next": ["const", "let", "var"]
       }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "Literal[value=/(left|right|[mptb-][rl])-/]",
+        "message": "Try to use start and end instead of left and right for better RTL support. https://tailwindcss.com/blog/tailwindcss-v3-3#simplified-rtl-support-with-logical-properties"
+      }
     ]
   }
 }
