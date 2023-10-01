@@ -4,4 +4,4 @@
 "@nextui-org/theme": patch
 ---
 
-feat: added RTL support to avatar and avatar group components
+feat: added RTL support to avatar and avatar group component
