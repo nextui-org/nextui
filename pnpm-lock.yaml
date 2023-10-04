@@ -1887,6 +1887,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/card':
+        specifier: workspace:*
+        version: link:../card
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
