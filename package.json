@@ -84,7 +84,7 @@
     "@types/testing-library__jest-dom": "5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
-    "@storybook/react": "^7.1.1",
+    "@storybook/react": "^7.4.6",
     "chalk": "^4.1.2",
     "concurrently": "^7.6.0",
     "commitlint-plugin-function-rules": "^1.7.1",
