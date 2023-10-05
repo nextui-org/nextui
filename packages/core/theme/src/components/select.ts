@@ -11,7 +11,7 @@ const select = tv({
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent pr-10",
     innerWrapper:
-      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
+      "inline-flex h-full items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
     spinner: "absolute right-3",
     value: "font-normal w-full text-left opacity-60 group-data-[filled=true]:opacity-100",
