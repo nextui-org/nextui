@@ -21,11 +21,12 @@ import Link from "next/link";
 import {isEmpty} from "lodash";
 import {usePathname, useRouter} from "next/navigation";
 
+import {ScrollArea} from "../scroll-area";
+
 import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
-import {useScrollPosition} from "@/hooks/use-scroll-position";
 import {trackEvent} from "@/utils/va";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
@@ -108,7 +109,9 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col gap-3 outline-none w-full tap-highlight-transparent",
+        "flex flex-col gap-3outline-none w-full tap-highlight-transparent",
+
+        hasChildNodes ? "mb-4" : "first:mt-4",
         // focus ring
         ...dataFocusVisibleClasses,
       )}
@@ -157,17 +160,19 @@ function TreeItem<T>(props: TreeItemProps<T>) {
               {rendered}
             </span>
             {isNew && (
-              <Chip className="ml-2" color="primary" size="sm" variant="flat">
+              <Chip className="ml-1 py-1 text-tiny" color="primary" size="sm" variant="flat">
                 New
               </Chip>
             )}
             {item.props?.comingSoon && (
-              <Chip className="ml-2" color="default" size="sm" variant="flat">
+              <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
                 Coming soon
               </Chip>
             )}
           </NextUILink>
         )}
+        {/* Workaround to avoid scrollbar overlapping */}
+        <Spacer x={4} />
       </div>
       {isExpanded && hasChildNodes && (
         <div className="flex flex-col gap-3 items-start" role="group">
@@ -196,9 +201,7 @@ function TreeHeading({item}: {item: any}) {
 function Tree<T extends object>(props: CollectionBase<T> & Expandable & MultipleSelection) {
   let state = useTreeState(props);
 
-  let ref = useRef<HTMLUListElement>(null);
-
-  const scrollPosition = useScrollPosition(ref);
+  let ref = useRef<HTMLDivElement>(null);
 
   let keyboardDelegate = useMemo(
     // @ts-expect-error
@@ -213,16 +216,11 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
   });
 
   return (
-    <ul
-      {...collectionProps}
+    <ScrollArea
       ref={ref}
-      className="flex flex-col gap-4 scrollbar-hide lg:overflow-y-scroll lg:max-h-[calc(100vh_-_64px)] pb-28"
+      className="h-full lg:max-h-[calc(100vh_-_64px)]"
       role="tree"
-      style={{
-        WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
-          scrollPosition > 30 ? "90%" : "100%"
-        }, transparent 100%)`,
-      }}
+      {...collectionProps}
     >
       {[...state.collection].map((item) => {
         if (item.type === "section") {
@@ -231,7 +229,7 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
 
         return <TreeItem key={item.key} item={item} state={state} />;
       })}
-    </ul>
+    </ScrollArea>
   );
 }
 
