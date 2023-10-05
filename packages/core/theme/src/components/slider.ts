@@ -44,12 +44,9 @@ const slider = tv({
       "-translate-y-1/2",
     ],
     mark: [
-      "top-1/2",
-      "mt-1",
       "absolute",
-      "-translate-x-1/2",
-      "translate-y-1/2",
       "text-small",
+      "cursor-default",
       "opacity-50",
       "data-[in-range=true]:opacity-100",
     ],
@@ -138,11 +135,13 @@ const slider = tv({
         filler: "w-full h-auto",
         step: "left-1/2",
         thumb: "left-1/2",
+        mark: ["left-1/2", "ml-1", "translate-x-1/2", "translate-y-1/2"],
       },
       false: {
         step: "top-1/2",
         thumb: "top-1/2",
         trackWrapper: "items-center",
+        mark: ["top-1/2", "mt-1", "-translate-x-1/2", "translate-y-1/2"],
       },
     },
     isDisabled: {
