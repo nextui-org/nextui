@@ -1,8 +1,9 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {slider} from "@nextui-org/theme";
+import {VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
 
-import {Slider, SliderProps} from "../src";
+import {Slider, SliderProps, SliderValue} from "../src";
 
 export default {
   title: "Components/Slider",
@@ -37,21 +38,58 @@ export default {
         type: "boolean",
       },
     },
+    startContent: {
+      table: {
+        disable: true,
+      },
+    },
+    endContent: {
+      table: {
+        disable: true,
+      },
+    },
   },
-  decorators: [
-    (Story) => (
-      <div className="flex max-w-md items-center justify-start">
-        <Story />
-      </div>
-    ),
-  ],
 } as Meta<typeof Slider>;
 
 const defaultProps = {
   ...slider.defaultVariants,
 };
 
-const Template = (args: SliderProps) => <Slider {...args} />;
+const Template = (args: SliderProps) => (
+  <div className="flex max-w-md items-center justify-start">
+    <Slider {...args} />
+  </div>
+);
+
+const VerticalTemplate = (args: SliderProps) => (
+  <div className="flex max-w-md h-[448px] items-center justify-start">
+    <Slider {...args} />
+  </div>
+);
+
+const ControlledTemplate = (args: SliderProps) => {
+  const [value, setValue] = React.useState<SliderValue>(25);
+
+  return (
+    <div className="flex flex-col gap-2  max-w-md items-start justify-center">
+      <Slider value={value} onChange={setValue} {...args} />
+      <p className="text-default-500">Current volume: {value}</p>
+    </div>
+  );
+};
+
+const ControlledRangeTemplate = (args: SliderProps) => {
+  const [value, setValue] = React.useState<SliderValue>([25, 75]);
+
+  return (
+    <div className="flex flex-col gap-2  max-w-md items-start justify-center">
+      <Slider value={value} onChange={setValue} {...args} />
+      <p className="text-default-500">
+        Current volume: {Array.isArray(value) && value.join(" – ")}
+      </p>
+    </div>
+  );
+};
 
 export const Default = {
   render: Template,
@@ -90,5 +128,54 @@ export const FillOffset = {
     minValue: -50,
     fillOffset: 0,
     defaultValue: 20,
+  },
+};
+
+export const VerticalOrientation = {
+  render: VerticalTemplate,
+  args: {
+    ...defaultProps,
+    orientation: "vertical",
+    defaultValue: 20,
+  },
+};
+
+export const VerticalWithSteps = {
+  render: VerticalTemplate,
+  args: {
+    ...defaultProps,
+    step: 5,
+    showSteps: true,
+    orientation: "vertical",
+    defaultValue: 20,
+  },
+};
+
+export const WithStartAndEndContent = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    "aria-label": "Volume",
+    startContent: <VolumeLowBoldIcon className="text-2xl" />,
+    endContent: <VolumeHighBoldIcon className="text-2xl" />,
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
+  args: {
+    ...defaultProps,
+    "aria-label": "Volume",
+    startContent: <VolumeLowBoldIcon className="text-2xl" />,
+    endContent: <VolumeHighBoldIcon className="text-2xl" />,
+  },
+};
+
+export const ControlledRange = {
+  render: ControlledRangeTemplate,
+  args: {
+    ...defaultProps,
+    label: "Select a budget",
+    formatOptions: {style: "currency", currency: "USD"},
   },
 };

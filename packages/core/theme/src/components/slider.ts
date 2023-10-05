@@ -20,16 +20,16 @@ const slider = tv({
     label: "",
     output: "",
     step: [
-      "h-2",
-      "w-2",
+      "h-1.5",
+      "w-1.5",
       "absolute",
       "rounded-full",
-      "top-1/2",
       "bg-default-300/50",
       "data-[in-range=true]:bg-background/50",
       "-translate-x-1/2",
       "-translate-y-1/2",
     ],
+    trackWrapper: "relative flex gap-2",
     track: [
       "flex",
       "w-full",
@@ -41,7 +41,6 @@ const slider = tv({
     filler: "h-full absolute",
     thumb: [
       "rounded-full",
-      "top-1/2",
       "flex",
       "justify-center",
       "items-center",
@@ -56,28 +55,25 @@ const slider = tv({
       "after:bg-background",
       dataFocusVisibleClasses,
     ],
+    startContent: [],
+    endContent: [],
   },
   variants: {
     size: {
       sm: {
-        track:
-          "h-1 my-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-x-[calc(theme(spacing.5)/2)]",
         label: "text-small",
         output: "text-small",
         thumb: "w-5 h-5 after:w-4 after:h-4",
         step: "data-[in-range=false]:bg-default-200",
       },
       md: {
-        track:
-          "h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)]",
         thumb: "w-6 h-6 after:w-5 after:h-5",
         label: "text-small",
         output: "text-small",
       },
       lg: {
-        track:
-          "h-7 my-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-x-[calc(theme(spacing.7)/2)]",
         thumb: "h-7 w-7 after:w-5 after:h-5",
+        step: "w-2 h-2",
         label: "text-medium",
         output: "text-medium",
       },
@@ -86,32 +82,42 @@ const slider = tv({
       foreground: {
         filler: "bg-foreground",
         thumb: "bg-foreground",
-        track: 'data-[thumb-count="1"]:border-s-foreground',
       },
       primary: {
         filler: "bg-primary",
         thumb: "bg-primary",
-        track: 'data-[thumb-count="1"]:border-s-primary',
       },
       secondary: {
         filler: "bg-secondary",
         thumb: "bg-secondary",
-        track: 'data-[thumb-count="1"]:border-s-secondary',
       },
       success: {
         filler: "bg-success",
         thumb: "bg-success",
-        track: 'data-[thumb-count="1"]:border-s-success',
       },
       warning: {
         filler: "bg-warning",
         thumb: "bg-warning",
-        track: 'data-[thumb-count="1"]:border-s-warning',
       },
       danger: {
         filler: "bg-danger",
         thumb: "bg-danger",
-        track: 'data-[thumb-count="1"]:border-s-danger',
+      },
+    },
+    isVertical: {
+      true: {
+        base: "w-auto h-full flex-col-reverse items-center",
+        trackWrapper: "flex-col h-full justify-center items-center",
+        track: "h-full",
+        labelWrapper: "flex-col justify-center items-center",
+        filler: "w-full h-auto",
+        step: "left-1/2",
+        thumb: "left-1/2",
+      },
+      false: {
+        step: "top-1/2",
+        thumb: "top-1/2",
+        trackWrapper: "items-center",
       },
     },
     isDisabled: {
@@ -131,8 +137,17 @@ const slider = tv({
         thumb: "after:transition-all motion-reduce:after:transition-none",
       },
     },
+    showOutline: {
+      true: {
+        thumb: "ring-2 ring-background",
+      },
+      false: {
+        thumb: "ring-transparent border-0",
+      },
+    },
   },
   compoundVariants: [
+    // size && color
     {
       size: "sm",
       color: "foreground",
@@ -175,12 +190,150 @@ const slider = tv({
         step: "data-[in-range=true]:bg-danger",
       },
     },
+
+    // size && !isVertical
+    {
+      size: "sm",
+      isVertical: false,
+      class: {
+        track:
+          "h-1 my-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-x-[calc(theme(spacing.5)/2)]",
+      },
+    },
+    {
+      size: "md",
+      isVertical: false,
+      class: {
+        track:
+          "h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)]",
+      },
+    },
+    {
+      size: "lg",
+      isVertical: false,
+      class: {
+        track:
+          "h-7 my-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-x-[calc(theme(spacing.7)/2)]",
+      },
+    },
+    // size && isVertical
+    {
+      size: "sm",
+      isVertical: true,
+      class: {
+        track:
+          "w-1 mx-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-y-[calc(theme(spacing.5)/2)]",
+      },
+    },
+    {
+      size: "md",
+      isVertical: true,
+      class: {
+        track:
+          "w-3 mx-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-y-[calc(theme(spacing.6)/2)]",
+      },
+    },
+    {
+      size: "lg",
+      isVertical: true,
+      class: {
+        track:
+          "w-7 mx-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-y-[calc(theme(spacing.7)/2)]",
+      },
+    },
+    // color && !isVertical
+    {
+      color: "foreground",
+      isVertical: false,
+      class: {
+        track: 'data-[thumb-count="1"]:border-s-foreground',
+      },
+    },
+    {
+      color: "primary",
+      isVertical: false,
+      class: {
+        track: 'data-[thumb-count="1"]:border-s-primary',
+      },
+    },
+    {
+      color: "secondary",
+      isVertical: false,
+      class: {
+        track: 'data-[thumb-count="1"]:border-s-secondary',
+      },
+    },
+    {
+      color: "success",
+      isVertical: false,
+      class: {
+        track: 'data-[thumb-count="1"]:border-s-success',
+      },
+    },
+    {
+      color: "warning",
+      isVertical: false,
+      class: {
+        track: 'data-[thumb-count="1"]:border-s-warning',
+      },
+    },
+    {
+      color: "danger",
+      isVertical: false,
+      class: {
+        track: 'data-[thumb-count="1"]:border-s-danger',
+      },
+    },
+    // color && isVertical
+    {
+      color: "foreground",
+      isVertical: true,
+      class: {
+        track: 'data-[thumb-count="1"]:border-b-foreground',
+      },
+    },
+    {
+      color: "primary",
+      isVertical: true,
+      class: {
+        track: 'data-[thumb-count="1"]:border-b-primary',
+      },
+    },
+    {
+      color: "secondary",
+      isVertical: true,
+      class: {
+        track: 'data-[thumb-count="1"]:border-b-secondary',
+      },
+    },
+    {
+      color: "success",
+      isVertical: true,
+      class: {
+        track: 'data-[thumb-count="1"]:border-b-success',
+      },
+    },
+    {
+      color: "warning",
+      isVertical: true,
+      class: {
+        track: 'data-[thumb-count="1"]:border-b-warning',
+      },
+    },
+    {
+      color: "danger",
+      isVertical: true,
+      class: {
+        track: 'data-[thumb-count="1"]:border-b-danger',
+      },
+    },
   ],
   defaultVariants: {
     size: "md",
     color: "primary",
     isDisabled: false,
     disableAnimation: false,
+    showOutline: false,
   },
 });
 

@@ -42,6 +42,7 @@ export function useSliderThumb(props: UseSliderThumbProps) {
       trackRef,
       inputRef,
       name,
+      ...otherProps,
     },
     state,
   );

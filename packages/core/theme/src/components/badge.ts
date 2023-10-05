@@ -95,12 +95,12 @@ const badge = tv({
         badge: "transition-transform-opacity !ease-soft-spring !duration-300",
       },
     },
-    disableOutline: {
+    showOutline: {
       true: {
-        badge: "border-transparent border-0",
+        badge: "border-2 border-background",
       },
       false: {
-        badge: "border-2 border-background",
+        badge: "border-transparent border-0",
       },
     },
   },
@@ -110,7 +110,7 @@ const badge = tv({
     size: "md",
     shape: "rectangle",
     placement: "top-right",
-    disableOutline: false,
+    showOutline: true,
     disableAnimation: false,
     isInvisible: false,
   },

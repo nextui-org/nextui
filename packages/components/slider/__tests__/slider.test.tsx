@@ -16,4 +16,12 @@ describe("Slider", () => {
     render(<Slider ref={ref} />);
     expect(ref.current).not.toBeNull();
   });
+
+  it("should support aria-label", () => {
+    const {getByRole} = render(<Slider aria-label="Aria Label" />);
+
+    const group = getByRole("group");
+
+    expect(group).toHaveAttribute("aria-label", "Aria Label");
+  });
 });

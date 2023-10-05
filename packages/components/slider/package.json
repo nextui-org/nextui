@@ -49,9 +49,9 @@
     "@react-aria/utils": "^3.20.0",
     "@react-aria/visually-hidden": "^3.8.4",
     "@react-stately/slider": "^3.4.2"
-
   },
   "devDependencies": {
+    "@nextui-org/shared-icons": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

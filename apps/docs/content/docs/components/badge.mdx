@@ -13,7 +13,7 @@ Badges are used as a small numerical value or status descriptor for UI elements.
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Import
 
@@ -62,9 +62,9 @@ You can control the visibility of the badge by using the `isInvisible` property.
 
 ### Disable Outline
 
-By default, the badge has an outline, you can disable it by using the `disableOutline` property.
+By default, the badge has an outline, you can disable it by using the `showOutline={false}` property.
 
-<CodeDemo title="Disable outline" files={badgeContent.disableOutline} />
+<CodeDemo title="Disable outline" files={badgeContent.showOutline} />
 
 ### Accessibility
 
@@ -79,18 +79,19 @@ Instead, consider supplying a comprehensive description, such as using `aria-lab
 
 ### Badge Props
 
-| Attribute        | Type                                                                        | Description                                                                    | Default     |
-| ---------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------- |
-| children \*      | `ReactNode`                                                                 | The wrapped component.                                                         | -           |
-| content          | `string` \| `number` \| `ReactNode`                                         | The content of the badge. The badge will be rendered relative to its children. | -           |
-| variant          | `solid` \| `flat` \| `faded` \| `shadow`                                    | The variant style of the badge.                                                | `solid`     |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the badge.                                                        | `default`   |
-| size             | `sm` \| `md` \| `lg`                                                        | The size of the badge.                                                         | `md`        |
-| shape            | `circle` \| `rectangle`                                                     | The shape of the badge.                                                        | `rectangle` |
-| placement        | `top-right` \| `top-left` \| `bottom-right` \| `bottom-left`                | The placement of the badge.                                                    | `top-right` |
-| disableOutline   | `boolean`                                                                   | If `true`, the badge will not have an outline.                                 | `false`     |
-| disableAnimation | `boolean`                                                                   | If `true`, the badge will not have an animation.                               | `false`     |
-| isInvisible      | `boolean`                                                                   | If `true`, the badge will be invisible.                                        | `false`     |
-| isOneChar        | `boolean`                                                                   | If `true`, the badge will have the same width and height.                      | `false`     |
-| isDot            | `boolean`                                                                   | If `true`, the badge will have smaller dimensions.                             | `false`     |
-| classNames       | `Record<"base"｜"badge", string>`                                           | Allows to set custom class names for the badge slots.                          | -           |
+| Attribute        | Type                                                                        | Description                                                                              | Default     |
+| ---------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------- |
+| children \*      | `ReactNode`                                                                 | The wrapped component.                                                                   | -           |
+| content          | `string` \| `number` \| `ReactNode`                                         | The content of the badge. The badge will be rendered relative to its children.           | -           |
+| variant          | `solid` \| `flat` \| `faded` \| `shadow`                                    | The variant style of the badge.                                                          | `solid`     |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the badge.                                                                  | `default`   |
+| size             | `sm` \| `md` \| `lg`                                                        | The size of the badge.                                                                   | `md`        |
+| shape            | `circle` \| `rectangle`                                                     | The shape of the badge.                                                                  | `rectangle` |
+| placement        | `top-right` \| `top-left` \| `bottom-right` \| `bottom-left`                | The placement of the badge.                                                              | `top-right` |
+| showOutline      | `boolean`                                                                   | If `true`, the badge will have an outline.                                               | `true`      |
+| disableOutline   | `boolean`                                                                   | If `true`, the badge will not have an outline. **Deprecated** use `showOutline` instead. | `false`     |
+| disableAnimation | `boolean`                                                                   | If `true`, the badge will not have an animation.                                         | `false`     |
+| isInvisible      | `boolean`                                                                   | If `true`, the badge will be invisible.                                                  | `false`     |
+| isOneChar        | `boolean`                                                                   | If `true`, the badge will have the same width and height.                                | `false`     |
+| isDot            | `boolean`                                                                   | If `true`, the badge will have smaller dimensions.                                       | `false`     |
+| classNames       | `Record<"base"｜"badge", string>`                                           | Allows to set custom class names for the badge slots.                                    | -           |
