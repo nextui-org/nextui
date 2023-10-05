@@ -45,8 +45,6 @@ const CloseFilledIcon = `export const CloseFilledIcon = (props) => (
 
 const App = `import React, {forwardRef} from "react";
 import {useInput} from "@nextui-org/react";
-
-
 import {SearchIcon} from "./SearchIcon";
 import {CloseFilledIcon} from "./CloseFilledIcon";
 
