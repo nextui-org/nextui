@@ -13,6 +13,10 @@ import {clsx} from "@nextui-org/shared-utils";
 import {SliderThumbProps} from "./slider-thumb";
 
 export type SliderValue = number | number[];
+export type SliderStepMark = {
+  value: number;
+  label: string;
+};
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -41,6 +45,12 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   showSteps?: boolean;
   /**
+   * Custom steps labels.
+   * @example [{value: 0, label: "0"}, {value: 50, label: "50"}, {value: 100, label: "100"}]
+   * @default []
+   */
+  marks?: SliderStepMark[];
+  /**
    * Element to be rendered in the start side of the slider.
    */
   startContent?: React.ReactNode;
@@ -67,6 +77,12 @@ interface Props extends HTMLNextUIProps<"div"> {
    * ```
    */
   classNames?: SlotsToClasses<SliderSlots>;
+  /**
+   * Function to format the output label.
+   *
+   * @param value {string}
+   */
+  renderOutput?: (value: string) => React.ReactNode;
 }
 
 export type UseSliderProps = Omit<Props, "onChange"> & AriaSliderProps & SliderVariantProps;
@@ -85,11 +101,13 @@ export function useSlider(originalProps: UseSliderProps) {
     step = 1,
     showSteps = false,
     orientation = "horizontal",
+    marks = [],
     startContent,
     endContent,
     fillOffset,
     className,
     classNames,
+    renderOutput,
     ...otherProps
   } = props;
 
@@ -167,15 +185,17 @@ export function useSlider(originalProps: UseSliderProps) {
   };
 
   const getOutputProps: PropGetter = (props = {}) => {
+    const value =
+      state.values.length === 1
+        ? numberFormatter.format(state.values[0])
+        : numberFormatter.formatRange(state.values[0], state.values[state.values.length - 1]);
+
     return {
       className: slots.output({class: classNames?.output}),
       "data-slot": "output",
       ...outputProps,
       ...props,
-      children:
-        state.values.length === 1
-          ? numberFormatter.format(state.values[0])
-          : numberFormatter.formatRange(state.values[0], state.values[state.values.length - 1]),
+      children: renderOutput && typeof renderOutput === "function" ? renderOutput(value) : value,
     };
   };
 
@@ -243,6 +263,19 @@ export function useSlider(originalProps: UseSliderProps) {
     };
   };
 
+  const getMarkProps = (mark: SliderStepMark) => {
+    const percent = state.getValuePercent(mark.value);
+
+    return {
+      className: slots.mark({class: classNames?.mark}),
+      "data-slot": "mark",
+      "data-in-range": percent <= endOffset && percent >= startOffset,
+      style: {
+        [isVertical ? "bottom" : direction === "rtl" ? "right" : "left"]: `${percent * 100}%`,
+      },
+    };
+  };
+
   const getStartContentProps: PropGetter = (props = {}) => ({
     "data-slot": "startContent",
     className: slots.startContent({class: classNames?.startContent}),
@@ -251,6 +284,7 @@ export function useSlider(originalProps: UseSliderProps) {
 
   const getEndContentProps: PropGetter = (props = {}) => ({
     "data-slot": "endContent",
+
     className: slots.endContent({class: classNames?.endContent}),
     ...props,
   });
@@ -261,6 +295,7 @@ export function useSlider(originalProps: UseSliderProps) {
     domRef,
     label,
     steps,
+    marks,
     startContent,
     endContent,
     getStepProps,
@@ -272,6 +307,7 @@ export function useSlider(originalProps: UseSliderProps) {
     getTrackProps,
     getFillerProps,
     getThumbProps,
+    getMarkProps,
     getStartContentProps,
     getEndContentProps,
   };

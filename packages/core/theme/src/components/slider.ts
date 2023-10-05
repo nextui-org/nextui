@@ -8,10 +8,24 @@ import {tv} from "../utils/tv";
  *
  * @example
  *
- * TODO: Add example here
- * const styles = slider()
+ * const slots = slider()
  *
- * <span className={styles} />
+ * <div className={slots.base()}>
+ *  <div className={slots.labelWrapper()}>
+ *   <label className={slots.label()}>Label</label>
+ *   <output className={slots.output()} />
+ *  </div>
+ *  <div className={slots.trackWrapper()}>
+ *      <div className={slots.startContent()}>Start Content</div>
+ *      <div className={slots.track()}>
+ *         <div className={slots.filler()} />
+ *         <div className={slots.step()} />
+ *         <div className={slots.thumb()} />
+ *         <div className={slots.mark()}>Mark</div>
+ *      </div>
+ *     <div className={slots.endContent()}>End Content</div>
+ *   </div>
+ * </div>
  */
 const slider = tv({
   slots: {
@@ -28,6 +42,16 @@ const slider = tv({
       "data-[in-range=true]:bg-background/50",
       "-translate-x-1/2",
       "-translate-y-1/2",
+    ],
+    mark: [
+      "top-1/2",
+      "mt-1",
+      "absolute",
+      "-translate-x-1/2",
+      "translate-y-1/2",
+      "text-small",
+      "opacity-50",
+      "data-[in-range=true]:opacity-100",
     ],
     trackWrapper: "relative flex gap-2",
     track: [
@@ -76,6 +100,7 @@ const slider = tv({
         step: "w-2 h-2",
         label: "text-medium",
         output: "text-medium",
+        mark: "mt-2",
       },
     },
     color: {
@@ -135,6 +160,7 @@ const slider = tv({
       },
       false: {
         thumb: "after:transition-all motion-reduce:after:transition-none",
+        mark: "transition-opacity motion-reduce:transition-none",
       },
     },
     showOutline: {
@@ -143,6 +169,11 @@ const slider = tv({
       },
       false: {
         thumb: "ring-transparent border-0",
+      },
+    },
+    showOutput: {
+      false: {
+        output: "sr-only",
       },
     },
   },
@@ -331,6 +362,7 @@ const slider = tv({
   defaultVariants: {
     size: "md",
     color: "primary",
+    showOutput: true,
     isDisabled: false,
     disableAnimation: false,
     showOutline: false,

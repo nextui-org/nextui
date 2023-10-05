@@ -73,7 +73,7 @@ const ControlledTemplate = (args: SliderProps) => {
   return (
     <div className="flex flex-col gap-2  max-w-md items-start justify-center">
       <Slider value={value} onChange={setValue} {...args} />
-      <p className="text-default-500">Current volume: {value}</p>
+      <p className="text-default-500 text-small">Current volume: {value}</p>
     </div>
   );
 };
@@ -84,7 +84,7 @@ const ControlledRangeTemplate = (args: SliderProps) => {
   return (
     <div className="flex flex-col gap-2  max-w-md items-start justify-center">
       <Slider value={value} onChange={setValue} {...args} />
-      <p className="text-default-500">
+      <p className="text-default-500 text-small">
         Current volume: {Array.isArray(value) && value.join(" – ")}
       </p>
     </div>
@@ -131,6 +131,31 @@ export const FillOffset = {
   },
 };
 
+export const WithMarks = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    label: "Select a value",
+    renderOutput: (value) => `${value}%`,
+    step: 10,
+    marks: [
+      {
+        value: 20,
+        label: "20%",
+      },
+      {
+        value: 50,
+        label: "50%",
+      },
+      {
+        value: 80,
+        label: "80%",
+      },
+    ],
+    defaultValue: 20,
+  },
+};
+
 export const VerticalOrientation = {
   render: VerticalTemplate,
   args: {
@@ -155,6 +180,7 @@ export const WithStartAndEndContent = {
   render: Template,
   args: {
     ...defaultProps,
+    defaultValue: 20,
     "aria-label": "Volume",
     startContent: <VolumeLowBoldIcon className="text-2xl" />,
     endContent: <VolumeHighBoldIcon className="text-2xl" />,

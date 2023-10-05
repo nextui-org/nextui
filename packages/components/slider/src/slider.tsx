@@ -11,6 +11,7 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     state,
     label,
     steps,
+    marks,
     startContent,
     endContent,
     getStepProps,
@@ -22,6 +23,7 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     getTrackProps,
     getFillerProps,
     getThumbProps,
+    getMarkProps,
     getStartContentProps,
     getEndContentProps,
   } = useSlider({...props, ref});
@@ -43,6 +45,12 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
           {state.values.map((_, index) => (
             <Thumb key={index} {...getThumbProps(index)} />
           ))}
+          {marks?.length > 0 &&
+            marks.map((mark, index) => (
+              <div key={index} {...getMarkProps(mark)}>
+                {mark.label}
+              </div>
+            ))}
         </div>
         {endContent && <div {...getEndContentProps()}>{endContent}</div>}
       </div>
