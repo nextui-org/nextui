@@ -70,9 +70,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    labelWrapper: "label-wrapper-classes",
    *    label: "label-classes",
    *    output: "output-classes",
+   *    trackWrapper: "track-wrapper-classes",
    *    track: "track-classes",
    *    filler: "filler-classes",
    *    thumb: "thumb-classes",
+   *    mark: "mark-classes",
    * }} />
    * ```
    */
