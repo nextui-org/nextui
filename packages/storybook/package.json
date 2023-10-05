@@ -25,32 +25,33 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "dev": "pnpm sb dev -p 6006",
-    "build": "pnpm sb build",
+    "dev": "pnpm storybook dev -p 6006",
+    "build": "pnpm storybook build",
     "start": "pnpm dlx http-server storybook-static"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/react": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^7.1.1",
-    "@storybook/addon-actions": "^7.1.1",
-    "@storybook/addon-docs": "^7.1.1",
-    "@storybook/addon-essentials": "^7.1.1",
-    "@storybook/addon-links": "^7.1.1",
-    "@storybook/builder-vite": "^7.1.1",
-    "vite": "^4.4.7",
-    "@storybook/cli": "^7.1.1",
-    "@storybook/react-vite": "^7.1.1",
-    "@storybook/react": "^7.1.1",
-    "@storybook/theming": "^7.1.1",
+    "@storybook/addon-a11y": "^7.4.6",
+    "@storybook/addon-actions": "^7.4.6",
+    "@storybook/addon-docs": "^7.4.6",
+    "@storybook/addon-essentials": "^7.4.6",
+    "@storybook/addon-links": "^7.4.6",
+    "@storybook/addon-mdx-gfm": "^7.4.6",
+    "@storybook/cli": "^7.4.6",
+    "@storybook/react": "^7.4.6",
+    "@storybook/react-vite": "^7.4.6",
+    "@storybook/theming": "^7.4.6",
     "autoprefixer": "^10.4.13",
-    "storybook-dark-mode": "^3.0.0",
-    "tailwindcss": "^3.2.7"
+    "storybook": "^7.4.6",
+    "storybook-dark-mode": "^3.0.1",
+    "tailwindcss": "^3.2.7",
+    "vite": "^4.4.7"
   },
   "tsup": {
     "clean": true,

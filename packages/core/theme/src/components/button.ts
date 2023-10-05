@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {colorVariants, dataFocusVisibleClasses} from "../utils";
+import {collapseAdjacentVariantBorders, colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
  * Button wrapper **Tailwind Variants** component
@@ -316,7 +316,11 @@ const button = tv({
       color: "danger",
       class: colorVariants.ghost.danger,
     },
-    // isInGroup / size
+    // isInGroup / radius
+    {
+      isInGroup: true,
+      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
+    },
     {
       isInGroup: true,
       size: "sm",
@@ -340,8 +344,39 @@ const button = tv({
     // isInGroup / bordered / ghost
     {
       isInGroup: true,
-      variant: ["bordered", "ghost"],
-      class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.medium)*-1)]",
+      variant: ["ghost", "bordered"],
+      color: "default",
+      className: collapseAdjacentVariantBorders.default,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "primary",
+      className: collapseAdjacentVariantBorders.primary,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "secondary",
+      className: collapseAdjacentVariantBorders.secondary,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "success",
+      className: collapseAdjacentVariantBorders.success,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "warning",
+      className: collapseAdjacentVariantBorders.warning,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "danger",
+      className: collapseAdjacentVariantBorders.danger,
     },
     {
       isIconOnly: true,
