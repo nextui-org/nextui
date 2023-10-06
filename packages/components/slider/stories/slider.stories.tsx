@@ -28,6 +28,11 @@ export default {
         type: "boolean",
       },
     },
+    showTooltip: {
+      control: {
+        type: "boolean",
+      },
+    },
     step: {
       control: {
         type: "number",
@@ -113,6 +118,7 @@ export const Range = {
   render: Template,
   args: {
     ...defaultProps,
+    showTooltip: true,
     label: "Select a range",
     formatOptions: {style: "currency", currency: "USD"},
     defaultValue: [20, 80],
@@ -136,6 +142,32 @@ export const WithMarks = {
   args: {
     ...defaultProps,
     label: "Select a value",
+    renderOutput: (value) => `${value}%`,
+    step: 10,
+    marks: [
+      {
+        value: 20,
+        label: "20%",
+      },
+      {
+        value: 50,
+        label: "50%",
+      },
+      {
+        value: 80,
+        label: "80%",
+      },
+    ],
+    defaultValue: 20,
+  },
+};
+
+export const WithTooltip = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    label: "Select a value",
+    showTooltip: true,
     renderOutput: (value) => `${value}%`,
     step: 10,
     marks: [

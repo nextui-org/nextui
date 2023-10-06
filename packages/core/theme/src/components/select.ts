@@ -17,7 +17,7 @@ const select = tv({
     value: "font-normal w-full text-left opacity-60 group-data-[filled=true]:opacity-100",
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
-    popover: "w-full p-1 overflow-hidden",
+    popoverContent: "w-full p-1 overflow-hidden",
     helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",

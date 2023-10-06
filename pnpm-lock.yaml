@@ -1917,6 +1917,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/tooltip':
+        specifier: workspace:*
+        version: link:../tooltip
       '@react-aria/focus':
         specifier: ^3.14.1
         version: 3.14.1(react@18.2.0)
