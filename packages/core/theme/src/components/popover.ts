@@ -36,20 +36,20 @@ const popover = tv({
       // visibility
       "data-[arrow=true]:before:block",
       // top
-      "data-[placement=top]:before:-bottom-1",
+      "data-[placement=top]:before:-bottom-[calc(theme(spacing.1)_-_1.5px)]",
       "data-[placement=top]:before:left-1/2",
       "data-[placement=top]:before:-translate-x-1/2",
-      "data-[placement=top-start]:before:-bottom-1",
+      "data-[placement=top-start]:before:-bottom-[calc(theme(spacing.1)_-_1.5px)]",
       "data-[placement=top-start]:before:left-3",
-      "data-[placement=top-end]:before:-bottom-1",
+      "data-[placement=top-end]:before:-bottom-[calc(theme(spacing.1)_-_1.5px)]",
       "data-[placement=top-end]:before:right-3",
       // bottom
-      "data-[placement=bottom]:before:-top-1",
+      "data-[placement=bottom]:before:-top-[calc(theme(spacing.1)_-_1.5px)]",
       "data-[placement=bottom]:before:left-1/2",
       "data-[placement=bottom]:before:-translate-x-1/2",
-      "data-[placement=bottom-start]:before:-top-1",
+      "data-[placement=bottom-start]:before:-top-[calc(theme(spacing.1)_-_1.5px)]",
       "data-[placement=bottom-start]:before:left-3",
-      "data-[placement=bottom-end]:before:-top-1",
+      "data-[placement=bottom-end]:before:-top-[calc(theme(spacing.1)_-_1.5px)]",
       "data-[placement=bottom-end]:before:right-3",
       // left
       "data-[placement=left]:before:-right-[calc(theme(spacing.1)_-_1px)]",

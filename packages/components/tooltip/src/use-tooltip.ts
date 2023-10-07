@@ -4,7 +4,7 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
-import {ReactNode, Ref, useId, useImperativeHandle} from "react";
+import {ReactNode, Ref, useId, useImperativeHandle, useLayoutEffect} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -58,6 +58,11 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    */
   portalContainer?: Element;
   /**
+   * List of dependencies to update the position of the tooltip.
+   * @default []
+   */
+  updatePositionDeps?: any[];
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -105,6 +110,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     shouldCloseOnBlur = true,
     portalContainer,
     isKeyboardDismissDisabled = false,
+    updatePositionDeps = [],
     shouldCloseOnInteractOutside,
     className,
     onClose,
@@ -159,7 +165,11 @@ export function useTooltip(originalProps: UseTooltipProps) {
     state,
   );
 
-  const {overlayProps: positionProps, placement} = useOverlayPosition({
+  const {
+    overlayProps: positionProps,
+    placement,
+    updatePosition,
+  } = useOverlayPosition({
     isOpen: isOpen,
     targetRef: triggerRef,
     placement: toReactAriaPlacement(placementProp),
@@ -169,6 +179,12 @@ export function useTooltip(originalProps: UseTooltipProps) {
     shouldFlip,
     containerPadding,
   });
+
+  useLayoutEffect(() => {
+    if (!updatePositionDeps.length) return;
+    // force update position when deps change
+    updatePosition();
+  }, updatePositionDeps);
 
   const {overlayProps} = useOverlay(
     {
