@@ -61,8 +61,52 @@ const defaultProps = {
 };
 
 const Template = (args: SliderProps) => (
-  <div className="flex max-w-md items-center justify-start">
+  <div className="flex w-full h-full max-w-md items-center justify-start">
     <Slider {...args} />
+  </div>
+);
+
+const CustomStylesTemplate = (args: SliderProps) => (
+  <div className="flex items-center justify-center w-screen h-screen ">
+    <div className="flex items-center justify-center w-full h-full max-w-md">
+      <Slider
+        {...args}
+        classNames={{
+          filler: ["bg-gradient-to-r from-primary-500 to-secondary-400"],
+          labelWrapper: "mb-2",
+          label: "font-medium text-default-700 text-medium",
+          output: "font-medium text-default-500 text-small",
+          thumb: [
+            "transition-size",
+            "bg-gradient-to-r from-secondary-400 to-primary-500",
+            "data-[dragging=true]:shadow-lg data-[dragging=true]:shadow-black/20",
+            args.size === "sm" || args.size === "md"
+              ? "data-[dragging=true]:w-7 data-[dragging=true]:h-7 data-[dragging=true]:after:h-6 data-[dragging=true]:after:w-6"
+              : "",
+          ],
+          step:
+            args.size === "sm" && args.showSteps
+              ? "data-[in-range=true]:bg-black/30 dark:data-[in-range=true]:bg-white/50"
+              : "",
+        }}
+        disableThumbScale={args.size !== "lg"}
+        showOutline={args.showOutline && args.size !== "lg"}
+        tooltipProps={{
+          offset: 10,
+          placement: "bottom",
+          classNames: {
+            base: [
+              // arrow color
+              "before:bg-gradient-to-r before:from-secondary-400 before:to-primary-500",
+            ],
+            content: [
+              "py-2 px-3 shadow-xl",
+              "text-white bg-gradient-to-r from-secondary-400 to-primary-500",
+            ],
+          },
+        }}
+      />
+    </div>
   </div>
 );
 
@@ -76,7 +120,7 @@ const ControlledTemplate = (args: SliderProps) => {
   const [value, setValue] = React.useState<SliderValue>(25);
 
   return (
-    <div className="flex flex-col gap-2  max-w-md items-start justify-center">
+    <div className="flex flex-col gap-2  w-full h-full max-w-md items-start justify-center">
       <Slider value={value} onChange={setValue} {...args} />
       <p className="text-default-500 text-small">Current volume: {value}</p>
     </div>
@@ -261,5 +305,23 @@ export const ControlledRange = {
     ...defaultProps,
     label: "Select a budget",
     formatOptions: {style: "currency", currency: "USD"},
+  },
+};
+
+export const CustomStyles = {
+  render: CustomStylesTemplate,
+  args: {
+    ...defaultProps,
+    label: "Price Range",
+    maxValue: 1000,
+    size: "md",
+    step: 100,
+    showSteps: true,
+    showOutline: true,
+    defaultValue: [100, 300],
+    disableThumbScale: true,
+    showTooltip: true,
+    formatOptions: {style: "currency", currency: "USD"},
+    tooltipValueFormatOptions: {style: "currency", currency: "USD", maximumFractionDigits: 0},
   },
 };

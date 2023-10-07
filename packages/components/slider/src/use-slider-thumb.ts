@@ -11,6 +11,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {TooltipProps} from "@nextui-org/tooltip";
+import {useNumberFormatter} from "@react-aria/i18n";
 
 import {UseSliderProps} from "./use-slider";
 
@@ -38,6 +39,10 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * @internal
    */
+  formatOptions?: Intl.NumberFormatOptions;
+  /**
+   * @internal
+   */
   renderOutput?: UseSliderProps["renderOutput"];
   /**
    * @internal
@@ -60,6 +65,7 @@ export function useSliderThumb(props: UseSliderThumbProps) {
     tooltipProps,
     isVertical,
     showTooltip,
+    formatOptions,
     ...otherProps
   } = props;
 
@@ -67,6 +73,8 @@ export function useSliderThumb(props: UseSliderThumbProps) {
 
   const domRef = useDOMRef(ref);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const numberFormatter = useNumberFormatter(formatOptions);
 
   const {thumbProps, inputProps, isDragging} = useAriaSliderThumb(
     {
@@ -101,16 +109,18 @@ export function useSliderThumb(props: UseSliderThumbProps) {
   };
 
   const getTooltipProps = () => {
-    const value = state.values[index ?? 0];
+    const value = numberFormatter
+      ? numberFormatter.format(state.values[index ?? 0])
+      : state.values[index ?? 0];
 
     const content =
       renderOutput && typeof renderOutput === "function" ? renderOutput(`${value}`) : value;
 
     return {
+      placement: isVertical ? "right" : "top",
       ...tooltipProps,
       content,
       isOpen: isHovered || isDragging,
-      placement: isVertical ? "right" : "top",
     } as TooltipProps;
   };
 

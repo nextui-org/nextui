@@ -42,6 +42,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   formatOptions?: Intl.NumberFormatOptions;
   /**
+   * The display format of the tooltip value label.
+   * @default formatOptions
+   */
+  tooltipValueFormatOptions?: Intl.NumberFormatOptions;
+  /**
    * Whether to show the step indicators.
    * @default false
    */
@@ -139,6 +144,7 @@ export function useSlider(originalProps: UseSliderProps) {
     classNames,
     renderOutput,
     renderThumb,
+    tooltipValueFormatOptions = formatOptions,
     tooltipProps: userTooltipProps = {},
     ...otherProps
   } = props;
@@ -294,8 +300,8 @@ export function useSlider(originalProps: UseSliderProps) {
       renderOutput,
       tooltipProps,
       showTooltip,
+      formatOptions: tooltipValueFormatOptions,
       className: slots.thumb({class: classNames?.thumb}),
-      ...props,
     } as SliderThumbProps;
   };
 

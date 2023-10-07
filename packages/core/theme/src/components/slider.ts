@@ -12,8 +12,8 @@ import {tv} from "../utils/tv";
  *
  * <div className={slots.base()}>
  *  <div className={slots.labelWrapper()}>
- *   <label className={slots.label()}>Label</label>
- *   <output className={slots.output()} />
+ *    <label className={slots.label()}>Label</label>
+ *    <output className={slots.output()} />
  *  </div>
  *  <div className={slots.trackWrapper()}>
  *      <div className={slots.startContent()}>Start Content</div>
@@ -30,7 +30,7 @@ import {tv} from "../utils/tv";
 const slider = tv({
   slots: {
     base: "flex flex-col w-full gap-1",
-    labelWrapper: "w-full flex justify-between",
+    labelWrapper: "w-full flex justify-between items-center",
     label: "",
     output: "",
     step: [
@@ -69,7 +69,6 @@ const slider = tv({
       "before:w-11",
       "before:h-11",
       "before:rounded-full",
-      "data-[dragging=true]:after:scale-80",
       "after:shadow-small",
       "after:rounded-full",
       "after:shadow-small",
@@ -160,6 +159,12 @@ const slider = tv({
       false: {
         thumb: "after:transition-all motion-reduce:after:transition-none",
         mark: "transition-opacity motion-reduce:transition-none",
+      },
+    },
+    disableThumbScale: {
+      true: {},
+      false: {
+        thumb: "data-[dragging=true]:after:scale-80",
       },
     },
     showOutline: {
@@ -363,6 +368,7 @@ const slider = tv({
     color: "primary",
     showOutput: true,
     isDisabled: false,
+    disableThumbScale: false,
     disableAnimation: false,
     showOutline: false,
   },
