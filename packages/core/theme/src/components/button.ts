@@ -319,7 +319,7 @@ const button = tv({
     // isInGroup / radius
     {
       isInGroup: true,
-      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
+      class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
     },
     {
       isInGroup: true,
