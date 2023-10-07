@@ -339,7 +339,6 @@ export function useSlider(originalProps: UseSliderProps) {
 
   const getEndContentProps: PropGetter = (props = {}) => ({
     "data-slot": "endContent",
-
     className: slots.endContent({class: classNames?.endContent}),
     ...props,
   });
