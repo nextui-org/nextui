@@ -5,127 +5,140 @@ import {colorVariants, dataFocusVisibleClasses} from "../utils";
 /**
  * Popover wrapper **Tailwind Variants** component
  *
- * const { base, trigger, backdrop, arrow } = popover({...})
+ * const { base, content, trigger, backdrop } = popover({...})
  *
  * @example
  * <div>
  *  <div className={backdrop()} />
  *  <button className={trigger()} aria-expanded="true/false">your trigger</button>
  *  <div className={base()}>
- *    // popover content
- *    <span className={arrow()} data-placement="top/bottom/left/right..." /> // arrow
+ *    <div className={content()} />
+ *      // popover content
+ *    </div>
  *  </div>
  * </div>
  */
 const popover = tv({
   slots: {
     base: [
-      "z-10",
+      "z-0",
       "relative",
+      "bg-transparent",
+      // arrow
+      "before:content-['']",
+      "before:hidden",
+      "before:z-[-1]",
+      "before:absolute",
+      "before:rotate-45",
+      "before:w-2.5",
+      "before:h-2.5",
+      "before:rounded-sm",
+      // visibility
+      "data-[arrow=true]:before:block",
+      // top
+      "data-[placement=top]:before:-bottom-1",
+      "data-[placement=top]:before:left-1/2",
+      "data-[placement=top]:before:-translate-x-1/2",
+      "data-[placement=top-start]:before:-bottom-1",
+      "data-[placement=top-start]:before:left-3",
+      "data-[placement=top-end]:before:-bottom-1",
+      "data-[placement=top-end]:before:right-3",
+      // bottom
+      "data-[placement=bottom]:before:-top-1",
+      "data-[placement=bottom]:before:left-1/2",
+      "data-[placement=bottom]:before:-translate-x-1/2",
+      "data-[placement=bottom-start]:before:-top-1",
+      "data-[placement=bottom-start]:before:left-3",
+      "data-[placement=bottom-end]:before:-top-1",
+      "data-[placement=bottom-end]:before:right-3",
+      // left
+      "data-[placement=left]:before:-right-[calc(theme(spacing.1)_-_1px)]",
+      "data-[placement=left]:before:top-1/2",
+      "data-[placement=left]:before:-translate-y-1/2",
+      "data-[placement=left-start]:before:-right-[calc(theme(spacing.1)_-_1.5px)]",
+      "data-[placement=left-start]:before:top-1/4",
+      "data-[placement=left-end]:before:-right-[calc(theme(spacing.1)_-_1.5px)]",
+      "data-[placement=left-end]:before:bottom-1/4",
+      // right
+      "data-[placement=right]:before:-left-[calc(theme(spacing.1)_-_1px)]",
+      "data-[placement=right]:before:top-1/2",
+      "data-[placement=right]:before:-translate-y-1/2",
+      "data-[placement=right-start]:before:-left-[calc(theme(spacing.1)_-_1.5px)]",
+      "data-[placement=right-start]:before:top-1/4",
+      "data-[placement=right-end]:before:-left-[calc(theme(spacing.1)_-_1.5px)]",
+      "data-[placement=right-end]:before:bottom-1/4",
+      // focus ring
+      ...dataFocusVisibleClasses,
+    ],
+    content: [
+      "z-10",
+      "px-4",
+      "py-1",
       "inline-flex",
       "flex-col",
       "items-center",
       "justify-center",
       "box-border",
       "subpixel-antialiased",
-      "px-4",
-      "py-1",
       "outline-none",
       "box-border",
-      // focus ring
-      ...dataFocusVisibleClasses,
     ],
     trigger: ["z-10"],
     backdrop: ["hidden"],
-    arrow: [
-      "z-[-1]",
-      "absolute",
-      "rotate-45",
-      "w-2.5",
-      "h-2.5",
-      "rounded-sm",
-      // top
-      "data-[placement=top]:-bottom-1",
-      "data-[placement=top]:-translate-x-1/2",
-      "data-[placement=top-start]:-bottom-1",
-      "data-[placement=top-start]:-translate-x-8",
-      "data-[placement=top-end]:-bottom-1",
-      "data-[placement=top-end]:translate-x-6",
-      // bottom
-      "data-[placement=bottom]:-top-1",
-      "data-[placement=bottom]:-translate-x-1/2",
-      "data-[placement=bottom-start]:-top-1",
-      "data-[placement=bottom-start]:-translate-x-8",
-      "data-[placement=bottom-end]:-top-1",
-      "data-[placement=bottom-end]:translate-x-6",
-      // left
-      "data-[placement=left]:-right-1",
-      "data-[placement=left]:-translate-y-1/2",
-      "data-[placement=left-start]:-right-1",
-      "data-[placement=left-start]:-translate-y-3",
-      "data-[placement=left-end]:-right-1",
-      "data-[placement=left-end]:translate-y-0.5",
-      // right
-      "data-[placement=right]:-left-1",
-      "data-[placement=right]:-translate-y-1/2",
-      "data-[placement=right-start]:-left-1",
-      "data-[placement=right-start]:-translate-y-3",
-      "data-[placement=right-end]:-left-1",
-      "data-[placement=right-end]:translate-y-0.5",
-    ],
+    arrow: [],
   },
   variants: {
     size: {
-      sm: {base: "text-tiny"},
-      md: {base: "text-small"},
-      lg: {base: "text-medium"},
+      sm: {content: "text-tiny"},
+      md: {content: "text-small"},
+      lg: {content: "text-medium"},
     },
     color: {
       default: {
-        base: "bg-content1",
-        arrow: "shadow-small bg-content1",
+        base: "before:bg-content1 before:shadow-small",
+        content: "bg-content1",
       },
       foreground: {
-        base: colorVariants.solid.foreground,
-        arrow: "bg-foreground",
+        base: "before:bg-foreground",
+        content: colorVariants.solid.foreground,
       },
       primary: {
-        base: colorVariants.solid.primary,
-        arrow: "bg-primary",
+        base: "before:bg-primary",
+        content: colorVariants.solid.primary,
       },
       secondary: {
-        base: colorVariants.solid.secondary,
-        arrow: "bg-secondary",
+        base: "before:bg-secondary",
+        content: colorVariants.solid.secondary,
       },
       success: {
-        base: colorVariants.solid.success,
-        arrow: "bg-success",
+        base: "before:bg-success",
+        content: colorVariants.solid.success,
       },
       warning: {
-        base: colorVariants.solid.warning,
-        arrow: "bg-warning",
+        base: "before:bg-warning",
+        content: colorVariants.solid.warning,
       },
       danger: {
-        base: colorVariants.solid.danger,
-        arrow: "bg-danger",
+        base: "before:bg-danger",
+        content: colorVariants.solid.danger,
       },
     },
     radius: {
-      none: {base: "rounded-none"},
-      sm: {base: "rounded-small"},
-      md: {base: "rounded-medium"},
-      lg: {base: "rounded-large"},
-      full: {base: "rounded-full"},
+      none: {content: "rounded-none"},
+      sm: {content: "rounded-small"},
+      md: {content: "rounded-medium"},
+      lg: {content: "rounded-large"},
+      full: {content: "rounded-full"},
     },
     shadow: {
       sm: {
-        base: "shadow-small",
+        content: "shadow-small",
       },
       md: {
-        base: "shadow-medium",
+        content: "shadow-medium",
       },
       lg: {
-        base: "shadow-large",
+        content: "shadow-large",
       },
     },
     backdrop: {

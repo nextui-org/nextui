@@ -483,7 +483,6 @@ export const WithBackdrop = {
     offset: 10,
     placement: "left",
     backdrop: "blur",
-    className: "bg-content1",
   },
 };
 

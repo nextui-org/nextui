@@ -9,6 +9,8 @@ import {useNumberFormatter, useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
 import {AriaSliderProps, useSlider as useAriaSlider} from "@react-aria/slider";
 import {clsx} from "@nextui-org/shared-utils";
+import {TooltipProps} from "@nextui-org/tooltip";
+import {useHover} from "@react-aria/interactions";
 
 import {SliderThumbProps} from "./slider-thumb";
 
@@ -45,6 +47,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   showSteps?: boolean;
   /**
+   * Whether the thumbs should have a tooltip with the value on hover the slider.
+   * @default false
+   */
+  showTooltip?: boolean;
+  /**
    * Custom steps labels.
    * @example [{value: 0, label: "0"}, {value: 50, label: "50"}, {value: 100, label: "100"}]
    * @default []
@@ -80,11 +87,31 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   classNames?: SlotsToClasses<SliderSlots>;
   /**
+   * Tooltip props.
+   * @see [Tooltip](https://nextui.org/components/tooltip) for more details.
+   * @default {
+   *  offset: 15,
+   *  delay: 0,
+   *  size: "sm",
+   *  showArrow: true,
+   *  placement: "top", // "right" for vertical slider
+   *  content: [sliderOutputValue],
+   *  color: sliderProps?.color, // same as the slider color
+   *  isDisabled: sliderProps?.isDisabled,
+   * }
+   */
+  tooltipProps?: Partial<TooltipProps>;
+  /**
    * Function to format the output label.
    *
    * @param value {string}
    */
   renderOutput?: (value: string) => React.ReactNode;
+
+  /**
+   * Function to render the thumb. It can be used to add a tooltip or custom icon.
+   */
+  renderThumb?: (props: SliderThumbProps, index: number) => React.ReactNode;
 }
 
 export type UseSliderProps = Omit<Props, "onChange"> & AriaSliderProps & SliderVariantProps;
@@ -102,6 +129,7 @@ export function useSlider(originalProps: UseSliderProps) {
     minValue = 0,
     step = 1,
     showSteps = false,
+    showTooltip = false,
     orientation = "horizontal",
     marks = [],
     startContent,
@@ -110,6 +138,8 @@ export function useSlider(originalProps: UseSliderProps) {
     className,
     classNames,
     renderOutput,
+    renderThumb,
+    tooltipProps: userTooltipProps = {},
     ...otherProps
   } = props;
 
@@ -132,7 +162,18 @@ export function useSlider(originalProps: UseSliderProps) {
     numberFormatter,
   });
 
+  const tooltipProps: Partial<TooltipProps> = {
+    offset: 5,
+    delay: 0,
+    size: "sm",
+    showArrow: true,
+    color: originalProps?.color as TooltipProps["color"],
+    isDisabled: originalProps.isDisabled,
+    ...userTooltipProps,
+  };
+
   const {groupProps, trackProps, labelProps, outputProps} = useAriaSlider(props, state, trackRef);
+  const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const baseStyles = clsx(classNames?.base, className);
   const isVertical = orientation === "vertical";
@@ -158,9 +199,11 @@ export function useSlider(originalProps: UseSliderProps) {
       ref: domRef,
       "data-orientation": state.orientation,
       "data-slot": "base",
+      "data-hover": isHovered,
       className: slots.base({class: baseStyles}),
       ...mergeProps(
         groupProps,
+        hoverProps,
         filterDOMProps(otherProps, {
           enabled: shouldFilterDOMProps,
         }),
@@ -247,6 +290,10 @@ export function useSlider(originalProps: UseSliderProps) {
       state,
       trackRef,
       orientation,
+      isVertical,
+      renderOutput,
+      tooltipProps,
+      showTooltip,
       className: slots.thumb({class: classNames?.thumb}),
       ...props,
     } as SliderThumbProps;
@@ -300,6 +347,7 @@ export function useSlider(originalProps: UseSliderProps) {
     marks,
     startContent,
     endContent,
+    renderThumb,
     getStepProps,
     getBaseProps,
     getTrackWrapperProps,

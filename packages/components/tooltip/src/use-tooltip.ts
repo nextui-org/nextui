@@ -65,11 +65,12 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    * ```ts
    * <Tooltip classNames={{
    *    base:"base-classes",
+   *    content: "content-classes",
    *    arrow: "arrow-classes",
    * }} />
    * ```
    */
-  classNames?: SlotsToClasses<"base" | "arrow">;
+  classNames?: SlotsToClasses<"base" | "arrow" | "content">;
 }
 
 export type UseTooltipProps = Props &
@@ -158,11 +159,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     state,
   );
 
-  const {
-    overlayProps: positionProps,
-    arrowProps,
-    placement,
-  } = useOverlayPosition({
+  const {overlayProps: positionProps, placement} = useOverlayPosition({
     isOpen: isOpen,
     targetRef: triggerRef,
     placement: toReactAriaPlacement(placementProp),
@@ -215,33 +212,43 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const getTooltipProps = useCallback<PropGetter>(
     () => ({
       ref: overlayRef,
+      "data-slot": "base",
       "data-open": dataAttr(isOpen),
+      "data-arrow": dataAttr(showArrow),
       "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
-      className: slots.base({class: baseStyles}),
       ...mergeProps(tooltipProps, overlayProps, otherProps),
       style: mergeProps(positionProps.style, otherProps.style, props.style),
+      className: slots.base({class: baseStyles}),
       id: tooltipId,
     }),
     [
-      baseStyles,
+      slots,
+      isOpen,
+      showArrow,
+      isDisabled,
+      placement,
+      placementProp,
+      tooltipProps,
       overlayProps,
       otherProps,
-      overlayRef,
       positionProps,
-      slots,
+      props,
+      baseStyles,
       tooltipId,
-      tooltipProps,
     ],
   );
 
-  const getArrowProps = useCallback<PropGetter>(
+  const getTooltipContentProps = useCallback<PropGetter>(
     () => ({
-      className: slots.arrow({class: classNames?.arrow}),
+      "data-slot": "content",
+      "data-open": dataAttr(isOpen),
+      "data-arrow": dataAttr(showArrow),
+      "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
-      ...arrowProps,
+      className: slots.content({class: classNames?.content}),
     }),
-    [arrowProps, placement, placementProp, slots, classNames],
+    [slots, isOpen, showArrow, isDisabled, placement, placementProp, classNames],
   );
 
   return {
@@ -256,9 +263,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
     disableAnimation: originalProps?.disableAnimation,
     isDisabled,
     motionProps,
+    getTooltipContentProps,
     getTriggerProps,
     getTooltipProps,
-    getArrowProps,
   };
 }
 
