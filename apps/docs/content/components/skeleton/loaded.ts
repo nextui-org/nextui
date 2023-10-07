@@ -9,7 +9,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Card className="w-[200px] space-y-5 p-4" radius="2xl">
+      <Card className="w-[200px] space-y-5 p-4" radius="lg">
         <Skeleton isLoaded={isLoaded} className="rounded-lg">
           <div className="h-24 rounded-lg bg-secondary"></div>
         </Skeleton>
