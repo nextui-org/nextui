@@ -2,6 +2,8 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {slider} from "@nextui-org/theme";
 import {VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
+import {Tooltip} from "@nextui-org/tooltip";
+import {cn} from "@nextui-org/system";
 
 import {Slider, SliderProps, SliderValue} from "../src";
 
@@ -110,6 +112,54 @@ const CustomStylesTemplate = (args: SliderProps) => (
   </div>
 );
 
+const CustomOutputTemplate = (args: SliderProps) => {
+  const [value, setValue] = React.useState<SliderValue>(0.2);
+  const [inputValue, setInputValue] = React.useState<string>("0.2");
+
+  const handleChange = (value: SliderValue) => {
+    if (isNaN(Number(value))) return;
+
+    setValue(value);
+    setInputValue(value.toString());
+  };
+
+  return (
+    <div className="flex w-full h-full max-w-md items-center justify-start">
+      <Slider
+        classNames={{
+          label: "text-medium",
+        }}
+        renderOutputValue={() => (
+          <Tooltip
+            className="px-2 text-tiny text-default-500 rounded-md"
+            content="Press Enter to confirm"
+            placement="right"
+          >
+            <input
+              className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
+              type="text"
+              value={inputValue}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                const v = e.target.value;
+
+                setInputValue(v);
+              }}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === "Enter" && !isNaN(Number(inputValue))) {
+                  setValue(Number(inputValue));
+                }
+              }}
+            />
+          </Tooltip>
+        )}
+        value={value}
+        onChange={handleChange}
+        {...args}
+      />
+    </div>
+  );
+};
+
 const VerticalTemplate = (args: SliderProps) => (
   <div className="flex max-w-md h-[448px] items-center justify-start">
     <Slider {...args} />
@@ -162,7 +212,6 @@ export const Range = {
   render: Template,
   args: {
     ...defaultProps,
-    showTooltip: true,
     label: "Select a range",
     formatOptions: {style: "currency", currency: "USD"},
     defaultValue: [20, 80],
@@ -229,6 +278,69 @@ export const WithTooltip = {
       },
     ],
     defaultValue: 20,
+  },
+};
+
+export const CustomRenderOutput = {
+  render: CustomOutputTemplate,
+  args: {
+    ...defaultProps,
+    size: "sm",
+    label: "Temperature",
+    maxValue: 1,
+    minValue: 0,
+    step: 0.01,
+  },
+};
+
+export const CustomRenderThumb = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    size: "sm",
+    label: "Select brightness",
+    classNames: {
+      track: "!border-s-secondary-100",
+      filler: ["bg-gradient-to-r from-secondary-100 to-secondary-500"],
+    },
+    renderThumb: (props) => (
+      <div
+        {...props}
+        className="group top-1/2 bg-white p-1 border-small border-default-200 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing "
+      >
+        <span className="transition-transform bg-gradient-to-br shadow-small from-secondary-100 to-secondary-500 rounded-full w-5 h-5 block group-data-[dragging=true]:scale-80" />
+      </div>
+    ),
+  },
+};
+
+export const CustomRenderRangeThumb = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    size: "sm",
+    label: "Price Range",
+    maxValue: 1000,
+    step: 10,
+    defaultValue: [100, 300],
+    formatOptions: {style: "currency", currency: "USD"},
+    classNames: {
+      base: "gap-3",
+      filler: ["bg-gradient-to-r from-pink-300 to-cyan-300"],
+    },
+    renderThumb: (props, index) => (
+      <div
+        {...props}
+        className="group top-1/2 bg-background p-1 border-small border-default-200 dark:border-default-400 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing "
+      >
+        <span
+          className={cn(
+            "transition-transform bg-gradient-to-br shadow-small rounded-full w-5 h-5 block group-data-[dragging=true]:scale-80",
+            index === 0 ? "from-pink-200 to-pink-500" : "from-cyan-100 to-cyan-500",
+          )}
+        />
+      </div>
+    ),
   },
 };
 

@@ -3,12 +3,13 @@ import {forwardRef} from "@nextui-org/system";
 import Thumb from "./slider-thumb";
 import {UseSliderProps, useSlider} from "./use-slider";
 
-export interface SliderProps extends Omit<UseSliderProps, "isVertical"> {}
+export interface SliderProps extends Omit<UseSliderProps, "isVertical" | "hasSingleThumb"> {}
 
 const Slider = forwardRef<"div", SliderProps>((props, ref) => {
   const {
     Component,
     state,
+    value,
     label,
     steps,
     marks,
@@ -16,6 +17,7 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     endContent,
     getStepProps,
     getBaseProps,
+    renderOutputValue,
     getTrackWrapperProps,
     getLabelWrapperProps,
     getLabelProps,
@@ -33,7 +35,11 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
       {label && (
         <div {...getLabelWrapperProps()}>
           <label {...getLabelProps()}>{label}</label>
-          <output {...getOutputProps()} />
+          <output {...getOutputProps()}>
+            {renderOutputValue && typeof renderOutputValue === "function"
+              ? renderOutputValue(value)
+              : value}
+          </output>
         </div>
       )}
       <div {...getTrackWrapperProps()}>

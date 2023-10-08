@@ -2445,6 +2445,9 @@ importers:
       '@nextui-org/skeleton':
         specifier: workspace:*
         version: link:../../components/skeleton
+      '@nextui-org/slider':
+        specifier: workspace:*
+        version: link:../../components/slider
       '@nextui-org/snippet':
         specifier: workspace:*
         version: link:../../components/snippet

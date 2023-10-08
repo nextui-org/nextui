@@ -214,8 +214,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
     ],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
-
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({
       ...mergeProps(triggerProps, props),
@@ -235,7 +233,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
       "data-placement": getArrowPlacement(placement, placementProp),
       ...mergeProps(tooltipProps, overlayProps, otherProps),
       style: mergeProps(positionProps.style, otherProps.style, props.style),
-      className: slots.base({class: baseStyles}),
+      className: slots.base({class: classNames?.base}),
       id: tooltipId,
     }),
     [
@@ -250,7 +248,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
       otherProps,
       positionProps,
       props,
-      baseStyles,
       tooltipId,
     ],
   );
@@ -262,7 +259,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
       "data-arrow": dataAttr(showArrow),
       "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
-      className: slots.content({class: classNames?.content}),
+      className: slots.content({class: clsx(classNames?.content, className)}),
     }),
     [slots, isOpen, showArrow, isDisabled, placement, placementProp, classNames],
   );

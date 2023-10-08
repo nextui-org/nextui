@@ -43,11 +43,11 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * @internal
    */
-  renderOutput?: UseSliderProps["renderOutput"];
-  /**
-   * @internal
-   */
   tooltipProps?: UseSliderProps["tooltipProps"];
+  /**
+   * Function to render the thumb. It can be used to add a tooltip or custom icon.
+   */
+  renderThumb?: UseSliderProps["renderThumb"];
 }
 
 export type UseSliderThumbProps = Props & AriaSliderThumbProps & SliderVariantProps;
@@ -61,11 +61,11 @@ export function useSliderThumb(props: UseSliderThumbProps) {
     name,
     trackRef,
     className,
-    renderOutput,
     tooltipProps,
     isVertical,
     showTooltip,
     formatOptions,
+    renderThumb,
     ...otherProps
   } = props;
 
@@ -98,6 +98,7 @@ export function useSliderThumb(props: UseSliderThumbProps) {
   const getThumbProps: PropGetter = (props = {}) => {
     return {
       ref: domRef,
+      "data-slot": "thumb",
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(isPressed),
       "data-dragging": dataAttr(isDragging),
@@ -113,13 +114,10 @@ export function useSliderThumb(props: UseSliderThumbProps) {
       ? numberFormatter.format(state.values[index ?? 0])
       : state.values[index ?? 0];
 
-    const content =
-      renderOutput && typeof renderOutput === "function" ? renderOutput(`${value}`) : value;
-
     return {
       ...tooltipProps,
       placement: tooltipProps?.placement ?? isVertical ? "right" : "top",
-      content: tooltipProps?.content ?? content,
+      content: tooltipProps?.content ?? value,
       updatePositionDeps: [isDragging, isHovered, value],
       isOpen: tooltipProps?.isOpen ?? (isHovered || isDragging),
     } as TooltipProps;
@@ -133,7 +131,15 @@ export function useSliderThumb(props: UseSliderThumbProps) {
     };
   };
 
-  return {Component, showTooltip, getThumbProps, getTooltipProps, getInputProps};
+  return {
+    Component,
+    index,
+    showTooltip,
+    renderThumb,
+    getThumbProps,
+    getTooltipProps,
+    getInputProps,
+  };
 }
 
 export type UseSliderThumbReturn = ReturnType<typeof useSliderThumb>;

@@ -218,8 +218,7 @@
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx",
-          "newPost": true
+          "path": "/docs/components/listbox.mdx"
         },
         {
           "key": "modal",
@@ -243,7 +242,8 @@
           "key": "popover",
           "title": "Popover",
           "keywords": "popover, tooltip, floating content, additional information",
-          "path": "/docs/components/popover.mdx"
+          "path": "/docs/components/popover.mdx",
+          "updated": true
         },
         {
           "key": "progress",
@@ -262,7 +262,7 @@
           "title": "Select",
           "keywords": "select, selection, option list, multiple choice",
           "path": "/docs/components/select.mdx",
-          "newPost": true
+          "updated": true
         },
         {
           "key": "skeleton",
@@ -280,8 +280,7 @@
           "key": "scroll-shadow",
           "title": "Scroll Shadow",
           "keywords": "scroll shadow, scroll indicator, scroll bar, scroll position",
-          "path": "/docs/components/scroll-shadow.mdx",
-          "newPost": true
+          "path": "/docs/components/scroll-shadow.mdx"
         },
         {
           "key": "spacer",
@@ -300,6 +299,13 @@
           "title": "Switch",
           "keywords": "switch, toggle, binary input, on/off control",
           "path": "/docs/components/switch.mdx"
+        },
+        {
+          "key": "slider",
+          "title": "Slider",
+          "keywords": "slider, range input, value selector, sliding control",
+          "path": "/docs/components/slider.mdx",
+          "newPost": true
         },
         {
           "key": "table",
@@ -323,7 +329,8 @@
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx"
+          "path": "/docs/components/tooltip.mdx",
+          "updated": true
         },
         {
           "key": "user",

@@ -152,6 +152,10 @@ const slider = tv({
         thumb: "cursor-default",
       },
     },
+    hasSingleThumb: {
+      true: {},
+      false: {},
+    },
     disableAnimation: {
       true: {
         thumb: "data-[dragging=true]:after:scale-100",

@@ -70,6 +70,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       };
 
   const isNew = item.props?.newPost;
+  const isUpdated = item.props?.updated;
 
   const isExpanded = state.expandedKeys.has(key);
   const isSelected =
@@ -159,6 +160,11 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             >
               {rendered}
             </span>
+            {isUpdated && (
+              <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
+                Updated
+              </Chip>
+            )}
             {isNew && (
               <Chip className="ml-1 py-1 text-tiny" color="primary" size="sm" variant="flat">
                 New
