@@ -5,28 +5,31 @@ export default function App() {
     <div className="flex flex-col gap-6 w-full max-w-md">
       <Slider   
         size="sm"
-        step={0.01} 
+        step={0.1}
+        label="Temperature"
+        showSteps={true} 
         maxValue={1} 
         minValue={0} 
-        aria-label="Temperature"
         defaultValue={0.2}
         className="max-w-md" 
       />
       <Slider   
         size="md"
-        step={0.01} 
+        step={0.1}
+        label="Temperature"
+        showSteps={true} 
         maxValue={1} 
         minValue={0} 
-        aria-label="Temperature"
         defaultValue={0.4}
         className="max-w-md" 
       />
       <Slider   
         size="lg"
-        step={0.01} 
+        step={0.1}
+        label="Temperature"
+        showSteps={true} 
         maxValue={1} 
         minValue={0} 
-        aria-label="Temperature"
         defaultValue={0.6}
         className="max-w-md" 
       />

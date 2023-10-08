@@ -20,6 +20,7 @@ export default function App() {
           maxValue={1}
           minValue={0}
           defaultValue={0.7}
+          aria-label="Temperature"
           className="max-w-md"
         />
       ))}

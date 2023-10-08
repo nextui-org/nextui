@@ -20,6 +20,8 @@ export type SliderStepMark = {
   label: string;
 };
 
+export type SliderRenderThumbProps = DOMAttributes<HTMLDivElement> & {index?: number};
+
 interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
@@ -107,15 +109,17 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Function to format the output label.
-   *
-   * @param value {string}
+   * Function to render the label.
    */
-  renderOutputValue?: (value: string) => React.ReactNode;
+  renderLabel?: (props: DOMAttributes<HTMLLabelElement>) => React.ReactNode;
+  /**
+   * Function to render the output.
+   */
+  renderOutput?: (props: DOMAttributes<HTMLOutputElement>) => React.ReactNode;
   /**
    * Function to render the thumb. It can be used to add a tooltip or custom icon.
    */
-  renderThumb?: (props: DOMAttributes, index: number) => React.ReactNode;
+  renderThumb?: (props: SliderRenderThumbProps) => React.ReactNode;
 }
 
 export type UseSliderProps = Omit<Props, "onChange"> & AriaSliderProps & SliderVariantProps;
@@ -143,7 +147,8 @@ export function useSlider(originalProps: UseSliderProps) {
     className,
     classNames,
     renderThumb,
-    renderOutputValue,
+    renderLabel,
+    renderOutput,
     onChange,
     onChangeEnd,
     tooltipValueFormatOptions = formatOptions,
@@ -203,15 +208,17 @@ export function useSlider(originalProps: UseSliderProps) {
 
   const baseStyles = clsx(classNames?.base, className);
   const isVertical = orientation === "vertical";
+  const hasMarks = marks?.length > 0;
 
   const slots = useMemo(
     () =>
       slider({
         ...variantProps,
+        hasMarks,
         isVertical,
         className,
       }),
-    [...Object.values(variantProps), isVertical, className],
+    [...Object.values(variantProps), isVertical, hasMarks, className],
   );
 
   const [startOffset, endOffset] = [
@@ -260,6 +267,7 @@ export function useSlider(originalProps: UseSliderProps) {
     return {
       className: slots.label({class: classNames?.label}),
       "data-slot": "label",
+      children: label,
       ...labelProps,
       ...props,
     };
@@ -269,6 +277,7 @@ export function useSlider(originalProps: UseSliderProps) {
     return {
       className: slots.output({class: classNames?.output}),
       "data-slot": "output",
+      children: value,
       ...outputProps,
       ...props,
     };
@@ -325,10 +334,7 @@ export function useSlider(originalProps: UseSliderProps) {
       showTooltip,
       renderThumb,
       formatOptions: tooltipValueFormatOptions,
-      className:
-        !renderThumb || typeof renderThumb !== "function"
-          ? slots.thumb({class: classNames?.thumb})
-          : undefined,
+      className: slots.thumb({class: classNames?.thumb}),
     } as SliderThumbProps;
   };
 
@@ -382,7 +388,8 @@ export function useSlider(originalProps: UseSliderProps) {
     endContent,
     getStepProps,
     getBaseProps,
-    renderOutputValue,
+    renderOutput,
+    renderLabel,
     getTrackWrapperProps,
     getLabelWrapperProps,
     getLabelProps,

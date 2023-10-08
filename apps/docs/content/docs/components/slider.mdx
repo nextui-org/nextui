@@ -39,3 +39,34 @@ A slider allows a user to select one or more values within a range.
 ### Colors
 
 <CodeDemo title="Sizes" files={sliderContent.colors} />
+
+### Vertical Slider
+
+It is possible to change the orientation of the slider by using the `orientation="vertical"` prop.
+
+<CodeDemo title="With Steps Markers" files={sliderContent.vertical} />
+
+### With Visible Steps
+
+You can use the `showSteps` prop to display small dots on each step.
+
+<CodeDemo title="With Visible Steps" files={sliderContent.visibleSteps} />
+
+### With Marks
+
+You can use the `marks` prop to display a label on each step.
+
+<CodeDemo title="With Marks" files={sliderContent.marks} />
+
+### Range Slider
+
+If you pass an array of values to the `value` prop or to the `defaultValue` prop, the slider will become a range slider.
+
+<CodeDemo title="Range Slider" files={sliderContent.range} />
+
+
+### Fill Offset
+
+The `fillOffset` prop allows you to set where the fill should start.
+
+<CodeDemo title="Fill Offset" files={sliderContent.fillOffset} />

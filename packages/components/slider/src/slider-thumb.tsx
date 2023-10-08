@@ -1,5 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {Tooltip} from "@nextui-org/tooltip";
+import {renderFn} from "@nextui-org/react-utils";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {UseSliderThumbProps, useSliderThumb} from "./use-slider-thumb";
@@ -22,6 +23,7 @@ const SliderThumb = forwardRef<"div", SliderThumbProps>((props, ref) => {
 
   const thumbProps = {
     ...getThumbProps(),
+    index,
     children: (
       <VisuallyHidden>
         <input {...getInputProps()} />
@@ -29,13 +31,11 @@ const SliderThumb = forwardRef<"div", SliderThumbProps>((props, ref) => {
     ),
   };
 
-  const content = (
-    renderThumb && typeof renderThumb === "function" && index !== undefined ? (
-      renderThumb(thumbProps, index)
-    ) : (
-      <Component {...thumbProps} />
-    )
-  ) as React.ReactElement;
+  const content = renderFn({
+    Component,
+    props: thumbProps,
+    renderCustom: renderThumb,
+  }) as React.ReactElement;
 
   return showTooltip ? <Tooltip {...getTooltipProps()}>{content}</Tooltip> : content;
 });

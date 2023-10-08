@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import {Meta} from "@storybook/react";
 import {slider} from "@nextui-org/theme";
-import {VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
+import {InfoIcon, VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
 import {Tooltip} from "@nextui-org/tooltip";
 import {cn} from "@nextui-org/system";
 
@@ -170,7 +171,7 @@ const ControlledTemplate = (args: SliderProps) => {
   const [value, setValue] = React.useState<SliderValue>(25);
 
   return (
-    <div className="flex flex-col gap-2  w-full h-full max-w-md items-start justify-center">
+    <div className="flex flex-col gap-2 w-full h-full max-w-md items-start justify-center">
       <Slider value={value} onChange={setValue} {...args} />
       <p className="text-default-500 text-small">Current volume: {value}</p>
     </div>
@@ -318,7 +319,7 @@ export const CustomRenderRangeThumb = {
   render: Template,
   args: {
     ...defaultProps,
-    size: "sm",
+    size: "lg",
     label: "Price Range",
     maxValue: 1000,
     step: 10,
@@ -328,7 +329,51 @@ export const CustomRenderRangeThumb = {
       base: "gap-3",
       filler: ["bg-gradient-to-r from-pink-300 to-cyan-300"],
     },
-    renderThumb: (props, index) => (
+    renderThumb: ({index, ...props}) => (
+      <div
+        {...props}
+        className="group top-1/2 bg-background p-1 border-small border-default-200 dark:border-default-400 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing "
+      >
+        <span
+          className={cn(
+            "transition-transform bg-gradient-to-br shadow-small rounded-full w-5 h-5 block group-data-[dragging=true]:scale-80",
+            index === 0 ? "from-pink-200 to-pink-500" : "from-cyan-100 to-cyan-500",
+          )}
+        />
+      </div>
+    ),
+  },
+};
+
+export const CustomRenderLabel = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    size: "lg",
+    label: "Price Range",
+    maxValue: 1000,
+    step: 10,
+    defaultValue: [100, 300],
+    formatOptions: {style: "currency", currency: "USD"},
+    classNames: {
+      base: "gap-3",
+      filler: ["bg-gradient-to-r from-pink-300 to-cyan-300"],
+    },
+    renderLabel: ({children, ...props}) => (
+      <label {...props} className="text-medium flex gap-2 items-center">
+        {children}
+        <Tooltip
+          className="w-[200px] rounded-small"
+          content="The price range you want to search for."
+          placement="right"
+        >
+          <span className="transition-opacity opacity-60 hover:opacity-100">
+            <InfoIcon />
+          </span>
+        </Tooltip>
+      </label>
+    ),
+    renderThumb: ({index, ...props}) => (
       <div
         {...props}
         className="group top-1/2 bg-background p-1 border-small border-default-200 dark:border-default-400 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing "

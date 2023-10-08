@@ -1,15 +1,15 @@
+import {renderFn} from "@nextui-org/react-utils";
 import {forwardRef} from "@nextui-org/system";
 
 import Thumb from "./slider-thumb";
 import {UseSliderProps, useSlider} from "./use-slider";
 
-export interface SliderProps extends Omit<UseSliderProps, "isVertical" | "hasSingleThumb"> {}
+export interface SliderProps extends Omit<UseSliderProps, "isVertical" | "hasMarks"> {}
 
 const Slider = forwardRef<"div", SliderProps>((props, ref) => {
   const {
     Component,
     state,
-    value,
     label,
     steps,
     marks,
@@ -17,7 +17,8 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     endContent,
     getStepProps,
     getBaseProps,
-    renderOutputValue,
+    renderOutput,
+    renderLabel,
     getTrackWrapperProps,
     getLabelWrapperProps,
     getLabelProps,
@@ -34,12 +35,16 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     <Component {...getBaseProps()}>
       {label && (
         <div {...getLabelWrapperProps()}>
-          <label {...getLabelProps()}>{label}</label>
-          <output {...getOutputProps()}>
-            {renderOutputValue && typeof renderOutputValue === "function"
-              ? renderOutputValue(value)
-              : value}
-          </output>
+          {renderFn({
+            Component: "label",
+            props: getLabelProps(),
+            renderCustom: renderLabel,
+          })}
+          {renderFn({
+            Component: "output",
+            props: getOutputProps(),
+            renderCustom: renderOutput,
+          })}
         </div>
       )}
       <div {...getTrackWrapperProps()}>

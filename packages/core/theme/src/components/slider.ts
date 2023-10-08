@@ -152,8 +152,10 @@ const slider = tv({
         thumb: "cursor-default",
       },
     },
-    hasSingleThumb: {
-      true: {},
+    hasMarks: {
+      true: {
+        base: "mb-5",
+      },
       false: {},
     },
     disableAnimation: {
