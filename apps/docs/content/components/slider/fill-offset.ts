@@ -12,7 +12,7 @@ export default function App() {
       fillOffset={0}
       defaultValue={1.5}
       className="max-w-md"
-      renderOutput={(value) => value < 0 ? \`-\${value}\` : \`+\${value}\`}
+      formatOptions={{signDisplay: 'always'}}
     />
   );
 }`;

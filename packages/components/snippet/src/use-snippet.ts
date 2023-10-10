@@ -147,7 +147,7 @@ export function useSnippet(originalProps: UseSnippetProps) {
     offset: 15,
     delay: 1000,
     content: "Copy to clipboard",
-    color: originalProps?.color as TooltipProps["color"],
+    color: originalProps?.color ?? (snippet.defaultVariants?.color as TooltipProps["color"]),
     isDisabled: props.disableCopy,
     ...userTooltipProps,
   };

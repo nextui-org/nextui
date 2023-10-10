@@ -4,7 +4,7 @@ import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nex
 import {slider} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useSliderState} from "@react-stately/slider";
-import {useCallback, useMemo, useRef} from "react";
+import {ReactNode, useCallback, useMemo, useRef} from "react";
 import {useNumberFormatter, useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
 import {AriaSliderProps, useSlider as useAriaSlider} from "@react-aria/slider";
@@ -30,7 +30,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * The content to display as the label.
    */
-  label?: string;
+  label?: ReactNode;
   /**
    * The input name.
    */
@@ -108,6 +108,12 @@ interface Props extends HTMLNextUIProps<"div"> {
    * }
    */
   tooltipProps?: Partial<TooltipProps>;
+
+  /**
+   * A function that returns the content to display as the output.
+   * Overrides default formatted number.
+   */
+  getOutputValue?: (value: SliderValue) => string;
   /**
    * Function to render the label.
    */
@@ -151,6 +157,7 @@ export function useSlider(originalProps: UseSliderProps) {
     renderOutput,
     onChange,
     onChangeEnd,
+    getOutputValue,
     tooltipValueFormatOptions = formatOptions,
     tooltipProps: userTooltipProps = {},
     ...otherProps
@@ -198,27 +205,35 @@ export function useSlider(originalProps: UseSliderProps) {
     delay: 0,
     size: "sm",
     showArrow: true,
-    color: originalProps?.color as TooltipProps["color"],
+    color: originalProps?.color
+      ? originalProps?.color
+      : (slider.defaultVariants?.color as TooltipProps["color"]),
     isDisabled: originalProps.isDisabled,
     ...userTooltipProps,
   };
 
-  const {groupProps, trackProps, labelProps, outputProps} = useAriaSlider(props, state, trackRef);
+  const {groupProps, trackProps, labelProps, outputProps} = useAriaSlider(
+    originalProps,
+    state,
+    trackRef,
+  );
   const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const baseStyles = clsx(classNames?.base, className);
   const isVertical = orientation === "vertical";
   const hasMarks = marks?.length > 0;
+  const hasSingleThumb = fillOffset === undefined ? state.values.length === 1 : false;
 
   const slots = useMemo(
     () =>
       slider({
         ...variantProps,
         hasMarks,
+        hasSingleThumb,
         isVertical,
         className,
       }),
-    [...Object.values(variantProps), isVertical, hasMarks, className],
+    [...Object.values(variantProps), isVertical, hasSingleThumb, hasMarks, className],
   );
 
   const [startOffset, endOffset] = [
@@ -277,7 +292,10 @@ export function useSlider(originalProps: UseSliderProps) {
     return {
       className: slots.output({class: classNames?.output}),
       "data-slot": "output",
-      children: value,
+      children:
+        getOutputValue && typeof getOutputValue === "function"
+          ? getOutputValue(state.values)
+          : value,
       ...outputProps,
       ...props,
     };
@@ -287,8 +305,8 @@ export function useSlider(originalProps: UseSliderProps) {
     return {
       ref: trackRef,
       "data-slot": "track",
+      "data-thumb-hidden": !!originalProps?.hideThumb,
       "data-vertical": isVertical,
-      "data-thumb-count": fillOffset === undefined ? state.values.length : undefined,
       className: slots.track({class: classNames?.track}),
       ...trackProps,
       ...props,

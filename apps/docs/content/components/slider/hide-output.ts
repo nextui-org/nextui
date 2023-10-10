@@ -3,12 +3,13 @@ const App = `import {Slider} from "@nextui-org/react";
 export default function App() {
   return (
     <Slider 
-      isDisabled 
       label="Temperature" 
+      color="danger"
+      hideOutput={true}
       step={0.01} 
       maxValue={1} 
       minValue={0} 
-      defaultValue={0.6}
+      defaultValue={0.4}
       className="max-w-md"
     />
   );

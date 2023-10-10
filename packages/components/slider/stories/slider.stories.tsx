@@ -130,28 +130,31 @@ const CustomOutputTemplate = (args: SliderProps) => {
         classNames={{
           label: "text-medium",
         }}
-        renderOutputValue={() => (
-          <Tooltip
-            className="px-2 text-tiny text-default-500 rounded-md"
-            content="Press Enter to confirm"
-            placement="right"
-          >
-            <input
-              className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
-              type="text"
-              value={inputValue}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                const v = e.target.value;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        renderOutput={({children, ...props}) => (
+          <output {...props}>
+            <Tooltip
+              className="px-2 text-tiny text-default-500 rounded-md"
+              content="Press Enter to confirm"
+              placement="right"
+            >
+              <input
+                className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
+                type="text"
+                value={inputValue}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  const v = e.target.value;
 
-                setInputValue(v);
-              }}
-              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-                if (e.key === "Enter" && !isNaN(Number(inputValue))) {
-                  setValue(Number(inputValue));
-                }
-              }}
-            />
-          </Tooltip>
+                  setInputValue(v);
+                }}
+                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                  if (e.key === "Enter" && !isNaN(Number(inputValue))) {
+                    setValue(Number(inputValue));
+                  }
+                }}
+              />
+            </Tooltip>
+          </output>
         )}
         value={value}
         onChange={handleChange}
@@ -236,23 +239,25 @@ export const WithMarks = {
   args: {
     ...defaultProps,
     label: "Select a value",
-    renderOutput: (value) => `${value}%`,
-    step: 10,
+    formatOptions: {style: "percent"},
+    maxValue: 1,
+    minValue: 0,
+    step: 0.1,
     marks: [
       {
-        value: 20,
+        value: 0.2,
         label: "20%",
       },
       {
-        value: 50,
+        value: 0.5,
         label: "50%",
       },
       {
-        value: 80,
+        value: 0.8,
         label: "80%",
       },
     ],
-    defaultValue: 20,
+    defaultValue: 0.2,
   },
 };
 
@@ -262,23 +267,47 @@ export const WithTooltip = {
     ...defaultProps,
     label: "Select a value",
     showTooltip: true,
-    renderOutput: (value) => `${value}%`,
-    step: 10,
+    formatOptions: {style: "percent"},
+    maxValue: 1,
+    minValue: 0,
+    step: 0.1,
     marks: [
       {
-        value: 20,
+        value: 0.2,
         label: "20%",
       },
       {
-        value: 50,
+        value: 0.5,
         label: "50%",
       },
       {
-        value: 80,
+        value: 0.8,
         label: "80%",
       },
     ],
+    defaultValue: 0.2,
+  },
+};
+
+export const ThumbHidden = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    "aria-label": "Player progress",
+    color: "foreground",
+    hideThumb: true,
     defaultValue: 20,
+  },
+};
+
+export const CustomOutputValue = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    size: "sm",
+    label: "Donuts to buy",
+    maxValue: 60,
+    getOutputValue: (donuts) => `${donuts} of 60 Donuts`,
   },
 };
 
@@ -301,13 +330,13 @@ export const CustomRenderThumb = {
     size: "sm",
     label: "Select brightness",
     classNames: {
-      track: "!border-s-secondary-100",
+      track: "border-s-secondary-100 gap-3",
       filler: ["bg-gradient-to-r from-secondary-100 to-secondary-500"],
     },
     renderThumb: (props) => (
       <div
         {...props}
-        className="group top-1/2 bg-white p-1 border-small border-default-200 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing "
+        className="group top-1/2 bg-background dark:border-default-400 p-1 border-small border-default-200 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing "
       >
         <span className="transition-transform bg-gradient-to-br shadow-small from-secondary-100 to-secondary-500 rounded-full w-5 h-5 block group-data-[dragging=true]:scale-80" />
       </div>
@@ -393,6 +422,7 @@ export const VerticalOrientation = {
   render: VerticalTemplate,
   args: {
     ...defaultProps,
+    "aria-label": "Select a value",
     orientation: "vertical",
     defaultValue: 20,
   },
@@ -404,23 +434,25 @@ export const WithMarksVerticalOrientation = {
     ...defaultProps,
     label: "Current value",
     orientation: "vertical",
-    renderOutput: (value) => `${value}%`,
-    step: 10,
+    formatOptions: {style: "percent"},
+    maxValue: 1,
+    minValue: 0,
+    step: 0.1,
     marks: [
       {
-        value: 20,
+        value: 0.2,
         label: "20%",
       },
       {
-        value: 50,
+        value: 0.5,
         label: "50%",
       },
       {
-        value: 80,
+        value: 0.8,
         label: "80%",
       },
     ],
-    defaultValue: 20,
+    defaultValue: 0.2,
   },
 };
 
@@ -430,6 +462,7 @@ export const VerticalWithSteps = {
     ...defaultProps,
     step: 5,
     showSteps: true,
+    "aria-label": "Select a value",
     orientation: "vertical",
     defaultValue: 20,
   },

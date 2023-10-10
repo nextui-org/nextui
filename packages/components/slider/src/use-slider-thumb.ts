@@ -116,10 +116,10 @@ export function useSliderThumb(props: UseSliderThumbProps) {
 
     return {
       ...tooltipProps,
-      placement: tooltipProps?.placement ?? isVertical ? "right" : "top",
-      content: tooltipProps?.content ?? value,
+      placement: tooltipProps?.placement ? tooltipProps?.placement : isVertical ? "right" : "top",
+      content: tooltipProps?.content ? tooltipProps?.content : value,
       updatePositionDeps: [isDragging, isHovered, value],
-      isOpen: tooltipProps?.isOpen ?? (isHovered || isDragging),
+      isOpen: tooltipProps?.isOpen !== undefined ? tooltipProps?.isOpen : isHovered || isDragging,
     } as TooltipProps;
   };
 

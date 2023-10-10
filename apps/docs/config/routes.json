@@ -242,8 +242,7 @@
           "key": "popover",
           "title": "Popover",
           "keywords": "popover, tooltip, floating content, additional information",
-          "path": "/docs/components/popover.mdx",
-          "updated": true
+          "path": "/docs/components/popover.mdx"
         },
         {
           "key": "progress",
@@ -261,8 +260,7 @@
           "key": "select",
           "title": "Select",
           "keywords": "select, selection, option list, multiple choice",
-          "path": "/docs/components/select.mdx",
-          "updated": true
+          "path": "/docs/components/select.mdx"
         },
         {
           "key": "skeleton",
@@ -329,8 +327,7 @@
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx",
-          "updated": true
+          "path": "/docs/components/tooltip.mdx"
         },
         {
           "key": "user",

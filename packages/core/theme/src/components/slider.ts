@@ -51,18 +51,11 @@ const slider = tv({
       "data-[in-range=true]:opacity-100",
     ],
     trackWrapper: "relative flex gap-2",
-    track: [
-      "flex",
-      "w-full",
-      "relative",
-      "rounded-full",
-      "bg-default-300/50",
-      "border-transparent",
-    ],
+    track: ["flex", "w-full", "relative", "rounded-full", "bg-default-300/50"],
     filler: "h-full absolute",
     thumb: [
-      "rounded-full",
       "flex",
+      "rounded-full",
       "justify-center",
       "items-center",
       "before:absolute",
@@ -129,7 +122,7 @@ const slider = tv({
       true: {
         base: "w-auto h-full flex-col-reverse items-center",
         trackWrapper: "flex-col h-full justify-center items-center",
-        track: "h-full",
+        track: "h-full border-y-transparent",
         labelWrapper: "flex-col justify-center items-center",
         filler: "w-full h-auto",
         step: "left-1/2",
@@ -141,6 +134,7 @@ const slider = tv({
         thumb: "top-1/2",
         trackWrapper: "items-center",
         mark: ["top-1/2", "mt-1", "-translate-x-1/2", "translate-y-1/2"],
+        track: "border-x-transparent",
       },
     },
     isDisabled: {
@@ -158,6 +152,29 @@ const slider = tv({
       },
       false: {},
     },
+    showOutline: {
+      true: {
+        thumb: "ring-2 ring-background",
+      },
+      false: {
+        thumb: "ring-transparent border-0",
+      },
+    },
+    hideOutput: {
+      true: {
+        output: "sr-only",
+      },
+    },
+    hideThumb: {
+      true: {
+        thumb: "sr-only",
+        track: "overflow-hidden",
+      },
+    },
+    hasSingleThumb: {
+      true: {},
+      false: {},
+    },
     disableAnimation: {
       true: {
         thumb: "data-[dragging=true]:after:scale-100",
@@ -173,21 +190,15 @@ const slider = tv({
         thumb: "data-[dragging=true]:after:scale-80",
       },
     },
-    showOutline: {
-      true: {
-        thumb: "ring-2 ring-background",
-      },
-      false: {
-        thumb: "ring-transparent border-0",
-      },
-    },
-    showOutput: {
-      false: {
-        output: "sr-only",
-      },
-    },
   },
   compoundVariants: [
+    // size="sm" || size="md"
+    {
+      size: ["sm", "md"],
+      class: {
+        thumb: "shadow-small",
+      },
+    },
     // size && color
     {
       size: "sm",
@@ -231,14 +242,13 @@ const slider = tv({
         step: "data-[in-range=true]:bg-danger",
       },
     },
-
     // size && !isVertical
     {
       size: "sm",
       isVertical: false,
       class: {
         track:
-          "h-1 my-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-x-[calc(theme(spacing.5)/2)]",
+          "h-1 my-[calc((theme(spacing.5)-theme(spacing.1))/2)] data-[thumb-hidden=false]:border-x-[calc(theme(spacing.5)/2)]",
       },
     },
     {
@@ -246,7 +256,7 @@ const slider = tv({
       isVertical: false,
       class: {
         track:
-          "h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-x-[calc(theme(spacing.6)/2)]",
+          "h-3 my-[calc((theme(spacing.6)-theme(spacing.3))/2)] data-[thumb-hidden=false]:border-x-[calc(theme(spacing.6)/2)]",
       },
     },
     {
@@ -254,7 +264,7 @@ const slider = tv({
       isVertical: false,
       class: {
         track:
-          "h-7 my-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-x-[calc(theme(spacing.7)/2)]",
+          "h-7 my-[calc((theme(spacing.7)-theme(spacing.5))/2)] data-[thumb-hidden=false]:border-x-[calc(theme(spacing.7)/2)]",
       },
     },
     // size && isVertical
@@ -263,7 +273,7 @@ const slider = tv({
       isVertical: true,
       class: {
         track:
-          "w-1 mx-[calc((theme(spacing.5)-theme(spacing.1))/2)] border-y-[calc(theme(spacing.5)/2)]",
+          "w-1 mx-[calc((theme(spacing.5)-theme(spacing.1))/2)] data-[thumb-hidden=false]:border-y-[calc(theme(spacing.5)/2)]",
       },
     },
     {
@@ -271,7 +281,7 @@ const slider = tv({
       isVertical: true,
       class: {
         track:
-          "w-3 mx-[calc((theme(spacing.6)-theme(spacing.3))/2)] border-y-[calc(theme(spacing.6)/2)]",
+          "w-3 mx-[calc((theme(spacing.6)-theme(spacing.3))/2)] data-[thumb-hidden=false]:border-y-[calc(theme(spacing.6)/2)]",
       },
     },
     {
@@ -279,100 +289,113 @@ const slider = tv({
       isVertical: true,
       class: {
         track:
-          "w-7 mx-[calc((theme(spacing.7)-theme(spacing.5))/2)] border-y-[calc(theme(spacing.7)/2)]",
+          "w-7 mx-[calc((theme(spacing.7)-theme(spacing.5))/2)] data-[thumb-hidden=false]:border-y-[calc(theme(spacing.7)/2)]",
       },
     },
-    // color && !isVertical
+    // color && !isVertical && hasSingleThumb
     {
       color: "foreground",
       isVertical: false,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-s-foreground',
+        track: "border-s-foreground",
       },
     },
     {
       color: "primary",
       isVertical: false,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-s-primary',
+        track: "border-s-primary",
       },
     },
     {
       color: "secondary",
       isVertical: false,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-s-secondary',
+        track: "border-s-secondary",
       },
     },
     {
       color: "success",
       isVertical: false,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-s-success',
+        track: "border-s-success",
       },
     },
     {
       color: "warning",
       isVertical: false,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-s-warning',
+        track: "border-s-warning",
       },
     },
     {
       color: "danger",
       isVertical: false,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-s-danger',
+        track: "border-s-danger",
       },
     },
-    // color && isVertical
+    // color && isVertical && hasSingleThumb
     {
       color: "foreground",
       isVertical: true,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-b-foreground',
+        track: "border-b-foreground",
       },
     },
     {
       color: "primary",
       isVertical: true,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-b-primary',
+        track: "border-b-primary",
       },
     },
     {
       color: "secondary",
       isVertical: true,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-b-secondary',
+        track: "border-b-secondary",
       },
     },
     {
       color: "success",
       isVertical: true,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-b-success',
+        track: "border-b-success",
       },
     },
     {
       color: "warning",
       isVertical: true,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-b-warning',
+        track: "border-b-warning",
       },
     },
     {
       color: "danger",
       isVertical: true,
+      hasSingleThumb: true,
       class: {
-        track: 'data-[thumb-count="1"]:border-b-danger',
+        track: "border-b-danger",
       },
     },
   ],
   defaultVariants: {
     size: "md",
     color: "primary",
-    showOutput: true,
+    hideOutput: false,
+    hideThumb: false,
     isDisabled: false,
     disableThumbScale: false,
     disableAnimation: false,

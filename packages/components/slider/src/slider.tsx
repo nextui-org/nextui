@@ -4,7 +4,8 @@ import {forwardRef} from "@nextui-org/system";
 import Thumb from "./slider-thumb";
 import {UseSliderProps, useSlider} from "./use-slider";
 
-export interface SliderProps extends Omit<UseSliderProps, "isVertical" | "hasMarks"> {}
+export interface SliderProps
+  extends Omit<UseSliderProps, "isVertical" | "hasMarks" | "hasSingleThumb"> {}
 
 const Slider = forwardRef<"div", SliderProps>((props, ref) => {
   const {
