@@ -83,7 +83,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    step: "step-classes",
    *    labelWrapper: "label-wrapper-classes",
    *    label: "label-classes",
-   *    output: "output-classes",
+   *    value: "value-classes",
    *    trackWrapper: "track-wrapper-classes",
    *    track: "track-classes",
    *    filler: "filler-classes",
@@ -102,26 +102,25 @@ interface Props extends HTMLNextUIProps<"div"> {
    *  size: "sm",
    *  showArrow: true,
    *  placement: "top", // "right" for vertical slider
-   *  content: [sliderOutputValue],
+   *  content: [sliderValue],
    *  color: sliderProps?.color, // same as the slider color
    *  isDisabled: sliderProps?.isDisabled,
    * }
    */
   tooltipProps?: Partial<TooltipProps>;
-
   /**
-   * A function that returns the content to display as the output.
+   * A function that returns the content to display as the value label.
    * Overrides default formatted number.
    */
-  getOutputValue?: (value: SliderValue) => string;
+  getValue?: (value: SliderValue) => string;
   /**
    * Function to render the label.
    */
   renderLabel?: (props: DOMAttributes<HTMLLabelElement>) => React.ReactNode;
   /**
-   * Function to render the output.
+   * Function to render the value label.
    */
-  renderOutput?: (props: DOMAttributes<HTMLOutputElement>) => React.ReactNode;
+  renderValue?: (props: DOMAttributes<HTMLOutputElement>) => React.ReactNode;
   /**
    * Function to render the thumb. It can be used to add a tooltip or custom icon.
    */
@@ -154,10 +153,10 @@ export function useSlider(originalProps: UseSliderProps) {
     classNames,
     renderThumb,
     renderLabel,
-    renderOutput,
+    renderValue,
     onChange,
     onChangeEnd,
-    getOutputValue,
+    getValue,
     tooltipValueFormatOptions = formatOptions,
     tooltipProps: userTooltipProps = {},
     ...otherProps
@@ -280,22 +279,19 @@ export function useSlider(originalProps: UseSliderProps) {
 
   const getLabelProps: PropGetter = (props = {}) => {
     return {
-      className: slots.label({class: classNames?.label}),
       "data-slot": "label",
+      className: slots.label({class: classNames?.label}),
       children: label,
       ...labelProps,
       ...props,
     };
   };
 
-  const getOutputProps: PropGetter = (props = {}) => {
+  const getValueProps: PropGetter = (props = {}) => {
     return {
-      className: slots.output({class: classNames?.output}),
-      "data-slot": "output",
-      children:
-        getOutputValue && typeof getOutputValue === "function"
-          ? getOutputValue(state.values)
-          : value,
+      "data-slot": "value",
+      className: slots.value({class: classNames?.value}),
+      children: getValue && typeof getValue === "function" ? getValue(state.values) : value,
       ...outputProps,
       ...props,
     };
@@ -406,12 +402,13 @@ export function useSlider(originalProps: UseSliderProps) {
     endContent,
     getStepProps,
     getBaseProps,
-    renderOutput,
+    getValue,
     renderLabel,
+    renderValue,
     getTrackWrapperProps,
     getLabelWrapperProps,
     getLabelProps,
-    getOutputProps,
+    getValueProps,
     getTrackProps,
     getFillerProps,
     getThumbProps,

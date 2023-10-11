@@ -18,12 +18,12 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
     endContent,
     getStepProps,
     getBaseProps,
-    renderOutput,
+    renderValue,
     renderLabel,
     getTrackWrapperProps,
     getLabelWrapperProps,
     getLabelProps,
-    getOutputProps,
+    getValueProps,
     getTrackProps,
     getFillerProps,
     getThumbProps,
@@ -43,8 +43,8 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
           })}
           {renderFn({
             Component: "output",
-            props: getOutputProps(),
-            renderCustom: renderOutput,
+            props: getValueProps(),
+            renderCustom: renderValue,
           })}
         </div>
       )}

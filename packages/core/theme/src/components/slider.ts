@@ -13,7 +13,7 @@ import {tv} from "../utils/tv";
  * <div className={slots.base()}>
  *  <div className={slots.labelWrapper()}>
  *    <label className={slots.label()}>Label</label>
- *    <output className={slots.output()} />
+ *    <output className={slots.value()} />
  *  </div>
  *  <div className={slots.trackWrapper()}>
  *      <div className={slots.startContent()}>Start Content</div>
@@ -32,7 +32,7 @@ const slider = tv({
     base: "flex flex-col w-full gap-1",
     labelWrapper: "w-full flex justify-between items-center",
     label: "",
-    output: "",
+    value: "",
     step: [
       "h-1.5",
       "w-1.5",
@@ -40,8 +40,6 @@ const slider = tv({
       "rounded-full",
       "bg-default-300/50",
       "data-[in-range=true]:bg-background/50",
-      "-translate-x-1/2",
-      "-translate-y-1/2",
     ],
     mark: [
       "absolute",
@@ -55,7 +53,6 @@ const slider = tv({
     filler: "h-full absolute",
     thumb: [
       "flex",
-      "rounded-full",
       "justify-center",
       "items-center",
       "before:absolute",
@@ -63,7 +60,6 @@ const slider = tv({
       "before:h-11",
       "before:rounded-full",
       "after:shadow-small",
-      "after:rounded-full",
       "after:shadow-small",
       "after:bg-background",
       dataFocusVisibleClasses,
@@ -75,21 +71,41 @@ const slider = tv({
     size: {
       sm: {
         label: "text-small",
-        output: "text-small",
+        value: "text-small",
         thumb: "w-5 h-5 after:w-4 after:h-4",
         step: "data-[in-range=false]:bg-default-200",
       },
       md: {
         thumb: "w-6 h-6 after:w-5 after:h-5",
         label: "text-small",
-        output: "text-small",
+        value: "text-small",
       },
       lg: {
         thumb: "h-7 w-7 after:w-5 after:h-5",
         step: "w-2 h-2",
         label: "text-medium",
-        output: "text-medium",
+        value: "text-medium",
         mark: "mt-2",
+      },
+    },
+    radius: {
+      none: {
+        thumb: "rounded-none after:rounded-none",
+      },
+      sm: {
+        thumb:
+          "rounded-[calc(theme(borderRadius.small)/2)] after:rounded-[calc(theme(borderRadius.small)/3)]",
+      },
+      md: {
+        thumb:
+          "rounded-[calc(theme(borderRadius.medium)/2)] after:rounded-[calc(theme(borderRadius.medium)/3)]",
+      },
+      lg: {
+        thumb:
+          "rounded-[calc(theme(borderRadius.large)/1.5)] after:rounded-[calc(theme(borderRadius.large)/2)]",
+      },
+      full: {
+        thumb: "rounded-full after:rounded-full",
       },
     },
     color: {
@@ -122,19 +138,19 @@ const slider = tv({
       true: {
         base: "w-auto h-full flex-col-reverse items-center",
         trackWrapper: "flex-col h-full justify-center items-center",
+        filler: "w-full h-auto",
+        thumb: "left-1/2",
         track: "h-full border-y-transparent",
         labelWrapper: "flex-col justify-center items-center",
-        filler: "w-full h-auto",
-        step: "left-1/2",
-        thumb: "left-1/2",
-        mark: ["left-1/2", "ml-1", "translate-x-1/2", "translate-y-1/2"],
+        step: ["left-1/2", "-translate-x-1/2", "translate-y-1/2"],
+        mark: ["left-1/2", "ml-1", "translate-x-1/2", "-translate-y-1/2"],
       },
       false: {
-        step: "top-1/2",
         thumb: "top-1/2",
         trackWrapper: "items-center",
-        mark: ["top-1/2", "mt-1", "-translate-x-1/2", "translate-y-1/2"],
         track: "border-x-transparent",
+        step: ["top-1/2", "-translate-x-1/2", "-translate-y-1/2"],
+        mark: ["top-1/2", "mt-1", "-translate-x-1/2", "translate-y-1/2"],
       },
     },
     isDisabled: {
@@ -160,15 +176,15 @@ const slider = tv({
         thumb: "ring-transparent border-0",
       },
     },
-    hideOutput: {
+    hideValue: {
       true: {
-        output: "sr-only",
+        value: "sr-only",
       },
     },
     hideThumb: {
       true: {
         thumb: "sr-only",
-        track: "overflow-hidden",
+        track: "overflow-hidden cursor-pointer",
       },
     },
     hasSingleThumb: {
@@ -192,9 +208,10 @@ const slider = tv({
     },
   },
   compoundVariants: [
-    // size="sm" || size="md"
+    // size="sm" || size="md" && showOutline={false}
     {
       size: ["sm", "md"],
+      showOutline: false,
       class: {
         thumb: "shadow-small",
       },
@@ -394,7 +411,8 @@ const slider = tv({
   defaultVariants: {
     size: "md",
     color: "primary",
-    hideOutput: false,
+    radius: "full",
+    hideValue: false,
     hideThumb: false,
     isDisabled: false,
     disableThumbScale: false,

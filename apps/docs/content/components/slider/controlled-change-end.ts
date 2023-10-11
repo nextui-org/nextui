@@ -8,9 +8,6 @@ export default function App() {
       <Slider
         aria-label="Volume"
         size="lg"
-        step={10}
-        maxValue={100}
-        minValue={0}
         color="secondary"
         onChangeEnd={setValue}
         className="max-w-md"
@@ -31,9 +28,6 @@ export default function App() {
         aria-label="Volume"
         size="lg"
         color="secondary"
-        step={10}
-        maxValue={100}
-        minValue={0}
         defaultValue={70}
         onChangeEnd={setValue}
         className="max-w-md"

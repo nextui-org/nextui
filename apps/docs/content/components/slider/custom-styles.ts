@@ -19,7 +19,7 @@ export default function App() {
         filler: "bg-gradient-to-r from-primary-500 to-secondary-400",
         labelWrapper: "mb-2",
         label: "font-medium text-default-700 text-medium",
-        output: "font-medium text-default-500 text-small",
+        value: "font-medium text-default-500 text-small",
         thumb: [
           "transition-size",
           "bg-gradient-to-r from-secondary-400 to-primary-500",
@@ -37,7 +37,7 @@ export default function App() {
             "before:bg-gradient-to-r before:from-secondary-400 before:to-primary-500",
           ],
           content: [
-            "py-2 px-3 shadow-xl",
+            "py-2 shadow-xl",
             "text-white bg-gradient-to-r from-secondary-400 to-primary-500",
           ],
         },

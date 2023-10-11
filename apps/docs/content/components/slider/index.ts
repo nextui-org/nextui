@@ -1,6 +1,7 @@
 import usage from "./usage";
 import disabled from "./disabled";
 import sizes from "./sizes";
+import radius from "./radius";
 import colors from "./colors";
 import visibleSteps from "./visible-steps";
 import marks from "./marks";
@@ -11,8 +12,8 @@ import tooltip from "./tooltip";
 import outline from "./outline";
 import disableThumbScale from "./disable-thumb-scale";
 import valueFormatting from "./value-formatting";
-import getOutputValue from "./get-output-value";
-import hideOutput from "./hide-output";
+import getValue from "./get-value";
+import hideValue from "./hide-value";
 import hideThumb from "./hide-thumb";
 import startEndContent from "./start-end-content";
 import controlled from "./controlled";
@@ -21,13 +22,14 @@ import controlledRange from "./controlled-range";
 import renderThumb from "./render-thumb";
 import renderRangeThumb from "./render-range-thumb";
 import renderLabel from "./render-label";
-import renderOutput from "./render-output";
+import renderValue from "./render-value";
 import customStyles from "./custom-styles";
 
 export const sliderContent = {
   usage,
   disabled,
   sizes,
+  radius,
   colors,
   visibleSteps,
   marks,
@@ -38,8 +40,8 @@ export const sliderContent = {
   outline,
   disableThumbScale,
   valueFormatting,
-  getOutputValue,
-  hideOutput,
+  getValue,
+  hideValue,
   hideThumb,
   startEndContent,
   controlled,
@@ -48,6 +50,6 @@ export const sliderContent = {
   renderThumb,
   renderRangeThumb,
   renderLabel,
-  renderOutput,
+  renderValue,
   customStyles,
 };

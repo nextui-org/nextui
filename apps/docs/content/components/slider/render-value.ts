@@ -24,16 +24,17 @@ export default function App() {
         label: "text-medium",
       }}
       // we extract the default children to render the input
-      renderOutput={({children, ...props}) => (
+      renderValue={({children, ...props}) => (
         <output {...props}>
           <Tooltip
-            className="px-2 text-tiny text-default-500 rounded-md"
+            className="text-tiny text-default-500 rounded-md"
             content="Press Enter to confirm"
-            placement="right"
+            placement="left"
           >
             <input
               className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
               type="text"
+              aria-label="Temperature value"
               value={inputValue}
               onChange={(e) => {
                 const v = e.target.value;
@@ -81,16 +82,17 @@ export default function App() {
         label: "text-medium",
       }}
       // we extract the default children to render the input
-      renderOutput={({children, ...props}) => (
+      renderValue={({children, ...props}) => (
         <output {...props}>
           <Tooltip
-            className="px-2 text-tiny text-default-500 rounded-md"
+            className="text-tiny text-default-500 rounded-md"
             content="Press Enter to confirm"
-            placement="right"
+            placement="left"
           >
             <input
               className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
               type="text"
+              aria-label="Temperature value"
               value={inputValue}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const v = e.target.value;

@@ -3,13 +3,10 @@ const App = `import {Slider} from "@nextui-org/react";
 export default function App() {
   return (
     <Slider 
-      label="Temperature" 
-      color="danger"
-      hideOutput={true}
-      step={0.01} 
-      maxValue={1} 
-      minValue={0} 
-      defaultValue={0.4}
+      label="Donuts to buy"
+      size="sm"
+      maxValue={60}
+      getValue={(donuts) => \`\${donuts} of 60 Donuts\`}
       className="max-w-md"
     />
   );

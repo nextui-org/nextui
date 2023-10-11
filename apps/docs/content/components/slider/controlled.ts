@@ -58,9 +58,6 @@ export default function App() {
       <Slider
         aria-label="Volume"
         size="lg"
-        step={10}
-        maxValue={100}
-        minValue={0}
         color="success"
         value={value}
         onChange={setValue}
@@ -104,9 +101,6 @@ export default function App() {
         aria-label="Volume"
         size="lg"
         color="success"
-        step={10}
-        maxValue={100}
-        minValue={0}
         value={value} 
         onChange={setValue}
         startContent={

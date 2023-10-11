@@ -36,6 +36,10 @@ A slider allows a user to select one or more values within a range.
 
 <CodeDemo title="Sizes" files={sliderContent.sizes} />
 
+### Radius
+
+<CodeDemo title="Radius" files={sliderContent.radius} />
+
 ### Colors
 
 <CodeDemo title="Sizes" files={sliderContent.colors} />
@@ -70,11 +74,11 @@ The `fillOffset` prop allows you to set where the fill should start.
 
 <CodeDemo title="Fill Offset" files={sliderContent.fillOffset} />
 
-### Width Tooltip
+### With Tooltip
 
 The `showTooltip` prop allows you to show a tooltip with the current thumb value when the user hovers or drags the thumb.
 
-<CodeDemo title="Width Tooltip" files={sliderContent.tooltip} />
+<CodeDemo title="With Tooltip" files={sliderContent.tooltip} />
 
 > **Note:** You can change any of the tooltip props by passing the `tooltipProps` to the `Slider` component.
 
@@ -101,15 +105,15 @@ and is applied based on the current locale.
 
 > **Note:** Use the `tooltipValueFormatOptions` prop to format the tooltip value.
 
-It is also possible to format the value using the `getOutputValue` prop.
+It is also possible to format the value using the `getValue` prop.
 
-<CodeDemo title="Value Formatting (Get output value)" files={sliderContent.getOutputValue} />
+<CodeDemo title="Value Formatting (Get value)" files={sliderContent.getValue} />
 
-### Hiding the Output
+### Hiding the Value
 
-The Slider output/value is shown by default, but can be hidden by passing the `hideOutput` prop.
+The Slider value is shown by default, but can be hidden by passing the `hideValue` prop.
 
-<CodeDemo title="Hiding the Output" files={sliderContent.hideOutput} />
+<CodeDemo title="Hiding the Value" files={sliderContent.hideValue} />
 
 ### Hiding the Thumbs
 
@@ -151,11 +155,11 @@ The Slider component provides a `renderLabel` prop that allows you to customize 
 
 <CodeDemo title="Custom Label" files={sliderContent.renderLabel} />
 
-### Custom Output
+### Custom Value
 
-The Slider component provides a `renderOutput` prop that allows you to customize the output element.
+The Slider component provides a `renderValue` prop that allows you to customize the value label element.
 
-<CodeDemo title="Custom Output" files={sliderContent.renderOutput} />
+<CodeDemo title="Custom Value" files={sliderContent.renderValue} />
 
 ### Disabling Thumb Scale
 
@@ -166,9 +170,9 @@ In case you want to disable the thumb scale animation, you can pass the `disable
 ## Slots
 
 - **base**: The foundational slot, encompassing all other slots and elements. It serves as the primary container.
-- **labelWrapper**: The container for the Slider's label and output. It aligns these elements and ensures a consistent layout.
+- **labelWrapper**: The container for the Slider's label and value. It aligns these elements and ensures a consistent layout.
 - **label**: A dedicated slot to display the Slider's label.
-- **output**: Displays the current value of the Slider. Located within the `labelWrapper`.
+- **value**: Displays the current value of the Slider. Located within the `labelWrapper`.
 - **step**: Represents individual steps or intervals on the Slider.
 - **mark**: Denotes specific values or intervals along the Slider.
 - **trackWrapper**: A container for the slider's track, ensuring it is consistently aligned and positioned.
@@ -236,15 +240,16 @@ You can customize the `Slider` component by passing custom Tailwind CSS classes 
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | label            | `ReactNode`                                                                                                                                                                       | The content to display as the label.                                                                                                                          | -            |
 | name             | `string`                                                                                                                                                                          | The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname). | -            |
-| size             | `sm` \| `md` \| `lg`                                                                                                                                                              | The size of the slider filler and thumb.                                                                                                                      | `md`         |
+| size             | `sm` \| `md` \| `lg`                                                                                                                                                              | The size of the Slider filler and thumb.                                                                                                                      | `md`         |
 | color            | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                                    | The color of the filler and thumb.                                                                                                                            | `primary`    |
-| step             | `number`                                                                                                                                                                          | The slider's step value.                                                                                                                                      | `1`          |
+| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                                          | The Slider's thumbs border radius.                                                                                                                              | `full`       |
+| step             | `number`                                                                                                                                                                          | The Slider's step value.                                                                                                                                      | `1`          |
 | value            | `number`                                                                                                                                                                          | The current value (controlled).                                                                                                                               | -            |
 | defaultValue     | `number`                                                                                                                                                                          | The default value (uncontrolled).                                                                                                                             | -            |
 | minValue         | `number`                                                                                                                                                                          | The slider's minimum value.                                                                                                                                   | `0`          |
 | maxValue         | `number`                                                                                                                                                                          | The slider's maximum value.                                                                                                                                   | `100`        |
-| orientation      | `horizontal` \| `vertical`                                                                                                                                                        | The orientation of the slider.                                                                                                                                | `horizontal` |
+| orientation      | `horizontal` \| `vertical`                                                                                                                                                        | The orientation of the Slider.                                                                                                                                | `horizontal` |
 | formatOptions    | [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)                                                           | The options to format the value.                                                                                                                              | -            |
 | isDisabled       | `boolean`                                                                                                                                                                         | Whether the whole Slider is disabled.                                                                                                                         | `false`      |
 | disableAnimation | `boolean`                                                                                                                                                                         | Whether to disable the Slider animations.                                                                                                                     | `false`      |
-| classNames       | `Record<"base"｜"labelWrapper"｜"label"｜ "output" ｜ "step" ｜ "mark" ｜ "trackWrapper" ｜ "track"｜ "output" ｜ "filler" ｜ "thumb" ｜ "startContent" ｜ "endContent", string>` | Allows to set custom class names for the Slider slots.                                                                                                        | -            |
+| classNames       | `Record<"base"｜"labelWrapper"｜"label"｜ "value" ｜ "step" ｜ "mark" ｜ "trackWrapper" ｜ "track"｜ "output" ｜ "filler" ｜ "thumb" ｜ "startContent" ｜ "endContent", string>` | Allows to set custom class names for the Slider slots.                                                                                                        | -            |

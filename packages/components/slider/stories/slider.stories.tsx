@@ -41,6 +41,16 @@ export default {
         type: "number",
       },
     },
+    radius: {
+      control: {type: "select"},
+      options: ["none", "sm", "md", "lg", "full"],
+    },
+    orientation: {
+      control: {
+        type: "select",
+      },
+      options: ["horizontal", "vertical"],
+    },
     showSteps: {
       control: {
         type: "boolean",
@@ -63,11 +73,25 @@ const defaultProps = {
   ...slider.defaultVariants,
 };
 
-const Template = (args: SliderProps) => (
+const VerticalTemplate = (args: SliderProps) => (
+  <div className="flex p-4 max-w-md h-[348px] items-center justify-start">
+    <Slider {...args} />
+  </div>
+);
+
+const HorizontalTemplate = (args: SliderProps) => (
   <div className="flex w-full h-full max-w-md items-center justify-start">
     <Slider {...args} />
   </div>
 );
+
+const Template = (args: SliderProps) => {
+  if (args.orientation === "vertical") {
+    return <VerticalTemplate {...args} />;
+  }
+
+  return <HorizontalTemplate {...args} />;
+};
 
 const CustomStylesTemplate = (args: SliderProps) => (
   <div className="flex items-center justify-center w-screen h-screen ">
@@ -78,7 +102,7 @@ const CustomStylesTemplate = (args: SliderProps) => (
           filler: ["bg-gradient-to-r from-primary-500 to-secondary-400"],
           labelWrapper: "mb-2",
           label: "font-medium text-default-700 text-medium",
-          output: "font-medium text-default-500 text-small",
+          value: "font-medium text-default-500 text-small",
           thumb: [
             "transition-size",
             "bg-gradient-to-r from-secondary-400 to-primary-500",
@@ -103,7 +127,7 @@ const CustomStylesTemplate = (args: SliderProps) => (
               "before:bg-gradient-to-r before:from-secondary-400 before:to-primary-500",
             ],
             content: [
-              "py-2 px-3 shadow-xl",
+              "py-2 shadow-xl",
               "text-white bg-gradient-to-r from-secondary-400 to-primary-500",
             ],
           },
@@ -113,7 +137,7 @@ const CustomStylesTemplate = (args: SliderProps) => (
   </div>
 );
 
-const CustomOutputTemplate = (args: SliderProps) => {
+const CustomValueTemplate = (args: SliderProps) => {
   const [value, setValue] = React.useState<SliderValue>(0.2);
   const [inputValue, setInputValue] = React.useState<string>("0.2");
 
@@ -131,14 +155,15 @@ const CustomOutputTemplate = (args: SliderProps) => {
           label: "text-medium",
         }}
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        renderOutput={({children, ...props}) => (
+        renderValue={({children, ...props}) => (
           <output {...props}>
             <Tooltip
-              className="px-2 text-tiny text-default-500 rounded-md"
+              className="text-tiny text-default-500 rounded-md"
               content="Press Enter to confirm"
-              placement="right"
+              placement="left"
             >
               <input
+                aria-label="Temperature"
                 className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
                 type="text"
                 value={inputValue}
@@ -163,12 +188,6 @@ const CustomOutputTemplate = (args: SliderProps) => {
     </div>
   );
 };
-
-const VerticalTemplate = (args: SliderProps) => (
-  <div className="flex max-w-md h-[448px] items-center justify-start">
-    <Slider {...args} />
-  </div>
-);
 
 const ControlledTemplate = (args: SliderProps) => {
   const [value, setValue] = React.useState<SliderValue>(25);
@@ -300,19 +319,19 @@ export const ThumbHidden = {
   },
 };
 
-export const CustomOutputValue = {
+export const CustomGetValue = {
   render: Template,
   args: {
     ...defaultProps,
     size: "sm",
     label: "Donuts to buy",
     maxValue: 60,
-    getOutputValue: (donuts) => `${donuts} of 60 Donuts`,
+    getValue: (donuts) => `${donuts} of 60 Donuts`,
   },
 };
 
-export const CustomRenderOutput = {
-  render: CustomOutputTemplate,
+export const CustomRenderValue = {
+  render: CustomValueTemplate,
   args: {
     ...defaultProps,
     size: "sm",
