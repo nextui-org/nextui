@@ -296,7 +296,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
-          class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
+          class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : "", "cursor-text"),
         }),
         onClick: (e: React.MouseEvent) => {
           if (e.target === e.currentTarget) {
@@ -305,7 +305,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         },
         ...mergeProps(props, hoverProps),
         style: {
-          cursor: "text",
           ...props.style,
         },
       };
