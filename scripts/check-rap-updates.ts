@@ -3,7 +3,7 @@ import glob from 'glob';
 import { resolve } from 'path';
 
 
-const shouldUpgrade = process.argv.includes('--upgrade');
+const shouldUpgrade = process.argv.includes('--upgrade') || process.argv.includes('-u');
 
 const checkForUpdates = async (path: string) => {
   const filePaths = glob.sync(resolve(path, '**/package.json'), {

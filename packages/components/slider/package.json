@@ -43,13 +43,13 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "^3.14.1",
-    "@react-aria/i18n": "^3.8.2",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/slider": "^3.7.0",
-    "@react-aria/utils": "^3.20.0",
-    "@react-aria/visually-hidden": "^3.8.4",
-    "@react-stately/slider": "^3.4.2"
+    "@react-aria/focus": "^3.14.2",
+    "@react-aria/i18n": "^3.8.3",
+    "@react-aria/interactions": "^3.19.0",
+    "@react-aria/slider": "^3.7.1",
+    "@react-aria/utils": "^3.21.0",
+    "@react-aria/visually-hidden": "^3.8.5",
+    "@react-stately/slider": "^3.4.3"
   },
   "devDependencies": {
     "@nextui-org/shared-icons": "workspace:*",

@@ -43,10 +43,10 @@
     "@nextui-org/use-is-mounted": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/i18n": "^3.8.2",
-    "@react-aria/progress": "^3.4.5",
-    "@react-aria/utils": "^3.20.0",
-    "@react-types/progress": "^3.4.3"
+    "@react-aria/i18n": "^3.8.3",
+    "@react-aria/progress": "^3.4.6",
+    "@react-aria/utils": "^3.21.0",
+    "@react-types/progress": "^3.5.0"
   },
   "devDependencies": {
     "@nextui-org/card": "workspace:*",

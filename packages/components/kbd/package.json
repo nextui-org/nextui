@@ -42,7 +42,7 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/utils": "^3.20.0"
+    "@react-aria/utils": "^3.21.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
