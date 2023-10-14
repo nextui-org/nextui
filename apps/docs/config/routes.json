@@ -25,6 +25,13 @@
           "path": "/docs/guide/design-principles.mdx"
         },
         {
+          "key": "routing",
+          "title": "Routing",
+          "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
+          "path": "/docs/guide/routing.mdx",
+          "newPost": true
+        },
+        {
           "key": "upgrade-to-v2",
           "title": "Upgrade to v2",
           "keywords": "upgrade, v2, nextui",
