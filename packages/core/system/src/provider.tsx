@@ -5,10 +5,6 @@ import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
 
-interface Router {
-  navigate: (path: string) => void;
-}
-
 export interface NextUIProviderProps extends Omit<ModalProviderProps, "children"> {
   children: React.ReactNode;
   /**
@@ -20,19 +16,19 @@ export interface NextUIProviderProps extends Omit<ModalProviderProps, "children"
    * Provides a client side router to all nested components such as
    * Link, Menu, Tabs, Table, etc.
    */
-  router?: Router;
+  navigate?: (path: string) => void;
 }
 
 export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   children,
   locale = "en-US",
-  router,
+  navigate,
   ...otherProps
 }) => {
   let contents = children;
 
-  if (router) {
-    contents = <RouterProvider {...router}>{contents}</RouterProvider>;
+  if (navigate) {
+    contents = <RouterProvider navigate={navigate}>{contents}</RouterProvider>;
   }
 
   return (
