@@ -114,7 +114,7 @@ const avatar = tv({
     isInGroup: {
       true: {
         base: [
-          "-ml-2 data-[hover=true]:-translate-x-3 transition-transform",
+          "-ms-2 data-[hover=true]:-translate-x-3 transition-transform",
           "data-[focus-visible=true]:-translate-x-3",
         ],
       },
@@ -197,7 +197,7 @@ const avatarGroup = tv({
 
 // calculated classNames
 // src/components/avatar/src/use-avatar-group.ts
-// -ml-2 hover:-translate-x-0 ml-0
+// -ms-2 hover:-translate-x-0 ms-0
 
 export type AvatarGroupVariantProps = VariantProps<typeof avatarGroup>;
 export type AvatarVariantProps = VariantProps<typeof avatar>;

@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {colorVariants, dataFocusVisibleClasses} from "../utils";
+import {collapseAdjacentVariantBorders, colorVariants, dataFocusVisibleClasses} from "../utils";
 
 /**
  * Button wrapper **Tailwind Variants** component
@@ -316,32 +316,67 @@ const button = tv({
       color: "danger",
       class: colorVariants.ghost.danger,
     },
-    // isInGroup / size
+    // isInGroup / radius
+    {
+      isInGroup: true,
+      class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
+    },
     {
       isInGroup: true,
       size: "sm",
-      class: "rounded-none first:rounded-l-small last:rounded-r-small",
+      class: "rounded-none first:rounded-s-small last:rounded-e-small",
     },
     {
       isInGroup: true,
       size: "md",
-      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
+      class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
     },
     {
       isInGroup: true,
       size: "lg",
-      class: "rounded-none first:rounded-l-large last:rounded-r-large",
+      class: "rounded-none first:rounded-s-large last:rounded-e-large",
     },
     {
       isInGroup: true,
       isRounded: true,
-      class: "rounded-none first:rounded-l-full last:rounded-r-full",
+      class: "rounded-none first:rounded-s-full last:rounded-e-full",
     },
     // isInGroup / bordered / ghost
     {
       isInGroup: true,
-      variant: ["bordered", "ghost"],
-      class: "[&:not(:first-child)]:ml-[calc(theme(borderWidth.medium)*-1)]",
+      variant: ["ghost", "bordered"],
+      color: "default",
+      className: collapseAdjacentVariantBorders.default,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "primary",
+      className: collapseAdjacentVariantBorders.primary,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "secondary",
+      className: collapseAdjacentVariantBorders.secondary,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "success",
+      className: collapseAdjacentVariantBorders.success,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "warning",
+      className: collapseAdjacentVariantBorders.warning,
+    },
+    {
+      isInGroup: true,
+      variant: ["ghost", "bordered"],
+      color: "danger",
+      className: collapseAdjacentVariantBorders.danger,
     },
     {
       isIconOnly: true,

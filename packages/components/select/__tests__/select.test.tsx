@@ -2,7 +2,7 @@ import * as React from "react";
 import {act, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import {Select, SelectItem, SelectSection} from "../src";
+import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
 
 type Item = {
   label: string;
@@ -213,5 +213,67 @@ describe("Select", () => {
 
       expect(onSelectionChange).toBeCalledTimes(2);
     });
+  });
+
+  it("should work with dynamic placeholder and renderValue", async () => {
+    const SelectWrapper = (props: {
+      placeholder?: SelectProps["placeholder"];
+      renderValue?: SelectProps["renderValue"];
+    }) => {
+      const {placeholder, renderValue} = props;
+
+      return (
+        <Select
+          aria-label="Favorite Animal"
+          data-testid="render-selected-item-test"
+          label="Favorite Animal"
+          placeholder={placeholder}
+          renderValue={renderValue}
+        >
+          <SelectItem key="penguin" value="penguin">
+            Penguin
+          </SelectItem>
+          <SelectItem key="zebra" value="zebra">
+            Zebra
+          </SelectItem>
+          <SelectItem key="shark" value="shark">
+            Shark
+          </SelectItem>
+        </Select>
+      );
+    };
+
+    const wrapper = render(<SelectWrapper placeholder="Select an animal" />);
+
+    expect(wrapper.getByText("Select an animal")).toBeInTheDocument();
+
+    wrapper.rerender(<SelectWrapper placeholder="Select an favorite animal" />);
+
+    expect(wrapper.getByText("Select an favorite animal")).toBeInTheDocument();
+
+    const select = wrapper.getByTestId("render-selected-item-test");
+
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    await act(async () => {
+      await userEvent.click(listboxItems[0]);
+    });
+
+    expect(select).toHaveTextContent("Penguin");
+    expect(wrapper.queryByText("Select an favorite animal")).toBe(null);
+
+    wrapper.rerender(
+      <SelectWrapper
+        placeholder="Select an favorite animal"
+        renderValue={(item) => `next ${item[0].textValue}`}
+      />,
+    );
+
+    expect(wrapper.getByText("next Penguin")).toBeInTheDocument();
+    expect(wrapper.queryByText("Select an favorite animal")).toBe(null);
   });
 });

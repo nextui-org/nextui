@@ -42,7 +42,7 @@
     "@nextui-org/react-rsc-utils": "workspace:*",
     "@nextui-org/system-rsc": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-types/shared": "^3.20.0"
+    "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

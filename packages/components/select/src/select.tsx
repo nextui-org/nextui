@@ -90,7 +90,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     }
 
     return state.selectedItems.map((item) => item.textValue).join(", ");
-  }, [state.selectedItems, renderValue]);
+  }, [state.selectedItems, renderValue, placeholder]);
 
   const renderIndicator = useMemo(() => {
     if (isLoading) {

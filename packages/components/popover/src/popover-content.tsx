@@ -21,21 +21,20 @@ export interface PopoverContentProps
 }
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
-  const {as, children, ...otherProps} = props;
+  const {as, children, className, ...otherProps} = props;
 
   const {
     Component: OverlayComponent,
     isOpen,
     placement,
-    showArrow,
     motionProps,
     backdrop,
     disableAnimation,
     shouldBlockScroll,
     getPopoverProps,
-    getArrowProps,
     getDialogProps,
     getBackdropProps,
+    getContentProps,
     isNonModal,
     onClose,
   } = usePopoverContext();
@@ -48,19 +47,14 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   // Not needed in the popover context, the popover role comes from getPopoverProps
   delete dialogProps.role;
 
-  const arrowContent = useMemo(() => {
-    if (!showArrow) return null;
-
-    return <span {...getArrowProps()} />;
-  }, [showArrow, getArrowProps]);
-
   const content = (
     <>
       {!isNonModal && <DismissButton onDismiss={onClose} />}
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
-        {typeof children === "function" ? children(titleProps) : children}
+        <div {...getContentProps({className})}>
+          {typeof children === "function" ? children(titleProps) : children}
+        </div>
       </Component>
-      {arrowContent}
       <DismissButton onDismiss={onClose} />
     </>
   );

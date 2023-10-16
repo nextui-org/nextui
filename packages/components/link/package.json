@@ -44,10 +44,10 @@
     "@nextui-org/use-aria-link": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/link": "^3.5.4",
-    "@react-aria/utils": "^3.20.0",
-    "@react-aria/focus": "^3.14.1",
-    "@react-types/link": "^3.4.5"
+    "@react-aria/link": "^3.6.0",
+    "@react-aria/utils": "^3.21.0",
+    "@react-aria/focus": "^3.14.2",
+    "@react-types/link": "^3.5.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

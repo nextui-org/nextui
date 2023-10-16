@@ -50,7 +50,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || "li";
+  const Component = as || otherProps?.href ? "a" : "li";
   const shouldFilterDOMProps = typeof Component === "string";
 
   const {rendered, key} = item;

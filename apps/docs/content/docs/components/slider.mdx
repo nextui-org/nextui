@@ -1,0 +1,300 @@
+---
+title: "Slider"
+description: "A slider allows a user to select one or more values within a range."
+---
+
+import {sliderContent} from "@/content/components/slider";
+
+# Slider
+
+A slider allows a user to select one or more values within a range.
+
+<ComponentLinks component="slider" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Slider} from "@nextui-org/react";',
+    individual: 'import {Slider} from "@nextui-org/slider";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={sliderContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={sliderContent.disabled} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={sliderContent.sizes} />
+
+### Radius
+
+<CodeDemo title="Radius" files={sliderContent.radius} />
+
+### Colors
+
+<CodeDemo title="Sizes" files={sliderContent.colors} />
+
+### Vertical Slider
+
+It is possible to change the orientation of the slider by using the `orientation="vertical"` prop.
+
+<CodeDemo title="With Steps Markers" files={sliderContent.vertical} />
+
+### With Visible Steps
+
+You can use the `showSteps` prop to display small dots on each step.
+
+<CodeDemo title="With Visible Steps" files={sliderContent.visibleSteps} />
+
+### With Marks
+
+You can use the `marks` prop to display a label on each step.
+
+<CodeDemo title="With Marks" files={sliderContent.marks} />
+
+### Range Slider
+
+If you pass an array of values to the `value` prop or to the `defaultValue` prop, the slider will become a range slider.
+
+<CodeDemo title="Range Slider" files={sliderContent.range} />
+
+### Fill Offset
+
+The `fillOffset` prop allows you to set where the fill should start.
+
+<CodeDemo title="Fill Offset" files={sliderContent.fillOffset} />
+
+### With Tooltip
+
+The `showTooltip` prop allows you to show a tooltip with the current thumb value when the user hovers or drags the thumb.
+
+<CodeDemo title="With Tooltip" files={sliderContent.tooltip} />
+
+> **Note:** You can change any of the tooltip props by passing the `tooltipProps` to the `Slider` component.
+
+### With Outline
+
+It is possible to add a small outline to the slider's thumbs by passing the `showOutline` prop.
+
+<CodeDemo title="With Outline" files={sliderContent.outline} />
+
+### Start & End Content
+
+Slider component provides `startContent` and `endContent` props that allows you to add any `ReactNode` to the start and end of the slider.
+
+<CodeDemo title="Start & End Content" files={sliderContent.startEndContent} />
+
+### Value Formatting
+
+Values are formatted as a percentage by default, but this can be modified by using the
+`formatOptions` prop to specify a different format. `formatOptions` is compatible with
+the option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+and is applied based on the current locale.
+
+<CodeDemo title="Value Formatting" files={sliderContent.valueFormatting} />
+
+> **Note:** Use the `tooltipValueFormatOptions` prop to format the tooltip value.
+
+It is also possible to format the value using the `getValue` prop.
+
+<CodeDemo title="Value Formatting (Get value)" files={sliderContent.getValue} />
+
+### Hiding the Value
+
+The Slider value is shown by default, but can be hidden by passing the `hideValue` prop.
+
+<CodeDemo title="Hiding the Value" files={sliderContent.hideValue} />
+
+### Hiding the Thumbs
+
+The Slider thumbs are shown by default, but can be hidden by passing the `hideThumb` prop.
+
+<CodeDemo title="Hiding the Thumbs" files={sliderContent.hideThumb} />
+
+### Controlled
+
+You can control the slider by passing the `value` and `onChange` props.
+
+<CodeDemo title="Controlled" files={sliderContent.controlled} />
+
+If you want to capture the slider value only when the user stops dragging the thumb, you can use the `onChangeEnd` prop.
+
+<CodeDemo title="Controlled Change End" files={sliderContent.controlledChangeEnd} />
+
+### Controlled Range
+
+You can also control the range slider by using an array of values in the `value` and `onChange` props.
+
+<CodeDemo title="Controlled Range" files={sliderContent.controlledRange} />
+
+### Custom Thumb
+
+The Slider component provides a `renderThumb` prop that allows you to customize the thumb in any way you want.
+
+<CodeDemo title="Custom Thumb" files={sliderContent.renderThumb} />
+
+### Custom Range Thumbs
+
+You can also use the `renderThumb` prop to customize the thumbs of a range slider. The `index` prop will tell you which thumb is being rendered.
+
+<CodeDemo title="Custom Range Thumbs" files={sliderContent.renderRangeThumb} />
+
+### Custom Label
+
+The Slider component provides a `renderLabel` prop that allows you to customize the label in any way you want.
+
+<CodeDemo title="Custom Label" files={sliderContent.renderLabel} />
+
+### Custom Value
+
+The Slider component provides a `renderValue` prop that allows you to customize the value label element.
+
+<CodeDemo title="Custom Value" files={sliderContent.renderValue} />
+
+### Disabling Thumb Scale
+
+In case you want to disable the thumb scale animation, you can pass the `disableThumbScale` prop.
+
+<CodeDemo title="Disabling Thumb Scale" files={sliderContent.disableThumbScale} />
+
+## Slots
+
+- **base**: The foundational slot, encompassing all other slots and elements. It serves as the primary container.
+- **labelWrapper**: The container for the Slider's label and value. It aligns these elements and ensures a consistent layout.
+- **label**: A dedicated slot to display the Slider's label.
+- **value**: Displays the current value of the Slider. Located within the `labelWrapper`.
+- **step**: Represents individual steps or intervals on the Slider.
+- **mark**: Denotes specific values or intervals along the Slider.
+- **trackWrapper**: A container for the slider's track, ensuring it is consistently aligned and positioned.
+- **track**: The base bar of the Slider, along which the thumb moves.
+- **filler**: A visual representation of the selected value, filling the track from the start point to the current thumb position.
+- **thumb**: The interactive element that users drag along the track to select a value on the Slider.
+- **startContent**: A slot for additional content or icons at the beginning of the Slider.
+- **endContent**: A slot for additional content or icons at the end of the Slider.
+
+### Custom Styles
+
+You can customize the `Slider` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={sliderContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Slider` has the following attributes:
+
+- **data-hover**:
+  When the slider is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-orientation**:
+  The orientation of the slider. Based on `orientation` prop.
+
+`Thumbs` have the following attributes which are returned by the `renderThumb` prop:
+
+- **data-dragging**:
+  When the thumb is being dragged.
+- **data-focus-visible**:
+  When the thumb is focused. Based on [useFocusVisible](https://react-spectrum.adobe.com/react-aria/useFocusVisible.html)
+- **data-hover**:
+  When the thumb is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-pressed**:
+  When the thumb is being pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Support for one or multiple thumbs.
+- Support for mouse, touch, and keyboard via the [useMove](https://react-spectrum.adobe.com/react-aria/useMove.html) hook.
+- Multi-touch support for dragging multiple thumbs or multiple sliders at once.
+- Pressing on the track moves the nearest thumb to that position.
+- Supports using the arrow keys, as well as page up/down, home, and end keys.
+- Support for both horizontal and vertical orientations.
+- Support for custom min, max, and step values with handling for rounding errors.
+- Support for disabling the whole slider or individual thumbs.
+- Prevents text selection while dragging.
+- Exposed to assistive technology as a group of slider elements via ARIA.
+- Slider thumbs use hidden native input elements to support touch screen readers.
+- Support for labeling both the slider as a whole and individual thumbs.
+- Support for displaying the current thumb values using an `<output>` element.
+- Internationalized number formatting as a percentage or value.
+- Support for mirroring in RTL locales.
+
+<Spacer y={4} />
+
+## API
+
+### Slider Props
+
+| Attribute                 | Type                                                                                                                                                                             | Description                                                                                                                                                   | Default      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| label                     | `ReactNode`                                                                                                                                                                      | The content to display as the label.                                                                                                                          | -            |
+| name                      | `string`                                                                                                                                                                         | The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname). | -            |
+| size                      | `sm` \| `md` \| `lg`                                                                                                                                                             | The size of the Slider filler and thumb.                                                                                                                      | `md`         |
+| color                     | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                                   | The color of the filler and thumb.                                                                                                                            | `primary`    |
+| radius                    | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                                         | The Slider's thumbs border radius.                                                                                                                            | `full`       |
+| step                      | `number`                                                                                                                                                                         | The Slider's step value.                                                                                                                                      | `1`          |
+| value                     | `number`                                                                                                                                                                         | The current value (controlled).                                                                                                                               | -            |
+| defaultValue              | `number`                                                                                                                                                                         | The default value (uncontrolled).                                                                                                                             | -            |
+| minValue                  | `number`                                                                                                                                                                         | The slider's minimum value.                                                                                                                                   | `0`          |
+| maxValue                  | `number`                                                                                                                                                                         | The slider's maximum value.                                                                                                                                   | `100`        |
+| orientation               | `horizontal` \| `vertical`                                                                                                                                                       | The orientation of the Slider.                                                                                                                                | `horizontal` |
+| fillOffset                | `number`                                                                                                                                                                         | The offset from which to start the fill.                                                                                                                      | -            |
+| showSteps                 | `boolean`                                                                                                                                                                        | Whether to show the steps indicators.                                                                                                                         | `false`      |
+| showTooltip               | `boolean`                                                                                                                                                                        | Whether to show a tooltip with the current thumb value when the user hovers or drags the thumb.                                                               | `false`      |
+| marks                     | [SliderStepMarks](#slider-step-marks)                                                                                                                                            | The marks to display on the Slider's steps.                                                                                                                   | -            |
+| startContent              | `ReactNode`                                                                                                                                                                      | The content to display at the beginning of the Slider.                                                                                                        | -            |
+| endContent                | `ReactNode`                                                                                                                                                                      | The content to display at the end of the Slider.                                                                                                              | -            |
+| formatOptions             | [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)                                                          | The options to format the value.                                                                                                                              | -            |
+| tooltipValueFormatOptions | [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)                                                          | The options to format the tooltip value. By default, it uses the same options as `formatOptions`.                                                             | -            |
+| tooltipProps              | [TooltipProps](/docs/components/tooltip)                                                                                                                                         | The props to pass to the thumbs's tooltip.                                                                                                                    | -            |
+| showOutline               | `boolean`                                                                                                                                                                        | Whether to show a small outline around the thumbs.                                                                                                            | `false`      |
+| hideValue                 | `boolean`                                                                                                                                                                        | Whether to hide the Slider value.                                                                                                                             | `false`      |
+| hideThumb                 | `boolean`                                                                                                                                                                        | Whether to hide all the Slider thumbs.                                                                                                                        | `false`      |
+| disableThumbScale         | `boolean`                                                                                                                                                                        | Whether to disable the thumb scale animation.                                                                                                                 | `false`      |
+| isDisabled                | `boolean`                                                                                                                                                                        | Whether the whole Slider is disabled.                                                                                                                         | `false`      |
+| disableAnimation          | `boolean`                                                                                                                                                                        | Whether to disable the Slider animations.                                                                                                                     | `false`      |
+| classNames                | `Record<"base"｜"labelWrapper"｜"label"｜ "value" ｜ "step" ｜ "mark" ｜ "trackWrapper" ｜ "track"｜ "output" ｜ "filler" ｜ "thumb" ｜ "startContent" ｜ "endContent", string>` | Allows to set custom class names for the Slider slots.                                                                                                        | -            |
+
+### Slider Functions
+
+| Name        | Type                                                                     | Description                                                                                    |
+| ----------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| getValue    | `(value: SliderValue) => string`                                         | A function to format the value. Overrides default formatted number.                            |
+| renderLabel | `(props: DOMAttributes<HTMLLabelElement>) => ReactNode`                  | A function to render the label.                                                                |
+| renderValue | `(props: DOMAttributes<HTMLOutputElement>) => ReactNode`                 | A function to render the value.                                                                |
+| renderThumb | `(props: DOMAttributes<HTMLDivElement> & {index?: number}) => ReactNode` | A function to render the thumbs. The `index` prop will tell you which thumb is being rendered. |
+
+### Slider Events
+
+| Name        | Type                           | Description                                                                  |
+| ----------- | ------------------------------ | ---------------------------------------------------------------------------- |
+| onChange    | `(value: SliderValue) => void` | Callback fired when the value changes.                                       |
+| onChangeEnd | `(value: SliderValue) => void` | Callback fired when the value changes and the user stops dragging the thumb. |
+
+### Types
+
+#### Slider Value
+
+```ts
+export type SliderValue = number | number[];
+```
+
+#### Slider Step Marks
+
+```ts
+export type SliderStepMarks = {
+  value: number;
+  label: string;
+}[];
+```

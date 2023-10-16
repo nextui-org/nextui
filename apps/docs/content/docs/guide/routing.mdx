@@ -1,0 +1,239 @@
+---
+title: Routing
+description: Learn how to integrate client side routing into your NextUI application.
+---
+
+# Routing
+
+NextUI Components such as [Tabs](/docs/components/tabs), [Listbox](/docs/components/listbox), [Dropdown](/docs/components/dropdown) and many others offer
+the flexibility to be rendered as HTML links. Explore this page to learn how to integrate them with client side routing.
+
+## Introduction
+
+By default, links perform native browser navigation when they are interacted with. However, many apps and
+frameworks use client side routers to avoid a full page reload when navigating between pages. The `NextUIProvider`
+component configures all NextUI components within it to navigate using the client side router you provide.
+
+Set this up once in the root of your app, and any NextUI component with the href prop will automatically navigate
+using your router.
+
+### NextUIProvider Setup
+
+The `NextUIProvider` accepts a prop called `navigate`. This should be set to a function received from your
+router for performing a client side navigation programmatically. The following example shows the general
+pattern. Framework-specific examples are shown below.
+
+```jsx
+import * as React from "react";
+
+// 1. import `NextUIProvider` component
+import {NextUIProvider} from "@nextui-org/react";
+
+function App() {
+  const navigate = useNavigateFromYourRouter();
+
+  // 2. Add the `navigate` function to the `NextUIProvider`
+  return (
+    <NextUIProvider navigate={navigate}>
+      <YourApplication />
+    </NextUIProvider>
+  );
+}
+```
+
+<Spacer y={2} />
+
+### Next.js 
+
+#### App Router
+
+Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and add the
+`useRouter` hook from `next/navigation`, it returns a router object that can be used to perform navigation.
+
+<Steps>
+
+#### Add the `useRouter`
+
+```tsx {10}
+// app/providers.tsx
+'use client'
+
+import {NextUIProvider} from '@nextui-org/react';
+
+export function Providers({children}: { children: React.ReactNode }) {
+  const router = useRouter();
+
+  return (
+    <NextUIProvider navigate={router.push}>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+#### Add Provider to Root
+
+Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
+
+```tsx {6,8,10}
+// app/layout.tsx
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+> **Note**: Skip this step if you already set up the `NextUIProvider` in your app.
+
+</Steps>
+
+#### Pages Router
+
+Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the`useRouter` hook 
+from `next/router`, it returns a router object that can be used to perform navigation.
+
+
+```tsx
+// pages/_app.tsx
+import type { AppProps } from 'next/app';
+import {useRouter} from 'next/router';
+import {NextUIProvider} from '@nextui-org/react';
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  return (
+    <NextUIProvider navigate={router.push}>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp;
+```
+
+### React Router
+
+The `useNavigate` hook from `react-router-dom` returns a `navigate` function that can be used to perform navigation.
+
+Go to the `App` file commonly called `App.jsx` or `App.tsx`, add the `useNavigate` hook and pass the 
+`navigate` function to the `NextUIProvider`:
+
+```jsx {9}
+// App.tsx or App.jsx
+import {BrowserRouter, useNavigate} from 'react-router-dom';
+import {NextUIProvider} from '@nextui-org/react';
+
+function App() {
+  const navigate = useNavigate();
+
+  return (
+    <NextUIProvider navigate={navigate}>
+      {/* Your app here... */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {/* ... */}
+      </Routes>
+    </NextUIProvider>
+  );
+}
+
+
+// main.tsx or main.jsx
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+)
+```
+
+Ensure that the component that calls `useNavigate` and renders `NextUIProvider` is inside the router 
+component (e.g. `BrowserRouter`) so that it has access to React Router's internal context. The React Router `<Routes>` 
+element should also be defined inside `NextUIProvider` so that links inside the rendered routes have access
+to the router.
+
+
+### Remix
+
+Remix uses React Router under the hood, so the same `useNavigate` hook described above also works in Remix 
+apps. `NextUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in 
+`app/root.tsx` to add it to all pages. See the [Remix docs](https://remix.run/docs/en/main/file-conventions/root) 
+for more details.
+
+```jsx {14}
+// app/root.tsx
+import {useNavigate, Outlet} from '@remix-run/react';
+import {NextUIProvider} from '@nextui-org/react';
+
+export default function App() {
+  const navigate = useNavigate();
+
+  return (
+    <html lang="en">
+      <head>
+        {/* ... */}
+      </head>
+      <body>
+        <NextUIProvider navigate={navigate}>
+          <Outlet />
+        </NextUIProvider>
+        {/* ... */}
+      </body>
+    </html>
+  );
+}
+```
+
+
+### Usage examples
+
+Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`, 
+`Listbox` and `Dropdown` items to navigate between pages.
+
+The [Link](/docs/components/link) component will also use the `navigate` function from the
+`NextUIProvider` to navigate between pages.
+
+
+```jsx
+import {
+  Tabs,
+  Tab,
+  Listbox,
+  ListboxItem,
+  Dropdown,
+  DropdownItem,
+  Link,
+} from "@nextui-org/react";
+
+function App() {
+  return (
+    <>
+      <Tabs aria-label="Navigation">
+        <Tab key="home" href="/home">Home</Tab>
+        <Tab key="about" href="/about">About</Tab>
+      </Tabs>
+      <Listbox aria-label="Navigation">
+        <ListboxItem key="home" href="/home">Home</ListboxItem>
+        <ListboxItem key="about" href="/about">About</ListboxItem>
+      </Listbox>
+      <Dropdown aria-label="Navigation">
+        <DropdownItem key="home" href="/home">Home</DropdownItem>
+        <DropdownItem key="about" href="/about">About</DropdownItem>
+      </Dropdown>
+      <Link href="/home">Home</Link>
+      <Link href="/about">About</Link>
+    </>
+  );
+}
+```

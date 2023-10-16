@@ -1,6 +1,7 @@
 import type {GridNode} from "@react-types/grid";
+import type {TableRowProps as BaseTableRowProps} from "./base/table-row";
 
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableRow} from "@react-aria/table";
@@ -12,7 +13,7 @@ import {useMemo} from "react";
 import {ValuesType} from "./use-table";
 
 // @internal
-export interface TableRowProps<T = object> extends HTMLNextUIProps<"tr"> {
+export interface TableRowProps<T = object> extends Omit<BaseTableRowProps, "children"> {
   /**
    * The table row.
    */
@@ -27,7 +28,7 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
   const {as, className, children, node, slots, state, isSelectable, classNames, ...otherProps} =
     props;
 
-  const Component = as || "tr";
+  const Component = as || props?.href ? "a" : "tr";
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);

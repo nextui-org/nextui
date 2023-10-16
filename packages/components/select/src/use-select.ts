@@ -435,9 +435,11 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         ref: popoverRef,
         scrollRef: listboxRef,
         triggerType: "listbox",
-        className: slots.popover({
-          class: clsx(classNames?.popover, props.className),
-        }),
+        classNames: {
+          content: slots.popoverContent({
+            class: clsx(classNames?.popoverContent, props.className),
+          }),
+        },
         ...mergeProps(userPopoverProps, props),
         offset:
           state.selectedItems && state.selectedItems.length > 0
@@ -446,7 +448,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             : userPopoverProps?.offset,
       } as PopoverProps;
     },
-    [slots, classNames?.popover, userPopoverProps, triggerRef, state, state.selectedItems],
+    [slots, classNames?.popoverContent, userPopoverProps, triggerRef, state, state.selectedItems],
   );
 
   const getSelectorIconProps = useCallback(
