@@ -9,7 +9,7 @@ const AcmeLogo = `export const AcmeLogo = () => (
   </svg>
 );`;
 
-const App = `import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+const App = `import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 import {AcmeLogo} from "./AcmeLogo.jsx";
 
 export default function App() {
