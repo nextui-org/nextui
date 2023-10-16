@@ -22,6 +22,12 @@ interface Props extends HTMLNextUIProps<"span", "content"> {
    */
   content?: string | number | ReactNode;
   /**
+   * Whether to disable the outline around the badge.
+   * @deprecated use `showOutline` instead
+   * @default false
+   */
+  disableOutline?: boolean;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -58,6 +64,9 @@ export function useBadge(originalProps: UseBadgeProps) {
     () =>
       badge({
         ...variantProps,
+        showOutline: !!originalProps?.disableOutline
+          ? !originalProps?.disableOutline
+          : originalProps?.showOutline,
         isOneChar,
         isDot,
       }),

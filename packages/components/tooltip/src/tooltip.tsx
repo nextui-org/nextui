@@ -1,4 +1,3 @@
-import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, motion} from "framer-motion";
@@ -6,6 +5,7 @@ import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {warn} from "@nextui-org/shared-utils";
 import {Children, cloneElement} from "react";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
+import {mergeProps} from "@react-aria/utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
@@ -21,18 +21,15 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     placement,
     disableAnimation,
     motionProps,
-    showArrow,
     getTriggerProps,
     getTooltipProps,
-    getArrowProps,
+    getTooltipContentProps,
   } = useTooltip({
     ...props,
     ref,
   });
 
   let trigger: React.ReactElement;
-
-  const {className, ...otherTooltipProps} = getTooltipProps();
 
   try {
     /**
@@ -48,40 +45,32 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     warn("Tooltip must have only one child node. Please, check your code.");
   }
 
-  const arrowContent = useMemo(() => {
-    if (!showArrow) return null;
+  const {ref: tooltipRef, id, style, ...otherTooltipProps} = getTooltipProps();
 
-    return <span {...getArrowProps()} />;
-  }, [showArrow, getArrowProps]);
-
-  const animatedContent = useMemo(() => {
-    return (
-      <div {...otherTooltipProps}>
-        <motion.div
-          animate="enter"
-          exit="exit"
-          initial="exit"
-          style={{
-            ...getTransformOrigins(placement),
-          }}
-          variants={TRANSITION_VARIANTS.scaleSpring}
-          {...motionProps}
-        >
-          <Component className={className}>{content}</Component>
-          {arrowContent}
-        </motion.div>
-      </div>
-    );
-  }, [otherTooltipProps, className, placement, motionProps, Component, content, arrowContent]);
+  const animatedContent = (
+    <div ref={tooltipRef} id={id} style={style}>
+      <motion.div
+        animate="enter"
+        exit="exit"
+        initial="exit"
+        variants={TRANSITION_VARIANTS.scaleSpring}
+        {...mergeProps(motionProps, otherTooltipProps)}
+        style={{
+          ...getTransformOrigins(placement),
+        }}
+      >
+        <Component {...getTooltipContentProps()}>{content}</Component>
+      </motion.div>
+    </div>
+  );
 
   return (
     <>
       {trigger}
       {disableAnimation && isOpen ? (
         <OverlayContainer portalContainer={portalContainer}>
-          <div {...otherTooltipProps}>
-            <Component className={className}>{content}</Component>
-            {arrowContent}
+          <div ref={tooltipRef} id={id} style={style} {...otherTooltipProps}>
+            <Component {...getTooltipContentProps()}>{content}</Component>
           </div>
         </OverlayContainer>
       ) : (

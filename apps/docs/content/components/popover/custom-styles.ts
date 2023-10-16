@@ -7,8 +7,15 @@ export default function App() {
       backdrop="opaque"
       placement="right"
       classNames={{
-        base: "py-3 px-4 border border-default-200 bg-gradient-to-br from-white to-default-300 dark:from-default-100 dark:to-default-50",
-        arrow: "bg-default-200",
+        base: [  
+          // arrow color
+          "before:bg-default-200"
+        ],
+        content: [
+          "py-3 px-4 border border-default-200",
+          "bg-gradient-to-br from-white to-default-300",
+          "dark:from-default-100 dark:to-default-50",
+        ],
       }}
     >
       <PopoverTrigger>

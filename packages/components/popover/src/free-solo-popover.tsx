@@ -62,7 +62,6 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => 
     children,
     placement,
     backdrop,
-    showArrow,
     portalContainer,
     disableAnimation,
     motionProps,
@@ -70,19 +69,13 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => 
     getPopoverProps,
     getBackdropProps,
     getDialogProps,
-    getArrowProps,
+    getContentProps,
   } = usePopover({
     ...props,
     // avoid closing the popover when navigating with the keyboard
     shouldCloseOnInteractOutside: undefined,
     ref,
   });
-
-  const arrowContent = React.useMemo(() => {
-    if (!showArrow) return null;
-
-    return <span {...getArrowProps()} />;
-  }, [showArrow, getArrowProps]);
 
   const backdropContent = React.useMemo(() => {
     if (backdrop === "transparent") {
@@ -116,8 +109,7 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => 
           {...getDialogProps()}
         >
           {!isNonModal && <DismissButton onDismiss={state.close} />}
-          {children}
-          {arrowContent}
+          <div {...getContentProps()}>{children}</div>
           <DismissButton onDismiss={state.close} />
         </FreeSoloPopoverWrapper>
       </Component>

@@ -47,6 +47,11 @@ export default {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
+  ".transition-size": {
+    "transition-property": "width, height",
+    "transition-timing-function": "ease",
+    "transition-duration": DEFAULT_TRANSITION_DURATION,
+  },
   ".transition-left": {
     "transition-property": "left",
     "transition-timing-function": "ease",

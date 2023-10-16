@@ -55,9 +55,9 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * ```ts
    * <Popover classNames={{
    *    base:"base-classes",
+   *    content: "content-classes",
    *    trigger: "trigger-classes",
    *    backdrop: "backdrop-classes",
-   *    arrow: "arrow-classes",
    * }} />
    * ```
    */
@@ -133,7 +133,6 @@ export function usePopover(originalProps: UsePopoverProps) {
   const {
     popoverProps,
     underlayProps,
-    arrowProps,
     placement: ariaPlacement,
   } = useReactAriaPopover(
     {
@@ -175,17 +174,30 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
+    "data-slot": "base",
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
+    "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
     "data-placement": getArrowPlacement(ariaPlacement, placementProp),
     ...mergeProps(focusProps, props),
-    className: slots.base({class: clsx(baseStyles, props.className)}),
+    className: slots.base({class: clsx(baseStyles)}),
     style: {
       // this prevent the dialog to have a default outline
       outline: "none",
     },
   });
+
+  const getContentProps = useCallback<PropGetter>(
+    (props = {}) => ({
+      "data-slot": "content",
+      "data-open": dataAttr(isOpen),
+      "data-arrow": dataAttr(showArrow),
+      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
+      className: slots.content({class: clsx(classNames?.content, props.className)}),
+    }),
+    [slots, isOpen, showArrow, ariaPlacement, placementProp, classNames],
+  );
 
   const placement = useMemo(
     () => (getShouldUseAxisPlacement(ariaPlacement, placementProp) ? ariaPlacement : placementProp),
@@ -195,6 +207,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
+        "data-slot": "trigger",
         "aria-haspopup": "dialog",
         ...mergeProps(triggerProps, props),
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
@@ -206,21 +219,13 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
+      "data-slot": "backdrop",
       className: slots.backdrop({class: classNames?.backdrop}),
       onClick: () => state.close(),
       ...underlayProps,
       ...props,
     }),
     [slots, classNames, underlayProps],
-  );
-
-  const getArrowProps = useCallback<PropGetter>(
-    () => ({
-      className: slots.arrow({class: classNames?.arrow}),
-      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-      ...arrowProps,
-    }),
-    [arrowProps, ariaPlacement, placementProp, slots, classNames],
   );
 
   useEffect(() => {
@@ -249,8 +254,8 @@ export function usePopover(originalProps: UsePopoverProps) {
     getBackdropProps,
     getPopoverProps,
     getTriggerProps,
-    getArrowProps,
     getDialogProps,
+    getContentProps,
   };
 }
 

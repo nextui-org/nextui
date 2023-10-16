@@ -7,8 +7,14 @@ export default function App() {
       placement="right"
       content="I am a tooltip"
       classNames={{
-        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-neutral-400",
-        arrow: "bg-neutral-400 dark:bg-white",
+        base: [
+          // arrow color
+          "before:bg-neutral-400 dark:before:bg-white",
+        ],
+        content: [
+          "py-2 px-4 shadow-xl",
+          "text-black bg-gradient-to-br from-white to-neutral-400",
+        ],
       }}
     >
       <Button variant="flat">Hover me</Button>
