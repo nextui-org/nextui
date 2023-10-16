@@ -47,7 +47,7 @@ export default function App() {
           </SelectItem>
         ))}
       </Select>
-      <Button onPress={() => setIsOpen(!isOpen)}>
+      <Button aria-label="Open" aria-pressed={isOpen} onPress={() => setIsOpen(!isOpen)}>
         {isOpen ? "Close" : "Open"}
       </Button>
     </div>

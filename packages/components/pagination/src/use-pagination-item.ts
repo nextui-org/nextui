@@ -1,16 +1,17 @@
-import type {Ref} from "react";
+import type {Ref, MouseEvent} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import type {PressEvent} from "@react-types/shared";
+import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
-import {PaginationItemType} from "@nextui-org/use-pagination";
+import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+// @ts-ignore - react-aria issue: https://github.com/adobe/react-spectrum/issues/5194
 import {chain, mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {useHover, usePress} from "@react-aria/interactions";
+import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
+import {PressEvents, useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
-export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onClick"> {
+interface Props extends Omit<HTMLNextUIProps<"li">, "onClick">, PressEvents {
   /**
    * Ref to the DOM node.
    */
@@ -18,7 +19,7 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
   /**
    * Value of the item.
    */
-  value?: PaginationItemType;
+  value?: PaginationItemValue;
   /**
    * Whether the item is active.
    * @default false
@@ -34,18 +35,19 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
    * @param e MouseEvent
    * @deprecated Use `onPress` instead.
    */
-  onClick?: HTMLNextUIProps<"li">["onClick"];
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
   /**
    * Callback fired when the item is clicked.
    * @param e PressEvent
    */
   onPress?: (e: PressEvent) => void;
-
   /**
    * Function to get the aria-label of the item.
    */
-  getAriaLabel?: (page?: string) => string | undefined;
+  getAriaLabel?: (page?: PaginationItemValue) => string | undefined;
 }
+
+export type UsePaginationItemProps = Props & LinkDOMProps;
 
 export function usePaginationItem(props: UsePaginationItemProps) {
   const {
@@ -56,6 +58,8 @@ export function usePaginationItem(props: UsePaginationItemProps) {
     isActive,
     isDisabled,
     onPress,
+    onPressStart,
+    onPressEnd,
     onClick,
     getAriaLabel,
     className,
@@ -63,6 +67,7 @@ export function usePaginationItem(props: UsePaginationItemProps) {
   } = props;
 
   const Component = as || "li";
+  const shouldFilterDOMProps = typeof Component === "string";
   const domRef = useDOMRef(ref);
 
   const ariaLabel = useMemo(
@@ -73,6 +78,8 @@ export function usePaginationItem(props: UsePaginationItemProps) {
   const {isPressed, pressProps} = usePress({
     isDisabled,
     onPress,
+    onPressStart,
+    onPressEnd,
   });
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({});
@@ -92,9 +99,17 @@ export function usePaginationItem(props: UsePaginationItemProps) {
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(isPressed),
       "data-focus-visible": dataAttr(isFocusVisible),
-      ...mergeProps(props, pressProps, focusProps, hoverProps, otherProps),
+      ...mergeProps(
+        props,
+        pressProps,
+        focusProps,
+        hoverProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
+      onClick: chain(pressProps?.onClick, onClick),
       className: clsx(className, props.className),
-      onClick: chain(pressProps.onClick, onClick),
     };
   };
 
