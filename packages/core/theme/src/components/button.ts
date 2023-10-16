@@ -319,27 +319,27 @@ const button = tv({
     // isInGroup / radius
     {
       isInGroup: true,
-      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
+      class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
     },
     {
       isInGroup: true,
       size: "sm",
-      class: "rounded-none first:rounded-l-small last:rounded-r-small",
+      class: "rounded-none first:rounded-s-small last:rounded-e-small",
     },
     {
       isInGroup: true,
       size: "md",
-      class: "rounded-none first:rounded-l-medium last:rounded-r-medium",
+      class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
     },
     {
       isInGroup: true,
       size: "lg",
-      class: "rounded-none first:rounded-l-large last:rounded-r-large",
+      class: "rounded-none first:rounded-s-large last:rounded-e-large",
     },
     {
       isInGroup: true,
       isRounded: true,
-      class: "rounded-none first:rounded-l-full last:rounded-r-full",
+      class: "rounded-none first:rounded-s-full last:rounded-e-full",
     },
     // isInGroup / bordered / ghost
     {
