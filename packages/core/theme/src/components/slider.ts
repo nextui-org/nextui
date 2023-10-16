@@ -62,6 +62,7 @@ const slider = tv({
       "after:shadow-small",
       "after:shadow-small",
       "after:bg-background",
+      "data-[focused=true]:z-10",
       dataFocusVisibleClasses,
     ],
     startContent: [],
