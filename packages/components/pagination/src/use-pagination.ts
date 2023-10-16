@@ -59,6 +59,10 @@ export type PaginationItemRenderProps = {
    */
   isBefore: boolean;
   /**
+   * Whether the item is disabled.
+   */
+  isDisabled: boolean;
+  /**
    * Whether the pagination item is the first item in the pagination.
    */
   isFirst: boolean;

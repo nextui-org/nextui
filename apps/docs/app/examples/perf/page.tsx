@@ -4,20 +4,21 @@ import {
   RadioGroup,
   Radio,
   Button,
-  Accordion,
-  Tabs,
-  Textarea,
+  // Accordion,
+  // Tabs,
+  // Textarea,
   Input,
-  Tab,
-  AccordionItem,
+  // Tab,
+  // AccordionItem,
   Pagination,
   extendVariants,
   PaginationItem,
 } from "@nextui-org/react";
+import NextLink from "next/link";
 import {useState} from "react";
 import {useSearchParams} from "next/navigation";
 
-import {SearchLinearIcon} from "@/components/icons";
+// import {SearchLinearIcon} from "@/components/icons";
 
 const MyRadioGroup = () => {
   const [radio, setRadio] = useState("1");
@@ -192,7 +193,7 @@ export default function NextUIPerf() {
 
   return (
     <div className="w-full p-24 gap-4 flex flex-col">
-      <Accordion>
+      {/* <Accordion>
         <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
           Non est aliqua tempor occaecat laborum. Lorem culpa minim irure mollit. Est qui
           reprehenderit commodo magna proident anim ipsum ex. Mollit id amet officia nisi excepteur
@@ -260,13 +261,15 @@ export default function NextUIPerf() {
 
       <Button>Click Me!</Button>
 
-      <MyButton2 color="foreground">Press Me!</MyButton2>
+      <MyButton2 color="foreground">Press Me!</MyButton2> */}
 
       <Pagination
         showControls
         initialPage={page ?? 1}
         renderItem={({page, ...itemProps}) => {
-          return <PaginationItem href={`/examples/perf?page=${page}`} {...itemProps} />;
+          return (
+            <PaginationItem as={NextLink} href={`/examples/perf?page=${page}`} {...itemProps} />
+          );
         }}
         total={10}
       />
