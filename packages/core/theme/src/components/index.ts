@@ -33,3 +33,4 @@ export * from "./menu";
 export * from "./listbox";
 export * from "./scroll-shadow";
 export * from "./slider";
+export * from "./breadcrumbs";
