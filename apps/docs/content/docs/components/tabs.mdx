@@ -158,7 +158,7 @@ function AppTabs() {
     </div>
   );
 }
-```     
+```
 
 > **Note**: See the [Routing guide](/docs/guides/routing) to learn how to set up the router for your framework.
 
@@ -231,6 +231,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 | selectedKey            | `React.Key`                                                                                            | The key for the currently selected item.                                                                     | -           |
 | defaultSelectedKey     | `React.Key`                                                                                            | The key for the initially selected item.                                                                     | -           |
 | disallowEmptySelection | `boolean`                                                                                              | Whether the tabs should allow empty selection.                                                               | `false`     |
+| shouldSelectOnPressUp  | `boolean`                                                                                              | Whether the tabs selection should occur on press up instead of press down.                                   | `true`      |
 | keyboardActivation     | `automatic` \| `manual`                                                                                | Whether tabs are activated automatically on focus or manually.                                               | `automatic` |
 | motionProps            | [MotionProps](#motion-props)                                                                           | The props to modify the cursor framer motion animation. Use the `variants` API to create your own animation. | -           |
 | disableCursorAnimation | `boolean`                                                                                              | Whether the cursor should be hidden.                                                                         | `false`     |
@@ -246,17 +247,18 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ### Tab Props
 
-| Attribute      | Type                          | Description                                                                                                                                                                      | Default |
-| -------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children\*     | `ReactNode`                   | The content of the tab.                                                                                                                                                          | -       |
-| title          | `ReactNode`                   | The title of the tab.                                                                                                                                                            | -       |
-| titleValue     | `string`                      | A string representation of the item's contents. Use this when the `title` is not readable.                                                                                       | -       |
-| href           | `string`                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
-| target         | `HTMLAttributeAnchorTarget`   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
-| rel            | `string`                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
-| download       | `boolean` \| `string`         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
-| ping           | `string`                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
-| referrerPolicy | `HTMLAttributeReferrerPolicy` | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
+| Attribute             | Type                          | Description                                                                                                                                                                      | Default |
+| --------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| children\*            | `ReactNode`                   | The content of the tab.                                                                                                                                                          | -       |
+| title                 | `ReactNode`                   | The title of the tab.                                                                                                                                                            | -       |
+| titleValue            | `string`                      | A string representation of the item's contents. Use this when the `title` is not readable.                                                                                       | -       |
+| href                  | `string`                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
+| target                | `HTMLAttributeAnchorTarget`   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
+| rel                   | `string`                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
+| download              | `boolean` \| `string`         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
+| ping                  | `string`                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
+| referrerPolicy        | `HTMLAttributeReferrerPolicy` | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
+| shouldSelectOnPressUp | `boolean`                     | Whether the tab selection should occur on press up instead of press down.                                                                                                        | -       |
 
 #### Motion Props
 
