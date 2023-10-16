@@ -10,9 +10,12 @@ import {
   Input,
   Tab,
   AccordionItem,
+  Pagination,
   extendVariants,
+  PaginationItem,
 } from "@nextui-org/react";
 import {useState} from "react";
+import {useSearchParams} from "next/navigation";
 
 import {SearchLinearIcon} from "@/components/icons";
 
@@ -183,6 +186,10 @@ export default function NextUIPerf() {
   const [textB, setTextB] = useState<string>("");
   const [textC, setTextC] = useState<string>("");
 
+  const searchParams = useSearchParams();
+
+  const page = Number(searchParams.get("page"));
+
   return (
     <div className="w-full p-24 gap-4 flex flex-col">
       <Accordion>
@@ -254,6 +261,15 @@ export default function NextUIPerf() {
       <Button>Click Me!</Button>
 
       <MyButton2 color="foreground">Press Me!</MyButton2>
+
+      <Pagination
+        showControls
+        initialPage={page ?? 1}
+        renderItem={({page, ...itemProps}) => {
+          return <PaginationItem href={`/examples/perf?page=${page}`} {...itemProps} />;
+        }}
+        total={10}
+      />
     </div>
   );
 }

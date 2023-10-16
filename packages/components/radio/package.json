@@ -42,14 +42,14 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@react-aria/focus": "^3.14.1",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/radio": "^3.8.0",
-    "@react-aria/utils": "^3.20.0",
-    "@react-aria/visually-hidden": "^3.8.4",
-    "@react-stately/radio": "^3.9.0",
-    "@react-types/radio": "^3.5.1",
-    "@react-types/shared": "^3.20.0"
+    "@react-aria/focus": "^3.14.2",
+    "@react-aria/interactions": "^3.19.0",
+    "@react-aria/radio": "^3.8.1",
+    "@react-aria/utils": "^3.21.0",
+    "@react-aria/visually-hidden": "^3.8.5",
+    "@react-stately/radio": "^3.9.1",
+    "@react-types/radio": "^3.5.2",
+    "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",

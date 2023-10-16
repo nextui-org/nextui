@@ -25,6 +25,13 @@
           "path": "/docs/guide/design-principles.mdx"
         },
         {
+          "key": "routing",
+          "title": "Routing",
+          "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
+          "path": "/docs/guide/routing.mdx",
+          "newPost": true
+        },
+        {
           "key": "upgrade-to-v2",
           "title": "Upgrade to v2",
           "keywords": "upgrade, v2, nextui",
@@ -188,7 +195,8 @@
           "key": "dropdown",
           "title": "Dropdown",
           "keywords": "dropdown, menu, selection, option list",
-          "path": "/docs/components/dropdown.mdx"
+          "path": "/docs/components/dropdown.mdx",
+          "updated": true
         },
         {
           "key": "image",
@@ -212,13 +220,15 @@
           "key": "link",
           "title": "Link",
           "keywords": "link, navigation, href, web page connection",
-          "path": "/docs/components/link.mdx"
+          "path": "/docs/components/link.mdx",
+          "updated": true
         },
         {
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx"
+          "path": "/docs/components/listbox.mdx",
+          "updated": true
         },
         {
           "key": "modal",
@@ -315,7 +325,8 @@
           "key": "tabs",
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
-          "path": "/docs/components/tabs.mdx"
+          "path": "/docs/components/tabs.mdx",
+          "updated": true
         },
         {
           "key": "textarea",

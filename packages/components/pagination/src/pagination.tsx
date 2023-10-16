@@ -40,10 +40,56 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
       const isBefore = index < range.indexOf(activePage);
 
       if (renderItemProp && typeof renderItemProp === "function") {
+        let page = typeof value == "number" ? value : index;
+
+        if (value === PaginationItemType.NEXT) {
+          page = activePage + 1;
+        }
+
+        if (value === PaginationItemType.PREV) {
+          page = activePage - 1;
+        }
+
+        if (value === PaginationItemType.DOTS) {
+          page = isBefore
+            ? activePage - dotsJump >= 1
+              ? activePage - dotsJump
+              : 1
+            : activePage + dotsJump <= total
+            ? activePage + dotsJump
+            : total;
+        }
+
+        const itemChildren: Record<PaginationItemType, React.ReactNode> = {
+          [PaginationItemType.PREV]: <ChevronIcon />,
+          [PaginationItemType.NEXT]: (
+            <ChevronIcon
+              className={slots.chevronNext({
+                class: classNames?.chevronNext,
+              })}
+            />
+          ),
+          [PaginationItemType.DOTS]: (
+            <>
+              <EllipsisIcon className={slots?.ellipsis({class: classNames?.ellipsis})} />
+              <ForwardIcon
+                className={slots?.forwardIcon({class: classNames?.forwardIcon})}
+                data-before={dataAttr(isBefore)}
+              />
+            </>
+          ),
+        };
+
         return renderItemProp({
           value,
           index,
+          key: `${value}-${index}`,
+          page,
+          total,
+          children: typeof value === "number" ? value : itemChildren[value],
           activePage,
+          dotsJump,
+          isBefore,
           isActive: value === activePage,
           isPrevious: value === activePage - 1,
           isNext: value === activePage + 1,
@@ -52,8 +98,10 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
           onNext,
           onPrevious,
           setPage,
+          onPress: () => setPage(page),
           ref: typeof value === "number" ? (node) => getItemRef(node, value) : undefined,
           className: slots.item({class: classNames?.item}),
+          getAriaLabel: getItemAriaLabel,
         });
       }
 

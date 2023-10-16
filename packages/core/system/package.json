@@ -52,7 +52,9 @@
   },
   "dependencies": {
     "@nextui-org/system-rsc": "workspace:*",
-    "@react-aria/i18n": "^3.8.2",
-    "@react-aria/overlays": "^3.17.0"
+    "@react-aria/i18n": "^3.8.3",
+    "@react-aria/overlays": "^3.18.0",
+    "@react-aria/utils": "^3.21.0",
+    "@react-stately/utils": "^3.8.0"
   }
 }

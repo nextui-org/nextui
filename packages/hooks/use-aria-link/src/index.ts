@@ -1,6 +1,7 @@
 import {AriaLinkProps} from "@react-types/link";
 import {DOMAttributes, FocusableElement} from "@react-types/shared";
-import {filterDOMProps, mergeProps} from "@react-aria/utils";
+// @ts-ignore - react-aria issue: https://github.com/adobe/react-spectrum/issues/5194
+import {filterDOMProps, mergeProps, useRouter, shouldClientNavigate} from "@react-aria/utils";
 import {RefObject} from "react";
 import {useFocusable} from "@react-aria/focus";
 import {usePress} from "@react-aria/interactions";
@@ -51,8 +52,9 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
   }
   let {focusableProps} = useFocusable(props, ref);
   let {pressProps, isPressed} = usePress({onPress, onPressStart, onPressEnd, isDisabled, ref});
-  let domProps = filterDOMProps(otherProps, {labelable: true});
+  let domProps = filterDOMProps(otherProps, {labelable: true, isLink: elementType === "a"});
   let interactionHandlers = mergeProps(focusableProps, pressProps);
+  let router = useRouter();
 
   return {
     isPressed, // Used to indicate press state for visual
@@ -65,6 +67,19 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
         pressProps.onClick?.(e);
         if (deprecatedOnClick) {
           deprecatedOnClick(e);
+        }
+
+        // If a custom router is provided, prevent default and forward if this link should client navigate.
+        if (
+          !router.isNative &&
+          e.currentTarget instanceof HTMLAnchorElement &&
+          e.currentTarget.href &&
+          // If props are applied to a router Link component, it may have already prevented default.
+          !e.isDefaultPrevented() &&
+          shouldClientNavigate(e.currentTarget, e)
+        ) {
+          e.preventDefault();
+          router.open(e.currentTarget, e);
         }
       },
     }),

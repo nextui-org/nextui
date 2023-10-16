@@ -45,13 +45,13 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
-    "@react-aria/overlays": "^3.17.0",
-    "@react-aria/tooltip": "^3.6.2",
-    "@react-stately/tooltip": "^3.4.4",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/utils": "^3.20.0",
-    "@react-types/tooltip": "^3.4.4",
-    "@react-types/overlays": "^3.8.2"
+    "@react-aria/overlays": "^3.18.0",
+    "@react-aria/tooltip": "^3.6.3",
+    "@react-stately/tooltip": "^3.4.5",
+    "@react-aria/interactions": "^3.19.0",
+    "@react-aria/utils": "^3.21.0",
+    "@react-types/tooltip": "^3.4.5",
+    "@react-types/overlays": "^3.8.3"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",

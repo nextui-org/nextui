@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@nextui-org/use-callback-ref": "workspace:*",
-    "@react-stately/utils": "^3.7.0",
-    "@react-aria/utils": "^3.20.0"
+    "@react-stately/utils": "^3.8.0",
+    "@react-aria/utils": "^3.21.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
