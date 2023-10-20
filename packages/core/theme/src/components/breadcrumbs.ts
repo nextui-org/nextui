@@ -28,21 +28,27 @@ const breadcrumbItem = tv({
     color: {
       foreground: {
         item: "text-foreground/50",
+        separator: "text-foreground/50",
       },
       primary: {
         item: "text-primary/80",
+        separator: "text-primary/80",
       },
       secondary: {
         item: "text-secondary/80",
+        separator: "text-secondary/80",
       },
       success: {
         item: "text-success/80",
+        separator: "text-success/80",
       },
       warning: {
         item: "text-warning/80",
+        separator: "text-warning/80",
       },
       danger: {
         item: "text-danger/80",
+        separator: "text-danger/80",
       },
     },
     size: {
@@ -206,13 +212,11 @@ const breadcrumbs = tv({
       bordered: {
         list: "border-medium border-default-200 shadow-sm",
       },
-      underlined: {
-        list: "rounded-none border-b border-divider",
-      },
       light: {},
     },
   },
   defaultVariants: {
+    size: "md",
     radius: "sm",
     variant: "light",
   },
@@ -244,28 +248,6 @@ const breadcrumbs = tv({
       size: "lg",
       class: {
         list: "px-3 py-2",
-      },
-    },
-    // variant=underlined && size
-    {
-      variant: "underlined",
-      size: "sm",
-      class: {
-        list: "pb-1",
-      },
-    },
-    {
-      variant: "underlined",
-      size: "md",
-      class: {
-        list: "pb-1.5",
-      },
-    },
-    {
-      variant: "underlined",
-      size: "lg",
-      class: {
-        list: "pb-2",
       },
     },
   ],

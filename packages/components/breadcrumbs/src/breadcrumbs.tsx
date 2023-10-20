@@ -2,6 +2,7 @@ import {ReactElement, Children, cloneElement, useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {ChevronRightIcon, EllipsisIcon} from "@nextui-org/shared-icons";
 import {warn} from "@nextui-org/shared-utils";
+import {chain} from "@react-aria/utils";
 
 import {UseBreadcrumbsProps, useBreadcrumbs} from "./use-breadcrumbs";
 
@@ -23,6 +24,7 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
     getListProps,
     getEllipsisProps,
     getSeparatorProps,
+    onAction,
   } = useBreadcrumbs({
     ...props,
     ref,
@@ -31,6 +33,7 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
   const content = useMemo(() => {
     let items = Children.map(children as ReactElement, (child, i) => {
       const isLast = i === childCount - 1;
+      const itemKey = child?.key || i;
 
       return cloneElement(child, {
         ...itemProps,
@@ -39,6 +42,8 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
         isDisabled: isDisabled && !isLast,
         isCurrent: isLast || child.props.isCurrent,
         ...child.props,
+        key: itemKey,
+        onPress: chain(child.props?.onPress, () => onAction?.(itemKey)),
       });
     });
 

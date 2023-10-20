@@ -1,24 +1,45 @@
 import type {BreadcrumbsVariantProps, SlotsToClasses, BreadcrumbsSlots} from "@nextui-org/theme";
 import type {AriaBreadcrumbsProps} from "@react-types/breadcrumbs";
 
-import {Children, ReactNode} from "react";
+import {Children, ReactNode, Key, ReactElement} from "react";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {breadcrumbs} from "@nextui-org/theme";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useBreadcrumbs as useAriaBreadcrumbs} from "@react-aria/breadcrumbs";
 import {useMemo} from "react";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
-import {BreadcrumbItemProps} from "./breadcrumb-item";
+import BreadcrumbItem, {BreadcrumbItemProps} from "./breadcrumb-item";
 
 type RenderEllipsisItemProps = {
+  /**
+   * The collapsed items.
+   */
   items: BreadcrumbItemProps[];
+  /**
+   * The max number of items.
+   */
   maxItems: number;
+  /**
+   * The picked item to render the ellipsis.
+   */
   collapsedItem: ReactNode;
+  /**
+   * The default ellipsis icon.
+   */
   ellipsisIcon: ReactNode;
+  /**
+   * Number of items to show before the ellipsis.
+   */
   itemsBeforeCollapse: number;
+  /**
+   * Number of items to show after the ellipsis.
+   */
   itemsAfterCollapse: number;
+  /**
+   * The separator between each breadcrumb. It is a chevron by default.
+   */
   separator: ReactNode;
 };
 
@@ -38,7 +59,7 @@ interface Props extends HTMLNextUIProps<"nav">, AriaBreadcrumbsProps {
    */
   itemsAfterCollapse?: number;
   /**
-   * Specifies the maximum number of breadcrumbs to display.  When there are more
+   * Specifies the maximum number of breadcrumbs to display. When there are more
    * than the maximum number, only the first `itemsBeforeCollapse` and last `itemsAfterCollapse`
    * will be shown, with an ellipsis in between.
    * @default 8
@@ -65,9 +86,14 @@ interface Props extends HTMLNextUIProps<"nav">, AriaBreadcrumbsProps {
   /**
    * A function that allows to render the ellipsis when the number of items is exceeded.
    *
-   * @param items Collapsed items
+   * @param props RenderEllipsisItemProps
    */
-  renderEllipsis?: (items: RenderEllipsisItemProps) => ReactNode;
+  renderEllipsis?: (props: RenderEllipsisItemProps) => ReactNode;
+  /**
+   * Callback when any of the breadcrumbs is pressed.
+   * @param key string
+   */
+  onAction?: (key: Key) => void;
 }
 
 export type UseBreadcrumbsProps = Props &
@@ -80,11 +106,11 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
   const {
     ref,
     as,
-    children,
     color,
     underline,
     isDisabled,
     separator,
+    children: childrenProp,
     itemsBeforeCollapse = 1,
     itemsAfterCollapse = 2,
     maxItems = 8,
@@ -93,6 +119,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     className,
     classNames,
     itemClasses,
+    onAction,
     ...otherProps
   } = props;
 
@@ -100,6 +127,9 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
   const shouldFilterDOMProps = typeof Component === "string";
 
   const {navProps} = useAriaBreadcrumbs(originalProps);
+
+  const [, children] = pickChildren<ReactElement>(childrenProp, BreadcrumbItem);
+
   const childCount = Children.count(children);
 
   const domRef = useDOMRef(ref);
@@ -168,6 +198,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     getListProps,
     getEllipsisProps,
     getSeparatorProps,
+    onAction,
   };
 }
 

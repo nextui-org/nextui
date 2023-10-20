@@ -3,6 +3,7 @@ import {Meta} from "@storybook/react";
 import {breadcrumbItem} from "@nextui-org/theme";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/dropdown";
 import {Button} from "@nextui-org/button";
+import {Tooltip} from "@nextui-org/tooltip";
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -10,6 +11,7 @@ import {
   InfoIcon,
   MailFilledIcon,
   PetBoldIcon,
+  ShoppingCartBoldIcon,
 } from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 
@@ -28,7 +30,7 @@ export default {
       control: {
         type: "select",
       },
-      options: ["solid", "bordered", "underlined", "light"],
+      options: ["solid", "bordered", "light"],
     },
     color: {
       control: {
@@ -95,6 +97,30 @@ const Template = (args: BreadcrumbsProps & {page: number}) => (
     </BreadcrumbItem>
   </Breadcrumbs>
 );
+
+const ControlledTemplate = (args: BreadcrumbsProps & {page: number}) => {
+  const [currentPage, setCurrentPage] = React.useState<React.Key>("song");
+
+  return (
+    <Breadcrumbs {...args} onAction={(key) => setCurrentPage(key)}>
+      <BreadcrumbItem key="home" isCurrent={currentPage === "home"}>
+        Home
+      </BreadcrumbItem>
+      <BreadcrumbItem key="music" isCurrent={currentPage === "music"}>
+        Music
+      </BreadcrumbItem>
+      <BreadcrumbItem key="artist" isCurrent={currentPage === "artist"}>
+        Artist
+      </BreadcrumbItem>
+      <BreadcrumbItem key="album" isCurrent={currentPage === "album"}>
+        Album
+      </BreadcrumbItem>
+      <BreadcrumbItem key="song" isCurrent={currentPage === "song"}>
+        Song
+      </BreadcrumbItem>
+    </Breadcrumbs>
+  );
+};
 
 const WithStartContentTemplate = (args: BreadcrumbsProps & {page: number}) => (
   <Breadcrumbs {...args}>
@@ -272,6 +298,35 @@ const WithDropdownItemTemplate = (args: BreadcrumbsProps & {page: number}) => {
   );
 };
 
+const CustomStylesTemplate = (args: BreadcrumbsProps & {page: number}) => (
+  <Breadcrumbs
+    {...args}
+    classNames={{
+      list: "bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-small",
+    }}
+    itemClasses={{
+      item: "text-white/60 data-[current=true]:text-white",
+      separator: "text-white/40",
+    }}
+    variant="solid"
+  >
+    <BreadcrumbItem href="http://localhost:6006/?path=/story/components-breadcrumbs--default&args=page:1">
+      <Tooltip content="Shopping Cart" size="sm">
+        <ShoppingCartBoldIcon />
+      </Tooltip>
+    </BreadcrumbItem>
+    <BreadcrumbItem href="http://localhost:6006/?path=/story/components-breadcrumbs--default&args=page:2">
+      Checkout
+    </BreadcrumbItem>
+    <BreadcrumbItem href="http://localhost:6006/?path=/story/components-breadcrumbs--default&args=page:3">
+      Payment
+    </BreadcrumbItem>
+    <BreadcrumbItem href="http://localhost:6006/?path=/story/components-breadcrumbs--default&args=page:4">
+      Delivery Address
+    </BreadcrumbItem>
+  </Breadcrumbs>
+);
+
 export const Default = {
   render: Template,
   args: {
@@ -287,6 +342,13 @@ export const CustomSeparator = {
       separator: "px-2",
     },
     separator: "/",
+  },
+};
+
+export const ControlledCurrentItem = {
+  render: ControlledTemplate,
+  args: {
+    ...defaultProps,
   },
 };
 
@@ -332,6 +394,13 @@ export const WithItemsBeforeCollapse = {
 
 export const WithDropdownItem = {
   render: WithDropdownItemTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomStyles = {
+  render: CustomStylesTemplate,
   args: {
     ...defaultProps,
   },

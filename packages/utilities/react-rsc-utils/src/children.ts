@@ -15,7 +15,7 @@ export function getValidChildren(children: React.ReactNode) {
 export const pickChildren = <T = ReactNode>(
   children: ReactNode | undefined,
   targetChild: React.ElementType,
-): [T | ReactNode | undefined, ReactNode[] | undefined] => {
+): [T | ReactNode | undefined, T | ReactNode[] | undefined] => {
   let target: ReactNode[] = [];
   const withoutTargetChildren = Children.map(children, (item) => {
     if (!isValidElement(item)) return item;

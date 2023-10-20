@@ -150,6 +150,13 @@
           "path": "/docs/components/button.mdx"
         },
         {
+          "key": "breadcrumbs",
+          "title": "Breadcrumbs",
+          "keywords": "breadcrumbs, navigation, path, trail, location",
+          "path": "/docs/components/breadcrumbs.mdx",
+          "newPost": true
+        },
+        {
           "key": "card",
           "title": "Card",
           "keywords": "card, content container, informational blocks, media holder",

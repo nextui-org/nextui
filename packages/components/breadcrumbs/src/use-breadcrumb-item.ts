@@ -22,10 +22,26 @@ interface Props
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLLIElement | null>;
+  /**
+   * The item custom separator. It is a chevron by default.
+   */
   separator?: ReactNode;
+  /**
+   * Whether the item is the last one.
+   * @default false
+   */
   isLast?: boolean;
+  /**
+   * The start content of the item.
+   */
   startContent?: ReactNode;
+  /**
+   * The end content of the item.
+   */
   endContent?: ReactNode;
+  /**
+   * The breadcrumbs item classNames.
+   */
   classNames?: SlotsToClasses<BreadcrumbItemSlots>;
 }
 

@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@nextui-org/dropdown": "workspace:*",
+    "@nextui-org/tooltip": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
