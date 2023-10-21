@@ -1,0 +1,60 @@
+{
+  "name": "@nextui-org/breadcrumbs",
+  "version": "2.0.0",
+  "description": "Breadcrumbs display a hierarchy of links to the current page or resource in an application.",
+  "keywords": [
+    "breadcrumbs"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/breadcrumbs"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@react-aria/focus": "^3.14.2",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "@react-aria/breadcrumbs": "^3.5.6",
+    "@react-aria/utils": "^3.21.0",
+    "@react-types/breadcrumbs": "^3.7.0",
+    "@react-types/shared": "^3.19.0"
+  },
+  "devDependencies": {
+    "@nextui-org/dropdown": "workspace:*",
+    "@nextui-org/tooltip": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

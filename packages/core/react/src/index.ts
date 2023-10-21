@@ -38,6 +38,7 @@ export * from "@nextui-org/listbox";
 export * from "@nextui-org/menu";
 export * from "@nextui-org/ripple";
 export * from "@nextui-org/slider";
+export * from "@nextui-org/breadcrumbs";
 
 /**
  * React Aria - Exports

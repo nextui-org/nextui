@@ -743,6 +743,58 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/components/breadcrumbs:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@react-aria/breadcrumbs':
+        specifier: ^3.5.6
+        version: 3.5.6(react@18.2.0)
+      '@react-aria/focus':
+        specifier: ^3.14.2
+        version: 3.14.2(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.21.0
+        version: 3.21.0(react@18.2.0)
+      '@react-types/breadcrumbs':
+        specifier: ^3.7.0
+        version: 3.7.0(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.19.0
+        version: 3.21.0(react@18.2.0)
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/dropdown':
+        specifier: workspace:*
+        version: link:../dropdown
+      '@nextui-org/tooltip':
+        specifier: workspace:*
+        version: link:../tooltip
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/components/button:
     dependencies:
       '@nextui-org/react-utils':
@@ -2376,6 +2428,9 @@ importers:
       '@nextui-org/badge':
         specifier: workspace:*
         version: link:../../components/badge
+      '@nextui-org/breadcrumbs':
+        specifier: workspace:*
+        version: link:../../components/breadcrumbs
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../../components/button
@@ -8883,6 +8938,21 @@ packages:
       '@babel/runtime': 7.23.2
     dev: true
 
+  /@react-aria/breadcrumbs@3.5.6(react@18.2.0):
+    resolution: {integrity: sha512-VUdppXcTU09J6Jbg0VYCitOaePm74Q9EywKgU8OTZ93vZf2odSDVf1jjO9B2kh9a84OGhZyi5v1HRkrbZFHWLQ==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-aria/i18n': 3.8.3(react@18.2.0)
+      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/link': 3.6.0(react@18.2.0)
+      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-types/breadcrumbs': 3.7.0(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
+      '@swc/helpers': 0.5.3
+      react: 18.2.0
+    dev: false
+
   /@react-aria/button@3.8.3(react@18.2.0):
     resolution: {integrity: sha512-e7J97j0meHUhQy0YmJh+kLTl0vUJSoD9mmdnlHIXm1RRcBkH9CDScECUuyPetB330nUvS03eTN6pQ5OmrFtJTQ==}
     peerDependencies:
@@ -9584,6 +9654,16 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
+      '@react-types/shared': 3.21.0(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
+  /@react-types/breadcrumbs@3.7.0(react@18.2.0):
+    resolution: {integrity: sha512-3tXkTP0kdFSufBFxUSj5Klp3mtCl/fH12IjH98RdWgzc4Rko7iuHKFG2u+RXj5t7QzUqBth5Ukub1oBz/L3KhA==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-types/link': 3.5.0(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
