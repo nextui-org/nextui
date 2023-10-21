@@ -7,6 +7,7 @@ import radius from "./radius";
 import routing from "./routing";
 import underlines from "./underlines";
 import controlled from "./controlled";
+import menuType from "./menu-type";
 import startEndContent from "./start-end-content";
 import separator from "./separator";
 import customItems from "./custom-items";
@@ -24,6 +25,7 @@ export const breadcrumbsContent = {
   routing,
   underlines,
   controlled,
+  menuType,
   startEndContent,
   separator,
   customItems,

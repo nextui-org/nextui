@@ -13,6 +13,7 @@ const Breadcrumbs = forwardRef<"li", BreadcrumbItemProps>((props, ref) => {
     separator,
     startContent,
     endContent,
+    hideSeparator,
     getBaseProps,
     getItemProps,
     getSeparatorProps,
@@ -28,7 +29,7 @@ const Breadcrumbs = forwardRef<"li", BreadcrumbItemProps>((props, ref) => {
         {children}
         {endContent}
       </Component>
-      {!isLast && <span {...getSeparatorProps()}>{separator}</span>}
+      {!isLast && !hideSeparator && <span {...getSeparatorProps()}>{separator}</span>}
     </WrapperComponent>
   );
 });

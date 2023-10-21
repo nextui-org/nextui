@@ -32,6 +32,11 @@ interface Props
    */
   isLast?: boolean;
   /**
+   * Whether to hide the separator element.
+   * @default false
+   */
+  hideSeparator?: boolean;
+  /**
    * The start content of the item.
    */
   startContent?: ReactNode;
@@ -60,6 +65,7 @@ export function useBreadcrumbItem(originalProps: UseBreadcrumbItemProps) {
     startContent,
     endContent,
     classNames,
+    hideSeparator = false,
     ...otherProps
   } = props;
 
@@ -129,6 +135,7 @@ export function useBreadcrumbItem(originalProps: UseBreadcrumbItemProps) {
     isDisabled,
     isCurrent,
     isLast,
+    hideSeparator,
     getBaseProps,
     getItemProps,
     getSeparatorProps,

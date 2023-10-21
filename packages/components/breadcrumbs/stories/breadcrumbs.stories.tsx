@@ -122,6 +122,44 @@ const ControlledTemplate = (args: BreadcrumbsProps & {page: number}) => {
   );
 };
 
+const MenuTypeTemplate = (args: BreadcrumbsProps & {page: number}) => {
+  const [currentPage, setCurrentPage] = React.useState<React.Key>("music");
+
+  return (
+    <Breadcrumbs
+      {...args}
+      classNames={{
+        list: "gap-2",
+      }}
+      itemClasses={{
+        item: [
+          "px-2 py-0.5 border-small border-default-400 rounded-small",
+          "data-[current='true']:border-foreground transition-colors",
+          "data-[disabled='true']:border-default-400 data-[disabled='true']:bg-default-100",
+        ],
+        separator: "hidden",
+      }}
+      onAction={(key) => setCurrentPage(key)}
+    >
+      <BreadcrumbItem key="home" isCurrent={currentPage === "home"}>
+        Home
+      </BreadcrumbItem>
+      <BreadcrumbItem key="music" isCurrent={currentPage === "music"}>
+        Music
+      </BreadcrumbItem>
+      <BreadcrumbItem key="artist" isCurrent={currentPage === "artist"}>
+        Artist
+      </BreadcrumbItem>
+      <BreadcrumbItem key="album" isCurrent={currentPage === "album"}>
+        Album
+      </BreadcrumbItem>
+      <BreadcrumbItem key="song" isDisabled isCurrent={currentPage === "song"}>
+        Song
+      </BreadcrumbItem>
+    </Breadcrumbs>
+  );
+};
+
 const WithStartContentTemplate = (args: BreadcrumbsProps & {page: number}) => (
   <Breadcrumbs {...args}>
     <BreadcrumbItem
@@ -347,6 +385,13 @@ export const CustomSeparator = {
 
 export const ControlledCurrentItem = {
   render: ControlledTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const MenuType = {
+  render: MenuTypeTemplate,
   args: {
     ...defaultProps,
   },

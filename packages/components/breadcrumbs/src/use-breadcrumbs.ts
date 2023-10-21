@@ -98,7 +98,9 @@ interface Props extends HTMLNextUIProps<"nav">, AriaBreadcrumbsProps {
 
 export type UseBreadcrumbsProps = Props &
   BreadcrumbsVariantProps &
-  Partial<Pick<BreadcrumbItemProps, "color" | "size" | "underline" | "disableAnimation">>;
+  Partial<
+    Pick<BreadcrumbItemProps, "color" | "size" | "underline" | "hideSeparator" | "disableAnimation">
+  >;
 
 export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, breadcrumbs.variantKeys);
@@ -114,6 +116,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     itemsBeforeCollapse = 1,
     itemsAfterCollapse = 2,
     maxItems = 8,
+    hideSeparator,
     disableAnimation,
     renderEllipsis,
     className,
@@ -149,6 +152,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     color,
     underline,
     disableAnimation,
+    hideSeparator,
     size: originalProps?.size,
     classNames: itemClasses,
   };

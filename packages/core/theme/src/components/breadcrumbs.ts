@@ -90,6 +90,7 @@ const breadcrumbItem = tv({
     isDisabled: {
       true: {
         item: "opacity-disabled pointer-events-none",
+        separator: "opacity-disabled",
       },
     },
     disableAnimation: {

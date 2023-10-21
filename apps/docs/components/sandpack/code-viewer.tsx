@@ -10,6 +10,7 @@ import {Language} from "prism-react-renderer";
 import {HighlightedLines} from "./types";
 import {Decorators} from "./types";
 
+import {trackEvent} from "@/utils/va";
 import {Codeblock} from "@/components/docs/components";
 
 export interface CodeViewerProps {
@@ -82,6 +83,13 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
 
     const handleExpand = () => {
       const nextIsExpanded = !isExpanded;
+
+      trackEvent("CodeViewer - Expand", {
+        name: activeFile,
+        action: "expand",
+        category: "docs",
+        data: nextIsExpanded ? "expanded" : "collapsed",
+      });
 
       setIsExpanded(nextIsExpanded);
       if (containerRef && containerRef?.current !== null) {

@@ -74,6 +74,13 @@ You can control the current/active item by using the `isCurrent` and `onAction` 
 
 > **Note**: If needed you can use the `onPress` prop to handle the click event on the breadcrumb item.
 
+### Menu Type
+
+It is possible to use the `Breadcrumbs` component as a horizontal menu. This is useful when you want to display a list
+of possible navigations and let the user choose one of them.
+
+<CodeDemo title="Menu Type" files={breadcrumbsContent.menuType} />
+
 ### Start & End Content
 
 You can add any element to the start or end of the breadcrumbs by using the `startContent` and `endContent` props. The
@@ -97,10 +104,10 @@ The above example uses the [Dropdown](/docs/components/dropdown) component to cr
 <CodeDemo title="Custom Items" files={breadcrumbsContent.customItems} />
 
 The `Breadcrumbs` component picks only the `BreadcrumbItem` components as its children. This means that you cannot
-place any other component directly inside the `Breadcrumbs` component. 
+place any other component directly inside the `Breadcrumbs` component.
 
 ```tsx
-// ❌ This will not work, 
+// ❌ This will not work,
 // The Button will not be picked by the Breadcrumbs component.
 <Breadcrumbs>
   <BreadcrumbItem>Item 1</BreadcrumbItem>
@@ -156,11 +163,7 @@ React element.
 
 You can customize the `Breadcrumbs` style by using the `classNames` prop and its items by using the `itemClasses` prop.
 
-<CodeDemo
-  title="Custom Breadcrumbs Styles"
-  highlightedLines="14-15"
-  files={breadcrumbsContent.customStyles}
-/>
+<CodeDemo title="Custom Breadcrumbs Styles" files={breadcrumbsContent.customStyles} />
 
 <Spacer y={4} />
 
@@ -206,6 +209,7 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
 | maxItems            | `number`                                                                       | The maximum number of breadcrumbs to display.                                   | -            |
 | itemsBeforeCollapse | `number`                                                                       | The number of items to show before the ellipsis.                                | -            |
 | itemsAfterCollapse  | `number`                                                                       | The number of items to show after the ellipsis.                                 | -            |
+| hideSeparator       | `boolean`                                                                      | Whether to hide the separator between breadcrumbs.                              | `false`      |
 | isDisabled          | `boolean`                                                                      | Whether the Breadcrumbs are disabled except the last item.                      | `false`      |
 | disableAnimation    | `boolean`                                                                      | Whether the Breadcrumbs should display animations.                              | `false`      |
 | itemClasses         | `Record<"base"｜ "item"｜ "separator", string>`                                | Allows to set custom class names for the breadcrumbs item slots.                | -            |
@@ -238,6 +242,7 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
 | separator        | `ReactNode`                                                                    | The item custom separator. It is a chevron by default.    | -            |
 | isCurrent        | `boolean`                                                                      | Whether the item is the current/active one.               | `false`      |
 | isLast           | `boolean`                                                                      | Whether the item is the last one.                         | `false`      |
+| hideSeparator    | `boolean`                                                                      | Whether to hide the item separator.                       | `false`      |
 | isDisabled       | `boolean`                                                                      | Whether the item is disabled.                             | `false`      |
 | disableAnimation | `boolean`                                                                      | Whether the item should display animations.               | `false`      |
 | classNames       | `Record<"base"｜ "item"｜ "separator", string>`                                | Allows to set custom class names for the item slots.      | -            |
@@ -290,5 +295,5 @@ export type RenderEllipsisItemProps = {
   separator: ReactNode;
 };
 
-renderEllipsis: (props: RenderEllipsisItemProps) => ReactNode; 
+renderEllipsis: (props: RenderEllipsisItemProps) => ReactNode;
 ```

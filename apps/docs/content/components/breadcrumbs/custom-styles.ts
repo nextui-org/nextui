@@ -28,7 +28,7 @@ const ShoppingCartIcon = `export const ShoppingCartIcon = (props) => (
   </svg>
 );`;
 
-const App = `import {Breadcrumbs, BreadcrumbItem, Tooltip} from "@nextui-org/react";
+const App = `import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 import {ShoppingCartIcon} from "./ShoppingCartIcon";
 
 export default function App() {
@@ -45,9 +45,7 @@ export default function App() {
       variant="solid"
     >
       <BreadcrumbItem href="#shopping-cart">
-        <Tooltip content="Shopping Cart" size="sm">
-          <ShoppingCartIcon />
-        </Tooltip>
+        <ShoppingCartIcon />
       </BreadcrumbItem>
       <BreadcrumbItem href="#checkout">Checkout</BreadcrumbItem>
       <BreadcrumbItem href="#payment">Payment</BreadcrumbItem>
