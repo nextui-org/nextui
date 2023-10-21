@@ -1,8 +1,8 @@
 # @nextui-org/breadcrumbs
 
-A Quick description of the component
+Breadcrumbs display a hierarchy of links to the current page or resource in an application.
 
-> This is an internal utility, not intended for public usage.
+Please refer to the [documentation](https://nextui.org/docs/components/breadcrumbs) for more information.
 
 ## Installation
 
