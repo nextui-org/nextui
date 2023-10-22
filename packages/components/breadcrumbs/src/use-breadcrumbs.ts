@@ -2,7 +2,7 @@ import type {BreadcrumbsVariantProps, SlotsToClasses, BreadcrumbsSlots} from "@n
 import type {AriaBreadcrumbsProps} from "@react-types/breadcrumbs";
 
 import {Children, ReactNode, Key, ReactElement} from "react";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {breadcrumbs} from "@nextui-org/theme";
 import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -157,7 +157,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     classNames: itemClasses,
   };
 
-  const getBaseProps = () => ({
+  const getBaseProps: PropGetter = () => ({
     ref: domRef,
     "data-slot": "base",
     className: slots.base({class: baseStyles}),

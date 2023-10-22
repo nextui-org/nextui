@@ -6,7 +6,7 @@ import type {
 import type {ReactNode} from "react";
 import type {BreadcrumbItemProps as AriaBreadcrumbItemProps} from "@react-types/breadcrumbs";
 
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {breadcrumbItem} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
@@ -108,7 +108,7 @@ export function useBreadcrumbItem(originalProps: UseBreadcrumbItemProps) {
     }),
   });
 
-  const getItemProps = () => ({
+  const getItemProps: PropGetter = () => ({
     href: !isCurrent ? originalProps?.href : undefined,
     "data-slot": "item",
     "data-focus": dataAttr(isFocused),

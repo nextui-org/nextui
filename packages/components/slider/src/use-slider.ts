@@ -11,6 +11,7 @@ import {AriaSliderProps, useSlider as useAriaSlider} from "@react-aria/slider";
 import {clsx} from "@nextui-org/shared-utils";
 import {TooltipProps} from "@nextui-org/tooltip";
 import {useHover} from "@react-aria/interactions";
+import {ValueBase} from "@react-types/shared";
 
 import {SliderThumbProps} from "./slider-thumb";
 
@@ -127,7 +128,9 @@ interface Props extends HTMLNextUIProps<"div"> {
   renderThumb?: (props: SliderRenderThumbProps) => React.ReactNode;
 }
 
-export type UseSliderProps = Omit<Props, "onChange"> & AriaSliderProps & SliderVariantProps;
+export type UseSliderProps = Omit<Props, keyof ValueBase<SliderValue>> &
+  AriaSliderProps &
+  SliderVariantProps;
 
 export function useSlider(originalProps: UseSliderProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, slider.variantKeys);

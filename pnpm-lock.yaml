@@ -2000,6 +2000,9 @@ importers:
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
