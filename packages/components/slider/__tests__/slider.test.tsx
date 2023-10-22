@@ -3,6 +3,9 @@ import {render, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import {Slider, SliderValue} from "../src";
+
+import drag from "./drag";
+
 describe("Slider", () => {
   it("should render correctly", () => {
     const wrapper = render(<Slider />);
@@ -136,5 +139,33 @@ describe("Slider", () => {
     expect(output).toHaveTextContent("55");
 
     expect(setValues).toStrictEqual([55]);
+  });
+
+  it("should not get stuck at the end when dragging", async function () {
+    const {getByRole, getAllByRole} = render(<Slider hasSingleThumb={false} />);
+
+    const [leftHandle, rightHandle] = getAllByRole("slider");
+    const output = getByRole("status");
+
+    const MORE_THAN_SLIDER_WIDTH = 600;
+
+    await drag(rightHandle, {
+      delta: {x: MORE_THAN_SLIDER_WIDTH, y: 0},
+    });
+    await drag(leftHandle, {
+      delta: {x: MORE_THAN_SLIDER_WIDTH, y: 0},
+    });
+    // It actually drags the leftHandle, because it's on top
+    await drag(rightHandle, {
+      delta: {x: -1 * MORE_THAN_SLIDER_WIDTH, y: 0},
+    });
+
+    expect(leftHandle).toHaveProperty("value", "0");
+    expect(leftHandle).toHaveAttribute("aria-valuetext", "0");
+    expect(output).toHaveTextContent("0");
+
+    expect(rightHandle).toHaveProperty("value", "100");
+    expect(rightHandle).toHaveAttribute("aria-valuetext", "100");
+    expect(output).toHaveTextContent("100");
   });
 });
