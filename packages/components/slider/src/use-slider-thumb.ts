@@ -76,7 +76,7 @@ export function useSliderThumb(props: UseSliderThumbProps) {
 
   const numberFormatter = useNumberFormatter(formatOptions);
 
-  const {thumbProps, inputProps, isDragging} = useAriaSliderThumb(
+  const {thumbProps, inputProps, isDragging, isFocused} = useAriaSliderThumb(
     {
       index,
       trackRef,
@@ -102,6 +102,7 @@ export function useSliderThumb(props: UseSliderThumbProps) {
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(isPressed),
       "data-dragging": dataAttr(isDragging),
+      "data-focused": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
       ...mergeProps(thumbProps, pressProps, hoverProps, otherProps),
       className,
