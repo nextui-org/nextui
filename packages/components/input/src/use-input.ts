@@ -19,6 +19,10 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
    */
   ref?: Ref<T>;
   /**
+   * Ref to the container DOM node.
+   */
+  baseRef?: Ref<HTMLDivElement>;
+  /**
    * Element to be rendered in the left side of the input.
    */
   startContent?: React.ReactNode;
@@ -73,6 +77,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     ref,
     as,
     label,
+    baseRef,
     description,
     errorMessage,
     className,
@@ -109,6 +114,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isMultiline = originalProps.isMultiline;
 
   const domRef = useDOMRef<T>(ref);
+  const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -204,6 +210,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
+        ref: baseDomRef,
         className: slots.base({class: baseStyles}),
         "data-filled": dataAttr(isFilled),
         "data-filled-within": dataAttr(isFilledWithin),

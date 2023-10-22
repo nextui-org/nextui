@@ -115,19 +115,23 @@ You can use the `ListboxSection` component to group listbox items.
 
 ### Routing
 
-The `<ListboxItem>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and 
+The `<ListboxItem>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and
 [React Router](https://reactrouter.com/en/main). See the [Routing](/docs/guide/routing) guide to learn how to set this up.
 
 ```jsx
-import { Listbox, ListboxItem} from "@nextui-org/react";
+import {Listbox, ListboxItem} from "@nextui-org/react";
 
 function App() {
   return (
     <Listbox>
-      <ListboxItem key="home" href="/home">Home</ListboxItem>
-      <ListboxItem key="about" href="/about">About</ListboxItem>
+      <ListboxItem key="home" href="/home">
+        Home
+      </ListboxItem>
+      <ListboxItem key="about" href="/about">
+        About
+      </ListboxItem>
     </Listbox>
-  )   
+  );
 }
 ```
 
@@ -211,21 +215,22 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 
 ### Listbox Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                             | Default   |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
-| children\*             | `ReactNode[]`                                                                                          | The children to render. Usually a list of `ListboxItem` or `ListboxSection`                             | -         |
-| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -         |
-| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The listbox items appearance style.                                                                     | `solid`   |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The listbox items color theme.                                                                          | `default` |
-| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -         |
-| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -         |
-| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
-| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -         |
-| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`   |
-| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`   |
-| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`   |
-| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the listbox items.                                                  | `false`   |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>`                        | Allows to set custom class names for the listbox item slots.                                            | -         |
+| Attribute              | Type                                                                                                   | Description                                                                                              | Default   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | --------- |
+| children\*             | `ReactNode[]`                                                                                          | The children to render. Usually a list of `ListboxItem` or `ListboxSection`                              | -         |
+| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                                | -         |
+| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The listbox items appearance style.                                                                      | `solid`   |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The listbox items color theme.                                                                           | `default` |
+| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                 | -         |
+| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                              | -         |
+| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.  | -         |
+| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                              | -         |
+| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                           | `false`   |
+| shouldHighlightOnFocus | `boolean`                                                                                              | Whether the focused item should be highlighted. It applies the same styles to the items as when hovered. | `false`   |
+| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                           | `false`   |
+| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                 | `false`   |
+| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the listbox items.                                                   | `false`   |
+| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>`                        | Allows to set custom class names for the listbox item slots.                                             | -         |
 
 ### Listbox Events
 
@@ -252,28 +257,29 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 
 ### ListboxItem Props
 
-| Attribute      | Type                                                                                          | Description                                                                                                                                                                      | Default |
-| -------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children\*     | `ReactNode`                                                                                   | The contents of the listbox item.                                                                                                                                                | -       |
-| key            | `React.Key`                                                                                   | The unique key for the listbox item.                                                                                                                                             | -       |
-| title          | `string` \| `ReactNode`                                                                       | The title of the listbox item.                                                                                                                                                   | -       |
-| textValue      | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                                                                                                | -       |
-| description    | `string` \| `ReactNode`                                                                       | The description of the listbox item.                                                                                                                                             | -       |
-| shortcut       | `string` \| `ReactNode`                                                                       | The listbox item keyboard shortcut.                                                                                                                                              | -       |
-| startContent   | `ReactNode`                                                                                   | The start content of the listbox item.                                                                                                                                           | -       |
-| endContent     | `ReactNode`                                                                                   | The end content of the listbox item. This is positioned after the shortcut and the selected icon.                                                                                | -       |
-| selectedIcon   | [SelectedIconProps](#listbox-item-selected-icon-props)                                        | Custom icon to render when the item is selected.                                                                                                                                 | -       |
-| href           | `string`                                                                                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
-| target         | `HTMLAttributeAnchorTarget`                                                                   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
-| rel            | `string`                                                                                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
-| download       | `boolean` \| `string`                                                                         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
-| ping           | `string`                                                                                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
-| referrerPolicy | `HTMLAttributeReferrerPolicy`                                                                 | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
-| showDivider    | `boolean`                                                                                     | Whether to show a divider below the item.                                                                                                                                        | `false` |
-| isDisabled     | `boolean`                                                                                     | Whether the listbox item should be disabled. (**Deprecated**) pass **disabledKeys** to `Listbox` instead.                                                                        | `false` |
-| isSelected     | `boolean`                                                                                     | Whether the listbox item should be selected. (**Deprecated**) pass **selectedKeys** to `Listbox` instead.                                                                        | `false` |
-| isReadOnly     | `boolean`                                                                                     | Whether the listbox item press events should be ignored.                                                                                                                         | `false` |
-| classNames     | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the listbox item slots.                                                                                                                     | -       |
+| Attribute              | Type                                                                                          | Description                                                                                                                                                                      | Default |
+| ---------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| children\*             | `ReactNode`                                                                                   | The contents of the listbox item.                                                                                                                                                | -       |
+| key                    | `React.Key`                                                                                   | The unique key for the listbox item.                                                                                                                                             | -       |
+| title                  | `string` \| `ReactNode`                                                                       | The title of the listbox item.                                                                                                                                                   | -       |
+| textValue              | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                                                                                                | -       |
+| description            | `string` \| `ReactNode`                                                                       | The description of the listbox item.                                                                                                                                             | -       |
+| shortcut               | `string` \| `ReactNode`                                                                       | The listbox item keyboard shortcut.                                                                                                                                              | -       |
+| startContent           | `ReactNode`                                                                                   | The start content of the listbox item.                                                                                                                                           | -       |
+| endContent             | `ReactNode`                                                                                   | The end content of the listbox item. This is positioned after the shortcut and the selected icon.                                                                                | -       |
+| selectedIcon           | [SelectedIconProps](#listbox-item-selected-icon-props)                                        | Custom icon to render when the item is selected.                                                                                                                                 | -       |
+| href                   | `string`                                                                                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
+| target                 | `HTMLAttributeAnchorTarget`                                                                   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
+| rel                    | `string`                                                                                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
+| download               | `boolean` \| `string`                                                                         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
+| ping                   | `string`                                                                                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
+| referrerPolicy         | `HTMLAttributeReferrerPolicy`                                                                 | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
+| shouldHighlightOnFocus | `boolean`                                                                                     | Whether the focused item should be highlighted. It applies the same styles to the item as when hovered.                                                                          | `false` |
+| showDivider            | `boolean`                                                                                     | Whether to show a divider below the item.                                                                                                                                        | `false` |
+| isDisabled             | `boolean`                                                                                     | Whether the listbox item should be disabled. (**Deprecated**) pass **disabledKeys** to `Listbox` instead.                                                                        | `false` |
+| isSelected             | `boolean`                                                                                     | Whether the listbox item should be selected. (**Deprecated**) pass **selectedKeys** to `Listbox` instead.                                                                        | `false` |
+| isReadOnly             | `boolean`                                                                                     | Whether the listbox item press events should be ignored.                                                                                                                         | `false` |
+| classNames             | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the listbox item slots.                                                                                                                     | -       |
 
 ### ListboxItem Events
 

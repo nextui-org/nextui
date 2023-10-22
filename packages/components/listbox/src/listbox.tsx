@@ -10,8 +10,16 @@ import ListboxItem from "./listbox-item";
 interface Props<T> extends UseListboxProps<T> {}
 
 function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
-  const {Component, state, getBaseProps, color, disableAnimation, variant, itemClasses} =
-    useListbox<T>({...props, ref});
+  const {
+    Component,
+    state,
+    getBaseProps,
+    color,
+    shouldHighlightOnFocus,
+    disableAnimation,
+    variant,
+    itemClasses,
+  } = useListbox<T>({...props, ref});
 
   return (
     <Component {...getBaseProps()}>
@@ -22,6 +30,7 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
           item,
           state,
           variant,
+
           ...item.props,
         };
 
@@ -33,6 +42,7 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
             key={item.key}
             {...itemProps}
             classNames={mergeProps(itemClasses, item.props?.classNames)}
+            shouldHighlightOnFocus={shouldHighlightOnFocus}
           />
         );
 

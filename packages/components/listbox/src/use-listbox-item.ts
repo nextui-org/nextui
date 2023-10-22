@@ -38,6 +38,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     autoFocus,
     onPress,
     onClick,
+    shouldHighlightOnFocus,
     isReadOnly = false,
     ...otherProps
   } = props;
@@ -99,6 +100,14 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     itemProps = removeEvents(itemProps);
   }
 
+  const isHighlighted = useMemo(() => {
+    if (shouldHighlightOnFocus && isFocused) {
+      return true;
+    }
+
+    return isMobile ? isHovered || isPressed : isHovered;
+  }, [isHovered, isPressed, isFocused, isMobile, shouldHighlightOnFocus]);
+
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
     ...mergeProps(
@@ -113,7 +122,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     ),
     "data-selectable": dataAttr(isSelectable),
     "data-focus": dataAttr(isFocused),
-    "data-hover": dataAttr(isMobile ? isHovered || isPressed : isHovered),
+    "data-hover": dataAttr(isHighlighted),
     "data-disabled": dataAttr(isDisabled),
     "data-selected": dataAttr(isSelected),
     "data-pressed": dataAttr(isPressed),

@@ -25,6 +25,8 @@ interface AriaListBoxOptions<T> extends AriaListBoxProps<T> {
   shouldSelectOnPressUp?: boolean;
   /** Whether options should be focused when the user hovers over them. */
   shouldFocusOnHover?: boolean;
+  /** Whether the item should display the same "hover" styles as when it is focused. */
+  shouldHighlightOnFocus?: boolean;
 }
 
 interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
@@ -69,6 +71,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     disableAnimation,
     itemClasses,
     className,
+    shouldHighlightOnFocus = false,
     ...otherProps
   } = props;
 
@@ -101,6 +104,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     state,
     variant,
     color,
+    shouldHighlightOnFocus,
     disableAnimation,
     className,
     itemClasses,
