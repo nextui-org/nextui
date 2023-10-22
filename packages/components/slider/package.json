@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

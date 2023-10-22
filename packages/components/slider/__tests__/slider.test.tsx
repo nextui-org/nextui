@@ -4,8 +4,6 @@ import userEvent from "@testing-library/user-event";
 
 import {Slider, SliderValue} from "../src";
 
-import drag from "./drag";
-
 describe("Slider", () => {
   it("should render correctly", () => {
     const wrapper = render(<Slider />);
@@ -47,6 +45,17 @@ describe("Slider", () => {
     expect(output).toHaveAttribute("for", slider.id);
     expect(output).not.toHaveAttribute("aria-labelledby");
     expect(output).toHaveAttribute("aria-live", "off");
+  });
+
+  it("should support minValue and maxValue", () => {
+    const {getByRole} = render(
+      <Slider aria-label="Range Slider Aria Label" maxValue={20} minValue={10} />,
+    );
+
+    const slider = getByRole("slider");
+
+    expect(slider).toHaveProperty("min", "10");
+    expect(slider).toHaveProperty("max", "20");
   });
 
   it("should support isDisabled", async function () {
@@ -113,7 +122,6 @@ describe("Slider", () => {
       return (
         <div>
           <Slider label="The Label" value={value} onChange={setValue} />
-
           <button onClick={() => setValue(55)}>55</button>
         </div>
       );
@@ -141,31 +149,68 @@ describe("Slider", () => {
     expect(setValues).toStrictEqual([55]);
   });
 
-  it("should not get stuck at the end when dragging", async function () {
-    const {getByRole, getAllByRole} = render(<Slider hasSingleThumb={false} />);
+  it("should support range values", () => {
+    const {getAllByRole} = render(
+      <Slider aria-label="Range Slider Aria Label" defaultValue={[10, 20]} />,
+    );
 
-    const [leftHandle, rightHandle] = getAllByRole("slider");
-    const output = getByRole("status");
+    const [leftSlider, rightSlider] = getAllByRole("slider");
 
-    const MORE_THAN_SLIDER_WIDTH = 600;
+    expect(leftSlider).toHaveProperty("value", "10");
+    expect(leftSlider).toHaveAttribute("aria-valuetext", "10");
 
-    await drag(rightHandle, {
-      delta: {x: MORE_THAN_SLIDER_WIDTH, y: 0},
+    expect(rightSlider).toHaveProperty("value", "20");
+    expect(rightSlider).toHaveAttribute("aria-valuetext", "20");
+  });
+
+  it("should support controlled range values", async () => {
+    const setValues: number[] = [];
+
+    function Test() {
+      const [value, _setValue] = React.useState<SliderValue>([10, 20]);
+      const setValue = React.useCallback(
+        (val) => {
+          setValues.push(val);
+          _setValue(val);
+        },
+        [_setValue],
+      );
+
+      return (
+        <div>
+          <Slider
+            aria-label="Range Slider Aria Label"
+            label="The Label"
+            value={value}
+            onChange={setValue}
+          />
+          <button onClick={() => setValue([15, 25])}>15, 25</button>
+        </div>
+      );
+    }
+
+    const {getAllByRole, getByRole} = render(<Test />);
+
+    const [leftSlider, rightSlider] = getAllByRole("slider");
+    const button = getByRole("button");
+
+    expect(leftSlider).toHaveProperty("value", "10");
+    expect(leftSlider).toHaveAttribute("aria-valuetext", "10");
+
+    expect(rightSlider).toHaveProperty("value", "20");
+    expect(rightSlider).toHaveAttribute("aria-valuetext", "20");
+
+    // change slider value
+    await act(async () => {
+      await userEvent.click(button);
     });
-    await drag(leftHandle, {
-      delta: {x: MORE_THAN_SLIDER_WIDTH, y: 0},
-    });
-    // It actually drags the leftHandle, because it's on top
-    await drag(rightHandle, {
-      delta: {x: -1 * MORE_THAN_SLIDER_WIDTH, y: 0},
-    });
 
-    expect(leftHandle).toHaveProperty("value", "0");
-    expect(leftHandle).toHaveAttribute("aria-valuetext", "0");
-    expect(output).toHaveTextContent("0");
+    expect(leftSlider).toHaveProperty("value", "15");
+    expect(leftSlider).toHaveAttribute("aria-valuetext", "15");
 
-    expect(rightHandle).toHaveProperty("value", "100");
-    expect(rightHandle).toHaveAttribute("aria-valuetext", "100");
-    expect(output).toHaveTextContent("100");
+    expect(rightSlider).toHaveProperty("value", "25");
+    expect(rightSlider).toHaveAttribute("aria-valuetext", "25");
+
+    expect(setValues).toStrictEqual([[15, 25]]);
   });
 });

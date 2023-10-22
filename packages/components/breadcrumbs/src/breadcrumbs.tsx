@@ -1,4 +1,4 @@
-import {ReactElement, Children, cloneElement, useMemo} from "react";
+import {cloneElement, useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {ChevronRightIcon, EllipsisIcon} from "@nextui-org/shared-icons";
 import {warn} from "@nextui-org/shared-utils";
@@ -31,7 +31,7 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
   });
 
   const content = useMemo(() => {
-    let items = Children.map(children as ReactElement, (child, i) => {
+    let items = children?.map((child, i) => {
       const isLast = i === childCount - 1;
       const itemKey = child?.key || i;
 
@@ -46,6 +46,8 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
         onPress: chain(child.props?.onPress, () => onAction?.(itemKey)),
       });
     });
+
+    if (!items) return null;
 
     if (childCount < maxItems) {
       return items;
