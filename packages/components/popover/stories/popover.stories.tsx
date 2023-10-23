@@ -344,6 +344,50 @@ const WithFormTemplate = (args: PopoverProps) => (
   </Popover>
 );
 
+const BackdropsTemplate = (args: PopoverProps) => {
+  const backdrops: PopoverProps["backdrop"][] = ["opaque", "blur", "transparent"];
+
+  const content = (
+    <PopoverContent className="w-[240px]">
+      {(titleProps) => (
+        <div className="px-1 py-2 w-full">
+          <p className="text-small font-bold text-foreground" {...titleProps}>
+            Dimensions
+          </p>
+          <div className="mt-2 flex flex-col gap-2 w-full">
+            <Input defaultValue="100%" label="Width" size="sm" variant="bordered" />
+            <Input defaultValue="300px" label="Max. width" size="sm" variant="bordered" />
+            <Input defaultValue="24px" label="Height" size="sm" variant="bordered" />
+            <Input defaultValue="30px" label="Max. height" size="sm" variant="bordered" />
+          </div>
+        </div>
+      )}
+    </PopoverContent>
+  );
+
+  return (
+    <div className="flex flex-wrap gap-4">
+      {backdrops.map((backdrop) => (
+        <Popover
+          key={backdrop}
+          showArrow
+          offset={10}
+          placement="bottom"
+          {...args}
+          backdrop={backdrop}
+        >
+          <PopoverTrigger>
+            <Button className="capitalize" color="warning" variant="flat">
+              {backdrop}
+            </Button>
+          </PopoverTrigger>
+          {content}
+        </Popover>
+      ))}
+    </div>
+  );
+};
+
 const WithBackdropTemplate = (args: PopoverProps) => (
   <Card isFooterBlurred className="w-[420px] h-[400px] col-span-12 sm:col-span-7">
     <CardHeader className="absolute z-10 top-1 flex-col items-start">
@@ -471,6 +515,17 @@ export const WithForm = {
     offset: 10,
     placement: "top",
     className: "w-[280px] bg-content1",
+  },
+};
+
+export const Backdrops = {
+  render: BackdropsTemplate,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+    offset: 10,
+    placement: "bottom",
   },
 };
 
