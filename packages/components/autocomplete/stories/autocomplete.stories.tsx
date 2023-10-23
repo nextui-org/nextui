@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {autocomplete} from "@nextui-org/theme";
+import {autocomplete, input} from "@nextui-org/theme";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps} from "../src";
 
@@ -8,17 +8,35 @@ export default {
   title: "Components/Autocomplete",
   component: Autocomplete,
   argTypes: {
+    variant: {
+      control: {
+        type: "select",
+      },
+      options: ["flat", "faded", "bordered", "underlined"],
+    },
     color: {
-      control: {type: "select"},
+      control: {
+        type: "select",
+      },
       options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
-      control: {type: "select"},
+      control: {
+        type: "select",
+      },
       options: ["none", "sm", "md", "lg", "full"],
     },
     size: {
-      control: {type: "select"},
+      control: {
+        type: "select",
+      },
       options: ["sm", "md", "lg"],
+    },
+    labelPlacement: {
+      control: {
+        type: "select",
+      },
+      options: ["inside", "outside", "outside-left"],
     },
     isDisabled: {
       control: {
@@ -29,6 +47,7 @@ export default {
 } as Meta<typeof Autocomplete>;
 
 const defaultProps = {
+  ...input.defaultVariants,
   ...autocomplete.defaultVariants,
 };
 

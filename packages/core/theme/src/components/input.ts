@@ -24,7 +24,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 const input = tv({
   slots: {
     base: "group flex flex-col",
-    label: "subpixel-antialiased block text-small text-foreground-600",
+    label: "origin-top-left subpixel-antialiased block text-small text-foreground-600",
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
@@ -214,7 +214,6 @@ const input = tv({
         inputWrapper: "transition-background motion-reduce:transition-none !duration-150",
         label: [
           "will-change-auto",
-          "origin-top-left",
           "!duration-200",
           "!ease-out",
           "motion-reduce:transition-none",
@@ -564,7 +563,7 @@ const input = tv({
       isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
-        label: "group-data-[filled-within=true]:scale-90",
+        label: ["group-data-[filled-within=true]:scale-85"],
       },
     },
     // isLabelPlaceholder & inside & size
@@ -583,7 +582,7 @@ const input = tv({
       size: "sm",
       class: {
         label: [
-          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_3px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]",
         ],
         input: "pt-4",
       },
@@ -594,7 +593,7 @@ const input = tv({
       size: "md",
       class: {
         label: [
-          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
         ],
         input: "pt-4",
       },
@@ -606,9 +605,79 @@ const input = tv({
       class: {
         label: [
           "text-medium",
-          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
         ],
         input: "pt-5",
+      },
+    },
+    // isLabelPlaceholder & inside & size & [faded, bordered]
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      size: "sm",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      size: "md",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    // isLabelPlaceholder & inside & size & underlined
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: "underlined",
+      size: "sm",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_5px)]",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: "underlined",
+      size: "md",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_3.5px)]",
+        ],
+      },
+    },
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: "underlined",
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+        ],
       },
     },
     // isLabelPlaceholder & outside & size
@@ -648,7 +717,6 @@ const input = tv({
         ],
       },
     },
-
     // outside-left & size & hasHelper
     {
       labelPlacement: "outside-left",

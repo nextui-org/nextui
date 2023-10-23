@@ -10,20 +10,23 @@ const autocomplete = tv({
     popoverContent: "w-full p-1 overflow-hidden",
     endContentWrapper: "relative flex",
     clearButton: [
-      "opacity-0",
       "text-medium",
       "translate-x-1",
       "text-default-500",
       "cursor-text",
+      "opacity-0",
       "data-[visible=true]:opacity-100", // on mobile is always visible when there is a value
-      "group-data-[hover=true]:data-[visible=true]:md:opacity-100",
-      "group-data-[hover=true]:data-[visible=true]:md:cursor-pointer",
+      "data-[visible=true]:cursor-pointer",
+      "sm:data-[visible=true]:opacity-0", // only visible on hover
+      "sm:group-data-[hover=true]:data-[visible=true]:opacity-100",
     ],
     selectorButton: "text-medium",
   },
   variants: {
     disableAnimation: {
-      true: {},
+      true: {
+        selectorButton: "transition-none",
+      },
       false: {
         selectorButton: "transition-transform duration-150 ease motion-reduce:transition-none",
       },

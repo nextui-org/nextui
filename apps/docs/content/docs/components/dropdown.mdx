@@ -148,19 +148,23 @@ so it accepts all the props of the Popover component, including the `backdrop` p
 
 ### Routing
 
-The `<DropdownItem>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and 
+The `<DropdownItem>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and
 [React Router](https://reactrouter.com/en/main). See the [Routing](/docs/guide/routing) guide to learn how to set this up.
 
 ```jsx
-import { Dropdown, DropdownItem} from "@nextui-org/react";
+import {Dropdown, DropdownItem} from "@nextui-org/react";
 
 function App() {
   return (
     <Dropdown>
-      <DropdownItem key="home" href="/home">Home</DropdownItem>
-      <DropdownItem key="about" href="/about">About</DropdownItem>
+      <DropdownItem key="home" href="/home">
+        Home
+      </DropdownItem>
+      <DropdownItem key="about" href="/about">
+        About
+      </DropdownItem>
     </Dropdown>
-  )   
+  );
 }
 ```
 
@@ -286,22 +290,23 @@ you to customize each item individually.
 
 ### DropdownMenu Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                             |           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
-| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -         |
-| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -         |
-| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The dropdown items appearance style.                                                                    | `solid`   |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The dropdown items color theme.                                                                         | `default` |
-| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -         |
-| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -         |
-| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
-| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -         |
-| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`   |
-| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`   |
-| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`   |
-| closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`    |
-| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`   |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -         |
+| Attribute              | Type                                                                                                   | Description                                                                                             |             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ----------- |
+| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -           |
+| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -           |
+| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The dropdown items appearance style.                                                                    | `solid`     |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The dropdown items color theme.                                                                         | `default`   |
+| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -           |
+| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -           |
+| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -           |
+| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -           |
+| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`     |
+| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`     |
+| emptyContent           | `ReactNode`                                                                                            | The content to display when the collection is empty.                                                    | `No items.` |
+| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`     |
+| closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`      |
+| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`     |
+| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -           |
 
 ### DropdownMenu Events
 

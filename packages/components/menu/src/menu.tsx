@@ -10,7 +10,6 @@ const Menu = forwardRef<"ul", MenuProps>((props, ref) => {
   const {
     Component,
     state,
-    getMenuProps,
     closeOnSelect,
     color,
     disableAnimation,
@@ -18,10 +17,17 @@ const Menu = forwardRef<"ul", MenuProps>((props, ref) => {
     onClose,
     onAction,
     itemClasses,
+    getMenuProps,
+    getEmptyContentProps,
   } = useMenu({...props, ref});
 
   return (
     <Component {...getMenuProps()}>
+      {!state.collection.size && (
+        <li>
+          <div {...getEmptyContentProps()} />
+        </li>
+      )}
       {[...state.collection].map((item) => {
         const itemProps = {
           closeOnSelect,

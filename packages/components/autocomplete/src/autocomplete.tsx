@@ -11,7 +11,7 @@ import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 
 interface Props<T> extends UseAutocompleteProps<T> {}
 
-function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectElement>) {
+function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLInputElement>) {
   const {
     Component,
     state,
@@ -40,27 +40,16 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLS
         {...getInputProps()}
         endContent={
           <div {...getEndContentWrapperProps()}>
-            <Button isIconOnly radius="full" size="sm" variant="light" {...getClearButtonProps()}>
+            <Button {...getClearButtonProps()}>
               <CloseIcon />
             </Button>
-            <Button
-              isIconOnly
-              radius="full"
-              size="sm"
-              variant="light"
-              {...getSelectorButtonProps()}
-            >
+            <Button {...getSelectorButtonProps()}>
               <ChevronDownIcon />
             </Button>
           </div>
         }
       />
       {popoverContent}
-      {/* <FreeSoloPopover {...getPopoverProps()} state={state} triggerRef={triggerRef}>
-        <ScrollShadow {...getListBoxWrapperProps()}>
-          <Listbox {...getListBoxProps()} />
-        </ScrollShadow>
-      </FreeSoloPopover> */}
     </Component>
   );
 }

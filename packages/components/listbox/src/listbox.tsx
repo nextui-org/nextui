@@ -13,16 +13,22 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
   const {
     Component,
     state,
-    getBaseProps,
     color,
     shouldHighlightOnFocus,
     disableAnimation,
     variant,
     itemClasses,
+    getBaseProps,
+    getEmptyContentProps,
   } = useListbox<T>({...props, ref});
 
   return (
     <Component {...getBaseProps()}>
+      {!state.collection.size && (
+        <li>
+          <div {...getEmptyContentProps()} />
+        </li>
+      )}
       {[...state.collection].map((item) => {
         const itemProps = {
           color,
