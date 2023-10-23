@@ -24,22 +24,11 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     isIconOnly,
   } = useButton({...props, ref});
 
-  if (isIconOnly && isLoading) {
-    return (
-      <Component ref={domRef} className={styles} {...getButtonProps()}>
-        {startContent}
-        {isLoading && spinner}
-        {endContent}
-        {!disableRipple && <Ripple {...getRippleProps()} />}
-      </Component>
-    );
-  }
-
   return (
     <Component ref={domRef} className={styles} {...getButtonProps()}>
       {startContent}
       {isLoading && spinnerPlacement === "start" && spinner}
-      {children}
+      {isLoading && isIconOnly ? null : children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
       {!disableRipple && <Ripple {...getRippleProps()} />}
