@@ -9,7 +9,8 @@ import {filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
 import {useOption} from "@react-aria/listbox";
 import {mergeProps} from "@react-aria/utils";
-import {useHover, usePress} from "@react-aria/interactions";
+import {useHover} from "@react-aria/interactions";
+import {usePress} from "@nextui-org/use-aria-press";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 import {ListState} from "@react-stately/list";
 

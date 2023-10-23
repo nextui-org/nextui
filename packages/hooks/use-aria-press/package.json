@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/use-aria-link",
-  "version": "2.0.14",
-  "description": "Internal hook to handle link a11y and events, this is based on react-aria link hook but without the onClick warning",
+  "name": "@nextui-org/use-aria-press",
+  "version": "2.0.0",
+  "description": "Handles press interactions across mouse, touch, keyboard, and screen readers.",
   "keywords": [
-    "use-aria-link"
+    "use-aria-press"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/hooks/use-aria-link"
+    "directory": "packages/hooks/use-aria-press"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -33,16 +33,14 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
+  "dependencies": {
+    "@react-aria/utils": "^3.21.0",
+    "@react-aria/ssr": "^3.8.0",
+    "@react-types/shared": "^3.21.0",
+    "@react-aria/interactions": "^3.19.0"
+  },
   "peerDependencies": {
     "react": ">=18"
-  },
-  "dependencies": {
-    "@nextui-org/use-aria-press": "workspace:*",
-    "@react-types/link": "^3.5.0",
-    "@react-types/shared": "^3.21.0",
-    "@react-aria/utils": "^3.21.0",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

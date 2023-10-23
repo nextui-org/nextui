@@ -1,6 +1,6 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {useComboBox} from "@react-aria/combobox";
@@ -11,7 +11,7 @@ import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
 import {InputProps} from "@nextui-org/input";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"div">, keyof ComboBoxProps<T>>, ComboBoxProps<T> {
   /**
@@ -55,6 +55,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [state.isOpen]);
 
+  // unfocus the input when the popover closes & there's no selected item
+  useEffect(() => {
+    if (!state.isOpen && !state.selectedItem && inputRef.current) {
+      inputRef.current.blur();
+    }
+  }, [state.isOpen]);
+
   const {buttonProps, inputProps, listBoxProps} = useComboBox(
     {
       ...originalProps,
@@ -92,12 +99,22 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getSelectorButtonProps = () => ({
     ref: buttonRef,
     ...buttonProps,
+    "data-open": dataAttr(state.isOpen),
     className: slots.selectorButton({class: classNames?.selectorButton}),
   });
 
   const getClearButtonProps = () => ({
-    onPress: onClear,
-    isDisabled: !state.selectedItem,
+    onPress: () => {
+      if (state.selectedItem) {
+        onClear();
+      } else {
+        const inputFocused = inputRef.current === document.activeElement;
+
+        if (!inputFocused) {
+          inputRef.current?.focus();
+        }
+      }
+    },
     "data-visible": !!state.selectedItem,
     className: slots.clearButton({class: classNames?.clearButton}),
   });
@@ -107,6 +124,12 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       label,
       ref: inputRef,
       baseRef: inputBaseRef,
+      variant: "bordered",
+      onClick: () => {
+        if (!state.isOpen) {
+          state.open();
+        }
+      },
       ...inputProps,
     } as unknown as InputProps);
 
@@ -140,17 +163,24 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     } as unknown as PopoverProps;
   };
 
-  const getListBoxWrapperProps = (props: any = {}) => ({
+  const getListBoxWrapperProps: PropGetter = (props: any = {}) => ({
     className: slots.listboxWrapper({
       class: clsx(classNames?.listboxWrapper, props?.className),
     }),
     // ...mergeProps(userScrollShadowProps, props),
   });
 
-  const getEndContentWrapperProps = (props: any = {}) => ({
+  const getEndContentWrapperProps: PropGetter = (props: any = {}) => ({
     className: slots.endContentWrapper({
       class: clsx(classNames?.endContentWrapper, props?.className),
     }),
+    onClick: (e) => {
+      const inputFocused = inputRef.current === document.activeElement;
+
+      if (!inputFocused && e.currentTarget === e.target) {
+        inputRef.current?.focus();
+      }
+    },
     // ...mergeProps(userScrollShadowProps, props),
   });
 

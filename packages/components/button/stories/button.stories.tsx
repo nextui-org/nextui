@@ -71,12 +71,12 @@ const defaultProps = {
 const StateTemplate = (args: ButtonProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const handleClick = () => {
+  const handlePress = () => {
     setIsOpen((prev) => !prev);
   };
 
   return (
-    <Button {...args} aria-label="Open" aria-pressed={isOpen} onPress={handleClick}>
+    <Button {...args} aria-label="Open" aria-pressed={isOpen} onPress={handlePress}>
       {isOpen ? "Close" : "Open"}
     </Button>
   );

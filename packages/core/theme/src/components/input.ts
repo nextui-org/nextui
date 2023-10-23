@@ -24,12 +24,16 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 const input = tv({
   slots: {
     base: "group flex flex-col",
-    label: "block text-small font-medium text-foreground-600",
+    label: "subpixel-antialiased block text-small text-foreground-600",
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
-    innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
+    innerWrapper: ["inline-flex w-full h-full items-center box-border"],
+    input: [
+      "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
+      "data-[has-start-content=true]:ps-1.5",
+      "data-[has-end-content=true]:pe-1.5",
+    ],
     clearButton: [
       "p-2",
       "-m-2",
@@ -211,10 +215,10 @@ const input = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
-          "transition-all",
           "!duration-200",
           "!ease-out",
           "motion-reduce:transition-none",
+          "transition-[transform,color,left,opacity]",
         ],
         clearButton: ["transition-opacity", "motion-reduce:transition-none"],
       },
@@ -536,11 +540,7 @@ const input = tv({
       isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
-        label: [
-          "font-normal",
-          "group-data-[filled-within=true]:font-medium",
-          "group-data-[filled-within=true]:pointer-events-auto",
-        ],
+        label: ["group-data-[filled-within=true]:pointer-events-auto"],
       },
     },
     {
@@ -559,13 +559,21 @@ const input = tv({
         ],
       },
     },
+    // isLabelPlaceholder & inside
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: "group-data-[filled-within=true]:scale-90",
+      },
+    },
     // isLabelPlaceholder & inside & size
     {
       isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-small", "group-data-[filled-within=true]:text-tiny"],
+        label: "text-small",
         input: "pt-4",
       },
     },
@@ -598,7 +606,6 @@ const input = tv({
       class: {
         label: [
           "text-medium",
-          "group-data-[filled-within=true]:text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
         ],
         input: "pt-5",
@@ -613,7 +620,6 @@ const input = tv({
         label: [
           "left-2",
           "text-small",
-          "group-data-[filled-within=true]:text-tiny",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
       },
@@ -638,7 +644,6 @@ const input = tv({
         label: [
           "left-3",
           "text-medium",
-          "group-data-[filled-within=true]:text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
       },

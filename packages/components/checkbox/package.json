@@ -42,6 +42,7 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/use-aria-press": "workspace:*",
     "@react-aria/checkbox": "^3.11.1",
     "@react-aria/focus": "^3.14.2",
     "@react-aria/interactions": "^3.19.0",

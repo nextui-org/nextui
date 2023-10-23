@@ -6,7 +6,7 @@ import {tv} from "../utils/tv";
 const select = tv({
   slots: {
     base: "group inline-flex flex-col relative w-full",
-    label: "block text-small font-medium text-foreground-500 pointer-events-none",
+    label: "block subpixel-antialiased text-small text-foreground-500 pointer-events-none",
     mainWrapper: "w-full flex flex-col",
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
@@ -176,9 +176,9 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
-          "transition-all",
           "!duration-200",
           "!ease-out",
+          "transition-[transform,color,left,opacity]",
           "motion-reduce:transition-none",
         ],
         selectorIcon: "transition-transform duration-150 ease motion-reduce:transition-none",
@@ -501,11 +501,7 @@ const select = tv({
       isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
-        label: [
-          "font-normal",
-          "group-data-[filled=true]:font-medium",
-          "group-data-[filled=true]:pointer-events-auto",
-        ],
+        label: ["group-data-[filled=true]:pointer-events-auto"],
       },
     },
     {
@@ -524,13 +520,21 @@ const select = tv({
         ],
       },
     },
+    // isLabelPlaceholder & inside
+    {
+      isLabelPlaceholder: true,
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: "group-data-[filled=true]:scale-90",
+      },
+    },
     // isLabelPlaceholder & inside & size
     {
       isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-small", "group-data-[filled=true]:text-tiny"],
+        label: "text-small",
         input: "pt-4",
       },
     },
@@ -561,7 +565,6 @@ const select = tv({
       class: {
         label: [
           "text-medium",
-          "group-data-[filled=true]:text-small",
           "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
         ],
         innerWrapper: "pt-5",
@@ -576,7 +579,6 @@ const select = tv({
         label: [
           "left-2",
           "text-small",
-          "group-data-[filled=true]:text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
       },
@@ -601,7 +603,6 @@ const select = tv({
         label: [
           "left-3",
           "text-medium",
-          "group-data-[filled=true]:text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
       },

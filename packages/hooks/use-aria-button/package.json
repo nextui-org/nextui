@@ -37,6 +37,7 @@
     "react": ">=18"
   },
   "dependencies": {
+    "@nextui-org/use-aria-press": "workspace:*",
     "@react-aria/utils": "^3.21.0",
     "@react-aria/focus": "^3.14.2",
     "@react-aria/interactions": "^3.19.0",

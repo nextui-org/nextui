@@ -619,6 +619,9 @@ importers:
       '@nextui-org/use-aria-accordion':
         specifier: workspace:*
         version: link:../../hooks/use-aria-accordion
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@react-aria/button':
         specifier: ^3.8.3
         version: 3.8.3(react@18.2.0)
@@ -1010,6 +1013,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@react-aria/checkbox':
         specifier: ^3.11.1
         version: 3.11.1(react@18.2.0)
@@ -1077,6 +1083,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@react-aria/focus':
         specifier: ^3.14.2
         version: 3.14.2(react@18.2.0)
@@ -1388,6 +1397,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
@@ -1446,6 +1458,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
@@ -1665,6 +1680,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@nextui-org/use-pagination':
         specifier: workspace:*
         version: link:../../hooks/use-pagination
@@ -1824,6 +1842,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@react-aria/focus':
         specifier: ^3.14.2
         version: 3.14.2(react@18.2.0)
@@ -2051,6 +2072,9 @@ importers:
       '@nextui-org/tooltip':
         specifier: workspace:*
         version: link:../tooltip
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@react-aria/focus':
         specifier: ^3.14.2
         version: 3.14.2(react@18.2.0)
@@ -2199,6 +2223,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-press
       '@react-aria/focus':
         specifier: ^3.14.2
         version: 3.14.2(react@18.2.0)
@@ -2798,6 +2825,9 @@ importers:
 
   packages/hooks/use-aria-button:
     dependencies:
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../use-aria-press
       '@react-aria/focus':
         specifier: ^3.14.2
         version: 3.14.2(react@18.2.0)
@@ -2823,6 +2853,9 @@ importers:
 
   packages/hooks/use-aria-link:
     dependencies:
+      '@nextui-org/use-aria-press':
+        specifier: workspace:*
+        version: link:../use-aria-press
       '@react-aria/focus':
         specifier: ^3.14.2
         version: 3.14.2(react@18.2.0)
@@ -2915,6 +2948,28 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-press:
+    dependencies:
+      '@react-aria/interactions':
+        specifier: ^3.19.0
+        version: 3.19.1(react@18.2.0)
+      '@react-aria/ssr':
+        specifier: ^3.8.0
+        version: 3.8.0(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.21.0
+        version: 3.21.1(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.21.0
+        version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -9143,10 +9198,10 @@ packages:
     dependencies:
       '@react-aria/focus': 3.14.2(react@18.2.0)
       '@react-aria/i18n': 3.8.3(react@18.2.0)
-      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/interactions': 3.19.1(react@18.2.0)
       '@react-aria/live-announcer': 3.3.1
       '@react-aria/selection': 3.17.0(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/grid': 3.8.2(react@18.2.0)
       '@react-stately/selection': 3.14.0(react@18.2.0)
@@ -9197,10 +9252,11 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-aria/ssr': 3.8.0(react@18.2.0)
-      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
+    dev: false
 
   /@react-aria/interactions@3.19.1(react@18.2.0):
     resolution: {integrity: sha512-2QFOvq/rJfMGEezmtYcGcJmfaD16kHKcSTLFrZ8aeBK6hYFddGVZJZk+dXf+G7iNaffa8rMt6uwzVe/malJPBA==}
@@ -9212,7 +9268,6 @@ packages:
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
-    dev: false
 
   /@react-aria/label@3.7.1(react@18.2.0):
     resolution: {integrity: sha512-/MMHGXVlz6HvZyPDX9mu4an8rM8v5t68jGnyBoaAL8oultWHI1bVRJ/Ro8rT0zY/68m5EWtwNYNyvcZ2X3JZ/w==}
@@ -9352,9 +9407,9 @@ packages:
     dependencies:
       '@react-aria/focus': 3.14.2(react@18.2.0)
       '@react-aria/i18n': 3.8.3(react@18.2.0)
-      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/interactions': 3.19.1(react@18.2.0)
       '@react-aria/ssr': 3.8.0(react@18.2.0)
-      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden': 3.8.5(react@18.2.0)
       '@react-stately/overlays': 3.6.3(react@18.2.0)
       '@react-types/button': 3.9.0(react@18.2.0)
@@ -9574,8 +9629,8 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-aria/focus': 3.14.2(react@18.2.0)
-      '@react-aria/interactions': 3.19.0(react@18.2.0)
-      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-aria/interactions': 3.19.1(react@18.2.0)
+      '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-stately/toggle': 3.6.3(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
@@ -9610,6 +9665,7 @@ packages:
       '@swc/helpers': 0.5.3
       clsx: 1.2.1
       react: 18.2.0
+    dev: false
 
   /@react-aria/utils@3.21.1(react@18.2.0):
     resolution: {integrity: sha512-tySfyWHXOhd/b6JSrSOl7krngEXN3N6pi1hCAXObRu3+MZlaZOMDf/j18aoteaIF2Jpv8HMWUJUJtQKGmBJGRA==}
@@ -9622,7 +9678,6 @@ packages:
       '@swc/helpers': 0.5.3
       clsx: 1.2.1
       react: 18.2.0
-    dev: false
 
   /@react-aria/virtualizer@3.9.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-ZKQF12gECSTDf3iAOn2nwKo9Iz4hMUHg3MwQIqlkJlNJdW29Dw146PWLpZhL4NA5QjuiRKRT/Tl23YaLAO8w9Q==}
@@ -9973,7 +10028,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-aria/utils': 3.21.0(react@18.2.0)
+      '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -10069,7 +10124,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-aria/interactions': 3.19.0(react@18.2.0)
+      '@react-aria/interactions': 3.19.1(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
 

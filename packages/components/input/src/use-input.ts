@@ -8,7 +8,7 @@ import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, useCallback, useState} from "react";
+import {useMemo, Ref, useCallback, useState, useRef} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
@@ -104,6 +104,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     props.defaultValue,
     handleValueChange,
   );
+
   const [isFocusWithin, setFocusWithin] = useState(false);
 
   const Component = as || "div";
@@ -115,6 +116,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const domRef = useDOMRef<T>(ref);
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
+  const innerWrapperRef = useRef<HTMLDivElement>(null);
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -212,6 +215,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ref: baseDomRef,
         className: slots.base({class: baseStyles}),
+        "data-slot": "base",
         "data-filled": dataAttr(isFilled),
         "data-filled-within": dataAttr(isFilledWithin),
         "data-focus-within": dataAttr(isFocusWithin),
@@ -250,6 +254,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const getLabelProps: PropGetter = useCallback(
     (props = {}) => {
       return {
+        "data-slot": "label",
         className: slots.label({class: classNames?.label}),
         ...labelProps,
         ...props,
@@ -262,8 +267,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ref: domRef,
+        "data-slot": "input",
         "data-filled": dataAttr(isFilled),
         "data-filled-within": dataAttr(isFilledWithin),
+        "data-has-start-content": dataAttr(hasStartContent),
+        "data-has-end-content": dataAttr(!!endContent),
         className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
         ...mergeProps(
           focusProps,
@@ -289,6 +297,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       otherProps,
       isFilled,
       isFilledWithin,
+      hasStartContent,
+      endContent,
       classNames?.input,
       originalProps.isReadOnly,
       originalProps.isRequired,
@@ -299,18 +309,20 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const getInputWrapperProps: PropGetter = useCallback(
     (props = {}) => {
       return {
+        ref: inputWrapperRef,
+        "data-slot": "input-wrapper",
         "data-hover": dataAttr(isHovered),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
           class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
         }),
-        onClick: (e: React.MouseEvent) => {
-          if (e.target === e.currentTarget) {
-            domRef.current?.focus();
+        ...mergeProps(props, hoverProps),
+        onClick: (e) => {
+          if (domRef.current && e.currentTarget === e.target) {
+            domRef.current.focus();
           }
         },
-        ...mergeProps(props, hoverProps),
         style: {
           cursor: "text",
           ...props.style,
@@ -324,6 +336,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ...props,
+        ref: innerWrapperRef,
+        "data-slot": "inner-wrapper",
+        onClick: (e) => {
+          if (domRef.current && e.currentTarget === e.target) {
+            domRef.current.focus();
+          }
+        },
         className: slots.innerWrapper({
           class: clsx(classNames?.innerWrapper, props?.className),
         }),
@@ -336,6 +355,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "main-wrapper",
         className: slots.mainWrapper({
           class: clsx(classNames?.mainWrapper, props?.className),
         }),
@@ -348,6 +368,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "helper-wrapper",
         className: slots.helperWrapper({
           class: clsx(classNames?.helperWrapper, props?.className),
         }),
@@ -361,6 +382,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ...props,
         ...descriptionProps,
+        "data-slot": "description",
         className: slots.description({class: clsx(classNames?.description, props?.className)}),
       };
     },
@@ -372,6 +394,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ...props,
         ...errorMessageProps,
+        "data-slot": "error-message",
         className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
       };
     },
@@ -384,6 +407,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         role: "button",
         tabIndex: 0,
+        "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
         className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
         ...mergeProps(clearPressProps, clearFocusProps),
