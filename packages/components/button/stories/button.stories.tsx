@@ -72,6 +72,8 @@ const StateTemplate = (args: ButtonProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handlePress = () => {
+    // eslint-disable-next-line no-console
+    console.log("Pressed");
     setIsOpen((prev) => !prev);
   };
 
