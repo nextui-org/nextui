@@ -51,6 +51,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
         style={{
           // @ts-expect-error
           "--navbar-height": height,
+          height: "calc(100vh - var(--navbar-height))",
         }}
         {...otherProps}
       >

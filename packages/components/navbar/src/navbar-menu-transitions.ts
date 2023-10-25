@@ -2,7 +2,7 @@ import {Variants} from "framer-motion";
 
 export const menuVariants: Variants = {
   enter: {
-    height: "calc(100vh - var(--navbar-height) - 1px)",
+    height: "calc(100vh - var(--navbar-height))",
     transition: {
       duration: 0.3,
       easings: "easeOut",
