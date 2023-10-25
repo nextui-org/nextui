@@ -1,7 +1,7 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {RefObject, Ref, useEffect, useState} from "react";
+import {RefObject, Ref, useEffect} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
@@ -111,9 +111,9 @@ export function usePopover(originalProps: UsePopoverProps) {
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
-  const [wasTriggerPressed, setWasTriggerPressed] = useState(false);
 
   const domTriggerRef = useRef<HTMLElement>(null);
+  const wasTriggerPressedRef = useRef(false);
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
@@ -218,10 +218,10 @@ export function usePopover(originalProps: UsePopoverProps) {
         (originalProps?.backdrop === "blur" || originalProps?.backdrop === "opaque")
       ) {
         pressTimer = setTimeout(() => {
-          setWasTriggerPressed(true);
+          wasTriggerPressedRef.current = true;
         }, 100);
       } else {
-        setWasTriggerPressed(true);
+        wasTriggerPressedRef.current = true;
       }
 
       triggerProps.onPress?.(e);
@@ -252,14 +252,14 @@ export function usePopover(originalProps: UsePopoverProps) {
       "data-slot": "backdrop",
       className: slots.backdrop({class: classNames?.backdrop}),
       onClick: (e) => {
-        if (!wasTriggerPressed) {
+        if (!wasTriggerPressedRef.current) {
           e.preventDefault();
 
           return;
         }
 
         state.close();
-        setWasTriggerPressed(false);
+        wasTriggerPressedRef.current = false;
       },
       ...underlayProps,
       ...props,
