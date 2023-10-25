@@ -129,10 +129,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ref: inputRef,
       baseRef: inputBaseRef,
       onClick: () => {
-        if (!state.isOpen) {
-          // state.open();
+        if (!state.isOpen && !!state.selectedItem) {
+          state.open();
         }
       },
+      isClearable: false,
       disableAnimation,
     },
     popoverProps: {
