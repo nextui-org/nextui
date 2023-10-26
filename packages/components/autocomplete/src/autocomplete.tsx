@@ -15,7 +15,6 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   const {
     Component,
     state,
-    triggerRef,
     getBaseProps,
     getSelectorButtonProps,
     getInputProps,
@@ -27,7 +26,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   } = useAutocomplete({...props, ref});
 
   const popoverContent = state.isOpen ? (
-    <FreeSoloPopover {...getPopoverProps()} state={state} triggerRef={triggerRef}>
+    <FreeSoloPopover {...getPopoverProps()} state={state}>
       <ScrollShadow {...getListBoxWrapperProps()}>
         <Listbox {...getListBoxProps()} />
       </ScrollShadow>

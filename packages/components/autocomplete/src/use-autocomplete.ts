@@ -104,20 +104,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const popoverRef = useRef<HTMLDivElement>(null);
   const scrollShadowRef = useRef<HTMLDivElement>(null);
 
-  const popoverPositionProps = useMemo(() => {
-    let offset = 12;
-    let containerPadding = 12;
-
-    if (originalProps.variant === "underlined") {
-      offset = 6;
-    }
-
-    return {
-      offset,
-      containerPadding,
-    };
-  }, [originalProps?.variant]);
-
   const defaultRelatedComponentsProps: {
     inputProps: InputProps;
     popoverProps: UseAutocompleteProps<T>["popoverProps"];
@@ -137,10 +123,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       disableAnimation,
     },
     popoverProps: {
+      offset: 5,
       placement: "bottom",
       triggerScaleOnOpen: false,
       disableAnimation,
-      ...popoverPositionProps,
     },
     scrollShadowProps: {
       ref: scrollShadowRef,
@@ -316,7 +302,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     state,
     slots,
     classNames,
-    triggerRef: inputRef,
+    triggerRef: inputWrapperRef,
     getBaseProps,
     getInputProps,
     getListBoxProps,
