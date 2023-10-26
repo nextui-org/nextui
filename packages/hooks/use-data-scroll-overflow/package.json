@@ -33,6 +33,9 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
+  "dependencies": {
+    "@nextui-org/shared-utils": "workspace:*"
+  },
   "peerDependencies": {
     "react": ">=18"
   },
