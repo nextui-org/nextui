@@ -74,6 +74,7 @@ const popover = tv({
       "z-10",
       "px-2.5",
       "py-1",
+      "w-full",
       "inline-flex",
       "flex-col",
       "items-center",

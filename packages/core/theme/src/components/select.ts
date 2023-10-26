@@ -6,8 +6,17 @@ import {tv} from "../utils/tv";
 const select = tv({
   slots: {
     base: "group inline-flex flex-col relative w-full",
-    label:
-      "block origin-top-left subpixel-antialiased text-small text-foreground-500 pointer-events-none",
+    label: [
+      "block",
+      "absolute",
+      "z-10",
+      "origin-top-left",
+      "subpixel-antialiased",
+      "text-small",
+      "text-foreground-500",
+      "group-data-[filled=true]:text-foreground-600",
+      "pointer-events-none",
+    ],
     mainWrapper: "w-full flex flex-col",
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
@@ -15,7 +24,7 @@ const select = tv({
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
     spinner: "absolute right-3",
-    value: "font-normal w-full text-left opacity-60 group-data-[filled=true]:opacity-100",
+    value: ["font-normal", "w-full", "text-left"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -76,7 +85,9 @@ const select = tv({
       },
     },
     color: {
-      default: {},
+      default: {
+        value: ["text-foreground-500", "group-data-[has-value=true]:text-foreground"],
+      },
       primary: {},
       secondary: {},
       success: {},
@@ -122,7 +133,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "text-foreground pr-2",
+        label: "relative text-foreground pr-2",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -132,11 +143,6 @@ const select = tv({
     fullWidth: {
       true: {
         base: "w-full",
-      },
-    },
-    isLabelPlaceholder: {
-      true: {
-        label: "absolute z-10",
       },
     },
     isDisabled: {
@@ -497,16 +503,14 @@ const select = tv({
         trigger: "h-16 py-2.5 gap-0",
       },
     },
-    // isLabelPlaceholder & labelPlacement
+    //  labelPlacement=[inside, outside]
     {
-      isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
         label: ["group-data-[filled=true]:pointer-events-auto"],
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       class: {
         base: "group relative justify-end",
@@ -521,17 +525,15 @@ const select = tv({
         ],
       },
     },
-    // isLabelPlaceholder & inside
+    // labelPlacement=[inside, outside]
     {
-      isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
         label: "group-data-[filled=true]:scale-85",
       },
     },
-    // isLabelPlaceholder & inside & size
+    // inside & size
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
@@ -540,7 +542,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: "sm",
       class: {
@@ -549,7 +550,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: "md",
       class: {
@@ -560,7 +560,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: "lg",
       class: {
@@ -571,9 +570,8 @@ const select = tv({
         innerWrapper: "pt-5",
       },
     },
-    // isLabelPlaceholder & inside & size & [faded, bordered]
+    // inside & size & [faded, bordered]
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
       size: "sm",
@@ -584,7 +582,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
       size: "md",
@@ -595,7 +592,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
       size: "lg",
@@ -606,9 +602,8 @@ const select = tv({
         ],
       },
     },
-    // isLabelPlaceholder & inside & size & underlined
+    // inside & size & underlined
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: "underlined",
       size: "sm",
@@ -617,7 +612,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: "underlined",
       size: "md",
@@ -628,7 +622,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: "underlined",
       size: "lg",
@@ -639,9 +632,8 @@ const select = tv({
         ],
       },
     },
-    // isLabelPlaceholder & outside & size
+    // outside & size
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "sm",
       class: {
@@ -653,7 +645,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "md",
       class: {
@@ -665,7 +656,6 @@ const select = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "lg",
       class: {

@@ -24,7 +24,17 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 const input = tv({
   slots: {
     base: "group flex flex-col",
-    label: "origin-top-left subpixel-antialiased block text-small text-foreground-600",
+    label: [
+      "absolute",
+      "z-10",
+      "pointer-events-none",
+      "origin-top-left",
+      "subpixel-antialiased",
+      "block",
+      "text-small",
+      "text-foreground-500",
+      "group-data-[filled-within=true]:text-foreground-600",
+    ],
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
@@ -158,7 +168,7 @@ const input = tv({
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "text-foreground pr-2",
+        label: "relative text-foreground pr-2",
       },
       inside: {
         label: "text-tiny cursor-text",
@@ -168,11 +178,6 @@ const input = tv({
     fullWidth: {
       true: {
         base: "w-full",
-      },
-    },
-    isLabelPlaceholder: {
-      true: {
-        label: "absolute z-10 pointer-events-none",
       },
     },
     isClearable: {
@@ -534,16 +539,14 @@ const input = tv({
         inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
-    // isLabelPlaceholder & labelPlacement
+    // labelPlacement=[inside,outside]
     {
-      isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
         label: ["group-data-[filled-within=true]:pointer-events-auto"],
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       class: {
         base: "group relative justify-end",
@@ -558,17 +561,15 @@ const input = tv({
         ],
       },
     },
-    // isLabelPlaceholder & inside
+    // labelPlacement=[inside,outside]
     {
-      isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
         label: ["group-data-[filled-within=true]:scale-85"],
       },
     },
-    // isLabelPlaceholder & inside & size
+    // inside & size
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
@@ -577,7 +578,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: "sm",
       class: {
@@ -588,7 +588,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: "md",
       class: {
@@ -599,7 +598,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       size: "lg",
       class: {
@@ -610,9 +608,8 @@ const input = tv({
         input: "pt-5",
       },
     },
-    // isLabelPlaceholder & inside & size & [faded, bordered]
+    // inside & size & [faded, bordered]
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
       size: "sm",
@@ -623,7 +620,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
       size: "md",
@@ -634,7 +630,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
       size: "lg",
@@ -645,9 +640,8 @@ const input = tv({
         ],
       },
     },
-    // isLabelPlaceholder & inside & size & underlined
+    // inside & size & underlined
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: "underlined",
       size: "sm",
@@ -658,7 +652,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: "underlined",
       size: "md",
@@ -669,7 +662,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
       variant: "underlined",
       size: "lg",
@@ -680,9 +672,8 @@ const input = tv({
         ],
       },
     },
-    // isLabelPlaceholder & outside & size
+    // outside & size
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "sm",
       class: {
@@ -694,7 +685,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "md",
       class: {
@@ -706,7 +696,6 @@ const input = tv({
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "lg",
       class: {

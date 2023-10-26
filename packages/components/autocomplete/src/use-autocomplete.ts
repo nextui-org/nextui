@@ -99,14 +99,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // Setup refs and get props for child elements.
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const inputBaseRef = useRef<HTMLDivElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const scrollShadowRef = useRef<HTMLDivElement>(null);
 
   const popoverPositionProps = useMemo(() => {
     let offset = 12;
-    let containerPadding = 16;
+    let containerPadding = 12;
 
     if (originalProps.variant === "underlined") {
       offset = 6;
@@ -127,7 +127,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     inputProps: {
       label,
       ref: inputRef,
-      baseRef: inputBaseRef,
+      wrapperRef: inputWrapperRef,
       onClick: () => {
         if (!state.isOpen && !!state.selectedItem) {
           state.open();
@@ -171,8 +171,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // apply the same with to the popover as the select
   useEffect(() => {
-    if (state.isOpen && popoverRef.current && inputBaseRef.current) {
-      let rect = inputBaseRef.current.getBoundingClientRect();
+    if (state.isOpen && popoverRef.current && inputWrapperRef.current) {
+      let rect = inputWrapperRef.current.getBoundingClientRect();
 
       let popover = popoverRef.current;
 
@@ -276,7 +276,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     return {
       state,
       ref: popoverRef,
-      triggerRef: inputRef,
+      triggerRef: inputWrapperRef,
       scrollRef: listBoxRef,
       triggerType: "listbox",
       ...props,

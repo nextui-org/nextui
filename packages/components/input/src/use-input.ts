@@ -8,7 +8,7 @@ import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, useCallback, useState, useRef} from "react";
+import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
@@ -22,6 +22,17 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
    * Ref to the container DOM node.
    */
   baseRef?: Ref<HTMLDivElement>;
+  /**
+   * Ref to the input wrapper DOM node.
+   * This is the element that wraps the input label and the innerWrapper when the labelPlacement="inside"
+   * and the input has start/end content.
+   */
+  wrapperRef?: Ref<HTMLDivElement>;
+  /**
+   * Ref to the input inner wrapper DOM node.
+   * This is the element that wraps the input and the start/end content when passed.
+   */
+  innerWrapperRef?: Ref<HTMLDivElement>;
   /**
    * Element to be rendered in the left side of the input.
    */
@@ -78,6 +89,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     as,
     label,
     baseRef,
+    wrapperRef,
     description,
     errorMessage,
     className,
@@ -88,6 +100,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
+    innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
   } = props;
@@ -116,8 +129,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const domRef = useDOMRef<T>(ref);
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
-  const inputWrapperRef = useRef<HTMLDivElement>(null);
-  const innerWrapperRef = useRef<HTMLDivElement>(null);
+  const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
+  const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -171,16 +184,16 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
-  const isLabelPlaceholder =
-    !props.placeholder && labelPlacement !== "outside-left" && !isMultiline;
-
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
   const hasHelper = !!description || !!errorMessage;
-
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
   const shouldLabelBeInside = labelPlacement === "inside";
+  const isPlaceholderShown = domRef.current
+    ? (!domRef.current.value || domRef.current.value === "" || !inputValue || inputValue === "") &&
+      hasPlaceholder
+    : false;
 
   const hasStartContent = !!startContent;
   const isLabelOutside = shouldLabelBeOutside
@@ -198,16 +211,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         isInvalid,
         isClearable,
         labelPlacement,
-        isLabelPlaceholder: isLabelPlaceholder && !hasStartContent,
       }),
-    [
-      ...Object.values(variantProps),
-      isInvalid,
-      labelPlacement,
-      isClearable,
-      isLabelPlaceholder,
-      hasStartContent,
-    ],
+    [...Object.values(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
   );
 
   const getBaseProps: PropGetter = useCallback(
@@ -216,8 +221,12 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ref: baseDomRef,
         className: slots.base({class: baseStyles}),
         "data-slot": "base",
-        "data-filled": dataAttr(isFilled),
-        "data-filled-within": dataAttr(isFilledWithin),
+        "data-filled": dataAttr(
+          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown,
+        ),
+        "data-filled-within": dataAttr(
+          isFilledWithin || hasPlaceholder || hasStartContent || isPlaceholderShown,
+        ),
         "data-focus-within": dataAttr(isFocusWithin),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-readonly": dataAttr(originalProps.isReadOnly),
@@ -241,9 +250,12 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isInvalid,
       hasHelper,
       hasElements,
+      isPlaceholderShown,
+      hasStartContent,
       isFocusWithin,
       isFocusVisible,
       isFilledWithin,
+      hasPlaceholder,
       focusWithinProps,
       originalProps.isReadOnly,
       originalProps.isRequired,

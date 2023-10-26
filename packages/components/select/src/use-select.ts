@@ -261,8 +261,9 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const shouldLabelBeOutside =
     labelPlacement === "outside-left" || (labelPlacement === "outside" && hasPlaceholder);
   const shouldLabelBeInside = labelPlacement === "inside";
-  const isLabelPlaceholder = !hasPlaceholder && labelPlacement !== "outside-left";
-  const isFilled = state.isOpen || !!state.selectedItems || !!startContent || !!endContent;
+  const isFilled =
+    state.isOpen || hasPlaceholder || !!state.selectedItems || !!startContent || !!endContent;
+  const hasValue = !!state.selectedItems;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -270,11 +271,10 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     () =>
       select({
         ...variantProps,
-        isLabelPlaceholder,
         isInvalid,
         className,
       }),
-    [...Object.values(variantProps), isInvalid, isLabelPlaceholder, className],
+    [...Object.values(variantProps), isInvalid, className],
   );
 
   // scroll the listbox to the selected item
@@ -309,13 +309,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
       "data-filled": dataAttr(isFilled),
+      "data-has-value": dataAttr(hasValue),
       "data-has-helper": dataAttr(hasHelper),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
       ...props,
     }),
-    [slots, hasHelper, isFilled, baseStyles],
+    [slots, hasHelper, hasValue, isFilled, baseStyles],
   );
 
   const getTriggerProps: PropGetter = useCallback(
