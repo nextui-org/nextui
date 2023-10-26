@@ -13,6 +13,7 @@ import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, useRef} from "react";
+import {PressEvent} from "@react-types/shared";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -83,9 +84,9 @@ export function usePopover(originalProps: UsePopoverProps) {
     state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
-    isOpen,
     defaultOpen,
     onOpenChange,
+    isOpen: isOpenProp,
     isNonModal = true,
     shouldFlip = true,
     containerPadding = 12,
@@ -112,13 +113,14 @@ export function usePopover(originalProps: UsePopoverProps) {
   const domRef = useDOMRef(ref);
 
   const domTriggerRef = useRef<HTMLElement>(null);
+  const wasTriggerPressedRef = useRef(false);
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation = originalProps.disableAnimation ?? false;
 
   const innerState = useOverlayTriggerState({
-    isOpen,
+    isOpen: isOpenProp,
     defaultOpen,
     onOpenChange: (isOpen) => {
       onOpenChange?.(isOpen);
@@ -191,17 +193,44 @@ export function usePopover(originalProps: UsePopoverProps) {
   const getContentProps = useCallback<PropGetter>(
     (props = {}) => ({
       "data-slot": "content",
-      "data-open": dataAttr(isOpen),
+      "data-open": dataAttr(state.isOpen),
       "data-arrow": dataAttr(showArrow),
       "data-placement": getArrowPlacement(ariaPlacement, placementProp),
       className: slots.content({class: clsx(classNames?.content, props.className)}),
     }),
-    [slots, isOpen, showArrow, ariaPlacement, placementProp, classNames],
+    [slots, state.isOpen, showArrow, ariaPlacement, placementProp, classNames],
   );
 
   const placement = useMemo(
     () => (getShouldUseAxisPlacement(ariaPlacement, placementProp) ? ariaPlacement : placementProp),
     [ariaPlacement, placementProp],
+  );
+
+  const onPress = useCallback(
+    (e: PressEvent) => {
+      let pressTimer: ReturnType<typeof setTimeout>;
+
+      // Artificial delay to prevent the underlay to be triggered immediately after the onPress
+      // this only happens when the backdrop is blur or opaque & pointerType === "touch"
+      // TODO: find a better way to handle this
+      if (
+        e.pointerType === "touch" &&
+        (originalProps?.backdrop === "blur" || originalProps?.backdrop === "opaque")
+      ) {
+        pressTimer = setTimeout(() => {
+          wasTriggerPressedRef.current = true;
+        }, 100);
+      } else {
+        wasTriggerPressedRef.current = true;
+      }
+
+      triggerProps.onPress?.(e);
+
+      return () => {
+        clearTimeout(pressTimer);
+      };
+    },
+    [triggerProps?.onPress],
   );
 
   const getTriggerProps = useCallback<PropGetter>(
@@ -210,22 +239,32 @@ export function usePopover(originalProps: UsePopoverProps) {
         "data-slot": "trigger",
         "aria-haspopup": "dialog",
         ...mergeProps(triggerProps, props),
+        onPress,
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
       };
     },
-    [isOpen, state, triggerProps, triggerRef],
+    [state, triggerProps, onPress, triggerRef],
   );
 
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
       "data-slot": "backdrop",
       className: slots.backdrop({class: classNames?.backdrop}),
-      onClick: () => state.close(),
+      onClick: (e) => {
+        if (!wasTriggerPressedRef.current) {
+          e.preventDefault();
+
+          return;
+        }
+
+        state.close();
+        wasTriggerPressedRef.current = false;
+      },
       ...underlayProps,
       ...props,
     }),
-    [slots, classNames, underlayProps],
+    [slots, state.isOpen, classNames, underlayProps],
   );
 
   useEffect(() => {
