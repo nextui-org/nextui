@@ -525,9 +525,9 @@ const select = tv({
         ],
       },
     },
-    // labelPlacement=[inside, outside]
+    // labelPlacement=[inside]
     {
-      labelPlacement: ["inside", "outside"],
+      labelPlacement: ["inside"],
       class: {
         label: "group-data-[filled=true]:scale-85",
       },
