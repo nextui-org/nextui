@@ -53,16 +53,33 @@ a specific position.
 
 <CodeDemo title="Shadow Offset" files={scrollShadowContent.offset} />
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## API
 
 ### ShadowScroll Props
 
-| Attribute     | Type                       | Description                                     | Default    |
-| ------------- | -------------------------- | ----------------------------------------------- | ---------- |
-| size          | `number`                   | The shadow size in pixels.                      | `40`       |
-| offset        | `number`                   | The scroll offset to show the shadow in pixels. | `0`        |
-| hideScrollBar | `boolean`                  | Whether to hide the scrollbar or not.           | `false`    |
-| orientation   | `horizontal` \| `vertical` | The scroll orientation.                         | `vertical` |
-| isEnabled     | `boolean`                  | Whether the shadow is enabled or not.           | `true`     |
+| Attribute     | Type                                                | Description                                     | Default    |
+| ------------- | --------------------------------------------------- | ----------------------------------------------- | ---------- |
+| size          | `number`                                            | The shadow size in pixels.                      | `40`       |
+| offset        | `number`                                            | The scroll offset to show the shadow in pixels. | `0`        |
+| hideScrollBar | `boolean`                                           | Whether to hide the scrollbar or not.           | `false`    |
+| orientation   | `horizontal` \| `vertical`                          | The scroll orientation.                         | `vertical` |
+| isEnabled     | `boolean`                                           | Whether the shadow is enabled or not.           | `true`     |
+| visibility    | [ScrollShadowVisibility](#scroll-shadow-visibility) | The shadow visibility. (controlled)             | `auto`     |
+
+### ShadowScroll Events
+
+| Attribute          | Type                                           | Description                                          |
+| ------------------ | ---------------------------------------------- | ---------------------------------------------------- |
+| onVisibilityChange | `(visibility: ScrollShadowVisibility) => void` | Callback invoked when the shadow visibility changes. |
+
+<Spacer y={2} />
+
+### Types
+
+#### Scroll Shadow Visibility
+
+```ts
+type ScrollShadowVisibility = "auto" | "top" | "bottom" | "left" | "right" | "both" | "none";
+```

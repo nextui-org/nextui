@@ -34,9 +34,9 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
     style,
     size = 40,
     offset = 0,
-    visible = "auto",
+    visibility = "auto",
     isEnabled = true,
-    onVisibleChange,
+    onVisibilityChange,
     ...otherProps
   } = props;
 
@@ -47,9 +47,9 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
   useDataScrollOverflow({
     domRef,
     offset,
-    visible,
+    visibility,
     isEnabled,
-    onVisibleChange,
+    onVisibilityChange,
     overflowCheck: originalProps.orientation ?? "vertical",
   });
 

@@ -3,7 +3,12 @@ import {Meta} from "@storybook/react";
 import {scrollShadow, button} from "@nextui-org/theme";
 import Lorem from "react-lorem-component";
 
-import {ScrollShadow, ScrollShadowProps, VisibleState} from "../src";
+import {
+  ScrollShadow,
+  ScrollShadowProps,
+  ScrollShadowOrientation,
+  ScrollShadowVisibility,
+} from "../src";
 
 export default {
   title: "Components/ScrollShadow",
@@ -45,17 +50,15 @@ const defaultProps = {
 const Template = (args: ScrollShadowProps) => <ScrollShadow {...args} />;
 
 const ControlledTemplate = ({children, ...args}: ScrollShadowProps) => {
-  type Orientation = "vertical" | "horizontal";
+  const [visible, setVisible] = React.useState<ScrollShadowVisibility>("top");
+  const [orientation, setOrientation] = React.useState<ScrollShadowOrientation>("vertical");
 
-  const [visible, setVisible] = React.useState<VisibleState>("top");
-  const [orientation, setOrientation] = React.useState<Orientation>("vertical");
-
-  const states: Record<Orientation, VisibleState[]> = {
+  const states: Record<ScrollShadowOrientation, ScrollShadowVisibility[]> = {
     ["vertical"]: ["top", "bottom", "both"],
     ["horizontal"]: ["left", "right", "both"],
   };
 
-  const orientationStates: Orientation[] = ["vertical", "horizontal"];
+  const orientationStates: ScrollShadowOrientation[] = ["vertical", "horizontal"];
 
   return (
     <div className="flex flex-col gap-3">

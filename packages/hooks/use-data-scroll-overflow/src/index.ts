@@ -1,7 +1,17 @@
 import {capitalize} from "@nextui-org/shared-utils";
 import {useEffect, useRef} from "react";
 
-export type VisibleState = "auto" | "top" | "bottom" | "left" | "right" | "both" | "none";
+export type ScrollOverflowVisibility =
+  | "auto"
+  | "top"
+  | "bottom"
+  | "left"
+  | "right"
+  | "both"
+  | "none";
+
+export type ScrollOverflowOrientation = "horizontal" | "vertical";
+export type ScrollOverflowCheck = ScrollOverflowOrientation | "both";
 
 export interface UseDataScrollOverflowProps {
   /**
@@ -16,13 +26,13 @@ export interface UseDataScrollOverflowProps {
    *
    * @default "both"
    */
-  overflowCheck?: "horizontal" | "vertical" | "both";
+  overflowCheck?: ScrollOverflowCheck;
   /**
    * Controlled visible state. Passing "auto" will make the shadow visible only when the scroll reaches the edge.
    * use "left" / "right" for horizontal scroll and "top" / "bottom" for vertical scroll.
    * @default "auto"
    */
-  visible?: VisibleState;
+  visibility?: ScrollOverflowVisibility;
   /**
    * Enables or disables the overflow checking mechanism.
    * @default true
@@ -37,9 +47,9 @@ export interface UseDataScrollOverflowProps {
   /**
    * Callback to be called when the overflow state changes.
    *
-   * @param overflow VisibleState
+   * @param visibility ScrollOverflowVisibility
    */
-  onVisibleChange?: (overflow: VisibleState) => void;
+  onVisibilityChange?: (overflow: ScrollOverflowVisibility) => void;
 }
 
 export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
@@ -47,12 +57,12 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
     domRef,
     isEnabled = true,
     overflowCheck = "vertical",
-    visible = "auto",
+    visibility = "auto",
     offset = 0,
-    onVisibleChange,
+    onVisibilityChange,
   } = props;
 
-  const visibleRef = useRef<VisibleState>(visible);
+  const visibleRef = useRef<ScrollOverflowVisibility>(visibility);
 
   useEffect(() => {
     const el = domRef?.current;
@@ -66,7 +76,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
       prefix: string,
       suffix: string,
     ) => {
-      if (visible === "auto") {
+      if (visibility === "auto") {
         const both = `${prefix}${capitalize(suffix)}Scroll`;
 
         if (hasBefore && hasAfter) {
@@ -83,8 +93,8 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
           hasBefore && hasAfter ? "both" : hasBefore ? prefix : hasAfter ? suffix : "none";
 
         if (next !== visibleRef.current) {
-          onVisibleChange?.(next as VisibleState);
-          visibleRef.current = next as VisibleState;
+          onVisibilityChange?.(next as ScrollOverflowVisibility);
+          visibleRef.current = next as ScrollOverflowVisibility;
         }
       }
     };
@@ -119,9 +129,9 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
     el.addEventListener("scroll", checkOverflow);
 
     // controlled
-    if (visible !== "auto") {
+    if (visibility !== "auto") {
       clearOverflow();
-      if (visible === "both") {
+      if (visibility === "both") {
         el.dataset.topBottomScroll = String(overflowCheck === "vertical");
         el.dataset.leftRightScroll = String(overflowCheck === "horizontal");
       } else {
@@ -129,7 +139,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
         el.dataset.leftRightScroll = "false";
 
         ["top", "bottom", "left", "right"].forEach((attr) => {
-          el.dataset[`${attr}Scroll`] = String(visible === attr);
+          el.dataset[`${attr}Scroll`] = String(visibility === attr);
         });
       }
     }
@@ -138,7 +148,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
       el.removeEventListener("scroll", checkOverflow);
       clearOverflow();
     };
-  }, [isEnabled, visible, overflowCheck, onVisibleChange, domRef]);
+  }, [isEnabled, visibility, overflowCheck, onVisibilityChange, domRef]);
 }
 
 export type UseDataScrollOverflowReturn = ReturnType<typeof useDataScrollOverflow>;
