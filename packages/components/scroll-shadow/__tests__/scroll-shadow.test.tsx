@@ -17,8 +17,8 @@ describe("ScrollShadow", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("should support controlled visible state", () => {
-    const {getByTestId} = render(<ScrollShadow data-testid="scroll-shadow" visible="top" />);
+  it("should support controlled visibility state", () => {
+    const {getByTestId} = render(<ScrollShadow data-testid="scroll-shadow" visibility="top" />);
 
     // should have the data-top-scroll attribute in true
     expect(getByTestId("scroll-shadow")).toHaveAttribute("data-top-scroll", "true");
