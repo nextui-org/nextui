@@ -325,43 +325,43 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(@types/react-dom@18.2.4)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.0
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.17.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.16.1
+        specifier: ^3.17.1
         version: 3.17.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/ssr':
-        specifier: ^3.7.1
+        specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.19.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/virtualizer':
-        specifier: ^3.9.1
+        specifier: ^3.9.4
         version: 3.9.4(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.3
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/data':
-        specifier: ^3.10.1
+        specifier: ^3.10.3
         version: 3.10.3(react@18.2.0)
       '@react-stately/layout':
-        specifier: ^3.13.0
+        specifier: ^3.13.3
         version: 3.13.3(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.1
+        specifier: ^3.7.3
         version: 3.7.3(react@18.2.0)
       '@rehooks/local-storage':
-        specifier: ^2.4.4
+        specifier: ^2.4.5
         version: 2.4.5(react@18.2.0)
       '@vercel/analytics':
-        specifier: ^1.0.1
+        specifier: ^1.1.1
         version: 1.1.1
       canvas-confetti:
-        specifier: ^1.4.0
+        specifier: ^1.9.0
         version: 1.9.0
       cmdk:
         specifier: ^0.2.0
@@ -376,7 +376,7 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
@@ -484,8 +484,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.4(react@18.2.0)
       tailwind-variants:
-        specifier: ^0.1.16
-        version: 0.1.16(tailwindcss@3.3.5)
+        specifier: ^0.1.17
+        version: 0.1.17(tailwindcss@3.3.5)
       unified:
         specifier: ^9.2.2
         version: 9.2.2
@@ -623,16 +623,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-press
       '@react-aria/button':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/tree':
         specifier: ^3.7.3
@@ -663,7 +663,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -714,19 +714,19 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/combobox':
         specifier: ^3.7.1
@@ -766,13 +766,13 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-image
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -843,19 +843,19 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/breadcrumbs':
-        specifier: ^3.5.6
+        specifier: ^3.5.7
         version: 3.5.7(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/breadcrumbs':
-        specifier: ^3.7.0
+        specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.19.0
+        specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -901,16 +901,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/button':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/button':
         specifier: ^3.9.0
@@ -956,16 +956,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/button':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.21.0
@@ -1017,19 +1017,19 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-press
       '@react-aria/checkbox':
-        specifier: ^3.11.1
+        specifier: ^3.11.2
         version: 3.11.2(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/checkbox':
         specifier: ^3.5.1
@@ -1087,13 +1087,13 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-press
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/checkbox':
         specifier: ^3.5.2
@@ -1186,13 +1186,13 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.11.0
+        specifier: ^3.11.1
         version: 3.11.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/menu':
         specifier: ^3.5.6
@@ -1220,7 +1220,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -1272,16 +1272,16 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/textfield':
-        specifier: ^3.12.1
+        specifier: ^3.12.2
         version: 3.12.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/utils':
         specifier: ^3.8.0
@@ -1321,7 +1321,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -1355,16 +1355,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-link
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/link':
-        specifier: ^3.6.0
+        specifier: ^3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/link':
-        specifier: ^3.5.0
+        specifier: ^3.5.1
         version: 3.5.1(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -1404,16 +1404,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/listbox':
-        specifier: ^3.11.0
+        specifier: ^3.11.1
         version: 3.11.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/list':
         specifier: ^3.10.0
@@ -1465,16 +1465,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.11.0
+        specifier: ^3.11.1
         version: 3.11.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/menu':
         specifier: ^3.5.6
@@ -1532,19 +1532,19 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-disclosure
       '@react-aria/dialog':
-        specifier: ^3.5.6
+        specifier: ^3.5.7
         version: 3.5.7(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.18.0
+        specifier: ^3.18.1
         version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/overlays':
         specifier: ^3.6.3
@@ -1575,7 +1575,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -1608,16 +1608,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-scroll-position
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.18.0
+        specifier: ^3.18.1
         version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/toggle':
         specifier: ^3.6.3
@@ -1687,13 +1687,13 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-pagination
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -1736,19 +1736,19 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/dialog':
-        specifier: ^3.5.6
+        specifier: ^3.5.7
         version: 3.5.7(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.18.0
+        specifier: ^3.18.1
         version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/overlays':
         specifier: ^3.6.3
@@ -1776,7 +1776,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -1800,13 +1800,13 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-is-mounted
       '@react-aria/i18n':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/progress':
-        specifier: ^3.4.6
+        specifier: ^3.4.7
         version: 3.4.7(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/progress':
         specifier: ^3.5.0
@@ -1846,19 +1846,19 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-press
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/radio':
-        specifier: ^3.8.1
+        specifier: ^3.8.2
         version: 3.8.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/radio':
         specifier: ^3.9.1
@@ -1905,7 +1905,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -1981,16 +1981,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-multiselect
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.21.0
@@ -2018,7 +2018,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -2076,25 +2076,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-press
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/slider':
-        specifier: ^3.7.1
+        specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/slider':
-        specifier: ^3.4.3
+        specifier: ^3.4.4
         version: 3.4.4(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -2140,10 +2140,10 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-clipboard
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -2227,19 +2227,19 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-press
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/switch':
-        specifier: ^3.5.5
+        specifier: ^3.5.6
         version: 3.5.6(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/toggle':
         specifier: ^3.6.3
@@ -2285,25 +2285,25 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/table':
-        specifier: ^3.13.0
+        specifier: ^3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/table':
         specifier: ^3.11.2
         version: 3.11.2(react@18.2.0)
       '@react-stately/virtualizer':
-        specifier: ^3.6.3
+        specifier: ^3.6.4
         version: 3.6.4(react@18.2.0)
       '@react-types/grid':
         specifier: ^3.2.2
@@ -2376,16 +2376,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-update-effect
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/tabs':
-        specifier: ^3.8.0
+        specifier: ^3.8.1
         version: 3.8.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/tabs':
         specifier: ^3.6.1
@@ -2422,7 +2422,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -2452,16 +2452,16 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.18.0
+        specifier: ^3.18.1
         version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/tooltip':
-        specifier: ^3.6.3
+        specifier: ^3.6.4
         version: 3.6.4(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/tooltip':
         specifier: ^3.4.5
@@ -2483,7 +2483,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -2507,10 +2507,10 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -2643,7 +2643,7 @@ importers:
         specifier: workspace:*
         version: link:../../components/user
       '@react-aria/visually-hidden':
-        specifier: ^3.8.5
+        specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -2665,13 +2665,13 @@ importers:
         specifier: workspace:*
         version: link:../system-rsc
       '@react-aria/i18n':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.18.0
+        specifier: ^3.18.1
         version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/utils':
         specifier: ^3.8.0
@@ -2693,8 +2693,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       tailwind-variants:
-        specifier: ^0.1.16
-        version: 0.1.16(tailwindcss@3.3.5)
+        specifier: ^0.1.17
+        version: 0.1.17(tailwindcss@3.3.5)
     devDependencies:
       '@nextui-org/react-utils':
         specifier: workspace:*
@@ -2760,10 +2760,10 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       tailwind-variants:
-        specifier: ^0.1.16
-        version: 0.1.16(tailwindcss@3.3.5)
+        specifier: ^0.1.17
+        version: 0.1.17(tailwindcss@3.3.5)
       tailwindcss:
-        specifier: ^3.2.7
+        specifier: ^3.3.5
         version: 3.3.5(ts-node@10.9.1)
     devDependencies:
       clean-package:
@@ -2773,16 +2773,16 @@ importers:
   packages/hooks/use-aria-accordion:
     dependencies:
       '@react-aria/button':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.0
+        specifier: ^3.17.1
         version: 3.17.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/tree':
         specifier: ^3.7.3
@@ -2804,10 +2804,10 @@ importers:
   packages/hooks/use-aria-accordion-item:
     dependencies:
       '@react-aria/button':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-stately/tree':
         specifier: ^3.7.3
@@ -2829,13 +2829,13 @@ importers:
         specifier: workspace:*
         version: link:../use-aria-press
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/button':
         specifier: ^3.9.0
@@ -2857,16 +2857,16 @@ importers:
         specifier: workspace:*
         version: link:../use-aria-press
       '@react-aria/focus':
-        specifier: ^3.14.2
+        specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/link':
-        specifier: ^3.5.0
+        specifier: ^3.5.1
         version: 3.5.1(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.21.0
@@ -2882,10 +2882,10 @@ importers:
   packages/hooks/use-aria-modal-overlay:
     dependencies:
       '@react-aria/overlays':
-        specifier: ^3.18.0
+        specifier: ^3.18.1
         version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/overlays':
         specifier: ^3.6.3
@@ -2907,25 +2907,25 @@ importers:
   packages/hooks/use-aria-multiselect:
     dependencies:
       '@react-aria/i18n':
-        specifier: ^3.8.3
+        specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/label':
-        specifier: ^3.7.1
+        specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-aria/listbox':
-        specifier: ^3.11.0
+        specifier: ^3.11.1
         version: 3.11.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.11.0
+        specifier: ^3.11.1
         version: 3.11.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.0
+        specifier: ^3.17.1
         version: 3.17.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/list':
         specifier: ^3.10.0
@@ -2959,13 +2959,13 @@ importers:
   packages/hooks/use-aria-press:
     dependencies:
       '@react-aria/interactions':
-        specifier: ^3.19.0
+        specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
       '@react-aria/ssr':
         specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.21.0
@@ -2984,7 +2984,7 @@ importers:
         specifier: workspace:*
         version: link:../use-aria-button
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/toggle':
         specifier: ^3.6.3
@@ -3040,7 +3040,7 @@ importers:
         specifier: workspace:*
         version: link:../use-callback-ref
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/utils':
         specifier: ^3.8.0
@@ -3242,7 +3242,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1(@types/react-dom@18.2.4)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
       tailwindcss:
-        specifier: ^3.2.7
+        specifier: ^3.3.5
         version: 3.3.5(ts-node@10.9.1)
       vite:
         specifier: ^4.4.7
@@ -3254,7 +3254,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/system
       '@react-aria/utils':
-        specifier: ^3.21.0
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-stately/collections':
         specifier: ^3.10.2
@@ -3289,7 +3289,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.15.1
+        specifier: ^10.16.4
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -12422,12 +12422,12 @@ packages:
       acorn-walk: 7.2.0
     dev: true
 
-  /acorn-import-assertions@1.9.0(acorn@8.10.0):
+  /acorn-import-assertions@1.9.0(acorn@8.11.1):
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
     peerDependencies:
       acorn: ^8
     dependencies:
-      acorn: 8.10.0
+      acorn: 8.11.1
     dev: true
 
   /acorn-jsx@3.0.1:
@@ -12452,12 +12452,12 @@ packages:
       acorn: 7.4.1
     dev: true
 
-  /acorn-jsx@5.3.2(acorn@8.10.0):
+  /acorn-jsx@5.3.2(acorn@8.11.1):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      acorn: 8.10.0
+      acorn: 8.11.1
     dev: false
 
   /acorn-walk@7.2.0:
@@ -12465,8 +12465,8 @@ packages:
     engines: {node: '>=0.4.0'}
     dev: true
 
-  /acorn-walk@8.2.0:
-    resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
+  /acorn-walk@8.3.0:
+    resolution: {integrity: sha512-FS7hV565M5l1R08MXqo8odwMTB02C2UqzB17RVgu9EyuYFBqJZ3/ZY97sQD5FewVu1UyDFc1yztUDrAwT0EypA==}
     engines: {node: '>=0.4.0'}
 
   /acorn@3.3.0:
@@ -12493,8 +12493,8 @@ packages:
     hasBin: true
     dev: true
 
-  /acorn@8.10.0:
-    resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==}
+  /acorn@8.11.1:
+    resolution: {integrity: sha512-IJTNCJMRHfRfb8un89z1QtS0x890C2QUrUxFMK8zy+RizcId6mfnqOf68Bu9YkDgpLYuvCm6aYbwDatXVZPjMQ==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -13356,7 +13356,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001554
-      electron-to-chromium: 1.4.567
+      electron-to-chromium: 1.4.568
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
 
@@ -14843,8 +14843,8 @@ packages:
       jake: 10.8.7
     dev: true
 
-  /electron-to-chromium@1.4.567:
-    resolution: {integrity: sha512-8KR114CAYQ4/r5EIEsOmOMqQ9j0MRbJZR3aXD/KFA8RuKzyoUB4XrUCg+l8RUGqTVQgKNIgTpjaG8YHRPAbX2w==}
+  /electron-to-chromium@1.4.568:
+    resolution: {integrity: sha512-3TCOv8+BY6Ltpt1/CmGBMups2IdKOyfEmz4J8yIS4xLSeMm0Rf+psSaxLuswG9qMKt+XbNbmADybtXGpTFlbDg==}
 
   /emittery@0.10.2:
     resolution: {integrity: sha512-aITqOwnLanpHLNXZJENbOgjUBeHocD+xsSJmNrjovKBW5HbSpW3d1pEls7GFQPUWXiwG9+0P4GtHfEqC/4M0Iw==}
@@ -16915,7 +16915,7 @@ packages:
       defu: 6.1.3
       https-proxy-agent: 7.0.2
       mri: 1.2.0
-      node-fetch-native: 1.4.0
+      node-fetch-native: 1.4.1
       pathe: 1.1.1
       tar: 6.2.0
     transitivePeerDependencies:
@@ -17918,11 +17918,11 @@ packages:
       kind-of: 3.2.2
     dev: true
 
-  /is-accessor-descriptor@1.0.0:
-    resolution: {integrity: sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==}
-    engines: {node: '>=0.10.0'}
+  /is-accessor-descriptor@1.0.1:
+    resolution: {integrity: sha512-YBUanLI8Yoihw923YeFUS5fs0fF2f5TSFTNiYAAzhhDscDa3lEqYuz1pDOEP5KvX94I9ey3vsqjJcLVFVU+3QA==}
+    engines: {node: '>= 0.10'}
     dependencies:
-      kind-of: 6.0.3
+      hasown: 2.0.0
     dev: true
 
   /is-alphabetical@1.0.4:
@@ -18030,11 +18030,11 @@ packages:
       kind-of: 3.2.2
     dev: true
 
-  /is-data-descriptor@1.0.0:
-    resolution: {integrity: sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==}
-    engines: {node: '>=0.10.0'}
+  /is-data-descriptor@1.0.1:
+    resolution: {integrity: sha512-bc4NlCDiCr28U4aEsQ3Qs2491gVq4V8G7MQyws968ImqjKuYtTJXrl7Vq7jsN7Ly/C3xj5KWFrY7sHNeDkAzXw==}
+    engines: {node: '>= 0.4'}
     dependencies:
-      kind-of: 6.0.3
+      hasown: 2.0.0
     dev: true
 
   /is-date-object@1.0.5:
@@ -18069,8 +18069,8 @@ packages:
     resolution: {integrity: sha512-2eis5WqQGV7peooDyLmNEPUrps9+SXX5c9pL3xEB+4e9HnGuDa7mB7kHxHw4CbqS9k1T2hOH3miL8n8WtiYVtg==}
     engines: {node: '>=0.10.0'}
     dependencies:
-      is-accessor-descriptor: 1.0.0
-      is-data-descriptor: 1.0.0
+      is-accessor-descriptor: 1.0.1
+      is-data-descriptor: 1.0.1
       kind-of: 6.0.3
     dev: true
 
@@ -19095,7 +19095,7 @@ packages:
         optional: true
     dependencies:
       abab: 2.0.6
-      acorn: 8.10.0
+      acorn: 8.11.1
       acorn-globals: 6.0.0
       cssom: 0.5.0
       cssstyle: 2.3.0
@@ -20421,8 +20421,8 @@ packages:
   /micromark-extension-mdxjs@1.0.1:
     resolution: {integrity: sha512-7YA7hF6i5eKOfFUzZ+0z6avRG52GpWR8DL+kN47y3f2KhxbBZMhmxe7auOeaTBrW2DenbbZTf1ea9tA2hDpC2Q==}
     dependencies:
-      acorn: 8.10.0
-      acorn-jsx: 5.3.2(acorn@8.10.0)
+      acorn: 8.11.1
+      acorn-jsx: 5.3.2(acorn@8.11.1)
       micromark-extension-mdx-expression: 1.0.8
       micromark-extension-mdx-jsx: 1.0.5
       micromark-extension-mdx-md: 1.0.1
@@ -21051,8 +21051,8 @@ packages:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
 
-  /node-fetch-native@1.4.0:
-    resolution: {integrity: sha512-F5kfEj95kX8tkDhUCYdV8dg3/8Olx/94zB8+ZNthFs6Bz31UpUi8Xh40TN3thLwXgrwXry1pEg9lJ++tLWTcqA==}
+  /node-fetch-native@1.4.1:
+    resolution: {integrity: sha512-NsXBU0UgBxo2rQLOeWNZqS3fvflWePMECr8CoSWoSTqCqGbVVsvl9vZu1HfQicYN0g5piV9Gh8RTEvo/uP752w==}
     dev: true
 
   /node-fetch@2.7.0:
@@ -24685,8 +24685,8 @@ packages:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
     dev: false
 
-  /tailwind-variants@0.1.16(tailwindcss@3.3.5):
-    resolution: {integrity: sha512-WXwbKhmPMyPuzqRB68yBZIyqEv31qHfodbhDPXWP/sxww2wa4vq+T0/i5cQvJ8DV2mR3UQ8YWTQQ9VUBrf7Qjg==}
+  /tailwind-variants@0.1.17(tailwindcss@3.3.5):
+    resolution: {integrity: sha512-EJsiQPCdFbTEju6mW8xL/QQnSl1LBVWowhCfjvHTK4JLuOzpXD5+47q1nWNhSOa2W42mJGtY9d5TAtmnAfdK4g==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
@@ -24881,7 +24881,7 @@ packages:
     hasBin: true
     dependencies:
       '@jridgewell/source-map': 0.3.5
-      acorn: 8.10.0
+      acorn: 8.11.1
       commander: 2.20.3
       source-map-support: 0.5.21
     dev: true
@@ -25102,8 +25102,8 @@ packages:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
       '@types/node': 15.14.9
-      acorn: 8.10.0
-      acorn-walk: 8.2.0
+      acorn: 8.11.1
+      acorn-walk: 8.3.0
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
@@ -25643,7 +25643,7 @@ packages:
   /unplugin@1.5.0:
     resolution: {integrity: sha512-9ZdRwbh/4gcm1JTOkp9lAkIDrtOyOxgHmY7cjuwI8L/2RTikMcVG25GsZwNAgRuap3iDw2jeq7eoqtAsz5rW3A==}
     dependencies:
-      acorn: 8.10.0
+      acorn: 8.11.1
       chokidar: 3.5.3
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.5.0
@@ -26085,8 +26085,8 @@ packages:
     engines: {node: '>= 10.13.0'}
     hasBin: true
     dependencies:
-      acorn: 8.10.0
-      acorn-walk: 8.2.0
+      acorn: 8.11.1
+      acorn-walk: 8.3.0
       chalk: 4.1.2
       commander: 7.2.0
       gzip-size: 6.0.0
@@ -26105,8 +26105,8 @@ packages:
     hasBin: true
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      acorn: 8.10.0
-      acorn-walk: 8.2.0
+      acorn: 8.11.1
+      acorn-walk: 8.3.0
       commander: 7.2.0
       escape-string-regexp: 4.0.0
       gzip-size: 6.0.0
@@ -26180,8 +26180,8 @@ packages:
       '@webassemblyjs/ast': 1.11.6
       '@webassemblyjs/wasm-edit': 1.11.6
       '@webassemblyjs/wasm-parser': 1.11.6
-      acorn: 8.10.0
-      acorn-import-assertions: 1.9.0(acorn@8.10.0)
+      acorn: 8.11.1
+      acorn-import-assertions: 1.9.0(acorn@8.11.1)
       browserslist: 4.22.1
       chrome-trace-event: 1.0.3
       enhanced-resolve: 5.15.0
@@ -26221,8 +26221,8 @@ packages:
       '@webassemblyjs/ast': 1.11.6
       '@webassemblyjs/wasm-edit': 1.11.6
       '@webassemblyjs/wasm-parser': 1.11.6
-      acorn: 8.10.0
-      acorn-import-assertions: 1.9.0(acorn@8.10.0)
+      acorn: 8.11.1
+      acorn-import-assertions: 1.9.0(acorn@8.11.1)
       browserslist: 4.22.1
       chrome-trace-event: 1.0.3
       enhanced-resolve: 5.15.0

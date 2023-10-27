@@ -1,6 +1,5 @@
 import {AriaLinkProps} from "@react-types/link";
 import {DOMAttributes, FocusableElement} from "@react-types/shared";
-// @ts-ignore - react-aria issue: https://github.com/adobe/react-spectrum/issues/5194
 import {filterDOMProps, mergeProps, useRouter, shouldClientNavigate} from "@react-aria/utils";
 import {RefObject} from "react";
 import {useFocusable} from "@react-aria/focus";

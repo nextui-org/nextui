@@ -5,7 +5,6 @@ import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 import {useMemo} from "react";
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-// @ts-ignore - react-aria issue: https://github.com/adobe/react-spectrum/issues/5194
 import {chain, mergeProps, shouldClientNavigate, useRouter} from "@react-aria/utils";
 import {usePress} from "@nextui-org/use-aria-press";
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
