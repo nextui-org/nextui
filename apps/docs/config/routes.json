@@ -138,6 +138,13 @@
           "path": "/docs/components/accordion.mdx"
         },
         {
+          "key": "autocomplete",
+          "title": "Autocomplete",
+          "keywords": "autocomplete, auto suggest, search, typeahead",
+          "path": "/docs/components/autocomplete.mdx",
+          "newPost": true
+        },
+        {
           "key": "badge",
           "title": "Badge",
           "keywords": "badge, markers, status indication, count display",

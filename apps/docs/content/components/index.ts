@@ -30,3 +30,4 @@ export * from "./pagination";
 export * from "./dropdown";
 export * from "./navbar";
 export * from "./table";
+export * from "./autocomplete";

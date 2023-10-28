@@ -2552,6 +2552,9 @@ importers:
       '@nextui-org/accordion':
         specifier: workspace:*
         version: link:../../components/accordion
+      '@nextui-org/autocomplete':
+        specifier: workspace:*
+        version: link:../../components/autocomplete
       '@nextui-org/avatar':
         specifier: workspace:*
         version: link:../../components/avatar

@@ -1,0 +1,45 @@
+---
+title: "Autocomplete"
+description: "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query."
+---
+
+import {autocompleteContent} from "@/content/components/autocomplete";
+
+# Autocomplete
+
+An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+
+<ComponentLinks component="select" reactAriaHook="useSelect" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+NextUI exports 3 autocomplete-related components:
+
+- **Autocomplete**: The main component, which is a wrapper for the other components.
+- **AutocompleteSection**: The component that contains a group of select items.
+- **AutocompleteItem**: The component that represents a select item.
+
+<ImportTabs
+  commands={{
+    main: `import {
+  Autocomplete,
+  AutocompleteSection,
+  AutocompleteItem
+} from "@nextui-org/react";`,
+    individual: `import {
+  Autocomplete,
+  AutocompleteSection,
+  AutocompleteItem
+} from "@nextui-org/autocomplete";`,
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={autocompleteContent.usage} />
+
+

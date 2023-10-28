@@ -44,6 +44,7 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/accordion": "workspace:*",
+    "@nextui-org/autocomplete": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/badge": "workspace:*",
     "@nextui-org/button": "workspace:*",
