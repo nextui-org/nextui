@@ -741,6 +741,21 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
+      '@nextui-org/chip':
+        specifier: workspace:*
+        version: link:../chip
+      '@nextui-org/stories-utils':
+        specifier: workspace:*
+        version: link:../../utilities/stories-utils
+      '@nextui-org/use-infinite-scroll':
+        specifier: workspace:*
+        version: link:../../hooks/use-infinite-scroll
+      '@react-stately/data':
+        specifier: ^3.10.3
+        version: 3.10.3(react@18.2.0)
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -2008,6 +2023,9 @@ importers:
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../input
+      '@nextui-org/stories-utils':
+        specifier: workspace:*
+        version: link:../../utilities/stories-utils
       '@nextui-org/use-infinite-scroll':
         specifier: workspace:*
         version: link:../../hooks/use-infinite-scroll
@@ -3334,6 +3352,12 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+
+  packages/utilities/stories-utils:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
 
   packages/utilities/test-utils:
     devDependencies:

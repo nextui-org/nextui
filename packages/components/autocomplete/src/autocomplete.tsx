@@ -15,6 +15,8 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   const {
     Component,
     state,
+    selectorIcon = <ChevronDownIcon />,
+    clearIcon = <CloseIcon />,
     getBaseProps,
     getSelectorButtonProps,
     getInputProps,
@@ -23,7 +25,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getClearButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
-  } = useAutocomplete({...props, ref});
+  } = useAutocomplete<T>({...props, ref});
 
   const popoverContent = state.isOpen ? (
     <FreeSoloPopover {...getPopoverProps()} state={state}>
@@ -39,12 +41,8 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
         {...getInputProps()}
         endContent={
           <div {...getEndContentWrapperProps()}>
-            <Button {...getClearButtonProps()}>
-              <CloseIcon />
-            </Button>
-            <Button {...getSelectorButtonProps()}>
-              <ChevronDownIcon />
-            </Button>
+            <Button {...getClearButtonProps()}>{clearIcon}</Button>
+            <Button {...getSelectorButtonProps()}>{selectorIcon}</Button>
           </div>
         }
       />

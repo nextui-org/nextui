@@ -18,7 +18,7 @@ export function usePokemonList({fetchDelay = 0}: UsePokemonListProps = {}) {
   const [offset, setOffset] = useState(0);
   const limit = 20; // Number of items per page, adjust as necessary
 
-  const loadPokemon = async (currentOffset) => {
+  const loadPokemon = async (currentOffset: number) => {
     const controller = new AbortController();
     const {signal} = controller;
 
@@ -42,7 +42,7 @@ export function usePokemonList({fetchDelay = 0}: UsePokemonListProps = {}) {
       setHasMore(json.next !== null);
       // Append new results to existing ones
       setItems((prevItems) => [...prevItems, ...json.results]);
-    } catch (error) {
+    } catch (error: any) {
       if (error.name === "AbortError") {
         console.log("Fetch aborted");
       } else {

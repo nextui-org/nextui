@@ -33,14 +33,13 @@ const input = tv({
       "block",
       "text-small",
       "text-foreground-500",
-      "group-data-[filled-within=true]:text-foreground-600",
     ],
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
-    innerWrapper: ["inline-flex w-full h-full items-center box-border"],
+    innerWrapper: "inline-flex w-full items-center h-full box-border",
     input: [
-      "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
+      "w-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
     ],
@@ -114,10 +113,13 @@ const input = tv({
           "after:h-[2px]",
           "group-data-[focus=true]:after:w-full",
         ],
+        innerWrapper: "pb-1",
       },
     },
     color: {
-      default: {},
+      default: {
+        label: "group-data-[filled-within=true]:text-foreground-600",
+      },
       primary: {},
       secondary: {},
       success: {},
@@ -173,6 +175,7 @@ const input = tv({
       inside: {
         label: "text-tiny cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",
+        innerWrapper: "items-end",
       },
     },
     fullWidth: {
@@ -539,11 +542,27 @@ const input = tv({
         inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
+    // size & labelPlacement & variant=[faded, bordered]
+    {
+      labelPlacement: "inside",
+      size: "sm",
+      variant: ["bordered", "faded"],
+      class: {
+        inputWrapper: "py-1",
+      },
+    },
     // labelPlacement=[inside,outside]
     {
       labelPlacement: ["inside", "outside"],
       class: {
         label: ["group-data-[filled-within=true]:pointer-events-auto"],
+      },
+    },
+    // labelPlacement=[outside,outside-left]
+    {
+      labelPlacement: ["outside", "outside-left"],
+      class: {
+        input: "h-full",
       },
     },
     {
@@ -568,13 +587,20 @@ const input = tv({
         label: ["group-data-[filled-within=true]:scale-85"],
       },
     },
+    // labelPlacement=[inside] & variant=flat
+    {
+      labelPlacement: ["inside"],
+      variant: "flat",
+      class: {
+        innerWrapper: "pb-0.5",
+      },
+    },
     // inside & size
     {
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
         label: "text-small",
-        input: "pt-4",
       },
     },
     {
@@ -584,7 +610,6 @@ const input = tv({
         label: [
           "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]",
         ],
-        input: "pt-4",
       },
     },
     {
@@ -594,7 +619,6 @@ const input = tv({
         label: [
           "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
         ],
-        input: "pt-4",
       },
     },
     {
@@ -605,7 +629,6 @@ const input = tv({
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
         ],
-        input: "pt-5",
       },
     },
     // inside & size & [faded, bordered]
@@ -679,9 +702,10 @@ const input = tv({
       class: {
         label: [
           "left-2",
-          "text-small",
+          "text-tiny",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
+        base: "mt-[calc(theme(fontSize.small)_+_8px)]",
       },
     },
     {
@@ -693,6 +717,7 @@ const input = tv({
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
+        base: "mt-[calc(theme(fontSize.small)_+_10px)]",
       },
     },
     {
@@ -704,6 +729,7 @@ const input = tv({
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
+        base: "mt-[calc(theme(fontSize.small)_+_12px)]",
       },
     },
     // outside-left & size & hasHelper

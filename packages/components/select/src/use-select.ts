@@ -12,8 +12,6 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
-import {CollectionProps} from "@nextui-org/aria-utils";
-import {CollectionChildren} from "@react-types/shared";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {
   MultiSelectProps,
@@ -124,7 +122,6 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
 
 export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
   MultiSelectProps<T> &
-  CollectionProps<T> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
@@ -209,7 +206,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isOpen,
     selectionMode,
     disallowEmptySelection,
-    children: children as CollectionChildren<T>,
+    children: children,
     isRequired: originalProps?.isRequired,
     isDisabled: originalProps?.isDisabled,
     defaultOpen,

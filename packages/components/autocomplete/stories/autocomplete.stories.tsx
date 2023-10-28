@@ -1,8 +1,19 @@
-import React from "react";
+import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {autocomplete, input, button} from "@nextui-org/theme";
+import {
+  Pokemon,
+  usePokemonList,
+  animalsData,
+  usersData,
+  Animal,
+  User,
+} from "@nextui-org/stories-utils";
+import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
+import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
+import {Avatar} from "@nextui-org/avatar";
 
-import {Autocomplete, AutocompleteItem, AutocompleteProps} from "../src";
+import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 
 export default {
   title: "Components/Autocomplete",
@@ -44,262 +55,22 @@ export default {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex items-start justify-center w-screen h-screen">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Autocomplete>;
 
 const defaultProps = {
   ...input.defaultVariants,
   ...autocomplete.defaultVariants,
+  className: "max-w-xs",
 };
 
-type Item = {
-  label: string;
-  value: string;
-  description?: string;
-};
-
-// type User = {
-//   id: number;
-//   name: string;
-//   role: string;
-//   team: string;
-//   status: string;
-//   age: string;
-//   avatar: string;
-//   email: string;
-// };
-
-const itemsData: Item[] = [
-  {label: "Cat", value: "cat", description: "The second most popular pet in the world"},
-  {label: "Dog", value: "dog", description: "The most popular pet in the world"},
-  {label: "Elephant", value: "elephant", description: "The largest land animal"},
-  {label: "Lion", value: "lion", description: "The king of the jungle"},
-  {label: "Tiger", value: "tiger", description: "The largest cat species"},
-  {label: "Giraffe", value: "giraffe", description: "The tallest land animal"},
-  {
-    label: "Dolphin",
-    value: "dolphin",
-    description: "A widely distributed and diverse group of aquatic mammals",
-  },
-  {label: "Penguin", value: "penguin", description: "A group of aquatic flightless birds"},
-  {label: "Zebra", value: "zebra", description: "A several species of African equids"},
-  {
-    label: "Shark",
-    value: "shark",
-    description: "A group of elasmobranch fish characterized by a cartilaginous skeleton",
-  },
-  {
-    label: "Whale",
-    value: "whale",
-    description: "Diverse group of fully aquatic placental marine mammals",
-  },
-  {label: "Otter", value: "otter", description: "A carnivorous mammal in the subfamily Lutrinae"},
-  {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
-];
-
-// const usersData: User[] = [
-//   {
-//     id: 1,
-//     name: "Tony Reichert",
-//     role: "CEO",
-//     team: "Management",
-//     status: "active",
-//     age: "29",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/1.png",
-//     email: "tony.reichert@example.com",
-//   },
-//   {
-//     id: 2,
-//     name: "Zoey Lang",
-//     role: "Tech Lead",
-//     team: "Development",
-//     status: "paused",
-//     age: "25",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/1.png",
-//     email: "zoey.lang@example.com",
-//   },
-//   {
-//     id: 3,
-//     name: "Jane Fisher",
-//     role: "Sr. Dev",
-//     team: "Development",
-//     status: "active",
-//     age: "22",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/2.png",
-//     email: "jane.fisher@example.com",
-//   },
-//   {
-//     id: 4,
-//     name: "William Howard",
-//     role: "C.M.",
-//     team: "Marketing",
-//     status: "vacation",
-//     age: "28",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/2.png",
-//     email: "william.howard@example.com",
-//   },
-//   {
-//     id: 5,
-//     name: "Kristen Copper",
-//     role: "S. Manager",
-//     team: "Sales",
-//     status: "active",
-//     age: "24",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/3.png",
-//     email: "kristen.cooper@example.com",
-//   },
-//   {
-//     id: 6,
-//     name: "Brian Kim",
-//     role: "P. Manager",
-//     team: "Management",
-//     age: "29",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/3.png",
-//     email: "brian.kim@example.com",
-//     status: "Active",
-//   },
-//   {
-//     id: 7,
-//     name: "Michael Hunt",
-//     role: "Designer",
-//     team: "Design",
-//     status: "paused",
-//     age: "27",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/4.png",
-//     email: "michael.hunt@example.com",
-//   },
-//   {
-//     id: 8,
-//     name: "Samantha Brooks",
-//     role: "HR Manager",
-//     team: "HR",
-//     status: "active",
-//     age: "31",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/4.png",
-//     email: "samantha.brooks@example.com",
-//   },
-//   {
-//     id: 9,
-//     name: "Frank Harrison",
-//     role: "F. Manager",
-//     team: "Finance",
-//     status: "vacation",
-//     age: "33",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/5.png",
-//     email: "frank.harrison@example.com",
-//   },
-//   {
-//     id: 10,
-//     name: "Emma Adams",
-//     role: "Ops Manager",
-//     team: "Operations",
-//     status: "active",
-//     age: "35",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/5.png",
-//     email: "emma.adams@example.com",
-//   },
-//   {
-//     id: 11,
-//     name: "Brandon Stevens",
-//     role: "Jr. Dev",
-//     team: "Development",
-//     status: "active",
-//     age: "22",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/7.png",
-//     email: "brandon.stevens@example.com",
-//   },
-//   {
-//     id: 12,
-//     name: "Megan Richards",
-//     role: "P. Manager",
-//     team: "Product",
-//     status: "paused",
-//     age: "28",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/7.png",
-//     email: "megan.richards@example.com",
-//   },
-//   {
-//     id: 13,
-//     name: "Oliver Scott",
-//     role: "S. Manager",
-//     team: "Security",
-//     status: "active",
-//     age: "37",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/8.png",
-//     email: "oliver.scott@example.com",
-//   },
-//   {
-//     id: 14,
-//     name: "Grace Allen",
-//     role: "M. Specialist",
-//     team: "Marketing",
-//     status: "active",
-//     age: "30",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/8.png",
-//     email: "grace.allen@example.com",
-//   },
-//   {
-//     id: 15,
-//     name: "Noah Carter",
-//     role: "IT Specialist",
-//     team: "I. Technology",
-//     status: "paused",
-//     age: "31",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/9.png",
-//     email: "noah.carter@example.com",
-//   },
-//   {
-//     id: 16,
-//     name: "Ava Perez",
-//     role: "Manager",
-//     team: "Sales",
-//     status: "active",
-//     age: "29",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/9.png",
-//     email: "ava.perez@example.com",
-//   },
-//   {
-//     id: 17,
-//     name: "Liam Johnson",
-//     role: "Data Analyst",
-//     team: "Analysis",
-//     status: "active",
-//     age: "28",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/11.png",
-//     email: "liam.johnson@example.com",
-//   },
-//   {
-//     id: 18,
-//     name: "Sophia Taylor",
-//     role: "QA Analyst",
-//     team: "Testing",
-//     status: "active",
-//     age: "27",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/11.png",
-//     email: "sophia.taylor@example.com",
-//   },
-//   {
-//     id: 19,
-//     name: "Lucas Harris",
-//     role: "Administrator",
-//     team: "Information Technology",
-//     status: "paused",
-//     age: "32",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/12.png",
-//     email: "lucas.harris@example.com",
-//   },
-//   {
-//     id: 20,
-//     name: "Mia Robinson",
-//     role: "Coordinator",
-//     team: "Operations",
-//     status: "active",
-//     age: "26",
-//     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/female/12.png",
-//     email: "mia.robinson@example.com",
-//   },
-// ];
-
-const items = itemsData.map((item) => (
+const items = animalsData.map((item) => (
   <AutocompleteItem key={item.value} value={item.value}>
     {item.label}
   </AutocompleteItem>
@@ -326,6 +97,19 @@ const Template = (args: AutocompleteProps) => (
     <AutocompleteItem key="whale">Whale</AutocompleteItem>
     <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
     <AutocompleteItem key="shark">Shark</AutocompleteItem>
+  </Autocomplete>
+);
+
+const DynamicTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    defaultItems={animalsData}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
   </Autocomplete>
 );
 
@@ -444,6 +228,332 @@ const LabelPlacementTemplate = ({color, variant, ...args}: AutocompleteProps) =>
   </div>
 );
 
+const AsyncLoadingTemplate = ({color, variant, ...args}: AutocompleteProps<Pokemon>) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const {items, hasMore, isLoading, onLoadMore} = usePokemonList({fetchDelay: 1500});
+
+  const [, scrollerRef] = useInfiniteScroll({
+    hasMore,
+    distance: 20,
+    isEnabled: isOpen,
+    shouldUseLoader: false, // We don't want to show the loader at the bottom of the list
+    onLoadMore,
+  });
+
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      color={color}
+      defaultItems={items}
+      isLoading={isLoading}
+      label="Pick a Pokemon"
+      placeholder="Select a Pokemon"
+      scrollRef={scrollerRef}
+      variant={variant}
+      onOpenChange={setIsOpen}
+      {...args}
+    >
+      {(item) => (
+        <AutocompleteItem key={item.name} className="capitalize">
+          {item.name}
+        </AutocompleteItem>
+      )}
+    </Autocomplete>
+  );
+};
+
+const StartContentTemplate = ({color, variant, ...args}: AutocompleteProps) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    defaultSelectedKey={"cat"}
+    label="Favorite Animal"
+    startContent={<PetBoldIcon className="text-xl" />}
+    variant={variant}
+    {...args}
+  >
+    {items}
+  </Autocomplete>
+);
+
+const DynamicTemplateWithDescriptions = ({color, variant, ...args}: AutocompleteProps<Animal>) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    defaultItems={animalsData}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {(item) => (
+      <AutocompleteItem key={item.value} description={item.description}>
+        {item.label}
+      </AutocompleteItem>
+    )}
+  </Autocomplete>
+);
+
+const ItemStartContentTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    label="Select country"
+    variant={variant}
+    {...args}
+  >
+    <AutocompleteItem
+      key="argentina"
+      startContent={<Avatar alt="Argentina" className="w-6 h-6" src="https://flagcdn.com/ar.svg" />}
+    >
+      Argentina
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="venezuela"
+      startContent={<Avatar alt="Venezuela" className="w-6 h-6" src="https://flagcdn.com/ve.svg" />}
+    >
+      Venezuela
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="brazil"
+      startContent={<Avatar alt="Brazil" className="w-6 h-6" src="https://flagcdn.com/br.svg" />}
+    >
+      Brazil
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="switzerland"
+      startContent={
+        <Avatar alt="Switzerland" className="w-6 h-6" src="https://flagcdn.com/ch.svg" />
+      }
+    >
+      Switzerland
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="germany"
+      startContent={<Avatar alt="Germany" className="w-6 h-6" src="https://flagcdn.com/de.svg" />}
+    >
+      Germany
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="spain"
+      startContent={<Avatar alt="Spain" className="w-6 h-6" src="https://flagcdn.com/es.svg" />}
+    >
+      Spain
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="france"
+      startContent={<Avatar alt="France" className="w-6 h-6" src="https://flagcdn.com/fr.svg" />}
+    >
+      France
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="italy"
+      startContent={<Avatar alt="Italy" className="w-6 h-6" src="https://flagcdn.com/it.svg" />}
+    >
+      Italy
+    </AutocompleteItem>
+    <AutocompleteItem
+      key="mexico"
+      startContent={<Avatar alt="Mexico" className="w-6 h-6" src="https://flagcdn.com/mx.svg" />}
+    >
+      Mexico
+    </AutocompleteItem>
+  </Autocomplete>
+);
+
+const ControlledTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => {
+  const [value, setValue] = React.useState<Key>("cat");
+
+  const handleSelectionChange = (key: Key) => {
+    setValue(key);
+  };
+
+  return (
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <Autocomplete
+        fullWidth
+        color={color}
+        defaultItems={animalsData}
+        label="Favorite Animal"
+        selectedKey={value}
+        variant={variant}
+        onSelectionChange={handleSelectionChange}
+        {...args}
+      >
+        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+      </Autocomplete>
+      <p className="text-default-500">Selected: {value}</p>
+    </div>
+  );
+};
+
+const CustomItemsTemplate = ({color, variant, ...args}: AutocompleteProps<User>) => (
+  <Autocomplete
+    className="max-w-xs mt-8"
+    color={color}
+    defaultItems={usersData}
+    label="Assigned to"
+    placeholder="Select a user"
+    variant={variant}
+    {...args}
+    labelPlacement="outside"
+  >
+    {(item) => (
+      <AutocompleteItem key={item.id} textValue={item.name}>
+        <div className="flex gap-2 items-center">
+          <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+          <div className="flex flex-col">
+            <span className="text-small">{item.name}</span>
+            <span className="text-tiny text-default-400">{item.email}</span>
+          </div>
+        </div>
+      </AutocompleteItem>
+    )}
+  </Autocomplete>
+);
+
+const WithSectionsTemplate = ({color, variant, ...args}: AutocompleteProps<User>) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    <AutocompleteSection showDivider title="Mammals">
+      <AutocompleteItem key="Lion">Lion</AutocompleteItem>
+      <AutocompleteItem key="Tiger">Tiger</AutocompleteItem>
+      <AutocompleteItem key="Elephant">Elephant</AutocompleteItem>
+      <AutocompleteItem key="Kangaroo">Kangaroo</AutocompleteItem>
+      <AutocompleteItem key="Panda">Panda</AutocompleteItem>
+      <AutocompleteItem key="Giraffe">Giraffe</AutocompleteItem>
+      <AutocompleteItem key="Zebra">Zebra</AutocompleteItem>
+      <AutocompleteItem key="Cheetah">Cheetah</AutocompleteItem>
+    </AutocompleteSection>
+    <AutocompleteSection title="Birds">
+      <AutocompleteItem key="Eagle">Eagle</AutocompleteItem>
+      <AutocompleteItem key="Parrot">Parrot</AutocompleteItem>
+      <AutocompleteItem key="Penguin">Penguin</AutocompleteItem>
+      <AutocompleteItem key="Ostrich">Ostrich</AutocompleteItem>
+      <AutocompleteItem key="Peacock">Peacock</AutocompleteItem>
+      <AutocompleteItem key="Swan">Swan</AutocompleteItem>
+      <AutocompleteItem key="Falcon">Falcon</AutocompleteItem>
+      <AutocompleteItem key="Flamingo">Flamingo</AutocompleteItem>
+    </AutocompleteSection>
+  </Autocomplete>
+);
+
+const WithCustomSectionsStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>) => {
+  const headingClasses =
+    "flex w-full sticky top-1 z-20 py-1.5 px-2 bg-default-100 shadow-small rounded-small";
+
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      color={color}
+      label="Favorite Animal"
+      scrollShadowProps={{
+        isEnabled: false,
+      }}
+      variant={variant}
+      {...args}
+    >
+      <AutocompleteSection
+        classNames={{
+          heading: headingClasses,
+        }}
+        title="Mammals"
+      >
+        <AutocompleteItem key="Lion">Lion</AutocompleteItem>
+        <AutocompleteItem key="Tiger">Tiger</AutocompleteItem>
+        <AutocompleteItem key="Elephant">Elephant</AutocompleteItem>
+        <AutocompleteItem key="Kangaroo">Kangaroo</AutocompleteItem>
+        <AutocompleteItem key="Panda">Panda</AutocompleteItem>
+        <AutocompleteItem key="Giraffe">Giraffe</AutocompleteItem>
+        <AutocompleteItem key="Zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="Cheetah">Cheetah</AutocompleteItem>
+      </AutocompleteSection>
+      <AutocompleteSection
+        classNames={{
+          heading: headingClasses,
+        }}
+        title="Birds"
+      >
+        <AutocompleteItem key="Eagle">Eagle</AutocompleteItem>
+        <AutocompleteItem key="Parrot">Parrot</AutocompleteItem>
+        <AutocompleteItem key="Penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="Ostrich">Ostrich</AutocompleteItem>
+        <AutocompleteItem key="Peacock">Peacock</AutocompleteItem>
+        <AutocompleteItem key="Swan">Swan</AutocompleteItem>
+        <AutocompleteItem key="Falcon">Falcon</AutocompleteItem>
+        <AutocompleteItem key="Flamingo">Flamingo</AutocompleteItem>
+      </AutocompleteSection>
+    </Autocomplete>
+  );
+};
+
+const WithAriaLabelTemplate = ({color, variant, ...args}: AutocompleteProps) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {items}
+  </Autocomplete>
+);
+
+const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>) => {
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      classNames={{
+        base: "min-h-unit-16",
+        label: "group-data-[filled=true]:-translate-y-5",
+        listboxWrapper: "max-h-[400px]",
+      }}
+      color={color}
+      defaultItems={usersData}
+      label="Assigned to"
+      listboxProps={{
+        itemClasses: {
+          base: [
+            "rounded-md",
+            "text-default-500",
+            "transition-opacity",
+            "data-[hover=true]:text-foreground",
+            "data-[hover=true]:bg-default-100",
+            "dark:data-[hover=true]:bg-default-50",
+            "data-[selectable=true]:focus:bg-default-50",
+            "data-[pressed=true]:opacity-70",
+            "data-[focus-visible=true]:ring-default-500",
+          ],
+        },
+      }}
+      popoverProps={{
+        classNames: {
+          base: "before:bg-default-200",
+          content: "p-0 border-small border-divider bg-background",
+        },
+      }}
+      variant={variant}
+      {...args}
+    >
+      {(item) => (
+        <AutocompleteItem key={item.id} textValue={item.name}>
+          <div className="flex gap-2 items-center">
+            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <div className="flex flex-col">
+              <span className="text-small">{item.name}</span>
+              <span className="text-tiny text-default-400">{item.email}</span>
+            </div>
+          </div>
+        </AutocompleteItem>
+      )}
+    </Autocomplete>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -494,5 +604,130 @@ export const LabelPlacement = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const AsyncLoading = {
+  render: AsyncLoadingTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const StartContent = {
+  render: StartContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithoutScrollShadow = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    scrollShadowProps: {
+      isEnabled: false,
+    },
+  },
+};
+
+export const WithItemDescriptions = {
+  render: DynamicTemplateWithDescriptions,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithItemStartContent = {
+  render: ItemStartContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithErrorMessage = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+    errorMessage: "Please select an animal",
+  },
+};
+
+export const IsInvalid = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    variant: "bordered",
+    defaultSelectedKey: "dog",
+    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomSelectorIcon = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disableSelectorIconRotation: true,
+    selectorIcon: <SelectorIcon />,
+  },
+};
+
+export const CustomItems = {
+  render: CustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithSections = {
+  render: WithSectionsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithCustomSectionsStyles = {
+  render: WithCustomSectionsStylesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithAriaLabel = {
+  render: WithAriaLabelTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Select an animal 🐹",
+    "aria-label": "Select an animal",
+  },
+};
+
+export const CustomStyles = {
+  render: CustomStylesTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
   },
 };

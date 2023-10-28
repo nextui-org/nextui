@@ -74,7 +74,11 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       );
     }
 
-    return <input {...getInputProps()} />;
+    return (
+      <div {...getInnerWrapperProps()}>
+        <input {...getInputProps()} />
+      </div>
+    );
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
 
   const mainWrapper = useMemo(() => {

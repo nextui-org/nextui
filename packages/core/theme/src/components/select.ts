@@ -14,7 +14,6 @@ const select = tv({
       "subpixel-antialiased",
       "text-small",
       "text-foreground-500",
-      "group-data-[filled=true]:text-foreground-600",
       "pointer-events-none",
     ],
     mainWrapper: "w-full flex flex-col",
@@ -86,6 +85,7 @@ const select = tv({
     },
     color: {
       default: {
+        label: "group-data-[filled=true]:text-foreground-600",
         value: ["text-foreground-500", "group-data-[has-value=true]:text-foreground"],
       },
       primary: {},
@@ -154,7 +154,7 @@ const select = tv({
     isInvalid: {
       true: {
         label: "!text-danger",
-        value: "text-danger",
+        value: "!text-danger",
         selectorIcon: "text-danger",
       },
     },
@@ -639,7 +639,7 @@ const select = tv({
       class: {
         label: [
           "left-2",
-          "text-small",
+          "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
       },
