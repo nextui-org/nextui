@@ -9,9 +9,11 @@ import {useMemo, RefObject, useCallback} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
 import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {mergeProps} from "@react-aria/utils";
-import {CollectionProps} from "@nextui-org/aria-utils";
+import {CollectionProps, createCollectionChildren} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {HTMLMotionProps} from "framer-motion";
+
+import TabItemBase from "./base/tab-item-base";
 
 export interface Props extends Omit<HTMLNextUIProps, "children"> {
   /**
@@ -74,8 +76,8 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     ref,
     as,
     className,
-    children,
     classNames,
+    children: childrenProp,
     disableCursorAnimation,
     shouldSelectOnPressUp = true,
     motionProps,
@@ -87,8 +89,14 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
 
   const domRef = useDOMRef(ref);
 
+  const children = createCollectionChildren(
+    childrenProp as CollectionChildren<T>,
+    TabItemBase,
+    props?.items,
+  );
+
   const state = useTabListState<T>({
-    children: children as CollectionChildren<T>,
+    children: children,
     ...otherProps,
   });
   const {tabListProps} = useTabList<T>(otherProps, state, domRef);

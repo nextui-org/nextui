@@ -1,5 +1,4 @@
 ---
-"@nextui-org/docs": patch
 "@nextui-org/avatar": patch
 "@nextui-org/theme": patch
 ---

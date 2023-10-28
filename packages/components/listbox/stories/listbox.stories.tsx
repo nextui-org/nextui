@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 
-import {Listbox, ListboxItem, ListboxSection, ListboxProps} from "../src";
+import {Listbox, ListboxItem, ListboxSection, ListboxProps, ListboxItemProps} from "../src";
 
 const BugIcon = (props) => (
   <svg height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -136,6 +136,34 @@ const defaultProps = {
     "w-full max-w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100",
 };
 
+type Item = {
+  key: string;
+  label: string;
+};
+
+const items = [
+  {
+    key: "new",
+    label: "New file",
+  },
+  {
+    key: "copy",
+    label: "Copy link",
+  },
+  {
+    key: "edit",
+    label: "Edit file",
+  },
+  {
+    key: "delete",
+    label: "Delete file",
+  },
+];
+
+function MyItem(props: ListboxItemProps) {
+  return <ListboxItem {...props} />;
+}
+
 const Template = ({color, variant, ...args}: ListboxProps) => (
   <Listbox
     aria-label="Actions"
@@ -144,12 +172,33 @@ const Template = ({color, variant, ...args}: ListboxProps) => (
     onAction={(key: Key) => alert(key)}
     {...args}
   >
-    <ListboxItem key="new">New file</ListboxItem>
+    <MyItem key="new">New file</MyItem>
     <ListboxItem key="copy">Copy link</ListboxItem>
     <ListboxItem key="edit">Edit file</ListboxItem>
     <ListboxItem key="delete" className="text-danger" color="danger">
       Delete file
     </ListboxItem>
+  </Listbox>
+);
+
+const DynamicTemplate = ({color, variant, ...args}: ListboxProps<Item>) => (
+  <Listbox
+    aria-label="Dynamic Actions"
+    color={color}
+    items={items}
+    variant={variant}
+    onAction={(key) => alert(key)}
+    {...args}
+  >
+    {(item) => (
+      <MyItem
+        key={item.key}
+        className={item.key === "delete" ? "text-danger" : ""}
+        color={item.key === "delete" ? "danger" : "default"}
+      >
+        {item.label}
+      </MyItem>
+    )}
   </Listbox>
 );
 
@@ -522,6 +571,13 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
 
 export const Default = {
   render: Template,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Dynamic = {
+  render: DynamicTemplate,
   args: {
     ...defaultProps,
   },

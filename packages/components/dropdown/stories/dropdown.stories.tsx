@@ -20,6 +20,7 @@ import {
   DropdownItem,
   DropdownProps,
   DropdownMenuProps,
+  DropdownItemProps,
 } from "../src";
 
 export default {
@@ -113,18 +114,66 @@ const defaultProps = {
   disableAnimation: false,
 };
 
+const items = [
+  {
+    key: "new",
+    label: "New file",
+  },
+  {
+    key: "copy",
+    label: "Copy link",
+  },
+  {
+    key: "edit",
+    label: "Edit file",
+  },
+  {
+    key: "delete",
+    label: "Delete file",
+  },
+];
+
+function MyItem(props: DropdownItemProps) {
+  return <DropdownItem {...props} />;
+}
+
 const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
     </DropdownTrigger>
     <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
-      <DropdownItem key="new">New file</DropdownItem>
+      <MyItem key="new">New file</MyItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
+);
+
+const DynamicTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
+  <Dropdown {...args}>
+    <DropdownTrigger>
+      <Button>Trigger</Button>
+    </DropdownTrigger>
+    <DropdownMenu
+      aria-label="Actions"
+      color={color}
+      items={items}
+      variant={variant}
+      onAction={alert}
+    >
+      {(item) => (
+        <DropdownItem
+          key={item.key}
+          className={item.key === "delete" ? "text-danger" : ""}
+          color={item.key === "delete" ? "danger" : "default"}
+        >
+          {item.label}
+        </DropdownItem>
+      )}
     </DropdownMenu>
   </Dropdown>
 );
@@ -527,6 +576,14 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
 
 export const Default = {
   render: Template,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Dynamic = {
+  render: DynamicTemplate,
 
   args: {
     ...defaultProps,

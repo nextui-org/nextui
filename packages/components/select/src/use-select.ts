@@ -19,6 +19,9 @@ import {
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
+import {createCollectionChildren} from "@nextui-org/aria-utils";
+import {ListboxItem as SelectItemBase} from "@nextui-org/listbox";
+import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -134,7 +137,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isOpen,
     label,
     name,
-    children,
     isLoading,
     selectorIcon,
     defaultOpen,
@@ -146,6 +148,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     renderValue,
     onSelectionChange,
     placeholder,
+    children: childrenProp,
     disallowEmptySelection = false,
     selectionMode = "single",
     spinnerRef,
@@ -163,6 +166,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   } = props;
 
   const scrollShadowRef = useDOMRef(scrollRefProp);
+
+  const children = createCollectionChildren(childrenProp, SelectItemBase, props?.items);
 
   const defaultRelatedComponentsProps: {
     popoverProps: UseSelectProps<T>["popoverProps"];
@@ -206,7 +211,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isOpen,
     selectionMode,
     disallowEmptySelection,
-    children: children,
+    children: children as CollectionChildren<T>,
     isRequired: originalProps?.isRequired,
     isDisabled: originalProps?.isDisabled,
     defaultOpen,

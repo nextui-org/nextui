@@ -1,5 +1,5 @@
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
+import type {SelectionBehavior, MultipleSelection, CollectionChildren} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 
@@ -12,7 +12,9 @@ import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useState} from "react";
 import {DividerProps} from "@nextui-org/divider";
 import {useReactAriaAccordion} from "@nextui-org/use-aria-accordion";
+import {createCollectionChildren} from "@nextui-org/aria-utils";
 
+import AccordionItemBase from "./base/accordion-item-base";
 import {AccordionItemProps} from "./accordion-item";
 
 interface Props extends HTMLNextUIProps<"div"> {
@@ -76,7 +78,6 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   const {
     ref,
     as,
-    children,
     className,
     items,
     variant,
@@ -84,6 +85,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     expandedKeys,
     disabledKeys,
     selectedKeys,
+    children: childrenProp,
     defaultExpandedKeys,
     selectionMode = "single",
     selectionBehavior = "toggle",
@@ -127,7 +129,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
      * This is a workaround for rendering ReactNode children in the AccordionItem.
      * @see https://github.com/adobe/react-spectrum/issues/3882
      */
-    React.Children.map(children, (child) => {
+    React.Children.map(childrenProp, (child) => {
       if (React.isValidElement(child) && typeof child.props?.children !== "string") {
         const clonedChild = React.cloneElement(child, {
           // @ts-ignore
@@ -141,10 +143,16 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     });
 
     return treeChildren;
-  }, [children]);
+  }, [childrenProp]);
+
+  const children = createCollectionChildren(
+    treeChildren,
+    AccordionItemBase,
+    props?.items,
+  ) as CollectionChildren<T>;
 
   const commonProps = {
-    children: treeChildren,
+    children,
     items,
   };
 

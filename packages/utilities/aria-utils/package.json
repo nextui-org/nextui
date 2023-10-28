@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "@react-aria/utils": "^3.21.1",
     "@react-stately/collections": "^3.10.2",
     "@react-types/shared": "^3.21.0",

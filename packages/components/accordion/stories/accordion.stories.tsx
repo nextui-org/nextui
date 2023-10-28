@@ -16,8 +16,7 @@ import {Avatar} from "@nextui-org/avatar";
 import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 
-import {Accordion, AccordionProps, AccordionItem} from "../src";
-import {AccordionItemProps} from "../src";
+import {Accordion, AccordionProps, AccordionItem, AccordionItemProps} from "../src";
 
 export default {
   title: "Components/Accordion",
@@ -53,14 +52,18 @@ const defaultProps = {
   selectionMode: "single",
 };
 
+function MyItem(props: AccordionItemProps) {
+  return <AccordionItem {...props} />;
+}
+
 const defaultContent =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 const Template = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+    <MyItem key="1" aria-label="Accordion 1" title="Accordion 1">
       {defaultContent}
-    </AccordionItem>
+    </MyItem>
     <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
       {defaultContent}
     </AccordionItem>

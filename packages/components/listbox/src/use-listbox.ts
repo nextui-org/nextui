@@ -7,9 +7,10 @@ import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 import {clsx} from "@nextui-org/shared-utils";
+import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 import {ListboxItemProps} from "./listbox-item";
-
+import ListboxItemBase from "./base/listbox-item-base";
 interface AriaListBoxOptions<T> extends AriaListBoxProps<T> {
   /** Whether the listbox uses virtual scrolling. */
   isVirtualized?: boolean;
@@ -86,6 +87,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     variant,
     color,
     onAction,
+    children: childrenProp,
     onSelectionChange,
     disableAnimation,
     itemClasses,
@@ -96,12 +98,14 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     ...otherProps
   } = props;
 
+  const children = createCollectionChildren(childrenProp, ListboxItemBase, props?.items);
+
   const Component = as || "ul";
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
-  const innerState = useListState({...props, onSelectionChange});
+  const innerState = useListState({...props, children, onSelectionChange});
   const state = propState || innerState;
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);

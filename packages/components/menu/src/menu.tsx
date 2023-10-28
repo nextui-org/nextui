@@ -1,12 +1,13 @@
 import {forwardRef} from "@nextui-org/system";
+import {ForwardedRef, ReactElement, Ref} from "react";
 
 import {UseMenuProps, useMenu} from "./use-menu";
 import MenuSection from "./menu-section";
 import MenuItem from "./menu-item";
 
-export interface MenuProps extends UseMenuProps {}
+interface Props<T> extends UseMenuProps<T> {}
 
-const Menu = forwardRef<"ul", MenuProps>((props, ref) => {
+function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
   const {
     Component,
     state,
@@ -19,7 +20,7 @@ const Menu = forwardRef<"ul", MenuProps>((props, ref) => {
     itemClasses,
     getMenuProps,
     getEmptyContentProps,
-  } = useMenu({...props, ref});
+  } = useMenu<T>({...props, ref});
 
   return (
     <Component {...getMenuProps()}>
@@ -54,8 +55,11 @@ const Menu = forwardRef<"ul", MenuProps>((props, ref) => {
       })}
     </Component>
   );
-});
+}
+
+export type MenuProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+
+// forwardRef doesn't support generic parameters, so cast the result to the correct type
+export default forwardRef(Menu) as <T = object>(props: MenuProps<T>) => ReactElement;
 
 Menu.displayName = "NextUI.Menu";
-
-export default Menu;

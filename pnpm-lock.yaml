@@ -291,6 +291,9 @@ importers:
       '@nextui-org/kbd':
         specifier: workspace:*
         version: link:../../packages/components/kbd
+      '@nextui-org/listbox':
+        specifier: workspace:*
+        version: link:../../packages/components/listbox
       '@nextui-org/react':
         specifier: workspace:*
         version: link:../../packages/core/react
@@ -3268,6 +3271,9 @@ importers:
 
   packages/utilities/aria-utils:
     dependencies:
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../shared-utils
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system

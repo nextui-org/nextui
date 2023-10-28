@@ -22,6 +22,7 @@
     "@nextui-org/code": "workspace:*",
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/kbd": "workspace:*",
+    "@nextui-org/listbox": "workspace:*",
     "@nextui-org/react": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",

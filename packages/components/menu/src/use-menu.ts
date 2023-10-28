@@ -7,8 +7,10 @@ import {TreeState, useTreeState} from "@react-stately/tree";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 import {clsx} from "@nextui-org/shared-utils";
+import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 import {MenuItemProps} from "./menu-item";
+import MenuItemBase from "./base/menu-item-base";
 
 interface Props<T> {
   /**
@@ -70,12 +72,13 @@ export type UseMenuProps<T = object> = Props<T> &
   AriaMenuProps<T> &
   MenuVariantProps;
 
-export function useMenu(props: UseMenuProps) {
+export function useMenu<T extends object>(props: UseMenuProps<T>) {
   const {
     as,
     ref,
     variant,
     color,
+    children: childrenProp,
     disableAnimation,
     onAction,
     closeOnSelect,
@@ -93,7 +96,9 @@ export function useMenu(props: UseMenuProps) {
 
   const domRef = useDOMRef(ref);
 
-  const innerState = useTreeState(otherProps);
+  const children = createCollectionChildren(childrenProp, MenuItemBase, props?.items);
+
+  const innerState = useTreeState({...otherProps, children});
 
   const state = propState || innerState;
 

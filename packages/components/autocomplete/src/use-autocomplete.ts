@@ -16,6 +16,8 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
+import {ListboxItem as AutocompleteItemBase} from "@nextui-org/listbox";
+import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -119,6 +121,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     filterOptions = {
       sensitivity: "base",
     },
+    children: childrenProp,
     selectorIcon,
     clearIcon,
     scrollRef: scrollRefProp,
@@ -135,10 +138,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...otherProps
   } = props;
 
+  const children = createCollectionChildren(childrenProp, AutocompleteItemBase, props?.items);
+
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
   const state = useComboBoxState({
     ...originalProps,
+    children,
     menuTrigger,
     allowsEmptyCollection: true,
     defaultFilter: contains,
