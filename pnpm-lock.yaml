@@ -3047,6 +3047,10 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-data-scroll-overflow:
+    dependencies:
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
     devDependencies:
       clean-package:
         specifier: 2.2.0

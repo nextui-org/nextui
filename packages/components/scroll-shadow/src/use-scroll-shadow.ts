@@ -3,10 +3,13 @@ import type {ScrollShadowVariantProps} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {scrollShadow} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {useDataScrollOverflow} from "@nextui-org/use-data-scroll-overflow";
+import {
+  useDataScrollOverflow,
+  UseDataScrollOverflowProps,
+} from "@nextui-org/use-data-scroll-overflow";
 import {useMemo} from "react";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLNextUIProps<"div">, Omit<UseDataScrollOverflowProps, "domRef"> {
   /**
    * Ref to the DOM node.
    */
@@ -16,16 +19,6 @@ interface Props extends HTMLNextUIProps<"div"> {
    * @default 40
    */
   size?: number;
-  /**
-   * The scroll offset to show the shadow.
-   * @default 0
-   */
-  offset?: number;
-  /**
-   * Whether the shadow is enabled.
-   * @default true
-   */
-  isEnabled?: boolean;
 }
 
 export type UseScrollShadowProps = Props & ScrollShadowVariantProps;
@@ -38,10 +31,12 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
     as,
     children,
     className,
+    style,
     size = 40,
     offset = 0,
+    visibility = "auto",
     isEnabled = true,
-    style,
+    onVisibilityChange,
     ...otherProps
   } = props;
 
@@ -52,7 +47,9 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
   useDataScrollOverflow({
     domRef,
     offset,
+    visibility,
     isEnabled,
+    onVisibilityChange,
     overflowCheck: originalProps.orientation ?? "vertical",
   });
 
