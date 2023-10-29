@@ -12,7 +12,7 @@ export default function App() {
         label: "tracking-wider font-medium text-default-600",
         value: "text-foreground/60",
       }}
-      label="Lose weight"
+      label="Loose weight"
       value={65}
       showValueLabel={true}
     />
