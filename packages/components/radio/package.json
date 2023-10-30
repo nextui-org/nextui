@@ -55,7 +55,8 @@
   "devDependencies": {
     "@nextui-org/button": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

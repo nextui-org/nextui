@@ -3278,6 +3278,9 @@ importers:
 
   packages/utilities/aria-utils:
     dependencies:
+      '@nextui-org/react-rsc-utils':
+        specifier: workspace:*
+        version: link:../react-rsc-utils
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../shared-utils

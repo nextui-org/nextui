@@ -66,7 +66,8 @@
     "framer-motion": "^10.16.4",
     "@react-stately/data": "^3.10.3",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

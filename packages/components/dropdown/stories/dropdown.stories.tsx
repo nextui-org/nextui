@@ -21,6 +21,7 @@ import {
   DropdownProps,
   DropdownMenuProps,
   DropdownItemProps,
+  DropdownSectionProps,
 } from "../src";
 
 export default {
@@ -134,7 +135,11 @@ const items = [
 ];
 
 function MyItem(props: DropdownItemProps) {
-  return <DropdownItem {...props} />;
+  return <div {...props} />;
+}
+
+function MySection(props: DropdownSectionProps) {
+  return <DropdownSection {...props} />;
 }
 
 const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
@@ -466,15 +471,15 @@ const WithSectionsTemplate = ({color, variant, disableAnimation, ...args}) => {
         variant={variant}
         onAction={alert}
       >
-        <DropdownSection title="Actions">
-          <DropdownItem
+        <MySection title="Actions">
+          <MyItem
             key="new"
             description="Create a new file"
             shortcut="⌘N"
             startContent={<AddNoteBulkIcon className={iconClasses} />}
           >
             New file
-          </DropdownItem>
+          </MyItem>
           <DropdownItem
             key="copy"
             description="Copy the file link"
@@ -491,7 +496,7 @@ const WithSectionsTemplate = ({color, variant, disableAnimation, ...args}) => {
           >
             Edit file
           </DropdownItem>
-        </DropdownSection>
+        </MySection>
         <DropdownSection title="Danger zone">
           <DropdownItem
             key="delete"

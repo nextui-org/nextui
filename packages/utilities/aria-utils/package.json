@@ -34,11 +34,13 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-rsc-utils": "workspace:*",
     "@react-aria/utils": "^3.21.1",
     "@react-stately/collections": "^3.10.2",
     "@react-types/shared": "^3.21.0",
@@ -46,7 +48,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

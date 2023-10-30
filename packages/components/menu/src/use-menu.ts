@@ -11,6 +11,7 @@ import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 import {MenuItemProps} from "./menu-item";
 import MenuItemBase from "./base/menu-item-base";
+import MenuSectionBase from "./base/menu-section-base";
 
 interface Props<T> {
   /**
@@ -96,7 +97,12 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
 
   const domRef = useDOMRef(ref);
 
-  const children = createCollectionChildren(childrenProp, MenuItemBase, props?.items);
+  const children = createCollectionChildren({
+    children: childrenProp,
+    item: MenuItemBase,
+    section: MenuSectionBase,
+    items: props?.items,
+  });
 
   const innerState = useTreeState({...otherProps, children});
 

@@ -11,6 +11,8 @@ import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 import {ListboxItemProps} from "./listbox-item";
 import ListboxItemBase from "./base/listbox-item-base";
+import ListboxSectionBase from "./base/listbox-section-base";
+
 interface AriaListBoxOptions<T> extends AriaListBoxProps<T> {
   /** Whether the listbox uses virtual scrolling. */
   isVirtualized?: boolean;
@@ -98,7 +100,12 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     ...otherProps
   } = props;
 
-  const children = createCollectionChildren(childrenProp, ListboxItemBase, props?.items);
+  const children = createCollectionChildren({
+    children: childrenProp,
+    item: ListboxItemBase,
+    section: ListboxSectionBase,
+    items: props?.items,
+  });
 
   const Component = as || "ul";
   const shouldFilterDOMProps = typeof Component === "string";
