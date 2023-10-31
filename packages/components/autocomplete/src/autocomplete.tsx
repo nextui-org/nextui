@@ -6,6 +6,7 @@ import {Listbox} from "@nextui-org/listbox";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {ForwardedRef, ReactElement, Ref} from "react";
+import {AnimatePresence} from "framer-motion";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 
@@ -15,6 +16,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   const {
     Component,
     state,
+    disableAnimation,
     selectorIcon = <ChevronDownIcon />,
     clearIcon = <CloseIcon />,
     getBaseProps,
@@ -46,7 +48,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
           </div>
         }
       />
-      {popoverContent}
+      {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </Component>
   );
 }

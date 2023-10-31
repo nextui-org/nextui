@@ -137,7 +137,13 @@ function App() {
 
 ## Slots
 
-Listbox has 2 components with slots the `ListboxItem` and `ListboxSection` components.
+Listbox has 3 components with slots the base one `Listbox`, `ListboxItem` and `ListboxSection` components.
+
+### Listbox
+
+- **base**: The main wrapper for the listbox component. This slot wraps the `topContent`, `bottomContent` and the `list` slot.
+- **list**: The slot for the listbox component. You can see this slot as the `ul` slot.
+- **emptyContent**: The slot content to display when the collection is empty.
 
 ### ListboxItem
 
@@ -228,9 +234,12 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 | disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                           | `false`     |
 | shouldHighlightOnFocus | `boolean`                                                                                              | Whether the focused item should be highlighted. It applies the same styles to the items as when hovered. | `false`     |
 | autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                           | `false`     |
+| topContent             | `ReactNode`                                                                                            | The content to display above the listbox items.                                                          | -           |
+| bottomContent          | `ReactNode`                                                                                            | The content to display below the listbox items.                                                          | -           |
 | emptyContent           | `ReactNode`                                                                                            | The content to display when the collection is empty.                                                     | `No items.` |
 | shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                 | `false`     |
 | disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the listbox items.                                                   | `false`     |
+| classNames             | `Record<"base"｜ "list"｜ "emptyContent", string>`                                                     | Allows to set custom class names for the listbox slots.                                                  | -           |
 | itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>`                        | Allows to set custom class names for the listbox item slots.                                             | -           |
 
 ### Listbox Events

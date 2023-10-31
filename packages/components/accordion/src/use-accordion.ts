@@ -1,5 +1,5 @@
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import type {SelectionBehavior, MultipleSelection, CollectionChildren} from "@react-types/shared";
+import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 
@@ -12,9 +12,7 @@ import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useState} from "react";
 import {DividerProps} from "@nextui-org/divider";
 import {useReactAriaAccordion} from "@nextui-org/use-aria-accordion";
-import {createCollectionChildren} from "@nextui-org/aria-utils";
 
-import AccordionItemBase from "./base/accordion-item-base";
 import {AccordionItemProps} from "./accordion-item";
 
 interface Props extends HTMLNextUIProps<"div"> {
@@ -122,7 +120,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   );
 
   // TODO: Remove this once the issue is fixed.
-  const treeChildren = useMemo(() => {
+  const children = useMemo(() => {
     let treeChildren: any = [];
 
     /**
@@ -144,12 +142,6 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
 
     return treeChildren;
   }, [childrenProp]);
-
-  const children = createCollectionChildren(
-    treeChildren,
-    AccordionItemBase,
-    props?.items,
-  ) as CollectionChildren<T>;
 
   const commonProps = {
     children,

@@ -1,3 +1,5 @@
+import type {Selection} from "@react-types/shared";
+
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {menuItem} from "@nextui-org/theme";
@@ -8,9 +10,13 @@ import {
   DeleteDocumentBulkIcon,
   ChevronRightIcon,
 } from "@nextui-org/shared-icons";
+import {usersData} from "@nextui-org/stories-utils";
+import {Avatar} from "@nextui-org/avatar";
+import {Chip} from "@nextui-org/chip";
 import {clsx} from "@nextui-org/shared-utils";
+import {ScrollShadow} from "@nextui-org/scroll-shadow";
 
-import {Listbox, ListboxItem, ListboxSection, ListboxProps, ListboxItemProps} from "../src";
+import {Listbox, ListboxItem, ListboxSection, ListboxProps} from "../src";
 
 const BugIcon = (props) => (
   <svg height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -160,10 +166,6 @@ const items = [
   },
 ];
 
-function MyItem(props: ListboxItemProps) {
-  return <ListboxItem {...props} />;
-}
-
 const Template = ({color, variant, ...args}: ListboxProps) => (
   <Listbox
     aria-label="Actions"
@@ -172,7 +174,7 @@ const Template = ({color, variant, ...args}: ListboxProps) => (
     onAction={(key: Key) => alert(key)}
     {...args}
   >
-    <MyItem key="new">New file</MyItem>
+    <ListboxItem key="new">New file</ListboxItem>
     <ListboxItem key="copy">Copy link</ListboxItem>
     <ListboxItem key="edit">Edit file</ListboxItem>
     <ListboxItem key="delete" className="text-danger" color="danger">
@@ -191,13 +193,13 @@ const DynamicTemplate = ({color, variant, ...args}: ListboxProps<Item>) => (
     {...args}
   >
     {(item) => (
-      <MyItem
+      <ListboxItem
         key={item.key}
         className={item.key === "delete" ? "text-danger" : ""}
         color={item.key === "delete" ? "danger" : "default"}
       >
         {item.label}
-      </MyItem>
+      </ListboxItem>
     )}
   </Listbox>
 );
@@ -328,6 +330,114 @@ const WithEndContentTemplate = ({color, variant, disableAnimation, ...args}) => 
       >
         Delete file
       </ListboxItem>
+    </Listbox>
+  );
+};
+
+const WithTopContentTemplate = ({color, ...args}) => {
+  const [values, setValues] = React.useState<Selection>(new Set(["1", "3", "5"]));
+
+  const arrayValues = Array.from(values);
+
+  const topContent = React.useMemo(() => {
+    if (!arrayValues.length) {
+      return null;
+    }
+
+    return (
+      <ScrollShadow
+        hideScrollBar
+        className="w-full bg-background flex py-0.5 px-2 gap-1 "
+        orientation="horizontal"
+      >
+        {arrayValues.map((value) => (
+          <Chip key={value}>{usersData.find((user) => `${user.id}` === `${value}`)?.name}</Chip>
+        ))}
+      </ScrollShadow>
+    );
+  }, [arrayValues.length]);
+
+  return (
+    <Listbox
+      classNames={{
+        base: "max-w-xs",
+        list: "max-h-[300px] overflow-scroll",
+      }}
+      color={color}
+      defaultSelectedKeys={["1", "3", "5"]}
+      items={usersData}
+      label="Assigned to"
+      selectionMode="multiple"
+      topContent={topContent}
+      variant="flat"
+      onSelectionChange={setValues}
+      {...args}
+    >
+      {(item) => (
+        <ListboxItem key={item.id} textValue={item.name}>
+          <div className="flex gap-2 items-center">
+            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <div className="flex flex-col">
+              <span className="text-small">{item.name}</span>
+              <span className="text-tiny text-default-400">{item.email}</span>
+            </div>
+          </div>
+        </ListboxItem>
+      )}
+    </Listbox>
+  );
+};
+
+const WithBottomContentTemplate = ({color, ...args}) => {
+  const [values, setValues] = React.useState<Selection>(new Set(["1", "3", "5"]));
+
+  const arrayValues = Array.from(values);
+
+  const topContent = React.useMemo(() => {
+    if (!arrayValues.length) {
+      return null;
+    }
+
+    return (
+      <ScrollShadow
+        hideScrollBar
+        className="w-full flex py-0.5 px-2 gap-1 "
+        orientation="horizontal"
+      >
+        {arrayValues.map((value) => (
+          <Chip key={value}>{usersData.find((user) => `${user.id}` === `${value}`)?.name}</Chip>
+        ))}
+      </ScrollShadow>
+    );
+  }, [arrayValues.length]);
+
+  return (
+    <Listbox
+      bottomContent={topContent}
+      classNames={{
+        base: "max-w-xs",
+        list: "max-h-[300px] overflow-scroll",
+      }}
+      color={color}
+      defaultSelectedKeys={["1", "3", "5"]}
+      items={usersData}
+      label="Assigned to"
+      selectionMode="multiple"
+      onSelectionChange={setValues}
+      {...args}
+      variant="flat"
+    >
+      {(item) => (
+        <ListboxItem key={item.id} textValue={item.name}>
+          <div className="flex gap-2 items-center">
+            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <div className="flex flex-col">
+              <span className="text-small">{item.name}</span>
+              <span className="text-tiny text-default-400">{item.email}</span>
+            </div>
+          </div>
+        </ListboxItem>
+      )}
     </Listbox>
   );
 };
@@ -624,6 +734,22 @@ export const WithEndContent = {
     ...defaultProps,
     variant: "faded",
     color: "success",
+  },
+};
+
+export const WithTopContent = {
+  render: WithTopContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithBottomContent = {
+  render: WithBottomContentTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

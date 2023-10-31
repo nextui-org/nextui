@@ -187,6 +187,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
+  const hasLabel = !!label;
   const hasHelper = !!description || !!errorMessage;
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
   const shouldLabelBeInside = labelPlacement === "inside";
@@ -237,6 +238,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-disabled": dataAttr(originalProps.isDisabled),
         "data-has-elements": dataAttr(hasElements),
         "data-has-helper": dataAttr(hasHelper),
+        "data-has-label": dataAttr(hasLabel),
         ...focusWithinProps,
         ...props,
       };
@@ -249,6 +251,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isHovered,
       isInvalid,
       hasHelper,
+      hasLabel,
       hasElements,
       isPlaceholderShown,
       hasStartContent,

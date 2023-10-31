@@ -30,30 +30,34 @@ const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
+  const colors = [
+    "default",
+    "primary",
+    "secondary",
+    "success",
+    "warning",
+    "danger",
+  ];
+
   return (
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <Autocomplete 
-        label="Select an animal" 
-        className="max-w-xs" 
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-      <Autocomplete
-        label="Favorite Animal"
-        placeholder="Search an animal"
-        className="max-w-xs"
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-    </div>
+    <div className="w-full flex flex-row flex-wrap gap-4">
+      {colors.map((color) => (
+        <Autocomplete
+          key={color}
+          color={color}
+          label="Favorite Animal"
+          placeholder="Search an animal"
+          defaultSelectedKey={"cat"}
+          className="max-w-xs"
+        >
+          {animals.map((animal) => (
+            <AutocompleteItem key={animal.value} value={animal.value}>
+              {animal.label}
+            </AutocompleteItem>
+          ))}
+        </Autocomplete>
+      ))}  
+    </div>  
   );
 }`;
 

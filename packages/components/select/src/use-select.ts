@@ -19,8 +19,6 @@ import {
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
-import {createCollectionChildren} from "@nextui-org/aria-utils";
-import {ListboxItem as SelectItemBase} from "@nextui-org/listbox";
 import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
@@ -131,7 +129,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
   const disableAnimation = originalProps.disableAnimation ?? false;
 
-  let {
+  const {
     ref,
     as,
     isOpen,
@@ -148,16 +146,16 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     renderValue,
     onSelectionChange,
     placeholder,
-    children: childrenProp,
+    children,
     disallowEmptySelection = false,
     selectionMode = "single",
     spinnerRef,
     scrollRef: scrollRefProp,
-    popoverProps: userPopoverProps,
-    scrollShadowProps: userScrollShadowProps,
-    listboxProps: userListboxProps,
+    popoverProps = {},
+    scrollShadowProps = {},
+    listboxProps = {},
+    spinnerProps = {},
     validationState,
-    spinnerProps,
     onChange,
     onClose,
     className,
@@ -167,43 +165,43 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const scrollShadowRef = useDOMRef(scrollRefProp);
 
-  const children = createCollectionChildren(childrenProp, SelectItemBase, props?.items);
-
-  const defaultRelatedComponentsProps: {
+  const slotsProps: {
     popoverProps: UseSelectProps<T>["popoverProps"];
     scrollShadowProps: UseSelectProps<T>["scrollShadowProps"];
     listboxProps: UseSelectProps<T>["listboxProps"];
   } = {
-    popoverProps: {
-      placement: "bottom",
-      triggerScaleOnOpen: false,
-      offset: 5,
-      disableAnimation,
-    },
-    scrollShadowProps: {
-      ref: scrollShadowRef,
-      isEnabled: originalProps.showScrollIndicators ?? true,
-      hideScrollBar: true,
-      offset: 15,
-    },
-    listboxProps: {
-      disableAnimation,
-    },
+    popoverProps: mergeProps(
+      {
+        placement: "bottom",
+        triggerScaleOnOpen: false,
+        offset: 5,
+        disableAnimation,
+      },
+      popoverProps,
+    ),
+    scrollShadowProps: mergeProps(
+      {
+        ref: scrollShadowRef,
+        isEnabled: originalProps.showScrollIndicators ?? true,
+        hideScrollBar: true,
+        offset: 15,
+      },
+      scrollShadowProps,
+    ),
+    listboxProps: mergeProps(
+      {
+        disableAnimation,
+      },
+      listboxProps,
+    ),
   };
-
-  userPopoverProps = {...defaultRelatedComponentsProps.popoverProps, ...userPopoverProps};
-  userScrollShadowProps = {
-    ...defaultRelatedComponentsProps.scrollShadowProps,
-    ...userScrollShadowProps,
-  };
-  userListboxProps = {...defaultRelatedComponentsProps.listboxProps, ...userListboxProps};
 
   const Component = as || "button";
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
   const triggerRef = useRef<HTMLElement>(null);
-  const listboxRef = useRef<HTMLUListElement>(null);
+  const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const state = useMultiSelectState<T>({
@@ -266,7 +264,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const isFilled =
     state.isOpen || hasPlaceholder || !!state.selectedItems || !!startContent || !!endContent;
   const hasValue = !!state.selectedItems;
-
+  const hasLabel = !!label;
   const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
@@ -281,8 +279,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   // scroll the listbox to the selected item
   useEffect(() => {
-    if (state.isOpen && popoverRef.current && listboxRef.current) {
-      let selectedItem = listboxRef.current.querySelector("[aria-selected=true] [data-label=true]");
+    if (state.isOpen && popoverRef.current && listBoxRef.current) {
+      let selectedItem = listBoxRef.current.querySelector("[aria-selected=true] [data-label=true]");
       let scrollShadow = scrollShadowRef.current;
 
       // scroll the listbox to the selected item
@@ -312,13 +310,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => ({
       "data-filled": dataAttr(isFilled),
       "data-has-value": dataAttr(hasValue),
+      "data-has-label": dataAttr(hasLabel),
       "data-has-helper": dataAttr(hasHelper),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
       ...props,
     }),
-    [slots, hasHelper, hasValue, isFilled, baseStyles],
+    [slots, hasHelper, hasValue, hasLabel, isFilled, baseStyles],
   );
 
   const getTriggerProps: PropGetter = useCallback(
@@ -414,19 +413,19 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       className: slots.listboxWrapper({
         class: clsx(classNames?.listboxWrapper, props?.className),
       }),
-      ...mergeProps(userScrollShadowProps, props),
+      ...mergeProps(slotsProps.scrollShadowProps, props),
     }),
-    [slots.listboxWrapper, classNames?.listboxWrapper, userScrollShadowProps],
+    [slots.listboxWrapper, classNames?.listboxWrapper, slotsProps.scrollShadowProps],
   );
 
   const getListboxProps = (props: any = {}) => {
     return {
       state,
-      ref: listboxRef,
+      ref: listBoxRef,
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),
       }),
-      ...mergeProps(userListboxProps, props, menuProps),
+      ...mergeProps(slotsProps.listboxProps, props, menuProps),
     } as ListboxProps;
   };
 
@@ -436,22 +435,29 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         state,
         triggerRef,
         ref: popoverRef,
-        scrollRef: listboxRef,
+        scrollRef: listBoxRef,
         triggerType: "listbox",
         classNames: {
           content: slots.popoverContent({
             class: clsx(classNames?.popoverContent, props.className),
           }),
         },
-        ...mergeProps(userPopoverProps, props),
+        ...mergeProps(slotsProps.popoverProps, props),
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
-              state.selectedItems.length * 0.00000001 + (userPopoverProps?.offset || 0)
-            : userPopoverProps?.offset,
+              state.selectedItems.length * 0.00000001 + (slotsProps.popoverProps?.offset || 0)
+            : slotsProps.popoverProps?.offset,
       } as PopoverProps;
     },
-    [slots, classNames?.popoverContent, userPopoverProps, triggerRef, state, state.selectedItems],
+    [
+      slots,
+      classNames?.popoverContent,
+      slotsProps.popoverProps,
+      triggerRef,
+      state,
+      state.selectedItems,
+    ],
   );
 
   const getSelectorIconProps = useCallback(

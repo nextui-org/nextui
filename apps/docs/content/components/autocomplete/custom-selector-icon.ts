@@ -26,40 +26,54 @@ const data = `export const animals = [
   {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
 ];`;
 
+const SelectorIcon = `export const SelectorIcon = (props) => (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height="1em"
+      role="presentation"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      width="1em"
+      {...props}
+    >
+      <path d="M0 0h24v24H0z" fill="none" stroke="none" />
+      <path d="M8 9l4 -4l4 4" />
+      <path d="M16 15l-4 4l-4 -4" />
+    </svg>
+);`;
+
 const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
+import {SelectorIcon} from "./SelectorIcon";
 import {animals} from "./data";
 
 export default function App() {
   return (
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <Autocomplete 
-        label="Select an animal" 
-        className="max-w-xs" 
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-      <Autocomplete
-        label="Favorite Animal"
-        placeholder="Search an animal"
-        className="max-w-xs"
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-    </div>
+    <Autocomplete
+      label="Favorite Animal"
+      placeholder="Search an animal"
+      labelPlacement="outside"
+      className="max-w-xs"
+      disableSelectorIconRotation
+      selectorIcon={<SelectorIcon />}
+    >
+      {animals.map((animal) => (
+        <AutocompleteItem key={animal.value} value={animal.value}>
+          {animal.label}
+        </AutocompleteItem>
+      ))}
+    </Autocomplete>
   );
 }`;
 
 const react = {
   "/App.jsx": App,
   "/data.js": data,
+  "/SelectorIcon.jsx": SelectorIcon,
 };
 
 export default {

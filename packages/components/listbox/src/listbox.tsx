@@ -1,5 +1,4 @@
-import type {ForwardedRef, ReactElement, Ref} from "react";
-
+import {ForwardedRef, ReactElement, Ref} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 
@@ -14,16 +13,19 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
     Component,
     state,
     color,
-    shouldHighlightOnFocus,
-    disableAnimation,
     variant,
     itemClasses,
     getBaseProps,
+    topContent,
+    bottomContent,
+    shouldHighlightOnFocus,
+    disableAnimation,
     getEmptyContentProps,
+    getListProps,
   } = useListbox<T>({...props, ref});
 
-  return (
-    <Component {...getBaseProps()}>
+  const content = (
+    <Component {...getListProps()}>
       {!state.collection.size && (
         <li>
           <div {...getEmptyContentProps()} />
@@ -59,6 +61,14 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
         return listboxItem;
       })}
     </Component>
+  );
+
+  return (
+    <div {...getBaseProps()}>
+      {topContent}
+      {content}
+      {bottomContent}
+    </div>
   );
 }
 

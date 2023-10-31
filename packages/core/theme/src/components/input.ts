@@ -591,8 +591,24 @@ const input = tv({
     {
       labelPlacement: ["inside"],
       variant: "flat",
+      size: ["md", "lg"],
       class: {
         innerWrapper: "pb-0.5",
+      },
+    },
+    // variant=underlined & size
+    {
+      variant: "underlined",
+      size: "sm",
+      class: {
+        innerWrapper: "pb-1",
+      },
+    },
+    {
+      variant: "underlined",
+      size: ["md", "lg"],
+      class: {
+        innerWrapper: "pb-1.5",
       },
     },
     // inside & size
@@ -705,7 +721,7 @@ const input = tv({
           "text-tiny",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
-        base: "mt-[calc(theme(fontSize.small)_+_8px)]",
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
       },
     },
     {
@@ -717,7 +733,7 @@ const input = tv({
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
-        base: "mt-[calc(theme(fontSize.small)_+_10px)]",
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
       },
     },
     {
@@ -729,7 +745,7 @@ const input = tv({
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
-        base: "mt-[calc(theme(fontSize.small)_+_12px)]",
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
       },
     },
     // outside-left & size & hasHelper

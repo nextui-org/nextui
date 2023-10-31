@@ -26,7 +26,7 @@ const avatar = tv({
       "overflow-hidden",
       "align-middle",
       "text-white",
-      "z-10",
+      "z-0",
       // focus ring
       ...dataFocusVisibleClasses,
     ],

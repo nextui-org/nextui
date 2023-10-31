@@ -52,18 +52,14 @@ const defaultProps = {
   selectionMode: "single",
 };
 
-function MyItem(props: AccordionItemProps) {
-  return <AccordionItem {...props} />;
-}
-
 const defaultContent =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 const Template = (args: AccordionProps) => (
   <Accordion {...args}>
-    <MyItem key="1" aria-label="Accordion 1" title="Accordion 1">
+    <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
       {defaultContent}
-    </MyItem>
+    </AccordionItem>
     <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
       {defaultContent}
     </AccordionItem>

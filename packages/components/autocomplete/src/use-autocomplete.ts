@@ -16,8 +16,6 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
-import {ListboxItem as AutocompleteItemBase} from "@nextui-org/listbox";
-import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -112,7 +110,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
   const disableAnimation = originalProps.disableAnimation ?? false;
 
-  let {
+  const {
     ref,
     as,
     label,
@@ -121,15 +119,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     filterOptions = {
       sensitivity: "base",
     },
-    children: childrenProp,
+    children,
     selectorIcon,
     clearIcon,
     scrollRef: scrollRefProp,
-    popoverProps: userPopoverProps,
-    scrollShadowProps: userScrollShadowProps,
-    listboxProps: userListboxProps,
-    selectorButtonProps,
-    clearButtonProps,
+    popoverProps = {},
+    scrollShadowProps = {},
+    listboxProps = {},
+    selectorButtonProps = {},
+    clearButtonProps = {},
     showScrollIndicators = true,
     className,
     classNames,
@@ -137,8 +135,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     onClose,
     ...otherProps
   } = props;
-
-  const children = createCollectionChildren(childrenProp, AutocompleteItemBase, props?.items);
 
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
@@ -148,8 +144,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     menuTrigger,
     allowsEmptyCollection: true,
     defaultFilter: contains,
-    onOpenChange: (open) => {
-      onOpenChange?.(open);
+    onOpenChange: (open, menuTrigger) => {
+      onOpenChange?.(open, menuTrigger);
       if (!open) {
         onClose?.();
       }
@@ -164,7 +160,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const popoverRef = useRef<HTMLDivElement>(null);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
-  const defaultRelatedComponentsProps: {
+  const slotsProps: {
     inputProps: InputProps;
     popoverProps: UseAutocompleteProps<T>["popoverProps"];
     scrollShadowProps: UseAutocompleteProps<T>["scrollShadowProps"];
@@ -184,61 +180,54 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       isClearable: false,
       disableAnimation,
     },
-    popoverProps: {
-      offset: 5,
-      placement: "bottom",
-      triggerScaleOnOpen: false,
-      disableAnimation,
-    },
-    scrollShadowProps: {
-      ref: scrollShadowRef,
-      isEnabled: (showScrollIndicators && state.collection.size > 5) ?? true,
-      hideScrollBar: true,
-      offset: 15,
-    },
-    listboxProps: {
-      emptyContent: "No results found.",
-      disableAnimation,
-    },
-    selectorButtonProps: {
-      isLoading,
-      size: "sm",
-      variant: "light",
-      radius: "full",
-      color: originalProps?.isInvalid ? "danger" : "default",
-      isIconOnly: true,
-      disableAnimation,
-    },
-    clearButtonProps: {
-      size: "sm",
-      variant: "light",
-      radius: "full",
-      color: originalProps?.isInvalid ? "danger" : "default",
-      isIconOnly: true,
-      disableAnimation,
-    },
-  };
-
-  let userInputProps = {
-    ...defaultRelatedComponentsProps.inputProps,
-    ...otherProps,
-    onClick: chain(defaultRelatedComponentsProps.inputProps.onClick, otherProps.onClick),
-  };
-
-  userPopoverProps = {...defaultRelatedComponentsProps.popoverProps, ...userPopoverProps};
-  userScrollShadowProps = {
-    ...defaultRelatedComponentsProps.scrollShadowProps,
-    ...userScrollShadowProps,
-  };
-  userListboxProps = {...defaultRelatedComponentsProps.listboxProps, ...userListboxProps};
-
-  const userSelectorButtonProps = {
-    ...defaultRelatedComponentsProps.selectorButtonProps,
-    ...selectorButtonProps,
-  };
-  const userClearButtonProps = {
-    ...defaultRelatedComponentsProps.clearButtonProps,
-    ...clearButtonProps,
+    popoverProps: mergeProps(
+      {
+        offset: 5,
+        placement: "bottom",
+        triggerScaleOnOpen: false,
+        disableAnimation,
+      },
+      popoverProps,
+    ),
+    scrollShadowProps: mergeProps(
+      {
+        ref: scrollShadowRef,
+        isEnabled: (showScrollIndicators && state.collection.size > 5) ?? true,
+        hideScrollBar: true,
+        offset: 15,
+      },
+      scrollShadowProps,
+    ),
+    listboxProps: mergeProps(
+      {
+        emptyContent: "No results found.",
+        disableAnimation,
+      },
+      listboxProps,
+    ),
+    selectorButtonProps: mergeProps(
+      {
+        isLoading,
+        size: "sm",
+        variant: "light",
+        radius: "full",
+        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        isIconOnly: true,
+        disableAnimation,
+      },
+      selectorButtonProps,
+    ),
+    clearButtonProps: mergeProps(
+      {
+        size: "sm",
+        variant: "light",
+        radius: "full",
+        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        isIconOnly: true,
+        disableAnimation,
+      },
+      clearButtonProps,
+    ),
   };
 
   const baseStyles = clsx(classNames?.base, className);
@@ -300,19 +289,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getSelectorButtonProps = () =>
     ({
       ref: buttonRef,
-      ...buttonProps,
-      ...userSelectorButtonProps,
+      ...mergeProps(buttonProps, slotsProps.selectorButtonProps),
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorButton({
-        class: clsx(classNames?.selectorButton, userSelectorButtonProps?.className),
+        class: clsx(classNames?.selectorButton, slotsProps.selectorButtonProps?.className),
       }),
     } as ButtonProps);
 
   const getClearButtonProps = () =>
     ({
-      ...userClearButtonProps,
+      ...mergeProps(buttonProps, slotsProps.clearButtonProps),
       onPress: (e: PressEvent) => {
-        userClearButtonProps.onPress?.(e);
+        slotsProps.clearButtonProps?.onPress?.(e);
 
         if (state.selectedItem) {
           onClear();
@@ -326,14 +314,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
-        class: clsx(classNames?.clearButton, userClearButtonProps?.className),
+        class: clsx(classNames?.clearButton, slotsProps.clearButtonProps?.className),
       }),
     } as ButtonProps);
 
   const getInputProps = () =>
     ({
-      ...userInputProps,
+      ...slotsProps.inputProps,
+      ...otherProps,
       ...inputProps,
+      onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 
   const getListBoxProps = () =>
@@ -341,7 +331,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       state,
       ref: listBoxRef,
       shouldHighlightOnFocus: true,
-      ...mergeProps(userListboxProps, listBoxProps),
+      ...mergeProps(slotsProps.listboxProps, listBoxProps),
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
@@ -351,12 +341,12 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       triggerRef: inputWrapperRef,
       scrollRef: listBoxRef,
       triggerType: "listbox",
-      ...mergeProps(userPopoverProps, props),
+      ...mergeProps(slotsProps.popoverProps, props),
       classNames: {
         content: slots.popoverContent({
           class: clsx(
             classNames?.popoverContent,
-            userPopoverProps?.classNames?.["content"],
+            slotsProps.popoverProps?.classNames?.["content"],
             props.className,
           ),
         }),
@@ -365,9 +355,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   };
 
   const getListBoxWrapperProps: PropGetter = (props: any = {}) => ({
-    ...mergeProps(userScrollShadowProps, props),
+    ...mergeProps(slotsProps.scrollShadowProps, props),
     className: slots.listboxWrapper({
-      class: clsx(classNames?.listboxWrapper, userScrollShadowProps?.className, props?.className),
+      class: clsx(
+        classNames?.listboxWrapper,
+        slotsProps.scrollShadowProps?.className,
+        props?.className,
+      ),
     }),
   });
 
@@ -393,6 +387,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     classNames,
     isLoading,
     clearIcon,
+    disableAnimation,
     selectorIcon,
     getBaseProps,
     getInputProps,

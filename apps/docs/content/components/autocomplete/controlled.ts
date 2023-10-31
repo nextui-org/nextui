@@ -26,26 +26,48 @@ const data = `export const animals = [
   {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
 ];`;
 
+const AppTs = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
+import {animals} from "./data";
+
+export default function App() {
+  const [value, setValue] = React.useState<React.Key>("cat");
+
+  return (
+    <div className="flex w-full max-w-xs flex-col gap-2">
+      <Autocomplete
+        label="Favorite Animal"
+        variant="bordered"
+        placeholder="Search an animal"
+        selectedKey={value}
+        className="max-w-xs"
+        onSelectionChange={setValue}
+      >
+        {animals.map((animal) => (
+          <AutocompleteItem key={animal.value} value={animal.value}>
+            {animal.label}
+          </AutocompleteItem>
+        ))}
+      </Autocomplete>
+      <p className="text-default-500 text-small">Selected: {value}</p>
+    </div>
+  );
+}`;
+
 const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
+  const [value, setValue] = React.useState("cat");
+
   return (
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <Autocomplete 
-        label="Select an animal" 
-        className="max-w-xs" 
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
+    <div className="flex w-full max-w-xs flex-col gap-2">
       <Autocomplete
         label="Favorite Animal"
+        variant="bordered"
         placeholder="Search an animal"
+        selectedKey={value}
         className="max-w-xs"
+        onSelectionChange={setValue}
       >
         {animals.map((animal) => (
           <AutocompleteItem key={animal.value} value={animal.value}>
@@ -53,6 +75,7 @@ export default function App() {
           </AutocompleteItem>
         ))}
       </Autocomplete>
+      <p className="text-default-500 text-small">Selected: {value}</p>
     </div>
   );
 }`;
@@ -62,6 +85,12 @@ const react = {
   "/data.js": data,
 };
 
+const reactTs = {
+  "/App.tsx": AppTs,
+  "/data.js": data,
+};
+
 export default {
   ...react,
+  ...reactTs,
 };

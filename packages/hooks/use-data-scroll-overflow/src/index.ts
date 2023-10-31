@@ -10,6 +10,8 @@ export type ScrollOverflowVisibility =
   | "both"
   | "none";
 
+export type ScrollOverflowEdgeCheck = "all" | "top" | "bottom" | "left" | "right";
+
 export type ScrollOverflowOrientation = "horizontal" | "vertical";
 export type ScrollOverflowCheck = ScrollOverflowOrientation | "both";
 
@@ -45,6 +47,10 @@ export interface UseDataScrollOverflowProps {
    */
   offset?: number;
   /**
+   * List of dependencies to update the overflow check.
+   */
+  updateDeps?: any[];
+  /**
    * Callback to be called when the overflow state changes.
    *
    * @param visibility ScrollOverflowVisibility
@@ -60,6 +66,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
     visibility = "auto",
     offset = 0,
     onVisibilityChange,
+    updateDeps = [],
   } = props;
 
   const visibleRef = useRef<ScrollOverflowVisibility>(visibility);
@@ -148,7 +155,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
       el.removeEventListener("scroll", checkOverflow);
       clearOverflow();
     };
-  }, [isEnabled, visibility, overflowCheck, onVisibilityChange, domRef]);
+  }, [...updateDeps, isEnabled, visibility, overflowCheck, onVisibilityChange, domRef]);
 }
 
 export type UseDataScrollOverflowReturn = ReturnType<typeof useDataScrollOverflow>;

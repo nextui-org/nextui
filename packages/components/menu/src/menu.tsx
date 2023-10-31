@@ -17,13 +17,16 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
     variant,
     onClose,
     onAction,
+    topContent,
+    bottomContent,
     itemClasses,
-    getMenuProps,
+    getBaseProps,
+    getListProps,
     getEmptyContentProps,
   } = useMenu<T>({...props, ref});
 
-  return (
-    <Component {...getMenuProps()}>
+  const content = (
+    <Component {...getListProps()}>
       {!state.collection.size && (
         <li>
           <div {...getEmptyContentProps()} />
@@ -54,6 +57,14 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
         return menuItem;
       })}
     </Component>
+  );
+
+  return (
+    <div {...getBaseProps()}>
+      {topContent}
+      {content}
+      {bottomContent}
+    </div>
   );
 }
 

@@ -35,7 +35,8 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "framer-motion": ">=4.0.0"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
@@ -67,6 +68,7 @@
     "@nextui-org/stories-utils": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@react-stately/data": "^3.10.3",
+    "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

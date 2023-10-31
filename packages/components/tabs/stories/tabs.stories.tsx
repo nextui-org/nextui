@@ -14,7 +14,7 @@ import {
   AlignTopBoldIcon,
 } from "@nextui-org/shared-icons";
 
-import {Tabs, Tab, TabsProps, TabItemProps} from "../src";
+import {Tabs, Tab, TabsProps} from "../src";
 
 export default {
   title: "Components/Tabs",
@@ -61,15 +61,11 @@ const defaultProps = {
   ...tabs.defaultVariants,
 };
 
-function MyItem(props: TabItemProps) {
-  return <Tab {...props} />;
-}
-
 const StaticTemplate = (args: TabsProps) => (
   <Tabs aria-label="Tabs example" {...args}>
-    <MyItem key="world" title="World">
+    <Tab key="world" title="World">
       <Lorem count={1} sentenceUpperBound={20} />
-    </MyItem>
+    </Tab>
     <Tab key="ny" title="N.Y">
       <Lorem count={1} sentenceUpperBound={30} />
     </Tab>

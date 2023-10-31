@@ -30,30 +30,30 @@ const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
+  const [value, setValue] = React.useState("");
+  const [touched, setTouched] = React.useState(false);
+
+  const isValid = value === "cat";
+
   return (
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <Autocomplete 
-        label="Select an animal" 
-        className="max-w-xs" 
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-      <Autocomplete
-        label="Favorite Animal"
-        placeholder="Search an animal"
-        className="max-w-xs"
-      >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-    </div>
+    <Autocomplete
+      label="Favorite Animal"
+      variant="bordered"
+      placeholder="Search an animal"
+      description="The second most popular pet in the world"
+      errorMessage={isValid || !touched ? "" : "You must select a cat"}
+      isInvalid={isValid || !touched ? false : true}
+      selectedKey={value}
+      className="max-w-xs"
+      onSelectionChange={setValue}
+      onClose={() => setTouched(true)}
+    >
+      {animals.map((animal) => (
+        <AutocompleteItem key={animal.value} value={animal.value}>
+          {animal.label}
+        </AutocompleteItem>
+      ))}
+    </Autocomplete>
   );
 }`;
 

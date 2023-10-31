@@ -50,6 +50,7 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
     visibility,
     isEnabled,
     onVisibilityChange,
+    updateDeps: [children],
     overflowCheck: originalProps.orientation ?? "vertical",
   });
 

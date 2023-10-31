@@ -330,6 +330,9 @@ importers:
       '@react-aria/focus':
         specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: ^3.8.4
+        version: 3.8.4(react@18.2.0)
       '@react-aria/interactions':
         specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
@@ -646,9 +649,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -671,6 +671,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/autocomplete:
     dependencies:
@@ -740,9 +743,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -762,9 +762,15 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+      framer-motion:
+        specifier: ^10.16.4
+        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/avatar:
     dependencies:
@@ -792,9 +798,6 @@ importers:
       '@react-aria/utils':
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -808,6 +811,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/badge:
     dependencies:
@@ -823,9 +829,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -842,6 +845,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/breadcrumbs:
     dependencies:
@@ -875,9 +881,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -894,6 +897,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/button:
     dependencies:
@@ -939,9 +945,6 @@ importers:
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -952,6 +955,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/card:
     dependencies:
@@ -991,9 +997,6 @@ importers:
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1016,6 +1019,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/checkbox:
     dependencies:
@@ -1061,9 +1067,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/chip':
         specifier: workspace:*
@@ -1083,6 +1086,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/chip:
     dependencies:
@@ -1116,9 +1122,6 @@ importers:
       '@react-types/checkbox':
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1129,6 +1132,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/code:
     dependencies:
@@ -1144,9 +1150,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1154,6 +1157,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/divider:
     dependencies:
@@ -1172,9 +1178,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1182,6 +1185,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/dropdown:
     dependencies:
@@ -1218,9 +1224,6 @@ importers:
       '@react-types/menu':
         specifier: ^3.9.5
         version: 3.9.5(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1243,6 +1246,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/image:
     dependencies:
@@ -1261,9 +1267,6 @@ importers:
       '@nextui-org/use-image':
         specifier: workspace:*
         version: link:../../hooks/use-image
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1271,6 +1274,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/input:
     dependencies:
@@ -1310,9 +1316,6 @@ importers:
       '@react-types/textfield':
         specifier: ^3.8.1
         version: 3.8.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       react-textarea-autosize:
         specifier: ^8.5.2
         version: 8.5.3(@types/react@18.2.8)(react@18.2.0)
@@ -1323,6 +1326,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/kbd:
     dependencies:
@@ -1341,9 +1347,6 @@ importers:
       '@react-aria/utils':
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1351,6 +1354,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/link:
     dependencies:
@@ -1384,9 +1390,6 @@ importers:
       '@react-types/link':
         specifier: ^3.5.1
         version: 3.5.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1394,6 +1397,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/listbox:
     dependencies:
@@ -1442,19 +1448,31 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
+      '@nextui-org/chip':
+        specifier: workspace:*
+        version: link:../chip
+      '@nextui-org/scroll-shadow':
+        specifier: workspace:*
+        version: link:../scroll-shadow
       '@nextui-org/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
+      '@nextui-org/stories-utils':
+        specifier: workspace:*
+        version: link:../../utilities/stories-utils
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/menu:
     dependencies:
@@ -1506,9 +1524,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1519,6 +1534,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/modal:
     dependencies:
@@ -1570,9 +1588,6 @@ importers:
       '@react-types/overlays':
         specifier: ^3.8.3
         version: 3.8.3(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.7(@types/react@18.2.8)(react@18.2.0)
@@ -1598,6 +1613,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
@@ -1646,9 +1664,6 @@ importers:
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.7(@types/react@18.2.8)(react@18.2.0)
@@ -1677,6 +1692,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
@@ -1713,9 +1731,6 @@ importers:
       '@react-aria/utils':
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -1726,6 +1741,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/popover:
     dependencies:
@@ -1777,9 +1795,6 @@ importers:
       '@react-types/overlays':
         specifier: ^3.8.3
         version: 3.8.3(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.7(@types/react@18.2.8)(react@18.2.0)
@@ -1799,6 +1814,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/progress:
     dependencies:
@@ -1829,9 +1847,6 @@ importers:
       '@react-types/progress':
         specifier: ^3.5.0
         version: 3.5.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/card':
         specifier: workspace:*
@@ -1845,6 +1860,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/radio:
     dependencies:
@@ -1887,9 +1905,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -1900,6 +1915,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/ripple:
     dependencies:
@@ -1915,9 +1933,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1928,6 +1943,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/scroll-shadow:
     dependencies:
@@ -1946,9 +1964,6 @@ importers:
       '@nextui-org/use-data-scroll-overflow':
         specifier: workspace:*
         version: link:../../hooks/use-data-scroll-overflow
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -1956,6 +1971,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
@@ -2013,9 +2031,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -2032,6 +2047,9 @@ importers:
       '@nextui-org/use-infinite-scroll':
         specifier: workspace:*
         version: link:../../hooks/use-infinite-scroll
+      '@react-aria/i18n':
+        specifier: ^3.8.4
+        version: 3.8.4(react@18.2.0)
       '@react-stately/data':
         specifier: ^3.10.3
         version: 3.10.3(react@18.2.0)
@@ -2044,6 +2062,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/skeleton:
     dependencies:
@@ -2059,9 +2080,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2075,6 +2093,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/slider:
     dependencies:
@@ -2117,9 +2138,6 @@ importers:
       '@react-stately/slider':
         specifier: ^3.4.4
         version: 3.4.4(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2133,6 +2151,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/snippet:
     dependencies:
@@ -2169,9 +2190,6 @@ importers:
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2179,6 +2197,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/spacer:
     dependencies:
@@ -2194,9 +2215,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2204,6 +2222,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/spinner:
     dependencies:
@@ -2219,9 +2240,6 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2229,6 +2247,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/switch:
     dependencies:
@@ -2268,9 +2289,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2281,6 +2299,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/table:
     dependencies:
@@ -2332,9 +2353,6 @@ importers:
       '@react-types/table':
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2366,6 +2384,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       swr:
         specifier: ^2.2.1
         version: 2.2.4(react@18.2.0)
@@ -2417,9 +2438,6 @@ importers:
       '@react-types/tabs':
         specifier: ^3.3.3
         version: 3.3.3(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -2448,6 +2466,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
@@ -2493,9 +2514,6 @@ importers:
       '@react-types/tooltip':
         specifier: ^3.4.5
         version: 3.4.5(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2509,6 +2527,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/components/user:
     dependencies:
@@ -2533,9 +2554,6 @@ importers:
       '@react-aria/utils':
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@nextui-org/link':
         specifier: workspace:*
@@ -2546,6 +2564,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/core/react:
     dependencies:
@@ -2672,9 +2693,6 @@ importers:
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2682,6 +2700,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/core/system:
     dependencies:
@@ -2700,9 +2721,6 @@ importers:
       '@react-stately/utils':
         specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2710,6 +2728,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/core/system-rsc:
     dependencies:
@@ -2917,9 +2938,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2927,6 +2945,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/hooks/use-aria-multiselect:
     dependencies:
@@ -2969,9 +2990,6 @@ importers:
       '@react-types/shared':
         specifier: ^3.21.0
         version: 3.21.0(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2979,6 +2997,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/hooks/use-aria-press:
     dependencies:
@@ -3306,6 +3327,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/utilities/framer-transitions:
     dependencies:
@@ -3315,9 +3339,6 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3328,6 +3349,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
 
   packages/utilities/react-rsc-utils:
     devDependencies:
@@ -6302,26 +6326,22 @@ packages:
     resolution: {integrity: sha512-nw0Q+oRkizBWMioseI8+2TeUPEyopJVz5YxoYVzR0W1v+2YytiYah7s/ot35F149q/xAg4F1gT/6eTd+tsUpFQ==}
     dependencies:
       '@swc/helpers': 0.5.3
-    dev: false
 
   /@internationalized/message@3.1.1:
     resolution: {integrity: sha512-ZgHxf5HAPIaR0th+w0RUD62yF6vxitjlprSxmLJ1tam7FOekqRSDELMg4Cr/DdszG5YLsp5BG3FgHgqquQZbqw==}
     dependencies:
       '@swc/helpers': 0.5.3
       intl-messageformat: 10.5.4
-    dev: false
 
   /@internationalized/number@3.3.0:
     resolution: {integrity: sha512-PuxgnKE5NJMOGKUcX1QROo8jq7sW7UWLrL5B6Rfe8BdWgU/be04cVvLyCeALD46vvbAv3d1mUvyHav/Q9a237g==}
     dependencies:
       '@swc/helpers': 0.5.3
-    dev: false
 
   /@internationalized/string@3.1.1:
     resolution: {integrity: sha512-fvSr6YRoVPgONiVIUhgCmIAlifMVCeej/snPZVzbzRPxGpHl3o1GRe+d/qh92D8KhgOciruDUH8I5mjdfdjzfA==}
     dependencies:
       '@swc/helpers': 0.5.3
-    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -9277,7 +9297,6 @@ packages:
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
-    dev: false
 
   /@react-aria/interactions@3.19.1(react@18.2.0):
     resolution: {integrity: sha512-2QFOvq/rJfMGEezmtYcGcJmfaD16kHKcSTLFrZ8aeBK6hYFddGVZJZk+dXf+G7iNaffa8rMt6uwzVe/malJPBA==}

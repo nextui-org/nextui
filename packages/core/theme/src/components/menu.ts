@@ -11,7 +11,8 @@ import {dataFocusVisibleClasses} from "../utils";
  */
 const menu = tv({
   slots: {
-    base: "w-full flex flex-col gap-0.5 p-1 outline-none",
+    base: "relative flex flex-col gap-1 p-1",
+    list: "w-full flex flex-col gap-0.5 outline-none",
     emptyContent: [
       "h-10",
       "px-2",

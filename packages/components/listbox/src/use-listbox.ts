@@ -5,13 +5,10 @@ import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {listbox, ListboxVariantProps, ListboxSlots, SlotsToClasses} from "@nextui-org/theme";
 import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {useMemo} from "react";
+import {ReactNode, useMemo} from "react";
 import {clsx} from "@nextui-org/shared-utils";
-import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 import {ListboxItemProps} from "./listbox-item";
-import ListboxItemBase from "./base/listbox-item-base";
-import ListboxSectionBase from "./base/listbox-section-base";
 
 interface AriaListBoxOptions<T> extends AriaListBoxProps<T> {
   /** Whether the listbox uses virtual scrolling. */
@@ -51,10 +48,18 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
    */
   color?: ListboxItemProps["color"];
   /**
+   * Provides content to include a component in the top of the table.
+   */
+  topContent?: ReactNode;
+  /**
+   * Provides content to include a component in the bottom of the table.
+   */
+  bottomContent?: ReactNode;
+  /**
    *  Provides content to display when there are no items.
    * @default "No items."
    */
-  emptyContent?: React.ReactNode;
+  emptyContent?: ReactNode;
   /**
    * Whether to disable the items animation.
    * @default false
@@ -89,23 +94,18 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     variant,
     color,
     onAction,
-    children: childrenProp,
+    children,
     onSelectionChange,
     disableAnimation,
     itemClasses,
     className,
+    topContent,
+    bottomContent,
     emptyContent = "No items.",
     shouldHighlightOnFocus = false,
     classNames,
     ...otherProps
   } = props;
-
-  const children = createCollectionChildren({
-    children: childrenProp,
-    item: ListboxItemBase,
-    section: ListboxSectionBase,
-    items: props?.items,
-  });
 
   const Component = as || "ul";
   const shouldFilterDOMProps = typeof Component === "string";
@@ -117,15 +117,15 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);
 
-  const slots = useMemo(() => listbox({className}), [className]);
+  const slots = useMemo(() => listbox({className}), [, className]);
 
   const baseStyles = clsx(classNames?.base, className);
 
   const getBaseProps: PropGetter = (props = {}) => {
     return {
       ref: domRef,
+      "data-slot": "base",
       className: slots.base({class: baseStyles}),
-      ...listBoxProps,
       ...filterDOMProps(otherProps, {
         enabled: shouldFilterDOMProps,
       }),
@@ -133,8 +133,18 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     };
   };
 
+  const getListProps: PropGetter = (props = {}) => {
+    return {
+      "data-slot": "list",
+      className: slots.list({class: classNames?.list}),
+      ...listBoxProps,
+      ...props,
+    };
+  };
+
   const getEmptyContentProps: PropGetter = (props = {}) => {
     return {
+      "data-slot": "empty-content",
       children: emptyContent,
       className: slots.emptyContent({class: classNames?.emptyContent}),
       ...props,
@@ -146,12 +156,17 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     state,
     variant,
     color,
+    slots,
+    classNames,
+    topContent,
+    bottomContent,
     emptyContent,
     shouldHighlightOnFocus,
     disableAnimation,
     className,
     itemClasses,
     getBaseProps,
+    getListProps,
     getEmptyContentProps,
   };
 }

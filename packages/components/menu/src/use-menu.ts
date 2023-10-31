@@ -4,14 +4,11 @@ import type {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions, useMenu as useAriaMenu} from "@react-aria/menu";
 import {menu, MenuVariantProps, SlotsToClasses, MenuSlots} from "@nextui-org/theme";
 import {TreeState, useTreeState} from "@react-stately/tree";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {useMemo} from "react";
+import {ReactRef, filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
+import {ReactNode, useMemo} from "react";
 import {clsx} from "@nextui-org/shared-utils";
-import {createCollectionChildren} from "@nextui-org/aria-utils";
 
 import {MenuItemProps} from "./menu-item";
-import MenuItemBase from "./base/menu-item-base";
-import MenuSectionBase from "./base/menu-section-base";
 
 interface Props<T> {
   /**
@@ -34,6 +31,14 @@ interface Props<T> {
    * The menu items color.
    */
   color?: MenuItemProps["color"];
+  /**
+   * Provides content to include a component in the top of the table.
+   */
+  topContent?: ReactNode;
+  /**
+   * Provides content to include a component in the bottom of the table.
+   */
+  bottomContent?: ReactNode;
   /**
    *  Provides content to display when there are no items.
    * @default "No items."
@@ -79,13 +84,15 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     ref,
     variant,
     color,
-    children: childrenProp,
+    children,
     disableAnimation,
     onAction,
     closeOnSelect,
     itemClasses,
     className,
     state: propState,
+    topContent,
+    bottomContent,
     emptyContent = "No items.",
     menuProps: userMenuProps,
     onClose,
@@ -96,13 +103,7 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
   const Component = as || "ul";
 
   const domRef = useDOMRef(ref);
-
-  const children = createCollectionChildren({
-    children: childrenProp,
-    item: MenuItemBase,
-    section: MenuSectionBase,
-    items: props?.items,
-  });
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const innerState = useTreeState({...otherProps, children});
 
@@ -113,12 +114,25 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
   const slots = useMemo(() => menu({className}), [className]);
   const baseStyles = clsx(classNames?.base, className);
 
-  const getMenuProps: PropGetter = (props = {}) => {
+  const getBaseProps: PropGetter = (props = {}) => {
     return {
       ref: domRef,
+      "data-slot": "base",
       className: slots.base({class: baseStyles}),
+      ...filterDOMProps(otherProps, {
+        enabled: shouldFilterDOMProps,
+      }),
+      ...props,
+    };
+  };
+
+  const getListProps: PropGetter = (props = {}) => {
+    return {
+      "data-slot": "list",
+      className: slots.list({class: classNames?.list}),
       ...userMenuProps,
       ...menuProps,
+
       ...props,
     };
   };
@@ -139,10 +153,13 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     disableAnimation,
     onAction,
     onClose,
+    topContent,
+    bottomContent,
     closeOnSelect,
     className,
     itemClasses,
-    getMenuProps,
+    getBaseProps,
+    getListProps,
     getEmptyContentProps,
   };
 }

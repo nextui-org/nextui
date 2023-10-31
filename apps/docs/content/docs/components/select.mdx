@@ -168,18 +168,6 @@ By default the select will render the selected item's text value, but you can cu
 The `renderValue` function receives the selected items as a parameter and must return a
 `ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
 
-### With Sections
-
-You can use the `SelectSection` component to group select items.
-
-<CodeDemo title="With Sections" files={selectContent.sections} />
-
-### Custom Sections Style
-
-You can customize the sections style by using the `classNames` property of the `SelectSection` component.
-
-<CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} />
-
 ### Asynchronous Loading
 
 Select supports asynchronous loading, in the example below we are using a custom hook to fetch the [Pokemon API](https://pokeapi.co/api/v2/pokemon) data in combination with the `useInfiniteScroll` hook to load more data when the user reaches the end of the list.
@@ -211,6 +199,18 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
   previewHeight="400px"
   iframeSrc="/examples/select/async-items-loading"
 />
+
+### With Sections
+
+You can use the `SelectSection` component to group select items.
+
+<CodeDemo title="With Sections" files={selectContent.sections} />
+
+### Custom Sections Style
+
+You can customize the sections style by using the `classNames` property of the `SelectSection` component.
+
+<CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} />
 
 ### Multiple Select Controlled
 
