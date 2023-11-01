@@ -19,6 +19,7 @@ import controlled from "./controlled";
 import fullyControlled from "./fully-controlled";
 import customItems from "./custom-items";
 import customFiltering from "./custom-filtering";
+import asyncFiltering from "./async-filtering";
 import asyncLoadingItems from "./async-loading-items";
 import sections from "./sections";
 import customSectionsStyle from "./custom-sections-style";
@@ -46,6 +47,7 @@ export const autocompleteContent = {
   fullyControlled,
   customItems,
   customFiltering,
+  asyncFiltering,
   asyncLoadingItems,
   sections,
   customSectionsStyle,

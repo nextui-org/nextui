@@ -80,7 +80,7 @@ export default function App() {
     <div className="flex w-full flex-col">
       <Autocomplete 
         label="Search an animal" 
-        variant="bordered"
+        variant="underlined"
         defaultItems={animals}
         className="max-w-xs" 
         allowsCustomValue={true}

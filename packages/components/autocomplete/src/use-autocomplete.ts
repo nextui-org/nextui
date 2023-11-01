@@ -4,7 +4,7 @@ import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nex
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {useComboBox} from "@react-aria/combobox";
-import {useComboBoxState} from "@react-stately/combobox";
+import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {Key, ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
@@ -101,6 +101,10 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    */
   classNames?: SlotsToClasses<AutocompleteSlots>;
   /**
+   * The filter function used to determine if a option should be included in the combo box list.
+   * */
+  defaultFilter?: FilterFn;
+  /**
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
@@ -129,6 +133,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     selectorIcon,
     clearIcon,
     scrollRef: scrollRefProp,
+    defaultFilter,
     popoverProps = {},
     inputProps: userInputProps = {},
     scrollShadowProps = {},
@@ -146,12 +151,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
+
   const state = useComboBoxState({
     ...originalProps,
     children,
     menuTrigger,
     allowsEmptyCollection: true,
-    defaultFilter: contains,
+    defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
     onOpenChange: (open, menuTrigger) => {
       onOpenChange?.(open, menuTrigger);
       if (!open) {

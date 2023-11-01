@@ -69,6 +69,7 @@ export default function App() {
     <Autocomplete
       label="Favorite Animal"
       placeholder="Search an animal"
+      variant="bordered"
       defaultItems={animals}
       startContent={<PetIcon className="text-xl" />}
       defaultSelectedKey="cat"

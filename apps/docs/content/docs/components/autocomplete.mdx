@@ -208,19 +208,42 @@ You can customize the autocomplete items by modifying the `AutocompleteItem` chi
 
 By default, `Autocomplete` uses a `"contains"` function from [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) to filter the
 list of options. This can be overridden using the `defaultFilter` prop, or by using the `items` prop to control the
-filtered list. When items is provided rather than `defaultItems`, `Autocomplete` does no filtering of its own.
+filtered list. When `items` is provided rather than `defaultItems`, `Autocomplete` does no filtering of its own.
 
-The following example makes the inputValue controlled, and updates the filtered list that is passed to the `items`
-prop when the input changes value.
+The following example uses the `defaultFilter` prop to filter the list of options using a custom filter function.
+
+<CodeDemo title="Fully Controlled" files={autocompleteContent.customFiltering} />
+
+### Asynchronous Filtering
+
+Autocomplete supports asynchronous filtering, in the example below we are using the [useAyncList](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) function
+from [react-aria](https://react-spectrum.adobe.com) to handle asynchronous loading and filtering of data from a server. 
+
+
+<PackageManagers
+  commands={{
+    npm: "npm install @react-stately/data",
+    yarn: "yarn add @react-stately/data",
+    pnpm: "pnpm add @react-stately/data",
+  }}
+/>
+
+```jsx
+import {useAsyncList} from "@react-stately/data";
+```
+
+<Spacer y={2} />
 
 <CodeDemo
   asIframe
-  title="Fully Controlled"
+  typescriptStrict={true}
+  title="Asynchronous Filtering"
+  hideWindowActions={true}
   resizeEnabled={false}
   displayMode="visible"
-  files={autocompleteContent.customFiltering}
-  previewHeight="420px"
-  iframeSrc="/examples/autocomplete/custom-filtering"
+  files={autocompleteContent.asyncFiltering}
+  previewHeight="400px"
+  iframeSrc="/examples/autocomplete/async-filtering"
 />
 
 ### Asynchronous Loading
