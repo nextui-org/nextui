@@ -6,7 +6,7 @@ import {useFilter} from "@react-aria/i18n";
 import {useComboBox} from "@react-aria/combobox";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {Key, ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -16,23 +16,6 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
-
-export type SelectedItemProps<T = object> = {
-  /** A unique key for the item. */
-  key?: Key;
-  /** The props passed to the item. */
-  props?: Record<string, any>;
-  /** The item data. */
-  data?: T | null;
-  /** An accessibility label for this item. */
-  "aria-label"?: string;
-  /** The rendered contents of this item (e.g. JSX). */
-  rendered?: ReactNode;
-  /** A string value for this item, used for features like typeahead. */
-  textValue?: string;
-  /** The type of item this item represents. */
-  type?: string;
-};
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -97,11 +80,21 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    */
   filterOptions?: Intl.CollatorOptions;
   /**
+   * Whether the autocomplete allows the menu to be open when the collection is empty.
+   * @default true
+   */
+  allowsEmptyCollection?: boolean;
+  /**
+   * Whether the autocomplete menu should close on blur.
+   * @default true
+   * */
+  shouldCloseOnBlur?: boolean;
+  /**
    * Classes object to style the autocomplete and its children.
    */
   classNames?: SlotsToClasses<AutocompleteSlots>;
   /**
-   * The filter function used to determine if a option should be included in the combo box list.
+   * The filter function used to determine if a option should be included in the autocomplete list.
    * */
   defaultFilter?: FilterFn;
   /**
@@ -111,7 +104,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "classNames"> &
+  Omit<InputProps, "children" | "value" | "defaultValue" | "classNames"> &
   ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
@@ -134,6 +127,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearIcon,
     scrollRef: scrollRefProp,
     defaultFilter,
+    allowsEmptyCollection = true,
+    shouldCloseOnBlur = true,
     popoverProps = {},
     inputProps: userInputProps = {},
     scrollShadowProps = {},
@@ -156,7 +151,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
-    allowsEmptyCollection: true,
+    shouldCloseOnBlur,
+    allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
     onOpenChange: (open, menuTrigger) => {
       onOpenChange?.(open, menuTrigger);
@@ -301,6 +297,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     state.setSelectedKey(null);
   }, [state]);
 
+  const onFocus = useCallback(
+    (isFocused: boolean) => {
+      inputRef.current?.focus();
+      state.setFocused(isFocused);
+    },
+    [state, inputRef],
+  );
+
   const getBaseProps: PropGetter = () => ({
     ref: domRef,
     "data-invalid": dataAttr(originalProps?.isInvalid),
@@ -330,7 +334,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           const inputFocused = inputRef.current === document.activeElement;
 
           allowsCustomValue && state.setInputValue("");
-          !inputFocused && inputRef.current?.focus();
+          !inputFocused && onFocus(true);
         }
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
@@ -393,8 +397,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     onClick: (e) => {
       const inputFocused = inputRef.current === document.activeElement;
 
-      if (!inputFocused && e.currentTarget === e.target) {
-        inputRef.current?.focus();
+      if (!inputFocused && !state.isFocused && e.currentTarget === e.target) {
+        onFocus(true);
       }
     },
   });

@@ -270,6 +270,7 @@ export default function App() {
           ],
         },
       }}
+      aria-label="Select an employee"
       placeholder="Enter employee name"
       popoverProps={{
         offset: 10,

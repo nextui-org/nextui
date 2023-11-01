@@ -30,17 +30,17 @@ const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
-  const myFilter = (text, substring) => {
-    if (substring.length === 0) {
+  const myFilter = (textValue, inputValue) => {
+    if (inputValue.length === 0) {
       return true;
     }
 
     // Normalize both strings so we can slice safely
     // take into account the ignorePunctuation option as well...
-    text = text.normalize("NFC").toLocaleLowerCase();
-    substring = substring.normalize("NFC").toLocaleLowerCase();
+    textValue = textValue.normalize("NFC").toLocaleLowerCase();
+    inputValue = inputValue.normalize("NFC").toLocaleLowerCase();
 
-    return text.slice(0, substring.length) === substring.toLowerCase();
+    return textValue.slice(0, inputValue.length) === inputValue;
   };
 
   return (
@@ -61,17 +61,17 @@ const AppTs = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
-  const myFilter = (text: string, substring: string) => {
-    if (substring.length === 0) {
+  const myFilter = (textValue: string, inputValue: string) => {
+    if (inputValue.length === 0) {
       return true;
     }
 
     // Normalize both strings so we can slice safely
     // take into account the ignorePunctuation option as well...
-    text = text.normalize("NFC").toLocaleLowerCase();
-    substring = substring.normalize("NFC").toLocaleLowerCase();
+    textValue = textValue.normalize("NFC").toLocaleLowerCase();
+    inputValue = inputValue.normalize("NFC").toLocaleLowerCase();
 
-    return text.slice(0, substring.length) === substring.toLowerCase();
+    return textValue.slice(0, inputValue.length) === inputValue;
   };
 
   return (

@@ -557,6 +557,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
 const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps<User>) => {
   return (
     <Autocomplete
+      aria-label="Select an employee"
       className="max-w-xs"
       classNames={{
         listboxWrapper: "max-h-[400px]",
