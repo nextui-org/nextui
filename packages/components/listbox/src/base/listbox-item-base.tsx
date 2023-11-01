@@ -48,6 +48,11 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    */
   isReadOnly?: boolean;
   /**
+   * Whether to hide the check icon when the items are selected.
+   * @default false
+   */
+  hideSelectedIcon?: boolean;
+  /**
    * The listbox item `selected` icon, it's usually an checkmark icon.
    * If you pass a function, NextUI will expose the current selected icon and the selected status,
    * In case you want to use a custom indicator or modify the current one.
@@ -55,6 +60,11 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
    * Important: The selected icon will be rendered only if the listbox selection mode is different than `none`.
    */
   selectedIcon?: ReactNode | ((props: ListboxItemSelectedIconProps) => ReactNode) | null;
+  /**
+   * Whether the item should be highlighted on focus.
+   * @default false
+   */
+  shouldHighlightOnFocus?: boolean;
   /**
    * Whether to disable the items animation.
    * @default false

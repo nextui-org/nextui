@@ -197,6 +197,7 @@ const corePlugin = (
           },
           scale: {
             "80": "0.8",
+            "85": "0.85",
           },
           height: {
             divider: `var(--${prefix}-divider-weight)`,

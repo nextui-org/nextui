@@ -131,7 +131,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
 
   const {navProps} = useAriaBreadcrumbs(originalProps);
 
-  const [, children] = pickChildren<ReactElement>(childrenProp, BreadcrumbItem);
+  const [, children] = pickChildren<ReactElement>(childrenProp as ReactElement, BreadcrumbItem);
 
   const childCount = Children.count(children);
 

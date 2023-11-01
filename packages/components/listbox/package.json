@@ -45,18 +45,24 @@
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
-    "@react-aria/utils": "^3.21.0",
-    "@react-aria/listbox": "^3.11.0",
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/listbox": "^3.11.1",
     "@react-stately/list": "^3.10.0",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
     "@react-types/menu": "^3.9.5",
     "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
     "@nextui-org/shared-icons": "workspace:*",
-    "react": "^18.0.0"
+    "@nextui-org/stories-utils": "workspace:*",
+    "@nextui-org/scroll-shadow": "workspace:*",
+    "@nextui-org/chip": "workspace:*",
+    "@nextui-org/avatar": "workspace:*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

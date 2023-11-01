@@ -8,6 +8,7 @@ import icons from "./icons";
 import description from "./description";
 import sections from "./sections";
 import customStyles from "./custom-styles";
+import topContent from "./top-content";
 
 export const listboxContent = {
   usage,
@@ -20,4 +21,5 @@ export const listboxContent = {
   description,
   sections,
   customStyles,
+  topContent,
 };

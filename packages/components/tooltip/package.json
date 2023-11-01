@@ -45,19 +45,20 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
-    "@react-aria/overlays": "^3.18.0",
-    "@react-aria/tooltip": "^3.6.3",
+    "@react-aria/overlays": "^3.18.1",
+    "@react-aria/tooltip": "^3.6.4",
     "@react-stately/tooltip": "^3.4.5",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/utils": "^3.21.0",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
     "@react-types/tooltip": "^3.4.5",
     "@react-types/overlays": "^3.8.3"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",
-    "framer-motion": "^10.15.1",
+    "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

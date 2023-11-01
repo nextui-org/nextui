@@ -46,12 +46,12 @@
     "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-aria-toggle-button": "workspace:*",
     "@nextui-org/use-scroll-position": "workspace:*",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/utils": "^3.21.0",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
     "@react-stately/toggle": "^3.6.3",
     "@react-stately/utils": "^3.8.0",
-    "@react-aria/overlays": "^3.18.0",
+    "@react-aria/overlays": "^3.18.1",
     "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
@@ -61,9 +61,10 @@
     "@nextui-org/input": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "react-lorem-component": "0.13.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-lorem-component": "0.13.0"
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

@@ -46,17 +46,18 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/ripple": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
-    "@react-aria/button": "^3.8.3",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/utils": "^3.21.0",
-    "@react-aria/focus": "^3.14.2",
+    "@react-aria/button": "^3.8.4",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/focus": "^3.14.3",
     "@react-types/shared": "^3.21.0",
     "@react-types/button": "^3.9.0"
   },
   "devDependencies": {
     "@nextui-org/shared-icons": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

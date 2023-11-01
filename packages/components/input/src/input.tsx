@@ -4,7 +4,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
 
-export interface InputProps extends Omit<UseInputProps, "isLabelPlaceholder" | "isMultiline"> {}
+export interface InputProps extends Omit<UseInputProps, "isMultiline"> {}
 
 const Input = forwardRef<"input", InputProps>((props, ref) => {
   const {
@@ -15,7 +15,6 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     startContent,
     endContent,
     labelPlacement,
-    hasPlaceholder,
     hasHelper,
     isLabelOutside,
     isLabelOutsideAsPlaceholder,
@@ -75,7 +74,11 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       );
     }
 
-    return <input {...getInputProps()} />;
+    return (
+      <div {...getInnerWrapperProps()}>
+        <input {...getInputProps()} />
+      </div>
+    );
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
 
   const mainWrapper = useMemo(() => {
@@ -105,7 +108,6 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     helperWrapper,
     shouldLabelBeOutside,
     isLabelOutsideAsPlaceholder,
-    hasPlaceholder,
     labelContent,
     innerWrapper,
     errorMessage,

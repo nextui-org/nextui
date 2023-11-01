@@ -37,11 +37,12 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@react-types/link": "^3.5.0",
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-types/link": "^3.5.1",
     "@react-types/shared": "^3.21.0",
-    "@react-aria/utils": "^3.21.0",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0"
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

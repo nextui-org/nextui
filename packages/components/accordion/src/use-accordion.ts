@@ -76,7 +76,6 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   const {
     ref,
     as,
-    children,
     className,
     items,
     variant,
@@ -84,6 +83,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     expandedKeys,
     disabledKeys,
     selectedKeys,
+    children: childrenProp,
     defaultExpandedKeys,
     selectionMode = "single",
     selectionBehavior = "toggle",
@@ -120,14 +120,14 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
   );
 
   // TODO: Remove this once the issue is fixed.
-  const treeChildren = useMemo(() => {
+  const children = useMemo(() => {
     let treeChildren: any = [];
 
     /**
      * This is a workaround for rendering ReactNode children in the AccordionItem.
      * @see https://github.com/adobe/react-spectrum/issues/3882
      */
-    React.Children.map(children, (child) => {
+    React.Children.map(childrenProp, (child) => {
       if (React.isValidElement(child) && typeof child.props?.children !== "string") {
         const clonedChild = React.cloneElement(child, {
           // @ts-ignore
@@ -141,10 +141,10 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     });
 
     return treeChildren;
-  }, [children]);
+  }, [childrenProp]);
 
   const commonProps = {
-    children: treeChildren,
+    children,
     items,
   };
 

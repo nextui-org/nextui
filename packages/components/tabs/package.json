@@ -47,17 +47,17 @@
     "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
     "@nextui-org/use-update-effect": "workspace:*",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/tabs": "^3.8.0",
-    "@react-aria/utils": "^3.21.0",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/tabs": "^3.8.1",
+    "@react-aria/utils": "^3.21.1",
     "@react-stately/tabs": "^3.6.1",
     "@react-types/shared": "^3.21.0",
     "@react-types/tabs": "^3.3.3",
     "scroll-into-view-if-needed": "3.0.10"
   },
   "devDependencies": {
-    "framer-motion": "^10.15.1",
+    "framer-motion": "^10.16.4",
     "react-lorem-component": "0.13.0",
     "@nextui-org/card": "workspace:*",
     "@nextui-org/input": "workspace:*",
@@ -65,7 +65,8 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

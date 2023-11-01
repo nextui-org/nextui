@@ -148,25 +148,40 @@ so it accepts all the props of the Popover component, including the `backdrop` p
 
 ### Routing
 
-The `<DropdownItem>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and 
+The `<DropdownItem>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and
 [React Router](https://reactrouter.com/en/main). See the [Routing](/docs/guide/routing) guide to learn how to set this up.
 
 ```jsx
-import { Dropdown, DropdownItem} from "@nextui-org/react";
+import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button} from "@nextui-org/react";
 
 function App() {
   return (
     <Dropdown>
-      <DropdownItem key="home" href="/home">Home</DropdownItem>
-      <DropdownItem key="about" href="/about">About</DropdownItem>
+      <DropdownTrigger>
+        <Button variant="bordered">Open Menu</Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Link Actions">
+        <DropdownItem key="home" href="/home">
+          Home
+        </DropdownItem>
+        <DropdownItem key="about" href="/about">
+          About
+        </DropdownItem>
+      </DropdownMenu>
     </Dropdown>
-  )   
+  );
 }
 ```
 
 ## Slots
 
-Dropdown has 2 components with slots the `DropdownItem` and `DropdownSection` components.
+Dropdown has 3 components with slots the `DropdownMenu`, `DropdownItem` and `DropdownSection` components.
+
+### DropdownMenu
+
+- **base**: The main wrapper for the menu component. This slot wraps the `topContent`, `bottomContent` and the `list` slot.
+- **list**: The slot for the menu list component. You can see this slot as the `ul` slot.
+- **emptyContent**: The slot content to display when the collection is empty.
 
 ### DropdownItem
 
@@ -286,22 +301,28 @@ you to customize each item individually.
 
 ### DropdownMenu Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                             |           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
-| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -         |
-| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -         |
-| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The dropdown items appearance style.                                                                    | `solid`   |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The dropdown items color theme.                                                                         | `default` |
-| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -         |
-| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -         |
-| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
-| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -         |
-| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`   |
-| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`   |
-| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`   |
-| closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`    |
-| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`   |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -         |
+| Attribute              | Type                                                                                                   | Description                                                                                             |             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ----------- |
+| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -           |
+| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -           |
+| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The dropdown items appearance style.                                                                    | `solid`     |
+| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The dropdown items color theme.                                                                         | `default`   |
+| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -           |
+| selectedKeys           | `React.Key[]`                                                                                          | The currently selected keys in the collection (controlled).                                             | -           |
+| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -           |
+| defaultSelectedKeys    | `all` \| `React.Key[]`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -           |
+| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`     |
+| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`     |
+| topContent             | `ReactNode`                                                                                            | The content to display above the listbox items.                                                         | -           |
+| bottomContent          | `ReactNode`                                                                                            | The content to display below the listbox items.                                                         | -           |
+| emptyContent           | `ReactNode`                                                                                            | The content to display when the collection is empty.                                                    | `No items.` |
+| hideEmptyContent       | `boolean`                                                                                              | Whether to not display the empty content when the collection is empty.                                  | `false`     |
+| hideSelectedIcon       | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                             | `false`     |
+| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`     |
+| closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`      |
+| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`     |
+| classNames             | `Record<"base"｜ "list"｜ "emptyContent", string>`                                                     | Allows to set custom class names for the dropdown menu slots.                                           | -           |
+| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -           |
 
 ### DropdownMenu Events
 
@@ -329,29 +350,30 @@ you to customize each item individually.
 
 ### DropdownItem Props
 
-| Attribute      | Type                                                                                          | Description                                                                                                                                                                      | Default |
-| -------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children\*     | `ReactNode`                                                                                   | The contents of the dropdown item.                                                                                                                                               | -       |
-| key            | `React.Key`                                                                                   | The unique key for the dropdown item.                                                                                                                                            | -       |
-| title          | `string` \| `ReactNode`                                                                       | The title of the dropdown item.                                                                                                                                                  | -       |
-| textValue      | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                                                                                                | -       |
-| description    | `string` \| `ReactNode`                                                                       | The description of the dropdown item.                                                                                                                                            | -       |
-| shortcut       | `string` \| `ReactNode`                                                                       | The dropdown item keyboard shortcut.                                                                                                                                             | -       |
-| startContent   | `ReactNode`                                                                                   | The start content of the dropdown item.                                                                                                                                          | -       |
-| endContent     | `ReactNode`                                                                                   | The end content of the dropdown item. This is positioned after the shortcut and the selected icon.                                                                               | -       |
-| selectedIcon   | [SelectedIconProps](#dropdown-item-selected-icon-props)                                       | Custom icon to render when the item is selected.                                                                                                                                 | -       |
-| showDivider    | `boolean`                                                                                     | Whether to show a divider below the item.                                                                                                                                        | `false` |
-| href           | `string`                                                                                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
-| target         | `HTMLAttributeAnchorTarget`                                                                   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
-| rel            | `string`                                                                                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
-| download       | `boolean` \| `string`                                                                         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
-| ping           | `string`                                                                                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
-| referrerPolicy | `HTMLAttributeReferrerPolicy`                                                                 | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
-| isDisabled     | `boolean`                                                                                     | Whether the dropdown item should be disabled. (**Deprecated**) pass **disabledKeys** to `DropdownMenu` instead.                                                                  | `false` |
-| isSelected     | `boolean`                                                                                     | Whether the dropdown item should be selected. (**Deprecated**) pass **selectedKeys** to `DropdownMenu` instead.                                                                  | `false` |
-| isReadOnly     | `boolean`                                                                                     | Whether the dropdown item press events should be ignored.                                                                                                                        | `false` |
-| closeOnSelect  | `boolean`                                                                                     | Whether the dropdown menu should be closed when the item is selected.                                                                                                            | `true`  |
-| classNames     | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                                                                                    | -       |
+| Attribute        | Type                                                                                          | Description                                                                                                                                                                      | Default |
+| ---------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| children\*       | `ReactNode`                                                                                   | The contents of the dropdown item.                                                                                                                                               | -       |
+| key              | `React.Key`                                                                                   | The unique key for the dropdown item.                                                                                                                                            | -       |
+| title            | `string` \| `ReactNode`                                                                       | The title of the dropdown item.                                                                                                                                                  | -       |
+| textValue        | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                                                                                                | -       |
+| description      | `string` \| `ReactNode`                                                                       | The description of the dropdown item.                                                                                                                                            | -       |
+| shortcut         | `string` \| `ReactNode`                                                                       | The dropdown item keyboard shortcut.                                                                                                                                             | -       |
+| startContent     | `ReactNode`                                                                                   | The start content of the dropdown item.                                                                                                                                          | -       |
+| endContent       | `ReactNode`                                                                                   | The end content of the dropdown item. This is positioned after the shortcut and the selected icon.                                                                               | -       |
+| selectedIcon     | [SelectedIconProps](#dropdown-item-selected-icon-props)                                       | Custom icon to render when the item is selected.                                                                                                                                 | -       |
+| showDivider      | `boolean`                                                                                     | Whether to show a divider below the item.                                                                                                                                        | `false` |
+| href             | `string`                                                                                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
+| target           | `HTMLAttributeAnchorTarget`                                                                   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
+| rel              | `string`                                                                                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
+| download         | `boolean` \| `string`                                                                         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
+| ping             | `string`                                                                                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
+| referrerPolicy   | `HTMLAttributeReferrerPolicy`                                                                 | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
+| isDisabled       | `boolean`                                                                                     | Whether the dropdown item should be disabled. (**Deprecated**) pass **disabledKeys** to `DropdownMenu` instead.                                                                  | `false` |
+| isSelected       | `boolean`                                                                                     | Whether the dropdown item should be selected. (**Deprecated**) pass **selectedKeys** to `DropdownMenu` instead.                                                                  | `false` |
+| isReadOnly       | `boolean`                                                                                     | Whether the dropdown item press events should be ignored.                                                                                                                        | `false` |
+| hideSelectedIcon | `boolean`                                                                                     | Whether to hide the check icon when the item is selected.                                                                                                                        | `false` |
+| closeOnSelect    | `boolean`                                                                                     | Whether the dropdown menu should be closed when the item is selected.                                                                                                            | `true`  |
+| classNames       | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                                                                                    | -       |
 
 ### DropdownItem Events
 

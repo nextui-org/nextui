@@ -347,6 +347,7 @@ const CustomWithClassNamesTemplate = (args) => (
           </kbd>
         </div>
       }
+      labelPlacement="outside"
       placeholder="Quick search..."
       startContent={
         <SearchIcon className="text-xl text-slate-400 pointer-events-none flex-shrink-0" />
@@ -619,7 +620,7 @@ export const CustomWithHooks = {
     type: "search",
     placeholder: "Type to search...",
     startContent: (
-      <SearchIcon className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
     ),
   },
 };

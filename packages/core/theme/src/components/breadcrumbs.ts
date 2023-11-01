@@ -6,6 +6,7 @@ import {tv} from "../utils/tv";
 /**
  * BreadcrumbsItem wrapper **Tailwind Variants** component
  *
+ * const { base, item, separator } = breadcrumbItem({...})
  *
  * @example
  */
@@ -172,7 +173,7 @@ const breadcrumbItem = tv({
 /**
  * Breadcrumbs wrapper **Tailwind Variants** component
  *
- * const { base, section, heading } = menuSection({...})
+ * const { base, list, ellipsis, separator } = breadcrumbs({...})
  *
  * @example
  */

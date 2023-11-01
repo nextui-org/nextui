@@ -11,7 +11,7 @@ import {AnimatePresence} from "framer-motion";
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
 
-interface Props<T> extends Omit<UseSelectProps<T>, "isLabelPlaceholder"> {}
+interface Props<T> extends UseSelectProps<T> {}
 
 function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectElement>) {
   const {

@@ -52,6 +52,7 @@ export {menuSection as listboxSection} from "./menu";
 // export types
 export type {
   MenuSectionVariantProps as ListboxSectionVariantProps,
+  MenuSlots as ListboxSlots,
   MenuSectionSlots as ListboxSectionSlots,
   MenuItemVariantProps as ListboxItemVariantProps,
   MenuItemSlots as ListboxItemSlots,

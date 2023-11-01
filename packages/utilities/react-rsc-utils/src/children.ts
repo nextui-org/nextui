@@ -13,7 +13,7 @@ export function getValidChildren(children: React.ReactNode) {
 }
 
 export const pickChildren = <T = ReactNode>(
-  children: ReactNode | undefined,
+  children: T | undefined,
   targetChild: React.ElementType,
 ): [T | undefined, T[] | undefined] => {
   let target: T[] = [];

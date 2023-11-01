@@ -54,11 +54,12 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/use-aria-accordion": "workspace:*",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/utils": "^3.21.0",
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/utils": "^3.21.1",
     "@react-stately/tree": "^3.7.3",
-    "@react-aria/button": "^3.8.3",
+    "@react-aria/button": "^3.8.4",
     "@react-types/accordion": "3.0.0-alpha.17",
     "@react-types/shared": "^3.21.0"
   },
@@ -67,9 +68,10 @@
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
-    "framer-motion": "^10.15.1",
+    "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

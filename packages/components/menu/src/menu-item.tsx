@@ -24,6 +24,7 @@ const MenuItem = forwardRef<"li", MenuItemProps>((props, _) => {
     startContent,
     endContent,
     disableAnimation,
+    hideSelectedIcon,
     getItemProps,
     getLabelProps,
     getDescriptionProps,
@@ -57,7 +58,9 @@ const MenuItem = forwardRef<"li", MenuItemProps>((props, _) => {
         <span {...getLabelProps()}>{rendered}</span>
       )}
       {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
-      {isSelectable && <span {...getSelectedIconProps()}>{selectedContent}</span>}
+      {isSelectable && !hideSelectedIcon && (
+        <span {...getSelectedIconProps()}>{selectedContent}</span>
+      )}
       {endContent}
     </Component>
   );

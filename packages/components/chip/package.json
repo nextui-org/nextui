@@ -43,15 +43,17 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/utils": "^3.21.0",
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
     "@react-types/checkbox": "^3.5.2"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

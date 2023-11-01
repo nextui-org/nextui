@@ -45,13 +45,13 @@
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/interactions": "^3.19.0",
-    "@react-aria/table": "^3.13.0",
-    "@react-aria/utils": "^3.21.0",
-    "@react-aria/visually-hidden": "^3.8.5",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/table": "^3.13.1",
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/visually-hidden": "^3.8.6",
     "@react-stately/table": "^3.11.2",
-    "@react-stately/virtualizer": "^3.6.3",
+    "@react-stately/virtualizer": "^3.6.4",
     "@react-types/grid": "^3.2.2",
     "@react-types/table": "^3.9.0"
   },
@@ -66,6 +66,7 @@
     "@react-stately/data": "^3.10.3",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "swr": "^2.2.1"
   },
   "clean-package": "../../../clean-package.config.json"

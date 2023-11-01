@@ -1,0 +1,484 @@
+---
+title: "Autocomplete"
+description: "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query."
+---
+
+import {autocompleteContent} from "@/content/components/autocomplete";
+
+# Autocomplete
+
+An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+
+<ComponentLinks component="autocomplete" reactAriaHook="useComboBox" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+NextUI exports 3 autocomplete-related components:
+
+- **Autocomplete**: The main component, which is a wrapper for the other components.
+- **AutocompleteSection**: The component that contains a group of autocomplete items.
+- **AutocompleteItem**: The component that represents a autocomplete item.
+
+<ImportTabs
+  commands={{
+    main: `import {
+  Autocomplete,
+  AutocompleteSection,
+  AutocompleteItem
+} from "@nextui-org/react";`,
+    individual: `import {
+  Autocomplete,
+  AutocompleteSection,
+  AutocompleteItem
+} from "@nextui-org/autocomplete";`,
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={autocompleteContent.usage} />
+
+### Dynamic items
+
+Autocomplete follows the [Collection Components API](https://react-spectrum.adobe.com/react-stately/collections.html), accepting both static and dynamic collections.
+
+- **Static**: The usage example above shows the static implementation, which can be used when the full list of options is known ahead of time.
+- **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
+
+<CodeDemo title="Dynamic items" highlightedLines="8" files={autocompleteContent.dynamic} />
+
+### Disabled
+
+<CodeDemo title="Disabled" highlightedLines="8" files={autocompleteContent.disabled} />
+
+### Disabled Items
+
+You can disable specific items by using the `disabledKeys` property.
+
+<CodeDemo title="Disabled Items" highlightedLines="11" files={autocompleteContent.disabledItems} />
+
+### Required
+
+If you pass the `isRequired` property to the autocomplete, it will have a `danger` asterisk at
+the end of the label and the autocomplete will be required.
+
+<CodeDemo title="Required" highlightedLines="8" files={autocompleteContent.required} />
+
+### Sizes
+
+<CodeDemo title="Sizes" highlightedLines="13,21" files={autocompleteContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" highlightedLines="20" files={autocompleteContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" highlightedLines="13,21" files={autocompleteContent.variants} />
+
+### Label Placements
+
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
+
+<CodeDemo
+  title="Label Placements"
+  highlightedLines="20,34"
+  files={autocompleteContent.labelPlacements}
+/>
+
+> **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
+### Start Content
+
+You can use the `startContent` and `endContent` properties to add content to the start and end of
+the autocomplete.
+
+<CodeDemo title="Start Content" highlightedLines="13" files={autocompleteContent.startContent} />
+
+### Item Start & End Content
+
+Since the `Autocomplete` component uses the [Listbox](/docs/components/listbox) component under the hood, you can
+use the `startContent` and `endContent` properties of the `AutocompleteItem` component to add content to the start
+and end of the autocomplete item.
+
+<CodeDemo title="Item Start Content" files={autocompleteContent.itemStartContent} />
+
+### Custom Value
+
+By default, `Autocomplete` doesn't allow users to specify a value that doesn't exist in the list of options and will
+revert the input value to the current selected value on blur. By specifying `allowsCustomValue`, this behavior is
+suppressed and the user is free to enter any value within the field.
+
+<CodeDemo title="Custom Value" highlightedLines="8" files={autocompleteContent.customValue} />
+
+### Custom Selector Icon
+
+By default the seleautocompletet uses a `chevron-down` icon as the selector icon which rotates when the autocomplete is open. You can
+customize this icon by passing a custom one to the `selectorIcon` property.
+
+<CodeDemo
+  title="Custom Selector Icon"
+  highlightedLines="15"
+  files={autocompleteContent.customSelectorIcon}
+/>
+
+> **Note**: Use the `disableSelectionIconRotation` property to disable the rotation of the icon.
+
+### Without Scroll Shadow
+
+Autocomplete component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the autocomplete content is scrollable.
+You can disable this shadow by passing using the `scrollShadowProps` property.
+
+<CodeDemo
+  title="Without Scroll Shadow"
+  highlightedLines="13-15"
+  files={autocompleteContent.withoutScrollShadow}
+/>
+
+> **Note**: You can also use the `showScrollIndicators` property to disable the scroll indicators.
+
+### With Description
+
+You can add a description to the autocomplete by passing the `description` property.
+
+<CodeDemo title="With Description" highlightedLines="10" files={autocompleteContent.description} />
+
+### With Error Message
+
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid autocomplete.
+
+<CodeDemo
+  title="With Error Message"
+  highlightedLines="16-18"
+  files={autocompleteContent.errorMessage}
+/>
+
+### Events
+
+The `Autocomplete` component supports selection via mouse, keyboard, and touch. You can handle all of these
+via the `onSelectionChange` prop. `Autocomplete` will pass the selected key to the onSelectionChange handler.
+Additionally, ComboBox accepts an `onInputChange` prop which is triggered whenever the value is edited by the user,
+whether through typing or option selection.
+
+The example below uses `onSelectionChange` and `onInputChange` to update the selection and input value stored in
+React state.
+
+<CodeDemo title="Events" highlightedLines="25-26" files={autocompleteContent.events} />
+
+### Controlled
+
+You can use the `selectedKey` and `onSelectionChange` properties to control the select value.
+
+<CodeDemo
+  title="Controlled with onSelectionChange"
+  highlightedLines="15-16"
+  files={autocompleteContent.controlled}
+/>
+
+### Fully Controlled
+
+By passing in `inputValue`, `selectedKey`, and `items` to the `Autocomplete` you can control exactly what your `Autocomplete` should display.
+
+The following example shows how you would create a controlled `Autocomplete`, controlling everything from the selected value
+`selectedKey` to the combobox options `items`.
+
+We recommend using the `useFilter` hook from [@react-aria/i18n](https://react-spectrum.adobe.com/react-aria/useFilter.html#usefilter) to manage the filtering of the items.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @react-aria/i18n",
+    yarn: "yarn add @react-aria/i18n",
+    pnpm: "pnpm add @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {useFilter} from "@react-aria/i18n";
+```
+
+<Spacer y={4} />
+
+<CodeDemo
+  asIframe
+  title="Fully Controlled"
+  resizeEnabled={false}
+  displayMode="visible"
+  highlightedLines="63-64,67,69-71"
+  files={autocompleteContent.fullyControlled}
+  previewHeight="420px"
+  iframeSrc="/examples/autocomplete/fully-controlled"
+/>
+
+> **Note**: It is important to note that you don't have to control every single aspect of a `Autocomplete`. If you decide to only control a single property of the `Autocomplete`, be sure to provide the change handler for that prop as well e.g. controlling `selectedKey` would require `onSelectionChange`.
+
+### Custom Items
+
+You can customize the autocomplete items by modifying the `AutocompleteItem` children.
+
+<CodeDemo title="Custom Items" files={autocompleteContent.customItems} />
+
+### Custom Filtering
+
+By default, `Autocomplete` uses a `"contains"` function from [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) to filter the
+list of options. This can be overridden using the `defaultFilter` prop, or by using the `items` prop to control the
+filtered list. When `items` is provided rather than `defaultItems`, `Autocomplete` does no filtering of its own.
+
+The following example uses the `defaultFilter` prop to filter the list of options using a custom filter function.
+
+<CodeDemo
+  title="Fully Controlled"
+  highlightedLines="22"
+  files={autocompleteContent.customFiltering}
+/>
+
+### Asynchronous Filtering
+
+Autocomplete supports asynchronous filtering, in the example below we are using the [useAyncList](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) function
+from [react-aria](https://react-spectrum.adobe.com) to handle asynchronous loading and filtering of data from a server.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @react-stately/data",
+    yarn: "yarn add @react-stately/data",
+    pnpm: "pnpm add @react-stately/data",
+  }}
+/>
+
+```jsx
+import {useAsyncList} from "@react-stately/data";
+```
+
+<Spacer y={2} />
+
+<CodeDemo
+  asIframe
+  typescriptStrict={true}
+  title="Asynchronous Filtering"
+  hideWindowActions={true}
+  resizeEnabled={false}
+  displayMode="visible"
+  highlightedLines="27-29,33"
+  files={autocompleteContent.asyncFiltering}
+  previewHeight="400px"
+  iframeSrc="/examples/autocomplete/async-filtering"
+/>
+
+### Asynchronous Loading
+
+Autocomplete supports asynchronous loading, in the example below we are using a custom hook to fetch the [Pokemon API](https://pokeapi.co/api/v2/pokemon) data in combination with the `useInfiniteScroll` hook to load more data when the user reaches the end of the list.
+
+The `isLoading` prop is used to show a loading indicator instead of the selector icon when the data is being fetched.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @nextui-org/use-infinite-scroll",
+    yarn: "yarn add @nextui-org/use-infinite-scroll",
+    pnpm: "pnpm add @nextui-org/use-infinite-scroll",
+  }}
+/>
+
+```jsx
+import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
+```
+
+<Spacer y={2} />
+
+<CodeDemo
+  asIframe
+  typescriptStrict={true}
+  title="Asynchronous Loading"
+  hideWindowActions={true}
+  highlightedLines="21-22,25,27"
+  resizeEnabled={false}
+  displayMode="visible"
+  files={autocompleteContent.asyncLoadingItems}
+  previewHeight="400px"
+  iframeSrc="/examples/autocomplete/async-items-loading"
+/>
+
+### With Sections
+
+You can use the `AutocompleteSection` component to group autocomplete items.
+
+<CodeDemo title="With Sections" files={autocompleteContent.sections} />
+
+### Custom Sections Style
+
+You can customize the sections style by using the `classNames` property of the `AutocompleteSection` component.
+
+<CodeDemo title="Custom Sections Style" files={autocompleteContent.customSectionsStyle} />
+
+### Customizing the Autocomplete
+
+You can customize any slot of the autocomplete by using the `classNames` property. Autocomplete
+component also provides the [popoverProps](/docs/components/popover#api), [listboxProps](/docs/components/listbox#api), [inputProps](/docs/components/input#api)
+properties to customize the popover, listbox and input components.
+
+<CodeDemo title="Custom Styles" files={autocompleteContent.customStyles} />
+
+## Slots
+
+- **base**: The main wrapper of the autocomplete. This wraps the input and popover components.
+- **listboxWrapper**: The wrapper of the listbox. This wraps the listbox component, this slot is used on top of the scroll shadow component.
+- **listbox**: The listbox component. This is the component that wraps the autocomplete items.
+- **popoverContent**: The popover content slot. Use this to modify the popover content styles.
+- **endContentWrapper**: The wrapper of the end content. This wraps the clear button and selector button.
+- **clearButton**: The clear button slot.
+- **selectorButton**: The selector button slot.
+
+## Data Attributes
+
+`Autocomplete` has the following attributes on the `base` element:
+
+- **data-invalid**:
+  When the autocomplete is invalid. Based on `isInvalid` prop.
+- **data-open**:
+  Indicates if the autocomplete's popover is open.
+
+`Autocomplete` has the following attributes on the `selectorButton` element:
+
+- **data-open**:
+  Indicates if the autocomplete's popover is open.
+
+`Autocomplete` has the following attributes on the `clearButton` element:
+
+- **data-visible**:
+  Indicates if the autocomplete's clear button is visible. By default it is visible when hovering the autocomplete and
+  when the autocomplete has a value (desktop), or when the autocomplete has a value (mobile).
+
+`AutocompleteItem` has the following attributes on the `base` element:
+
+- **data-disabled**:
+  When the autocomplete item is disabled. Based on autocomplete `disabledKeys` prop.
+- **data-selected**:
+  When the autocomplete item is selected. Based on autocomplete `selectedKey` prop.
+- **data-hover**:
+  When the autocomplete item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-pressed**:
+  When the autocomplete item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-focus**:
+  When the autocomplete item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the autocomplete item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Support for filtering a list of options by typing
+- Support for selecting a single option
+- Support for disabled options
+- Support for groups of items in sections
+- Support for custom user input values
+- Support for controlled and uncontrolled options, selection, input value, and open state
+- Support for custom filter functions
+- Async loading and infinite scrolling support
+- Support for virtualized scrolling for performance with long lists
+- Exposed to assistive technology as a combobox with ARIA
+- Labeling support for accessibility
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for mouse, touch, and keyboard interactions
+- Keyboard support for opening the combo box list box using the arrow keys, including automatically focusing the first or last item accordingly
+- Support for opening the list box when typing, on focus, or manually
+- Handles virtual clicks on the input from touch screen readers to toggle the list box
+- Virtual focus management for combo box list box option navigation
+- Hides elements outside the input and list box from assistive technology while the list box is open in a portal
+- Custom localized announcements for option focusing, filtering, and selection using an ARIA live region to work around VoiceOver bugs
+- Support for description and error message help text linked to the input via ARIA
+
+<Spacer y={4} />
+
+## API
+
+### Autocomplete Props
+
+| Attribute                   | Type                                                                                                                                  | Description                                                                                                                                                   | Default                  |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| children\*                  | `ReactNode[]`                                                                                                                         | The children to render. Usually a list of `AutocompleteItem` and `AutocompleteSection` elements.                                                              | -                        |
+| label                       | `ReactNode`                                                                                                                           | The content to display as the label.                                                                                                                          | -                        |
+| name                        | `string`                                                                                                                              | The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname). | -                        |
+| variant                     | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                       | The variant of the Autocomplete.                                                                                                                              | `flat`                   |
+| color                       | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                           | The color of the Autocomplete.                                                                                                                                | `default`                |
+| size                        | `sm` \| `md` \| `lg`                                                                                                                  | The size of the Autocomplete.                                                                                                                                 | `md`                     |
+| radius                      | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                              | The radius of the Autocomplete.                                                                                                                               | -                        |
+| items                       | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)                                | The list of Autocomplete items. (controlled)                                                                                                                  | -                        |
+| defaultItems                | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)                                | The list of Autocomplete items (uncontrolled).                                                                                                                | -                        |
+| inputValue                  | `string`                                                                                                                              | The value of the Autocomplete input (controlled).                                                                                                             | -                        |
+| defaultInputValue           | `string`                                                                                                                              | The value of the Autocomplete input (uncontrolled).                                                                                                           | -                        |
+| allowsCustomValue           | `boolean`                                                                                                                             | Whether the Autocomplete allows a non-item matching input value to be set.                                                                                    | `false`                  |
+| allowsEmptyCollection       | `boolean`                                                                                                                             | Whether the autocomplete allows the menu to be open when the collection is empty.                                                                             | `true`                   |
+| shouldCloseOnBlur           | `boolean`                                                                                                                             | Whether the Autocomplete should close when the input is blurred.                                                                                              | `true`                   |
+| placeholder                 | `string`                                                                                                                              | Temporary text that occupies the text input when it is empty.                                                                                                 | -                        |
+| description                 | `ReactNode`                                                                                                                           | A description for the field. Provides a hint such as specific requirements for what to choose.                                                                | -                        |
+| menuTrigger                 | `focus` \| `input` \| `manual`                                                                                                        | The action that causes the menu to open.                                                                                                                      | `focus`                  |
+| labelPlacement              | `inside` \| `outside` \| `outside-left`                                                                                               | The position of the label.                                                                                                                                    | `inside`                 |
+| selectedKey                 | `React.Key`                                                                                                                           | The currently selected key in the collection (controlled).                                                                                                    | -                        |
+| defaultSelectedKey          | `React.Key`                                                                                                                           | The initial selected key in the collection (uncontrolled).                                                                                                    | -                        |
+| disabledKeys                | `all` \| `React.Key[]`                                                                                                                | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.                                                       | -                        |
+| errorMessage                | `ReactNode`                                                                                                                           | An error message to display below the field.                                                                                                                  | -                        |
+| startContent                | `ReactNode`                                                                                                                           | Element to be rendered in the left side of the Autocomplete.                                                                                                  | -                        |
+| endContent                  | `ReactNode`                                                                                                                           | Element to be rendered in the right side of the Autocomplete.                                                                                                 | -                        |
+| autoFocus                   | `boolean`                                                                                                                             | Whether the Autocomplete should be focused on render.                                                                                                         | `false`                  |
+| defaultFilter               | `(textValue: string, inputValue: string) => boolean`                                                                                  | The filter function used to determine if a option should be included in the Autocomplete list.                                                                | -                        |
+| filterOptions               | [Intl.CollatorOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator/Collator)            | The options used to create the collator used for filtering.                                                                                                   | `{ sensitivity: 'base'}` |
+| isReadOnly                  | `boolean`                                                                                                                             | Whether the Autocomplete is read only.                                                                                                                        | `false`                  |
+| isRequired                  | `boolean`                                                                                                                             | Whether the Autocomplete is required.                                                                                                                         | `false`                  |
+| isInvalid                   | `boolean`                                                                                                                             | Whether the Autocomplete is invalid.                                                                                                                          | `false`                  |
+| isDisabled                  | `boolean`                                                                                                                             | Whether the Autocomplete is disabled.                                                                                                                         | `false`                  |
+| fullWidth                   | `boolean`                                                                                                                             | Whether the input should take up the width of its parent.                                                                                                     | `true`                   |
+| selectorIcon                | `ReactNode`                                                                                                                           | The icon that represents the autocomplete open state. Usually a chevron icon.                                                                                 | -                        |
+| clearIcon                   | `ReactNode`                                                                                                                           | The icon to be used in the clear button. Usually a cross icon.                                                                                                | -                        |
+| showScrollIndicators        | `boolean`                                                                                                                             | Whether the scroll indicators should be shown when the listbox is scrollable.                                                                                 | `true`                   |
+| scrollRef                   | `React.RefObject<HTMLElement>`                                                                                                        | A ref to the scrollable element.                                                                                                                              | -                        |
+| inputProps                  | [InputProps](/docs/components/input#api)                                                                                              | Props to be passed to the Input component.                                                                                                                    | -                        |
+| popoverProps                | [PopoverProps](/docs/components/popover#api)                                                                                          | Props to be passed to the Popover component.                                                                                                                  | -                        |
+| listboxProps                | [ListboxProps](/docs/components/listbox#api)                                                                                          | Props to be passed to the Listbox component.                                                                                                                  | -                        |
+| scrollShadowProps           | [ScrollShadowProps](/docs/components/scroll-shadow#api)                                                                               | Props to be passed to the ScrollShadow component.                                                                                                             | -                        |
+| selectorButtonProps         | [ButtonProps](/docs/components/button#api)                                                                                            | Props to be passed to the selector button.                                                                                                                    | -                        |
+| clearButtonProps            | [ButtonProps](/docs/components/button#api)                                                                                            | Props to be passed to the clear button.                                                                                                                       | -                        |
+| disableClearable            | `boolean`                                                                                                                             | Whether the clear button should be hidden.                                                                                                                    | `false`                  |
+| disableAnimation            | `boolean`                                                                                                                             | Whether the Autocomplete should be animated.                                                                                                                  | `true`                   |
+| disableSelectorIconRotation | `boolean`                                                                                                                             | Whether the select should disable the rotation of the selector icon.                                                                                          | `false`                  |
+| classNames                  | `Record<"base"｜ "listboxWrapper"｜ "listbox"｜ "popoverContent" ｜ "endContentWrapper"｜ "clearButton" ｜ "selectorButton", string>` | Allows to set custom class names for the Autocomplete slots.                                                                                                  | -                        |
+
+### Autocomplete Events
+
+| Attribute         | Type                                                         | Description                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| onOpenChange      | `(isOpen: boolean, menuTrigger?: MenuTriggerAction) => void` | Method that is called when the open state of the menu changes. Returns the new open state and the action that caused the opening of the menu. |
+| onInputChange     | `(value: string) => void`                                    | Handler that is called when the Autocomplete input value changes.                                                                             |
+| onSelectionChange | `(key: React.Key) => void`                                   | Handler that is called when the Autocomplete selection changes.                                                                               |
+| onFocus           | `(e:  FocusEvent<HTMLInputElement>) => void`                 | Handler that is called when the Autocomplete input is focused.                                                                                |
+| onBlur            | `(e:  FocusEvent<HTMLInputElement>) => void`                 | Handler that is called when the Autocomplete input is blurred.                                                                                |
+| onFocusChange     | `(isFocused: boolean) => void`                               | Handler that is called when the Autocomplete input focus changes.                                                                             |
+| onKeyDown         | `(e: KeyboardEvent) => void`                                 | Handler that is called when a key is pressed.                                                                                                 |
+| onKeyUp           | `(e: KeyboardEvent) => void`                                 | Handler that is called when a key is released.                                                                                                |
+| onClose           | `() => void`                                                 | Handler that is called when the Autocomplete's Popover is closed.                                                                             |
+
+---
+
+### AutocompleteItem Props
+
+Check the [ListboxItem](/docs/components/listbox#listboxitem-props) props.
+
+### AutocompleteItem Events
+
+Check the [ListboxItem](/docs/components/listbox#listboxitem-events) events.
+
+### AutocompleteSection Props
+
+Check the [ListboxSection](/docs/components/listbox#listboxsection-props) props.
+
+---
+
+### Types
+
+#### Menu Trigger Action
+
+```ts
+type MenuTriggerAction = "focus" | "input" | "manual";
+```

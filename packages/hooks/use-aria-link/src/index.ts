@@ -1,10 +1,9 @@
 import {AriaLinkProps} from "@react-types/link";
 import {DOMAttributes, FocusableElement} from "@react-types/shared";
-// @ts-ignore - react-aria issue: https://github.com/adobe/react-spectrum/issues/5194
 import {filterDOMProps, mergeProps, useRouter, shouldClientNavigate} from "@react-aria/utils";
 import {RefObject} from "react";
 import {useFocusable} from "@react-aria/focus";
-import {usePress} from "@react-aria/interactions";
+import {usePress} from "@nextui-org/use-aria-press";
 
 export interface AriaLinkOptions extends AriaLinkProps {
   /** Indicates the element that represents the current item within a container or set of related elements. */

@@ -10,7 +10,8 @@ import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
 import {useMenuItem as useAriaMenuItem} from "@react-aria/menu";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useHover, usePress} from "@react-aria/interactions";
+import {useHover} from "@react-aria/interactions";
+import {usePress} from "@nextui-org/use-aria-press";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 
 interface Props<T extends object> extends MenuItemBaseProps<T> {
@@ -40,6 +41,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     autoFocus,
     onPress,
     onClick,
+    hideSelectedIcon = false,
     isReadOnly = false,
     closeOnSelect,
     onClose,
@@ -179,6 +181,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     disableAnimation,
     getItemProps,
     getLabelProps,
+    hideSelectedIcon,
     getDescriptionProps,
     getKeyboardShortcutProps,
     getSelectedIconProps,

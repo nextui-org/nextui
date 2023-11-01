@@ -10,7 +10,19 @@ import {dataFocusVisibleClasses} from "../utils";
 
  */
 const menu = tv({
-  base: "w-full flex flex-col gap-0.5 p-1 outline-none",
+  slots: {
+    base: "w-full relative flex flex-col gap-1 p-1",
+    list: "w-full flex flex-col gap-0.5 outline-none",
+    emptyContent: [
+      "h-10",
+      "px-2",
+      "py-1.5",
+      "w-full",
+      "h-full",
+      "text-foreground-400",
+      "text-start",
+    ],
+  },
 });
 
 /**
@@ -502,6 +514,7 @@ const menuSection = tv({
 });
 
 export type MenuVariantProps = VariantProps<typeof menu>;
+export type MenuSlots = keyof ReturnType<typeof menu>;
 export type MenuSectionVariantProps = VariantProps<typeof menuSection>;
 export type MenuSectionSlots = keyof ReturnType<typeof menuSection>;
 export type MenuItemVariantProps = VariantProps<typeof menuItem>;

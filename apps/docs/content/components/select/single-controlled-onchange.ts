@@ -30,10 +30,10 @@ const App = `import {Select, SelectItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
-  const [value, setValue] = React.useState(new Set([]));
+  const [value, setValue] = React.useState("");
 
   const handleSelectionChange = (e) => {
-    setValue(new Set([e.target.value]));
+    setValue(e.target.value);
   };
 
   return (
@@ -42,7 +42,7 @@ export default function App() {
         label="Favorite Animal"
         variant="bordered"
         placeholder="Select an animal"
-        selectedKeys={value}
+        selectedKeys={[value]}
         className="max-w-xs"
         onChange={handleSelectionChange}
       >
@@ -57,14 +57,14 @@ export default function App() {
   );
 }`;
 
-const AppTs = `import {Select, SelectItem, Selection} from "@nextui-org/react";
+const AppTs = `import {Select, SelectItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
-  const [value, setValue] = React.useState<Selection>(new Set([]));
+  const [value, setValue] = React.useState<string>("");
 
   const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(new Set([e.target.value]));
+    setValue(e.target.value);
   };
 
   return (
@@ -73,7 +73,7 @@ export default function App() {
         label="Favorite Animal"
         variant="bordered"
         placeholder="Select an animal"
-        selectedKeys={value}
+        selectedKeys={[value]}
         className="max-w-xs"
         onChange={handleSelectionChange}
       >

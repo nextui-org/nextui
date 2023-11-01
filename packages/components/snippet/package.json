@@ -47,12 +47,13 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "^3.14.2",
-    "@react-aria/utils": "^3.21.0"
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/utils": "^3.21.1"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }
