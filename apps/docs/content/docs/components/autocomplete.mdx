@@ -9,7 +9,7 @@ import {autocompleteContent} from "@/content/components/autocomplete";
 
 An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
 
-<ComponentLinks component="select" reactAriaHook="useSelect" />
+<ComponentLinks component="autocomplete" reactAriaHook="useComboBox" />
 
 ---
 
@@ -120,7 +120,11 @@ suppressed and the user is free to enter any value within the field.
 By default the seleautocompletet uses a `chevron-down` icon as the selector icon which rotates when the autocomplete is open. You can
 customize this icon by passing a custom one to the `selectorIcon` property.
 
-<CodeDemo title="Custom Selector Icon" highlightedLines="15" files={autocompleteContent.customSelectorIcon} />
+<CodeDemo
+  title="Custom Selector Icon"
+  highlightedLines="15"
+  files={autocompleteContent.customSelectorIcon}
+/>
 
 > **Note**: Use the `disableSelectionIconRotation` property to disable the rotation of the icon.
 
@@ -129,7 +133,11 @@ customize this icon by passing a custom one to the `selectorIcon` property.
 Autocomplete component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the autocomplete content is scrollable.
 You can disable this shadow by passing using the `scrollShadowProps` property.
 
-<CodeDemo title="Without Scroll Shadow" highlightedLines="13-15" files={autocompleteContent.withoutScrollShadow} />
+<CodeDemo
+  title="Without Scroll Shadow"
+  highlightedLines="13-15"
+  files={autocompleteContent.withoutScrollShadow}
+/>
 
 > **Note**: You can also use the `showScrollIndicators` property to disable the scroll indicators.
 
@@ -143,7 +151,11 @@ You can add a description to the autocomplete by passing the `description` prope
 
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid autocomplete.
 
-<CodeDemo title="With Error Message" highlightedLines="16-18" files={autocompleteContent.errorMessage} />
+<CodeDemo
+  title="With Error Message"
+  highlightedLines="16-18"
+  files={autocompleteContent.errorMessage}
+/>
 
 ### Events
 
@@ -161,7 +173,11 @@ React state.
 
 You can use the `selectedKey` and `onSelectionChange` properties to control the select value.
 
-<CodeDemo title="Controlled with onSelectionChange" highlightedLines="15-16" files={autocompleteContent.controlled} />
+<CodeDemo
+  title="Controlled with onSelectionChange"
+  highlightedLines="15-16"
+  files={autocompleteContent.controlled}
+/>
 
 ### Fully Controlled
 
@@ -213,13 +229,16 @@ filtered list. When `items` is provided rather than `defaultItems`, `Autocomplet
 
 The following example uses the `defaultFilter` prop to filter the list of options using a custom filter function.
 
-<CodeDemo title="Fully Controlled" highlightedLines="22" files={autocompleteContent.customFiltering} />
+<CodeDemo
+  title="Fully Controlled"
+  highlightedLines="22"
+  files={autocompleteContent.customFiltering}
+/>
 
 ### Asynchronous Filtering
 
 Autocomplete supports asynchronous filtering, in the example below we are using the [useAyncList](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) function
-from [react-aria](https://react-spectrum.adobe.com) to handle asynchronous loading and filtering of data from a server. 
-
+from [react-aria](https://react-spectrum.adobe.com) to handle asynchronous loading and filtering of data from a server.
 
 <PackageManagers
   commands={{
@@ -300,3 +319,84 @@ component also provides the [popoverProps](/docs/components/popover#api), [listb
 properties to customize the popover, listbox and input components.
 
 <CodeDemo title="Custom Styles" files={autocompleteContent.customStyles} />
+
+## Slots
+
+- **base**: The main wrapper of the autocomplete. This wraps the input and popover components.
+- **listboxWrapper**: The wrapper of the listbox. This wraps the listbox component, this slot is used on top of the scroll shadow component.
+- **listbox**: The listbox component. This is the component that wraps the autocomplete items.
+- **popoverContent**: The popover content slot. Use this to modify the popover content styles.
+- **endContentWrapper**: The wrapper of the end content. This wraps the clear button and selector button.
+- **clearButton**: The clear button slot.
+- **selectorButton**: The selector button slot.
+
+## Data Attributes
+
+`Autocomplete` has the following attributes on the `base` element:
+
+- **data-invalid**:
+  When the autocomplete is invalid. Based on `isInvalid` prop.
+- **data-open**:
+  Indicates if the autocomplete's popover is open.
+
+`Autocomplete` has the following attributes on the `selectorButton` element:
+
+- **data-open**:
+  Indicates if the autocomplete's popover is open.
+
+`Autocomplete` has the following attributes on the `clearButton` element:
+
+- **data-visible**:
+  Indicates if the autocomplete's clear button is visible. By default it is visible when hovering the autocomplete and
+  when the autocomplete has a value (desktop), or when the autocomplete has a value (mobile).
+
+`AutocompleteItem` has the following attributes on the `base` element:
+
+- **data-disabled**:
+  When the autocomplete item is disabled. Based on autocomplete `disabledKeys` prop.
+- **data-selected**:
+  When the autocomplete item is selected. Based on autocomplete `selectedKey` prop.
+- **data-hover**:
+  When the autocomplete item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-pressed**:
+  When the autocomplete item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html)
+- **data-focus**:
+  When the autocomplete item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the autocomplete item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Support for filtering a list of options by typing
+- Support for selecting a single option
+- Support for disabled options
+- Support for groups of items in sections
+- Support for custom user input values
+- Support for controlled and uncontrolled options, selection, input value, and open state
+- Support for custom filter functions
+- Async loading and infinite scrolling support
+- Support for virtualized scrolling for performance with long lists
+- Exposed to assistive technology as a combobox with ARIA
+- Labeling support for accessibility
+- Required and invalid states exposed to assistive technology via ARIA
+- Support for mouse, touch, and keyboard interactions
+- Keyboard support for opening the combo box list box using the arrow keys, including automatically focusing the first or last item accordingly
+- Support for opening the list box when typing, on focus, or manually
+- Handles virtual clicks on the input from touch screen readers to toggle the list box
+- Virtual focus management for combo box list box option navigation
+- Hides elements outside the input and list box from assistive technology while the list box is open in a portal
+- Custom localized announcements for option focusing, filtering, and selection using an ARIA live region to work around VoiceOver bugs
+- Support for description and error message help text linked to the input via ARIA
+
+<Spacer y={4} />
+
+## API
+
+### Autocomplete Props
+
+| Attribute  | Type                                                                                                   | Description                                                                                      | Default |
+| ---------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------- |
+| children\* | `ReactNode[]`                                                                                          | The children to render. Usually a list of `AutocompleteItem` and `AutocompleteSection` elements. | -       |
+| items      | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the select. (dynamic)                                                            | -       |
