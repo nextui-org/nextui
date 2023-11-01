@@ -304,6 +304,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getBaseProps: PropGetter = () => ({
     ref: domRef,
     "data-invalid": dataAttr(originalProps?.isInvalid),
+    "data-open": dataAttr(state.isOpen),
     className: slots.base({class: baseStyles}),
   });
 
