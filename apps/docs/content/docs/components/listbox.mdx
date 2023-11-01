@@ -101,9 +101,16 @@ You can use the `description` prop to add a description to the listbox item.
 
 <CodeDemo
   title="With Description"
+  typescriptStrict={true}
   highlightedLines="17,24,32,41"
   files={listboxContent.description}
 />
+
+### With Top & Bottom Content
+
+You can use the `topContent` and `bottomContent` props to add content above and below the listbox items.
+
+<CodeDemo title="With Top & Bottom Content" files={listboxContent.topContent} />
 
 ### With Sections
 
@@ -238,6 +245,8 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 | bottomContent          | `ReactNode`                                                                                            | The content to display below the listbox items.                                                          | -           |
 | emptyContent           | `ReactNode`                                                                                            | The content to display when the collection is empty.                                                     | `No items.` |
 | shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                 | `false`     |
+| hideEmptyContent       | `boolean`                                                                                              | Whether to not display the empty content when the collection is empty.                                   | `false`     |
+| hideSelectedIcon       | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                              | `false`     |
 | disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the listbox items.                                                   | `false`     |
 | classNames             | `Record<"base"｜ "list"｜ "emptyContent", string>`                                                     | Allows to set custom class names for the listbox slots.                                                  | -           |
 | itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>`                        | Allows to set custom class names for the listbox item slots.                                             | -           |
@@ -285,6 +294,7 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 | ping                   | `string`                                                                                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
 | referrerPolicy         | `HTMLAttributeReferrerPolicy`                                                                 | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
 | shouldHighlightOnFocus | `boolean`                                                                                     | Whether the focused item should be highlighted. It applies the same styles to the item as when hovered.                                                                          | `false` |
+| hideSelectedIcon       | `boolean`                                                                                     | Whether to hide the check icon when the item is selected.                                                                                                                        | `false` |
 | showDivider            | `boolean`                                                                                     | Whether to show a divider below the item.                                                                                                                                        | `false` |
 | isDisabled             | `boolean`                                                                                     | Whether the listbox item should be disabled. (**Deprecated**) pass **disabledKeys** to `Listbox` instead.                                                                        | `false` |
 | isSelected             | `boolean`                                                                                     | Whether the listbox item should be selected. (**Deprecated**) pass **selectedKeys** to `Listbox` instead.                                                                        | `false` |

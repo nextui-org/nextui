@@ -40,6 +40,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     onPress,
     onClick,
     shouldHighlightOnFocus,
+    hideSelectedIcon = false,
     isReadOnly = false,
     ...otherProps
   } = props;
@@ -172,6 +173,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     startContent,
     endContent,
     selectedIcon,
+    hideSelectedIcon,
     disableAnimation,
     getItemProps,
     getLabelProps,

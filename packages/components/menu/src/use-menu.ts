@@ -32,6 +32,11 @@ interface Props<T> {
    */
   color?: MenuItemProps["color"];
   /**
+   * Whether to hide the check icon when the items are selected.
+   * @default false
+   */
+  hideSelectedIcon?: boolean;
+  /**
    * Provides content to include a component in the top of the table.
    */
   topContent?: ReactNode;
@@ -39,6 +44,11 @@ interface Props<T> {
    * Provides content to include a component in the bottom of the table.
    */
   bottomContent?: ReactNode;
+  /**
+   * Whether to not display the empty content when there are no items.
+   * @default false
+   */
+  hideEmptyContent?: boolean;
   /**
    *  Provides content to display when there are no items.
    * @default "No items."
@@ -93,6 +103,8 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     state: propState,
     topContent,
     bottomContent,
+    hideEmptyContent = false,
+    hideSelectedIcon = false,
     emptyContent = "No items.",
     menuProps: userMenuProps,
     onClose,
@@ -160,6 +172,8 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     itemClasses,
     getBaseProps,
     getListProps,
+    hideEmptyContent,
+    hideSelectedIcon,
     getEmptyContentProps,
   };
 }

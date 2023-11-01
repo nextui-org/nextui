@@ -20,8 +20,8 @@ An autocomplete combines a text input with a listbox, allowing users to filter a
 NextUI exports 3 autocomplete-related components:
 
 - **Autocomplete**: The main component, which is a wrapper for the other components.
-- **AutocompleteSection**: The component that contains a group of select items.
-- **AutocompleteItem**: The component that represents a select item.
+- **AutocompleteSection**: The component that contains a group of autocomplete items.
+- **AutocompleteItem**: The component that represents a autocomplete item.
 
 <ImportTabs
   commands={{
@@ -63,8 +63,8 @@ You can disable specific items by using the `disabledKeys` property.
 
 ### Required
 
-If you pass the `isRequired` property to the select, it will have a `danger` asterisk at
-the end of the label and the select will be required.
+If you pass the `isRequired` property to the autocomplete, it will have a `danger` asterisk at
+the end of the label and the autocomplete will be required.
 
 <CodeDemo title="Required" highlightedLines="8" files={autocompleteContent.required} />
 
@@ -95,7 +95,7 @@ You can change the position of the label by setting the `labelPlacement` propert
 ### Start Content
 
 You can use the `startContent` and `endContent` properties to add content to the start and end of
-the select.
+the autocomplete.
 
 <CodeDemo title="Start Content" highlightedLines="9" files={autocompleteContent.startContent} />
 
@@ -103,13 +103,21 @@ the select.
 
 Since the `Autocomplete` component uses the [Listbox](/docs/components/listbox) component under the hood, you can
 use the `startContent` and `endContent` properties of the `AutocompleteItem` component to add content to the start
-and end of the select item.
+and end of the autocomplete item.
 
 <CodeDemo title="Item Start Content" files={autocompleteContent.itemStartContent} />
 
+### Custom Value
+
+By default, `Autocomplete` doesn't allow users to specify a value that doesn't exist in the list of options and will
+revert the input value to the current selected value on blur. By specifying `allowsCustomValue`, this behavior is
+suppressed and the user is free to enter any value within the field.
+
+<CodeDemo title="Custom Value" files={autocompleteContent.customValue} />
+
 ### Custom Selector Icon
 
-By default the select uses a `chevron-down` icon as the selector icon which rotates when the select is open. You can
+By default the seleautocompletet uses a `chevron-down` icon as the selector icon which rotates when the autocomplete is open. You can
 customize this icon by passing a custom one to the `selectorIcon` property.
 
 <CodeDemo title="Custom Selector Icon" files={autocompleteContent.customSelectorIcon} />
@@ -118,7 +126,7 @@ customize this icon by passing a custom one to the `selectorIcon` property.
 
 ### Without Scroll Shadow
 
-Autocomplete component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the select content is scrollable.
+Autocomplete component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the autocomplete content is scrollable.
 You can disable this shadow by passing using the `scrollShadowProps` property.
 
 <CodeDemo title="Without Scroll Shadow" files={autocompleteContent.withoutScrollShadow} />
@@ -127,21 +135,31 @@ You can disable this shadow by passing using the `scrollShadowProps` property.
 
 ### With Description
 
-You can add a description to the select by passing the `description` property.
+You can add a description to the autocomplete by passing the `description` property.
 
 <CodeDemo title="With Description" files={autocompleteContent.description} />
 
 ### With Error Message
 
-You can combine the `isInvalid` and `errorMessage` properties to show an invalid select.
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid autocomplete.
 
 <CodeDemo title="With Error Message" files={autocompleteContent.errorMessage} />
 
+### Events
+
+The `Autocomplete` component supports selection via mouse, keyboard, and touch. You can handle all of these
+via the `onSelectionChange` prop. `Autocomplete` will pass the selected key to the onSelectionChange handler.
+Additionally, ComboBox accepts an `onInputChange` prop which is triggered whenever the value is edited by the user,
+whether through typing or option selection.
+
+The example below uses `onSelectionChange` and `onInputChange` to update the selection and input value stored in
+React state.
+
+<CodeDemo title="Events" files={autocompleteContent.events} />
+
 ### Controlled
 
-You can use the `selectedKey` and `onSelectionChange` / `onChange` properties to control the select value.
-
-Using `onSelectionChange`:
+You can use the `selectedKey` and `onSelectionChange` properties to control the select value.
 
 <CodeDemo title="Controlled with onSelectionChange" files={autocompleteContent.controlled} />
 
@@ -186,6 +204,25 @@ You can customize the autocomplete items by modifying the `AutocompleteItem` chi
 
 <CodeDemo title="Custom Items" files={autocompleteContent.customItems} />
 
+### Custom Filtering
+
+By default, `Autocomplete` uses a `"contains"` function from [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) to filter the
+list of options. This can be overridden using the `defaultFilter` prop, or by using the `items` prop to control the
+filtered list. When items is provided rather than `defaultItems`, `Autocomplete` does no filtering of its own.
+
+The following example makes the inputValue controlled, and updates the filtered list that is passed to the `items`
+prop when the input changes value.
+
+<CodeDemo
+  asIframe
+  title="Fully Controlled"
+  resizeEnabled={false}
+  displayMode="visible"
+  files={autocompleteContent.customFiltering}
+  previewHeight="420px"
+  iframeSrc="/examples/autocomplete/custom-filtering"
+/>
+
 ### Asynchronous Loading
 
 Autocomplete supports asynchronous loading, in the example below we are using a custom hook to fetch the [Pokemon API](https://pokeapi.co/api/v2/pokemon) data in combination with the `useInfiniteScroll` hook to load more data when the user reaches the end of the list.
@@ -220,7 +257,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 
 ### With Sections
 
-You can use the `AutocompleteSection` component to group select items.
+You can use the `AutocompleteSection` component to group autocomplete items.
 
 <CodeDemo title="With Sections" files={autocompleteContent.sections} />
 
@@ -229,3 +266,11 @@ You can use the `AutocompleteSection` component to group select items.
 You can customize the sections style by using the `classNames` property of the `AutocompleteSection` component.
 
 <CodeDemo title="Custom Sections Style" files={autocompleteContent.customSectionsStyle} />
+
+### Customizing the Autocomplete
+
+You can customize any slot of the autocomplete by using the `classNames` property. Autocomplete
+component also provides the [popoverProps](/docs/components/popover#api), [listboxProps](/docs/components/listbox#api), [inputProps](/docs/components/input#api)
+properties to customize the popover, listbox and input components.
+
+<CodeDemo title="Custom Styles" files={autocompleteContent.customStyles} />

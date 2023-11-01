@@ -56,16 +56,13 @@ export default function App() {
     <Autocomplete
       label="Favorite Animal"
       placeholder="Search an animal"
+      defaultItems={animals}
       labelPlacement="outside"
       className="max-w-xs"
       disableSelectorIconRotation
       selectorIcon={<SelectorIcon />}
     >
-      {animals.map((animal) => (
-        <AutocompleteItem key={animal.value} value={animal.value}>
-          {animal.label}
-        </AutocompleteItem>
-      ))}
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>
   );
 }`;

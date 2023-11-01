@@ -1,4 +1,10 @@
-const data = `export const animals = [
+"use client";
+
+import * as React from "react";
+import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
+import {useFilter} from "@react-aria/i18n";
+
+const animals = [
   {label: "Cat", value: "cat", description: "The second most popular pet in the world"},
   {label: "Dog", value: "dog", description: "The most popular pet in the world"},
   {label: "Elephant", value: "elephant", description: "The largest land animal"},
@@ -24,46 +30,31 @@ const data = `export const animals = [
   },
   {label: "Otter", value: "otter", description: "A carnivorous mammal in the subfamily Lutrinae"},
   {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
-];`;
+];
 
-const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
-import {animals} from "./data";
+export default function Page() {
+  const [filterValue, setFilterValue] = React.useState("");
 
-export default function App() {
-  const sizes = ["sm", "md", "lg"];
+  const {startsWith} = useFilter({sensitivity: "base"});
+
+  const filteredItems = React.useMemo(
+    () => animals.filter((item) => startsWith(item.label, filterValue)),
+    [animals, filterValue],
+  );
 
   return (
-    <div className="w-full flex flex-col gap-4">
-      {sizes.map((size) => (
-        <div key={size} className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-          <Autocomplete 
-            size={size}
-            defaultItems={animals}
-            label="Select an animal" 
-            className="max-w-xs" 
-          >
-            {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-          </Autocomplete>
-          <Autocomplete
-            size={size}
-            defaultItems={animals}
-            label="Favorite Animal"
-            placeholder="Search an animal"
-            className="max-w-xs"
-          >
-            {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-          </Autocomplete>
-        </div>
-      ))}  
-    </div>  
+    <div className="p-6">
+      <Autocomplete
+        allowsCustomValue
+        className="max-w-xs"
+        inputValue={filterValue}
+        items={filteredItems}
+        label="Search an animal"
+        variant="underlined"
+        onInputChange={setFilterValue}
+      >
+        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+      </Autocomplete>
+    </div>
   );
-}`;
-
-const react = {
-  "/App.jsx": App,
-  "/data.js": data,
-};
-
-export default {
-  ...react,
-};
+}

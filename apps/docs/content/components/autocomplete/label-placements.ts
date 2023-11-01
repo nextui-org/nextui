@@ -43,15 +43,12 @@ export default function App() {
         <div className="flex w-full flex-wrap items-end md:flex-nowrap mb-6 md:mb-0 gap-4">
           {placements.map((placement) => (
             <Autocomplete
+              defaultItems={animals}
               labelPlacement={placement}
               label="Favorite Animal"
               className="max-w-xs"
             >
-              {animals.map((animal) => (
-                <AutocompleteItem key={animal.value} value={animal.value}>
-                  {animal.label}
-                </AutocompleteItem>
-              ))}
+              {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
             </Autocomplete>
           ))}
         </div>

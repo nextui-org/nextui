@@ -46,12 +46,9 @@ export default function App() {
         label="Favorite Animal"
         placeholder="Search an animal"
         className="max-w-xs"
+        defaultItems={animals}
       >
-        {animals.map((animal) => (
-          <AutocompleteItem key={animal.value} value={animal.value}>
-            {animal.label}
-          </AutocompleteItem>
-        ))}
+        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
       </Autocomplete>
     </div>
   );

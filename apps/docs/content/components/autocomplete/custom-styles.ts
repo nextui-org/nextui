@@ -201,27 +201,105 @@ const data = `export const users = [
   },
 ];`;
 
-const App = `import {Autocomplete, AutocompleteItem, Avatar} from "@nextui-org/react";
+const SearchIcon = `export const SearchIcon = ({
+  size = 24,
+  strokeWidth = 1.5,
+  width,
+  height,
+  ...props
+}) => (
+  <svg
+    aria-hidden="true"
+    fill="none"
+    focusable="false"
+    height={height || size}
+    role="presentation"
+    viewBox="0 0 24 24"
+    width={width || size}
+    {...props}
+  >
+    <path
+      d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={strokeWidth}
+    />
+    <path
+      d="M22 22L20 20"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={strokeWidth}
+    />
+  </svg>
+);`;
+
+const App = `import {Autocomplete, AutocompleteItem, Avatar, Button} from "@nextui-org/react";
+import {SearchIcon} from "./SearchIcon";
 import {users} from "./data";
 
 export default function App() {
   return (
     <Autocomplete
+      classNames={{
+        base: "max-w-xs",
+        listboxWrapper: "max-h-[320px]",
+        selectorButton: "text-default-500"
+      }}
       defaultItems={users}
+      inputProps={{
+        classNames: {
+          input: "ml-1",
+          inputWrapper: "h-[48px]",
+        },
+      }}
+      listboxProps={{
+        hideSelectedIcon: true,
+        itemClasses: {
+          base: [
+            "rounded-medium",
+            "text-default-500",
+            "transition-opacity",
+            "data-[hover=true]:text-foreground",
+            "dark:data-[hover=true]:bg-default-50",
+            "data-[pressed=true]:opacity-70",
+            "data-[hover=true]:bg-default-200",
+            "data-[selectable=true]:focus:bg-default-100",
+            "data-[focus-visible=true]:ring-default-500",
+          ],
+        },
+      }}
+      placeholder="Enter employee name"
+      popoverProps={{
+        offset: 10,
+        classNames: {
+          base: "rounded-large",
+          content: "p-1 border-small border-default-100 bg-background",
+        },
+      }}
+      startContent={<SearchIcon className="text-default-400" strokeWidth={2.5} size={20} />}
+      radius="full"
       variant="bordered"
-      label="Assigned to"
-      placeholder="Select a user"
-      labelPlacement="inside"
-      className="max-w-xs"
     >
-      {(user) => (
-        <AutocompleteItem key={user.id} textValue={user.name}>
-          <div className="flex gap-2 items-center">
-            <Avatar alt={user.name} className="flex-shrink-0" size="sm" src={user.avatar} />
-            <div className="flex flex-col">
-              <span className="text-small">{user.name}</span>
-              <span className="text-tiny text-default-400">{user.email}</span>
+      {(item) => (
+        <AutocompleteItem key={item.id} textValue={item.name}>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-2 items-center">
+              <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+              <div className="flex flex-col">
+                <span className="text-small">{item.name}</span>
+                <span className="text-tiny text-default-400">{item.team}</span>
+              </div>
             </div>
+            <Button
+              className="border-small mr-0.5 font-medium shadow-small"
+              radius="full"
+              size="sm"
+              variant="bordered"
+            >
+              Add
+            </Button>
           </div>
         </AutocompleteItem>
       )}
@@ -231,6 +309,7 @@ export default function App() {
 
 const react = {
   "/App.jsx": App,
+  "/SearchIcon.jsx": SearchIcon,
   "/data.js": data,
 };
 

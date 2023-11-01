@@ -117,9 +117,7 @@ const input = tv({
       },
     },
     color: {
-      default: {
-        label: "group-data-[filled-within=true]:text-foreground-600",
-      },
+      default: {},
       primary: {},
       secondary: {},
       success: {},
@@ -173,7 +171,7 @@ const input = tv({
         label: "relative text-foreground pr-2",
       },
       inside: {
-        label: "text-tiny cursor-text",
+        label: "text-tiny cursor-text group-data-[filled-within=true]:text-foreground-600",
         inputWrapper: "flex-col items-start justify-center gap-0",
         innerWrapper: "items-end",
       },

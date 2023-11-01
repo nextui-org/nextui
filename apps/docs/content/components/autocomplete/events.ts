@@ -26,49 +26,71 @@ const data = `export const animals = [
   {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
 ];`;
 
-const AppTs = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
+const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
+
 export default function App() {
-  const [value, setValue] = React.useState<React.Key>("cat");
+  const [value, setValue] = React.useState('');
+  const [selectedKey, setSelectedKey] = React.useState(null);
+
+  const onSelectionChange = (id) => {
+    setSelectedKey(id);
+  };
+  
+  const onInputChange = (value) => {
+    setValue(value)
+  };
 
   return (
-    <div className="flex w-full max-w-xs flex-col gap-2">
-      <Autocomplete
-        label="Favorite Animal"
+    <div className="flex w-full flex-col">
+      <Autocomplete 
+        label="Search an animal" 
         variant="bordered"
-        placeholder="Search an animal"
-        selectedKey={value}
-        className="max-w-xs"
-        onSelectionChange={setValue}
+        defaultItems={animals}
+        className="max-w-xs" 
+        allowsCustomValue={true}
+        onSelectionChange={onSelectionChange}
+        onInputChange={onInputChange}
       >
-      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
       </Autocomplete>
-      <p className="text-default-500 text-small">Selected: {value}</p>
+      <p className="mt-1 text-small text-default-500">Current selected animal: {selectedKey}</p>
+      <p className="text-small text-default-500">Current input text: {value}</p>
     </div>
   );
 }`;
 
-const App = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
+const AppTs = `import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {animals} from "./data";
 
 export default function App() {
-  const [value, setValue] = React.useState("cat");
+  const [value, setValue] = React.useState<string>('');
+  const [selectedKey, setSelectedKey] = React.useState<React.Key | null>(null);
+
+  const onSelectionChange = (key: React.Key) => {
+    setSelectedKey(key);
+  };
+  
+  const onInputChange = (value: string) => {
+    setValue(value)
+  };
 
   return (
-    <div className="flex w-full max-w-xs flex-col gap-2">
-      <Autocomplete
-        label="Favorite Animal"
+    <div className="flex w-full flex-col">
+      <Autocomplete 
+        label="Search an animal" 
         variant="bordered"
         defaultItems={animals}
-        placeholder="Search an animal"
-        selectedKey={value}
-        className="max-w-xs"
-        onSelectionChange={setValue}
+        className="max-w-xs" 
+        allowsCustomValue={true}
+        onSelectionChange={onSelectionChange}
+        onInputChange={onInputChange}
       >
-        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
       </Autocomplete>
-      <p className="text-default-500 text-small">Selected: {value}</p>
+      <p className="mt-1 text-small text-default-500">Current selected animal: {selectedKey}</p>
+      <p className="text-small text-default-500">Current input text: {value}</p>
     </div>
   );
 }`;
@@ -80,7 +102,6 @@ const react = {
 
 const reactTs = {
   "/App.tsx": AppTs,
-  "/data.js": data,
 };
 
 export default {

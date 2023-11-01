@@ -10,8 +10,9 @@ import {
   User,
 } from "@nextui-org/stories-utils";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
-import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
+import {PetBoldIcon, SearchLinearIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
+import {Button} from "@nextui-org/button";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 
@@ -509,7 +510,6 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
       className="max-w-xs"
       classNames={{
         base: "min-h-unit-16",
-        label: "group-data-[filled=true]:-translate-y-5",
         listboxWrapper: "max-h-[400px]",
       }}
       color={color}
@@ -547,6 +547,75 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
               <span className="text-small">{item.name}</span>
               <span className="text-tiny text-default-400">{item.email}</span>
             </div>
+          </div>
+        </AutocompleteItem>
+      )}
+    </Autocomplete>
+  );
+};
+
+const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps<User>) => {
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      classNames={{
+        listboxWrapper: "max-h-[400px]",
+      }}
+      color={color}
+      defaultItems={usersData}
+      inputProps={{
+        classNames: {
+          input: "ml-1",
+          inputWrapper: "h-[48px]",
+        },
+      }}
+      listboxProps={{
+        hideSelectedIcon: true,
+        itemClasses: {
+          base: [
+            "rounded-medium",
+            "text-default-500",
+            "transition-opacity",
+            "data-[hover=true]:text-foreground",
+            "dark:data-[hover=true]:bg-default-50",
+            "data-[pressed=true]:opacity-70",
+            "data-[hover=true]:bg-default-200",
+            "data-[selectable=true]:focus:bg-default-100",
+            "data-[focus-visible=true]:ring-default-500",
+          ],
+        },
+      }}
+      placeholder="Enter employee name"
+      popoverProps={{
+        offset: 10,
+        classNames: {
+          base: "rounded-large",
+          content: "p-1 border-small border-default-100 bg-background",
+        },
+      }}
+      startContent={<SearchLinearIcon className="text-default-400 text-xl" strokeWidth="2.5" />}
+      {...args}
+      radius="full"
+      variant="bordered"
+    >
+      {(item) => (
+        <AutocompleteItem key={item.id} textValue={item.name}>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-2 items-center">
+              <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+              <div className="flex flex-col">
+                <span className="text-small">{item.name}</span>
+                <span className="text-tiny text-default-400">{item.team}</span>
+              </div>
+            </div>
+            <Button
+              className="border-small font-medium shadow-small"
+              radius="full"
+              size="sm"
+              variant="bordered"
+            >
+              Add
+            </Button>
           </div>
         </AutocompleteItem>
       )}
@@ -729,5 +798,13 @@ export const CustomStyles = {
   args: {
     ...defaultProps,
     variant: "bordered",
+  },
+};
+
+export const CustomStylesWithCustomItems = {
+  render: CustomStylesWithCustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

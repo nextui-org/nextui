@@ -69,15 +69,12 @@ export default function App() {
     <Autocomplete
       label="Favorite Animal"
       placeholder="Search an animal"
+      defaultItems={animals}
       startContent={<PetIcon className="text-xl" />}
       defaultSelectedKey="cat"
       className="max-w-xs"
     >
-      {animals.map((animal) => (
-        <AutocompleteItem key={animal.value} value={animal.value}>
-          {animal.label}
-        </AutocompleteItem>
-      ))}
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>
   );
 }`;

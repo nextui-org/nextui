@@ -56,10 +56,20 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
    */
   bottomContent?: ReactNode;
   /**
+   * Whether to not display the empty content when there are no items.
+   * @default false
+   */
+  hideEmptyContent?: boolean;
+  /**
    *  Provides content to display when there are no items.
    * @default "No items."
    */
   emptyContent?: ReactNode;
+  /**
+   * Whether to hide the check icon when the items are selected.
+   * @default false
+   */
+  hideSelectedIcon?: boolean;
   /**
    * Whether to disable the items animation.
    * @default false
@@ -102,6 +112,8 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     topContent,
     bottomContent,
     emptyContent = "No items.",
+    hideSelectedIcon = false,
+    hideEmptyContent = false,
     shouldHighlightOnFocus = false,
     classNames,
     ...otherProps
@@ -161,7 +173,9 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     topContent,
     bottomContent,
     emptyContent,
+    hideEmptyContent,
     shouldHighlightOnFocus,
+    hideSelectedIcon,
     disableAnimation,
     className,
     itemClasses,

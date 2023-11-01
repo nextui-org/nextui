@@ -14,6 +14,8 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
     closeOnSelect,
     color,
     disableAnimation,
+    hideSelectedIcon,
+    hideEmptyContent,
     variant,
     onClose,
     onAction,
@@ -27,7 +29,7 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
 
   const content = (
     <Component {...getListProps()}>
-      {!state.collection.size && (
+      {!state.collection.size && !hideEmptyContent && (
         <li>
           <div {...getEmptyContentProps()} />
         </li>
@@ -42,6 +44,7 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
           variant,
           onClose,
           onAction,
+          hideSelectedIcon,
           ...item.props,
         };
 

@@ -35,14 +35,11 @@ export default function App() {
       label="Favorite Animal"
       placeholder="Search an animal"
       description="The second most popular pet in the world"
+      defaultItems={animals}
       defaultSelectedKey="cat"
       className="max-w-xs"
     >
-      {animals.map((animal) => (
-        <AutocompleteItem key={animal.value} value={animal.value}>
-          {animal.label}
-        </AutocompleteItem>
-      ))}
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>
   );
 }`;

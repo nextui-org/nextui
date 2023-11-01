@@ -76,6 +76,12 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    */
   listboxProps?: Partial<ListboxProps>;
   /**
+   * Props to be passed to the input component.
+   *
+   * @default { disableAnimation: false }
+   */
+  inputProps?: Partial<InputProps>;
+  /**
    * Props to be passed to the selector button component.
    * @default { size: "sm", variant: "light", radius: "full", isIconOnly: true }
    */
@@ -101,7 +107,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children"> &
+  Omit<InputProps, "children" | "classNames"> &
   ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
@@ -124,11 +130,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearIcon,
     scrollRef: scrollRefProp,
     popoverProps = {},
+    inputProps: userInputProps = {},
     scrollShadowProps = {},
     listboxProps = {},
     selectorButtonProps = {},
     clearButtonProps = {},
     showScrollIndicators = true,
+    allowsCustomValue = false,
     className,
     classNames,
     onOpenChange,
@@ -168,18 +176,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     selectorButtonProps: UseAutocompleteProps<T>["selectorButtonProps"];
     clearButtonProps: UseAutocompleteProps<T>["clearButtonProps"];
   } = {
-    inputProps: {
-      label,
-      ref: inputRef,
-      wrapperRef: inputWrapperRef,
-      onClick: () => {
-        if (!state.isOpen && !!state.selectedItem) {
-          state.open();
-        }
+    inputProps: mergeProps(
+      {
+        label,
+        ref: inputRef,
+        wrapperRef: inputWrapperRef,
+        onClick: () => {
+          if (!state.isOpen && !!state.selectedItem) {
+            state.open();
+          }
+        },
+        isClearable: false,
+        disableAnimation,
       },
-      isClearable: false,
-      disableAnimation,
-    },
+      userInputProps,
+    ),
     popoverProps: mergeProps(
       {
         offset: 5,
@@ -200,6 +211,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ),
     listboxProps: mergeProps(
       {
+        hideEmptyContent: allowsCustomValue,
         emptyContent: "No results found.",
         disableAnimation,
       },
@@ -231,24 +243,27 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   };
 
   const baseStyles = clsx(classNames?.base, className);
+  const isOpen = slotsProps.listboxProps?.hideEmptyContent
+    ? state.isOpen && !!state.collection.size
+    : state.isOpen;
 
   // apply the same with to the popover as the select
   useEffect(() => {
-    if (state.isOpen && popoverRef.current && inputWrapperRef.current) {
+    if (isOpen && popoverRef.current && inputWrapperRef.current) {
       let rect = inputWrapperRef.current.getBoundingClientRect();
 
       let popover = popoverRef.current;
 
       popover.style.width = rect.width + "px";
     }
-  }, [state.isOpen]);
+  }, [isOpen]);
 
-  // unfocus the input when the popover closes & there's no selected item
+  // unfocus the input when the popover closes & there's no selected item & no allows custom value
   useEffect(() => {
-    if (!state.isOpen && !state.selectedItem && inputRef.current) {
+    if (!isOpen && !state.selectedItem && inputRef.current && !allowsCustomValue) {
       inputRef.current.blur();
     }
-  }, [state.isOpen]);
+  }, [isOpen, allowsCustomValue]);
 
   const {buttonProps, inputProps, listBoxProps} = useComboBox(
     {
@@ -307,9 +322,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         } else {
           const inputFocused = inputRef.current === document.activeElement;
 
-          if (!inputFocused) {
-            inputRef.current?.focus();
-          }
+          allowsCustomValue && state.setInputValue("");
+          !inputFocused && inputRef.current?.focus();
         }
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
@@ -387,7 +401,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     classNames,
     isLoading,
     clearIcon,
+    isOpen,
     disableAnimation,
+    allowsCustomValue,
     selectorIcon,
     getBaseProps,
     getInputProps,

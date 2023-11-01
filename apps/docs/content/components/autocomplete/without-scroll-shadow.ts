@@ -35,16 +35,13 @@ export default function App() {
       label="Favorite Animal"
       placeholder="Search an animal"
       defaultSelectedKey="cat"
+      defaultItems={animals}
       className="max-w-xs"
       scrollShadowProps={{
         isEnabled: false
       }}
     >
-      {animals.map((animal) => (
-        <AutocompleteItem key={animal.value} value={animal.value}>
-          {animal.label}
-        </AutocompleteItem>
-      ))}
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>
   );
 }`;

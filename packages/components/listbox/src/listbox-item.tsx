@@ -20,6 +20,7 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
     selectedIcon,
     startContent,
     endContent,
+    hideSelectedIcon,
     disableAnimation,
     getItemProps,
     getLabelProps,
@@ -53,7 +54,9 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
       ) : (
         <span {...getLabelProps()}>{rendered}</span>
       )}
-      {isSelectable && <span {...getSelectedIconProps()}>{selectedContent}</span>}
+      {isSelectable && !hideSelectedIcon && (
+        <span {...getSelectedIconProps()}>{selectedContent}</span>
+      )}
       {endContent}
     </Component>
   );

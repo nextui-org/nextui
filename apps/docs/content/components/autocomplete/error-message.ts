@@ -43,16 +43,13 @@ export default function App() {
       description="The second most popular pet in the world"
       errorMessage={isValid || !touched ? "" : "You must select a cat"}
       isInvalid={isValid || !touched ? false : true}
+      defaultItems={animals}
       selectedKey={value}
       className="max-w-xs"
       onSelectionChange={setValue}
       onClose={() => setTouched(true)}
     >
-      {animals.map((animal) => (
-        <AutocompleteItem key={animal.value} value={animal.value}>
-          {animal.label}
-        </AutocompleteItem>
-      ))}
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>
   );
 }`;

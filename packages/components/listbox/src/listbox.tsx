@@ -18,6 +18,8 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
     getBaseProps,
     topContent,
     bottomContent,
+    hideEmptyContent,
+    hideSelectedIcon,
     shouldHighlightOnFocus,
     disableAnimation,
     getEmptyContentProps,
@@ -26,7 +28,7 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
 
   const content = (
     <Component {...getListProps()}>
-      {!state.collection.size && (
+      {!state.collection.size && !hideEmptyContent && (
         <li>
           <div {...getEmptyContentProps()} />
         </li>
@@ -34,11 +36,11 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
       {[...state.collection].map((item) => {
         const itemProps = {
           color,
-          disableAnimation,
           item,
           state,
           variant,
-
+          disableAnimation,
+          hideSelectedIcon,
           ...item.props,
         };
 
