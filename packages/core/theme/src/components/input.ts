@@ -171,7 +171,7 @@ const input = tv({
         label: "relative text-foreground pr-2",
       },
       inside: {
-        label: "text-tiny cursor-text group-data-[filled-within=true]:text-foreground-600",
+        label: "text-tiny cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",
         innerWrapper: "items-end",
       },
@@ -489,6 +489,14 @@ const input = tv({
           // focus ring
           ...groupDataFocusVisibleClasses,
         ],
+      },
+    },
+    // inside && default
+    {
+      labelPlacement: "inside",
+      color: "default",
+      class: {
+        label: "group-data-[filled-within=true]:text-foreground-600",
       },
     },
     // isInvalid & variant

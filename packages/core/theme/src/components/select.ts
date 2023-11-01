@@ -85,7 +85,6 @@ const select = tv({
     },
     color: {
       default: {
-        label: "group-data-[filled=true]:text-foreground-600",
         value: ["text-foreground-500", "group-data-[has-value=true]:text-foreground"],
       },
       primary: {},
@@ -454,6 +453,14 @@ const select = tv({
         ],
       },
     },
+    // inside && default
+    {
+      labelPlacement: "inside",
+      color: "default",
+      class: {
+        label: "group-data-[filled=true]:text-foreground-600",
+      },
+    },
     // isInvalid & variant
     {
       isInvalid: true,
@@ -642,6 +649,7 @@ const select = tv({
           "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
       },
     },
     {
@@ -653,6 +661,7 @@ const select = tv({
           "text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
       },
     },
     {
@@ -664,6 +673,7 @@ const select = tv({
           "text-medium",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
       },
     },
   ],
