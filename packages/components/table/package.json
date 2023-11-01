@@ -35,7 +35,9 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/checkbox": "workspace:*",
@@ -43,8 +45,6 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@react-aria/focus": "^3.14.3",
     "@react-aria/interactions": "^3.19.1",
     "@react-aria/table": "^3.13.1",
@@ -56,6 +56,8 @@
     "@react-types/table": "^3.9.0"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/pagination": "workspace:*",

@@ -35,21 +35,23 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@react-aria/focus": "^3.14.3",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@react-aria/breadcrumbs": "^3.5.7",
     "@react-aria/utils": "^3.21.1",
     "@react-types/breadcrumbs": "^3.7.1",
     "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/dropdown": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
     "@nextui-org/button": "workspace:*",

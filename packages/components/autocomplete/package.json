@@ -36,7 +36,9 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=4.0.0",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
@@ -48,8 +50,6 @@
     "@nextui-org/spinner": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@react-aria/combobox": "^3.7.1",
@@ -62,7 +62,9 @@
     "@react-types/combobox": "^3.8.1",
     "@react-types/shared": "^3.21.0"
   },
-  "devDependencies": {
+  "devDependencies": {    
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/stories-utils": "workspace:*",

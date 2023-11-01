@@ -36,11 +36,11 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=4.0.0",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/use-disclosure": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
@@ -58,6 +58,8 @@
     "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/checkbox": "workspace:*",
     "@nextui-org/button": "workspace:*",

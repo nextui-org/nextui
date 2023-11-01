@@ -36,13 +36,13 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=4.0.0",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
@@ -57,6 +57,8 @@
     "scroll-into-view-if-needed": "3.0.10"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "framer-motion": "^10.16.4",
     "react-lorem-component": "0.13.0",
     "@nextui-org/card": "workspace:*",
