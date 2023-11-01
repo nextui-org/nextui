@@ -38,8 +38,8 @@ export default function App() {
         label="Favorite Animal"
         variant="bordered"
         placeholder="Search an animal"
-        selectedKey={value}
         className="max-w-xs"
+        selectedKey={value}
         onSelectionChange={setValue}
       >
       {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
@@ -62,8 +62,8 @@ export default function App() {
         variant="bordered"
         defaultItems={animals}
         placeholder="Search an animal"
-        selectedKey={value}
         className="max-w-xs"
+        selectedKey={value}
         onSelectionChange={setValue}
       >
         {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}

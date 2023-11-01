@@ -79,22 +79,20 @@ export default function App() {
   };
 
   return (
-    <div className="p-6">
-      <Autocomplete
-        className="max-w-xs"
-        inputValue={fieldState.inputValue}
-        items={fieldState.items}
-        label="Favorite Animal"
-        placeholder="Search an animal"
-        selectedKey={fieldState.selectedKey}
-        variant="bordered"
-        onInputChange={onInputChange}
-        onOpenChange={onOpenChange}
-        onSelectionChange={onSelectionChange}
-      >
-        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-      </Autocomplete>
-    </div>
+    <Autocomplete
+      className="max-w-xs"
+      inputValue={fieldState.inputValue}
+      items={fieldState.items}
+      label="Favorite Animal"
+      placeholder="Search an animal"
+      selectedKey={fieldState.selectedKey}
+      variant="bordered"
+      onInputChange={onInputChange}
+      onOpenChange={onOpenChange}
+      onSelectionChange={onSelectionChange}
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>
   );
 }`;
 
@@ -157,22 +155,20 @@ export default function App() {
   };
 
   return (
-    <div className="p-6">
-      <Autocomplete
-        className="max-w-xs"
-        inputValue={fieldState.inputValue}
-        items={fieldState.items}
-        label="Favorite Animal"
-        placeholder="Search an animal"
-        selectedKey={fieldState.selectedKey}
-        variant="bordered"
-        onInputChange={onInputChange}
-        onOpenChange={onOpenChange}
-        onSelectionChange={onSelectionChange}
-      >
-        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-      </Autocomplete>
-    </div>
+    <Autocomplete
+      className="max-w-xs"
+      inputValue={fieldState.inputValue}
+      items={fieldState.items}
+      label="Favorite Animal"
+      placeholder="Search an animal"
+      selectedKey={fieldState.selectedKey}
+      variant="bordered"
+      onInputChange={onInputChange}
+      onOpenChange={onOpenChange}
+      onSelectionChange={onSelectionChange}
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>
   );
 }`;
 

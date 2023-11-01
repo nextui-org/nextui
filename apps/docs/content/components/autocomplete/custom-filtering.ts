@@ -44,18 +44,16 @@ export default function App() {
   };
 
   return (
-    <div className="p-6">
-      <Autocomplete
-        allowsCustomValue
-        className="max-w-xs"
-        defaultFilter={myFilter}
-        defaultItems={animals}
-        label="Search an animal"
-        variant="bordered"
-      >
-        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-      </Autocomplete>
-    </div>
+    <Autocomplete
+      allowsCustomValue
+      className="max-w-xs"
+      defaultFilter={myFilter}
+      defaultItems={animals}
+      label="Search an animal"
+      variant="bordered"
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>
   );
 }`;
 
@@ -77,17 +75,15 @@ export default function App() {
   };
 
   return (
-    <div className="p-6">
-      <Autocomplete
-        className="max-w-xs"
-        defaultFilter={myFilter}
-        defaultItems={animals}
-        label="Search an animal"
-        variant="bordered"
-      >
-        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-      </Autocomplete>
-    </div>
+    <Autocomplete
+      className="max-w-xs"
+      defaultFilter={myFilter}
+      defaultItems={animals}
+      label="Search an animal"
+      variant="bordered"
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>
   );
 }`;
 

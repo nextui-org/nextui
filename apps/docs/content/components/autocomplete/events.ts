@@ -53,7 +53,7 @@ export default function App() {
         onSelectionChange={onSelectionChange}
         onInputChange={onInputChange}
       >
-        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
       </Autocomplete>
       <p className="mt-1 text-small text-default-500">Current selected animal: {selectedKey}</p>
       <p className="text-small text-default-500">Current input text: {value}</p>
@@ -87,7 +87,7 @@ export default function App() {
         onSelectionChange={onSelectionChange}
         onInputChange={onInputChange}
       >
-        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+        {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
       </Autocomplete>
       <p className="mt-1 text-small text-default-500">Current selected animal: {selectedKey}</p>
       <p className="text-small text-default-500">Current input text: {value}</p>

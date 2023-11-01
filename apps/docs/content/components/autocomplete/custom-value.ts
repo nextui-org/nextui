@@ -32,11 +32,11 @@ import {animals} from "./data";
 export default function App() {
   return (
     <Autocomplete 
+      allowsCustomValue
       label="Search an animal" 
       variant="bordered"
       className="max-w-xs" 
       defaultItems={animals}
-      allowsCustomValue
     >
       {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>

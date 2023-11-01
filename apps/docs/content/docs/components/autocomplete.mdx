@@ -59,7 +59,7 @@ Autocomplete follows the [Collection Components API](https://react-spectrum.adob
 
 You can disable specific items by using the `disabledKeys` property.
 
-<CodeDemo title="Disabled Items" highlightedLines="8" files={autocompleteContent.disabledItems} />
+<CodeDemo title="Disabled Items" highlightedLines="11" files={autocompleteContent.disabledItems} />
 
 ### Required
 
@@ -70,15 +70,15 @@ the end of the label and the autocomplete will be required.
 
 ### Sizes
 
-<CodeDemo title="Sizes" highlightedLines="13,26" files={autocompleteContent.sizes} />
+<CodeDemo title="Sizes" highlightedLines="13,21" files={autocompleteContent.sizes} />
 
 ### Colors
 
-<CodeDemo title="Colors" files={autocompleteContent.colors} />
+<CodeDemo title="Colors" highlightedLines="20" files={autocompleteContent.colors} />
 
 ### Variants
 
-<CodeDemo title="Variants" files={autocompleteContent.variants} />
+<CodeDemo title="Variants" highlightedLines="13,21" files={autocompleteContent.variants} />
 
 ### Label Placements
 
@@ -86,7 +86,7 @@ You can change the position of the label by setting the `labelPlacement` propert
 
 <CodeDemo
   title="Label Placements"
-  highlightedLines="20,37"
+  highlightedLines="20,34"
   files={autocompleteContent.labelPlacements}
 />
 
@@ -97,7 +97,7 @@ You can change the position of the label by setting the `labelPlacement` propert
 You can use the `startContent` and `endContent` properties to add content to the start and end of
 the autocomplete.
 
-<CodeDemo title="Start Content" highlightedLines="9" files={autocompleteContent.startContent} />
+<CodeDemo title="Start Content" highlightedLines="13" files={autocompleteContent.startContent} />
 
 ### Item Start & End Content
 
@@ -113,14 +113,14 @@ By default, `Autocomplete` doesn't allow users to specify a value that doesn't e
 revert the input value to the current selected value on blur. By specifying `allowsCustomValue`, this behavior is
 suppressed and the user is free to enter any value within the field.
 
-<CodeDemo title="Custom Value" files={autocompleteContent.customValue} />
+<CodeDemo title="Custom Value" highlightedLines="8" files={autocompleteContent.customValue} />
 
 ### Custom Selector Icon
 
 By default the seleautocompletet uses a `chevron-down` icon as the selector icon which rotates when the autocomplete is open. You can
 customize this icon by passing a custom one to the `selectorIcon` property.
 
-<CodeDemo title="Custom Selector Icon" files={autocompleteContent.customSelectorIcon} />
+<CodeDemo title="Custom Selector Icon" highlightedLines="15" files={autocompleteContent.customSelectorIcon} />
 
 > **Note**: Use the `disableSelectionIconRotation` property to disable the rotation of the icon.
 
@@ -129,7 +129,7 @@ customize this icon by passing a custom one to the `selectorIcon` property.
 Autocomplete component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the autocomplete content is scrollable.
 You can disable this shadow by passing using the `scrollShadowProps` property.
 
-<CodeDemo title="Without Scroll Shadow" files={autocompleteContent.withoutScrollShadow} />
+<CodeDemo title="Without Scroll Shadow" highlightedLines="13-15" files={autocompleteContent.withoutScrollShadow} />
 
 > **Note**: You can also use the `showScrollIndicators` property to disable the scroll indicators.
 
@@ -137,13 +137,13 @@ You can disable this shadow by passing using the `scrollShadowProps` property.
 
 You can add a description to the autocomplete by passing the `description` property.
 
-<CodeDemo title="With Description" files={autocompleteContent.description} />
+<CodeDemo title="With Description" highlightedLines="10" files={autocompleteContent.description} />
 
 ### With Error Message
 
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid autocomplete.
 
-<CodeDemo title="With Error Message" files={autocompleteContent.errorMessage} />
+<CodeDemo title="With Error Message" highlightedLines="16-18" files={autocompleteContent.errorMessage} />
 
 ### Events
 
@@ -155,13 +155,13 @@ whether through typing or option selection.
 The example below uses `onSelectionChange` and `onInputChange` to update the selection and input value stored in
 React state.
 
-<CodeDemo title="Events" files={autocompleteContent.events} />
+<CodeDemo title="Events" highlightedLines="25-26" files={autocompleteContent.events} />
 
 ### Controlled
 
 You can use the `selectedKey` and `onSelectionChange` properties to control the select value.
 
-<CodeDemo title="Controlled with onSelectionChange" files={autocompleteContent.controlled} />
+<CodeDemo title="Controlled with onSelectionChange" highlightedLines="15-16" files={autocompleteContent.controlled} />
 
 ### Fully Controlled
 
@@ -191,6 +191,7 @@ import {useFilter} from "@react-aria/i18n";
   title="Fully Controlled"
   resizeEnabled={false}
   displayMode="visible"
+  highlightedLines="63-64,67,69-71"
   files={autocompleteContent.fullyControlled}
   previewHeight="420px"
   iframeSrc="/examples/autocomplete/fully-controlled"
@@ -212,7 +213,7 @@ filtered list. When `items` is provided rather than `defaultItems`, `Autocomplet
 
 The following example uses the `defaultFilter` prop to filter the list of options using a custom filter function.
 
-<CodeDemo title="Fully Controlled" files={autocompleteContent.customFiltering} />
+<CodeDemo title="Fully Controlled" highlightedLines="22" files={autocompleteContent.customFiltering} />
 
 ### Asynchronous Filtering
 
@@ -241,6 +242,7 @@ import {useAsyncList} from "@react-stately/data";
   hideWindowActions={true}
   resizeEnabled={false}
   displayMode="visible"
+  highlightedLines="27-29,33"
   files={autocompleteContent.asyncFiltering}
   previewHeight="400px"
   iframeSrc="/examples/autocomplete/async-filtering"
@@ -271,6 +273,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
   typescriptStrict={true}
   title="Asynchronous Loading"
   hideWindowActions={true}
+  highlightedLines="21-22,25,27"
   resizeEnabled={false}
   displayMode="visible"
   files={autocompleteContent.asyncLoadingItems}
