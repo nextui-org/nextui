@@ -49,7 +49,7 @@ const card = tv({
       "flex",
       "flex-1",
       "w-full",
-      "p-5",
+      "p-3",
       "flex-auto",
       "flex-col",
       "place-content-inherit",
