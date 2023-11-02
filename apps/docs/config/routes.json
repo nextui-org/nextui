@@ -222,8 +222,7 @@
           "key": "input",
           "title": "Input",
           "keywords": "input, text box, form field, data entry",
-          "path": "/docs/components/input.mdx",
-          "updated": true
+          "path": "/docs/components/input.mdx"
         },
         {
           "key": "kbd",
@@ -347,7 +346,8 @@
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",
-          "path": "/docs/components/textarea.mdx"
+          "path": "/docs/components/textarea.mdx",
+          "updated": true
         },
         {
           "key": "tooltip",
