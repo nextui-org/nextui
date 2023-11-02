@@ -26,6 +26,11 @@ export type TextareaHeightChangeMeta = {
 
 export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
   /**
+   * Whether the textarea should automatically grow vertically to accomodate content.
+   * @default false
+   */
+  disableAutosize?: boolean;
+  /**
    * Minimum number of rows to show for textarea
    * @default 3
    */
@@ -53,7 +58,15 @@ export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
 
 const Textarea = forwardRef<"textarea", TextAreaProps>(
   (
-    {style, minRows = 3, maxRows = 8, cacheMeasurements = false, onHeightChange, ...otherProps},
+    {
+      style,
+      minRows = 3,
+      maxRows = 8,
+      cacheMeasurements = false,
+      disableAutosize = false,
+      onHeightChange,
+      ...otherProps
+    },
     ref,
   ) => {
     const {
@@ -75,19 +88,25 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
     const labelContent = <label {...getLabelProps()}>{label}</label>;
     const inputProps = getInputProps();
 
+    const content = disableAutosize ? (
+      <textarea {...inputProps} style={mergeProps(inputProps.style, style ?? {})} />
+    ) : (
+      <TextareaAutosize
+        {...inputProps}
+        cacheMeasurements={cacheMeasurements}
+        maxRows={maxRows}
+        minRows={minRows}
+        style={mergeProps(inputProps.style as TextareaAutoSizeStyle, style ?? {})}
+        onHeightChange={onHeightChange}
+      />
+    );
+
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
         <div {...getInputWrapperProps()}>
           {shouldLabelBeInside ? labelContent : null}
-          <TextareaAutosize
-            {...inputProps}
-            cacheMeasurements={cacheMeasurements}
-            maxRows={maxRows}
-            minRows={minRows}
-            style={mergeProps(inputProps.style as TextareaAutoSizeStyle, style ?? {})}
-            onHeightChange={onHeightChange}
-          />
+          {content}
         </div>
         <div {...getHelperWrapperProps()}>
           {errorMessage ? (

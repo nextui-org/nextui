@@ -222,7 +222,8 @@
           "key": "input",
           "title": "Input",
           "keywords": "input, text box, form field, data entry",
-          "path": "/docs/components/input.mdx"
+          "path": "/docs/components/input.mdx",
+          "updated": true
         },
         {
           "key": "kbd",

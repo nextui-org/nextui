@@ -207,6 +207,7 @@ const input = tv({
     },
     isMultiline: {
       true: {
+        label: "relative",
         inputWrapper: "!h-auto",
         input: "resize-none py-2",
       },
@@ -236,6 +237,7 @@ const input = tv({
     fullWidth: true,
     labelPlacement: "inside",
     isDisabled: false,
+    isMultiline: false,
     disableAnimation: false,
   },
   compoundVariants: [
@@ -573,6 +575,7 @@ const input = tv({
     },
     {
       labelPlacement: "outside",
+      isMultiline: false,
       class: {
         base: "group relative justify-end",
         label: [
@@ -627,6 +630,7 @@ const input = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -636,6 +640,7 @@ const input = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -645,6 +650,7 @@ const input = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -657,6 +663,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -667,6 +674,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -677,6 +685,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -689,6 +698,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -699,6 +709,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -710,6 +721,7 @@ const input = tv({
       labelPlacement: "inside",
       variant: "underlined",
       size: "lg",
+      isMultiline: false,
       class: {
         label: [
           "text-medium",
@@ -721,6 +733,7 @@ const input = tv({
     {
       labelPlacement: "outside",
       size: "sm",
+      isMultiline: false,
       class: {
         label: [
           "left-2",
@@ -733,6 +746,7 @@ const input = tv({
     {
       labelPlacement: "outside",
       size: "md",
+      isMultiline: false,
       class: {
         label: [
           "left-3",
@@ -745,6 +759,7 @@ const input = tv({
     {
       labelPlacement: "outside",
       size: "lg",
+      isMultiline: false,
       class: {
         label: [
           "left-3",
@@ -774,6 +789,14 @@ const input = tv({
       size: "lg",
       class: {
         label: "group-data-[has-helper=true]:pt-4",
+      },
+    },
+    // isMultiline & labelPlacement="inside"
+    {
+      labelPlacement: "inside",
+      isMultiline: true,
+      class: {
+        input: "pt-0",
       },
     },
   ],
