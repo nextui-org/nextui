@@ -13,8 +13,8 @@ export default function App() {
       itemClasses={{
         item: [
           "px-2 py-0.5 border-small border-default-400 rounded-small",
-          "data-[current='true']:border-foreground transition-colors",
-          "data-[disabled='true']:border-default-400 data-[disabled='true']:bg-default-100",
+          "data-[current=true]:border-foreground data-[current=true]:bg-foreground data-[current=true]:text-background transition-colors",
+          "data-[disabled=true]:border-default-400 data-[disabled=true]:bg-default-100",
         ],
         separator: "hidden",
       }}
@@ -53,8 +53,8 @@ export default function App() {
       itemClasses={{
         item: [
           "px-2 py-0.5 border-small border-default-400 rounded-small",
-          "data-[current='true']:border-default-800 transition-colors",
-          "data-[disabled='true']:border-default-400 data-[disabled='true']:bg-default-100",
+          "data-[current=true]:border-default-800 data-[current=true]:bg-foreground data-[current=true]:text-background transition-colors",
+          "data-[disabled=true]:border-default-400 data-[disabled=true]:bg-default-100",
         ],
       }}
     >

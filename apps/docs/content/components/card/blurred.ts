@@ -140,7 +140,7 @@ const ShuffleIcon = `export const ShuffleIcon = ({size = 24, width, height, ...p
   </svg>
 );`;
 
-const App = `import {Card, CardBody, Image, Button, Progress} from "@nextui-org/react";
+const App = `import {Card, CardBody, Image, Button, Slider} from "@nextui-org/react";
 import {HeartIcon} from "./HeartIcon";
 import {PauseCircleIcon} from "./PauseCircleIcon";
 import {NextIcon} from "./NextIcon";
@@ -192,15 +192,15 @@ export default function App() {
             </div>
 
             <div className="flex flex-col mt-3 gap-1">
-              <Progress
+              <Slider
                 aria-label="Music progress"
                 classNames={{
-                  indicator: "bg-default-800 dark:bg-white",
                   track: "bg-default-500/30",
+                  thumb: "w-2 h-2 after:w-2 after:h-2 after:bg-foreground",
                 }}
-                color="default"
+                color="foreground"
+                defaultValue={33}
                 size="sm"
-                value={33}
               />
               <div className="flex justify-between">
                 <p className="text-small">1:23</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import {Card, CardBody, Button, Image, Progress, CardProps} from "@nextui-org/react";
+import {Card, CardBody, Button, Image, Slider, CardProps} from "@nextui-org/react";
 import {useState, FC} from "react";
 import {clsx} from "@nextui-org/shared-utils";
 import NextImage from "next/image";
@@ -63,15 +63,15 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
             </div>
 
             <div className="flex flex-col mt-3 gap-1">
-              <Progress
+              <Slider
                 aria-label="Music progress"
                 classNames={{
-                  indicator: "bg-default-800 dark:bg-white",
                   track: "bg-default-500/30",
+                  thumb: "w-2 h-2 after:w-2 after:h-2 after:bg-foreground",
                 }}
-                color="default"
+                color="foreground"
+                defaultValue={33}
                 size="sm"
-                value={33}
               />
               <div className="flex justify-between">
                 <p className="text-sm">1:23</p>
