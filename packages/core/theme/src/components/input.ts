@@ -209,7 +209,7 @@ const input = tv({
       true: {
         label: "relative",
         inputWrapper: "!h-auto",
-        input: "resize-none py-2",
+        input: "resize-none py-2 data-[hide-scroll=true]:scrollbar-hide",
       },
     },
     disableAnimation: {

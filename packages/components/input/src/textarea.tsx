@@ -1,5 +1,7 @@
+import {dataAttr} from "@nextui-org/shared-utils";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
+import {useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 import {UseInputProps, useInput} from "./use-input";
@@ -85,8 +87,19 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getErrorMessageProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
+    const [isLimitReached, setIsLimitReached] = useState(false);
     const labelContent = <label {...getLabelProps()}>{label}</label>;
     const inputProps = getInputProps();
+
+    const handleHeightChange = (height: number, meta: TextareaHeightChangeMeta) => {
+      if (maxRows > minRows) {
+        const limitReached = height >= maxRows * meta.rowHeight;
+
+        setIsLimitReached(limitReached);
+      }
+
+      onHeightChange?.(height, meta);
+    };
 
     const content = disableAutosize ? (
       <textarea {...inputProps} style={mergeProps(inputProps.style, style ?? {})} />
@@ -94,10 +107,11 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       <TextareaAutosize
         {...inputProps}
         cacheMeasurements={cacheMeasurements}
+        data-hide-scroll={dataAttr(!isLimitReached)}
         maxRows={maxRows}
         minRows={minRows}
         style={mergeProps(inputProps.style as TextareaAutoSizeStyle, style ?? {})}
-        onHeightChange={onHeightChange}
+        onHeightChange={handleHeightChange}
       />
     );
 
