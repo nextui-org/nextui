@@ -39,7 +39,7 @@ const input = tv({
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex w-full items-center h-full box-border",
     input: [
-      "w-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
+      "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
     ],
@@ -207,12 +207,14 @@ const input = tv({
     },
     isMultiline: {
       true: {
+        label: "relative",
         inputWrapper: "!h-auto",
-        input: "resize-none py-2",
+        input: "resize-none py-2 data-[hide-scroll=true]:scrollbar-hide",
       },
     },
     disableAnimation: {
       true: {
+        input: "transition-none",
         inputWrapper: "transition-none",
         label: "transition-none",
       },
@@ -236,6 +238,7 @@ const input = tv({
     fullWidth: true,
     labelPlacement: "inside",
     isDisabled: false,
+    isMultiline: false,
     disableAnimation: false,
   },
   compoundVariants: [
@@ -573,6 +576,7 @@ const input = tv({
     },
     {
       labelPlacement: "outside",
+      isMultiline: false,
       class: {
         base: "group relative justify-end",
         label: [
@@ -627,6 +631,7 @@ const input = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -636,6 +641,7 @@ const input = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -645,6 +651,7 @@ const input = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -657,6 +664,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -667,6 +675,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -677,6 +686,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -689,6 +699,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -699,6 +710,7 @@ const input = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -710,6 +722,7 @@ const input = tv({
       labelPlacement: "inside",
       variant: "underlined",
       size: "lg",
+      isMultiline: false,
       class: {
         label: [
           "text-medium",
@@ -721,6 +734,7 @@ const input = tv({
     {
       labelPlacement: "outside",
       size: "sm",
+      isMultiline: false,
       class: {
         label: [
           "left-2",
@@ -733,6 +747,7 @@ const input = tv({
     {
       labelPlacement: "outside",
       size: "md",
+      isMultiline: false,
       class: {
         label: [
           "left-3",
@@ -745,6 +760,7 @@ const input = tv({
     {
       labelPlacement: "outside",
       size: "lg",
+      isMultiline: false,
       class: {
         label: [
           "left-3",
@@ -774,6 +790,22 @@ const input = tv({
       size: "lg",
       class: {
         label: "group-data-[has-helper=true]:pt-4",
+      },
+    },
+    // isMultiline & labelPlacement="inside"
+    {
+      labelPlacement: "inside",
+      isMultiline: true,
+      class: {
+        input: "pt-0",
+      },
+    },
+    // isMultiline & !disableAnimation
+    {
+      isMultiline: true,
+      disableAnimation: false,
+      class: {
+        input: "transition-height !duration-150 motion-reduce:transition-none",
       },
     },
   ],

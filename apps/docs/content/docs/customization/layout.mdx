@@ -47,7 +47,7 @@ module.exports = {
     nextui({
       layout: {
         spacingUnit: 4, // in px
-        disabledOpacity: ".5", // this value is applied as opacity-[value] when the component is disabled
+        disabledOpacity: 0.5, // this value is applied as opacity-[value] when the component is disabled
         dividerWeight: "1px", // h-divider the default height applied to the divider component
         fontSize: {
           tiny: "0.75rem", // text-tiny
@@ -74,6 +74,7 @@ module.exports = {
       },
       themes: {
         light: {
+          hoverOpacity: 0.8, //  this value is applied as opacity-[value] when the component is hovered
           layout: {
             boxShadow: {
               // shadow-small
@@ -90,6 +91,7 @@ module.exports = {
         },
         dark: {
           layout: {
+            hoverOpacity: 0.9, //  this value is applied as opacity-[value] when the component is hovered
             boxShadow: {
               // shadow-small
               small:
@@ -227,6 +229,7 @@ Then you can use the CSS variables in your CSS files.
 | --------------- | ------------------------------- | ------------------------------------------------------------------------------------------- |
 | spacingUnit     | number                          | Base unit token that defines a consistent spacing scale across the components.              |
 | disabledOpacity | string, number                  | A number between 0 and 1 that is applied as opacity-[value] when the component is disabled. |
+| hoverOpacity    | string, number                  | A number between 0 and 1 that is applied as opacity-[value] when the component is hovered.  |
 | dividerWeight   | string                          | The default height applied to the divider component. We recommend to use `px` units.        |
 | fontSize        | [FontThemeUnit](#fontthemeunit) | The default font size applied across the components.                                        |
 | lineHeight      | [FontThemeUnit](#fontthemeunit) | The default line height applied across the components.                                      |

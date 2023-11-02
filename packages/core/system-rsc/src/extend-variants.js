@@ -21,6 +21,41 @@ function getSlots(variants) {
     : {};
 }
 
+function getClassNamesWithProps({props, defaultVariants, customTv, hasSlots}) {
+  const [baseProps, variantProps] = mapPropsVariants(props, customTv.variantKeys, false);
+
+  const newProps = {...defaultVariants, ...baseProps};
+
+  let classNames = {};
+
+  const result = customTv(variantProps);
+
+  // if no slots, the result is a string
+  if (!hasSlots) {
+    newProps.className = cn(result, props.className);
+  }
+  // if has slots, the result is an object with keys as slots functions
+  else {
+    Object.entries(result).forEach(([key, value]) => {
+      const slotResult = value();
+
+      if (typeof slotResult === "string") {
+        classNames[key] = slotResult;
+      }
+    });
+
+    Object.entries(props.classNames ?? {}).forEach(([key, value]) => {
+      classNames[key] = cn(classNames[key], value);
+    });
+  }
+
+  if (Object.keys(classNames).length !== 0) {
+    newProps.classNames = classNames;
+  }
+
+  return newProps;
+}
+
 export function extendVariants(BaseComponent, styles = {}, opts = {}) {
   const {variants, defaultVariants, compoundVariants} = styles || {};
 
@@ -40,40 +75,30 @@ export function extendVariants(BaseComponent, styles = {}, opts = {}) {
     },
   );
 
-  const ForwardedComponent = React.forwardRef((originalProps, ref) => {
-    const [baseProps, variantProps] = mapPropsVariants(originalProps, customTv.variantKeys, false);
+  const ForwardedComponent = React.forwardRef((originalProps = {}, ref) => {
+    const newProps = getClassNamesWithProps({
+      props: originalProps,
+      defaultVariants,
+      customTv,
+      hasSlots,
+    });
 
-    const newProps = {...defaultVariants, ...baseProps, ref};
-
-    let classNames = {};
-
-    const result = React.useMemo(() => customTv(variantProps), [...Object.values(variantProps)]);
-
-    // if no slots, the result is a string
-    if (!hasSlots) {
-      newProps.className = cn(result, originalProps.className);
-    }
-    // if has slots, the result is an object with keys as slots functions
-    else {
-      Object.entries(result).forEach(([key, value]) => {
-        const slotResult = value();
-
-        if (typeof slotResult === "string") {
-          classNames[key] = slotResult;
-        }
-      });
-
-      Object.entries(originalProps.classNames ?? {}).forEach(([key, value]) => {
-        classNames[key] = cn(classNames[key], value);
-      });
-    }
-
-    if (Object.keys(classNames).length !== 0) {
-      newProps.classNames = classNames;
-    }
-
-    return React.createElement(BaseComponent, newProps);
+    return React.createElement(BaseComponent, {...originalProps, ...newProps, ref});
   });
+
+  // Add collection node function for collection-based components
+  if (BaseComponent.getCollectionNode) {
+    ForwardedComponent.getCollectionNode = (itemProps) => {
+      const newProps = getClassNamesWithProps({
+        props: itemProps,
+        defaultVariants,
+        customTv,
+        hasSlots,
+      });
+
+      return BaseComponent.getCollectionNode({...itemProps, ...newProps});
+    };
+  }
 
   // To make dev tools show a proper name
   ForwardedComponent.displayName = `Extended(${BaseComponent.displayName || BaseComponent.name})`;

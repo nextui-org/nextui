@@ -123,6 +123,14 @@ export interface LayoutTheme {
    */
   disabledOpacity?: string | number;
   /**
+   * A number between 0 and 1 that is applied as opacity-[value] when the component is hovered.
+   *
+   * format: ".[value]"
+   *
+   * @default .8
+   */
+  hoverOpacity?: string | number;
+  /**
    * The default height applied to the divider component.
    * we recommend to use `px` units.
    *

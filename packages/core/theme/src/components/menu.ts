@@ -140,7 +140,9 @@ const menuItem = tv({
     },
     disableAnimation: {
       true: {},
-      false: {},
+      false: {
+        base: "data-[hover=true]:transition-colors",
+      },
     },
   },
   defaultVariants: {

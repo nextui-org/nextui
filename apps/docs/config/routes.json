@@ -346,7 +346,8 @@
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",
-          "path": "/docs/components/textarea.mdx"
+          "path": "/docs/components/textarea.mdx",
+          "updated": true
         },
         {
           "key": "tooltip",
