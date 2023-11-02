@@ -1,16 +1,11 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import {Collection, CollectionStateBase, FocusStrategy, Node} from "@react-types/shared";
+import {
+  Collection,
+  CollectionStateBase,
+  FocusStrategy,
+  Node,
+  MultipleSelection,
+  CollectionChildren,
+} from "@react-types/shared";
 import {ComboBoxProps, MenuTriggerAction} from "@react-types/combobox";
 import {getChildNodes} from "@react-stately/collections";
 import {ListCollection} from "@react-stately/list";
@@ -19,9 +14,17 @@ import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useControlledState} from "@react-stately/utils";
 import {useMenuTriggerState} from "@react-stately/menu";
 
-import {useMultiSelectListState} from "../../use-aria-multiselect/src/use-multiselect-list-state";
+import {useMultiSelectListState} from "./use-multiselect-list-state";
 
-export interface ComboBoxState<T> extends SelectState<T> {
+type SingleSelectionKeys =
+  | "selectedKey"
+  | "defaultSelectedKey"
+  | "onSelectionChange"
+  | keyof MultipleSelection;
+
+export interface ComboBoxState<T>
+  extends Omit<SelectState<T>, SingleSelectionKeys>,
+    MultipleSelection {
   /** The current value of the combo box input. */
   inputValue: string;
   /** Sets the value of the combo box input. */
@@ -39,8 +42,11 @@ export interface ComboBoxState<T> extends SelectState<T> {
 type FilterFn = (textValue: string, inputValue: string) => boolean;
 
 export interface ComboBoxStateOptions<T>
-  extends Omit<ComboBoxProps<T>, "children">,
-    CollectionStateBase<T> {
+  extends Omit<ComboBoxProps<T>, "children" | SingleSelectionKeys>,
+    CollectionStateBase<T>,
+    MultipleSelection {
+  /** The contents of the collection. */
+  children: CollectionChildren<T>;
   /** The filter function used to determine if a option should be included in the combo box list. */
   defaultFilter?: FilterFn;
   /** Whether the combo box allows the menu to be open when the collection is empty. */
@@ -71,27 +77,26 @@ export function useMultiComboBoxState<T extends object>(
   let [showAllItems, setShowAllItems] = useState(false);
   let [isFocused, setFocusedState] = useState(false);
 
-  let onSelectionChange = (keys) => {
-    if (props.onSelectionChange) {
-      props.onSelectionChange(keys);
-    }
-
-    // If key is the same, reset the inputValue and close the menu
-    // (scenario: user clicks on already selected option)
-    if (keys.size === 0) {
-      resetInputValue();
-      closeMenu();
-    }
-  };
   let {collection, selectionManager, selectedKeys, setSelectedKeys, selectedItems, disabledKeys} =
     useMultiSelectListState({
       ...props,
-      onSelectionChange,
+      onSelectionChange: (keys) => {
+        if (props.onSelectionChange) {
+          props.onSelectionChange(keys);
+        }
+
+        // If key is the same, reset the inputValue and close the menu
+        // (scenario: user clicks on already selected option)
+        if (keys !== "all" && keys.size === 0) {
+          resetInputValue();
+          closeMenu();
+        }
+      },
       selectionMode,
       items: props.items ?? props.defaultItems,
     });
 
-  let [inputValue, setInputValue] = useControlledState(
+  let [inputValue, setInputValue] = useControlledState<string>(
     props.inputValue,
     props.defaultInputValue ?? "",
     props.onInputChange,
@@ -110,7 +115,7 @@ export function useMultiComboBoxState<T extends object>(
   let [lastCollection, setLastCollection] = useState(filteredCollection);
 
   // Track what action is attempting to open the menu
-  let menuOpenTrigger = useRef("focus" as MenuTriggerAction);
+  let menuOpenTrigger = useRef<MenuTriggerAction>("focus");
   let onOpenChange = (open: boolean) => {
     if (props.onOpenChange) {
       props.onOpenChange(open, open ? menuOpenTrigger.current : undefined);
@@ -128,7 +133,7 @@ export function useMultiComboBoxState<T extends object>(
     isOpen: undefined,
     defaultOpen: undefined,
   });
-  let open = (focusStrategy?: FocusStrategy, trigger?: MenuTriggerAction) => {
+  let open = (focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction) => {
     let displayAllItems = trigger === "manual" || (trigger === "focus" && menuTrigger === "focus");
 
     // Prevent open operations from triggering if there is nothing to display
@@ -145,7 +150,9 @@ export function useMultiComboBoxState<T extends object>(
         setShowAllItems(true);
       }
 
-      menuOpenTrigger.current = trigger;
+      if (trigger) {
+        menuOpenTrigger.current = trigger;
+      }
       triggerState.open(focusStrategy);
     }
   };
@@ -172,17 +179,17 @@ export function useMultiComboBoxState<T extends object>(
     }
 
     // Only update the menuOpenTrigger if menu is currently closed
-    if (!triggerState.isOpen) {
+    if (!triggerState.isOpen && trigger) {
       menuOpenTrigger.current = trigger;
     }
 
-    toggleMenu(focusStrategy);
+    focusStrategy && toggleMenu(focusStrategy);
   };
 
   // If menu is going to close, save the current collection so we can freeze the displayed collection when the
   // user clicks outside the popover to close the menu. Prevents the menu contents from updating as the menu closes.
   let toggleMenu = useCallback(
-    (focusStrategy) => {
+    (focusStrategy: FocusStrategy) => {
       if (triggerState.isOpen) {
         setLastCollection(filteredCollection);
       }
@@ -201,6 +208,7 @@ export function useMultiComboBoxState<T extends object>(
 
   let lastValue = useRef(inputValue);
   let resetInputValue = () => {
+    // @ts-ignore
     let itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
 
     lastValue.current = itemText;
@@ -208,6 +216,7 @@ export function useMultiComboBoxState<T extends object>(
   };
 
   let lastSelectedKeys = useRef(props.selectedKeys ?? props.defaultSelectedKeys ?? null);
+  // @ts-ignore
   let lastSelectedKeyText = useRef(collection.getItem(lastSelectedKeys.current)?.textValue ?? "");
 
   // intentional omit dependency array, want this to happen on every render
@@ -240,7 +249,7 @@ export function useMultiComboBoxState<T extends object>(
     if (
       selectedKeys != null &&
       selectedKeys !== lastSelectedKeys.current &&
-      !selectionMode === "multiple"
+      selectionMode !== "multiple"
     ) {
       closeMenu();
     }
@@ -250,12 +259,13 @@ export function useMultiComboBoxState<T extends object>(
       selectionManager.setFocusedKey(null);
       setShowAllItems(false);
 
-      // Set selectedKey to null when the user clears the input.
+      // Set selectedKeys to null when the user clears the input.
       // If controlled, this is the application developer's responsibility.
       if (
         inputValue === "" &&
-        (props.inputValue === undefined || props.selectedKey === undefined)
+        (props.inputValue === undefined || props.selectedKeys === undefined)
       ) {
+        // @ts-ignore
         setSelectedKeys(null);
       }
     }
@@ -268,6 +278,7 @@ export function useMultiComboBoxState<T extends object>(
       props.inputValue === undefined &&
       selectedKeys !== lastSelectedKeys.current
     ) {
+      // @ts-ignore
       let itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
 
       lastValue.current = itemText;
@@ -278,6 +289,7 @@ export function useMultiComboBoxState<T extends object>(
     // This is to handle cases where a selectedKey is specified but the items aren't available (async loading) or the selected item's text value updates.
     // Only reset if the user isn't currently within the field so we don't erroneously modify user input.
     // If inputValue is controlled, it is the user's responsibility to update the inputValue when items change.
+    // @ts-ignore
     let selectedItemText = collection.getItem(selectedKeys)?.textValue ?? "";
 
     if (
@@ -314,10 +326,11 @@ export function useMultiComboBoxState<T extends object>(
   let commitSelection = () => {
     // If multiple things are controlled, call onSelectionChange
     if (props.selectedKeys !== undefined && props.inputValue !== undefined) {
-      props.onSelectionChange(selectedKeys);
+      props.onSelectionChange?.(selectedKeys);
 
       // Stop menu from reopening from useEffect
-      let itemText = collection.getItem(selectedKeys)?.textValue ?? "";
+      // @ts-ignore
+      let itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
 
       lastValue.current = itemText;
       closeMenu();
@@ -330,7 +343,8 @@ export function useMultiComboBoxState<T extends object>(
 
   const commitValue = () => {
     if (allowsCustomValue) {
-      const itemText = collection.getItem(selectedKeys)?.textValue ?? "";
+      // @ts-ignore
+      const itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
 
       inputValue === itemText ? commitSelection() : commitCustomValue();
     } else {

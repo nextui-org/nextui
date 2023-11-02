@@ -16,8 +16,7 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
-
-import {useMultiComboBoxState} from "../../../hooks/use-multi-combobox-state/src/index";
+import {useMultiComboBoxState} from "@nextui-org/use-aria-multiselect";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**

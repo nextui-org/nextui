@@ -710,6 +710,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-aria-multiselect':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-multiselect
       '@react-aria/combobox':
         specifier: ^3.7.1
         version: 3.7.1(react-dom@18.2.0)(react@18.2.0)
@@ -2972,15 +2975,27 @@ importers:
       '@react-aria/utils':
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
+      '@react-stately/collections':
+        specifier: ^3.10.2
+        version: 3.10.2(react@18.2.0)
       '@react-stately/list':
         specifier: ^3.10.0
         version: 3.10.0(react@18.2.0)
       '@react-stately/menu':
         specifier: ^3.5.6
         version: 3.5.6(react@18.2.0)
+      '@react-stately/select':
+        specifier: ^3.5.5
+        version: 3.5.5(react@18.2.0)
+      '@react-stately/utils':
+        specifier: ^3.8.0
+        version: 3.8.0(react@18.2.0)
       '@react-types/button':
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
+      '@react-types/combobox':
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/overlays':
         specifier: ^3.8.3
         version: 3.8.3(react@18.2.0)

@@ -26,7 +26,7 @@ export interface MultiSelectProps<T>
     Validation,
     LabelableProps,
     TextInputBase,
-    Omit<MultipleSelection, "none">,
+    MultipleSelection,
     FocusableProps,
     OverlayTriggerProps {
   /**

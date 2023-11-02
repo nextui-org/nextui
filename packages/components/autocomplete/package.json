@@ -52,6 +52,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/use-aria-multiselect": "workspace:*",
     "@react-aria/combobox": "^3.7.1",
     "@react-aria/focus": "^3.14.3",
     "@react-aria/i18n": "^3.8.4",
