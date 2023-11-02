@@ -86,7 +86,7 @@ const button = tv({
     disableAnimation: {
       true: "!transition-none",
       false:
-        "data-[pressed=true]:scale-[0.97] transition-transform-colors motion-reduce:transition-none",
+        "data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none",
     },
   },
   defaultVariants: {
@@ -418,6 +418,11 @@ const button = tv({
       isIconOnly: true,
       size: "lg",
       class: "min-w-unit-12 w-unit-12 h-unit-12",
+    },
+    // variant / hover
+    {
+      variant: ["solid", "faded", "flat", "bordered", "shadow"],
+      class: "data-[hover=true]:opacity-hover",
     },
   ],
 });

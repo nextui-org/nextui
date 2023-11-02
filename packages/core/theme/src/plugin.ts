@@ -137,6 +137,10 @@ const resolveConfig = (
       } else {
         const layoutVariable = `--${prefix}-${key}`;
 
+        if (layoutVariable.includes("opacity") && typeof value === "number") {
+          value = value.toString().replace(/^0\./, ".");
+        }
+
         resolved.utilities[cssSelector]![layoutVariable] = value;
       }
     });
@@ -227,6 +231,7 @@ const corePlugin = (
             large: `var(--${prefix}-radius-large)`,
           },
           opacity: {
+            hover: `var(--${prefix}-hover-opacity)`,
             disabled: `var(--${prefix}-disabled-opacity)`,
           },
           borderWidth: {
