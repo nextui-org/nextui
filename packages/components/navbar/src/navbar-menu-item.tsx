@@ -5,11 +5,16 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useNavbarContext} from "./navbar-context";
 
 export interface NavbarMenuItemProps extends HTMLNextUIProps<"li"> {
+  /**
+   * Whether the item is active or not.
+   * @default false
+   */
+  isActive?: boolean;
   children?: React.ReactNode;
 }
 
 const NavbarMenuItem = forwardRef<"li", NavbarMenuItemProps>((props, ref) => {
-  const {className, children, ...otherProps} = props;
+  const {className, children, isActive, ...otherProps} = props;
 
   const domRef = useDOMRef(ref);
 
@@ -21,6 +26,7 @@ const NavbarMenuItem = forwardRef<"li", NavbarMenuItemProps>((props, ref) => {
     <li
       ref={domRef}
       className={slots.menuItem?.({class: styles})}
+      data-active={dataAttr(isActive)}
       data-open={dataAttr(isMenuOpen)}
       {...otherProps}
     >
