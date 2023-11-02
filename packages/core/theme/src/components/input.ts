@@ -214,6 +214,7 @@ const input = tv({
     },
     disableAnimation: {
       true: {
+        input: "transition-none",
         inputWrapper: "transition-none",
         label: "transition-none",
       },
@@ -797,6 +798,14 @@ const input = tv({
       isMultiline: true,
       class: {
         input: "pt-0",
+      },
+    },
+    // isMultiline & !disableAnimation
+    {
+      isMultiline: true,
+      disableAnimation: false,
+      class: {
+        input: "transition-height !duration-150 motion-reduce:transition-none",
       },
     },
   ],
