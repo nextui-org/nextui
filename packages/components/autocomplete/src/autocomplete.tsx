@@ -5,8 +5,9 @@ import {ChevronDownIcon, CloseIcon} from "@nextui-org/shared-icons";
 import {Listbox} from "@nextui-org/listbox";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
-import {ForwardedRef, ReactElement, Ref} from "react";
+import React, {ForwardedRef, ReactElement, Ref} from "react";
 import {AnimatePresence} from "framer-motion";
+import {Chip} from "@nextui-org/chip";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 
@@ -38,6 +39,26 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     </FreeSoloPopover>
   ) : null;
 
+  const multipleTagListContent =
+    props.selectionMode === "multiple" ? (
+      <React.Fragment>
+        {Array.from(state.selectedKeys).map((key) => (
+          <Chip
+            key={key}
+            onClose={() => {
+              const cloneSet = new Set(state.selectedKeys);
+
+              cloneSet.delete(key);
+
+              return state.setSelectedKeys(cloneSet);
+            }}
+          >
+            {key}
+          </Chip>
+        ))}
+      </React.Fragment>
+    ) : null;
+
   return (
     <Component {...getBaseProps()}>
       <Input
@@ -48,6 +69,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
             <Button {...getSelectorButtonProps()}>{selectorIcon}</Button>
           </div>
         }
+        startContent={props.selectionMode === "multiple" ? multipleTagListContent : null}
       />
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </Component>
