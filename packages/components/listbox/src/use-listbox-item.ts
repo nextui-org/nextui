@@ -49,7 +49,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || originalProps.href ? "a" : "li";
+  const Component = as || (originalProps.href ? "a" : "li");
   const shouldFilterDOMProps = typeof Component === "string";
 
   const {rendered, key} = item;

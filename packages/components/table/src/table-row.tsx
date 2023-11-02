@@ -28,7 +28,7 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
   const {as, className, children, node, slots, state, isSelectable, classNames, ...otherProps} =
     props;
 
-  const Component = as || props?.href ? "a" : "tr";
+  const Component = as || (props?.href ? "a" : "tr");
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);

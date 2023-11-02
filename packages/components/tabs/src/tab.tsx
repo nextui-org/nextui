@@ -51,7 +51,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
 
   const domRef = useDOMRef(ref);
 
-  const Component = as || props.href ? "a" : "button";
+  const Component = as || (props.href ? "a" : "button");
   const shouldFilterDOMProps = typeof Component === "string";
 
   const {
