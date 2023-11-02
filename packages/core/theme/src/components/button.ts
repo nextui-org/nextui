@@ -316,7 +316,7 @@ const button = tv({
       color: "danger",
       class: colorVariants.ghost.danger,
     },
-    // isInGroup / radius
+    // isInGroup / radius / size <-- radius not provided
     {
       isInGroup: true,
       class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
@@ -339,6 +339,32 @@ const button = tv({
     {
       isInGroup: true,
       isRounded: true,
+      class: "rounded-none first:rounded-s-full last:rounded-e-full",
+    },
+    // isInGroup / radius <-- radius provided
+    {
+      isInGroup: true,
+      radius: "none",
+      class: "rounded-none first:rounded-s-none last:rounded-e-none",
+    },
+    {
+      isInGroup: true,
+      radius: "sm",
+      class: "rounded-none first:rounded-s-small last:rounded-e-small",
+    },
+    {
+      isInGroup: true,
+      radius: "md",
+      class: "rounded-none first:rounded-s-medium last:rounded-e-medium",
+    },
+    {
+      isInGroup: true,
+      radius: "lg",
+      class: "rounded-none first:rounded-s-large last:rounded-e-large",
+    },
+    {
+      isInGroup: true,
+      radius: "full",
       class: "rounded-none first:rounded-s-full last:rounded-e-full",
     },
     // isInGroup / bordered / ghost
