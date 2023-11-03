@@ -102,6 +102,10 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   *  Whether the autocomplete selection mode is single or multiple.
+   *  @default "single"
+   */
   selectionMode?: "single" | "multiple";
 }
 

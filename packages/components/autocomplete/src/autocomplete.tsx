@@ -30,7 +30,6 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getListBoxWrapperProps,
     getEndContentWrapperProps,
   } = useAutocomplete<T>({...props, ref});
-
   const popoverContent = isOpen ? (
     <FreeSoloPopover {...getPopoverProps()} state={state}>
       <ScrollShadow {...getListBoxWrapperProps()}>
@@ -40,7 +39,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   ) : null;
 
   const multipleTagListContent =
-    props.selectionMode === "multiple" ? (
+    props.selectionMode === "multiple" && state.selectedKeys ? (
       <React.Fragment>
         {Array.from(state.selectedKeys).map((key) => (
           <Chip
@@ -53,7 +52,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
               return state.setSelectedKeys(cloneSet);
             }}
           >
-            {key}
+            {state.collection.getItem(key)?.rendered}
           </Chip>
         ))}
       </React.Fragment>

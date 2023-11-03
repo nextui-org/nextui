@@ -9,21 +9,21 @@ import {
 import {ComboBoxProps, MenuTriggerAction} from "@react-types/combobox";
 import {getChildNodes} from "@react-stately/collections";
 import {ListCollection} from "@react-stately/list";
-import {SelectState} from "@react-stately/select";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useControlledState} from "@react-stately/utils";
 import {useMenuTriggerState} from "@react-stately/menu";
 
 import {useMultiSelectListState} from "./use-multiselect-list-state";
+import {MultiSelectState} from "./use-multiselect-state";
 
-type SingleSelectionKeys =
-  | "selectedKey"
-  | "defaultSelectedKey"
+type MultiSelectionKeys =
+  | "selectedKeys"
+  | "defaultSelectedKeys"
   | "onSelectionChange"
   | keyof MultipleSelection;
 
 export interface ComboBoxState<T>
-  extends Omit<SelectState<T>, SingleSelectionKeys>,
+  extends Omit<MultiSelectState<T>, MultiSelectionKeys>,
     MultipleSelection {
   /** The current value of the combo box input. */
   inputValue: string;
@@ -42,7 +42,7 @@ export interface ComboBoxState<T>
 type FilterFn = (textValue: string, inputValue: string) => boolean;
 
 export interface ComboBoxStateOptions<T>
-  extends Omit<ComboBoxProps<T>, "children" | SingleSelectionKeys>,
+  extends Omit<ComboBoxProps<T>, "children" | MultiSelectionKeys>,
     CollectionStateBase<T>,
     MultipleSelection {
   /** The contents of the collection. */
@@ -55,6 +55,8 @@ export interface ComboBoxStateOptions<T>
   shouldCloseOnBlur?: boolean;
   /** Whether the combo box allows multiple selection. */
   selectionMode?: "single" | "multiple";
+  /** Set the selected keys. */
+  setSelectedKeys(keys: Set<string>): void;
 }
 
 /**
