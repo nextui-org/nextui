@@ -35,18 +35,20 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",    
+    "@nextui-org/theme": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-rsc-utils": "workspace:*",
     "@nextui-org/system-rsc": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@react-types/shared": "^3.20.0"
+    "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

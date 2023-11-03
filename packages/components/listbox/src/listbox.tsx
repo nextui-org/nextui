@@ -1,5 +1,4 @@
-import type {ForwardedRef, ReactElement, Ref} from "react";
-
+import {ForwardedRef, ReactElement, Ref} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 
@@ -10,18 +9,38 @@ import ListboxItem from "./listbox-item";
 interface Props<T> extends UseListboxProps<T> {}
 
 function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
-  const {Component, state, getBaseProps, color, disableAnimation, variant, itemClasses} =
-    useListbox<T>({...props, ref});
+  const {
+    Component,
+    state,
+    color,
+    variant,
+    itemClasses,
+    getBaseProps,
+    topContent,
+    bottomContent,
+    hideEmptyContent,
+    hideSelectedIcon,
+    shouldHighlightOnFocus,
+    disableAnimation,
+    getEmptyContentProps,
+    getListProps,
+  } = useListbox<T>({...props, ref});
 
-  return (
-    <Component {...getBaseProps()}>
+  const content = (
+    <Component {...getListProps()}>
+      {!state.collection.size && !hideEmptyContent && (
+        <li>
+          <div {...getEmptyContentProps()} />
+        </li>
+      )}
       {[...state.collection].map((item) => {
         const itemProps = {
           color,
-          disableAnimation,
           item,
           state,
           variant,
+          disableAnimation,
+          hideSelectedIcon,
           ...item.props,
         };
 
@@ -33,6 +52,7 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
             key={item.key}
             {...itemProps}
             classNames={mergeProps(itemClasses, item.props?.classNames)}
+            shouldHighlightOnFocus={shouldHighlightOnFocus}
           />
         );
 
@@ -43,6 +63,14 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
         return listboxItem;
       })}
     </Component>
+  );
+
+  return (
+    <div {...getBaseProps()}>
+      {topContent}
+      {content}
+      {bottomContent}
+    </div>
   );
 }
 

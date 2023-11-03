@@ -13,7 +13,7 @@ import {AriaButtonProps as BaseAriaButtonProps} from "@react-types/button";
 import {DOMAttributes} from "@react-types/shared";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusable} from "@react-aria/focus";
-import {usePress} from "@react-aria/interactions";
+import {usePress} from "@nextui-org/use-aria-press";
 
 export type AriaButtonProps<T extends ElementType = "button"> = BaseAriaButtonProps<T> & {
   /** Whether text selection should be enabled on the pressable element. */
@@ -131,9 +131,7 @@ export function useAriaButton(
       "aria-controls": props["aria-controls"],
       "aria-pressed": props["aria-pressed"],
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (deprecatedOnClick) {
-          deprecatedOnClick(e);
-        }
+        deprecatedOnClick?.(e);
       },
     }),
   };

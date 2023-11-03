@@ -1,0 +1,48 @@
+{
+  "name": "@nextui-org/stories-utils",
+  "version": "2.0.0",
+  "description": "A list of utilities for storybook' stories.",
+  "keywords": [
+    "stories-utils"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/utilities/stories-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}

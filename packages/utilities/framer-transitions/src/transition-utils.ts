@@ -74,7 +74,7 @@ export const TRANSITION_VARIANTS: Variants = {
   scaleSpringOpacity: {
     initial: {
       opacity: 0,
-      transform: "scale(0.6)",
+      transform: "scale(0.8)",
     },
     enter: {
       opacity: 1,
@@ -87,11 +87,11 @@ export const TRANSITION_VARIANTS: Variants = {
     },
     exit: {
       opacity: 0,
-      transform: "scale(0.3)",
+      transform: "scale(0.7)",
       transition: {
-        type: "spring",
+        type: "easeOut",
         bounce: 0,
-        duration: 0.4,
+        duration: 0.18,
       },
     },
   },

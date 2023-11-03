@@ -13,6 +13,7 @@ import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, useRef} from "react";
+import {PressEvent} from "@react-types/shared";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -55,9 +56,9 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * ```ts
    * <Popover classNames={{
    *    base:"base-classes",
+   *    content: "content-classes",
    *    trigger: "trigger-classes",
    *    backdrop: "backdrop-classes",
-   *    arrow: "arrow-classes",
    * }} />
    * ```
    */
@@ -83,9 +84,9 @@ export function usePopover(originalProps: UsePopoverProps) {
     state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
-    isOpen,
     defaultOpen,
     onOpenChange,
+    isOpen: isOpenProp,
     isNonModal = true,
     shouldFlip = true,
     containerPadding = 12,
@@ -112,13 +113,14 @@ export function usePopover(originalProps: UsePopoverProps) {
   const domRef = useDOMRef(ref);
 
   const domTriggerRef = useRef<HTMLElement>(null);
+  const wasTriggerPressedRef = useRef(false);
 
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation = originalProps.disableAnimation ?? false;
 
   const innerState = useOverlayTriggerState({
-    isOpen,
+    isOpen: isOpenProp,
     defaultOpen,
     onOpenChange: (isOpen) => {
       onOpenChange?.(isOpen);
@@ -133,7 +135,6 @@ export function usePopover(originalProps: UsePopoverProps) {
   const {
     popoverProps,
     underlayProps,
-    arrowProps,
     placement: ariaPlacement,
   } = useReactAriaPopover(
     {
@@ -175,52 +176,95 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
+    "data-slot": "base",
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
+    "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
     "data-placement": getArrowPlacement(ariaPlacement, placementProp),
     ...mergeProps(focusProps, props),
-    className: slots.base({class: clsx(baseStyles, props.className)}),
+    className: slots.base({class: clsx(baseStyles)}),
     style: {
       // this prevent the dialog to have a default outline
       outline: "none",
     },
   });
 
+  const getContentProps = useCallback<PropGetter>(
+    (props = {}) => ({
+      "data-slot": "content",
+      "data-open": dataAttr(state.isOpen),
+      "data-arrow": dataAttr(showArrow),
+      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
+      className: slots.content({class: clsx(classNames?.content, props.className)}),
+    }),
+    [slots, state.isOpen, showArrow, ariaPlacement, placementProp, classNames],
+  );
+
   const placement = useMemo(
     () => (getShouldUseAxisPlacement(ariaPlacement, placementProp) ? ariaPlacement : placementProp),
     [ariaPlacement, placementProp],
   );
 
+  const onPress = useCallback(
+    (e: PressEvent) => {
+      let pressTimer: ReturnType<typeof setTimeout>;
+
+      // Artificial delay to prevent the underlay to be triggered immediately after the onPress
+      // this only happens when the backdrop is blur or opaque & pointerType === "touch"
+      // TODO: find a better way to handle this
+      if (
+        e.pointerType === "touch" &&
+        (originalProps?.backdrop === "blur" || originalProps?.backdrop === "opaque")
+      ) {
+        pressTimer = setTimeout(() => {
+          wasTriggerPressedRef.current = true;
+        }, 100);
+      } else {
+        wasTriggerPressedRef.current = true;
+      }
+
+      triggerProps.onPress?.(e);
+
+      return () => {
+        clearTimeout(pressTimer);
+      };
+    },
+    [triggerProps?.onPress],
+  );
+
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
       return {
+        "data-slot": "trigger",
         "aria-haspopup": "dialog",
         ...mergeProps(triggerProps, props),
+        onPress,
         className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
         ref: mergeRefs(_ref, triggerRef),
       };
     },
-    [isOpen, state, triggerProps, triggerRef],
+    [state, triggerProps, onPress, triggerRef],
   );
 
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
+      "data-slot": "backdrop",
       className: slots.backdrop({class: classNames?.backdrop}),
-      onClick: () => state.close(),
+      onClick: (e) => {
+        if (!wasTriggerPressedRef.current) {
+          e.preventDefault();
+
+          return;
+        }
+
+        state.close();
+        wasTriggerPressedRef.current = false;
+      },
       ...underlayProps,
       ...props,
     }),
-    [slots, classNames, underlayProps],
-  );
-
-  const getArrowProps = useCallback<PropGetter>(
-    () => ({
-      className: slots.arrow({class: classNames?.arrow}),
-      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-      ...arrowProps,
-    }),
-    [arrowProps, ariaPlacement, placementProp, slots, classNames],
+    [slots, state.isOpen, classNames, underlayProps],
   );
 
   useEffect(() => {
@@ -249,8 +293,8 @@ export function usePopover(originalProps: UsePopoverProps) {
     getBackdropProps,
     getPopoverProps,
     getTriggerProps,
-    getArrowProps,
     getDialogProps,
+    getContentProps,
   };
 }
 

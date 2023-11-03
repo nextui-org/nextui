@@ -4,7 +4,7 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
-import {ReactNode, Ref, useId, useImperativeHandle} from "react";
+import {ReactNode, Ref, useId, useImperativeHandle, useLayoutEffect} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -58,6 +58,11 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    */
   portalContainer?: Element;
   /**
+   * List of dependencies to update the position of the tooltip.
+   * @default []
+   */
+  updatePositionDeps?: any[];
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -65,11 +70,12 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    * ```ts
    * <Tooltip classNames={{
    *    base:"base-classes",
+   *    content: "content-classes",
    *    arrow: "arrow-classes",
    * }} />
    * ```
    */
-  classNames?: SlotsToClasses<"base" | "arrow">;
+  classNames?: SlotsToClasses<"base" | "arrow" | "content">;
 }
 
 export type UseTooltipProps = Props &
@@ -104,6 +110,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     shouldCloseOnBlur = true,
     portalContainer,
     isKeyboardDismissDisabled = false,
+    updatePositionDeps = [],
     shouldCloseOnInteractOutside,
     className,
     onClose,
@@ -160,8 +167,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
 
   const {
     overlayProps: positionProps,
-    arrowProps,
     placement,
+    updatePosition,
   } = useOverlayPosition({
     isOpen: isOpen,
     targetRef: triggerRef,
@@ -172,6 +179,12 @@ export function useTooltip(originalProps: UseTooltipProps) {
     shouldFlip,
     containerPadding,
   });
+
+  useLayoutEffect(() => {
+    if (!updatePositionDeps.length) return;
+    // force update position when deps change
+    updatePosition();
+  }, updatePositionDeps);
 
   const {overlayProps} = useOverlay(
     {
@@ -201,8 +214,6 @@ export function useTooltip(originalProps: UseTooltipProps) {
     ],
   );
 
-  const baseStyles = clsx(classNames?.base, className);
-
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => ({
       ...mergeProps(triggerProps, props),
@@ -215,33 +226,42 @@ export function useTooltip(originalProps: UseTooltipProps) {
   const getTooltipProps = useCallback<PropGetter>(
     () => ({
       ref: overlayRef,
+      "data-slot": "base",
       "data-open": dataAttr(isOpen),
+      "data-arrow": dataAttr(showArrow),
       "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
-      className: slots.base({class: baseStyles}),
       ...mergeProps(tooltipProps, overlayProps, otherProps),
       style: mergeProps(positionProps.style, otherProps.style, props.style),
+      className: slots.base({class: classNames?.base}),
       id: tooltipId,
     }),
     [
-      baseStyles,
+      slots,
+      isOpen,
+      showArrow,
+      isDisabled,
+      placement,
+      placementProp,
+      tooltipProps,
       overlayProps,
       otherProps,
-      overlayRef,
       positionProps,
-      slots,
+      props,
       tooltipId,
-      tooltipProps,
     ],
   );
 
-  const getArrowProps = useCallback<PropGetter>(
+  const getTooltipContentProps = useCallback<PropGetter>(
     () => ({
-      className: slots.arrow({class: classNames?.arrow}),
+      "data-slot": "content",
+      "data-open": dataAttr(isOpen),
+      "data-arrow": dataAttr(showArrow),
+      "data-disabled": dataAttr(isDisabled),
       "data-placement": getArrowPlacement(placement, placementProp),
-      ...arrowProps,
+      className: slots.content({class: clsx(classNames?.content, className)}),
     }),
-    [arrowProps, placement, placementProp, slots, classNames],
+    [slots, isOpen, showArrow, isDisabled, placement, placementProp, classNames],
   );
 
   return {
@@ -256,9 +276,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
     disableAnimation: originalProps?.disableAnimation,
     isDisabled,
     motionProps,
+    getTooltipContentProps,
     getTriggerProps,
     getTooltipProps,
-    getArrowProps,
   };
 }
 

@@ -13,7 +13,7 @@ Tooltips display a brief, informative message that appears when a user interacts
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Import
 
@@ -137,6 +137,7 @@ You can customize the `Tooltip` component by passing custom Tailwind CSS classes
 | shouldCloseOnBlur         | `boolean`                                                                   | Whether the tooltip should close when focus is lost or moves outside it.                                     | `true`          |
 | motionProps               | [MotionProps](#motion-props)                                                | The props to modify the framer motion animation. Use the `variants` API to create your own animation.        | -               |
 | portalContainer           | `HTMLElement`                                                               | The container element in which the overlay portal will be placed.                                            | `document.body` |
+| updatePositionDeps        | `any[]`                                                                     | The dependencies to force the tooltip position update.                                                       | `[]`            |
 | isDisabled                | `boolean`                                                                   | Whether the tooltip is disabled.                                                                             | `false`         |
 | disableAnimation          | `boolean`                                                                   | Whether the tooltip is animated.                                                                             | `false`         |
 | classNames                | `Record<"base"｜"arrow", string>`                                           | Allows to set custom class names for the tooltip slots.                                                      | -               |

@@ -1,0 +1,65 @@
+{
+  "name": "@nextui-org/slider",
+  "version": "2.2.0",
+  "description": "A slider allows a user to select one or more values within a range.",
+  "keywords": [
+    "slider"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/slider"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
+  },
+  "dependencies": {
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/tooltip": "workspace:*",
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/i18n": "^3.8.4",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/slider": "^3.7.2",
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/visually-hidden": "^3.8.6",
+    "@react-stately/slider": "^3.4.4"
+  },
+  "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

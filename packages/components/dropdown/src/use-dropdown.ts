@@ -114,8 +114,7 @@ export function useDropdown(props: UseDropdownProps) {
     classNames: {
       ...classNamesProp,
       ...props.classNames,
-      base: clsx(classNames, classNamesProp?.base, props.className),
-      arrow: clsx(classNamesProp?.arrow),
+      content: clsx(classNames, classNamesProp?.content, props.className),
     },
   });
 
@@ -133,7 +132,10 @@ export function useDropdown(props: UseDropdownProps) {
     };
   };
 
-  const getMenuProps = (props?: Partial<MenuProps>, _ref: Ref<any> | null | undefined = null) => {
+  const getMenuProps = <T>(
+    props?: Partial<MenuProps<T>>,
+    _ref: Ref<any> | null | undefined = null,
+  ) => {
     return {
       ref: mergeRefs(_ref, menuRef),
       menuProps,

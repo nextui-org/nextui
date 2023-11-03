@@ -13,7 +13,7 @@ A responsive navigation header positioned on top side of your page that includes
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Import
 
@@ -238,6 +238,11 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
 - **data-focus-visible**:
   When the navbar menu toggle is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
 
+`NavbarMenuItem` has the following attributes on the `base` element:
+
+- **data-active**:
+  Indicates if the menu item is active. It is used when the `isActive` prop is `true`.
+
 <Spacer y={4} />
 
 ## API
@@ -304,6 +309,13 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
 | children\*      | `ReactNode[]`                | The children to render as the navbar menu. Usually a list of `NavbarMenuItem` components.                                                    | -               |
 | portalContainer | `HTMLElement`                | The container element in which the navbar menu overlay portal will be placed.                                                                | `document.body` |
 | motionProps     | [MotionProps](#motion-props) | The motion props to controle the `open` / `close` animation. This motion is only available if the `disableAnimation` prop is set to `false`. | -               |
+
+### NavbarMenuItem Props
+
+| Attribute | Type        | Description                              | Default |
+| --------- | ----------- | ---------------------------------------- | ------- |
+| children  | `ReactNode` | The children to render as the menu item. | -       |
+| isActive  | `boolean`   | Whether the menu item is active or not.  | `false` |
 
 > **Note**: The rest of the navbar components such as `NavbarMenuItem` and `NavbarBrand` have the same props as the `li` element.
 

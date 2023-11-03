@@ -36,29 +36,32 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=4.0.0",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/ripple": "workspace:*",
-    "@react-aria/focus": "^3.14.1",
-    "@react-aria/utils": "^3.20.0",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/button": "^3.8.2",
-    "@react-types/shared": "^3.20.0"
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/button": "^3.8.4",
+    "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/code": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/image": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

@@ -4,7 +4,7 @@ import {useTheme} from "next-themes";
 
 import {HighlightedLines} from "./types";
 import {getHighlightedLines, getFileName} from "./utils";
-import {getFileEntry, stylesConfig, postcssConfig, tailwindConfig} from "./entries";
+import {stylesConfig, postcssConfig, tailwindConfig, getHtmlFile, rootFile} from "./entries";
 
 import {useLocalStorage} from "@/hooks/use-local-storage";
 
@@ -185,7 +185,11 @@ export const useSandpack = ({
     files: {
       ...sortedFiles,
       [entryFile]: {
-        code: getFileEntry(theme ?? "light"),
+        code: rootFile,
+        hidden: true,
+      },
+      "index.html": {
+        code: getHtmlFile(theme ?? "light", entryFile),
         hidden: true,
       },
       "tailwind.config.js": {

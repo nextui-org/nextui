@@ -8,6 +8,7 @@ import {spacingScaleKeys, SpacingScaleKeys, SpacingScale} from "../types";
  */
 export const isBaseTheme = (theme: string) => theme === "light" || theme === "dark";
 
+const ROOT_FONT_SIZE = 16;
 const baseScale = [1, 2, 3, 3.5, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 const extendedScale = [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96];
 
@@ -32,8 +33,8 @@ export const generateSpacingScale = (spacingUnit: number) => {
 
   Object.entries(scaleLabels).forEach(([label, multiplier]) => {
     scale[label as SpacingScaleKeys] = multiplier
-      ? `${spacingUnit * multiplier}px`
-      : `${spacingUnit}px`;
+      ? `${(spacingUnit * multiplier) / ROOT_FONT_SIZE}rem`
+      : `${spacingUnit / ROOT_FONT_SIZE}rem`;
   });
 
   baseScale.forEach((i) => {
@@ -46,13 +47,13 @@ export const generateSpacingScale = (spacingUnit: number) => {
       key = `${first}_${second}`;
     }
 
-    scale[key] = `${spacingUnit * i}px`;
+    scale[key] = `${(spacingUnit * i) / ROOT_FONT_SIZE}rem`;
   });
 
   extendedScale.forEach((i) => {
     const key = `${i}` as SpacingScaleKeys;
 
-    scale[key] = `${spacingUnit * i}px`;
+    scale[key] = `${(spacingUnit * i) / ROOT_FONT_SIZE}rem`;
   });
 
   return scale;

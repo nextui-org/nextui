@@ -36,18 +36,21 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=4.0.0",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "clean-package": "2.2.0",
-    "framer-motion": "^10.15.1",
-    "react": "^18.0.0"
+    "framer-motion": "^10.16.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

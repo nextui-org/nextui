@@ -44,6 +44,7 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/accordion": "workspace:*",
+    "@nextui-org/autocomplete": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/badge": "workspace:*",
     "@nextui-org/button": "workspace:*",
@@ -77,7 +78,9 @@
     "@nextui-org/listbox": "workspace:*",
     "@nextui-org/menu": "workspace:*",
     "@nextui-org/ripple": "workspace:*",
-    "@react-aria/visually-hidden": "^3.8.4"
+    "@nextui-org/slider": "workspace:*",
+    "@nextui-org/breadcrumbs": "workspace:*",
+    "@react-aria/visually-hidden": "^3.8.6"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -86,6 +89,7 @@
   },
   "devDependencies": {
     "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "clean-package": "2.2.0"
   },
   "clean-package": "../../../clean-package.config.json"

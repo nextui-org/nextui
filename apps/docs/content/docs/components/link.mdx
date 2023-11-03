@@ -13,7 +13,7 @@ Links allow users to click their way from page to page. This component is styled
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Import
 
@@ -66,14 +66,24 @@ NextUI components expose a `as` prop that allows you to customize the React elem
 
 <CodeDemo title="Polymorphic Component" files={linkContent.polymorphic} />
 
-### Usage with Next.js
+### Routing
 
-<CodeDemo
-  showPreview={false}
-  defaultExpanded={true}
-  title="Usage with Next.js "
-  files={linkContent.nextjs}
-/>
+The `<Link>` component works with frameworks and client side routers like [Next.js](https://nextjs.org/) and 
+[React Router](https://reactrouter.com/en/main). See the [Routing](/docs/guide/routing) guide to learn how to set this up.
+
+
+```jsx
+import {Link} from "@nextui-org/react";
+
+function App() {
+  return (
+    <>
+      <Link href="/home">Home</Link>
+      <Link href="/about">About</Link>
+    </>
+  );
+}
+```
 
 ### Custom Implementation
 
@@ -109,18 +119,23 @@ In case you need to customize the link even further, you can use the `useLink` h
 
 ### Link Props
 
-| Attribute        | Type                                                                           | Description                                                       | Default   |
-| ---------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | --------- |
-| href             | `string`                                                                       | The URL to link to.                                               | -         |
-| size             | `sm` \| `md` \| `lg`                                                           | The size of the link.                                             | `md`      |
-| color            | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the link.                                            | `primary` |
-| underline        | `none` \| `hover` \| `always` \| `active` \| `focus`                           | The underline of the link.                                        | `none`    |
-| isExternal       | `boolean`                                                                      | Whether the link should open in a new tab.                        | `false`   |
-| showAnchorIcon   | `boolean`                                                                      | Whether to show the anchor icon.                                  | `false`   |
-| anchorIcon       | `ReactNode`                                                                    | The anchor icon.                                                  | -         |
-| isBlock          | `boolean`                                                                      | Whether the link should be rendered as block with a hover effect. | `false`   |
-| isDisabled       | `boolean`                                                                      | Whether the link is disabled.                                     | `false`   |
-| disableAnimation | `boolean`                                                                      | Whether to disable link and block animations.                     | `false`   |
+| Attribute        | Type                                                                           | Description                                                                                                                                                                      | Default   |
+| ---------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| size             | `sm` \| `md` \| `lg`                                                           | The size of the link.                                                                                                                                                            | `md`      |
+| color            | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the link.                                                                                                                                                           | `primary` |
+| underline        | `none` \| `hover` \| `always` \| `active` \| `focus`                           | The underline of the link.                                                                                                                                                       | `none`    |
+| href             | `string`                                                                       | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -         |
+| target           | `HTMLAttributeAnchorTarget`                                                    | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -         |
+| rel              | `string`                                                                       | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -         |
+| download         | `boolean` \| `string`                                                          | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -         |
+| ping             | `string`                                                                       | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -         |
+| referrerPolicy   | `HTMLAttributeReferrerPolicy`                                                  | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -         |
+| isExternal       | `boolean`                                                                      | Whether the link should open in a new tab.                                                                                                                                       | `false`   |
+| showAnchorIcon   | `boolean`                                                                      | Whether to show the anchor icon.                                                                                                                                                 | `false`   |
+| anchorIcon       | `ReactNode`                                                                    | The anchor icon.                                                                                                                                                                 | -         |
+| isBlock          | `boolean`                                                                      | Whether the link should be rendered as block with a hover effect.                                                                                                                | `false`   |
+| isDisabled       | `boolean`                                                                      | Whether the link is disabled.                                                                                                                                                    | `false`   |
+| disableAnimation | `boolean`                                                                      | Whether to disable link and block animations.                                                                                                                                    | `false`   |
 
 ### Link Events
 

@@ -35,28 +35,36 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",    
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
-    "@react-aria/utils": "^3.20.0",
-    "@react-aria/listbox": "^3.10.2",
-    "@react-stately/list": "^3.9.2",
-    "@react-aria/focus": "^3.14.1",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-types/menu": "^3.9.4",
-    "@react-types/shared": "^3.20.0"
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/utils": "^3.21.1",
+    "@react-aria/listbox": "^3.11.1",
+    "@react-stately/list": "^3.10.0",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-types/menu": "^3.9.5",
+    "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "clean-package": "2.2.0",
     "@nextui-org/shared-icons": "workspace:*",
-    "react": "^18.0.0"
+    "@nextui-org/stories-utils": "workspace:*",
+    "@nextui-org/scroll-shadow": "workspace:*",
+    "@nextui-org/chip": "workspace:*",
+    "@nextui-org/avatar": "workspace:*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

@@ -26,11 +26,12 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
     isDisabled: values.isDisabled,
     motionProps: values.motionProps,
     disableAnimation: values.disableAnimation,
+    shouldSelectOnPressUp: values.shouldSelectOnPressUp,
     disableCursorAnimation: values.disableCursorAnimation,
   };
 
   const tabs = [...state.collection].map((item) => (
-    <Tab key={item.key} item={item} {...item.props} {...tabsProps} />
+    <Tab key={item.key} item={item} {...tabsProps} {...item.props} />
   ));
 
   return (

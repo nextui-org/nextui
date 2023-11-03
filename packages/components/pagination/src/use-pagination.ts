@@ -1,6 +1,6 @@
 import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {Timer} from "@nextui-org/shared-utils";
-import type {ReactNode, Ref} from "react";
+import type {Key, ReactNode, Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {
@@ -15,12 +15,21 @@ import scrollIntoView from "scroll-into-view-if-needed";
 import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {PressEvent} from "@react-types/shared";
 
 export type PaginationItemRenderProps = {
   /**
    * The pagination item ref.
    */
   ref?: Ref<any>;
+  /**
+   * React key.
+   */
+  key?: Key;
+  /**
+   * The pagination item value.
+   */
+  children?: ReactNode;
   /**
    * The pagination item value.
    */
@@ -30,6 +39,14 @@ export type PaginationItemRenderProps = {
    */
   index: number;
   /**
+   * Calculated pagination item position. This includes the dots.
+   */
+  page: number;
+  /**
+   * The pagination total number of pages.
+   */
+  total: number;
+  /**
    * The active page number.
    */
   activePage: number;
@@ -37,6 +54,10 @@ export type PaginationItemRenderProps = {
    * Whether the pagination item is active.
    */
   isActive: boolean;
+  /**
+   * Whether the item is before the active page.
+   */
+  isBefore: boolean;
   /**
    * Whether the pagination item is the first item in the pagination.
    */
@@ -49,6 +70,11 @@ export type PaginationItemRenderProps = {
    * Whether the pagination item is the next item in the pagination.
    */
   isNext: boolean;
+  /**
+   * Number of pages that are added or subtracted on the '...' button.
+   * @default 5
+   */
+  dotsJump: number;
   /**
    * Whether the pagination item is the previous item in the pagination.
    */
@@ -69,6 +95,15 @@ export type PaginationItemRenderProps = {
    * Callback to go to the page.
    */
   setPage: (page: number) => void;
+  /**
+   * Callback fired when the item is clicked.
+   * @param e PressEvent
+   */
+  onPress?: (e: PressEvent) => void;
+  /**
+   * Function to get the aria-label of the item.
+   */
+  getAriaLabel?: (page?: PaginationItemValue) => string | undefined;
 };
 
 interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
@@ -100,7 +135,7 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
   /**
    * Function to get the aria-label of the item. If not provided, pagination will use the default one.
    */
-  getItemAriaLabel?: (page?: string) => string;
+  getItemAriaLabel?: (page?: string | PaginationItemValue) => string;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -301,7 +336,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     };
   };
 
-  const getItemAriaLabel = (page?: string) => {
+  const getItemAriaLabel = (page?: string | PaginationItemValue) => {
     if (!page) return;
 
     if (getItemAriaLabelProp) {

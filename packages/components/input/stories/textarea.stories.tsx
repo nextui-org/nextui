@@ -38,6 +38,11 @@ export default {
       },
       options: ["inside", "outside", "outside-left"],
     },
+    disableAutosize: {
+      control: {
+        type: "boolean",
+      },
+    },
     isDisabled: {
       control: {
         type: "boolean",
@@ -55,6 +60,7 @@ export default {
 
 const defaultProps = {
   ...input.defaultVariants,
+  disableAutosize: false,
   label: "Description",
   placeholder: "Enter your description",
 };

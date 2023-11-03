@@ -70,7 +70,7 @@ const accordionItem = tv({
     ],
     startContent: "flex-shrink-0",
     indicator: "text-default-400",
-    titleWrapper: "flex-1 flex flex-col text-left",
+    titleWrapper: "flex-1 flex flex-col text-start",
     title: "text-foreground text-large",
     subtitle: "text-small text-foreground-500 font-normal",
     content: "py-2",
@@ -109,7 +109,8 @@ const accordionItem = tv({
         indicator: "transition-none",
       },
       false: {
-        indicator: "rotate-0 data-[open=true]:-rotate-90",
+        indicator:
+          "rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90",
       },
     },
   },

@@ -16,4 +16,11 @@ describe("ScrollShadow", () => {
     render(<ScrollShadow ref={ref} />);
     expect(ref.current).not.toBeNull();
   });
+
+  it("should support controlled visibility state", () => {
+    const {getByTestId} = render(<ScrollShadow data-testid="scroll-shadow" visibility="top" />);
+
+    // should have the data-top-scroll attribute in true
+    expect(getByTestId("scroll-shadow")).toHaveAttribute("data-top-scroll", "true");
+  });
 });

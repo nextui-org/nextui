@@ -1,5 +1,4 @@
 "use client";
-
 // only for developments, client directive  this is removed in production builds
 
 export * from "@nextui-org/system";
@@ -38,6 +37,9 @@ export * from "@nextui-org/select";
 export * from "@nextui-org/listbox";
 export * from "@nextui-org/menu";
 export * from "@nextui-org/ripple";
+export * from "@nextui-org/slider";
+export * from "@nextui-org/breadcrumbs";
+export * from "@nextui-org/autocomplete";
 
 /**
  * React Aria - Exports

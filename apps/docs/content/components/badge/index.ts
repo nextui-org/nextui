@@ -6,7 +6,7 @@ import placements from "./placements";
 import shapes from "./shapes";
 import visibility from "./visibility";
 import contentExamples from "./content-examples";
-import disableOutline from "./disable-outline";
+import showOutline from "./show-outline";
 import a11y from "./a11y";
 
 export const badgeContent = {
@@ -18,6 +18,6 @@ export const badgeContent = {
   shapes,
   visibility,
   contentExamples,
-  disableOutline,
+  showOutline,
   a11y,
 };

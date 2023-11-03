@@ -1,4 +1,19 @@
-import {useEffect} from "react";
+import {capitalize} from "@nextui-org/shared-utils";
+import {useEffect, useRef} from "react";
+
+export type ScrollOverflowVisibility =
+  | "auto"
+  | "top"
+  | "bottom"
+  | "left"
+  | "right"
+  | "both"
+  | "none";
+
+export type ScrollOverflowEdgeCheck = "all" | "top" | "bottom" | "left" | "right";
+
+export type ScrollOverflowOrientation = "horizontal" | "vertical";
+export type ScrollOverflowCheck = ScrollOverflowOrientation | "both";
 
 export interface UseDataScrollOverflowProps {
   /**
@@ -13,7 +28,13 @@ export interface UseDataScrollOverflowProps {
    *
    * @default "both"
    */
-  overflowCheck?: "horizontal" | "vertical" | "both";
+  overflowCheck?: ScrollOverflowCheck;
+  /**
+   * Controlled visible state. Passing "auto" will make the shadow visible only when the scroll reaches the edge.
+   * use "left" / "right" for horizontal scroll and "top" / "bottom" for vertical scroll.
+   * @default "auto"
+   */
+  visibility?: ScrollOverflowVisibility;
   /**
    * Enables or disables the overflow checking mechanism.
    * @default true
@@ -25,77 +46,116 @@ export interface UseDataScrollOverflowProps {
    * @default 0 - meaning the check will behave exactly at the edge.
    */
   offset?: number;
+  /**
+   * List of dependencies to update the overflow check.
+   */
+  updateDeps?: any[];
+  /**
+   * Callback to be called when the overflow state changes.
+   *
+   * @param visibility ScrollOverflowVisibility
+   */
+  onVisibilityChange?: (overflow: ScrollOverflowVisibility) => void;
 }
 
 export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
-  const {domRef, isEnabled = true, overflowCheck = "vertical", offset = 0} = props;
+  const {
+    domRef,
+    isEnabled = true,
+    overflowCheck = "vertical",
+    visibility = "auto",
+    offset = 0,
+    onVisibilityChange,
+    updateDeps = [],
+  } = props;
+
+  const visibleRef = useRef<ScrollOverflowVisibility>(visibility);
 
   useEffect(() => {
     const el = domRef?.current;
 
-    const checkOverflow = () => {
-      if (!el) return;
+    if (!el || !isEnabled) return;
 
-      // Vertical overflow
-      if (overflowCheck === "vertical" || overflowCheck === "both") {
-        const hasElementsAbove = el.scrollTop > offset;
-        const hasElementsBelow = el.scrollTop + el.clientHeight + offset < el.scrollHeight;
+    const setAttributes = (
+      direction: string,
+      hasBefore: boolean,
+      hasAfter: boolean,
+      prefix: string,
+      suffix: string,
+    ) => {
+      if (visibility === "auto") {
+        const both = `${prefix}${capitalize(suffix)}Scroll`;
 
-        if (hasElementsAbove && hasElementsBelow) {
-          el.dataset.topBottomScroll = "true";
-          el.removeAttribute("data-top-scroll");
-          el.removeAttribute("data-bottom-scroll");
+        if (hasBefore && hasAfter) {
+          el.dataset[both] = "true";
+          el.removeAttribute(`data-${prefix}-scroll`);
+          el.removeAttribute(`data-${suffix}-scroll`);
         } else {
-          el.dataset.topScroll = hasElementsAbove.toString();
-          el.dataset.bottomScroll = hasElementsBelow.toString();
-          el.removeAttribute("data-top-bottom-scroll");
+          el.dataset[`${prefix}Scroll`] = hasBefore.toString();
+          el.dataset[`${suffix}Scroll`] = hasAfter.toString();
+          el.removeAttribute(`data-${prefix}-${suffix}-scroll`);
+        }
+      } else {
+        const next =
+          hasBefore && hasAfter ? "both" : hasBefore ? prefix : hasAfter ? suffix : "none";
+
+        if (next !== visibleRef.current) {
+          onVisibilityChange?.(next as ScrollOverflowVisibility);
+          visibleRef.current = next as ScrollOverflowVisibility;
         }
       }
+    };
 
-      // Horizontal overflow
-      if (overflowCheck === "horizontal" || overflowCheck === "both") {
-        const hasElementsLeft = el.scrollLeft > offset;
-        const hasElementsRight = el.scrollLeft + el.clientWidth + offset < el.scrollWidth;
+    const checkOverflow = () => {
+      const directions = [
+        {type: "vertical", prefix: "top", suffix: "bottom"},
+        {type: "horizontal", prefix: "left", suffix: "right"},
+      ];
 
-        if (hasElementsLeft && hasElementsRight) {
-          el.dataset.leftRightScroll = "true";
-          el.removeAttribute("data-left-scroll");
-          el.removeAttribute("data-right-scroll");
-        } else {
-          el.dataset.leftScroll = hasElementsLeft.toString();
-          el.dataset.rightScroll = hasElementsRight.toString();
-          el.removeAttribute("data-left-right-scroll");
+      for (const {type, prefix, suffix} of directions) {
+        if (overflowCheck === type || overflowCheck === "both") {
+          const hasBefore = type === "vertical" ? el.scrollTop > offset : el.scrollLeft > offset;
+          const hasAfter =
+            type === "vertical"
+              ? el.scrollTop + el.clientHeight + offset < el.scrollHeight
+              : el.scrollLeft + el.clientWidth + offset < el.scrollWidth;
+
+          setAttributes(type, hasBefore, hasAfter, prefix, suffix);
         }
       }
     };
 
     const clearOverflow = () => {
-      if (!el) return;
-
-      el.removeAttribute("data-top-scroll");
-      el.removeAttribute("data-bottom-scroll");
-      el.removeAttribute("data-top-bottom-scroll");
-
-      el.removeAttribute("data-left-scroll");
-      el.removeAttribute("data-right-scroll");
-      el.removeAttribute("data-left-right-scroll");
+      ["top", "bottom", "topBottom", "left", "right", "leftRight"].forEach((attr) => {
+        el.removeAttribute(`data-${attr}-scroll`);
+      });
     };
 
-    if (isEnabled) {
-      // first check
-      checkOverflow();
+    // auto
+    checkOverflow();
+    el.addEventListener("scroll", checkOverflow);
 
-      el?.addEventListener("scroll", checkOverflow);
-    } else {
+    // controlled
+    if (visibility !== "auto") {
       clearOverflow();
+      if (visibility === "both") {
+        el.dataset.topBottomScroll = String(overflowCheck === "vertical");
+        el.dataset.leftRightScroll = String(overflowCheck === "horizontal");
+      } else {
+        el.dataset.topBottomScroll = "false";
+        el.dataset.leftRightScroll = "false";
+
+        ["top", "bottom", "left", "right"].forEach((attr) => {
+          el.dataset[`${attr}Scroll`] = String(visibility === attr);
+        });
+      }
     }
 
     return () => {
-      // Cleanup listener when component unmounts
-      el?.removeEventListener("scroll", checkOverflow);
+      el.removeEventListener("scroll", checkOverflow);
       clearOverflow();
     };
-  }, [isEnabled, overflowCheck, domRef]);
+  }, [...updateDeps, isEnabled, visibility, overflowCheck, onVisibilityChange, domRef]);
 }
 
 export type UseDataScrollOverflowReturn = ReturnType<typeof useDataScrollOverflow>;
