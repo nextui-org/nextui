@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-press",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Handles press interactions across mouse, touch, keyboard, and screen readers.",
   "keywords": [
     "use-aria-press"

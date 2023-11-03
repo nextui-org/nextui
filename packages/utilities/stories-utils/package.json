@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/stories-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A list of utilities for storybook' stories.",
   "keywords": [
     "stories-utils"
