@@ -203,14 +203,10 @@ import {useFilter} from "@react-aria/i18n";
 <Spacer y={4} />
 
 <CodeDemo
-  asIframe
   title="Fully Controlled"
-  resizeEnabled={false}
-  displayMode="visible"
+  showPreview={false}
   highlightedLines="63-64,67,69-71"
   files={autocompleteContent.fullyControlled}
-  previewHeight="420px"
-  iframeSrc="/examples/autocomplete/fully-controlled"
 />
 
 > **Note**: It is important to note that you don't have to control every single aspect of a `Autocomplete`. If you decide to only control a single property of the `Autocomplete`, be sure to provide the change handler for that prop as well e.g. controlling `selectedKey` would require `onSelectionChange`.
@@ -255,16 +251,11 @@ import {useAsyncList} from "@react-stately/data";
 <Spacer y={2} />
 
 <CodeDemo
-  asIframe
   typescriptStrict={true}
   title="Asynchronous Filtering"
-  hideWindowActions={true}
-  resizeEnabled={false}
-  displayMode="visible"
+  showPreview={false}
   highlightedLines="27-29,33"
   files={autocompleteContent.asyncFiltering}
-  previewHeight="400px"
-  iframeSrc="/examples/autocomplete/async-filtering"
 />
 
 ### Asynchronous Loading
@@ -288,16 +279,11 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 <Spacer y={2} />
 
 <CodeDemo
-  asIframe
+  showPreview={false}
   typescriptStrict={true}
   title="Asynchronous Loading"
-  hideWindowActions={true}
   highlightedLines="21-22,25,27"
-  resizeEnabled={false}
-  displayMode="visible"
   files={autocompleteContent.asyncLoadingItems}
-  previewHeight="400px"
-  iframeSrc="/examples/autocomplete/async-items-loading"
 />
 
 ### With Sections

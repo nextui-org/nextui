@@ -2,13 +2,14 @@
 
 import React, {useCallback, useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
-import {Skeleton} from "@nextui-org/react";
+import {Skeleton, Tab, Tabs} from "@nextui-org/react";
 import {useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 import WindowResizer, {WindowResizerProps} from "./window-resizer";
 
 import {GradientBoxProps} from "@/components/gradient-box";
+import {trackEvent} from "@/utils/va";
 
 const DynamicReactLiveDemo = dynamic(
   () => import("./react-live-demo").then((m) => m.ReactLiveDemo),
@@ -52,6 +53,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showEditor = true,
   showPreview = true,
   asIframe = false,
+  showTabs = true,
   resizeEnabled = true,
   hideWindowActions = false,
   showSandpackPreview = false,
@@ -160,10 +162,46 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     showOpenInCodeSandbox,
   ]);
 
+  const shouldRenderTabs = useMemo(() => {
+    if (!showTabs) return false;
+    if (!showPreview) return false;
+    if (!showEditor) return false;
+
+    return true;
+  }, [showTabs, showPreview, showEditor]);
+
   return (
     <div ref={ref} className="flex flex-col gap-2">
-      {previewContent}
-      {editorContent}
+      {shouldRenderTabs ? (
+        <Tabs
+          disableAnimation
+          aria-label="Code demo tabs"
+          classNames={{
+            panel: "pt-0",
+          }}
+          variant="underlined"
+          onSelectionChange={(tabKey) => {
+            trackEvent("CodeDemo - Selection", {
+              name: tabKey as string,
+              action: "tabChange",
+              category: "docs",
+              data: tabKey ?? "",
+            });
+          }}
+        >
+          <Tab key="preview" title="Preview">
+            {previewContent}
+          </Tab>
+          <Tab key="code" title="Code">
+            {editorContent}
+          </Tab>
+        </Tabs>
+      ) : (
+        <>
+          {previewContent}
+          {editorContent}
+        </>
+      )}
     </div>
   );
 };
