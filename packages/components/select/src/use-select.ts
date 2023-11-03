@@ -259,12 +259,19 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const hasPlaceholder = !!placeholder;
   const isInvalid = validationState === "invalid" || originalProps.isInvalid;
   const shouldLabelBeOutside =
-    labelPlacement === "outside-left" || (labelPlacement === "outside" && hasPlaceholder);
+    labelPlacement === "outside-left" ||
+    (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
   const isFilled =
-    state.isOpen || hasPlaceholder || !!state.selectedItems || !!startContent || !!endContent;
+    state.isOpen ||
+    hasPlaceholder ||
+    !!state.selectedItems ||
+    !!startContent ||
+    !!endContent ||
+    !!originalProps.isMultiline;
   const hasValue = !!state.selectedItems;
   const hasLabel = !!label;
+
   const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
@@ -308,6 +315,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "base",
       "data-filled": dataAttr(isFilled),
       "data-has-value": dataAttr(hasValue),
       "data-has-label": dataAttr(hasLabel),
@@ -324,6 +332,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ref: triggerRef,
+        "data-slot": "trigger",
         "data-open": dataAttr(state.isOpen),
         "data-disabled": dataAttr(originalProps?.isDisabled),
         "data-focus": dataAttr(isFocused),
@@ -388,6 +397,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getLabelProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "label",
       className: slots.label({
         class: clsx(classNames?.label, props.className),
       }),
@@ -399,6 +409,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getValueProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "value",
       className: slots.value({
         class: clsx(classNames?.value, props.className),
       }),
@@ -410,6 +421,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getListboxWrapperProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "listboxWrapper",
       className: slots.listboxWrapper({
         class: clsx(classNames?.listboxWrapper, props?.className),
       }),
@@ -422,6 +434,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     return {
       state,
       ref: listBoxRef,
+      "data-slot": "listbox",
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),
       }),
@@ -435,6 +448,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         state,
         triggerRef,
         ref: popoverRef,
+        "data-slot": "popover",
         scrollRef: listBoxRef,
         triggerType: "listbox",
         classNames: {
@@ -462,6 +476,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getSelectorIconProps = useCallback(
     () => ({
+      "data-slot": "selectorIcon",
       "aria-hidden": dataAttr(true),
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorIcon({class: classNames?.selectorIcon}),
@@ -473,6 +488,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "innerWrapper",
         className: slots.innerWrapper({
           class: clsx(classNames?.innerWrapper, props?.className),
         }),
@@ -485,6 +501,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "helperWrapper",
         className: slots.helperWrapper({
           class: clsx(classNames?.helperWrapper, props?.className),
         }),
@@ -498,6 +515,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         ...descriptionProps,
+        "data-slot": "description",
         className: slots.description({class: clsx(classNames?.description, props?.className)}),
       };
     },
@@ -508,6 +526,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "mainWrapper",
         className: slots.mainWrapper({
           class: clsx(classNames?.mainWrapper, props?.className),
         }),
@@ -521,6 +540,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         ...errorMessageProps,
+        "data-slot": "errorMessage",
         className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
       };
     },
@@ -531,6 +551,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         "aria-hidden": dataAttr(true),
+        "data-slot": "spinner",
         color: "current",
         size: "sm",
         ...spinnerProps,

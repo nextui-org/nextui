@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col",
+    base: ["group flex flex-col", "data-[has-helper=true]:mb-4"],
     label: [
       "absolute",
       "z-10",
@@ -61,7 +61,7 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
+    helperWrapper: "flex absolute -bottom-[calc(theme(fontSize.tiny)*1.5)] flex-col gap-1.5 px-1",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -128,7 +128,7 @@ const input = tv({
       sm: {
         label: "text-tiny",
         inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
-        input: "text-small",
+        input: "text-tiny",
         clearButton: "text-medium",
       },
       md: {
@@ -805,7 +805,7 @@ const input = tv({
       isMultiline: true,
       disableAnimation: false,
       class: {
-        input: "transition-height !duration-150 motion-reduce:transition-none",
+        input: "transition-height !duration-100 motion-reduce:transition-none",
       },
     },
   ],

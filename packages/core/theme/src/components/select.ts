@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: "group inline-flex flex-col relative w-full",
+    base: ["group inline-flex flex-col relative w-full", "data-[has-helper=true]:mb-4"],
     label: [
       "block",
       "absolute",
@@ -20,14 +20,14 @@ const select = tv({
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
-      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
+      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-unit-4 items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
     spinner: "absolute right-3",
     value: ["font-normal", "w-full", "text-left"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
-    helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
+    helperWrapper: "flex absolute -bottom-[calc(theme(fontSize.tiny)*1.5)] flex-col gap-1.5 px-1",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -97,7 +97,7 @@ const select = tv({
       sm: {
         label: "text-tiny",
         trigger: "h-unit-8 min-h-unit-8 px-2 rounded-small",
-        value: "text-small",
+        value: "text-tiny",
       },
       md: {
         trigger: "h-unit-10 min-h-unit-10 rounded-medium",
@@ -164,6 +164,7 @@ const select = tv({
     },
     isMultiline: {
       true: {
+        label: "relative",
         trigger: "!h-auto",
       },
       false: {
@@ -492,14 +493,14 @@ const select = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        trigger: "h-12 py-1.5 px-3",
+        trigger: "h-12 min-h-unit-12 py-1.5 px-3",
       },
     },
     {
       labelPlacement: "inside",
       size: "md",
       class: {
-        trigger: "h-14 py-2",
+        trigger: "h-14 min-h-unit-14 py-2",
       },
     },
     {
@@ -507,7 +508,7 @@ const select = tv({
       size: "lg",
       class: {
         label: "text-small",
-        trigger: "h-16 py-2.5 gap-0",
+        trigger: "h-16 min-h-unit-16 py-2.5 gap-0",
       },
     },
     //  labelPlacement=[inside, outside]
@@ -519,6 +520,7 @@ const select = tv({
     },
     {
       labelPlacement: "outside",
+      isMultiline: false,
       class: {
         base: "group relative justify-end",
         label: [
@@ -550,6 +552,7 @@ const select = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "sm",
       class: {
         label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]"],
@@ -558,6 +561,7 @@ const select = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -568,6 +572,7 @@ const select = tv({
     },
     {
       labelPlacement: "inside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -581,6 +586,7 @@ const select = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
@@ -591,6 +597,7 @@ const select = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -601,6 +608,7 @@ const select = tv({
     {
       labelPlacement: "inside",
       variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -613,6 +621,7 @@ const select = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "sm",
       class: {
         label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_5px)]"],
@@ -621,6 +630,7 @@ const select = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -631,6 +641,7 @@ const select = tv({
     {
       labelPlacement: "inside",
       variant: "underlined",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
@@ -643,6 +654,7 @@ const select = tv({
     {
       labelPlacement: "outside",
       size: "sm",
+      isMultiline: false,
       class: {
         label: [
           "left-2",
@@ -654,6 +666,7 @@ const select = tv({
     },
     {
       labelPlacement: "outside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
@@ -666,6 +679,7 @@ const select = tv({
     },
     {
       labelPlacement: "outside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
