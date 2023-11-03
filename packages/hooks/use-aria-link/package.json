@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-link",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "Internal hook to handle link a11y and events, this is based on react-aria link hook but without the onClick warning",
   "keywords": [
     "use-aria-link"

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/snippet",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "Display a snippet of copyable code for the command line.",
   "keywords": [
     "snippet"
@@ -36,9 +36,9 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",    
-    "@nextui-org/theme": ">=2.0.0",
-    "@nextui-org/system": ">=2.0.0"
+    "framer-motion": ">=4.0.0",
+    "@nextui-org/theme": ">=2.1.10",
+    "@nextui-org/system": ">=2.0.11"
   },
   "dependencies": {
     "@nextui-org/button": "workspace:*",

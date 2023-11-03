@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/pagination",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "The Pagination component allows you to display active page and navigate between multiple pages.",
   "keywords": [
     "pagination"
@@ -35,9 +35,9 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18",    
-    "@nextui-org/theme": ">=2.0.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.10",
+    "@nextui-org/system": ">=2.0.11"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",

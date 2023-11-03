@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/scroll-shadow",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "A component that applies top and bottom shadows when content overflows on scroll.",
   "keywords": [
     "scroll-shadow"
@@ -35,9 +35,9 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18",    
-    "@nextui-org/theme": ">=2.0.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.10",
+    "@nextui-org/system": ">=2.0.11"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
