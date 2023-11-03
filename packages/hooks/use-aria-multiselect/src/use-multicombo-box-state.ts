@@ -9,21 +9,21 @@ import {
 import {ComboBoxProps, MenuTriggerAction} from "@react-types/combobox";
 import {getChildNodes} from "@react-stately/collections";
 import {ListCollection} from "@react-stately/list";
-import {SelectState} from "@react-stately/select";
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {Key, useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useControlledState} from "@react-stately/utils";
 import {useMenuTriggerState} from "@react-stately/menu";
 
 import {useMultiSelectListState} from "./use-multiselect-list-state";
+import {MultiSelectState} from "./use-multiselect-state";
 
-type SingleSelectionKeys =
-  | "selectedKey"
-  | "defaultSelectedKey"
+type MultiSelectionKeys =
+  | "selectedKeys"
+  | "defaultSelectedKeys"
   | "onSelectionChange"
   | keyof MultipleSelection;
 
 export interface ComboBoxState<T>
-  extends Omit<SelectState<T>, SingleSelectionKeys>,
+  extends Omit<MultiSelectState<T>, MultiSelectionKeys>,
     MultipleSelection {
   /** The current value of the combo box input. */
   inputValue: string;
@@ -37,12 +37,14 @@ export interface ComboBoxState<T>
   toggle(focusStrategy?: FocusStrategy | null, trigger?: MenuTriggerAction): void;
   /** Resets the input value to the previously selected item's text if any and closes the menu.  */
   revert(): void;
+  /** Set the selected keys. */
+  setSelectedKeys(keys: Set<Key>): void;
 }
 
 type FilterFn = (textValue: string, inputValue: string) => boolean;
 
 export interface ComboBoxStateOptions<T>
-  extends Omit<ComboBoxProps<T>, "children" | SingleSelectionKeys>,
+  extends Omit<ComboBoxProps<T>, "children" | MultiSelectionKeys>,
     CollectionStateBase<T>,
     MultipleSelection {
   /** The contents of the collection. */
@@ -209,10 +211,15 @@ export function useMultiComboBoxState<T extends object>(
   let lastValue = useRef(inputValue);
   let resetInputValue = () => {
     // @ts-ignore
-    let itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
+    let itemText = collection.getItem(Array.from(selectedKeys)[0])?.textValue ?? "";
 
     lastValue.current = itemText;
-    setInputValue(itemText);
+
+    if (selectionMode === "multiple") {
+      setInputValue("");
+    } else {
+      setInputValue(itemText);
+    }
   };
 
   let lastSelectedKeys = useRef(props.selectedKeys ?? props.defaultSelectedKeys ?? null);
@@ -229,7 +236,8 @@ export function useMultiComboBoxState<T extends object>(
       (filteredCollection.size > 0 || allowsEmptyCollection) &&
       !triggerState.isOpen &&
       inputValue !== lastValue.current &&
-      menuTrigger !== "manual"
+      menuTrigger !== "manual" &&
+      selectionMode !== "multiple"
     ) {
       open(null, "input");
     }
@@ -263,10 +271,10 @@ export function useMultiComboBoxState<T extends object>(
       // If controlled, this is the application developer's responsibility.
       if (
         inputValue === "" &&
-        (props.inputValue === undefined || props.selectedKeys === undefined)
+        (props.inputValue === undefined || props.selectedKeys === undefined) &&
+        selectionMode !== "multiple"
       ) {
-        // @ts-ignore
-        setSelectedKeys(null);
+        setSelectedKeys([]);
       }
     }
 
@@ -279,10 +287,14 @@ export function useMultiComboBoxState<T extends object>(
       selectedKeys !== lastSelectedKeys.current
     ) {
       // @ts-ignore
-      let itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
+      let itemText = collection.getItem(Array.from(selectedKeys)[0])?.textValue ?? "";
 
       lastValue.current = itemText;
-      setInputValue(itemText);
+      if (selectionMode === "multiple") {
+        setInputValue("");
+      } else {
+        setInputValue(itemText);
+      }
     }
 
     // Update the inputValue if the selected item's text changes from its last tracked value.
@@ -290,7 +302,7 @@ export function useMultiComboBoxState<T extends object>(
     // Only reset if the user isn't currently within the field so we don't erroneously modify user input.
     // If inputValue is controlled, it is the user's responsibility to update the inputValue when items change.
     // @ts-ignore
-    let selectedItemText = collection.getItem(selectedKeys)?.textValue ?? "";
+    let selectedItemText = collection.getItem(Array.from(selectedKeys)[0])?.textValue ?? "";
 
     if (
       !isFocused &&
@@ -330,7 +342,7 @@ export function useMultiComboBoxState<T extends object>(
 
       // Stop menu from reopening from useEffect
       // @ts-ignore
-      let itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
+      let itemText = collection.getItem(Array.from(selectedKeys)[0])?.textValue ?? "";
 
       lastValue.current = itemText;
       closeMenu();
@@ -344,7 +356,7 @@ export function useMultiComboBoxState<T extends object>(
   const commitValue = () => {
     if (allowsCustomValue) {
       // @ts-ignore
-      const itemText = collection.getItem(selectedKeys[0])?.textValue ?? "";
+      const itemText = collection.getItem(Array.from(selectedKeys)[0])?.textValue ?? "";
 
       inputValue === itemText ? commitSelection() : commitCustomValue();
     } else {
@@ -357,10 +369,10 @@ export function useMultiComboBoxState<T extends object>(
     if (triggerState.isOpen && selectionManager.focusedKey != null) {
       // Reset inputValue and close menu here if the selected key is already the focused key. Otherwise
       // fire onSelectionChange to allow the application to control the closing.
-      if (selectedKeys === selectionManager.focusedKey) {
+      if (Array.isArray(selectedKeys) && selectedKeys.includes(selectionManager.focusedKey)) {
         commitSelection();
       } else {
-        setSelectedKeys(selectionManager.focusedKey);
+        setSelectedKeys([selectionManager.focusedKey]);
       }
     } else {
       commitValue();
