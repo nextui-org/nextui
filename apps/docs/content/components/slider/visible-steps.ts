@@ -6,6 +6,7 @@ export default function App() {
       <Slider   
         size="sm"
         step={0.1}
+        color="foreground"
         label="Temperature"
         showSteps={true} 
         maxValue={1} 
@@ -16,6 +17,7 @@ export default function App() {
       <Slider   
         size="md"
         step={0.1}
+        color="foreground"
         label="Temperature"
         showSteps={true} 
         maxValue={1} 
@@ -26,6 +28,7 @@ export default function App() {
       <Slider   
         size="lg"
         step={0.1}
+        color="foreground"
         label="Temperature"
         showSteps={true} 
         maxValue={1} 
