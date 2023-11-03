@@ -9,6 +9,7 @@ const autocomplete = tv({
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
     endContentWrapper: "relative flex h-full items-center -mr-2",
+    tagContainer: "flex flex-wrap gap-2",
     clearButton: [
       "text-medium",
       "translate-x-1",

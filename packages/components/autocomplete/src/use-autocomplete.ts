@@ -398,6 +398,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }),
   });
 
+  const getTagContainerProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.tagContainer({
+          class: clsx(classNames?.tagContainer, props?.className),
+        }),
+      };
+    },
+    [slots, classNames?.tagContainer],
+  );
+
   const getEndContentWrapperProps: PropGetter = (props: any = {}) => ({
     className: slots.endContentWrapper({
       class: clsx(classNames?.endContentWrapper, props?.className),
@@ -432,6 +444,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     getSelectorButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
+    getTagContainerProps,
   };
 }
 
