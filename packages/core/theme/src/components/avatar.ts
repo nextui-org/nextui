@@ -142,7 +142,7 @@ const avatar = tv({
       color: "primary",
       isBordered: true,
       class: {
-        base: "ring-focus",
+        base: "ring-primary",
       },
     },
     {
