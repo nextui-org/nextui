@@ -640,6 +640,16 @@ export const Required = {
   },
 };
 
+export const Multiple = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
+    placeholder: "Select animals",
+  },
+};
+
 export const Disabled = {
   render: Template,
 

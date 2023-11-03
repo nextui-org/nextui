@@ -4,7 +4,7 @@ import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nex
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {useComboBox} from "@react-aria/combobox";
-import {FilterFn, useComboBoxState} from "@react-stately/combobox";
+import {FilterFn} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
@@ -16,6 +16,8 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
+
+import {useMultiComboBoxState} from "../../../hooks/use-multi-combobox-state/src/index";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -101,6 +103,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  selectionMode?: "single" | "multiple";
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
@@ -134,6 +137,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     scrollShadowProps = {},
     listboxProps = {},
     selectorButtonProps = {},
+    selectionMode = "single",
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
@@ -147,11 +151,12 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
 
-  const state = useComboBoxState({
+  const state = useMultiComboBoxState({
     ...originalProps,
     children,
     menuTrigger,
     shouldCloseOnBlur,
+    selectionMode,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
     onOpenChange: (open, menuTrigger) => {
