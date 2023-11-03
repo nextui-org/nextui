@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.11
+
+### Patch Changes
+
+- [#1865](https://github.com/nextui-org/nextui/pull/1865) [`1fd5049f5`](https://github.com/nextui-org/nextui/commit/1fd5049f5a0b852862e8ca1816f1e83507fdd8b5) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix multiline select and inputs with description/errorMessage
+
 ## 2.1.10
 
 ### Patch Changes
