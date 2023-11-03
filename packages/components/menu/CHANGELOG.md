@@ -1,5 +1,21 @@
 # @nextui-org/menu
 
+## 2.0.12
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/divider@2.0.21
+  - @nextui-org/system@2.0.11
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/use-aria-press@2.0.1
+  - @nextui-org/use-is-mobile@2.0.6
+  - @nextui-org/aria-utils@2.0.11
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.0.11
 
 ### Patch Changes

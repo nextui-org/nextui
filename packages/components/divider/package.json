@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/divider",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": ". A separator is a visual divider between two groups of content",
   "keywords": [
     "divider"
@@ -35,8 +35,8 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18",    
-    "@nextui-org/theme": ">=2.0.0"
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.10"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
