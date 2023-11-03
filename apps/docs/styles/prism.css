@@ -148,6 +148,37 @@
 
 /**
   * ----------------------------------------
+  * Highlighter styles
+  * ----------------------------------------
+  */
+
+.token-line[data-inserted="true"] {
+  background: rgb(83, 180, 215, 0.15);
+}
+
+.token-line[data-inserted="true"]:before {
+  content: "+";
+  color: rgb(83, 180, 215);
+  position: absolute;
+  left: 5px;
+  top: 0;
+}
+
+.token-line[data-deleted="true"] {
+  background: rgb(178, 41, 78, 0.2);
+}
+
+.token-line[data-deleted="true"]:before {
+  content: "-";
+  color: rgb(178, 41, 78);
+  position: absolute;
+  left: 5px;
+  top: 0;
+}
+
+
+/**
+  * ----------------------------------------
   * Code snippet styles
   * ----------------------------------------
   */
@@ -191,3 +222,5 @@
 .token.language-javascript {
   @apply text-code-language-javascript;
 }
+
+

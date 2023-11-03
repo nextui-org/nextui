@@ -1,7 +1,7 @@
 ---
 title: "Introducing v2.2.0 🚀"
-description: "NextUI v2.2.0 is here with Client side router support, 3 new components including the Autocomplete, and more."
-date: "2023-11-03"
+description: "NextUI v2.2.0 is here! Dive into client-side router support, discover 3 new components including the Autocomplete, and more."
+date: "2023-11-04"
 image: "/blog/v2.2.0.jpg"
 tags: ["nextui", "autocomplete", "breadcrumbs", "client side router", "slider"]
 author:
@@ -11,143 +11,418 @@ author:
   avatar: "/avatars/junior-garcia.jpeg"
 ---
 
-import {selectContent} from "@/content/components/select";
-import {listboxContent} from "@/content/components/listbox";
-import {scrollShadowContent} from "@/content/components/scroll-shadow";
-
+import {autocompleteContent} from "@/content/components/autocomplete";
+import {sliderContent} from "@/content/components/slider";
+import {breadcrumbsContent} from "@/content/components/breadcrumbs";
 
 <img
-  src="/blog/v2.1.0.jpg"
+  src="/blog/v2.2.0_2x.jpg"
   width={700}
   height={350}
-  alt="NextUI v2"
+  alt="NextUI v2.2.0"
   className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
 />
 
-We are thrilled to announce the latest update to NextUI, version **2.1.0**! This release introduces some game-changing
-additions that many of you have eagerly been waiting for.
+We are excited to announce the latest update to NextUI, version **2.2.0**! This release introduces 3 new components,
+support for client-side routing, and more.
 
-First on the list is the highly-anticipated **Select** component. Fully customizable and beautifully designed, supports both single and
-multi-select modes and is accessible out of the box.
+## What's New in v2.2.0?
 
-But that's not all. We're also rolling out two more incredible components **Listbox** and **ScrollShadow**. The new
-**Listbox** allows you to make list manipulations more efficient and visually appealing. Meanwhile, the
-**ScrollShadow** component adds an elegant shadow effect to scrollable areas, enhancing the UI aesthetics while
-also improving usability.
+- [Client Side Routing](#client-side-routing) - Allows you to seamlessly incorporate client-side routers.
+- [Autocomplete](/docs/components/autocomplete) - Combines a text input with a listbox, allowing users to filter a list of options.
+- [Slider](/docs/components/slider) - Allows users to make selections from a range of values.
+- [Breadcrumbs](/docs/components/breadcrumbs) - Displays a hierarchy of links to the current page or resource in an application.
+- [Other Changes](#other-changes) - Includes styling improvements, accessibility and usability enhancements.
 
-## Select
+<Spacer y={4} />
 
-Creating a select component that is both accessible and customizable is a challenging task. We've spent a lot of time
+## Client Side Routing
+
+By default, links perform native browser navigation when they are interacted with. However, many apps and
+frameworks use client side routers to avoid a full page reload when navigating between pages.
+
+NextUI now natively supports client-side routing in components such as [Link](/docs/components/link), [Tabs](/docs/components/tabs),
+[Breadcrumbs](/docs/components/breadcrumbs), [Listbox](/docs/components/listbox), [Dropdown](/docs/components/dropdown) and many others offering
+the flexibility to be rendered as HTML links, allowing you to seamlessly incorporate client-side routers. See the [Routing](/docs/guide/routing) guide to
+learn how it set it up in your app.
+
+The `NextUIProvider` component configures all NextUI components within it to navigate using the
+client side router you provide.
+
+> **Note**: Client side routing is based on [React Aria Routing](https://react-spectrum.adobe.com/react-aria/routing.html).
+
+### Next.js Example
+
+- App Router
+
+  Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and add the
+  `useRouter` hook from `next/navigation`, it returns a router object that can be used to perform navigation.
+
+  ```tsx
+  // app/providers.tsx
+  "use client";
+
+  import {NextUIProvider} from "@nextui-org/react";
+
+  export function Providers({children}: {children: React.ReactNode}) {
+    const router = useRouter();
+
+    return <NextUIProvider navigate={router.push}>{children}</NextUIProvider>;
+  }
+  ```
+
+- Pages Router
+
+  Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the`useRouter` hook
+  from `next/router`, it returns a router object that can be used to perform navigation.
+
+  ```tsx
+  // pages/_app.tsx
+  import type {AppProps} from "next/app";
+  import {useRouter} from "next/router";
+  import {NextUIProvider} from "@nextui-org/react";
+
+  function MyApp({Component, pageProps}: AppProps) {
+    const router = useRouter();
+
+    return (
+      <NextUIProvider navigate={router.push}>
+        <Component {...pageProps} />
+      </NextUIProvider>
+    );
+  }
+
+  export default MyApp;
+  ```
+
+- Usage
+
+  Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`,
+  `Listbox` and `Dropdown` items to navigate between pages.
+
+  The [Link](/docs/components/link) component will also use the `navigate` function from the
+  `NextUIProvider` to navigate between pages.
+
+  ```jsx
+  import {
+    Tabs,
+    Tab,
+    Listbox,
+    ListboxItem,
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownItem,
+    Button,
+    Link,
+  } from "@nextui-org/react";
+
+  function App() {
+    return (
+      <>
+        <Tabs aria-label="Navigation">
+          <Tab key="home" href="/home">
+            Home
+          </Tab>
+          <Tab key="about" href="/about">
+            About
+          </Tab>
+        </Tabs>
+        <Listbox aria-label="Navigation">
+          <ListboxItem key="home" href="/home">
+            Home
+          </ListboxItem>
+          <ListboxItem key="about" href="/about">
+            About
+          </ListboxItem>
+        </Listbox>
+        <Dropdown>
+          <DropdownTrigger>
+            <Button>Open</Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Navigation">
+            <DropdownItem key="home" href="/home">
+              Home
+            </DropdownItem>
+            <DropdownItem key="about" href="/about">
+              About
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Link href="/home">Home</Link>
+        <Link href="/about">About</Link>
+      </>
+    );
+  }
+  ```
+
+<Spacer y={4} />
+
+## Autocomplete
+
+Creating an autocomplete component that is both accessible and customizable is a challenging task. We've spent a lot of time
 researching and testing different approaches to come up with a solution that works for everyone. The result is a
 component that is easy to use, fully accessible, and highly customizable.
 
-The new **Select** component includes:
+The new **Autocomplete** component includes:
 
 - Support for selecting a single option.
-- Support for selecting multiple options.
 - Support for disabled options.
-- Support for sections.
-- Labeling support for accessibility.
-- Exposed to assistive technology as a button with a listbox popup using ARIA (combined with [Listbox](/docs/components/listbox)).
+- Support for groups of items in sections.
+- Support for filtering a list of options by typing.
+- Support for controlled and uncontrolled options, selection and input value.
+- Support for custom filter functions.
+- Async loading and infinite scrolling support.
+- Required and invalid states exposed to assistive technology via ARIA.
 - Support for description and error message help text linked to the input via ARIA.
-- Support for mouse, touch, and keyboard interactions.
-- Tab stop focus management.
-- Asynchronous options loading.
-- Keyboard support for opening the listbox using the arrow keys, including automatically focusing the first or last item accordingly.
-- Typeahead to allow selecting options by typing text, even without opening the listbox.
-- Browser autofill integration via a hidden native `<select>` element.
-- Support for mobile form navigation via software keyboard.
-- Mobile screen reader listbox dismissal support.
 - And much more...
 
-### Single Select
+We recommend to read this [Blog post](https://react-spectrum.adobe.com/blog/building-a-combobox.html) from [react-aria](https://react-spectrum.adobe.com/react-aria) team to learn more
+about the Autocomplete component.
 
-The single select component is used to select a single option from a list of options. It is a combination of a button
-and a listbox. The button displays the currently selected option and the listbox displays the available options.
+### Usage
 
-<CodeDemo title="Usage" files={selectContent.usage} />
+<CodeDemo title="Usage" files={autocompleteContent.usage} />
 
-### Multiple Select
+### Custom Items
 
-The multiple select component can be used to select multiple options from a list of options.
+You can customize the autocomplete items by modifying the `AutocompleteItem` children.
 
-You only need to pass the `selectionMode="multiple"` prop to the `Select` component.
-
-<CodeDemo title="Multiple Selection" files={selectContent.multiple} />
-
-### Multiple Variants
-
-The select component comes with multiple variants.
-
-<CodeDemo title="Variants" files={selectContent.variants} />
-
-
-### Chips Support
-
-The select component is flexible and allows you to render any component as an option and as a selected option.
-
-<CodeDemo title="Multiple Selection with Chips" files={selectContent.multipleWithChips} />
-
+<CodeDemo title="Custom Items" files={autocompleteContent.customItems} />
 
 ### Customizable
 
-The select component is highly customizable, you can customize the selected option, the options, the listbox,
-the popover and the scrollable area.
+The autocomplete component is highly customizable, you can customize the popover, listbox and
+input components.
 
-<CodeDemo title="Custom Styles" files={selectContent.customStyles} />
+<CodeDemo title="Custom Styles" files={autocompleteContent.customStyles} />
 
+Go to the [Autocomplete](/docs/components/autocomplete) component page to learn more about it.
 
-Go to the [Select](/docs/components/select) component page to learn more about sizes, colors, and more.
+<Spacer y={4} />
 
+## Slider
 
-## Listbox
-
-The listbox component allows you to make list manipulations more efficient and visually appealing.
-
-The new **Listbox** component includes:
-
-- Support for single, multiple, or no selection.
-- Exposed to assistive technology as a `listbox` using ARIA.
-- Support for disabled items.
-- Support for sections.
-- Labeling support for accessibility.
-- Support for mouse, touch, and keyboard interactions.
-- Tab stop focus management.
-- Keyboard navigation support including arrow keys, home/end, page up/down, select all, and clear.
-- Automatic scrolling support during keyboard navigation.
-- Typeahead to allow focusing options by typing text.
-
+The **Slider** component allows users to make selections from a range of values. It is a great way to allow users to
+select a value from a fixed range, such as volume or temperature, or to select a value from a range that changes
+frequently, such as stock prices or budgets.
 
 ### Usage
 
-<CodeDemo title="Usage" files={listboxContent.usage} />
+<CodeDemo title="Usage" files={sliderContent.usage} />
 
-### Custom Styles
+### Range Support
 
-The Listbox components offers multiple customization options. 
+If you pass an array of values to the `value` prop or to the `defaultValue` prop, the slider will become a range slider.
 
-<CodeDemo title="Custom Styles" files={listboxContent.customStyles} />
+<CodeDemo title="Range Slider" files={sliderContent.range} />
 
-> **Note**: In the above example, we've utilized the [Boxicons](https://boxicons.com/) icons collection.
+### With Tooltip
 
-Go to the [Listbox](/docs/components/listbox) component page to learn more about it.
+The slider component also supports a tooltip to display the current value.
 
+<CodeDemo title="With Tooltip" files={sliderContent.tooltip} />
 
-## ScrollShadow
+### Slider steps
 
-The ScrollShadow component gives a nice shadow effect to scrollable areas. These shadows are handled by using
-the CSS `mask-image` property, which makes the shadows adapt to the background color.
+You can use the `showSteps` prop to display small dots on each step.
+
+<CodeDemo title="With Visible Steps" files={sliderContent.visibleSteps} />
+
+### Slider Custom Styles
+
+You can customize the `Slider` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={sliderContent.customStyles} />
+
+Go to the [Slider](/docs/components/slider) component page to learn more about it.
+
+<Spacer y={4} />
+
+## Breadcrumbs
+
+The **Breadcrumbs** is an essential component for navigating hierarchical content. It displays a hierarchy of links to the
+current page or resource in an application.
 
 ### Usage
 
-<CodeDemo title="Usage" files={scrollShadowContent.usage} />
+<CodeDemo title="Usage" files={breadcrumbsContent.usage} />
 
-You can hide the scrollbars, customize the shadows size, change the orientation, and more.
+### Breadcrumbs as menu
 
-Go to the [ScrollShadow](/docs/components/scroll-shadow) component page to learn more about it.
+It is possible to use the `Breadcrumbs` component as a horizontal menu. This is useful when you want to display a list
+of possible navigations and let the user choose one of them.
 
+<CodeDemo title="Menu Type" files={breadcrumbsContent.menuType} />
 
-<Spacer y={6}/>
+### Start & End Content support
+
+You can add any element to the start or end of the breadcrumbs by using the `startContent` and `endContent` props. The
+above example uses the `startContent` prop to add icons to the start of the breadcrumbs.
+
+<CodeDemo title="Start & End Content" files={breadcrumbsContent.startEndContent} />
+
+### Collapsing Items support
+
+The `Breadcrumbs` component supports collapsing items, it is useful when you have a lot of items and you want to
+collapse them into a dropdown menu.
+
+<CodeDemo title="Customizing the Ellipsis Item" files={breadcrumbsContent.customizingEllipsis} />
+
+### Apllying custom styles
+
+You can customize the `Breadcrumbs` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={breadcrumbsContent.customStyles} />
+
+<Spacer y={4} />
+
+Go to the [Breadcrumbs](/docs/components/breadcrumbs) component page to learn more about it.
+
+## Other Changes
+
+- Styling Improvements:
+
+  - Transitioned spacing units from pixels (px) to rem units to optimize mobile component sizing.
+  - Introduced a new `shouldSelectOnPressUp` property for `Tabs/Tab` with a default value of true, allowing tab selection on press-up instead of press-down.
+  - Updated Chip component's font size to text-tiny for the sm size variant.
+  - Enhanced the Button component to display only the spinner during loading when it contains an icon.
+
+- Accessibility and Usability Enhancements:
+
+  - Resolved Popover component's open state issues for blur/opaque backdrops.
+  - Enhanced the ScrollShadow API, introducing visibility and onVisibilityChange properties to manage shadow visibility.
+  - Added `emptyContent`, `topContent`, and `bottomContent` properties to Listbox/Menu/Dropdown for customized content rendering.
+  - Introduced baseRef to the Input component, allowing control over the parent element's reference.
+  - Upgraded tailwind-variants to version `0.1.18`, incorporating slot props control.
+
+- Right-to-Left (RTL) Support:
+
+  - Implemented RTL support for Accordion,
+  - Implemented RTL support for Accordion Avatar & AvatarGroup components,
+  - Implemented RTL support for ButtonGroup.
+
+- Custom Implementations and Fixes:
+
+  - Implemented a custom `usePress` hook to address the corner press issue, with a corresponding pull request and issue submitted to the react-aria project.
+  - Applied the custom `usePress` across all NextUI interactive components for consistent behavior.
+  - Improved animations and positioning for Input & Select labels.
+  - Upgraded `react-aria` packages and `framer-motion` for enhanced performance.
+  - Enhanced TypeScript support for generic items in Menu and DropdownMenu.
+  - Streamlined package dependencies to exclude globally or individually installed packages, reducing bundle sizes.
+
+- Visual and Interactive Tweaks:
+
+  - Removed the outline on Input focus-visible for a cleaner aesthetic.
+  - Fixed the radius property issue in `ButtonGroup`.
+  - Introduced the `isActive` prop for `NavbarMenuItem` for active state management.
+  - Corrected the Pagination custom-items example by adding the key prop.
+  - Enabled Collection Items support within the `extendVariants` function.
+  - Added transitions to menu/listbox items for smoother interaction.
+  - Added a `disableAutosize` property to `Textarea` to control auto-resizing.
+  - Resolved styling issues in Textarea and animated height adjustments for a fluid user experience.
+  - Included a `hoverOpacity` key in the themes object within the plugin for customized hover effects.
+  - Implemented a hover effect for the Button component to enhance user interaction feedback.
+
+<Spacer y={4} />
+
+## Breaking Changes
+
+Unfortunately, we had to make some small styles breaking changes in this release to improve the [Popover](/docs/components/popover) arrow
+dynamic positioning. Instead of having a specific slot for the popover arrow, we now use the `before` pseudo element, this allows the
+popover to also move the arrow altogether.
+
+This change impacts the Popover, Dropdown, Tooltip and Select implementations.
+
+Popover changes:
+
+```diff-jsx
+  <Popover
+      showArrow
+      backdrop="opaque"
+      placement="right"
+      classNames={{
+-        base: "py-3 px-4 border border-default-200 bg-gradient-to-br from-white to-default-300 dark:from-default-100 dark:to-default-50",
+-        arrow: "bg-default-200",
++        base: [
++          // the "before" pseudo element is now the popover' arrow
++          "before:bg-default-200"
++        ],
++        content: [ // now we need to use the "content" slot to actually modify the popover' content styles
++          "py-3 px-4 border border-default-200",
++          "bg-gradient-to-br from-white to-default-300",
++          "dark:from-default-100 dark:to-default-50",
+        ],
+      }}
+    >
+      ...
+  </Popover>
+```
+
+Tooltip changes:
+
+```diff-jsx
+ <Tooltip
+      showArrow
+      placement="right"
+      content="I am a tooltip"
+      classNames={{
+-        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-neutral-400",
+-        arrow: "bg-neutral-400 dark:bg-white",
++        base: [
++          // the "before" pseudo element is now the popover' arrow
++          "before:bg-neutral-400 dark:before:bg-white",
++        ],
++        content: [ // now we need to use the "content" slot to actually modify the popover' content styles
++          "py-2 px-4 shadow-xl",
++          "text-black bg-gradient-to-br from-white to-neutral-400",
++        ],
+      }}
+    >
+      <Button variant="flat">Hover me</Button>
+  </Tooltip>
+```
+
+Select changes:
+
+```diff-jsx
+ <Select
+      items={users}
+      label="Assigned to"
+      className="max-w-xs"
+      variant="bordered"
+      popoverProps={{
+        classNames: {
+-          base: "p-0 border-small border-divider bg-background",
+-          arrow: "bg-default-200",
++          base: "before:bg-default-200", // the before pseudo element controls the popover's arrow
++          content: "p-0 border-small border-divider bg-background", // now instead of the "base" slot we use the "content" slot
+        },
+      }}
+    >
+     ...
+    </Select>
+  );
+}`;
+```
+
+Dropdown Changes
+
+```diff-jsx
+    <Dropdown
+      showArrow
+      classNames={{
+-        base: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
+-        arrow: "bg-default-200",
++        content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",  // now instead of the "base" slot we use the "content"
++        base: "before:bg-default-200",  // the before pseudo element controls the popover's arrow
+      }}
+    >
+      ...
+    </Dropdown>
+```
+
+<Spacer y={6} />
 
 We hope you enjoy these new components and the new features. We're excited to see what you build with them!
 

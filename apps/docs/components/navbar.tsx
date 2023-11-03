@@ -247,7 +247,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               as={NextLink}
               className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
               color="secondary"
-              href="/blog/v2.1.0"
+              href="/blog/v2.2.0"
               variant="dot"
               onClick={() => handlePressNavbarItem("Introducing v2.2.0", "/blog/v2.2.0")}
             >

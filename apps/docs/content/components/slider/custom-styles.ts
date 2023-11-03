@@ -7,7 +7,7 @@ export default function App() {
       step={100} 
       maxValue={1000} 
       minValue={0} 
-      defaultValue={[100, 300]}
+      defaultValue={[0, 800]}
       showSteps={true}
       showTooltip={true}
       showOutline={true}

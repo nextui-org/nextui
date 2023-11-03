@@ -212,7 +212,10 @@ import {
   Listbox,
   ListboxItem,
   Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
   DropdownItem,
+  Button,
   Link,
 } from "@nextui-org/react";
 
@@ -227,9 +230,14 @@ function App() {
         <ListboxItem key="home" href="/home">Home</ListboxItem>
         <ListboxItem key="about" href="/about">About</ListboxItem>
       </Listbox>
-      <Dropdown aria-label="Navigation">
-        <DropdownItem key="home" href="/home">Home</DropdownItem>
-        <DropdownItem key="about" href="/about">About</DropdownItem>
+      <Dropdown>
+        <DropdownTrigger>
+          <Button>Open</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Navigation">
+          <DropdownItem key="home" href="/home">Home</DropdownItem>
+          <DropdownItem key="about" href="/about">About</DropdownItem>
+        </DropdownMenu>
       </Dropdown>
       <Link href="/home">Home</Link>
       <Link href="/about">About</Link>

@@ -1,5 +1,5 @@
 import React, {forwardRef, useEffect} from "react";
-import {clsx, getUniqueID} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
 import {debounce} from "lodash";
 
@@ -11,12 +11,14 @@ interface CodeblockProps {
   codeString: string;
   metastring?: string;
   theme?: PrismTheme;
+  children?: React.ReactNode;
   showLines?: boolean;
   removeIndent?: boolean;
   hideScrollBar?: boolean;
   className?: string;
-  children?: (props: any) => React.ReactNode;
 }
+
+type HighlightStyle = "inserted" | "deleted" | undefined;
 
 const RE = /{([\d,-]+)}/;
 
@@ -64,6 +66,32 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
 
     const lastSelectionText = React.useRef<string | null>(null);
 
+    const isDiff = language.includes("diff");
+
+    const codeLang = isDiff ? (language.split("-")[1] as Language) : language;
+
+    let highlightStyle: HighlightStyle[] = [];
+
+    if (isDiff) {
+      let code: string[] = [];
+
+      highlightStyle = codeString.split?.("\n").map((line) => {
+        if (line.startsWith("+")) {
+          code.push(line.substr(1));
+
+          return "inserted";
+        }
+        if (line.startsWith("-")) {
+          code.push(line.substr(1));
+
+          return "deleted";
+        }
+        code.push(line);
+      });
+
+      codeString = code.join("\n");
+    }
+
     useEffect(() => {
       const handleSelectionChange = () => {
         if (!window.getSelection) return;
@@ -105,7 +133,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
       <BaseHighlight
         {...defaultProps}
         code={codeString}
-        language={language}
+        language={codeLang}
         theme={theme}
         {...props}
       >
@@ -138,6 +166,8 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                           shouldHighlightLine(i),
                       },
                     )}
+                    data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
+                    data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
                   >
                     {showLines && (
                       <span className="select-none text-xs mr-6 opacity-30">{i + 1}</span>
