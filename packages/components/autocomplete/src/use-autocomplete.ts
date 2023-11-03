@@ -111,9 +111,16 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 
 export type UseAutocompleteProps<T> = Props<T> &
   Omit<InputProps, "children" | "value" | "defaultValue" | "classNames"> &
-  ComboBoxProps<T> &
+  Omit<ComboBoxProps<T>, "onSelectionChange"> &
   AsyncLoadable &
-  AutocompleteVariantProps;
+  AutocompleteVariantProps & {
+    /**
+     * Callback fired when the selection changes.
+     * @param keys The new selected keys. as Selection
+     * @returns void
+     */
+    onSelectionChange?: (keys: Selection) => any | undefined;
+  };
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
@@ -192,7 +199,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         ref: inputRef,
         wrapperRef: inputWrapperRef,
         onClick: () => {
-          if (!state.isOpen && !!state.selectedItem) {
+          if (!state.isOpen && !!state.selectedItems) {
             state.open();
           }
         },
@@ -270,7 +277,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // unfocus the input when the popover closes & there's no selected item & no allows custom value
   useEffect(() => {
-    if (!isOpen && !state.selectedItem && inputRef.current && !allowsCustomValue) {
+    if (!isOpen && !state.selectedItems && inputRef.current && !allowsCustomValue) {
       inputRef.current.blur();
     }
   }, [isOpen, allowsCustomValue]);
@@ -302,7 +309,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   const onClear = useCallback(() => {
     state.setInputValue("");
-    state.setSelectedKey(null);
+    state.setSelectedKeys(new Set());
   }, [state]);
 
   const onFocus = useCallback(
@@ -336,7 +343,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
 
-        if (state.selectedItem) {
+        if (state.selectedItems) {
           onClear();
         } else {
           const inputFocused = inputRef.current === document.activeElement;
@@ -345,7 +352,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           !inputFocused && onFocus(true);
         }
       },
-      "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
+      "data-visible": !!state.selectedItems || state.inputValue?.length > 0,
       className: slots.clearButton({
         class: clsx(classNames?.clearButton, slotsProps.clearButtonProps?.className),
       }),

@@ -364,8 +364,8 @@ const ItemStartContentTemplate = ({color, variant, ...args}: AutocompleteProps<A
 const ControlledTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => {
   const [value, setValue] = React.useState<Key>("cat");
 
-  const handleSelectionChange = (key: Key) => {
-    setValue(key);
+  const handleSelectionChange = (keys: Selection) => {
+    setValue(keys[0]);
   };
 
   return (
