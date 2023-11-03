@@ -1,5 +1,20 @@
 # @nextui-org/navbar
 
+## 2.0.23
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/system@2.0.11
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/use-aria-toggle-button@2.0.6
+  - @nextui-org/use-scroll-position@2.0.4
+  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.0.22
 
 ### Patch Changes
