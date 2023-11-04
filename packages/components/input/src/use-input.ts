@@ -211,9 +211,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...variantProps,
         isInvalid,
         isClearable,
-        labelPlacement,
       }),
-    [...Object.values(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
+    [...Object.values(variantProps), isInvalid, isClearable, hasStartContent],
   );
 
   const getBaseProps: PropGetter = useCallback(

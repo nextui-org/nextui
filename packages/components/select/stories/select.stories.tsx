@@ -642,6 +642,17 @@ export const WithDescription = {
   },
 };
 
+export const WithoutLabel = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: null,
+    "aria-label": "Select an animal",
+    placeholder: "Select an animal",
+  },
+};
+
 export const LabelPlacement = {
   render: LabelPlacementTemplate,
 

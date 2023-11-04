@@ -69,7 +69,7 @@ const defaultProps = {
 
 const Template = (args) => (
   <div className="w-full max-w-[240px]">
-    <Input {...args} size="sm" />
+    <Input {...args} />
   </div>
 );
 
@@ -482,6 +482,17 @@ export const ReadOnly = {
     defaultValue: "junior@nextui.org",
     variant: "bordered",
     isReadOnly: true,
+  },
+};
+
+export const WithoutLabel = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: null,
+    "aria-label": "Email",
+    placeholder: "Enter your email",
   },
 };
 

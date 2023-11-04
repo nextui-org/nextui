@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: ["group flex flex-col", "data-[has-helper=true]:mb-4"],
+    base: ["group flex relative flex-col", "data-[has-helper=true]:mb-4"],
     label: [
       "absolute",
       "z-10",
@@ -173,7 +173,7 @@ const input = tv({
       inside: {
         label: "text-tiny cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",
-        innerWrapper: "items-end",
+        innerWrapper: "group-data-[has-label=true]:items-end",
       },
     },
     fullWidth: {
