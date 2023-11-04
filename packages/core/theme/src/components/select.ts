@@ -547,7 +547,6 @@ const select = tv({
       size: ["sm", "md"],
       class: {
         label: "text-small",
-        input: "pt-4",
       },
     },
     {
@@ -556,7 +555,7 @@ const select = tv({
       size: "sm",
       class: {
         label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]"],
-        innerWrapper: "pt-4",
+        innerWrapper: "group-data-[has-label=true]:pt-4",
       },
     },
     {
@@ -567,7 +566,7 @@ const select = tv({
         label: [
           "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
         ],
-        innerWrapper: "pt-4",
+        innerWrapper: "group-data-[has-label=true]:pt-4",
       },
     },
     {
@@ -579,7 +578,7 @@ const select = tv({
           "text-medium",
           "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
         ],
-        innerWrapper: "pt-5",
+        innerWrapper: "group-data-[has-label=true]:pt-5",
       },
     },
     // inside & size & [faded, bordered]
