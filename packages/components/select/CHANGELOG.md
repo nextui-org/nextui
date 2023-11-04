@@ -1,5 +1,18 @@
 # @nextui-org/select
 
+## 2.1.14
+
+### Patch Changes
+
+- [#1869](https://github.com/nextui-org/nextui/pull/1869) [`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Select without label position fixed
+  - Input helperWrapper slot is now relative to its parent
+- Updated dependencies [[`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89)]:
+  - @nextui-org/theme@2.1.12
+  - @nextui-org/popover@2.1.10
+  - @nextui-org/listbox@2.1.11
+  - @nextui-org/scroll-shadow@2.1.10
+  - @nextui-org/spinner@2.0.20
+
 ## 2.1.13
 
 ### Patch Changes
