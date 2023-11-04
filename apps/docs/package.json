@@ -91,6 +91,7 @@
     "tailwind-variants": "^0.1.18",
     "unified": "^9.2.2",
     "unist-util-visit": "^4.1.2",
+    "usehooks-ts": "^2.9.1",
     "zustand": "^4.3.8"
   },
   "devDependencies": {

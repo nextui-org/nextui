@@ -1,12 +1,11 @@
 import {useMemo} from "react";
 import {SandpackFiles, SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
 import {useTheme} from "next-themes";
+import {useLocalStorage} from "usehooks-ts";
 
 import {HighlightedLines} from "./types";
 import {getHighlightedLines, getFileName} from "./utils";
 import {stylesConfig, postcssConfig, tailwindConfig, getHtmlFile, rootFile} from "./entries";
-
-import {useLocalStorage} from "@/hooks/use-local-storage";
 
 export interface UseSandpackProps {
   files?: SandpackFiles;

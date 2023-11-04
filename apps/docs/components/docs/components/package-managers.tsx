@@ -1,4 +1,6 @@
 import {Tabs, Tab, Snippet} from "@nextui-org/react";
+import {Key} from "react";
+import {useLocalStorage} from "usehooks-ts";
 
 import Codeblock from "./codeblock";
 
@@ -32,6 +34,22 @@ export interface PackageManagersProps {
 }
 
 export const PackageManagers = ({commands}: PackageManagersProps) => {
+  const [selectedManager, setSelectedManager] = useLocalStorage<PackageManagerName>(
+    "selectedPackageManager",
+    "npm",
+  );
+
+  const handleSelectionChange = (tabKey: Key) => {
+    trackEvent("PackageManagers - Selection", {
+      name: `${tabKey}`,
+      action: "tabChange",
+      category: "docs",
+      data: commands[tabKey as unknown as PackageManagerName] ?? "",
+    });
+
+    setSelectedManager(tabKey as PackageManagerName);
+  };
+
   return (
     <Tabs
       aria-label="NextUI installation commands"
@@ -39,15 +57,9 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
         base: "group mt-4",
         tabList: "h-10",
       }}
+      selectedKey={selectedManager}
       variant="underlined"
-      onSelectionChange={(tabKey) => {
-        trackEvent("PackageManagers - Selection", {
-          name: tabKey as string,
-          action: "tabChange",
-          category: "docs",
-          data: commands[tabKey as unknown as PackageManagerName] ?? "",
-        });
-      }}
+      onSelectionChange={handleSelectionChange}
     >
       {packageManagers.map(({name, icon}) => {
         if (!commands[name]) return null;
