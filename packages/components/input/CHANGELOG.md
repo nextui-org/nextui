@@ -1,5 +1,14 @@
 # @nextui-org/input
 
+## 2.1.11
+
+### Patch Changes
+
+- [#1869](https://github.com/nextui-org/nextui/pull/1869) [`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Select without label position fixed
+  - Input helperWrapper slot is now relative to its parent
+- Updated dependencies [[`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89)]:
+  - @nextui-org/theme@2.1.12
+
 ## 2.1.10
 
 ### Patch Changes
