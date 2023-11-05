@@ -59,6 +59,7 @@ Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't e
 'use client'
 
 import {NextUIProvider} from '@nextui-org/react';
+import {useRouter} from 'next/navigation'
 
 export function Providers({children}: { children: React.ReactNode }) {
   const router = useRouter();
@@ -105,8 +106,8 @@ from `next/router`, it returns a router object that can be used to perform navig
 ```tsx
 // pages/_app.tsx
 import type { AppProps } from 'next/app';
-import {useRouter} from 'next/router';
 import {NextUIProvider} from '@nextui-org/react';
+import {useRouter} from 'next/router';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
