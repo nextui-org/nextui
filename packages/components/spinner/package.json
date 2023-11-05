@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/spinner",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": "Loaders express an unspecified wait time or display the length of a process.",
   "keywords": [
     "loading",
@@ -38,7 +38,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.12"
+    "@nextui-org/theme": ">=2.1.0"
   },
   "dependencies": {
     "@nextui-org/system-rsc": "workspace:*",
