@@ -5,6 +5,7 @@ import {select, button} from "@nextui-org/theme";
 import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Chip} from "@nextui-org/chip";
+import {Button} from "@nextui-org/button";
 import {Selection} from "@react-types/shared";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {
@@ -211,17 +212,12 @@ const ControlledOpenTemplate = ({color, variant, ...args}: SelectProps<Animal>) 
         isOpen={isOpen}
         label="Favorite Animal"
         variant={variant}
+        onOpenChange={(open) => open !== isOpen && setIsOpen(open)}
         {...args}
       >
         {items}
       </Select>
-      <button
-        className={button({className: "max-w-fit"})}
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? "Close" : "Open"}
-      </button>
+      <Button onPress={() => setIsOpen(!isOpen)}>{isOpen ? "Close" : "Open"}</Button>
     </div>
   );
 };
