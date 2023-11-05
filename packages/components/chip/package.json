@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/chip",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "Chips help people enter information, make selections, filter content, or trigger actions.",
   "keywords": [
     "chip"
@@ -37,7 +37,7 @@
     "react": ">=18",
     "react-dom": ">=18",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/system": ">=2.0.12"
   },
   "dependencies": {
     "@nextui-org/shared-icons": "workspace:*",

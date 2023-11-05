@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/autocomplete",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.",
   "keywords": [
     "autocomplete"
@@ -38,7 +38,7 @@
     "react-dom": ">=18",
     "framer-motion": ">=4.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/system": ">=2.0.12"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",

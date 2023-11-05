@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/listbox",
-  "version": "2.1.11",
+  "version": "2.1.12",
   "description": "A listbox displays a list of options and allows a user to select one or more of them.",
   "keywords": [
     "listbox"
@@ -37,7 +37,7 @@
     "react": ">=18",
     "react-dom": ">=18",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/system": ">=2.0.12"
   },
   "dependencies": {
     "@nextui-org/react-utils": "workspace:*",
