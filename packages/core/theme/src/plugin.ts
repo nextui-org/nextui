@@ -23,6 +23,8 @@ import {baseStyles} from "./utils/classes";
 
 const DEFAULT_PREFIX = "nextui";
 
+const parsedColorsCache: Record<string, number[]> = {};
+
 // @internal
 const resolveConfig = (
   themes: ConfigThemes = {},
@@ -42,7 +44,7 @@ const resolveConfig = (
     colors: {},
   };
 
-  forEach(themes, ({extend, layout, colors}: ConfigTheme, themeName: string) => {
+  for (const [themeName, {extend, layout, colors}] of Object.entries(themes)) {
     let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
     const scheme = themeName === "light" || themeName === "dark" ? themeName : extend;
 
@@ -58,7 +60,7 @@ const resolveConfig = (
       : {};
 
     // flatten color definitions
-    const flatColors = flattenThemeObject(colors);
+    const flatColors = flattenThemeObject(colors) as Record<string, string>;
 
     const flatLayout = layout ? mapKeys(layout, (value, key) => kebabCase(key)) : {};
 
@@ -71,12 +73,16 @@ const resolveConfig = (
     /**
      * Colors
      */
-    forEach(flatColors, (colorValue, colorName) => {
+    for (const [colorName, colorValue] of Object.entries(flatColors)) {
       if (!colorValue) return;
 
       try {
-        // const [h, s, l, defaultAlphaValue] = parseToHsla(colorValue);
-        const [h, s, l, defaultAlphaValue] = Color(colorValue).hsl().round().array();
+        const parsedColor =
+          parsedColorsCache[colorValue] || Color(colorValue).hsl().round().array();
+
+        parsedColorsCache[colorValue] = parsedColor;
+
+        const [h, s, l, defaultAlphaValue] = parsedColor;
         const nextuiColorVariable = `--${prefix}-${colorName}`;
         const nextuiOpacityVariable = `--${prefix}-${colorName}-opacity`;
 
@@ -106,45 +112,46 @@ const resolveConfig = (
         // eslint-disable-next-line no-console
         console.log("error", error?.message);
       }
-    });
+    }
 
     /**
      * Layout
      */
-    forEach(flatLayout, (value, key) => {
+    for (const [key, value] of Object.entries(flatLayout)) {
       if (!value) return;
 
+      const layoutVariablePrefix = `--${prefix}-${key}`;
+
       if (typeof value === "object") {
-        forEach(value, (v, k) => {
-          const layoutVariable = `--${prefix}-${key}-${k}`;
+        for (const [nestedKey, nestedValue] of Object.entries(value)) {
+          const nestedLayoutVariable = `${layoutVariablePrefix}-${nestedKey}`;
 
-          resolved.utilities[cssSelector]![layoutVariable] = v;
-        });
-      } else if (key === "spacing-unit") {
-        const layoutVariable = `--${prefix}-${key}`;
-
-        // add the base unit "--spacing-unit: value"
-        resolved.utilities[cssSelector]![layoutVariable] = value;
-
-        const spacingScale = generateSpacingScale(Number(value));
-
-        // add the list of spacing units "--spacing-unit-[key]: value"
-        forEach(spacingScale, (v, k) => {
-          const layoutVariable = `--${prefix}-${key}-${k}`;
-
-          resolved.utilities[cssSelector]![layoutVariable] = v;
-        });
-      } else {
-        const layoutVariable = `--${prefix}-${key}`;
-
-        if (layoutVariable.includes("opacity") && typeof value === "number") {
-          value = value.toString().replace(/^0\./, ".");
+          resolved.utilities[cssSelector]![nestedLayoutVariable] = nestedValue;
         }
+      } else {
+        // Process base units and spacing scale
+        if (key === "spacing-unit") {
+          resolved.utilities[cssSelector]![layoutVariablePrefix] = value; // Add the base unit
 
-        resolved.utilities[cssSelector]![layoutVariable] = value;
+          const spacingScale = generateSpacingScale(Number(value));
+
+          for (const [scaleKey, scaleValue] of Object.entries(spacingScale)) {
+            const spacingVariable = `${layoutVariablePrefix}-${scaleKey}`;
+
+            resolved.utilities[cssSelector]![spacingVariable] = scaleValue;
+          }
+        } else {
+          // Handle opacity values and other singular layout values
+          const formattedValue =
+            layoutVariablePrefix.includes("opacity") && typeof value === "number"
+              ? value.toString().replace(/^0\./, ".")
+              : value;
+
+          resolved.utilities[cssSelector]![layoutVariablePrefix] = formattedValue;
+        }
       }
-    });
-  });
+    }
+  }
 
   return resolved;
 };
@@ -183,10 +190,11 @@ const corePlugin = (
           ...baseStyles(prefix),
         },
       });
+
       // add the css variables to "@layer utilities"
-      addUtilities({...resolved.utilities, ...utilities});
+      addUtilities({...resolved?.utilities, ...utilities});
       // add the theme as variant e.g. "[theme-name]:text-2xl"
-      resolved.variants.forEach((variant) => {
+      resolved?.variants.forEach((variant) => {
         addVariant(variant.name, variant.definition);
       });
     },
@@ -197,7 +205,7 @@ const corePlugin = (
           // @ts-ignore
           colors: {
             ...(addCommonColors ? commonColors : {}),
-            ...resolved.colors,
+            ...resolved?.colors,
           },
           scale: {
             "80": "0.8",
