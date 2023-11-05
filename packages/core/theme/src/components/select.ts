@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: ["group inline-flex flex-col relative w-full", "data-[has-helper=true]:mb-4"],
+    base: ["group inline-flex flex-col relative w-full"],
     label: [
       "block",
       "absolute",
@@ -27,7 +27,7 @@ const select = tv({
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
-    helperWrapper: "flex absolute -bottom-[calc(theme(fontSize.tiny)*1.5)] flex-col gap-1.5 px-1",
+    helperWrapper: "p-1 flex relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },

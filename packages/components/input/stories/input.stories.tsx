@@ -501,7 +501,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    description: "We'll never share your email with anyone else. ",
+    description: "We'll never share your email with anyone else.",
   },
 };
 
