@@ -2032,6 +2032,9 @@ importers:
       '@nextui-org/avatar':
         specifier: workspace:*
         version: link:../avatar
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
       '@nextui-org/chip':
         specifier: workspace:*
         version: link:../chip

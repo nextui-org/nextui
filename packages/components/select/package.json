@@ -60,6 +60,7 @@
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/system": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/chip": "workspace:*",

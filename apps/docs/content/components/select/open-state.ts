@@ -39,6 +39,7 @@ export default function App() {
         label="Favorite Animal"
         placeholder="Select an animal"
         defaultSelectedKeys={["cat"]}
+        onOpenChange={(open) => open !== isOpen && setIsOpen(open)}
         className="max-w-xs"
       >
         {animals.map((animal) => (
