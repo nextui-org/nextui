@@ -1,5 +1,19 @@
 # @nextui-org/select
 
+## 2.1.15
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies [[`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0)]:
+  - @nextui-org/scroll-shadow@2.1.11
+  - @nextui-org/listbox@2.1.12
+  - @nextui-org/popover@2.1.11
+  - @nextui-org/spinner@2.0.21
+  - @nextui-org/system@2.0.12
+  - @nextui-org/aria-utils@2.0.12
+
 ## 2.1.14
 
 ### Patch Changes
