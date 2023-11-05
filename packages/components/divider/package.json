@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.12"
+    "@nextui-org/theme": ">=2.1.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
