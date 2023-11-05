@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/card",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "Card is a container for text, photos, and actions in the context of a single subject.",
   "keywords": [
     "card"
@@ -38,7 +38,7 @@
     "react-dom": ">=18",
     "framer-motion": ">=4.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/system": ">=2.0.12"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",

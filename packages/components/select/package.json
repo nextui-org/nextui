@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/select",
-  "version": "2.1.14",
+  "version": "2.1.15",
   "description": "A select displays a collapsible list of options and allows a user to select one of them.",
   "keywords": [
     "select"
@@ -38,7 +38,7 @@
     "react-dom": ">=18",
     "framer-motion": ">=4.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/system": ">=2.0.12"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",

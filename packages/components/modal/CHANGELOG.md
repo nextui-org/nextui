@@ -1,5 +1,15 @@
 # @nextui-org/modal
 
+## 2.0.25
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies []:
+  - @nextui-org/system@2.0.12
+  - @nextui-org/framer-transitions@2.0.12
+
 ## 2.0.24
 
 ### Patch Changes
