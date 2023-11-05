@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: ["group flex relative flex-col", "data-[has-helper=true]:mb-4"],
+    base: "group flex flex-col",
     label: [
       "absolute",
       "z-10",
@@ -61,7 +61,7 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    helperWrapper: "flex absolute -bottom-[calc(theme(fontSize.tiny)*1.5)] flex-col gap-1.5 px-1",
+    helperWrapper: "p-1 flex relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
