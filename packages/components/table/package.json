@@ -37,7 +37,7 @@
     "react": ">=18",
     "react-dom": ">=18",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.12"
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/checkbox": "workspace:*",
