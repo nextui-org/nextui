@@ -39,4 +39,4 @@
 "@nextui-org/kbd": patch
 ---
 
-Peer dependecies updated to avoid the peer conflicts
+Peer dependencies updated to avoid the peer conflicts issue.
