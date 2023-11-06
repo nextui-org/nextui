@@ -130,7 +130,7 @@ const input = tv({
       sm: {
         label: "text-tiny",
         inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
-        input: "text-tiny",
+        input: "text-small",
         clearButton: "text-medium",
       },
       md: {
