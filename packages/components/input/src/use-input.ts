@@ -238,6 +238,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-elements": dataAttr(hasElements),
         "data-has-helper": dataAttr(hasHelper),
         "data-has-label": dataAttr(hasLabel),
+        "data-has-value": dataAttr(!isPlaceholderShown),
         ...focusWithinProps,
         ...props,
       };
