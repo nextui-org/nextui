@@ -25,7 +25,7 @@ const getFolderRoutes = (names = [], prefix = "") => {
     return {
       source: `/${name}`,
       destination: `/docs/${prefix}/${name}`,
-      permanent: false,
+      permanent: true,
     };
   });
 }
