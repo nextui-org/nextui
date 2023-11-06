@@ -20,6 +20,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     disableAnimation,
     selectorIcon = <ChevronDownIcon />,
     clearIcon = <CloseIcon />,
+    endContent,
     getBaseProps,
     getSelectorButtonProps,
     getInputProps,
@@ -44,7 +45,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
         {...getInputProps()}
         endContent={
           <div {...getEndContentWrapperProps()}>
-            <Button {...getClearButtonProps()}>{clearIcon}</Button>
+            {endContent || <Button {...getClearButtonProps()}>{clearIcon}</Button>}
             <Button {...getSelectorButtonProps()}>{selectorIcon}</Button>
           </div>
         }

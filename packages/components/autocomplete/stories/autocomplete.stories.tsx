@@ -277,6 +277,20 @@ const StartContentTemplate = ({color, variant, ...args}: AutocompleteProps) => (
   </Autocomplete>
 );
 
+const EndContentTemplate = ({color, variant, ...args}: AutocompleteProps) => (
+  <Autocomplete
+    className="max-w-xs"
+    color={color}
+    defaultSelectedKey={"cat"}
+    endContent={<PetBoldIcon className="text-xl" />}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {items}
+  </Autocomplete>
+);
+
 const DynamicTemplateWithDescriptions = ({color, variant, ...args}: AutocompleteProps<Animal>) => (
   <Autocomplete
     className="max-w-xs"
@@ -687,6 +701,14 @@ export const AsyncLoading = {
 
 export const StartContent = {
   render: StartContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const EndContent = {
+  render: EndContentTemplate,
 
   args: {
     ...defaultProps,

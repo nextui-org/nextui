@@ -65,6 +65,12 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    */
   inputProps?: Partial<InputProps>;
   /**
+   * Whether the clear button should be hidden.
+   * @default false
+   * @deprecated Use `isClearable` instead.
+   */
+  disableClearable?: boolean;
+  /**
    * Props to be passed to the selector button component.
    * @default { size: "sm", variant: "light", radius: "full", isIconOnly: true }
    */
@@ -104,7 +110,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "value" | "defaultValue" | "classNames"> &
+  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
   ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
@@ -112,6 +118,12 @@ export type UseAutocompleteProps<T> = Props<T> &
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
   const disableAnimation = originalProps.disableAnimation ?? false;
+
+  // TODO: Remove disableClearable prop in the next minor release.
+  const isClearable =
+    originalProps.disableClearable !== undefined
+      ? !originalProps.disableClearable
+      : originalProps.isClearable;
 
   const {
     ref,
@@ -127,6 +139,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearIcon,
     scrollRef: scrollRefProp,
     defaultFilter,
+    endContent,
     allowsEmptyCollection = true,
     shouldCloseOnBlur = true,
     popoverProps = {},
@@ -286,10 +299,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     () =>
       autocomplete({
         ...variantProps,
+        isClearable,
         disableAnimation,
         className,
       }),
-    [...Object.values(variantProps), disableAnimation, className],
+    [...Object.values(variantProps), isClearable, disableAnimation, className],
   );
 
   const onClear = useCallback(() => {
@@ -413,6 +427,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     isLoading,
     clearIcon,
     isOpen,
+    endContent,
+    isClearable,
     disableAnimation,
     allowsCustomValue,
     selectorIcon,

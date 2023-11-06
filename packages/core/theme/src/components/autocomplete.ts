@@ -24,11 +24,11 @@ const autocomplete = tv({
     selectorButton: "text-medium",
   },
   variants: {
-    disableClearable: {
-      true: {
+    isClearable: {
+      true: {},
+      false: {
         clearButton: "hidden",
       },
-      false: {},
     },
     disableAnimation: {
       true: {
@@ -47,7 +47,7 @@ const autocomplete = tv({
   },
   defaultVariants: {
     disableAnimation: false,
-    disableClearable: false,
+    isClearable: true,
     disableSelectorIconRotation: false,
   },
 });
