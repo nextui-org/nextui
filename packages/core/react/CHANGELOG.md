@@ -1,5 +1,50 @@
 # @nextui-org/react
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648), [`acba2cf8f`](https://github.com/nextui-org/nextui/commit/acba2cf8f5ba1526bd44c6851e0ed7fdc6c0b8ae), [`e728a8967`](https://github.com/nextui-org/nextui/commit/e728a8967b1775be6a919f3b6bd6fc2267cc002d), [`71807e883`](https://github.com/nextui-org/nextui/commit/71807e88317c40aadfeb134125be1def9d679956)]:
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/autocomplete@2.0.4
+  - @nextui-org/breadcrumbs@2.0.3
+  - @nextui-org/pagination@2.0.25
+  - @nextui-org/accordion@2.0.26
+  - @nextui-org/checkbox@2.0.25
+  - @nextui-org/dropdown@2.1.13
+  - @nextui-org/progress@2.0.24
+  - @nextui-org/skeleton@2.0.22
+  - @nextui-org/divider@2.0.23
+  - @nextui-org/listbox@2.1.13
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/snippet@2.0.28
+  - @nextui-org/spinner@2.0.22
+  - @nextui-org/tooltip@2.0.27
+  - @nextui-org/avatar@2.0.24
+  - @nextui-org/button@2.0.24
+  - @nextui-org/navbar@2.0.25
+  - @nextui-org/ripple@2.0.24
+  - @nextui-org/select@2.1.16
+  - @nextui-org/slider@2.2.3
+  - @nextui-org/spacer@2.0.22
+  - @nextui-org/switch@2.0.24
+  - @nextui-org/badge@2.0.22
+  - @nextui-org/image@2.0.24
+  - @nextui-org/input@2.1.13
+  - @nextui-org/modal@2.0.26
+  - @nextui-org/radio@2.0.25
+  - @nextui-org/table@2.0.26
+  - @nextui-org/card@2.0.24
+  - @nextui-org/chip@2.0.24
+  - @nextui-org/code@2.0.22
+  - @nextui-org/link@2.0.25
+  - @nextui-org/menu@2.0.14
+  - @nextui-org/tabs@2.0.24
+  - @nextui-org/user@2.0.25
+  - @nextui-org/kbd@2.0.23
+  - @nextui-org/theme@2.1.13
+  - @nextui-org/system@2.0.13
+
 ## 2.2.3
 
 ### Patch Changes

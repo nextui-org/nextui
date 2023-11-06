@@ -1,5 +1,15 @@
 # @nextui-org/input
 
+## 2.1.13
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- [#1884](https://github.com/nextui-org/nextui/pull/1884) [`acba2cf8f`](https://github.com/nextui-org/nextui/commit/acba2cf8f5ba1526bd44c6851e0ed7fdc6c0b8ae) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Input, Textarea, Select, Autocomplete and Textarea helper wrapper styles fixed
+
+- [#1891](https://github.com/nextui-org/nextui/pull/1891) [`e728a8967`](https://github.com/nextui-org/nextui/commit/e728a8967b1775be6a919f3b6bd6fc2267cc002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Input/Autocomplete/Textarea/Select styles adapted to custom default color, label truncate added
+
 ## 2.1.12
 
 ### Patch Changes
