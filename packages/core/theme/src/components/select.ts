@@ -15,6 +15,8 @@ const select = tv({
       "text-small",
       "text-foreground-500",
       "pointer-events-none",
+      "opacity-70",
+      "group-data-[filled=true]:opacity-100",
     ],
     mainWrapper: "w-full flex flex-col",
     trigger:
@@ -23,7 +25,13 @@ const select = tv({
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-unit-4 items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
     spinner: "absolute right-3",
-    value: ["font-normal", "w-full", "text-left"],
+    value: [
+      "font-normal",
+      "w-full",
+      "text-left",
+      "opacity-70",
+      "group-data-[has-value=true]:opacity-100",
+    ],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -39,6 +47,8 @@ const select = tv({
           "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
+        label: "text-default-foreground",
+        value: "placeholder:text-default-foreground",
       },
       faded: {
         trigger: [
@@ -47,15 +57,20 @@ const select = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
+        label: "text-default-foreground",
+        value: "placeholder:text-default-foreground",
       },
       bordered: {
         trigger: [
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
-          "data-[open=true]:border-foreground",
-          "data-[focus=true]:border-foreground",
+          "data-[open=true]:border-default-foreground",
+          "data-[focus=true]:border-default-foreground",
+          "data-[focus=true]:border-default-foreground",
         ],
+        label: "text-foreground",
+        value: "placeholder:text-foreground",
       },
       underlined: {
         trigger: [
@@ -72,7 +87,7 @@ const select = tv({
           "after:content-['']",
           "after:w-0",
           "after:origin-center",
-          "after:bg-foreground",
+          "after:bg-default-foreground",
           "after:absolute",
           "after:left-1/2",
           "after:-translate-x-1/2",
@@ -81,11 +96,13 @@ const select = tv({
           "data-[open=true]:after:w-full",
           "data-[focus=true]:after:w-full",
         ],
+        label: "text-foreground",
+        value: "placeholder:text-foreground",
       },
     },
     color: {
       default: {
-        value: ["text-foreground-500", "group-data-[has-value=true]:text-foreground"],
+        label: "group-data-[filled=true]:opacity-80",
       },
       primary: {},
       secondary: {},
@@ -454,14 +471,6 @@ const select = tv({
         ],
       },
     },
-    // inside && default
-    {
-      labelPlacement: "inside",
-      color: "default",
-      class: {
-        label: "group-data-[filled=true]:text-foreground-600",
-      },
-    },
     // isInvalid & variant
     {
       isInvalid: true,
@@ -523,15 +532,7 @@ const select = tv({
       isMultiline: false,
       class: {
         base: "group relative justify-end",
-        label: [
-          "pb-0",
-          "z-20",
-          "opacity-60",
-          "top-1/2",
-          "-translate-y-1/2",
-          "group-data-[filled=true]:opacity-100",
-          "group-data-[filled=true]:left-0",
-        ],
+        label: ["pb-0", "z-20", "top-1/2", "-translate-y-1/2", "group-data-[filled=true]:left-0"],
       },
     },
     // labelPlacement=[inside]
@@ -687,6 +688,13 @@ const select = tv({
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
+      },
+    },
+    // text truncate labelPlacement=[inside,outside]
+    {
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
       },
     },
   ],

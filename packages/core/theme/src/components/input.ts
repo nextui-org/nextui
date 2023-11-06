@@ -33,15 +33,19 @@ const input = tv({
       "block",
       "text-small",
       "text-foreground-500",
+      "opacity-70",
+      "group-data-[filled-within=true]:opacity-100",
     ],
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex w-full items-center h-full box-border",
     input: [
+      "opacity-70",
       "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
+      "group-data-[has-value=true]:opacity-100",
     ],
     clearButton: [
       "p-2",
@@ -73,6 +77,8 @@ const input = tv({
           "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
+        input: "placeholder:text-default-foreground",
+        label: "text-default-foreground",
       },
       faded: {
         inputWrapper: [
@@ -81,14 +87,18 @@ const input = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
+        input: "placeholder:text-default-foreground",
+        label: "text-default-foreground",
       },
       bordered: {
         inputWrapper: [
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
-          "group-data-[focus=true]:border-foreground",
+          "group-data-[focus=true]:border-default-foreground",
         ],
+        input: "placeholder:text-foreground",
+        label: "text-foreground",
       },
       underlined: {
         inputWrapper: [
@@ -105,7 +115,7 @@ const input = tv({
           "after:content-['']",
           "after:w-0",
           "after:origin-center",
-          "after:bg-foreground",
+          "after:bg-default-foreground",
           "after:absolute",
           "after:left-1/2",
           "after:-translate-x-1/2",
@@ -114,10 +124,14 @@ const input = tv({
           "group-data-[focus=true]:after:w-full",
         ],
         innerWrapper: "pb-1",
+        input: "placeholder:text-foreground",
+        label: "text-foreground",
       },
     },
     color: {
-      default: {},
+      default: {
+        label: "group-data-[filled-within=true]:opacity-80",
+      },
       primary: {},
       secondary: {},
       success: {},
@@ -494,14 +508,6 @@ const input = tv({
         ],
       },
     },
-    // inside && default
-    {
-      labelPlacement: "inside",
-      color: "default",
-      class: {
-        label: "group-data-[filled-within=true]:text-foreground-600",
-      },
-    },
     // isInvalid & variant
     {
       isInvalid: true,
@@ -582,11 +588,9 @@ const input = tv({
         label: [
           "pb-0",
           "z-20",
-          "opacity-60",
           "top-1/2",
           "-translate-y-1/2",
           "group-data-[filled-within=true]:left-0",
-          "group-data-[filled-within=true]:opacity-100",
         ],
       },
     },
@@ -601,7 +605,6 @@ const input = tv({
     {
       labelPlacement: ["inside"],
       variant: "flat",
-      size: ["md", "lg"],
       class: {
         innerWrapper: "pb-0.5",
       },
@@ -806,6 +809,13 @@ const input = tv({
       disableAnimation: false,
       class: {
         input: "transition-height !duration-100 motion-reduce:transition-none",
+      },
+    },
+    // text truncate labelPlacement=[inside,outside]
+    {
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
       },
     },
   ],
