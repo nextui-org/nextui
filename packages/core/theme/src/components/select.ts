@@ -15,8 +15,6 @@ const select = tv({
       "text-small",
       "text-foreground-500",
       "pointer-events-none",
-      "opacity-70",
-      "group-data-[filled=true]:opacity-100",
     ],
     mainWrapper: "w-full flex flex-col",
     trigger:
@@ -25,13 +23,7 @@ const select = tv({
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-unit-4 items-center gap-1.5 box-border",
     selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
     spinner: "absolute right-3",
-    value: [
-      "font-normal",
-      "w-full",
-      "text-left",
-      "opacity-70",
-      "group-data-[has-value=true]:opacity-100",
-    ],
+    value: ["text-foreground-500", "font-normal", "w-full", "text-left"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -47,8 +39,6 @@ const select = tv({
           "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
-        label: "text-default-foreground",
-        value: "placeholder:text-default-foreground",
       },
       faded: {
         trigger: [
@@ -57,8 +47,7 @@ const select = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
-        label: "text-default-foreground",
-        value: "placeholder:text-default-foreground",
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       bordered: {
         trigger: [
@@ -69,8 +58,6 @@ const select = tv({
           "data-[focus=true]:border-default-foreground",
           "data-[focus=true]:border-default-foreground",
         ],
-        label: "text-foreground",
-        value: "placeholder:text-foreground",
       },
       underlined: {
         trigger: [
@@ -96,14 +83,11 @@ const select = tv({
           "data-[open=true]:after:w-full",
           "data-[focus=true]:after:w-full",
         ],
-        label: "text-foreground",
-        value: "placeholder:text-foreground",
+        label: "group-data-[filled=true]:text-foreground",
       },
     },
     color: {
-      default: {
-        label: "group-data-[filled=true]:opacity-80",
-      },
+      default: {},
       primary: {},
       secondary: {},
       success: {},
@@ -145,11 +129,10 @@ const select = tv({
     labelPlacement: {
       outside: {
         base: "flex flex-col",
-        label: "text-foreground pb-1.5",
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative text-foreground pr-2",
+        label: "relative pr-2 text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -228,6 +211,13 @@ const select = tv({
   },
   compoundVariants: [
     // flat & color
+    {
+      variant: "flat",
+      color: "default",
+      class: {
+        value: "group-data-[has-value=true]:text-default-foreground",
+      },
+    },
     {
       variant: "flat",
       color: "primary",
@@ -343,6 +333,14 @@ const select = tv({
       },
     },
     // underlined & color
+    // underlined & color
+    {
+      variant: "underlined",
+      color: "default",
+      class: {
+        value: "group-data-[has-value=true]:text-foreground",
+      },
+    },
     {
       variant: "underlined",
       color: "primary",
@@ -422,6 +420,22 @@ const select = tv({
       class: {
         trigger: ["data-[open=true]:border-danger", "data-[focus=true]:border-danger"],
         label: "text-danger",
+      },
+    },
+    // labelPlacement=outside & default
+    {
+      labelPlacement: "inside",
+      color: "default",
+      class: {
+        label: "group-data-[filled=true]:text-default-600",
+      },
+    },
+    // labelPlacement=outside & default
+    {
+      labelPlacement: "outside",
+      color: "default",
+      class: {
+        label: "group-data-[filled=true]:text-foreground",
       },
     },
     // radius-full & size

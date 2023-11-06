@@ -33,19 +33,15 @@ const input = tv({
       "block",
       "text-small",
       "text-foreground-500",
-      "opacity-70",
-      "group-data-[filled-within=true]:opacity-100",
     ],
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
     innerWrapper: "inline-flex w-full items-center h-full box-border",
     input: [
-      "opacity-70",
       "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
-      "group-data-[has-value=true]:opacity-100",
     ],
     clearButton: [
       "p-2",
@@ -77,8 +73,6 @@ const input = tv({
           "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
-        input: "placeholder:text-default-foreground",
-        label: "text-default-foreground",
       },
       faded: {
         inputWrapper: [
@@ -87,8 +81,7 @@ const input = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
-        input: "placeholder:text-default-foreground",
-        label: "text-default-foreground",
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       bordered: {
         inputWrapper: [
@@ -97,8 +90,6 @@ const input = tv({
           "data-[hover=true]:border-default-400",
           "group-data-[focus=true]:border-default-foreground",
         ],
-        input: "placeholder:text-foreground",
-        label: "text-foreground",
       },
       underlined: {
         inputWrapper: [
@@ -124,14 +115,11 @@ const input = tv({
           "group-data-[focus=true]:after:w-full",
         ],
         innerWrapper: "pb-1",
-        input: "placeholder:text-foreground",
-        label: "text-foreground",
+        label: "group-data-[filled-within=true]:text-foreground",
       },
     },
     color: {
-      default: {
-        label: "group-data-[filled-within=true]:opacity-80",
-      },
+      default: {},
       primary: {},
       secondary: {},
       success: {},
@@ -175,7 +163,6 @@ const input = tv({
     },
     labelPlacement: {
       outside: {
-        label: "text-foreground pb-1.5",
         mainWrapper: "flex flex-col",
       },
       "outside-left": {
@@ -211,7 +198,7 @@ const input = tv({
     isInvalid: {
       true: {
         label: "!text-danger",
-        input: "placeholder:text-danger text-danger",
+        input: "!placeholder:text-danger !text-danger",
       },
     },
     isRequired: {
@@ -257,6 +244,13 @@ const input = tv({
   },
   compoundVariants: [
     // flat & color
+    {
+      variant: "flat",
+      color: "default",
+      class: {
+        input: "group-data-[has-value=true]:text-default-foreground",
+      },
+    },
     {
       variant: "flat",
       color: "primary",
@@ -382,6 +376,13 @@ const input = tv({
     // underlined & color
     {
       variant: "underlined",
+      color: "default",
+      class: {
+        input: "group-data-[has-value=true]:text-foreground",
+      },
+    },
+    {
+      variant: "underlined",
       color: "primary",
       class: {
         inputWrapper: "after:bg-primary",
@@ -459,6 +460,22 @@ const input = tv({
       class: {
         inputWrapper: "group-data-[focus=true]:border-danger",
         label: "text-danger",
+      },
+    },
+    // labelPlacement=inside & default
+    {
+      labelPlacement: "inside",
+      color: "default",
+      class: {
+        label: "group-data-[filled-within=true]:text-default-600",
+      },
+    },
+    // labelPlacement=outside & default
+    {
+      labelPlacement: "outside",
+      color: "default",
+      class: {
+        label: "group-data-[filled-within=true]:text-foreground",
       },
     },
     // radius-full & size

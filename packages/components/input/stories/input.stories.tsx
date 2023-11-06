@@ -150,17 +150,27 @@ const LabelPlacementTemplate = (args) => (
     <div className="flex flex-col gap-3">
       <h3>Without placeholder</h3>
       <div className="w-full max-w-xl flex flex-row items-end gap-4">
-        <Input {...args} />
-        <Input {...args} labelPlacement="outside" />
-        <Input {...args} labelPlacement="outside-left" />
+        <Input {...args} description="inside" />
+        <Input {...args} description="outside" labelPlacement="outside" />
+        <Input {...args} description="outside-left" labelPlacement="outside-left" />
       </div>
     </div>
     <div className="flex flex-col gap-3">
       <h3>With placeholder</h3>
       <div className="w-full max-w-xl flex flex-row items-end gap-4">
-        <Input {...args} placeholder="Enter your email" />
-        <Input {...args} labelPlacement="outside" placeholder="Enter your email" />
-        <Input {...args} labelPlacement="outside-left" placeholder="Enter your email" />
+        <Input {...args} description="inside" placeholder="Enter your email" />
+        <Input
+          {...args}
+          description="outside"
+          labelPlacement="outside"
+          placeholder="Enter your email"
+        />
+        <Input
+          {...args}
+          description="outside-left"
+          labelPlacement="outside-left"
+          placeholder="Enter your email"
+        />
       </div>
     </div>
   </div>
