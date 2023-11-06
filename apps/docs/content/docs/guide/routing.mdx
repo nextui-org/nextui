@@ -54,7 +54,7 @@ Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't e
 
 #### Add the `useRouter`
 
-```tsx {10}
+```tsx {8}
 // app/providers.tsx
 'use client'
 
@@ -103,7 +103,7 @@ Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and ad
 from `next/router`, it returns a router object that can be used to perform navigation.
 
 
-```tsx
+```tsx {7}
 // pages/_app.tsx
 import type { AppProps } from 'next/app';
 import {NextUIProvider} from '@nextui-org/react';
@@ -129,7 +129,7 @@ The `useNavigate` hook from `react-router-dom` returns a `navigate` function tha
 Go to the `App` file commonly called `App.jsx` or `App.tsx`, add the `useNavigate` hook and pass the 
 `navigate` function to the `NextUIProvider`:
 
-```jsx {9}
+```jsx {6,9}
 // App.tsx or App.jsx
 import {BrowserRouter, useNavigate} from 'react-router-dom';
 import {NextUIProvider} from '@nextui-org/react';
