@@ -1,5 +1,19 @@
 # @nextui-org/autocomplete
 
+## 2.0.5
+
+### Patch Changes
+
+- [#1902](https://github.com/nextui-org/nextui/pull/1902) [`85a820eef`](https://github.com/nextui-org/nextui/commit/85a820eeffe5df87e7622b0983788eb50adafe20) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1893, `endContent` prop fixed.
+
+- Updated dependencies [[`6a6d426b1`](https://github.com/nextui-org/nextui/commit/6a6d426b10fa7f92dfb20611e261347027393193)]:
+  - @nextui-org/input@2.1.14
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/button@2.0.24
+  - @nextui-org/listbox@2.1.13
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.22
+
 ## 2.0.4
 
 ### Patch Changes

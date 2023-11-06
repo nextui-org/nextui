@@ -1,5 +1,12 @@
 # @nextui-org/input
 
+## 2.1.14
+
+### Patch Changes
+
+- [#1901](https://github.com/nextui-org/nextui/pull/1901) [`6a6d426b1`](https://github.com/nextui-org/nextui/commit/6a6d426b10fa7f92dfb20611e261347027393193) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Label position changed for Select and Input, this avoids to break the layout when having long descriptions and no placeholder
+  - Input/Select styles improved, label opacity removed
+
 ## 2.1.13
 
 ### Patch Changes
