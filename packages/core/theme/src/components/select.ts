@@ -98,7 +98,7 @@ const select = tv({
       sm: {
         label: "text-tiny",
         trigger: "h-unit-8 min-h-unit-8 px-2 rounded-small",
-        value: "text-tiny",
+        value: "text-small",
       },
       md: {
         trigger: "h-unit-10 min-h-unit-10 rounded-medium",
