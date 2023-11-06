@@ -1,5 +1,17 @@
 # @nextui-org/theme
 
+## 2.1.14
+
+### Patch Changes
+
+- [#1901](https://github.com/nextui-org/nextui/pull/1901) [`6a6d426b1`](https://github.com/nextui-org/nextui/commit/6a6d426b10fa7f92dfb20611e261347027393193) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Label position changed for Select and Input, this avoids to break the layout when having long descriptions and no placeholder
+
+  - Input/Select styles improved, label opacity removed
+
+- [#1902](https://github.com/nextui-org/nextui/pull/1902) [`85a820eef`](https://github.com/nextui-org/nextui/commit/85a820eeffe5df87e7622b0983788eb50adafe20) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1893, `endContent` prop fixed.
+
+- [#1905](https://github.com/nextui-org/nextui/pull/1905) [`11ef4365d`](https://github.com/nextui-org/nextui/commit/11ef4365dacf539001a39d596d2f60440bc0648b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Input/Select text size changed for sm size.
+
 ## 2.1.13
 
 ### Patch Changes
