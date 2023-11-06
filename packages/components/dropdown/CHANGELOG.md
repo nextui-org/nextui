@@ -1,5 +1,15 @@
 # @nextui-org/dropdown
 
+## 2.1.13
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/menu@2.0.14
+
 ## 2.1.12
 
 ### Patch Changes
