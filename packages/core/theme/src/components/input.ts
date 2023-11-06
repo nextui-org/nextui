@@ -198,7 +198,7 @@ const input = tv({
     isInvalid: {
       true: {
         label: "!text-danger",
-        input: "placeholder:text-danger text-danger",
+        input: "!placeholder:text-danger !text-danger",
       },
     },
     isRequired: {
