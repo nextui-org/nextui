@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.15
+
+### Patch Changes
+
+- [#1914](https://github.com/nextui-org/nextui/pull/1914) [`7f6218b97`](https://github.com/nextui-org/nextui/commit/7f6218b97860d267f5208134948dfeadd04505d1) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1910 multiline select fixed, style improved.
+
 ## 2.1.14
 
 ### Patch Changes

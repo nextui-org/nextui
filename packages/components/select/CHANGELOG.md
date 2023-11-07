@@ -1,5 +1,17 @@
 # @nextui-org/select
 
+## 2.1.18
+
+### Patch Changes
+
+- [#1914](https://github.com/nextui-org/nextui/pull/1914) [`7f6218b97`](https://github.com/nextui-org/nextui/commit/7f6218b97860d267f5208134948dfeadd04505d1) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1910 multiline select fixed, style improved.
+
+- Updated dependencies [[`135cc21e6`](https://github.com/nextui-org/nextui/commit/135cc21e6f0f2bee1f19e7e5799b6cea8179b7f5)]:
+  - @nextui-org/listbox@2.1.14
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.22
+
 ## 2.1.17
 
 ### Patch Changes

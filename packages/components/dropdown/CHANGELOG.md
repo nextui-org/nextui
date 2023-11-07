@@ -1,5 +1,13 @@
 # @nextui-org/dropdown
 
+## 2.1.14
+
+### Patch Changes
+
+- Updated dependencies [[`135cc21e6`](https://github.com/nextui-org/nextui/commit/135cc21e6f0f2bee1f19e7e5799b6cea8179b7f5)]:
+  - @nextui-org/menu@2.0.15
+  - @nextui-org/popover@2.1.12
+
 ## 2.1.13
 
 ### Patch Changes

@@ -1,5 +1,49 @@
 # @nextui-org/react
 
+## 2.2.6
+
+### Patch Changes
+
+- Updated dependencies [[`135cc21e6`](https://github.com/nextui-org/nextui/commit/135cc21e6f0f2bee1f19e7e5799b6cea8179b7f5), [`7f6218b97`](https://github.com/nextui-org/nextui/commit/7f6218b97860d267f5208134948dfeadd04505d1)]:
+  - @nextui-org/listbox@2.1.14
+  - @nextui-org/menu@2.0.15
+  - @nextui-org/select@2.1.18
+  - @nextui-org/theme@2.1.15
+  - @nextui-org/autocomplete@2.0.6
+  - @nextui-org/dropdown@2.1.14
+  - @nextui-org/accordion@2.0.26
+  - @nextui-org/avatar@2.0.24
+  - @nextui-org/badge@2.0.22
+  - @nextui-org/breadcrumbs@2.0.3
+  - @nextui-org/button@2.0.24
+  - @nextui-org/card@2.0.24
+  - @nextui-org/checkbox@2.0.25
+  - @nextui-org/chip@2.0.24
+  - @nextui-org/code@2.0.22
+  - @nextui-org/divider@2.0.23
+  - @nextui-org/image@2.0.24
+  - @nextui-org/input@2.1.14
+  - @nextui-org/kbd@2.0.23
+  - @nextui-org/link@2.0.25
+  - @nextui-org/modal@2.0.26
+  - @nextui-org/navbar@2.0.25
+  - @nextui-org/pagination@2.0.25
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/progress@2.0.24
+  - @nextui-org/radio@2.0.25
+  - @nextui-org/ripple@2.0.24
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/skeleton@2.0.22
+  - @nextui-org/slider@2.2.3
+  - @nextui-org/snippet@2.0.28
+  - @nextui-org/spacer@2.0.22
+  - @nextui-org/spinner@2.0.22
+  - @nextui-org/switch@2.0.24
+  - @nextui-org/table@2.0.26
+  - @nextui-org/tabs@2.0.24
+  - @nextui-org/tooltip@2.0.27
+  - @nextui-org/user@2.0.25
+
 ## 2.2.5
 
 ### Patch Changes
