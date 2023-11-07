@@ -262,7 +262,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     labelPlacement === "outside-left" ||
     (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
-  const isOutsideLeft = labelPlacement === "outside-left";
+
   const isFilled =
     state.isOpen ||
     hasPlaceholder ||
@@ -583,7 +583,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     hasPlaceholder,
     renderValue,
     selectionMode,
-    isOutsideLeft,
     disableAnimation,
     shouldLabelBeOutside,
     shouldLabelBeInside,

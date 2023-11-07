@@ -704,6 +704,14 @@ const select = tv({
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
       },
     },
+    // isMultiline & labelPlacement="outside"
+    {
+      labelPlacement: "outside",
+      isMultiline: true,
+      class: {
+        label: "pb-1.5",
+      },
+    },
     // text truncate labelPlacement=[inside,outside]
     {
       labelPlacement: ["inside", "outside"],

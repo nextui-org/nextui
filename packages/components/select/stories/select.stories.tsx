@@ -799,8 +799,10 @@ export const WithChips = {
     variant: "bordered",
     selectionMode: "multiple",
     isMultiline: true,
+    labelPlacement: "outside",
     classNames: {
-      trigger: "py-2",
+      base: "max-w-xs",
+      trigger: "min-h-unit-12 py-2",
     },
     renderValue: (items: SelectedItems<User>) => {
       return (
