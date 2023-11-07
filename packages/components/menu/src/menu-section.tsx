@@ -55,6 +55,7 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
       className,
       classNames,
       showDivider = false,
+      hideSelectedIcon,
       dividerProps = {},
       itemClasses,
       // removed title from props to avoid browsers showing a tooltip on hover
@@ -108,6 +109,7 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
                 closeOnSelect={closeOnSelect}
                 color={color}
                 disableAnimation={disableAnimation}
+                hideSelectedIcon={hideSelectedIcon}
                 item={node}
                 state={state}
                 variant={variant}
