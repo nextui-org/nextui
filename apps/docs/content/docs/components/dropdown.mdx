@@ -336,15 +336,16 @@ you to customize each item individually.
 
 ### DropdownSection Props
 
-| Attribute    | Type                                                                                                   | Description                                                                                 | Default |
-| ------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------- |
-| children\*   | `ReactNode`                                                                                            | The contents of the dropdown section. Usually a list of `DropdownItem` components. (static) | -       |
-| title        | `string`                                                                                               | The title of the dropdown section.                                                          | -       |
-| items        | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                   | -       |
-| showDivider  | `boolean`                                                                                              | Whether to show the divider between the groups.                                             | `false` |
-| DividerProps | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
-| classNames   | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
-| itemClasses  | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
+| Attribute        | Type                                                                                                   | Description                                                                                 | Default |
+| ---------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------- |
+| children\*       | `ReactNode`                                                                                            | The contents of the dropdown section. Usually a list of `DropdownItem` components. (static) | -       |
+| title            | `string`                                                                                               | The title of the dropdown section.                                                          | -       |
+| items            | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                   | -       |
+| hideSelectedIcon | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                 | `false` |
+| showDivider      | `boolean`                                                                                              | Whether to show the divider between the groups.                                             | `false` |
+| DividerProps     | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
+| classNames       | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
+| itemClasses      | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
 
 ---
 

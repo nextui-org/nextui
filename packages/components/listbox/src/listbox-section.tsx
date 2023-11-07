@@ -43,6 +43,7 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
       disableAnimation,
       className,
       classNames,
+      hideSelectedIcon,
       showDivider = false,
       dividerProps = {},
       itemClasses,
@@ -97,6 +98,7 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
                 classNames={itemClasses}
                 color={color}
                 disableAnimation={disableAnimation}
+                hideSelectedIcon={hideSelectedIcon}
                 item={node}
                 state={state}
                 variant={variant}
