@@ -812,6 +812,14 @@ const input = tv({
         label: "group-data-[has-helper=true]:pt-4",
       },
     },
+    // isMultiline & labelPlacement="outside"
+    {
+      labelPlacement: "outside",
+      isMultiline: true,
+      class: {
+        label: "pb-1.5",
+      },
+    },
     // isMultiline & labelPlacement="inside"
     {
       labelPlacement: "inside",
