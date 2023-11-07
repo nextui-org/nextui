@@ -1,5 +1,14 @@
 # @nextui-org/listbox
 
+## 2.1.14
+
+### Patch Changes
+
+- [#1915](https://github.com/nextui-org/nextui/pull/1915) [`135cc21e6`](https://github.com/nextui-org/nextui/commit/135cc21e6f0f2bee1f19e7e5799b6cea8179b7f5) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1888 `hideSelectedIcon` added to menu and listbox sections.
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.23
+
 ## 2.1.13
 
 ### Patch Changes
