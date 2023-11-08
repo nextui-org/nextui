@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.1.16
+
+### Patch Changes
+
+- [#1928](https://github.com/nextui-org/nextui/pull/1928) [`d2bd008ba`](https://github.com/nextui-org/nextui/commit/d2bd008ba3d4de73f4405f1997b15466efd19a81) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Texarea label validation added to avoid rendering the element when there is no label.
+
 ## 2.1.15
 
 ### Patch Changes
