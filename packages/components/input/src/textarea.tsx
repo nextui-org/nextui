@@ -1,7 +1,7 @@
 import {dataAttr} from "@nextui-org/shared-utils";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 import {UseInputProps, useInput} from "./use-input";
@@ -26,7 +26,7 @@ export type TextareaHeightChangeMeta = {
   rowHeight: number;
 };
 
-export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
+export interface TextAreaProps extends Omit<UseInputProps<HTMLTextAreaElement>, OmittedInputProps> {
   /**
    * Whether the textarea should automatically grow vertically to accomodate content.
    * @default false
@@ -75,23 +75,30 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       Component,
       label,
       description,
+      startContent,
+      endContent,
       shouldLabelBeOutside,
       shouldLabelBeInside,
       errorMessage,
       getBaseProps,
       getLabelProps,
       getInputProps,
+      getInnerWrapperProps,
       getInputWrapperProps,
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
+    const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
     const [isLimitReached, setIsLimitReached] = useState(false);
     const labelContent = <label {...getLabelProps()}>{label}</label>;
     const inputProps = getInputProps();
 
     const handleHeightChange = (height: number, meta: TextareaHeightChangeMeta) => {
+      if (minRows === 1) {
+        setIsHasMultipleRows(height >= meta.rowHeight * 2);
+      }
       if (maxRows > minRows) {
         const limitReached = height >= maxRows * meta.rowHeight;
 
@@ -115,12 +122,26 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       />
     );
 
+    const innerWrapper = useMemo(() => {
+      if (startContent || endContent) {
+        return (
+          <div {...getInnerWrapperProps()}>
+            {startContent}
+            {content}
+            {endContent}
+          </div>
+        );
+      }
+
+      return <div {...getInnerWrapperProps()}>{content}</div>;
+    }, [startContent, inputProps, endContent, getInnerWrapperProps]);
+
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
-        <div {...getInputWrapperProps()}>
+        <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
           {shouldLabelBeInside ? labelContent : null}
-          {content}
+          {innerWrapper}
         </div>
         <div {...getHelperWrapperProps()}>
           {errorMessage ? (

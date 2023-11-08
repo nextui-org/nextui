@@ -61,7 +61,7 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    helperWrapper: "p-1 flex relative flex-col gap-1.5",
+    helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -210,7 +210,8 @@ const input = tv({
       true: {
         label: "relative",
         inputWrapper: "!h-auto",
-        input: "resize-none py-2 data-[hide-scroll=true]:scrollbar-hide",
+        innerWrapper: "items-start group-data-[has-label=true]:items-start",
+        input: "resize-none data-[hide-scroll=true]:scrollbar-hide",
       },
     },
     disableAnimation: {
@@ -812,6 +813,14 @@ const input = tv({
         label: "group-data-[has-helper=true]:pt-4",
       },
     },
+    // labelPlacement=[outside, outside-left] & isMultiline
+    {
+      labelPlacement: ["outside", "outside-left"],
+      isMultiline: true,
+      class: {
+        inputWrapper: "py-2",
+      },
+    },
     // isMultiline & labelPlacement="outside"
     {
       labelPlacement: "outside",
@@ -825,6 +834,7 @@ const input = tv({
       labelPlacement: "inside",
       isMultiline: true,
       class: {
+        label: "pb-0.5",
         input: "pt-0",
       },
     },
@@ -841,6 +851,14 @@ const input = tv({
       labelPlacement: ["inside", "outside"],
       class: {
         label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
+      },
+    },
+    // isMultiline & radius=full
+    {
+      isMultiline: true,
+      radius: "full",
+      class: {
+        inputWrapper: "data-[has-multiple-rows=true]:rounded-large",
       },
     },
   ],

@@ -1,6 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
+import {SendFilledIcon, PlusFilledIcon} from "@nextui-org/shared-icons";
 
 import {Textarea, TextAreaProps} from "../src";
 
@@ -71,6 +72,17 @@ const Template = (args: TextAreaProps) => (
   </div>
 );
 
+const ControlledTemplate = (args: TextAreaProps) => {
+  const [value, setValue] = React.useState("");
+
+  return (
+    <div className="w-full  flex-col gap-2 max-w-[440px]">
+      <Textarea {...args} value={value} onValueChange={setValue} />
+      <p className="text-default-500 text-small">Textarea value: {value}</p>
+    </div>
+  );
+};
+
 const MinRowsTemplate = (args: TextAreaProps) => (
   <div className="w-full max-w-xl flex flex-row gap-4">
     <Textarea {...args} description="Default minRows is 3" />
@@ -92,6 +104,23 @@ export const Default = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const FullRounded = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    minRows: 1,
+    label: null,
+    classNames: {
+      input: "py-1",
+    },
+    "aria-label": "Description",
+    placeholder: "Enter your description",
+    variant: "bordered",
+    radius: "full",
   },
 };
 
@@ -123,6 +152,45 @@ export const ReadOnly = {
     defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     variant: "bordered",
     isReadOnly: true,
+  },
+};
+
+export const WithStartContent = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    startContent: <PlusFilledIcon className="text-xl" />,
+  },
+};
+
+export const WithEndContent = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    minRows: 1,
+    label: null,
+    endContent: (
+      <div className="p-1">
+        <SendFilledIcon className="text-xl" />
+      </div>
+    ),
+    classNames: {
+      input: "py-1",
+    },
+    "aria-label": "Description",
+    placeholder: "Enter your description",
+    variant: "bordered",
+    radius: "full",
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
