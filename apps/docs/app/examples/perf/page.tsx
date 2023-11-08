@@ -182,7 +182,9 @@ const MyButton2 = extendVariants(Button, {
       xl: "px-12 py-6 text-xl",
     },
   },
-  defaultVariants: {},
+  defaultVariants: {
+    color: "foreground",
+  },
 });
 
 const usersData = [
@@ -544,7 +546,7 @@ export default function NextUIPerf() {
 
       <Button>Click Me!</Button>
 
-      <MyButton2 color="foreground">Press Me!</MyButton2>
+      <MyButton2 color="primary">Press Me!</MyButton2>
 
       <Pagination
         showControls
