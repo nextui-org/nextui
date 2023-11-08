@@ -21,7 +21,40 @@ function getSlots(variants) {
     : {};
 }
 
-function getClassNamesWithProps({props, defaultVariants, customTv, hasSlots}) {
+function getClassNamesWithProps({
+  props = {},
+  variants,
+  slots,
+  defaultVariants,
+  compoundVariants,
+  hasSlots,
+  opts,
+}) {
+  // Do not apply default variants when the props variant is different
+  if (defaultVariants && typeof defaultVariants === "object") {
+    for (const key in defaultVariants) {
+      const value = defaultVariants[key];
+      const propValue = props?.[key];
+
+      if (propValue && propValue !== value) {
+        delete defaultVariants[key];
+      }
+    }
+  }
+
+  const customTv = tv(
+    {
+      variants,
+      defaultVariants,
+      compoundVariants,
+      ...(hasSlots && {slots}),
+    },
+    {
+      twMerge: opts.twMerge ?? true,
+      twMergeConfig: opts.twMergeConfig ?? {},
+    },
+  );
+
   const [baseProps, variantProps] = mapPropsVariants(props, customTv.variantKeys, false);
 
   const newProps = {...defaultVariants, ...baseProps};
@@ -62,26 +95,21 @@ export function extendVariants(BaseComponent, styles = {}, opts = {}) {
   const slots = getSlots(variants);
   const hasSlots = typeof slots === "object" && Object.keys(slots).length !== 0;
 
-  const customTv = tv(
-    {
-      variants,
-      defaultVariants,
-      compoundVariants,
-      ...(hasSlots && {slots}),
-    },
-    {
-      twMerge: opts.twMerge ?? true,
-      twMergeConfig: opts.twMergeConfig ?? {},
-    },
-  );
-
   const ForwardedComponent = React.forwardRef((originalProps = {}, ref) => {
-    const newProps = getClassNamesWithProps({
-      props: originalProps,
-      defaultVariants,
-      customTv,
-      hasSlots,
-    });
+    const newProps = React.useMemo(() =>
+      getClassNamesWithProps(
+        {
+          slots,
+          variants,
+          compoundVariants,
+          props: originalProps,
+          defaultVariants,
+          hasSlots,
+          opts,
+        },
+        [originalProps],
+      ),
+    );
 
     return React.createElement(BaseComponent, {...originalProps, ...newProps, ref});
   });
@@ -90,10 +118,13 @@ export function extendVariants(BaseComponent, styles = {}, opts = {}) {
   if (BaseComponent.getCollectionNode) {
     ForwardedComponent.getCollectionNode = (itemProps) => {
       const newProps = getClassNamesWithProps({
+        slots,
+        variants,
+        compoundVariants,
         props: itemProps,
         defaultVariants,
-        customTv,
         hasSlots,
+        opts,
       });
 
       return BaseComponent.getCollectionNode({...itemProps, ...newProps});
