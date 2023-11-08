@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/shared-icons",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Internal icons set, commonly used in the components stories",
   "keywords": [
     "icons-utils"

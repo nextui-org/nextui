@@ -1,5 +1,13 @@
 # @nextui-org/menu
 
+## 2.0.16
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.24
+  - @nextui-org/aria-utils@2.0.14
+
 ## 2.0.15
 
 ### Patch Changes
