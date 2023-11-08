@@ -1,5 +1,11 @@
 # @nextui-org/shared-icons
 
+## 2.0.6
+
+### Patch Changes
+
+- [#1923](https://github.com/nextui-org/nextui/pull/1923) [`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Textarea style rounded full styles issues fixed, start and end content props added
+
 ## 2.0.5
 
 ### Patch Changes

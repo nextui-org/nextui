@@ -1,5 +1,12 @@
 # @nextui-org/spacer
 
+## 2.0.23
+
+### Patch Changes
+
+- Updated dependencies [[`6ecdc278a`](https://github.com/nextui-org/nextui/commit/6ecdc278aba927ee38a799679b8eb99cba99cab9)]:
+  - @nextui-org/system-rsc@2.0.10
+
 ## 2.0.22
 
 ### Patch Changes

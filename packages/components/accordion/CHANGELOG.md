@@ -1,5 +1,15 @@
 # @nextui-org/accordion
 
+## 2.0.27
+
+### Patch Changes
+
+- Updated dependencies [[`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291)]:
+  - @nextui-org/shared-icons@2.0.6
+  - @nextui-org/divider@2.0.24
+  - @nextui-org/aria-utils@2.0.14
+  - @nextui-org/framer-transitions@2.0.14
+
 ## 2.0.26
 
 ### Patch Changes

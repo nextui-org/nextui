@@ -1,5 +1,14 @@
 # @nextui-org/snippet
 
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies [[`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291)]:
+  - @nextui-org/shared-icons@2.0.6
+  - @nextui-org/button@2.0.25
+  - @nextui-org/tooltip@2.0.28
+
 ## 2.0.28
 
 ### Patch Changes

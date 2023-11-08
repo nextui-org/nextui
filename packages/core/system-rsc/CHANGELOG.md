@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.0.10
+
+### Patch Changes
+
+- [#1927](https://github.com/nextui-org/nextui/pull/1927) [`6ecdc278a`](https://github.com/nextui-org/nextui/commit/6ecdc278aba927ee38a799679b8eb99cba99cab9) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1921 `extendVariants` function adapted to consider props variants over `defaultVariants`.
+
 ## 2.0.9
 
 ### Patch Changes
