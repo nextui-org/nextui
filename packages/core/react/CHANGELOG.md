@@ -1,5 +1,19 @@
 # @nextui-org/react
 
+## 2.2.8
+
+### Patch Changes
+
+- Updated dependencies [[`d2bd008ba`](https://github.com/nextui-org/nextui/commit/d2bd008ba3d4de73f4405f1997b15466efd19a81)]:
+  - @nextui-org/input@2.1.16
+  - @nextui-org/accordion@2.0.27
+  - @nextui-org/autocomplete@2.0.8
+  - @nextui-org/modal@2.0.27
+  - @nextui-org/navbar@2.0.26
+  - @nextui-org/popover@2.1.13
+  - @nextui-org/select@2.1.19
+  - @nextui-org/tabs@2.0.25
+
 ## 2.2.7
 
 ### Patch Changes
