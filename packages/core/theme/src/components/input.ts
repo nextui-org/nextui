@@ -858,7 +858,7 @@ const input = tv({
       isMultiline: true,
       radius: "full",
       class: {
-        inputWrapper: "data-[two-rows=true]:rounded-large",
+        inputWrapper: "data-[has-multiple-rows=true]:rounded-large",
       },
     },
   ],

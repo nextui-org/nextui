@@ -90,14 +90,14 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getErrorMessageProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
-    const [isTwoRows, setIsTwoRows] = useState(minRows > 1);
+    const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
     const [isLimitReached, setIsLimitReached] = useState(false);
     const labelContent = <label {...getLabelProps()}>{label}</label>;
     const inputProps = getInputProps();
 
     const handleHeightChange = (height: number, meta: TextareaHeightChangeMeta) => {
       if (minRows === 1) {
-        setIsTwoRows(height >= meta.rowHeight * 2);
+        setIsHasMultipleRows(height >= meta.rowHeight * 2);
       }
       if (maxRows > minRows) {
         const limitReached = height >= maxRows * meta.rowHeight;
@@ -139,7 +139,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
-        <div {...getInputWrapperProps()} data-two-rows={dataAttr(isTwoRows)}>
+        <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
           {shouldLabelBeInside ? labelContent : null}
           {innerWrapper}
         </div>
