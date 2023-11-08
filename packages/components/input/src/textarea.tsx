@@ -18,9 +18,7 @@ type OmittedInputProps =
   | "isClearButtonFocusVisible"
   | "isLabelPlaceholder"
   | "isClearable"
-  | "isTextarea"
-  | "startContent"
-  | "endContent";
+  | "isTextarea";
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
@@ -77,6 +75,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       description,
       startContent,
       endContent,
+      hasHelper,
       shouldLabelBeOutside,
       shouldLabelBeInside,
       errorMessage,
@@ -92,7 +91,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
 
     const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
     const [isLimitReached, setIsLimitReached] = useState(false);
-    const labelContent = <label {...getLabelProps()}>{label}</label>;
+    const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
     const inputProps = getInputProps();
 
     const handleHeightChange = (height: number, meta: TextareaHeightChangeMeta) => {
@@ -143,13 +142,15 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
           {shouldLabelBeInside ? labelContent : null}
           {innerWrapper}
         </div>
-        <div {...getHelperWrapperProps()}>
-          {errorMessage ? (
-            <div {...getErrorMessageProps()}>{errorMessage}</div>
-          ) : description ? (
-            <div {...getDescriptionProps()}>{description}</div>
-          ) : null}
-        </div>
+        {hasHelper ? (
+          <div {...getHelperWrapperProps()}>
+            {errorMessage ? (
+              <div {...getErrorMessageProps()}>{errorMessage}</div>
+            ) : description ? (
+              <div {...getDescriptionProps()}>{description}</div>
+            ) : null}
+          </div>
+        ) : null}
       </Component>
     );
   },
