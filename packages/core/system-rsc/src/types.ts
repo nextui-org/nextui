@@ -70,7 +70,7 @@ export type Merge<M, N> = N extends Record<string, unknown> ? M : Omit<M, keyof 
 
 export type HTMLNextUIProps<T extends As = "div", OmitKeys extends keyof any = never> = Omit<
   PropsOf<T>,
-  "ref" | "color" | "slot" | "defaultChecked" | "defaultValue" | OmitKeys
+  "ref" | "color" | "slot" | "size" | "defaultChecked" | "defaultValue" | OmitKeys
 > & {
   as?: As;
 };
