@@ -51,7 +51,7 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
 
 export type UseTabsProps<T> = Props &
   TabsVariantProps &
-  Omit<TabListStateOptions<T>, "children"> &
+  Omit<TabListStateOptions<T>, "children" | keyof AriaTabListProps<T>> &
   Omit<AriaTabListProps<T>, "children" | "orientation"> &
   CollectionProps<T>;
 
