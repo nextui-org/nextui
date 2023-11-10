@@ -43,11 +43,10 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-aria-press": "workspace:*",
-    "@react-aria/focus": "^3.14.3",
-    "@react-aria/interactions": "^3.19.1",
-    "@react-aria/utils": "^3.21.1",
-    "@react-types/checkbox": "^3.5.2"
+    "@react-aria/focus": "^3.15.0",
+    "@react-aria/interactions": "^3.20.0",
+    "@react-aria/utils": "^3.22.0",
+    "@react-types/checkbox": "^3.6.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

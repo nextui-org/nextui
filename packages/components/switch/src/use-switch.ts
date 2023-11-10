@@ -5,8 +5,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {ReactNode, Ref, useCallback, useId, useRef, useState} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
 import {chain, mergeProps} from "@react-aria/utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";

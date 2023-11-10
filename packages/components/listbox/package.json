@@ -45,14 +45,13 @@
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
-    "@nextui-org/use-aria-press": "workspace:*",
-    "@react-aria/utils": "^3.21.1",
-    "@react-aria/listbox": "^3.11.1",
-    "@react-stately/list": "^3.10.0",
-    "@react-aria/focus": "^3.14.3",
-    "@react-aria/interactions": "^3.19.1",
-    "@react-types/menu": "^3.9.5",
-    "@react-types/shared": "^3.21.0"
+    "@react-aria/utils": "^3.22.0",
+    "@react-aria/listbox": "^3.11.2",
+    "@react-stately/list": "^3.10.1",
+    "@react-aria/focus": "^3.15.0",
+    "@react-aria/interactions": "^3.20.0",
+    "@react-types/menu": "^3.9.6",
+    "@react-types/shared": "^3.22.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

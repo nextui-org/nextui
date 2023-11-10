@@ -13,7 +13,7 @@ import {AriaButtonProps as BaseAriaButtonProps} from "@react-types/button";
 import {DOMAttributes} from "@react-types/shared";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {useFocusable} from "@react-aria/focus";
-import {usePress} from "@nextui-org/use-aria-press";
+import {usePress} from "@react-aria/interactions";
 
 export type AriaButtonProps<T extends ElementType = "button"> = BaseAriaButtonProps<T> & {
   /** Whether text selection should be enabled on the pressable element. */

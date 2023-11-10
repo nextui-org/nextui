@@ -135,6 +135,12 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       return <div {...getInnerWrapperProps()}>{content}</div>;
     }, [startContent, inputProps, endContent, getInnerWrapperProps]);
 
+    const errorMessageContent = useMemo(() => {
+      if (typeof errorMessage === "string") {
+        return errorMessage;
+      }
+    }, [errorMessage]);
+
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}

@@ -42,7 +42,7 @@
     "@nextui-org/system-rsc": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/utils": "^3.21.1"
+    "@react-aria/utils": "^3.22.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

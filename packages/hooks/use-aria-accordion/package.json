@@ -34,13 +34,13 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/focus": "^3.14.3",
-    "@react-stately/tree": "^3.7.3",
-    "@react-aria/button": "^3.8.4",
-    "@react-types/shared": "^3.21.0",
-    "@react-aria/utils": "^3.21.1",
-    "@react-aria/selection": "^3.17.1",
-    "@react-types/accordion": "3.0.0-alpha.17"
+    "@react-aria/focus": "^3.15.0",
+    "@react-stately/tree": "^3.7.4",
+    "@react-aria/button": "^3.9.0",
+    "@react-types/shared": "^3.22.0",
+    "@react-aria/utils": "^3.22.0",
+    "@react-aria/selection": "^3.17.2",
+    "@react-types/accordion": "3.0.0-alpha.18"
   },
   "peerDependencies": {
     "react": ">=18"
