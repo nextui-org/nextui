@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/aria-utils",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "A package for managing @react-aria nextui utils.",
   "keywords": [
     "aria-utils"

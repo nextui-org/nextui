@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/spinner",
-  "version": "2.0.23",
+  "version": "2.0.24",
   "description": "Loaders express an unspecified wait time or display the length of a process.",
   "keywords": [
     "loading",

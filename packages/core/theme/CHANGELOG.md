@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.1.17
+
+### Patch Changes
+
+- [#1951](https://github.com/nextui-org/nextui/pull/1951) [`0f5cce5d6`](https://github.com/nextui-org/nextui/commit/0f5cce5d62713c59973b4330607cdcd3fd95d41a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1933 TV Function refactored to support twMerge false opts.
+
 ## 2.1.16
 
 ### Patch Changes

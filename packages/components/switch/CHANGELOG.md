@@ -1,5 +1,11 @@
 # @nextui-org/switch
 
+## 2.0.25
+
+### Patch Changes
+
+- [#1949](https://github.com/nextui-org/nextui/pull/1949) [`467383b8a`](https://github.com/nextui-org/nextui/commit/467383b8a2ad42bd22fabe1f70ea17c95bede53b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix switch base element type it is an input now.
+
 ## 2.0.24
 
 ### Patch Changes
