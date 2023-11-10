@@ -177,10 +177,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // Setup refs and get props for child elements.
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const inputWrapperRef = useRef<HTMLDivElement>(null);
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
   const slotsProps: {
@@ -293,8 +293,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   const Component = as || "div";
 
-  const domRef = useDOMRef(ref);
-
   const slots = useMemo(
     () =>
       autocomplete({
@@ -320,7 +318,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   );
 
   const getBaseProps: PropGetter = () => ({
-    ref: domRef,
     "data-invalid": dataAttr(originalProps?.isInvalid),
     "data-open": dataAttr(state.isOpen),
     className: slots.base({class: baseStyles}),
@@ -419,7 +416,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   return {
     Component,
-    domRef,
+    inputRef,
     label,
     state,
     slots,
