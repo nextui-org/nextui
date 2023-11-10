@@ -23,7 +23,7 @@ export type SwitchThumbIconProps = {
   isSelected: boolean;
   className: string;
 };
-interface Props extends HTMLNextUIProps<"label"> {
+interface Props extends HTMLNextUIProps<"input"> {
   /**
    * Ref to the DOM node.
    */
