@@ -1,5 +1,20 @@
 # @nextui-org/autocomplete
 
+## 2.0.9
+
+### Patch Changes
+
+- [#1948](https://github.com/nextui-org/nextui/pull/1948) [`aab1dbf77`](https://github.com/nextui-org/nextui/commit/aab1dbf77cee29375bf958e44bdf1d6da037cf1f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Autocomplete Reference aims to input instead of aiming to the wrapper element
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.26
+  - @nextui-org/input@2.1.16
+  - @nextui-org/listbox@2.1.16
+  - @nextui-org/popover@2.1.14
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.24
+  - @nextui-org/aria-utils@2.0.15
+
 ## 2.0.8
 
 ### Patch Changes

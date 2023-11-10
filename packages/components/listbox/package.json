@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/listbox",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "A listbox displays a list of options and allows a user to select one or more of them.",
   "keywords": [
     "listbox"
