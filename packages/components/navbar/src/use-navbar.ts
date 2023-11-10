@@ -189,6 +189,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     className: slots.base({class: clsx(baseStyles, props?.className)}),
     style: {
       "--navbar-height": height,
+      ...otherProps?.style,
       ...props?.style,
     },
   });
