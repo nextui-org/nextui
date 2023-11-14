@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "tsc && tsc --module commonjs --outDir cjs",
-    "clean": "rimraf dist .turbo",
+    "clean": "rimraf dist cjs .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"

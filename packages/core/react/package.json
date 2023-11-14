@@ -34,7 +34,7 @@
     "prebuild": "node src/scripts/prebuild.js",
     "build": "tsc && tsc --module commonjs --outDir cjs",
     "postbuild": "node src/scripts/postbuild.js",
-    "clean": "rimraf dist .turbo",
+    "clean": "rimraf dist cjs .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
