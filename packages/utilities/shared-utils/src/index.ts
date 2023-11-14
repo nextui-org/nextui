@@ -1,4 +1,3 @@
-"use client";
 export * from "./assertion";
 export * from "./clsx";
 export * from "./object";

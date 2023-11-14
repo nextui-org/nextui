@@ -1,4 +1,3 @@
-"use client";
 export * from "./mocks";
 export * from "./focus";
 export * from "./tabbable";
