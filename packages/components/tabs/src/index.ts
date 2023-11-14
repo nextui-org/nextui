@@ -1,3 +1,4 @@
+"use client";
 import Tabs from "./tabs";
 
 // export types

@@ -1,3 +1,4 @@
+"use client";
 import transition from "./transition";
 import custom from "./custom";
 import scrollbarHide from "./scrollbar-hide";

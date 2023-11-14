@@ -1,3 +1,4 @@
+"use client";
 import Kbd from "./kbd";
 
 // export types

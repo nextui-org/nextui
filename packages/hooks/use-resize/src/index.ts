@@ -1,3 +1,4 @@
+"use client";
 import {useEffect} from "react";
 
 export function useResize(callback: Function, immediatelyInvoke: boolean = true) {

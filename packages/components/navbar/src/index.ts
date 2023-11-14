@@ -1,3 +1,4 @@
+"use client";
 // export types
 export type {NavbarProps} from "./navbar";
 export type {NavbarBrandProps} from "./navbar-brand";

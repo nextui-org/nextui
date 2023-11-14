@@ -1,3 +1,4 @@
+"use client";
 export const animations = {
   animation: {
     "drip-expand": "drip-expand 420ms linear",

@@ -1,3 +1,4 @@
+"use client";
 import ScrollShadow from "./scroll-shadow";
 
 // export types

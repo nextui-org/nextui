@@ -1,3 +1,4 @@
+"use client";
 // We had to copy this file from @react-aria/button because of the console.warn
 // once they fix it we can remove this file and use the original one
 

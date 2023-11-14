@@ -1,3 +1,4 @@
+"use client";
 import Radio from "./radio";
 import RadioGroup from "./radio-group";
 

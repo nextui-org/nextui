@@ -1,3 +1,4 @@
+"use client";
 import type {MenuItemProps, MenuSectionProps} from "@nextui-org/menu";
 
 import {MenuItem, MenuSection} from "@nextui-org/menu";

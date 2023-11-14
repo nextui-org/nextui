@@ -1,3 +1,4 @@
+"use client";
 import Modal from "./modal";
 import ModalContent from "./modal-content";
 import ModalHeader from "./modal-header";

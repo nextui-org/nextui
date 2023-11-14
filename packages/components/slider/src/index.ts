@@ -1,3 +1,4 @@
+"use client";
 import Slider from "./slider";
 
 // export types

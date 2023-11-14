@@ -1,3 +1,4 @@
+"use client";
 import {RefObject, useState, useEffect} from "react";
 import {ShapeType, getRealShape} from "@nextui-org/react-utils";
 

@@ -1,3 +1,4 @@
+"use client";
 // export types
 export type {ChipProps} from "./chip";
 

@@ -1,3 +1,4 @@
+"use client";
 import Spacer from "./spacer";
 
 // export types

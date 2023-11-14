@@ -1,3 +1,4 @@
+"use client";
 import Divider from "./divider";
 
 // export types

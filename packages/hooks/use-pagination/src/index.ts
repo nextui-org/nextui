@@ -1,3 +1,4 @@
+"use client";
 import {useMemo, useCallback, useState, useEffect} from "react";
 import {range} from "@nextui-org/shared-utils";
 

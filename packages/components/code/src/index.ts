@@ -1,3 +1,4 @@
+"use client";
 import Code from "./code";
 
 // export types
