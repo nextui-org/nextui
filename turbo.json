@@ -26,6 +26,9 @@
     "lint": {
       "outputs": []
     },
+    "dev": {
+      "cache": false
+    },
     "sb": {
       "cache": false
     }
