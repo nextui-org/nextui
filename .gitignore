@@ -63,3 +63,5 @@ packages/**/.turbo
 
 # content layer
 .contentlayer
+
+cjs

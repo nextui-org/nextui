@@ -16,7 +16,8 @@
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -31,12 +32,10 @@
   },
   "scripts": {
     "prebuild": "node src/scripts/prebuild.js",
-    "build": "tsup --dts",
+    "build": "tsc && tsc --module commonjs --outDir cjs",
     "postbuild": "node src/scripts/postbuild.js",
-    "dev": "yarn build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },

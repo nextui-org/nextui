@@ -5,11 +5,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**", "lib/**", "storybook-static/**"]
-    },
-    "build:fast": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build:fast"]
+      "outputs": [".next/**", "dist/**", "cjs/**", "lib/**", "storybook-static/**"]
     },
     "typecheck": {
       "cache": false,
@@ -29,9 +25,6 @@
     },
     "lint": {
       "outputs": []
-    },
-    "dev": {
-      "cache": false
     },
     "sb": {
       "cache": false

@@ -12,6 +12,7 @@
   "sideEffects": false,
   "files": [
     "dist",
+    "src",
     "children.d.ts",
     "children.js",
     "filter-dom-props.d.ts",
@@ -29,9 +30,7 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "build": "tsc && tsc --module commonjs --outDir cjs",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
@@ -40,13 +39,5 @@
   "devDependencies": {
     "clean-package": "2.2.0"
   },
-  "clean-package": "../../../clean-package.config.json",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "clean-package": "../../../clean-package.config.json"
 }

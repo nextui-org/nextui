@@ -11,7 +11,8 @@
   "main": "src/index.ts",
   "sideEffects": true,
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -52,13 +53,5 @@
     "storybook-dark-mode": "^3.0.1",
     "tailwindcss": "^3.3.5",
     "vite": "^4.4.7"
-  },
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
   }
 }

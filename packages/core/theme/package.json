@@ -18,6 +18,7 @@
   "sideEffects": false,
   "files": [
     "dist",
+    "src",
     "config.js",
     "config.d.ts",
     "plugin.js",
@@ -37,9 +38,7 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "build": "tsc && tsc --module commonjs --outDir cjs",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
@@ -70,13 +69,5 @@
     "@types/lodash.omit": "^4.5.7",
     "tailwindcss": "^3.3.5",
     "clean-package": "2.2.0"
-  },
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
   }
 }

@@ -14,7 +14,6 @@
   "scripts": {
     "dev": "pnpm sb && pnpm dev:docs",
     "build": "turbo build --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
-    "build:fast": "turbo build:fast --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
     "build:docs": "turbo build --filter=@nextui-org/docs",
     "build:docs-meta": "node ./scripts/update-index-docs.js",
@@ -129,7 +128,6 @@
     "react-dom": "^18.0.0",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
-    "tsup": "6.4.0",
     "turbo": "1.6.3",
     "typescript": "^4.9.5",
     "webpack": "^5.53.0",
