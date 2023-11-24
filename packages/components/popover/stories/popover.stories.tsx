@@ -454,6 +454,16 @@ export const DisableAnimation = {
   },
 };
 
+export const NonDismissable = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    showArrow: true,
+    isDismissable: false,
+  },
+};
+
 export const WithoutScaleTrigger = {
   render: Template,
 
