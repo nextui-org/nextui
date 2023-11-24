@@ -47,6 +47,7 @@ export function useReactAriaPopover(
     scrollRef,
     shouldFlip,
     boundaryElement,
+    isDismissable = true,
     shouldCloseOnBlur = true,
     placement: placementProp = "top",
     containerPadding,
@@ -63,7 +64,7 @@ export function useReactAriaPopover(
       isOpen: state.isOpen,
       onClose: state.close,
       shouldCloseOnBlur,
-      isDismissable: true,
+      isDismissable,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside
