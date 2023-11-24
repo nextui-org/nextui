@@ -2493,6 +2493,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/interactions':
         specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
