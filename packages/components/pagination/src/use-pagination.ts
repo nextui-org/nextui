@@ -150,6 +150,7 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
    *    cursor: "cursor-classes", // this is the one that moves when an item is selected
    *    forwardIcon: "forward-icon-classes", // forward icon
    *    ellipsis: "ellipsis-classes", // ellipsis icon
+   *    chevronPrev: "chevron-prev-classes", // chevron prev icon
    *    chevronNext: "chevron-next-classes", // chevron next icon
    * }} />
    * ```
