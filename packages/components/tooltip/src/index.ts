@@ -1,3 +1,4 @@
+"use client";
 import Tooltip from "./tooltip";
 
 // export types

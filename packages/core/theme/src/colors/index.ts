@@ -1,3 +1,4 @@
+"use client";
 import {commonColors} from "./common";
 import {semanticColors} from "./semantic";
 

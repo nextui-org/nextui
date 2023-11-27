@@ -1,3 +1,4 @@
+"use client";
 export * from "./align-top";
 export * from "./align-bottom";
 export * from "./align-left";

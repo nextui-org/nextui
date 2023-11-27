@@ -1,3 +1,4 @@
+"use client";
 import AccordionItem from "./base/accordion-item-base";
 import Accordion from "./accordion";
 

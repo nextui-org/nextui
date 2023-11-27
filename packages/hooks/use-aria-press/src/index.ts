@@ -1,3 +1,4 @@
+"use client";
 /**
  * TODO: Remove this package once the react-aria team publishes a new version
  * with the fix https://github.com/adobe/react-spectrum/pull/5291

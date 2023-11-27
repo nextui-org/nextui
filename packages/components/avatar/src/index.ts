@@ -1,3 +1,4 @@
+"use client";
 import Avatar from "./avatar";
 import AvatarGroup from "./avatar-group";
 

@@ -1,3 +1,4 @@
+"use client";
 import Listbox from "./listbox";
 
 // export types

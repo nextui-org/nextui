@@ -1,3 +1,4 @@
+"use client";
 import {AriaLinkProps} from "@react-types/link";
 import {DOMAttributes, FocusableElement} from "@react-types/shared";
 import {filterDOMProps, mergeProps, useRouter, shouldClientNavigate} from "@react-aria/utils";

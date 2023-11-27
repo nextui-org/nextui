@@ -1,3 +1,4 @@
+"use client";
 import type {ListboxItemProps, ListboxSectionProps} from "@nextui-org/listbox";
 
 import {ListboxItem, ListboxSection} from "@nextui-org/listbox";

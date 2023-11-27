@@ -1,3 +1,4 @@
+"use client";
 export * from "./icons";
 export * from "./copy";
 export * from "./check";

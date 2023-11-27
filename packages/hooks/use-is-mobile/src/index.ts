@@ -1,3 +1,4 @@
+"use client";
 import {useIsSSR} from "@react-aria/ssr";
 
 const MOBILE_SCREEN_WIDTH = 700;

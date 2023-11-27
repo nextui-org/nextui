@@ -1,3 +1,4 @@
+"use client";
 import Input from "./input";
 import Textarea from "./textarea";
 

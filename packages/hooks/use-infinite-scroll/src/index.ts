@@ -1,3 +1,4 @@
+"use client";
 import debounce from "lodash.debounce";
 import {useLayoutEffect, useRef} from "react";
 

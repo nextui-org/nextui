@@ -1,3 +1,4 @@
+"use client";
 import Link from "./link";
 
 // export types

@@ -1,3 +1,4 @@
+"use client";
 import {isAppleDevice} from "@react-aria/utils";
 import {isMac} from "@react-aria/utils";
 

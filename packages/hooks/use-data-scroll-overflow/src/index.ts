@@ -1,3 +1,4 @@
+"use client";
 import {capitalize} from "@nextui-org/shared-utils";
 import {useEffect, useRef} from "react";
 

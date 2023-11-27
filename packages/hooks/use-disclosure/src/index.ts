@@ -1,3 +1,4 @@
+"use client";
 import {chain} from "@react-aria/utils";
 import {useControlledState} from "@react-stately/utils";
 import {useCallbackRef} from "@nextui-org/use-callback-ref";

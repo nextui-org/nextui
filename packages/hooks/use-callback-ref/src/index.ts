@@ -1,3 +1,4 @@
+"use client";
 /**
  * Part of this code is taken from @chakra-ui/system ❤️
  */

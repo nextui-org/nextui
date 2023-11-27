@@ -1,3 +1,4 @@
+"use client";
 import Pagination from "./pagination";
 import PaginationItem from "./pagination-item";
 import PaginationCursor from "./pagination-cursor";
