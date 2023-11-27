@@ -30,7 +30,7 @@ export const BgGridContainer: FC<BgGridContainerProps> = ({
         className,
       )}
     >
-      <div className="max-w-full py-4 px-2 w-full h-full scrollbar-hide overflow-x-scroll">
+      <div className="max-w-full py-4 px-2 w-full h-full overflow-x-auto">
         {children}
       </div>
       {/* <div
