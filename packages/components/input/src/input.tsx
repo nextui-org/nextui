@@ -66,7 +66,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     return (
       <div {...getInnerWrapperProps()}>
         {startContent}
-        <input key="nextui-input" {...getInputProps()} />
+        <input {...getInputProps()} />
         {end}
       </div>
     );
