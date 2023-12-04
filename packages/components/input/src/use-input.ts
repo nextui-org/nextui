@@ -374,6 +374,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         className: slots.mainWrapper({
           class: clsx(classNames?.mainWrapper, props?.className),
         }),
+        style: {
+          flexGrow: labelPlacement === "outside-left" ? 1 : "unset",
+        },
       };
     },
     [slots, classNames?.mainWrapper],
