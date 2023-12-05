@@ -62,14 +62,15 @@ const table = tv({
       "px-3",
       "h-10",
       "text-left",
+      "rtl:text-right",
       "align-middle",
       "bg-default-100",
       "whitespace-nowrap",
       "text-foreground-500",
       "text-tiny",
       "font-semibold",
-      "first:rounded-l-lg",
-      "last:rounded-r-lg",
+      "first:rounded-s-lg",
+      "last:rounded-e-lg",
       "outline-none",
       "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
@@ -100,7 +101,7 @@ const table = tv({
     ],
     tfoot: "",
     sortIcon: [
-      "ml-2",
+      "ms-2",
       "mb-px",
       "opacity-0",
       "text-inherit",
@@ -207,17 +208,17 @@ const table = tv({
       true: {
         td: [
           // first
-          "group-data-[first=true]:first:before:rounded-tl-lg",
-          "group-data-[first=true]:last:before:rounded-tr-lg",
+          "group-data-[first=true]:first:before:rounded-ts-lg",
+          "group-data-[first=true]:last:before:rounded-te-lg",
           // middle
           "group-data-[middle=true]:before:rounded-none",
           // last
-          "group-data-[last=true]:first:before:rounded-bl-lg",
-          "group-data-[last=true]:last:before:rounded-br-lg",
+          "group-data-[last=true]:first:before:rounded-bs-lg",
+          "group-data-[last=true]:last:before:rounded-be-lg",
         ],
       },
       false: {
-        td: ["first:before:rounded-l-lg", "last:before:rounded-r-lg"],
+        td: ["first:before:rounded-s-lg", "last:before:rounded-e-lg"],
       },
     },
     fullWidth: {
