@@ -27,6 +27,11 @@ export interface ListboxSectionProps<T extends object = object> extends ListboxS
    * @default false
    */
   disableAnimation?: boolean;
+  /**
+   * Whether the listbox items should be highlighted on focus.
+   * @default false
+   */
+  shouldHighlightOnFocus?: ListboxItemProps["shouldHighlightOnFocus"];
 }
 
 /**
@@ -51,6 +56,7 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
       // the title props is already inside the rendered prop
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       title,
+      shouldHighlightOnFocus,
       ...otherProps
     },
     _,
@@ -100,6 +106,7 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
                 disableAnimation={disableAnimation}
                 hideSelectedIcon={hideSelectedIcon}
                 item={node}
+                shouldHighlightOnFocus={shouldHighlightOnFocus}
                 state={state}
                 variant={variant}
                 {...nodeProps}
