@@ -307,6 +307,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const onClear = useCallback(() => {
     state.setInputValue("");
     state.setSelectedKey(null);
+    state.setOpen(true);
   }, [state]);
 
   const onFocus = useCallback(
