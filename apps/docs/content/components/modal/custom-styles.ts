@@ -6,11 +6,11 @@ export default function App() {
   return (
     <>
       <Button onPress={onOpen} color="secondary">Open Modal</Button>
-      <Modal 
-        backdrop="opaque" 
-        isOpen={isOpen} 
+      <Modal
+        backdrop="opaque"
+        isOpen={isOpen}
         onOpenChange={onOpenChange}
-        radius="2xl"
+        radius="xl"
         classNames={{
           body: "py-6",
           backdrop: "bg-[#292f46]/50 backdrop-opacity-40",
@@ -25,7 +25,7 @@ export default function App() {
             <>
               <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
               <ModalBody>
-                <p> 
+                <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Nullam pulvinar risus non risus hendrerit venenatis.
                   Pellentesque sit amet hendrerit risus, sed porttitor quam.
@@ -37,9 +37,9 @@ export default function App() {
                 </p>
                 <p>
                   Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
-                  dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. 
-                  Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. 
-                  Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur 
+                  dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis.
+                  Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod.
+                  Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur
                   proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
                 </p>
               </ModalBody>
