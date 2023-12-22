@@ -135,16 +135,14 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const handleClear = useCallback(() => {
     setInputValue("");
 
-    if (domRef.current) {
-      domRef.current.value = "";
-      domRef.current.focus();
-    }
     onClear?.();
-  }, [domRef, setInputValue, onClear]);
+    domRef.current?.focus();
+  }, [setInputValue, onClear]);
 
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
     {
       ...originalProps,
+      value: inputValue,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
         originalProps?.label,
@@ -211,9 +209,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       input({
         ...variantProps,
         isInvalid,
+        labelPlacement,
         isClearable,
       }),
-    [...Object.values(variantProps), isInvalid, isClearable, hasStartContent],
+    [...Object.values(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
   );
 
   const getBaseProps: PropGetter = useCallback(
