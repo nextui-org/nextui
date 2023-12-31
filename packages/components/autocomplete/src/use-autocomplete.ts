@@ -280,6 +280,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen, allowsCustomValue]);
 
+  // focus first non-disabled item
+  useEffect(() => {
+    let key = state.collection.getFirstKey();
+
+    while (key && state.disabledKeys.has(key)) {
+      key = state.collection.getKeyAfter(key);
+    }
+    state.selectionManager.setFocusedKey(key);
+  }, [state.collection, state.disabledKeys]);
+
   const {buttonProps, inputProps, listBoxProps} = useComboBox(
     {
       ...originalProps,
