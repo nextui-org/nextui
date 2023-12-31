@@ -37,6 +37,7 @@ export default function App() {
       <Autocomplete
         label="Favorite Animal"
         variant="bordered"
+        defaultItems={animals}
         placeholder="Search an animal"
         className="max-w-xs"
         selectedKey={value}
