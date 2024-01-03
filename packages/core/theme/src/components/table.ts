@@ -223,8 +223,8 @@ const table = tv({
     fullWidth: {
       true: {
         base: "w-full flex-col",
-        wrapper: "w-full flex-col",
-        table: "w-full flex-col",
+        wrapper: "w-full",
+        table: "w-full",
       },
       false: {
         base: "w-auto",
