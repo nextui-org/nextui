@@ -40,7 +40,7 @@ import {dataFocusVisibleClasses} from "../utils";
  */
 const table = tv({
   slots: {
-    base: "flex flex-col relative gap-4",
+    base: "flex relative gap-4",
     wrapper: [
       "p-4",
       "z-0",
@@ -222,10 +222,15 @@ const table = tv({
     },
     fullWidth: {
       true: {
-        base: "w-full",
-        wrapper: "w-full",
-        table: "w-full",
+        base: "w-full flex-col",
+        wrapper: "w-full flex-col",
+        table: "w-full flex-col",
       },
+      false: {
+        base: "w-auto",
+        wrapper: "w-auto",
+        table: "w-auto",
+      }
     },
   },
   defaultVariants: {
