@@ -1,0 +1,74 @@
+{
+  "name": "@nextui-org/drawer",
+  "version": "2.0.0",
+  "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
+  "keywords": [
+    "drawer"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/drawer"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "framer-motion": ">=4.0.0",
+    "@nextui-org/theme": ">=2.1.0",
+    "@nextui-org/system": ">=2.0.0"
+  },
+  "dependencies": {
+    "@nextui-org/use-disclosure": "workspace:*",
+    "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/use-aria-modal-overlay": "workspace:*",
+    "@react-aria/dialog": "^3.5.7",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/overlays": "^3.18.1",
+    "@react-aria/utils": "^3.21.1",
+    "@react-stately/overlays": "^3.6.3",
+    "@react-aria/focus": "^3.14.3",
+    "@react-types/overlays": "^3.8.3",
+    "react-remove-scroll": "^2.5.6"
+  },
+  "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/input": "workspace:*",
+    "@nextui-org/checkbox": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/link": "workspace:*",
+    "react-lorem-component": "0.13.0",
+    "framer-motion": "^10.16.4",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

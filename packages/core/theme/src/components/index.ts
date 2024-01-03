@@ -20,6 +20,7 @@ export * from "./circular-progress";
 export * from "./input";
 export * from "./dropdown";
 export * from "./image";
+export * from "./drawer";
 export * from "./modal";
 export * from "./navbar";
 export * from "./table";
