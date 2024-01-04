@@ -206,6 +206,13 @@
           "path": "/docs/components/divider.mdx"
         },
         {
+          "key": "drawer",
+          "title": "Drawer",
+          "keywords": "drawer, dialog box, popup, overlay, content focus",
+          "path": "/docs/components/drawer.mdx",
+          "newPost": true
+        },
+        {
           "key": "dropdown",
           "title": "Dropdown",
           "keywords": "dropdown, menu, selection, option list",

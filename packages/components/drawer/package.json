@@ -1,7 +1,7 @@
 {
   "name": "@nextui-org/drawer",
   "version": "2.0.0",
-  "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
+  "description": "A panel which slides in from the edge of the screen with a custom content that requires attention or provides additional information.",
   "keywords": [
     "drawer"
   ],

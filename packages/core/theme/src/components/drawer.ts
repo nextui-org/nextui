@@ -45,8 +45,8 @@ const drawer = tv({
       "sm:[--slide-enter:0px]",
       "sm:[--slide-exit:0px]",
     ],
-    base: ["absolute", "bg-white", "z-50", "box-border", "bg-content1", "outline-none"],
-    content: "flex flex-col w-full h-full outline-none relative",
+    base: ["absolute", "z-50", "outline-none"],
+    content: "flex flex-col w-full h-full bg-white box-border bg-content1 outline-none relative",
     backdrop: "z-50",
     header: "flex py-4 px-6 flex-initial text-large font-semibold",
     body: "flex flex-1 flex-col gap-3 px-6 py-2",
@@ -102,10 +102,10 @@ const drawer = tv({
       },
     },
     radius: {
-      none: {base: "rounded-none"},
-      sm: {base: "rounded-small"},
-      md: {base: "rounded-medium"},
-      lg: {base: "rounded-large"},
+      none: {content: "rounded-none"},
+      sm: {content: "rounded-small"},
+      md: {content: "rounded-medium"},
+      lg: {content: "rounded-large"},
     },
     placement: {
       top: {

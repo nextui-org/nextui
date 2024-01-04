@@ -1,0 +1,194 @@
+---
+title: "Drawer"
+description: "A panel which slides in from the edge of the screen with a custom content that requires attention or provides additional information."
+---
+
+import {modalContent} from "@/content/components/modal";
+import {drawerContent} from "@/content/components/drawer";
+
+# Drawer
+
+A panel which slides in from the edge of the screen with a custom content that requires attention or provides additional information.
+
+<ComponentLinks component="drawer" reactAriaHook="useModal" />
+
+---
+
+<CarbonAd/>
+
+## Import
+
+NextUI exports 5 drawer-related components:
+
+- **Drawer**: The main component to display a drawer.
+- **DrawerContent**: The wrapper of the other drawer components.
+- **DrawerHeader**: The header of the drawer.
+- **DrawerBody**: The body of the drawer.
+- **DrawerFooter**: The footer of the drawer.
+
+<ImportTabs
+  commands={{
+    main: `import {
+  Drawer, 
+  DrawerContent, 
+  DrawerHeader, 
+  DrawerBody, 
+  DrawerFooter
+} from "@nextui-org/react";`,
+    individual:
+      `import {
+  Drawer, 
+  DrawerContent, 
+  DrawerHeader, 
+  DrawerBody, 
+  DrawerFooter
+} from "@nextui-org/drawer";`,
+  }}
+/>
+
+## Usage
+
+When the drawer opens:
+
+- Focus is bounded within the drawer and set to the first tabbable element.
+- Content behind a drawer dialog is inert, meaning that users cannot interact with it.
+
+<CodeDemo title="Usage" files={drawerContent.usage} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={drawerContent.sizes} />
+
+### Non-dissmissable
+
+By default the drawer can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.
+You can disable this behavior by setting the `isDismissable` prop to `false`.
+
+<CodeDemo title="Non-dissmissible" files={drawerContent.nonDismissable} />
+
+### Drawer placement
+
+By default the drawer is righted on screens. This placement is called `right`, but
+you can change it by using the `placement` prop.
+
+<CodeDemo title="Drawer placement" files={drawerContent.placement} />
+
+### Overflow scroll
+
+You can use the `scrollBehavior` prop to set the scroll behavior of the drawer. The default value is `inside`.
+
+- **inside**: The drawer content will be scrollable.
+- **outside**: The drawer content will be scrollable and the drawer will be fixed.
+
+<CodeDemo title="Overflow scroll" files={drawerContent.overflow} />
+
+### With Form
+
+The `Drawer` handles the focus within the drawer content. It means that you can use the drawer with
+form elements without any problem. the focus returns to the trigger when the drawer closes.
+
+<CodeDemo title="With Form" files={drawerContent.form} />
+
+> **Note**: You can add the `autoFocus` prop to the first `Input` component to focus it when the drawer opens.
+
+### Backdrop
+
+The `Drawer` component has a `backdrop` prop to show a backdrop behind the drawer. The backdrop can be
+either `transparent`, `opaque` or `blur`. The default value is `opaque`.
+
+<CodeDemo title="Backdrop" files={drawerContent.backdrop} />
+
+### Custom Backdrop
+
+You can customize the backdrop by using the `backdrop` slot.
+
+<CodeDemo title="Custom Backdrop" files={drawerContent.customBackdrop} />
+
+### Custom Motion
+
+Drawer offers a `motionProps` property to customize the `enter` / `exit` animation.
+
+<CodeDemo title="Custom Motion" highlightedLines="14-31" files={drawerContent.customMotion} />
+
+> Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
+
+## Slots
+
+- **wrapper**: The wrapper slot of the drawer. It wraps the `base` and the `backdrop` slots.
+- **base**: The base slot of the drawer container.
+- **content**: The main slot of the drawer content.
+- **backdrop**: The backdrop slot, it is displayed behind the drawer.
+- **header**: The header of the drawer, it is displayed at the top of the drawer.
+- **body**: The body of the drawer, it is displayed in the middle of the drawer.
+- **footer**: The footer of the drawer, it is displayed at the bottom of the drawer.
+- **closeButton**: The close button of the drawer.
+
+### Custom Styles
+
+You can customize the `Drawer` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" highlightedLines="15-20" files={drawerContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`Drawer` has the following attributes on the `base` element:
+
+- **data-open**:
+  When the drawer is open. Based on drawer state.
+- **data-dismissable**:
+  When the drawer is dismissable. Based on `isDismissable` prop.
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Content outside the drawer is hidden from assistive technologies while it is open.
+- The drawer optionally closes when interacting outside, or pressing the <Kbd>Esc</Kbd> key.
+- Focus is moved into the drawer on mount, and restored to the trigger element on unmount.
+- While open, focus is contained within the drawer, preventing the user from tabbing outside.
+- Scrolling the page behind the drawer is prevented while it is open, including in mobile browsers.
+
+<Spacer y={4} />
+
+## API
+
+### Drawer Props
+
+| Attribute                 | Type                                                                                                | Description                                                                                           | Default         |
+| ------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------- |
+| children\*                | `ReactNode`                                                                                         | The content of the drawer. It's usually the `DrawerContent`.                                          | -               |
+| size                      | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `3xl` \| `4xl` \| `5xl` \| `full`                  | The drawer size. This changes the drawer `width` or `height` (full).                                  | `md`            |
+| radius                    | `none` \| `sm` \| `md` \| `lg`                                                                      | The drawer border radius.                                                                             | `lg`            |
+| backdrop                  | `transparent` \| `opaque` \| `blur`                                                                 | The drawer backdrop type.                                                                             | `opaque`        |
+| scrollBehavior            | `inside` \| `outside`                                                                               | The drawer scroll behavior.                                                                           | `inside`        |
+| placement                 | `top` \| `right` \| `bottom` \| `left`                                                              | The drawer position.                                                                                  | `right`         |
+| isOpen                    | `boolean`                                                                                           | Whether the drawer is open by default (controlled).                                                   | -               |
+| defaultOpen               | `boolean`                                                                                           | Whether the drawer is open by default (uncontrolled).                                                 | -               |
+| isDismissable             | `boolean`                                                                                           | Whether the drawer can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.       | `true`          |
+| isKeyboardDismissDisabled | `boolean`                                                                                           | Whether pressing the <Kbd>Esc</Kbd> key to close the drawer should be disabled.                       | `false`         |
+| shouldBlockScroll         | `boolean`                                                                                           | Whether the drawer should block the scroll of the page on open.                                       | `true`          |
+| hideCloseButton           | `boolean`                                                                                           | Whether to hide the drawer close button.                                                              | `false`         |
+| closeButton               | `ReactNode`                                                                                         | Custom close button to display on top right corner.                                                   | -               |
+| motionProps               | [MotionProps](#motion-props)                                                                        | The props to modify the framer motion animation. Use the `variants` API to create your own animation. |                 |
+| portalContainer           | `HTMLElement`                                                                                       | The container element in which the overlay portal will be placed.                                     | `document.body` |
+| disableAnimation          | `boolean`                                                                                           | Whether the drawer should not have animations.                                                        | `false`         |
+| classNames                | `Record<"wrapper" ｜ "base" ｜ "backdrop" ｜ "content" ｜ "header" ｜ "body" ｜ "footer" ｜ "closeButton", string>`  | Allows to set custom class names for the drawer slots.                                 | -               |
+
+### Drawer Events
+
+| Attribute    | Type                        | Description                                                  |
+| ------------ | --------------------------- | ------------------------------------------------------------ |
+| onOpenChange | `(isOpen: boolean) => void` | Handler that is called when the drawer's open state changes. |
+| onClose      | `() => void`                | Handler that is called when the drawer is closed.            |
+
+<Spacer y={4} />
+
+### Drawer types
+
+#### Motion Props
+
+```ts
+export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
+```

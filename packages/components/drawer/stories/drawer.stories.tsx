@@ -4,6 +4,10 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {drawer} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
+import {Input} from "@nextui-org/input";
+import {Checkbox} from "@nextui-org/checkbox";
+import {Link} from "@nextui-org/link";
+import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
 import Lorem from "react-lorem-component";
 
 import {
@@ -81,7 +85,7 @@ const content = (
       <>
         <DrawerHeader className="flex flex-col gap-1">Log in</DrawerHeader>
         <DrawerBody>
-          {/* <Input
+          <Input
             autoFocus
             endContent={
               <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -110,63 +114,7 @@ const content = (
             <Link color="primary" href="#" size="sm">
               Forgot password?
             </Link>
-          </div> */}
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
-            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
-            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam.
-          </p>
-          <p>
-            Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-            adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia
-            eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
-            consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
-            nostrud ad veniam.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
-            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor adipisicing.
-            Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod
-            Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
-            laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-          </p>
-          <p>
-            Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod
-            Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
-            laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
-            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor adipisicing.
-            Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod
-            Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
-            laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
-            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam.
-          </p>
-          <p>
-            Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-            adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia
-            eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
-            consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt
-            nostrud ad veniam.
-          </p>
-          <p>
-            Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod
-            Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
-            laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
-            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Magna
-            exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor adipisicing.
-            Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod
-            Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
-            laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-          </p>
+          </div>
         </DrawerBody>
         <DrawerFooter>
           <Button color="danger" variant="flat" onPress={onClose}>
