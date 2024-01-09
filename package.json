@@ -12,7 +12,7 @@
     "url": "https://github.com/nextui-org/nextui"
   },
   "scripts": {
-    "dev": "pnpm sb && pnpm dev:docs",
+    "dev": "pnpm sb",
     "build": "turbo build --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
     "build:fast": "turbo build:fast --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
