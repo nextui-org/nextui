@@ -12,11 +12,13 @@ import Lorem from "react-lorem-component";
 
 import {
   Modal,
+  Drawer,
   ModalContent,
   ModalHeader,
   ModalBody,
   ModalFooter,
   ModalProps,
+  DrawerProps,
   useDisclosure,
 } from "../src";
 
@@ -276,5 +278,26 @@ export const CustomMotion = {
         },
       },
     },
+  },
+};
+
+const DrawerTemplate = (args: DrawerProps) => {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure({defaultOpen: args.defaultOpen});
+
+  return (
+    <>
+      <Button onPress={onOpen}>Open Drawer</Button>
+      <Drawer {...args} isOpen={isOpen} onOpenChange={onOpenChange}>
+        {content}
+      </Drawer>
+    </>
+  );
+};
+
+export const UseAsDrawer = {
+  render: DrawerTemplate,
+
+  args: {
+    placement: "right",
   },
 };
