@@ -164,6 +164,81 @@ component (e.g. `BrowserRouter`) so that it has access to React Router's interna
 element should also be defined inside `NextUIProvider` so that links inside the rendered routes have access
 to the router.
 
+### Tanstack Router
+
+First setup your `router` using one of the many possible configurations described in the [Tanstack Router docs](https://tanstack.com/router/v1/docs/overview).
+
+
+Now let's use the router you've created to setup the NextUIProvider
+
+```jsx {14}
+// main.tsx or main.jsx
+import {NextUIProvider} from '@nextui-org/react';
+import { RouterProvider } from '@tanstack/react-router'
+
+// Import the router you've already configured
+import { router } from "./{your router path}"
+
+function navigate(path: string) {
+  void router.navigate({ to: path });
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <NextUIProvider navigate={navigate}>
+      <RouterProvider router={router}>
+    </NextUIProvider>
+  </React.StrictMode>,
+)
+```
+
+There are many good reasons for using Tanstack Router, and one of them is the `typesafety` it provides at the `route tree` level of your application.
+
+> Trying to `navigate` to a route that *doesn't exist* will result in a type error. Even route `params` have typesafety guarantees!
+
+Unfortunatelly, it's not possible to get such typesafety directly in NextUI components because the `href` prop
+is just a `string` and it doesn't know about the context of your specific navigation configuration.
+
+To circumvent that, there's a simple work around. Whenever you'd like to pass an `href` to a NextUI component,
+first call the `useHrefBuilder` hook (described bellow) and it will generate a *Typesafe* valid `href` for you.
+
+This hook properly serializes the combination of `paths` and `params` you pass to it into a valid and typesafe href!
+
+```tsx
+export function useHrefBuilder() {
+  const { buildLocation } = useRouter();
+
+  return useCallback(
+    (...args: Parameters<(typeof router)["buildLocation"]>) => {
+      return buildLocation(...args).href;
+    },
+    [buildLocation]
+  );
+}
+
+// Usage Example
+export function ExampleComponent() {
+  const href = useHrefBuilder();
+
+  return (
+    <div>
+      <Link href={href({ to: "/specificRoute" })}>Specific Route</Link>
+      <Button
+        as={Link}
+        href={href({
+          to: "/shop/item/$id",
+          params: {
+            id: "123",
+          },
+        })}
+      >
+        Blue Shirt
+      </Button>
+    </div>
+  );
+}
+```
+
 
 ### Remix
 
