@@ -1,6 +1,8 @@
 const App = `import {Input} from "@nextui-org/react";
 
 export default function App() {
+  const [value, setValue] = React.useState("you@example.com")
+
   return (
     <Input
       isClearable
@@ -8,8 +10,9 @@ export default function App() {
       label="Email"
       variant="bordered"
       placeholder="Enter your email"
-      defaultValue="junior@nextui.org"
+      value={value}
       onClear={() => console.log("input cleared")}
+      onValueChange={setValue}
       className="max-w-xs"
     />
   );
