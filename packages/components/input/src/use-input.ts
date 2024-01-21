@@ -6,7 +6,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -122,7 +122,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const Component = as || "div";
 
-  const isFilled = !!inputValue;
+  const isFilled = !isEmpty(inputValue);
   const isFilledWithin = isFilled || isFocusWithin;
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
@@ -287,7 +287,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-filled-within": dataAttr(isFilledWithin),
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
-        className: slots.input({class: clsx(classNames?.input, !!inputValue ? "is-filled" : "")}),
+        className: slots.input({
+          class: clsx(classNames?.input, !isEmpty(inputValue) ? "is-filled" : ""),
+        }),
         ...mergeProps(
           focusProps,
           inputProps,
@@ -330,7 +332,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
-          class: clsx(classNames?.inputWrapper, !!inputValue ? "is-filled" : ""),
+          class: clsx(classNames?.inputWrapper, !isEmpty(inputValue) ? "is-filled" : ""),
         }),
         ...mergeProps(props, hoverProps),
         onClick: (e) => {
