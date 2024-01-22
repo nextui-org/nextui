@@ -7,7 +7,7 @@ import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overla
 import {useFocusRing} from "@react-aria/focus";
 import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {DOMElement, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
@@ -249,20 +249,24 @@ export function usePopover(originalProps: UsePopoverProps) {
     [state, triggerProps, onPress, triggerRef],
   );
 
+  const onClosePopover = useCallback(
+    (e?: React.MouseEvent<DOMElement, MouseEvent>) => {
+      if (!wasTriggerPressedRef.current) {
+        e?.preventDefault();
+
+        return;
+      }
+
+      state.close();
+      wasTriggerPressedRef.current = false;
+    },
+    [state],
+  );
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
       "data-slot": "backdrop",
       className: slots.backdrop({class: classNames?.backdrop}),
-      onClick: (e) => {
-        if (!wasTriggerPressedRef.current) {
-          e.preventDefault();
-
-          return;
-        }
-
-        state.close();
-        wasTriggerPressedRef.current = false;
-      },
+      onClick: onClosePopover,
       ...underlayProps,
       ...props,
     }),
@@ -287,7 +291,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     popoverRef: domRef,
     portalContainer,
     isOpen: state.isOpen,
-    onClose: state.close,
+    onClose: onClosePopover,
     disableAnimation,
     shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "transparent",

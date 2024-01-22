@@ -2,7 +2,7 @@ import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {DOMElement, forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {motion} from "framer-motion";
@@ -17,7 +17,12 @@ import {usePopoverContext} from "./popover-context";
 export interface PopoverContentProps
   extends AriaDialogProps,
     Omit<HTMLNextUIProps, "children" | "role"> {
-  children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
+  children:
+    | ReactNode
+    | ((
+        titleProps: DOMAttributes<HTMLElement>,
+        onClose?: (e?: React.MouseEvent<DOMElement, MouseEvent> | undefined) => void,
+      ) => ReactNode);
 }
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
@@ -52,7 +57,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
       {!isNonModal && <DismissButton onDismiss={onClose} />}
       <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
         <div {...getContentProps({className})}>
-          {typeof children === "function" ? children(titleProps) : children}
+          {typeof children === "function" ? children(titleProps, onClose) : children}
         </div>
       </Component>
       <DismissButton onDismiss={onClose} />
