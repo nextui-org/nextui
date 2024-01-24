@@ -5,7 +5,6 @@ import {capitalize, last} from "lodash";
 
 import {BugIcon} from "@/components/icons";
 import {ISSUE_REPORT_URL} from "@/libs/github/constants";
-import {trackEvent} from "@/utils/va";
 
 export const BugReportButton = () => {
   const pathname = usePathname();
@@ -13,13 +12,6 @@ export const BugReportButton = () => {
   const componentTitle = capitalize(last(pathname?.split("/")));
 
   const handlePress = () => {
-    trackEvent("BugReportButton - Sandpack", {
-      name: "sandpack - bug report",
-      action: "press",
-      category: "docs",
-      data: `${ISSUE_REPORT_URL}${componentTitle}`,
-    });
-
     window.open(`${ISSUE_REPORT_URL}${componentTitle}`, "_blank");
   };
 
