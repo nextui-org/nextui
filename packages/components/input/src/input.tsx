@@ -35,7 +35,12 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
   const end = useMemo(() => {
     if (isClearable) {
-      return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
+      return (
+        <>
+          <span {...getClearButtonProps()}>{<CloseFilledIcon />}</span>
+          {endContent}
+        </>
+      );
     }
 
     return endContent;

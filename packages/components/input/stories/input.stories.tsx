@@ -547,6 +547,37 @@ export const Clearable = {
   },
 };
 
+export const ClearableAndEndContent = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    placeholder: "Search for something",
+    defaultValue: "",
+    // eslint-disable-next-line no-console
+    onClear: () => console.log("input cleared"),
+    clearable: true,
+    label: "Search",
+    labelPlacement: "outside",
+    startContent: (
+      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+    ),
+    endContent: (
+      <>
+        <svg
+          className="w-5 h-5 text-2xl text-default-400 pointer-events-none flex-shrink-0"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M7 4a3 3 0 0 1 6 0v6a3 3 0 1 1-6 0V4Z" />
+          <path d="M5.5 9.643a.75.75 0 0 0-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-1.5v-1.546A6.001 6.001 0 0 0 16 10v-.357a.75.75 0 0 0-1.5 0V10a4.5 4.5 0 0 1-9 0v-.357Z" />
+        </svg>
+      </>
+    ),
+  },
+};
+
 export const StartContent = {
   render: StartContentTemplate,
 

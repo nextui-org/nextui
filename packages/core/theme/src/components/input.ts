@@ -58,6 +58,8 @@ const input = tv({
       "cursor-pointer",
       "active:!opacity-70",
       "rounded-full",
+      // exist end content
+      "data-[has-end-content=true]:right-9",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
