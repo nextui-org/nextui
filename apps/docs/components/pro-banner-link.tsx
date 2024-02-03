@@ -16,14 +16,17 @@ export const ProBannerLink = () => {
   return (
     <>
       <a
-        className="text-small sm:text-[0.93rem] text-foreground hover:opacity-80 transition-opacity"
+        className="text-small flex items-end sm:text-[0.93rem] text-foreground hover:opacity-80 transition-opacity"
         href="https://nextui.pro?ref=nextui"
         rel="noopener noreferrer"
         target="_blank"
         onClick={handleClick}
       >
+        <span aria-label="rocket" className="hidden md:block" role="img">
+          🚀
+        </span>
         <span
-          className="inline-flex animate-text-gradient font-medium bg-clip-text text-transparent bg-[linear-gradient(90deg,#D6009A_0%,#8a56cc_50%,#D6009A_100%)] dark:bg-[linear-gradient(90deg,#FFEBF9_0%,#8a56cc_50%,#FFEBF9_100%)]"
+          className="inline-flex md:ml-1 animate-text-gradient font-medium bg-clip-text text-transparent bg-[linear-gradient(90deg,#D6009A_0%,#8a56cc_50%,#D6009A_100%)] dark:bg-[linear-gradient(90deg,#FFEBF9_0%,#8a56cc_50%,#FFEBF9_100%)]"
           style={{
             fontSize: "inherit",
             backgroundSize: "200%",
