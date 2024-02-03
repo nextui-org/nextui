@@ -27,7 +27,7 @@ export const ProBanner = () => {
           }}
         />
       </div>
-      <div className="flex w-full flex-wrap items-center justify-center gap-x-3">
+      <div className="flex w-full items-center justify-between md:justify-center gap-x-3">
         <ProBannerLink />
       </div>
     </div>

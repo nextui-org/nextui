@@ -16,20 +16,17 @@ export const ProBannerLink = () => {
   return (
     <>
       <a
-        className="text-[0.93rem] text-foreground hover:opacity-80 transition-opacity"
+        className="text-small sm:text-[0.93rem] text-foreground hover:opacity-80 transition-opacity"
         href="https://nextui.pro?ref=nextui"
         rel="noopener noreferrer"
         target="_blank"
         onClick={handleClick}
       >
-        <strong className="hidden md:block font-medium">
-          Ship faster with beautiful components
-        </strong>
-        <strong className="block md:hidden font-medium">Ship faster with</strong>
+        <strong className="font-medium">Ship faster with beautiful components</strong>
+        {/* <strong className="block sm:hidden font-medium">Ship faster with</strong> */}
       </a>
-
       <a
-        className="flex  group items-center font-semibold text-foreground shadow-sm gap-1.5 relative overflow-hidden rounded-full p-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className="flex group min-w-[120px] items-center font-semibold text-foreground shadow-sm gap-1.5 relative overflow-hidden rounded-full p-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         href="https://nextui.pro?ref=nextui"
         rel="noopener noreferrer"
         onClick={handleClick}
