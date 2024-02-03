@@ -22,8 +22,18 @@ export const ProBannerLink = () => {
         target="_blank"
         onClick={handleClick}
       >
-        <strong className="font-medium">Ship faster with beautiful components</strong>
-        {/* <strong className="block sm:hidden font-medium">Ship faster with</strong> */}
+        <span
+          className="inline-flex animate-text-gradient font-medium bg-clip-text text-transparent bg-[linear-gradient(90deg,#D6009A_0%,#8a56cc_50%,#D6009A_100%)] dark:bg-[linear-gradient(90deg,#FFEBF9_0%,#8a56cc_50%,#FFEBF9_100%)]"
+          style={{
+            fontSize: "inherit",
+            backgroundSize: "200%",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
+          }}
+        >
+          Ship faster with beautiful components
+        </span>
       </a>
       <a
         className="flex group min-w-[120px] items-center font-semibold text-foreground shadow-sm gap-1.5 relative overflow-hidden rounded-full p-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
