@@ -139,7 +139,7 @@ const TemplateWithStartContent = (args: AccordionProps) => (
       }
       subtitle={
         <p className="flex">
-          2 issues to&nbsp;<p className="text-primary">fix now</p>
+          2 issues to&nbsp;<span className="text-primary">fix now</span>
         </p>
       }
       title="Zoey Lang"
