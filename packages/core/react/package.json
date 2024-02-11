@@ -33,7 +33,7 @@
     "prebuild": "node src/scripts/prebuild.js",
     "build": "tsup --dts",
     "postbuild": "node src/scripts/postbuild.js",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup",
