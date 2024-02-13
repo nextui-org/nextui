@@ -288,7 +288,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
         className: slots.input({
-          class: clsx(classNames?.input, !isEmpty(inputValue) ? "is-filled" : ""),
+          class: clsx(classNames?.input, isFilled ? "is-filled" : ""),
         }),
         ...mergeProps(
           focusProps,
@@ -332,7 +332,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
-          class: clsx(classNames?.inputWrapper, !isEmpty(inputValue) ? "is-filled" : ""),
+          class: clsx(classNames?.inputWrapper, isFilled ? "is-filled" : ""),
         }),
         ...mergeProps(props, hoverProps),
         onClick: (e) => {
