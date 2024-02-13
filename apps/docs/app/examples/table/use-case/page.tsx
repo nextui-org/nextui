@@ -409,10 +409,45 @@ export default function Page() {
     setPage(1);
   }, []);
 
+  const bulkUpdateSelectedKeys = useCallback(
+    (
+      updatedSelectedKeys: {
+        [key: number]: Selection;
+      },
+      newSelectedKeys: Selection,
+    ) => {
+      for (let i = 1; i <= pages; i++) {
+        updatedSelectedKeys[i] = newSelectedKeys;
+      }
+    },
+    [pages],
+  );
+
+  const isUnselectAllRows = useCallback(
+    (prevSelectedKeys: Selection, newSelectedKeys: Selection) => {
+      return (
+        newSelectedKeys !== "all" &&
+        newSelectedKeys.size === 0 &&
+        prevSelectedKeys &&
+        (prevSelectedKeys === "all" || prevSelectedKeys.size === rowsPerPage)
+      );
+    },
+    [rowsPerPage],
+  );
+
   const onSelectionChange = (keys: Selection) => {
     let updatedSelectedKeys = {...selectedKeys};
 
-    updatedSelectedKeys[page] = keys;
+    if (keys === "all") {
+      bulkUpdateSelectedKeys(updatedSelectedKeys, "all");
+    } else {
+      if (isUnselectAllRows(updatedSelectedKeys[page], keys)) {
+        bulkUpdateSelectedKeys(updatedSelectedKeys, new Set([]));
+      } else {
+        updatedSelectedKeys[page] = keys;
+      }
+    }
+
     setSelectedKeys(updatedSelectedKeys);
   };
 
