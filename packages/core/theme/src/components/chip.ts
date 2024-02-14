@@ -25,6 +25,7 @@ const chip = tv({
     base: [
       "relative",
       "max-w-fit",
+      "min-w-min",
       "inline-flex",
       "items-center",
       "justify-between",
