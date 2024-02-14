@@ -38,6 +38,9 @@ export function useMultiSelectListState<T extends object>(
   const selectedItems = (
     selectedKeys.size !== 0
       ? Array.from(selectedKeys)
+          .map((key) => {
+            return collection.getItem(key);
+          })
           // Remove undefined values when some keys are not present in the collection
           .filter(Boolean)
       : null
