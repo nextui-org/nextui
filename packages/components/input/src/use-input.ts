@@ -87,6 +87,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {
     ref,
     as,
+    type,
     label,
     baseRef,
     wrapperRef,
@@ -122,7 +123,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const Component = as || "div";
 
-  const isFilled = !!inputValue;
+  const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
+  const isFilled = !!inputValue || isFilledByDefault;
   const isFilledWithin = isFilled || isFocusWithin;
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
