@@ -99,7 +99,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 
