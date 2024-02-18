@@ -265,7 +265,7 @@ const WithFormTemplate = (args: TabsProps) => {
   );
 };
 
-export const Static = {
+export const Default = {
   render: StaticTemplate,
 
   args: {

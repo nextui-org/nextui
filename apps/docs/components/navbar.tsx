@@ -16,7 +16,6 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
-  Chip,
 } from "@nextui-org/react";
 import {dataFocusVisibleClasses} from "@nextui-org/theme";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
@@ -242,7 +241,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Figma
             </NextLink>
           </NavbarItem>
-          <NavbarItem>
+          {/* <NavbarItem>
             <Chip
               as={NextLink}
               className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
@@ -256,7 +255,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
                 🚀
               </span>
             </Chip>
-          </NavbarItem>
+          </NavbarItem> */}
         </ul>
       </NavbarContent>
 
