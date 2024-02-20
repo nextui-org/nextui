@@ -1,16 +1,17 @@
 import type {Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import type {PressEvent} from "@react-types/shared";
+import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
-import {PaginationItemType} from "@nextui-org/use-pagination";
+import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {chain, mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {useHover, usePress} from "@react-aria/interactions";
+import {chain, mergeProps, shouldClientNavigate, useRouter} from "@react-aria/utils";
+import {usePress} from "@nextui-org/use-aria-press";
+import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
+import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
-export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onClick"> {
+interface Props extends Omit<HTMLNextUIProps<"li">, "onClick"> {
   /**
    * Ref to the DOM node.
    */
@@ -18,7 +19,7 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
   /**
    * Value of the item.
    */
-  value?: PaginationItemType;
+  value?: PaginationItemValue;
   /**
    * Whether the item is active.
    * @default false
@@ -40,12 +41,13 @@ export interface UsePaginationItemProps extends Omit<HTMLNextUIProps<"li">, "onC
    * @param e PressEvent
    */
   onPress?: (e: PressEvent) => void;
-
   /**
    * Function to get the aria-label of the item.
    */
-  getAriaLabel?: (page?: string) => string | undefined;
+  getAriaLabel?: (page?: PaginationItemValue) => string | undefined;
 }
+
+export type UsePaginationItemProps = Props & LinkDOMProps;
 
 export function usePaginationItem(props: UsePaginationItemProps) {
   const {
@@ -62,8 +64,12 @@ export function usePaginationItem(props: UsePaginationItemProps) {
     ...otherProps
   } = props;
 
-  const Component = as || "li";
+  const isLink = !!props?.href;
+  const Component = as || isLink ? "a" : "li";
+  const shouldFilterDOMProps = typeof Component === "string";
   const domRef = useDOMRef(ref);
+
+  const router = useRouter();
 
   const ariaLabel = useMemo(
     () => (isActive ? `${getAriaLabel?.(value)} active` : getAriaLabel?.(value)),
@@ -92,9 +98,32 @@ export function usePaginationItem(props: UsePaginationItemProps) {
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(isPressed),
       "data-focus-visible": dataAttr(isFocusVisible),
-      ...mergeProps(props, pressProps, focusProps, hoverProps, otherProps),
+      ...mergeProps(
+        props,
+        pressProps,
+        focusProps,
+        hoverProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
       className: clsx(className, props.className),
-      onClick: chain(pressProps.onClick, onClick),
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+        chain(pressProps?.onClick, onClick)(e);
+
+        // If a custom router is provided, prevent default and forward if this link should client navigate.
+        if (
+          !router.isNative &&
+          e.currentTarget instanceof HTMLAnchorElement &&
+          e.currentTarget.href &&
+          // If props are applied to a router Link component, it may have already prevented default.
+          !e.isDefaultPrevented() &&
+          shouldClientNavigate(e.currentTarget, e)
+        ) {
+          e.preventDefault();
+          router.open(e.currentTarget, e);
+        }
+      },
     };
   };
 

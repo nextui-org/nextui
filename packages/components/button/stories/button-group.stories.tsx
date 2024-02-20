@@ -63,10 +63,52 @@ const Template = (args: ButtonGroupProps) => (
   </ButtonGroup>
 );
 
+const VariantButtonTemplate = (args: ButtonGroupProps) => (
+  <ButtonGroup {...args}>
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+    <Button variant="bordered">Four</Button>
+    <Button>Five</Button>
+    <Button>Six</Button>
+  </ButtonGroup>
+);
+
+const VariantButtonsTemplate = (args: ButtonGroupProps) => (
+  <ButtonGroup {...args}>
+    <Button color="success" variant="bordered">
+      One
+    </Button>
+    <Button color="success">Two</Button>
+    <Button variant="bordered">Three</Button>
+    <Button variant="bordered">Four</Button>
+    <Button variant="bordered">Five</Button>
+    <Button variant="bordered">Six</Button>
+  </ButtonGroup>
+);
+
 export const Default = {
   render: Template,
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const VariantButton = {
+  render: VariantButtonTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "solid",
+  },
+};
+
+export const VariantButtons = {
+  render: VariantButtonsTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "solid",
   },
 };

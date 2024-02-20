@@ -94,6 +94,7 @@ export const DOMPropNames = new Set([
   "poster",
   "preload",
   "radioGroup",
+  "referrerPolicy",
   "readOnly",
   "rel",
   "required",

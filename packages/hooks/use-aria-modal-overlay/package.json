@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-modal-overlay",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "A custom implementation of react aria modal overlay, this removes the prevent scroll",
   "keywords": [
     "use-aria-modal-overlay"
@@ -27,24 +27,26 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/overlays": "^3.17.0",
-    "@react-stately/overlays": "^3.6.2",
-    "@react-types/shared": "^3.20.0",
-    "@react-aria/utils": "^3.20.0"
+    "@react-aria/overlays": "^3.18.1",
+    "@react-stately/overlays": "^3.6.3",
+    "@react-types/shared": "^3.21.0",
+    "@react-aria/utils": "^3.21.1"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/divider",
-  "version": "2.0.20",
+  "version": "2.0.25",
   "description": ". A separator is a visual divider between two groups of content",
   "keywords": [
     "divider"
@@ -27,25 +27,28 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-rsc-utils": "workspace:*",
     "@nextui-org/system-rsc": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@react-types/shared": "^3.20.0"
+    "@react-types/shared": "^3.21.0"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

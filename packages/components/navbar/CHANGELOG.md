@@ -1,5 +1,55 @@
 # @nextui-org/navbar
 
+## 2.0.27
+
+### Patch Changes
+
+- [#1946](https://github.com/nextui-org/nextui/pull/1946) [`36775dcee`](https://github.com/nextui-org/nextui/commit/36775dceee18e4b69684bab4cbdd122a6034c91f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1941 style prop added to the base navbar element.
+
+- Updated dependencies []:
+  - @nextui-org/framer-transitions@2.0.15
+
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/framer-transitions@2.0.14
+
+## 2.0.25
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- Updated dependencies []:
+  - @nextui-org/framer-transitions@2.0.13
+
+## 2.0.24
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies []:
+  - @nextui-org/system@2.0.12
+  - @nextui-org/framer-transitions@2.0.12
+
+## 2.0.23
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/system@2.0.11
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/use-aria-toggle-button@2.0.6
+  - @nextui-org/use-scroll-position@2.0.4
+  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.0.22
 
 ### Patch Changes
@@ -130,7 +180,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

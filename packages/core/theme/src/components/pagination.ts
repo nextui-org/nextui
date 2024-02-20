@@ -45,6 +45,7 @@ const pagination = tv({
       "left-0",
       "select-none",
       "touch-none",
+      "pointer-events-none",
       "z-20",
     ],
     forwardIcon:
@@ -135,7 +136,13 @@ const pagination = tv({
       },
       false: {
         item: ["data-[pressed=true]:scale-[0.97]", "transition-transform-background"],
-        cursor: ["transition-transform", "!duration-300"],
+        cursor: [
+          "data-[moving=true]:transition-transform",
+          "!data-[moving=true]:duration-300",
+          // this hides the cursor and only shows it once it has been moved to its initial position
+          "opacity-0",
+          "data-[moving]:opacity-100",
+        ],
       },
     },
   },
@@ -353,17 +360,28 @@ const pagination = tv({
     {
       slots: ["item", "prev", "next"],
       variant: "flat",
-      class: ["bg-default-100", "data-[hover=true]:bg-default-200", "active:bg-default-300"],
+      class: [
+        "bg-default-100",
+        "[&[data-hover=true]:not([data-active=true])]:bg-default-200",
+        "active:bg-default-300",
+      ],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "faded",
-      class: ["bg-default-50", "data-[hover=true]:bg-default-100", "active:bg-default-200"],
+      class: [
+        "bg-default-50",
+        "[&[data-hover=true]:not([data-active=true])]:bg-default-100",
+        "active:bg-default-200",
+      ],
     },
     {
       slots: ["item", "prev", "next"],
       variant: "light",
-      class: ["data-[hover=true]:bg-default-100", "active:bg-default-200"],
+      class: [
+        "[&[data-hover=true]:not([data-active=true])]:bg-default-100",
+        "active:bg-default-200",
+      ],
     },
     // size
     {

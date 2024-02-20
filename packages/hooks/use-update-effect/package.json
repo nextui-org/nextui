@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-update-effect",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "React effect hook that invokes only on update",
   "keywords": [
     "use-update-effect"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",

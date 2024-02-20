@@ -6,31 +6,41 @@ const rootDir = path.join(__dirname, ".");
 const contentDir = path.join(rootDir, "content");
 const docsDir = path.join(contentDir, "docs");
 const componentsDocsDir = path.join(docsDir, "components");
+const guidesDocsDir = path.join(docsDir, "guide");
+const frameworksDocsDir = path.join(docsDir, "frameworks");
+const customizationDocsDir = path.join(docsDir, "customization");
 
-const getComponentsName = () => {
+const getFolderNames = (dir) => {
   const names = shell
-    .ls("-R", componentsDocsDir)
-    .map((file) => path.join(process.cwd(), componentsDocsDir, file))
+    .ls("-R", dir)
+    .map((file) => path.join(process.cwd(), dir, file))
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => path.basename(file, ".mdx"));
 
   return names;
-};
-const getComponentsRoute = (names = []) => {
+}
+
+const getFolderRoutes = (names = [], prefix = "") => {
   return names.map((name) => {
     return {
       source: `/${name}`,
-      destination: `/docs/components/${name}`,
+      destination: `/docs/${prefix}/${name}`,
       permanent: true,
     };
   });
-};
+}
 
 async function redirect() {
-  const componentsName = getComponentsName();
+  const componentsName =getFolderNames(componentsDocsDir);
+  const guidesName = getFolderNames(guidesDocsDir);
+  const frameworksName = getFolderNames(frameworksDocsDir);
+  const  customizationName = getFolderNames(customizationDocsDir);
 
   return [
-    ...getComponentsRoute(componentsName),
+    ...getFolderRoutes(componentsName, "components"),
+    ...getFolderRoutes(guidesName, "guide"),
+    ...getFolderRoutes(frameworksName, "frameworks"),
+    ...getFolderRoutes(customizationName, "customization"),
     {
       source: "/docs",
       destination: "/docs/guide/introduction",

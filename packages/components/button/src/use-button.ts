@@ -229,6 +229,7 @@ export function useButton(props: UseButtonProps) {
     disableRipple,
     getButtonProps,
     getRippleProps,
+    isIconOnly,
   };
 }
 

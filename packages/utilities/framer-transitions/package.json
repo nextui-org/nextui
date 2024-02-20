@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/framer-transitions",
-  "version": "2.0.10",
+  "version": "2.0.15",
   "description": "A set of framer motion transitions for react",
   "keywords": [
     "framer-transitions"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
@@ -35,6 +35,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
+    "react-dom": ">=18",
     "framer-motion": ">=4.0.0"
   },
   "dependencies": {
@@ -43,8 +44,9 @@
   },
   "devDependencies": {
     "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "clean-package": "2.2.0",
-    "framer-motion": "^10.15.1"
+    "framer-motion": "^10.16.4"
   },
   "clean-package": "../../../clean-package.config.json"
 }

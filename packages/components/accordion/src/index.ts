@@ -3,9 +3,8 @@ import Accordion from "./accordion";
 
 // export types
 export type {AccordionProps} from "./accordion";
-export type {AccordionItemProps} from "./accordion-item";
 export type {AccordionItemIndicatorProps} from "./base/accordion-item-base";
-export type {AccordionItemBaseProps} from "./base/accordion-item-base";
+export type {AccordionItemBaseProps as AccordionItemProps} from "./base/accordion-item-base";
 
 // export hooks
 export {useAccordionItem} from "./use-accordion-item";

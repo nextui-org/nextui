@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system-rsc",
-  "version": "2.0.6",
+  "version": "2.0.11",
   "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
@@ -27,23 +27,25 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "@nextui-org/theme": ">=2.1.0",
+    "tailwind-variants": ">=0.1.13"
   },
   "devDependencies": {
     "react": "^18.0.0",
+    "tailwind-variants": "^0.1.18",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "clean-package": "2.2.0"
   },
   "dependencies": {
-    "tailwind-variants": "^0.1.14",
     "clsx": "^1.2.1"
   },
   "clean-package": "../../../clean-package.config.json",

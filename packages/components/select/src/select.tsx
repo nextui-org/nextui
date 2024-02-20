@@ -11,7 +11,7 @@ import {AnimatePresence} from "framer-motion";
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
 
-interface Props<T> extends Omit<UseSelectProps<T>, "isLabelPlaceholder"> {}
+interface Props<T> extends UseSelectProps<T> {}
 
 function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectElement>) {
   const {
@@ -28,6 +28,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     endContent,
     placeholder,
     renderValue,
+    shouldLabelBeOutside,
     disableAnimation,
     getBaseProps,
     getLabelProps,
@@ -37,7 +38,6 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getPopoverProps,
     getSpinnerProps,
     getMainWrapperProps,
-    shouldLabelBeOutside,
     getInnerWrapperProps,
     getHiddenSelectProps,
     getHelperWrapperProps,
@@ -90,7 +90,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     }
 
     return state.selectedItems.map((item) => item.textValue).join(", ");
-  }, [state.selectedItems, renderValue]);
+  }, [state.selectedItems, renderValue, placeholder]);
 
   const renderIndicator = useMemo(() => {
     if (isLoading) {

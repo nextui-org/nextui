@@ -1,5 +1,64 @@
 # @nextui-org/theme
 
+## 2.1.17
+
+### Patch Changes
+
+- [#1951](https://github.com/nextui-org/nextui/pull/1951) [`0f5cce5d6`](https://github.com/nextui-org/nextui/commit/0f5cce5d62713c59973b4330607cdcd3fd95d41a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1933 TV Function refactored to support twMerge false opts.
+
+## 2.1.16
+
+### Patch Changes
+
+- [#1923](https://github.com/nextui-org/nextui/pull/1923) [`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Textarea style rounded full styles issues fixed, start and end content props added
+
+## 2.1.15
+
+### Patch Changes
+
+- [#1914](https://github.com/nextui-org/nextui/pull/1914) [`7f6218b97`](https://github.com/nextui-org/nextui/commit/7f6218b97860d267f5208134948dfeadd04505d1) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1910 multiline select fixed, style improved.
+
+## 2.1.14
+
+### Patch Changes
+
+- [#1901](https://github.com/nextui-org/nextui/pull/1901) [`6a6d426b1`](https://github.com/nextui-org/nextui/commit/6a6d426b10fa7f92dfb20611e261347027393193) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Label position changed for Select and Input, this avoids to break the layout when having long descriptions and no placeholder
+
+  - Input/Select styles improved, label opacity removed
+
+- [#1902](https://github.com/nextui-org/nextui/pull/1902) [`85a820eef`](https://github.com/nextui-org/nextui/commit/85a820eeffe5df87e7622b0983788eb50adafe20) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1893, `endContent` prop fixed.
+
+- [#1905](https://github.com/nextui-org/nextui/pull/1905) [`11ef4365d`](https://github.com/nextui-org/nextui/commit/11ef4365dacf539001a39d596d2f60440bc0648b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Input/Select text size changed for sm size.
+
+## 2.1.13
+
+### Patch Changes
+
+- [#1884](https://github.com/nextui-org/nextui/pull/1884) [`acba2cf8f`](https://github.com/nextui-org/nextui/commit/acba2cf8f5ba1526bd44c6851e0ed7fdc6c0b8ae) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Input, Textarea, Select, Autocomplete and Textarea helper wrapper styles fixed
+
+- [#1891](https://github.com/nextui-org/nextui/pull/1891) [`e728a8967`](https://github.com/nextui-org/nextui/commit/e728a8967b1775be6a919f3b6bd6fc2267cc002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Input/Autocomplete/Textarea/Select styles adapted to custom default color, label truncate added
+
+- [#1876](https://github.com/nextui-org/nextui/pull/1876) [`71807e883`](https://github.com/nextui-org/nextui/commit/71807e88317c40aadfeb134125be1def9d679956) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Theme plugin optimization applied to make it faster
+
+## 2.1.12
+
+### Patch Changes
+
+- [#1869](https://github.com/nextui-org/nextui/pull/1869) [`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Select without label position fixed
+  - Input helperWrapper slot is now relative to its parent
+
+## 2.1.11
+
+### Patch Changes
+
+- [#1865](https://github.com/nextui-org/nextui/pull/1865) [`1fd5049f5`](https://github.com/nextui-org/nextui/commit/1fd5049f5a0b852862e8ca1816f1e83507fdd8b5) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix multiline select and inputs with description/errorMessage
+
+## 2.1.10
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
 ## 2.1.9
 
 ### Patch Changes
@@ -40,7 +99,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 

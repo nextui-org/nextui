@@ -172,7 +172,10 @@ const navbar = tv({
       "gap-2",
       "overflow-y-auto",
     ],
-    menuItem: ["text-large"],
+    menuItem: [
+      "text-large", // active
+      "data-[active=true]:font-semibold",
+    ],
   },
   variants: {
     position: {

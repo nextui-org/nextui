@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/pagination",
-  "version": "2.0.22",
+  "version": "2.0.26",
   "description": "The Pagination component allows you to display active page and navigate between multiple pages.",
   "keywords": [
     "pagination"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
@@ -34,23 +34,28 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-pagination": "workspace:*",
-    "@react-aria/focus": "^3.14.1",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/utils": "^3.20.0",
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
     "scroll-into-view-if-needed": "3.0.10"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

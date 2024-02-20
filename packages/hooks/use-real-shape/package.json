@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-real-shape",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Hook that returns the real dimensions of an element",
   "keywords": [
     "use-real-shape"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",

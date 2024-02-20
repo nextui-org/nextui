@@ -1,5 +1,125 @@
 # @nextui-org/select
 
+## 2.1.20
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/listbox@2.1.16
+  - @nextui-org/popover@2.1.14
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.24
+  - @nextui-org/aria-utils@2.0.15
+
+## 2.1.19
+
+### Patch Changes
+
+- Updated dependencies [[`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291)]:
+  - @nextui-org/shared-icons@2.0.6
+  - @nextui-org/listbox@2.1.15
+  - @nextui-org/popover@2.1.13
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.23
+  - @nextui-org/aria-utils@2.0.14
+
+## 2.1.18
+
+### Patch Changes
+
+- [#1914](https://github.com/nextui-org/nextui/pull/1914) [`7f6218b97`](https://github.com/nextui-org/nextui/commit/7f6218b97860d267f5208134948dfeadd04505d1) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1910 multiline select fixed, style improved.
+
+- Updated dependencies [[`135cc21e6`](https://github.com/nextui-org/nextui/commit/135cc21e6f0f2bee1f19e7e5799b6cea8179b7f5)]:
+  - @nextui-org/listbox@2.1.14
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.22
+
+## 2.1.17
+
+### Patch Changes
+
+- [#1901](https://github.com/nextui-org/nextui/pull/1901) [`6a6d426b1`](https://github.com/nextui-org/nextui/commit/6a6d426b10fa7f92dfb20611e261347027393193) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Label position changed for Select and Input, this avoids to break the layout when having long descriptions and no placeholder
+  - Input/Select styles improved, label opacity removed
+- Updated dependencies []:
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/listbox@2.1.13
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/spinner@2.0.22
+
+## 2.1.16
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
+  - @nextui-org/scroll-shadow@2.1.12
+  - @nextui-org/listbox@2.1.13
+  - @nextui-org/popover@2.1.12
+  - @nextui-org/spinner@2.0.22
+  - @nextui-org/aria-utils@2.0.13
+
+## 2.1.15
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies [[`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0)]:
+  - @nextui-org/scroll-shadow@2.1.11
+  - @nextui-org/listbox@2.1.12
+  - @nextui-org/popover@2.1.11
+  - @nextui-org/spinner@2.0.21
+  - @nextui-org/system@2.0.12
+  - @nextui-org/aria-utils@2.0.12
+
+## 2.1.14
+
+### Patch Changes
+
+- [#1869](https://github.com/nextui-org/nextui/pull/1869) [`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Select without label position fixed
+  - Input helperWrapper slot is now relative to its parent
+- Updated dependencies [[`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89)]:
+  - @nextui-org/theme@2.1.12
+  - @nextui-org/popover@2.1.10
+  - @nextui-org/listbox@2.1.11
+  - @nextui-org/scroll-shadow@2.1.10
+  - @nextui-org/spinner@2.0.20
+
+## 2.1.13
+
+### Patch Changes
+
+- [#1865](https://github.com/nextui-org/nextui/pull/1865) [`1fd5049f5`](https://github.com/nextui-org/nextui/commit/1fd5049f5a0b852862e8ca1816f1e83507fdd8b5) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix multiline select and inputs with description/errorMessage
+
+- Updated dependencies [[`1fd5049f5`](https://github.com/nextui-org/nextui/commit/1fd5049f5a0b852862e8ca1816f1e83507fdd8b5)]:
+  - @nextui-org/theme@2.1.11
+  - @nextui-org/listbox@2.1.11
+  - @nextui-org/popover@2.1.10
+  - @nextui-org/scroll-shadow@2.1.10
+  - @nextui-org/spinner@2.0.20
+
+## 2.1.12
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/listbox@2.1.11
+  - @nextui-org/popover@2.1.10
+  - @nextui-org/scroll-shadow@2.1.10
+  - @nextui-org/spinner@2.0.20
+  - @nextui-org/system@2.0.11
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/use-aria-button@2.0.6
+  - @nextui-org/use-aria-multiselect@2.1.3
+  - @nextui-org/aria-utils@2.0.11
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-icons@2.0.5
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.1.11
 
 ### Patch Changes
@@ -85,7 +205,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 

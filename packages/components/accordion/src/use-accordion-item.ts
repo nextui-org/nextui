@@ -7,7 +7,8 @@ import {NodeWithProps} from "@nextui-org/aria-utils";
 import {useReactAriaAccordionItem} from "@nextui-org/use-aria-accordion";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useHover, usePress} from "@react-aria/interactions";
+import {useHover} from "@react-aria/interactions";
+import {usePress} from "@nextui-org/use-aria-press";
 import {TreeState} from "@react-stately/tree";
 
 import {AccordionItemBaseProps} from "./base/accordion-item-base";

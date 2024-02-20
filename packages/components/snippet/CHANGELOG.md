@@ -1,5 +1,59 @@
 # @nextui-org/snippet
 
+## 2.0.30
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.26
+  - @nextui-org/tooltip@2.0.29
+
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies [[`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291)]:
+  - @nextui-org/shared-icons@2.0.6
+  - @nextui-org/button@2.0.25
+  - @nextui-org/tooltip@2.0.28
+
+## 2.0.28
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
+  - @nextui-org/tooltip@2.0.27
+  - @nextui-org/button@2.0.24
+
+## 2.0.27
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies [[`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0)]:
+  - @nextui-org/tooltip@2.0.26
+  - @nextui-org/button@2.0.23
+  - @nextui-org/system@2.0.12
+
+## 2.0.26
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/button@2.0.22
+  - @nextui-org/tooltip@2.0.25
+  - @nextui-org/system@2.0.11
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/use-clipboard@2.0.4
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-icons@2.0.5
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.0.25
 
 ### Patch Changes
@@ -169,7 +223,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

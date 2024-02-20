@@ -30,8 +30,8 @@ export default function App() {
       showArrow
       radius="sm"
       classNames={{
-        base: "p-0 border-small border-divider bg-background",
-        arrow: "bg-default-200",
+        base: "before:bg-default-200", // change arrow background
+        content: "p-0 border-small border-divider bg-background",
       }}
     >
       <DropdownTrigger>

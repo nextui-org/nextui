@@ -117,7 +117,7 @@ const radio = tv({
     isInvalid: {
       true: {
         control: "bg-danger text-danger-foreground",
-        wrapper: "border-danger data-[selected=true]:border-danger",
+        wrapper: "border-danger group-data-[selected=true]:border-danger",
         label: "text-danger",
         description: "text-danger-300",
       },

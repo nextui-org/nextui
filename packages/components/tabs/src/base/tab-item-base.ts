@@ -14,6 +14,10 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"button", T>, "chi
    *  This will be used as native `title` attribute.
    * */
   titleValue?: string;
+  /** Whether the tab should be disabled. */
+  isDisabled?: boolean;
+  /** Whether the tab selection should occur on press up instead of press down. */
+  shouldSelectOnPressUp?: boolean;
 }
 
 export type TabItemProps<T extends object = {}> = Props<T>;

@@ -1,5 +1,7 @@
+import {dataAttr} from "@nextui-org/shared-utils";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
+import {useMemo, useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 import {UseInputProps, useInput} from "./use-input";
@@ -16,15 +18,18 @@ type OmittedInputProps =
   | "isClearButtonFocusVisible"
   | "isLabelPlaceholder"
   | "isClearable"
-  | "isTextarea"
-  | "startContent"
-  | "endContent";
+  | "isTextarea";
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
 };
 
-export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
+export interface TextAreaProps extends Omit<UseInputProps<HTMLTextAreaElement>, OmittedInputProps> {
+  /**
+   * Whether the textarea should automatically grow vertically to accomodate content.
+   * @default false
+   */
+  disableAutosize?: boolean;
   /**
    * Minimum number of rows to show for textarea
    * @default 3
@@ -53,49 +58,99 @@ export interface TextAreaProps extends Omit<UseInputProps, OmittedInputProps> {
 
 const Textarea = forwardRef<"textarea", TextAreaProps>(
   (
-    {style, minRows = 3, maxRows = 8, cacheMeasurements = false, onHeightChange, ...otherProps},
+    {
+      style,
+      minRows = 3,
+      maxRows = 8,
+      cacheMeasurements = false,
+      disableAutosize = false,
+      onHeightChange,
+      ...otherProps
+    },
     ref,
   ) => {
     const {
       Component,
       label,
       description,
+      startContent,
+      endContent,
+      hasHelper,
       shouldLabelBeOutside,
       shouldLabelBeInside,
       errorMessage,
       getBaseProps,
       getLabelProps,
       getInputProps,
+      getInnerWrapperProps,
       getInputWrapperProps,
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
-    const labelContent = <label {...getLabelProps()}>{label}</label>;
+    const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
+    const [isLimitReached, setIsLimitReached] = useState(false);
+    const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
     const inputProps = getInputProps();
+
+    const handleHeightChange = (height: number, meta: TextareaHeightChangeMeta) => {
+      if (minRows === 1) {
+        setIsHasMultipleRows(height >= meta.rowHeight * 2);
+      }
+      if (maxRows > minRows) {
+        const limitReached = height >= maxRows * meta.rowHeight;
+
+        setIsLimitReached(limitReached);
+      }
+
+      onHeightChange?.(height, meta);
+    };
+
+    const content = disableAutosize ? (
+      <textarea {...inputProps} style={mergeProps(inputProps.style, style ?? {})} />
+    ) : (
+      <TextareaAutosize
+        {...inputProps}
+        cacheMeasurements={cacheMeasurements}
+        data-hide-scroll={dataAttr(!isLimitReached)}
+        maxRows={maxRows}
+        minRows={minRows}
+        style={mergeProps(inputProps.style as TextareaAutoSizeStyle, style ?? {})}
+        onHeightChange={handleHeightChange}
+      />
+    );
+
+    const innerWrapper = useMemo(() => {
+      if (startContent || endContent) {
+        return (
+          <div {...getInnerWrapperProps()}>
+            {startContent}
+            {content}
+            {endContent}
+          </div>
+        );
+      }
+
+      return <div {...getInnerWrapperProps()}>{content}</div>;
+    }, [startContent, inputProps, endContent, getInnerWrapperProps]);
 
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
-        <div {...getInputWrapperProps()}>
+        <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
           {shouldLabelBeInside ? labelContent : null}
-          <TextareaAutosize
-            {...inputProps}
-            cacheMeasurements={cacheMeasurements}
-            maxRows={maxRows}
-            minRows={minRows}
-            style={mergeProps(inputProps.style as TextareaAutoSizeStyle, style ?? {})}
-            onHeightChange={onHeightChange}
-          />
+          {innerWrapper}
         </div>
-        <div {...getHelperWrapperProps()}>
-          {errorMessage ? (
-            <div {...getErrorMessageProps()}>{errorMessage}</div>
-          ) : description ? (
-            <div {...getDescriptionProps()}>{description}</div>
-          ) : null}
-        </div>
+        {hasHelper ? (
+          <div {...getHelperWrapperProps()}>
+            {errorMessage ? (
+              <div {...getErrorMessageProps()}>{errorMessage}</div>
+            ) : description ? (
+              <div {...getDescriptionProps()}>{description}</div>
+            ) : null}
+          </div>
+        ) : null}
       </Component>
     );
   },

@@ -20,6 +20,11 @@ export interface MenuSectionBaseProps<T extends object = {}> extends SectionProp
    */
   showDivider?: boolean;
   /**
+   * Whether to hide the check icon when the items are selected.
+   * @default false
+   */
+  hideSelectedIcon?: boolean;
+  /**
    * The divider props
    */
   dividerProps?: DividerProps;

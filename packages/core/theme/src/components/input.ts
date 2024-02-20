@@ -24,12 +24,25 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 const input = tv({
   slots: {
     base: "group flex flex-col",
-    label: "block text-small font-medium text-foreground-600",
+    label: [
+      "absolute",
+      "z-10",
+      "pointer-events-none",
+      "origin-top-left",
+      "subpixel-antialiased",
+      "block",
+      "text-small",
+      "text-foreground-500",
+    ],
     mainWrapper: "h-full",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
-    innerWrapper: "inline-flex h-full items-center w-full gap-1.5 box-border",
-    input: "w-full h-full font-normal !bg-transparent outline-none placeholder:text-foreground-500",
+    innerWrapper: "inline-flex w-full items-center h-full box-border",
+    input: [
+      "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
+      "data-[has-start-content=true]:ps-1.5",
+      "data-[has-end-content=true]:pe-1.5",
+    ],
     clearButton: [
       "p-2",
       "-m-2",
@@ -48,7 +61,7 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
+    helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -68,13 +81,14 @@ const input = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       bordered: {
         inputWrapper: [
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
-          "group-data-[focus=true]:border-foreground",
+          "group-data-[focus=true]:border-default-foreground",
         ],
       },
       underlined: {
@@ -92,7 +106,7 @@ const input = tv({
           "after:content-['']",
           "after:w-0",
           "after:origin-center",
-          "after:bg-foreground",
+          "after:bg-default-foreground",
           "after:absolute",
           "after:left-1/2",
           "after:-translate-x-1/2",
@@ -100,6 +114,8 @@ const input = tv({
           "after:h-[2px]",
           "group-data-[focus=true]:after:w-full",
         ],
+        innerWrapper: "pb-1",
+        label: "group-data-[filled-within=true]:text-foreground",
       },
     },
     color: {
@@ -147,28 +163,23 @@ const input = tv({
     },
     labelPlacement: {
       outside: {
-        label: "text-foreground pb-1.5",
         mainWrapper: "flex flex-col",
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "text-foreground pr-2",
+        label: "relative text-foreground pr-2",
       },
       inside: {
         label: "text-tiny cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",
+        innerWrapper: "group-data-[has-label=true]:items-end",
       },
     },
     fullWidth: {
       true: {
         base: "w-full",
-      },
-    },
-    isLabelPlaceholder: {
-      true: {
-        label: "absolute z-10 pointer-events-none",
       },
     },
     isClearable: {
@@ -187,7 +198,7 @@ const input = tv({
     isInvalid: {
       true: {
         label: "!text-danger",
-        input: "placeholder:text-danger text-danger",
+        input: "!placeholder:text-danger !text-danger",
       },
     },
     isRequired: {
@@ -197,12 +208,15 @@ const input = tv({
     },
     isMultiline: {
       true: {
+        label: "relative",
         inputWrapper: "!h-auto",
-        input: "resize-none py-2",
+        innerWrapper: "items-start group-data-[has-label=true]:items-start",
+        input: "resize-none data-[hide-scroll=true]:scrollbar-hide",
       },
     },
     disableAnimation: {
       true: {
+        input: "transition-none",
         inputWrapper: "transition-none",
         label: "transition-none",
       },
@@ -210,11 +224,10 @@ const input = tv({
         inputWrapper: "transition-background motion-reduce:transition-none !duration-150",
         label: [
           "will-change-auto",
-          "origin-top-left",
-          "transition-all",
           "!duration-200",
           "!ease-out",
           "motion-reduce:transition-none",
+          "transition-[transform,color,left,opacity]",
         ],
         clearButton: ["transition-opacity", "motion-reduce:transition-none"],
       },
@@ -227,10 +240,18 @@ const input = tv({
     fullWidth: true,
     labelPlacement: "inside",
     isDisabled: false,
+    isMultiline: false,
     disableAnimation: false,
   },
   compoundVariants: [
     // flat & color
+    {
+      variant: "flat",
+      color: "default",
+      class: {
+        input: "group-data-[has-value=true]:text-default-foreground",
+      },
+    },
     {
       variant: "flat",
       color: "primary",
@@ -356,6 +377,13 @@ const input = tv({
     // underlined & color
     {
       variant: "underlined",
+      color: "default",
+      class: {
+        input: "group-data-[has-value=true]:text-foreground",
+      },
+    },
+    {
+      variant: "underlined",
       color: "primary",
       class: {
         inputWrapper: "after:bg-primary",
@@ -433,6 +461,22 @@ const input = tv({
       class: {
         inputWrapper: "group-data-[focus=true]:border-danger",
         label: "text-danger",
+      },
+    },
+    // labelPlacement=inside & default
+    {
+      labelPlacement: "inside",
+      color: "default",
+      class: {
+        label: "group-data-[filled-within=true]:text-default-600",
+      },
+    },
+    // labelPlacement=outside & default
+    {
+      labelPlacement: "outside",
+      color: "default",
+      class: {
+        label: "group-data-[filled-within=true]:text-foreground",
       },
     },
     // radius-full & size
@@ -531,119 +575,222 @@ const input = tv({
         inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
-    // isLabelPlaceholder & labelPlacement
+    // size & labelPlacement & variant=[faded, bordered]
     {
-      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      size: "sm",
+      variant: ["bordered", "faded"],
+      class: {
+        inputWrapper: "py-1",
+      },
+    },
+    // labelPlacement=[inside,outside]
+    {
       labelPlacement: ["inside", "outside"],
       class: {
-        label: [
-          "font-normal",
-          "group-data-[filled-within=true]:font-medium",
-          "group-data-[filled-within=true]:pointer-events-auto",
-        ],
+        label: ["group-data-[filled-within=true]:pointer-events-auto"],
+      },
+    },
+    // labelPlacement=[outside,outside-left]
+    {
+      labelPlacement: ["outside", "outside-left"],
+      class: {
+        input: "h-full",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
+      isMultiline: false,
       class: {
         base: "group relative justify-end",
         label: [
           "pb-0",
           "z-20",
-          "opacity-60",
           "top-1/2",
           "-translate-y-1/2",
           "group-data-[filled-within=true]:left-0",
-          "group-data-[filled-within=true]:opacity-100",
         ],
       },
     },
-    // isLabelPlaceholder & inside & size
+    // labelPlacement=[inside]
     {
-      isLabelPlaceholder: true,
+      labelPlacement: ["inside"],
+      class: {
+        label: ["group-data-[filled-within=true]:scale-85"],
+      },
+    },
+    // labelPlacement=[inside] & variant=flat
+    {
+      labelPlacement: ["inside"],
+      variant: "flat",
+      class: {
+        innerWrapper: "pb-0.5",
+      },
+    },
+    // variant=underlined & size
+    {
+      variant: "underlined",
+      size: "sm",
+      class: {
+        innerWrapper: "pb-1",
+      },
+    },
+    {
+      variant: "underlined",
+      size: ["md", "lg"],
+      class: {
+        innerWrapper: "pb-1.5",
+      },
+    },
+    // inside & size
+    {
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-small", "group-data-[filled-within=true]:text-tiny"],
-        input: "pt-4",
+        label: "text-small",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
-          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_3px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]",
         ],
-        input: "pt-4",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
-          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
         ],
-        input: "pt-4",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
           "text-medium",
-          "group-data-[filled-within=true]:text-small",
-          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
         ],
-        input: "pt-5",
       },
     },
-    // isLabelPlaceholder & outside & size
+    // inside & size & [faded, bordered]
     {
-      isLabelPlaceholder: true,
-      labelPlacement: "outside",
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      isMultiline: false,
       size: "sm",
       class: {
         label: [
-          "left-2",
-          "text-small",
-          "group-data-[filled-within=true]:text-tiny",
-          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px_-_theme(borderWidth.medium))]",
         ],
       },
     },
     {
-      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      isMultiline: false,
+      size: "md",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      isMultiline: false,
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    // inside & size & underlined
+    {
+      labelPlacement: "inside",
+      variant: "underlined",
+      isMultiline: false,
+      size: "sm",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_5px)]",
+        ],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: "underlined",
+      isMultiline: false,
+      size: "md",
+      class: {
+        label: [
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_3.5px)]",
+        ],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: "underlined",
+      size: "lg",
+      isMultiline: false,
+      class: {
+        label: [
+          "text-medium",
+          "group-data-[filled-within=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+        ],
+      },
+    },
+    // outside & size
+    {
+      labelPlacement: "outside",
+      size: "sm",
+      isMultiline: false,
+      class: {
+        label: [
+          "left-2",
+          "text-tiny",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
+      },
+    },
+    {
       labelPlacement: "outside",
       size: "md",
+      isMultiline: false,
       class: {
         label: [
           "left-3",
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
       size: "lg",
+      isMultiline: false,
       class: {
         label: [
           "left-3",
           "text-medium",
-          "group-data-[filled-within=true]:text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
       },
     },
-
     // outside-left & size & hasHelper
     {
       labelPlacement: "outside-left",
@@ -664,6 +811,54 @@ const input = tv({
       size: "lg",
       class: {
         label: "group-data-[has-helper=true]:pt-4",
+      },
+    },
+    // labelPlacement=[outside, outside-left] & isMultiline
+    {
+      labelPlacement: ["outside", "outside-left"],
+      isMultiline: true,
+      class: {
+        inputWrapper: "py-2",
+      },
+    },
+    // isMultiline & labelPlacement="outside"
+    {
+      labelPlacement: "outside",
+      isMultiline: true,
+      class: {
+        label: "pb-1.5",
+      },
+    },
+    // isMultiline & labelPlacement="inside"
+    {
+      labelPlacement: "inside",
+      isMultiline: true,
+      class: {
+        label: "pb-0.5",
+        input: "pt-0",
+      },
+    },
+    // isMultiline & !disableAnimation
+    {
+      isMultiline: true,
+      disableAnimation: false,
+      class: {
+        input: "transition-height !duration-100 motion-reduce:transition-none",
+      },
+    },
+    // text truncate labelPlacement=[inside,outside]
+    {
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
+      },
+    },
+    // isMultiline & radius=full
+    {
+      isMultiline: true,
+      radius: "full",
+      class: {
+        inputWrapper: "data-[has-multiple-rows=true]:rounded-large",
       },
     },
   ],

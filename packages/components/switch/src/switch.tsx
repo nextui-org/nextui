@@ -6,7 +6,7 @@ import {UseSwitchProps, useSwitch} from "./use-switch";
 
 export interface SwitchProps extends UseSwitchProps {}
 
-const Switch = forwardRef<"label", SwitchProps>((props, ref) => {
+const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
   const {
     Component,
     children,

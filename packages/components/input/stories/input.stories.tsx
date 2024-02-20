@@ -69,7 +69,7 @@ const defaultProps = {
 
 const Template = (args) => (
   <div className="w-full max-w-[240px]">
-    <Input {...args} size="sm" />
+    <Input {...args} />
   </div>
 );
 
@@ -150,17 +150,27 @@ const LabelPlacementTemplate = (args) => (
     <div className="flex flex-col gap-3">
       <h3>Without placeholder</h3>
       <div className="w-full max-w-xl flex flex-row items-end gap-4">
-        <Input {...args} />
-        <Input {...args} labelPlacement="outside" />
-        <Input {...args} labelPlacement="outside-left" />
+        <Input {...args} description="inside" />
+        <Input {...args} description="outside" labelPlacement="outside" />
+        <Input {...args} description="outside-left" labelPlacement="outside-left" />
       </div>
     </div>
     <div className="flex flex-col gap-3">
       <h3>With placeholder</h3>
       <div className="w-full max-w-xl flex flex-row items-end gap-4">
-        <Input {...args} placeholder="Enter your email" />
-        <Input {...args} labelPlacement="outside" placeholder="Enter your email" />
-        <Input {...args} labelPlacement="outside-left" placeholder="Enter your email" />
+        <Input {...args} description="inside" placeholder="Enter your email" />
+        <Input
+          {...args}
+          description="outside"
+          labelPlacement="outside"
+          placeholder="Enter your email"
+        />
+        <Input
+          {...args}
+          description="outside-left"
+          labelPlacement="outside-left"
+          placeholder="Enter your email"
+        />
       </div>
     </div>
   </div>
@@ -347,6 +357,7 @@ const CustomWithClassNamesTemplate = (args) => (
           </kbd>
         </div>
       }
+      labelPlacement="outside"
       placeholder="Quick search..."
       startContent={
         <SearchIcon className="text-xl text-slate-400 pointer-events-none flex-shrink-0" />
@@ -484,12 +495,23 @@ export const ReadOnly = {
   },
 };
 
+export const WithoutLabel = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: null,
+    "aria-label": "Email",
+    placeholder: "Enter your email",
+  },
+};
+
 export const WithDescription = {
   render: MirrorTemplate,
 
   args: {
     ...defaultProps,
-    description: "We'll never share your email with anyone else. ",
+    description: "We'll never share your email with anyone else.",
   },
 };
 
@@ -619,7 +641,7 @@ export const CustomWithHooks = {
     type: "search",
     placeholder: "Type to search...",
     startContent: (
-      <SearchIcon className="text-black/50 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
     ),
   },
 };

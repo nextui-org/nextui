@@ -233,8 +233,8 @@ export default function App() {
       }}
       popoverProps={{
         classNames: {
-          base: "p-0 border-small border-divider bg-background",
-          arrow: "bg-default-200",
+          base: "before:bg-default-200",
+          content: "p-0 border-small border-divider bg-background",
         },
       }}
       renderValue={(items) => {

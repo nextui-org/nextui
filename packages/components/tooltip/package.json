@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tooltip",
-  "version": "2.0.24",
+  "version": "2.0.29",
   "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
     "tooltip"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
@@ -35,28 +35,33 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "framer-motion": ">=4.0.0"
+    "react-dom": ">=18",
+    "framer-motion": ">=4.0.0",
+    "@nextui-org/theme": ">=2.1.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/framer-transitions": "workspace:*",
-    "@react-aria/overlays": "^3.17.0",
-    "@react-aria/tooltip": "^3.6.2",
-    "@react-stately/tooltip": "^3.4.4",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/utils": "^3.20.0",
-    "@react-types/tooltip": "^3.4.4",
-    "@react-types/overlays": "^3.8.2"
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@react-aria/overlays": "^3.18.1",
+    "@react-aria/tooltip": "^3.6.4",
+    "@react-stately/tooltip": "^3.4.5",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
+    "@react-types/tooltip": "^3.4.5",
+    "@react-types/overlays": "^3.8.3"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "framer-motion": "^10.15.1",
+    "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

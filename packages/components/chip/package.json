@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/chip",
-  "version": "2.0.21",
+  "version": "2.0.25",
   "description": "Chips help people enter information, make selections, filter content, or trigger actions.",
   "keywords": [
     "chip"
@@ -27,30 +27,35 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@react-aria/focus": "^3.14.1",
-    "@react-aria/interactions": "^3.18.0",
-    "@react-aria/utils": "^3.20.0",
-    "@react-types/checkbox": "^3.5.1"
+    "@nextui-org/use-aria-press": "workspace:*",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/interactions": "^3.19.1",
+    "@react-aria/utils": "^3.21.1",
+    "@react-types/checkbox": "^3.5.2"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

@@ -871,7 +871,7 @@ const InfinitePaginationTemplate = (args: TableProps) => {
   );
 };
 
-export const Static = {
+export const Default = {
   render: StaticTemplate,
 
   args: {

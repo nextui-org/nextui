@@ -13,20 +13,21 @@ export function getValidChildren(children: React.ReactNode) {
 }
 
 export const pickChildren = <T = ReactNode>(
-  children: ReactNode | undefined,
+  children: T | undefined,
   targetChild: React.ElementType,
-): [T | ReactNode | undefined, ReactNode[] | undefined] => {
-  let target: ReactNode[] = [];
+): [T | undefined, T[] | undefined] => {
+  let target: T[] = [];
+
   const withoutTargetChildren = Children.map(children, (item) => {
     if (!isValidElement(item)) return item;
     if (item.type === targetChild) {
-      target.push(item);
+      target.push(item as T);
 
       return null;
     }
 
     return item;
-  });
+  })?.filter(Boolean) as T;
 
   const targetChildren = target.length >= 0 ? target : undefined;
 

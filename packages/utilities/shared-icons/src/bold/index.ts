@@ -5,3 +5,8 @@ export * from "./align-right";
 export * from "./align-vertically";
 export * from "./align-horizontally";
 export * from "./pet";
+export * from "./volume-high";
+export * from "./volume-low";
+export * from "./shopping-cart";
+export * from "./send";
+export * from "./plus";

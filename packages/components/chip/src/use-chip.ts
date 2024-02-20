@@ -3,7 +3,7 @@ import type {ReactNode} from "react";
 
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
-import {usePress} from "@react-aria/interactions";
+import {usePress} from "@nextui-org/use-aria-press";
 import {useFocusRing} from "@react-aria/focus";
 import {chip} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";

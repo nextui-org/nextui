@@ -159,7 +159,7 @@ export const DisableAnimation = {
   },
 };
 
-export const WiththumbIcon = {
+export const WithThumbIcon = {
   args: {
     ...defaultProps,
     size: "xl",

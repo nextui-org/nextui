@@ -1,5 +1,49 @@
 # @nextui-org/spinner
 
+## 2.0.24
+
+### Patch Changes
+
+- Updated dependencies [[`a978687b0`](https://github.com/nextui-org/nextui/commit/a978687b0736d1e15943ef46628fc4fa0723ddc7)]:
+  - @nextui-org/system-rsc@2.0.11
+
+## 2.0.23
+
+### Patch Changes
+
+- Updated dependencies [[`6ecdc278a`](https://github.com/nextui-org/nextui/commit/6ecdc278aba927ee38a799679b8eb99cba99cab9)]:
+  - @nextui-org/system-rsc@2.0.10
+
+## 2.0.22
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
+  - @nextui-org/system-rsc@2.0.9
+
+## 2.0.21
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies [[`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0)]:
+  - @nextui-org/system-rsc@2.0.8
+
+## 2.0.20
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/system-rsc@2.0.7
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.0.19
 
 ### Patch Changes

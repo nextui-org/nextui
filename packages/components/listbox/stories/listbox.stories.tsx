@@ -1,3 +1,5 @@
+import type {Selection} from "@react-types/shared";
+
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {menuItem} from "@nextui-org/theme";
@@ -8,7 +10,11 @@ import {
   DeleteDocumentBulkIcon,
   ChevronRightIcon,
 } from "@nextui-org/shared-icons";
+import {usersData} from "@nextui-org/stories-utils";
+import {Avatar} from "@nextui-org/avatar";
+import {Chip} from "@nextui-org/chip";
 import {clsx} from "@nextui-org/shared-utils";
+import {ScrollShadow} from "@nextui-org/scroll-shadow";
 
 import {Listbox, ListboxItem, ListboxSection, ListboxProps} from "../src";
 
@@ -85,7 +91,7 @@ const UsersIcon = (props) => (
   </svg>
 );
 
-const WatchersIcons = (props) => (
+const WatchersIcon = (props) => (
   <svg height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="m21.977 13.783-2-9A1.002 1.002 0 0 0 19 4h-3v2h2.198l.961 4.326A4.467 4.467 0 0 0 17.5 10c-1.953 0-3.603 1.258-4.224 3h-2.553c-.621-1.742-2.271-3-4.224-3-.587 0-1.145.121-1.659.326L5.802 6H8V4H5a1 1 0 0 0-.976.783l-2 9 .047.011A4.552 4.552 0 0 0 2 14.5C2 16.981 4.019 19 6.5 19c2.31 0 4.197-1.756 4.449-4h2.102c.252 2.244 2.139 4 4.449 4 2.481 0 4.5-2.019 4.5-4.5 0-.242-.034-.475-.071-.706l.048-.011zM6.5 17C5.122 17 4 15.878 4 14.5S5.122 12 6.5 12 9 13.122 9 14.5 7.878 17 6.5 17zm11 0c-1.379 0-2.5-1.122-2.5-2.5s1.121-2.5 2.5-2.5 2.5 1.122 2.5 2.5-1.121 2.5-2.5 2.5z"
@@ -136,6 +142,30 @@ const defaultProps = {
     "w-full max-w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100",
 };
 
+type Item = {
+  key: string;
+  label: string;
+};
+
+const items = [
+  {
+    key: "new",
+    label: "New file",
+  },
+  {
+    key: "copy",
+    label: "Copy link",
+  },
+  {
+    key: "edit",
+    label: "Edit file",
+  },
+  {
+    key: "delete",
+    label: "Delete file",
+  },
+];
+
 const Template = ({color, variant, ...args}: ListboxProps) => (
   <Listbox
     aria-label="Actions"
@@ -150,6 +180,27 @@ const Template = ({color, variant, ...args}: ListboxProps) => (
     <ListboxItem key="delete" className="text-danger" color="danger">
       Delete file
     </ListboxItem>
+  </Listbox>
+);
+
+const DynamicTemplate = ({color, variant, ...args}: ListboxProps<Item>) => (
+  <Listbox
+    aria-label="Dynamic Actions"
+    color={color}
+    items={items}
+    variant={variant}
+    onAction={(key) => alert(key)}
+    {...args}
+  >
+    {(item) => (
+      <ListboxItem
+        key={item.key}
+        className={item.key === "delete" ? "text-danger" : ""}
+        color={item.key === "delete" ? "danger" : "default"}
+      >
+        {item.label}
+      </ListboxItem>
+    )}
   </Listbox>
 );
 
@@ -279,6 +330,114 @@ const WithEndContentTemplate = ({color, variant, disableAnimation, ...args}) => 
       >
         Delete file
       </ListboxItem>
+    </Listbox>
+  );
+};
+
+const WithTopContentTemplate = ({color, ...args}) => {
+  const [values, setValues] = React.useState<Selection>(new Set(["1", "3", "5"]));
+
+  const arrayValues = Array.from(values);
+
+  const topContent = React.useMemo(() => {
+    if (!arrayValues.length) {
+      return null;
+    }
+
+    return (
+      <ScrollShadow
+        hideScrollBar
+        className="w-full bg-background flex py-0.5 px-2 gap-1 "
+        orientation="horizontal"
+      >
+        {arrayValues.map((value) => (
+          <Chip key={value}>{usersData.find((user) => `${user.id}` === `${value}`)?.name}</Chip>
+        ))}
+      </ScrollShadow>
+    );
+  }, [arrayValues.length]);
+
+  return (
+    <Listbox
+      classNames={{
+        base: "max-w-xs",
+        list: "max-h-[300px] overflow-scroll",
+      }}
+      color={color}
+      defaultSelectedKeys={["1", "3", "5"]}
+      items={usersData}
+      label="Assigned to"
+      selectionMode="multiple"
+      topContent={topContent}
+      variant="flat"
+      onSelectionChange={setValues}
+      {...args}
+    >
+      {(item) => (
+        <ListboxItem key={item.id} textValue={item.name}>
+          <div className="flex gap-2 items-center">
+            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <div className="flex flex-col">
+              <span className="text-small">{item.name}</span>
+              <span className="text-tiny text-default-400">{item.email}</span>
+            </div>
+          </div>
+        </ListboxItem>
+      )}
+    </Listbox>
+  );
+};
+
+const WithBottomContentTemplate = ({color, ...args}) => {
+  const [values, setValues] = React.useState<Selection>(new Set(["1", "3", "5"]));
+
+  const arrayValues = Array.from(values);
+
+  const topContent = React.useMemo(() => {
+    if (!arrayValues.length) {
+      return null;
+    }
+
+    return (
+      <ScrollShadow
+        hideScrollBar
+        className="w-full flex py-0.5 px-2 gap-1 "
+        orientation="horizontal"
+      >
+        {arrayValues.map((value) => (
+          <Chip key={value}>{usersData.find((user) => `${user.id}` === `${value}`)?.name}</Chip>
+        ))}
+      </ScrollShadow>
+    );
+  }, [arrayValues.length]);
+
+  return (
+    <Listbox
+      bottomContent={topContent}
+      classNames={{
+        base: "max-w-xs",
+        list: "max-h-[300px] overflow-scroll",
+      }}
+      color={color}
+      defaultSelectedKeys={["1", "3", "5"]}
+      items={usersData}
+      label="Assigned to"
+      selectionMode="multiple"
+      onSelectionChange={setValues}
+      {...args}
+      variant="flat"
+    >
+      {(item) => (
+        <ListboxItem key={item.id} textValue={item.name}>
+          <div className="flex gap-2 items-center">
+            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <div className="flex flex-col">
+              <span className="text-small">{item.name}</span>
+              <span className="text-tiny text-default-400">{item.email}</span>
+            </div>
+          </div>
+        </ListboxItem>
+      )}
     </Listbox>
   );
 };
@@ -499,7 +658,7 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
         endContent={<ItemCounter number={82} />}
         startContent={
           <IconWrapper className="bg-default/50 text-foreground">
-            <WatchersIcons />
+            <WatchersIcon />
           </IconWrapper>
         }
       >
@@ -522,6 +681,13 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
 
 export const Default = {
   render: Template,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Dynamic = {
+  render: DynamicTemplate,
   args: {
     ...defaultProps,
   },
@@ -568,6 +734,22 @@ export const WithEndContent = {
     ...defaultProps,
     variant: "faded",
     color: "success",
+  },
+};
+
+export const WithTopContent = {
+  render: WithTopContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithBottomContent = {
+  render: WithBottomContentTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

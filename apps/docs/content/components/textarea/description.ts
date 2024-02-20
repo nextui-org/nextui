@@ -5,7 +5,6 @@ export default function App() {
     <Textarea
       variant="faded"
       label="Description"
-      labelPlacement="outside"
       placeholder="Enter your description"
       description="Enter a concise description of your project."
       className="max-w-xs"
