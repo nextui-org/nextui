@@ -119,7 +119,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             })}
             data-slot="prev"
             getAriaLabel={getItemAriaLabel}
-            isDisabled={!loop && activePage === 1}
+            isDisabled={!loop && activePage === (isRTL ? total : 1)}
             value={value}
             onPress={onPrevious}
           >
@@ -136,7 +136,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             })}
             data-slot="next"
             getAriaLabel={getItemAriaLabel}
-            isDisabled={!loop && activePage === total}
+            isDisabled={!loop && activePage === (isRTL ? 1 : total)}
             value={value}
             onPress={onNext}
           >
