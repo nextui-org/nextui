@@ -449,6 +449,15 @@ const chip = tv({
         base: "w-auto",
       },
     },
+    // isOneChar / dot
+    {
+      isOneChar: true,
+      variant: "dot",
+      class: {
+        base: "w-auto h-7 px-1 items-center",
+        content: "px-2",
+      },
+    },
     // hasStartContent / size
     {
       hasStartContent: true,
