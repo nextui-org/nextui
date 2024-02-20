@@ -415,6 +415,8 @@ const chip = tv({
     // isOneChar / size
     {
       isOneChar: true,
+      hasStartContent: false,
+      hasEndContent: false,
       size: "sm",
       class: {
         base: "w-5 h-5 min-w-unit-5 min-h-5",
@@ -422,6 +424,8 @@ const chip = tv({
     },
     {
       isOneChar: true,
+      hasStartContent: false,
+      hasEndContent: false,
       size: "md",
       class: {
         base: "w-6 h-6 min-w-unit-6 min-h-6",
@@ -429,6 +433,8 @@ const chip = tv({
     },
     {
       isOneChar: true,
+      hasStartContent: false,
+      hasEndContent: false,
       size: "lg",
       class: {
         base: "w-7 h-7 min-w-unit-7 min-h-7",
@@ -438,6 +444,8 @@ const chip = tv({
     {
       isOneChar: true,
       isCloseable: false,
+      hasStartContent: false,
+      hasEndContent: false,
       class: {
         base: "px-0 justify-center",
         content: "px-0 flex-none",
@@ -446,6 +454,8 @@ const chip = tv({
     {
       isOneChar: true,
       isCloseable: true,
+      hasStartContent: false,
+      hasEndContent: false,
       class: {
         base: "w-auto",
       },
