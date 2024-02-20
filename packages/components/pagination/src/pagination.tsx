@@ -1,5 +1,6 @@
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {useCallback} from "react";
+import {useLocale} from "@react-aria/i18n";
 import {forwardRef} from "@nextui-org/system";
 import {PaginationItemType} from "@nextui-org/use-pagination";
 import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@nextui-org/shared-icons";
@@ -34,6 +35,10 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
     getItemProps,
     getCursorProps,
   } = usePagination({...props, ref});
+
+  const {direction} = useLocale();
+
+  const isRTL = direction === "rtl";
 
   const renderItem = useCallback(
     (value: PaginationItemValue, index: number) => {
@@ -163,7 +168,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             <EllipsisIcon className={slots?.ellipsis({class: classNames?.ellipsis})} />
             <ForwardIcon
               className={slots?.forwardIcon({class: classNames?.forwardIcon})}
-              data-before={dataAttr(isBefore)}
+              data-before={dataAttr(isRTL ? !isBefore : isBefore)}
             />
           </PaginationItem>
         );
