@@ -100,7 +100,7 @@ export function usePagination(props: UsePaginationProps) {
 
       return range;
     },
-    [showControls],
+    [isRTL, showControls],
   );
 
   const paginationRange = useMemo((): PaginationItemValue[] => {
@@ -147,7 +147,7 @@ export function usePagination(props: UsePaginationProps) {
       PaginationItemType.DOTS,
       ...range(total - boundaries + 1, total),
     ]);
-  }, [total, activePage, siblings, boundaries, formatRange]);
+  }, [isRTL, total, activePage, siblings, boundaries, formatRange]);
 
   return {
     range: paginationRange,
