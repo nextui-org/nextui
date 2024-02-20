@@ -180,7 +180,18 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
         </PaginationItem>
       );
     },
-    [activePage, dotsJump, getItemProps, loop, range, renderItemProp, slots, classNames, total],
+    [
+      isRTL,
+      activePage,
+      dotsJump,
+      getItemProps,
+      loop,
+      range,
+      renderItemProp,
+      slots,
+      classNames,
+      total,
+    ],
   );
 
   return (
