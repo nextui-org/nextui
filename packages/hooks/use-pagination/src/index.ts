@@ -147,7 +147,7 @@ export function usePagination(props: UsePaginationProps) {
       PaginationItemType.DOTS,
       ...range(total - boundaries + 1, total),
     ]);
-  }, [isRTL, total, activePage, siblings, boundaries, formatRange]);
+  }, [total, activePage, siblings, boundaries, formatRange]);
 
   return {
     range: paginationRange,
