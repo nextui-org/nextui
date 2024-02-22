@@ -71,6 +71,7 @@ const tabs = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
+    wrapper: [],
   },
   variants: {
     variant: {
@@ -157,6 +158,25 @@ const tabs = tv({
       true: {
         tab: "transition-none",
         tabContent: "transition-none",
+      },
+    },
+    left: {
+      true: {
+        tabList: "flex-col",
+        panel: "py-0 px-3",
+        wrapper: "flex",
+      },
+    },
+    right: {
+      true: {
+        tabList: "flex-col",
+        panel: "py-0 px-3",
+        wrapper: "flex flex-row-reverse",
+      },
+    },
+    bottom: {
+      true: {
+        wrapper: "flex flex-col-reverse",
       },
     },
   },

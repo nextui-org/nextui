@@ -47,6 +47,11 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
    * ``
    */
   classNames?: SlotsToClasses<TabsSlots>;
+  /**
+   * The position of the tabs.
+   * @default 'top'
+   */
+  tabPosition?: "top" | "right" | "bottom" | "left";
 }
 
 export type UseTabsProps<T> = Props &
@@ -79,6 +84,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     disableCursorAnimation,
     shouldSelectOnPressUp = true,
     motionProps,
+    tabPosition = "top",
     ...otherProps
   } = props;
 
@@ -97,9 +103,10 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     () =>
       tabs({
         ...variantProps,
+        [tabPosition]: true,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [...Object.values(variantProps), className, tabPosition],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -143,6 +150,14 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     [baseStyles, otherProps, slots],
   );
 
+  const getWrapperProps: PropGetter = useCallback(
+    (props) => ({
+      "data-slot": "tabWrapper",
+      className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
+    }),
+    [classNames, slots],
+  );
+
   const getTabListProps: PropGetter = useCallback(
     (props) => ({
       ref: domRef,
@@ -160,6 +175,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     values,
     getBaseProps,
     getTabListProps,
+    getWrapperProps,
   };
 }
 

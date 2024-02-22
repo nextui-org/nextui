@@ -316,6 +316,22 @@ export const ManualKeyboardActivation = {
   },
 };
 
+export const TabPosition = {
+  render: StaticTemplate,
+
+  args: {
+    tabPosition: "top",
+  },
+  argTypes: {
+    tabPosition: {
+      options: ["top", "bottom", "left", "right"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+  },
+};
+
 export const DisabledItems = {
   render: StaticTemplate,
 

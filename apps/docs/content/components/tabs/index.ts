@@ -10,6 +10,7 @@ import icons from "./icons";
 import form from "./form";
 import controlled from "./controlled";
 import customStyles from "./custom-styles";
+import tabPosition from "./tab-position";
 
 export const tabsContent = {
   usage,
@@ -24,4 +25,5 @@ export const tabsContent = {
   form,
   controlled,
   customStyles,
+  tabPosition,
 };
