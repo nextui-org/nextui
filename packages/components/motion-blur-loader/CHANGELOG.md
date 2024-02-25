@@ -1,4 +1,4 @@
-# @nextui-org/motionBlurLoader
+# @nextui-org/motion-blur-loader
 
 ## 2.0.24
 

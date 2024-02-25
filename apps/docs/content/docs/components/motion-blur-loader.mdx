@@ -1,0 +1,70 @@
+---
+title: "MotionBlurLoader"
+description: "MotionBlurLoader express an unspecified wait time or display the length of a process."
+---
+
+import {motionBlurLoaderContent} from "@/content/components/motion-blur-loader";
+
+# MotionBlurLoader
+
+MotionBlurLoader express an unspecified wait time or display the length of a process.
+
+<ComponentLinks component="motionBlurLoader" rscCompatible />
+
+---
+
+<CarbonAd/>
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {MotionBlurLoader} from "@nextui-org/react";',
+    individual: 'import {MotionBlurLoader} from "@nextui-org/motion-blur-loader";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={motionBlurLoaderContent.usage} />
+
+> **Note**: MotionBlurLoader adds `Loading` as `aria-label` by default. This is required for accessibility. You can change it by passing a `label` or `aria-label` prop.
+
+### Sizes
+
+<CodeDemo title="Sizes" files={motionBlurLoaderContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={motionBlurLoaderContent.colors} />
+
+### With Label
+
+<CodeDemo title="With Label" files={motionBlurLoaderContent.label} />
+
+### Label colors
+
+<CodeDemo title="Label colors" files={motionBlurLoaderContent.labelColors} />
+
+## Slots
+
+- **base**: The base slot of the motionBlurLoader, it wraps the circles and the label.
+- **wrapper**: The wrapper of the circles.
+- **circle1**: The first circle of the motionBlurLoader.
+- **circle2**: The second circle of the motionBlurLoader.
+- **circle3**: The third circle of the motionBlurLoader.
+- **label**: The label content.
+
+<Spacer y={4} />{" "}
+
+## API
+
+### Circular Progress Props
+
+| Attribute  | Type                                                                        | Description                                             | Default   |
+| ---------- | --------------------------------------------------------------------------- | ------------------------------------------------------- | --------- |
+| label      | `string`                                                                    | The content to display as the label.                    | -         |
+| size       | `xs` \| `sm` \| `md` \| `lg`                                                        | The size of the motionBlurLoader circles.                        | `md`      |
+| color      | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the motionBlurLoader circles.                       | `primary` |
+| labelColor | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the label.                                 | `default` |
+| classNames | `Record<"base"｜"wrapper"｜"circle1"｜"circle2"｜"circle3"｜"label", string>`          | Allows to set custom class names for the motionBlurLoader slots. | -         |

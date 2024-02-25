@@ -7,6 +7,9 @@ export const animations = {
     "appearance-out": "appearance-out 60ms ease-in normal both",
     "indeterminate-bar":
       "indeterminate-bar 1.5s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite normal none running",
+    "left-right-motion": "left-right-motion 1.5s infinite",
+    "left-right-motion-delay-75": "left-right-motion 1.5s infinite 0.12s",
+    "left-right-motion-delay-150": "left-right-motion 1.5s infinite 0.06s",
   },
   keyframes: {
     shimmer: {
@@ -65,6 +68,17 @@ export const animations = {
       },
       "100%": {
         transform: "translateX(100%) scaleX(1)",
+      },
+    },
+    "left-right-motion": {
+      "0%": {
+        transform: "translateX(-50%)",
+      },
+      "50%": {
+        transform: "translateX(150%)",
+      },
+      "100%": {
+        transform: "translateX(-50%)",
       },
     },
   },
