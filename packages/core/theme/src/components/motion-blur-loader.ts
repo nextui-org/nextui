@@ -134,7 +134,7 @@ const motionBlurLoader = tv({
   },
 });
 
-export type MotionBlurLoaderVariantProps = VariantProps<typeof MotionBlurLoaderLoader>;
-export type MotionBlurLoaderSlots = keyof ReturnType<typeof MotionBlurLoaderLoader>;
+export type MotionBlurLoaderVariantProps = VariantProps<typeof motionBlurLoader>;
+export type MotionBlurLoaderSlots = keyof ReturnType<typeof motionBlurLoader>;
 
 export {motionBlurLoader};
