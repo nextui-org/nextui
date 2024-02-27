@@ -1,7 +1,7 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 
-import {Spinner} from "../src";
+import {MotionBlurLoader} from "../src";
 
 describe("MotionBlurLoader", () => {
   it("should render correctly", () => {
