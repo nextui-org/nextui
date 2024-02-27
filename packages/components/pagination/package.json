@@ -48,6 +48,7 @@
     "@react-aria/focus": "^3.14.3",
     "@react-aria/interactions": "^3.19.1",
     "@react-aria/utils": "^3.21.1",
+    "@react-aria/i18n": "^3.8.4",
     "scroll-into-view-if-needed": "3.0.10"
   },
   "devDependencies": {
