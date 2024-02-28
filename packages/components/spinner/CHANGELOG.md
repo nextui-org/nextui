@@ -1,4 +1,4 @@
-# @nextui-org/motionBlurLoader
+# @nextui-org/spinner
 
 ## 2.0.24
 
