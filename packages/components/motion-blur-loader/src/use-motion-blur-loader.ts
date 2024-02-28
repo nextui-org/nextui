@@ -1,4 +1,8 @@
-import type {MotionBlurLoaderVariantProps, MotionBlurLoaderSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {
+  MotionBlurLoaderVariantProps,
+  MotionBlurLoaderSlots,
+  SlotsToClasses,
+} from "@nextui-org/theme";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {mapPropsVariants} from "@nextui-org/system-rsc";
@@ -41,7 +45,10 @@ export function useMotionBlurLoader(originalProps: UseMotionBlurLoaderProps) {
 
   const {children, className, classNames, label: labelProp, ...otherProps} = props;
 
-  const slots = useMemo(() => motionBlurLoader({...variantProps}), [...Object.values(variantProps)]);
+  const slots = useMemo(
+    () => motionBlurLoader({...variantProps}),
+    [...Object.values(variantProps)],
+  );
 
   const baseStyles = clsx(classNames?.base, className);
 
