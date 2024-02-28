@@ -126,7 +126,7 @@ export function useDataScrollOverflow(props: UseDataScrollOverflowProps = {}) {
     };
 
     const clearOverflow = () => {
-      ["top", "bottom", "topBottom", "left", "right", "leftRight"].forEach((attr) => {
+      ["top", "bottom", "top-bottom", "left", "right", "left-right"].forEach((attr) => {
         el.removeAttribute(`data-${attr}-scroll`);
       });
     };
