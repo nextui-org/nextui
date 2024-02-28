@@ -35,6 +35,7 @@
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
+    "@nextui-org/motion-blur-loader": "workspace:*",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@react-aria/focus": "^3.14.3",
     "@react-aria/i18n": "^3.8.4",
