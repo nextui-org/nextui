@@ -29,6 +29,8 @@ import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
+import {FbFeedbackButton} from "./featurebase/fb-feedback-button";
+
 import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
@@ -44,6 +46,8 @@ import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
 import {trackEvent} from "@/utils/va";
+import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
+import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
 
 export interface NavbarProps {
   routes: Route[];
@@ -240,6 +244,19 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             >
               Figma
             </NextLink>
+          </NavbarItem>
+          <NavbarItem>
+            <NextLink className={navLinkClasses} color="foreground" href="#">
+              <FbChangelogButton key="changelog" userName="" />
+            </NextLink>
+          </NavbarItem>
+          <NavbarItem>
+            <NextLink className={navLinkClasses} color="foreground" href="#">
+              <FbFeedbackButton key="feedback" userEmail="" />
+            </NextLink>
+          </NavbarItem>
+          <NavbarItem>
+            <FbRoadmapLink className={navLinkClasses} />
           </NavbarItem>
           {/* <NavbarItem>
             <Chip
