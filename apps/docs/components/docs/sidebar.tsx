@@ -122,24 +122,17 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
   const renderFeaturebaseComponent = (key: string) => {
-    const featurebaseCn = clsx(cn, "opacity-80 dark:opacity-60");
-
-    if (key === "roadmap") return <FbRoadmapLink className={featurebaseCn} />;
+    if (key === "roadmap")
+      return <FbRoadmapLink className={cn} innerClassName="opacity-80 dark:opacity-60" />;
     if (key === "changelog")
       return (
-        <NextUILink as={Link} className={featurebaseCn} color="foreground" href="#">
+        <NextUILink as={Link} className={cn} color="foreground" href="#">
           <FbChangelogButton />
         </NextUILink>
       );
 
     return (
-      <NextUILink
-        as={Link}
-        className={featurebaseCn}
-        color="foreground"
-        href="#"
-        onClick={openFeedbackWidget}
-      >
+      <NextUILink as={Link} className={cn} color="foreground" href="#" onClick={openFeedbackWidget}>
         <FbFeedbackButton />
       </NextUILink>
     );
