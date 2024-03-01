@@ -28,6 +28,10 @@ import {getRoutePaths} from "./utils";
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
 import {trackEvent} from "@/utils/va";
+import {FbFeedbackButton} from "@/components/featurebase/fb-feedback-button";
+import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
+import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
+import {openFeedbackWidget} from "@/utils/featurebase";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
   slug?: string;
@@ -85,6 +89,20 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 
   const Component = hasChildNodes ? "ul" : "li";
 
+  const cn = clsx(
+    "w-full",
+    "font-normal",
+    "before:mr-4",
+    "before:content-['']",
+    "before:block",
+    "before:bg-default-300",
+    "before:w-1",
+    "before:h-1",
+    "before:rounded-full",
+    "opacity-80",
+    "dark:opacity-60",
+  );
+
   const {pressProps} = usePress({
     onPress: () => {
       if (hasChildNodes) {
@@ -102,6 +120,86 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   });
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
+
+  const renderFeaturebaseComponent = (key: string) => {
+    const featurebaseCn = clsx(cn, "opacity-80 dark:opacity-60");
+
+    if (key === "roadmap") return <FbRoadmapLink className={featurebaseCn} />;
+    if (key === "changelog")
+      return (
+        <NextUILink as={Link} className={featurebaseCn} color="foreground" href="#">
+          <FbChangelogButton />
+        </NextUILink>
+      );
+
+    return (
+      <NextUILink
+        as={Link}
+        className={featurebaseCn}
+        color="foreground"
+        href="#"
+        onClick={openFeedbackWidget}
+      >
+        <FbFeedbackButton />
+      </NextUILink>
+    );
+  };
+
+  const renderComponent = () => {
+    if (hasChildNodes) {
+      return (
+        <span className="flex items-center gap-3">
+          <span>{rendered}</span>
+          <ChevronIcon
+            className={clsx("transition-transform", {
+              "-rotate-90": isExpanded,
+            })}
+          />
+        </span>
+      );
+    }
+
+    if (typeof key === "string" && ["changelog", "feedback", "roadmap"].includes(key)) {
+      return renderFeaturebaseComponent(key);
+    }
+
+    return (
+      <NextUILink as={Link} className={clsx(cn)} color="foreground" href={paths.pathname}>
+        <span
+          className={clsx(
+            isSelected
+              ? "text-primary font-medium dark:text-foreground"
+              : "opacity-80 dark:opacity-60",
+            {
+              "pointer-events-none": item.props?.comingSoon,
+            },
+          )}
+        >
+          {rendered}
+        </span>
+        {isUpdated && (
+          <Chip
+            className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
+            color="default"
+            size="sm"
+            variant="flat"
+          >
+            Updated
+          </Chip>
+        )}
+        {isNew && (
+          <Chip className="ml-1 py-1 text-tiny" color="primary" size="sm" variant="flat">
+            New
+          </Chip>
+        )}
+        {item.props?.comingSoon && (
+          <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
+            Coming soon
+          </Chip>
+        )}
+      </NextUILink>
+    );
+  };
 
   return (
     <Component
@@ -122,66 +220,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     >
       <div className="flex items-center gap-3 cursor-pointer" {...pressProps}>
         <Spacer x={spaceLeft} />
-        {hasChildNodes ? (
-          <span className="flex items-center gap-3">
-            <span>{rendered}</span>
-            <ChevronIcon
-              className={clsx("transition-transform", {
-                "-rotate-90": isExpanded,
-              })}
-            />
-          </span>
-        ) : (
-          <NextUILink
-            as={Link}
-            className={clsx(
-              "w-full",
-              "font-normal",
-              "before:mr-4",
-              "before:content-['']",
-              "before:block",
-              "before:bg-default-300",
-              "before:w-1",
-              "before:h-1",
-              "before:rounded-full",
-            )}
-            color="foreground"
-            href={paths.pathname}
-          >
-            <span
-              className={clsx(
-                isSelected
-                  ? "text-primary font-medium dark:text-foreground"
-                  : "opacity-80 dark:opacity-60",
-                {
-                  "pointer-events-none": item.props?.comingSoon,
-                },
-              )}
-            >
-              {rendered}
-            </span>
-            {isUpdated && (
-              <Chip
-                className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
-                color="default"
-                size="sm"
-                variant="flat"
-              >
-                Updated
-              </Chip>
-            )}
-            {isNew && (
-              <Chip className="ml-1 py-1 text-tiny" color="primary" size="sm" variant="flat">
-                New
-              </Chip>
-            )}
-            {item.props?.comingSoon && (
-              <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
-                Coming soon
-              </Chip>
-            )}
-          </NextUILink>
-        )}
+        {renderComponent()}
         {/* Workaround to avoid scrollbar overlapping */}
         <Spacer x={4} />
       </div>
