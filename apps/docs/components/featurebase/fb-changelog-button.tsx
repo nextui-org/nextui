@@ -2,12 +2,14 @@
 
 import {useEffect} from "react";
 
+import {trackEvent} from "@/utils/va";
+
 type Props = {
-  userName?: string | null;
+  className?: string;
 };
 
 // ref: https://developers.featurebase.app/install/changelog-widget/install
-export const FbChangelogButton = ({userName}: Props) => {
+export const FbChangelogButton = ({className}: Props) => {
   useEffect(() => {
     const win = window as any;
 
@@ -18,19 +20,27 @@ export const FbChangelogButton = ({userName}: Props) => {
       };
     }
     win.Featurebase("initialize_changelog_widget", {
-      organization: "nextui",
+      organization: process.env.NEXT_PUBLIC_FB_FEEDBACK_ORG,
       theme: "dark",
-      usersName: userName ?? "",
+      usersName: "",
       fullscreenPopup: true,
       alwaysShow: true,
     });
-  }, [userName]);
+  }, []);
+
+  const fbButtonOnClick = () => {
+    (window as any).Featurebase("manually_open_changelog_popup");
+
+    trackEvent("Featurebase - Changelog", {
+      name: "featurebase-changelog",
+      action: "press",
+      category: "featurebase",
+    });
+  };
 
   return (
-    <div>
-      <button onClick={() => (window as any).Featurebase("manually_open_changelog_popup")}>
-        Changelog <span id="fb-update-badge" />
-      </button>
-    </div>
+    <button className={className} onClick={fbButtonOnClick}>
+      Changelog <span id="fb-update-badge" />
+    </button>
   );
 };

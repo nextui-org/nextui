@@ -2,12 +2,14 @@
 
 import {useEffect} from "react";
 
+import {trackEvent} from "@/utils/va";
+
 type Props = {
-  userEmail?: string | null;
+  className?: string;
 };
 
 // ref: https://developers.featurebase.app/install/feedback-widget/setup
-export const FbFeedbackButton = ({userEmail}: Props) => {
+export const FbFeedbackButton = ({className}: Props) => {
   useEffect(() => {
     const win = window as any;
 
@@ -18,15 +20,23 @@ export const FbFeedbackButton = ({userEmail}: Props) => {
       };
     }
     win.Featurebase("initialize_feedback_widget", {
-      organization: "nextui",
+      organization: process.env.NEXT_PUBLIC_FB_FEEDBACK_ORG,
       theme: "dark",
-      email: userEmail ?? "",
+      email: "",
     });
-  }, [userEmail]);
+  }, []);
+
+  const fbButtonOnClick = () => {
+    trackEvent("Featurebase - Feedback", {
+      name: "featurebase-feedback",
+      action: "press",
+      category: "featurebase",
+    });
+  };
 
   return (
-    <div>
-      <button data-featurebase-feedback>Feedback</button>
-    </div>
+    <button data-featurebase-feedback className={className} onClick={fbButtonOnClick}>
+      Feedback
+    </button>
   );
 };
