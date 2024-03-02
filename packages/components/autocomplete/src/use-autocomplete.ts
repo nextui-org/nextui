@@ -154,6 +154,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     classNames,
     onOpenChange,
     onClose,
+    isReadOnly = false,
     ...otherProps
   } = props;
 
@@ -166,6 +167,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     menuTrigger,
     shouldCloseOnBlur,
     allowsEmptyCollection,
+    ...(isReadOnly && {
+      disabledKeys: (children as unknown as Record<string, any>[]).map((o) => o.key),
+    }),
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
     onOpenChange: (open, menuTrigger) => {
       onOpenChange?.(open, menuTrigger);
