@@ -119,7 +119,7 @@ export function useDropdown(props: UseDropdownProps) {
   });
 
   const getMenuTriggerProps: PropGetter = (
-    props = {},
+    originalProps = {},
     _ref: Ref<any> | null | undefined = null,
   ) => {
     // These props are not needed for the menu trigger since it is handled by the popover trigger.
@@ -127,7 +127,7 @@ export function useDropdown(props: UseDropdownProps) {
     const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
 
     return {
-      ...mergeProps(otherMenuTriggerProps, props),
+      ...mergeProps(otherMenuTriggerProps, {isDisabled: props.isDisabled, originalProps}),
       ref: mergeRefs(_ref, triggerRef),
     };
   };
