@@ -1,6 +1,6 @@
 "use client";
 
-import {FC} from "react";
+import {FC, useEffect, useState} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
 import {BaseItem} from "@nextui-org/aria-utils";
@@ -32,6 +32,7 @@ import {FbFeedbackButton} from "@/components/featurebase/fb-feedback-button";
 import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
 import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
 import {openFeedbackWidget} from "@/utils/featurebase";
+import emitter from "@/libs/emitter";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
   slug?: string;
@@ -282,6 +283,8 @@ export interface DocsSidebarProps {
 }
 
 export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}) => {
+  const [isProBannerVisible, setIsProBannerVisible] = useState(true);
+
   const expandedKeys = routes?.reduce((keys, route) => {
     if (route.defaultOpen) {
       keys.push(route.key as string);
@@ -290,8 +293,18 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
     return keys;
   }, [] as string[]);
 
-  return (
-    <div className={clsx("lg:fixed lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
+  useEffect(() => {
+    emitter.on("proBannerVisibilityChange", (value) => {
+      setIsProBannerVisible(value === "visible");
+    });
+
+    return () => {
+      emitter.off("proBannerVisibilityChange");
+    };
+  }, []);
+
+  const treeContent = useMemo(() => {
+    return (
       <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
         {(route) => (
           <Item
@@ -305,6 +318,18 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
           </Item>
         )}
       </Tree>
+    );
+  }, [routes]);
+
+  return (
+    <div
+      className={clsx(
+        "lg:fixed mt-2 z-0 lg:h-[calc(100vh-121px)]",
+        isProBannerVisible ? "lg:top-32" : "lg:top-20",
+        className,
+      )}
+    >
+      {treeContent}
     </div>
   );
 };

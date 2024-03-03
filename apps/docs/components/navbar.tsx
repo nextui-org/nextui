@@ -365,7 +365,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
       </NavbarContent>
 
       <NavbarMenu>
-        <DocsSidebar className="mt-4" routes={[...mobileRoutes, ...routes]} slug={slug} tag={tag} />
+        <DocsSidebar
+          className="mt-4 pt-8"
+          routes={[...mobileRoutes, ...routes]}
+          slug={slug}
+          tag={tag}
+        />
         {children}
       </NavbarMenu>
     </NextUINavbar>
