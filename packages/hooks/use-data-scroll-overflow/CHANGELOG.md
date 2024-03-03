@@ -1,5 +1,11 @@
 # @nextui-org/use-data-scroll-overflow
 
+## 2.1.3
+
+### Patch Changes
+
+- [#2050](https://github.com/nextui-org/nextui/pull/2050) [`5be104f72`](https://github.com/nextui-org/nextui/commit/5be104f72d717968f253c4bedb2abe323f083c72) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed incorrect attribute names in clearOverflow (#2010)
+
 ## 2.1.2
 
 ### Patch Changes
