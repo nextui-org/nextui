@@ -47,6 +47,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/dialog": "^3.5.7",
     "@react-aria/interactions": "^3.19.1",
     "@react-aria/overlays": "^3.18.1",

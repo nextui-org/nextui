@@ -159,6 +159,7 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 | shouldCloseOnBlur         | `boolean`                                                                   | Whether the popover should close when focus is lost or moves outside it.                                                                                     | `false`         |
 | motionProps               | [MotionProps](#motion-props)                                                | The props to modify the framer motion animation. Use the `variants` API to create your own animation.                                                        |                 |
 | portalContainer           | `HTMLElement`                                                               | The container element in which the overlay portal will be placed.                                                                                            | `document.body` |
+| updatePositionDeps        | `any[]`                                                                     | The dependencies to force the popover position update.                                                                                                       | `[]`            |
 | triggerRef                | `RefObject<HTMLElement>`                                                    | The ref for the element which the popover positions itself with respect to.                                                                                  | -               |
 | scrollRef                 | `RefObject<HTMLElement>`                                                    | A ref for the scrollable region within the popover.                                                                                                          | `overlayRef`    |
 | disableAnimation          | `boolean`                                                                   | Whether the popover is animated.                                                                                                                             | `false`         |
@@ -178,8 +179,8 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 
 ### PopoverTrigger Props
 
-| Attribute  | Type        | Description                                                                                                                                                               | Default |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| Attribute  | Type        | Description                                                                                                                                                                | Default |
+| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | children\* | `ReactNode` | The popover trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility. | -       |
 
 <Spacer y={2} />
