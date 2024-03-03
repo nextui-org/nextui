@@ -776,14 +776,14 @@
     }
   },
   {
-    "content": "Custom intials logic",
+    "content": "Custom initials logic",
     "objectID": "2e3b1cd3-ec57-4653-8ca5-7d668f50bccd",
     "type": "lvl3",
-    "url": "/docs/components/avatar#custom-intials-logic",
+    "url": "/docs/components/avatar#custom-initials-logic",
     "hierarchy": {
       "lvl1": "Avatar",
       "lvl2": "Custom Implementation",
-      "lvl3": "Custom intials logic"
+      "lvl3": "Custom initials logic"
     }
   },
   {
