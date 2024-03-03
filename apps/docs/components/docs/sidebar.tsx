@@ -99,8 +99,6 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     "before:w-1",
     "before:h-1",
     "before:rounded-full",
-    "opacity-80",
-    "dark:opacity-60",
   );
 
   const {pressProps} = usePress({
