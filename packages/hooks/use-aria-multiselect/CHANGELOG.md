@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.1.4
+
+### Patch Changes
+
+- [#2377](https://github.com/nextui-org/nextui/pull/2377) [`d8b0ef528`](https://github.com/nextui-org/nextui/commit/d8b0ef528b341b25c2032fdc4530956d1d15a5ba) Thanks [@sudongyuer](https://github.com/sudongyuer)! - fix won't display warning when placeholder (#2346)
+
 ## 2.1.3
 
 ### Patch Changes

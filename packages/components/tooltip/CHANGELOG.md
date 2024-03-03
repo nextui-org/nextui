@@ -1,5 +1,11 @@
 # @nextui-org/tooltip
 
+## 2.0.30
+
+### Patch Changes
+
+- [#2021](https://github.com/nextui-org/nextui/pull/2021) [`bea1e1fde`](https://github.com/nextui-org/nextui/commit/bea1e1fde8358d03a16bb6a9e517de724b5d95e4) Thanks [@friedemannsommer](https://github.com/friedemannsommer)! - replaced "useLayoutEffect" with "useSafeLayoutEffect" in "useTooltip" hook to prevent unnecessary React warnings
+
 ## 2.0.29
 
 ### Patch Changes

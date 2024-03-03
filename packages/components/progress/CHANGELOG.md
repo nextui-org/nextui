@@ -1,5 +1,11 @@
 # @nextui-org/progress
 
+## 2.0.25
+
+### Patch Changes
+
+- [#2410](https://github.com/nextui-org/nextui/pull/2410) [`0ce10269c`](https://github.com/nextui-org/nextui/commit/0ce10269c2eb5b89cdee13e493bc9e2e0b430be9) Thanks [@wingkwong](https://github.com/wingkwong)! - fix incorrect strokeWidth in circular progress (#1790)
+
 ## 2.0.24
 
 ### Patch Changes
