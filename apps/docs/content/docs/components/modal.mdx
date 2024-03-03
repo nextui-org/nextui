@@ -60,8 +60,11 @@ When the modal opens:
 
 ### Non-dissmissable
 
-By default the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.
-You can disable this behavior by setting the `isDismissable` prop to `false`.
+By default, the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key. 
+You can disable this behavior by setting the following properties:
+
+- Set the `isDismissable` property to `false` to prevent the modal from closing when clicking on the overlay.
+- Set the `isKeyboardDismissDisabled` property to `true` to prevent the modal from closing when pressing the Esc key.
 
 <CodeDemo title="Non-dissmissible" files={modalContent.nonDismissable} />
 

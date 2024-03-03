@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
@@ -34,7 +34,8 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*"
+    "@nextui-org/shared-utils": "workspace:*",
+    "@react-aria/i18n": "^3.8.4"
   },
   "peerDependencies": {
     "react": ">=18"

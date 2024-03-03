@@ -118,7 +118,7 @@ We use [Turbo Repo](https://turborepo.org/) for the project management.
 
 ```bash
 ## Start the dev babel server of NextUI core components
-pnpm dev:nextui
+pnpm dev
 
 ## optional
 pnpm dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
@@ -131,7 +131,7 @@ pnpm start:sb ## this will start the storybook server for a faster development a
 
 ```bash
 ## Build NextUI source components
-pnpm build:nextui
+pnpm build
 
 ## Start the next.js documentation dev server
 pnpm dev:docs

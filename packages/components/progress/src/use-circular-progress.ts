@@ -112,7 +112,8 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
   const selfMounted = originalProps.disableAnimation ? true : isMounted;
 
   const center = 16;
-  const strokeWidth = strokeWidthProp || originalProps.size === "sm" ? 2 : 3;
+  const strokeWidth = strokeWidthProp || (originalProps.size === "sm" ? 2 : 3);
+
   const radius = 16 - strokeWidth;
   const circumference = 2 * radius * Math.PI;
 
