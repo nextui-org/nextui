@@ -51,7 +51,12 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
    * The position of the tabs.
    * @default 'top'
    */
-  tabPosition?: "top" | "right" | "bottom" | "left";
+  tabPosition?: "top" | "bottom" | "start" | "end";
+  /**
+   * Whether the tabs are vertical it will invalidate the tabPosition prop when the value is true.
+   * @default false
+   */
+  isVertical?: boolean;
 }
 
 export type UseTabsProps<T> = Props &
@@ -82,9 +87,9 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     classNames,
     children,
     disableCursorAnimation,
-    shouldSelectOnPressUp = true,
     motionProps,
-    tabPosition = "top",
+    isVertical = false,
+    shouldSelectOnPressUp = true,
     ...otherProps
   } = props;
 
@@ -103,10 +108,10 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     () =>
       tabs({
         ...variantProps,
-        [tabPosition]: true,
         className,
+        ...(isVertical ? {tabPosition: "start"} : {}),
       }),
-    [...Object.values(variantProps), className, tabPosition],
+    [...Object.values(variantProps), className, isVertical],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -150,12 +155,16 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     [baseStyles, otherProps, slots],
   );
 
+  const tabPosition = (variantProps as Props).tabPosition ?? (isVertical ? "start" : "top");
   const getWrapperProps: PropGetter = useCallback(
     (props) => ({
       "data-slot": "tabWrapper",
       className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
+      "data-position": tabPosition,
+      "data-orientation":
+        isVertical || tabPosition === "start" || tabPosition === "end" ? "vertical" : "horizontal",
     }),
-    [classNames, slots],
+    [classNames, slots, tabPosition, isVertical],
   );
 
   const getTabListProps: PropGetter = useCallback(

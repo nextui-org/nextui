@@ -1,23 +1,14 @@
-const App = `import {Tabs, Tab, Card, CardBody, RadioGroup, Radio} from "@nextui-org/react";
+const App = `import {Tabs, Tab, Card, CardBody, Switch} from "@nextui-org/react";
 
 export default function App() {
-  const [position, setPosition] = React.useState("top");
+  const [vertical, setVertical] = React.useState(true);
   return (
     <div className="flex flex-col px-4">
-      <RadioGroup
-        className="mb-4"
-        value={position}
-        label="Tab Position"
-        orientation="horizontal"
-        onValueChange={(value) => setPosition(value)}
-      >
-        <Radio value="top">top</Radio>
-        <Radio value="bottom">bottom</Radio>
-        <Radio value="start">start</Radio>
-        <Radio value="end">end</Radio>
-      </RadioGroup>
+      <Switch className="mb-4" isSelected={vertical} onValueChange={setVertical}>
+        Vertical
+      </Switch>
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" tabPosition={position}>
+        <Tabs aria-label="Options" isVertical={vertical}>
           <Tab key="photos" title="Photos">
             <Card>
               <CardBody>

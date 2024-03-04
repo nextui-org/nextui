@@ -160,22 +160,19 @@ const tabs = tv({
         tabContent: "transition-none",
       },
     },
-    left: {
-      true: {
+    tabPosition: {
+      top: {},
+      start: {
         tabList: "flex-col",
         panel: "py-0 px-3",
         wrapper: "flex",
       },
-    },
-    right: {
-      true: {
+      end: {
         tabList: "flex-col",
         panel: "py-0 px-3",
         wrapper: "flex flex-row-reverse",
       },
-    },
-    bottom: {
-      true: {
+      bottom: {
         wrapper: "flex flex-col-reverse",
       },
     },

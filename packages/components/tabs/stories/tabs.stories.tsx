@@ -324,10 +324,26 @@ export const TabPosition = {
   },
   argTypes: {
     tabPosition: {
-      options: ["top", "bottom", "left", "right"],
+      options: ["top", "bottom", "start", "end"],
       control: {
         type: "inline-radio",
       },
+    },
+    isVertical: {
+      type: "boolean",
+    },
+  },
+};
+
+export const Vertical = {
+  render: StaticTemplate,
+
+  args: {
+    isVertical: true,
+  },
+  argTypes: {
+    isVertical: {
+      type: "boolean",
     },
   },
 };
