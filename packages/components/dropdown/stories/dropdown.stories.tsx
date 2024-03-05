@@ -610,6 +610,15 @@ export const DisabledKeys = {
   },
 };
 
+export const DisabledTrigger = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isDisabled: true,
+  },
+};
+
 export const SingleSelection = {
   render: SingleSelectionTemplate,
 
