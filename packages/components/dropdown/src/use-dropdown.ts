@@ -127,7 +127,7 @@ export function useDropdown(props: UseDropdownProps) {
     const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
 
     return {
-      ...mergeProps(otherMenuTriggerProps, {isDisabled: props.isDisabled, originalProps}),
+      ...mergeProps(otherMenuTriggerProps, {isDisabled}, originalProps),
       ref: mergeRefs(_ref, triggerRef),
     };
   };
