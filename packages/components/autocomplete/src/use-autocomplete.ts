@@ -123,6 +123,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const isClearable =
     originalProps.disableClearable !== undefined
       ? !originalProps.disableClearable
+      : originalProps.isReadOnly
+      ? false
       : originalProps.isClearable;
 
   const {

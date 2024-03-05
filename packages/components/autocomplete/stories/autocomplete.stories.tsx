@@ -666,7 +666,6 @@ export const ReadOnly = {
     ...defaultProps,
     selectedKey: "cat",
     isReadOnly: true,
-    isClearable: false,
   },
 };
 
