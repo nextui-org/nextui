@@ -39,7 +39,7 @@
     "clean": "pnpm turbo:clean && pnpm clean:jest && pnpm clean:node-modules && pnpm clean:lock && pnpm install --hoist",
     "clean:node-modules": "rimraf ./apps/**/node_modules && rimraf ./packages/**/**/node_modules && rimraf ./node_modules",
     "clean:changelogs": "rimraf ./packages/**/**/CHANGELOG.md",
-    "clean:lock": "rm ./pnpm-lock.yaml",
+    "clean:lock": "rimraf ./pnpm-lock.yaml",
     "clean:jest": "jest --clearCache",
     "create:cmp": "plop component",
     "create:pkg": "plop package",
