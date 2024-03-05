@@ -1,5 +1,15 @@
 # @nextui-org/theme
 
+## 2.1.18
+
+### Patch Changes
+
+- [#2387](https://github.com/nextui-org/nextui/pull/2387) [`141887d38`](https://github.com/nextui-org/nextui/commit/141887d38c3b15a332b7d521448d4eb8e0743ba4) Thanks [@kuri-sun](https://github.com/kuri-sun)! - Chip with dot variant is not properly styled
+
+- [#2392](https://github.com/nextui-org/nextui/pull/2392) [`37bed2368`](https://github.com/nextui-org/nextui/commit/37bed2368e2414a6eb3cf8744896a18ca7299a91) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed incorrect RTL behaviour in toggle (#2266)
+
+- [#2379](https://github.com/nextui-org/nextui/pull/2379) [`e83595e06`](https://github.com/nextui-org/nextui/commit/e83595e06f8225ea590491906109721d46e5dc1f) Thanks [@sudongyuer](https://github.com/sudongyuer)! - fix(chip): fix isOneChar compound variants avoid chip malformed(#2350)
+
 ## 2.1.17
 
 ### Patch Changes

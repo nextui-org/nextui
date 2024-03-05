@@ -1,5 +1,12 @@
 # @nextui-org/scroll-shadow
 
+## 2.1.13
+
+### Patch Changes
+
+- Updated dependencies [[`5be104f72`](https://github.com/nextui-org/nextui/commit/5be104f72d717968f253c4bedb2abe323f083c72)]:
+  - @nextui-org/use-data-scroll-overflow@2.1.3
+
 ## 2.1.12
 
 ### Patch Changes

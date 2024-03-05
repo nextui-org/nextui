@@ -121,9 +121,10 @@ We use [Turbo Repo](https://turborepo.org/) for the project management.
 pnpm dev
 
 ## optional
-pnpm dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
 
-pnpm start:sb ## this will start the storybook server for a faster development and testing.
+pnpm sb ## this will start the storybook server for a faster development and testing.
+
+pnpm dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
 ```
 
 - If you will be working just on the documentation source code / mdx, you can use the following commands to build
@@ -141,10 +142,6 @@ pnpm dev:docs
 
 ```bash
 pnpm sb
-
-#or
-
-pnpm start:sb
 ```
 
 Remember that these commands must be executed in the root folder of the project.
@@ -166,20 +163,37 @@ git checkout -b fix/something
 All commits that fix bugs or add features need a test.
 You can run the nest command for component specific tests.
 
-```
+```bash
 # Test current code
-pnpm test:update # or npm run test:update
 
+pnpm test
+
+# or
+
+npm run test
+```
+
+```bash
 # Test isolated component code
-pnpm test:update src/button  # or npm run test:update src/button
+
+pnpm test button
+
+# or
+
+npm run test button
 
 ```
 
 5. Be sure the package builds.
 
-```
+```bash
 # Build current code
-pnpm build # or npm run build
+
+pnpm build
+
+# or
+
+npm run build
 ```
 
 > Note: ensure your version of Node is 16 or higher to run scripts

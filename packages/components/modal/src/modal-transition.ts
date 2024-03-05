@@ -3,7 +3,7 @@ import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
 export const scaleInOut = {
   enter: {
     scale: "var(--scale-enter)",
-    y: "var(--slide-enter))",
+    y: "var(--slide-enter)",
     opacity: 1,
     transition: {
       scale: {

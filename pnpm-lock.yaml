@@ -1777,6 +1777,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/dialog':
         specifier: ^3.5.7
         version: 3.5.7(react-dom@18.2.0)(react@18.2.0)
