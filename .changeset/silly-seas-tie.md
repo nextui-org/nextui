@@ -2,4 +2,4 @@
 "@nextui-org/dropdown": patch
 ---
 
-fixed getMenuTriggerProps mergeProps (#2450)
+fixed getMenuTriggerProps mergeProps (#2448)
