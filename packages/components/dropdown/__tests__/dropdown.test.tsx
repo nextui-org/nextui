@@ -353,6 +353,36 @@ describe("Dropdown", () => {
     expect(menu).toBeFalsy();
   });
 
+  it("should not open on disabled dropdown", () => {
+    const wrapper = render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions">
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    expect(triggerButton).toBeTruthy();
+
+    act(() => {
+      triggerButton.click();
+    });
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeFalsy();
+  });
+
   it("should not select on disabled item", () => {
     const onSelectionChange = jest.fn();
     const wrapper = render(
