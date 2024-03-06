@@ -8,28 +8,21 @@ export default {
   title: "Components/Calendar",
   component: Calendar,
   argTypes: {
+    visibleMonths: {
+      control: {type: "number", min: 1, max: 3},
+    },
     color: {
-      control: {type: "select"},
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
-    },
-    radius: {
-      control: {type: "select"},
-      options: ["none", "sm", "md", "lg", "full"],
-    },
-    size: {
-      control: {type: "select"},
-      options: ["sm", "md", "lg"],
-    },
-    isDisabled: {
       control: {
-        type: "boolean",
+        type: "select",
       },
+      options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
   },
 } as Meta<typeof Calendar>;
 
 const defaultProps = {
   ...calendar.defaultVariants,
+  visibleMonths: 1,
 };
 
 const Template = (args: CalendarProps) => <Calendar {...args} />;
