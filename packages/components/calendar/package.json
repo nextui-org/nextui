@@ -1,0 +1,61 @@
+{
+  "name": "@nextui-org/calendar",
+  "version": "2.0.0",
+  "description": "A calendar displays one or more date grids and allows users to select a single date.",
+  "keywords": [
+    "calendar"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/calendar"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "@nextui-org/system": ">=2.0.0",
+    "@nextui-org/theme": ">=2.0.0",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@internationalized/date": "^3.5.2",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@react-aria/calendar": "^3.5.6",
+    "@react-aria/focus": "^3.14.3",
+    "@react-aria/i18n": "^3.8.4",
+    "@react-stately/calendar": "^3.4.4",
+    "@react-types/calendar": "^3.4.4",
+    "@react-types/shared": "^3.19.0"
+  },
+  "devDependencies": {
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
