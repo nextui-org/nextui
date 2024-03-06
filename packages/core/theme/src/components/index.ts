@@ -35,4 +35,3 @@ export * from "./scroll-shadow";
 export * from "./slider";
 export * from "./breadcrumbs";
 export * from "./autocomplete";
-export * from "./calendar";

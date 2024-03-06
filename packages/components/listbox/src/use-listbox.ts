@@ -129,7 +129,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);
 
-  const slots = useMemo(() => listbox({className}), [className]);
+  const slots = useMemo(() => listbox({className}), [, className]);
 
   const baseStyles = clsx(classNames?.base, className);
 
