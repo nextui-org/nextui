@@ -1,5 +1,5 @@
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {useMemo} from "react";
+import {useMemo, useEffect, useState, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
@@ -31,20 +31,37 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     getClearButtonProps,
   } = useInput({...props, ref});
 
-  const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
+  const [endContentWidth, setEndContentWidth] = useState<number>(0);
+  const endContentWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (endContentWrapperRef.current) {
+      setEndContentWidth(endContentWrapperRef.current.getBoundingClientRect().width);
+    }
+  }, [endContent]);
 
   const end = useMemo(() => {
-    if (isClearable) {
-      return (
-        <>
-          <span {...getClearButtonProps()}>{<CloseFilledIcon />}</span>
-          {endContent}
-        </>
-      );
-    }
-
-    return endContent;
-  }, [isClearable, getClearButtonProps]);
+    return (
+      <>
+        {isClearable && (
+          <span
+            {...getClearButtonProps(
+              endContent
+                ? {
+                    style: {
+                      right: `calc(${endContentWidth}px + var(--clearable-right-has-end-content))`,
+                    },
+                  }
+                : undefined,
+            )}
+          >
+            {<CloseFilledIcon />}
+          </span>
+        )}
+        {endContent && <div ref={endContentWrapperRef}>{endContent}</div>}
+      </>
+    );
+  }, [isClearable, endContent, getClearButtonProps]);
 
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;
@@ -72,7 +89,17 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       return (
         <div {...getInnerWrapperProps()}>
           {startContent}
-          <input {...getInputProps()} />
+          <input
+            {...getInputProps(
+              endContent && isClearable
+                ? {
+                    style: {
+                      paddingRight: `calc(${endContentWidth}px + var(--clearable-padding-right-has-end-content))`,
+                    },
+                  }
+                : undefined,
+            )}
+          />
           {end}
         </div>
       );
@@ -84,6 +111,8 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       </div>
     );
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
+
+  const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
   const mainWrapper = useMemo(() => {
     if (shouldLabelBeOutside) {

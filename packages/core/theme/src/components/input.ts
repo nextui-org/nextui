@@ -49,7 +49,6 @@ const input = tv({
       "z-10",
       "hidden",
       "absolute",
-      "right-3",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -58,8 +57,6 @@ const input = tv({
       "cursor-pointer",
       "active:!opacity-70",
       "rounded-full",
-      // exist end content
-      "data-[has-end-content=true]:right-9",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -186,8 +183,10 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6",
-        clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
+        input:
+          "peer pr-6 data-[filled=true]:[--clearable-padding-right-has-end-content:theme(spacing.4)]",
+        clearButton:
+          "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block right-3 [--clearable-right-has-end-content:theme(spacing.5)]",
       },
     },
     isDisabled: {
