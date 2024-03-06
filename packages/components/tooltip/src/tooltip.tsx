@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence, m, LazyMotion, domAnimation} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {warn} from "@nextui-org/shared-utils";
 import {Children, cloneElement, isValidElement} from "react";
@@ -57,18 +57,20 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
 
   const animatedContent = (
     <div ref={tooltipRef} id={id} style={style}>
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="exit"
-        variants={TRANSITION_VARIANTS.scaleSpring}
-        {...mergeProps(motionProps, otherTooltipProps)}
-        style={{
-          ...getTransformOrigins(placement),
-        }}
-      >
-        <Component {...getTooltipContentProps()}>{content}</Component>
-      </motion.div>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.scaleSpring}
+          {...mergeProps(motionProps, otherTooltipProps)}
+          style={{
+            ...getTransformOrigins(placement),
+          }}
+        >
+          <Component {...getTooltipContentProps()}>{content}</Component>
+        </m.div>
+      </LazyMotion>
     </div>
   );
 
