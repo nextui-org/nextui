@@ -1,5 +1,15 @@
 # @nextui-org/dropdown
 
+## 2.1.17
+
+### Patch Changes
+
+- [#2435](https://github.com/nextui-org/nextui/pull/2435) [`9b27da544`](https://github.com/nextui-org/nextui/commit/9b27da544e950cdb2bccd2d1a57ead772fd10dc1) Thanks [@kuri-sun](https://github.com/kuri-sun)! - Fixed the bug: isDisabled does not disable dropdown
+
+- Updated dependencies [[`a235e324b`](https://github.com/nextui-org/nextui/commit/a235e324b9ee0c7d4f6af23b086860ac112ff633), [`01aedcf09`](https://github.com/nextui-org/nextui/commit/01aedcf09b63daafef9ff5e0465040c0c91c809e)]:
+  - @nextui-org/popover@2.1.15
+  - @nextui-org/menu@2.0.17
+
 ## 2.1.16
 
 ### Patch Changes
@@ -225,7 +235,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

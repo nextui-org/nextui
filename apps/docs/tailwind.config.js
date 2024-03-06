@@ -17,7 +17,7 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./libs/**/*.{js,ts,jsx,tsx,mdx}",
     "./content/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -305,12 +305,18 @@ module.exports = {
             transform: "scale(1.295)",
           },
         },
+        "text-gradient": {
+          to: {
+            backgroundPosition: "-200% center",
+          },
+        },
       },
       animation: {
         heartbeat: "heartbeat 1s ease-in-out infinite",
         levitate: "levitate 5s ease infinite",
         expand: "expand 6s ease-out infinite both",
         "expand-opacity": "expand-opacity 6s linear infinite both",
+        "text-gradient": "text-gradient 4s linear 0s infinite normal forwards running",
       },
     },
   },

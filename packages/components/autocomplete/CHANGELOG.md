@@ -1,5 +1,19 @@
 # @nextui-org/autocomplete
 
+## 2.0.10
+
+### Patch Changes
+
+- [#2375](https://github.com/nextui-org/nextui/pull/2375) [`e12f3faa8`](https://github.com/nextui-org/nextui/commit/e12f3faa81f804c22adfce8fd7458d68447a408b) Thanks [@kuri-sun](https://github.com/kuri-sun)! - autocomplete, tabIndex is not passed on input
+
+- Updated dependencies [[`e4ba43b4e`](https://github.com/nextui-org/nextui/commit/e4ba43b4e39203566614ac0aa58e844e9421c86e), [`0ba165f0f`](https://github.com/nextui-org/nextui/commit/0ba165f0fd2257f5b8302b32a9f5eb1ecde8d890), [`436ba1cd8`](https://github.com/nextui-org/nextui/commit/436ba1cd8412dc044651ab38ff2ed770f35377ff), [`e6f36281c`](https://github.com/nextui-org/nextui/commit/e6f36281cb8bcf6784c2fee47860f618dea9346c), [`0b5cde7bc`](https://github.com/nextui-org/nextui/commit/0b5cde7bc4fc71231eb117f44052db2efdbdc595), [`a235e324b`](https://github.com/nextui-org/nextui/commit/a235e324b9ee0c7d4f6af23b086860ac112ff633), [`01aedcf09`](https://github.com/nextui-org/nextui/commit/01aedcf09b63daafef9ff5e0465040c0c91c809e)]:
+  - @nextui-org/input@2.1.17
+  - @nextui-org/spinner@2.0.25
+  - @nextui-org/popover@2.1.15
+  - @nextui-org/button@2.0.27
+  - @nextui-org/listbox@2.1.16
+  - @nextui-org/scroll-shadow@2.1.13
+
 ## 2.0.9
 
 ### Patch Changes

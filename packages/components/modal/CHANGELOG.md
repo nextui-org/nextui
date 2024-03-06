@@ -1,5 +1,11 @@
 # @nextui-org/modal
 
+## 2.0.29
+
+### Patch Changes
+
+- [#2426](https://github.com/nextui-org/nextui/pull/2426) [`fa27bccb3`](https://github.com/nextui-org/nextui/commit/fa27bccb37060cbf6a13a89f9e7b02f713c3cd43) Thanks [@markwilson](https://github.com/markwilson)! - Fix typo in CSS variable accessor for modal transition
+
 ## 2.0.28
 
 ### Patch Changes
@@ -188,7 +194,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

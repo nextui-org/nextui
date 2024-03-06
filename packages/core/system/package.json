@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src !src/extend-variants.d.ts --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src !src/extend-variants.d.ts",

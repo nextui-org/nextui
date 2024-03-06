@@ -104,7 +104,7 @@ const toggle = tv({
         thumb: [
           "w-4 h-4 text-tiny",
           //selected
-          "group-data-[selected=true]:ml-4",
+          "group-data-[selected=true]:ml-4 rtl:group-data-[selected=true]:ml-0 rtl:group-data-[selected=true]:mr-4",
         ],
         endContent: "text-tiny",
         startContent: "text-tiny",
@@ -115,7 +115,7 @@ const toggle = tv({
         thumb: [
           "w-5 h-5 text-small",
           //selected
-          "group-data-[selected=true]:ml-5",
+          "group-data-[selected=true]:ml-5 rtl:group-data-[selected=true]:ml-0 rtl:group-data-[selected=true]:mr-5",
         ],
         endContent: "text-small",
         startContent: "text-small",
@@ -126,7 +126,7 @@ const toggle = tv({
         thumb: [
           "w-6 h-6 text-medium",
           //selected
-          "group-data-[selected=true]:ml-6",
+          "group-data-[selected=true]:ml-6 rtl:group-data-[selected=true]:ml-0 rtl:group-data-[selected=true]:mr-6",
         ],
         endContent: "text-medium",
         startContent: "text-medium",

@@ -12,7 +12,7 @@
     "url": "https://github.com/nextui-org/nextui"
   },
   "scripts": {
-    "dev": "pnpm sb && pnpm dev:docs",
+    "dev": "pnpm sb",
     "build": "turbo build --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
     "build:fast": "turbo build:fast --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
     "dev:docs": "turbo dev --filter=@nextui-org/docs",
@@ -37,9 +37,9 @@
     "turbo:clean": "turbo clean && rimraf ./node_modules/.cache/turbo",
     "turbo:graph": "pnpm build --graph=dependency-graph.png",
     "clean": "pnpm turbo:clean && pnpm clean:jest && pnpm clean:node-modules && pnpm clean:lock && pnpm install --hoist",
-    "clean:node-modules": "rimraf ./apps/**/node_modules && rimraf ./packages/**/**/node_modules && rm -rf ./node_modules",
+    "clean:node-modules": "rimraf ./apps/**/node_modules && rimraf ./packages/**/**/node_modules && rimraf ./node_modules",
     "clean:changelogs": "rimraf ./packages/**/**/CHANGELOG.md",
-    "clean:lock": "rm ./pnpm-lock.yaml",
+    "clean:lock": "rimraf ./pnpm-lock.yaml",
     "clean:jest": "jest --clearCache",
     "create:cmp": "plop component",
     "create:pkg": "plop package",

@@ -55,6 +55,11 @@ export default {
         type: "boolean",
       },
     },
+    isReadonly: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -651,6 +656,16 @@ export const Required = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const ReadOnly = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    selectedKey: "cat",
+    isReadOnly: true,
   },
 };
 

@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.6.4",
+    "@iconify/icons-solar": "^1.2.3",
+    "@iconify/react": "^4.1.1",
     "@mapbox/rehype-prism": "^0.6.0",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/badge": "workspace:*",

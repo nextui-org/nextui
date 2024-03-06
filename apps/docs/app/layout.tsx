@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata} from "next";
+import Script from "next/script";
 import {clsx} from "@nextui-org/shared-utils";
 import {Analytics} from "@vercel/analytics/react";
 
@@ -13,6 +14,7 @@ import {fontSans} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";
 import {Footer} from "@/components/footer";
 import {__PROD__} from "@/utils";
+import {ProBanner} from "@/components/pro-banner";
 
 export const metadata: Metadata = {
   title: {
@@ -70,6 +72,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
           <div className="relative flex flex-col" id="app-container">
+            <ProBanner />
             <Navbar mobileRoutes={manifest.mobileRoutes} routes={manifest.routes} />
             {children}
             <Footer />
@@ -77,6 +80,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <Cmdk />
         </Providers>
         {__PROD__ && <Analytics />}
+        <Script id="featurebase-sdk" src="https://do.featurebase.app/js/sdk.js" />
       </body>
     </html>
   );

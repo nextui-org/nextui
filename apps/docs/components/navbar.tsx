@@ -16,7 +16,6 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
-  Chip,
 } from "@nextui-org/react";
 import {dataFocusVisibleClasses} from "@nextui-org/theme";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
@@ -44,6 +43,7 @@ import {
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
+import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
 import {trackEvent} from "@/utils/va";
 
 export interface NavbarProps {
@@ -242,7 +242,21 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Figma
             </NextLink>
           </NavbarItem>
+          {/* hide feedback and changelog at this moment */}
+          {/* <NavbarItem>
+            <NextLink className={navLinkClasses} color="foreground" href="#">
+              <FbChangelogButton key="changelog" userName="" />
+            </NextLink>
+          </NavbarItem>
           <NavbarItem>
+            <NextLink className={navLinkClasses} color="foreground" href="#">
+              <FbFeedbackButton key="feedback" userEmail="" />
+            </NextLink>
+          </NavbarItem> */}
+          <NavbarItem>
+            <FbRoadmapLink className={navLinkClasses} />
+          </NavbarItem>
+          {/* <NavbarItem>
             <Chip
               as={NextLink}
               className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
@@ -256,7 +270,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
                 🚀
               </span>
             </Chip>
-          </NavbarItem>
+          </NavbarItem> */}
         </ul>
       </NavbarContent>
 
@@ -351,7 +365,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
       </NavbarContent>
 
       <NavbarMenu>
-        <DocsSidebar className="mt-4" routes={[...mobileRoutes, ...routes]} slug={slug} tag={tag} />
+        <DocsSidebar
+          className="mt-4 pt-8"
+          routes={[...mobileRoutes, ...routes]}
+          slug={slug}
+          tag={tag}
+        />
         {children}
       </NavbarMenu>
     </NextUINavbar>

@@ -273,6 +273,12 @@ importers:
       '@codesandbox/sandpack-react':
         specifier: ^2.6.4
         version: 2.9.0(@lezer/common@1.1.0)(react-dom@18.2.0)(react@18.2.0)
+      '@iconify/icons-solar':
+        specifier: ^1.2.3
+        version: 1.2.3
+      '@iconify/react':
+        specifier: ^4.1.1
+        version: 4.1.1(react@18.2.0)
       '@mapbox/rehype-prism':
         specifier: ^0.6.0
         version: 0.6.0
@@ -1722,6 +1728,9 @@ importers:
       '@react-aria/focus':
         specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: ^3.8.4
+        version: 3.8.4(react@18.2.0)
       '@react-aria/interactions':
         specifier: ^3.19.1
         version: 3.19.1(react@18.2.0)
@@ -1768,6 +1777,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/dialog':
         specifier: ^3.5.7
         version: 3.5.7(react-dom@18.2.0)(react@18.2.0)
@@ -3167,6 +3179,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@react-aria/i18n':
+        specifier: ^3.8.4
+        version: 3.8.4(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -6330,6 +6345,25 @@ packages:
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@iconify/icons-solar@1.2.3:
+    resolution: {integrity: sha512-dots93IzoaOrJ8aUD2YGZ4+Jy+yf5D87CmzSeBkEi/m+WX1klvHqWuw5kyZvVroLOlaIaJXb5nZVaDnhc8XJyQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify/react@4.1.1(react@18.2.0):
+    resolution: {integrity: sha512-jed14EjvKjee8mc0eoscGxlg7mSQRkwQG3iX3cPBCO7UlOjz0DtlvTqxqEcHUJGh+z1VJ31Yhu5B9PxfO0zbdg==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 18.2.0
+    dev: false
+
+  /@iconify/types@2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: false
 
   /@internationalized/date@3.5.0:
     resolution: {integrity: sha512-nw0Q+oRkizBWMioseI8+2TeUPEyopJVz5YxoYVzR0W1v+2YytiYah7s/ot35F149q/xAg4F1gT/6eTd+tsUpFQ==}
