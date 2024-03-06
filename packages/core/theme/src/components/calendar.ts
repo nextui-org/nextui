@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const calendar = tv({
   slots: {
-    base: "max-w-full w-fit shadow-small rounded-large overflow-hidden bg-default-50 dark:bg-default-100",
+    base: "max-w-full w-fit shadow-small rounded-large overflow-hidden bg-default-50 dark:bg-background",
     prevButton: [],
     nextButton: [],
     headerWrapper: "px-4 py-2 flex items-center justify-between gap-4 bg-content1",
