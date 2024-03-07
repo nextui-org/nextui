@@ -2,16 +2,20 @@ import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {RefObject, HTMLAttributes} from "react";
 import type {AriaButtonProps} from "@react-types/button";
 import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
+import type {As, HTMLNextUIProps} from "@nextui-org/system";
 
-import {As, HTMLNextUIProps} from "@nextui-org/system";
+import {useState} from "react";
 import {useDateFormatter, useLocale} from "@react-aria/i18n";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
+import {AnimatePresence, m, LazyMotion, domAnimation, MotionConfig} from "framer-motion";
+import {ResizablePanel} from "@nextui-org/framer-transitions";
 
 import {ChevronLeftIcon} from "./chevron-left";
 import {ChevronRightIcon} from "./chevron-right";
 import {CalendarMonth} from "./calendar-month";
+import {slideVariants, transition} from "./calendar-transitions";
 
 export interface CalendarBaseProps<T extends CalendarState | RangeCalendarState>
   extends HTMLNextUIProps<"div"> {
@@ -44,7 +48,9 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
     ...otherProps
   } = props;
 
-  const {direction} = useLocale();
+  const [direction, setDirection] = useState<number>(0);
+
+  const {direction: rtlDirection} = useLocale();
 
   const currentMonth = state.visibleRange.start;
 
@@ -66,31 +72,55 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
     let d = currentMonth.add({months: i});
 
     headers.push(
-      <header key={i} className={slots?.header({class: classNames?.header})} data-slot="header">
+      <>
         {i === 0 && (
-          <Button {...prevButtonProps}>
-            {direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          <Button
+            {...prevButtonProps}
+            onPress={chain(prevButtonProps.onPress, () => setDirection(-1))}
+          >
+            {rtlDirection === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </Button>
         )}
-        <span
-          // We have a visually hidden heading describing the entire visible range,
-          // and the calendar itself describes the individual month
-          // so we don't need to repeat that here for screen reader users.
-          aria-hidden
-          className={slots?.title({class: classNames?.title})}
-          data-slot="title"
-        >
-          {monthDateFormatter.format(d.toDate(state.timeZone))}
-        </span>
+
+        <header key={i} className={slots?.header({class: classNames?.header})} data-slot="header">
+          <m.span
+            // We have a visually hidden heading describing the entire visible range,
+            // and the calendar itself describes the individual month
+            // so we don't need to repeat that here for screen reader users.
+            key={currentMonth.month}
+            animate="center"
+            aria-hidden={true}
+            className={slots?.title({class: classNames?.title})}
+            custom={direction}
+            data-slot="title"
+            exit="exit"
+            initial="enter"
+            variants={slideVariants}
+          >
+            {monthDateFormatter.format(d.toDate(state.timeZone))}
+          </m.span>
+        </header>
         {i === visibleMonths - 1 && (
-          <Button {...nextButtonProps}>
-            {direction === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          <Button
+            {...nextButtonProps}
+            onPress={chain(nextButtonProps.onPress, () => setDirection(1))}
+          >
+            {rtlDirection === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </Button>
         )}
-      </header>,
+      </>,
     );
 
-    calendars.push(<CalendarMonth {...props} key={i} startDate={d} state={state} />);
+    calendars.push(
+      <CalendarMonth
+        {...props}
+        key={i}
+        currentMonth={currentMonth.month}
+        direction={direction}
+        startDate={d}
+        state={state}
+      />,
+    );
   }
 
   return (
@@ -103,18 +133,26 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
       <VisuallyHidden>
         <h2>{calendarProps["aria-label"]}</h2>
       </VisuallyHidden>
-      <div
-        className={slots?.headerWrapper({class: classNames?.headerWrapper})}
-        data-slot="header-wrapper"
-      >
-        {headers}
-      </div>
-      <div
-        className={slots?.gridWrapper({class: classNames?.gridWrapper})}
-        data-slot="grid-wrapper"
-      >
-        {calendars}
-      </div>
+      <ResizablePanel>
+        <AnimatePresence custom={direction} initial={false} mode="popLayout">
+          <MotionConfig transition={transition}>
+            <LazyMotion features={domAnimation}>
+              <div
+                className={slots?.headerWrapper({class: classNames?.headerWrapper})}
+                data-slot="header-wrapper"
+              >
+                {headers}
+              </div>
+              <div
+                className={slots?.gridWrapper({class: classNames?.gridWrapper})}
+                data-slot="grid-wrapper"
+              >
+                {calendars}
+              </div>
+            </LazyMotion>
+          </MotionConfig>
+        </AnimatePresence>
+      </ResizablePanel>
       {/* For touch screen readers, add a visually hidden next button after the month grid
        * so it's easy to navigate after reaching the end without going all the way
        * back to the start of the month. */}

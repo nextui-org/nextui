@@ -6,18 +6,22 @@ import {CalendarPropsBase} from "@react-types/calendar";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useLocale} from "@react-aria/i18n";
 import {useCalendarGrid} from "@react-aria/calendar";
+import {m} from "framer-motion";
 
 import {CalendarCell} from "./calendar-cell";
+import {slideVariants} from "./calendar-transitions";
 
 export interface CalendarMonthProps extends HTMLNextUIProps<"table">, CalendarPropsBase {
   state: CalendarState | RangeCalendarState;
-  slots?: CalendarReturnType;
   startDate: CalendarDate;
+  currentMonth: number;
+  direction: number;
+  slots?: CalendarReturnType;
   classNames?: SlotsToClasses<CalendarSlots>;
 }
 
 export function CalendarMonth(props: CalendarMonthProps) {
-  const {state, startDate, slots, classNames} = props;
+  const {state, startDate, slots, direction, currentMonth, classNames} = props;
 
   const {locale} = useLocale();
   const weeksInMonth = getWeeksInMonth(startDate, locale);
@@ -52,7 +56,17 @@ export function CalendarMonth(props: CalendarMonthProps) {
           ))}
         </tr>
       </thead>
-      <tbody className={slots?.gridBody({class: classNames?.gridBody})} data-slot="grid-body">
+
+      <m.tbody
+        key={currentMonth}
+        animate="center"
+        className={slots?.gridBody({class: classNames?.gridBody})}
+        custom={direction}
+        data-slot="grid-body"
+        exit="exit"
+        initial="enter"
+        variants={slideVariants}
+      >
         {[...new Array(weeksInMonth).keys()].map((weekIndex) => (
           <tr
             key={weekIndex}
@@ -77,7 +91,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
               )}
           </tr>
         ))}
-      </tbody>
+      </m.tbody>
     </table>
   );
 }

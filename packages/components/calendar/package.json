@@ -44,6 +44,7 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/framer-transitions": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@react-aria/calendar": "^3.5.6",
     "@react-aria/focus": "^3.14.3",
@@ -59,6 +60,7 @@
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

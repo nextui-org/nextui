@@ -15,7 +15,7 @@ export default {
       control: {
         type: "select",
       },
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
+      options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
     },
   },
 } as Meta<typeof Calendar>;

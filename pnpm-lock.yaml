@@ -972,6 +972,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/framer-transitions':
+        specifier: workspace:*
+        version: link:../../utilities/framer-transitions
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1021,6 +1024,9 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+      framer-motion:
+        specifier: ^10.16.4
+        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3234,6 +3240,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-measure:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-pagination:
     dependencies:
       '@nextui-org/shared-utils':
@@ -3423,6 +3438,9 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
+      '@nextui-org/use-measure':
+        specifier: workspace:*
+        version: link:../../hooks/use-measure
     devDependencies:
       clean-package:
         specifier: 2.2.0

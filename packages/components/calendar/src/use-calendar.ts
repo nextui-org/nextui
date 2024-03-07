@@ -94,7 +94,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   const {title, calendarProps, prevButtonProps, nextButtonProps, errorMessageProps} =
     useAriaCalendar(originalProps, state);
 
-  const styles = useMemo(
+  const slots = useMemo(
     () =>
       calendar({
         ...variantProps,
@@ -102,8 +102,6 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
       }),
     [...Object.values(variantProps), className],
   );
-
-  const slots = useMemo(() => calendar({className}), [className]);
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -163,7 +161,6 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   return {
     Component,
     children,
-    styles,
     domRef,
     state,
     slots,
