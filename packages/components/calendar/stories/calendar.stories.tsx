@@ -1,9 +1,10 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {calendar} from "@nextui-org/theme";
+import {today, parseDate, getLocalTimeZone, isWeekend} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
 
-import {Calendar, CalendarProps} from "../src";
-
+import {Calendar, CalendarProps, DateValue} from "../src";
 export default {
   title: "Components/Calendar",
   component: Calendar,
@@ -33,9 +34,114 @@ const defaultProps = {
 
 const Template = (args: CalendarProps) => <Calendar {...args} />;
 
+const ControlledTemplate = (args: CalendarProps) => {
+  let [value, setValue] = React.useState<DateValue>(parseDate("2024-03-07"));
+
+  return (
+    <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">Date (uncontrolled)</p>
+        <Calendar
+          aria-label="Date (uncontrolled)"
+          defaultValue={parseDate("2024-03-07")}
+          {...args}
+        />
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">Date (controlled)</p>
+        <Calendar
+          aria-label="Date (controlled)"
+          value={value}
+          onChange={setValue}
+          {...args}
+          color="secondary"
+        />
+      </div>
+    </div>
+  );
+};
+
+const UnavailableDatesTemplate = (args: CalendarProps) => {
+  let now = today(getLocalTimeZone());
+
+  let disabledRanges = [
+    [now, now.add({days: 5})],
+    [now.add({days: 14}), now.add({days: 16})],
+    [now.add({days: 23}), now.add({days: 24})],
+  ];
+
+  let {locale} = useLocale();
+
+  let isDateUnavailable = (date) =>
+    isWeekend(date, locale) ||
+    disabledRanges.some(
+      (interval) => date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0,
+    );
+
+  return (
+    <Calendar
+      aria-label="Appointment date"
+      isDateUnavailable={isDateUnavailable}
+      minValue={today(getLocalTimeZone())}
+      {...args}
+    />
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
     ...defaultProps,
+  },
+};
+
+export const Disabled = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    isDisabled: true,
+  },
+};
+
+export const ReadOnly = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    value: today(getLocalTimeZone()),
+    isReadOnly: true,
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const MinDateValue = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    defaultValue: today(getLocalTimeZone()),
+    minValue: today(getLocalTimeZone()),
+  },
+};
+
+export const MaxDateValue = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    defaultValue: today(getLocalTimeZone()),
+    maxValue: today(getLocalTimeZone()),
+  },
+};
+
+export const UnavailableDates = {
+  render: UnavailableDatesTemplate,
+  args: {
+    ...defaultProps,
+    defaultValue: today(getLocalTimeZone()),
+    unavailableDates: [today(getLocalTimeZone())],
   },
 };

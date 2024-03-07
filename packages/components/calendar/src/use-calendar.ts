@@ -18,7 +18,12 @@ import {mergeProps} from "@react-aria/utils";
 
 import {CalendarBaseProps} from "./calendar-base";
 
-interface Props extends HTMLNextUIProps<"div"> {
+type NextUIBaseProps<T extends DateValue> = Omit<
+  HTMLNextUIProps<"div">,
+  keyof AriaCalendarProps<T>
+>;
+
+interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   /**
    * Ref to the DOM node.
    */
@@ -61,7 +66,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   classNames?: SlotsToClasses<CalendarSlots>;
 }
 
-export type UseCalendarProps<T extends DateValue> = Props &
+export type UseCalendarProps<T extends DateValue> = Props<T> &
   CalendarVariantProps &
   AriaCalendarProps<T>;
 
