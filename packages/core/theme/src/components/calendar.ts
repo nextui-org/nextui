@@ -18,7 +18,7 @@ const calendar = tv({
     gridHeaderCell: "font-medium text-small pb-2 first:ps-4 last:pe-4",
     gridBody: "",
     gridBodyRow: "[&>td]:first:pt-2",
-    cell: "first:ps-4 last:pe-4",
+    cell: "py-0.5 first:ps-4 last:pe-4 [&:not(:first-child):not(:last-child)]:px-0.5",
     cellButton: [
       "w-8 h-8 flex items-center text-foreground justify-center rounded-full",
       "box-border appearance-none select-none whitespace-nowrap font-normal",
