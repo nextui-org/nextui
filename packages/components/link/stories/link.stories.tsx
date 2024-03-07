@@ -91,8 +91,8 @@ isExternal.args = {
   isExternal: true,
 };
 
-export const CustomAchor = Template.bind({}) as any;
-CustomAchor.args = {
+export const CustomAnchor = Template.bind({}) as any;
+CustomAnchor.args = {
   ...defaultProps,
   anchorIcon: <CustomLink />,
 };

@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata} from "next";
+import Script from "next/script";
 import {clsx} from "@nextui-org/shared-utils";
 import {Analytics} from "@vercel/analytics/react";
 
@@ -79,6 +80,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <Cmdk />
         </Providers>
         {__PROD__ && <Analytics />}
+        <Script id="featurebase-sdk" src="https://do.featurebase.app/js/sdk.js" />
       </body>
     </html>
   );

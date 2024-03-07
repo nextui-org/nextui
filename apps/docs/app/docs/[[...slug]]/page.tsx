@@ -83,7 +83,7 @@ export default async function DocPage({params}: DocPageProps) {
   if (!doc) {
     notFound();
   }
-  const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
+  const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}${CONTENT_PATH}${currentRoute?.path}`;
 
   return (
     <>

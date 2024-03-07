@@ -20,7 +20,7 @@ type SwatchColors = {
 
 type SwatchSetProps = {
   colors: SwatchColors[];
-  isSematic?: boolean;
+  isSemantic?: boolean;
 };
 
 const scaleIndexMap: Record<number, string> = {
@@ -90,7 +90,7 @@ const Swatch = ({color, scale}: {color: string; scale?: string}) => {
   );
 };
 
-const SematicSwatch = ({
+const SemanticSwatch = ({
   color,
   className,
   textClassName,
@@ -139,15 +139,15 @@ const SematicSwatch = ({
   );
 };
 
-const SwatchSet = ({colors, isSematic = false}: SwatchSetProps) => (
+const SwatchSet = ({colors, isSemantic = false}: SwatchSetProps) => (
   <div className="flex flex-row flex-wrap items-center justify-center">
     {colors.map(({title, items}) => (
       <div key={title} className="flex flex-col items-start w-full h-full">
         <h2 className="text-xl font-bold text-foreground">{title}</h2>
         <div className="flex flex-row flex-wrap items-center justify-start w-full h-full px-4 py-1">
           {items.map((c, index) =>
-            isSematic ? (
-              <SematicSwatch
+            isSemantic ? (
+              <SemanticSwatch
                 key={`${c.color}-${index}`}
                 className={c.className}
                 color={c.color}
@@ -218,7 +218,7 @@ export const CommonColors = () => {
 export const SemanticColors = () => {
   return (
     <SwatchSet
-      isSematic
+      isSemantic
       colors={[
         {
           title: "Layout",

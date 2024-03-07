@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/autocomplete",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.",
   "keywords": [
     "autocomplete"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",

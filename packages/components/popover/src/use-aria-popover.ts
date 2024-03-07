@@ -9,6 +9,7 @@ import {
 import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
 export interface Props {
   /**
@@ -26,6 +27,11 @@ export interface Props {
    * @default popoverRef
    */
   scrollRef?: RefObject<HTMLElement>;
+  /**
+   * List of dependencies to update the position of the popover.
+   * @default []
+   */
+  updatePositionDeps?: any[];
 }
 
 export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement"> & AriaOverlayProps;
@@ -54,6 +60,7 @@ export function useReactAriaPopover(
     shouldCloseOnInteractOutside,
     isNonModal: isNonModalProp,
     isKeyboardDismissDisabled,
+    updatePositionDeps = [],
     ...otherProps
   } = props;
 
@@ -82,6 +89,7 @@ export function useReactAriaPopover(
     overlayProps: positionProps,
     arrowProps,
     placement,
+    updatePosition,
   } = useOverlayPosition({
     ...otherProps,
     shouldFlip,
@@ -96,6 +104,12 @@ export function useReactAriaPopover(
     offset: showArrow ? offset + 3 : offset,
     onClose: () => {},
   });
+
+  useSafeLayoutEffect(() => {
+    if (!updatePositionDeps.length) return;
+    // force update position when deps change
+    updatePosition();
+  }, updatePositionDeps);
 
   useEffect(() => {
     if (state.isOpen && !isNonModal && popoverRef.current) {

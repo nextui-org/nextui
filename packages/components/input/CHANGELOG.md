@@ -1,5 +1,17 @@
 # @nextui-org/input
 
+## 2.1.17
+
+### Patch Changes
+
+- [#2371](https://github.com/nextui-org/nextui/pull/2371) [`e4ba43b4e`](https://github.com/nextui-org/nextui/commit/e4ba43b4e39203566614ac0aa58e844e9421c86e) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed input label overlapping issue (#2255)
+
+- [#2028](https://github.com/nextui-org/nextui/pull/2028) [`0ba165f0f`](https://github.com/nextui-org/nextui/commit/0ba165f0fd2257f5b8302b32a9f5eb1ecde8d890) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1979 labelPlacement is outside when not having a label for input, autocomplete and select components.
+
+- [#2031](https://github.com/nextui-org/nextui/pull/2031) [`436ba1cd8`](https://github.com/nextui-org/nextui/commit/436ba1cd8412dc044651ab38ff2ed770f35377ff) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1984 input clearable feature fixed
+
+- [#2274](https://github.com/nextui-org/nextui/pull/2274) [`e6f36281c`](https://github.com/nextui-org/nextui/commit/e6f36281cb8bcf6784c2fee47860f618dea9346c) Thanks [@Prakash7895](https://github.com/Prakash7895)! - Fix #2268, when using a number input and with a 0 for the initial value, the label (default or labelPlacement='inside') does not animate to the correct position. Even when the user is setting the value to 0, the label does not alter its state unless a number other than 0 is inputted.
+
 ## 2.1.16
 
 ### Patch Changes
@@ -118,7 +130,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 
@@ -205,7 +217,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

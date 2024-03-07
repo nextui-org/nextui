@@ -394,6 +394,12 @@
           "title": "Figma",
           "keywords": "figma, nextui, design, ui kit",
           "path": "/figma"
+        },
+        {
+          "key": "roadmap",
+          "title": "Roadmap",
+          "keywords": "roadmap, nextui",
+          "path": "#"
         }
       ]
     }

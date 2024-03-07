@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tooltip",
-  "version": "2.0.29",
+  "version": "2.0.30",
   "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
     "tooltip"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
