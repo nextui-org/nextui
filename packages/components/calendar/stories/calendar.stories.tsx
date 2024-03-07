@@ -17,6 +17,12 @@ export default {
       },
       options: ["foreground", "primary", "secondary", "success", "warning", "danger"],
     },
+    weekdayStyle: {
+      control: {
+        type: "select",
+      },
+      options: ["narrow", "short", "long"],
+    },
   },
 } as Meta<typeof Calendar>;
 

@@ -125,7 +125,9 @@ const calendar = tv({
       },
     },
     disableAnimation: {
-      true: "",
+      true: {
+        cellButton: "transition-none",
+      },
       false: {
         cellButton: [
           "data-[pressed=true]:scale-95",

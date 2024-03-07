@@ -1,6 +1,7 @@
 import type {CalendarVariantProps} from "@nextui-org/theme";
 import type {DateValue, AriaCalendarProps} from "@react-types/calendar";
 import type {CalendarSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {AriaCalendarGridProps} from "@react-aria/calendar";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 
@@ -40,6 +41,12 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   nextButtonProps?: ButtonProps;
   /**
+   * The style of weekday names to display in the calendar grid header,
+   * e.g. single letter, abbreviation, or full day name.
+   * @default "narrow"
+   */
+  weekdayStyle?: AriaCalendarGridProps["weekdayStyle"];
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -67,6 +74,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     children,
     className,
     visibleMonths: visibleMonthsProp = 1,
+    weekdayStyle = "narrow",
     navButtonProps = {},
     prevButtonProps: prevButtonPropsProp,
     nextButtonProps: nextButtonPropsProp,
@@ -104,12 +112,14 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   );
 
   const baseStyles = clsx(classNames?.base, className);
+  const disableAnimation = originalProps.disableAnimation ?? false;
 
-  const commonButtonProps = {
+  const commonButtonProps: ButtonProps = {
     size: "sm",
     variant: "light",
     radius: "full",
     isIconOnly: true,
+    disableAnimation,
     ...navButtonProps,
   };
 
@@ -144,6 +154,8 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
       state: state,
       Component,
       slots,
+      weekdayStyle,
+      disableAnimation,
       calendarRef: domRef,
       calendarProps: calendarProps,
       prevButtonProps: getPrevButtonProps(),
