@@ -4,11 +4,11 @@ export const transition = {
   x: {
     type: "spring",
     bounce: 0,
-    duration: 0.3,
+    duration: 0.25,
   },
   opacity: {
     easings: "ease",
-    duration: 0.65,
+    duration: 0.3,
   },
 };
 

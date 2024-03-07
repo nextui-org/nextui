@@ -13,7 +13,7 @@ const calendar = tv({
     title: "text-default-500 text-small font-medium",
     gridWrapper: "flex pb-3",
     grid: [],
-    gridHeader: "bg-content1 shadow-[0px_10px_20px_0px_rgb(0_0_0/0.05)]",
+    gridHeader: "bg-content1 shadow-[0px_10px_20px_0px_rgb(0_0_0/0.07)]",
     gridHeaderRow: "text-default-400",
     gridHeaderCell: "font-medium text-small pb-2 first:ps-4 last:pe-4",
     gridBody: "",
