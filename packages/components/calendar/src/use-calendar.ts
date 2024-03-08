@@ -4,6 +4,8 @@ import type {CalendarSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCalendarGridProps} from "@react-aria/calendar";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
+import type {Calendar} from "@internationalized/date";
+import type {SupportedCalendars} from "@nextui-org/system";
 
 import {mapPropsVariants} from "@nextui-org/system";
 import {useMemo} from "react";
@@ -15,6 +17,7 @@ import {CalendarState, useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
+import {useProviderContext} from "@nextui-org/system";
 
 import {CalendarBaseProps} from "./calendar-base";
 
@@ -46,6 +49,41 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    */
   nextButtonProps?: ButtonProps;
   /**
+   * This function helps to reduce the bundle size by providing a custom calendar system.
+   *
+   * In the example above, the createCalendar function from the `@internationalized/date` package
+   * is passed to the useCalendarState hook. This function receives a calendar identifier string,
+   * and provides Calendar instances to React Stately, which are used to implement date manipulation.
+   *
+   * By default, this includes all calendar systems supported by @internationalized/date. However,
+   * if your application supports a more limited set of regions, or you know you will only be picking dates
+   * in a certain calendar system, you can reduce your bundle size by providing your own implementation
+   * of `createCalendar` that includes a subset of these Calendar implementations.
+   *
+   * For example, if your application only supports Gregorian dates, you could implement a `createCalendar`
+   * function like this:
+   *
+   * @example
+   *
+   * import {GregorianCalendar} from '@internationalized/date';
+   *
+   * function createCalendar(identifier) {
+   *  switch (identifier) {
+   *    case 'gregory':
+   *      return new GregorianCalendar();
+   *    default:
+   *      throw new Error(`Unsupported calendar ${identifier}`);
+   *  }
+   * }
+   *
+   * This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
+   *
+   * You can also use the NextUIProvider to provide the createCalendar function to all nested components.
+   *
+   * @default all calendars
+   */
+  createCalendar?: (calendar: SupportedCalendars) => Calendar | null;
+  /**
    * The style of weekday names to display in the calendar grid header,
    * e.g. single letter, abbreviation, or full day name.
    * @default "narrow"
@@ -73,6 +111,8 @@ export type UseCalendarProps<T extends DateValue> = Props<T> &
 export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, calendar.variantKeys);
 
+  const providerContext = useProviderContext();
+
   const {
     ref,
     as,
@@ -81,6 +121,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
+    createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
     prevButtonProps: prevButtonPropsProp,
     nextButtonProps: nextButtonPropsProp,
     classNames,
@@ -101,7 +142,10 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     ...otherProps,
     locale,
     visibleDuration,
-    createCalendar,
+    createCalendar:
+      !createCalendarProp || typeof createCalendarProp !== "function"
+        ? createCalendar
+        : (createCalendarProp as typeof createCalendar),
   });
 
   const {title, calendarProps, prevButtonProps, nextButtonProps, errorMessageProps} =

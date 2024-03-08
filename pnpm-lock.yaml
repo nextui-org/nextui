@@ -2793,6 +2793,12 @@ importers:
 
   packages/core/system:
     dependencies:
+      '@internationalized/date':
+        specifier: ^3.5.2
+        version: 3.5.2
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
       '@nextui-org/system-rsc':
         specifier: workspace:*
         version: link:../system-rsc

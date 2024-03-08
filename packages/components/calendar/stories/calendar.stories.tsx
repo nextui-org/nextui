@@ -3,8 +3,10 @@ import {Meta} from "@storybook/react";
 import {calendar} from "@nextui-org/theme";
 import {today, parseDate, getLocalTimeZone, isWeekend} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
+import {Button} from "@nextui-org/button";
 
 import {Calendar, CalendarProps, DateValue} from "../src";
+
 export default {
   title: "Components/Calendar",
   component: Calendar,
@@ -88,6 +90,30 @@ const UnavailableDatesTemplate = (args: CalendarProps) => {
   );
 };
 
+const ControlledFocusedValueTemplate = (args: CalendarProps) => {
+  let defaultDate = today(getLocalTimeZone());
+  let [focusedDate, setFocusedDate] = React.useState(defaultDate);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <Calendar
+        focusedValue={focusedDate}
+        value={defaultDate}
+        onFocusChange={setFocusedDate}
+        {...args}
+      />
+      <Button
+        className="max-w-fit"
+        color="primary"
+        variant="flat"
+        onPress={() => setFocusedDate(defaultDate)}
+      >
+        Reset focused date
+      </Button>
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -143,5 +169,12 @@ export const UnavailableDates = {
     ...defaultProps,
     defaultValue: today(getLocalTimeZone()),
     unavailableDates: [today(getLocalTimeZone())],
+  },
+};
+
+export const ControlledFocusedValue = {
+  render: ControlledFocusedValueTemplate,
+  args: {
+    ...defaultProps,
   },
 };
