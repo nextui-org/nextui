@@ -62,6 +62,7 @@ const table = tv({
       "px-3",
       "h-10",
       "text-left",
+      "rtl:text-right",
       "align-middle",
       "bg-default-100",
       "whitespace-nowrap",
@@ -69,7 +70,11 @@ const table = tv({
       "text-tiny",
       "font-semibold",
       "first:rounded-l-lg",
+      "rtl:first:rounded-r-lg",
+      "rtl:first:rounded-l-[unset]",
       "last:rounded-r-lg",
+      "rtl:last:rounded-l-lg",
+      "rtl:last:rounded-r-[unset]",
       "outline-none",
       "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
@@ -208,16 +213,31 @@ const table = tv({
         td: [
           // first
           "group-data-[first=true]:first:before:rounded-tl-lg",
+          "group-data-[first=true]:rtl:first:before:rounded-tr-lg",
+          "group-data-[first=true]:rtl:first:before:rounded-tl-[unset]",
           "group-data-[first=true]:last:before:rounded-tr-lg",
+          "group-data-[first=true]:rtl:last:before:rounded-tl-lg",
+          "group-data-[first=true]:rtl:last:before:rounded-tr-[unset]",
           // middle
           "group-data-[middle=true]:before:rounded-none",
           // last
           "group-data-[last=true]:first:before:rounded-bl-lg",
+          "group-data-[last=true]:rtl:first:before:rounded-br-lg",
+          "group-data-[last=true]:rtl:first:before:rounded-bl-[unset]",
           "group-data-[last=true]:last:before:rounded-br-lg",
+          "group-data-[last=true]:rtl:last:before:rounded-bl-lg",
+          "group-data-[last=true]:rtl:last:before:rounded-br-[unset]",
         ],
       },
       false: {
-        td: ["first:before:rounded-l-lg", "last:before:rounded-r-lg"],
+        td: [
+          "first:before:rounded-l-lg",
+          "rtl:first:before:rounded-r-lg",
+          "rtl:first:before:rounded-l-[unset]",
+          "last:before:rounded-r-lg",
+          "rtl:last:before:rounded-l-lg",
+          "rtl:last:before:rounded-r-[unset]",
+        ],
       },
     },
     fullWidth: {
