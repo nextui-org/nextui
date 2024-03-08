@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
-import {motion} from "framer-motion";
+import {m, domMax, LazyMotion} from "framer-motion";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
@@ -118,18 +118,20 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
       onClick={handleClick}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
-        <motion.span
-          className={slots.cursor({class: classNames?.cursor})}
-          data-slot="cursor"
-          layoutDependency={false}
-          layoutId="cursor"
-          transition={{
-            type: "spring",
-            bounce: 0.15,
-            duration: 0.5,
-          }}
-          {...motionProps}
-        />
+        <LazyMotion features={domMax}>
+          <m.span
+            className={slots.cursor({class: classNames?.cursor})}
+            data-slot="cursor"
+            layoutDependency={false}
+            layoutId="cursor"
+            transition={{
+              type: "spring",
+              bounce: 0.15,
+              duration: 0.5,
+            }}
+            {...motionProps}
+          />
+        </LazyMotion>
       ) : null}
       <div
         className={slots.tabContent({
