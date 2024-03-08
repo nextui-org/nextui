@@ -54,8 +54,8 @@ const toggle = tv({
       "rounded-full",
       "origin-right",
     ],
-    startContent: "z-0 absolute left-1.5 text-current",
-    endContent: "z-0 absolute right-1.5 text-default-600",
+    startContent: "z-0 absolute left-1.5 rtl:right-1.5 rtl:left-[unset] text-current",
+    endContent: "z-0 absolute right-1.5 rtl:left-1.5 rtl:right-[unset] text-default-600",
     thumbIcon: "text-black",
     label: "relative text-foreground select-none",
   },
@@ -100,7 +100,7 @@ const toggle = tv({
     },
     size: {
       sm: {
-        wrapper: "w-10 h-6 mr-2",
+        wrapper: "w-10 h-6 mr-2 rtl:ml-2 rtl:mr-[unset]",
         thumb: [
           "w-4 h-4 text-tiny",
           //selected
@@ -111,7 +111,7 @@ const toggle = tv({
         label: "text-small",
       },
       md: {
-        wrapper: "w-12 h-7 mr-2",
+        wrapper: "w-12 h-7 mr-2 rtl:ml-2 rtl:mr-[unset]",
         thumb: [
           "w-5 h-5 text-small",
           //selected
@@ -122,7 +122,7 @@ const toggle = tv({
         label: "text-medium",
       },
       lg: {
-        wrapper: "w-14 h-8 mr-2",
+        wrapper: "w-14 h-8 mr-2 rtl:ml-2 rtl:mr-[unset]",
         thumb: [
           "w-6 h-6 text-medium",
           //selected
