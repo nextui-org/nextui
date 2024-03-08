@@ -114,6 +114,23 @@ const ControlledFocusedValueTemplate = (args: CalendarProps) => {
   );
 };
 
+const InvalidDateTemplate = (args: CalendarProps) => {
+  let [date, setDate] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let {locale} = useLocale();
+  let isInvalid = isWeekend(date, locale);
+
+  return (
+    <Calendar
+      {...args}
+      aria-label="Appointment date"
+      errorMessage={isInvalid ? "We are closed on weekends" : undefined}
+      isInvalid={isInvalid}
+      value={date}
+      onChange={setDate}
+    />
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -174,6 +191,13 @@ export const UnavailableDates = {
 
 export const ControlledFocusedValue = {
   render: ControlledFocusedValueTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const InvalidDate = {
+  render: InvalidDateTemplate,
   args: {
     ...defaultProps,
   },

@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const calendar = tv({
   slots: {
-    base: "max-w-full w-fit shadow-small inline-block rounded-large overflow-scroll bg-default-50 dark:bg-background",
+    base: "max-w-full shadow-small inline-block rounded-large overflow-scroll bg-default-50 dark:bg-background",
     prevButton: [],
     nextButton: [],
     headerWrapper: "px-4 py-2 flex items-center justify-between gap-4 bg-content1",
@@ -27,9 +27,11 @@ const calendar = tv({
       "data-[disabled=true]:cursor-default",
       "data-[disabled=true]:transition-none",
       "data-[unavailable=true]:text-default-300",
+      "data-[unavailable=true]:cursor-default",
+      "data-[unavailable=true]:line-through",
       ...dataFocusVisibleClasses,
     ],
-    errorMessage: [],
+    errorMessage: "px-4 text-small text-danger",
   },
   variants: {
     color: {

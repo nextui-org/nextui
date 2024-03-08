@@ -124,6 +124,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
     prevButtonProps: prevButtonPropsProp,
     nextButtonProps: nextButtonPropsProp,
+    errorMessage,
     classNames,
     ...otherProps
   } = props;
@@ -211,6 +212,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
       nextButtonProps: getNextButtonProps(),
       errorMessageProps: getErrorMessageProps(),
       className: slots.base({class: baseStyles}),
+      errorMessage,
       classNames,
       ...filterDOMProps(otherProps, {
         enabled: shouldFilterDOMProps,

@@ -1,6 +1,6 @@
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {AriaCalendarGridProps} from "@react-aria/calendar";
-import type {RefObject, HTMLAttributes} from "react";
+import type {RefObject, HTMLAttributes, ReactNode} from "react";
 import type {AriaButtonProps} from "@react-types/button";
 import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
 import type {As, HTMLNextUIProps} from "@nextui-org/system";
@@ -29,6 +29,7 @@ export interface CalendarBaseProps<T extends CalendarState | RangeCalendarState>
   slots?: CalendarReturnType;
   Component?: As;
   visibleMonths?: number;
+  errorMessage?: ReactNode;
   weekdayStyle?: AriaCalendarGridProps["weekdayStyle"];
   disableAnimation?: boolean;
   classNames?: SlotsToClasses<CalendarSlots>;
@@ -44,12 +45,13 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
     calendarProps,
     nextButtonProps,
     prevButtonProps,
-    // errorMessageProps,
+    errorMessageProps,
     calendarRef: ref,
     classNames,
     weekdayStyle,
     disableAnimation,
     visibleMonths = 1,
+    errorMessage,
     ...otherProps
   } = props;
 
@@ -190,21 +192,15 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
           onClick={() => state.focusNextPage()}
         />
       </VisuallyHidden>
-      {/* {state.isValueInvalid && (
-        <HelpText
-          showErrorIcon
-          errorMessage={
-            props.errorMessage ||
-            stringFormatter.format("invalidSelection", {
-              selectedCount: "highlightedRange" in state ? 2 : 1,
-            })
-          }
-          errorMessageProps={errorMessageProps}
-          isInvalid
-          // Intentionally a global class name so it can be targeted in DatePicker CSS...
-          UNSAFE_className="spectrum-Calendar-helpText"
-        />
-      )} */}
+      {state.isValueInvalid && (
+        <span
+          {...errorMessageProps}
+          className={slots?.errorMessage({class: classNames?.errorMessage})}
+          data-slot="error-message"
+        >
+          {errorMessage || "The date you selected is invalid. Please select a valid date."}
+        </span>
+      )}
     </Component>
   );
 }
