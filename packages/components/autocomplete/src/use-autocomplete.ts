@@ -163,15 +163,12 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
 
-  const state = useComboBoxState({
+  let state = useComboBoxState({
     ...originalProps,
     children,
     menuTrigger,
     shouldCloseOnBlur,
     allowsEmptyCollection,
-    ...(isReadOnly && {
-      disabledKeys: (children as unknown as Record<string, any>[]).map((o) => o.key),
-    }),
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
     onOpenChange: (open, menuTrigger) => {
       onOpenChange?.(open, menuTrigger);
@@ -180,6 +177,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }
     },
   });
+
+  state = {
+    ...state,
+    ...(isReadOnly && {
+      disabledKeys: new Set([...state.collection.getKeys()].map((k) => k)),
+    }),
+  };
 
   // Setup refs and get props for child elements.
   const buttonRef = useRef<HTMLButtonElement>(null);
