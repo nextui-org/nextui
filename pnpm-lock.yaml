@@ -1005,6 +1005,9 @@ importers:
       '@react-stately/calendar':
         specifier: ^3.4.4
         version: 3.4.4(react@18.2.0)
+      '@react-stately/utils':
+        specifier: ^3.8.0
+        version: 3.8.0(react@18.2.0)
       '@react-types/button':
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
@@ -9906,7 +9909,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-stately/toggle': 3.6.3(react@18.2.0)
-      '@react-stately/utils': 3.8.0(react@18.2.0)
+      '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.3
@@ -10066,7 +10069,7 @@ packages:
     dependencies:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-stately/utils': 3.8.0(react@18.2.0)
+      '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@react-types/slider': 3.6.2(react@18.2.0)
       '@swc/helpers': 0.5.3
@@ -10096,7 +10099,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-stately/list': 3.10.0(react@18.2.0)
-      '@react-stately/utils': 3.8.0(react@18.2.0)
+      '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@react-types/tabs': 3.3.3(react@18.2.0)
       '@swc/helpers': 0.5.3
@@ -10121,7 +10124,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-stately/overlays': 3.6.3(react@18.2.0)
-      '@react-stately/utils': 3.8.0(react@18.2.0)
+      '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/tooltip': 3.4.5(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0

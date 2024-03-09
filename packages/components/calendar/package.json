@@ -53,6 +53,7 @@
     "@react-types/button": "^3.9.0",
     "@react-aria/visually-hidden": "^3.8.6",
     "@react-aria/utils": "^3.21.1",
+    "@react-stately/utils": "^3.8.0",
     "@react-types/calendar": "^3.4.4",
     "@react-aria/interactions": "^3.19.1",
     "@react-types/shared": "^3.19.0"

@@ -1,53 +1,23 @@
 import type {ModalProviderProps} from "@react-aria/overlays";
-import type {SupportedCalendars} from "./types";
-import type {Calendar} from "@internationalized/date";
+import type {ProviderContextProps} from "./provider-context";
 
 import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
+import {useMemo} from "react";
+import {CalendarDate} from "@internationalized/date";
 
 import {ProviderContext} from "./provider-context";
 
-export interface NextUIProviderProps extends Omit<ModalProviderProps, "children"> {
+export interface NextUIProviderProps
+  extends Omit<ModalProviderProps, "children">,
+    ProviderContextProps {
   children: React.ReactNode;
   /**
    * The locale to apply to the children.
    * @default "en-US"
    */
   locale?: I18nProviderProps["locale"];
-  /**
-   * This function helps to reduce the bundle size by providing a custom calendar system.
-   *
-   * In the example above, the createCalendar function from the `@internationalized/date` package
-   * is passed to the useCalendarState hook. This function receives a calendar identifier string,
-   * and provides Calendar instances to React Stately, which are used to implement date manipulation.
-   *
-   * By default, this includes all calendar systems supported by @internationalized/date. However,
-   * if your application supports a more limited set of regions, or you know you will only be picking dates
-   * in a certain calendar system, you can reduce your bundle size by providing your own implementation
-   * of `createCalendar` that includes a subset of these Calendar implementations.
-   *
-   * For example, if your application only supports Gregorian dates, you could implement a `createCalendar`
-   * function like this:
-   *
-   * @example
-   *
-   * import {GregorianCalendar} from '@internationalized/date';
-   *
-   * function createCalendar(identifier) {
-   *  switch (identifier) {
-   *    case 'gregory':
-   *      return new GregorianCalendar();
-   *    default:
-   *      throw new Error(`Unsupported calendar ${identifier}`);
-   *  }
-   * }
-   *
-   * This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
-   *
-   * @default all calendars
-   */
-  createCalendar?: (calendar: SupportedCalendars) => Calendar | null;
   /**
    * Provides a client side router to all nested components such as
    * Link, Menu, Tabs, Table, etc.
@@ -57,8 +27,12 @@ export interface NextUIProviderProps extends Omit<ModalProviderProps, "children"
 
 export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   children,
-  locale = "en-US",
   navigate,
+  locale = "en-US",
+  defaultDates = {
+    minDate: new CalendarDate(1900, 1, 1),
+    maxDate: new CalendarDate(2099, 12, 31),
+  },
   createCalendar,
   ...otherProps
 }) => {
@@ -68,8 +42,13 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
     contents = <RouterProvider navigate={navigate}>{contents}</RouterProvider>;
   }
 
+  const context = useMemo<ProviderContextProps>(
+    () => ({createCalendar, defaultDates}),
+    [createCalendar, defaultDates?.maxDate, defaultDates?.minDate],
+  );
+
   return (
-    <ProviderContext value={{createCalendar}}>
+    <ProviderContext value={context}>
       <I18nProvider locale={locale}>
         <OverlayProvider {...otherProps}>{contents}</OverlayProvider>
       </I18nProvider>

@@ -5,15 +5,22 @@ import {tv} from "../utils/tv";
 
 const calendar = tv({
   slots: {
-    base: "max-w-full shadow-small inline-block rounded-large overflow-scroll bg-default-50 dark:bg-background",
+    base: "relative w-fit max-w-full shadow-small inline-block rounded-large overflow-scroll bg-default-50 dark:bg-background",
     prevButton: [],
     nextButton: [],
-    headerWrapper: "px-4 py-2 flex items-center justify-between gap-4 bg-content1",
-    header: "flex w-full items-center justify-center gap-2",
+    headerWrapper: [
+      "px-4 py-2 flex items-center justify-between gap-2 bg-content1",
+      // month/year picker wrapper
+      "after:content-['']",
+      "after:bg-content1 origin-top",
+      "after:w-full after:h-0",
+      "after:absolute after:top-0 after:left-0",
+    ],
+    header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
-    gridWrapper: "flex pb-3",
-    grid: [],
-    gridHeader: "bg-content1 shadow-[0px_10px_20px_0px_rgb(0_0_0/0.07)]",
+    gridWrapper: "pb-2 relative",
+    grid: "",
+    gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "text-default-400",
     gridHeaderCell: "font-medium text-small pb-2 first:ps-4 last:pe-4",
     gridBody: "",
@@ -31,7 +38,15 @@ const calendar = tv({
       "data-[unavailable=true]:line-through",
       ...dataFocusVisibleClasses,
     ],
-    errorMessage: "px-4 text-small text-danger",
+    pickerWrapper:
+      "absolute inset-x-0 top-1/2 -translate-y-1/2 flex w-full h-full justify-center opacity-0 pointer-events-none",
+    pickerMonthList: "items-start",
+    pickerYearList: "items-center",
+    pickerHighlight:
+      "h-8 bg-default-200 absolute w-[calc(100%_-_16px)] rounded-medium z-0 top-1/2 -translate-y-1/2 pointer-events-none",
+    pickerItem: "flex text-foreground items-center h-8 min-h-[32px] snap-center text-large z-20",
+    helperWrapper: "px-4 pb-2 max-w-[270px] flex justify-start flex-wrap items-center",
+    errorMessage: "text-small text-danger break-words max-w-full",
   },
   variants: {
     color: {
@@ -121,6 +136,22 @@ const calendar = tv({
         ],
       },
     },
+    isHeaderWrapperExpanded: {
+      true: {
+        headerWrapper: ["[&_.chevron-icon]:rotate-180", "after:h-full", "after:z-0"],
+        pickerWrapper: "opacity-100 pointer-events-auto z-10",
+        grid: "opacity-0 pointer-events-none",
+        nextButton: "opacity-0 pointer-events-none",
+        prevButton: "opacity-0 pointer-events-none",
+      },
+      false: {},
+    },
+    showMonthAndYearPickers: {
+      true: {
+        header: "h-8 bg-default-100 rounded-full",
+      },
+      false: {},
+    },
     showShadow: {
       true: "",
       false: {
@@ -132,9 +163,12 @@ const calendar = tv({
         cellButton: "transition-none",
       },
       false: {
+        headerWrapper: ["[&_.chevron-icon]:transition-transform", "after:transition-height"],
+        grid: "transition-opacity",
+        pickerWrapper: "transition-opacity !duration-300",
         cellButton: [
           "data-[pressed=true]:scale-95",
-          "origin-center transition-[transform,background-color, color] !duration-200",
+          "origin-center transition-[transform,background-color,color] !duration-200",
         ],
       },
     },
@@ -142,12 +176,23 @@ const calendar = tv({
   defaultVariants: {
     color: "primary",
     showShadow: true,
+    showMonthAndYearPickers: false,
     disableAnimation: false,
   },
   compoundSlots: [
     {
       slots: ["prevButton", "nextButton"],
       class: ["text-medium", "text-default-400"],
+    },
+    {
+      slots: ["pickerMonthList", "pickerYearList"],
+      class: [
+        // styles
+        "flex flex-col py-4 px-4 overflow-y-scroll scrollbar-hide snap-y snap-mandatory",
+        // scroll shadow
+        "[--scroll-shadow-size:100px]",
+        "[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)]",
+      ],
     },
   ],
 });

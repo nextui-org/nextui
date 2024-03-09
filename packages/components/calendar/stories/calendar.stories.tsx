@@ -202,3 +202,11 @@ export const InvalidDate = {
     ...defaultProps,
   },
 };
+
+export const WithMonthAndYearPickers = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    showMonthAndYearPickers: true,
+  },
+};

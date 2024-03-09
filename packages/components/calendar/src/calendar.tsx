@@ -6,7 +6,7 @@ import {forwardRef} from "@nextui-org/system";
 import {UseCalendarProps, useCalendar} from "./use-calendar";
 import {CalendarBase} from "./calendar-base";
 
-interface Props<T extends DateValue> extends UseCalendarProps<T> {}
+interface Props<T extends DateValue> extends Omit<UseCalendarProps<T>, "isHeaderWrapperExpanded"> {}
 
 function Calendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {getCalendarProps} = useCalendar({...props, ref});

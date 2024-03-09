@@ -4,19 +4,20 @@ import type {CalendarSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCalendarGridProps} from "@react-aria/calendar";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
-import type {Calendar} from "@internationalized/date";
 import type {SupportedCalendars} from "@nextui-org/system";
 
+import {Calendar, CalendarDate} from "@internationalized/date";
 import {mapPropsVariants} from "@nextui-org/system";
-import {useMemo} from "react";
+import {useCallback, useMemo} from "react";
 import {calendar} from "@nextui-org/theme";
+import {useControlledState} from "@react-stately/utils";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useLocale} from "@react-aria/i18n";
 import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
 import {CalendarState, useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useProviderContext} from "@nextui-org/system";
 
 import {CalendarBaseProps} from "./calendar-base";
@@ -48,6 +49,26 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * Props for the next button.
    */
   nextButtonProps?: ButtonProps;
+  /**
+   * Props for the button picker, which is used to select the month, year and expand the header.
+   */
+  buttonPickerProps?: ButtonProps;
+  /**
+   * Whether the calendar header is expanded. This is only available if the `showMonthAndYearPickers` prop is set to `true`.
+   * @default false
+   */
+  isHeaderExpanded?: boolean;
+  /**
+   * Whether the calendar header should be expanded by default.This is only available if the `showMonthAndYearPickers` prop is set to `true`.
+   * @default false
+   */
+  isHeaderDefaultExpanded?: boolean;
+  /**
+   * The event handler for the calendar header expanded state. This is only available if the `showMonthAndYearPickers` prop is set to `true`.
+   * @param ixExpanded boolean
+   * @returns void
+   */
+  onHeaderExpandedChange?: (ixExpanded: boolean) => void;
   /**
    * This function helps to reduce the bundle size by providing a custom calendar system.
    *
@@ -121,9 +142,15 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
+    isHeaderExpanded: isHeaderExpandedProp,
+    isHeaderDefaultExpanded,
+    onHeaderExpandedChange = () => {},
+    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
+    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
     createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
     prevButtonProps: prevButtonPropsProp,
     nextButtonProps: nextButtonPropsProp,
+    buttonPickerProps: buttonPickerPropsProp,
     errorMessage,
     classNames,
     ...otherProps
@@ -131,6 +158,19 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
 
   const visibleMonths = Math.max(visibleMonthsProp, 1);
   const Component = as || "div";
+
+  const handleHeaderExpandedChange = useCallback(
+    (isExpanded: boolean | undefined) => {
+      onHeaderExpandedChange(isExpanded || false);
+    },
+    [onHeaderExpandedChange],
+  );
+
+  const [isHeaderExpanded, setIsHeaderExpanded] = useControlledState<boolean | undefined>(
+    isHeaderExpandedProp,
+    isHeaderDefaultExpanded,
+    handleHeaderExpandedChange,
+  );
 
   const visibleDuration = useMemo(() => ({months: visibleMonths}), [visibleMonths]);
   const shouldFilterDOMProps = typeof Component === "string";
@@ -142,6 +182,8 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   const state = useCalendarState({
     ...otherProps,
     locale,
+    minValue,
+    maxValue,
     visibleDuration,
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"
@@ -156,9 +198,10 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     () =>
       calendar({
         ...variantProps,
+        isHeaderWrapperExpanded: isHeaderExpanded,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [...Object.values(variantProps), isHeaderExpanded, className],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -171,6 +214,11 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     isIconOnly: true,
     disableAnimation,
     ...navButtonProps,
+  };
+
+  const buttonPickerProps: ButtonProps = {
+    ...buttonPickerPropsProp,
+    onPress: chain(buttonPickerPropsProp?.onPress, () => setIsHeaderExpanded(!isHeaderExpanded)),
   };
 
   const getPrevButtonProps = (props = {}) => {
@@ -206,8 +254,10 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
       slots,
       weekdayStyle,
       disableAnimation,
+      buttonPickerProps,
       calendarRef: domRef,
       calendarProps: calendarProps,
+      showMonthAndYearPickers: originalProps.showMonthAndYearPickers,
       prevButtonProps: getPrevButtonProps(),
       nextButtonProps: getNextButtonProps(),
       errorMessageProps: getErrorMessageProps(),
