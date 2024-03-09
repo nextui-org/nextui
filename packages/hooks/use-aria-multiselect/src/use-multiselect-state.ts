@@ -81,6 +81,7 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
       }
     },
     toggle(focusStrategy) {
+      // Don't toggle if the collection is empty.
       if (listState.collection.size !== 0) {
         triggerState.toggle(focusStrategy);
       }
