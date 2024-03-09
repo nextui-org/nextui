@@ -51,7 +51,7 @@ const input = tv({
       "hidden",
       "absolute",
       "right-3",
-      "rtl:right-auto",
+      "rtl:right-[unset]",
       "rtl:left-3",
       "appearance-none",
       "outline-none",
@@ -172,7 +172,7 @@ const input = tv({
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "relative text-foreground pr-2 rtl:pr-0 rtl:pl-2",
+        label: "relative text-foreground pr-2 rtl:pr-[unset] rtl:pl-2",
       },
       inside: {
         label: "text-tiny cursor-text",
@@ -187,7 +187,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
+        input: "peer pr-6 rtl:pr-[unset] rtl:pl-6",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
@@ -775,7 +775,7 @@ const input = tv({
       class: {
         label: [
           "left-3",
-          "rtl:left-auto",
+          "rtl:left-[unset]",
           "rtl:right-3",
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
@@ -790,7 +790,7 @@ const input = tv({
       class: {
         label: [
           "left-3",
-          "rtl:left-auto",
+          "rtl:left-[unset]",
           "rtl:right-3",
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
