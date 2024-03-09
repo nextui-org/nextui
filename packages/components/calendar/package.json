@@ -40,23 +40,24 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@internationalized/date": "^3.5.2",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/use-intersection-observer": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "@react-aria/calendar": "^3.5.6",
+    "@internationalized/date": "^3.5.2",
+    "@react-aria/calendar": "3.5.1",
     "@react-aria/focus": "^3.14.3",
     "@react-aria/i18n": "^3.8.4",
-    "@react-stately/calendar": "^3.4.4",
+    "@react-stately/calendar": "3.4.1",
     "@react-types/button": "^3.9.0",
     "@react-aria/visually-hidden": "^3.8.6",
     "@react-aria/utils": "^3.21.1",
     "@react-stately/utils": "^3.8.0",
-    "@react-types/calendar": "^3.4.4",
+    "@react-types/calendar": "3.4.1",
     "@react-aria/interactions": "^3.19.1",
-    "@react-types/shared": "^3.19.0"
+    "@react-types/shared": "3.21.0"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",

@@ -16,7 +16,7 @@ import {useLocale} from "@react-aria/i18n";
 import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
 import {CalendarState, useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useProviderContext} from "@nextui-org/system";
 
@@ -201,7 +201,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
         isHeaderWrapperExpanded: isHeaderExpanded,
         className,
       }),
-    [...Object.values(variantProps), isHeaderExpanded, className],
+    [objectToDeps(variantProps), isHeaderExpanded, className],
   );
 
   const baseStyles = clsx(classNames?.base, className);

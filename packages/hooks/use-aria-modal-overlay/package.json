@@ -36,7 +36,7 @@
   "dependencies": {
     "@react-aria/overlays": "^3.18.1",
     "@react-stately/overlays": "^3.6.3",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-aria/utils": "^3.21.1"
   },
   "peerDependencies": {

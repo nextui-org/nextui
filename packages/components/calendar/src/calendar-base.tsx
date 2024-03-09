@@ -12,7 +12,7 @@ import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
 import {AnimatePresence, LazyMotion, domAnimation, MotionConfig} from "framer-motion";
-import {ResizablePanel} from "@nextui-org/framer-transitions";
+import {ResizablePanel} from "@nextui-org/framer-utils";
 
 import {ChevronLeftIcon} from "./chevron-left";
 import {ChevronRightIcon} from "./chevron-right";

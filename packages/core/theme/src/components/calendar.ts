@@ -39,7 +39,7 @@ const calendar = tv({
       ...dataFocusVisibleClasses,
     ],
     pickerWrapper:
-      "absolute inset-x-0 top-1/2 -translate-y-1/2 flex w-full h-full justify-center opacity-0 pointer-events-none",
+      "absolute inset-x-0 top-2 flex w-full h-[224px] justify-center opacity-0 pointer-events-none",
     pickerMonthList: "items-start",
     pickerYearList: "items-center",
     pickerHighlight:
@@ -188,7 +188,7 @@ const calendar = tv({
       slots: ["pickerMonthList", "pickerYearList"],
       class: [
         // styles
-        "flex flex-col py-4 px-4 overflow-y-scroll scrollbar-hide snap-y snap-mandatory",
+        "flex flex-col px-4 overflow-y-scroll scrollbar-hide snap-y snap-mandatory",
         // scroll shadow
         "[--scroll-shadow-size:100px]",
         "[mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)]",

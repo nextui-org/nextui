@@ -54,7 +54,7 @@ importers:
         specifier: ^3.4.4
         version: 3.5.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.19.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
       '@storybook/react':
         specifier: ^7.4.6
@@ -517,7 +517,7 @@ importers:
         specifier: ^13.4.12
         version: 13.5.6
       '@react-types/shared':
-        specifier: ^3.19.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
@@ -609,9 +609,9 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../divider
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -646,7 +646,7 @@ importers:
         specifier: 3.0.0-alpha.17
         version: 3.0.0-alpha.17(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -740,7 +740,7 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -878,7 +878,7 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -939,7 +939,7 @@ importers:
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -972,9 +972,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -984,9 +984,12 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-intersection-observer':
+        specifier: workspace:*
+        version: link:../../hooks/use-intersection-observer
       '@react-aria/calendar':
-        specifier: ^3.5.6
-        version: 3.5.6(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.5.1
+        version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
         specifier: ^3.14.3
         version: 3.14.3(react@18.2.0)
@@ -1003,8 +1006,8 @@ importers:
         specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-stately/calendar':
-        specifier: ^3.4.4
-        version: 3.4.4(react@18.2.0)
+        specifier: 3.4.1
+        version: 3.4.1(react@18.2.0)
       '@react-stately/utils':
         specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
@@ -1012,10 +1015,10 @@ importers:
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
       '@react-types/calendar':
-        specifier: ^3.4.4
-        version: 3.4.4(react@18.2.0)
+        specifier: 3.4.1
+        version: 3.4.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.19.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
@@ -1064,7 +1067,7 @@ importers:
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -1137,7 +1140,7 @@ importers:
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/chip':
@@ -1251,7 +1254,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/system-rsc
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/theme':
@@ -1383,7 +1386,7 @@ importers:
         specifier: ^3.8.0
         version: 3.8.0(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
       '@react-types/textfield':
         specifier: ^3.8.1
@@ -1518,7 +1521,7 @@ importers:
         specifier: ^3.9.5
         version: 3.9.5(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -1594,7 +1597,7 @@ importers:
         specifier: ^3.9.5
         version: 3.9.5(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -1618,9 +1621,9 @@ importers:
 
   packages/components/modal:
     dependencies:
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1700,9 +1703,9 @@ importers:
 
   packages/components/navbar:
     dependencies:
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1834,9 +1837,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1981,7 +1984,7 @@ importers:
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -2107,7 +2110,7 @@ importers:
         specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -2368,7 +2371,7 @@ importers:
         specifier: ^3.6.3
         version: 3.6.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -2483,9 +2486,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -2514,7 +2517,7 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
       '@react-types/tabs':
         specifier: ^3.3.3
@@ -2565,9 +2568,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/framer-transitions':
+      '@nextui-org/framer-utils':
         specifier: workspace:*
-        version: link:../../utilities/framer-transitions
+        version: link:../../utilities/framer-utils
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -2696,6 +2699,9 @@ importers:
       '@nextui-org/dropdown':
         specifier: workspace:*
         version: link:../../components/dropdown
+      '@nextui-org/framer-utils':
+        specifier: workspace:*
+        version: link:../../utilities/framer-utils
       '@nextui-org/image':
         specifier: workspace:*
         version: link:../../components/image
@@ -2837,6 +2843,9 @@ importers:
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../theme
@@ -2932,7 +2941,7 @@ importers:
         specifier: 3.0.0-alpha.17
         version: 3.0.0-alpha.17(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -2954,7 +2963,7 @@ importers:
         specifier: ^3.7.3
         version: 3.7.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -2982,7 +2991,7 @@ importers:
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3010,7 +3019,7 @@ importers:
         specifier: ^3.5.1
         version: 3.5.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3032,7 +3041,7 @@ importers:
         specifier: ^3.6.3
         version: 3.6.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3084,7 +3093,7 @@ importers:
         specifier: ^3.8.4
         version: 3.8.4(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3109,7 +3118,7 @@ importers:
         specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3134,7 +3143,7 @@ importers:
         specifier: ^3.9.0
         version: 3.9.0(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3219,6 +3228,15 @@ importers:
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-intersection-observer:
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3426,7 +3444,7 @@ importers:
         specifier: ^3.8.3
         version: 3.8.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.21.0
+        specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3439,7 +3457,7 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
-  packages/utilities/framer-transitions:
+  packages/utilities/framer-utils:
     dependencies:
       '@nextui-org/shared-utils':
         specifier: workspace:*
@@ -3500,9 +3518,6 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
 
   packages/utilities/stories-utils:
     devDependencies:
@@ -9336,8 +9351,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-aria/calendar@3.5.6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-PA0Ur5WcODMn7t2gCUvq61YktkB+WlSZjzDr5kcY3sdl53ZjiyqCa2hYgrb6R0J859LVJXAp+5Qaproz8g1oLA==}
+  /@react-aria/calendar@3.5.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-3gGiI2arrGQtlPD9633l00TR4y5dj9IMFapEiCDuwVwNSCsnH8aiz/emg+3hGFq86QoyvkFBvnKmezJIVKfPkA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
@@ -9347,10 +9362,10 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-stately/calendar': 3.4.4(react@18.2.0)
+      '@react-stately/calendar': 3.4.1(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
-      '@react-types/calendar': 3.4.4(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/calendar': 3.4.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9367,7 +9382,7 @@ packages:
       '@react-stately/checkbox': 3.5.1(react@18.2.0)
       '@react-stately/toggle': 3.6.3(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9409,7 +9424,7 @@ packages:
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-stately/overlays': 3.6.3(react@18.2.0)
       '@react-types/dialog': 3.5.6(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9422,7 +9437,7 @@ packages:
     dependencies:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       clsx: 1.2.1
       react: 18.2.0
@@ -9446,7 +9461,7 @@ packages:
       '@react-stately/virtualizer': 3.6.4(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9490,7 +9505,7 @@ packages:
     dependencies:
       '@react-aria/ssr': 3.9.2(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9513,7 +9528,7 @@ packages:
     dependencies:
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-types/label': 3.8.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9527,7 +9542,7 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-types/link': 3.5.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9546,7 +9561,7 @@ packages:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/list': 3.10.0(react@18.2.0)
       '@react-types/listbox': 3.4.5(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9581,7 +9596,7 @@ packages:
       '@react-stately/tree': 3.7.3(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
       '@react-types/menu': 3.9.5(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9602,7 +9617,7 @@ packages:
       '@react-stately/overlays': 3.6.3(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
       '@react-types/overlays': 3.8.3(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9617,7 +9632,7 @@ packages:
       '@react-aria/label': 3.7.2(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-types/progress': 3.5.0(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9634,7 +9649,7 @@ packages:
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-stately/radio': 3.9.1(react@18.2.0)
       '@react-types/radio': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9670,7 +9685,7 @@ packages:
       '@react-stately/radio': 3.9.1(react@18.2.0)
       '@react-stately/slider': 3.4.4(react@18.2.0)
       '@react-types/radio': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/slider': 3.6.2(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -9726,7 +9741,7 @@ packages:
       '@react-stately/virtualizer': 3.6.4(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/table': 3.9.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -9746,7 +9761,7 @@ packages:
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-stately/list': 3.10.0(react@18.2.0)
       '@react-stately/tabs': 3.6.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/tabs': 3.3.3(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -9761,7 +9776,7 @@ packages:
       '@react-aria/focus': 3.14.3(react@18.2.0)
       '@react-aria/label': 3.7.2(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/textfield': 3.8.1(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -9777,7 +9792,7 @@ packages:
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-stately/toggle': 3.6.3(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/switch': 3.4.2(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -9792,7 +9807,7 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-stately/tooltip': 3.4.5(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/tooltip': 3.4.5(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -9805,7 +9820,7 @@ packages:
     dependencies:
       '@react-aria/ssr': 3.9.2(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       clsx: 1.2.1
       react: 18.2.0
@@ -9846,7 +9861,7 @@ packages:
     dependencies:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       clsx: 1.2.1
       react: 18.2.0
@@ -9890,15 +9905,16 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-stately/calendar@3.4.4(react@18.2.0):
-    resolution: {integrity: sha512-f9ZOd096gGGD+3LmU1gkmfqytGyQtrgi+Qjn+70GbM2Jy65pwOR4I9YrobbmeAFov5Tff13mQEa0yqWvbcDLZQ==}
+  /@react-stately/calendar@3.4.1(react@18.2.0):
+    resolution: {integrity: sha512-XKCdrXNA7/ukZ842EeDZfLqYUQDv/x5RoAVkzTbp++3U/MLM1XZXsqj+5xVlQfJiWpQzM9L6ySjxzzgepJDeuw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@internationalized/date': 3.5.2
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/calendar': 3.4.4(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/calendar': 3.4.1(react@18.2.0)
+      '@react-types/datepicker': 3.7.2(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9911,7 +9927,7 @@ packages:
       '@react-stately/toggle': 3.6.3(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9921,7 +9937,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9965,7 +9981,7 @@ packages:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/selection': 3.14.0(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -9993,7 +10009,7 @@ packages:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/selection': 3.14.0(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10006,7 +10022,7 @@ packages:
       '@react-stately/overlays': 3.6.3(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/menu': 3.9.5(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10029,7 +10045,7 @@ packages:
     dependencies:
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/radio': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10045,7 +10061,7 @@ packages:
       '@react-stately/selection': 3.14.0(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/select': 3.8.4(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10057,7 +10073,7 @@ packages:
     dependencies:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10070,7 +10086,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/slider': 3.6.2(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -10087,7 +10103,7 @@ packages:
       '@react-stately/selection': 3.14.0(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/table': 3.9.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -10100,7 +10116,7 @@ packages:
     dependencies:
       '@react-stately/list': 3.10.0(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/tabs': 3.3.3(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -10113,7 +10129,7 @@ packages:
     dependencies:
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10166,7 +10182,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -10195,7 +10211,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10205,6 +10221,16 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/shared': 3.22.1(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
+  /@react-types/calendar@3.4.1(react@18.2.0):
+    resolution: {integrity: sha512-tiCkHi6IQtYcVoAESG79eUBWDXoo8NImo+Mj8WAWpo1lOA3SV1W2PpeXkoRNqtloilQ0aYcmsaJJUhciQG4ndg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@internationalized/date': 3.5.2
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10223,7 +10249,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10236,13 +10262,25 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-types/datepicker@3.7.2(react@18.2.0):
+    resolution: {integrity: sha512-zThqFAdhQL1dqyVDsDSSTdfCjoD6634eyg/B0ZJfQxcLUR/5pch3v/gxBhbyCVDGMNHRWUWIJvY9DVOepuoSug==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@internationalized/date': 3.5.2
+      '@react-types/calendar': 3.4.4(react@18.2.0)
+      '@react-types/overlays': 3.8.5(react@18.2.0)
+      '@react-types/shared': 3.22.1(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
   /@react-types/dialog@3.5.6(react@18.2.0):
     resolution: {integrity: sha512-lwwaAgoi4xe4eEJxBns+cBIRstIPTKWWddMkp51r7Teeh2uKs1Wki7N+Acb9CfT6JQTQDqtVJm6K76rcqNBVwg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/overlays': 3.8.3(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10251,7 +10289,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10260,7 +10298,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10270,7 +10308,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
 
   /@react-types/listbox@3.4.5(react@18.2.0):
@@ -10278,7 +10316,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10288,12 +10326,21 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/overlays': 3.8.3(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
   /@react-types/overlays@3.8.3(react@18.2.0):
     resolution: {integrity: sha512-TrCG2I2+V+TD0PGi3CqfnyU5jEzcelSGgYJQvVxsl5Vv3ri7naBLIsOjF9x66tPxhINLCPUtOze/WYRAexp8aw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.21.0(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
+  /@react-types/overlays@3.8.5(react@18.2.0):
+    resolution: {integrity: sha512-4D7EEBQigD/m8hE68Ys8eloyyZFHHduqykSIgINJ0edmo0jygRbWlTwuhWFR9USgSP4dK54duN0Mvq0m4HEVEw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
@@ -10306,7 +10353,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10315,7 +10362,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10324,7 +10371,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10347,7 +10394,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10357,7 +10404,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/checkbox': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10367,7 +10414,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/grid': 3.2.2(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10376,7 +10423,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10385,7 +10432,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -10395,7 +10442,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/overlays': 3.8.3(react@18.2.0)
-      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false
 

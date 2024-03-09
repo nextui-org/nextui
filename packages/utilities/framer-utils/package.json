@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/divider",
-  "version": "2.0.25",
-  "description": ". A separator is a visual divider between two groups of content",
+  "name": "@nextui-org/framer-utils",
+  "version": "2.0.15",
+  "description": "A set of framer motion transitions for react",
   "keywords": [
-    "divider"
+    "framer-utils"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/divider"
+    "directory": "packages/utilities/framer-utils"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -36,19 +36,18 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0"
+    "framer-motion": ">=4.0.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-rsc-utils": "workspace:*",
-    "@nextui-org/system-rsc": "workspace:*",
-    "@react-types/shared": "3.21.0"
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/use-measure": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "clean-package": "2.2.0",
+    "framer-motion": "^10.16.4"
   },
   "clean-package": "../../../clean-package.config.json"
 }
