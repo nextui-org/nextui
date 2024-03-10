@@ -105,7 +105,7 @@ const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
           colSpan={collection.columnCount}
           role="gridcell"
         >
-          {bodyProps.emptyContent}
+          {!isLoading && bodyProps.emptyContent}
         </td>
       </tr>
     );
