@@ -256,6 +256,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
       disableAnimation,
       buttonPickerProps,
       calendarRef: domRef,
+      isPickerVisible: isHeaderExpanded,
       calendarProps: calendarProps,
       showMonthAndYearPickers: originalProps.showMonthAndYearPickers,
       prevButtonProps: getPrevButtonProps(),

@@ -24,6 +24,7 @@ import {CalendarPicker} from "./calendar-picker";
 export interface CalendarBaseProps<T extends CalendarState | RangeCalendarState>
   extends HTMLNextUIProps<"div"> {
   state: T;
+  isPickerVisible?: boolean;
   calendarProps: HTMLAttributes<HTMLElement>;
   nextButtonProps: AriaButtonProps;
   prevButtonProps: AriaButtonProps;
@@ -56,6 +57,7 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
     classNames,
     weekdayStyle,
     disableAnimation,
+    isPickerVisible,
     showMonthAndYearPickers,
     visibleMonths = 1,
     errorMessage,
@@ -71,6 +73,9 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
   const headers = [];
   const calendars = [];
 
+  // TODO: Send this part to a separated component so we can
+  // control the header expanded state separately per calendar
+  // and only show the pickers for the selected calendar
   for (let i = 0; i < visibleMonths; i++) {
     let d = currentMonth.add({months: i});
 
@@ -91,6 +96,7 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
           date={d}
           direction={direction}
           disableAnimation={disableAnimation}
+          isPickerVisible={isPickerVisible}
           showMonthAndYearPickers={showMonthAndYearPickers}
           slots={slots}
           state={state}

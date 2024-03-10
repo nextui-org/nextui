@@ -7,6 +7,7 @@ type State = {
 
 type UseIntersectionObserverOptions = {
   root?: Element | Document | null;
+  isEnabled?: boolean;
   rootMargin?: string;
   threshold?: number | number[];
   freezeOnceVisible?: boolean;
@@ -28,6 +29,7 @@ export function useIntersectionObserver({
   threshold = 0,
   root = null,
   rootMargin = "0%",
+  isEnabled = true,
   freezeOnceVisible = false,
   initialIsIntersecting = false,
   onChange,
@@ -46,6 +48,9 @@ export function useIntersectionObserver({
   const frozen = state.entry?.isIntersecting && freezeOnceVisible;
 
   useEffect(() => {
+    // Skip if not enabled
+    if (!isEnabled) return;
+
     // Ensure we have a ref to observe
     if (!ref) return;
 
@@ -92,6 +97,7 @@ export function useIntersectionObserver({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     ref,
+    isEnabled,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     JSON.stringify(threshold),
     root,

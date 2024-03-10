@@ -5,7 +5,10 @@ import {tv} from "../utils/tv";
 
 const calendar = tv({
   slots: {
-    base: "relative w-fit max-w-full shadow-small inline-block rounded-large overflow-scroll bg-default-50 dark:bg-background",
+    base: [
+      "relative w-fit max-w-full shadow-small inline-block",
+      "rounded-large overflow-scroll bg-default-50 dark:bg-background",
+    ],
     prevButton: [],
     nextButton: [],
     headerWrapper: [
@@ -18,7 +21,7 @@ const calendar = tv({
     ],
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
-    gridWrapper: "pb-2 relative",
+    gridWrapper: "pb-2 h-auto relative",
     grid: "",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "text-default-400",
@@ -39,12 +42,13 @@ const calendar = tv({
       ...dataFocusVisibleClasses,
     ],
     pickerWrapper:
-      "absolute inset-x-0 top-2 flex w-full h-[224px] justify-center opacity-0 pointer-events-none",
+      "absolute inset-x-0 top-0 flex w-full h-[var(--picker-height)] justify-center opacity-0 pointer-events-none",
     pickerMonthList: "items-start",
     pickerYearList: "items-center",
     pickerHighlight:
       "h-8 bg-default-200 absolute w-[calc(100%_-_16px)] rounded-medium z-0 top-1/2 -translate-y-1/2 pointer-events-none",
-    pickerItem: "flex text-foreground items-center h-8 min-h-[32px] snap-center text-large z-20",
+    pickerItem:
+      "flex text-foreground items-center h-8 leading-[32px] min-h-[32px] snap-center text-large z-20",
     helperWrapper: "px-4 pb-2 max-w-[270px] flex justify-start flex-wrap items-center",
     errorMessage: "text-small text-danger break-words max-w-full",
   },
@@ -140,6 +144,7 @@ const calendar = tv({
       true: {
         headerWrapper: ["[&_.chevron-icon]:rotate-180", "after:h-full", "after:z-0"],
         pickerWrapper: "opacity-100 pointer-events-auto z-10",
+        gridWrapper: "h-[var(--picker-height)]",
         grid: "opacity-0 pointer-events-none",
         nextButton: "opacity-0 pointer-events-none",
         prevButton: "opacity-0 pointer-events-none",
@@ -148,6 +153,7 @@ const calendar = tv({
     },
     showMonthAndYearPickers: {
       true: {
+        base: "[--picker-height:224px]",
         header: "h-8 bg-default-100 rounded-full",
       },
       false: {},

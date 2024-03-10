@@ -984,9 +984,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/use-intersection-observer':
-        specifier: workspace:*
-        version: link:../../hooks/use-intersection-observer
       '@react-aria/calendar':
         specifier: 3.5.1
         version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
@@ -1020,6 +1017,12 @@ importers:
       '@react-types/shared':
         specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
+      '@types/lodash.debounce':
+        specifier: ^4.0.7
+        version: 4.0.9
+      lodash.debounce:
+        specifier: ^4.0.8
+        version: 4.0.8
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*

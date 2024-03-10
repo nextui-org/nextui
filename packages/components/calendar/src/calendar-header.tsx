@@ -18,6 +18,7 @@ export interface CalendarHeaderProps extends HTMLNextUIProps<"header"> {
   date: CalendarDate;
   currentMonth: CalendarDate;
   buttonPickerProps?: ButtonProps;
+  isPickerVisible?: boolean;
   showMonthAndYearPickers?: boolean;
   disableAnimation?: boolean;
   classNames?: SlotsToClasses<CalendarSlots>;
@@ -31,6 +32,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
     state,
     currentMonth,
     buttonPickerProps,
+    isPickerVisible,
     showMonthAndYearPickers,
     disableAnimation,
     classNames,
@@ -73,7 +75,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
           data-slot="title"
           exit="exit"
           initial="enter"
-          variants={slideVariants}
+          variants={isPickerVisible ? {} : slideVariants}
         >
           {monthDateContent}
         </m.span>
