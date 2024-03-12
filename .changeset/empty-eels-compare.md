@@ -2,4 +2,4 @@
 "@nextui-org/table": minor
 ---
 
-Fixed `Table` rendering the contents of the cell beneath the stripe for the multiple computed values in `td`
+Fixed the `Table` rendering the contents of the cell beneath the stripe in case of multiple computed values provided in `td`
