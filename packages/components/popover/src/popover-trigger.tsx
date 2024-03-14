@@ -40,7 +40,7 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
 
   let restProps = rest;
 
-  if (restProps.isDisabled) {
+  if (restProps?.isDisabled) {
     // if `child` doesn't have `isDisabled` prop, e.g. custom trigger (div), NextUI User component
     // adding `isDisabled` would make React fail to recognize it on a DOM element
     // hence, adding the `isDisabled` logic to cover this case
