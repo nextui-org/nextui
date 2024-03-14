@@ -1,6 +1,6 @@
 import React, {Children, cloneElement, useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
-import {pickChildren} from "@nextui-org/react-utils";
+import {forwardRef, cn} from "@nextui-org/system";
+import {pickChildren, filterDOMProps} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
 import {mergeProps} from "@react-aria/utils";
@@ -38,11 +38,21 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
 
   const {buttonProps} = useAriaButton({onPress}, triggerRef);
 
+  let restProps = rest;
+
+  if (restProps.isDisabled) {
+    // if `child` doesn't have `isDisabled` prop, e.g. custom trigger (div), NextUI User component
+    // adding `isDisabled` would make React fail to recognize it on a DOM element
+    // hence, adding the `isDisabled` logic to cover this case
+    restProps.className = cn(restProps.className, "opacity-disabled pointer-events-none");
+    restProps = filterDOMProps(restProps);
+  }
+
   const hasNextUIButton = useMemo<boolean>(() => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  return cloneElement(child, mergeProps(rest, hasNextUIButton ? {onPress} : buttonProps));
+  return cloneElement(child, mergeProps(restProps, hasNextUIButton ? {onPress} : buttonProps));
 });
 
 PopoverTrigger.displayName = "NextUI.PopoverTrigger";
