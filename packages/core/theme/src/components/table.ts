@@ -185,6 +185,7 @@ const table = tv({
         td: [
           "group-data-[odd=true]:before:bg-default-100",
           "group-data-[odd=true]:before:opacity-100",
+          "group-data-[odd=true]:before:-z-10",
         ],
       },
     },
