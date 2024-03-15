@@ -239,12 +239,19 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
+      // if PopoverTrigger child doesn't have `isDisabled` prop, e.g. custom trigger (div), NextUI User component
+      // adding `isDisabled` would make React fail to recognize it on a DOM element
+      // hence, adding the `isDisabled` class names to cover this case
+      const popoverTriggerClassName = popover({isDisabled: props?.isDisabled}).trigger();
+
       return {
         "data-slot": "trigger",
         "aria-haspopup": "dialog",
         ...mergeProps(triggerProps, props),
         onPress,
-        className: slots.trigger({class: clsx(classNames?.trigger, props.className)}),
+        className: slots.trigger({
+          class: clsx(classNames?.trigger, props.className, popoverTriggerClassName),
+        }),
         ref: mergeRefs(_ref, triggerRef),
       };
     },
