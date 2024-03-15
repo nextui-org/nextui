@@ -1,5 +1,5 @@
 import React, {Children, cloneElement, useMemo} from "react";
-import {forwardRef, cn} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
@@ -29,7 +29,7 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     };
   }, [children]);
 
-  const {onPress, ...rest} = useMemo(() => {
+  const {onPress, ...restProps} = useMemo(() => {
     return getTriggerProps(mergeProps(otherProps, child.props), child.ref);
   }, [getTriggerProps, child.props, otherProps, child.ref]);
 
@@ -38,19 +38,11 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
 
   const {buttonProps} = useAriaButton({onPress}, triggerRef);
 
-  let restProps = rest;
-
   const hasNextUIButton = useMemo<boolean>(() => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  if (restProps?.isDisabled) {
-    // if `child` doesn't have `isDisabled` prop, e.g. custom trigger (div), NextUI User component
-    // adding `isDisabled` would make React fail to recognize it on a DOM element
-    // hence, adding the `isDisabled` logic to cover this case
-    restProps.className = cn(restProps.className, "opacity-disabled pointer-events-none");
-  }
-
+  // avoid passing `isDisabled` to non-NextUI button element
   if (!hasNextUIButton) delete restProps["isDisabled"];
 
   return cloneElement(child, mergeProps(restProps, hasNextUIButton ? {onPress} : buttonProps));
