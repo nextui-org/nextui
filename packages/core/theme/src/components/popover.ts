@@ -162,6 +162,12 @@ const popover = tv({
         base: "animate-none",
       },
     },
+    isDisabled: {
+      true: {
+        trigger: "opacity-disabled pointer-events-none",
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     color: "default",
