@@ -60,8 +60,8 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   ) : (
     <AnimatePresence mode="wait">
       {isMenuOpen ? (
-        <MenuWrapper>
-          <LazyMotion features={domAnimation}>
+        <LazyMotion features={domAnimation}>
+          <MenuWrapper>
             <m.ul
               ref={domRef}
               layoutScroll
@@ -80,8 +80,8 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
             >
               {children}
             </m.ul>
-          </LazyMotion>
-        </MenuWrapper>
+          </MenuWrapper>
+        </LazyMotion>
       ) : null}
     </AnimatePresence>
   );
