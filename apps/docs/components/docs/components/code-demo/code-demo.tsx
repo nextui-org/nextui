@@ -142,7 +142,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         files={files}
         highlightedLines={highlightedLines}
         showEditor={showEditor}
-        showOpenInCodeSandbox={showOpenInCodeSandbox || showPreview}
+        showOpenInCodeSandbox={showOpenInCodeSandbox && showPreview}
         showPreview={showSandpackPreview}
         typescriptStrict={typescriptStrict}
       />
