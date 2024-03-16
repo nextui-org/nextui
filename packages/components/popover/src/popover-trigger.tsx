@@ -1,6 +1,6 @@
 import React, {Children, cloneElement, useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
-import {pickChildren} from "@nextui-org/react-utils";
+import {pickChildren, filterDOMProps} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
 import {mergeProps} from "@react-aria/utils";
@@ -42,10 +42,22 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  // avoid passing `isDisabled` to non-NextUI button element
-  if (!hasNextUIButton) delete restProps["isDisabled"];
+  const isDisabled = !!restProps?.isDisabled;
 
-  return cloneElement(child, mergeProps(restProps, hasNextUIButton ? {onPress} : buttonProps));
+  const isNextUIElement = !!child.type?.render?.displayName?.includes("NextUI");
+
+  return cloneElement(
+    child,
+    mergeProps(
+      // if we add `isDisabled` prop to DOM elements,
+      // react will fail to recognize it on a DOM element,
+      // hence, apply filterDOMProps for such case
+      filterDOMProps(restProps, {
+        enabled: isDisabled && !isNextUIElement,
+      }),
+      hasNextUIButton ? {onPress} : buttonProps,
+    ),
+  );
 });
 
 PopoverTrigger.displayName = "NextUI.PopoverTrigger";
