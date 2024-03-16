@@ -248,7 +248,7 @@ export function usePopover(originalProps: UsePopoverProps) {
           class: clsx(classNames?.trigger, props.className),
           // apply isDisabled class names to make the trigger child disabled
           // e.g. for elements like div or NextUI elements that don't have `isDisabled` prop
-          isDisabled: !!props?.isDisabled,
+          isDropdownDisabled: !!props?.isDisabled,
         }),
         ref: mergeRefs(_ref, triggerRef),
       };

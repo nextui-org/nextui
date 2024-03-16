@@ -162,7 +162,7 @@ const popover = tv({
         base: "animate-none",
       },
     },
-    isDisabled: {
+    isDropdownDisabled: {
       true: {
         trigger: "opacity-disabled pointer-events-none",
       },
