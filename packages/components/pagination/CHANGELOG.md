@@ -1,5 +1,14 @@
 # @nextui-org/pagination
 
+## 2.0.27
+
+### Patch Changes
+
+- [#2393](https://github.com/nextui-org/nextui/pull/2393) [`dec7d411b`](https://github.com/nextui-org/nextui/commit/dec7d411b5c9cf1ddb9d74bf8ac897f306017835) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed inversed RTL pagination arrows (#2292)
+
+- Updated dependencies [[`dec7d411b`](https://github.com/nextui-org/nextui/commit/dec7d411b5c9cf1ddb9d74bf8ac897f306017835)]:
+  - @nextui-org/use-pagination@2.0.5
+
 ## 2.0.26
 
 ### Patch Changes

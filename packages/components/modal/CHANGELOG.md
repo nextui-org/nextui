@@ -1,5 +1,11 @@
 # @nextui-org/modal
 
+## 2.0.29
+
+### Patch Changes
+
+- [#2426](https://github.com/nextui-org/nextui/pull/2426) [`fa27bccb3`](https://github.com/nextui-org/nextui/commit/fa27bccb37060cbf6a13a89f9e7b02f713c3cd43) Thanks [@markwilson](https://github.com/markwilson)! - Fix typo in CSS variable accessor for modal transition
+
 ## 2.0.28
 
 ### Patch Changes

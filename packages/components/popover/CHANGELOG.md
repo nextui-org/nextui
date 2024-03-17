@@ -1,5 +1,16 @@
 # @nextui-org/popover
 
+## 2.1.15
+
+### Patch Changes
+
+- [#2390](https://github.com/nextui-org/nextui/pull/2390) [`a235e324b`](https://github.com/nextui-org/nextui/commit/a235e324b9ee0c7d4f6af23b086860ac112ff633) Thanks [@u3u](https://github.com/u3u)! - Add `updatePositionDeps` prop to popover component
+
+- [#2032](https://github.com/nextui-org/nextui/pull/2032) [`01aedcf09`](https://github.com/nextui-org/nextui/commit/01aedcf09b63daafef9ff5e0465040c0c91c809e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #2025 isDismissable prop passed to the aria-popover hook.
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.27
+
 ## 2.1.14
 
 ### Patch Changes

@@ -3,8 +3,10 @@
 import {Icon} from "@iconify/react/dist/offline";
 import arrowRightIcon from "@iconify/icons-solar/arrow-right-linear";
 import {usePathname} from "next/navigation";
+import {useEffect} from "react";
 
 import {trackEvent} from "@/utils/va";
+import emitter from "@/libs/emitter";
 
 const hideOnPaths = ["examples"];
 
@@ -18,6 +20,25 @@ export const ProBanner = () => {
 
   const pathname = usePathname();
   const shouldBeVisible = !hideOnPaths.some((path) => pathname.includes(path));
+
+  useEffect(() => {
+    if (!shouldBeVisible) return;
+
+    // listen to scroll event, dispatch an event when scroll is at the top < 48 px
+    const handleScroll = () => {
+      if (window.scrollY < 48) {
+        emitter.emit("proBannerVisibilityChange", "visible");
+      } else {
+        emitter.emit("proBannerVisibilityChange", "hidden");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [shouldBeVisible]);
 
   if (!shouldBeVisible) return null;
 

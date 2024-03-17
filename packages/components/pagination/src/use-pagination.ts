@@ -3,6 +3,7 @@ import type {Timer} from "@nextui-org/shared-utils";
 import type {Key, ReactNode, Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
+import {useLocale} from "@react-aria/i18n";
 import {
   UsePaginationProps as UseBasePaginationProps,
   PaginationItemValue,
@@ -191,6 +192,10 @@ export function usePagination(originalProps: UsePaginationProps) {
 
   const cursorTimer = useRef<Timer>();
 
+  const {direction} = useLocale();
+
+  const isRTL = direction === "rtl";
+
   function getItemsRefMap() {
     if (!itemsRef.current) {
       // Initialize the Map on first usage.
@@ -296,7 +301,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   const baseStyles = clsx(classNames?.base, className);
 
   const onNext = () => {
-    if (loop && activePage === total) {
+    if (loop && activePage === (isRTL ? 1 : total)) {
       return first();
     }
 
@@ -304,7 +309,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   };
 
   const onPrevious = () => {
-    if (loop && activePage === 1) {
+    if (loop && activePage === (isRTL ? total : 1)) {
       return last();
     }
 

@@ -2,7 +2,6 @@ import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata} from "next";
 import {clsx} from "@nextui-org/shared-utils";
-import {Analytics} from "@vercel/analytics/react";
 
 import {Providers} from "./providers";
 
@@ -12,8 +11,8 @@ import {siteConfig} from "@/config/site";
 import {fontSans} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";
 import {Footer} from "@/components/footer";
-import {__PROD__} from "@/utils";
 import {ProBanner} from "@/components/pro-banner";
+import {ScriptProviders} from "@/components/scripts/script-providers";
 
 export const metadata: Metadata = {
   title: {
@@ -78,7 +77,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </div>
           <Cmdk />
         </Providers>
-        {__PROD__ && <Analytics />}
+        <ScriptProviders />
       </body>
     </html>
   );

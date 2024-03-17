@@ -1,5 +1,18 @@
 # @nextui-org/select
 
+## 2.1.21
+
+### Patch Changes
+
+- [#2028](https://github.com/nextui-org/nextui/pull/2028) [`0ba165f0f`](https://github.com/nextui-org/nextui/commit/0ba165f0fd2257f5b8302b32a9f5eb1ecde8d890) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1979 labelPlacement is outside when not having a label for input, autocomplete and select components.
+
+- Updated dependencies [[`d8b0ef528`](https://github.com/nextui-org/nextui/commit/d8b0ef528b341b25c2032fdc4530956d1d15a5ba), [`0b5cde7bc`](https://github.com/nextui-org/nextui/commit/0b5cde7bc4fc71231eb117f44052db2efdbdc595), [`a235e324b`](https://github.com/nextui-org/nextui/commit/a235e324b9ee0c7d4f6af23b086860ac112ff633), [`01aedcf09`](https://github.com/nextui-org/nextui/commit/01aedcf09b63daafef9ff5e0465040c0c91c809e)]:
+  - @nextui-org/use-aria-multiselect@2.1.4
+  - @nextui-org/spinner@2.0.25
+  - @nextui-org/popover@2.1.15
+  - @nextui-org/listbox@2.1.16
+  - @nextui-org/scroll-shadow@2.1.13
+
 ## 2.1.20
 
 ### Patch Changes

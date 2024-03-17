@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-pagination",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "State management hook for Pagination component, it lets you manage pagination with controlled and uncontrolled state",
   "keywords": [
     "use-pagination"
@@ -34,7 +34,8 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*"
+    "@nextui-org/shared-utils": "workspace:*",
+    "@react-aria/i18n": "^3.8.4"
   },
   "peerDependencies": {
     "react": ">=18"
