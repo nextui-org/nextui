@@ -304,6 +304,9 @@ describe("Select", () => {
       await userEvent.click(select);
     });
 
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
     // click outside the select component
     await act(async () => {
       await userEvent.click(document.body);
