@@ -4,7 +4,7 @@ export default function App() {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
 
   const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    () => Array.from(selectedKeys)[0],
     [selectedKeys]
   );
 
