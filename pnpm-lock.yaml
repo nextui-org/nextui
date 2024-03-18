@@ -574,6 +574,9 @@ importers:
       dotenv:
         specifier: ^16.0.1
         version: 16.3.1
+      esbuild-plugin-raw:
+        specifier: 0.1.8
+        version: 0.1.8(esbuild@0.19.5)
       eslint-config-next:
         specifier: ^13.5.1
         version: 13.5.6(eslint@7.32.0)(typescript@4.9.5)
@@ -15383,6 +15386,14 @@ packages:
 
   /esbuild-plugin-alias@0.2.1:
     resolution: {integrity: sha512-jyfL/pwPqaFXyKnj8lP8iLk6Z0m099uXR45aSN8Av1XD4vhvQutxxPzgA2bTcAwQpa1zCXDcWOlhFgyP3GKqhQ==}
+    dev: true
+
+  /esbuild-plugin-raw@0.1.8(esbuild@0.19.5):
+    resolution: {integrity: sha512-RNLzkR9DZIDW5nLjtWoSHzECsVHwJf/pel8RFw0fF1AE/0Y7rsdayf1s23mJoXYAuw2rUDqm1hF7zXK++ABRMg==}
+    peerDependencies:
+      esbuild: ^0.14.36 || ^0.15.0 || ^0.16.0 || ^0.17.0 || ^0.18.0 || ^0.19.0 || ^0.20.0
+    dependencies:
+      esbuild: 0.19.5
     dev: true
 
   /esbuild-register@3.5.0(esbuild@0.18.20):
