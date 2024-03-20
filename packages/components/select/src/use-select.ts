@@ -266,7 +266,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const isFilled =
     state.isOpen ||
     hasPlaceholder ||
-    !!state.selectedItems ||
+    state.selectedItems?.length ||
     !!startContent ||
     !!endContent ||
     !!originalProps.isMultiline;
