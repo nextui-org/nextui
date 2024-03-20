@@ -2,4 +2,4 @@
 "@nextui-org/select": patch
 ---
 
-Fixed isFilled logic for state.selectedItems in select
+Fixed isFilled & hasValue logic for state.selectedItems in select
