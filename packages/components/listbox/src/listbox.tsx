@@ -45,7 +45,14 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
         };
 
         if (item.type === "section") {
-          return <ListboxSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
+          return (
+            <ListboxSection
+              key={item.key}
+              {...itemProps}
+              itemClasses={itemClasses}
+              shouldHighlightOnFocus={shouldHighlightOnFocus}
+            />
+          );
         }
         let listboxItem = (
           <ListboxItem
