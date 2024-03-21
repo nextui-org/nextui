@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.0.11
+
+### Patch Changes
+
+- [#1936](https://github.com/nextui-org/nextui/pull/1936) [`a978687b0`](https://github.com/nextui-org/nextui/commit/a978687b0736d1e15943ef46628fc4fa0723ddc7) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1935 size prop added to the omitted HTMLNextUIProps
+
 ## 2.0.10
 
 ### Patch Changes

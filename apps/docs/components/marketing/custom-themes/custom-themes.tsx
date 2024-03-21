@@ -14,7 +14,6 @@ import {PaletteIcon, MagicIcon, GamingConsoleIcon, StarIcon} from "@/components/
 import {NextUILogo, CodeWindow} from "@/components";
 import landingContent from "@/content/landing";
 import {useIsMobile} from "@/hooks/use-media-query";
-import {trackEvent} from "@/utils/va";
 
 const themesTabs = (isMobile: boolean) => [
   {
@@ -88,12 +87,6 @@ const CustomThemesExample = ({
 
   const onSelectionChange = (value: React.Key) => {
     onChangeTheme(value as Theme);
-
-    trackEvent("CustomThemes - Selection", {
-      action: "change_theme",
-      category: "landing-page",
-      data: value,
-    });
   };
 
   return (

@@ -123,6 +123,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const isClearable =
     originalProps.disableClearable !== undefined
       ? !originalProps.disableClearable
+      : originalProps.isReadOnly
+      ? false
       : originalProps.isClearable;
 
   const {
@@ -154,13 +156,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     classNames,
     onOpenChange,
     onClose,
+    isReadOnly = false,
     ...otherProps
   } = props;
 
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
 
-  const state = useComboBoxState({
+  let state = useComboBoxState({
     ...originalProps,
     children,
     menuTrigger,
@@ -174,6 +177,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }
     },
   });
+
+  state = {
+    ...state,
+    ...(isReadOnly && {
+      disabledKeys: new Set([...state.collection.getKeys()].map((k) => k)),
+    }),
+  };
 
   // Setup refs and get props for child elements.
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -356,9 +366,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   const getInputProps = () =>
     ({
-      ...slotsProps.inputProps,
       ...otherProps,
       ...inputProps,
+      ...slotsProps.inputProps,
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 

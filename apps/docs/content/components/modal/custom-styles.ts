@@ -10,7 +10,7 @@ export default function App() {
         backdrop="opaque" 
         isOpen={isOpen} 
         onOpenChange={onOpenChange}
-        radius="2xl"
+        radius="lg"
         classNames={{
           body: "py-6",
           backdrop: "bg-[#292f46]/50 backdrop-opacity-40",

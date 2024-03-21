@@ -1,5 +1,15 @@
 # @nextui-org/tabs
 
+## 2.0.26
+
+### Patch Changes
+
+- [#1948](https://github.com/nextui-org/nextui/pull/1948) [`aab1dbf77`](https://github.com/nextui-org/nextui/commit/aab1dbf77cee29375bf958e44bdf1d6da037cf1f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1938 selectedKey duplicated declaration
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.0.15
+  - @nextui-org/framer-transitions@2.0.15
+
 ## 2.0.25
 
 ### Patch Changes
@@ -177,7 +187,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

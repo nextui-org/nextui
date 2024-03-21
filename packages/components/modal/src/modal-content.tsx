@@ -7,7 +7,7 @@ import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {RemoveScroll} from "react-remove-scroll";
-import {motion} from "framer-motion";
+import {domAnimation, LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
@@ -78,13 +78,15 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     }
 
     return (
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="exit"
-        variants={TRANSITION_VARIANTS.fade}
-        {...(getBackdropProps() as HTMLMotionProps<"div">)}
-      />
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.fade}
+          {...(getBackdropProps() as HTMLMotionProps<"div">)}
+        />
+      </LazyMotion>
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
@@ -95,16 +97,18 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
         {disableAnimation ? (
           <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
         ) : (
-          <motion.div
-            animate="enter"
-            className={slots.wrapper({class: classNames?.wrapper})}
-            exit="exit"
-            initial="exit"
-            variants={scaleInOut}
-            {...motionProps}
-          >
-            {content}
-          </motion.div>
+          <LazyMotion features={domAnimation}>
+            <m.div
+              animate="enter"
+              className={slots.wrapper({class: classNames?.wrapper})}
+              exit="exit"
+              initial="exit"
+              variants={scaleInOut}
+              {...motionProps}
+            >
+              {content}
+            </m.div>
+          </LazyMotion>
         )}
       </RemoveScroll>
     </div>

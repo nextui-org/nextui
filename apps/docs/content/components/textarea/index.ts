@@ -7,6 +7,7 @@ import variants from "./variants";
 import errorMessage from "./error-message";
 import description from "./description";
 import controlled from "./controlled";
+import disableAutosize from "./disable-autosize";
 
 export const textareaContent = {
   usage,
@@ -18,4 +19,5 @@ export const textareaContent = {
   errorMessage,
   description,
   controlled,
+  disableAutosize,
 };

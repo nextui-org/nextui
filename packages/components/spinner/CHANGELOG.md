@@ -1,5 +1,21 @@
 # @nextui-org/spinner
 
+## 2.0.25
+
+### Patch Changes
+
+- [#2325](https://github.com/nextui-org/nextui/pull/2325) [`0b5cde7bc`](https://github.com/nextui-org/nextui/commit/0b5cde7bc4fc71231eb117f44052db2efdbdc595) Thanks [@ali-idrizi](https://github.com/ali-idrizi)! - allow styling Spinner's label by passing classNames to the slot
+
+- Updated dependencies []:
+  - @nextui-org/system-rsc@2.0.11
+
+## 2.0.24
+
+### Patch Changes
+
+- Updated dependencies [[`a978687b0`](https://github.com/nextui-org/nextui/commit/a978687b0736d1e15943ef46628fc4fa0723ddc7)]:
+  - @nextui-org/system-rsc@2.0.11
+
 ## 2.0.23
 
 ### Patch Changes

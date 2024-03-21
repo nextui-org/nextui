@@ -1,5 +1,21 @@
 # @nextui-org/button
 
+## 2.0.27
+
+### Patch Changes
+
+- Updated dependencies [[`0b5cde7bc`](https://github.com/nextui-org/nextui/commit/0b5cde7bc4fc71231eb117f44052db2efdbdc595)]:
+  - @nextui-org/spinner@2.0.25
+  - @nextui-org/ripple@2.0.24
+
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/ripple@2.0.24
+  - @nextui-org/spinner@2.0.24
+
 ## 2.0.25
 
 ### Patch Changes
@@ -186,7 +202,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

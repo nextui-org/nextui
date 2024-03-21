@@ -1,5 +1,12 @@
 # @nextui-org/framer-transitions
 
+## 2.0.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/system@2.0.15
+
 ## 2.0.14
 
 ### Patch Changes
@@ -75,7 +82,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

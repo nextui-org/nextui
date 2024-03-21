@@ -114,8 +114,8 @@ const avatar = tv({
     isInGroup: {
       true: {
         base: [
-          "-ms-2 data-[hover=true]:-translate-x-3 transition-transform",
-          "data-[focus-visible=true]:-translate-x-3",
+          "-ms-2 data-[hover=true]:-translate-x-3 rtl:data-[hover=true]:translate-x-3 transition-transform",
+          "data-[focus-visible=true]:-translate-x-3 rtl:data-[focus-visible=true]:translate-x-3",
         ],
       },
     },

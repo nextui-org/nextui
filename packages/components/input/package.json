@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/input",
-  "version": "2.1.16",
+  "version": "2.1.17",
   "description": "The input component is designed for capturing user input within a text field.",
   "keywords": [
     "input"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",

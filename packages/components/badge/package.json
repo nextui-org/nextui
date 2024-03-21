@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/badge",
-  "version": "2.0.23",
+  "version": "2.0.24",
   "description": "Badges are used as a small numerical value or status descriptor for UI elements.",
   "keywords": [
     "badge"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",

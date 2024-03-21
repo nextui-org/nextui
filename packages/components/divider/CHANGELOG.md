@@ -1,5 +1,12 @@
 # @nextui-org/divider
 
+## 2.0.25
+
+### Patch Changes
+
+- Updated dependencies [[`a978687b0`](https://github.com/nextui-org/nextui/commit/a978687b0736d1e15943ef46628fc4fa0723ddc7)]:
+  - @nextui-org/system-rsc@2.0.11
+
 ## 2.0.24
 
 ### Patch Changes
@@ -157,7 +164,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

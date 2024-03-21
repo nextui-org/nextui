@@ -9,7 +9,6 @@ import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 import WindowResizer, {WindowResizerProps} from "./window-resizer";
 
 import {GradientBoxProps} from "@/components/gradient-box";
-import {trackEvent} from "@/utils/va";
 
 const DynamicReactLiveDemo = dynamic(
   () => import("./react-live-demo").then((m) => m.ReactLiveDemo),
@@ -180,14 +179,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
             panel: "pt-0",
           }}
           variant="underlined"
-          onSelectionChange={(tabKey) => {
-            trackEvent("CodeDemo - Selection", {
-              name: tabKey as string,
-              action: "tabChange",
-              category: "docs",
-              data: tabKey ?? "",
-            });
-          }}
         >
           <Tab key="preview" title="Preview">
             {previewContent}

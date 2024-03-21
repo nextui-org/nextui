@@ -1,5 +1,14 @@
 # @nextui-org/navbar
 
+## 2.0.27
+
+### Patch Changes
+
+- [#1946](https://github.com/nextui-org/nextui/pull/1946) [`36775dcee`](https://github.com/nextui-org/nextui/commit/36775dceee18e4b69684bab4cbdd122a6034c91f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1941 style prop added to the base navbar element.
+
+- Updated dependencies []:
+  - @nextui-org/framer-transitions@2.0.15
+
 ## 2.0.26
 
 ### Patch Changes
@@ -171,7 +180,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

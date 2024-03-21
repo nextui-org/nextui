@@ -4,7 +4,6 @@ import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-ren
 import {debounce} from "lodash";
 
 import defaultTheme from "@/libs/prism-theme";
-import {trackEvent} from "@/utils/va";
 
 interface CodeblockProps {
   language: Language;
@@ -112,12 +111,6 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
           return;
 
         lastSelectionText.current = selectionText;
-
-        trackEvent("Codeblock - Selection", {
-          action: "selectText",
-          category: "docs",
-          data: selectionText,
-        });
       };
 
       const debouncedHandleSelectionChange = debounce(handleSelectionChange, 1000);

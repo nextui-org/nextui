@@ -21,7 +21,7 @@ export default {
     offset: {
       control: {type: "number"},
     },
-    visible: {
+    visibility: {
       control: {type: "select"},
       options: ["auto", "top", "bottom", "both", "left", "right"],
     },

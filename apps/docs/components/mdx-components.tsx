@@ -149,7 +149,6 @@ const Code = ({
         trackEvent("MDXComponents - Copy", {
           category: "docs",
           action: "copyCode",
-          data: codeString,
         });
       }}
     >

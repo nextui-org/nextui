@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/pagination",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "description": "The Pagination component allows you to display active page and navigate between multiple pages.",
   "keywords": [
     "pagination"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",

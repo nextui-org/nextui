@@ -1,7 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
-import {AnimatePresence, motion, useWillChange} from "framer-motion";
+import {AnimatePresence, LazyMotion, domAnimation, m, useWillChange} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
@@ -53,31 +53,35 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
     }
 
     return keepContentMounted ? (
-      <motion.section
-        key="accordion-content"
-        animate={isOpen ? "enter" : "exit"}
-        exit="exit"
-        initial="exit"
-        style={{overflowY: "hidden", willChange}}
-        variants={TRANSITION_VARIANTS.collapse}
-        {...motionProps}
-      >
-        <div {...getContentProps()}>{children}</div>
-      </motion.section>
+      <LazyMotion features={domAnimation}>
+        <m.section
+          key="accordion-content"
+          animate={isOpen ? "enter" : "exit"}
+          exit="exit"
+          initial="exit"
+          style={{overflowY: "hidden", willChange}}
+          variants={TRANSITION_VARIANTS.collapse}
+          {...motionProps}
+        >
+          <div {...getContentProps()}>{children}</div>
+        </m.section>
+      </LazyMotion>
     ) : (
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.section
-            key="accordion-content"
-            animate="enter"
-            exit="exit"
-            initial="exit"
-            style={{overflowY: "hidden", willChange}}
-            variants={TRANSITION_VARIANTS.collapse}
-            {...motionProps}
-          >
-            <div {...getContentProps()}>{children}</div>
-          </motion.section>
+          <LazyMotion features={domAnimation}>
+            <m.section
+              key="accordion-content"
+              animate="enter"
+              exit="exit"
+              initial="exit"
+              style={{overflowY: "hidden", willChange}}
+              variants={TRANSITION_VARIANTS.collapse}
+              {...motionProps}
+            >
+              <div {...getContentProps()}>{children}</div>
+            </m.section>
+          </LazyMotion>
         )}
       </AnimatePresence>
     );
