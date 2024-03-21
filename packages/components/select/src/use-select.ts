@@ -266,11 +266,11 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const isFilled =
     state.isOpen ||
     hasPlaceholder ||
-    !!state.selectedItems ||
+    !!state.selectedItems?.length ||
     !!startContent ||
     !!endContent ||
     !!originalProps.isMultiline;
-  const hasValue = !!state.selectedItems;
+  const hasValue = !!state.selectedItems?.length;
   const hasLabel = !!label;
 
   const baseStyles = clsx(classNames?.base, className);
