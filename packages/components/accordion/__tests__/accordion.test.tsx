@@ -68,6 +68,25 @@ describe("Accordion", () => {
     expect(wrapper.getAllByRole("button")[0]).toBeDisabled();
   });
 
+  it("should hide the accordion item when the hidden prop is set", () => {
+    const wrapper = render(
+      <Accordion>
+        <AccordionItem key="1" title="Accordion Item 1">
+          Accordion Item 1 description
+        </AccordionItem>
+        <AccordionItem key="2" hidden title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
+        <AccordionItem key="3" title="Accordion Item 3">
+          Accordion Item 3 description
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    expect(wrapper.getAllByRole("button")).toHaveLength(2);
+    expect(wrapper.getAllByRole("separator")).toHaveLength(1);
+  });
+
   it("should expand the accordion item when clicked", async () => {
     const wrapper = render(
       <Accordion disableAnimation>

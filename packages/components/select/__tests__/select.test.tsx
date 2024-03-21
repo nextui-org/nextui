@@ -3,6 +3,7 @@ import {act, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
 
 type Item = {
   label: string;
@@ -275,5 +276,89 @@ describe("Select", () => {
 
     expect(wrapper.getByText("next Penguin")).toBeInTheDocument();
     expect(wrapper.queryByText("Select an favorite animal")).toBe(null);
+  });
+
+  it("should close dropdown when clicking outside select", async () => {
+    const wrapper = render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="close-when-clicking-outside-test"
+        label="Favorite Animal"
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("close-when-clicking-outside-test");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // click outside the select component
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the select is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should close dropdown when clicking outside select with modal open", async () => {
+    const wrapper = render(
+      <Modal isOpen>
+        <ModalContent>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalBody>
+            <Select
+              aria-label="Favorite Animal"
+              data-testid="close-when-clicking-outside-test"
+              label="Favorite Animal"
+            >
+              <SelectItem key="penguin" value="penguin">
+                Penguin
+              </SelectItem>
+              <SelectItem key="zebra" value="zebra">
+                Zebra
+              </SelectItem>
+              <SelectItem key="shark" value="shark">
+                Shark
+              </SelectItem>
+            </Select>
+          </ModalBody>
+          <ModalFooter>Modal footer</ModalFooter>
+        </ModalContent>
+      </Modal>,
+    );
+
+    const select = wrapper.getByTestId("close-when-clicking-outside-test");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // click outside the select component
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the select is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
   });
 });
