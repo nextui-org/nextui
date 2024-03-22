@@ -44,6 +44,7 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "lodash.debounce": "^4.0.8",
     "@internationalized/date": "^3.5.2",
@@ -58,6 +59,7 @@
     "@react-types/calendar": "3.4.1",
     "@react-aria/interactions": "^3.19.1",
     "@react-types/shared": "3.21.0",
+    "scroll-into-view-if-needed": "3.0.10",
     "@types/lodash.debounce": "^4.0.7"
   },
   "devDependencies": {

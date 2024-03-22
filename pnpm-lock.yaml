@@ -984,6 +984,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-aria-button':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-button
       '@react-aria/calendar':
         specifier: 3.5.1
         version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
@@ -1023,6 +1026,9 @@ importers:
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
+      scroll-into-view-if-needed:
+        specifier: 3.0.10
+        version: 3.0.10
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*

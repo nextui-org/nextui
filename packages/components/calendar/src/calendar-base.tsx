@@ -119,6 +119,7 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
         currentMonth={currentMonth.month}
         direction={direction}
         disableAnimation={disableAnimation}
+        isPickerVisible={isPickerVisible}
         startDate={d}
         state={state}
         weekdayStyle={weekdayStyle}
@@ -134,6 +135,7 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
             currentMonth={currentMonth}
             date={d}
             disableAnimation={disableAnimation}
+            isPickerVisible={isPickerVisible}
             slots={slots}
             state={state}
           />

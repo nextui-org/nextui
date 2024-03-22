@@ -224,6 +224,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   const getPrevButtonProps = (props = {}) => {
     return {
       "data-slot": "prev-button",
+      tabIndex: isHeaderExpanded ? -1 : 0,
       className: slots.prevButton({class: classNames?.prevButton}),
       ...mergeProps(commonButtonProps, prevButtonProps, prevButtonPropsProp, props),
     } as ButtonProps;
@@ -232,6 +233,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   const getNextButtonProps = (props = {}) => {
     return {
       "data-slot": "next-button",
+      tabIndex: isHeaderExpanded ? -1 : 0,
       className: slots.nextButton({class: classNames?.nextButton}),
       ...mergeProps(commonButtonProps, nextButtonProps, nextButtonPropsProp, props),
     } as ButtonProps;

@@ -13,13 +13,14 @@ import {dataAttr} from "@nextui-org/shared-utils";
 
 export interface CalendarCellProps extends HTMLNextUIProps<"td">, AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
+  isPickerVisible?: boolean;
   slots?: CalendarReturnType;
   classNames?: SlotsToClasses<CalendarSlots>;
   currentMonth: CalendarDate;
 }
 
 export function CalendarCell(originalProps: CalendarCellProps) {
-  const {state, slots, currentMonth, classNames, ...props} = originalProps;
+  const {state, slots, isPickerVisible, currentMonth, classNames, ...props} = originalProps;
 
   const ref = useRef<HTMLButtonElement>(null);
 
@@ -35,7 +36,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
   } = useCalendarCell(
     {
       ...props,
-      isDisabled: !isSameMonth(props.date, currentMonth),
+      isDisabled: !isSameMonth(props.date, currentMonth) || isPickerVisible,
     },
     state,
     ref,
@@ -60,6 +61,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
     (isLastSelectedBeforeDisabled ||
       dayOfWeek === 6 ||
       props.date.day === currentMonth.calendar.getDaysInMonth(currentMonth));
+
   const {focusProps, isFocusVisible} = useFocusRing();
   const {hoverProps, isHovered} = useHover({
     isDisabled: isDisabled || isUnavailable || state.isReadOnly,
@@ -69,7 +71,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
     <td className={slots?.cell({class: classNames?.cell})} data-slot="cell" {...cellProps}>
       <button
         {...mergeProps(buttonProps, hoverProps, focusProps)}
-        ref={ref}
+        // ref={ref}
         className={slots?.cellButton({class: classNames?.cellButton})}
         data-disabled={dataAttr(isDisabled && !isInvalid)}
         data-focus-visible={dataAttr(isFocused && isFocusVisible)}
@@ -80,11 +82,13 @@ export function CalendarCell(originalProps: CalendarCellProps) {
         data-range-end={dataAttr(isRangeEnd)}
         data-range-selection={dataAttr(isSelected && "highlightedRange" in state)}
         data-range-start={dataAttr(isRangeStart)}
+        data-readonly={dataAttr(state.isReadOnly)}
         data-selected={dataAttr(isSelected)}
         data-selection-end={dataAttr(isSelectionEnd)}
         data-selection-start={dataAttr(isSelectionStart)}
         data-today={dataAttr(isToday(props.date, state.timeZone))}
         data-unavailable={dataAttr(isUnavailable)}
+        tabIndex={isDisabled ? -1 : 0}
       >
         <span>
           <span>{formattedDate}</span>

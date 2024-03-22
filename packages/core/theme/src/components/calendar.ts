@@ -35,6 +35,7 @@ const calendar = tv({
       "subpixel-antialiased overflow-hidden tap-highlight-transparent",
       "data-[disabled=true]:text-default-300",
       "data-[disabled=true]:cursor-default",
+      "data-[readonly=true]:cursor-default",
       "data-[disabled=true]:transition-none",
       "data-[unavailable=true]:text-default-300",
       "data-[unavailable=true]:cursor-default",
@@ -47,8 +48,11 @@ const calendar = tv({
     pickerYearList: "items-center",
     pickerHighlight:
       "h-8 bg-default-200 absolute w-[calc(100%_-_16px)] rounded-medium z-0 top-1/2 -translate-y-1/2 pointer-events-none",
-    pickerItem:
-      "flex text-foreground items-center h-8 leading-[32px] min-h-[32px] snap-center text-large z-20",
+    pickerItem: [
+      "w-full flex text-foreground items-center h-8 leading-[32px] min-h-[32px] snap-center text-large z-20",
+      "data-[pressed=true]:opacity-50",
+      ...dataFocusVisibleClasses,
+    ],
     helperWrapper: "px-4 pb-2 max-w-[270px] flex justify-start flex-wrap items-center",
     errorMessage: "text-small text-danger break-words max-w-full",
   },
@@ -144,7 +148,7 @@ const calendar = tv({
       true: {
         headerWrapper: ["[&_.chevron-icon]:rotate-180", "after:h-full", "after:z-0"],
         pickerWrapper: "opacity-100 pointer-events-auto z-10",
-        gridWrapper: "h-[var(--picker-height)]",
+        gridWrapper: "h-[var(--picker-height)] overflow-y-hidden",
         grid: "opacity-0 pointer-events-none",
         nextButton: "opacity-0 pointer-events-none",
         prevButton: "opacity-0 pointer-events-none",
@@ -171,17 +175,18 @@ const calendar = tv({
       false: {
         headerWrapper: ["[&_.chevron-icon]:transition-transform", "after:transition-height"],
         grid: "transition-opacity",
-        pickerWrapper: "transition-opacity !duration-300",
         cellButton: [
           "data-[pressed=true]:scale-95",
           "origin-center transition-[transform,background-color,color] !duration-200",
         ],
+        pickerWrapper: "transition-opacity !duration-300",
+        pickerItem: "transition-opacity",
       },
     },
   },
   defaultVariants: {
     color: "primary",
-    showShadow: true,
+    showShadow: false,
     showMonthAndYearPickers: false,
     disableAnimation: false,
   },

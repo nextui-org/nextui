@@ -8,6 +8,8 @@ import {HTMLNextUIProps} from "@nextui-org/system";
 import {useLocale} from "@react-aria/i18n";
 import {useCalendarGrid} from "@react-aria/calendar";
 import {m} from "framer-motion";
+import {dataAttr} from "@nextui-org/shared-utils";
+import {useEffect, useState} from "react";
 
 import {CalendarCell} from "./calendar-cell";
 import {slideVariants} from "./calendar-transitions";
@@ -17,6 +19,7 @@ export interface CalendarMonthProps extends HTMLNextUIProps<"table">, CalendarPr
   startDate: CalendarDate;
   currentMonth: number;
   direction: number;
+  isPickerVisible?: boolean;
   disableAnimation?: boolean;
   weekdayStyle?: AriaCalendarGridProps["weekdayStyle"];
   slots?: CalendarReturnType;
@@ -25,18 +28,33 @@ export interface CalendarMonthProps extends HTMLNextUIProps<"table">, CalendarPr
 
 export function CalendarMonth(props: CalendarMonthProps) {
   const {
-    state,
     startDate,
     slots,
+    state: stateProp,
     direction,
     currentMonth,
     weekdayStyle,
+    isPickerVisible,
     disableAnimation,
     classNames,
   } = props;
 
   const {locale} = useLocale();
   const weeksInMonth = getWeeksInMonth(startDate, locale);
+
+  const [state, setState] = useState<CalendarState | RangeCalendarState>(() => stateProp);
+
+  /**
+   * This avoid focusing the date cell when navigating through the picker'
+   * months/years with the keyboard.
+   */
+  useEffect(() => {
+    if (isPickerVisible) {
+      return;
+    }
+
+    setState(stateProp);
+  }, [stateProp, isPickerVisible]);
 
   const {gridProps, headerProps, weekDays} = useCalendarGrid(
     {
@@ -62,6 +80,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
               classNames={classNames}
               currentMonth={startDate}
               date={date}
+              isPickerVisible={isPickerVisible}
               slots={slots}
               state={state}
             />
@@ -73,7 +92,13 @@ export function CalendarMonth(props: CalendarMonthProps) {
   ));
 
   return (
-    <table {...gridProps} className={slots?.grid({class: classNames?.grid})} data-slot="grid">
+    <table
+      {...gridProps}
+      aria-hidden={dataAttr(isPickerVisible)}
+      className={slots?.grid({class: classNames?.grid})}
+      data-slot="grid"
+      tabIndex={-1}
+    >
       <thead
         {...headerProps}
         className={slots?.gridHeader({class: classNames?.gridHeader})}
@@ -99,6 +124,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
           key={currentMonth}
           className={slots?.gridBody({class: classNames?.gridBody})}
           data-slot="grid-body"
+          tabIndex={isPickerVisible ? -1 : 0}
         >
           {bodyContent}
         </tbody>
