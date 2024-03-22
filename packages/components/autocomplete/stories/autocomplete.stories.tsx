@@ -71,6 +71,13 @@ export default {
   ],
 } as Meta<typeof Autocomplete>;
 
+type SWCharacter = {
+  name: string;
+  height: string;
+  mass: string;
+  birth_year: string;
+};
+
 const defaultProps = {
   ...input.defaultVariants,
   ...autocomplete.defaultVariants,
@@ -236,13 +243,6 @@ const LabelPlacementTemplate = ({color, variant, ...args}: AutocompleteProps) =>
 );
 
 const AsyncFilteringTemplate = ({color, variant, ...args}: AutocompleteProps<SWCharacter>) => {
-  type SWCharacter = {
-    name: string;
-    height: string;
-    mass: string;
-    birth_year: string;
-  };
-
   let list = useAsyncList<SWCharacter>({
     async load({signal, filterText}) {
       let res = await fetch(`https://swapi.py4e.com/api/people/?search=${filterText}`, {signal});
