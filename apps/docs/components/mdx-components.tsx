@@ -11,7 +11,7 @@ import {CarbonAd} from "@/components/ads/carbon-ad";
 import * as DocsComponents from "@/components/docs/components";
 import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
-import {VirtualAnchor, virtualAnchorEncode} from "@/components";
+import {VirtualAnchor, virtualAnchorEncode} from "@/components/virtual-anchor";
 import {trackEvent} from "@/utils/va";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
