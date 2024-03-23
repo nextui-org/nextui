@@ -52,10 +52,15 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     timeZone: state.timeZone,
   });
 
+  const yearDateFormatter = useDateFormatter({
+    year: "numeric",
+    timeZone: state.timeZone,
+  });
+
   // Used for the year/month pickers
   const years = getYearRange(state.minValue, state.maxValue)?.map((y) => ({
     value: y.year,
-    label: y.year.toString(),
+    label: yearDateFormatter.format(y.toDate(state.timeZone)),
   }));
 
   const months = getMonthsInYear(date).map((m) => ({
