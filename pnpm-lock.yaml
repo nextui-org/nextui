@@ -58,8 +58,8 @@ importers:
         specifier: ^3.4.4
         version: 3.5.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.19.0
-        version: 3.21.0(react@18.2.0)
+        specifier: ^3.22.0
+        version: 3.22.1(react@18.2.0)
       '@storybook/react':
         specifier: ^7.4.6
         version: 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
@@ -521,8 +521,8 @@ importers:
         specifier: ^13.4.12
         version: 13.5.6
       '@react-types/shared':
-        specifier: ^3.19.0
-        version: 3.21.0(react@18.2.0)
+        specifier: ^3.22.0
+        version: 3.22.1(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.10(tailwindcss@3.3.5)
@@ -10383,14 +10383,6 @@ packages:
       '@react-types/shared': 3.22.1(react@18.2.0)
       react: 18.2.0
     dev: false
-
-  /@react-types/shared@3.21.0(react@18.2.0):
-    resolution: {integrity: sha512-wJA2cUF8dP4LkuNUt9Vh2kkfiQb2NLnV2pPXxVnKJZ7d4x2/7VPccN+LYPnH8m0X3+rt50cxWuPKQmjxSsCFOg==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      react: 18.2.0
-    dev: true
 
   /@react-types/shared@3.22.1(react@18.2.0):
     resolution: {integrity: sha512-PCpa+Vo6BKnRMuOEzy5zAZ3/H5tnQg1e80khMhK2xys0j6ZqzkgQC+fHMNZ7VDFNLqqNMj/o0eVeSBDh2POjkw==}
