@@ -45,6 +45,7 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-pagination": "workspace:*",
     "@react-aria/focus": "^3.15.0",
+    "@react-aria/i18n": "^3.10.2",
     "@react-aria/interactions": "^3.20.0",
     "@react-aria/utils": "^3.22.0",
     "scroll-into-view-if-needed": "3.0.10"

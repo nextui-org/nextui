@@ -113,9 +113,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [onValueChange],
   );
 
-  const [inputValue, setInputValue] = useControlledState<string | undefined>(
+  const [inputValue, setInputValue] = useControlledState<string>(
     props.value,
-    props.defaultValue,
+    props.defaultValue ?? "",
     handleValueChange,
   );
 
