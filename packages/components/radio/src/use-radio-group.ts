@@ -102,7 +102,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       isInvalid,
       orientation,
       onChange: onValueChange,
-      validationBehavior: "native",
+      validationBehavior: props.validationBehavior ?? "native",
     };
   }, [
     otherProps,
