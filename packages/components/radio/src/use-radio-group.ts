@@ -102,6 +102,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       isInvalid,
       orientation,
       onChange: onValueChange,
+      validationBehavior: "native",
     };
   }, [
     otherProps,
@@ -122,6 +123,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     radioGroupProps: groupProps,
     errorMessageProps,
     descriptionProps,
+    isInvalid: ariaIsInvalid,
+    validationErrors,
+    validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
 
   const context: ContextType = useMemo(
@@ -204,18 +208,28 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     [slots, classNames?.errorMessage, errorMessageProps],
   );
 
+  const displayValidation = {
+    isInvalid: ariaIsInvalid,
+    validationErrors,
+    validationDetails,
+  };
+
   return {
     Component,
     children,
     label,
     context,
-    errorMessage,
     description,
     getGroupProps,
     getLabelProps,
     getWrapperProps,
     getDescriptionProps,
     getErrorMessageProps,
+    isInvalid: ariaIsInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage(displayValidation)
+        : errorMessage || displayValidation.validationErrors.join(" "),
   };
 }
 
