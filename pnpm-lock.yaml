@@ -372,6 +372,9 @@ importers:
       '@vercel/analytics':
         specifier: ^1.1.1
         version: 1.1.1
+      '@nextui-org/motion-blur-loader':
+        specifier: workspace:*
+        version: link:../../packages/components/motion-blur-loader
       canvas-confetti:
         specifier: ^1.9.0
         version: 1.9.0
@@ -2589,6 +2592,31 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  packages/components/motion-blur-loader:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/system-rsc':
+        specifier: workspace:*
+        version: link:../../core/system-rsc
+    devDependencies:
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+
   packages/core/react:
     dependencies:
       '@nextui-org/accordion':
@@ -2711,6 +2739,9 @@ importers:
       '@react-aria/visually-hidden':
         specifier: ^3.8.6
         version: 3.8.6(react@18.2.0)
+      '@nextui-org/motion-blur-loader':
+        specifier: workspace:*
+        version: link:../../components/motion-blur-loader
       framer-motion:
         specifier: '>=4.0.0'
         version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
