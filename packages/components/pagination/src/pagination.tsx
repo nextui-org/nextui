@@ -66,7 +66,13 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
         }
 
         const itemChildren: Record<PaginationItemType, React.ReactNode> = {
-          [PaginationItemType.PREV]: <ChevronIcon />,
+          [PaginationItemType.PREV]: (
+            <ChevronIcon
+              className={slots.chevronPrev({
+                class: classNames?.chevronPrev,
+              })}
+            />
+          ),
           [PaginationItemType.NEXT]: (
             <ChevronIcon
               className={slots.chevronNext({
@@ -123,7 +129,11 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             value={value}
             onPress={onPrevious}
           >
-            <ChevronIcon />
+            <ChevronIcon
+              className={slots.chevronPrev({
+                class: classNames?.chevronPrev,
+              })}
+            />
           </PaginationItem>
         );
       }
