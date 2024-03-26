@@ -578,7 +578,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     endContent,
     description,
     selectorIcon,
-    errorMessage,
+    errorMessage: typeof errorMessage === "function" ? null : errorMessage,
     hasHelper,
     labelPlacement,
     hasPlaceholder,

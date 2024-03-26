@@ -19,6 +19,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     isOutsideLeft,
     shouldLabelBeOutside,
     errorMessage,
+    isInvalid,
     getBaseProps,
     getLabelProps,
     getInputProps,
@@ -41,19 +42,13 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     return endContent;
   }, [isClearable, getClearButtonProps]);
 
-  const errorMessageContent = useMemo(() => {
-    if (typeof errorMessage === "string") {
-      return errorMessage;
-    }
-  }, [errorMessage]);
-
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;
 
     return (
       <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
-          <div {...getErrorMessageProps()}>{errorMessageContent}</div>
+        {isInvalid && errorMessage ? (
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
         ) : null}

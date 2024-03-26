@@ -146,7 +146,7 @@ describe("Radio", () => {
 
   it('should work correctly with "isRequired" prop', () => {
     const {getByRole, getAllByRole} = render(
-      <RadioGroup isRequired label="Options">
+      <RadioGroup isRequired label="Options" validationBehavior="native">
         <Radio value="1">Option 1</Radio>
         <Radio value="2">Option 2</Radio>
       </RadioGroup>,

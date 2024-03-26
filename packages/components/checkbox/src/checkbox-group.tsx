@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {useMemo} from "react";
 
 import {CheckboxGroupProvider} from "./checkbox-group-context";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
@@ -12,6 +11,7 @@ const CheckboxGroup = forwardRef<"div", CheckboxGroupProps>((props, ref) => {
     context,
     label,
     description,
+    isInvalid,
     errorMessage,
     getGroupProps,
     getLabelProps,
@@ -20,20 +20,14 @@ const CheckboxGroup = forwardRef<"div", CheckboxGroupProps>((props, ref) => {
     getErrorMessageProps,
   } = useCheckboxGroup({...props, ref});
 
-  const errorMessageContent = useMemo(() => {
-    if (typeof errorMessage === "string") {
-      return errorMessage;
-    }
-  }, [errorMessage]);
-
   return (
     <div {...getGroupProps()}>
       {label && <span {...getLabelProps()}>{label}</span>}
       <div {...getWrapperProps()}>
         <CheckboxGroupProvider value={context}>{children}</CheckboxGroupProvider>
       </div>
-      {errorMessage ? (
-        <div {...getErrorMessageProps()}>{errorMessageContent}</div>
+      {isInvalid && errorMessage ? (
+        <div {...getErrorMessageProps()}>{errorMessage}</div>
       ) : description ? (
         <div {...getDescriptionProps()}>{description}</div>
       ) : null}

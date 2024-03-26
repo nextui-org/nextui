@@ -78,6 +78,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       hasHelper,
       shouldLabelBeOutside,
       shouldLabelBeInside,
+      isInvalid,
       errorMessage,
       getBaseProps,
       getLabelProps,
@@ -135,12 +136,6 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       return <div {...getInnerWrapperProps()}>{content}</div>;
     }, [startContent, inputProps, endContent, getInnerWrapperProps]);
 
-    const errorMessageContent = useMemo(() => {
-      if (typeof errorMessage === "string") {
-        return errorMessage;
-      }
-    }, [errorMessage]);
-
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
@@ -150,8 +145,8 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
         </div>
         {hasHelper ? (
           <div {...getHelperWrapperProps()}>
-            {errorMessage ? (
-              <div {...getErrorMessageProps()}>{errorMessageContent}</div>
+            {isInvalid && errorMessage ? (
+              <div {...getErrorMessageProps()}>{errorMessage}</div>
             ) : description ? (
               <div {...getDescriptionProps()}>{description}</div>
             ) : null}
