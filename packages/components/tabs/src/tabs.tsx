@@ -9,7 +9,7 @@ import TabPanel from "./tab-panel";
 interface Props<T> extends UseTabsProps<T> {}
 
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {Component, values, state, getBaseProps, getTabListProps} = useTabs<T>({
+  const {Component, values, state, getBaseProps, getTabListProps, getWrapperProps} = useTabs<T>({
     ...props,
     ref,
   });
@@ -36,17 +36,19 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
 
   return (
     <>
-      <div {...getBaseProps()}>
-        <Component {...getTabListProps()}>
-          {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
-        </Component>
+      <div {...getWrapperProps()}>
+        <div {...getBaseProps()}>
+          <Component {...getTabListProps()}>
+            {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
+          </Component>
+        </div>
+        <TabPanel
+          key={state.selectedItem?.key}
+          classNames={values.classNames}
+          slots={values.slots}
+          state={values.state}
+        />
       </div>
-      <TabPanel
-        key={state.selectedItem?.key}
-        classNames={values.classNames}
-        slots={values.slots}
-        state={values.state}
-      />
     </>
   );
 }

@@ -3,7 +3,7 @@ import {act, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
-import {Tabs, Tab} from "../src";
+import {Tabs, Tab, TabsProps} from "../src";
 
 type Item = {
   id: string;
@@ -28,6 +28,22 @@ let tabs: Item[] = [
     content: "Content 3",
   },
 ];
+
+function getPositionTemplate(position: TabsProps["tabPosition"]) {
+  return (
+    <Tabs aria-label="Tabs static test" data-testid="tabWrapper" tabPosition={position}>
+      <Tab key="item1" title="Item 1">
+        <div>Content 1</div>
+      </Tab>
+      <Tab key="item2" title="Item 2">
+        <div>Content 2</div>
+      </Tab>
+      <Tab key="item3" title="Item 3">
+        <div>Content 3</div>
+      </Tab>
+    </Tabs>
+  );
+}
 
 describe("Tabs", () => {
   it("should render correctly (static)", () => {
@@ -225,5 +241,71 @@ describe("Tabs", () => {
     });
 
     expect(tab2).toHaveAttribute("aria-selected", "false");
+  });
+
+  it("should change the position of the tabs", () => {
+    const wrapper = render(getPositionTemplate("top"));
+
+    const tabWrapper = wrapper.getByTestId("tabWrapper").parentNode;
+
+    expect(tabWrapper).toHaveAttribute("data-position", "top");
+    expect(tabWrapper).toHaveAttribute("data-orientation", "horizontal");
+
+    // Test bottom position
+    wrapper.rerender(getPositionTemplate("bottom"));
+
+    expect(tabWrapper).toHaveAttribute("data-position", "bottom");
+    expect(tabWrapper).toHaveAttribute("data-orientation", "horizontal");
+
+    // Test start position
+    wrapper.rerender(getPositionTemplate("start"));
+
+    expect(tabWrapper).toHaveAttribute("data-position", "start");
+    expect(tabWrapper).toHaveAttribute("data-orientation", "vertical");
+
+    // Test end position
+    wrapper.rerender(getPositionTemplate("end"));
+
+    expect(tabWrapper).toHaveAttribute("data-position", "end");
+    expect(tabWrapper).toHaveAttribute("data-orientation", "vertical");
+  });
+
+  it("should change the orientation of the tabs", () => {
+    const wrapper = render(
+      <Tabs isVertical aria-label="Tabs static test" data-testid="tabWrapper">
+        <Tab key="item1" title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" title="Item 2">
+          <div>Content 2</div>
+        </Tab>
+        <Tab key="item3" title="Item 3">
+          <div>Content 3</div>
+        </Tab>
+      </Tabs>,
+    );
+
+    const tabWrapper = wrapper.getByTestId("tabWrapper").parentNode;
+
+    expect(tabWrapper).toHaveAttribute("data-position", "start");
+    expect(tabWrapper).toHaveAttribute("data-orientation", "vertical");
+
+    // Test horizontal orientation
+    wrapper.rerender(
+      <Tabs aria-label="Tabs static test" data-testid="tabWrapper" isVertical={false}>
+        <Tab key="item1" title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" title="Item 2">
+          <div>Content 2</div>
+        </Tab>
+        <Tab key="item3" title="Item 3">
+          <div>Content 3</div>
+        </Tab>
+      </Tabs>,
+    );
+
+    expect(tabWrapper).toHaveAttribute("data-position", "top");
+    expect(tabWrapper).toHaveAttribute("data-orientation", "horizontal");
   });
 });
