@@ -1,5 +1,21 @@
 # @nextui-org/select
 
+## 2.1.22
+
+### Patch Changes
+
+- [#2556](https://github.com/nextui-org/nextui/pull/2556) [`888d86184`](https://github.com/nextui-org/nextui/commit/888d8618410741c7e00500ee812c6431e5239877) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed isFilled & hasValue logic for state.selectedItems in select
+
+- [#2536](https://github.com/nextui-org/nextui/pull/2536) [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8) Thanks [@wingkwong](https://github.com/wingkwong)! - revise shouldCloseOnInteractOutside for FreeSoloPopover
+
+- Updated dependencies [[`a05aef0ac`](https://github.com/nextui-org/nextui/commit/a05aef0acb5a7b000c8131e8ba4f50f0adec01e5), [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8), [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17), [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae)]:
+  - @nextui-org/popover@2.1.16
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/listbox@2.1.17
+  - @nextui-org/scroll-shadow@2.1.14
+  - @nextui-org/spinner@2.0.26
+
 ## 2.1.21
 
 ### Patch Changes

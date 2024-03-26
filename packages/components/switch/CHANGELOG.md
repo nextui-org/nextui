@@ -1,5 +1,14 @@
 # @nextui-org/switch
 
+## 2.0.26
+
+### Patch Changes
+
+- [#2468](https://github.com/nextui-org/nextui/pull/2468) [`a702bb869`](https://github.com/nextui-org/nextui/commit/a702bb869d08aff6aa649527a8c74e8380ce311e) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the switch component
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.25
 
 ### Patch Changes

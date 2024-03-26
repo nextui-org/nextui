@@ -1,5 +1,12 @@
 # @nextui-org/chip
 
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.25
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @nextui-org/ripple
 
+## 2.0.25
+
+### Patch Changes
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.24
 
 ### Patch Changes

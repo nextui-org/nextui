@@ -1,5 +1,12 @@
 # @nextui-org/pagination
 
+## 2.0.28
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.27
 
 ### Patch Changes

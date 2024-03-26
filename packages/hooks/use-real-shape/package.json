@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-real-shape",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Hook that returns the real dimensions of an element",
   "keywords": [
     "use-real-shape"

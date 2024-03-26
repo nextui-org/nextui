@@ -1,5 +1,22 @@
 # @nextui-org/table
 
+## 2.0.29
+
+### Patch Changes
+
+- [#2509](https://github.com/nextui-org/nextui/pull/2509) [`5ea479f6c`](https://github.com/nextui-org/nextui/commit/5ea479f6c464ab5e9a62a0cb15e034638ea8dfd5) Thanks [@alphaxek](https://github.com/alphaxek)! - Fixed an issue where the `Table` component incorrectly rendered cell contents beneath the stripe when multiple computed values were provided in a `td` (table cell) element.
+
+- [#2472](https://github.com/nextui-org/nextui/pull/2472) [`0443ec1c8`](https://github.com/nextui-org/nextui/commit/0443ec1c878812de465966f2f65e3be56d1be9b5) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the table component.
+
+- [#2502](https://github.com/nextui-org/nextui/pull/2502) [`b0ee8e3fc`](https://github.com/nextui-org/nextui/commit/b0ee8e3fc22634fa8617d1b43f62ec89e87ee137) Thanks [@alphaxek](https://github.com/alphaxek)! - Fixed normal cursor to cursor-not-allowed for disabled rows in Table
+
+- [#2500](https://github.com/nextui-org/nextui/pull/2500) [`ea48ac2d0`](https://github.com/nextui-org/nextui/commit/ea48ac2d08ac641468c4b69e8ecdc0fb16cb5b46) Thanks [@alphaxek](https://github.com/alphaxek)! - fixed `Spinner` loading on top of columns instead of inside `Table` in case of `emptyContent` prop not passed to `Table` body
+
+- Updated dependencies [[`e4b3c7d1a`](https://github.com/nextui-org/nextui/commit/e4b3c7d1a19bc31c1f69c90a5b467bf8310602dc)]:
+  - @nextui-org/checkbox@2.0.26
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/spacer@2.0.25
+
 ## 2.0.28
 
 ### Patch Changes

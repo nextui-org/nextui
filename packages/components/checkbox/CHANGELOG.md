@@ -1,5 +1,14 @@
 # @nextui-org/checkbox
 
+## 2.0.26
+
+### Patch Changes
+
+- [#2466](https://github.com/nextui-org/nextui/pull/2466) [`e4b3c7d1a`](https://github.com/nextui-org/nextui/commit/e4b3c7d1a19bc31c1f69c90a5b467bf8310602dc) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the checkbox component
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.25
 
 ### Patch Changes

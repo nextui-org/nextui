@@ -1,5 +1,12 @@
 # @nextui-org/image
 
+## 2.0.25
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.24
 
 ### Patch Changes

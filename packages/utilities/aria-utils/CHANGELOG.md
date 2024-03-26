@@ -1,5 +1,12 @@
 # @nextui-org/aria-utils
 
+## 2.0.16
+
+### Patch Changes
+
+- Updated dependencies [[`f864dc397`](https://github.com/nextui-org/nextui/commit/f864dc3974993b29ea5048483d7e0e998e8bef56)]:
+  - @nextui-org/react-rsc-utils@2.0.11
+
 ## 2.0.15
 
 ### Patch Changes

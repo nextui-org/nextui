@@ -1,5 +1,12 @@
 # @nextui-org/breadcrumbs
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.4
 
 ### Patch Changes

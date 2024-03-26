@@ -1,5 +1,16 @@
 # @nextui-org/navbar
 
+## 2.0.28
+
+### Patch Changes
+
+- [#2527](https://github.com/nextui-org/nextui/pull/2527) [`707a61de4`](https://github.com/nextui-org/nextui/commit/707a61de4c41282fd317e3f4b1bc95802b1d43df) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed LazyMotion ForwardRef issue
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.27
 
 ### Patch Changes

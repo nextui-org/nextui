@@ -1,5 +1,12 @@
 # @nextui-org/use-real-shape
 
+## 2.0.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.10
 
 ### Patch Changes

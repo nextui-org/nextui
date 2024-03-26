@@ -1,5 +1,14 @@
 # @nextui-org/input
 
+## 2.1.18
+
+### Patch Changes
+
+- [#2316](https://github.com/nextui-org/nextui/pull/2316) [`52dafd08f`](https://github.com/nextui-org/nextui/commit/52dafd08f178483e79dc847b61d1c761af26eb8e) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the input component
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.1.17
 
 ### Patch Changes

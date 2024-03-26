@@ -1,5 +1,14 @@
 # @nextui-org/avatar
 
+## 2.0.25
+
+### Patch Changes
+
+- [#2498](https://github.com/nextui-org/nextui/pull/2498) [`5d84634c0`](https://github.com/nextui-org/nextui/commit/5d84634c0af3a5a66622d188950f2bcacde7c2e4) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the avatar group component
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.24
 
 ### Patch Changes

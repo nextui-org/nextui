@@ -1,5 +1,16 @@
 # @nextui-org/modal
 
+## 2.0.30
+
+### Patch Changes
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- [#2469](https://github.com/nextui-org/nextui/pull/2469) [`a68626200`](https://github.com/nextui-org/nextui/commit/a6862620094eae485fcb323690c3e1c6e29de690) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the modal component.
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.29
 
 ### Patch Changes

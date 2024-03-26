@@ -1,5 +1,15 @@
 # @nextui-org/kbd
 
+## 2.0.26
+
+### Patch Changes
+
+- [#2482](https://github.com/nextui-org/nextui/pull/2482) [`0d9ea4925`](https://github.com/nextui-org/nextui/commit/0d9ea4925bdb819b6a95ac18aedab029499c7e22) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the kbd component
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/system-rsc@2.0.11
+
 ## 2.0.25
 
 ### Patch Changes

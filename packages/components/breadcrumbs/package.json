@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/breadcrumbs",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Breadcrumbs display a hierarchy of links to the current page or resource in an application.",
   "keywords": [
     "breadcrumbs"

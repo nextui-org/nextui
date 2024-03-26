@@ -1,5 +1,18 @@
 # @nextui-org/accordion
 
+## 2.0.29
+
+### Patch Changes
+
+- [#2219](https://github.com/nextui-org/nextui/pull/2219) [`2c3be59df`](https://github.com/nextui-org/nextui/commit/2c3be59dfb22a0059b814c63116606d5ec7345a0) Thanks [@ryo-manba](https://github.com/ryo-manba)! - fixed remove dividers from hidden accordion items (#2210)
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.26
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+
 ## 2.0.28
 
 ### Patch Changes

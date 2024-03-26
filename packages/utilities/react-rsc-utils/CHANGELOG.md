@@ -1,5 +1,11 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.11
+
+### Patch Changes
+
+- [#2437](https://github.com/nextui-org/nextui/pull/2437) [`f864dc397`](https://github.com/nextui-org/nextui/commit/f864dc3974993b29ea5048483d7e0e998e8bef56) Thanks [@wingkwong](https://github.com/wingkwong)! - include enterKeyHint in dom-props (#2432)
+
 ## 2.0.10
 
 ### Patch Changes

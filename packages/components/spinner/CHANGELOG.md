@@ -1,5 +1,13 @@
 # @nextui-org/spinner
 
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/system-rsc@2.0.11
+
 ## 2.0.25
 
 ### Patch Changes
