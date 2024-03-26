@@ -1,6 +1,5 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "baseBranch": "origin/main",
   "globalDependencies": ["tsconfig.json"],
   "pipeline": {
     "build": {
