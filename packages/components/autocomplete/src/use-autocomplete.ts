@@ -11,7 +11,7 @@ import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
 import {InputProps} from "@nextui-org/input";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
@@ -311,7 +311,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         disableAnimation,
         className,
       }),
-    [...Object.values(variantProps), isClearable, disableAnimation, className],
+    [objectToDeps(variantProps), isClearable, disableAnimation, className],
   );
 
   const onClear = useCallback(() => {

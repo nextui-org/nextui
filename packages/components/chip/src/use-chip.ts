@@ -7,7 +7,7 @@ import {usePress} from "@nextui-org/use-aria-press";
 import {useFocusRing} from "@react-aria/focus";
 import {chip} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, isValidElement, cloneElement} from "react";
 import {PressEvent} from "@react-types/shared";
@@ -103,7 +103,7 @@ export function useChip(originalProps: UseChipProps) {
         isCloseButtonFocusVisible,
       }),
     [
-      ...Object.values(variantProps),
+      objectToDeps(variantProps),
       isCloseButtonFocusVisible,
       hasStartContent,
       hasEndContent,

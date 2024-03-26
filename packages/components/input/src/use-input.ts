@@ -6,7 +6,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -214,7 +214,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         labelPlacement,
         isClearable,
       }),
-    [...Object.values(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
   );
 
   const getBaseProps: PropGetter = useCallback(

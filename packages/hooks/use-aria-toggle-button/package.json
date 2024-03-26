@@ -40,7 +40,7 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@react-stately/toggle": "^3.6.3",
     "@react-aria/utils": "^3.21.1",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-types/button": "^3.9.0"
   },
   "devDependencies": {

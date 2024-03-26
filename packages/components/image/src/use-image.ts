@@ -4,7 +4,7 @@ import {ImgHTMLAttributes, useCallback} from "react";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {image} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useImage as useImageBase} from "@nextui-org/use-image";
 import {useMemo} from "react";
@@ -130,7 +130,7 @@ export function useImage(originalProps: UseImageProps) {
         ...variantProps,
         showSkeleton,
       }),
-    [...Object.values(variantProps), showSkeleton],
+    [objectToDeps(variantProps), showSkeleton],
   );
 
   const baseStyles = clsx(className, classNames?.img);

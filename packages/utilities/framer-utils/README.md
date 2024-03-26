@@ -1,4 +1,4 @@
-# @nextui-org/framer-transitions
+# @nextui-org/framer-utils
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/framer-transitions
+yarn add @nextui-org/framer-utils
 # or
-npm i @nextui-org/framer-transitions
+npm i @nextui-org/framer-utils
 ```
 
 ## Contribution
@@ -18,7 +18,7 @@ Yes please! See the
 [contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
 for details.
 
-## Licence
+## License
 
 This project is licensed under the terms of the
 [MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).

@@ -51,7 +51,7 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/use-aria-accordion": "workspace:*",
     "@nextui-org/use-aria-press": "workspace:*",
@@ -61,7 +61,7 @@
     "@react-stately/tree": "^3.7.3",
     "@react-aria/button": "^3.8.4",
     "@react-types/accordion": "3.0.0-alpha.17",
-    "@react-types/shared": "^3.21.0"
+    "@react-types/shared": "3.21.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

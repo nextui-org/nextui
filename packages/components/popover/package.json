@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",

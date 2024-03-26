@@ -3,6 +3,7 @@ import type { {{capitalize componentName}}VariantProps } from "@nextui-org/theme
 import {HTMLNextUIProps,mapPropsVariants} from "@nextui-org/system";
 import { {{componentName}} } from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
 interface Props extends HTMLNextUIProps<"div"> {
@@ -29,7 +30,7 @@ export function use{{capitalize componentName}}(originalProps: Use{{capitalize c
       ...variantProps,
       className,
     }),
-  [...Object.values(variantProps), className],
+  [objectToDeps(variantProps), className],
 );
 
   return {Component, styles, domRef, ...otherProps};

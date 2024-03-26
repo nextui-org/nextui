@@ -3,7 +3,7 @@ import type {NavbarVariantProps, SlotsToClasses, NavbarSlots} from "@nextui-org/
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {navbar} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {mergeProps, useResizeObserver} from "@react-aria/utils";
@@ -161,7 +161,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
         ...variantProps,
         hideOnScroll: shouldHideOnScroll,
       }),
-    [...Object.values(variantProps), shouldHideOnScroll],
+    [objectToDeps(variantProps), shouldHideOnScroll],
   );
 
   const baseStyles = clsx(classNames?.base, className);

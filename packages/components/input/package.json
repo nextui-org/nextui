@@ -48,7 +48,7 @@
     "@react-aria/textfield": "^3.12.2",
     "@react-aria/utils": "^3.21.1",
     "@react-stately/utils": "^3.8.0",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-types/textfield": "^3.8.1",
     "react-textarea-autosize": "^8.5.2"
   },

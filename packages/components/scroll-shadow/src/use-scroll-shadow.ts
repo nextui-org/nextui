@@ -8,6 +8,7 @@ import {
   UseDataScrollOverflowProps,
 } from "@nextui-org/use-data-scroll-overflow";
 import {useMemo} from "react";
+import {objectToDeps} from "@nextui-org/shared-utils";
 
 interface Props extends HTMLNextUIProps<"div">, Omit<UseDataScrollOverflowProps, "domRef"> {
   /**
@@ -60,7 +61,7 @@ export function useScrollShadow(originalProps: UseScrollShadowProps) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const getBaseProps: PropGetter = (props = {}) => ({

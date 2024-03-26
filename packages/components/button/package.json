@@ -50,7 +50,7 @@
     "@react-aria/interactions": "^3.19.1",
     "@react-aria/utils": "^3.21.1",
     "@react-aria/focus": "^3.14.3",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-types/button": "^3.9.0"
   },
   "devDependencies": {

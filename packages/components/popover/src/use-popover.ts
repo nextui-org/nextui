@@ -11,7 +11,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, useRef} from "react";
 import {PressEvent} from "@react-types/shared";
 
@@ -168,7 +168,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       popover({
         ...variantProps,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);

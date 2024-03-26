@@ -1,5 +1,3 @@
-import type {ReactNode} from "react";
-
 import {forwardRef} from "@nextui-org/system-rsc";
 
 import {UseBadgeProps, useBadge} from "./use-badge";

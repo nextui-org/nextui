@@ -43,6 +43,7 @@
     "tailwind-variants": "^0.1.18",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "clean-package": "2.2.0"
   },
   "dependencies": {

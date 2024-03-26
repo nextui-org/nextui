@@ -43,7 +43,7 @@
     "@nextui-org/react-rsc-utils": "workspace:*",
     "@react-aria/utils": "^3.21.1",
     "@react-stately/collections": "^3.10.2",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-types/overlays": "^3.8.3"
   },
   "devDependencies": {

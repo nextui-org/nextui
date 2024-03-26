@@ -3,7 +3,7 @@ import type {TabsVariantProps, SlotsToClasses, TabsSlots, TabsReturnType} from "
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, RefObject, useCallback} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
@@ -99,7 +99,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const baseStyles = clsx(classNames?.base, className);

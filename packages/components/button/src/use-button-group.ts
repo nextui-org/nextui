@@ -6,6 +6,7 @@ import {buttonGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
+import {objectToDeps} from "@nextui-org/shared-utils";
 interface Props extends HTMLNextUIProps, ButtonGroupVariantProps {
   /**
    * Ref to the DOM node.
@@ -67,7 +68,7 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const context = useMemo<ContextType>(

@@ -5,6 +5,7 @@ import {code} from "@nextui-org/theme";
 import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
+import {objectToDeps} from "@nextui-org/shared-utils";
 
 export interface UseCodeProps extends HTMLNextUIProps<"code">, CodeVariantProps {
   /**
@@ -26,7 +27,7 @@ export function useCode(originalProps: UseCodeProps) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const getCodeProps: PropGetter = () => {

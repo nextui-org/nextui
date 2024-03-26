@@ -3,6 +3,7 @@ import type {HTMLNextUIProps} from "../src/types";
 import React, {useMemo} from "react";
 import {tv, type VariantProps} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {objectToDeps} from "@nextui-org/shared-utils";
 
 import {mapPropsVariants} from "../src/utils";
 import {forwardRef} from "../src/utils";
@@ -65,7 +66,7 @@ export const Button = forwardRef<"button", ButtonProps>((originalProps, ref) => 
 
   const styles = useMemo(
     () => button({...variantProps, className: originalProps?.className}),
-    [...Object.values(variantProps), props.className],
+    [objectToDeps(variantProps), props.className],
   );
 
   const domRef = useDOMRef(ref);

@@ -18,7 +18,7 @@
 - Updated dependencies []:
   - @nextui-org/button@2.0.26
   - @nextui-org/aria-utils@2.0.15
-  - @nextui-org/framer-transitions@2.0.15
+  - @nextui-org/framer-utils@2.0.15
 
 ## 2.1.13
 
@@ -27,7 +27,7 @@
 - Updated dependencies []:
   - @nextui-org/button@2.0.25
   - @nextui-org/aria-utils@2.0.14
-  - @nextui-org/framer-transitions@2.0.14
+  - @nextui-org/framer-utils@2.0.14
 
 ## 2.1.12
 
@@ -38,7 +38,7 @@
 - Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
   - @nextui-org/button@2.0.24
   - @nextui-org/aria-utils@2.0.13
-  - @nextui-org/framer-transitions@2.0.13
+  - @nextui-org/framer-utils@2.0.13
 
 ## 2.1.11
 
@@ -50,7 +50,7 @@
   - @nextui-org/button@2.0.23
   - @nextui-org/system@2.0.12
   - @nextui-org/aria-utils@2.0.12
-  - @nextui-org/framer-transitions@2.0.12
+  - @nextui-org/framer-utils@2.0.12
 
 ## 2.1.10
 
@@ -64,7 +64,7 @@
   - @nextui-org/theme@2.1.10
   - @nextui-org/use-aria-button@2.0.6
   - @nextui-org/aria-utils@2.0.11
-  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/framer-utils@2.0.11
   - @nextui-org/react-utils@2.0.10
   - @nextui-org/shared-utils@2.0.4
 
@@ -78,7 +78,7 @@
   - @nextui-org/system@2.0.10
   - @nextui-org/react-utils@2.0.9
   - @nextui-org/aria-utils@2.0.10
-  - @nextui-org/framer-transitions@2.0.10
+  - @nextui-org/framer-utils@2.0.10
 
 ## 2.1.8
 
@@ -92,7 +92,7 @@
   - @nextui-org/theme@2.1.8
   - @nextui-org/use-aria-button@2.0.5
   - @nextui-org/aria-utils@2.0.9
-  - @nextui-org/framer-transitions@2.0.9
+  - @nextui-org/framer-utils@2.0.9
   - @nextui-org/react-utils@2.0.8
   - @nextui-org/shared-utils@2.0.3
 
@@ -108,7 +108,7 @@
   - @nextui-org/aria-utils@2.0.8
   - @nextui-org/button@2.0.19
   - @nextui-org/system@2.0.8
-  - @nextui-org/framer-transitions@2.0.8
+  - @nextui-org/framer-utils@2.0.8
 
 ## 2.1.6
 
@@ -127,7 +127,7 @@
   - @nextui-org/system@2.0.7
   - @nextui-org/button@2.0.17
   - @nextui-org/aria-utils@2.0.7
-  - @nextui-org/framer-transitions@2.0.7
+  - @nextui-org/framer-utils@2.0.7
 
 ## 2.1.4
 
@@ -138,7 +138,7 @@
   - @nextui-org/system@2.0.6
   - @nextui-org/button@2.0.16
   - @nextui-org/aria-utils@2.0.6
-  - @nextui-org/framer-transitions@2.0.6
+  - @nextui-org/framer-utils@2.0.6
 
 ## 2.1.3
 
@@ -226,7 +226,7 @@
   - other bug fixes..
 
 - Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
-  - @nextui-org/framer-transitions@2.0.5
+  - @nextui-org/framer-utils@2.0.5
   - @nextui-org/use-aria-button@2.0.3
   - @nextui-org/aria-utils@2.0.5
   - @nextui-org/button@2.0.8
@@ -240,7 +240,7 @@
   - @nextui-org/system@2.0.4
   - @nextui-org/button@2.0.7
   - @nextui-org/aria-utils@2.0.4
-  - @nextui-org/framer-transitions@2.0.4
+  - @nextui-org/framer-utils@2.0.4
 
 ## 2.0.6
 
@@ -281,7 +281,7 @@
   - @nextui-org/theme@2.0.3
   - @nextui-org/use-aria-button@2.0.2
   - @nextui-org/aria-utils@2.0.3
-  - @nextui-org/framer-transitions@2.0.3
+  - @nextui-org/framer-utils@2.0.3
   - @nextui-org/shared-utils@2.0.2
 
 ## 2.0.2
@@ -293,7 +293,7 @@
   - @nextui-org/button@2.0.2
   - @nextui-org/system@2.0.2
   - @nextui-org/aria-utils@2.0.2
-  - @nextui-org/framer-transitions@2.0.2
+  - @nextui-org/framer-utils@2.0.2
 
 ## 2.0.1
 
@@ -304,7 +304,7 @@
 - [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Introducing v2 - Readmes updated
 
 - Updated dependencies [[`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140), [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140)]:
-  - @nextui-org/framer-transitions@2.0.1
+  - @nextui-org/framer-utils@2.0.1
   - @nextui-org/shared-utils@2.0.1
   - @nextui-org/use-aria-button@2.0.1
   - @nextui-org/react-utils@2.0.1

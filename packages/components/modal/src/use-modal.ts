@@ -8,7 +8,7 @@ import {modal} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useOverlayTriggerState} from "@react-stately/overlays";
 import {OverlayTriggerProps} from "@react-stately/overlays";
@@ -139,7 +139,7 @@ export function useModal(originalProps: UseModalProps) {
       modal({
         ...variantProps,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const getDialogProps: PropGetter = (props = {}, ref = null) => ({

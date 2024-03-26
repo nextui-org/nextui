@@ -5,7 +5,7 @@ import type {AriaProgressBarProps} from "@react-types/progress";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {progress} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clampPercentage, clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clampPercentage, clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useCallback} from "react";
@@ -93,7 +93,7 @@ export function useProgress(originalProps: UseProgressProps) {
       progress({
         ...variantProps,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const selfMounted = originalProps.disableAnimation ? true : isMounted;

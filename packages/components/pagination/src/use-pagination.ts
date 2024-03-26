@@ -1,8 +1,8 @@
 import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nextui-org/theme";
-import type {Timer} from "@nextui-org/shared-utils";
 import type {Key, ReactNode, Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
+import {objectToDeps, Timer} from "@nextui-org/shared-utils";
 import {useLocale} from "@react-aria/i18n";
 import {
   UsePaginationProps as UseBasePaginationProps,
@@ -295,7 +295,7 @@ export function usePagination(originalProps: UsePaginationProps) {
         disableCursorAnimation:
           originalProps.disableCursorAnimation || originalProps.disableAnimation,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);

@@ -3,6 +3,7 @@ import type {HTMLNextUIProps} from "../src/types";
 import React, {useMemo} from "react";
 import {SlotsToClasses, tv, type VariantProps} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {objectToDeps} from "@nextui-org/shared-utils";
 
 import {cn, forwardRef, mapPropsVariants} from "../src/utils";
 
@@ -168,7 +169,7 @@ export const Card = forwardRef<"div", CardProps>((originalProps, ref) => {
 
   const {header, footer, className, children, classNames, ...otherProps} = props;
 
-  const styles = useMemo(() => card({...variantProps}), [...Object.values(variantProps)]);
+  const styles = useMemo(() => card({...variantProps}), [objectToDeps(variantProps)]);
 
   const baseStyles = cn(classNames?.base, className);
 
