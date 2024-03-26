@@ -128,10 +128,15 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const groupState = useCheckboxGroupState(checkboxGroupProps);
 
-  const {labelProps, groupProps, descriptionProps, errorMessageProps} = useReactAriaCheckboxGroup(
-    checkboxGroupProps,
-    groupState,
-  );
+  const {
+    labelProps,
+    groupProps,
+    descriptionProps,
+    errorMessageProps,
+    validationDetails,
+    validationErrors,
+    isInvalid: isAriaInvalid,
+  } = useReactAriaCheckboxGroup(checkboxGroupProps, groupState);
 
   const context = useMemo<ContextType>(
     () => ({
@@ -218,7 +223,11 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     label,
     context,
     description,
-    errorMessage,
+    isInvalid: isAriaInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage({isInvalid: isAriaInvalid, validationErrors, validationDetails})
+        : errorMessage || validationErrors.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

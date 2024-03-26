@@ -35,6 +35,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
 } as Meta<typeof RadioGroup>;
 
@@ -129,16 +135,16 @@ const InvalidTemplate = (args: RadioGroupProps) => {
   const items = (
     <>
       <Radio value="A" {...radioProps.a}>
-        Option A
+        Option A (Invalid)
       </Radio>
       <Radio value="B" {...radioProps.b}>
-        Option B
+        Option B (Valid)
       </Radio>
       <Radio value="C" {...radioProps.c}>
-        Option C
+        Option C (Valid)
       </Radio>
       <Radio value="D" {...radioProps.d}>
-        Option D
+        Option D (Invalid)
       </Radio>
     </>
   );

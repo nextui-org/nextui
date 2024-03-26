@@ -122,6 +122,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     radioGroupProps: groupProps,
     errorMessageProps,
     descriptionProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
 
   const context: ContextType = useMemo(
@@ -209,8 +212,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     children,
     label,
     context,
-    errorMessage,
     description,
+    isInvalid: isAriaInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage({isInvalid: isAriaInvalid, validationErrors, validationDetails})
+        : errorMessage || validationErrors.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

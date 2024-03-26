@@ -45,11 +45,11 @@
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/menu": "^3.11.1",
-    "@react-aria/utils": "^3.21.1",
-    "@react-stately/menu": "^3.5.6",
-    "@react-aria/focus": "^3.14.3",
-    "@react-types/menu": "^3.9.5"
+    "@react-aria/menu": "^3.13.1",
+    "@react-aria/utils": "^3.23.2",
+    "@react-stately/menu": "^3.6.1",
+    "@react-aria/focus": "^3.16.2",
+    "@react-types/menu": "^3.9.7"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

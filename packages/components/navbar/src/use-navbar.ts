@@ -121,9 +121,9 @@ export function useNavbar(originalProps: UseNavbarProps) {
     [onMenuOpenChange],
   );
 
-  const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean | undefined>(
+  const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean>(
     isMenuOpenProp,
-    isMenuDefaultOpen,
+    isMenuDefaultOpen ?? false,
     handleMenuOpenChange,
   );
 
