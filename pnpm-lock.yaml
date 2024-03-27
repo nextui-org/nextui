@@ -388,8 +388,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -675,8 +675,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -772,8 +772,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1250,8 +1250,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1617,8 +1617,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1824,8 +1824,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1953,8 +1953,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2075,8 +2075,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2479,8 +2479,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2543,8 +2543,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.0.22
+        version: 11.0.22(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -5644,10 +5644,6 @@ packages:
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
-      '@effect-ts/core':
-        optional: true
-      '@effect-ts/otel':
-        optional: true
       '@effect-ts/otel-node':
         optional: true
     dependencies:
@@ -16876,6 +16872,24 @@ packages:
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
 
+  /framer-motion@11.0.22(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-kWyldNJLyKDvLWjPYFmgngQYLiU8973BtAeVBc83r2cnil/NBUQJb1ff/6/EweNQYb5BW3PaXFjZa4D3pn/W2Q==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+
   /fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
     engines: {node: '>= 0.6'}
@@ -21911,9 +21925,6 @@ packages:
     resolution: {integrity: sha512-wRvsK9v12Nt2/EIjLp/uvxd3UeRSN9DRoSofDn21Ot+rEw4e98ODvbdSHi6dYr82s4oo6mF823ACmOp1hXd4wg==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
-    peerDependenciesMeta:
-      '@parcel/core':
-        optional: true
     dependencies:
       '@parcel/config-default': 2.10.2(@parcel/core@2.10.2)(typescript@4.9.5)
       '@parcel/core': 2.10.2
