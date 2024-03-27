@@ -59,7 +59,7 @@
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.0.22",
     "react-lorem-component": "0.13.0",
     "@nextui-org/card": "workspace:*",
     "@nextui-org/input": "workspace:*",
