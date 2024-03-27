@@ -1,4 +1,4 @@
-import React from "react";
+import React  , { useEffect }from "react";
 import {themes} from "@storybook/theming";
 import {NextUIProvider} from "@nextui-org/system/src/provider";
 import type {Preview} from "@storybook/react";
@@ -10,6 +10,10 @@ const decorators: Preview["decorators"] = [
     const direction =
       // @ts-ignore
       locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
+      
+    useEffect(() => {
+      document.documentElement.style.setProperty("--direction", direction || "ltr");
+    }, [direction]);
 
     return (
       <NextUIProvider locale={locale}>

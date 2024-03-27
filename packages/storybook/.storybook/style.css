@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --direction: ltr;
+}
+
+body {
+  direction: var(--direction);
+}
+
 h1 {
   @apply text-4xl font-bold !text-foreground;
 }
