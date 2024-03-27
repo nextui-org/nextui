@@ -9,6 +9,7 @@ import {
   Animal,
   User,
 } from "@nextui-org/stories-utils";
+import {useAsyncList} from "@react-stately/data";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {PetBoldIcon, SearchLinearIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
@@ -69,6 +70,13 @@ export default {
     ),
   ],
 } as Meta<typeof Autocomplete>;
+
+type SWCharacter = {
+  name: string;
+  height: string;
+  mass: string;
+  birth_year: string;
+};
 
 const defaultProps = {
   ...input.defaultVariants,
@@ -233,6 +241,40 @@ const LabelPlacementTemplate = ({color, variant, ...args}: AutocompleteProps) =>
     </div>
   </div>
 );
+
+const AsyncFilteringTemplate = ({color, variant, ...args}: AutocompleteProps<SWCharacter>) => {
+  let list = useAsyncList<SWCharacter>({
+    async load({signal, filterText}) {
+      let res = await fetch(`https://swapi.py4e.com/api/people/?search=${filterText}`, {signal});
+      let json = await res.json();
+
+      return {
+        items: json.results,
+      };
+    },
+  });
+
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      color={color}
+      inputValue={list.filterText}
+      isLoading={list.isLoading}
+      items={list.items}
+      label="Select a character"
+      placeholder="Type to search..."
+      variant={variant}
+      onInputChange={list.setFilterText}
+      {...args}
+    >
+      {(item) => (
+        <AutocompleteItem key={item.name} className="capitalize">
+          {item.name}
+        </AutocompleteItem>
+      )}
+    </Autocomplete>
+  );
+};
 
 const AsyncLoadingTemplate = ({color, variant, ...args}: AutocompleteProps<Pokemon>) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -700,6 +742,14 @@ export const WithDescription = {
 
 export const LabelPlacement = {
   render: LabelPlacementTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const AsyncFiltering = {
+  render: AsyncFilteringTemplate,
 
   args: {
     ...defaultProps,
