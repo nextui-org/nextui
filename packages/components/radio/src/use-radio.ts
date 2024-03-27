@@ -219,9 +219,8 @@ export function useRadio(props: UseRadioProps) {
     (props = {}) => {
       return {
         ...props,
+        ...mergeProps(inputProps, focusProps, {required: isRequired}),
         ref: inputRef,
-        required: isRequired,
-        ...mergeProps(inputProps, focusProps),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
