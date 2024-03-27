@@ -14,7 +14,7 @@ import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 
 import {CheckboxProps} from "./index";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Ref to the DOM node.
    */
@@ -44,6 +44,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    * React aria onChange event.
    */
   onValueChange?: AriaCheckboxGroupProps["onChange"];
+  /**
+   * Handler that is called when the value changes.
+   */
+  onChange?: (values: string[]) => void;
 }
 
 export type UseCheckboxGroupProps = Props &
