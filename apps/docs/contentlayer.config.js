@@ -2,6 +2,7 @@ import {defineDocumentType, defineNestedType, makeSource} from "contentlayer/sou
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import {visit} from "unist-util-visit";
+import RawPlugin from 'esbuild-plugin-raw'
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -14,8 +15,7 @@ const computedFields = {
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
   url: {type: "string", resolve: (doc) => `/${doc._raw.flattenedPath}`},
-}
-
+};
 
 export const Doc = defineDocumentType(() => ({
   name: "Doc",
@@ -26,9 +26,8 @@ export const Doc = defineDocumentType(() => ({
     description: {type: "string", required: false},
     date: {type: "date", required: false},
   },
-  computedFields
+  computedFields,
 }));
-
 
 const AuthorProperties = defineNestedType(() => ({
   name: "AuthorProperties",
@@ -37,7 +36,7 @@ const AuthorProperties = defineNestedType(() => ({
     link: {type: "string", required: false},
     avatar: {type: "string", required: false},
     username: {type: "string", required: false},
-  }
+  },
 }));
 
 export const BlogPost = defineDocumentType(() => ({
@@ -48,8 +47,8 @@ export const BlogPost = defineDocumentType(() => ({
     title: {type: "string", required: true},
     description: {type: "string", required: true},
     date: {type: "date", required: true},
-    tags: { type: 'list', of: { type: 'string' } },
-    author: {type: "nested",of: AuthorProperties, required: false},
+    tags: {type: "list", of: {type: "string"}},
+    author: {type: "nested", of: AuthorProperties, required: false},
     image: {type: "string", required: false},
   },
   computedFields: {
@@ -61,7 +60,7 @@ export const BlogPost = defineDocumentType(() => ({
         const date = new Date(doc.date);
         const options = {year: "numeric", month: "long", day: "numeric"};
         return date.toLocaleDateString("en-US", options);
-      }
+      },
     },
     // add https://nextui.org to the image path
     imageAsParams: {
@@ -71,9 +70,9 @@ export const BlogPost = defineDocumentType(() => ({
         if (image) {
           return `https://nextui.org${image}`;
         }
-      }
-    }
-  }
+      },
+    },
+  },
 }));
 
 export default makeSource({
@@ -81,6 +80,12 @@ export default makeSource({
   documentTypes: [Doc, BlogPost],
   mdx: {
     remarkPlugins: [remarkGfm],
+    esbuildOptions(options) {
+      options.plugins ||= [];
+      options.plugins.unshift(RawPlugin());
+ 
+      return options;
+    },
     rehypePlugins: [
       rehypeSlug,
       () => (tree) => {
