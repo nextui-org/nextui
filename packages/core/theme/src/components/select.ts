@@ -11,6 +11,7 @@ const select = tv({
       "absolute",
       "z-10",
       "origin-top-left",
+      "rtl:origin-top-right",
       "subpixel-antialiased",
       "text-small",
       "text-foreground-500",
@@ -21,9 +22,9 @@ const select = tv({
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-unit-4 items-center gap-1.5 box-border",
-    selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
-    spinner: "absolute right-3",
-    value: ["text-foreground-500", "font-normal", "w-full", "text-left"],
+    selectorIcon: "absolute end-3 w-unit-4 h-unit-4",
+    spinner: "absolute end-3",
+    value: "text-foreground-500 font-normal w-full text-left rtl:text-right",
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -132,7 +133,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative pr-2 text-foreground",
+        label: "relative pe-2 text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -159,7 +160,7 @@ const select = tv({
     },
     isRequired: {
       true: {
-        label: "after:content-['*'] after:text-danger after:ml-0.5",
+        label: "after:content-['*'] after:text-danger after:ms-0.5",
       },
     },
     isMultiline: {
@@ -182,7 +183,6 @@ const select = tv({
         base: "transition-background motion-reduce:transition-none !duration-150",
         label: [
           "will-change-auto",
-          "origin-top-left",
           "!duration-200",
           "!ease-out",
           "transition-[transform,color,left,opacity]",
@@ -546,7 +546,7 @@ const select = tv({
       isMultiline: false,
       class: {
         base: "group relative justify-end",
-        label: ["pb-0", "z-20", "top-1/2", "-translate-y-1/2", "group-data-[filled=true]:left-0"],
+        label: "pb-0 z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:start-0",
       },
     },
     // labelPlacement=[inside]
@@ -671,7 +671,7 @@ const select = tv({
       isMultiline: false,
       class: {
         label: [
-          "left-2",
+          "start-2",
           "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
@@ -684,7 +684,7 @@ const select = tv({
       size: "md",
       class: {
         label: [
-          "left-3",
+          "start-3",
           "text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -697,7 +697,7 @@ const select = tv({
       size: "lg",
       class: {
         label: [
-          "left-3",
+          "start-3",
           "text-medium",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
