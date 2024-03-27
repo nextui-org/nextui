@@ -11,4 +11,4 @@
 "@nextui-org/framer-transitions": patch
 ---
 
-Fixed only two keyframes currently supported with spring and inertia animations issue
+Fixed the issue where only two keyframes were supported with spring and inertia animations.
