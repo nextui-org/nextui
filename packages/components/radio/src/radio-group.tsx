@@ -27,7 +27,7 @@ const RadioGroup = forwardRef<"div", RadioGroupProps>((props, ref) => {
         <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
       </div>
       {errorMessage ? (
-        <div {...getErrorMessageProps()}>{errorMessage}</div>
+        <div {...getErrorMessageProps()}>{errorMessage as React.ReactNode}</div>
       ) : description ? (
         <div {...getDescriptionProps()}>{description}</div>
       ) : null}

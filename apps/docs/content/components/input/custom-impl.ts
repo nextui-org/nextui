@@ -145,7 +145,7 @@ const MyInput = forwardRef((props, ref) => {
           {innerWrapper}
         </div>
         {description && <div {...getDescriptionProps()}>{description}</div>}
-        {errorMessage && <div {...getErrorMessageProps()}>{errorMessage}</div>}
+        {errorMessage && <div {...getErrorMessageProps()}>{errorMessage as React.ReactNode}</div>}
       </Component>
     </div>
   );
