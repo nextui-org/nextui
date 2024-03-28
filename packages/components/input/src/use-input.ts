@@ -123,7 +123,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value || domRef?.current?.value,
+    props.value,
     props.defaultValue,
     handleValueChange,
   );
@@ -144,7 +144,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
     {
       ...originalProps,
-      value: inputValue,
+      value: inputValue ?? domRef?.current?.value,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
         originalProps?.label,
