@@ -2,10 +2,16 @@
 const fs = require('fs');
 const path = require('path')
 
+const chalk = require('chalk');
+
 const coreDir = path.resolve(__dirname, '../..'); // Core directory path
 const packagesDir = path.resolve(coreDir, '../..'); // Packages directory path
 const componentsDir = path.resolve(packagesDir, 'components'); // Components directory path
 const outputPath = path.resolve(coreDir, 'dist'); // Output directory path
+
+const rootDir = path.resolve(__dirname, '../../../../..'); // Root directory path
+const appsConfigDir = path.resolve(rootDir, 'apps/docs/config'); // Apps config directory path
+const appsRoutesJsonPath = path.resolve(appsConfigDir, 'routes.json'); // Apps routes file path
 
 const filePath = './src/index.ts'; // Updated file path
 const backupFilePath = filePath + '.backup.ts'; // Backup file
@@ -13,6 +19,8 @@ const backupFilePath = filePath + '.backup.ts'; // Backup file
 const baseDocs = 'https://nextui.org/docs/components'
 
 function generateComponents() {
+    const routesJson = require(appsRoutesJsonPath);
+    const routes = routesJson.routes.find(route => route.key === 'components').routes;
     const components = fs.readdirSync(componentsDir);
     const resultList = [];
 
@@ -23,12 +31,17 @@ function generateComponents() {
         const componentPkgName = componentPkg.name;
         const componentVersion = componentPkg.version;
         const componentDocs = `${baseDocs}/${component}`
+        const componentDesc = componentPkg.description
+
+        const routeComponent = routes.find(route => route.key === component) || {};
 
         const componentInfo = {
             name: component,
             package: componentPkgName,
             version: componentVersion,
-            docs: componentDocs
+            docs: componentDocs,
+            description: componentDesc,
+            status: (routeComponent.updated && 'updated') || (routeComponent.newPost && 'newPost') || 'stable'
         }
 
         resultList.push(componentInfo);
@@ -58,7 +71,7 @@ function main() {
     try {
         generateComponents()
     } catch (error) {
-        console.error(`Generate the components Error: ${error}`)
+        console.error(chalk.red(`Generate the components Error: ${error}`))
     }
 }
 
