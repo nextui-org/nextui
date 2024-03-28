@@ -82,40 +82,42 @@ export function usePress(props: PressHookProps): PressResult {
 
   let {addGlobalListener, removeAllGlobalListeners} = useGlobalListeners();
 
-  let triggerPressStart = useEffectEvent((originalEvent: EventBase, pointerType: PointerType) => {
-    let state = ref.current;
-
-    if (isDisabled || state.didFirePressStart) {
-      return;
-    }
-
-    let shouldStopPropagation = true;
-
-    state.isTriggeringEvent = true;
-    if (onPressStart) {
-      let event = new PressEvent("pressstart", pointerType, originalEvent);
-
-      onPressStart(event);
-      shouldStopPropagation = event.shouldStopPropagation;
-    }
-
-    if (onPressChange) {
-      onPressChange(true);
-    }
-
-    state.isTriggeringEvent = false;
-    state.didFirePressStart = true;
-    setPressed(true);
-
-    return shouldStopPropagation;
-  });
-
-  let triggerPressEnd = useEffectEvent(
-    (originalEvent: EventBase, pointerType: PointerType, wasPressed = true) => {
+  let triggerPressStart = useEffectEvent(
+    (originalEvent: EventBase, pointerType: PointerType | null) => {
       let state = ref.current;
 
-      if (!state.didFirePressStart) {
-        return;
+      if (isDisabled || state.didFirePressStart || !pointerType) {
+        return false;
+      }
+
+      let shouldStopPropagation = true;
+
+      state.isTriggeringEvent = true;
+      if (onPressStart) {
+        let event = new PressEvent("pressstart", pointerType, originalEvent);
+
+        onPressStart(event);
+        shouldStopPropagation = event.shouldStopPropagation;
+      }
+
+      if (onPressChange) {
+        onPressChange(true);
+      }
+
+      state.isTriggeringEvent = false;
+      state.didFirePressStart = true;
+      setPressed(true);
+
+      return shouldStopPropagation;
+    },
+  );
+
+  let triggerPressEnd = useEffectEvent(
+    (originalEvent: EventBase, pointerType: PointerType | null, wasPressed = true) => {
+      let state = ref.current;
+
+      if (!state.didFirePressStart || !pointerType) {
+        return false;
       }
 
       state.ignoreClickAfterPress = true;
@@ -150,25 +152,27 @@ export function usePress(props: PressHookProps): PressResult {
     },
   );
 
-  let triggerPressUp = useEffectEvent((originalEvent: EventBase, pointerType: PointerType) => {
-    let state = ref.current;
+  let triggerPressUp = useEffectEvent(
+    (originalEvent: EventBase, pointerType: PointerType | null) => {
+      let state = ref.current;
 
-    if (isDisabled) {
-      return;
-    }
+      if (isDisabled || !pointerType) {
+        return false;
+      }
 
-    if (onPressUp) {
-      state.isTriggeringEvent = true;
-      let event = new PressEvent("pressup", pointerType, originalEvent);
+      if (onPressUp) {
+        state.isTriggeringEvent = true;
+        let event = new PressEvent("pressup", pointerType, originalEvent);
 
-      onPressUp(event);
-      state.isTriggeringEvent = false;
+        onPressUp(event);
+        state.isTriggeringEvent = false;
 
-      return event.shouldStopPropagation;
-    }
+        return event.shouldStopPropagation;
+      }
 
-    return true;
-  });
+      return true;
+    },
+  );
 
   let cancel = useEffectEvent((e: EventBase) => {
     let state = ref.current;
@@ -446,7 +450,7 @@ export function usePress(props: PressHookProps): PressResult {
         } else if (state.isOverTarget) {
           state.isOverTarget = false;
           triggerPressEnd(createEvent(state.target, e as EventBase), state.pointerType, false);
-          cancelOnPointerExit(e);
+          cancelOnPointerExit(e as EventBase);
         }
       };
 
@@ -475,7 +479,7 @@ export function usePress(props: PressHookProps): PressResult {
       };
 
       let onPointerCancel = (e: PointerEvent) => {
-        cancel(e);
+        cancel(e as EventBase);
       };
 
       pressProps.onDragStart = (e) => {
@@ -709,7 +713,7 @@ export function usePress(props: PressHookProps): PressResult {
       };
 
       let onScroll = (e: Event) => {
-        if (state.isPressed && (e.target as Element).contains(state.target)) {
+        if (state.isPressed && state.target && (e.target as Element).contains(state.target)) {
           cancel({
             currentTarget: state.target,
             shiftKey: false,

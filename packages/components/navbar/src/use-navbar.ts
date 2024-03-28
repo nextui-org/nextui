@@ -123,7 +123,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
 
   const [isMenuOpen, setIsMenuOpen] = useControlledState<boolean | undefined>(
     isMenuOpenProp,
-    isMenuDefaultOpen,
+    isMenuDefaultOpen ?? false,
     handleMenuOpenChange,
   );
 
