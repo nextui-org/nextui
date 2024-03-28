@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {ForwardedRef, ReactElement, Ref} from "react";
+import {ForwardedRef, Key, ReactElement, Ref} from "react";
 
 import {UseMenuProps, useMenu} from "./use-menu";
 import MenuSection from "./menu-section";
@@ -18,7 +18,7 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
     hideEmptyContent,
     variant,
     onClose,
-    onAction,
+    onAction: onTopAction,
     topContent,
     bottomContent,
     itemClasses,
@@ -26,6 +26,12 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
     getListProps,
     getEmptyContentProps,
   } = useMenu<T>({...props, ref});
+
+  const onAction = (key: Key) => {
+    if (closeOnSelect) {
+      onTopAction?.(key);
+    }
+  };
 
   const content = (
     <Component {...getListProps()}>
