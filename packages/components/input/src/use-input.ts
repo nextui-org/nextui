@@ -113,26 +113,26 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [onValueChange],
   );
 
-  const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value,
-    props.defaultValue,
-    handleValueChange,
-  );
-
   const [isFocusWithin, setFocusWithin] = useState(false);
 
   const Component = as || "div";
+
+  const domRef = useDOMRef<T>(ref);
+  const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
+  const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
+  const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
+
+  const [inputValue, setInputValue] = useControlledState<string | undefined>(
+    props.value || domRef?.current?.value,
+    props.defaultValue,
+    handleValueChange,
+  );
 
   const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
   const isFilled = !isEmpty(inputValue) || isFilledByDefault;
   const isFilledWithin = isFilled || isFocusWithin;
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
-
-  const domRef = useDOMRef<T>(ref);
-  const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
-  const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
-  const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const handleClear = useCallback(() => {
     setInputValue("");
