@@ -23,7 +23,7 @@ export interface MultiSelectProps<T>
     Omit<InputBase, "isReadOnly">,
     DOMProps,
     HelpTextProps,
-    Validation,
+    Validation<T>,
     LabelableProps,
     TextInputBase,
     Omit<MultipleSelection, "none">,
