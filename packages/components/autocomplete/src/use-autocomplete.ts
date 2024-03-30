@@ -16,6 +16,7 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -271,6 +272,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const isOpen = slotsProps.listboxProps?.hideEmptyContent
     ? state.isOpen && !!state.collection.size
     : state.isOpen;
+
+  // if we use `react-hook-form`, it will set the native select value using the ref in register
+  // i.e. setting ref.current.value
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!inputRef.current) return;
+
+    const key = inputRef.current.value;
+    const item = state.collection.getItem(key);
+
+    if (item) {
+      state.setSelectedKey(key);
+      state.setInputValue(item.textValue);
+    }
+  }, [inputRef.current, state]);
 
   // apply the same with to the popover as the select
   useEffect(() => {
