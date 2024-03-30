@@ -1308,7 +1308,7 @@ importers:
         specifier: ^3.19.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/textfield':
-        specifier: ^3.14.3
+        specifier: ^3.12.2
         version: 3.14.3(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.21.1
@@ -1320,7 +1320,7 @@ importers:
         specifier: ^3.21.0
         version: 3.22.1(react@18.2.0)
       '@react-types/textfield':
-        specifier: ^3.9.1
+        specifier: ^3.8.1
         version: 3.9.1(react@18.2.0)
       react-textarea-autosize:
         specifier: ^8.5.2
@@ -1341,9 +1341,6 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
-      react-hook-form:
-        specifier: 7.45.4
-        version: 7.45.4(react@18.2.0)
 
   packages/components/kbd:
     dependencies:
@@ -22956,15 +22953,6 @@ packages:
 
   /react-error-overlay@6.0.9:
     resolution: {integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==}
-    dev: true
-
-  /react-hook-form@7.45.4(react@18.2.0):
-    resolution: {integrity: sha512-HGDV1JOOBPZj10LB3+OZgfDBTn+IeEsNOKiq/cxbQAIbKaiJUe/KV8DBUzsx0Gx/7IG/orWqRRm736JwOfUSWQ==}
-    engines: {node: '>=12.22.0'}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      react: 18.2.0
     dev: true
 
   /react-icons@4.12.0(react@18.2.0):
