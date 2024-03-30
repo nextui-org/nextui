@@ -19,6 +19,7 @@ import {
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
@@ -234,6 +235,15 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }
     },
   });
+
+  // if we use `react-hook-form`, it will set the native select value using the ref in register
+  // i.e. setting ref.current.value
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!domRef.current) return;
+
+    state.setSelectedKeys(new Set([...state.selectedKeys, domRef.current.value]));
+  }, [domRef.current]);
 
   const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
     useMultiSelect(
