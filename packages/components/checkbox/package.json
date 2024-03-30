@@ -43,6 +43,7 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-aria-press": "workspace:*",
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/checkbox": "^3.11.2",
     "@react-aria/focus": "^3.14.3",
     "@react-aria/interactions": "^3.19.1",
