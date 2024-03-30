@@ -10,6 +10,9 @@ import {Calendar, CalendarProps, DateValue} from "../src";
 export default {
   title: "Components/Calendar",
   component: Calendar,
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     visibleMonths: {
       control: {type: "number", min: 1, max: 3},
