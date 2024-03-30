@@ -225,7 +225,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     [color, size, radius, isInvalid, lineThrough, isDisabled, disableAnimation],
   );
 
-  const [isChecked, setIsChecked] = useState(!!defaultSelected);
+  const [isChecked, setIsChecked] = useState(!!defaultSelected || !!isSelected);
 
   // if we use `react-hook-form`, it will set the checkbox value using the ref in register
   // i.e. setting ref.current.checked to true or false
