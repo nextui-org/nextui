@@ -719,6 +719,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/combobox':
         specifier: ^3.7.1
         version: 3.8.4(react-dom@18.2.0)(react@18.2.0)
