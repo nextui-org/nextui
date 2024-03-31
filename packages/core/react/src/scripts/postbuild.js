@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 
 const chalk = require('chalk');
 
@@ -16,7 +16,9 @@ const appsRoutesJsonPath = path.resolve(appsConfigDir, 'routes.json'); // Apps r
 const filePath = './src/index.ts'; // Updated file path
 const backupFilePath = filePath + '.backup.ts'; // Backup file
 
-const baseDocs = 'https://nextui.org/docs/components'
+const baseDocs = 'https://nextui.org/docs/components';
+
+const EXCLUDE_LIST = ['.DS_Store'];
 
 function generateComponents() {
     const routesJson = require(appsRoutesJsonPath);
@@ -25,13 +27,14 @@ function generateComponents() {
     const resultList = [];
 
     for (const component of components) {
+        if (EXCLUDE_LIST.includes(component)) continue;
         const componentPath = path.resolve(componentsDir, component);
 
         const componentPkg = require(path.resolve(componentPath, 'package.json'));
         const componentPkgName = componentPkg.name;
         const componentVersion = componentPkg.version;
-        const componentDocs = `${baseDocs}/${component}`
-        const componentDesc = componentPkg.description
+        const componentDocs = `${baseDocs}/${component}`;
+        const componentDesc = componentPkg.description;
 
         const routeComponent = routes.find(route => route.key === component) || {};
 
