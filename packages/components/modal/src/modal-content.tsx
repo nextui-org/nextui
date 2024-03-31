@@ -107,18 +107,16 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     </RemoveScrollWrapper>
   ) : (
     <LazyMotion features={domAnimation}>
-      <RemoveScrollWrapper>
-        <m.div
-          animate="enter"
-          className={slots.wrapper({class: classNames?.wrapper})}
-          exit="exit"
-          initial="exit"
-          variants={scaleInOut}
-          {...motionProps}
-        >
-          {content}
-        </m.div>
-      </RemoveScrollWrapper>
+      <m.div
+        animate="enter"
+        className={slots.wrapper({class: classNames?.wrapper})}
+        exit="exit"
+        initial="exit"
+        variants={scaleInOut}
+        {...motionProps}
+      >
+        <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
+      </m.div>
     </LazyMotion>
   );
 
