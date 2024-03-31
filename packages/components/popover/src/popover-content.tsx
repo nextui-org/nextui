@@ -84,7 +84,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const RemoveScrollWrapper = useCallback(
     ({children}: {children: ReactElement}) => {
       return (
-        <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+        <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
           {children}
         </RemoveScroll>
       );
