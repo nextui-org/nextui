@@ -93,7 +93,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
   const RemoveScrollWrapper = useCallback(
     ({children}: {children: ReactElement}) => {
       return (
-        <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+        <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
           {children}
         </RemoveScroll>
       );
@@ -107,18 +107,16 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     </RemoveScrollWrapper>
   ) : (
     <LazyMotion features={domAnimation}>
-      <RemoveScrollWrapper>
-        <m.div
-          animate="enter"
-          className={slots.wrapper({class: classNames?.wrapper})}
-          exit="exit"
-          initial="exit"
-          variants={scaleInOut}
-          {...motionProps}
-        >
-          {content}
-        </m.div>
-      </RemoveScrollWrapper>
+      <m.div
+        animate="enter"
+        className={slots.wrapper({class: classNames?.wrapper})}
+        exit="exit"
+        initial="exit"
+        variants={scaleInOut}
+        {...motionProps}
+      >
+        <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
+      </m.div>
     </LazyMotion>
   );
 
