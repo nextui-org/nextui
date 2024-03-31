@@ -10,7 +10,7 @@ import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
-import {useDOMRef, mergeRefs} from "@nextui-org/react-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 
 import {useRadioGroupContext} from "./radio-group-context";
@@ -218,8 +218,8 @@ export function useRadio(props: UseRadioProps) {
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
+        ref: inputRef,
         ...mergeProps(props, inputProps, focusProps, {required: isRequired}),
-        ref: mergeRefs(ref, domRef),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
