@@ -1,5 +1,5 @@
 import React, {Children, cloneElement, useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef, isNextUIEl} from "@nextui-org/system";
 import {pickChildren, filterDOMProps} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
@@ -44,7 +44,7 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
 
   const isDisabled = !!restProps?.isDisabled;
 
-  const isNextUIElement = !!child.type?.render?.displayName?.includes("NextUI");
+  const isNextUIElement = isNextUIEl(child);
 
   return cloneElement(
     child,
