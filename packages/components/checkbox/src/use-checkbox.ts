@@ -228,7 +228,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const [isChecked, setIsChecked] = useState(!!defaultSelected || !!isSelected);
 
   // if we use `react-hook-form`, it will set the checkbox value using the ref in register
-  // i.e. setting ref.current.checked to true or false
+  // i.e. setting ref.current.checked to true or false which is uncontrolled
   // hence, sync the state with `ref.current.checked`
   useSafeLayoutEffect(() => {
     if (!inputRef.current) return;

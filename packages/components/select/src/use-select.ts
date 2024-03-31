@@ -237,7 +237,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   });
 
   // if we use `react-hook-form`, it will set the native select value using the ref in register
-  // i.e. setting ref.current.value
+  // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
   useSafeLayoutEffect(() => {
     if (!domRef.current) return;

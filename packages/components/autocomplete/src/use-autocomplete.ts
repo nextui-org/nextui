@@ -273,8 +273,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ? state.isOpen && !!state.collection.size
     : state.isOpen;
 
-  // if we use `react-hook-form`, it will set the native select value using the ref in register
-  // i.e. setting ref.current.value
+  // if we use `react-hook-form`, it will set the native input value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
   useSafeLayoutEffect(() => {
     if (!inputRef.current) return;
