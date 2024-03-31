@@ -116,8 +116,5 @@ describe("Input", () => {
     await waitFor(() => {
       return expect(ref.current?.value)?.toBe(value);
     });
-    await waitFor(() => {
-      return expect(ref.current?.value)?.toBe(value);
-    });
   });
 });
