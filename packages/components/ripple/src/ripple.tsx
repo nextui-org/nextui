@@ -26,32 +26,34 @@ const Ripple: FC<RippleProps> = (props) => {
 
         return (
           <AnimatePresence key={ripple.key} mode="popLayout">
-            <LazyMotion features={domAnimation}>
-              <m.span
-                animate={{transform: "scale(2)", opacity: 0}}
-                className="nextui-ripple"
-                exit={{opacity: 0}}
-                initial={{transform: "scale(0)", opacity: 0.35}}
-                style={{
-                  position: "absolute",
-                  backgroundColor: color,
-                  borderRadius: "100%",
-                  transformOrigin: "center",
-                  pointerEvents: "none",
-                  zIndex: 10,
-                  top: ripple.y,
-                  left: ripple.x,
-                  width: `${ripple.size}px`,
-                  height: `${ripple.size}px`,
-                  ...style,
-                }}
-                transition={{duration}}
-                onAnimationComplete={() => {
-                  onClear(ripple.key);
-                }}
-                {...motionProps}
-              />
-            </LazyMotion>
+            <>
+              <LazyMotion features={domAnimation}>
+                <m.span
+                  animate={{transform: "scale(2)", opacity: 0}}
+                  className="nextui-ripple"
+                  exit={{opacity: 0}}
+                  initial={{transform: "scale(0)", opacity: 0.35}}
+                  style={{
+                    position: "absolute",
+                    backgroundColor: color,
+                    borderRadius: "100%",
+                    transformOrigin: "center",
+                    pointerEvents: "none",
+                    zIndex: 10,
+                    top: ripple.y,
+                    left: ripple.x,
+                    width: `${ripple.size}px`,
+                    height: `${ripple.size}px`,
+                    ...style,
+                  }}
+                  transition={{duration}}
+                  onAnimationComplete={() => {
+                    onClear(ripple.key);
+                  }}
+                  {...motionProps}
+                />
+              </LazyMotion>
+            </>
           </AnimatePresence>
         );
       })}
