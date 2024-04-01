@@ -1,20 +1,22 @@
-import type {CalendarVariantProps} from "@nextui-org/theme";
+import type {CalendarReturnType, CalendarVariantProps} from "@nextui-org/theme";
 import type {DateValue, AriaCalendarProps} from "@react-types/calendar";
 import type {CalendarSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCalendarGridProps} from "@react-aria/calendar";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {SupportedCalendars} from "@nextui-org/system";
+import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
+import type {RefObject} from "react";
 
 import {Calendar, CalendarDate} from "@internationalized/date";
 import {mapPropsVariants} from "@nextui-org/system";
-import {useCallback, useMemo} from "react";
+import {useCallback, useMemo, useRef} from "react";
 import {calendar} from "@nextui-org/theme";
 import {useControlledState} from "@react-stately/utils";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useLocale} from "@react-aria/i18n";
 import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
-import {CalendarState, useCalendarState} from "@react-stately/calendar";
+import {useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -129,6 +131,19 @@ export type UseCalendarProps<T extends DateValue> = Props<T> &
   CalendarVariantProps &
   AriaCalendarProps<T>;
 
+export type ContextType<T extends CalendarState | RangeCalendarState = CalendarState> = {
+  state: T;
+  visibleMonths: number;
+  headerRef: RefObject<any>;
+  slots?: CalendarReturnType;
+  weekdayStyle?: AriaCalendarGridProps["weekdayStyle"];
+  isHeaderExpanded?: boolean;
+  showMonthAndYearPickers?: boolean;
+  setIsHeaderExpanded: (isExpanded: boolean) => void;
+  classNames?: SlotsToClasses<CalendarSlots>;
+  disableAnimation?: boolean;
+};
+
 export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, calendar.variantKeys);
 
@@ -156,8 +171,10 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     ...otherProps
   } = props;
 
-  const visibleMonths = Math.max(visibleMonthsProp, 1);
   const Component = as || "div";
+  const visibleMonths = Math.max(visibleMonthsProp, 1);
+
+  const headerRef = useRef<HTMLElement>(null);
 
   const handleHeaderExpandedChange = useCallback(
     (isExpanded: boolean | undefined) => {
@@ -248,25 +265,17 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     };
   };
 
-  const getCalendarProps = (props = {}): CalendarBaseProps<CalendarState> => {
+  const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
-      visibleMonths: visibleMonths,
-      state: state,
       Component,
-      slots,
-      weekdayStyle,
-      disableAnimation,
       buttonPickerProps,
       calendarRef: domRef,
-      isPickerVisible: isHeaderExpanded,
       calendarProps: calendarProps,
-      showMonthAndYearPickers: originalProps.showMonthAndYearPickers,
       prevButtonProps: getPrevButtonProps(),
       nextButtonProps: getNextButtonProps(),
       errorMessageProps: getErrorMessageProps(),
       className: slots.base({class: baseStyles}),
       errorMessage,
-      classNames,
       ...filterDOMProps(otherProps, {
         enabled: shouldFilterDOMProps,
       }),
@@ -274,15 +283,42 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     };
   };
 
+  const context = useMemo<ContextType<CalendarState>>(
+    () => ({
+      state,
+      slots,
+      headerRef,
+      weekdayStyle,
+      isHeaderExpanded,
+      setIsHeaderExpanded,
+      visibleMonths,
+      classNames,
+      showMonthAndYearPickers: originalProps.showMonthAndYearPickers,
+      disableAnimation,
+    }),
+    [
+      state,
+      slots,
+      classNames,
+      weekdayStyle,
+      isHeaderExpanded,
+      setIsHeaderExpanded,
+      visibleMonths,
+      disableAnimation,
+      originalProps.showMonthAndYearPickers,
+    ],
+  );
+
   return {
     Component,
     children,
     domRef,
+    context,
     state,
     slots,
     title,
     classNames,
-    getCalendarProps,
+    getBaseCalendarProps,
     getPrevButtonProps,
     getNextButtonProps,
     getErrorMessageProps,

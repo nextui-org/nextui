@@ -1,6 +1,4 @@
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
-import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
-import type {AriaCalendarGridProps} from "@react-aria/calendar";
 
 import {CalendarDate, endOfMonth, getWeeksInMonth} from "@internationalized/date";
 import {CalendarPropsBase} from "@react-types/calendar";
@@ -13,34 +11,28 @@ import {useEffect, useState} from "react";
 
 import {CalendarCell} from "./calendar-cell";
 import {slideVariants} from "./calendar-transitions";
+import {useCalendarContext} from "./calendar-context";
 
 export interface CalendarMonthProps extends HTMLNextUIProps<"table">, CalendarPropsBase {
-  state: CalendarState | RangeCalendarState;
   startDate: CalendarDate;
   currentMonth: number;
   direction: number;
-  isPickerVisible?: boolean;
-  disableAnimation?: boolean;
-  weekdayStyle?: AriaCalendarGridProps["weekdayStyle"];
-  slots?: CalendarReturnType;
-  classNames?: SlotsToClasses<CalendarSlots>;
 }
 
 export function CalendarMonth(props: CalendarMonthProps) {
-  const {
-    startDate,
-    slots,
-    state: stateProp,
-    direction,
-    currentMonth,
-    weekdayStyle,
-    isPickerVisible,
-    disableAnimation,
-    classNames,
-  } = props;
+  const {startDate, direction, currentMonth} = props;
 
   const {locale} = useLocale();
   const weeksInMonth = getWeeksInMonth(startDate, locale);
+
+  const {
+    state: stateProp,
+    slots,
+    weekdayStyle,
+    isHeaderExpanded,
+    disableAnimation,
+    classNames,
+  } = useCalendarContext();
 
   const [state, setState] = useState<CalendarState | RangeCalendarState>(() => stateProp);
 
@@ -49,12 +41,12 @@ export function CalendarMonth(props: CalendarMonthProps) {
    * months/years with the keyboard.
    */
   useEffect(() => {
-    if (isPickerVisible) {
+    if (isHeaderExpanded) {
       return;
     }
 
     setState(stateProp);
-  }, [stateProp, isPickerVisible]);
+  }, [stateProp, isHeaderExpanded]);
 
   const {gridProps, headerProps, weekDays} = useCalendarGrid(
     {
@@ -80,7 +72,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
               classNames={classNames}
               currentMonth={startDate}
               date={date}
-              isPickerVisible={isPickerVisible}
+              isPickerVisible={isHeaderExpanded}
               slots={slots}
               state={state}
             />
@@ -94,7 +86,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
   return (
     <table
       {...gridProps}
-      aria-hidden={dataAttr(isPickerVisible)}
+      aria-hidden={dataAttr(isHeaderExpanded)}
       className={slots?.grid({class: classNames?.grid})}
       data-slot="grid"
       tabIndex={-1}
@@ -124,7 +116,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
           key={currentMonth}
           className={slots?.gridBody({class: classNames?.gridBody})}
           data-slot="grid-body"
-          tabIndex={isPickerVisible ? -1 : 0}
+          tabIndex={isHeaderExpanded ? -1 : 0}
         >
           {bodyContent}
         </tbody>

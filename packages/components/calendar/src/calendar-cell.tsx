@@ -71,7 +71,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
     <td className={slots?.cell({class: classNames?.cell})} data-slot="cell" {...cellProps}>
       <button
         {...mergeProps(buttonProps, hoverProps, focusProps)}
-        // ref={ref}
+        ref={ref}
         className={slots?.cellButton({class: classNames?.cellButton})}
         data-disabled={dataAttr(isDisabled && !isInvalid)}
         data-focus-visible={dataAttr(isFocused && isFocusVisible)}
@@ -90,9 +90,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
         data-unavailable={dataAttr(isUnavailable)}
         tabIndex={isDisabled ? -1 : 0}
       >
-        <span>
-          <span>{formattedDate}</span>
-        </span>
+        <span>{formattedDate}</span>
       </button>
     </td>
   );

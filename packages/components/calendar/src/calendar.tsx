@@ -5,13 +5,18 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseCalendarProps, useCalendar} from "./use-calendar";
 import {CalendarBase} from "./calendar-base";
+import {CalendarProvider} from "./calendar-context";
 
 interface Props<T extends DateValue> extends Omit<UseCalendarProps<T>, "isHeaderWrapperExpanded"> {}
 
 function Calendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {getCalendarProps} = useCalendar({...props, ref});
+  const {context, getBaseCalendarProps} = useCalendar({...props, ref});
 
-  return <CalendarBase {...getCalendarProps()} />;
+  return (
+    <CalendarProvider value={context}>
+      <CalendarBase {...getBaseCalendarProps()} />
+    </CalendarProvider>
+  );
 }
 
 Calendar.displayName = "NextUI.Calendar";

@@ -15,7 +15,7 @@ const EMPTY_ITEMS_OFFSET = 3;
 
 export function CalendarPicker(props: CalendarPickerProps) {
   const {
-    value,
+    state,
     slots,
     months,
     years,
@@ -82,7 +82,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
               ref={(node) => getItemRef(node, month.value, "months")}
               className={slots?.pickerItem({class: classNames?.pickerItem})}
               data-value={month.value}
-              tabIndex={value?.month === month.value ? 0 : -1}
+              tabIndex={state.focusedDate?.month === month.value ? 0 : -1}
               onKeyDown={(e) => onPickerItemKeyDown(e, month.value, "months")}
               onPress={(e) => onPickerItemPressed(e, "months")}
             >
@@ -103,7 +103,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
               ref={(node) => getItemRef(node, year.value, "years")}
               className={slots?.pickerItem({class: classNames?.pickerItem})}
               data-value={year.value}
-              tabIndex={value?.year === year.value ? 0 : -1}
+              tabIndex={state.focusedDate?.year === year.value ? 0 : -1}
               onKeyDown={(e) => onPickerItemKeyDown(e, year.value, "years")}
               onPress={(e) => onPickerItemPressed(e, "years")}
             >

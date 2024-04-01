@@ -1,8 +1,6 @@
-import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
-import type {CalendarDate, DateValue} from "@internationalized/date";
-import type {PressEvent, RangeValue} from "@react-types/shared";
+import type {CalendarDate} from "@internationalized/date";
+import type {PressEvent} from "@react-types/shared";
 
-import {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
 import {useDateFormatter} from "@react-aria/i18n";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useCallback, useRef, useEffect} from "react";
@@ -11,6 +9,7 @@ import {areRectsIntersecting} from "@nextui-org/react-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 
 import {getMonthsInYear, getYearRange} from "./utils";
+import {useCalendarContext} from "./calendar-context";
 
 export type PickerValue = {
   value: string;
@@ -19,21 +18,18 @@ export type PickerValue = {
 export interface CalendarPickerProps extends HTMLNextUIProps<"div"> {
   date: CalendarDate;
   currentMonth: CalendarDate;
-  state: CalendarState | RangeCalendarState;
-  isPickerVisible?: boolean;
-  slots?: CalendarReturnType;
-  disableAnimation?: boolean;
-  classNames?: SlotsToClasses<CalendarSlots>;
 }
 
 type ItemsRefMap = Map<number, HTMLElement>;
 type CalendarPickerListType = "months" | "years";
-type CalendarStateValue = CalendarDate & RangeValue<DateValue>;
 
 const SCROLL_DEBOUNCE_TIME = 200;
 
 export function useCalendarPicker(props: CalendarPickerProps) {
-  const {slots, date, isPickerVisible, currentMonth, state, classNames} = props;
+  const {date, currentMonth} = props;
+
+  const {slots, state, headerRef, isHeaderExpanded, setIsHeaderExpanded, classNames} =
+    useCalendarContext();
 
   const highlightRef = useRef<HTMLDivElement>(null);
   const yearsListRef = useRef<HTMLDivElement>(null);
@@ -113,16 +109,15 @@ export function useCalendarPicker(props: CalendarPickerProps) {
       let date = state.focusedDate.set(list === "months" ? {month: itemValue} : {year: itemValue});
 
       state.setFocusedDate(date);
-      state.setValue(date as CalendarStateValue);
     },
-    [isPickerVisible],
+    [state, isHeaderExpanded],
   );
 
   // scroll to the selected month/year when the component is mounted/opened/closed
   useEffect(() => {
     scrollTo(date.month, "months", false);
     scrollTo(date.year, "years", false);
-  }, [isPickerVisible]);
+  }, [isHeaderExpanded]);
 
   useEffect(() => {
     // add scroll event listener to monthsListRef
@@ -213,6 +208,11 @@ export function useCalendarPicker(props: CalendarPickerProps) {
         case "PageDown":
           nextValue = value + 3;
           break;
+        case "Escape":
+          setIsHeaderExpanded(false);
+          headerRef.current?.focus();
+
+          return;
       }
 
       const nextItem = map.get(nextValue);
@@ -221,12 +221,9 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     },
     [state],
   );
-  // As the picker is not used in range mode, the value is always a CalendarDate
-  const value = state.value as CalendarDate;
 
   return {
     state,
-    value,
     slots,
     classNames,
     years,

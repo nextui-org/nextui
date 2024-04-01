@@ -1,8 +1,5 @@
-import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
-import type {AriaCalendarGridProps} from "@react-aria/calendar";
 import type {RefObject, HTMLAttributes, ReactNode} from "react";
 import type {AriaButtonProps} from "@react-types/button";
-import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
 import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 
@@ -20,33 +17,21 @@ import {CalendarMonth} from "./calendar-month";
 import {transition} from "./calendar-transitions";
 import {CalendarHeader} from "./calendar-header";
 import {CalendarPicker} from "./calendar-picker";
+import {useCalendarContext} from "./calendar-context";
 
-export interface CalendarBaseProps<T extends CalendarState | RangeCalendarState>
-  extends HTMLNextUIProps<"div"> {
-  state: T;
-  isPickerVisible?: boolean;
+export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
+  Component?: As;
   calendarProps: HTMLAttributes<HTMLElement>;
   nextButtonProps: AriaButtonProps;
   prevButtonProps: AriaButtonProps;
   buttonPickerProps?: ButtonProps;
   errorMessageProps: HTMLAttributes<HTMLElement>;
   calendarRef: RefObject<HTMLDivElement>;
-  slots?: CalendarReturnType;
-  Component?: As;
-  visibleMonths?: number;
   errorMessage?: ReactNode;
-  weekdayStyle?: AriaCalendarGridProps["weekdayStyle"];
-  showMonthAndYearPickers?: boolean;
-  disableAnimation?: boolean;
-  classNames?: SlotsToClasses<CalendarSlots>;
 }
 
-export function CalendarBase<T extends CalendarState | RangeCalendarState>(
-  props: CalendarBaseProps<T>,
-) {
+export function CalendarBase(props: CalendarBaseProps) {
   const {
-    state,
-    slots,
     Component = "div",
     calendarProps,
     nextButtonProps,
@@ -54,15 +39,12 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
     buttonPickerProps,
     errorMessageProps,
     calendarRef: ref,
-    classNames,
-    weekdayStyle,
-    disableAnimation,
-    isPickerVisible,
-    showMonthAndYearPickers,
-    visibleMonths = 1,
     errorMessage,
     ...otherProps
   } = props;
+
+  const {state, slots, visibleMonths, showMonthAndYearPickers, disableAnimation, classNames} =
+    useCalendarContext();
 
   const [direction, setDirection] = useState<number>(0);
 
@@ -91,15 +73,9 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
         )}
         <CalendarHeader
           buttonPickerProps={buttonPickerProps}
-          classNames={classNames}
           currentMonth={currentMonth}
           date={d}
           direction={direction}
-          disableAnimation={disableAnimation}
-          isPickerVisible={isPickerVisible}
-          showMonthAndYearPickers={showMonthAndYearPickers}
-          slots={slots}
-          state={state}
         />
         {i === visibleMonths - 1 && (
           <Button
@@ -118,11 +94,7 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
         key={i}
         currentMonth={currentMonth.month}
         direction={direction}
-        disableAnimation={disableAnimation}
-        isPickerVisible={isPickerVisible}
         startDate={d}
-        state={state}
-        weekdayStyle={weekdayStyle}
       />
     );
 
@@ -130,15 +102,7 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
       showMonthAndYearPickers ? (
         <>
           {calendarMonthContent}
-          <CalendarPicker
-            classNames={classNames}
-            currentMonth={currentMonth}
-            date={d}
-            disableAnimation={disableAnimation}
-            isPickerVisible={isPickerVisible}
-            slots={slots}
-            state={state}
-          />
+          <CalendarPicker currentMonth={currentMonth} date={d} />
         </>
       ) : (
         calendarMonthContent
