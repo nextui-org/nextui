@@ -110,6 +110,38 @@ describe("Dropdown", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it("should render without LazyMotion React.forwardRef error", async () => {
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    expect(triggerButton).toBeTruthy();
+
+    act(() => {
+      triggerButton.click();
+    });
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+  });
+
   it("should work with single selection (controlled)", async () => {
     let onOpenChange = jest.fn();
     let onSelectionChange = jest.fn();
