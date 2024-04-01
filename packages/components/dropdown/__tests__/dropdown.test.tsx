@@ -110,7 +110,9 @@ describe("Dropdown", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("should render without LazyMotion React.forwardRef error", async () => {
+  // e.g. console.error Warning: Function components cannot be given refs.
+  // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+  it("should not throw any error when clicking button", async () => {
     const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
     const wrapper = render(
