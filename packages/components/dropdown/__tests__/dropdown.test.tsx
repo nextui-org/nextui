@@ -4,7 +4,7 @@ import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
-import {User} from "../../../utilities/shared-icons/src";
+import {User} from "../../User/src";
 
 describe("Dropdown", () => {
   it("should render correctly (static)", () => {
