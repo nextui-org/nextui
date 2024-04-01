@@ -49,6 +49,8 @@ const LINK_CLICKED = Symbol("linkClicked");
  * Handles press interactions across mouse, touch, keyboard, and screen readers.
  * It normalizes behavior across browsers and platforms, and handles many nuances
  * of dealing with pointer and keyboard events.
+ *
+ * @deprecated use `usePress` instead from `react-aria`
  */
 export function usePress(props: PressHookProps): PressResult {
   let {
