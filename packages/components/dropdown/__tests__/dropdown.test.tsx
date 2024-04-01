@@ -2,9 +2,9 @@ import * as React from "react";
 import {act, render} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
+import {User} from "@nextui-org/user";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
-import {User} from "../../User/src";
 
 describe("Dropdown", () => {
   it("should render correctly (static)", () => {
