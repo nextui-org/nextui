@@ -84,7 +84,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const RemoveScrollWrapper = useCallback(
     ({children}: {children: ReactElement}) => {
       return (
-        <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+        <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
           {children}
         </RemoveScroll>
       );
@@ -96,20 +96,18 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
   ) : (
     <LazyMotion features={domAnimation}>
-      <RemoveScrollWrapper>
-        <m.div
-          animate="enter"
-          exit="exit"
-          initial="initial"
-          style={{
-            ...getTransformOrigins(placement === "center" ? "top" : placement),
-          }}
-          variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-          {...motionProps}
-        >
-          {content}
-        </m.div>
-      </RemoveScrollWrapper>
+      <m.div
+        animate="enter"
+        exit="exit"
+        initial="initial"
+        style={{
+          ...getTransformOrigins(placement === "center" ? "top" : placement),
+        }}
+        variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+        {...motionProps}
+      >
+        <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
+      </m.div>
     </LazyMotion>
   );
 
