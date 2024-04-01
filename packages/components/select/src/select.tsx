@@ -24,6 +24,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     selectorIcon = <ChevronDownIcon />,
     description,
     errorMessage,
+    isInvalid,
     startContent,
     endContent,
     placeholder,
@@ -56,7 +57,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
 
     return (
       <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
+        {isInvalid && errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
@@ -65,6 +66,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     );
   }, [
     hasHelper,
+    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,

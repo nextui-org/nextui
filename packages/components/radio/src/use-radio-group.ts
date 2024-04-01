@@ -76,12 +76,11 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
-    validationState,
-    isInvalid = validationState === "invalid",
     isReadOnly,
     errorMessage,
     description,
     className,
+    validationBehavior,
     onChange,
     onValueChange,
     ...otherProps
@@ -99,8 +98,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       isRequired,
       isReadOnly,
-      isInvalid,
+      isInvalid: props.validationState === "invalid" || props.isInvalid,
       orientation,
+      validationBehavior,
       onChange: onValueChange,
     };
   }, [
@@ -110,7 +110,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     isRequired,
     isReadOnly,
-    isInvalid,
+    props.isInvalid,
+    props.validationState,
+    validationBehavior,
     orientation,
     onValueChange,
   ]);
@@ -126,6 +128,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     validationErrors,
     validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
+
+  const isInvalid = props.validationState === "invalid" || props.isInvalid || isAriaInvalid;
 
   const context: ContextType = useMemo(
     () => ({
@@ -146,6 +150,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       isInvalid,
       onChange,
       disableAnimation,
+      validationBehavior,
       groupState.name,
       groupState?.isDisabled,
       groupState?.isReadOnly,
@@ -213,10 +218,10 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     context,
     description,
-    isInvalid: isAriaInvalid,
+    isInvalid,
     errorMessage:
       typeof errorMessage === "function"
-        ? errorMessage({isInvalid: isAriaInvalid, validationErrors, validationDetails})
+        ? errorMessage({isInvalid, validationErrors, validationDetails})
         : errorMessage || validationErrors.join(" "),
     getGroupProps,
     getLabelProps,

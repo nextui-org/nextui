@@ -204,7 +204,7 @@ describe("validation", () => {
   beforeAll(() => {
     user = userEvent.setup();
   });
-  describe('validationBehavior="native"', () => {
+  describe("validationBehavior=native", () => {
     it("supports isRequired", async () => {
       const {getAllByRole, getByRole, getByTestId} = render(
         <form data-testid="form">
@@ -247,7 +247,7 @@ describe("validation", () => {
     });
   });
 
-  describe('validationBehavior="aria', () => {
+  describe("validationBehavior=aria", () => {
     it("supports validate function", async () => {
       const {getAllByRole, getByRole} = render(
         <RadioGroup
