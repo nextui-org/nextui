@@ -439,10 +439,12 @@ describe("Dropdown", () => {
 
     expect(spy).toBeCalledTimes(0);
 
+    spy.mockRestore();
+
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
-          <User>Trigger</User>
+          <User as="button" description="@tonyreichert" name="Tony Reichert" />
         </DropdownTrigger>
         <DropdownMenu aria-label="Actions" onAction={alert}>
           <DropdownItem key="new">New file</DropdownItem>
@@ -456,5 +458,7 @@ describe("Dropdown", () => {
     );
 
     expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
   });
 });
