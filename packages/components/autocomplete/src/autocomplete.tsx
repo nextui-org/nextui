@@ -32,7 +32,12 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   } = useAutocomplete<T>({...props, ref});
 
   const popoverContent = isOpen ? (
-    <FreeSoloPopover {...getPopoverProps()} state={state}>
+    <FreeSoloPopover
+      {...getPopoverProps()}
+      // avoid popover closing issue in autocomplete with open modal
+      shouldCloseOnInteractOutside={() => false}
+      state={state}
+    >
       <ScrollShadow {...getListBoxWrapperProps()}>
         <Listbox {...getListBoxProps()} />
       </ScrollShadow>
