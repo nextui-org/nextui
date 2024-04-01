@@ -20,6 +20,33 @@ describe("Popover", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it("should not throw error when clicking trigger button", () => {
+    // e.g. console.error Warning: Function components cannot be given refs.
+    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    const wrapper = render(
+      <Popover>
+        <PopoverTrigger>
+          <button data-testid="trigger-test">Open popover</button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <p>This is the content of the popover.</p>
+        </PopoverContent>
+      </Popover>,
+    );
+    const trigger = wrapper.getByTestId("trigger-test");
+
+    // open popover
+    act(() => {
+      trigger.click();
+    });
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+  });
+
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLDivElement>();
 
