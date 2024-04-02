@@ -13,6 +13,8 @@ const rootDir = path.resolve(__dirname, '../../../../..'); // Root directory pat
 const appsConfigDir = path.resolve(rootDir, 'apps/docs/config'); // Apps config directory path
 const appsRoutesJsonPath = path.resolve(appsConfigDir, 'routes.json'); // Apps routes file path
 
+const docsComponentsDir = path.resolve(rootDir, 'apps/docs/content/docs/components'); // Docs components directory path
+
 const filePath = './src/index.ts'; // Updated file path
 const backupFilePath = filePath + '.backup.ts'; // Backup file
 
@@ -38,13 +40,20 @@ function generateComponents() {
 
         const routeComponent = routes.find(route => route.key === component) || {};
 
+        // Add style alias for the component
+        const mdxComponentPath = path.resolve(docsComponentsDir, `${component}.mdx`);
+        const mdxComponentContent = fs.existsSync(mdxComponentPath) && fs.readFileSync(mdxComponentPath, 'utf8') || '';
+        const styleRegex = /<ComponentLinks[^>]*styles="([^"]*)"[^>]*>/;
+        const style = mdxComponentContent.match(styleRegex)?.[1];
+
         const componentInfo = {
             name: component,
             package: componentPkgName,
             version: componentVersion,
             docs: componentDocs,
             description: componentDesc,
-            status: (routeComponent.updated && 'updated') || (routeComponent.newPost && 'newPost') || 'stable'
+            status: (routeComponent.updated && 'updated') || (routeComponent.newPost && 'newPost') || 'stable',
+            style: style || '',
         }
 
         resultList.push(componentInfo);
