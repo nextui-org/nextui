@@ -22,13 +22,13 @@ const calendar = tv({
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
     gridWrapper: "flex max-w-full overflow-auto pb-2 h-auto relative",
-    grid: "w-full",
+    grid: "w-full z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "text-default-400",
     gridHeaderCell: "font-medium text-small pb-2 first:ps-4 last:pe-4",
     gridBody: "",
     gridBodyRow: "[&>td]:first:pt-2",
-    cell: "py-0.5 first:ps-4 last:pe-4 [&:not(:first-child):not(:last-child)]:px-0.5",
+    cell: "py-0.5 px-0 first:ps-4 last:pe-4",
     cellButton: [
       "w-8 h-8 flex items-center text-foreground justify-center rounded-full",
       "box-border appearance-none select-none whitespace-nowrap font-normal",
@@ -61,8 +61,6 @@ const calendar = tv({
       foreground: {
         cellButton: [
           "data-[hover=true]:bg-default-200",
-          "data-[selected=true]:shadow-md",
-          "data-[selected=true]:shadow-foreground/40",
           "data-[selected=true]:bg-foreground",
           "data-[selected=true]:text-background",
           "data-[hover=true]:bg-foreground-200",
@@ -73,8 +71,6 @@ const calendar = tv({
       },
       primary: {
         cellButton: [
-          "data-[selected=true]:shadow-md",
-          "data-[selected=true]:shadow-primary/40",
           "data-[selected=true]:bg-primary",
           "data-[selected=true]:text-primary-foreground",
           "data-[hover=true]:bg-primary-50",
@@ -85,8 +81,6 @@ const calendar = tv({
       },
       secondary: {
         cellButton: [
-          "data-[selected=true]:shadow-md",
-          "data-[selected=true]:shadow-secondary/40",
           "data-[selected=true]:bg-secondary",
           "data-[selected=true]:text-secondary-foreground",
           "data-[hover=true]:bg-secondary-50",
@@ -97,8 +91,6 @@ const calendar = tv({
       },
       success: {
         cellButton: [
-          "data-[selected=true]:shadow-md",
-          "data-[selected=true]:shadow-success/40",
           "data-[selected=true]:bg-success",
           "data-[selected=true]:text-success-foreground",
           "data-[hover=true]:bg-success-100",
@@ -113,8 +105,6 @@ const calendar = tv({
       },
       warning: {
         cellButton: [
-          "data-[selected=true]:shadow-md",
-          "data-[selected=true]:shadow-warning/40",
           "data-[selected=true]:bg-warning",
           "data-[selected=true]:text-warning-foreground",
           "data-[hover=true]:bg-warning-100",
@@ -129,8 +119,6 @@ const calendar = tv({
       },
       danger: {
         cellButton: [
-          "data-[selected=true]:shadow-md",
-          "data-[selected=true]:shadow-danger/40",
           "data-[selected=true]:bg-danger",
           "data-[selected=true]:text-danger-foreground",
           "data-[hover=true]:bg-danger-100",
@@ -143,6 +131,48 @@ const calendar = tv({
           "data-[selected=true]:data-[hover=true]:text-danger-foreground",
         ],
       },
+    },
+    // @internal
+    isRange: {
+      true: {
+        cellButton: [
+          // base
+          "relative",
+          "overflow-visible",
+
+          // before pseudo element
+          "before:content-[''] before:absolute before:inset-0 before:z-[-1] before:rounded-none",
+
+          // hide before pseudo element when the selected cell is outside the month
+          "data-[outside-month=true]:before:hidden",
+          "data-[selected=true]:data-[outside-month=true]:bg-transparent",
+          "data-[selected=true]:data-[outside-month=true]:text-default-300",
+
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:bg-transparent",
+
+          // start (pseudo)
+          "data-[range-start=true]:before:rounded-l-full",
+          "data-[selection-start=true]:before:rounded-l-full",
+
+          // end (pseudo)
+          "data-[range-end=true]:before:rounded-r-full",
+          "data-[selection-end=true]:before:rounded-r-full",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:rounded-full",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:rounded-full",
+        ],
+      },
+      false: {},
+    },
+    hideDisabledDates: {
+      true: {
+        cellButton: "data-[disabled=true]:opacity-0",
+      },
+      false: {},
     },
     isHeaderWrapperExpanded: {
       true: {
@@ -163,7 +193,9 @@ const calendar = tv({
       false: {},
     },
     showShadow: {
-      true: "",
+      true: {
+        cellButton: "data-[selected=true]:shadow-md",
+      },
       false: {
         cellButton: "shadow-none data-[selected=true]:shadow-none",
       },
@@ -175,11 +207,8 @@ const calendar = tv({
       false: {
         headerWrapper: ["[&_.chevron-icon]:transition-transform", "after:transition-height"],
         grid: "transition-opacity",
-        cellButton: [
-          "data-[pressed=true]:scale-95",
-          "origin-center transition-[transform,background-color,color] !duration-200",
-        ],
-        pickerWrapper: "transition-opacity !duration-300",
+        cellButton: ["origin-center transition-[transform,background-color,color] !duration-150"],
+        pickerWrapper: "transition-opacity !duration-250",
         pickerItem: "transition-opacity",
       },
     },
@@ -187,9 +216,190 @@ const calendar = tv({
   defaultVariants: {
     color: "primary",
     showShadow: false,
+    hideDisabledDates: false,
     showMonthAndYearPickers: false,
     disableAnimation: false,
   },
+  compoundVariants: [
+    // isRange & colors
+    {
+      isRange: true,
+      color: "foreground",
+      class: {
+        cellButton: [
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:before:bg-foreground/10",
+          "data-[selected=true]:data-[range-selection=true]:text-foreground",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-foreground",
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-background",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:bg-foreground",
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-background",
+        ],
+      },
+    },
+    {
+      isRange: true,
+      color: "primary",
+      class: {
+        cellButton: [
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:before:bg-primary-50",
+          "data-[selected=true]:data-[range-selection=true]:text-primary",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-primary",
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-primary-foreground",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:bg-primary",
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-primary-foreground",
+        ],
+      },
+    },
+    {
+      isRange: true,
+      color: "secondary",
+      class: {
+        cellButton: [
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:before:bg-secondary-50",
+          "data-[selected=true]:data-[range-selection=true]:text-secondary",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-secondary",
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-secondary-foreground",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:bg-secondary",
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-secondary-foreground",
+        ],
+      },
+    },
+    {
+      isRange: true,
+      color: "success",
+      class: {
+        cellButton: [
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:before:bg-success-100",
+          "data-[selected=true]:data-[range-selection=true]:text-success-600",
+          "dark:data-[selected=true]:data-[range-selection=true]:before:bg-success-50",
+          "dark:data-[selected=true]:data-[range-selection=true]:text-success-500",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-success",
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-success-foreground",
+          "dark:data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-success-foreground",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:bg-success",
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-success-foreground",
+          "dark:data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-success-foreground",
+        ],
+      },
+    },
+    {
+      isRange: true,
+      color: "warning",
+      class: {
+        cellButton: [
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:before:bg-warning-100",
+          "dark:data-[selected=true]:data-[range-selection=true]:before:bg-warning-50",
+          "data-[selected=true]:data-[range-selection=true]:text-warning-500",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-warning",
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-warning-foreground",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:bg-warning",
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-warning-foreground",
+        ],
+      },
+    },
+    {
+      isRange: true,
+      color: "danger",
+      class: {
+        cellButton: [
+          // middle
+          "data-[selected=true]:data-[range-selection=true]:before:bg-danger-50",
+          "data-[selected=true]:data-[range-selection=true]:text-danger-500",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-danger",
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-danger-foreground",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:bg-danger",
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-danger-foreground",
+        ],
+      },
+    },
+    // showShadow & colors
+    {
+      showShadow: true,
+      color: "foreground",
+      class: {
+        cellButton: "data-[selected=true]:shadow-foreground/40",
+      },
+    },
+    {
+      showShadow: true,
+      color: "primary",
+      class: {
+        cellButton: "data-[selected=true]:shadow-primary/40",
+      },
+    },
+    {
+      showShadow: true,
+      color: "secondary",
+      class: {
+        cellButton: "data-[selected=true]:shadow-secondary/40",
+      },
+    },
+    {
+      showShadow: true,
+      color: "success",
+      class: {
+        cellButton: "data-[selected=true]:shadow-success/40",
+      },
+    },
+    {
+      showShadow: true,
+      color: "warning",
+      class: {
+        cellButton: "data-[selected=true]:shadow-warning/40",
+      },
+    },
+    {
+      showShadow: true,
+      color: "danger",
+      class: {
+        cellButton: "data-[selected=true]:shadow-danger/40",
+      },
+    },
+    // showShadow & isRange
+    {
+      showShadow: true,
+      isRange: true,
+      class: {
+        cellButton: [
+          // remove shadow from middle
+          "data-[selected=true]:shadow-none",
+          // add shadow to start (selected)
+          "data-[selected=true]:data-[selection-start=true]:shadow-md",
+          // add shadow to end (selected)
+          "data-[selected=true]:data-[selection-end=true]:shadow-md",
+        ],
+      },
+    },
+  ],
   compoundSlots: [
     {
       slots: ["prevButton", "nextButton"],

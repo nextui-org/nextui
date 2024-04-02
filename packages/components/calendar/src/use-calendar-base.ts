@@ -27,11 +27,6 @@ interface Props extends NextUIBaseProps {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
-
-  /**
-   * @internal
-   */
-  isRange?: boolean;
   /**
    * Custom content to be included in the top of the calendar.
    */
@@ -166,7 +161,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     className,
     topContent,
     bottomContent,
-    isRange = false,
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
@@ -193,7 +187,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
    * and it's not a range calendar (`!isRange`).
    */
   const showMonthAndYearPickers =
-    originalProps.showMonthAndYearPickers && visibleMonths === 1 && !isRange;
+    originalProps.showMonthAndYearPickers && visibleMonths === 1 && !originalProps?.isRange;
 
   const domRef = useDOMRef(ref);
 
