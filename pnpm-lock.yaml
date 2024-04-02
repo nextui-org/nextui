@@ -2697,6 +2697,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../../components/button
+      '@nextui-org/calendar':
+        specifier: workspace:*
+        version: link:../../components/calendar
       '@nextui-org/card':
         specifier: workspace:*
         version: link:../../components/card

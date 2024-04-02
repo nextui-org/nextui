@@ -40,6 +40,7 @@ export * from "@nextui-org/ripple";
 export * from "@nextui-org/slider";
 export * from "@nextui-org/breadcrumbs";
 export * from "@nextui-org/autocomplete";
+export * from "@nextui-org/calendar";
 
 /**
  * React Aria - Exports
