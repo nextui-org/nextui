@@ -22,6 +22,8 @@ import {useCalendarContext} from "./calendar-context";
 
 export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   Component?: As;
+  topContent?: ReactNode;
+  bottomContent?: ReactNode;
   calendarProps: HTMLAttributes<HTMLElement>;
   nextButtonProps: AriaButtonProps;
   prevButtonProps: AriaButtonProps;
@@ -49,6 +51,8 @@ PopLayoutWrapper.displayName = "NextUI - Calendar PopLayoutWrapper";
 export function CalendarBase(props: CalendarBaseProps) {
   const {
     Component = "div",
+    topContent,
+    bottomContent,
     calendarProps,
     nextButtonProps,
     prevButtonProps,
@@ -144,6 +148,7 @@ export function CalendarBase(props: CalendarBaseProps) {
 
   return (
     <Component {...mergeProps(calendarProps, otherProps)} ref={ref}>
+      {topContent}
       {/* Add a screen reader only description of the entire visible range rather than
        * a separate heading above each month grid. This is placed first in the DOM order
        * so that it is the first thing a touch screen reader user encounters.
@@ -190,6 +195,7 @@ export function CalendarBase(props: CalendarBaseProps) {
           </span>
         </div>
       )}
+      {bottomContent}
     </Component>
   );
 }

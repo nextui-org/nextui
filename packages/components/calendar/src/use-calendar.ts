@@ -6,7 +6,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {SupportedCalendars} from "@nextui-org/system";
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
-import type {RefObject} from "react";
+import type {RefObject, ReactNode} from "react";
 
 import {Calendar, CalendarDate} from "@internationalized/date";
 import {mapPropsVariants} from "@nextui-org/system";
@@ -34,6 +34,14 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
+  /**
+   * Custom content to be included in the top of the calendar.
+   */
+  topContent?: ReactNode;
+  /**
+   * Custom content to be included in the bottom of the calendar.
+   */
+  bottomContent?: ReactNode;
   /**
    * The number of months to display at once. Up to 3 months are supported.
    * @default 1
@@ -154,6 +162,8 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
     as,
     children,
     className,
+    topContent,
+    bottomContent,
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
@@ -268,6 +278,8 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
       Component,
+      topContent,
+      bottomContent,
       buttonPickerProps,
       calendarRef: domRef,
       calendarProps: calendarProps,
