@@ -158,6 +158,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     children,
     disallowEmptySelection = false,
     selectionMode = "single",
+    validationBehavior = "native",
     spinnerRef,
     scrollRef: scrollRefProp,
     popoverProps = {},
@@ -215,7 +216,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const state = useMultiSelectState<T>({
     ...props,
-    validationBehavior: otherProps.validationBehavior,
+    validationBehavior,
     isOpen,
     selectionMode,
     disallowEmptySelection,
@@ -596,7 +597,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isDisabled: originalProps?.isDisabled,
     isRequired: originalProps?.isRequired,
     name: originalProps?.name,
-    validationBehavior: originalProps?.validationBehavior,
+    validationBehavior: validationBehavior,
   });
 
   return {

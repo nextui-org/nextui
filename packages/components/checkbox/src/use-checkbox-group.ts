@@ -84,13 +84,13 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     lineThrough = false,
     isDisabled = false,
     disableAnimation = false,
+    validationBehavior = "native",
     isReadOnly,
     isRequired,
     onValueChange,
     description,
     errorMessage,
     className,
-    validationBehavior,
     ...otherProps
   } = props;
 

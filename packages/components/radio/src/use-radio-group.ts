@@ -76,11 +76,11 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
+    validationBehavior = "native",
     isReadOnly,
     errorMessage,
     description,
     className,
-    validationBehavior,
     onChange,
     onValueChange,
     ...otherProps

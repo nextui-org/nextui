@@ -203,6 +203,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     validationErrors,
   } = useComboBox(
     {
+      validationBehavior: originalProps.validationBehavior ?? "native",
       ...originalProps,
       inputRef,
       buttonRef,

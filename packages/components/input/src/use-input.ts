@@ -155,6 +155,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = useTextField(
     {
       ...originalProps,
+      validationBehavior: originalProps.validationBehavior ?? "native",
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
