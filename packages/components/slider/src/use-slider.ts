@@ -8,7 +8,7 @@ import {ReactNode, useCallback, useMemo, useRef} from "react";
 import {useNumberFormatter, useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
 import {AriaSliderProps, useSlider as useAriaSlider} from "@react-aria/slider";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {TooltipProps} from "@nextui-org/tooltip";
 import {useHover} from "@react-aria/interactions";
 import {ValueBase} from "@react-types/shared";
@@ -235,7 +235,7 @@ export function useSlider(originalProps: UseSliderProps) {
         isVertical,
         className,
       }),
-    [...Object.values(variantProps), isVertical, hasSingleThumb, hasMarks, className],
+    [objectToDeps(variantProps), isVertical, hasSingleThumb, hasMarks, className],
   );
 
   const [startOffset, endOffset] = [

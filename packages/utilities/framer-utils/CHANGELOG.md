@@ -1,4 +1,4 @@
-# @nextui-org/framer-transitions
+# @nextui-org/framer-utils
 
 ## 2.0.15
 

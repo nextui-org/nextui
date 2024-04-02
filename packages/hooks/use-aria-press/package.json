@@ -36,7 +36,7 @@
   "dependencies": {
     "@react-aria/utils": "^3.21.1",
     "@react-aria/ssr": "^3.8.0",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-aria/interactions": "^3.19.1"
   },
   "peerDependencies": {
