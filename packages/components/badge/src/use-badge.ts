@@ -4,7 +4,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {badge} from "@nextui-org/theme";
 import {mapPropsVariants} from "@nextui-org/system-rsc";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
@@ -70,7 +70,7 @@ export function useBadge(originalProps: UseBadgeProps) {
         isOneChar,
         isDot,
       }),
-    [...Object.values(variantProps), isOneChar, isDot],
+    [objectToDeps(variantProps), isOneChar, isDot],
   );
 
   const getBadgeProps: PropGetter = () => {

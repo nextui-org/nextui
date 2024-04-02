@@ -45,3 +45,8 @@ export * from "@nextui-org/autocomplete";
  * React Aria - Exports
  */
 export {VisuallyHidden} from "@react-aria/visually-hidden";
+
+/**
+ * Individual exports
+ */
+export {ResizablePanel} from "@nextui-org/framer-utils";

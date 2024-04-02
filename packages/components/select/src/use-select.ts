@@ -8,7 +8,7 @@ import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
 import {ListboxProps} from "@nextui-org/listbox";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
@@ -283,7 +283,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         labelPlacement,
         className,
       }),
-    [...Object.values(variantProps), isInvalid, labelPlacement, className],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, className],
   );
 
   // scroll the listbox to the selected item
