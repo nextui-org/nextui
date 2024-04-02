@@ -1,6 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
+import {button} from "@nextui-org/theme";
 
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
 
@@ -35,6 +36,12 @@ export default {
       control: {
         type: "boolean",
       },
+    },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
     },
   },
 } as Meta<typeof Checkbox>;
@@ -75,6 +82,41 @@ const InvalidTemplate = (args: CheckboxGroupProps) => {
         <Checkbox value="tokyo">Tokyo</Checkbox>
       </CheckboxGroup>
     </>
+  );
+};
+
+const RequiredTemplate = (args: CheckboxGroupProps) => {
+  return (
+    <form
+      className="flex flex-col items-start gap-4"
+      onSubmit={(e) => {
+        const formData = new FormData(e.currentTarget);
+        const selectedCountries = formData.getAll("favorite-country");
+
+        alert(`Submitted values: ${selectedCountries.join(", ")}`);
+
+        e.preventDefault();
+      }}
+    >
+      <CheckboxGroup
+        {...args}
+        isRequired
+        description="Select the cities you want to visit"
+        errorMessage="Please select at least one city"
+        label="Select cities"
+        name="favorite-country"
+        validationBehavior={args.validationBehavior}
+      >
+        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
+        <Checkbox value="sydney">Sydney</Checkbox>
+        <Checkbox value="san-francisco">San Francisco</Checkbox>
+        <Checkbox value="london">London</Checkbox>
+        <Checkbox value="tokyo">Tokyo</Checkbox>
+      </CheckboxGroup>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
@@ -163,5 +205,14 @@ export const DisableAnimation = {
   args: {
     label: "Select cities",
     disableAnimation: true,
+  },
+};
+
+export const IsRequired = {
+  render: RequiredTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
   },
 };

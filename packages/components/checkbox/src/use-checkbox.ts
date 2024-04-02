@@ -81,7 +81,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     children,
     icon,
     name,
-    isRequired = false,
+    isRequired,
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,

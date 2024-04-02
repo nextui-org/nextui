@@ -3,9 +3,10 @@ import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactRef} from "@nextui-org/react-utils";
+import type {CheckboxGroupProps} from "@react-types/checkbox";
 
 import {useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox";
@@ -83,14 +84,13 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     lineThrough = false,
     isDisabled = false,
     disableAnimation = false,
-    validationState,
-    isInvalid = validationState === "invalid",
     isReadOnly,
     isRequired,
     onValueChange,
     description,
     errorMessage,
     className,
+    validationBehavior,
     ...otherProps
   } = props;
 
@@ -98,33 +98,35 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const domRef = useDOMRef(ref);
 
-  const checkboxGroupProps = useMemo(
-    () => ({
+  const checkboxGroupProps = useMemo<CheckboxGroupProps>(() => {
+    return {
+      ...otherProps,
       value,
       name,
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       defaultValue,
       isRequired,
-      isInvalid,
       isReadOnly,
       orientation,
-      onChange: onValueChange,
-      ...otherProps,
-    }),
-    [
-      value,
-      name,
-      label,
-      defaultValue,
-      isRequired,
-      isReadOnly,
-      isInvalid,
-      orientation,
-      onValueChange,
-      otherProps["aria-label"],
-      otherProps,
-    ],
-  );
+      validationBehavior,
+      isInvalid: props.isInvalid || props.validationState === "invalid",
+      onChange: chain(props.onChange, onValueChange),
+    };
+  }, [
+    value,
+    name,
+    label,
+    defaultValue,
+    isRequired,
+    isReadOnly,
+    orientation,
+    onValueChange,
+    validationBehavior,
+    props.isInvalid,
+    props.validationState,
+    otherProps["aria-label"],
+    otherProps,
+  ]);
 
   const groupState = useCheckboxGroupState(checkboxGroupProps);
 
@@ -133,11 +135,20 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     groupProps,
     descriptionProps,
     errorMessageProps,
-    validationDetails,
-    validationErrors,
     isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
   } = useReactAriaCheckboxGroup(checkboxGroupProps, groupState);
 
+  let isInvalid = props.isInvalid || props.validationState === "invalid" || isAriaInvalid;
+
+  // This workaround might become unnecessary once the following issue is resolved
+  // https://github.com/adobe/react-spectrum/issues/5693
+  if (isInvalid) {
+    if (groupState.value.length > 0 && isRequired) {
+      isInvalid = false;
+    }
+  }
   const context = useMemo<ContextType>(
     () => ({
       size,
@@ -223,10 +234,10 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     label,
     context,
     description,
-    isInvalid: isAriaInvalid,
+    isInvalid,
     errorMessage:
       typeof errorMessage === "function"
-        ? errorMessage({isInvalid: isAriaInvalid, validationErrors, validationDetails})
+        ? errorMessage({isInvalid, validationErrors, validationDetails})
         : errorMessage || validationErrors.join(" "),
     getGroupProps,
     getLabelProps,

@@ -199,7 +199,7 @@ describe("Radio", () => {
 });
 
 describe("validation", () => {
-  let user;
+  let user = userEvent.setup();
 
   beforeAll(() => {
     user = userEvent.setup();

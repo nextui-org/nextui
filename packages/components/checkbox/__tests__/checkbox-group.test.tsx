@@ -54,7 +54,7 @@ describe("Checkbox.Group", () => {
       <CheckboxGroup
         defaultValue={["sydney"]}
         label="Select cities"
-        onChange={(val) => act(() => (value = val))}
+        onChange={(val) => act(() => (value = val as string[]))}
       >
         <Checkbox data-testid="first-checkbox" value="sydney">
           Sydney
@@ -131,5 +131,94 @@ describe("Checkbox.Group", () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(checked).toEqual(["sydney", "buenos-aires"]);
+  });
+
+  describe("validation", () => {
+    let user = userEvent.setup();
+
+    beforeAll(() => {
+      user = userEvent.setup();
+    });
+    describe("validationBehavior=native", () => {
+      it("supports group level isRequired", async () => {
+        let {getAllByRole, getByRole, getByTestId} = render(
+          <form data-testid="form">
+            <CheckboxGroup isRequired label="Agree to the following" validationBehavior="native">
+              <Checkbox value="terms">Terms and conditions</Checkbox>
+              <Checkbox value="cookies">Cookies</Checkbox>
+              <Checkbox value="privacy">Privacy policy</Checkbox>
+            </CheckboxGroup>
+          </form>,
+        );
+
+        let group = getByRole("group");
+
+        expect(group).not.toHaveAttribute("aria-describedby");
+
+        let checkboxes = getAllByRole("checkbox") as HTMLInputElement[];
+
+        for (let input of checkboxes) {
+          expect(input).toHaveAttribute("required");
+          expect(input).not.toHaveAttribute("aria-required");
+          expect(input.validity.valid).toBe(false);
+        }
+
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(group).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Constraints not satisfied",
+        );
+
+        await user.click(checkboxes[0]);
+        for (let input of checkboxes) {
+          expect(input).not.toHaveAttribute("required");
+          expect(input).not.toHaveAttribute("aria-required");
+          expect(input.validity.valid).toBe(true);
+        }
+
+        expect(group).not.toHaveAttribute("aria-describedby");
+      });
+    });
+
+    describe("validationBehavior=aria", () => {
+      it("supports group level validate function", async () => {
+        let {getAllByRole, getByRole} = render(
+          <CheckboxGroup
+            label="Agree to the following"
+            validate={(v) => (v.length < 3 ? "You must accept all terms" : null)}
+          >
+            <Checkbox value="terms">Terms and conditions</Checkbox>
+            <Checkbox value="cookies">Cookies</Checkbox>
+            <Checkbox value="privacy">Privacy policy</Checkbox>
+          </CheckboxGroup>,
+        );
+
+        let group = getByRole("group");
+
+        expect(group).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "You must accept all terms",
+        );
+
+        let checkboxes = getAllByRole("checkbox") as HTMLInputElement[];
+
+        for (let input of checkboxes) {
+          expect(input).toHaveAttribute("aria-invalid", "true");
+          expect(input.validity.valid).toBe(true);
+        }
+
+        await user.click(checkboxes[0]);
+        expect(group).toHaveAttribute("aria-describedby");
+
+        await user.click(checkboxes[1]);
+        expect(group).toHaveAttribute("aria-describedby");
+
+        await user.click(checkboxes[2]);
+        expect(group).toHaveAttribute("aria-describedby");
+      });
+    });
   });
 });
