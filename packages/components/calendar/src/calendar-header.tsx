@@ -90,7 +90,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
         e.preventDefault();
         e.stopPropagation();
         // Close the month and year pickers
-        setIsHeaderExpanded(false);
+        setIsHeaderExpanded?.(false);
       }
     },
     [setIsHeaderExpanded],
