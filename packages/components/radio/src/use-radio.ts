@@ -218,10 +218,8 @@ export function useRadio(props: UseRadioProps) {
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ...props,
         ref: inputRef,
-        required: isRequired,
-        ...mergeProps(inputProps, focusProps),
+        ...mergeProps(props, inputProps, focusProps, {required: isRequired}),
         onChange: chain(inputProps.onChange, onChange),
       };
     },

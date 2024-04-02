@@ -45,7 +45,7 @@
     "@react-types/button": "^3.9.0",
     "@react-types/overlays": "^3.8.3",
     "@react-types/select": "^3.8.4",
-    "@react-types/shared": "^3.21.0",
+    "@react-types/shared": "3.21.0",
     "@react-aria/utils": "^3.21.1"
   },
   "peerDependencies": {

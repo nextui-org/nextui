@@ -100,7 +100,7 @@
     "@docusaurus/utils": "2.0.0-beta.3",
     "@next/bundle-analyzer": "^13.4.6",
     "@next/env": "^13.4.12",
-    "@react-types/shared": "^3.19.0",
+    "@react-types/shared": "3.21.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
     "@types/lodash": "^4.14.194",
