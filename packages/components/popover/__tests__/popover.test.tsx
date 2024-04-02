@@ -4,7 +4,15 @@ import {Button} from "@nextui-org/button";
 
 import {Popover, PopoverContent, PopoverTrigger} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Popover", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Popover>
@@ -21,10 +29,6 @@ describe("Popover", () => {
   });
 
   it("should not throw error when clicking trigger button", () => {
-    // e.g. console.error Warning: Function components cannot be given refs.
-    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
-
     const wrapper = render(
       <Popover>
         <PopoverTrigger>
@@ -43,8 +47,6 @@ describe("Popover", () => {
     });
 
     expect(spy).toBeCalledTimes(0);
-
-    spy.mockRestore();
   });
 
   it("ref should be forwarded", () => {

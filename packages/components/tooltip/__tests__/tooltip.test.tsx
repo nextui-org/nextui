@@ -4,7 +4,15 @@ import {Button} from "@nextui-org/button";
 
 import {Tooltip} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Tooltip", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should throw error if no children is passed", () => {
     const spy = jest.spyOn(console, "warn").mockImplementation(() => {});
 
@@ -14,10 +22,6 @@ describe("Tooltip", () => {
   });
 
   it("should render correctly", () => {
-    // e.g. console.error Warning: Function components cannot be given refs.
-    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
-
     const wrapper = render(
       <Tooltip content="tooltip">
         <Button>Trigger</Button>
@@ -27,8 +31,6 @@ describe("Tooltip", () => {
     expect(() => wrapper.unmount()).not.toThrow();
 
     expect(spy).toBeCalledTimes(0);
-
-    spy.mockRestore();
   });
 
   it("ref should be forwarded", () => {

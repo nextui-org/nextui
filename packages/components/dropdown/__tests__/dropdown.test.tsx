@@ -5,7 +5,15 @@ import userEvent from "@testing-library/user-event";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Dropdown", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly (static)", () => {
     const wrapper = render(
       <Dropdown>
@@ -110,11 +118,7 @@ describe("Dropdown", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  // e.g. console.error Warning: Function components cannot be given refs.
-  // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-  it("should not throw any error when clicking button", () => {
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
-
+  it("should not throw any error when clicking button", async () => {
     const wrapper = render(
       <Dropdown>
         <DropdownTrigger>
@@ -135,13 +139,11 @@ describe("Dropdown", () => {
 
     expect(triggerButton).toBeTruthy();
 
-    act(() => {
-      triggerButton.click();
+    await act(async () => {
+      await userEvent.click(triggerButton);
     });
 
     expect(spy).toBeCalledTimes(0);
-
-    spy.mockRestore();
   });
 
   it("should work with single selection (controlled)", async () => {

@@ -13,7 +13,14 @@ import {
 
 window.scrollTo = jest.fn();
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Navbar", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it("should render correctly", () => {
     const wrapper = render(<Navbar />);
 
@@ -56,10 +63,6 @@ describe("Navbar", () => {
   });
 
   it("should not throw error after toggle click", () => {
-    // e.g. console.error Warning: Function components cannot be given refs.
-    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
-
     const items = ["item1", "item2", "item3", "item4", "item5"];
 
     const wrapper = render(
@@ -87,8 +90,6 @@ describe("Navbar", () => {
     });
 
     expect(spy).toBeCalledTimes(0);
-
-    spy.mockRestore();
   });
 
   it("should render correctly with menu", () => {

@@ -29,12 +29,16 @@ let tabs: Item[] = [
   },
 ];
 
-describe("Tabs", () => {
-  it("should render correctly (static)", () => {
-    // e.g. console.error Warning: Function components cannot be given refs.
-    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
+describe("Tabs", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should render correctly (static)", () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test">
         <Tab key="item1" title="Item 1">
@@ -52,8 +56,6 @@ describe("Tabs", () => {
     expect(() => wrapper.unmount()).not.toThrow();
 
     expect(spy).toBeCalledTimes(0);
-
-    spy.mockRestore();
   });
 
   it("should render correctly (dynamic)", () => {
