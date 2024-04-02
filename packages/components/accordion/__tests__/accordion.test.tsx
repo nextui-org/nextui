@@ -7,6 +7,10 @@ import {Accordion, AccordionItem} from "../src";
 
 describe("Accordion", () => {
   it("should render correctly", () => {
+    // e.g. console.error Warning: Function components cannot be given refs.
+    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
     const wrapper = render(
       <Accordion>
         <AccordionItem>Accordion Item</AccordionItem>
@@ -14,6 +18,10 @@ describe("Accordion", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
   });
 
   it("ref should be forwarded", () => {
