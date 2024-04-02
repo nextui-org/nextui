@@ -11,6 +11,8 @@ import {
   NavbarMenuItem,
 } from "../src";
 
+window.scrollTo = jest.fn();
+
 describe("Navbar", () => {
   it("should render correctly", () => {
     const wrapper = render(<Navbar />);
@@ -51,6 +53,42 @@ describe("Navbar", () => {
     const navbarContent = wrapper.getByTestId("navbar-content-test");
 
     expect(navbarContent.children.length).toBe(5);
+  });
+
+  it("should not throw error after toggle click", () => {
+    // e.g. console.error Warning: Function components cannot be given refs.
+    // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    const items = ["item1", "item2", "item3", "item4", "item5"];
+
+    const wrapper = render(
+      <Navbar data-testid="navbar-test">
+        <NavbarMenuToggle data-testid="navbar-toggle-test" />
+        <NavbarContent data-testid="navbar-content-test">
+          <NavbarItem>Dashboard</NavbarItem>
+          <NavbarItem>Team</NavbarItem>
+          <NavbarItem>Deployments</NavbarItem>
+          <NavbarItem>Activity</NavbarItem>
+          <NavbarItem>Settings</NavbarItem>
+        </NavbarContent>
+        <NavbarMenu data-testid="navbar-menu-test">
+          {items.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>{item}</NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>,
+    );
+
+    const toggle = wrapper.getByTestId("navbar-toggle-test");
+
+    act(() => {
+      toggle.click();
+    });
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
   });
 
   it("should render correctly with menu", () => {
