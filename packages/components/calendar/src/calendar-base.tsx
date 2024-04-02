@@ -3,7 +3,7 @@ import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
-import {Fragment, forwardRef} from "react";
+import {Fragment} from "react";
 import {useState} from "react";
 import {useLocale} from "@react-aria/i18n";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -32,21 +32,6 @@ export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   calendarRef: RefObject<HTMLDivElement>;
   errorMessage?: ReactNode;
 }
-
-/**
- * Avoid this framer-motion warning:
- * Function components cannot be given refs.
- * Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
- *
- * @see https://www.framer.com/motion/animate-presence/###mode
- */
-const PopLayoutWrapper = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    return <div ref={ref} {...props} />;
-  },
-);
-
-PopLayoutWrapper.displayName = "NextUI - Calendar PopLayoutWrapper";
 
 export function CalendarBase(props: CalendarBaseProps) {
   const {
@@ -162,11 +147,11 @@ export function CalendarBase(props: CalendarBaseProps) {
       ) : (
         <ResizablePanel>
           <AnimatePresence custom={direction} initial={false} mode="popLayout">
-            <PopLayoutWrapper>
+            <>
               <MotionConfig transition={transition}>
                 <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
               </MotionConfig>
-            </PopLayoutWrapper>
+            </>
           </AnimatePresence>
         </ResizablePanel>
       )}

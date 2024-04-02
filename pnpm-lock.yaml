@@ -1034,6 +1034,9 @@ importers:
         specifier: 3.0.10
         version: 3.0.10
     devDependencies:
+      '@nextui-org/radio':
+        specifier: workspace:*
+        version: link:../radio
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system

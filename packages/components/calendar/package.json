@@ -65,6 +65,7 @@
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/radio": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
     "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",
