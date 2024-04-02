@@ -5,6 +5,10 @@ export type Dimensions = {
   height: number | null;
 };
 
+/**
+ * A custom hook that measures the dimensions of a DOM element.
+ * @returns A tuple containing a ref callback and the dimensions of the measured element.
+ */
 export function useMeasure(): [React.RefCallback<Element>, Dimensions] {
   const [dimensions, setDimensions] = useState<Dimensions>({
     width: null,

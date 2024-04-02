@@ -34,6 +34,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
     classNames,
   } = useCalendarContext();
 
+  // Self-controlled state
   const [state, setState] = useState<CalendarState | RangeCalendarState>(() => stateProp);
 
   /**

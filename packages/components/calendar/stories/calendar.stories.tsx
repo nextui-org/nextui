@@ -2,7 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {calendar} from "@nextui-org/theme";
 import {today, parseDate, getLocalTimeZone, isWeekend} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
+import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button} from "@nextui-org/button";
 
 import {Calendar, CalendarProps, DateValue} from "../src";
@@ -134,6 +134,16 @@ const InvalidDateTemplate = (args: CalendarProps) => {
   );
 };
 
+const InternationalCalendarsTemplate = (args: CalendarProps) => {
+  return (
+    <div className="flex flex-col gap-4">
+      <I18nProvider locale="zh-CN-u-ca-chinese">
+        <Calendar aria-label="Appointment date" {...args} />
+      </I18nProvider>
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -211,5 +221,30 @@ export const WithMonthAndYearPickers = {
   args: {
     ...defaultProps,
     showMonthAndYearPickers: true,
+  },
+};
+
+export const InternationalCalendars = {
+  render: InternationalCalendarsTemplate,
+  args: {
+    ...defaultProps,
+    showMonthAndYearPickers: true,
+  },
+};
+
+export const VisibleMonths = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    visibleMonths: 3,
+  },
+};
+
+export const PageBehavior = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    visibleMonths: 3,
+    pageBehavior: "single",
   },
 };

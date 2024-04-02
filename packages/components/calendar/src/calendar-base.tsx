@@ -1,8 +1,9 @@
-import type {RefObject, HTMLAttributes, ReactNode} from "react";
 import type {AriaButtonProps} from "@react-types/button";
 import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
+import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
+import {Fragment, forwardRef} from "react";
 import {useState} from "react";
 import {useLocale} from "@react-aria/i18n";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -30,6 +31,21 @@ export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   errorMessage?: ReactNode;
 }
 
+/**
+ * Avoid this framer-motion warning:
+ * Function components cannot be given refs.
+ * Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+ *
+ * @see https://www.framer.com/motion/animate-presence/###mode
+ */
+const PopLayoutWrapper = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    return <div ref={ref} {...props} />;
+  },
+);
+
+PopLayoutWrapper.displayName = "NextUI - Calendar PopLayoutWrapper";
+
 export function CalendarBase(props: CalendarBaseProps) {
   const {
     Component = "div",
@@ -55,14 +71,11 @@ export function CalendarBase(props: CalendarBaseProps) {
   const headers = [];
   const calendars = [];
 
-  // TODO: Send this part to a separated component so we can
-  // control the header expanded state separately per calendar
-  // and only show the pickers for the selected calendar
   for (let i = 0; i < visibleMonths; i++) {
     let d = currentMonth.add({months: i});
 
     headers.push(
-      <>
+      <Fragment key={`calendar-header-${i}`}>
         {i === 0 && (
           <Button
             {...prevButtonProps}
@@ -85,13 +98,13 @@ export function CalendarBase(props: CalendarBaseProps) {
             {rtlDirection === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </Button>
         )}
-      </>,
+      </Fragment>,
     );
 
     const calendarMonthContent = (
       <CalendarMonth
         {...props}
-        key={i}
+        key={`calendar-month-${i}`}
         currentMonth={currentMonth.month}
         direction={direction}
         startDate={d}
@@ -100,10 +113,10 @@ export function CalendarBase(props: CalendarBaseProps) {
 
     calendars.push(
       showMonthAndYearPickers ? (
-        <>
+        <Fragment key={`calendar-month-with-pickers-${i}`}>
           {calendarMonthContent}
           <CalendarPicker currentMonth={currentMonth} date={d} />
-        </>
+        </Fragment>
       ) : (
         calendarMonthContent
       ),
@@ -113,12 +126,14 @@ export function CalendarBase(props: CalendarBaseProps) {
   const calendarContent = (
     <>
       <div
+        key="header-wrapper"
         className={slots?.headerWrapper({class: classNames?.headerWrapper})}
         data-slot="header-wrapper"
       >
         {headers}
       </div>
       <div
+        key="grid-wrapper"
         className={slots?.gridWrapper({class: classNames?.gridWrapper})}
         data-slot="grid-wrapper"
       >
@@ -142,9 +157,11 @@ export function CalendarBase(props: CalendarBaseProps) {
       ) : (
         <ResizablePanel>
           <AnimatePresence custom={direction} initial={false} mode="popLayout">
-            <MotionConfig transition={transition}>
-              <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
-            </MotionConfig>
+            <PopLayoutWrapper>
+              <MotionConfig transition={transition}>
+                <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
+              </MotionConfig>
+            </PopLayoutWrapper>
           </AnimatePresence>
         </ResizablePanel>
       )}
@@ -169,7 +186,7 @@ export function CalendarBase(props: CalendarBaseProps) {
             className={slots?.errorMessage({class: classNames?.errorMessage})}
             data-slot="error-message"
           >
-            {errorMessage || "The date you selected is invalid. Please select a valid date."}
+            {errorMessage || "Selected date unavailable."}
           </span>
         </div>
       )}

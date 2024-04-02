@@ -979,9 +979,6 @@ importers:
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
-      '@nextui-org/listbox':
-        specifier: workspace:*
-        version: link:../listbox
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1040,6 +1037,9 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme

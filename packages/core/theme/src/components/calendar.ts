@@ -21,7 +21,7 @@ const calendar = tv({
     ],
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
-    gridWrapper: "pb-2 h-auto relative",
+    gridWrapper: "flex max-w-full overflow-auto pb-2 h-auto relative",
     grid: "",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "text-default-400",

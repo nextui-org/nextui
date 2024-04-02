@@ -18,7 +18,7 @@ import {useLocale} from "@react-aria/i18n";
 import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
 import {useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
-import {clsx, objectToDeps} from "@nextui-org/shared-utils";
+import {clamp, clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useProviderContext} from "@nextui-org/system";
 
@@ -172,7 +172,7 @@ export function useCalendar<T extends DateValue>(originalProps: UseCalendarProps
   } = props;
 
   const Component = as || "div";
-  const visibleMonths = Math.max(visibleMonthsProp, 1);
+  const visibleMonths = clamp(visibleMonthsProp, 1, 3);
 
   const headerRef = useRef<HTMLElement>(null);
 
