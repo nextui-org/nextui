@@ -2,6 +2,7 @@ import * as React from "react";
 import {act, render} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
+import {User} from "@nextui-org/user";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
 
@@ -415,5 +416,49 @@ describe("Dropdown", () => {
     });
 
     expect(onSelectionChange).toBeCalledTimes(0);
+  });
+
+  it("should render without error (custom trigger + isDisabled)", async () => {
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <div>Trigger</div>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <User as="button" description="@tonyreichert" name="Tony Reichert" />
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
   });
 });
