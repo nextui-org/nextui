@@ -7,7 +7,7 @@ export default function App() {
       <RadioGroup
         className="mb-4"
         value={position}
-        label="Tab Position"
+        label="Placement"
         orientation="horizontal"
         onValueChange={(value) => setPosition(value)}
       >
@@ -17,7 +17,7 @@ export default function App() {
         <Radio value="end">end</Radio>
       </RadioGroup>
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" tabPosition={position}>
+        <Tabs aria-label="Options" placement={position}>
           <Tab key="photos" title="Photos">
             <Card>
               <CardBody>

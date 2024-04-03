@@ -2,4 +2,4 @@
 "@nextui-org/tabs": patch
 ---
 
-Add tabPosition and isVertical prop
+Add placement and isVertical prop

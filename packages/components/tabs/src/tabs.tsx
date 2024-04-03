@@ -50,7 +50,7 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
     </>
   );
 
-  if ("tabPosition" in props || "isVertical" in props) {
+  if ("placement" in props || "isVertical" in props) {
     return <div {...getWrapperProps()}>{renderTabs}</div>;
   }
 

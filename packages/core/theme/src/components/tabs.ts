@@ -160,7 +160,7 @@ const tabs = tv({
         tabContent: "transition-none",
       },
     },
-    tabPosition: {
+    placement: {
       top: {},
       start: {
         tabList: "flex-col",

@@ -73,15 +73,15 @@ You can use the `onSelectionChange` and `selectedKey` props to control the selec
 
 <CodeDemo title="Controlled" files={tabsContent.controlled} />
 
-### Tab Position
+### Placement
 
-You can change the position of the tabs by using the `tabPosition` prop. The default value is `top`.
+You can change the position of the tabs by using the `placement` prop. The default value is `top`.
 
-<CodeDemo title="Tab Position" files={tabsContent.tabPosition} />
+<CodeDemo title="Placement" files={tabsContent.placement} />
 
 ### Vertical
 
-Change the orientation of the tabs it will invalidate the tabPosition prop when the value is true.
+Change the orientation of the tabs it will invalidate the placement prop when the value is true.
 
 <CodeDemo title="Vertical" files={tabsContent.vertical} />
 
@@ -250,7 +250,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 | isDisabled             | `boolean`                                                                                              | Whether the tab list should be disabled.                                                                     | `false`     |
 | disableAnimation       | `boolean`                                                                                              | Whether the tab list should be animated.                                                                     | `false`     |
 | classNames             | `Record<"base"｜ "tabList"｜ "tab"｜ "tabContent"｜ "cursor" ｜ "panel", string>`                      | Allows to set custom class names for the card slots.                                                         | -           |
-| tabPosition            | `top` \| `bottom` \| `start` \| `end`                                                                  | The position of the tabs.                                                                                    | `top`       |
+| placement            | `top` \| `bottom` \| `start` \| `end`                                                                  | The position of the tabs.                                                                                    | `top`       |
 | isVertical             | `boolean`                                                                                              | Whether the tabs are vertical.                                                                               | `false`     |
 
 ### Tabs Events

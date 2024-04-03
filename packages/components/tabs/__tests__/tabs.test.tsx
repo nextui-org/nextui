@@ -29,9 +29,9 @@ let tabs: Item[] = [
   },
 ];
 
-function getPositionTemplate(position: TabsProps["tabPosition"]) {
+function getPlacementTemplate(position: TabsProps["placement"]) {
   return (
-    <Tabs aria-label="Tabs static test" data-testid="tabWrapper" tabPosition={position}>
+    <Tabs aria-label="Tabs static test" data-testid="tabWrapper" placement={position}>
       <Tab key="item1" title="Item 1">
         <div>Content 1</div>
       </Tab>
@@ -254,30 +254,30 @@ describe("Tabs", () => {
   });
 
   it("should change the position of the tabs", () => {
-    const wrapper = render(getPositionTemplate("top"));
+    const wrapper = render(getPlacementTemplate("top"));
 
     const tabWrapper = wrapper.getByTestId("tabWrapper").parentNode;
 
-    expect(tabWrapper).toHaveAttribute("data-position", "top");
-    expect(tabWrapper).toHaveAttribute("data-orientation", "horizontal");
+    expect(tabWrapper).toHaveAttribute("data-placement", "top");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
 
     // Test bottom position
-    wrapper.rerender(getPositionTemplate("bottom"));
+    wrapper.rerender(getPlacementTemplate("bottom"));
 
-    expect(tabWrapper).toHaveAttribute("data-position", "bottom");
-    expect(tabWrapper).toHaveAttribute("data-orientation", "horizontal");
+    expect(tabWrapper).toHaveAttribute("data-placement", "bottom");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
 
     // Test start position
-    wrapper.rerender(getPositionTemplate("start"));
+    wrapper.rerender(getPlacementTemplate("start"));
 
-    expect(tabWrapper).toHaveAttribute("data-position", "start");
-    expect(tabWrapper).toHaveAttribute("data-orientation", "vertical");
+    expect(tabWrapper).toHaveAttribute("data-placement", "start");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "vertical");
 
     // Test end position
-    wrapper.rerender(getPositionTemplate("end"));
+    wrapper.rerender(getPlacementTemplate("end"));
 
-    expect(tabWrapper).toHaveAttribute("data-position", "end");
-    expect(tabWrapper).toHaveAttribute("data-orientation", "vertical");
+    expect(tabWrapper).toHaveAttribute("data-placement", "end");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "vertical");
   });
 
   it("should change the orientation of the tabs", () => {
@@ -297,8 +297,8 @@ describe("Tabs", () => {
 
     const tabWrapper = wrapper.getByTestId("tabWrapper").parentNode;
 
-    expect(tabWrapper).toHaveAttribute("data-position", "start");
-    expect(tabWrapper).toHaveAttribute("data-orientation", "vertical");
+    expect(tabWrapper).toHaveAttribute("data-placement", "start");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "vertical");
 
     // Test horizontal orientation
     wrapper.rerender(
@@ -315,7 +315,7 @@ describe("Tabs", () => {
       </Tabs>,
     );
 
-    expect(tabWrapper).toHaveAttribute("data-position", "top");
-    expect(tabWrapper).toHaveAttribute("data-orientation", "horizontal");
+    expect(tabWrapper).toHaveAttribute("data-placement", "top");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
   });
 });

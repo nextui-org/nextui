@@ -316,14 +316,14 @@ export const ManualKeyboardActivation = {
   },
 };
 
-export const TabPosition = {
+export const Placement = {
   render: StaticTemplate,
 
   args: {
-    tabPosition: "top",
+    placement: "top",
   },
   argTypes: {
-    tabPosition: {
+    placement: {
       options: ["top", "bottom", "start", "end"],
       control: {
         type: "inline-radio",
