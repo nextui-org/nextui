@@ -29,7 +29,7 @@ export function useMultiSelectListState<T extends object>(
     if (selectedKeys.size !== 0) {
       return Array.from(selectedKeys)
         .filter(Boolean)
-        .filter((key) => !collection.getItem(key));
+        .filter((key) => !collection.getItem(`${key}`));
     }
 
     return [];
@@ -39,7 +39,7 @@ export function useMultiSelectListState<T extends object>(
     selectedKeys.size !== 0
       ? Array.from(selectedKeys)
           .map((key) => {
-            return collection.getItem(key);
+            return collection.getItem(`${key}`);
           })
           // Remove undefined values when some keys are not present in the collection
           .filter(Boolean)

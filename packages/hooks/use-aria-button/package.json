@@ -42,7 +42,7 @@
     "@react-aria/focus": "^3.14.3",
     "@react-aria/interactions": "^3.19.1",
     "@react-types/button": "^3.9.0",
-    "@react-types/shared": "^3.21.0"
+    "@react-types/shared": "3.21.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

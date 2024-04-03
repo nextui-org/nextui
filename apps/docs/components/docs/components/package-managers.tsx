@@ -4,9 +4,9 @@ import {useLocalStorage} from "usehooks-ts";
 
 import Codeblock from "./codeblock";
 
-import {YarnIcon, NpmSmallIcon, PnpmIcon} from "@/components/icons";
+import {YarnIcon, NpmSmallIcon, PnpmIcon, BunIcon} from "@/components/icons";
 
-type PackageManagerName = "npm" | "yarn" | "pnpm";
+type PackageManagerName = "npm" | "yarn" | "pnpm" | "bun";
 
 type PackageManager = {
   icon: JSX.Element;
@@ -25,6 +25,10 @@ const packageManagers: PackageManager[] = [
   {
     name: "pnpm",
     icon: <PnpmIcon className="text-[#F69220]" />,
+  },
+  {
+    name: "bun",
+    icon: <BunIcon className="text-[#FBF0DF]" />,
   },
 ];
 
