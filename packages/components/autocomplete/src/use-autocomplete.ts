@@ -155,6 +155,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     className,
     classNames,
     errorMessage,
+    validationBehavior = "native",
     onOpenChange,
     onClose,
     isReadOnly = false,
@@ -168,6 +169,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
+    validationBehavior,
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -203,7 +205,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     validationErrors,
   } = useComboBox(
     {
-      validationBehavior: originalProps.validationBehavior ?? "native",
+      validationBehavior,
       ...originalProps,
       inputRef,
       buttonRef,
