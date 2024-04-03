@@ -209,8 +209,8 @@ export function useCalendarPicker(props: CalendarPickerProps) {
           nextValue = value + 3;
           break;
         case "Escape":
-          setIsHeaderExpanded(false);
-          headerRef.current?.focus();
+          setIsHeaderExpanded?.(false);
+          headerRef?.current?.focus();
 
           return;
       }
