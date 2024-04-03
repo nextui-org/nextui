@@ -2676,6 +2676,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../../components/button
+      '@nextui-org/calendar':
+        specifier: workspace:*
+        version: link:../../components/calendar
       '@nextui-org/card':
         specifier: workspace:*
         version: link:../../components/card
@@ -2694,6 +2697,9 @@ importers:
       '@nextui-org/dropdown':
         specifier: workspace:*
         version: link:../../components/dropdown
+      '@nextui-org/framer-utils':
+        specifier: workspace:*
+        version: link:../../utilities/framer-utils
       '@nextui-org/image':
         specifier: workspace:*
         version: link:../../components/image
@@ -3204,6 +3210,19 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-intersection-observer:
+    dependencies:
+      '@react-aria/interactions':
+        specifier: ^3.19.1
+        version: 3.21.1(react@18.2.0)
+      '@react-aria/ssr':
+        specifier: ^3.8.0
+        version: 3.9.2(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.21.1
+        version: 3.23.2(react@18.2.0)
+      '@react-types/shared':
+        specifier: 3.21.0
+        version: 3.21.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
