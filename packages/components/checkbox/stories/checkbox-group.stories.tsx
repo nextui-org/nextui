@@ -85,7 +85,7 @@ const InvalidTemplate = (args: CheckboxGroupProps) => {
   );
 };
 
-const RequiredTemplate = (args: CheckboxGroupProps) => {
+const FormTemplate = (args: CheckboxGroupProps) => {
   return (
     <form
       className="flex flex-col items-start gap-4"
@@ -97,7 +97,7 @@ const RequiredTemplate = (args: CheckboxGroupProps) => {
         e.preventDefault();
       }}
     >
-      <CheckboxGroup {...args} isRequired label="Select cities" name="favorite-country">
+      <CheckboxGroup {...args} label="Select cities" name="favorite-country">
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="san-francisco">San Francisco</Checkbox>
@@ -200,7 +200,7 @@ export const DisableAnimation = {
 };
 
 export const IsRequired = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,

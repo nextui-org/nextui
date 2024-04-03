@@ -70,7 +70,7 @@ const ControlledTemplate = (args: CheckboxProps) => {
   );
 };
 
-const RequiredTemplate = (args: CheckboxProps) => {
+const FormTemplate = (args: CheckboxProps) => {
   return (
     <form
       className="flex flex-col items-start gap-4"
@@ -79,7 +79,7 @@ const RequiredTemplate = (args: CheckboxProps) => {
         e.preventDefault();
       }}
     >
-      <Checkbox isRequired name="check" value="checked" {...args}>
+      <Checkbox name="check" value="checked" {...args}>
         Check
       </Checkbox>
       <button className={button({color: "primary"})} type="submit">
@@ -161,9 +161,10 @@ export const Controlled = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
+    isRequired: true,
   },
 };

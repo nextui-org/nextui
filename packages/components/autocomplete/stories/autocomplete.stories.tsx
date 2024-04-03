@@ -125,7 +125,7 @@ const DynamicTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) =
   </Autocomplete>
 );
 
-const RequiredTemplate = ({color, variant, ...args}: AutocompleteProps) => {
+const FormTemplate = ({color, variant, ...args}: AutocompleteProps) => {
   return (
     <form
       className="w-full max-w-xs items-start flex flex-col gap-4"
@@ -135,7 +135,6 @@ const RequiredTemplate = ({color, variant, ...args}: AutocompleteProps) => {
       }}
     >
       <Autocomplete
-        isRequired
         color={color}
         label="Favorite Animal"
         name="favorite-animal"
@@ -658,10 +657,11 @@ export const Default = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
+    isRequired: true,
   },
 };
 

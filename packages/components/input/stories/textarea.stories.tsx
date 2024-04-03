@@ -100,7 +100,7 @@ const MaxRowsTemplate = (args: TextAreaProps) => (
   </div>
 );
 
-const RequiredTemplate = (args: TextAreaProps) => (
+const FormTemplate = (args: TextAreaProps) => (
   <form
     className="w-full max-w-xl flex flex-row items-end gap-4"
     onSubmit={(e) => {
@@ -144,7 +144,7 @@ export const FullRounded = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,

@@ -255,7 +255,7 @@ const ControlledMultipleTemplate = ({color, variant, ...args}: SelectProps<Anima
   );
 };
 
-const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
+const FormTemplate = ({color, variant, ...args}: SelectProps) => {
   return (
     <form
       className="w-full max-w-xs items-end flex flex-col gap-4"
@@ -265,7 +265,6 @@ const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
       }}
     >
       <Select
-        isRequired
         color={color}
         label="Favorite Animal"
         name="favorite-animal"
@@ -608,10 +607,11 @@ export const Multiple = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
+    isRequired: true,
   },
 };
 
