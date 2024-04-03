@@ -104,7 +104,7 @@ const UnavailableDatesTemplate = (args: CalendarProps) => {
 
 const ControlledFocusedValueTemplate = (args: CalendarProps) => {
   let defaultDate = today(getLocalTimeZone());
-  let [focusedDate, setFocusedDate] = React.useState(defaultDate);
+  let [focusedDate, setFocusedDate] = React.useState<DateValue>(defaultDate);
 
   return (
     <div className="flex flex-col gap-4">
