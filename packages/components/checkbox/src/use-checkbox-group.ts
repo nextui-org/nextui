@@ -47,7 +47,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   onValueChange?: AriaCheckboxGroupProps["onChange"];
 }
 
-export type UseCheckboxGroupProps = Props &
+export type UseCheckboxGroupProps = Omit<Props, "onChange"> &
   AriaCheckboxGroupProps &
   Partial<
     Pick<

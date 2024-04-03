@@ -1,10 +1,10 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {cloneElement, isValidElement, ReactNode, useMemo} from "react";
+import {cloneElement, isValidElement, ReactNode, useMemo, useCallback, ReactElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {RemoveScroll} from "react-remove-scroll";
 import {domAnimation, LazyMotion, m} from "framer-motion";
@@ -90,27 +90,40 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
+  const RemoveScrollWrapper = useCallback(
+    ({children}: {children: ReactElement}) => {
+      return (
+        <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+          {children}
+        </RemoveScroll>
+      );
+    },
+    [shouldBlockScroll, isOpen],
+  );
+
+  const contents = disableAnimation ? (
+    <RemoveScrollWrapper>
+      <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
+    </RemoveScrollWrapper>
+  ) : (
+    <LazyMotion features={domAnimation}>
+      <m.div
+        animate="enter"
+        className={slots.wrapper({class: classNames?.wrapper})}
+        exit="exit"
+        initial="exit"
+        variants={scaleInOut}
+        {...motionProps}
+      >
+        <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
+      </m.div>
+    </LazyMotion>
+  );
+
   return (
     <div tabIndex={-1}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-        {disableAnimation ? (
-          <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
-        ) : (
-          <LazyMotion features={domAnimation}>
-            <m.div
-              animate="enter"
-              className={slots.wrapper({class: classNames?.wrapper})}
-              exit="exit"
-              initial="exit"
-              variants={scaleInOut}
-              {...motionProps}
-            >
-              {content}
-            </m.div>
-          </LazyMotion>
-        )}
-      </RemoveScroll>
+      {contents}
     </div>
   );
 });

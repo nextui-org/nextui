@@ -13,7 +13,7 @@ import {forwardRef} from "@nextui-org/system";
 import {domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 
 import {usePopover, UsePopoverProps, UsePopoverReturn} from "./use-popover";
 
@@ -74,8 +74,6 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => 
     getContentProps,
   } = usePopover({
     ...props,
-    // avoid closing the popover when navigating with the keyboard
-    shouldCloseOnInteractOutside: () => false,
     ref,
   });
 

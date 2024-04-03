@@ -3,7 +3,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {spinner} from "@nextui-org/theme";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, Ref} from "react";
 
 interface Props extends HTMLNextUIProps<"div"> {
@@ -40,7 +40,7 @@ export function useSpinner(originalProps: UseSpinnerProps) {
 
   const {children, className, classNames, label: labelProp, ...otherProps} = props;
 
-  const slots = useMemo(() => spinner({...variantProps}), [...Object.values(variantProps)]);
+  const slots = useMemo(() => spinner({...variantProps}), [objectToDeps(variantProps)]);
 
   const baseStyles = clsx(classNames?.base, className);
 

@@ -51,7 +51,7 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/use-aria-accordion": "workspace:*",
     "@react-aria/interactions": "^3.21.1",

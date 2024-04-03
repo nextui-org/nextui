@@ -43,7 +43,7 @@
   "dependencies": {
     "@nextui-org/use-disclosure": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/framer-transitions": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
