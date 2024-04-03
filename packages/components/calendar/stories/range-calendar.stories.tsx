@@ -186,8 +186,11 @@ const PresetsTemplate = (args: RangeCalendarProps) => {
   let now = today(getLocalTimeZone());
   let nextMonth = now.add({months: 1});
 
+  let nextWeek = {
+    start: startOfWeek(now.add({weeks: 1}), locale),
+    end: endOfWeek(now.add({weeks: 1}), locale),
+  };
   let thisMonth = {start: startOfMonth(now), end: endOfMonth(now)};
-  let thisWeek = {start: startOfWeek(now, locale), end: endOfWeek(now, locale)};
   let nextMonthValue = {start: startOfMonth(nextMonth), end: endOfMonth(nextMonth)};
 
   const CustomRadio = (props) => {
@@ -248,8 +251,22 @@ const PresetsTemplate = (args: RangeCalendarProps) => {
             size="sm"
             variant="bordered"
           >
-            <Button onPress={() => setValue(thisWeek)}>This week</Button>
-            <Button onPress={() => setValue(thisMonth)}>This month</Button>
+            <Button
+              onPress={() => {
+                setValue(nextWeek);
+                setFocusedValue(nextWeek.end);
+              }}
+            >
+              Next week
+            </Button>
+            <Button
+              onPress={() => {
+                setValue(thisMonth);
+                setFocusedValue(thisMonth.start);
+              }}
+            >
+              This month
+            </Button>
             <Button
               onPress={() => {
                 setValue(nextMonthValue), setFocusedValue(nextMonthValue.start);

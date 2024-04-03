@@ -117,14 +117,31 @@ interface Props extends NextUIBaseProps {
    *
    * @example
    * ```ts
-   * <Calendar classNames={{
-   *    base:"base-classes",
-   *    // TODO: Add the rest of the classes
-   * }} />
    *
-   *  <RangeCalendar classNames={{
+   * Component: Calendar, RangeCalendar
+   *
+   * <Component classNames={{
    *    base:"base-classes",
-   *    // TODO: Add the rest of the classes
+   *    nextButton:"next-button-classes",
+   *    prevButton:"prev-button-classes",
+   *    header:"header-classes",
+   *    title:"title-classes",
+   *    gridWrapper:"grid-wrapper-classes",
+   *    grid:"grid-classes",
+   *    gridHeader:"grid-header-classes",
+   *    gridHeaderRow:"grid-header-row-classes",
+   *    gridHeaderCell:"grid-header-cell-classes",
+   *    gridBody:"grid-body-classes",
+   *    gridBodyRow:"grid-row-classes",
+   *    cell:"grid-cell-classes",
+   *    cellButton:"grid-cell-button-classes",
+   *    pickerWrapper:"picker-wrapper-classes",
+   *    pickerMonthList:"picker-month-list-classes",
+   *    pickerYearList:"picker-year-list-classes",
+   *    pickerHighlight:"picker-highlight-classes",
+   *    pickerItem:"picker-item-classes",
+   *    helperWrapper:"helper-wrapper-classes",
+   *    errorMessage:"error-message-classes",
    * }} />
    * ```
    */
@@ -214,6 +231,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
       calendar({
         ...variantProps,
         showMonthAndYearPickers,
+        isRange: !!originalProps.isRange,
         isHeaderWrapperExpanded: isHeaderExpanded,
         className,
       }),

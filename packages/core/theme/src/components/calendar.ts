@@ -22,13 +22,13 @@ const calendar = tv({
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
     gridWrapper: "flex max-w-full overflow-auto pb-2 h-auto relative",
-    grid: "w-full z-0",
+    grid: "w-full border-collapse z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
-    gridHeaderRow: "text-default-400",
-    gridHeaderCell: "font-medium text-small pb-2 first:ps-4 last:pe-4",
+    gridHeaderRow: "px-4 pb-2 flex justify-center text-default-400",
+    gridHeaderCell: "flex w-8 justify-center items-center font-medium text-small",
     gridBody: "",
-    gridBodyRow: "[&>td]:first:pt-2",
-    cell: "py-0.5 px-0 first:ps-4 last:pe-4",
+    gridBodyRow: "flex mt-2 justify-center items-center first:mt-2",
+    cell: "py-0.5 px-0",
     cellButton: [
       "w-8 h-8 flex items-center text-foreground justify-center rounded-full",
       "box-border appearance-none select-none whitespace-nowrap font-normal",
@@ -58,79 +58,12 @@ const calendar = tv({
   },
   variants: {
     color: {
-      foreground: {
-        cellButton: [
-          "data-[hover=true]:bg-default-200",
-          "data-[selected=true]:bg-foreground",
-          "data-[selected=true]:text-background",
-          "data-[hover=true]:bg-foreground-200",
-          "data-[hover=true]:text-foreground-600",
-          "data-[selected=true]:data-[hover=true]:bg-foreground",
-          "data-[selected=true]:data-[hover=true]:text-background",
-        ],
-      },
-      primary: {
-        cellButton: [
-          "data-[selected=true]:bg-primary",
-          "data-[selected=true]:text-primary-foreground",
-          "data-[hover=true]:bg-primary-50",
-          "data-[hover=true]:text-primary-400",
-          "data-[selected=true]:data-[hover=true]:bg-primary",
-          "data-[selected=true]:data-[hover=true]:text-primary-foreground",
-        ],
-      },
-      secondary: {
-        cellButton: [
-          "data-[selected=true]:bg-secondary",
-          "data-[selected=true]:text-secondary-foreground",
-          "data-[hover=true]:bg-secondary-50",
-          "data-[hover=true]:text-secondary-400",
-          "data-[selected=true]:data-[hover=true]:bg-secondary",
-          "data-[selected=true]:data-[hover=true]:text-secondary-foreground",
-        ],
-      },
-      success: {
-        cellButton: [
-          "data-[selected=true]:bg-success",
-          "data-[selected=true]:text-success-foreground",
-          "data-[hover=true]:bg-success-100",
-          "data-[hover=true]:text-success-600",
-          "dark:data-[hover=true]:bg-success-50",
-          "dark:data-[hover=true]:text-success-500",
-          "data-[selected=true]:data-[hover=true]:bg-success",
-          "dark:data-[selected=true]:data-[hover=true]:bg-success",
-          "dark:data-[selected=true]:data-[hover=true]:text-success-foreground",
-          "data-[selected=true]:data-[hover=true]:text-success-foreground",
-        ],
-      },
-      warning: {
-        cellButton: [
-          "data-[selected=true]:bg-warning",
-          "data-[selected=true]:text-warning-foreground",
-          "data-[hover=true]:bg-warning-100",
-          "data-[hover=true]:text-warning-600",
-          "dark:data-[hover=true]:bg-warning-50",
-          "dark:data-[hover=true]:text-warning-500",
-          "data-[selected=true]:data-[hover=true]:bg-warning",
-          "dark:data-[selected=true]:data-[hover=true]:bg-warning",
-          "dark:data-[selected=true]:data-[hover=true]:text-warning-foreground",
-          "data-[selected=true]:data-[hover=true]:text-warning-foreground",
-        ],
-      },
-      danger: {
-        cellButton: [
-          "data-[selected=true]:bg-danger",
-          "data-[selected=true]:text-danger-foreground",
-          "data-[hover=true]:bg-danger-100",
-          "data-[hover=true]:text-danger-500",
-          "dark:data-[hover=true]:bg-danger-50",
-          "dark:data-[hover=true]:text-danger-500",
-          "data-[selected=true]:data-[hover=true]:bg-danger",
-          "dark:data-[selected=true]:data-[hover=true]:bg-danger",
-          "dark:data-[selected=true]:data-[hover=true]:text-danger-foreground",
-          "data-[selected=true]:data-[hover=true]:text-danger-foreground",
-        ],
-      },
+      foreground: {},
+      primary: {},
+      secondary: {},
+      success: {},
+      warning: {},
+      danger: {},
     },
     // @internal
     isRange: {
@@ -145,11 +78,11 @@ const calendar = tv({
 
           // hide before pseudo element when the selected cell is outside the month
           "data-[outside-month=true]:before:hidden",
-          "data-[selected=true]:data-[outside-month=true]:bg-transparent",
-          "data-[selected=true]:data-[outside-month=true]:text-default-300",
+          "data-[selected=true]:data-[range-selection=true]:data-[outside-month=true]:bg-transparent",
+          "data-[selected=true]:data-[range-selection=true]:data-[outside-month=true]:text-default-300",
 
           // middle
-          "data-[selected=true]:data-[range-selection=true]:bg-transparent",
+          // "data-[selected=true]:data-[range-selection=true]:bg-transparent",
 
           // start (pseudo)
           "data-[range-start=true]:before:rounded-l-full",
@@ -221,7 +154,105 @@ const calendar = tv({
     disableAnimation: false,
   },
   compoundVariants: [
-    // isRange & colors
+    // !isRange & colors --> Calendar
+    {
+      isRange: false,
+      color: "foreground",
+      class: {
+        cellButton: [
+          "data-[hover=true]:bg-default-200",
+          "data-[selected=true]:bg-foreground",
+          "data-[selected=true]:text-background",
+          "data-[hover=true]:bg-foreground-200",
+          "data-[hover=true]:text-foreground-600",
+          "data-[selected=true]:data-[hover=true]:bg-foreground",
+          "data-[selected=true]:data-[hover=true]:text-background",
+        ],
+      },
+    },
+    {
+      isRange: false,
+      color: "primary",
+      class: {
+        cellButton: [
+          "data-[selected=true]:bg-primary",
+          "data-[selected=true]:text-primary-foreground",
+          "data-[hover=true]:bg-primary-50",
+          "data-[hover=true]:text-primary-400",
+          "data-[selected=true]:data-[hover=true]:bg-primary",
+          "data-[selected=true]:data-[hover=true]:text-primary-foreground",
+        ],
+      },
+    },
+    {
+      isRange: false,
+      color: "secondary",
+      class: {
+        cellButton: [
+          "data-[selected=true]:bg-secondary",
+          "data-[selected=true]:text-secondary-foreground",
+          "data-[hover=true]:bg-secondary-50",
+          "data-[hover=true]:text-secondary-400",
+          "data-[selected=true]:data-[hover=true]:bg-secondary",
+          "data-[selected=true]:data-[hover=true]:text-secondary-foreground",
+        ],
+      },
+    },
+    {
+      isRange: false,
+      color: "success",
+      class: {
+        cellButton: [
+          "data-[selected=true]:bg-success",
+          "data-[selected=true]:text-success-foreground",
+          "data-[hover=true]:bg-success-100",
+          "data-[hover=true]:text-success-600",
+          "dark:data-[hover=true]:bg-success-50",
+          "dark:data-[hover=true]:text-success-500",
+          "data-[selected=true]:data-[hover=true]:bg-success",
+          "dark:data-[selected=true]:data-[hover=true]:bg-success",
+          "dark:data-[selected=true]:data-[hover=true]:text-success-foreground",
+          "data-[selected=true]:data-[hover=true]:text-success-foreground",
+        ],
+      },
+    },
+    {
+      isRange: false,
+      color: "warning",
+      class: {
+        cellButton: [
+          "data-[selected=true]:bg-warning",
+          "data-[selected=true]:text-warning-foreground",
+          "data-[hover=true]:bg-warning-100",
+          "data-[hover=true]:text-warning-600",
+          "dark:data-[hover=true]:bg-warning-50",
+          "dark:data-[hover=true]:text-warning-500",
+          "data-[selected=true]:data-[hover=true]:bg-warning",
+          "dark:data-[selected=true]:data-[hover=true]:bg-warning",
+          "dark:data-[selected=true]:data-[hover=true]:text-warning-foreground",
+          "data-[selected=true]:data-[hover=true]:text-warning-foreground",
+        ],
+      },
+    },
+    {
+      isRange: false,
+      color: "danger",
+      class: {
+        cellButton: [
+          "data-[selected=true]:bg-danger",
+          "data-[selected=true]:text-danger-foreground",
+          "data-[hover=true]:bg-danger-100",
+          "data-[hover=true]:text-danger-500",
+          "dark:data-[hover=true]:bg-danger-50",
+          "dark:data-[hover=true]:text-danger-500",
+          "data-[selected=true]:data-[hover=true]:bg-danger",
+          "dark:data-[selected=true]:data-[hover=true]:bg-danger",
+          "dark:data-[selected=true]:data-[hover=true]:text-danger-foreground",
+          "data-[selected=true]:data-[hover=true]:text-danger-foreground",
+        ],
+      },
+    },
+    // isRange & colors --> RangeCalendar
     {
       isRange: true,
       color: "foreground",
