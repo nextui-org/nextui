@@ -1,14 +1,14 @@
 const App = `import {Tabs, Tab, Card, CardBody, Switch} from "@nextui-org/react";
 
 export default function App() {
-  const [vertical, setVertical] = React.useState(true);
+  const [isVertical, setIsVertical] = React.useState(true);
   return (
     <div className="flex flex-col px-4">
-      <Switch className="mb-4" isSelected={vertical} onValueChange={setVertical}>
+      <Switch className="mb-4" isSelected={isVertical} onValueChange={setIsVertical}>
         Vertical
       </Switch>
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" isVertical={vertical}>
+        <Tabs aria-label="Options" isVertical={isVertical}>
           <Tab key="photos" title="Photos">
             <Card>
               <CardBody>

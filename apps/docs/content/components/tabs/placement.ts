@@ -1,15 +1,15 @@
 const App = `import {Tabs, Tab, Card, CardBody, RadioGroup, Radio} from "@nextui-org/react";
 
 export default function App() {
-  const [position, setPosition] = React.useState("top");
+  const [placement, setPlacement] = React.useState("top");
   return (
     <div className="flex flex-col px-4">
       <RadioGroup
         className="mb-4"
-        value={position}
         label="Placement"
-        orientation="horizontal"
-        onValueChange={(value) => setPosition(value)}
+        orientation="top"
+        value={placement}
+        onValueChange={(value) => setPlacement(value)}
       >
         <Radio value="top">top</Radio>
         <Radio value="bottom">bottom</Radio>
@@ -17,7 +17,7 @@ export default function App() {
         <Radio value="end">end</Radio>
       </RadioGroup>
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" placement={position}>
+        <Tabs aria-label="Options" placement={placement}>
           <Tab key="photos" title="Photos">
             <Card>
               <CardBody>
