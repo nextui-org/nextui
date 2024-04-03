@@ -56,6 +56,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     );
   }, [
     hasHelper,
+    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,

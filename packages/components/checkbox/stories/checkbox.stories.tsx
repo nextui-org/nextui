@@ -2,6 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 import {CloseIcon} from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
 
 import {Checkbox, CheckboxIconProps, CheckboxProps} from "../src";
 
@@ -37,6 +38,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
 } as Meta<typeof Checkbox>;
 
@@ -60,6 +67,25 @@ const ControlledTemplate = (args: CheckboxProps) => {
       </Checkbox>
       <p className="text-default-500">Selected: {selected ? "true" : "false"}</p>
     </div>
+  );
+};
+
+const RequiredTemplate = (args: CheckboxProps) => {
+  return (
+    <form
+      className="flex flex-col items-start gap-4"
+      onSubmit={(e) => {
+        alert(`Submitted value: ${e.target["check"].value}`);
+        e.preventDefault();
+      }}
+    >
+      <Checkbox isRequired name="check" value="checked" {...args}>
+        Check
+      </Checkbox>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
@@ -128,6 +154,14 @@ export const DisableAnimation = {
 
 export const Controlled = {
   render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Required = {
+  render: RequiredTemplate,
 
   args: {
     ...defaultProps,

@@ -93,11 +93,13 @@ const Template = (args: RadioGroupProps) => {
     <form
       className="flex flex-col items-start gap-4"
       onSubmit={(e) => {
+        alert(`Submitted value: ${e.target["sample"].value}`);
         e.preventDefault();
-        alert("Submitted!");
       }}
     >
-      <RadioGroup {...args}>{items}</RadioGroup>
+      <RadioGroup {...args} name="sample">
+        {items}
+      </RadioGroup>
       <button className={button({color: "primary"})} type="submit">
         Submit
       </button>

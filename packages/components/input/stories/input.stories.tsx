@@ -10,6 +10,7 @@ import {
   SearchIcon,
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -52,6 +53,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (
@@ -78,6 +85,21 @@ const MirrorTemplate = (args) => (
     <Input {...args} />
     <Input {...args} placeholder="Enter your email" />
   </div>
+);
+
+const RequiredTemplate = (args) => (
+  <form
+    className="w-full max-w-xl flex flex-row items-end gap-4"
+    onSubmit={(e) => {
+      alert(`Submitted value: ${e.target["name"].value}`);
+      e.preventDefault();
+    }}
+  >
+    <Input {...args} name="name" placeholder="Enter your name" />
+    <button className={button({color: "primary"})} type="submit">
+      Submit
+    </button>
+  </form>
 );
 
 const PasswordTemplate = (args) => {
@@ -465,7 +487,7 @@ export const Default = {
 };
 
 export const Required = {
-  render: MirrorTemplate,
+  render: RequiredTemplate,
 
   args: {
     ...defaultProps,

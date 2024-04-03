@@ -2,6 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 import {SendFilledIcon, PlusFilledIcon} from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
 
 import {Textarea, TextAreaProps} from "../src";
 
@@ -99,6 +100,24 @@ const MaxRowsTemplate = (args: TextAreaProps) => (
   </div>
 );
 
+const RequiredTemplate = (args: TextAreaProps) => (
+  <form
+    className="w-full max-w-xl flex flex-row items-end gap-4"
+    onSubmit={(e) => {
+      alert(`Submitted value: ${e.target["textarea"].value}`);
+      e.preventDefault();
+    }}
+  >
+    <div className="w-full max-w-[440px]">
+      <Textarea name="textarea" {...args} />
+    </div>
+
+    <button className={button({color: "primary"})} type="submit">
+      Submit
+    </button>
+  </form>
+);
+
 export const Default = {
   render: Template,
 
@@ -125,7 +144,7 @@ export const FullRounded = {
 };
 
 export const Required = {
-  render: Template,
+  render: RequiredTemplate,
 
   args: {
     ...defaultProps,

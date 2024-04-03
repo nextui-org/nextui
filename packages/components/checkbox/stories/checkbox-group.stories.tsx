@@ -94,19 +94,10 @@ const RequiredTemplate = (args: CheckboxGroupProps) => {
         const selectedCountries = formData.getAll("favorite-country");
 
         alert(`Submitted values: ${selectedCountries.join(", ")}`);
-
         e.preventDefault();
       }}
     >
-      <CheckboxGroup
-        {...args}
-        isRequired
-        description="Select the cities you want to visit"
-        errorMessage="Please select at least one city"
-        label="Select cities"
-        name="favorite-country"
-        validationBehavior={args.validationBehavior}
-      >
+      <CheckboxGroup {...args} isRequired label="Select cities" name="favorite-country">
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="san-francisco">San Francisco</Checkbox>

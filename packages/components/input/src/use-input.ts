@@ -95,7 +95,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     baseRef,
     wrapperRef,
     description,
-    errorMessage,
     className,
     classNames,
     autoFocus,
@@ -197,6 +196,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors.join(" ");
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
