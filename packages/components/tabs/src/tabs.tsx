@@ -34,23 +34,27 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
     <Tab key={item.key} item={item} {...tabsProps} {...item.props} />
   ));
 
-  return (
+  const renderTabs = (
     <>
-      <div {...getWrapperProps()}>
-        <div {...getBaseProps()}>
-          <Component {...getTabListProps()}>
-            {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
-          </Component>
-        </div>
-        <TabPanel
-          key={state.selectedItem?.key}
-          classNames={values.classNames}
-          slots={values.slots}
-          state={values.state}
-        />
+      <div {...getBaseProps()}>
+        <Component {...getTabListProps()}>
+          {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
+        </Component>
       </div>
+      <TabPanel
+        key={state.selectedItem?.key}
+        classNames={values.classNames}
+        slots={values.slots}
+        state={values.state}
+      />
     </>
   );
+
+  if ("tabPosition" in props || "isVertical" in props) {
+    return <div {...getWrapperProps()}>{renderTabs}</div>;
+  }
+
+  return renderTabs;
 }
 
 export type TabsProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
