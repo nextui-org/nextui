@@ -4,8 +4,8 @@ import type {ForwardedRef, ReactElement, Ref} from "react";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseCalendarProps, useCalendar} from "./use-calendar";
-import {CalendarBase} from "./calendar-base";
 import {CalendarProvider} from "./calendar-context";
+import {CalendarBase} from "./calendar-base";
 
 interface Props<T extends DateValue> extends Omit<UseCalendarProps<T>, "isHeaderWrapperExpanded"> {}
 
