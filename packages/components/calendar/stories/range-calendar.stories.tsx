@@ -7,7 +7,6 @@ import {
   today,
   getLocalTimeZone,
   isWeekend,
-  CalendarDate,
   startOfMonth,
   startOfWeek,
   endOfMonth,
@@ -124,8 +123,8 @@ const NonContiguousRangesTemplate = (args: RangeCalendarProps) => {
 };
 
 const ControlledFocusedValueTemplate = (args: RangeCalendarProps) => {
-  let defaultDate = new CalendarDate(2024, 3, 1);
-  let [focusedDate, setFocusedDate] = React.useState(defaultDate);
+  let defaultDate = today(getLocalTimeZone());
+  let [focusedDate, setFocusedDate] = React.useState<DateValue>(defaultDate);
 
   return (
     <div className="flex flex-col gap-4">
