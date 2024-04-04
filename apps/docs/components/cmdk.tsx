@@ -86,7 +86,7 @@ const cmdk = tv({
       "data-[active=true]:bg-primary",
       "data-[active=true]:text-primary-foreground",
     ],
-    leftWrapper: ["flex", "gap-3", "items-center", "w-full", "max-w-full"],
+    leftWrapper: ["flex", "gap-3", "items-center", "w-full", "max-w-full", "min-w-[500px]"],
     leftIcon: [
       "text-default-500 dark:text-default-300",
       "group-data-[active=true]:text-primary-foreground",
