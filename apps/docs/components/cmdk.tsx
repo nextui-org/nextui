@@ -15,6 +15,7 @@ import {isAppleDevice, isWebKit} from "@react-aria/utils";
 import {create} from "zustand";
 import {intersectionBy, isEmpty} from "lodash";
 import {writeStorage, useLocalStorage} from "@rehooks/local-storage";
+import {useMediaQuery} from "usehooks-ts";
 
 import {
   DocumentCodeBoldIcon,
@@ -136,6 +137,8 @@ export const Cmdk: FC<{}> = () => {
   const eventRef = useRef<"mouse" | "keyboard">();
   const listRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  const isMobile = useMediaQuery("(max-width: 650px)");
 
   const {isOpen, onClose, onOpen} = useCmdkStore();
 
@@ -369,7 +372,7 @@ export const Cmdk: FC<{}> = () => {
       backdrop="opaque"
       classNames={{
         base: [
-          "w-[580px]",
+          isMobile ? "w-[320px]" : "w-[580px]",
           "mt-[20vh]",
           "border-small",
           "dark:border-default-100",
