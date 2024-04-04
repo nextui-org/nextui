@@ -1,5 +1,5 @@
 import type {PropGetter} from "@nextui-org/system";
-import type {DateFieldVariantProps, DateFieldSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {DateInputVariantProps, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaDatePickerProps} from "@react-types/datepicker";
 import type {DateValue} from "@internationalized/date";
 import type {ReactRef} from "@nextui-org/react-utils";
@@ -11,7 +11,7 @@ import {useDateField as useAriaDateField} from "@react-aria/datepicker";
 import {useDateFieldState} from "@react-stately/datepicker";
 import {createCalendar} from "@internationalized/date";
 import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
-import {dateField} from "@nextui-org/theme";
+import {dateInput} from "@nextui-org/theme";
 import {useMemo} from "react";
 
 interface Props extends HTMLNextUIProps<"div"> {
@@ -20,11 +20,11 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
-   * Element to be rendered in the left side of the field.
+   * Element to be rendered in the left side of the input.
    */
   startContent?: React.ReactNode;
   /**
-   * Element to be rendered in the right side of the field.
+   * Element to be rendered in the right side of the input.
    */
   endContent?: React.ReactNode;
   /**
@@ -36,15 +36,15 @@ interface Props extends HTMLNextUIProps<"div"> {
    * // TODO:
    * ```
    */
-  classNames?: SlotsToClasses<DateFieldSlots>;
+  classNames?: SlotsToClasses<DateInputSlots>;
 }
 
-export type UseDateFieldProps<T extends DateValue> = Props &
-  DateFieldVariantProps &
+export type UseDateInputProps<T extends DateValue> = Props &
+  DateInputVariantProps &
   AriaDatePickerProps<T>;
 
-export function useDateField<T extends DateValue>(originalProps: UseDateFieldProps<T>) {
-  const [props, variantProps] = mapPropsVariants(originalProps, dateField.variantKeys);
+export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
+  const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
     ref,
@@ -95,7 +95,7 @@ export function useDateField<T extends DateValue>(originalProps: UseDateFieldPro
 
   const hasHelper = !!description || !!errorMessage;
 
-  const labelPlacement = useMemo<DateFieldVariantProps["labelPlacement"]>(() => {
+  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
     if (
       (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
       !props.label
@@ -110,7 +110,7 @@ export function useDateField<T extends DateValue>(originalProps: UseDateFieldPro
 
   const slots = useMemo(
     () =>
-      dateField({
+      dateInput({
         ...variantProps,
         labelPlacement,
         className,
@@ -140,24 +140,24 @@ export function useDateField<T extends DateValue>(originalProps: UseDateFieldPro
     };
   };
 
-  const getFieldProps: PropGetter = (props) => {
+  const getInputProps: PropGetter = (props) => {
     return {
       ...props,
       ...fieldProps,
       ref: domRef,
-      "data-slot": "field",
-      className: slots.field({
-        class: clsx(classNames?.field, props?.className),
+      "data-slot": "input",
+      className: slots.input({
+        class: clsx(classNames?.input, props?.className),
       }),
     };
   };
 
-  const getFieldWrapperProps: PropGetter = (props) => {
+  const getInputWrapperProps: PropGetter = (props) => {
     return {
       ...props,
-      "data-slot": "field-wrapper",
-      className: slots.fieldWrapper({
-        class: classNames?.fieldWrapper,
+      "data-slot": "input-wrapper",
+      className: slots.inputWrapper({
+        class: classNames?.inputWrapper,
       }),
       onClick: labelProps?.onClick,
     };
@@ -225,8 +225,8 @@ export function useDateField<T extends DateValue>(originalProps: UseDateFieldPro
     endContent,
     getBaseProps,
     getLabelProps,
-    getFieldProps,
-    getFieldWrapperProps,
+    getInputProps,
+    getInputWrapperProps,
     getMainWrapperProps,
     getInnerWrapperProps,
     getHelperWrapperProps,
@@ -235,4 +235,4 @@ export function useDateField<T extends DateValue>(originalProps: UseDateFieldPro
   };
 }
 
-export type UseDateFieldReturn = ReturnType<typeof useDateField>;
+export type UseDateInputReturn = ReturnType<typeof useDateInput>;

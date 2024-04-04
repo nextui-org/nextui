@@ -1,12 +1,12 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateField} from "@nextui-org/theme";
+import {dateInput} from "@nextui-org/theme";
 
-import {DateField, DateFieldProps} from "../src";
+import {DateInput, DateInputProps} from "../src";
 
 export default {
-  title: "Components/DateField",
-  component: DateField,
+  title: "Components/DateInput",
+  component: DateInput,
   argTypes: {
     variant: {
       control: {
@@ -44,14 +44,14 @@ export default {
       },
     },
   },
-} as Meta<typeof DateField>;
+} as Meta<typeof DateInput>;
 
 const defaultProps = {
   label: "Birthday",
-  ...dateField.defaultVariants,
+  ...dateInput.defaultVariants,
 };
 
-const Template = (args: DateFieldProps) => <DateField {...args} />;
+const Template = (args: DateInputProps) => <DateInput {...args} />;
 
 export const Default = {
   render: Template,

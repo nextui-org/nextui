@@ -36,4 +36,4 @@ export * from "./slider";
 export * from "./breadcrumbs";
 export * from "./autocomplete";
 export * from "./calendar";
-export * from "./date-field";
+export * from "./date-input";

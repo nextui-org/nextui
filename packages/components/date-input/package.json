@@ -1,7 +1,7 @@
 {
-  "name": "@nextui-org/date-field",
+  "name": "@nextui-org/date-input",
   "version": "2.0.0",
-  "description": "A date field allows users to enter and edit date and time values using a keyboard.",
+  "description": "A date input allows users to enter and edit date and time values using a keyboard.",
   "keywords": [
     "date-field"
   ],
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/date-field"
+    "directory": "packages/components/date-input"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"

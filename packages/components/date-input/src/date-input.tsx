@@ -6,9 +6,9 @@ import {useRef, useMemo} from "react";
 import {useDateSegment} from "@react-aria/datepicker";
 import {forwardRef} from "@nextui-org/system";
 
-import {UseDateFieldProps, useDateField} from "./use-date-field";
+import {UseDateInputProps, useDateInput} from "./use-date-input";
 
-export interface Props<T extends DateValue> extends UseDateFieldProps<T> {}
+export interface Props<T extends DateValue> extends UseDateInputProps<T> {}
 
 function DateSegment({segment, state}: any) {
   let ref = useRef(null);
@@ -25,7 +25,7 @@ function DateSegment({segment, state}: any) {
   );
 }
 
-function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     Component,
     state,
@@ -38,15 +38,15 @@ function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     labelPlacement,
     shouldLabelBeOutside,
     getBaseProps,
-    getFieldProps,
+    getInputProps,
     getLabelProps,
-    getFieldWrapperProps,
+    getInputWrapperProps,
     getDescriptionProps,
     getMainWrapperProps,
     getInnerWrapperProps,
     getHelperWrapperProps,
     getErrorMessageProps,
-  } = useDateField({
+  } = useDateInput({
     ...props,
     ref,
   });
@@ -77,14 +77,14 @@ function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
 
   const fieldContent = useMemo(
     () => (
-      <div {...getFieldProps()}>
+      <div {...getInputProps()}>
         {state.segments.map((segment, i) => (
           <DateSegment key={i} segment={segment} state={state} />
         ))}
         {state.isInvalid && <span aria-hidden="true">🚫</span>}
       </div>
     ),
-    [state.isInvalid, getFieldProps],
+    [state.isInvalid, getInputProps],
   );
 
   const innerWrapper = useMemo(() => {
@@ -106,7 +106,7 @@ function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
       return (
         <div {...getMainWrapperProps()}>
           {!isOutsideLeft ? labelContent : null}
-          <div {...getFieldWrapperProps()}>{innerWrapper}</div>
+          <div {...getInputWrapperProps()}>{innerWrapper}</div>
           {helperWrapper}
         </div>
       );
@@ -114,7 +114,7 @@ function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
 
     return (
       <>
-        <div {...getFieldWrapperProps()}>
+        <div {...getInputWrapperProps()}>
           {labelContent}
           {innerWrapper}
         </div>
@@ -130,7 +130,7 @@ function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     errorMessage,
     description,
     getMainWrapperProps,
-    getFieldWrapperProps,
+    getInputWrapperProps,
     getErrorMessageProps,
     getDescriptionProps,
   ]);
@@ -143,11 +143,11 @@ function DateField<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
   );
 }
 
-DateField.displayName = "NextUI.DateField";
+DateInput.displayName = "NextUI.DateInput";
 
-export type DateFieldProps<T extends DateValue = DateValue> = Props<T> & {ref?: Ref<HTMLElement>};
+export type DateInputProps<T extends DateValue = DateValue> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DateField) as <T extends DateValue>(
-  props: DateFieldProps<T>,
+export default forwardRef(DateInput) as <T extends DateValue>(
+  props: DateInputProps<T>,
 ) => ReactElement;

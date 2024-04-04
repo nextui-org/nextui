@@ -1,15 +1,13 @@
-# @nextui-org/date-field
+# @nextui-org/date-input
 
-A Quick description of the component
-
-> This is an internal utility, not intended for public usage.
+A date input allows users to enter and edit date and time values using a keyboard.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/date-field
+yarn add @nextui-org/date-input
 # or
-npm i @nextui-org/date-field
+npm i @nextui-org/date-input
 ```
 
 ## Contribution
