@@ -1261,14 +1261,11 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
-  packages/components/date-field:
+  packages/components/date-input:
     dependencies:
       '@internationalized/date':
         specifier: ^3.5.2
         version: 3.5.2
-      '@nextui-org/input':
-        specifier: workspace:*
-        version: link:../input
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1294,9 +1291,15 @@ importers:
         specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -10468,7 +10471,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-types/overlays': 3.8.3(react@18.2.0)
+      '@react-types/overlays': 3.8.5(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       react: 18.2.0
     dev: false

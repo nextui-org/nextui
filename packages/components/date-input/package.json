@@ -40,9 +40,9 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@internationalized/date": "^3.5.2",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@internationalized/date": "^3.5.2",
     "@react-aria/datepicker": "^3.9.3",
     "@react-aria/i18n": "^3.8.4",
     "@react-stately/datepicker": "^3.9.2",
@@ -53,6 +53,8 @@
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

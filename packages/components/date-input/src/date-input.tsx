@@ -2,48 +2,33 @@
 import type {DateValue} from "@internationalized/date";
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
-import {useRef, useMemo} from "react";
-import {useDateSegment} from "@react-aria/datepicker";
+import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseDateInputProps, useDateInput} from "./use-date-input";
+import {DateInputSegment} from "./date-input-segment";
 
 export interface Props<T extends DateValue> extends UseDateInputProps<T> {}
-
-function DateSegment({segment, state}: any) {
-  let ref = useRef(null);
-  let {segmentProps} = useDateSegment(segment, state, ref);
-
-  return (
-    <div
-      {...segmentProps}
-      ref={ref}
-      className={`segment ${segment.isPlaceholder ? "placeholder" : ""}`}
-    >
-      {segment.text}
-    </div>
-  );
-}
 
 function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     Component,
     state,
     label,
+    slots,
     hasHelper,
     errorMessage,
     description,
     startContent,
     endContent,
-    labelPlacement,
     shouldLabelBeOutside,
+    classNames,
     getBaseProps,
     getInputProps,
+    getFieldProps,
     getLabelProps,
     getInputWrapperProps,
     getDescriptionProps,
-    getMainWrapperProps,
-    getInnerWrapperProps,
     getHelperWrapperProps,
     getErrorMessageProps,
   } = useDateInput({
@@ -51,7 +36,6 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     ref,
   });
 
-  const isOutsideLeft = labelPlacement === "outside-left";
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
   const helperWrapper = useMemo(() => {
@@ -75,70 +59,35 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     getDescriptionProps,
   ]);
 
-  const fieldContent = useMemo(
+  const inputContent = useMemo(
     () => (
-      <div {...getInputProps()}>
+      <div {...getFieldProps()}>
         {state.segments.map((segment, i) => (
-          <DateSegment key={i} segment={segment} state={state} />
+          <DateInputSegment
+            key={i}
+            classNames={classNames}
+            segment={segment}
+            slots={slots}
+            state={state}
+          />
         ))}
-        {state.isInvalid && <span aria-hidden="true">🚫</span>}
+        <input {...getInputProps()} />
       </div>
     ),
-    [state.isInvalid, getInputProps],
+    [state, slots, classNames?.segment, getFieldProps],
   );
-
-  const innerWrapper = useMemo(() => {
-    if (startContent || endContent) {
-      return (
-        <div {...getInnerWrapperProps()}>
-          {startContent}
-          {fieldContent}
-          {endContent}
-        </div>
-      );
-    }
-
-    return <div {...getInnerWrapperProps()}>{fieldContent}</div>;
-  }, [startContent, endContent, fieldContent, getInnerWrapperProps]);
-
-  const mainWrapper = useMemo(() => {
-    if (shouldLabelBeOutside) {
-      return (
-        <div {...getMainWrapperProps()}>
-          {!isOutsideLeft ? labelContent : null}
-          <div {...getInputWrapperProps()}>{innerWrapper}</div>
-          {helperWrapper}
-        </div>
-      );
-    }
-
-    return (
-      <>
-        <div {...getInputWrapperProps()}>
-          {labelContent}
-          {innerWrapper}
-        </div>
-        {helperWrapper}
-      </>
-    );
-  }, [
-    labelPlacement,
-    helperWrapper,
-    shouldLabelBeOutside,
-    labelContent,
-    innerWrapper,
-    errorMessage,
-    description,
-    getMainWrapperProps,
-    getInputWrapperProps,
-    getErrorMessageProps,
-    getDescriptionProps,
-  ]);
 
   return (
     <Component {...getBaseProps()}>
-      {isOutsideLeft ? labelContent : null}
-      {mainWrapper}
+      {shouldLabelBeOutside ? labelContent : null}
+      <div {...getInputWrapperProps()}>
+        {startContent}
+        {!shouldLabelBeOutside ? labelContent : null}
+        {inputContent}
+        {endContent}
+        {shouldLabelBeOutside ? helperWrapper : null}
+      </div>
+      {!shouldLabelBeOutside ? helperWrapper : null}
     </Component>
   );
 }
