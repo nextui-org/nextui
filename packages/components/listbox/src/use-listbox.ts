@@ -48,11 +48,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
    */
   color?: ListboxItemProps["color"];
   /**
-   * Provides content to include a component in the top of the table.
+   * Custom content to be included in the top of the listbox.
    */
   topContent?: ReactNode;
   /**
-   * Provides content to include a component in the bottom of the table.
+   * Custom content to be included in the bottom of the listbox.
    */
   bottomContent?: ReactNode;
   /**

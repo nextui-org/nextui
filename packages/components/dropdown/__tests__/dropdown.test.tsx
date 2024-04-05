@@ -2,10 +2,19 @@ import * as React from "react";
 import {act, render} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
+import {User} from "@nextui-org/user";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Dropdown", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly (static)", () => {
     const wrapper = render(
       <Dropdown>
@@ -108,6 +117,34 @@ describe("Dropdown", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("should not throw any error when clicking button", async () => {
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    expect(triggerButton).toBeTruthy();
+
+    await act(async () => {
+      await userEvent.click(triggerButton);
+    });
+
+    expect(spy).toBeCalledTimes(0);
   });
 
   it("should work with single selection (controlled)", async () => {
@@ -415,5 +452,49 @@ describe("Dropdown", () => {
     });
 
     expect(onSelectionChange).toBeCalledTimes(0);
+  });
+
+  it("should render without error (custom trigger + isDisabled)", async () => {
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <div>Trigger</div>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <User as="button" description="@tonyreichert" name="Tony Reichert" />
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
   });
 });

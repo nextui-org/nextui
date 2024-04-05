@@ -10,3 +10,4 @@ export * from "./volume-low";
 export * from "./shopping-cart";
 export * from "./send";
 export * from "./plus";
+export * from "./calendar-bold";

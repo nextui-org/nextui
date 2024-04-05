@@ -5,7 +5,15 @@ import userEvent from "@testing-library/user-event";
 
 import {Accordion, AccordionItem} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Accordion", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Accordion>
@@ -14,6 +22,8 @@ describe("Accordion", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    expect(spy).toBeCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {

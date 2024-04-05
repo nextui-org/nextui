@@ -29,7 +29,15 @@ let tabs: Item[] = [
   },
 ];
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Tabs", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly (static)", () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test">
@@ -46,6 +54,8 @@ describe("Tabs", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    expect(spy).toBeCalledTimes(0);
   });
 
   it("should render correctly (dynamic)", () => {
