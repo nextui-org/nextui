@@ -1,8 +1,11 @@
 import {ListState, useListState} from "@react-stately/list";
-import {CollectionBase, MultipleSelection, Node} from "@react-types/shared";
+import {CollectionBase, MultipleSelection, AsyncLoadable, Node} from "@react-types/shared";
 import {Key, useMemo} from "react";
 
-export interface MultiSelectListProps<T> extends CollectionBase<T>, MultipleSelection {}
+export interface MultiSelectListProps<T>
+  extends CollectionBase<T>,
+    AsyncLoadable,
+    MultipleSelection {}
 
 export interface MultiSelectListState<T> extends ListState<T> {
   /** The keys for the currently selected items. */
@@ -46,7 +49,7 @@ export function useMultiSelectListState<T extends object>(
       : null
   ) as Node<T>[] | null;
 
-  if (missingKeys.length) {
+  if (!!!props?.isLoading && missingKeys.length) {
     // eslint-disable-next-line no-console
     console.warn(
       `Select: Keys "${missingKeys.join(
