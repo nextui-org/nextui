@@ -1,4 +1,4 @@
-import type {DateValue} from "@react-types/calendar";
+import type {DateValue} from "@internationalized/date";
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
 import {forwardRef} from "@nextui-org/system";
