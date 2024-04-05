@@ -41,17 +41,6 @@ export const DateInputSegment: React.FC<DateInputSegmentProps> = ({
         ...segmentProps.style,
       }}
     >
-      {/* Always reserve space for the placeholder, to prevent layout shift when editing. */}
-      {/* <span
-        aria-hidden="true"
-        className={slots?.segmentPlaceholder({
-          class: classNames?.segmentPlaceholder,
-        })}
-        data-placeholder={dataAttr(segment.isPlaceholder)}
-        data-slot="segment-placeholder"
-      >
-        {segment.placeholder}
-      </span> */}
       {segment.text}
     </div>
   );
