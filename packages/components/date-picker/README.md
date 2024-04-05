@@ -1,8 +1,6 @@
 # @nextui-org/date-picker
 
-A Quick description of the component
-
-> This is an internal utility, not intended for public usage.
+A date picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.
 
 ## Installation
 
