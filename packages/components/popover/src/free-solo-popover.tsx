@@ -17,8 +17,8 @@ import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 
 import {usePopover, UsePopoverProps, UsePopoverReturn} from "./use-popover";
 
-export interface FreeSoloPopoverProps extends UsePopoverProps {
-  children: React.ReactNode;
+export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> {
+  children: React.ReactNode | ((titleProps: React.DOMAttributes<HTMLElement>) => React.ReactNode);
 }
 
 type FreeSoloPopoverWrapperProps = {
@@ -57,13 +57,13 @@ const FreeSoloPopoverWrapper = ({
   );
 };
 
-const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => {
+const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(({children, ...props}, ref) => {
   const {
     Component,
     state,
-    children,
     placement,
     backdrop,
+    titleProps,
     portalContainer,
     disableAnimation,
     motionProps,
@@ -111,7 +111,9 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>((props, ref) => 
           {...getDialogProps()}
         >
           {!isNonModal && <DismissButton onDismiss={state.close} />}
-          <div {...getContentProps()}>{children}</div>
+          <div {...getContentProps()}>
+            {typeof children === "function" ? children(titleProps) : children}
+          </div>
           <DismissButton onDismiss={state.close} />
         </FreeSoloPopoverWrapper>
       </Component>

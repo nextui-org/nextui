@@ -31,7 +31,7 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     getDescriptionProps,
     getHelperWrapperProps,
     getErrorMessageProps,
-  } = useDateInput({
+  } = useDateInput<T>({
     ...props,
     ref,
   });

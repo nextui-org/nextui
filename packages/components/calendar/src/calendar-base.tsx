@@ -113,7 +113,7 @@ export function CalendarBase(props: CalendarBaseProps) {
   }
 
   const calendarContent = (
-    <>
+    <div className={slots?.content({class: classNames?.content})} data-slot="content">
       <div
         key="header-wrapper"
         className={slots?.headerWrapper({class: classNames?.headerWrapper})}
@@ -128,7 +128,7 @@ export function CalendarBase(props: CalendarBaseProps) {
       >
         {calendars}
       </div>
-    </>
+    </div>
   );
 
   return (

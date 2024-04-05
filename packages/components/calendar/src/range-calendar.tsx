@@ -17,7 +17,7 @@ interface Props<T extends DateValue>
   > {}
 
 function RangeCalendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {context, getBaseCalendarProps} = useRangeCalendar({...props, ref});
+  const {context, getBaseCalendarProps} = useRangeCalendar<T>({...props, ref});
 
   return (
     <CalendarProvider value={context}>

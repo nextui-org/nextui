@@ -87,11 +87,11 @@ export const TRANSITION_VARIANTS: Variants = {
     },
     exit: {
       opacity: 0,
-      transform: "scale(0.7)",
+      transform: "scale(0.96)",
       transition: {
         type: "easeOut",
         bounce: 0,
-        duration: 0.18,
+        duration: 0.15,
       },
     },
   },

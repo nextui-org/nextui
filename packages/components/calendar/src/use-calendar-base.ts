@@ -126,6 +126,7 @@ interface Props extends NextUIBaseProps {
    *    prevButton:"prev-button-classes",
    *    header:"header-classes",
    *    title:"title-classes",
+   *    content:"content-classes",
    *    gridWrapper:"grid-wrapper-classes",
    *    grid:"grid-classes",
    *    gridHeader:"grid-header-classes",
