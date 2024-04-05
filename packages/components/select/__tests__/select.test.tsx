@@ -361,4 +361,39 @@ describe("Select", () => {
     // assert that the select is closed
     expect(select).toHaveAttribute("aria-expanded", "false");
   });
+
+  it("disabled select shouldn't update by keyboard", async () => {
+    let onSelectionChange = jest.fn();
+
+    const wrapper = render(
+      <Select
+        isDisabled
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        label="Favorite Animal"
+        selectionMode="single"
+        value="penguin"
+        onSelectionChange={onSelectionChange}
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+    const select = wrapper.getByTestId("test-select");
+
+    await act(async () => {
+      await userEvent.click(document.body);
+      await userEvent.tab();
+      await userEvent.type(select, "z", {skipClick: true});
+
+      expect(onSelectionChange).toBeCalledTimes(0);
+    });
+  });
 });
