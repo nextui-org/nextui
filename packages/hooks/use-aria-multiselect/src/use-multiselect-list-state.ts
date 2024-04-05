@@ -29,7 +29,7 @@ export function useMultiSelectListState<T extends object>(
   } = useListState<T>(props);
 
   const missingKeys: Key[] = useMemo(() => {
-    if (selectedKeys.size !== 0) {
+    if (!props.isLoading && selectedKeys.size !== 0) {
       return Array.from(selectedKeys)
         .filter(Boolean)
         .filter((key) => !collection.getItem(`${key}`));
@@ -49,7 +49,7 @@ export function useMultiSelectListState<T extends object>(
       : null
   ) as Node<T>[] | null;
 
-  if (!!!props?.isLoading && missingKeys.length) {
+  if (missingKeys.length) {
     // eslint-disable-next-line no-console
     console.warn(
       `Select: Keys "${missingKeys.join(
