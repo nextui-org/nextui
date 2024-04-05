@@ -22,9 +22,10 @@ const dateInput = tv({
       "cursor-text tap-highlight-transparent shadow-sm ",
     ],
     input: "flex h-full gap-x-0.5 w-full font-normal",
+    innerWrapper: "flex items-center w-full gap-x-2 h-6", // this wraps the input and the start/end content
     segment: [
-      "group -ml-0.5 px-0.5 py-0.5 box-content tabular-nums text-start",
-      "inline-block my-auto outline-none focus:shadow-sm rounded-md",
+      "group -ml-0.5 px-0.5 my-auto box-content tabular-nums text-start",
+      "inline-block outline-none focus:shadow-sm rounded-md",
       "text-foreground-500 data-[editable=true]:text-inherit",
       "data-[placeholder=true]:text-foreground-500",
       // isInvalid=true

@@ -255,6 +255,16 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     };
   };
 
+  const getInnerWrapperProps: PropGetter = (props) => {
+    return {
+      ...props,
+      "data-slot": "inner-wrapper",
+      className: slots.innerWrapper({
+        class: classNames?.innerWrapper,
+      }),
+    };
+  };
+
   const getHelperWrapperProps: PropGetter = (props) => {
     return {
       ...props,
@@ -302,6 +312,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     getFieldProps,
     getInputProps,
     getInputWrapperProps,
+    getInnerWrapperProps,
     getHelperWrapperProps,
     getErrorMessageProps,
     getDescriptionProps,

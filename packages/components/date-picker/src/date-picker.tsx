@@ -1,6 +1,7 @@
 import type {DateValue} from "@internationalized/date";
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
+import {cloneElement, isValidElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
 import {DateInput} from "@nextui-org/date-input";
@@ -16,56 +17,36 @@ export interface Props<T extends DateValue> extends UseDatePickerProps<T> {}
 function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     Component,
-    domRef,
     state,
-    slots,
-    targetRef,
-    labelProps,
-    groupProps,
-    dialogProps,
-    fieldProps,
-    calendarProps,
-    buttonProps,
+    selectorIcon,
     disableAnimation,
+    getBaseProps,
+    getDateInputProps,
+    getPopoverProps,
+    getSelectorButtonProps,
+    getSelectorIconProps,
+    getCalendarProps,
   } = useDatePicker<T>({...props, ref});
 
+  const selectorContent = isValidElement(selectorIcon) ? (
+    cloneElement(selectorIcon, getSelectorIconProps())
+  ) : (
+    <CalendarBoldIcon {...getSelectorIconProps()} />
+  );
+
   const popoverContent = state.isOpen ? (
-    <FreeSoloPopover
-      classNames={{content: slots.popoverContent()}}
-      dialogProps={dialogProps}
-      placement="bottom"
-      state={state}
-      triggerRef={targetRef}
-    >
-      <Calendar {...calendarProps} className={slots.calendar()} />
+    <FreeSoloPopover {...getPopoverProps()}>
+      <Calendar {...getCalendarProps()} />
     </FreeSoloPopover>
   ) : null;
 
   return (
-    <Component ref={domRef} className="w-full">
-      <div style={{width: "100%", display: "inline-flex", flexDirection: "column"}}>
-        <div {...labelProps}>{props.label}</div>
-        <div {...groupProps} ref={ref} style={{display: "flex"}}>
-          <DateInput
-            {...fieldProps}
-            ref={targetRef}
-            fullWidth
-            endContent={
-              <Button
-                isIconOnly
-                radius="full"
-                size="sm"
-                variant="light"
-                {...buttonProps}
-                className={slots.button()}
-              >
-                <CalendarBoldIcon className="text-lg text-default-400 pointer-events-none flex-shrink-0" />
-              </Button>
-            }
-          />
-        </div>
-        {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
-      </div>
+    <Component {...getBaseProps()}>
+      <DateInput
+        {...getDateInputProps()}
+        endContent={<Button {...getSelectorButtonProps()}>{selectorContent}</Button>}
+      />
+      {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </Component>
   );
 }

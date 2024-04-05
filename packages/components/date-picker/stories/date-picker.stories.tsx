@@ -28,7 +28,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div className="flex items-start justify-center max-w-[256px]">
+      <div className="flex items-center justify-start">
         <Story />
       </div>
     ),
@@ -36,6 +36,8 @@ export default {
 } as Meta<typeof DatePicker>;
 
 const defaultProps = {
+  label: "Birth Date",
+  className: "max-w-[256px]",
   ...datePicker.defaultVariants,
 };
 
