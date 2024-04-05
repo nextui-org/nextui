@@ -3,4 +3,4 @@
 "@nextui-org/stories-utils": patch
 ---
 
-Fixed SELECT defaultSelectedKeys Warning selectedKeys are not present in the collection (#2605)
+Fixed an issue where a warning was triggered in the Select component when `defaultSelectedKeys` were used and items were still loading (#2605).
