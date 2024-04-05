@@ -3,7 +3,7 @@ import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
-import {Fragment, forwardRef} from "react";
+import {Fragment} from "react";
 import {useState} from "react";
 import {useLocale} from "@react-aria/i18n";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -22,6 +22,8 @@ import {useCalendarContext} from "./calendar-context";
 
 export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   Component?: As;
+  topContent?: ReactNode;
+  bottomContent?: ReactNode;
   calendarProps: HTMLAttributes<HTMLElement>;
   nextButtonProps: AriaButtonProps;
   prevButtonProps: AriaButtonProps;
@@ -31,24 +33,11 @@ export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   errorMessage?: ReactNode;
 }
 
-/**
- * Avoid this framer-motion warning:
- * Function components cannot be given refs.
- * Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
- *
- * @see https://www.framer.com/motion/animate-presence/###mode
- */
-const PopLayoutWrapper = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    return <div ref={ref} {...props} />;
-  },
-);
-
-PopLayoutWrapper.displayName = "NextUI - Calendar PopLayoutWrapper";
-
 export function CalendarBase(props: CalendarBaseProps) {
   const {
     Component = "div",
+    topContent,
+    bottomContent,
     calendarProps,
     nextButtonProps,
     prevButtonProps,
@@ -144,6 +133,7 @@ export function CalendarBase(props: CalendarBaseProps) {
 
   return (
     <Component {...mergeProps(calendarProps, otherProps)} ref={ref}>
+      {topContent}
       {/* Add a screen reader only description of the entire visible range rather than
        * a separate heading above each month grid. This is placed first in the DOM order
        * so that it is the first thing a touch screen reader user encounters.
@@ -157,11 +147,11 @@ export function CalendarBase(props: CalendarBaseProps) {
       ) : (
         <ResizablePanel>
           <AnimatePresence custom={direction} initial={false} mode="popLayout">
-            <PopLayoutWrapper>
+            <>
               <MotionConfig transition={transition}>
                 <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
               </MotionConfig>
-            </PopLayoutWrapper>
+            </>
           </AnimatePresence>
         </ResizablePanel>
       )}
@@ -190,6 +180,7 @@ export function CalendarBase(props: CalendarBaseProps) {
           </span>
         </div>
       )}
+      {bottomContent}
     </Component>
   );
 }

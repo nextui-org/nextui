@@ -10,3 +10,16 @@ export function triggerPress(element: HTMLElement, opts = {}) {
   fireEvent.mouseUp(element, {detail: 1, ...opts});
   fireEvent.click(element, {detail: 1, ...opts});
 }
+
+/**
+ * Triggers a simulated key press event on the active element.
+ * @param key - The key to press.
+ */
+export function type(key: string) {
+  if (!document.activeElement) {
+    throw new Error("No active element found.");
+  }
+
+  fireEvent.keyDown(document.activeElement, {key});
+  fireEvent.keyUp(document.activeElement, {key});
+}

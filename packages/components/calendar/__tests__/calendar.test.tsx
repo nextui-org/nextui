@@ -2,23 +2,10 @@
 import * as React from "react";
 import {render, act, fireEvent} from "@testing-library/react";
 import {CalendarDate, isWeekend} from "@internationalized/date";
-import {triggerPress} from "@nextui-org/test-utils";
+import {triggerPress, keyCodes} from "@nextui-org/test-utils";
 import {useLocale} from "@react-aria/i18n";
 
 import {Calendar as CalendarBase, CalendarProps} from "../src";
-
-let keyCodes = {
-  Enter: 13,
-  " ": 32,
-  PageUp: 33,
-  PageDown: 34,
-  End: 35,
-  Home: 36,
-  ArrowLeft: 37,
-  ArrowUp: 38,
-  ArrowRight: 39,
-  ArrowDown: 40,
-};
 
 /**
  * Custom calendar to disable animations and avoid issues with react-motion and jest

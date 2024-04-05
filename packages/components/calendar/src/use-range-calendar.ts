@@ -1,32 +1,30 @@
-import type {DateValue, AriaCalendarProps} from "@react-types/calendar";
-import type {ButtonProps} from "@nextui-org/button";
-import type {CalendarState} from "@react-stately/calendar";
+import type {DateValue, AriaRangeCalendarProps} from "@react-types/calendar";
+import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {RangeCalendarState} from "@react-stately/calendar";
 
 import {useMemo, useRef} from "react";
 import {filterDOMProps} from "@nextui-org/react-utils";
-import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
-import {useCalendarState} from "@react-stately/calendar";
+import {useRangeCalendar as useAriaRangeCalendar} from "@react-aria/calendar";
+import {useRangeCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
-import {chain} from "@react-aria/utils";
 
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
 import {CalendarBaseProps} from "./calendar-base";
 
-interface Props extends UseCalendarBaseProps {
-  /**
-   * Props for the button picker, which is used to select the month, year and expand the header.
-   */
-  buttonPickerProps?: ButtonProps;
-}
+type NextUIBaseProps<T extends DateValue> = Omit<
+  HTMLNextUIProps<"div">,
+  keyof AriaRangeCalendarProps<T>
+>;
 
-export type UseCalendarProps<T extends DateValue> = Props & AriaCalendarProps<T>;
+interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBaseProps<T> {}
 
-export function useCalendar<T extends DateValue>({
-  buttonPickerProps: buttonPickerPropsProp,
+export type UseRangeCalendarProps<T extends DateValue> = Props<T> & AriaRangeCalendarProps<T>;
+
+export function useRangeCalendar<T extends DateValue>({
   className,
   ...originalProps
-}: UseCalendarProps<T>) {
+}: UseRangeCalendarProps<T>) {
   const {
     Component,
     slots,
@@ -41,7 +39,6 @@ export function useCalendar<T extends DateValue>({
     isHeaderExpanded,
     visibleMonths,
     createCalendar: createCalendarProp,
-    showMonthAndYearPickers,
     getPrevButtonProps,
     getNextButtonProps,
     getErrorMessageProps,
@@ -51,11 +48,11 @@ export function useCalendar<T extends DateValue>({
     errorMessage,
     classNames,
     otherProps,
-  } = useCalendarBase(originalProps);
+  } = useCalendarBase({...originalProps, isRange: true});
 
   const headerRef = useRef<HTMLElement>(null);
 
-  const state = useCalendarState({
+  const state = useRangeCalendarState({
     ...originalProps,
     locale,
     minValue,
@@ -68,22 +65,16 @@ export function useCalendar<T extends DateValue>({
   });
 
   const {title, calendarProps, prevButtonProps, nextButtonProps, errorMessageProps} =
-    useAriaCalendar(originalProps, state);
+    useAriaRangeCalendar(originalProps, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
   const disableAnimation = originalProps.disableAnimation ?? false;
-
-  const buttonPickerProps: ButtonProps = {
-    ...buttonPickerPropsProp,
-    onPress: chain(buttonPickerPropsProp?.onPress, () => setIsHeaderExpanded(!isHeaderExpanded)),
-  };
 
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
       Component,
       topContent,
       bottomContent,
-      buttonPickerProps,
       calendarRef: domRef,
       calendarProps: calendarProps,
       prevButtonProps: getPrevButtonProps(prevButtonProps),
@@ -98,7 +89,7 @@ export function useCalendar<T extends DateValue>({
     };
   };
 
-  const context = useMemo<ContextType<CalendarState>>(
+  const context = useMemo<ContextType<RangeCalendarState>>(
     () => ({
       state,
       slots,
@@ -108,7 +99,6 @@ export function useCalendar<T extends DateValue>({
       setIsHeaderExpanded,
       visibleMonths,
       classNames,
-      showMonthAndYearPickers,
       disableAnimation,
     }),
     [
@@ -120,7 +110,6 @@ export function useCalendar<T extends DateValue>({
       setIsHeaderExpanded,
       visibleMonths,
       disableAnimation,
-      showMonthAndYearPickers,
     ],
   );
 
@@ -137,4 +126,4 @@ export function useCalendar<T extends DateValue>({
   };
 }
 
-export type UseCalendarReturn = ReturnType<typeof useCalendar>;
+export type UseRangeCalendarReturn = ReturnType<typeof useRangeCalendar>;
