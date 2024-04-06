@@ -34,6 +34,24 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    */
   selectorIcon?: ReactNode;
   /**
+   * Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.
+   * @default visible
+   */
+  pageBehavior?: CalendarProps["pageBehavior"];
+  /**
+   * The number of months to display at once. Up to 3 months are supported.
+   * Passing a number greater than 1 will disable the `showMonthAndYearPickers` prop.
+   *
+   * @default 1
+   */
+  visibleMonths?: CalendarProps["visibleMonths"];
+  /**
+   * Whether the calendar should show month and year pickers.
+   *
+   * @default false
+   */
+  showMonthAndYearPickers?: CalendarProps["showMonthAndYearPickers"];
+  /**
    * Props to be passed to the popover component.
    *
    * @default { placement: "bottom", triggerScaleOnOpen: false, offset: 13 }
@@ -83,6 +101,9 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     ref,
     as,
     selectorIcon,
+    visibleMonths = 1,
+    pageBehavior = "visible",
+    showMonthAndYearPickers = false,
     popoverProps = {},
     selectorButtonProps = {},
     calendarProps: userCalendarProps = {},
@@ -112,18 +133,10 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     targetRef,
   );
 
-  const slots = useMemo(
-    () =>
-      datePicker({
-        ...variantProps,
-        className,
-      }),
-    [objectToDeps(variantProps), className],
-  );
-
   const baseStyles = clsx(classNames?.base, className);
 
   const isDefaultColor = originalProps.color === "default" || !originalProps.color;
+  const hasMultipleMonths = visibleMonths > 1;
 
   const slotsProps: {
     inputProps: DateInputProps<T>;
@@ -163,6 +176,9 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     ),
     calendarProps: mergeProps(
       {
+        visibleMonths,
+        pageBehavior,
+        showMonthAndYearPickers,
         color:
           (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
           isDefaultColor
@@ -175,6 +191,16 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       userCalendarProps,
     ),
   };
+
+  const slots = useMemo(
+    () =>
+      datePicker({
+        ...variantProps,
+        hasMultipleMonths,
+        className,
+      }),
+    [objectToDeps(variantProps), hasMultipleMonths, className],
+  );
 
   const getBaseProps: PropGetter = () => ({
     ...groupProps,
@@ -214,6 +240,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       "data-slot": "calendar",
       classNames: {
         base: slots.calendar({class: classNames?.calendar}),
+        content: slots.calendarContent({class: classNames?.calendarContent}),
         headerWrapper: slots.calendarHeader({class: classNames?.calendarHeader}),
         gridWrapper: slots.calendarGrid({class: classNames?.calendarGrid}),
       },

@@ -22,7 +22,11 @@ const dateInput = tv({
       "cursor-text tap-highlight-transparent shadow-sm",
     ],
     input: "flex h-full gap-x-0.5 w-full font-normal",
-    innerWrapper: "flex items-center text-default-400 w-full gap-x-2 h-6", // this wraps the input and the start/end content
+    innerWrapper: [
+      "flex items-center text-default-400 w-full gap-x-2 h-6",
+      // isInValid=true
+      "group-data-[invalid=true]:text-danger",
+    ], // this wraps the input and the start/end content
     segment: [
       "group -ml-0.5 px-0.5 my-auto box-content tabular-nums text-start",
       "inline-block outline-none focus:shadow-sm rounded-md",

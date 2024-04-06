@@ -12,7 +12,8 @@ import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 
 import {UseDatePickerProps, useDatePicker} from "./use-date-picker";
 
-export interface Props<T extends DateValue> extends UseDatePickerProps<T> {}
+export interface Props<T extends DateValue>
+  extends Omit<UseDatePickerProps<T>, "hasMultipleMonths"> {}
 
 function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {

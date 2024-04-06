@@ -7,12 +7,13 @@ const calendar = tv({
   slots: {
     base: [
       "relative w-fit max-w-full shadow-small inline-block",
-      "rounded-large overflow-scroll bg-default-50 dark:bg-background",
+      "rounded-large overflow-x-scroll bg-default-50 dark:bg-background",
     ],
     prevButton: [],
     nextButton: [],
     headerWrapper: [
       "px-4 py-2 flex items-center justify-between gap-2 bg-content1",
+      "[&_.chevron-icon]:flex-none",
       // month/year picker wrapper
       "after:content-['']",
       "after:bg-content1 origin-top",
