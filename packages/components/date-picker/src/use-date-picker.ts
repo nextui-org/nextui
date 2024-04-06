@@ -2,13 +2,14 @@ import type {DatePickerVariantProps, DatePickerSlots, SlotsToClasses} from "@nex
 import type {DateValue} from "@internationalized/date";
 import type {AriaDatePickerProps} from "@react-types/datepicker";
 import type {DateInputProps} from "@nextui-org/date-input";
-import type {DOMAttributes, PropGetter} from "@nextui-org/system";
 import type {DatePickerState} from "@react-stately/datepicker";
 import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {ReactNode} from "react";
 
+import {DOMAttributes, PropGetter, useProviderContext} from "@nextui-org/system";
+import {CalendarDate} from "@internationalized/date";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
@@ -76,6 +77,8 @@ export type UseDatePickerProps<T extends DateValue> = Props<T> &
 export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, datePicker.variantKeys);
 
+  const providerContext = useProviderContext();
+
   const {
     ref,
     as,
@@ -83,6 +86,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     popoverProps = {},
     selectorButtonProps = {},
     calendarProps: userCalendarProps = {},
+    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
+    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
     disableAnimation = false,
     className,
     classNames,
@@ -96,6 +101,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
+    minValue,
+    maxValue,
     shouldCloseOnSelect: () => !state.hasTime,
   });
 
@@ -125,7 +132,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     inputProps: mergeProps(
       {
         ref: targetRef,
-        onClick: state.toggle,
+        minValue,
+        maxValue,
         fullWidth: true,
         isClearable: false,
         disableAnimation,
@@ -153,6 +161,10 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     ),
     calendarProps: mergeProps(
       {
+        color:
+          originalProps.color === "default" || !originalProps.color
+            ? "primary"
+            : originalProps.color,
         disableAnimation,
       },
       userCalendarProps,

@@ -4,10 +4,11 @@ import type {SupportedCalendars} from "@nextui-org/system";
 import type {DateValue, Calendar} from "@internationalized/date";
 import type {ReactRef} from "@nextui-org/react-utils";
 
+import {useLocale} from "@react-aria/i18n";
+import {CalendarDate} from "@internationalized/date";
 import {PropGetter, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {useLocale} from "@react-aria/i18n";
 import {useDateField as useAriaDateField} from "@react-aria/datepicker";
 import {useDateFieldState} from "@react-stately/datepicker";
 import {createCalendar} from "@internationalized/date";
@@ -114,6 +115,8 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     validationState,
     validationBehavior = "native",
     shouldForceLeadingZeros = true,
+    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
+    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
     createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
     errorMessage: errorMessageProp,
@@ -130,6 +133,8 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   const state = useDateFieldState({
     ...originalProps,
     locale,
+    minValue,
+    maxValue,
     isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
     createCalendar:

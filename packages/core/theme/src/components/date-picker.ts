@@ -10,8 +10,8 @@ import {tv} from "../utils/tv";
 const datePicker = tv({
   slots: {
     base: "w-full",
-    selectorButton: "-mr-2",
-    selectorIcon: "text-lg text-default-400 pointer-events-none flex-shrink-0",
+    selectorButton: "-mr-2 text-inherit",
+    selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
     calendar: "w-64 shadow-none",
   },
