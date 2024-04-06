@@ -25,7 +25,7 @@ export interface MultiSelectProps<T>
     Omit<InputBase, "isReadOnly">,
     DOMProps,
     HelpTextProps,
-    Validation<T>,
+    Omit<Validation<T>, "validationBehavior">,
     LabelableProps,
     TextInputBase,
     Omit<MultipleSelection, "none">,
@@ -76,6 +76,7 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
 
   const validationState = useFormValidationState({
     ...props,
+    validationBehavior: "native",
     // @ts-ignore
     value: listState.selectedKeys,
   });

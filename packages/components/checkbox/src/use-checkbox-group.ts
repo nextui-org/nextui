@@ -48,7 +48,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseCheckboxGroupProps = Omit<Props, "onChange"> &
-  AriaCheckboxGroupProps &
+  Omit<AriaCheckboxGroupProps, "validationBehavior"> &
   Partial<
     Pick<
       CheckboxProps,
@@ -84,7 +84,6 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     lineThrough = false,
     isDisabled = false,
     disableAnimation = false,
-    validationBehavior = "native",
     isReadOnly,
     isRequired,
     onValueChange,
@@ -108,7 +107,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       isRequired,
       isReadOnly,
       orientation,
-      validationBehavior,
+      validationBehavior: "native",
       isInvalid: props.isInvalid || props.validationState === "invalid",
       onChange: chain(props.onChange, onValueChange),
     };
@@ -121,7 +120,6 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     isReadOnly,
     orientation,
     onValueChange,
-    validationBehavior,
     props.isInvalid,
     props.validationState,
     otherProps["aria-label"],

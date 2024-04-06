@@ -110,8 +110,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
-  ComboBoxProps<T> &
+  Omit<
+    InputProps,
+    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "validationBehavior"
+  > &
+  Omit<ComboBoxProps<T>, "validationBehavior"> &
   AsyncLoadable &
   AutocompleteVariantProps;
 
@@ -155,7 +158,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     className,
     classNames,
     errorMessage,
-    validationBehavior = "native",
     onOpenChange,
     onClose,
     isReadOnly = false,
@@ -169,7 +171,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
-    validationBehavior,
+    validationBehavior: "native",
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -205,7 +207,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     validationErrors,
   } = useComboBox(
     {
-      validationBehavior,
+      validationBehavior: "native",
       ...originalProps,
       inputRef,
       buttonRef,

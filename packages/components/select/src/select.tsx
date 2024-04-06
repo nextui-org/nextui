@@ -46,7 +46,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getDescriptionProps,
     getErrorMessageProps,
     getSelectorIconProps,
-  } = useSelect<T>({...props, validationBehavior: props.validationBehavior ?? "native", ref});
+  } = useSelect<T>({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 

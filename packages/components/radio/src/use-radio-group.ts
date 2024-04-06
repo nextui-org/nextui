@@ -47,7 +47,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
 }
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaRadioGroupProps, "onChange"> &
+  Omit<AriaRadioGroupProps, "onChange" | "validationBehavior"> &
   Partial<Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">>;
 
 export type ContextType = {
@@ -76,7 +76,6 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
-    validationBehavior = "native",
     isReadOnly,
     errorMessage,
     description,
@@ -100,7 +99,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       isReadOnly,
       isInvalid: props.validationState === "invalid" || props.isInvalid,
       orientation,
-      validationBehavior,
+      validationBehavior: "native",
       onChange: onValueChange,
     };
   }, [
@@ -112,7 +111,6 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     isReadOnly,
     props.isInvalid,
     props.validationState,
-    validationBehavior,
     orientation,
     onValueChange,
   ]);
@@ -150,7 +148,6 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       isInvalid,
       onChange,
       disableAnimation,
-      validationBehavior,
       groupState.name,
       groupState?.isDisabled,
       groupState?.isReadOnly,

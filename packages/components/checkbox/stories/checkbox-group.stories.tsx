@@ -37,12 +37,6 @@ export default {
         type: "boolean",
       },
     },
-    validationBehavior: {
-      control: {
-        type: "select",
-      },
-      options: ["aria", "native"],
-    },
   },
 } as Meta<typeof Checkbox>;
 

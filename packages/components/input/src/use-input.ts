@@ -80,7 +80,7 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
@@ -154,7 +154,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = useTextField(
     {
       ...originalProps,
-      validationBehavior: originalProps.validationBehavior ?? "native",
+      validationBehavior: "native",
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(

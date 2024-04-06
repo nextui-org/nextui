@@ -146,7 +146,7 @@ describe("Radio", () => {
 
   it('should work correctly with "isRequired" prop', () => {
     const {getByRole, getAllByRole} = render(
-      <RadioGroup isRequired label="Options" validationBehavior="native">
+      <RadioGroup isRequired label="Options">
         <Radio value="1">Option 1</Radio>
         <Radio value="2">Option 2</Radio>
       </RadioGroup>,
@@ -204,11 +204,11 @@ describe("validation", () => {
   beforeAll(() => {
     user = userEvent.setup();
   });
-  describe("validationBehavior=native", () => {
+  describe("validationBehavior=native (default)", () => {
     it("supports isRequired", async () => {
       const {getAllByRole, getByRole, getByTestId} = render(
         <form data-testid="form">
-          <RadioGroup isRequired aria-label="favorite pet" validationBehavior="native">
+          <RadioGroup isRequired aria-label="favorite pet">
             <Radio value="dogs">Dogs</Radio>
             <Radio value="cats">Cats</Radio>
             <Radio value="dragons">Dragons</Radio>
@@ -244,40 +244,6 @@ describe("validation", () => {
       }
 
       expect(group).not.toHaveAttribute("aria-describedby");
-    });
-  });
-
-  describe("validationBehavior=aria", () => {
-    it("supports validate function", async () => {
-      const {getAllByRole, getByRole} = render(
-        <RadioGroup
-          aria-label="favorite pet"
-          defaultValue="dragons"
-          validate={(v) => (v === "dragons" ? "Too scary" : null)}
-        >
-          <Radio value="dogs">Dogs</Radio>
-          <Radio value="cats">Cats</Radio>
-          <Radio value="dragons">Dragons</Radio>
-        </RadioGroup>,
-      );
-
-      const group = getByRole("radiogroup");
-
-      expect(group).toHaveAttribute("aria-describedby");
-      expect(group).toHaveAttribute("aria-invalid", "true");
-      expect(
-        document.getElementById(group.getAttribute("aria-describedby") as string),
-      ).toHaveTextContent("Too scary");
-
-      const radios = getAllByRole("radio") as HTMLInputElement[];
-
-      for (let input of radios) {
-        expect(input.validity.valid).toBe(true);
-      }
-
-      await user.click(radios[0]);
-      expect(group).not.toHaveAttribute("aria-describedby");
-      expect(group).not.toHaveAttribute("aria-invalid");
     });
   });
 });
