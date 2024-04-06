@@ -14,6 +14,8 @@ const datePicker = tv({
     selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
     calendar: "w-64 shadow-none",
+    calendarHeader: "w-64",
+    calendarGrid: "w-64",
   },
   variants: {},
   defaultVariants: {},

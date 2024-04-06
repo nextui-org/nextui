@@ -152,7 +152,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       isNonModal,
       popoverRef: domRef,
       placement: placementProp,
-      offset: offset,
+      offset,
       scrollRef,
       isDismissable,
       shouldCloseOnBlur,

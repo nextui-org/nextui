@@ -36,7 +36,7 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   /**
    * Props to be passed to the popover component.
    *
-   * @default { placement: "bottom", triggerScaleOnOpen: false, offset: 5 }
+   * @default { placement: "bottom", triggerScaleOnOpen: false, offset: 13 }
    */
   popoverProps?: Partial<PopoverProps>;
   /**
@@ -123,6 +123,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   const baseStyles = clsx(classNames?.base, className);
 
+  const isDefaultColor = originalProps.color === "default" || !originalProps.color;
+
   const slotsProps: {
     inputProps: DateInputProps<T>;
     popoverProps: UseDatePickerProps<T>["popoverProps"];
@@ -142,7 +144,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     ),
     popoverProps: mergeProps(
       {
-        offset: 5,
+        offset: 13,
         placement: "bottom",
         triggerScaleOnOpen: false,
         disableAnimation,
@@ -162,7 +164,10 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     calendarProps: mergeProps(
       {
         color:
-          originalProps.color === "default" || !originalProps.color
+          (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
+          isDefaultColor
+            ? "foreground"
+            : isDefaultColor
             ? "primary"
             : originalProps.color,
         disableAnimation,
@@ -187,9 +192,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
     return {
-      ...props,
       state,
-      dialogProps,
+      ...mergeProps(slotsProps.popoverProps, dialogProps, props),
       triggerRef: targetRef,
       classNames: {
         content: slots.popoverContent({
@@ -208,7 +212,11 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       ...calendarProps,
       ...slotsProps.calendarProps,
       "data-slot": "calendar",
-      className: slots.calendar({class: classNames?.calendar}),
+      classNames: {
+        base: slots.calendar({class: classNames?.calendar}),
+        headerWrapper: slots.calendarHeader({class: classNames?.calendarHeader}),
+        gridWrapper: slots.calendarGrid({class: classNames?.calendarGrid}),
+      },
     } as unknown as CalendarProps;
   };
 

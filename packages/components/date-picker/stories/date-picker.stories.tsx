@@ -62,8 +62,35 @@ const defaultProps = {
 
 const Template = (args: DatePickerProps) => <DatePicker {...args} />;
 
+const LabelPlacementTemplate = (args: DatePickerProps) => (
+  <div className="w-full max-w-xl flex flex-col items-end gap-4">
+    <DatePicker {...args} description="inside" />
+    <DatePicker {...args} description="outside" labelPlacement="outside" />
+    <DatePicker {...args} description="outside-left" labelPlacement="outside-left" />
+  </div>
+);
+
 export const Default = {
   render: Template,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithMonthAndYearPickers = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    calendarProps: {
+      showMonthAndYearPickers: true,
+    },
+  },
+};
+
+export const LabelPlacement = {
+  render: LabelPlacementTemplate,
+
   args: {
     ...defaultProps,
   },

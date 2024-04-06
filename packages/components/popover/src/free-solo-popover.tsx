@@ -28,34 +28,34 @@ type FreeSoloPopoverWrapperProps = {
   motionProps?: UsePopoverProps["motionProps"];
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const FreeSoloPopoverWrapper = ({
-  children,
-  motionProps,
-  placement,
-  disableAnimation,
-  style = {},
-  ...otherProps
-}: FreeSoloPopoverWrapperProps) => {
-  return disableAnimation ? (
-    <div {...otherProps}>{children}</div>
-  ) : (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        animate="enter"
-        exit="exit"
-        initial="initial"
-        style={{
-          ...style,
-          ...getTransformOrigins(placement === "center" ? "top" : placement),
-        }}
-        variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-        {...mergeProps(otherProps, motionProps)}
-      >
+const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
+  ({children, motionProps, placement, disableAnimation, style = {}, ...otherProps}, ref) => {
+    return disableAnimation ? (
+      <div {...otherProps} ref={ref}>
         {children}
-      </m.div>
-    </LazyMotion>
-  );
-};
+      </div>
+    ) : (
+      <LazyMotion features={domAnimation}>
+        <m.div
+          ref={ref}
+          animate="enter"
+          exit="exit"
+          initial="initial"
+          style={{
+            ...style,
+            ...getTransformOrigins(placement === "center" ? "top" : placement),
+          }}
+          variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+          {...mergeProps(otherProps, motionProps)}
+        >
+          {children}
+        </m.div>
+      </LazyMotion>
+    );
+  },
+);
+
+FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(({children, ...props}, ref) => {
   const {
