@@ -46,6 +46,12 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    */
   visibleMonths?: CalendarProps["visibleMonths"];
   /**
+   * The width to be applied to the calendar component.
+   *
+   * @default 256
+   */
+  calendarWidth?: number;
+  /**
    * Whether the calendar should show month and year pickers.
    *
    * @default false
@@ -103,6 +109,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     selectorIcon,
     visibleMonths = 1,
     pageBehavior = "visible",
+    calendarWidth = 256,
     showMonthAndYearPickers = false,
     popoverProps = {},
     selectorButtonProps = {},
@@ -244,6 +251,16 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
         headerWrapper: slots.calendarHeader({class: classNames?.calendarHeader}),
         gridWrapper: slots.calendarGrid({class: classNames?.calendarGrid}),
       },
+      style: mergeProps(
+        hasMultipleMonths
+          ? {
+              // @ts-ignore
+              "--visible-months": visibleMonths,
+              "--calendar-width": `${calendarWidth}px`,
+            }
+          : {},
+        slotsProps.calendarProps.style,
+      ),
     } as unknown as CalendarProps;
   };
 

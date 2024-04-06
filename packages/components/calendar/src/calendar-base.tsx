@@ -113,7 +113,7 @@ export function CalendarBase(props: CalendarBaseProps) {
   }
 
   const calendarContent = (
-    <div className={slots?.content({class: classNames?.content})} data-slot="content">
+    <>
       <div
         key="header-wrapper"
         className={slots?.headerWrapper({class: classNames?.headerWrapper})}
@@ -128,7 +128,7 @@ export function CalendarBase(props: CalendarBaseProps) {
       >
         {calendars}
       </div>
-    </div>
+    </>
   );
 
   return (
@@ -143,15 +143,18 @@ export function CalendarBase(props: CalendarBaseProps) {
         <h2>{calendarProps["aria-label"]}</h2>
       </VisuallyHidden>
       {disableAnimation ? (
-        calendarContent
+        <div className={slots?.content({class: classNames?.content})} data-slot="content">
+          {calendarContent}
+        </div>
       ) : (
-        <ResizablePanel>
+        <ResizablePanel
+          className={slots?.content({class: classNames?.content})}
+          data-slot="content"
+        >
           <AnimatePresence custom={direction} initial={false} mode="popLayout">
-            <>
-              <MotionConfig transition={transition}>
-                <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
-              </MotionConfig>
-            </>
+            <MotionConfig transition={transition}>
+              <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
+            </MotionConfig>
           </AnimatePresence>
         </ResizablePanel>
       )}

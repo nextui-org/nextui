@@ -13,19 +13,19 @@ const datePicker = tv({
     selectorButton: "-mr-2 text-inherit",
     selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
-    calendar: "w-64 shadow-none",
+    calendar: "w-[var(--calendar-width)] shadow-none",
     calendarContent: "",
-    calendarHeader: "w-64",
-    calendarGrid: "w-64",
+    calendarHeader: "w-[var(--calendar-width)]",
+    calendarGrid: "w-[var(--calendar-width)]",
   },
   variants: {
     // @internal
     hasMultipleMonths: {
       true: {
-        calendar: "w-auto",
-        calendarContent: "w-full",
-        calendarHeader: "w-auto",
-        calendarGrid: "w-fit", // TODO: fix when disableAnimation is false
+        calendar: "w-full",
+        calendarContent: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+        calendarHeader: "w-full",
+        calendarGrid: "w-full",
       },
       false: {},
     },
