@@ -1,11 +1,20 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {act, fireEvent, render} from "@testing-library/react";
-import {CalendarDate, CalendarDateTime, ZonedDateTime} from "@internationalized/date";
+import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 
-import {DateInput} from "../src";
+import {DateInput as DateInputBase, DateInputProps} from "../src";
+
+/**
+ * Custom date-input to disable animations and avoid issues with react-motion and jest
+ */
+const DateInput = React.forwardRef((props: DateInputProps, ref: React.Ref<HTMLDivElement>) => {
+  return <DateInputBase {...props} ref={ref} disableAnimation />;
+});
+
+DateInput.displayName = "DateInput";
 
 describe("DateInput", () => {
   let user;
@@ -296,7 +305,7 @@ describe("DateInput", () => {
 
     it("supports form reset", async () => {
       function Test() {
-        let [value, setValue] = React.useState(new CalendarDate(2020, 2, 3));
+        let [value, setValue] = React.useState<DateValue>(new CalendarDate(2020, 2, 3));
 
         return (
           <form>

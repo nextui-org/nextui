@@ -38,12 +38,17 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     onClose,
   } = usePopoverContext();
 
+  const dialogProps = getDialogProps(otherProps);
+
+  // Not needed in the popover context, the popover role comes from getPopoverProps
+  delete dialogProps.role;
+
   const Component = as || OverlayComponent || "div";
 
   const content = (
     <>
       {!isNonModal && <DismissButton onDismiss={onClose} />}
-      <Component {...getDialogProps(otherProps)}>
+      <Component {...dialogProps}>
         <div {...getContentProps({className})}>
           {typeof children === "function" ? children(titleProps) : children}
         </div>

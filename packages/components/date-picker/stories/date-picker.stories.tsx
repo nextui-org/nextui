@@ -79,7 +79,7 @@ const defaultProps = {
 const Template = (args: DatePickerProps) => <DatePicker {...args} />;
 
 const LabelPlacementTemplate = (args: DatePickerProps) => (
-  <div className="w-full max-w-xl flex flex-col items-end gap-4">
+  <div className="w-full max-w-xl flex flex-col items-start gap-4">
     <DatePicker {...args} description="inside" />
     <DatePicker {...args} description="outside" labelPlacement="outside" />
     <DatePicker {...args} description="outside-left" labelPlacement="outside-left" />
@@ -105,7 +105,7 @@ const ControlledTemplate = (args: DatePickerProps) => {
 };
 
 const TimeZonesTemplate = (args: DatePickerProps) => (
-  <div className="w-full max-w-xl flex flex-col items-end gap-4">
+  <div className="w-full max-w-xl flex flex-col items-start gap-4">
     <DatePicker
       {...args}
       className="max-w-xs"
@@ -113,7 +113,7 @@ const TimeZonesTemplate = (args: DatePickerProps) => (
       labelPlacement="outside"
     />
     <DatePicker
-      {...args}
+      // {...args}
       className="max-w-xs"
       defaultValue={parseAbsoluteToLocal("2021-11-07T07:45:00Z")}
       labelPlacement="outside"

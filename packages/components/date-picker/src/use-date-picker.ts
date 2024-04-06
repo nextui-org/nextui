@@ -6,18 +6,18 @@ import type {DatePickerState} from "@react-stately/datepicker";
 import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
-import type {ReactNode} from "react";
 
-import {DOMAttributes, PropGetter, useProviderContext} from "@nextui-org/system";
+import {ReactNode} from "react";
+import {DOMAttributes, useProviderContext} from "@nextui-org/system";
 import {CalendarDate} from "@internationalized/date";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {datePicker} from "@nextui-org/theme";
-import {chain, mergeProps} from "@react-aria/utils";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {mergeProps} from "@react-aria/utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {useMemo, useRef} from "react";
+import {useMemo} from "react";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -25,10 +25,6 @@ type NextUIBaseProps<T extends DateValue> = Omit<
 >;
 
 interface Props<T extends DateValue> extends NextUIBaseProps<T> {
-  /**
-   * Ref to the DOM node.
-   */
-  ref?: ReactRef<HTMLElement | null>;
   /**
    * The icon to toggle the date picker popover. Usually a calendar icon.
    */
@@ -108,7 +104,7 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
 
 export type UseDatePickerProps<T extends DateValue> = Props<T> &
   DatePickerVariantProps &
-  DateInputProps<T>;
+  Omit<DateInputProps<T>, "groupProps" | "fieldProps" | "labelProps" | "errorMessageProps">;
 
 export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, datePicker.variantKeys);
@@ -117,7 +113,6 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   const {
     ref,
-    as,
     selectorIcon,
     visibleMonths = 1,
     pageBehavior = "visible",
@@ -137,10 +132,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     ...otherProps
   } = props;
 
-  const Component = as || "div";
-
   const domRef = useDOMRef(ref);
-  let targetRef = useRef<HTMLDivElement>(null);
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
@@ -149,34 +141,32 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     shouldCloseOnSelect: () => !state.hasTime,
   });
 
-  let {groupProps, fieldProps, buttonProps, dialogProps, calendarProps} = useAriaDatePicker(
-    originalProps,
-    state,
-    targetRef,
-  );
+  let {
+    groupProps,
+    labelProps,
+    fieldProps,
+    buttonProps,
+    dialogProps,
+    calendarProps,
+    descriptionProps,
+    errorMessageProps,
+  } = useAriaDatePicker(originalProps, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
 
   const isDefaultColor = originalProps.color === "default" || !originalProps.color;
   const hasMultipleMonths = visibleMonths > 1;
 
+  // delete event handlers since they are handled by the useAriaDatePicker hook
+  delete otherProps.onBlur;
+  delete otherProps.onFocus;
+  delete otherProps.onFocusChange;
+
   const slotsProps: {
-    inputProps: DateInputProps<T>;
     popoverProps: UseDatePickerProps<T>["popoverProps"];
     selectorButtonProps: ButtonProps;
     calendarProps: CalendarProps;
   } = {
-    inputProps: mergeProps(
-      {
-        ref: targetRef,
-        minValue,
-        maxValue,
-        fullWidth: true,
-        isClearable: false,
-        disableAnimation,
-      },
-      otherProps,
-    ),
     popoverProps: mergeProps(
       {
         offset: 13,
@@ -198,6 +188,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     ),
     calendarProps: mergeProps(
       {
+        showHelper: false,
         visibleMonths,
         pageBehavior,
         isDateUnavailable,
@@ -225,25 +216,35 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     [objectToDeps(variantProps), hasMultipleMonths, className],
   );
 
-  const getBaseProps: PropGetter = () => ({
-    ...groupProps,
-    "data-invalid": dataAttr(originalProps?.isInvalid),
-    "data-open": dataAttr(state.isOpen),
-    className: slots.base({class: baseStyles}),
-  });
-
   const getDateInputProps = () => {
     return {
-      ...mergeProps(fieldProps, slotsProps.inputProps),
-      onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
+      ref: domRef,
+      groupProps,
+      labelProps,
+      errorMessageProps,
+      descriptionProps,
+      ...mergeProps(
+        fieldProps,
+        {
+          minValue,
+          maxValue,
+          fullWidth: true,
+          disableAnimation,
+        },
+        otherProps,
+      ),
+      "data-invalid": dataAttr(originalProps?.isInvalid),
+      "data-open": dataAttr(state.isOpen),
+      className: slots.base({class: baseStyles}),
     } as unknown as DateInputProps;
   };
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
     return {
       state,
-      ...mergeProps(slotsProps.popoverProps, dialogProps, props),
-      triggerRef: targetRef,
+      dialogProps,
+      ...mergeProps(slotsProps.popoverProps, props),
+      triggerRef: domRef,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -295,13 +296,10 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   return {
     state,
-    Component,
-    domRef,
     selectorIcon,
     disableAnimation,
     CalendarTopContent,
     CalendarBottomContent,
-    getBaseProps,
     getDateInputProps,
     getPopoverProps,
     getSelectorButtonProps,

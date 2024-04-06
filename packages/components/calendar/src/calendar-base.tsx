@@ -22,6 +22,7 @@ import {useCalendarContext} from "./calendar-context";
 
 export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   Component?: As;
+  showHelper?: boolean;
   topContent?: ReactNode;
   bottomContent?: ReactNode;
   calendarProps: HTMLAttributes<HTMLElement>;
@@ -36,6 +37,7 @@ export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
 export function CalendarBase(props: CalendarBaseProps) {
   const {
     Component = "div",
+    showHelper,
     topContent,
     bottomContent,
     calendarProps,
@@ -171,7 +173,7 @@ export function CalendarBase(props: CalendarBaseProps) {
           onClick={() => state.focusNextPage()}
         />
       </VisuallyHidden>
-      {state.isValueInvalid && (
+      {state.isValueInvalid && showHelper && (
         <div
           className={slots?.helperWrapper({class: classNames?.helperWrapper})}
           data-slot="helper-wrapper"

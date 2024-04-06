@@ -173,9 +173,6 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {dialogProps, titleProps} = useDialog({}, dialogRef);
 
-  // Not needed in the popover context, the popover role comes from getPopoverProps
-  delete dialogProps.role;
-
   const slots = useMemo(
     () =>
       popover({
