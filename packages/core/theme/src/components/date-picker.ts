@@ -14,18 +14,12 @@ const datePicker = tv({
     selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
     calendar: "w-[var(--calendar-width)] shadow-none",
-    calendarContent: "",
-    calendarHeader: "w-[var(--calendar-width)]",
-    calendarGrid: "w-[var(--calendar-width)]",
   },
   variants: {
     // @internal
     hasMultipleMonths: {
       true: {
-        calendar: "w-full",
-        calendarContent: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
-        calendarHeader: "w-full",
-        calendarGrid: "w-full",
+        calendar: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
       },
       false: {},
     },

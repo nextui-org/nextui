@@ -27,6 +27,8 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     getSelectorButtonProps,
     getSelectorIconProps,
     getCalendarProps,
+    CalendarTopContent,
+    CalendarBottomContent,
   } = useDatePicker<T>({...props, ref});
 
   const selectorContent = isValidElement(selectorIcon) ? (
@@ -37,7 +39,11 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
 
   const popoverContent = state.isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
-      <Calendar {...getCalendarProps()} />
+      <Calendar
+        {...getCalendarProps()}
+        bottomContent={CalendarBottomContent}
+        topContent={CalendarTopContent}
+      />
     </FreeSoloPopover>
   ) : null;
 

@@ -52,6 +52,14 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    */
   calendarWidth?: number;
   /**
+   * Top content to be rendered in the calendar component.
+   */
+  CalendarTopContent?: CalendarProps["topContent"];
+  /**
+   * Bottom content to be rendered in the calendar component.
+   */
+  CalendarBottomContent?: CalendarProps["bottomContent"];
+  /**
    * Whether the calendar should show month and year pickers.
    *
    * @default false
@@ -72,7 +80,11 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * Props to be passed to the calendar component.
    * @default {}
    */
-  calendarProps?: Partial<CalendarProps>;
+  calendarProps?: Partial<Omit<CalendarProps, "topContent" | "bottomContent">>;
+  /**
+   * Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+   */
+  isDateUnavailable?: CalendarProps["isDateUnavailable"];
   /**
    * Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.
    *
@@ -110,10 +122,13 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     visibleMonths = 1,
     pageBehavior = "visible",
     calendarWidth = 256,
+    isDateUnavailable,
     showMonthAndYearPickers = false,
     popoverProps = {},
     selectorButtonProps = {},
     calendarProps: userCalendarProps = {},
+    CalendarTopContent,
+    CalendarBottomContent,
     minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
     maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
     disableAnimation = false,
@@ -185,6 +200,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       {
         visibleMonths,
         pageBehavior,
+        isDateUnavailable,
         showMonthAndYearPickers,
         color:
           (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
@@ -247,18 +263,15 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       "data-slot": "calendar",
       classNames: {
         base: slots.calendar({class: classNames?.calendar}),
-        content: slots.calendarContent({class: classNames?.calendarContent}),
-        headerWrapper: slots.calendarHeader({class: classNames?.calendarHeader}),
-        gridWrapper: slots.calendarGrid({class: classNames?.calendarGrid}),
       },
       style: mergeProps(
         hasMultipleMonths
           ? {
               // @ts-ignore
               "--visible-months": visibleMonths,
-              "--calendar-width": `${calendarWidth}px`,
             }
           : {},
+        {"--calendar-width": `${calendarWidth}px`},
         slotsProps.calendarProps.style,
       ),
     } as unknown as CalendarProps;
@@ -286,6 +299,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     domRef,
     selectorIcon,
     disableAnimation,
+    CalendarTopContent,
+    CalendarBottomContent,
     getBaseProps,
     getDateInputProps,
     getPopoverProps,
