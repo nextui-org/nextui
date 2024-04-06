@@ -186,6 +186,7 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "The selected cities cannot be visited at the same time",
   },
 };

@@ -263,7 +263,7 @@ export const WithErrorMessage = {
   args: {
     ...defaultProps,
     isRequired: true,
-    validationState: "invalid",
+    isInvalid: true,
     errorMessage: "The selected option is invalid",
   },
 };

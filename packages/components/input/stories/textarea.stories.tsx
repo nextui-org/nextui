@@ -236,6 +236,7 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    IsInvalid: true,
     errorMessage: "Please enter a valid description",
   },
 };

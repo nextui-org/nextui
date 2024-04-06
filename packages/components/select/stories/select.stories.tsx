@@ -711,6 +711,7 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    IsInvalid: true,
     errorMessage: "Please select an animal",
   },
 };
