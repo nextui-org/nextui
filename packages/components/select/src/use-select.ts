@@ -238,7 +238,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   state = {
     ...state,
     ...(originalProps?.isDisabled && {
-      disabledKeys: new Set([...state.collection.getKeys()].map((k) => k)),
+      disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
 
