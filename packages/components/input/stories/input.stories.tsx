@@ -629,6 +629,23 @@ export const WithErrorMessageFunction = {
   },
 };
 
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    type: "number",
+    validate: (value) => {
+      if (value < 0 || value > 100) {
+        return "Value must be between 0 and 100";
+      }
+    },
+    isRequired: true,
+    label: "Number",
+    placeholder: "Enter a number(0-100)",
+  },
+};
+
 export const IsInvalid = {
   render: Template,
 

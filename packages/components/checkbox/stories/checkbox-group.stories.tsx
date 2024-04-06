@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
@@ -85,13 +87,13 @@ const FormTemplate = (args: CheckboxGroupProps) => {
       className="flex flex-col items-start gap-4"
       onSubmit={(e) => {
         const formData = new FormData(e.currentTarget);
-        const selectedCountries = formData.getAll("favorite-country");
+        const selectedCities = formData.getAll("favorite-cities");
 
-        alert(`Submitted values: ${selectedCountries.join(", ")}`);
+        alert(`Submitted values: ${selectedCities.join(", ")}`);
         e.preventDefault();
       }}
     >
-      <CheckboxGroup {...args} label="Select cities" name="favorite-country">
+      <CheckboxGroup {...args} label="Select cities" name="favorite-cities">
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="san-francisco">San Francisco</Checkbox>
@@ -182,6 +184,36 @@ export const WithErrorMessage = {
     ...defaultProps,
     isInvalid: true,
     errorMessage: "The selected cities cannot be visited at the same time",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "At least one option must be selected";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Please select at least 2 options",
+    validate: (value: string[]) => {
+      if (value.length < 2) {
+        return "You must select at least 2 options";
+      }
+
+      return null;
+    },
   },
 };
 

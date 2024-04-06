@@ -140,13 +140,6 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   let isInvalid = props.isInvalid || props.validationState === "invalid" || isAriaInvalid;
 
-  // This workaround might become unnecessary once the following issue is resolved
-  // https://github.com/adobe/react-spectrum/issues/5693
-  if (isInvalid) {
-    if (groupState.value.length > 0 && isRequired) {
-      isInvalid = false;
-    }
-  }
   const context = useMemo<ContextType>(
     () => ({
       size,

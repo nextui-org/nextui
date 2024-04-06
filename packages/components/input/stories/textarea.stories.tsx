@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
@@ -238,6 +240,49 @@ export const WithErrorMessage = {
     ...defaultProps,
     IsInvalid: true,
     errorMessage: "Please enter a valid description",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    minLength: "10",
+    maxLength: "",
+    label: "Comment",
+    placeholder: "Enter your comment (10-100 characters)",
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.tooLong) {
+        return "Comment is too short. Min 10 characters.";
+      }
+      if (value.validationDetails.tooShort) {
+        return "Comment is too long. Max 100 characters.";
+      }
+      if (value.validationDetails.valueMissing) {
+        return "Comment is required";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (value.length < 10) {
+        return "Comment is too short. Min 10 characters.";
+      }
+      if (value.length > 100) {
+        return "Comment is too long. Max 100 characters.";
+      }
+    },
+    isRequired: true,
+    label: "Comment",
+    placeholder: "Enter your comment (10-100 characters)",
   },
 };
 

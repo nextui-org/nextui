@@ -96,7 +96,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isIndeterminate = false,
     defaultSelected,
     classNames,
-    onChange,
     className,
     onValueChange,
     ...otherProps
@@ -119,8 +118,20 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const Component = as || "label";
 
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
+
+  // This workaround might become unnecessary once the following issue is resolved
+  // https://github.com/adobe/react-spectrum/issues/5693
+  let onChange = props.onChange;
+
+  if (isInGroup) {
+    const dispatch = () => {
+      groupContext.groupState.resetValidation();
+    };
+
+    onChange = chain(dispatch, onChange);
+  }
 
   const labelId = useId();
 

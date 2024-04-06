@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -259,6 +261,35 @@ export const WithErrorMessage = {
     isRequired: true,
     isInvalid: true,
     errorMessage: "The selected option is invalid",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "Please select an option";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    description: "Please select an option",
+    validate: (value: string) => {
+      if (value === "A") {
+        return "Option A is not allowed";
+      }
+    },
   },
 };
 

@@ -1,4 +1,6 @@
 /* eslint-disable react/display-name */
+import type {ValidationResult} from "@react-types/shared";
+
 import React, {ChangeEvent} from "react";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
@@ -705,8 +707,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
-    IsInvalid: true,
+    isInvalid: true,
     errorMessage: "Please select an animal",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please select an animal";
+      }
+    },
   },
 };
 

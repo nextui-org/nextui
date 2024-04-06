@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {autocomplete, input, button} from "@nextui-org/theme";
@@ -764,6 +766,34 @@ export const WithErrorMessage = {
     ...defaultProps,
     isInvalid: true,
     errorMessage: "Please select an animal",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "Value is required";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    validate: (value) => {
+      if (value.inputValue === "Cat" || value.selectedKey === "dog") {
+        return "Please select a valid animal";
+      }
+    },
   },
 };
 
