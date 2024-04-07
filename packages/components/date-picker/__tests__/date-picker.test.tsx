@@ -360,4 +360,80 @@ describe("DatePicker", () => {
       expect(onKeyUpSpy).toHaveBeenCalledTimes(2);
     });
   });
+
+  describe("Calendar popover", function () {
+    it("should emit onChange when selecting a date in the calendar in controlled mode", function () {
+      let onChange = jest.fn();
+      let {getByRole, getAllByRole, queryByLabelText} = render(
+        <DatePicker label="Date" value={new CalendarDate(2019, 2, 3)} onChange={onChange} />,
+      );
+
+      let combobox = getAllByRole("group")[0];
+
+      expect(getTextValue(combobox)).toBe("2/3/2019");
+
+      let button = getByRole("button");
+
+      triggerPress(button);
+
+      let dialog = getByRole("dialog");
+
+      expect(dialog).toBeVisible();
+
+      expect(queryByLabelText("Time")).toBeNull();
+
+      let cells = getAllByRole("gridcell");
+      let selected = cells.find((cell) => cell.getAttribute("aria-selected") === "true");
+
+      // @ts-ignore
+      expect(selected.children[0]).toHaveAttribute(
+        "aria-label",
+        "Sunday, February 3, 2019 selected",
+      );
+
+      // @ts-ignore
+      triggerPress(selected.nextSibling.children[0]);
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
+      expect(getTextValue(combobox)).toBe("2/3/2019"); // controlled
+    });
+
+    it("should emit onChange when selecting a date in the calendar in uncontrolled mode", function () {
+      let onChange = jest.fn();
+      let {getByRole, getAllByRole} = render(
+        <DatePicker defaultValue={new CalendarDate(2019, 2, 3)} label="Date" onChange={onChange} />,
+      );
+
+      let combobox = getAllByRole("group")[0];
+
+      expect(getTextValue(combobox)).toBe("2/3/2019");
+
+      let button = getByRole("button");
+
+      triggerPress(button);
+
+      let dialog = getByRole("dialog");
+
+      expect(dialog).toBeVisible();
+
+      let cells = getAllByRole("gridcell");
+      let selected = cells.find((cell) => cell.getAttribute("aria-selected") === "true");
+
+      // @ts-ignore
+      expect(selected.children[0]).toHaveAttribute(
+        "aria-label",
+        "Sunday, February 3, 2019 selected",
+      );
+
+      // @ts-ignore
+      triggerPress(selected.nextSibling.children[0]);
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
+      expect(getTextValue(combobox)).toBe("2/4/2019"); // uncontrolled
+    });
+  });
 });
