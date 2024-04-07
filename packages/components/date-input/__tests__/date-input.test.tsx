@@ -66,12 +66,12 @@ describe("DateInput", () => {
         />,
       );
 
-      await act(() => {
-        user.tab();
+      await act(async () => {
+        await user.tab();
       });
 
-      await act(() => {
-        user.keyboard("01011980");
+      await act(async () => {
+        await user.keyboard("01011980");
       });
 
       expect(tree.getByText("Date unavailable.")).toBeInTheDocument();
@@ -206,15 +206,17 @@ describe("DateInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[0]).toHaveFocus();
 
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[1]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
@@ -235,18 +237,22 @@ describe("DateInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[0]).toHaveFocus();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[1]).toHaveFocus();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[2]).toHaveFocus();
       expect(onBlurSpy).toHaveBeenCalledTimes(0);
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(onBlurSpy).toHaveBeenCalledTimes(1);
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(2);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);

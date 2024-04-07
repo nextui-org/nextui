@@ -10,7 +10,7 @@ import {CalendarDate} from "@internationalized/date";
 import {mergeProps} from "@react-aria/utils";
 import {PropGetter, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {useDOMRef} from "@nextui-org/react-utils";
 import {useDateField as useAriaDateField} from "@react-aria/datepicker";
 import {useDateFieldState} from "@react-stately/datepicker";
 import {createCalendar} from "@internationalized/date";
@@ -138,14 +138,12 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
     errorMessage: errorMessageProp,
-    ...otherProps
   } = props;
 
   const domRef = useDOMRef(ref);
   const inputRef = useDOMRef(inputRefProp);
 
   const Component = as || "div";
-  const shouldFilterDOMProps = typeof Component === "string";
 
   const {locale} = useLocale();
   const state = useDateFieldState({
@@ -212,15 +210,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   );
 
   const getBaseProps: PropGetter = () => {
-    // filter other props that are included in fieldProps to avoid duplication
-    const filteredUserProps = Object.keys(otherProps).reduce((acc, key) => {
-      if (!fieldProps[key as keyof typeof fieldProps]) {
-        acc[key] = otherProps[key as keyof typeof otherProps];
-      }
-
-      return acc;
-    }, {} as Record<string, any>);
-
     return {
       "data-slot": "base",
       "data-has-helper": dataAttr(hasHelper),
@@ -231,9 +220,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
       "data-has-start-content": dataAttr(!!startContent),
       "data-has-end-content": dataAttr(!!endContent),
       className: slots.base({class: baseStyles}),
-      ...filterDOMProps(filteredUserProps, {
-        enabled: shouldFilterDOMProps,
-      }),
     };
   };
 
@@ -257,15 +243,9 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
 
   const getFieldProps: PropGetter = (props) => {
     return {
-      ...mergeProps(
-        filterDOMProps(fieldProps, {
-          omitDataProps: true,
-        }),
-        fieldPropsProp,
-        props,
-      ),
       ref: domRef,
       "data-slot": "input",
+      ...mergeProps(fieldProps, fieldPropsProp, props),
       className: slots.input({
         class: clsx(classNames?.input, props?.className),
       }),

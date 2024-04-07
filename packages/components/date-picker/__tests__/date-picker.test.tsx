@@ -197,19 +197,26 @@ describe("DatePicker", () => {
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
 
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
+
       expect(segments[0]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
 
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
+
       expect(segments[1]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
 
       triggerPress(button);
+
       act(() => jest.runAllTimers());
 
       let dialog = getByRole("dialog");
@@ -232,13 +239,19 @@ describe("DatePicker", () => {
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
 
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
+
       expect(segments[0]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
 
-      await user.click(document.body);
+      await act(() => {
+        user.click(document.body);
+      });
+
       expect(document.body).toHaveFocus();
       expect(onBlurSpy).toHaveBeenCalledTimes(1);
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(2);
@@ -254,6 +267,7 @@ describe("DatePicker", () => {
           onFocusChange={onFocusChangeSpy}
         />,
       );
+
       let button = getByRole("button");
 
       expect(onBlurSpy).not.toHaveBeenCalled();
@@ -261,6 +275,7 @@ describe("DatePicker", () => {
       expect(onFocusSpy).not.toHaveBeenCalled();
 
       triggerPress(button);
+
       act(() => jest.runAllTimers());
 
       let dialog = getByRole("dialog");
@@ -295,6 +310,7 @@ describe("DatePicker", () => {
       fireEvent.keyDown(document.activeElement, {key: "Escape"});
       //@ts-ignore
       fireEvent.keyUp(document.activeElement, {key: "Escape"});
+
       act(() => jest.runAllTimers());
 
       await waitFor(() => {
@@ -310,7 +326,10 @@ describe("DatePicker", () => {
       expect(document.activeElement).toBe(button);
       expect(button).toHaveFocus();
 
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
+
       expect(document.body).toHaveFocus();
     });
 
@@ -323,10 +342,13 @@ describe("DatePicker", () => {
       expect(onKeyDownSpy).not.toHaveBeenCalled();
       expect(onKeyUpSpy).not.toHaveBeenCalled();
 
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
+
       expect(segments[0]).toHaveFocus();
       expect(onKeyDownSpy).not.toHaveBeenCalled();
-      expect(onKeyUpSpy).toHaveBeenCalledTimes(2);
+      expect(onKeyUpSpy).toHaveBeenCalledTimes(1);
 
       // @ts-ignore
       fireEvent.keyDown(document.activeElement, {key: "ArrowRight"});

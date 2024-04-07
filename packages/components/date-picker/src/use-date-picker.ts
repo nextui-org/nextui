@@ -129,7 +129,6 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     disableAnimation = false,
     className,
     classNames,
-    ...otherProps
   } = props;
 
   const domRef = useDOMRef(ref);
@@ -156,11 +155,6 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   const isDefaultColor = originalProps.color === "default" || !originalProps.color;
   const hasMultipleMonths = visibleMonths > 1;
-
-  // delete event handlers since they are handled by the useAriaDatePicker hook
-  delete otherProps.onBlur;
-  delete otherProps.onFocus;
-  delete otherProps.onFocusChange;
 
   const slotsProps: {
     popoverProps: UseDatePickerProps<T>["popoverProps"];
@@ -223,16 +217,12 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       labelProps,
       errorMessageProps,
       descriptionProps,
-      ...mergeProps(
-        fieldProps,
-        {
-          minValue,
-          maxValue,
-          fullWidth: true,
-          disableAnimation,
-        },
-        otherProps,
-      ),
+      ...mergeProps(fieldProps, {
+        minValue,
+        maxValue,
+        fullWidth: true,
+        disableAnimation,
+      }),
       "data-invalid": dataAttr(originalProps?.isInvalid),
       "data-open": dataAttr(state.isOpen),
       className: slots.base({class: baseStyles}),
@@ -264,6 +254,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       "data-slot": "calendar",
       classNames: {
         base: slots.calendar({class: classNames?.calendar}),
+        content: slots.calendarContent({class: classNames?.calendarContent}),
       },
       style: mergeProps(
         hasMultipleMonths
