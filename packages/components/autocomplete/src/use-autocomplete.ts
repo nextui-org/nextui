@@ -236,7 +236,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ),
     listboxProps: mergeProps(
       {
-        hideEmptyContent: allowsCustomValue,
+        hideEmptyContent: isLoading && allowsCustomValue,
         emptyContent: "No results found.",
         disableAnimation,
       },
