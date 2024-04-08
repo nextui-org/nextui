@@ -1,4 +1,3 @@
-import type {DatePickerVariantProps, DatePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {DateValue} from "@internationalized/date";
 import type {AriaDatePickerProps} from "@react-types/datepicker";
 import type {DateInputProps} from "@nextui-org/date-input";
@@ -7,9 +6,14 @@ import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
 
+import {
+  DatePickerVariantProps,
+  DatePickerSlots,
+  SlotsToClasses,
+  dateInput,
+} from "@nextui-org/theme";
 import {ReactNode} from "react";
-import {DOMAttributes, useProviderContext} from "@nextui-org/system";
-import {CalendarDate} from "@internationalized/date";
+import {DOMAttributes} from "@nextui-org/system";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
@@ -95,11 +99,22 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * ```ts
    * <DatePicker classNames={{
    *    base:"base-classes",
-   *  // TODO:
+   *    label: "label-classes",
+   *    calendar:"calendar-classes",
+   *    selectorButton:"selector-button-classes",
+   *    selectorIcon:"selector-icon-classes",
+   *    popoverContent:"popover-content-classes",
+   *    calendarContent : "calendar-content-classes",
+   *    inputWrapper: "input-wrapper-classes",
+   *    input: "input-classes",
+   *    segment: "segment-classes",
+   *    helperWrapper: "helper-wrapper-classes",
+   *    description: "description-classes",
+   *    errorMessage: "error-message-classes",
    * }} />
    * ```
    */
-  classNames?: SlotsToClasses<DatePickerSlots>;
+  classNames?: SlotsToClasses<DatePickerSlots> & DateInputProps<T>["classNames"];
 }
 
 export type UseDatePickerProps<T extends DateValue> = Props<T> &
@@ -107,31 +122,41 @@ export type UseDatePickerProps<T extends DateValue> = Props<T> &
   Omit<DateInputProps<T>, "groupProps" | "fieldProps" | "labelProps" | "errorMessageProps">;
 
 export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerProps<T>) {
-  const [props, variantProps] = mapPropsVariants(originalProps, datePicker.variantKeys);
-
-  const providerContext = useProviderContext();
+  const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
+    as,
     ref,
+    label,
     selectorIcon,
+    inputRef,
+    isInvalid,
+    errorMessage,
+    description,
+    startContent,
+    endContent,
+    validationState,
+    validationBehavior,
     visibleMonths = 1,
     pageBehavior = "visible",
     calendarWidth = 256,
     isDateUnavailable,
+    shouldForceLeadingZeros,
     showMonthAndYearPickers = false,
     popoverProps = {},
     selectorButtonProps = {},
     calendarProps: userCalendarProps = {},
     CalendarTopContent,
     CalendarBottomContent,
-    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
-    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
-    disableAnimation = false,
+    minValue,
+    maxValue,
+    createCalendar,
     className,
     classNames,
   } = props;
 
   const domRef = useDOMRef(ref);
+  const disableAnimation = originalProps.disableAnimation ?? false;
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
@@ -212,12 +237,23 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   const getDateInputProps = () => {
     return {
+      as,
+      label,
       ref: domRef,
+      inputRef,
+      description,
+      startContent,
+      validationState,
+      validationBehavior,
+      shouldForceLeadingZeros,
+      isInvalid,
+      errorMessage,
       groupProps,
       labelProps,
+      createCalendar,
       errorMessageProps,
       descriptionProps,
-      ...mergeProps(fieldProps, {
+      ...mergeProps(variantProps, fieldProps, {
         minValue,
         maxValue,
         fullWidth: true,
@@ -226,6 +262,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       "data-invalid": dataAttr(originalProps?.isInvalid),
       "data-open": dataAttr(state.isOpen),
       className: slots.base({class: baseStyles}),
+      classNames,
     } as unknown as DateInputProps;
   };
 
@@ -287,6 +324,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   return {
     state,
+    endContent,
     selectorIcon,
     disableAnimation,
     CalendarTopContent,

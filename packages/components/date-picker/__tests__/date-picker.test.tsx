@@ -11,7 +11,15 @@ import {DatePicker as DatePickerBase, DatePickerProps} from "../src";
  * Custom date-picker to disable animations and avoid issues with react-motion and jest
  */
 const DatePicker = React.forwardRef((props: DatePickerProps, ref: React.Ref<HTMLDivElement>) => {
-  return <DatePickerBase {...props} ref={ref} disableAnimation shouldForceLeadingZeros={false} />;
+  return (
+    <DatePickerBase
+      {...props}
+      ref={ref}
+      disableAnimation
+      labelPlacement="outside"
+      shouldForceLeadingZeros={false}
+    />
+  );
 });
 
 DatePicker.displayName = "DatePicker";

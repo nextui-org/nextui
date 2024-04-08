@@ -18,6 +18,7 @@ export interface Props<T extends DateValue>
 function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     state,
+    endContent,
     selectorIcon,
     disableAnimation,
     getDateInputProps,
@@ -49,7 +50,7 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     <>
       <DateInput
         {...getDateInputProps()}
-        endContent={<Button {...getSelectorButtonProps()}>{selectorContent}</Button>}
+        endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
       />
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </>

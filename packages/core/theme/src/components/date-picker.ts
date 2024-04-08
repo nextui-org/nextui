@@ -25,8 +25,9 @@ const datePicker = tv({
       false: {},
     },
   },
-  defaultVariants: {},
-  compoundVariants: [],
+  defaultVariants: {
+    hasMultipleMonths: false,
+  },
 });
 
 export type DatePickerReturnType = ReturnType<typeof datePicker>;
