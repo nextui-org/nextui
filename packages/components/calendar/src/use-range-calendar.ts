@@ -31,6 +31,7 @@ export function useRangeCalendar<T extends DateValue>({
     children,
     domRef,
     locale,
+    showHelper,
     minValue,
     maxValue,
     weekdayStyle,
@@ -73,6 +74,7 @@ export function useRangeCalendar<T extends DateValue>({
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
       Component,
+      showHelper,
       topContent,
       bottomContent,
       calendarRef: domRef,

@@ -1313,6 +1313,79 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  packages/components/date-picker:
+    dependencies:
+      '@internationalized/date':
+        specifier: ^3.5.2
+        version: 3.5.2
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/calendar':
+        specifier: workspace:*
+        version: link:../calendar
+      '@nextui-org/date-input':
+        specifier: workspace:*
+        version: link:../date-input
+      '@nextui-org/popover':
+        specifier: workspace:*
+        version: link:../popover
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@react-aria/datepicker':
+        specifier: ^3.9.3
+        version: 3.9.3(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: ^3.8.4
+        version: 3.10.2(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.21.1
+        version: 3.23.2(react@18.2.0)
+      '@react-stately/datepicker':
+        specifier: ^3.9.2
+        version: 3.9.2(react@18.2.0)
+      '@react-stately/overlays':
+        specifier: ^3.6.3
+        version: 3.6.5(react@18.2.0)
+      '@react-stately/utils':
+        specifier: ^3.8.0
+        version: 3.9.1(react@18.2.0)
+      '@react-types/datepicker':
+        specifier: ^3.7.2
+        version: 3.7.2(react@18.2.0)
+      '@react-types/shared':
+        specifier: 3.21.0
+        version: 3.21.0(react@18.2.0)
+    devDependencies:
+      '@nextui-org/radio':
+        specifier: workspace:*
+        version: link:../radio
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+
   packages/components/divider:
     dependencies:
       '@nextui-org/react-rsc-utils':
@@ -6570,16 +6643,10 @@ packages:
       '@swc/helpers': 0.5.3
     dev: false
 
-  /@internationalized/string@3.1.1:
-    resolution: {integrity: sha512-fvSr6YRoVPgONiVIUhgCmIAlifMVCeej/snPZVzbzRPxGpHl3o1GRe+d/qh92D8KhgOciruDUH8I5mjdfdjzfA==}
-    dependencies:
-      '@swc/helpers': 0.5.3
-
   /@internationalized/string@3.2.1:
     resolution: {integrity: sha512-vWQOvRIauvFMzOO+h7QrdsJmtN1AXAFVcaLWP9AseRN2o7iHceZ6bIXhBD4teZl8i91A3gxKnWBlGgjCwU6MFQ==}
     dependencies:
       '@swc/helpers': 0.5.3
-    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -9524,7 +9591,7 @@ packages:
       '@react-aria/focus': 3.14.3(react@18.2.0)
       '@react-aria/overlays': 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-stately/overlays': 3.6.3(react@18.2.0)
+      '@react-stately/overlays': 3.6.5(react@18.2.0)
       '@react-types/dialog': 3.5.6(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
@@ -9619,7 +9686,7 @@ packages:
       '@internationalized/date': 3.5.2
       '@internationalized/message': 3.1.1
       '@internationalized/number': 3.3.0
-      '@internationalized/string': 3.1.1
+      '@internationalized/string': 3.2.1
       '@react-aria/ssr': 3.8.0(react@18.2.0)
       '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
@@ -9750,12 +9817,12 @@ packages:
       '@react-aria/focus': 3.14.3(react@18.2.0)
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/ssr': 3.8.0(react@18.2.0)
+      '@react-aria/ssr': 3.9.2(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden': 3.8.6(react@18.2.0)
-      '@react-stately/overlays': 3.6.3(react@18.2.0)
+      '@react-stately/overlays': 3.6.5(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
-      '@react-types/overlays': 3.8.3(react@18.2.0)
+      '@react-types/overlays': 3.8.5(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
@@ -10200,7 +10267,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-stately/overlays': 3.6.3(react@18.2.0)
+      '@react-stately/overlays': 3.6.5(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/menu': 3.9.5(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
@@ -10331,7 +10398,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-stately/overlays': 3.6.3(react@18.2.0)
+      '@react-stately/overlays': 3.6.5(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/tooltip': 3.4.5(react@18.2.0)
       '@swc/helpers': 0.5.3
