@@ -133,7 +133,7 @@ const progress = tv(
     ],
   },
   {
-    twMerge: false,
+    twMerge: true,
   },
 );
 
