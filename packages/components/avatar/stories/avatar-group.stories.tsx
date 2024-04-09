@@ -28,58 +28,64 @@ export default {
   },
 } as Meta<typeof AvatarGroup>;
 
+const avatarSources = [
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026705d",
+    borderColor: "border-yellow-400",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026706d",
+    borderColor: "border-yellow-500",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026707d",
+    borderColor: "border-yellow-600",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026709d",
+    borderColor: "border-yellow-700",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4f29026709d",
+    borderColor: "border-yellow-500",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026710d",
+    borderColor: "border-yellow-500",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026711d",
+    borderColor: "border-yellow-500",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026712d",
+    borderColor: "border-yellow-500",
+  },
+  {
+    src: "https://i.pravatar.cc/300?u=a042581f4e29026713d",
+    borderColor: "border-yellow-500",
+  },
+];
+
 const Template = (args: AvatarGroupProps) => (
   <AvatarGroup {...args}>
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026705d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026706d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026707d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026709d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4f29026709d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026710d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026711d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026712d" />
-    <Avatar src="https://i.pravatar.cc/300?u=a042581f4e29026713d" />
+    {avatarSources.map((avatar) => (
+      <Avatar key={avatar.src} src={avatar.src} />
+    ))}
   </AvatarGroup>
 );
 
 const CustomSlotsTemplate = (args: AvatarGroupProps) => (
   <AvatarGroup {...args}>
-    <Avatar
-      classNames={{base: "border-2 border-yellow-400"}}
-      radius="sm"
-      size="sm"
-      src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-    />
-    <Avatar
-      classNames={{base: "border-2 border-yellow-500"}}
-      radius="sm"
-      size="sm"
-      src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
-    />
-    <Avatar
-      classNames={{base: "border-2 border-yellow-600"}}
-      radius="sm"
-      size="sm"
-      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-    />
-    <Avatar
-      classNames={{base: "border-2 border-yellow-700"}}
-      radius="sm"
-      size="sm"
-      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
-    />
-    <Avatar
-      classNames={{base: "border-2 border-yellow-500"}}
-      radius="sm"
-      size="sm"
-      src="https://i.pravatar.cc/150?u=a04258114e29026702d"
-    />
-    <Avatar
-      classNames={{base: "border-2 border-yellow-500"}}
-      radius="sm"
-      size="sm"
-      src="https://i.pravatar.cc/150?u=a04258114e29026708c"
-    />
+    {avatarSources.map((avatar) => (
+      <Avatar
+        key={avatar.src}
+        classNames={{base: `border-2 ${avatar.borderColor}`}}
+        radius="sm"
+        size="sm"
+        src={avatar.src}
+      />
+    ))}
   </AvatarGroup>
 );
 
