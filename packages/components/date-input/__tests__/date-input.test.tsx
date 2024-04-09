@@ -1,11 +1,20 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {act, fireEvent, render} from "@testing-library/react";
-import {CalendarDate, CalendarDateTime, ZonedDateTime} from "@internationalized/date";
+import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 
-import {DateInput} from "../src";
+import {DateInput as DateInputBase, DateInputProps} from "../src";
+
+/**
+ * Custom date-input to disable animations and avoid issues with react-motion and jest
+ */
+const DateInput = React.forwardRef((props: DateInputProps, ref: React.Ref<HTMLDivElement>) => {
+  return <DateInputBase {...props} ref={ref} disableAnimation />;
+});
+
+DateInput.displayName = "DateInput";
 
 describe("DateInput", () => {
   let user;
@@ -57,12 +66,12 @@ describe("DateInput", () => {
         />,
       );
 
-      await act(() => {
-        user.tab();
+      await act(async () => {
+        await user.tab();
       });
 
-      await act(() => {
-        user.keyboard("01011980");
+      await act(async () => {
+        await user.keyboard("01011980");
       });
 
       expect(tree.getByText("Date unavailable.")).toBeInTheDocument();
@@ -197,15 +206,17 @@ describe("DateInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[0]).toHaveFocus();
 
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[1]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
@@ -226,18 +237,22 @@ describe("DateInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[0]).toHaveFocus();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[1]).toHaveFocus();
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(segments[2]).toHaveFocus();
       expect(onBlurSpy).toHaveBeenCalledTimes(0);
-
-      await user.tab();
+      await act(async () => {
+        await user.tab();
+      });
       expect(onBlurSpy).toHaveBeenCalledTimes(1);
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(2);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
@@ -296,7 +311,7 @@ describe("DateInput", () => {
 
     it("supports form reset", async () => {
       function Test() {
-        let [value, setValue] = React.useState(new CalendarDate(2020, 2, 3));
+        let [value, setValue] = React.useState<DateValue>(new CalendarDate(2020, 2, 3));
 
         return (
           <form>

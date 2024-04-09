@@ -28,15 +28,16 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     getFieldProps,
     getLabelProps,
     getInputWrapperProps,
+    getInnerWrapperProps,
     getDescriptionProps,
     getHelperWrapperProps,
     getErrorMessageProps,
-  } = useDateInput({
+  } = useDateInput<T>({
     ...props,
     ref,
   });
 
-  const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
+  const labelContent = label ? <span {...getLabelProps()}>{label}</span> : null;
 
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;
@@ -81,10 +82,12 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     <Component {...getBaseProps()}>
       {shouldLabelBeOutside ? labelContent : null}
       <div {...getInputWrapperProps()}>
-        {startContent}
         {!shouldLabelBeOutside ? labelContent : null}
-        {inputContent}
-        {endContent}
+        <div {...getInnerWrapperProps()}>
+          {startContent}
+          {inputContent}
+          {endContent}
+        </div>
         {shouldLabelBeOutside ? helperWrapper : null}
       </div>
       {!shouldLabelBeOutside ? helperWrapper : null}

@@ -10,7 +10,7 @@ import {CalendarBase} from "./calendar-base";
 interface Props<T extends DateValue> extends Omit<UseCalendarProps<T>, "isHeaderWrapperExpanded"> {}
 
 function Calendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {context, getBaseCalendarProps} = useCalendar({...props, ref});
+  const {context, getBaseCalendarProps} = useCalendar<T>({...props, ref});
 
   return (
     <CalendarProvider value={context}>
