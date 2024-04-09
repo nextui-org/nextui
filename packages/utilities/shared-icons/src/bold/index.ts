@@ -11,3 +11,4 @@ export * from "./shopping-cart";
 export * from "./send";
 export * from "./plus";
 export * from "./calendar-bold";
+export * from "./clock-square-bold";
