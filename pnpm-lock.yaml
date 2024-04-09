@@ -9837,10 +9837,10 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.0
+      '@internationalized/date': 3.5.2
       '@internationalized/message': 3.1.1
       '@internationalized/number': 3.3.0
-      '@internationalized/string': 3.1.1
+      '@internationalized/string': 3.2.1
       '@react-aria/ssr': 3.8.0(react@18.2.0)
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
