@@ -2,7 +2,12 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {dateInput} from "@nextui-org/theme";
 import {ClockCircleLinearIcon} from "@nextui-org/shared-icons";
-import {parseAbsoluteToLocal, Time, ZonedDateTime} from "@internationalized/date";
+import {
+  parseAbsoluteToLocal,
+  parseZonedDateTime,
+  Time,
+  ZonedDateTime,
+} from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
 
 import {TimeInput, TimeInputProps, TimeValue} from "../src";
@@ -94,6 +99,33 @@ const ControlledTemplate = (args: TimeInputProps) => {
   );
 };
 
+const TimeZonesTemplate = (args: TimeInputProps) => (
+  <div className="w-full max-w-xl flex flex-col items-end gap-4">
+    <TimeInput
+      {...args}
+      defaultValue={parseZonedDateTime("2022-11-07T00:45[America/Los_Angeles]")}
+      labelPlacement="outside"
+    />
+    <TimeInput
+      {...args}
+      defaultValue={parseAbsoluteToLocal("2021-11-07T07:45:00Z")}
+      labelPlacement="outside"
+    />
+  </div>
+);
+
+const GranularityTemplate = (args: TimeInputProps) => {
+  let [date, setDate] = React.useState<TimeValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+
+  return (
+    <div className="w-full max-w-xl flex flex-col items-start gap-4">
+      <TimeInput {...args} granularity="hour" label="Hour" value={date} onChange={setDate} />
+      <TimeInput {...args} granularity="minute" label="Minute" value={date} onChange={setDate} />
+      <TimeInput {...args} granularity="second" label="Second" value={date} onChange={setDate} />
+    </div>
+  );
+};
+
 export const Required = {
   render: Template,
   args: {
@@ -177,5 +209,76 @@ export const Controlled = {
   args: {
     ...defaultProps,
     variant: "bordered",
+  },
+};
+
+export const TimeZones = {
+  render: TimeZonesTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Event time",
+    defaultValue: parseZonedDateTime("2022-11-07T00:45[America/Los_Angeles]"),
+  },
+};
+
+export const Granularity = {
+  render: GranularityTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const MinDateValue = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    minValue: new Time(9),
+    defaultValue: new Time(8),
+  },
+};
+
+export const MaxDateValue = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    maxValue: new Time(17),
+    defaultValue: new Time(18),
+  },
+};
+
+export const PlaceholderValue = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Meeting time",
+    placeholderValue: new Time(9),
+  },
+};
+
+export const HideTimeZone = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Meeting time",
+    hideTimeZone: true,
+    defaultValue: parseZonedDateTime("2022-11-07T10:45[America/Los_Angeles]"),
+  },
+};
+
+export const HourCycle = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Meeting time",
+    hourCycle: 24,
+    defaultValue: parseZonedDateTime("2022-11-07T00:45[America/Los_Angeles]"),
+    granularity: "minute",
   },
 };

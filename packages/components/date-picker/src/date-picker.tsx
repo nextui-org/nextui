@@ -1,10 +1,10 @@
 import type {DateValue} from "@internationalized/date";
-import type {ForwardedRef, ReactElement, Ref} from "react";
 
+import {ForwardedRef, ReactElement, Ref, useMemo} from "react";
 import {cloneElement, isValidElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
-import {DateInput} from "@nextui-org/date-input";
+import {DateInput, TimeInput} from "@nextui-org/date-input";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {Calendar} from "@nextui-org/calendar";
 import {AnimatePresence} from "framer-motion";
@@ -20,9 +20,12 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     state,
     endContent,
     selectorIcon,
+    showTimeField,
     disableAnimation,
+    isCalendarHeaderExpanded,
     getDateInputProps,
     getPopoverProps,
+    getTimeInputProps,
     getSelectorButtonProps,
     getSelectorIconProps,
     getCalendarProps,
@@ -36,12 +39,31 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     <CalendarBoldIcon {...getSelectorIconProps()} />
   );
 
+  const calendarBottomContent = useMemo(() => {
+    if (isCalendarHeaderExpanded) return null;
+
+    return showTimeField ? (
+      <>
+        <TimeInput {...getTimeInputProps()} />
+        {CalendarBottomContent}
+      </>
+    ) : (
+      CalendarBottomContent
+    );
+  }, [showTimeField, CalendarBottomContent, isCalendarHeaderExpanded]);
+
+  const calendarTopContent = useMemo(() => {
+    if (isCalendarHeaderExpanded) return null;
+
+    return CalendarTopContent;
+  }, [showTimeField, CalendarTopContent, isCalendarHeaderExpanded]);
+
   const popoverContent = state.isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
       <Calendar
         {...getCalendarProps()}
-        bottomContent={CalendarBottomContent}
-        topContent={CalendarTopContent}
+        bottomContent={calendarBottomContent}
+        topContent={calendarTopContent}
       />
     </FreeSoloPopover>
   ) : null;

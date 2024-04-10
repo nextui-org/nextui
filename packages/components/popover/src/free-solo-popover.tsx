@@ -19,17 +19,48 @@ import {usePopover, UsePopoverProps, UsePopoverReturn} from "./use-popover";
 
 export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> {
   children: React.ReactNode | ((titleProps: React.DOMAttributes<HTMLElement>) => React.ReactNode);
+  transformOrigin?: {
+    originX?: number;
+    originY?: number;
+  };
 }
 
 type FreeSoloPopoverWrapperProps = {
   children: React.ReactNode;
   disableAnimation: boolean;
+  transformOrigin?: FreeSoloPopoverProps["transformOrigin"];
   placement: UsePopoverReturn["placement"];
   motionProps?: UsePopoverProps["motionProps"];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
-  ({children, motionProps, placement, disableAnimation, style = {}, ...otherProps}, ref) => {
+  (
+    {
+      children,
+      motionProps,
+      placement,
+      disableAnimation,
+      style: styleProp = {},
+      transformOrigin = {},
+      ...otherProps
+    },
+    ref,
+  ) => {
+    let style = styleProp;
+
+    if (transformOrigin.originX !== undefined || transformOrigin.originY !== undefined) {
+      style = {
+        ...style,
+        // @ts-ignore
+        transformOrigin,
+      };
+    } else {
+      style = {
+        ...style,
+        ...getTransformOrigins(placement === "center" ? "top" : placement),
+      };
+    }
+
     return disableAnimation ? (
       <div {...otherProps} ref={ref}>
         {children}
@@ -41,10 +72,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
           animate="enter"
           exit="exit"
           initial="initial"
-          style={{
-            ...style,
-            ...getTransformOrigins(placement === "center" ? "top" : placement),
-          }}
+          style={style}
           variants={TRANSITION_VARIANTS.scaleSpringOpacity}
           {...mergeProps(otherProps, motionProps)}
         >
@@ -57,69 +85,72 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
 
 FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 
-const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(({children, ...props}, ref) => {
-  const {
-    Component,
-    state,
-    placement,
-    backdrop,
-    titleProps,
-    portalContainer,
-    disableAnimation,
-    motionProps,
-    isNonModal,
-    getPopoverProps,
-    getBackdropProps,
-    getDialogProps,
-    getContentProps,
-  } = usePopover({
-    ...props,
-    ref,
-  });
+const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
+  ({children, transformOrigin, ...props}, ref) => {
+    const {
+      Component,
+      state,
+      placement,
+      backdrop,
+      titleProps,
+      portalContainer,
+      disableAnimation,
+      motionProps,
+      isNonModal,
+      getPopoverProps,
+      getBackdropProps,
+      getDialogProps,
+      getContentProps,
+    } = usePopover({
+      ...props,
+      ref,
+    });
 
-  const backdropContent = React.useMemo(() => {
-    if (backdrop === "transparent") {
-      return null;
-    }
+    const backdropContent = React.useMemo(() => {
+      if (backdrop === "transparent") {
+        return null;
+      }
 
-    if (disableAnimation) {
-      return <div {...getBackdropProps()} />;
-    }
+      if (disableAnimation) {
+        return <div {...getBackdropProps()} />;
+      }
+
+      return (
+        <LazyMotion features={domAnimation}>
+          <m.div
+            animate="enter"
+            exit="exit"
+            initial="exit"
+            variants={TRANSITION_VARIANTS.fade}
+            {...(getBackdropProps() as HTMLMotionProps<"div">)}
+          />
+        </LazyMotion>
+      );
+    }, [backdrop, disableAnimation, getBackdropProps]);
 
     return (
-      <LazyMotion features={domAnimation}>
-        <m.div
-          animate="enter"
-          exit="exit"
-          initial="exit"
-          variants={TRANSITION_VARIANTS.fade}
-          {...(getBackdropProps() as HTMLMotionProps<"div">)}
-        />
-      </LazyMotion>
+      <Overlay portalContainer={portalContainer}>
+        {!isNonModal && backdropContent}
+        <Component {...getPopoverProps()}>
+          <FreeSoloPopoverWrapper
+            disableAnimation={disableAnimation}
+            motionProps={motionProps}
+            placement={placement}
+            tabIndex={-1}
+            transformOrigin={transformOrigin}
+            {...getDialogProps()}
+          >
+            {!isNonModal && <DismissButton onDismiss={state.close} />}
+            <div {...getContentProps()}>
+              {typeof children === "function" ? children(titleProps) : children}
+            </div>
+            <DismissButton onDismiss={state.close} />
+          </FreeSoloPopoverWrapper>
+        </Component>
+      </Overlay>
     );
-  }, [backdrop, disableAnimation, getBackdropProps]);
-
-  return (
-    <Overlay portalContainer={portalContainer}>
-      {!isNonModal && backdropContent}
-      <Component {...getPopoverProps()}>
-        <FreeSoloPopoverWrapper
-          disableAnimation={disableAnimation}
-          motionProps={motionProps}
-          placement={placement}
-          tabIndex={-1}
-          {...getDialogProps()}
-        >
-          {!isNonModal && <DismissButton onDismiss={state.close} />}
-          <div {...getContentProps()}>
-            {typeof children === "function" ? children(titleProps) : children}
-          </div>
-          <DismissButton onDismiss={state.close} />
-        </FreeSoloPopoverWrapper>
-      </Component>
-    </Overlay>
-  );
-});
+  },
+);
 
 FreeSoloPopover.displayName = "NextUI.FreeSoloPopover";
 
