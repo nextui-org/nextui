@@ -1,5 +1,4 @@
 ---
-"@nextui-org/progress": patch
 "@nextui-org/theme": patch
 ---
 
