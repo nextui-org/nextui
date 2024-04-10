@@ -15,6 +15,8 @@ const datePicker = tv({
     popoverContent: "p-0 w-full",
     calendar: "w-[var(--calendar-width)] shadow-none",
     calendarContent: "w-[var(--calendar-width)]",
+    timeInputLabel: "font-medium",
+    timeInput: "px-5 pb-4 flex-wrap gap-x-6",
   },
   variants: {
     // @internal

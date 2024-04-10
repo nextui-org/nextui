@@ -305,6 +305,17 @@ export const WithMonthAndYearPickers = {
   },
 };
 
+export const WithTimeField = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    label: "Event date",
+    hideTimeZone: true,
+    showMonthAndYearPickers: true,
+    defaultValue: now(getLocalTimeZone()),
+  },
+};
+
 export const LabelPlacement = {
   render: LabelPlacementTemplate,
 
