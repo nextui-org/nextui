@@ -4,33 +4,11 @@ export default {
   /**
    * Transition utilities
    */
-  // ".transition-all": {
-  //   "transition-property": "all",
-  //   "transition-timing-function": "ease",
-  //   "transition-duration": DEFAULT_TRANSITION_DURATION,
-  // },
   ".transition-background": {
     "transition-property": "background",
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
-  // ".transition": {
-  //   "transition-property":
-  //     "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
-  //   "transition-timing-function": "ease",
-  //   "transition-duration": DEFAULT_TRANSITION_DURATION,
-  // },
-  // ".transition-colors": {
-  //   "transition-property":
-  //     "color, background-color, border-color, text-decoration-color, fill, stroke",
-  //   "transition-timing-function": "ease",
-  //   "transition-duration": DEFAULT_TRANSITION_DURATION,
-  // },
-  // ".transition-opacity": {
-  //   "transition-property": "opacity",
-  //   "transition-timing-function": "ease",
-  //   "transition-duration": DEFAULT_TRANSITION_DURATION,
-  // },
   ".transition-colors-opacity": {
     "transition-property":
       "color, background-color, border-color, text-decoration-color, fill, stroke, opacity",
@@ -57,16 +35,6 @@ export default {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
-  // ".transition-shadow": {
-  //   "transition-property": "box-shadow",
-  //   "transition-timing-function": "ease",
-  //   "transition-duration": DEFAULT_TRANSITION_DURATION,
-  // },
-  // ".transition-transform": {
-  //   "transition-property": "transform",
-  //   "transition-timing-function": "ease",
-  //   "transition-duration": DEFAULT_TRANSITION_DURATION,
-  // },
   ".transition-transform-opacity": {
     "transition-property": "transform, opacity",
     "transition-timing-function": "ease",
