@@ -52,7 +52,7 @@ function generateComponents() {
             version: componentVersion,
             docs: componentDocs,
             description: componentDesc,
-            status: (routeComponent.updated && 'updated') || (routeComponent.newPost && 'newPost') || 'stable',
+            status: (routeComponent.updated && 'updated') || (routeComponent.newPost && 'new') || 'stable',
             style: style || '',
         }
 

@@ -55,6 +55,11 @@ interface Props extends NextUIBaseProps {
    */
   nextButtonProps?: ButtonProps;
   /**
+   * Whether to show the description or error message.
+   * @default true
+   */
+  showHelper?: boolean;
+  /**
    * Whether the calendar header is expanded. This is only available if the `showMonthAndYearPickers` prop is set to `true`.
    * @default false
    */
@@ -126,6 +131,7 @@ interface Props extends NextUIBaseProps {
    *    prevButton:"prev-button-classes",
    *    header:"header-classes",
    *    title:"title-classes",
+   *    content:"content-classes",
    *    gridWrapper:"grid-wrapper-classes",
    *    grid:"grid-classes",
    *    gridHeader:"grid-header-classes",
@@ -178,6 +184,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     className,
     topContent,
     bottomContent,
+    showHelper = true,
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
@@ -283,6 +290,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     locale,
     minValue,
     maxValue,
+    showHelper,
     weekdayStyle,
     visibleMonths,
     visibleDuration,

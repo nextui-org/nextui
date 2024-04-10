@@ -205,6 +205,9 @@ const PresetsTemplate = (args: CalendarProps) => {
             <CustomRadio value="14_days">14 days</CustomRadio>
           </RadioGroup>
         }
+        classNames={{
+          content: "w-full",
+        }}
         focusedValue={value}
         nextButtonProps={{
           variant: "bordered",

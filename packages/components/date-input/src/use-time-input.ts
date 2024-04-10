@@ -1,29 +1,25 @@
 import type {DateInputVariantProps, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {AriaDateFieldProps} from "@react-types/datepicker";
-import type {SupportedCalendars} from "@nextui-org/system";
-import type {DateValue, Calendar} from "@internationalized/date";
+import type {AriaTimeFieldProps, TimeValue} from "@react-types/datepicker";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 
 import {useLocale} from "@react-aria/i18n";
-import {CalendarDate} from "@internationalized/date";
 import {mergeProps} from "@react-aria/utils";
-import {PropGetter, useProviderContext} from "@nextui-org/system";
+import {PropGetter} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {useDateField as useAriaDateField} from "@react-aria/datepicker";
-import {useDateFieldState} from "@react-stately/datepicker";
-import {createCalendar} from "@internationalized/date";
+import {useTimeField as useAriaTimeField} from "@react-aria/datepicker";
+import {useTimeFieldState} from "@react-stately/datepicker";
 import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {dateInput} from "@nextui-org/theme";
 import {useMemo} from "react";
 
-type NextUIBaseProps<T extends DateValue> = Omit<
+type NextUIBaseProps<T extends TimeValue> = Omit<
   HTMLNextUIProps<"div">,
-  keyof AriaDateFieldProps<T> | "onChange"
+  keyof AriaTimeFieldProps<T> | "onChange"
 >;
 
-interface Props<T extends DateValue> extends NextUIBaseProps<T> {
+interface Props<T extends TimeValue> extends NextUIBaseProps<T> {
   /**
    * Ref to the DOM node.
    */
@@ -51,41 +47,6 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    */
   endContent?: React.ReactNode;
   /**
-   * This function helps to reduce the bundle size by providing a custom calendar system.
-   *
-   * In the example above, the createCalendar function from the `@internationalized/date` package
-   * is passed to the useCalendarState hook. This function receives a calendar identifier string,
-   * and provides Calendar instances to React Stately, which are used to implement date manipulation.
-   *
-   * By default, this includes all calendar systems supported by @internationalized/date. However,
-   * if your application supports a more limited set of regions, or you know you will only be picking dates
-   * in a certain calendar system, you can reduce your bundle size by providing your own implementation
-   * of `createCalendar` that includes a subset of these Calendar implementations.
-   *
-   * For example, if your application only supports Gregorian dates, you could implement a `createCalendar`
-   * function like this:
-   *
-   * @example
-   *
-   * import {GregorianCalendar} from '@internationalized/date';
-   *
-   * function createCalendar(identifier) {
-   *  switch (identifier) {
-   *    case 'gregory':
-   *      return new GregorianCalendar();
-   *    default:
-   *      throw new Error(`Unsupported calendar ${identifier}`);
-   *  }
-   * }
-   *
-   * This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
-   *
-   * You can also use the NextUIProvider to provide the createCalendar function to all nested components.
-   *
-   * @default all calendars
-   */
-  createCalendar?: (calendar: SupportedCalendars) => Calendar | null;
-  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -106,14 +67,12 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   classNames?: SlotsToClasses<DateInputSlots>;
 }
 
-export type UseDateInputProps<T extends DateValue> = Props<T> &
+export type UseTimeInputProps<T extends TimeValue> = Props<T> &
   DateInputVariantProps &
-  AriaDateFieldProps<T>;
+  AriaTimeFieldProps<T>;
 
-export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
+export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
-
-  const providerContext = useProviderContext();
 
   const {
     ref,
@@ -133,9 +92,8 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     descriptionProps: descriptionPropsProp,
     validationBehavior = "native",
     shouldForceLeadingZeros = true,
-    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
-    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
-    createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
+    minValue,
+    maxValue,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
     errorMessage: errorMessageProp,
   } = props;
@@ -146,7 +104,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   const Component = as || "div";
 
   const {locale} = useLocale();
-  const state = useDateFieldState({
+  const state = useTimeFieldState({
     ...originalProps,
     label,
     locale,
@@ -154,10 +112,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     maxValue,
     isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
-    createCalendar:
-      !createCalendarProp || typeof createCalendarProp !== "function"
-        ? createCalendar
-        : (createCalendarProp as typeof createCalendar),
   });
 
   const {
@@ -169,7 +123,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     descriptionProps,
     errorMessageProps,
     isInvalid: ariaIsInvalid,
-  } = useAriaDateField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
+  } = useAriaTimeField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -326,4 +280,4 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   };
 }
 
-export type UseDateInputReturn = ReturnType<typeof useDateInput>;
+export type UseTimeInputReturn = ReturnType<typeof useTimeInput>;
