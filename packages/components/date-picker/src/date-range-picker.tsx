@@ -50,7 +50,7 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     ) : (
       CalendarBottomContent
     );
-  }, [state, showTimeField, CalendarBottomContent, isCalendarHeaderExpanded]);
+  }, [showTimeField, CalendarBottomContent, isCalendarHeaderExpanded]);
 
   const calendarTopContent = useMemo(() => {
     if (isCalendarHeaderExpanded) return null;

@@ -1,26 +1,26 @@
 import type {DateValue} from "@internationalized/date";
 import type {DateInputProps, TimeInputProps} from "@nextui-org/date-input";
-import type {DatePickerState} from "@react-stately/datepicker";
 import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
+import type {AriaDateRangePickerProps} from "@react-types/datepicker";
+import type {DateRangePickerState} from "@react-stately/datepicker";
 import type {UseDatePickerBaseProps} from "./use-date-picker-base";
 
+import {useDateRangePickerState} from "@react-stately/datepicker";
+import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
 import {DOMAttributes} from "@nextui-org/system";
-import {useDatePickerState} from "@react-stately/datepicker";
-import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
-
 interface Props<T extends DateValue> extends UseDatePickerBaseProps<T> {}
 
-export type UseDatePickerProps<T extends DateValue> = Props<T> &
+export type UseDateRangePickerProps<T extends DateValue> = Props<T> &
   UseDatePickerBaseProps<T> &
-  AriaDatePickerProps<T>;
+  AriaDateRangePickerProps<T>;
 
-export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerProps<T>) {
+export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRangePickerProps<T>) {
   const {
     domRef,
     endContent,
@@ -39,21 +39,24 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     selectorIconProps,
   } = useDatePickerBase(originalProps);
 
-  let state: DatePickerState = useDatePickerState({
+  let state: DateRangePickerState = useDateRangePickerState({
     ...originalProps,
     shouldCloseOnSelect: () => !state.hasTime,
   });
 
+  originalProps.minValue;
+
   let {
     groupProps,
     labelProps,
-    fieldProps,
+    startFieldProps,
+    endFieldProps,
     buttonProps,
     dialogProps,
     calendarProps: ariaCalendarProps,
     descriptionProps,
     errorMessageProps,
-  } = useAriaDatePicker(originalProps, state, domRef);
+  } = useAriaDateRangePicker(originalProps, state, domRef);
 
   // Time field values
   const timeMinValue =
@@ -143,4 +146,4 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
   };
 }
 
-export type UseDatePickerReturn = ReturnType<typeof useDatePicker>;
+export type UseDateRangePickerReturn = ReturnType<typeof useDateRangePicker>;
