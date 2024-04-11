@@ -105,6 +105,7 @@ Now, Go to your `root` layout page and wrap it with the `Providers`:
 
 ```jsx {6,8,10}
 // app/layout.tsx
+import "@/styles/globals.css";
 import {Providers} from "./providers";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
