@@ -1,10 +1,5 @@
 const App = `import {Calendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@nextui-org/react";
-import {
-  today,
-  getLocalTimeZone,
-  startOfWeek,
-  startOfMonth
-} from "@internationalized/date";
+import {today, getLocalTimeZone, startOfWeek, startOfMonth} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 
 export default function App() {
