@@ -2,6 +2,7 @@ import React from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
+import * as intlDateUtils from "@internationalized/date";
 
 import {BgGridContainer} from "@/components/bg-grid-container";
 import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
@@ -19,6 +20,7 @@ export interface ReactLiveDemoProps {
 
 export const scope = {
   ...Components,
+  ...intlDateUtils,
 } as Record<string, unknown>;
 
 export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
