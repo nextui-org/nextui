@@ -3,14 +3,13 @@ import {
   today,
   getLocalTimeZone,
   startOfWeek,
-  startOfMonth,
+  startOfMonth
 } from "@internationalized/date";
-import type {DateValue} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 
 export default function App() {
   let defaultDate = today(getLocalTimeZone());
-  let [value, setValue] = React.useState<DateValue>(defaultDate);
+  let [value, setValue] = React.useState(defaultDate);
   let {locale} = useLocale();
 
   let now = today(getLocalTimeZone());
@@ -87,7 +86,6 @@ export default function App() {
         value={value}
         onChange={setValue}
         onFocusChange={setValue}
-        {...args}
       />
     </div>
   );
