@@ -30,34 +30,27 @@ A Calendar has no selection by default. An initial, uncontrolled value can be pr
 
 Date values are provided using objects in the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) package. This library handles correct international date manipulation across calendars, time zones, and other localization concerns.
 
-<CodeDemo
-  asIframe
-  title="Usage"
-  resizeEnabled={false}
-  displayMode="visible"
-  files={calendarContent.usage}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/usage"
+<CodeDemo 
+  title="Usage" 
+  files={calendarContent.usage} 
 />
 
 ### Disabled
 
 The `isDisabled` boolean prop makes the Calendar disabled. Cells cannot be focused or selected.
 
-<CodeDemo title="Disabled" files={calendarContent.disabled} />
+<CodeDemo 
+  title="Disabled" 
+  files={calendarContent.disabled} 
+/>
 
 ### Read Only
 
 The `isReadOnly` boolean prop makes the Calendar's value immutable. Unlike `isDisabled`, the Calendar remains focusable.
 
 <CodeDemo
-  asIframe
   title="Read Only"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.readonly}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/read-only"
 />
 
 ### Controlled
@@ -65,13 +58,8 @@ The `isReadOnly` boolean prop makes the Calendar's value immutable. Unlike `isDi
 A Calendar has no selection by default. An initial, uncontrolled value can be provided to the Calendar using the `defaultValue` prop. Alternatively, a controlled value can be provided using the value prop.
 
 <CodeDemo
-  asIframe
   title="Controlled"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.controlled}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/controlled"
 />
 
 ### Min Date Value
@@ -81,13 +69,8 @@ By default, Calendar allows selecting any date. The `minValue` can also be used 
 This example only accepts dates after today.
 
 <CodeDemo
-  asIframe
   title="Min Date Value"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.minDateValue}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/min-date-value"
 />
 
 ### Max Date Value
@@ -97,13 +80,8 @@ By default, Calendar allows selecting any date. The `maxValue` can also be used 
 This example only accepts dates before today.
 
 <CodeDemo
-  asIframe
   title="Max Date Value"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.maxDateValue}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/max-date-value"
 />
 
 ### Unavailable Dates
@@ -111,13 +89,8 @@ This example only accepts dates before today.
 Calendar supports marking certain dates as unavailable. These dates remain focusable with the keyboard so that navigation is consistent, but cannot be selected by the user. In this example, they are displayed in red. The `isDateUnavailable` prop accepts a callback that is called to evaluate whether each visible date is unavailable.
 
 <CodeDemo
-  asIframe
   title="Unavailable Dates"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.unavailableDates}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/unavailable-dates"
 />
 
 
@@ -128,13 +101,8 @@ Calendar tries to avoid allowing the user to select invalid dates in the first p
 By default, the selected date is focused when a Calendar first mounts. If no `value` or `defaultValue` prop is provided, then the current date is focused. However, Calendar supports controlling which date is focused using the `focusedValue` and `onFocusChange` props. This also determines which month is visible. The `defaultFocusedValue` prop allows setting the initial focused date when the Calendar first mounts, without controlling it.
 
 <CodeDemo
-  asIframe
   title="Controlled Focused Value"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.controlledFocusedValue}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/controlled-focused-value"
 />
 
 ### Invalid Date
@@ -142,13 +110,8 @@ By default, the selected date is focused when a Calendar first mounts. If no `va
 This example validates that the selected date is a weekday and not a weekend according to the current locale.
 
 <CodeDemo
-  asIframe
   title="Invalid Date"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.invalidDate}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/invalid-date"
 />
 
 ### With Month And Year Picker
@@ -162,37 +125,33 @@ Calendar supports month and year picker for rapid selection.
 Calendar supports selecting dates in many calendar systems used around the world, including Gregorian, Hebrew, Indian, Islamic, Buddhist, and more. Dates are automatically displayed in the appropriate calendar system for the user's locale. The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string), passed to the `Provider` component.
 
 <CodeDemo
-  asIframe
   title="International Calendars"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.internationalCalendars}
-  previewHeight="380px"
-  iframeSrc="/examples/calendar/international-calendars"
 />
 
 ### Visible Months
 
 By default, the Calendar displays a single month. The `visibleMonths` prop allows displaying up to 3 months at a time.
 
-<CodeDemo title="Visible Months" files={calendarContent.visibleMonths} />
+<CodeDemo 
+  title="Visible Months" 
+  files={calendarContent.visibleMonths} 
+/>
 
 ### Page Behaviour
 
 By default, when pressing the next or previous buttons, pagination will advance by the `visibleMonths` value. This behavior can be changed to page by single months instead, by setting `pageBehavior` to `single`.
 
-<CodeDemo title="Page Behaviour" files={calendarContent.pageBehaviour} />
+<CodeDemo 
+  title="Page Behaviour" 
+  files={calendarContent.pageBehaviour} 
+/>
 
 ### Presets
 
 <CodeDemo
-  asIframe
   title="Presets"
-  resizeEnabled={false}
-  displayMode="visible"
   files={calendarContent.presets}
-  previewHeight="460px"
-  iframeSrc="/examples/calendar/presets"
 />
 
 ## Slots
