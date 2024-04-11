@@ -182,6 +182,13 @@
           "path": "/docs/components/checkbox-group.mdx"
         },
         {
+          "key": "calendar",
+          "title": "Calendar",
+          "keywords": "calendar, date picker, month picker, year picker",
+          "path": "/docs/components/calendar.mdx",
+          "newPost": true
+        },
+        {
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",
