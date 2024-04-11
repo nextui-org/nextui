@@ -6,14 +6,12 @@ export default function App() {
   let [focusedDate, setFocusedDate] = React.useState<DateValue>(defaultDate);
 
   return (
-    <div className="p-4">
-      <Calendar
-        aria-label="Date (Controlled Focused Value)"
-        focusedValue={focusedDate}
-        value={defaultDate}
-        onFocusChange={setFocusedDate}
+    <Calendar
+      aria-label="Date (Controlled Focused Value)"
+      focusedValue={focusedDate}
+      value={defaultDate}
+      onFocusChange={setFocusedDate}
     />
-    </div>
   );
 }`;
 

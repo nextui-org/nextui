@@ -21,12 +21,10 @@ export default function App() {
     );
 
   return (
-    <div className="p-4">
-      <Calendar
-        aria-label="Date (Unavailable)"
-        isDateUnavailable={isDateUnavailable} 
-      />
-    </div>
+    <Calendar
+      aria-label="Date (Unavailable)"
+      isDateUnavailable={isDateUnavailable} 
+    />
   );
 }`;
 

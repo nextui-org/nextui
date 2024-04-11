@@ -9,15 +9,13 @@ export default function App() {
   let isInvalid = isWeekend(date, locale);
 
   return (
-    <div className="p-4">
-      <Calendar
-        aria-label="Date (Invalid on weekends)"
-        errorMessage={isInvalid ? "We are closed on weekends" : undefined}
-        isInvalid={isInvalid}
-        value={date}
-        onChange={setDate}
-      />
-    </div>
+    <Calendar
+      aria-label="Date (Invalid on weekends)"
+      errorMessage={isInvalid ? "We are closed on weekends" : undefined}
+      isInvalid={isInvalid}
+      value={date}
+      onChange={setDate}
+    />
   );
 }`;
 
