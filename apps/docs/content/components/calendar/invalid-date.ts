@@ -1,5 +1,6 @@
-const App = `import {Calendar, DateValue} from "@nextui-org/react";
+const App = `import {Calendar} from "@nextui-org/react";
 import {today, getLocalTimeZone, isWeekend} from "@internationalized/date";
+import type {DateValue} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 
 

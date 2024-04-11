@@ -4,8 +4,8 @@ import {
   getLocalTimeZone,
   startOfWeek,
   startOfMonth,
-  DateValue,
 } from "@internationalized/date";
+import type {DateValue} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 
 export default function App() {

@@ -1,5 +1,6 @@
-const App = `import {Calendar, DateValue} from "@nextui-org/react";
+const App = `import {Calendar} from "@nextui-org/react";
 import {today, getLocalTimeZone} from "@internationalized/date";
+import type {DateValue} from "@internationalized/date";
 
 export default function App() {
   let defaultDate = today(getLocalTimeZone());
