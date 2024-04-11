@@ -200,6 +200,12 @@
           "path": "/docs/components/code.mdx"
         },
         {
+          "key": "date-input",
+          "title": "DateInput",
+          "keywords": "divider, boundary, separator, section divider",
+          "path": "/docs/components/date-input.mdx"
+        },
+        {
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",
