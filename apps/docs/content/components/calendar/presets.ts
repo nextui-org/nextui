@@ -1,4 +1,4 @@
-const App = `import {Calendar, Radio, RadioGroup, Button, ButtonGroup} from "@nextui-org/react";
+const App = `import {Calendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@nextui-org/react";
 import {
   today,
   getLocalTimeZone,
