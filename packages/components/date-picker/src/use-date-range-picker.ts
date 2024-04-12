@@ -1,31 +1,40 @@
 import type {DateValue} from "@internationalized/date";
 import type {DateInputProps, TimeInputProps} from "@nextui-org/date-input";
 import type {ButtonProps} from "@nextui-org/button";
-import type {CalendarProps} from "@nextui-org/calendar";
+import type {RangeCalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {AriaDateRangePickerProps} from "@react-types/datepicker";
 import type {DateRangePickerState} from "@react-stately/datepicker";
 import type {UseDatePickerBaseProps} from "./use-date-picker-base";
 
+import {useMemo} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
 import {DOMAttributes} from "@nextui-org/system";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
+import {dateRangePicker} from "@nextui-org/theme";
 
 import {useDatePickerBase} from "./use-date-picker-base";
-interface Props<T extends DateValue> extends UseDatePickerBaseProps<T> {}
 
-export type UseDateRangePickerProps<T extends DateValue> = Props<T> &
-  UseDatePickerBaseProps<T> &
-  AriaDateRangePickerProps<T>;
+interface Props<T extends DateValue>
+  extends Omit<UseDatePickerBaseProps<T>, keyof AriaDateRangePickerProps<T>> {}
 
-export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRangePickerProps<T>) {
+export type UseDateRangePickerProps<T extends DateValue> = Props<T> & AriaDateRangePickerProps<T>;
+
+export function useDateRangePicker<T extends DateValue>({
+  className,
+  ...originalProps
+}: UseDateRangePickerProps<T>) {
   const {
     domRef,
     endContent,
     selectorIcon,
+    slotsProps,
     createCalendar,
+    stringFormatter,
+    timeMinValue,
+    timeMaxValue,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
@@ -35,8 +44,10 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
     popoverProps,
     calendarProps,
     variantProps,
+    hasMultipleMonths,
     selectorButtonProps,
     selectorIconProps,
+    classNames,
   } = useDatePickerBase(originalProps);
 
   let state: DateRangePickerState = useDateRangePickerState({
@@ -58,11 +69,18 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
     errorMessageProps,
   } = useAriaDateRangePicker(originalProps, state, domRef);
 
+  const slots = useMemo(
+    () =>
+      dateRangePicker({
+        ...variantProps,
+        hasMultipleMonths,
+        className,
+      }),
+    [objectToDeps(variantProps), hasMultipleMonths, className],
+  );
+
   // Time field values
-  const timeMinValue =
-    originalProps.minValue && "hour" in originalProps.minValue ? originalProps.minValue : null;
-  const timeMaxValue =
-    originalProps.maxValue && "hour" in originalProps.maxValue ? originalProps.maxValue : null;
+
   const timeGranularity =
     state.granularity === "hour" || state.granularity === "minute" || state.granularity === "second"
       ? state.granularity
@@ -70,17 +88,18 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
 
   const showTimeField = !!timeGranularity;
 
-  const getDateInputProps = () => {
+  const getStartDateInputProps = () => {
     return {
-      ...dateInputProps,
-      groupProps,
-      labelProps,
-      createCalendar,
-      errorMessageProps,
-      descriptionProps,
-      ...mergeProps(variantProps, fieldProps, {
-        minValue: originalProps.minValue,
-        maxValue: originalProps.maxValue,
+      ...startFieldProps,
+      label: "From",
+      // groupProps,
+      // labelProps,
+      // createCalendar,
+      // errorMessageProps,
+      // descriptionProps,
+      ...mergeProps(variantProps, startFieldProps, {
+        // minValue: originalProps.minValue,
+        // maxValue: originalProps.maxValue,
         fullWidth: true,
         disableAnimation,
       }),
@@ -88,13 +107,47 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
     } as DateInputProps;
   };
 
-  const getTimeInputProps = () => {
+  const getEndDateInputProps = () => {
+    return {
+      ...startFieldProps,
+      label: "To",
+      // groupProps,
+      // labelProps,
+      // createCalendar,
+      // errorMessageProps,
+      // descriptionProps,
+      ...mergeProps(variantProps, endFieldProps, {
+        // minValue: originalProps.minValue,
+        // maxValue: originalProps.maxValue,
+        fullWidth: true,
+        disableAnimation,
+      }),
+      "data-open": dataAttr(state.isOpen),
+    } as DateInputProps;
+  };
+
+  const getStartTimeInputProps = () => {
     if (!showTimeField) return {};
 
     return {
       ...timeInputProps,
-      value: state.timeValue,
-      onChange: state.setTimeValue,
+      label: stringFormatter.format("startTime"),
+      value: state.timeRange?.start || null,
+      onChange: (v) => state.setTime("start", v),
+      granularity: timeGranularity,
+      minValue: timeMinValue,
+      maxValue: timeMaxValue,
+    } as TimeInputProps;
+  };
+
+  const getEndTimeInputProps = () => {
+    if (!showTimeField) return {};
+
+    return {
+      ...timeInputProps,
+      label: stringFormatter.format("startTime"),
+      value: state.timeRange?.end || null,
+      onChange: (v) => state.setTime("end", v),
       granularity: timeGranularity,
       minValue: timeMinValue,
       maxValue: timeMaxValue,
@@ -114,7 +167,7 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
     return {
       ...ariaCalendarProps,
       ...calendarProps,
-    } as CalendarProps;
+    } as RangeCalendarProps;
   };
 
   const getSelectorButtonProps = () => {
@@ -130,6 +183,7 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
 
   return {
     state,
+    groupProps,
     endContent,
     selectorIcon,
     showTimeField,
@@ -137,11 +191,13 @@ export function useDateRangePicker<T extends DateValue>(originalProps: UseDateRa
     disableAnimation,
     CalendarTopContent,
     CalendarBottomContent,
-    getDateInputProps,
+    getStartDateInputProps,
+    getEndDateInputProps,
+    getStartTimeInputProps,
+    getEndTimeInputProps,
     getPopoverProps,
     getSelectorButtonProps,
     getCalendarProps,
-    getTimeInputProps,
     getSelectorIconProps,
   };
 }

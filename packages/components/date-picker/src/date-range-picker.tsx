@@ -6,32 +6,35 @@ import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
 import {DateInput, TimeInput} from "@nextui-org/date-input";
 import {FreeSoloPopover} from "@nextui-org/popover";
-import {Calendar} from "@nextui-org/calendar";
+import {RangeCalendar} from "@nextui-org/calendar";
 import {AnimatePresence} from "framer-motion";
 import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 
-import {UseDatePickerProps, useDatePicker} from "./use-date-picker";
+import {UseDateRangePickerProps, useDateRangePicker} from "./use-date-range-picker";
 
 export interface Props<T extends DateValue>
-  extends Omit<UseDatePickerProps<T>, "hasMultipleMonths"> {}
+  extends Omit<UseDateRangePickerProps<T>, "hasMultipleMonths"> {}
 
-function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     state,
     endContent,
     selectorIcon,
     showTimeField,
+    groupProps,
     disableAnimation,
     isCalendarHeaderExpanded,
-    getDateInputProps,
+    getStartDateInputProps,
+    getEndDateInputProps,
     getPopoverProps,
-    getTimeInputProps,
+    getStartTimeInputProps,
+    getEndTimeInputProps,
     getSelectorButtonProps,
     getSelectorIconProps,
     getCalendarProps,
     CalendarTopContent,
     CalendarBottomContent,
-  } = useDatePicker<T>({...props, ref});
+  } = useDateRangePicker<T>({...props, ref});
 
   const selectorContent = isValidElement(selectorIcon) ? (
     cloneElement(selectorIcon, getSelectorIconProps())
@@ -43,10 +46,16 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     if (isCalendarHeaderExpanded) return null;
 
     return showTimeField ? (
-      <>
-        <TimeInput {...getTimeInputProps()} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <TimeInput {...getStartTimeInputProps()} />
+        <TimeInput {...getEndTimeInputProps()} />
         {CalendarBottomContent}
-      </>
+      </div>
     ) : (
       CalendarBottomContent
     );
@@ -60,7 +69,7 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
 
   const popoverContent = state.isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
-      <Calendar
+      <RangeCalendar
         {...getCalendarProps()}
         bottomContent={calendarBottomContent}
         topContent={calendarTopContent}
@@ -69,21 +78,28 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
   ) : null;
 
   return (
-    <>
-      <DateInput
+    <div {...groupProps}>
+      <DateInput {...getStartDateInputProps()} />
+      <span style={{padding: "0 4px"}}>–</span>
+      <DateInput {...getEndDateInputProps()} />
+
+      <Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>
+      {/* <DateInput
         {...getDateInputProps()}
         endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
-      />
+      /> */}
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
-    </>
+    </div>
   );
 }
 
-DatePicker.displayName = "NextUI.DatePicker";
+DateRangePicker.displayName = "NextUI.DateRangePicker";
 
-export type DatePickerProps<T extends DateValue = DateValue> = Props<T> & {ref?: Ref<HTMLElement>};
+export type DateRangePickerProps<T extends DateValue = DateValue> = Props<T> & {
+  ref?: Ref<HTMLElement>;
+};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DatePicker) as <T extends DateValue>(
-  props: DatePickerProps<T>,
+export default forwardRef(DateRangePicker) as <T extends DateValue>(
+  props: DateRangePickerProps<T>,
 ) => ReactElement;

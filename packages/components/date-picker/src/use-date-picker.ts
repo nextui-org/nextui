@@ -5,44 +5,67 @@ import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {UseDatePickerBaseProps} from "./use-date-picker-base";
+import type {DOMAttributes} from "@nextui-org/system";
 
-import {DOMAttributes} from "@nextui-org/system";
+import {useMemo} from "react";
+import {datePicker} from "@nextui-org/theme";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 
 interface Props<T extends DateValue> extends UseDatePickerBaseProps<T> {}
 
-export type UseDatePickerProps<T extends DateValue> = Props<T> &
-  UseDatePickerBaseProps<T> &
-  AriaDatePickerProps<T>;
+interface Props<T extends DateValue>
+  extends Omit<UseDatePickerBaseProps<T>, keyof AriaDatePickerProps<T>> {}
 
-export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerProps<T>) {
+export type UseDatePickerProps<T extends DateValue> = Props<T> & AriaDatePickerProps<T>;
+
+export function useDatePicker<T extends DateValue>({
+  className,
+  ...originalProps
+}: UseDatePickerProps<T>) {
   const {
     domRef,
     endContent,
     selectorIcon,
+    baseStyles,
     createCalendar,
+    hasMultipleMonths,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
+    slotsProps,
+    timeMinValue,
+    timeMaxValue,
     CalendarBottomContent,
     dateInputProps,
     timeInputProps,
     popoverProps,
     calendarProps,
     variantProps,
+    userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    classNames,
   } = useDatePickerBase(originalProps);
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
     shouldCloseOnSelect: () => !state.hasTime,
   });
+
+  const slots = useMemo(
+    () =>
+      datePicker({
+        ...variantProps,
+        hasMultipleMonths,
+        className,
+      }),
+    [objectToDeps(variantProps), hasMultipleMonths, className],
+  );
 
   let {
     groupProps,
@@ -56,10 +79,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
   } = useAriaDatePicker(originalProps, state, domRef);
 
   // Time field values
-  const timeMinValue =
-    originalProps.minValue && "hour" in originalProps.minValue ? originalProps.minValue : null;
-  const timeMaxValue =
-    originalProps.maxValue && "hour" in originalProps.maxValue ? originalProps.maxValue : null;
+  originalProps.maxValue && "hour" in originalProps.maxValue ? originalProps.maxValue : null;
   const timeGranularity =
     state.granularity === "hour" || state.granularity === "minute" || state.granularity === "second"
       ? state.granularity
@@ -81,6 +101,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
         fullWidth: true,
         disableAnimation,
       }),
+      className: slots.base({class: baseStyles}),
       "data-open": dataAttr(state.isOpen),
     } as DateInputProps;
   };
@@ -95,6 +116,14 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       granularity: timeGranularity,
       minValue: timeMinValue,
       maxValue: timeMaxValue,
+      classNames: {
+        base: slots.timeInput({
+          class: clsx(classNames?.timeInput, userTimeInputProps?.classNames?.base),
+        }),
+        label: slots.timeInputLabel({
+          class: clsx(classNames?.timeInputLabel, userTimeInputProps?.classNames?.label),
+        }),
+      },
     } as TimeInputProps;
   };
 
@@ -104,6 +133,15 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       dialogProps,
       ...popoverProps,
       ...props,
+      classNames: {
+        content: slots.popoverContent({
+          class: clsx(
+            classNames?.popoverContent,
+            slotsProps.popoverProps?.classNames?.["content"],
+            props.className,
+          ),
+        }),
+      },
     } as PopoverProps;
   };
 
@@ -111,6 +149,10 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     return {
       ...ariaCalendarProps,
       ...calendarProps,
+      classNames: {
+        base: slots.calendar({class: classNames?.calendar}),
+        content: slots.calendarContent({class: classNames?.calendarContent}),
+      },
     } as CalendarProps;
   };
 
@@ -118,11 +160,15 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     return {
       ...buttonProps,
       ...selectorButtonProps,
+      className: slots.selectorButton({class: classNames?.selectorButton}),
     } as ButtonProps;
   };
 
   const getSelectorIconProps = () => {
-    return selectorIconProps;
+    return {
+      ...selectorIconProps,
+      className: slots.selectorIcon({class: classNames?.selectorIcon}),
+    };
   };
 
   return {

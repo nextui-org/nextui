@@ -5,6 +5,7 @@ import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {ReactNode} from "react";
+import type {ValueBase} from "@react-types/shared";
 
 import {
   DatePickerVariantProps,
@@ -12,12 +13,11 @@ import {
   SlotsToClasses,
   dateInput,
 } from "@nextui-org/theme";
-import {useMemo, useState} from "react";
+import {useState} from "react";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
-import {datePicker} from "@nextui-org/theme";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
 
 import intlMessages from "../intl/messages";
@@ -80,7 +80,6 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * @default {}
    */
   calendarProps?: Partial<Omit<CalendarProps, "topContent" | "bottomContent">>;
-
   /**
    * Props to be passed to the time input component.
    *
@@ -139,7 +138,7 @@ export type UseDatePickerBaseProps<T extends DateValue> = Props<T> &
     DateInputProps<T>,
     Variants | "ref" | "createCalendar" | "startContent" | "endContent" | "inputRef"
   > &
-  Omit<AriaDatePickerBaseProps<T>, "minValue" | "maxValue">;
+  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate">;
 
 export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePickerBaseProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
@@ -181,7 +180,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
 
   const baseStyles = clsx(classNames?.base, className);
 
-  let stringFormatter = useLocalizedStringFormatter(intlMessages);
+  let stringFormatter = useLocalizedStringFormatter(intlMessages) as any;
 
   const isDefaultColor = originalProps.color === "default" || !originalProps.color;
   const hasMultipleMonths = visibleMonths > 1;
@@ -189,6 +188,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   // Time field values
   const placeholder = originalProps?.placeholderValue;
   const timePlaceholder = placeholder && "hour" in placeholder ? placeholder : null;
+  const timeMinValue =
+    originalProps.minValue && "hour" in originalProps.minValue ? originalProps.minValue : null;
+  const timeMaxValue =
+    originalProps.maxValue && "hour" in originalProps.maxValue ? originalProps.maxValue : null;
 
   const slotsProps: {
     popoverProps: UseDatePickerBaseProps<T>["popoverProps"];
@@ -235,16 +238,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     ),
   };
 
-  const slots = useMemo(
-    () =>
-      datePicker({
-        ...variantProps,
-        hasMultipleMonths,
-        className,
-      }),
-    [objectToDeps(variantProps), hasMultipleMonths, className],
-  );
-
   const dateInputProps = {
     as,
     label,
@@ -258,7 +251,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     isInvalid,
     errorMessage,
     "data-invalid": dataAttr(originalProps?.isInvalid),
-    className: slots.base({class: baseStyles}),
     classNames,
   } as DateInputProps;
 
@@ -266,14 +258,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     ...userTimeInputProps,
     size: "sm",
     labelPlacement: "outside-left",
-    classNames: {
-      base: slots.timeInput({
-        class: clsx(classNames?.timeInput, userTimeInputProps?.classNames?.base),
-      }),
-      label: slots.timeInputLabel({
-        class: clsx(classNames?.timeInputLabel, userTimeInputProps?.classNames?.label),
-      }),
-    },
+
     label: userTimeInputProps?.label || stringFormatter.format("time"),
     placeholderValue: timePlaceholder,
     hourCycle: props.hourCycle,
@@ -283,24 +268,11 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   const popoverProps = {
     ...mergeProps(slotsProps.popoverProps, props),
     triggerRef: domRef,
-    classNames: {
-      content: slots.popoverContent({
-        class: clsx(
-          classNames?.popoverContent,
-          slotsProps.popoverProps?.classNames?.["content"],
-          props.className,
-        ),
-      }),
-    },
   } as PopoverProps;
 
   const calendarProps = {
     ...slotsProps.calendarProps,
     "data-slot": "calendar",
-    classNames: {
-      base: slots.calendar({class: classNames?.calendar}),
-      content: slots.calendarContent({class: classNames?.calendarContent}),
-    },
     style: mergeProps(
       hasMultipleMonths
         ? {
@@ -316,12 +288,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   const selectorButtonProps = {
     ...slotsProps.selectorButtonProps,
     "data-slot": "selector-button",
-    className: slots.selectorButton({class: classNames?.selectorButton}),
   } as ButtonProps;
 
   const selectorIconProps = {
     "data-slot": "selector-icon",
-    className: slots.selectorIcon({class: classNames?.selectorIcon}),
   };
 
   return {
@@ -329,6 +299,12 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     endContent,
     selectorIcon,
     createCalendar,
+    stringFormatter,
+    hasMultipleMonths,
+    slotsProps,
+    timeMinValue,
+    timeMaxValue,
+    baseStyles,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
@@ -338,8 +314,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     timeInputProps,
     popoverProps,
     calendarProps,
+    userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    classNames,
   };
 }
 
