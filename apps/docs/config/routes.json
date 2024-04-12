@@ -374,12 +374,12 @@
       "key": "api-references",
       "title": "API References",
       "defaultOpen": true,
-      "keywords": "api references, nextui, api, nextui provider",
+      "keywords": "api references, nextui, api",
       "routes": [
         {
           "key": "nextui-provider",
           "title": "NextUI Provider",
-          "keywords": "nextjs, nextui, next.js",
+          "keywords": "api references, nextui, api, nextui provider",
           "path": "/docs/api-references/nextui-provider.mdx"
         }
       ]
