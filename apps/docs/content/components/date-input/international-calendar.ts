@@ -1,4 +1,20 @@
-const AppTs = `import {Input} from "@nextui-org/react";
+const App = `import {DateInput} from "@nextui-org/react";
+import {now, parseAbsoluteToLocal} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+
+export default function App() {
+  const [date, setDate] = React.useState(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+
+  return (
+    <div className="flex flex-col gap-4">
+      <I18nProvider locale="hi-IN-u-ca-indian">
+        <DateInput label="Appointment date" value={date} onChange={setDate} />
+      </I18nProvider>
+    </div>
+  );
+}`;
+
+const AppTs = `import {DateInput} from "@nextui-org/react";
 import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
 import {I18nProvider} from "@react-aria/i18n";
 
@@ -15,6 +31,7 @@ export default function App() {
 }`;
 
 const react = {
+  "/App.jsx": App,
   "/App.tsx": AppTs,
 };
 

@@ -203,7 +203,8 @@
           "key": "date-input",
           "title": "DateInput",
           "keywords": "divider, boundary, separator, section divider",
-          "path": "/docs/components/date-input.mdx"
+          "path": "/docs/components/date-input.mdx",
+          "newPost": true
         },
         {
           "key": "divider",

@@ -3,7 +3,7 @@ title: "DateInput"
 description: "DateInput is a component that allows users to enter and edit date and time values using a keyboard. Each part of a date value is displayed in an individually editable segment."
 ---
 
-import { DateInput } from "@/content/components/date-input";
+import {dateInputContent} from "@/content/components/date-input";
 
 # DateInput
 
@@ -300,12 +300,12 @@ import {parseZonedDateTime} from "@internationalized/date";
 | isDisabled            | `boolean`                                                                                                                                                              | Whether the input is disabled.                                                                                        | `false`   |
 | isInvalid             | `boolean`                                                                                                                                                              | Whether the input is invalid.                                                                                         | `false`   |
 | shouldLabelBeOutside  | `boolean`                                                                                                                                                              | Whether the input is invalid.                                                                                         | `false`   |
-| ref                   | `ReactRef<HTMLElement | null>`                                                                                                                                         | The ref to the base element.                                                                                          | -         |
-| inputRef              | `ReactRef<HTMLInputElement | null>`                                                                                                                                    | The value of the hidden input.                                                                                        | -         |
-| classNames            | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>`                                     | Allows to set custom class names for the date-input slots.                                                            | -         |
+| ref                   | `ReactRef<HTMLElement \| null>`                                                                                                                                         | The ref to the base element.                                                                                          | -         |
+| inputRef              | `ReactRef<HTMLInputElement \| null>`                                                                                                                                    | The value of the hidden input.                                                                                        | -         |
+| classNames            | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input"｜ "helperWrapper"｜ "description"｜ "errorMessage", string>`                                     | Allows to set custom class names for the date-input slots.                                                            | -         |
 
 ### DateInput Events
 
-| Attribute     | Type                                                                 | Description                                                                                                                         |
-| ------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `((value: ZonedDateTime | CalendarDate | CalendarDateTime) => void)` | Handler that is called when the date-input's value changes.                                                                         |
+| Attribute     | Type                                                                   | Description                                                                                                                         |
+| ------------- | -----------------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- |
+| onChange      | `((value: ZonedDateTime \| CalendarDate \| CalendarDateTime) => void)` | Handler that is called when the date-input's value changes.                                                                         |

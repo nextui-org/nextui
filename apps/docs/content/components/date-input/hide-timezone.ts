@@ -1,4 +1,4 @@
-const AppTs = `import {Input} from "@nextui-org/react";
+const App = `import {DateInput} from "@nextui-org/react";
 import {parseZonedDateTime} from "@internationalized/date";
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
 }`;
 
 const react = {
-  "/App.tsx": AppTs,
+  "/App.jsx": App,
 };
 
 export default {
