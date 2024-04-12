@@ -16,4 +16,5 @@ export {useTimeInput} from "./use-time-input";
 // export components
 export {DateInputGroup} from "./date-input-group";
 export {DateInputField} from "./date-input-field";
+export {DateInputSegment} from "./date-input-segment";
 export {DateInput, TimeInput};

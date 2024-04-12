@@ -4,12 +4,13 @@ import {ForwardedRef, ReactElement, Ref, useMemo} from "react";
 import {cloneElement, isValidElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
-import {DateInput, TimeInput, DateInputGroup} from "@nextui-org/date-input";
+import {TimeInput, DateInputGroup} from "@nextui-org/date-input";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {RangeCalendar} from "@nextui-org/calendar";
 import {AnimatePresence} from "framer-motion";
 import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 
+import DateRangePickerField from "./date-range-picker-field";
 import {UseDateRangePickerProps, useDateRangePicker} from "./use-date-range-picker";
 
 export interface Props<T extends DateValue>
@@ -21,12 +22,13 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
     endContent,
     selectorIcon,
     showTimeField,
-    groupProps,
     disableAnimation,
     isCalendarHeaderExpanded,
+    getDateInputGroupProps,
     getStartDateInputProps,
     getEndDateInputProps,
     getPopoverProps,
+    getSeparatorProps,
     getStartTimeInputProps,
     getEndTimeInputProps,
     getSelectorButtonProps,
@@ -80,30 +82,16 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
   return (
     <>
       <DateInputGroup
-        {...getBaseProps()}
-        as={as}
-        description={description}
-        descriptionProps={getDescriptionProps()}
+        {...getDateInputGroupProps()}
         endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
-        errorMessage={errorMessage}
-        errorMessageProps={getErrorMessageProps()}
-        groupProps={getInputWrapperProps()}
-        helperWrapperProps={getHelperWrapperProps()}
-        label={label}
-        labelProps={getLabelProps()}
-        shouldLabelBeOutside={shouldLabelBeOutside}
-        startContent={startContent}
-        wrapperProps={getInnerWrapperProps()}
       >
-        <DateInput {...getStartDateInputProps()} />
-        <span style={{padding: "0 4px"}}>–</span>
-        <DateInput {...getEndDateInputProps()} />
+        <DateRangePickerField {...getStartDateInputProps()} />
+        <span {...getSeparatorProps()} aria-hidden="true" role="separator">
+          –
+        </span>
+        <DateRangePickerField {...getEndDateInputProps()} />
       </DateInputGroup>
 
-      {/* <DateInput
-        {...getDateInputProps()}
-        endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
-      /> */}
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </>
   );

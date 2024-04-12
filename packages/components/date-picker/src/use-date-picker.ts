@@ -6,6 +6,7 @@ import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {UseDatePickerBaseProps} from "./use-date-picker-base";
 import type {DOMAttributes} from "@nextui-org/system";
+import type {DatePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {useMemo} from "react";
 import {datePicker} from "@nextui-org/theme";
@@ -19,19 +20,44 @@ import {useDatePickerBase} from "./use-date-picker-base";
 interface Props<T extends DateValue> extends UseDatePickerBaseProps<T> {}
 
 interface Props<T extends DateValue>
-  extends Omit<UseDatePickerBaseProps<T>, keyof AriaDatePickerProps<T>> {}
+  extends Omit<UseDatePickerBaseProps<T>, keyof AriaDatePickerProps<T>> {
+  /**
+   * Classname or List of classes to change the classNames of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <DatePicker classNames={{
+   *    base:"base-classes",
+   *    label: "label-classes",
+   *    calendar:"calendar-classes",
+   *    selectorButton:"selector-button-classes",
+   *    selectorIcon:"selector-icon-classes",
+   *    popoverContent:"popover-content-classes",
+   *    calendarContent : "calendar-content-classes",
+   *    inputWrapper: "input-wrapper-classes",
+   *    input: "input-classes",
+   *    segment: "segment-classes",
+   *    helperWrapper: "helper-wrapper-classes",
+   *    description: "description-classes",
+   *    errorMessage: "error-message-classes",
+   * }} />
+   * ```
+   */
+  classNames?: SlotsToClasses<DatePickerSlots> & DateInputProps<T>["classNames"];
+}
 
 export type UseDatePickerProps<T extends DateValue> = Props<T> & AriaDatePickerProps<T>;
 
 export function useDatePicker<T extends DateValue>({
   className,
+  classNames,
   ...originalProps
 }: UseDatePickerProps<T>) {
   const {
     domRef,
     endContent,
     selectorIcon,
-    baseStyles,
     createCalendar,
     hasMultipleMonths,
     isCalendarHeaderExpanded,
@@ -49,13 +75,14 @@ export function useDatePicker<T extends DateValue>({
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
-    classNames,
   } = useDatePickerBase(originalProps);
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
     shouldCloseOnSelect: () => !state.hasTime,
   });
+
+  const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
     () =>

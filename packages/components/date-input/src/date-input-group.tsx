@@ -16,7 +16,7 @@ export interface ValidationResult {
 }
 
 export interface DateInputGroupProps extends ValidationResult {
-  children?: ReactElement;
+  children?: ReactElement | ReactElement[];
   shouldLabelBeOutside?: boolean;
   label?: ReactNode;
   startContent?: React.ReactNode;

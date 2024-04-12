@@ -1,29 +1,60 @@
 import type {DateValue} from "@internationalized/date";
-import type {DateInputProps, TimeInputProps} from "@nextui-org/date-input";
+import type {DateInputVariantProps} from "@nextui-org/theme";
+import type {TimeInputProps} from "@nextui-org/date-input";
 import type {ButtonProps} from "@nextui-org/button";
 import type {RangeCalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
+import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {AriaDateRangePickerProps} from "@react-types/datepicker";
 import type {DateRangePickerState} from "@react-stately/datepicker";
 import type {UseDatePickerBaseProps} from "./use-date-picker-base";
 import type {PropGetter} from "@nextui-org/system";
+import type {DateRangePickerFieldProps} from "./date-range-picker-field";
+import type {DateInputGroupProps} from "@nextui-org/date-input";
+import type {DateRangePickerSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {DateInputProps} from "@nextui-org/date-input";
 
-import {useMemo} from "react";
+import {useMemo, useRef} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
-import {DOMAttributes} from "@nextui-org/system";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {datePicker, dateInput} from "@nextui-org/theme";
+import {dateRangePicker, dateInput} from "@nextui-org/theme";
 
 import {useDatePickerBase} from "./use-date-picker-base";
-
 interface Props<T extends DateValue>
-  extends Omit<UseDatePickerBaseProps<T>, keyof AriaDateRangePickerProps<T>> {}
+  extends Omit<UseDatePickerBaseProps<T>, keyof AriaDateRangePickerProps<T>> {
+  /**
+   * Classname or List of classes to change the classNames of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <DateRangePicker classNames={{
+   *    base:"base-classes",
+   *    label: "label-classes",
+   *    calendar:"calendar-classes",
+   *    selectorButton:"selector-button-classes",
+   *    selectorIcon:"selector-icon-classes",
+   *    popoverContent:"popover-content-classes",
+   *    calendarContent : "calendar-content-classes",
+   *    inputWrapper: "input-wrapper-classes",
+   *    input: "input-classes",
+   *    segment: "segment-classes",
+   *    separator: "separator-classes",
+   *    helperWrapper: "helper-wrapper-classes",
+   *    description: "description-classes",
+   *    errorMessage: "error-message-classes",
+   * }} />
+   * ```
+   */
+  classNames?: SlotsToClasses<DateRangePickerSlots> & DateInputProps<T>["classNames"];
+}
 
 export type UseDateRangePickerProps<T extends DateValue> = Props<T> & AriaDateRangePickerProps<T>;
 
 export function useDateRangePicker<T extends DateValue>({
+  as,
   label,
   isInvalid,
   description,
@@ -32,6 +63,7 @@ export function useDateRangePicker<T extends DateValue>({
   selectorIcon,
   errorMessage,
   className,
+  classNames,
   ...originalProps
 }: UseDateRangePickerProps<T>) {
   const {
@@ -49,16 +81,18 @@ export function useDateRangePicker<T extends DateValue>({
     popoverProps,
     calendarProps,
     variantProps,
+    userTimeInputProps,
     hasMultipleMonths,
     selectorButtonProps,
     selectorIconProps,
-    classNames,
   } = useDatePickerBase(originalProps);
 
   let state: DateRangePickerState = useDateRangePickerState({
     ...originalProps,
     shouldCloseOnSelect: () => !state.hasTime,
   });
+
+  const popoverTriggerRef = useRef<HTMLDivElement>(null);
 
   originalProps.minValue;
 
@@ -70,13 +104,15 @@ export function useDateRangePicker<T extends DateValue>({
     buttonProps,
     dialogProps,
     calendarProps: ariaCalendarProps,
+    validationDetails,
+    validationErrors,
     descriptionProps,
     errorMessageProps,
   } = useAriaDateRangePicker(originalProps, state, domRef);
 
   const slots = useMemo(
     () =>
-      datePicker({
+      dateRangePicker({
         ...variantProps,
         hasMultipleMonths,
         className,
@@ -93,44 +129,21 @@ export function useDateRangePicker<T extends DateValue>({
 
   const showTimeField = !!timeGranularity;
 
-  const getStartDateInputProps = () => {
-    return {
-      ...startFieldProps,
-      label: "From",
-      // groupProps,
-      // labelProps,
-      // createCalendar,
-      // errorMessageProps,
-      // descriptionProps,
-      ...mergeProps(variantProps, startFieldProps, {
-        // minValue: originalProps.minValue,
-        // maxValue: originalProps.maxValue,
-        fullWidth: true,
-        disableAnimation,
-      }),
-      "data-open": dataAttr(state.isOpen),
-    } as DateInputProps;
-  };
+  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
+    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+      return "outside";
+    }
 
-  const getEndDateInputProps = () => {
-    return {
-      ...startFieldProps,
-      label: "To",
-      // groupProps,
-      // labelProps,
-      // createCalendar,
-      // errorMessageProps,
-      // descriptionProps,
-      ...mergeProps(variantProps, endFieldProps, {
-        // minValue: originalProps.minValue,
-        // maxValue: originalProps.maxValue,
-        fullWidth: true,
-        disableAnimation,
-      }),
-      "data-open": dataAttr(state.isOpen),
-    } as DateInputProps;
-  };
+    return originalProps.labelPlacement ?? "inside";
+  }, [originalProps.labelPlacement, label]);
 
+  const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
+
+  /**
+   * ------------------------------
+   * DateRangePicker Props
+   * ------------------------------
+   */
   const getStartTimeInputProps = () => {
     if (!showTimeField) return {};
 
@@ -142,6 +155,14 @@ export function useDateRangePicker<T extends DateValue>({
       granularity: timeGranularity,
       minValue: timeMinValue,
       maxValue: timeMaxValue,
+      classNames: {
+        base: slots.timeInput({
+          class: clsx(classNames?.timeInput, userTimeInputProps?.classNames?.base),
+        }),
+        label: slots.timeInputLabel({
+          class: clsx(classNames?.timeInputLabel, userTimeInputProps?.classNames?.label),
+        }),
+      },
     } as TimeInputProps;
   };
 
@@ -156,6 +177,14 @@ export function useDateRangePicker<T extends DateValue>({
       granularity: timeGranularity,
       minValue: timeMinValue,
       maxValue: timeMaxValue,
+      classNames: {
+        base: slots.timeInput({
+          class: clsx(classNames?.timeInput, userTimeInputProps?.classNames?.base),
+        }),
+        label: slots.timeInputLabel({
+          class: clsx(classNames?.timeInputLabel, userTimeInputProps?.classNames?.label),
+        }),
+      },
     } as TimeInputProps;
   };
 
@@ -163,8 +192,18 @@ export function useDateRangePicker<T extends DateValue>({
     return {
       state,
       dialogProps,
-      ...popoverProps,
       ...props,
+      ...popoverProps,
+      triggerRef: popoverTriggerRef,
+      classNames: {
+        content: slots.popoverContent({
+          class: clsx(
+            classNames?.popoverContent,
+            slotsProps.popoverProps?.classNames?.["content"],
+            props.className,
+          ),
+        }),
+      },
     } as PopoverProps;
   };
 
@@ -172,6 +211,10 @@ export function useDateRangePicker<T extends DateValue>({
     return {
       ...ariaCalendarProps,
       ...calendarProps,
+      classNames: {
+        base: slots.calendar({class: classNames?.calendar}),
+        content: slots.calendarContent({class: classNames?.calendarContent}),
+      },
     } as RangeCalendarProps;
   };
 
@@ -179,48 +222,89 @@ export function useDateRangePicker<T extends DateValue>({
     return {
       ...buttonProps,
       ...selectorButtonProps,
+      className: slots.selectorButton({class: classNames?.selectorButton}),
     } as ButtonProps;
   };
 
+  const getSeparatorProps = () => {
+    return {
+      "data-slot": "separator",
+      className: slots.separator({class: classNames?.separator}),
+    };
+  };
+
   const getSelectorIconProps = () => {
-    return selectorIconProps;
+    return {
+      ...selectorIconProps,
+      className: slots.selectorIcon({class: classNames?.selectorIcon}),
+    };
   };
 
   /**
+   * ------------------------------
    * DateInput Props
+   * ------------------------------
    */
+
+  const baseStyles = clsx(classNames?.base, className);
 
   const dateInputSlots = useMemo(
     () =>
       dateInput({
         ...variantProps,
-        hasMultipleMonths,
+        labelPlacement,
         className,
       }),
     [objectToDeps(variantProps), hasMultipleMonths, className],
   );
 
-  const hasHelper = !!description || !!errorMessage;
-
-  const getBaseProps: PropGetter = () => {
+  const getStartDateInputProps = (props: DOMAttributes = {}) => {
     return {
-      "data-slot": "base",
-      "data-has-helper": dataAttr(hasHelper),
-      "data-required": dataAttr(originalProps.isRequired),
-      "data-disabled": dataAttr(originalProps.isDisabled),
-      "data-readonly": dataAttr(originalProps.isReadOnly),
-      "data-invalid": dataAttr(isInvalid),
-      "data-has-start-content": dataAttr(!!startContent),
-      "data-has-end-content": dataAttr(!!endContent),
-      className: slots.base({class: baseStyles}),
-    };
+      ...startFieldProps,
+      ref: popoverTriggerRef,
+      "data-slot": "start-input",
+      slots: dateInputSlots,
+      createCalendar,
+      ...mergeProps(variantProps, startFieldProps, {
+        fullWidth: true,
+        disableAnimation,
+      }),
+      "data-open": dataAttr(state.isOpen),
+      classNames,
+      style: {
+        ...props.style,
+        maxWidth: "fit-content",
+      },
+      className: dateInputSlots.input({
+        class: clsx(classNames?.input, props?.className),
+      }),
+    } as DateRangePickerFieldProps;
+  };
+
+  const getEndDateInputProps = (props: DOMAttributes = {}) => {
+    return {
+      ...endFieldProps,
+      "data-slot": "end-input",
+      slots: dateInputSlots,
+      createCalendar,
+      ...mergeProps(variantProps, endFieldProps, {
+        fullWidth: true,
+        disableAnimation,
+      }),
+      "data-open": dataAttr(state.isOpen),
+      classNames,
+      className: dateInputSlots.input({
+        class: clsx(classNames?.input, props?.className),
+      }),
+    } as DateRangePickerFieldProps;
   };
 
   const getLabelProps: PropGetter = (props) => {
     return {
-      ...mergeProps(labelProps, labelPropsProp, props),
+      ...props,
+      ...labelProps,
       "data-slot": "label",
-      className: slots.label({
+      className: dateInputSlots.label({
         class: clsx(classNames?.label, props?.className),
       }),
     };
@@ -231,10 +315,10 @@ export function useDateRangePicker<T extends DateValue>({
       ...props,
       ...groupProps,
       "data-slot": "input-wrapper",
-      className: slots.inputWrapper({
+      className: dateInputSlots.inputWrapper({
         class: classNames?.inputWrapper,
       }),
-      onClick: fieldProps.onClick,
+      // onClick: startFieldProps.onClick,
     } as GroupDOMAttributes;
   };
 
@@ -242,7 +326,7 @@ export function useDateRangePicker<T extends DateValue>({
     return {
       ...props,
       "data-slot": "inner-wrapper",
-      className: slots.innerWrapper({
+      className: dateInputSlots.innerWrapper({
         class: classNames?.innerWrapper,
       }),
     };
@@ -252,7 +336,7 @@ export function useDateRangePicker<T extends DateValue>({
     return {
       ...props,
       "data-slot": "helper-wrapper",
-      className: slots.helperWrapper({
+      className: dateInputSlots.helperWrapper({
         class: clsx(classNames?.helperWrapper, props?.className),
       }),
     };
@@ -260,30 +344,61 @@ export function useDateRangePicker<T extends DateValue>({
 
   const getErrorMessageProps: PropGetter = (props = {}) => {
     return {
-      ...mergeProps(errorMessageProps, errorMessagePropsProp, props),
+      ...props,
+      ...errorMessageProps,
       "data-slot": "error-message",
-      className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
+      className: dateInputSlots.errorMessage({
+        class: clsx(classNames?.errorMessage, props?.className),
+      }),
     };
   };
 
   const getDescriptionProps: PropGetter = (props = {}) => {
     return {
-      ...mergeProps(descriptionProps, descriptionPropsProp, props),
+      ...props,
+      ...descriptionProps,
       "data-slot": "description",
-      className: slots.description({class: clsx(classNames?.description, props?.className)}),
+      className: dateInputSlots.description({
+        class: clsx(classNames?.description, props?.className),
+      }),
     };
+  };
+
+  const getDateInputGroupProps = () => {
+    return {
+      as,
+      label,
+      description,
+      endContent,
+      errorMessage,
+      isInvalid,
+      startContent,
+      validationDetails,
+      validationErrors,
+      shouldLabelBeOutside,
+      "data-slot": "base",
+      "data-required": dataAttr(originalProps.isRequired),
+      "data-disabled": dataAttr(originalProps.isDisabled),
+      "data-readonly": dataAttr(originalProps.isReadOnly),
+      "data-invalid": dataAttr(isInvalid),
+      "data-has-start-content": dataAttr(!!startContent),
+      "data-has-end-content": dataAttr(!!endContent),
+      descriptionProps: getDescriptionProps(),
+      errorMessageProps: getErrorMessageProps(),
+      groupProps: getInputWrapperProps(),
+      helperWrapperProps: getHelperWrapperProps(),
+      labelProps: getLabelProps(),
+      wrapperProps: getInnerWrapperProps(),
+      className: dateInputSlots.base({class: baseStyles}),
+    } as DateInputGroupProps;
   };
 
   return {
     state,
     label,
-    groupProps,
-    labelProps,
     endContent,
     selectorIcon,
     showTimeField,
-    descriptionProps,
-    errorMessageProps,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
@@ -295,7 +410,9 @@ export function useDateRangePicker<T extends DateValue>({
     getPopoverProps,
     getSelectorButtonProps,
     getCalendarProps,
+    getSeparatorProps,
     getSelectorIconProps,
+    getDateInputGroupProps,
   };
 }
 

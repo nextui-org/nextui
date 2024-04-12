@@ -7,17 +7,12 @@ import type {PopoverProps} from "@nextui-org/popover";
 import type {ReactNode} from "react";
 import type {ValueBase} from "@react-types/shared";
 
-import {
-  dateInput,
-  DatePickerVariantProps,
-  DatePickerSlots,
-  SlotsToClasses,
-} from "@nextui-org/theme";
+import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
 import {useState} from "react";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {dataAttr} from "@nextui-org/shared-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
 
 import intlMessages from "../intl/messages";
@@ -96,30 +91,6 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * @default false
    */
   disableAnimation?: boolean;
-  /**
-   * Classname or List of classes to change the classNames of the element.
-   * if `className` is passed, it will be added to the base slot.
-   *
-   * @example
-   * ```ts
-   * <DatePicker classNames={{
-   *    base:"base-classes",
-   *    label: "label-classes",
-   *    calendar:"calendar-classes",
-   *    selectorButton:"selector-button-classes",
-   *    selectorIcon:"selector-icon-classes",
-   *    popoverContent:"popover-content-classes",
-   *    calendarContent : "calendar-content-classes",
-   *    inputWrapper: "input-wrapper-classes",
-   *    input: "input-classes",
-   *    segment: "segment-classes",
-   *    helperWrapper: "helper-wrapper-classes",
-   *    description: "description-classes",
-   *    errorMessage: "error-message-classes",
-   * }} />
-   * ```
-   */
-  classNames?: SlotsToClasses<DatePickerSlots> & DateInputProps<T>["classNames"];
 }
 
 type Variants =
@@ -171,14 +142,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     CalendarTopContent,
     CalendarBottomContent,
     createCalendar,
-    className,
-    classNames,
   } = props;
 
   const domRef = useDOMRef(ref);
   const disableAnimation = originalProps.disableAnimation ?? false;
-
-  const baseStyles = clsx(classNames?.base, className);
 
   let stringFormatter = useLocalizedStringFormatter(intlMessages) as any;
 
@@ -251,7 +218,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     isInvalid,
     errorMessage,
     "data-invalid": dataAttr(originalProps?.isInvalid),
-    classNames,
   } as DateInputProps;
 
   const timeInputProps = {
@@ -303,7 +269,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     slotsProps,
     timeMinValue,
     timeMaxValue,
-    baseStyles,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
@@ -316,7 +281,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
-    classNames,
   };
 }
 

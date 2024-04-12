@@ -28,7 +28,7 @@ const dateInput = tv({
       "group-data-[invalid=true]:text-danger",
     ], // this wraps the input and the start/end content
     segment: [
-      "group -ml-0.5 px-0.5 my-auto box-content tabular-nums text-start",
+      "group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start",
       "inline-block outline-none focus:shadow-sm rounded-md",
       "text-foreground-500 data-[editable=true]:text-foreground",
       "data-[editable=true]:data-[placeholder=true]:text-foreground-500",

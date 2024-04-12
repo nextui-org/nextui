@@ -54,8 +54,7 @@ export default {
 } as Meta<typeof DateRangePicker>;
 
 const defaultProps = {
-  label: "Birth Date",
-  className: "max-w-[256px]",
+  label: "Stay duration",
   ...dateInput.defaultVariants,
 };
 
