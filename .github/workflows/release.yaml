@@ -28,7 +28,7 @@ jobs:
       - name: Tests
         run: pnpm test
 
-      - name: Create Release Pull Request or Publish to NPM
+      - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1
         with:
@@ -40,6 +40,15 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync files from develop to main branch if a publish happens
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/owner/repo/dispatches \
+            -d '{"event_type":"sync-develop-to-main"}'
 
       - name: Create @dev release
         if: steps.changesets.outputs.published != 'true'
