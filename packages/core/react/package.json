@@ -81,6 +81,8 @@
     "@nextui-org/slider": "workspace:*",
     "@nextui-org/breadcrumbs": "workspace:*",
     "@nextui-org/calendar": "workspace:*",
+    "@nextui-org/date-input": "workspace:*",
+    "@nextui-org/date-picker": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@react-aria/visually-hidden": "^3.8.6"
   },

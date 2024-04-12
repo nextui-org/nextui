@@ -1,10 +1,11 @@
 import type {DateValue} from "@internationalized/date";
 import type {AriaDatePickerProps} from "@react-types/datepicker";
-import type {DateInputProps} from "@nextui-org/date-input";
+import type {DateInputProps, TimeInputProps} from "@nextui-org/date-input";
 import type {DatePickerState} from "@react-stately/datepicker";
 import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
 import type {PopoverProps} from "@nextui-org/popover";
+import type {ReactNode} from "react";
 
 import {
   DatePickerVariantProps,
@@ -12,7 +13,7 @@ import {
   SlotsToClasses,
   dateInput,
 } from "@nextui-org/theme";
-import {ReactNode} from "react";
+import {useMemo, useState} from "react";
 import {DOMAttributes} from "@nextui-org/system";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
@@ -21,7 +22,9 @@ import {datePicker} from "@nextui-org/theme";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {useMemo} from "react";
+import {useLocalizedStringFormatter} from "@react-aria/i18n";
+
+import intlMessages from "../intl/messages";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -81,6 +84,13 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * @default {}
    */
   calendarProps?: Partial<Omit<CalendarProps, "topContent" | "bottomContent">>;
+
+  /**
+   * Props to be passed to the time input component.
+   *
+   * @default {}
+   */
+  timeInputProps?: TimeInputProps;
   /**
    * Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
    */
@@ -124,6 +134,8 @@ export type UseDatePickerProps<T extends DateValue> = Props<T> &
 export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
+  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useState(false);
+
   const {
     as,
     ref,
@@ -144,6 +156,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     shouldForceLeadingZeros,
     showMonthAndYearPickers = false,
     popoverProps = {},
+    timeInputProps = {},
     selectorButtonProps = {},
     calendarProps: userCalendarProps = {},
     CalendarTopContent,
@@ -178,8 +191,22 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
 
   const baseStyles = clsx(classNames?.base, className);
 
+  let stringFormatter = useLocalizedStringFormatter(intlMessages);
+
   const isDefaultColor = originalProps.color === "default" || !originalProps.color;
   const hasMultipleMonths = visibleMonths > 1;
+
+  // Time field values
+  const placeholder = originalProps?.placeholderValue;
+  const timePlaceholder = placeholder && "hour" in placeholder ? placeholder : null;
+  const timeMinValue = props.minValue && "hour" in props.minValue ? props.minValue : null;
+  const timeMaxValue = props.maxValue && "hour" in props.maxValue ? props.maxValue : null;
+  const timeGranularity =
+    state.granularity === "hour" || state.granularity === "minute" || state.granularity === "second"
+      ? state.granularity
+      : null;
+
+  const showTimeField = !!timeGranularity;
 
   const slotsProps: {
     popoverProps: UseDatePickerProps<T>["popoverProps"];
@@ -212,6 +239,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
         pageBehavior,
         isDateUnavailable,
         showMonthAndYearPickers,
+        onHeaderExpandedChange: setIsCalendarHeaderExpanded,
         color:
           (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
           isDefaultColor
@@ -263,7 +291,34 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
       "data-open": dataAttr(state.isOpen),
       className: slots.base({class: baseStyles}),
       classNames,
-    } as unknown as DateInputProps;
+    } as DateInputProps;
+  };
+
+  const getTimeInputProps = () => {
+    if (!showTimeField) return {};
+
+    return {
+      ...timeInputProps,
+      size: "sm",
+      labelPlacement: "outside-left",
+      classNames: {
+        base: slots.timeInput({
+          class: clsx(classNames?.timeInput, timeInputProps?.classNames?.base),
+        }),
+        label: slots.timeInputLabel({
+          class: clsx(classNames?.timeInputLabel, timeInputProps?.classNames?.label),
+        }),
+      },
+      label: timeInputProps?.label || stringFormatter.format("time"),
+      value: state.timeValue,
+      onChange: state.setTimeValue,
+      placeholderValue: timePlaceholder,
+      granularity: timeGranularity,
+      minValue: timeMinValue,
+      maxValue: timeMaxValue,
+      hourCycle: props.hourCycle,
+      hideTimeZone: props.hideTimeZone,
+    } as TimeInputProps;
   };
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
@@ -326,6 +381,8 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     state,
     endContent,
     selectorIcon,
+    showTimeField,
+    isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
     CalendarBottomContent,
@@ -333,6 +390,7 @@ export function useDatePicker<T extends DateValue>(originalProps: UseDatePickerP
     getPopoverProps,
     getSelectorButtonProps,
     getCalendarProps,
+    getTimeInputProps,
     getSelectorIconProps,
   };
 }
