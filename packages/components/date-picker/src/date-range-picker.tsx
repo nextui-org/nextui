@@ -4,7 +4,7 @@ import {ForwardedRef, ReactElement, Ref, useMemo} from "react";
 import {cloneElement, isValidElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
-import {DateInput, TimeInput} from "@nextui-org/date-input";
+import {DateInput, TimeInput, DateInputGroup} from "@nextui-org/date-input";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {RangeCalendar} from "@nextui-org/calendar";
 import {AnimatePresence} from "framer-motion";
@@ -78,18 +78,34 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
   ) : null;
 
   return (
-    <div {...groupProps}>
-      <DateInput {...getStartDateInputProps()} />
-      <span style={{padding: "0 4px"}}>–</span>
-      <DateInput {...getEndDateInputProps()} />
+    <>
+      <DateInputGroup
+        {...getBaseProps()}
+        as={as}
+        description={description}
+        descriptionProps={getDescriptionProps()}
+        endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
+        errorMessage={errorMessage}
+        errorMessageProps={getErrorMessageProps()}
+        groupProps={getInputWrapperProps()}
+        helperWrapperProps={getHelperWrapperProps()}
+        label={label}
+        labelProps={getLabelProps()}
+        shouldLabelBeOutside={shouldLabelBeOutside}
+        startContent={startContent}
+        wrapperProps={getInnerWrapperProps()}
+      >
+        <DateInput {...getStartDateInputProps()} />
+        <span style={{padding: "0 4px"}}>–</span>
+        <DateInput {...getEndDateInputProps()} />
+      </DateInputGroup>
 
-      <Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>
       {/* <DateInput
         {...getDateInputProps()}
         endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
       /> */}
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
-    </div>
+    </>
   );
 }
 

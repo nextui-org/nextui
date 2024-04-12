@@ -8,10 +8,10 @@ import type {ReactNode} from "react";
 import type {ValueBase} from "@react-types/shared";
 
 import {
+  dateInput,
   DatePickerVariantProps,
   DatePickerSlots,
   SlotsToClasses,
-  dateInput,
 } from "@nextui-org/theme";
 import {useState} from "react";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
@@ -149,13 +149,13 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     as,
     ref,
     label,
+    endContent,
     selectorIcon,
     inputRef,
     isInvalid,
     errorMessage,
     description,
     startContent,
-    endContent,
     validationState,
     validationBehavior,
     visibleMonths = 1,
@@ -258,7 +258,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     ...userTimeInputProps,
     size: "sm",
     labelPlacement: "outside-left",
-
     label: userTimeInputProps?.label || stringFormatter.format("time"),
     placeholderValue: timePlaceholder,
     hourCycle: props.hourCycle,
