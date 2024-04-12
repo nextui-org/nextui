@@ -230,7 +230,7 @@ export const Granularity = {
   },
 };
 
-export const MinDateValue = {
+export const MinTimeValue = {
   render: Template,
 
   args: {
@@ -240,7 +240,7 @@ export const MinDateValue = {
   },
 };
 
-export const MaxDateValue = {
+export const MaxTimeValue = {
   render: Template,
 
   args: {
