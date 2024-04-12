@@ -2840,6 +2840,12 @@ importers:
       '@nextui-org/code':
         specifier: workspace:*
         version: link:../../components/code
+      '@nextui-org/date-input':
+        specifier: workspace:*
+        version: link:../../components/date-input
+      '@nextui-org/date-picker':
+        specifier: workspace:*
+        version: link:../../components/date-picker
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../../components/divider
