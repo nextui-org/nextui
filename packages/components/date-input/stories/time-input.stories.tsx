@@ -10,7 +10,7 @@ import {
 } from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
 
-import {TimeInput, TimeInputProps, TimeValue} from "../src";
+import {TimeInput, TimeInputProps, TimeInputValue as TimeValue} from "../src";
 
 export default {
   title: "Components/TimeInput",
