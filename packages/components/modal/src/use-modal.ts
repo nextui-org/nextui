@@ -188,6 +188,7 @@ export function useModal(originalProps: UseModalProps) {
     hideCloseButton,
     portalContainer,
     shouldBlockScroll,
+    scrollBehavior: originalProps.scrollBehavior,
     backdrop: originalProps.backdrop ?? "opaque",
     isOpen: state.isOpen,
     onClose: state.close,

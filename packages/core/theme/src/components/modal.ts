@@ -167,7 +167,7 @@ const modal = tv({
         base: "overflow-y-hidden",
       },
       inside: {
-        base: "max-h-[calc(100%_-_7.5rem)]",
+        base: "max-h-[calc(100dvh_-_7.5rem)]",
         body: "overflow-y-auto",
       },
       outside: {

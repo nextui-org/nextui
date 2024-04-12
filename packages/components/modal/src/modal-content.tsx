@@ -3,7 +3,7 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {cloneElement, isValidElement, ReactNode, useMemo, useCallback, ReactElement} from "react";
 import {forwardRef} from "@nextui-org/system";
-import {DismissButton} from "@react-aria/overlays";
+import {DismissButton, usePreventScroll} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {RemoveScroll} from "react-remove-scroll";
@@ -36,6 +36,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     hideCloseButton,
     disableAnimation,
     shouldBlockScroll,
+    scrollBehavior,
     getDialogProps,
     getBackdropProps,
     getCloseButtonProps,
@@ -90,15 +91,20 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
+  usePreventScroll({isDisabled: !(scrollBehavior === "outside" && isOpen)});
+
   const RemoveScrollWrapper = useCallback(
     ({children}: {children: ReactElement}) => {
       return (
-        <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+        <RemoveScroll
+          enabled={scrollBehavior === "outside" ? false : shouldBlockScroll && isOpen}
+          removeScrollBar={false}
+        >
           {children}
         </RemoveScroll>
       );
     },
-    [shouldBlockScroll, isOpen],
+    [scrollBehavior, shouldBlockScroll, isOpen],
   );
 
   const contents = disableAnimation ? (
