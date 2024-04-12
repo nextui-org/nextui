@@ -189,6 +189,13 @@
           "newPost": true
         },
         {
+          "key": "range-calendar",
+          "title": "Range Calendar",
+          "keywords": "range calendar, date picker, month picker, year picker",
+          "path": "/docs/components/range-calendar.mdx",
+          "newPost": true
+        },
+        {
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",
