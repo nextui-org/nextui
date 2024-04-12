@@ -350,6 +350,13 @@
           "updated": true
         },
         {
+          "key": "time-input",
+          "title": "Time Input",
+          "keywords": "timeinput, time, input, timezone",
+          "path": "/docs/components/time-input.mdx",
+          "newPost": true
+        },
+        {
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
