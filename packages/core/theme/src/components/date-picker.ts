@@ -35,7 +35,7 @@ const datePicker = tv({
 const dateRangePicker = tv({
   extend: datePicker,
   slots: {
-    separator: "-mx-0.5 text-inherit",
+    separator: "-mx-1 text-inherit",
   },
 });
 

@@ -70,7 +70,7 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
   }, [showTimeField, CalendarTopContent, isCalendarHeaderExpanded]);
 
   const popoverContent = state.isOpen ? (
-    <FreeSoloPopover {...getPopoverProps()}>
+    <FreeSoloPopover {...getPopoverProps()} offset={20}>
       <RangeCalendar
         {...getCalendarProps()}
         bottomContent={calendarBottomContent}
@@ -87,7 +87,7 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
       >
         <DateRangePickerField {...getStartDateInputProps()} />
         <span {...getSeparatorProps()} aria-hidden="true" role="separator">
-          –
+          -
         </span>
         <DateRangePickerField {...getEndDateInputProps()} />
       </DateInputGroup>
