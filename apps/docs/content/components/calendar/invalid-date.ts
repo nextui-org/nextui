@@ -20,7 +20,7 @@ export default function App() {
 }`;
 
 const AppTs = `import {Calendar} from "@nextui-org/react";
-import type {DateValue} from "@nextui-org/react";
+import type {DateValue} from "@react-types/calendar";
 import {today, getLocalTimeZone, isWeekend} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 

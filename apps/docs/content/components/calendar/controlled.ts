@@ -14,7 +14,7 @@ export default function App() {
 }`;
 
 const AppTs = `import {Calendar} from "@nextui-org/react";
-import type {DateValue} from "@nextui-org/react";
+import type {DateValue} from "@react-types/calendar";
 import {parseDate} from "@internationalized/date";
 
 export default function App() {
