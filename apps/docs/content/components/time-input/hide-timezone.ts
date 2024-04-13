@@ -1,9 +1,13 @@
 const App = `import {TimeInput} from "@nextui-org/react";
-import {Time} from "@internationalized/date";
+import {parseZonedDateTime} from "@internationalized/date";
 
 export default function App() {
   return (
-    <TimeInput hideTimeZone defaultValue={new Time(11, 45)} />
+    <TimeInput 
+      label="Meeting time"
+      hideTimeZone 
+      defaultValue={parseZonedDateTime("2022-11-07T10:45[America/Los_Angeles]")} 
+    />
   );
 }`;
 
