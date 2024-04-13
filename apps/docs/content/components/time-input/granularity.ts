@@ -14,7 +14,7 @@ export default function App() {
 }`;
 
 const AppTs = `import {TimeInput} from "@nextui-org/react";
-import type {TimeInputValue} from "@nextui-org/react";
+import type {TimeValue} from "@react-types/datepicker";
 import {Time, parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {

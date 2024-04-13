@@ -26,7 +26,7 @@ export default function App() {
 }`;
 
 const AppTs = `import {TimeInput} from "@nextui-org/react";
-import type {TimeInputValue} from "@nextui-org/react";
+import type {TimeValue} from "@react-types/datepicker";
 import {parseAbsoluteToLocal, Time, ZonedDateTime} from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
 
