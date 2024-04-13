@@ -2218,6 +2218,275 @@
     "url": "/docs/components/code#code-props",
     "hierarchy": { "lvl1": "Code", "lvl2": "API", "lvl3": "Code Props" }
   },
+   {
+    "content": "DatePicker",
+    "objectID": "",
+    "type": "lvl1",
+    "url": "/docs/components/date-picker",
+    "hierarchy": { "lvl1": "DatePicker" }
+  },
+  {
+    "content": "Import",
+    "objectID": "",
+    "type": "lvl2",
+    "url": "/docs/components/date-picker#import",
+    "hierarchy": { "lvl1": "DatePicker", "lvl2": "Import", "lvl3": null }
+  },
+  {
+    "content": "Usage",
+    "objectID": "",
+    "type": "lvl2",
+    "url": "/docs/components/date-picker#usage",
+    "hierarchy": { "lvl1": "DatePicker", "lvl2": "Usage", "lvl3": null }
+  },
+  {
+    "content": "Disabled",
+    "objectID": "25f6793f-b9ef-40a2-9718-0fc8a15569e3",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#disabled",
+    "hierarchy": { "lvl1": "DatePicker", "lvl2": "Usage", "lvl3": "Disabled" }
+  },
+  {
+    "content": "Read Only",
+    "objectID": "cd8ffe34-190c-4361-aed6-38a96b50a406",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#read-only",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Disabled",
+      "lvl3": "Read Only"
+    }
+  },
+  {
+    "content": "Required",
+    "objectID": "d6c709e5-3a37-46b9-901a-13486aee497f",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#required",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Read Only",
+      "lvl3": "Required"
+    }
+  },
+  {
+    "content": "Label Placements",
+    "objectID": "44116610-b216-4ee5-a02d-c93adb6b8467",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#label-placements",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Required",
+      "lvl3": "Label Placements"
+    }
+  },
+  {
+    "content": "With Description",
+    "objectID": "b309953d-9e17-4602-a1ec-b77593d70d2f",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#with-description",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Label Placements",
+      "lvl3": "With Description"
+    }
+  },
+  {
+    "content": "With Error Message",
+    "objectID": "a00d0c42-e4d6-4208-bae2-4887900e00cf",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#with-error-message",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "With Description",
+      "lvl3": "With Error Message"
+    }
+  },
+  {
+    "content": "With Month And Year Pickers",
+    "objectID": "a00d0c42-e4d6-4208-bae2-4887900e00cf",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#with-month-and-year-pickers",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "With Error Message",
+      "lvl3": "With Month And Year Pickers"
+    }
+  },
+  {
+    "content": "With Time Field",
+    "objectID": "a00d0c42-e4d6-4208-bae2-4887900e00cf",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#with-time-field",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "With Month And Year Pickers",
+      "lvl3": "With Time Field"
+    }
+  },
+  {
+    "content": "Selector Icon",
+    "objectID": "a00d0c42-e4d6-4208-bae2-4887900e00cf",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#selector-icon",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "With Time Field",
+      "lvl3": "Selector"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "922572ab-acb4-4d52-ab2f-de0c24159f51",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#controlled",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Selector Icon",
+      "lvl3": "Controlled"
+    }
+  },
+  {
+    "content": "Time Zones",
+    "objectID": "7b1a60b4-6b48-4790-bb04-37290dbabc9b",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#time-zones",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Controlled",
+      "lvl3": "Time Zones"
+    }
+  },
+  {
+    "content": "Granularity",
+    "objectID": "73867c7f-011b-413c-9426-b66d0f6ec510",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#granularity",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Time Zones",
+      "lvl3": "Granularity"
+    }
+  },
+  {
+    "content": "Min Date And Max Date",
+    "objectID": "7235446e-3b29-46ab-a1b8-67dc716ef445",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#min-date-and-max-date",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Granularity",
+      "lvl3": "Min Date And Max Date"
+    }
+  },
+  {
+    "content": "International Calendar",
+    "objectID": "ec25f8fb-6801-40e1-9854-64045ae39fd2",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#international-calendar",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Min Date And Max Date",
+      "lvl3": "International Calendar"
+    }
+  },
+  {
+    "content": "Unavailable Dates",
+    "objectID": "beef9f0c-0c40-4755-8621-68194c4cde73",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#unavailable-dates",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "International Calendar",
+      "lvl3": "Unavailable Dates"
+    }
+  },
+  {
+    "content": "Visible Month",
+    "objectID": "2bc98056-4dce-410d-9ccf-726ca90966e5",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#visible-cycle",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Unavailable Dates",
+      "lvl3": "Visible Month"
+    }
+  },
+  {
+    "content": "Page Behavior",
+    "objectID": "2bc98056-4dce-410d-9ccf-726ca90966e5",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#page-behavior",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Visible Month",
+      "lvl3": "Page Behavior"
+    }
+  },
+  {
+    "content": "Preset",
+    "objectID": "2bc98056-4dce-410d-9ccf-726ca90966e5",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#preset",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Page Behavior",
+      "lvl3": "Preset"
+    }
+  },
+  {
+    "content": "Slots",
+    "objectID": "9fc24db3-3222-451d-a1c0-5d90a88d32f0",
+    "type": "lvl2",
+    "url": "/docs/components/date-picker#slots",
+    "hierarchy": { "lvl1": "DatePicker", "lvl2": "Slots", "lvl3": null }
+  },
+  {
+    "content": "Data Attributes",
+    "objectID": "ab33b20f-6509-43d6-baf9-725386901e96",
+    "type": "lvl2",
+    "url": "/docs/components/date-picker#data-attributes",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "Data Attributes",
+      "lvl3": null
+    }
+  },
+  {
+    "content": "Accessibility",
+    "objectID": "03e9a9c4-8c2e-475c-b374-23d8d1c40e0e",
+    "type": "lvl2",
+    "url": "/docs/components/date-picker#accessibility",
+    "hierarchy": { "lvl1": "DatePicker", "lvl2": "Accessibility", "lvl3": null }
+  },
+  {
+    "content": "API",
+    "objectID": "f94db9f1-7007-4f6c-afbb-9d0294b86e50",
+    "type": "lvl2",
+    "url": "/docs/components/date-picker#api",
+    "hierarchy": { "lvl1": "DatePicker", "lvl2": "API", "lvl3": null }
+  },
+  {
+    "content": "DatePicker Props",
+    "objectID": "6dba6b36-2c0a-41e5-bcb3-3de4f5725270",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#dateinput-props",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "API",
+      "lvl3": "DatePicker Props"
+    }
+  },
+  {
+    "content": "DatePicker Events",
+    "objectID": "3cf600db-625e-4ca5-b57d-aaa52b0378ce",
+    "type": "lvl3",
+    "url": "/docs/components/date-picker#dateinput-events",
+    "hierarchy": {
+      "lvl1": "DatePicker",
+      "lvl2": "DatePicker Props",
+      "lvl3": "DatePicker Events"
+    }
+  },
   {
     "content": "Divider",
     "objectID": "c8413f05-1dbc-4160-992b-2215e40c817f",

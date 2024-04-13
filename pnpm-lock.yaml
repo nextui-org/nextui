@@ -279,6 +279,9 @@ importers:
       '@iconify/react':
         specifier: ^4.1.1
         version: 4.1.1(react@18.2.0)
+      '@internationalized/date':
+        specifier: ^3.5.2
+        version: 3.5.2
       '@mapbox/rehype-prism':
         specifier: ^0.6.0
         version: 0.6.0
