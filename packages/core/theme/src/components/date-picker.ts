@@ -23,6 +23,7 @@ const datePicker = tv({
     hasMultipleMonths: {
       true: {
         calendar: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+        calendarContent: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
       },
       false: {},
     },
