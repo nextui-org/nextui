@@ -17,7 +17,8 @@ export default function App() {
 }`;
 
 const AppTs = `import {RangeCalendar} from "@nextui-org/react";
-import type {RangeValue, DateValue} from "@nextui-org/react";
+import type {DateValue} from "@react-types/calendar";
+import type {RangeValue} from "@react-types/shared";
 import {today, getLocalTimeZone} from "@internationalized/date";
 
 export default function App() {

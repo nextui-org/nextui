@@ -114,7 +114,8 @@ export default function App() {
 }`;
 
 const AppTs = `import {RangeCalendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@nextui-org/react";
-import type {RangeValue, DateValue} from "@nextui-org/react";
+import type {DateValue} from "@react-types/calendar";
+import type {RangeValue} from "@react-types/shared";
 import {today, getLocalTimeZone, startOfWeek, startOfMonth} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 
