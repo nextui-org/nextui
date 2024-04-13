@@ -189,13 +189,6 @@
           "newPost": true
         },
         {
-          "key": "range-calendar",
-          "title": "Range Calendar",
-          "keywords": "range calendar, date picker, month picker, year picker",
-          "path": "/docs/components/range-calendar.mdx",
-          "newPost": true
-        },
-        {
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",
@@ -293,6 +286,13 @@
           "title": "Radio Group",
           "keywords": "radio group, selection set, option selection, exclusive choices",
           "path": "/docs/components/radio-group.mdx"
+        },
+        {
+          "key": "range-calendar",
+          "title": "Range Calendar",
+          "keywords": "range calendar, date picker, month picker, year picker",
+          "path": "/docs/components/range-calendar.mdx",
+          "newPost": true
         },
         {
           "key": "select",
