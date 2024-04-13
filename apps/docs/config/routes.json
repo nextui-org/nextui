@@ -19,6 +19,13 @@
           "path": "/docs/guide/installation.mdx"
         },
         {
+          "key": "nextui-cli",
+          "title": "NextUI CLI",
+          "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
+          "path": "/docs/guide/nextui-cli.mdx",
+          "newPost": true
+        },
+        {
           "key": "design-principles",
           "title": "Design Principles",
           "keywords": "design principles, nextui",
