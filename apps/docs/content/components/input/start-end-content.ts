@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <DateInput
+        <Input
           type="email"
           label="Email"
           placeholder="you@example.com"
@@ -32,7 +32,7 @@ export default function App() {
             <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
         />
-        <DateInput
+        <Input
           type="number"
           label="Price"
           placeholder="0.00"
@@ -43,7 +43,7 @@ export default function App() {
             </div>
           }
         />
-        <DateInput
+        <Input
           type="url"
           label="Website"
           placeholder="nextui.org"
@@ -56,7 +56,7 @@ export default function App() {
         />
       </div>
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <DateInput
+        <Input
           type="email"
           label="Email"
           placeholder="you@example.com"
@@ -65,7 +65,7 @@ export default function App() {
             <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
         />
-        <DateInput
+        <Input
           type="number"
           label="Price"
           placeholder="0.00"
@@ -76,7 +76,7 @@ export default function App() {
             </div>
           }
         />
-        <DateInput
+        <Input
           type="url"
           label="Website"
           placeholder="nextui"
@@ -89,7 +89,7 @@ export default function App() {
         />
       </div>
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <DateInput
+        <Input
           label="Email"
           placeholder="nextui"
           labelPlacement="outside"
@@ -102,7 +102,7 @@ export default function App() {
             </div>
           }
         />
-        <DateInput
+        <Input
           label="Price"
           placeholder="0.00"
           labelPlacement="outside"
@@ -129,7 +129,7 @@ export default function App() {
           }
           type="number"
         />
-        <DateInput
+        <Input
           type="url"
           label="Website"
           placeholder="nextui"
