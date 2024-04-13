@@ -185,16 +185,6 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
 - **helperWrapper**: The helper message of the calendar.
 - **errorMessage**: The error message of the calendar.
 
-### Custom Styles
-
-You can customize the `Calendar` component by passing custom Tailwind CSS classes to the component slots.
-
-### Custom Implementation
-
-In case you need to customize the calendar even further, you can use the `useCalendar` hook to create your own implementation.
-
-> **Note**: We used [Tailwind Variants](https://www.tailwind-variants.org/) to implement the styles above, you can use any other library such as [clsx](https://www.npmjs.com/package/clsx) to achieve the same result.
-
 <Spacer y={4} />
 
 ## Data Attributes
@@ -233,7 +223,6 @@ In case you need to customize the calendar even further, you can use the `useCal
 - Display one or more months at once, or a custom time range for use cases like a week view. Minimum and maximum values, unavailable dates, and non-contiguous selections are supported as well.
 - Support for 13 calendar systems used around the world, including Gregorian, Buddhist, Islamic, Persian, and more. Locale-specific formatting, number systems, and right-to-left support are available as well.
 - Calendar cells can be navigated and selected using the keyboard, and localized screen reader messages are included to announce when the selection and visible date range change.
-- As with all of React Aria, the DOM structure and styling of all elements can be fully customized.
 
 <Spacer y={4} />
 
