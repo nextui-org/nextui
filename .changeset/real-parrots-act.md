@@ -2,4 +2,4 @@
 "@nextui-org/theme": patch
 ---
 
-Fixed hsl rounding issue (#2697)
+Changed the HSL rounding to 2 decimal places (#2697)
