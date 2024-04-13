@@ -167,7 +167,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    description: "Please enter your birth date",
+    description: "Please enter your meeting time",
   },
 };
 

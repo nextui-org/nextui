@@ -4,7 +4,7 @@ export default function App() {
   return (
     <TimeInput 
       label="Event Time"
-      description="Please enter your birth date" 
+      description="Please enter your meeting time" 
     />
   );
 }`;
