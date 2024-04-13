@@ -16,8 +16,28 @@ export default function App() {
   );
 }`;
 
+const AppTs = `import {RangeCalendar} from "@nextui-org/react";
+import type {RangeValue, DateValue} from "@nextui-org/react";
+import {today, getLocalTimeZone} from "@internationalized/date";
+
+export default function App() {
+  let [value, setValue] = React.useState<RangeValue<DateValue>>({
+    start: today(getLocalTimeZone()),
+    end: today(getLocalTimeZone()).add({weeks: 1}),
+  });
+
+  return (
+    <RangeCalendar 
+      aria-label="Date (Controlled)" 
+      value={value} 
+      onChange={setValue} 
+    />
+  );
+}`;
+
 const react = {
   "/App.jsx": App,
+  "/App.tsx": AppTs,
 };
 
 export default {
