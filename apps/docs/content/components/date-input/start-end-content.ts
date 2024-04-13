@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <Input
+        <DateInput
           label={"Birth date"} 
           defaultValue={parseDate("2024-04-04")} 
           placeholderValue={new CalendarDate(1995, 11, 6)} 
@@ -33,7 +33,7 @@ export default function App() {
             <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
         />
-        <Input
+        <DateInput
           label={"Birth date"} 
           defaultValue={parseDate("2024-04-04")} 
           placeholderValue={new CalendarDate(1995, 11, 6)} 
@@ -46,7 +46,7 @@ export default function App() {
         />
       </div>
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <Input
+        <DateInput
           label={"Birth date"} 
           defaultValue={parseDate("2024-04-04")} 
           placeholderValue={new CalendarDate(1995, 11, 6)} 
@@ -55,7 +55,7 @@ export default function App() {
             <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
           }
         />
-        <Input
+        <DateInput
           label={"Birth date"} 
           defaultValue={parseDate("2024-04-04")} 
           placeholderValue={new CalendarDate(1995, 11, 6)} 
