@@ -20,6 +20,7 @@ import {isBaseTheme} from "./utils/theme";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, defaultLayout} from "./default-layout";
 import {baseStyles} from "./utils/classes";
+import {DEFAULT_TRANSITION_DURATION} from "./utilities/transition";
 
 const DEFAULT_PREFIX = "nextui";
 
@@ -223,6 +224,7 @@ const corePlugin = (
             0: "0ms",
             250: "250ms",
             400: "400ms",
+            DEFAULT: DEFAULT_TRANSITION_DURATION,
           },
           transitionTimingFunction: {
             "soft-spring": "cubic-bezier(0.155, 1.105, 0.295, 1.12)",
