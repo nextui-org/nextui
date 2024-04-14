@@ -204,7 +204,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useMultiSelectState<T>({
+  let state = useMultiSelectState<T>({
     ...props,
     isOpen,
     selectionMode,
@@ -234,6 +234,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }
     },
   });
+
+  state = {
+    ...state,
+    ...(originalProps?.isDisabled && {
+      disabledKeys: new Set([...state.collection.getKeys()]),
+    }),
+  };
 
   const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
     useMultiSelect(
