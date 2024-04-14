@@ -1,4 +1,5 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
+import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {AriaTextFieldProps} from "@react-types/textfield";
@@ -76,8 +77,10 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
   onValueChange?: (value: string) => void;
 }
 
+type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
+
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
@@ -92,7 +95,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     baseRef,
     wrapperRef,
     description,
-    errorMessage,
     className,
     classNames,
     autoFocus,
@@ -113,9 +115,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [onValueChange],
   );
 
-  const [inputValue, setInputValue] = useControlledState<string | undefined>(
+  const [inputValue, setInputValue] = useControlledState<string>(
     props.value,
-    props.defaultValue,
+    props.defaultValue ?? "",
     handleValueChange,
   );
 
@@ -141,9 +143,19 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef.current?.focus();
   }, [setInputValue, onClear]);
 
-  const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
+  const {
+    labelProps,
+    inputProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+    descriptionProps,
+    errorMessageProps,
+  } = useTextField(
     {
       ...originalProps,
+      validationBehavior: "native",
+      autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
@@ -174,7 +186,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onPress: handleClear,
   });
 
-  const isInvalid = validationState === "invalid" || originalProps.isInvalid;
+  const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
@@ -184,6 +196,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors.join(" ");
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
@@ -445,7 +461,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     endContent,
     labelPlacement,
     isClearable,
-    isInvalid,
     hasHelper,
     hasStartContent,
     isLabelOutside,
@@ -454,7 +469,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     shouldLabelBeOutside,
     shouldLabelBeInside,
     hasPlaceholder,
-    errorMessage,
+    isInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage({isInvalid, validationErrors, validationDetails})
+        : errorMessage || validationErrors.join(" "),
     getBaseProps,
     getLabelProps,
     getInputProps,

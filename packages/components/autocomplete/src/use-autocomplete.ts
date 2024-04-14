@@ -3,7 +3,6 @@ import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "
 import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
-import {useComboBox} from "@react-aria/combobox";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
@@ -16,6 +15,7 @@ import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
+import {useComboBox} from "@react-aria/combobox";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -110,8 +110,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
-  ComboBoxProps<T> &
+  Omit<
+    InputProps,
+    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "validationBehavior"
+  > &
+  Omit<ComboBoxProps<T>, "validationBehavior"> &
   AsyncLoadable &
   AutocompleteVariantProps;
 
@@ -154,6 +157,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     allowsCustomValue = false,
     className,
     classNames,
+    errorMessage,
     onOpenChange,
     onClose,
     isReadOnly = false,
@@ -167,6 +171,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
+    validationBehavior: "native",
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -192,6 +197,27 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const popoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
+
+  const {
+    buttonProps,
+    inputProps,
+    listBoxProps,
+    isInvalid: isAriaInvalid,
+    validationDetails,
+    validationErrors,
+  } = useComboBox(
+    {
+      validationBehavior: "native",
+      ...originalProps,
+      inputRef,
+      buttonRef,
+      listBoxRef,
+      popoverRef,
+    },
+    state,
+  );
+
+  const isInvalid = originalProps.isInvalid || isAriaInvalid;
 
   const slotsProps: {
     inputProps: InputProps;
@@ -248,7 +274,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         size: "sm",
         variant: "light",
         radius: "full",
-        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
       },
@@ -259,7 +285,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         size: "sm",
         variant: "light",
         radius: "full",
-        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
       },
@@ -290,17 +316,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen, allowsCustomValue]);
 
-  const {buttonProps, inputProps, listBoxProps} = useComboBox(
-    {
-      ...originalProps,
-      inputRef,
-      buttonRef,
-      listBoxRef,
-      popoverRef,
-    },
-    state,
-  );
-
   const Component = as || "div";
 
   const slots = useMemo(
@@ -328,7 +343,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   );
 
   const getBaseProps: PropGetter = () => ({
-    "data-invalid": dataAttr(originalProps?.isInvalid),
+    "data-invalid": dataAttr(isInvalid),
     "data-open": dataAttr(state.isOpen),
     className: slots.base({class: baseStyles}),
   });
@@ -369,6 +384,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...otherProps,
       ...inputProps,
       ...slotsProps.inputProps,
+      isInvalid,
+      errorMessage:
+        typeof errorMessage === "function"
+          ? errorMessage({isInvalid, validationErrors, validationDetails})
+          : errorMessage || validationErrors.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 

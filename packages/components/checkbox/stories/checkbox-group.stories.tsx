@@ -1,6 +1,9 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
+import {button} from "@nextui-org/theme";
 
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
 
@@ -75,6 +78,32 @@ const InvalidTemplate = (args: CheckboxGroupProps) => {
         <Checkbox value="tokyo">Tokyo</Checkbox>
       </CheckboxGroup>
     </>
+  );
+};
+
+const FormTemplate = (args: CheckboxGroupProps) => {
+  return (
+    <form
+      className="flex flex-col items-start gap-4"
+      onSubmit={(e) => {
+        const formData = new FormData(e.currentTarget);
+        const selectedCities = formData.getAll("favorite-cities");
+
+        alert(`Submitted values: ${selectedCities.join(", ")}`);
+        e.preventDefault();
+      }}
+    >
+      <CheckboxGroup {...args} label="Select cities" name="favorite-cities">
+        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
+        <Checkbox value="sydney">Sydney</Checkbox>
+        <Checkbox value="san-francisco">San Francisco</Checkbox>
+        <Checkbox value="london">London</Checkbox>
+        <Checkbox value="tokyo">Tokyo</Checkbox>
+      </CheckboxGroup>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
@@ -153,7 +182,38 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "The selected cities cannot be visited at the same time",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "At least one option must be selected";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Please select at least 2 options",
+    validate: (value: string[]) => {
+      if (value.length < 2) {
+        return "You must select at least 2 options";
+      }
+
+      return null;
+    },
   },
 };
 
@@ -163,5 +223,14 @@ export const DisableAnimation = {
   args: {
     label: "Select cities",
     disableAnimation: true,
+  },
+};
+
+export const IsRequired = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
   },
 };
