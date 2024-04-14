@@ -1,97 +1,31 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import type {DateValue} from "@internationalized/date";
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
-import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseDateInputProps, useDateInput} from "./use-date-input";
-import {DateInputSegment} from "./date-input-segment";
+import {DateInputGroup} from "./date-input-group";
+import {DateInputField} from "./date-input-field";
 
 export interface Props<T extends DateValue> extends UseDateInputProps<T> {}
 
 function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {
-    Component,
-    state,
-    label,
-    slots,
-    hasHelper,
-    errorMessage,
-    description,
-    startContent,
-    endContent,
-    shouldLabelBeOutside,
-    classNames,
-    getBaseProps,
-    getInputProps,
-    getFieldProps,
-    getLabelProps,
-    getInputWrapperProps,
-    getInnerWrapperProps,
-    getDescriptionProps,
-    getHelperWrapperProps,
-    getErrorMessageProps,
-  } = useDateInput<T>({
-    ...props,
-    ref,
-  });
-
-  const labelContent = label ? <span {...getLabelProps()}>{label}</span> : null;
-
-  const helperWrapper = useMemo(() => {
-    if (!hasHelper) return null;
-
-    return (
-      <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
-          <div {...getDescriptionProps()}>{description}</div>
-        ) : null}
-      </div>
-    );
-  }, [
-    hasHelper,
-    errorMessage,
-    description,
-    getHelperWrapperProps,
-    getErrorMessageProps,
-    getDescriptionProps,
-  ]);
-
-  const inputContent = useMemo(
-    () => (
-      <div {...getFieldProps()}>
-        {state.segments.map((segment, i) => (
-          <DateInputSegment
-            key={i}
-            classNames={classNames}
-            segment={segment}
-            slots={slots}
-            state={state}
-          />
-        ))}
-        <input {...getInputProps()} />
-      </div>
-    ),
-    [state, slots, classNames?.segment, getFieldProps],
-  );
+  const {state, slots, classNames, getBaseGroupProps, getInputProps, getFieldProps} =
+    useDateInput<T>({
+      ...props,
+      ref,
+    });
 
   return (
-    <Component {...getBaseProps()}>
-      {shouldLabelBeOutside ? labelContent : null}
-      <div {...getInputWrapperProps()}>
-        {!shouldLabelBeOutside ? labelContent : null}
-        <div {...getInnerWrapperProps()}>
-          {startContent}
-          {inputContent}
-          {endContent}
-        </div>
-        {shouldLabelBeOutside ? helperWrapper : null}
-      </div>
-      {!shouldLabelBeOutside ? helperWrapper : null}
-    </Component>
+    <DateInputGroup {...getBaseGroupProps()}>
+      <DateInputField
+        classNames={classNames}
+        inputProps={getInputProps()}
+        slots={slots}
+        state={state}
+        {...getFieldProps()}
+      />
+    </DateInputGroup>
   );
 }
 

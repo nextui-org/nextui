@@ -234,6 +234,7 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     monthsListRef,
     yearsListRef,
     getItemRef,
+    isHeaderExpanded,
     onPickerItemPressed,
     onPickerItemKeyDown,
   };

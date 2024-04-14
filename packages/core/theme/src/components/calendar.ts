@@ -6,7 +6,7 @@ import {tv} from "../utils/tv";
 const calendar = tv({
   slots: {
     base: [
-      "relative w-fit max-w-full shadow-small inline-block",
+      "relative w-fit max-w-full shadow-small inline-block overflow-y-hidden",
       "rounded-large overflow-x-scroll bg-default-50 dark:bg-background",
     ],
     prevButton: [],

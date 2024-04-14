@@ -2,6 +2,7 @@ import type {DateInputVariantProps, DateInputSlots, SlotsToClasses} from "@nextu
 import type {AriaTimeFieldProps, TimeValue} from "@react-types/datepicker";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
+import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
@@ -95,15 +96,14 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     minValue,
     maxValue,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
-    errorMessage: errorMessageProp,
+    errorMessage,
   } = props;
 
   const domRef = useDOMRef(ref);
   const inputRef = useDOMRef(inputRefProp);
 
-  const Component = as || "div";
-
   const {locale} = useLocale();
+
   const state = useTimeFieldState({
     ...originalProps,
     label,
@@ -129,17 +129,6 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
 
   const isInvalid = isInvalidProp || ariaIsInvalid;
 
-  const errorMessage =
-    typeof errorMessageProp === "function"
-      ? errorMessageProp({
-          isInvalid,
-          validationErrors,
-          validationDetails,
-        })
-      : errorMessageProp || validationErrors.join(" ");
-
-  const hasHelper = !!description || !!errorMessage;
-
   const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
     if (
       (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
@@ -163,20 +152,6 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     [objectToDeps(variantProps), labelPlacement, className],
   );
 
-  const getBaseProps: PropGetter = () => {
-    return {
-      "data-slot": "base",
-      "data-has-helper": dataAttr(hasHelper),
-      "data-required": dataAttr(originalProps.isRequired),
-      "data-disabled": dataAttr(originalProps.isDisabled),
-      "data-readonly": dataAttr(originalProps.isReadOnly),
-      "data-invalid": dataAttr(isInvalid),
-      "data-has-start-content": dataAttr(!!startContent),
-      "data-has-end-content": dataAttr(!!endContent),
-      className: slots.base({class: baseStyles}),
-    };
-  };
-
   const getLabelProps: PropGetter = (props) => {
     return {
       ...mergeProps(labelProps, labelPropsProp, props),
@@ -195,7 +170,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     };
   };
 
-  const getFieldProps: PropGetter = (props) => {
+  const getFieldProps = (props: DOMAttributes = {}) => {
     return {
       ref: domRef,
       "data-slot": "input",
@@ -203,10 +178,10 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
       className: slots.input({
         class: clsx(classNames?.input, props?.className),
       }),
-    };
+    } as GroupDOMAttributes;
   };
 
-  const getInputWrapperProps: PropGetter = (props) => {
+  const getInputWrapperProps = (props = {}) => {
     return {
       ...props,
       ...groupProps,
@@ -215,7 +190,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
         class: classNames?.inputWrapper,
       }),
       onClick: fieldProps.onClick,
-    };
+    } as GroupDOMAttributes;
   };
 
   const getInnerWrapperProps: PropGetter = (props) => {
@@ -254,29 +229,44 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     };
   };
 
+  const getBaseGroupProps = () => {
+    return {
+      as,
+      label,
+      description,
+      endContent,
+      errorMessage,
+      isInvalid,
+      startContent,
+      validationDetails,
+      validationErrors,
+      shouldLabelBeOutside,
+      "data-slot": "base",
+      "data-required": dataAttr(originalProps.isRequired),
+      "data-disabled": dataAttr(originalProps.isDisabled),
+      "data-readonly": dataAttr(originalProps.isReadOnly),
+      "data-invalid": dataAttr(isInvalid),
+      "data-has-start-content": dataAttr(!!startContent),
+      "data-has-end-content": dataAttr(!!endContent),
+      descriptionProps: getDescriptionProps(),
+      errorMessageProps: getErrorMessageProps(),
+      groupProps: getInputWrapperProps(),
+      helperWrapperProps: getHelperWrapperProps(),
+      labelProps: getLabelProps(),
+      wrapperProps: getInnerWrapperProps(),
+      className: slots.base({class: baseStyles}),
+    } as DateInputGroupProps;
+  };
+
   return {
-    Component,
     state,
     domRef,
     slots,
-    label,
-    hasHelper,
-    shouldLabelBeOutside,
     classNames,
-    description,
-    errorMessage,
     labelPlacement,
-    startContent,
-    endContent,
-    getBaseProps,
-    getLabelProps,
+    getBaseGroupProps,
     getFieldProps,
     getInputProps,
-    getInputWrapperProps,
-    getInnerWrapperProps,
-    getHelperWrapperProps,
-    getErrorMessageProps,
-    getDescriptionProps,
   };
 }
 
