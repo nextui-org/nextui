@@ -20,8 +20,8 @@ const select = tv({
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
-      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-unit-4 items-center gap-1.5 box-border",
-    selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
+      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-4 items-center gap-1.5 box-border",
+    selectorIcon: "absolute right-3 w-4 h-4",
     spinner: "absolute right-3",
     value: ["text-foreground-500", "font-normal", "w-full", "text-left"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
@@ -97,15 +97,15 @@ const select = tv({
     size: {
       sm: {
         label: "text-tiny",
-        trigger: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        trigger: "h-8 min-h-8 px-2 rounded-small",
         value: "text-small",
       },
       md: {
-        trigger: "h-unit-10 min-h-unit-10 rounded-medium",
+        trigger: "h-10 min-h-10 rounded-medium",
         value: "text-small",
       },
       lg: {
-        trigger: "h-unit-12 min-h-unit-12 rounded-large",
+        trigger: "h-12 min-h-12 rounded-large",
         value: "text-medium",
       },
     },
@@ -516,14 +516,14 @@ const select = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        trigger: "h-12 min-h-unit-12 py-1.5 px-3",
+        trigger: "h-12 min-h-12 py-1.5 px-3",
       },
     },
     {
       labelPlacement: "inside",
       size: "md",
       class: {
-        trigger: "h-14 min-h-unit-14 py-2",
+        trigger: "h-14 min-h-14 py-2",
       },
     },
     {
@@ -531,7 +531,7 @@ const select = tv({
       size: "lg",
       class: {
         label: "text-small",
-        trigger: "h-16 min-h-unit-16 py-2.5 gap-0",
+        trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },
     //  labelPlacement=[inside, outside]

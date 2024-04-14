@@ -528,7 +528,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
     <Autocomplete
       className="max-w-xs"
       classNames={{
-        base: "min-h-unit-16",
+        base: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}
       color={color}

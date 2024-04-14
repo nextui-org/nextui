@@ -158,7 +158,7 @@ Semantic colors can be applied anywhere in your project where colors are used, s
 text color, border color, background color utilities, and more.
 
 ```html
-<div class="bg-primary-500 text-primary-50 rounded-small px-unit-2 py-unit-1">
+<div class="bg-primary-500 text-primary-50 rounded-small px-2 py-1">
   This is a primary color box
 </div>
 ```
@@ -205,10 +205,10 @@ Then you can use the CSS variables in your CSS files.
 ```css
 /* With default prefix */
 .my-component {
-  background-color: var(--nextui-primary-500);
+  background-color: hsl(var(--nextui-primary-500));
 }
 /*  With custom prefix */
 .my-component {
-  background-color: var(--myapp-primary-500);
+  background-color: hsl(var(--myapp-primary-500));
 }
 ```

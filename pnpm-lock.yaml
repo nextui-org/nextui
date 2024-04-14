@@ -499,8 +499,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.4(react@18.2.0)
       tailwind-variants:
-        specifier: ^0.1.18
-        version: 0.1.18(tailwindcss@3.4.3)
+        specifier: ^0.1.20
+        version: 0.1.20(tailwindcss@3.4.3)
       unified:
         specifier: ^9.2.2
         version: 9.2.2
@@ -3012,8 +3012,8 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
       tailwind-variants:
-        specifier: ^0.1.18
-        version: 0.1.18(tailwindcss@3.4.3)
+        specifier: ^0.1.20
+        version: 0.1.20(tailwindcss@3.4.3)
 
   packages/core/theme:
     dependencies:
@@ -3045,8 +3045,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       tailwind-variants:
-        specifier: ^0.1.18
-        version: 0.1.18(tailwindcss@3.4.3)
+        specifier: ^0.1.20
+        version: 0.1.20(tailwindcss@3.4.3)
     devDependencies:
       '@types/color':
         specifier: ^3.0.3
@@ -5902,6 +5902,10 @@ packages:
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
+      '@effect-ts/core':
+        optional: true
+      '@effect-ts/otel':
+        optional: true
       '@effect-ts/otel-node':
         optional: true
     dependencies:
@@ -22486,6 +22490,9 @@ packages:
     resolution: {integrity: sha512-wRvsK9v12Nt2/EIjLp/uvxd3UeRSN9DRoSofDn21Ot+rEw4e98ODvbdSHi6dYr82s4oo6mF823ACmOp1hXd4wg==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
+    peerDependenciesMeta:
+      '@parcel/core':
+        optional: true
     dependencies:
       '@parcel/config-default': 2.10.2(@parcel/core@2.10.2)(typescript@4.9.5)
       '@parcel/core': 2.10.2
@@ -25446,8 +25453,8 @@ packages:
   /tailwind-merge@1.14.0:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
 
-  /tailwind-variants@0.1.18(tailwindcss@3.4.3):
-    resolution: {integrity: sha512-yoydMYm3FbZRw7wak+E2sqwYv2Uo3YWRqVZR03DGqDGm0ytzDrEnWO/Q/GMHdhaz8adOvycKw/bwCgQFCfmfhg==}
+  /tailwind-variants@0.1.20(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-AMh7x313t/V+eTySKB0Dal08RHY7ggYK0MSn/ad8wKWOrDUIzyiWNayRUm2PIJ4VRkvRnfNuyRuKbLV3EN+ewQ==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
