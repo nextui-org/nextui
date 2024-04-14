@@ -7,12 +7,13 @@ const calendar = tv({
   slots: {
     base: [
       "relative w-fit max-w-full shadow-small inline-block",
-      "rounded-large overflow-scroll bg-default-50 dark:bg-background",
+      "rounded-large overflow-x-scroll bg-default-50 dark:bg-background",
     ],
     prevButton: [],
     nextButton: [],
     headerWrapper: [
       "px-4 py-2 flex items-center justify-between gap-2 bg-content1",
+      "[&_.chevron-icon]:flex-none",
       // month/year picker wrapper
       "after:content-['']",
       "after:bg-content1 origin-top",
@@ -21,13 +22,14 @@ const calendar = tv({
     ],
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
+    content: "w-fit",
     gridWrapper: "flex max-w-full overflow-auto pb-2 h-auto relative",
     grid: "w-full border-collapse z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "px-4 pb-2 flex justify-center text-default-400",
     gridHeaderCell: "flex w-8 justify-center items-center font-medium text-small",
     gridBody: "",
-    gridBodyRow: "flex mt-2 justify-center items-center first:mt-2",
+    gridBodyRow: "flex justify-center items-center first:mt-2",
     cell: "py-0.5 px-0",
     cellButton: [
       "w-8 h-8 flex items-center text-foreground justify-center rounded-full",

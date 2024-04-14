@@ -183,7 +183,7 @@ export const WithoutLabel = {
   args: {
     ...defaultProps,
     label: null,
-    "aria-label": "Birthday",
+    "aria-label": "Birth date",
   },
 };
 
@@ -192,7 +192,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    description: "Please enter your birthday",
+    description: "Please enter your birth date",
   },
 };
 

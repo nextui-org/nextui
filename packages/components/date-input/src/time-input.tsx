@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-import type {DateValue} from "@internationalized/date";
+import type {TimeValue} from "@react-types/datepicker";
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
 import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 
-import {UseDateInputProps, useDateInput} from "./use-date-input";
+import {UseTimeInputProps, useTimeInput} from "./use-time-input";
 import {DateInputSegment} from "./date-input-segment";
 
-export interface Props<T extends DateValue> extends UseDateInputProps<T> {}
+export interface Props<T extends TimeValue> extends UseTimeInputProps<T> {}
 
-function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+function TimeInput<T extends TimeValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     Component,
     state,
@@ -32,7 +31,7 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
     getDescriptionProps,
     getHelperWrapperProps,
     getErrorMessageProps,
-  } = useDateInput<T>({
+  } = useTimeInput<T>({
     ...props,
     ref,
   });
@@ -95,11 +94,11 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
   );
 }
 
-DateInput.displayName = "NextUI.DateInput";
+TimeInput.displayName = "NextUI.TimeInput";
 
-export type DateInputProps<T extends DateValue = DateValue> = Props<T> & {ref?: Ref<HTMLElement>};
+export type TimeInputProps<T extends TimeValue = TimeValue> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DateInput) as <T extends DateValue>(
-  props: DateInputProps<T>,
+export default forwardRef(TimeInput) as <T extends TimeValue>(
+  props: TimeInputProps<T>,
 ) => ReactElement;

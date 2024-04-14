@@ -174,14 +174,15 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 
 ### Avatar Group Props
 
-| Attribute   | Type                           | Description                                         | Default |
-| ----------- | ------------------------------ | --------------------------------------------------- | ------- |
-| max         | `number`                       | The maximum number of visible avatars               | `5`     |
-| total       | `number`                       | Control the number of avatar not visible            | -       |
-| size        | `AvatarProps['size']`          | Size of the avatars                                 | -       |
-| color       | `AvatarProps['color']`         | Color of the avatars                                | -       |
-| radius      | `AvatarProps['radius']`        | Radius of the avatars                               | -       |
-| isGrid      | `boolean`                      | Whether the avatars should be displayed in a grid   | `false` |
-| isDisabled  | `boolean`                      | Whether the avatars are disabled                    | -       |
-| isBordered  | `boolean`                      | Whether the avatars have a border                   | -       |
-| renderCount | `(count: number) => ReactNode` | This allows you to render a custom count component. | -       |
+| Attribute   | Type                               | Description                                         | Default |
+| ----------- | ---------------------------------- | --------------------------------------------------- | ------- |
+| max         | `number`                           | The maximum number of visible avatars               | `5`     |
+| total       | `number`                           | Control the number of avatar not visible            | -       |
+| size        | `AvatarProps['size']`              | Size of the avatars                                 | -       |
+| color       | `AvatarProps['color']`             | Color of the avatars                                | -       |
+| radius      | `AvatarProps['radius']`            | Radius of the avatars                               | -       |
+| isGrid      | `boolean`                          | Whether the avatars should be displayed in a grid   | `false` |
+| isDisabled  | `boolean`                          | Whether the avatars are disabled                    | -       |
+| isBordered  | `boolean`                          | Whether the avatars have a border                   | -       |
+| renderCount | `(count: number) => ReactNode`     | This allows you to render a custom count component. | -       |
+| classNames  | `Record<"base"｜ "count", string>` | Allows to set custom class names for the avatar group slots. | -  |
