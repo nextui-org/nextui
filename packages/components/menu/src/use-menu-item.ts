@@ -7,11 +7,10 @@ import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
 import {TreeState} from "@react-stately/tree";
-import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
 import {useMenuItem as useAriaMenuItem} from "@react-aria/menu";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 
 interface Props<T extends object> extends MenuItemBaseProps<T> {
@@ -106,7 +105,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
         isDisabled,
         disableAnimation,
       }),
-    [...Object.values(variantProps), isDisabled, disableAnimation],
+    [objectToDeps(variantProps), isDisabled, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);

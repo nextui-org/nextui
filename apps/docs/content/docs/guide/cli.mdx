@@ -1,0 +1,241 @@
+---
+title: CLI
+description: Start your NextUI project with the CLI.
+---
+
+# CLI
+
+The CLI offers a comprehensive suite of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or `upgrade` individual components, assess the health of your project, and more.
+
+## Installation
+
+Requirements:
+
+- [Node.js version 18.17.x or later](https://nodejs.org/en/)
+
+<Steps>
+
+### Global Installation
+
+To install the `CLI` globally, execute one of the following commands in your terminal:
+
+<PackageManagers
+  commands={{
+    npm: "npm install nextui-cli -g",
+    yarn: "yarn add nextui-cli -g",
+    pnpm: "pnpm add nextui-cli -g",
+    bun: "bun add nextui-cli -g"
+  }}
+/>
+
+### Without Installation
+
+Alternatively, you can use the `CLI` without a global installation by employing `npx`:
+
+```bash
+npx nextui-cli@latest
+```
+</Steps>
+
+## Quick Start
+
+Once the `CLI` is installed, run the following command to display available commands:
+
+```codeBlock bash
+nextui
+```
+
+This will produce the following help output:
+
+```codeBlock bash
+NextUI CLI <version>
+
+A command line tool for seamless integration with NextUI
+
+Usage: nextui [command]
+
+Options:
+  -v, --version  Show the version number
+  -h, --help     Display help for commands
+
+Commands:
+  init [options] [projectName]       Start a new NextUI project
+  add [options] [components...]      Add NextUI components to your project
+  upgrade [options] [components...]  Update NextUI components to the latest versions
+  remove [options] [components...]   Remove NextUI components from your project
+  list [options]                     Show details of installed components
+  env [options]                      Display debug information about the local environment
+  doctor [options]                   Diagnose problems in your project
+  help [command]                     Get help on a specific command
+```
+
+## Initialize a New Project
+
+To start a new project, use the init command:
+
+```codeBlock bash
+nextui init [my-nextui-app-name]
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui init [options] [projectName]
+
+Initialize a new NextUI project
+
+Arguments:
+  projectName             The name of the new project
+
+Options:
+  -t --template [string]  The template to use for the new project e.g. app, pages
+  -h, --help              Display help for command
+```
+
+## Add Components
+
+Add specific components to your project:
+
+```codeBlock bash
+nextui add [component1] [component2] [component3] ...
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui add [options] [components...]
+
+Add NextUI components to your project
+
+Arguments:
+  components                   The name of the NextUI components to add
+
+Options:
+  -a --all [boolean]           Add all the NextUI components (default: false)
+  -p --packagePath [string]    The path to the package.json file
+  -tw --tailwindPath [string]  The path to the tailwind.config file file
+  -app --appPath [string]      The path to the App.tsx file
+  --prettier [boolean]         Add prettier format in the add content which required installed prettier (default: false)
+  --addApp [boolean]           Add App.tsx file content which required provider (default: false)
+  -h, --help                   Display help for command
+```
+
+## Upgrade Components
+
+Upgrade existing components to their latest versions:
+
+```codeBlock bash
+nextui upgrade [component1] [component2] [component3] ...
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui upgrade [options] [components...]
+
+Upgrade the NextUI components to the latest version
+
+Arguments:
+  components                 The name of the NextUI components to upgrade
+
+Options:
+  -p --packagePath [string]  The path to the package.json file
+  -a --all [boolean]         Upgrade all the NextUI components (default: false)
+  -h, --help                 Display help for command
+```
+
+## Remove Components
+
+Remove specific components from your project:
+
+```codeBlock bash
+nextui remove [component1] [component2] [component3] ...
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui remove [options] [components...]
+
+Remove NextUI components from your project
+
+Arguments:
+  components                   The name of the NextUI components to remove
+
+Options:
+  -p --packagePath [string]    The path to the package.json file
+  -a --all [boolean]           Remove all the NextUI components (default: false)
+  -tw --tailwindPath [string]  The path to the tailwind.config file file
+  --prettier [boolean]         Add prettier format in the add content which required installed prettier (default: false)
+  -h, --help                   Display help for command
+```
+
+## List Components
+
+List the status, description, and version of all components in the project:
+
+```codeBlock bash
+nextui list
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui list [options]
+
+List all the components status, description, version, etc
+
+Options:
+  -p --packagePath [string]  The path to the package.json file
+  -c --current               List the current installed components
+  -h, --help                 Display help for command
+```
+
+## Check Project Health
+
+To diagnose issues within your project, use the `doctor` command:
+
+```codeBlock bash
+nextui doctor
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui doctor [options]
+
+Check whether exist problem in user project
+
+Options:
+  -p --packagePath [string]      The path to the package.json file
+  -tw --tailwindPath [string]    The path to the tailwind.config file file
+  -app --appPath [string]        The path to the App.tsx file
+  -ca --checkApp [boolean]       Open check App (default: true)
+  -ct --checkTailwind [boolean]  Open check tailwind.config file (default: true)
+  -cp --checkPnpm [boolean]      Open check Pnpm (default: true)
+  -h, --help                     Display help for command
+```
+
+## Display Project Environment Information
+
+To show details about your local development environment, use the `env` command:
+
+```codeBlock bash
+nextui env
+```
+
+<Spacer y={4} />
+
+```codeBlock bash
+Usage: nextui env [options]
+
+Display debug information about the local environment
+
+Options:
+  -p --packagePath [string]  The path to the package.json file
+  -h, --help                 Display help for command
+```
+
+## See The More Information
+
+Learn more about the `CLI` by visiting [CLI GitHub Repository](https://github.com/nextui-org/nextui-cli)

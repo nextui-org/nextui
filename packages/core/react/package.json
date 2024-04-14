@@ -80,7 +80,11 @@
     "@nextui-org/ripple": "workspace:*",
     "@nextui-org/slider": "workspace:*",
     "@nextui-org/breadcrumbs": "workspace:*",
-    "@react-aria/visually-hidden": "^3.8.6"
+    "@nextui-org/calendar": "workspace:*",
+    "@nextui-org/date-input": "workspace:*",
+    "@nextui-org/date-picker": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
+    "@react-aria/visually-hidden": "^3.8.10"
   },
   "peerDependencies": {
     "react": ">=18",

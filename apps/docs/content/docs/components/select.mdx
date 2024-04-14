@@ -15,6 +15,18 @@ A select displays a collapsible list of options and allows a user to select one 
 
 <CarbonAd />
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add select",
+    npm: "npm install @nextui-org/select",
+    yarn: "yarn add @nextui-org/select",
+    pnpm: "pnpm add @nextui-org/select",
+    bun: "bun add @nextui-org/select"
+  }}
+/>
+
 ## Import
 
 NextUI exports 3 select-related components:
@@ -349,7 +361,7 @@ the popover and listbox components.
 | labelPlacement              | `inside` \| `outside` \| `outside-left`                                                                                                                                                                                | The position of the label.                                                                                             | `inside`           |
 | label                       | `ReactNode`                                                                                                                                                                                                            | The content to display as the label.                                                                                   | -                  |
 | description                 | `ReactNode`                                                                                                                                                                                                            | A description for the select. Provides a hint such as specific requirements for what to choose.                        | -                  |
-| errorMessage                | `ReactNode`                                                                                                                                                                                                            | An error message for the select.                                                                                       | -                  |
+| errorMessage                | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                                                                                                  | An error message for the select.                                                                                       | -                  |
 | startContent                | `ReactNode`                                                                                                                                                                                                            | Element to be rendered in the left side of the select.                                                                 | -                  |
 | endContent                  | `ReactNode`                                                                                                                                                                                                            | Element to be rendered in the right side of the select.                                                                | -                  |
 | selectorIcon                | `ReactNode`                                                                                                                                                                                                            | Element to be rendered as the selector icon.                                                                           | -                  |
