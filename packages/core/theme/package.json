@@ -58,7 +58,7 @@
     "tailwind-variants": "^0.1.18"
   },
   "peerDependencies": {
-    "tailwindcss": "*"
+    "tailwindcss": ">=3.4.0"
   },
   "devDependencies": {
     "@types/color": "^3.0.3",
@@ -68,7 +68,7 @@
     "@types/lodash.kebabcase": "^4.1.7",
     "@types/lodash.mapkeys": "^4.6.7",
     "@types/lodash.omit": "^4.5.7",
-    "tailwindcss": "^3.3.5",
+    "tailwindcss": "^3.4.0",
     "clean-package": "2.2.0"
   },
   "tsup": {

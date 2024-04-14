@@ -1,4 +1,5 @@
 const App = `import {DateInput} from "@nextui-org/react";
+import {CalendarDate} from "@internationalized/date";
 
 export default function App() {
   const placements = [
@@ -8,17 +9,15 @@ export default function App() {
   ];
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
-        {placements.map((placement) => (
-          <DateInput 
-            label={"Birth date"} 
-            placeholderValue={new CalendarDate(1995, 11, 6)} 
-            description={placement}
-            labelPlacement={placement}
-          />
-        ))}
-      </div>  
+    <div className="w-full flex flex-col max-w-sm gap-4">
+      {placements.map((placement) => (
+        <DateInput 
+          label="Birth date" 
+          placeholderValue={new CalendarDate(1995, 11, 6)} 
+          description={placement}
+          labelPlacement={placement}
+        />
+      ))}
     </div>  
   );
 }`;
