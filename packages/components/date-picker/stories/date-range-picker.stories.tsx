@@ -2,10 +2,10 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {dateInput} from "@nextui-org/theme";
 import {
-  DateValue,
+  endOfMonth,
+  endOfWeek,
   getLocalTimeZone,
   isWeekend,
-  now,
   parseAbsoluteToLocal,
   parseDate,
   parseZonedDateTime,
@@ -13,16 +13,18 @@ import {
   startOfWeek,
   today,
 } from "@internationalized/date";
+import {RangeValue} from "@react-types/shared";
+import {DateValue} from "@react-types/datepicker";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/system";
 
-import {DatePicker, DatePickerProps} from "../src";
+import {DateRangePicker, DateRangePickerProps} from "../src";
 
 export default {
-  title: "Components/DatePicker",
-  component: DatePicker,
+  title: "Components/DateRangePicker",
+  component: DateRangePicker,
   argTypes: {
     variant: {
       control: {
@@ -67,121 +69,195 @@ export default {
       </div>
     ),
   ],
-} as Meta<typeof DatePicker>;
+} as Meta<typeof DateRangePicker>;
 
 const defaultProps = {
-  label: "Birth Date",
-  className: "max-w-[256px]",
+  label: "Stay duration",
   ...dateInput.defaultVariants,
 };
 
-const Template = (args: DatePickerProps) => <DatePicker {...args} />;
+const Template = (args: DateRangePickerProps) => <DateRangePicker {...args} />;
 
-const LabelPlacementTemplate = (args: DatePickerProps) => (
+const LabelPlacementTemplate = (args: DateRangePickerProps) => (
   <div className="w-full max-w-xl flex flex-col items-start gap-4">
-    <DatePicker {...args} description="inside" />
-    <DatePicker {...args} description="outside" labelPlacement="outside" />
-    <DatePicker {...args} description="outside-left" labelPlacement="outside-left" />
+    <DateRangePicker {...args} description="inside" />
+    <DateRangePicker {...args} description="outside" labelPlacement="outside" />
+    <DateRangePicker {...args} description="outside-left" labelPlacement="outside-left" />
   </div>
 );
 
-const ControlledTemplate = (args: DatePickerProps) => {
-  const [value, setValue] = React.useState<DateValue>(parseDate("2024-04-04"));
+const ControlledTemplate = (args: DateRangePickerProps) => {
+  const [value, setValue] = React.useState<RangeValue<DateValue>>({
+    start: parseDate("2024-04-01"),
+    end: parseDate("2024-04-08"),
+  });
 
-  let formatter = useDateFormatter({dateStyle: "full"});
+  let formatter = useDateFormatter({dateStyle: "long"});
 
   return (
     <div className="flex flex-row gap-2">
       <div className="w-full flex flex-col gap-y-2">
-        <DatePicker {...args} label="Date (controlled)" value={value} onChange={setValue} />
+        <DateRangePicker
+          {...args}
+          label="Date range (controlled)"
+          value={value}
+          onChange={setValue}
+        />
         <p className="text-default-500 text-sm">
-          Selected date: {value ? formatter.format(value.toDate(getLocalTimeZone())) : "--"}
+          Selected date:{" "}
+          {value
+            ? formatter.formatRange(
+                value.start.toDate(getLocalTimeZone()),
+                value.end.toDate(getLocalTimeZone()),
+              )
+            : "--"}
         </p>
       </div>
-      <DatePicker {...args} defaultValue={parseDate("2024-04-04")} label="Date (uncontrolled)" />
+      <DateRangePicker
+        {...args}
+        defaultValue={{
+          start: parseDate("2024-04-01"),
+          end: parseDate("2024-04-08"),
+        }}
+        label="Date range (uncontrolled)"
+      />
     </div>
   );
 };
 
-const TimeZonesTemplate = (args: DatePickerProps) => (
+const TimeZonesTemplate = (args: DateRangePickerProps) => (
   <div className="w-full max-w-xl flex flex-col items-start gap-4">
-    <DatePicker
+    <DateRangePicker
       {...args}
       className="max-w-xs"
-      defaultValue={parseZonedDateTime("2022-11-07T00:45[America/Los_Angeles]")}
+      defaultValue={{
+        start: parseZonedDateTime("2024-04-01T00:45[America/Los_Angeles]"),
+        end: parseZonedDateTime("2024-04-14T11:15[America/Los_Angeles]"),
+      }}
       labelPlacement="outside"
     />
-    <DatePicker
+    <DateRangePicker
       // {...args}
       className="max-w-xs"
-      defaultValue={parseAbsoluteToLocal("2021-11-07T07:45:00Z")}
+      defaultValue={{
+        start: parseAbsoluteToLocal("2024-04-01T07:45:00Z"),
+        end: parseAbsoluteToLocal("2024-04-14T19:15:00Z"),
+      }}
       labelPlacement="outside"
     />
   </div>
 );
 
-const GranularityTemplate = (args: DatePickerProps) => {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+const GranularityTemplate = (args: DateRangePickerProps) => {
+  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+    start: parseAbsoluteToLocal("2024-04-01T18:45:22Z"),
+    end: parseAbsoluteToLocal("2024-04-08T19:15:22Z"),
+  });
 
   return (
     <div className="w-full max-w-xl flex flex-col items-start gap-4">
-      <DatePicker
+      <DateRangePicker
         {...args}
-        className="max-w-md"
+        fullWidth
         granularity="second"
-        label="Date and time"
+        label="Date and time range"
         value={date}
         onChange={setDate}
       />
-      <DatePicker
+      <DateRangePicker
         {...args}
-        className="max-w-md"
+        fullWidth
         granularity="day"
-        label="Date"
+        label="Date range"
         value={date}
         onChange={setDate}
-      />
-      <DatePicker {...args} className="max-w-md" granularity="second" label="Event date" />
-      <DatePicker
-        {...args}
-        className="max-w-md"
-        granularity="second"
-        label="Event date"
-        placeholderValue={now("America/New_York")}
       />
     </div>
   );
 };
 
-const InternationalCalendarsTemplate = (args: DatePickerProps) => {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+const InternationalCalendarsTemplate = (args: DateRangePickerProps) => {
+  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+    start: parseAbsoluteToLocal("2021-04-01T18:45:22Z"),
+    end: parseAbsoluteToLocal("2021-04-14T19:15:22Z"),
+  });
 
   return (
     <div className="flex flex-col gap-4">
       <I18nProvider locale="hi-IN-u-ca-indian">
-        <DatePicker
-          {...args}
-          className="max-w-md"
-          label="Appointment date"
-          value={date}
-          onChange={setDate}
-        />
+        <DateRangePicker {...args} label="Appointment date" value={date} onChange={setDate} />
       </I18nProvider>
     </div>
   );
 };
 
-const PresetsTemplate = (args: DatePickerProps) => {
-  let defaultDate = today(getLocalTimeZone());
+const UnavailableDatesTemplate = (args: DateRangePickerProps) => {
+  let now = today(getLocalTimeZone());
 
-  const [value, setValue] = React.useState<DateValue>(defaultDate);
+  let disabledRanges = [
+    [now, now.add({days: 5})],
+    [now.add({days: 14}), now.add({days: 16})],
+    [now.add({days: 23}), now.add({days: 24})],
+  ];
+
+  return (
+    <DateRangePicker
+      aria-label="Appointment date"
+      isDateUnavailable={(date) =>
+        disabledRanges.some(
+          (interval) => date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0,
+        )
+      }
+      minValue={today(getLocalTimeZone())}
+      validate={(value) =>
+        disabledRanges.some(
+          (interval) =>
+            value && value.end.compare(interval[0]) >= 0 && value.start.compare(interval[1]) <= 0,
+        )
+          ? "Selected date range may not include unavailable dates."
+          : null
+      }
+      validationBehavior="native"
+      {...args}
+    />
+  );
+};
+
+const NonContiguousRangesTemplate = (args: DateRangePickerProps) => {
+  let {locale} = useLocale();
+
+  return (
+    <DateRangePicker
+      {...args}
+      allowsNonContiguousRanges
+      isDateUnavailable={(date) => isWeekend(date, locale)}
+      label="Time off request"
+      minValue={today(getLocalTimeZone())}
+      visibleMonths={2}
+    />
+  );
+};
+
+const PresetsTemplate = (args: DateRangePickerProps) => {
+  let defaultDate = {
+    start: today(getLocalTimeZone()),
+    end: today(getLocalTimeZone()).add({days: 7}),
+  };
+
+  const [value, setValue] = React.useState<RangeValue<DateValue>>(defaultDate);
 
   let {locale} = useLocale();
   let formatter = useDateFormatter({dateStyle: "full"});
 
   let now = today(getLocalTimeZone());
-  let nextWeek = startOfWeek(now.add({weeks: 1}), locale);
-  let nextMonth = startOfMonth(now.add({months: 1}));
+  let nextWeek = {
+    start: startOfWeek(now.add({weeks: 1}), locale),
+    end: endOfWeek(now.add({weeks: 1}), locale),
+  };
+  let nextMonth = {
+    start: startOfMonth(now.add({months: 1})),
+    end: endOfMonth(now.add({months: 1})),
+  };
 
   const CustomRadio = (props) => {
     const {children, ...otherProps} = props;
@@ -207,13 +283,14 @@ const PresetsTemplate = (args: DatePickerProps) => {
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-sm">
-      <DatePicker
+      <DateRangePicker
         CalendarBottomContent={
           <RadioGroup
             aria-label="Date precision"
             classNames={{
               base: "w-full pb-2",
-              wrapper: "-my-2.5 py-2.5 px-3 gap-1 flex-nowrap max-w-[280px] overflow-scroll",
+              wrapper:
+                "-my-2.5 py-2.5 px-3 gap-1 flex-nowrap max-w-[w-[calc(var(--visible-months)_*_var(--calendar-width))]] overflow-scroll",
             }}
             defaultValue="exact_dates"
             orientation="horizontal"
@@ -234,14 +311,23 @@ const PresetsTemplate = (args: DatePickerProps) => {
             size="sm"
             variant="bordered"
           >
-            <Button onPress={() => setValue(now)}>Today</Button>
+            <Button
+              onPress={() =>
+                setValue({
+                  start: now,
+                  end: now.add({days: 7}),
+                })
+              }
+            >
+              This week
+            </Button>
             <Button onPress={() => setValue(nextWeek)}>Next week</Button>
             <Button onPress={() => setValue(nextMonth)}>Next month</Button>
           </ButtonGroup>
         }
         calendarProps={{
-          focusedValue: value,
-          onFocusChange: setValue,
+          focusedValue: value.start,
+          onFocusChange: (val) => setValue({...value, start: val}),
           nextButtonProps: {
             variant: "bordered",
           },
@@ -255,36 +341,15 @@ const PresetsTemplate = (args: DatePickerProps) => {
         label="Event date"
       />
       <p className="text-default-500 text-sm">
-        Selected date: {value ? formatter.format(value.toDate(getLocalTimeZone())) : "--"}
+        Selected date:{" "}
+        {value
+          ? formatter.formatRange(
+              value.start.toDate(getLocalTimeZone()),
+              value.end.toDate(getLocalTimeZone()),
+            )
+          : "--"}
       </p>
     </div>
-  );
-};
-
-const UnavailableDatesTemplate = (args: DatePickerProps) => {
-  let now = today(getLocalTimeZone());
-
-  let disabledRanges = [
-    [now, now.add({days: 5})],
-    [now.add({days: 14}), now.add({days: 16})],
-    [now.add({days: 23}), now.add({days: 24})],
-  ];
-
-  let {locale} = useLocale();
-
-  let isDateUnavailable = (date) =>
-    isWeekend(date, locale) ||
-    disabledRanges.some(
-      (interval) => date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0,
-    );
-
-  return (
-    <DatePicker
-      aria-label="Appointment date"
-      isDateUnavailable={isDateUnavailable}
-      minValue={today(getLocalTimeZone())}
-      {...args}
-    />
   );
 };
 
@@ -295,23 +360,11 @@ export const Default = {
   },
 };
 
-export const WithMonthAndYearPickers = {
+export const VisibleMonths = {
   render: Template,
   args: {
     ...defaultProps,
-    variant: "bordered",
-    showMonthAndYearPickers: true,
-  },
-};
-
-export const WithTimeField = {
-  render: Template,
-  args: {
-    ...defaultProps,
-    label: "Event date",
-    hideTimeZone: true,
-    showMonthAndYearPickers: true,
-    defaultValue: now(getLocalTimeZone()),
+    visibleMonths: 2,
   },
 };
 
@@ -320,6 +373,20 @@ export const LabelPlacement = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithTimeField = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    label: "Event duration",
+    hideTimeZone: true,
+    visibleMonths: 2,
+    defaultValue: {
+      start: parseZonedDateTime("2024-04-01T00:45[America/Los_Angeles]"),
+      end: parseZonedDateTime("2024-04-08T11:15[America/Los_Angeles]"),
+    },
   },
 };
 
@@ -343,7 +410,10 @@ export const Disabled = {
   args: {
     ...defaultProps,
     isDisabled: true,
-    defaultValue: parseDate("2024-04-04"),
+    defaultValue: {
+      start: parseDate("2024-04-01"),
+      end: parseDate("2024-04-08"),
+    },
   },
 };
 
@@ -352,7 +422,10 @@ export const ReadOnly = {
   args: {
     ...defaultProps,
     isReadOnly: true,
-    defaultValue: parseDate("2024-04-04"),
+    defaultValue: {
+      start: parseDate("2024-04-01"),
+      end: parseDate("2024-04-08"),
+    },
   },
 };
 
@@ -362,7 +435,7 @@ export const WithoutLabel = {
   args: {
     ...defaultProps,
     label: null,
-    "aria-label": "Birth date",
+    "aria-label": "Stay duration",
   },
 };
 
@@ -371,7 +444,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    description: "Please enter your birth date",
+    description: "Please enter your stay duration",
   },
 };
 
@@ -403,7 +476,7 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
-    errorMessage: "Please enter a valid date",
+    errorMessage: "Please enter your stay duration",
   },
 };
 
@@ -414,7 +487,10 @@ export const IsInvalid = {
     ...defaultProps,
     variant: "bordered",
     isInvalid: true,
-    defaultValue: parseDate("2024-04-04"),
+    defaultValue: {
+      start: parseDate("2024-04-01"),
+      end: parseDate("2024-04-08"),
+    },
     errorMessage: "Please enter a valid date",
   },
 };
@@ -434,6 +510,7 @@ export const Granularity = {
 
   args: {
     ...defaultProps,
+    visibleMonths: 2,
   },
 };
 
@@ -442,7 +519,7 @@ export const InternationalCalendars = {
 
   args: {
     ...defaultProps,
-    showMonthAndYearPickers: true,
+    hideTimeZone: true,
   },
 };
 
@@ -452,7 +529,10 @@ export const MinDateValue = {
   args: {
     ...defaultProps,
     minValue: today(getLocalTimeZone()),
-    defaultValue: parseDate("2024-04-03"),
+    defaultValue: {
+      start: today(getLocalTimeZone()).subtract({days: 1}),
+      end: parseDate("2024-04-08"),
+    },
   },
 };
 
@@ -462,7 +542,10 @@ export const MaxDateValue = {
   args: {
     ...defaultProps,
     maxValue: today(getLocalTimeZone()),
-    defaultValue: parseDate("2024-04-05"),
+    defaultValue: {
+      start: parseDate("2024-04-01"),
+      end: today(getLocalTimeZone()).add({days: 1}),
+    },
   },
 };
 
@@ -470,17 +553,6 @@ export const UnavailableDates = {
   render: UnavailableDatesTemplate,
   args: {
     ...defaultProps,
-    defaultValue: today(getLocalTimeZone()),
-    unavailableDates: [today(getLocalTimeZone())],
-  },
-};
-
-export const VisibleMonths = {
-  render: Template,
-
-  args: {
-    ...defaultProps,
-    visibleMonths: 2,
   },
 };
 
@@ -493,9 +565,17 @@ export const PageBehavior = {
   },
 };
 
+export const NonContiguous = {
+  render: NonContiguousRangesTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const Presets = {
   render: PresetsTemplate,
   args: {
     ...defaultProps,
+    visibleMonths: 2,
   },
 };
