@@ -81,7 +81,7 @@ const button = tv({
     },
     isIconOnly: {
       true: "px-0 !gap-0",
-      false: "[&>svg]:max-w-[theme(spacing.unit-8)]",
+      false: "[&>svg]:max-w-[theme(spacing.8)]",
     },
     disableAnimation: {
       true: "!transition-none",
