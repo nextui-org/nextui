@@ -11,6 +11,7 @@ import {domAnimation, LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
+import {KeyboardEvent} from "react";
 
 import {useModalContext} from "./modal-context";
 import {scaleInOut} from "./modal-transition";
@@ -59,8 +60,15 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     </button>
   );
 
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Tab" && e.nativeEvent.isComposing) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }, []);
+
   const content = (
-    <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
+    <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} onKeyDown={onKeyDown}>
       <DismissButton onDismiss={onClose} />
       {!hideCloseButton && closeButtonContent}
       {typeof children === "function" ? children(onClose) : children}
