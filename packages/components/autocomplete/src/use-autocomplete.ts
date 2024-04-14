@@ -400,6 +400,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     } as unknown as PopoverProps;
   };
 
+  const getEmptyPopoverProps = () => {
+    // avoid null node in `ariaHideOutside` from `@react-aria/overlays`
+    return {
+      ref: popoverRef,
+      classNames: "hidden",
+    };
+  };
+
   const getListBoxWrapperProps: PropGetter = (props: any = {}) => ({
     ...mergeProps(slotsProps.scrollShadowProps, props),
     className: slots.listboxWrapper({
@@ -443,6 +451,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     getInputProps,
     getListBoxProps,
     getPopoverProps,
+    getEmptyPopoverProps,
     getClearButtonProps,
     getSelectorButtonProps,
     getListBoxWrapperProps,

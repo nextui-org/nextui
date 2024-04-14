@@ -26,6 +26,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getInputProps,
     getListBoxProps,
     getPopoverProps,
+    getEmptyPopoverProps,
     getClearButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
@@ -42,7 +43,9 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
         <Listbox {...getListBoxProps()} />
       </ScrollShadow>
     </FreeSoloPopover>
-  ) : null;
+  ) : (
+    <div {...getEmptyPopoverProps()} />
+  );
 
   return (
     <Component {...getBaseProps()}>
