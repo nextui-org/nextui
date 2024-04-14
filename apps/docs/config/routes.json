@@ -235,6 +235,13 @@
           "path": "/docs/components/input.mdx"
         },
         {
+          "key": "time-input",
+          "title": "Time Input",
+          "keywords": "timeinput, time, input, timezone",
+          "path": "/docs/components/time-input.mdx",
+          "newPost": true
+        },
+        {
           "key": "kbd",
           "title": "Kbd",
           "keywords": "keyboard input, shortcut, keys, user input display",
