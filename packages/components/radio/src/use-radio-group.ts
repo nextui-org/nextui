@@ -219,7 +219,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     errorMessage:
       typeof errorMessage === "function"
         ? errorMessage({isInvalid, validationErrors, validationDetails})
-        : errorMessage || validationErrors.join(" "),
+        : errorMessage || validationErrors?.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

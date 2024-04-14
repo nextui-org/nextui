@@ -70,7 +70,7 @@ interface Props<T extends TimeValue> extends NextUIBaseProps<T> {
 
 export type UseTimeInputProps<T extends TimeValue> = Props<T> &
   DateInputVariantProps &
-  AriaTimeFieldProps<T>;
+  Omit<AriaTimeFieldProps<T>, "validationBehavior">;
 
 export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
@@ -91,7 +91,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior = "native",
+    // validationBehavior = "native", TODO: Uncomment this one we support `native` and `aria` validations
     shouldForceLeadingZeros = true,
     minValue,
     maxValue,
@@ -123,7 +123,11 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     descriptionProps,
     errorMessageProps,
     isInvalid: ariaIsInvalid,
-  } = useAriaTimeField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
+  } = useAriaTimeField(
+    {...originalProps, label, validationBehavior: "native", inputRef},
+    state,
+    domRef,
+  );
 
   const baseStyles = clsx(classNames?.base, className);
 

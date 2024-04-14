@@ -7,7 +7,7 @@ import {dateInputContent} from "@/content/components/date-input";
 
 # DateInput
 
-DateInput is a component that allows users to enter and edit date and time values using a keyboard. 
+DateInput is a component that allows users to enter and edit date and time values using a keyboard.
 Each part of a date value is displayed in an individually editable segment.
 
 <ComponentLinks component="date-input" storybook="dateinput" />
@@ -41,11 +41,9 @@ Each part of a date value is displayed in an individually editable segment.
 
 <CodeDemo title="Required" files={dateInputContent.required} />
 
-
 ### Variants
 
 <CodeDemo title="Variants" files={dateInputContent.variants} />
-
 
 ### Label Placements
 
@@ -55,13 +53,11 @@ You can change the position of the label by setting the `labelPlacement` propert
 
 > **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
 
-
 ### Start & End Content
 
 You can use the `startContent` and `endContent` properties to add content to the start and end of the `DateInput`.
 
 <CodeDemo title="Start and End Content" files={dateInputContent.startEndContent} />
-
 
 ### With Description
 
@@ -69,13 +65,11 @@ You can add a description to the input by passing the `description` property.
 
 <CodeDemo title="With Description" files={dateInputContent.description} />
 
-
 ### With Error Message
 
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
 
 <CodeDemo title="With Error Message" files={dateInputContent.errorMessage} />
-
 
 ### Controlled
 
@@ -83,13 +77,12 @@ You can use the `value` and `onChange` properties to control the input value.
 
 <CodeDemo title="Controlled" files={dateInputContent.controlled} />
 
-
 ### Time Zones
 
-DateInput is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed, 
+DateInput is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed,
 and time zone concerns such as daylight saving time are taken into account when the value is manipulated.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
 in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
@@ -108,15 +101,13 @@ import {parseZonedDateTime} from "@internationalized/date";
 
 <CodeDemo title="Time Zones" files={dateInputContent.timeZones} />
 
-
-
 ### Granularity
 
-The granularity prop allows you to control the smallest unit that is displayed by DateInput By default, 
-the value is displayed with "day" granularity (year, month, and day), 
+The granularity prop allows you to control the smallest unit that is displayed by DateInput By default,
+the value is displayed with "day" granularity (year, month, and day),
 and `CalendarDateTime` and `ZonedDateTime` values are displayed with "minute" granularity.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
 in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
@@ -136,12 +127,11 @@ import {useDateFormatter} from "@react-aria/i18n";
 
 <CodeDemo title="Time Zones" files={dateInputContent.granularity} />
 
-
 ### Min Date And Max Date
 
 The minValue and maxValue props can also be used to ensure the value is within a specific range.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
 in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
@@ -158,16 +148,14 @@ import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
 
 <CodeDemo title="Min Date And Max Date" files={dateInputContent.minAndMaxDate} />
 
-
 ### International Calendar
 
-DateInput supports selecting dates in many calendar systems used around the world, including Gregorian, Hebrew, Indian, Islamic, Buddhist, and more. 
-Dates are automatically displayed in the appropriate calendar system for the user's locale. 
-The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string), 
+DateInput supports selecting dates in many calendar systems used around the world, including Gregorian, Hebrew, Indian, Islamic, Buddhist, and more.
+Dates are automatically displayed in the appropriate calendar system for the user's locale.
+The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string),
 passed to the [I18nProvider](https://react-spectrum.adobe.com/react-aria/I18nProvider.html) component.
 
-
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
 in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
@@ -185,13 +173,12 @@ import {I18nProvider} from "@react-aria/i18n";
 
 <CodeDemo title="International Calendar" files={dateInputContent.internationalCalendar} />
 
-
 ### Hide Time Zone
 
-When a `ZonedDateTime` object is provided as the value to DateInput, the time zone abbreviation is displayed by default. 
+When a `ZonedDateTime` object is provided as the value to DateInput, the time zone abbreviation is displayed by default.
 However, if this is displayed elsewhere or implicit based on the usecase, it can be hidden using the hideTimeZone option.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
 in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
@@ -208,14 +195,13 @@ import {parseZonedDateTime} from "@internationalized/date";
 
 <CodeDemo title="Hide Time Zone" files={dateInputContent.hideTimeZone} />
 
-
 ### Hourly Cycle
 
-By default, DateInput displays times in either 12 or 24 hour hour format depending on the user's locale. 
-However, this can be overridden using the `hourCycle` prop if needed for a specific usecase. 
+By default, DateInput displays times in either 12 or 24 hour hour format depending on the user's locale.
+However, this can be overridden using the `hourCycle` prop if needed for a specific usecase.
 This example forces DateInput to use 24-hour time, regardless of the locale.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
 in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
@@ -231,8 +217,6 @@ import {parseZonedDateTime} from "@internationalized/date";
 ```
 
 <CodeDemo title="Hide Time Zone" files={dateInputContent.hourlyCycle} />
-
-
 
 ## Slots
 
@@ -269,7 +253,7 @@ import {parseZonedDateTime} from "@internationalized/date";
 - **data-has-end-content**:
   When the date-input has a end content. Base on those `endContent` prop.
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## Accessibility
 
@@ -280,37 +264,54 @@ import {parseZonedDateTime} from "@internationalized/date";
 - Support for description and error message help text linked to the input via ARIA.
 - Each date and time unit is displayed as an individually focusable and editable segment, which allows users an easy way to edit dates using the keyboard, in any date format and locale.
 - Date segments are editable using an easy to use numeric keypad, and all interactions are accessible using touch-based screen readers.
-- 
+-
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## API
 
 ### DateInput Props
 
-| Attribute             | Type                                                                                                                                                                   | Description                                                                                                           | Default   |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
-| children              | `ReactNode`                                                                                                                                                            | The content of the date-input.                                                                                        | -         |
-| label                 | `ReactNode`                                                                                                                                                            | The content to display as the label.                                                                                  | -         |
-| value                 | `DateValue`                                                                                                                                                            | The current value of the input (controlled).                                                                          | -         |
-| defaultValue          | `DateValue`                                                                                                                                                            | The default value of the input (uncontrolled).                                                                        | -         |
-| placeholderValue      | `DateValue`                                                                                                                                                            | The placeholder of the input.                                                                                         | -         |
-| description           | `ReactNode`                                                                                                                                                            | A description for the input. Provides a hint such as specific requirements for what to choose.                        | -         |
-| errorMessage          | `ReactNode`                                                                                                                                                            | An error message for the input.                                                                                       | -         |
-| startContent          | `ReactNode`                                                                                                                                                            | Element to be rendered in the left side of the input.                                                                 | -         |
-| endContent            | `ReactNode`                                                                                                                                                            | Element to be rendered in the right side of the input.                                                                | -         |
-| labelPlacement        | `inside` \| `outside` \| `outside-left`                                                                                                                                | The position of the label.                                                                                            | `inside`  |
-| isRequired            | `boolean`                                                                                                                                                              | Whether user input is required on the input before form submission.                                                   | `false`   |
-| isReadOnly            | `boolean`                                                                                                                                                              | Whether the input can be selected but not changed by the user.                                                        |           |
-| isDisabled            | `boolean`                                                                                                                                                              | Whether the input is disabled.                                                                                        | `false`   |
-| isInvalid             | `boolean`                                                                                                                                                              | Whether the input is invalid.                                                                                         | `false`   |
-| shouldLabelBeOutside  | `boolean`                                                                                                                                                              | Whether the input is invalid.                                                                                         | `false`   |
-| ref                   | `ReactRef<HTMLElement \| null>`                                                                                                                                         | The ref to the base element.                                                                                          | -         |
-| inputRef              | `ReactRef<HTMLInputElement \| null>`                                                                                                                                    | The value of the hidden input.                                                                                        | -         |
-| classNames            | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input"｜ "helperWrapper"｜ "description"｜ "errorMessage", string>`                                     | Allows to set custom class names for the date-input slots.                                                            | -         |
+| Attribute               | Type                                                                                                                              | Description                                                                                                                          | Default   |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| label                   | `ReactNode`                                                                                                                       | The content to display as the label.                                                                                                 | -         |
+| value                   | `DateValue`                                                                                                                       | The current value of the date input (controlled).                                                                                    | -         |
+| defaultValue            | `DateValue`                                                                                                                       | The default value of the date input (uncontrolled).                                                                                  | -         |
+| variant                 | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                   | The variant of the date input.                                                                                                       | `flat`    |
+| color                   | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                       | The color of the date input.                                                                                                         | `default` |
+| size                    | `sm` \| `md` \| `lg`                                                                                                              | The size of the date input.                                                                                                          | `md`      |
+| radius                  | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                          | The radius of the date input.                                                                                                        | -         |
+| placeholderValue        | `DateValue`                                                                                                                       | A placeholder time that influences the format of the placeholder shown when no value is selected. Defaults current date at midnight. | -         |
+| minValue                | `DateValue`                                                                                                                       | The minimum allowed date that a user may select.                                                                                     | -         |
+| maxValue                | `DateValue`                                                                                                                       | The maximum allowed date that a user may select.                                                                                     | -         |
+| locale                  | `string`                                                                                                                          | The locale to display and edit the value according to.                                                                               | -         |
+| description             | `ReactNode`                                                                                                                       | A description for the date input. Provides a hint such as specific requirements for what to choose.                                  | -         |
+| errorMessage            | `ReactNode \| (v: ValidationResult) => ReactNode`                                                                                 | An error message for the date input.                                                                                                 | -         |
+| startContent            | `ReactNode`                                                                                                                       | Element to be rendered in the left side of the date input.                                                                           | -         |
+| endContent              | `ReactNode`                                                                                                                       | Element to be rendered in the right side of the date input.                                                                          | -         |
+| labelPlacement          | `inside` \| `outside` \| `outside-left`                                                                                           | The position of the label.                                                                                                           | `inside`  |
+| isRequired              | `boolean`                                                                                                                         | Whether user input is required on the input before form submission.                                                                  | `false`   |
+| isReadOnly              | `boolean`                                                                                                                         | Whether the input can be selected but not changed by the user.                                                                       | -         |
+| isDisabled              | `boolean`                                                                                                                         | Whether the input is disabled.                                                                                                       | `false`   |
+| isInvalid               | `boolean`                                                                                                                         | Whether the input value is invalid.                                                                                                  | `false`   |
+| inputRef                | `ReactRef<HTMLInputElement \| null>`                                                                                              | A ref for the hidden input element for HTML form submission.                                                                         | -         |
+| validate                | `(value: { inputValue: string, selectedKey: React.Key }) => ValidationError ｜ true ｜ null ｜ undefined`                         | Validate input values when committing (e.g., on blur), and return error messages for invalid values.                                 | -         |
+| createCalendar          | `(name: string) => Calendar`                                                                                                      | A function that creates a Calendar object for a given calendar identifier.                                                           | -         |
+| autoFocus               | `boolean`                                                                                                                         | Whether the element should receive focus on render.                                                                                  | `false`   |
+| hourCycle               | `12` \| `24`                                                                                                                      | Whether to display the time in 12 or 24 hour format. This is determined by the user's locale.                                        | -         |
+| granularity             | `day` \| `hour` \| `minute` \| `second`                                                                                           | Determines the smallest unit that is displayed in the date picker. Typically "day" for dates.                                        | -         |
+| hideTimeZone            | `boolean`                                                                                                                         | Whether to hide the time zone abbreviation.                                                                                          | `false`   |
+| shouldForceLeadingZeros | `boolean`                                                                                                                         | Whether to always show leading zeros in the month, day, and hour fields.                                                             | `true`    |
+| classNames              | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input"｜ "helperWrapper"｜ "description"｜ "errorMessage", string>` | Allows to set custom class names for the date input slots.                                                                           | -         |
 
 ### DateInput Events
 
-| Attribute     | Type                                                                   | Description                                                                                                                         |
-| ------------- | -----------------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `((value: ZonedDateTime \| CalendarDate \| CalendarDateTime) => void)` | Handler that is called when the date-input's value changes.                                                                         |
+| Attribute         | Type                                                                   | Description                                                                                              |
+| ----------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | --- |
+| onChange          | `((value: ZonedDateTime \| CalendarDate \| CalendarDateTime) => void)` | Handler that is called when the date-input's value changes.                                              |
+| isDateUnavailable | `(date: DateValue) => boolean`                                         | Callback that is called for each date of the calendar. If it returns true, then the date is unavailable. | -   |
+| onFocus           | `(e: FocusEvent<HTMLInputElement>) => void`                            | Handler that is called when the element receives focus.                                                  | -   |
+| onBlur            | `(e: FocusEvent<HTMLInputElement>) => void`                            | Handler that is called when the element loses focus.                                                     | -   |
+| onFocusChange     | `(isFocused: boolean) => void`                                         | Handler that is called when the element's focus status changes.                                          | -   |
+| onKeyDown         | `(e: KeyboardEvent) => void`                                           | Handler that is called when a key is pressed.                                                            | -   |
+| onKeyUp           | `(e: KeyboardEvent) => void`                                           | Handler that is called when a key is released.                                                           | -   |

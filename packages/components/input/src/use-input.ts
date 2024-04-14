@@ -199,7 +199,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const errorMessage =
     typeof props.errorMessage === "function"
       ? props.errorMessage({isInvalid, validationErrors, validationDetails})
-      : props.errorMessage || validationErrors.join(" ");
+      : props.errorMessage || validationErrors?.join(" ");
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
@@ -470,10 +470,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     shouldLabelBeInside,
     hasPlaceholder,
     isInvalid,
-    errorMessage:
-      typeof errorMessage === "function"
-        ? errorMessage({isInvalid, validationErrors, validationDetails})
-        : errorMessage || validationErrors.join(" "),
+    errorMessage,
     getBaseProps,
     getLabelProps,
     getInputProps,

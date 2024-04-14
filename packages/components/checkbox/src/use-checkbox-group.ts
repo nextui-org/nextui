@@ -229,7 +229,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     errorMessage:
       typeof errorMessage === "function"
         ? errorMessage({isInvalid, validationErrors, validationDetails})
-        : errorMessage || validationErrors.join(" "),
+        : errorMessage || validationErrors?.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

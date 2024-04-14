@@ -388,7 +388,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       errorMessage:
         typeof errorMessage === "function"
           ? errorMessage({isInvalid, validationErrors, validationDetails})
-          : errorMessage || validationErrors.join(" "),
+          : errorMessage || validationErrors?.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 

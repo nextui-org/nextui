@@ -243,14 +243,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }
     },
   });
-  
- state = {
+
+  state = {
     ...state,
     ...(originalProps?.isDisabled && {
       disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
-
 
   const {
     labelProps,
@@ -269,7 +268,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   );
 
   const isInvalid = originalProps.isInvalid || validationState === "invalid" || isAriaInvalid;
-
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
@@ -336,7 +334,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const errorMessage =
     typeof props.errorMessage === "function"
       ? props.errorMessage({isInvalid, validationErrors, validationDetails})
-      : props.errorMessage || validationErrors.join(" ");
+      : props.errorMessage || validationErrors?.join(" ");
 
   const hasHelper = !!description || !!errorMessage;
 
