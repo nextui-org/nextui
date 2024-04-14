@@ -133,16 +133,16 @@ const dateInput = tv({
       sm: {
         label: "text-tiny",
         input: "text-small",
-        inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        inputWrapper: "h-8 min-h-8 px-2 rounded-small",
       },
       md: {
         input: "text-small",
-        inputWrapper: "h-unit-10 min-h-unit-10 rounded-medium",
+        inputWrapper: "h-10 min-h-10 rounded-medium",
         clearButton: "text-large",
       },
       lg: {
         input: "text-medium",
-        inputWrapper: "h-unit-12 min-h-unit-12 rounded-large",
+        inputWrapper: "h-12 min-h-12 rounded-large",
       },
     },
     radius: {

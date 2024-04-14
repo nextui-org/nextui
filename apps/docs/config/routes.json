@@ -84,7 +84,8 @@
         {
           "key": "layout",
           "title": "Layout",
-          "path": "/docs/customization/layout.mdx"
+          "path": "/docs/customization/layout.mdx",
+          "updated": true
         },
         {
           "key": "colors",
