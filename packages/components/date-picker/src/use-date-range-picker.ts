@@ -42,6 +42,8 @@ interface Props<T extends DateValue>
    *    input: "input-classes",
    *    segment: "segment-classes",
    *    separator: "separator-classes",
+   *    bottomContent: "bottom-content-classes",
+   *    timeInputWrapper: "time-input-wrapper-classes",
    *    helperWrapper: "helper-wrapper-classes",
    *    description: "description-classes",
    *    errorMessage: "error-message-classes",
@@ -171,7 +173,7 @@ export function useDateRangePicker<T extends DateValue>({
 
     return {
       ...timeInputProps,
-      label: stringFormatter.format("startTime"),
+      label: stringFormatter.format("endTime"),
       value: state.timeRange?.end || null,
       onChange: (v) => state.setTime("end", v),
       granularity: timeGranularity,
@@ -318,7 +320,7 @@ export function useDateRangePicker<T extends DateValue>({
       className: dateInputSlots.inputWrapper({
         class: classNames?.inputWrapper,
       }),
-      // onClick: startFieldProps.onClick,
+      onClick: labelProps.onClick,
     } as GroupDOMAttributes;
   };
 
@@ -382,6 +384,7 @@ export function useDateRangePicker<T extends DateValue>({
       "data-readonly": dataAttr(originalProps.isReadOnly),
       "data-invalid": dataAttr(isInvalid),
       "data-has-start-content": dataAttr(!!startContent),
+      "data-has-multiple-months": dataAttr(hasMultipleMonths),
       "data-has-end-content": dataAttr(!!endContent),
       descriptionProps: getDescriptionProps(),
       errorMessageProps: getErrorMessageProps(),
@@ -396,6 +399,8 @@ export function useDateRangePicker<T extends DateValue>({
   return {
     state,
     label,
+    slots,
+    classNames,
     endContent,
     selectorIcon,
     showTimeField,

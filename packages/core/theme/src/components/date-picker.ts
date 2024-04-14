@@ -36,6 +36,9 @@ const datePicker = tv({
 const dateRangePicker = tv({
   extend: datePicker,
   slots: {
+    calendar: "group",
+    bottomContent: "flex flex-col gap-y-2",
+    timeInputWrapper: "flex flex-col group-data-[has-multiple-months=true]:flex-row",
     separator: "-mx-1 text-inherit",
   },
 });

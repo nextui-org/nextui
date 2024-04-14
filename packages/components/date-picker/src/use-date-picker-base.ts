@@ -238,6 +238,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   const calendarProps = {
     ...slotsProps.calendarProps,
     "data-slot": "calendar",
+    "data-has-multiple-months": dataAttr(hasMultipleMonths),
     style: mergeProps(
       hasMultipleMonths
         ? {
@@ -269,6 +270,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     slotsProps,
     timeMinValue,
     timeMaxValue,
+    visibleMonths,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,

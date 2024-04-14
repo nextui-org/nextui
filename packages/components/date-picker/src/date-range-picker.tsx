@@ -19,9 +19,11 @@ export interface Props<T extends DateValue>
 function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {
     state,
+    slots,
     endContent,
     selectorIcon,
     showTimeField,
+    classNames,
     disableAnimation,
     isCalendarHeaderExpanded,
     getDateInputGroupProps,
@@ -48,20 +50,17 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
     if (isCalendarHeaderExpanded) return null;
 
     return showTimeField ? (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <TimeInput {...getStartTimeInputProps()} />
-        <TimeInput {...getEndTimeInputProps()} />
+      <div className={slots?.bottomContent({class: classNames?.bottomContent})}>
+        <div className={slots?.timeInputWrapper({class: classNames?.timeInputWrapper})}>
+          <TimeInput {...getStartTimeInputProps()} />
+          <TimeInput {...getEndTimeInputProps()} />
+        </div>
         {CalendarBottomContent}
       </div>
     ) : (
       CalendarBottomContent
     );
-  }, [showTimeField, CalendarBottomContent, isCalendarHeaderExpanded]);
+  }, [state, showTimeField, CalendarBottomContent, isCalendarHeaderExpanded]);
 
   const calendarTopContent = useMemo(() => {
     if (isCalendarHeaderExpanded) return null;
