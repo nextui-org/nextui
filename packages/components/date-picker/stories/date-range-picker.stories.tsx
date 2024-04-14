@@ -217,7 +217,6 @@ const UnavailableDatesTemplate = (args: DateRangePickerProps) => {
           ? "Selected date range may not include unavailable dates."
           : null
       }
-      validationBehavior="native"
       {...args}
     />
   );
