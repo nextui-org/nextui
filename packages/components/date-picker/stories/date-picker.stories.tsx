@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {datePicker, dateInput} from "@nextui-org/theme";
+import {dateInput} from "@nextui-org/theme";
 import {
   DateValue,
   getLocalTimeZone,
@@ -73,7 +73,6 @@ const defaultProps = {
   label: "Birth Date",
   className: "max-w-[256px]",
   ...dateInput.defaultVariants,
-  ...datePicker.defaultVariants,
 };
 
 const Template = (args: DatePickerProps) => <DatePicker {...args} />;
@@ -302,6 +301,17 @@ export const WithMonthAndYearPickers = {
     ...defaultProps,
     variant: "bordered",
     showMonthAndYearPickers: true,
+  },
+};
+
+export const WithTimeField = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    label: "Event date",
+    hideTimeZone: true,
+    showMonthAndYearPickers: true,
+    defaultValue: now(getLocalTimeZone()),
   },
 };
 

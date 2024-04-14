@@ -1,9 +1,10 @@
 import type {DateInputVariantProps, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {AriaDatePickerProps} from "@react-types/datepicker";
+import type {AriaDateFieldProps} from "@react-types/datepicker";
 import type {SupportedCalendars} from "@nextui-org/system";
 import type {DateValue, Calendar} from "@internationalized/date";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
+import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
 import {CalendarDate} from "@internationalized/date";
@@ -20,7 +21,7 @@ import {useMemo} from "react";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
-  keyof AriaDatePickerProps<T> | "onChange"
+  keyof AriaDateFieldProps<T> | "onChange"
 >;
 
 interface Props<T extends DateValue> extends NextUIBaseProps<T> {
@@ -108,7 +109,7 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
 
 export type UseDateInputProps<T extends DateValue> = Props<T> &
   DateInputVariantProps &
-  AriaDatePickerProps<T>;
+  AriaDateFieldProps<T>;
 
 export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
@@ -137,15 +138,14 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
     createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
-    errorMessage: errorMessageProp,
+    errorMessage,
   } = props;
 
   const domRef = useDOMRef(ref);
   const inputRef = useDOMRef(inputRefProp);
 
-  const Component = as || "div";
-
   const {locale} = useLocale();
+
   const state = useDateFieldState({
     ...originalProps,
     label,
@@ -175,17 +175,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
 
   const isInvalid = isInvalidProp || ariaIsInvalid;
 
-  const errorMessage =
-    typeof errorMessageProp === "function"
-      ? errorMessageProp({
-          isInvalid,
-          validationErrors,
-          validationDetails,
-        })
-      : errorMessageProp || validationErrors.join(" ");
-
-  const hasHelper = !!description || !!errorMessage;
-
   const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
     if (
       (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
@@ -209,20 +198,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     [objectToDeps(variantProps), labelPlacement, className],
   );
 
-  const getBaseProps: PropGetter = () => {
-    return {
-      "data-slot": "base",
-      "data-has-helper": dataAttr(hasHelper),
-      "data-required": dataAttr(originalProps.isRequired),
-      "data-disabled": dataAttr(originalProps.isDisabled),
-      "data-readonly": dataAttr(originalProps.isReadOnly),
-      "data-invalid": dataAttr(isInvalid),
-      "data-has-start-content": dataAttr(!!startContent),
-      "data-has-end-content": dataAttr(!!endContent),
-      className: slots.base({class: baseStyles}),
-    };
-  };
-
   const getLabelProps: PropGetter = (props) => {
     return {
       ...mergeProps(labelProps, labelPropsProp, props),
@@ -241,18 +216,18 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     };
   };
 
-  const getFieldProps: PropGetter = (props) => {
+  const getFieldProps = (props: DOMAttributes = {}) => {
     return {
       ref: domRef,
-      "data-slot": "input",
+      "data-slot": "input-field",
       ...mergeProps(fieldProps, fieldPropsProp, props),
       className: slots.input({
         class: clsx(classNames?.input, props?.className),
       }),
-    };
+    } as GroupDOMAttributes;
   };
 
-  const getInputWrapperProps: PropGetter = (props) => {
+  const getInputWrapperProps = (props = {}) => {
     return {
       ...props,
       ...groupProps,
@@ -261,7 +236,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
         class: classNames?.inputWrapper,
       }),
       onClick: fieldProps.onClick,
-    };
+    } as GroupDOMAttributes;
   };
 
   const getInnerWrapperProps: PropGetter = (props) => {
@@ -300,29 +275,44 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     };
   };
 
+  const getBaseGroupProps = () => {
+    return {
+      as,
+      label,
+      description,
+      endContent,
+      errorMessage,
+      isInvalid,
+      startContent,
+      validationDetails,
+      validationErrors,
+      shouldLabelBeOutside,
+      "data-slot": "base",
+      "data-required": dataAttr(originalProps.isRequired),
+      "data-disabled": dataAttr(originalProps.isDisabled),
+      "data-readonly": dataAttr(originalProps.isReadOnly),
+      "data-invalid": dataAttr(isInvalid),
+      "data-has-start-content": dataAttr(!!startContent),
+      "data-has-end-content": dataAttr(!!endContent),
+      descriptionProps: getDescriptionProps(),
+      errorMessageProps: getErrorMessageProps(),
+      groupProps: getInputWrapperProps(),
+      helperWrapperProps: getHelperWrapperProps(),
+      labelProps: getLabelProps(),
+      wrapperProps: getInnerWrapperProps(),
+      className: slots.base({class: baseStyles}),
+    } as DateInputGroupProps;
+  };
+
   return {
-    Component,
     state,
     domRef,
     slots,
-    label,
-    hasHelper,
-    shouldLabelBeOutside,
     classNames,
-    description,
-    errorMessage,
     labelPlacement,
-    startContent,
-    endContent,
-    getBaseProps,
-    getLabelProps,
+    getBaseGroupProps,
     getFieldProps,
     getInputProps,
-    getInputWrapperProps,
-    getInnerWrapperProps,
-    getHelperWrapperProps,
-    getErrorMessageProps,
-    getDescriptionProps,
   };
 }
 

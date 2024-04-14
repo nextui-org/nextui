@@ -505,7 +505,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: SelectProps<User>) => {
       className="max-w-xs"
       classNames={{
         label: "group-data-[filled=true]:-translate-y-5",
-        trigger: "min-h-unit-16",
+        trigger: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}
       color={color}
@@ -819,7 +819,7 @@ export const WithChips = {
     labelPlacement: "outside",
     classNames: {
       base: "max-w-xs",
-      trigger: "min-h-unit-12 py-2",
+      trigger: "min-h-12 py-2",
     },
     renderValue: (items: SelectedItems<User>) => {
       return (

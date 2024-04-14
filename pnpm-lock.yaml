@@ -279,6 +279,9 @@ importers:
       '@iconify/react':
         specifier: ^4.1.1
         version: 4.1.1(react@18.2.0)
+      '@internationalized/date':
+        specifier: ^3.5.2
+        version: 3.5.2
       '@mapbox/rehype-prism':
         specifier: ^0.6.0
         version: 0.6.0
@@ -496,8 +499,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.4(react@18.2.0)
       tailwind-variants:
-        specifier: ^0.1.18
-        version: 0.1.18(tailwindcss@3.3.5)
+        specifier: ^0.1.20
+        version: 0.1.20(tailwindcss@3.4.3)
       unified:
         specifier: ^9.2.2
         version: 9.2.2
@@ -525,7 +528,7 @@ importers:
         version: 3.22.1(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
-        version: 0.5.10(tailwindcss@3.3.5)
+        version: 0.5.10(tailwindcss@3.4.3)
       '@types/canvas-confetti':
         specifier: ^1.4.2
         version: 1.6.3
@@ -595,6 +598,7 @@ importers:
       tailwindcss:
         specifier: ^3.2.7
         version: 3.3.5(ts-node@10.9.2)
+
       tsx:
         specifier: ^3.8.2
         version: 3.14.0
@@ -2816,6 +2820,12 @@ importers:
       '@nextui-org/code':
         specifier: workspace:*
         version: link:../../components/code
+      '@nextui-org/date-input':
+        specifier: workspace:*
+        version: link:../../components/date-input
+      '@nextui-org/date-picker':
+        specifier: workspace:*
+        version: link:../../components/date-picker
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../../components/divider
@@ -2982,6 +2992,7 @@ importers:
         specifier: ^0.1.18
         version: 0.1.18(tailwindcss@3.4.1)
 
+
   packages/core/theme:
     dependencies:
       color:
@@ -3012,8 +3023,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       tailwind-variants:
-        specifier: ^0.1.18
-        version: 0.1.18(tailwindcss@3.3.5)
+        specifier: ^0.1.20
+        version: 0.1.20(tailwindcss@3.4.3)
     devDependencies:
       '@types/color':
         specifier: ^3.0.3
@@ -7380,6 +7391,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -7388,6 +7400,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -7396,6 +7409,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -7404,6 +7418,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -7496,6 +7511,7 @@ packages:
     engines: {node: '>= 12'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -7505,6 +7521,7 @@ packages:
     engines: {node: '>= 12'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -7514,6 +7531,7 @@ packages:
     engines: {node: '>= 12'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -7523,6 +7541,7 @@ packages:
     engines: {node: '>= 12'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -8646,6 +8665,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -8655,6 +8675,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -8664,6 +8685,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -8673,6 +8695,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -8682,6 +8705,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -12040,6 +12064,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -12048,6 +12073,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -12056,6 +12082,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -12064,6 +12091,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -12171,7 +12199,7 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@tailwindcss/typography@0.5.10(tailwindcss@3.3.5):
+  /@tailwindcss/typography@0.5.10(tailwindcss@3.4.3):
     resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
@@ -20658,6 +20686,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -20667,6 +20696,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -20676,6 +20706,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -20685,6 +20716,7 @@ packages:
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -26179,8 +26211,8 @@ packages:
   /tailwind-merge@1.14.0:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
 
-  /tailwind-variants@0.1.18(tailwindcss@3.3.5):
-    resolution: {integrity: sha512-yoydMYm3FbZRw7wak+E2sqwYv2Uo3YWRqVZR03DGqDGm0ytzDrEnWO/Q/GMHdhaz8adOvycKw/bwCgQFCfmfhg==}
+  /tailwind-variants@0.1.20(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-AMh7x313t/V+eTySKB0Dal08RHY7ggYK0MSn/ad8wKWOrDUIzyiWNayRUm2PIJ4VRkvRnfNuyRuKbLV3EN+ewQ==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
@@ -26222,6 +26254,37 @@ packages:
       postcss-import: 15.1.0(postcss@8.4.31)
       postcss-js: 4.0.1(postcss@8.4.31)
       postcss-load-config: 4.0.1(postcss@8.4.31)(ts-node@10.9.2)
+      postcss-nested: 6.0.1(postcss@8.4.31)
+      postcss-selector-parser: 6.0.13
+      resolve: 1.22.8
+      sucrase: 3.34.0
+    transitivePeerDependencies:
+      - ts-node
+    dev: true
+
+  /tailwindcss@3.4.3(ts-node@10.9.1):
+    resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.5.3
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.0
+      lilconfig: 2.1.0
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.0.0
+      postcss: 8.4.31
+      postcss-import: 15.1.0(postcss@8.4.31)
+      postcss-js: 4.0.1(postcss@8.4.31)
+      postcss-load-config: 4.0.1(postcss@8.4.31)(ts-node@10.9.1)
       postcss-nested: 6.0.1(postcss@8.4.31)
       postcss-selector-parser: 6.0.13
       resolve: 1.22.8

@@ -213,7 +213,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useMultiSelectState<T>({
+  let state = useMultiSelectState<T>({
     ...props,
     isOpen,
     selectionMode,
@@ -243,6 +243,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }
     },
   });
+  
+ state = {
+    ...state,
+    ...(originalProps?.isDisabled && {
+      disabledKeys: new Set([...state.collection.getKeys()]),
+    }),
+  };
+
 
   const {
     labelProps,
@@ -262,6 +270,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const isInvalid = originalProps.isInvalid || validationState === "invalid" || isAriaInvalid;
 
+
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
@@ -280,6 +289,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     labelPlacement === "outside-left" ||
     (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
+  const isOutsideLeft = labelPlacement === "outside-left";
 
   const isFilled =
     state.isOpen ||
@@ -617,6 +627,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     renderValue,
     selectionMode,
     disableAnimation,
+    isOutsideLeft,
     shouldLabelBeOutside,
     shouldLabelBeInside,
     isInvalid,
