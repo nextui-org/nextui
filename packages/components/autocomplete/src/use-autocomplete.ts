@@ -181,7 +181,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   state = {
     ...state,
     ...(isReadOnly && {
-      disabledKeys: new Set([...state.collection.getKeys()].map((k) => k)),
+      disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
 
