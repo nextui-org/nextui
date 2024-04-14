@@ -242,6 +242,13 @@
           "path": "/docs/components/input.mdx"
         },
         {
+          "key": "date-input",
+          "title": "Date Input",
+          "keywords": "date-input, time, input, timezone",
+          "path": "/docs/components/date-input.mdx",
+          "newPost": true
+        },
+        {
           "key": "time-input",
           "title": "Time Input",
           "keywords": "timeinput, time, input, timezone",
