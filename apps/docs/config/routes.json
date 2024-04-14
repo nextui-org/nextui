@@ -211,6 +211,13 @@
           "path": "/docs/components/code.mdx"
         },
         {
+          "key": "date-picker",
+          "title": "Date Picker",
+          "keywords": "date-picker, time, input, timezone",
+          "path": "/docs/components/date-picker.mdx",
+          "newPost": true
+        },
+        {
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",
