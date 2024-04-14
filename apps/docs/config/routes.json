@@ -218,6 +218,13 @@
           "newPost": true
         },
         {
+          "key": "date-range-picker",
+          "title": "DateRangePicker",
+          "keywords": "date-range-picker, date-picker, time, input, timezone",
+          "path": "/docs/components/date-range-picker.mdx",
+          "newPost": true
+        },
+        {
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",

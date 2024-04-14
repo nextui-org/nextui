@@ -2508,6 +2508,122 @@
     "hierarchy": { "lvl1": "Code", "lvl2": "API", "lvl3": "Code Props" }
   },
   {
+    "content": "DateRangePicker",
+    "objectID": "cf4980d6-4975-454c-b22f-27633190c2fa",
+    "type": "lvl1",
+    "url": "/docs/components/date-range-picker",
+    "hierarchy": { "lvl1": "DateRangePicker" }
+  },
+  {
+    "content": "Import",
+    "objectID": "7c7ac830-8b70-4a45-9bd9-948e698bc1a6",
+    "type": "lvl2",
+    "url": "/docs/components/date-range-picker#import",
+    "hierarchy": { "lvl1": "DateRangePicker", "lvl2": "Import", "lvl3": null }
+  },
+  {
+    "content": "Usage",
+    "objectID": "e6d6de99-d8f8-42cb-8989-34283fad4166",
+    "type": "lvl2",
+    "url": "/docs/components/date-range-picker#usage",
+    "hierarchy": { "lvl1": "DateRangePicker", "lvl2": "Usage", "lvl3": null }
+  },
+  {
+    "content": "Disabled",
+    "objectID": "9eb065ce-8307-4fc0-8457-911f05e5db1c",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#disabled",
+    "hierarchy": { "lvl1": "DateRangePicker", "lvl2": "Usage", "lvl3": "Disabled" }
+  },
+  {
+    "content": "Read Only",
+    "objectID": "64a2e902-0044-4235-ad77-0f5a35371fb2",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#read-only",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "Disabled",
+      "lvl3": "Read Only"
+    }
+  },
+  {
+    "content": "Required",
+    "objectID": "07c80f65-2ffb-46a6-83dc-cb9c261c2ce9",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#required",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "Read Only",
+      "lvl3": "Required"
+    }
+  },
+  {
+    "content": "Variants",
+    "objectID": "f711e103-d02b-4d50-9f82-51ce99d9d5a8",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#variants",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "Required",
+      "lvl3": "Variants"
+    }
+  },
+  {
+    "content": "Label Placements",
+    "objectID": "60518010-da35-409d-9530-c7513b80014d",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#label-placements",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "Variants",
+      "lvl3": "Label Placements"
+    }
+  },
+  {
+    "content": "With Description",
+    "objectID": "b98bffcb-65d0-4e5c-87e4-1d7a2fcd3d5b",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#with-description",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "Label Placements",
+      "lvl3": "With Description"
+    }
+  },
+  {
+    "content": "With Error Message",
+    "objectID": "258baea5-bd73-4481-9f18-6ab85f19d32a",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#with-error-message",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "With Description",
+      "lvl3": "With Error Message"
+    }
+  },
+  {
+    "content": "Selector Icon",
+    "objectID": "02315795-332d-457f-876c-dc488dda2dc6",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#selector-icon",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "With Error Message",
+      "lvl3": "Selector Icon"
+    }
+  },
+  {
+    "content": "Controlled",
+    "objectID": "1e4012fc-25ee-459a-88d7-a10a06592078",
+    "type": "lvl3",
+    "url": "/docs/components/date-range-picker#controlled",
+    "hierarchy": {
+      "lvl1": "DateRangePicker",
+      "lvl2": "Selector Icon",
+      "lvl3": "Controlled"
+    }
+  },
+  {
     "content": "DateInput",
     "objectID": "1455b6d5-91b0-4d0c-9008-ce4ec2cb8a18",
     "type": "lvl1",
