@@ -1,0 +1,342 @@
+---
+title: "DatePicker"
+description: "DatePickers combine a DateInput and a Calendar popover to allow users to enter or select a date and time value."
+---
+
+import {datePickerContent} from "@/content/components/date-picker";
+
+# DatePicker
+
+DatePickers combine a DateInput and a Calendar popover to allow users to enter or select a date and time value.
+
+<ComponentLinks component="date-picker" storybook="datepicker" />
+
+---
+
+<CarbonAd />
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {DatePicker} from "@nextui-org/react";',
+    individual: 'import {DatePicker} from "@nextui-org/date-picker";',
+  }}
+/>
+
+
+## Usage
+
+<CodeDemo title="Usage" files={datePickerContent.usage} />
+
+
+### Disabled
+
+<CodeDemo title="Disabled" files={datePickerContent.disabled} />
+
+
+### Read Only
+
+<CodeDemo title="Read Only" files={datePickerContent.readOnly} />
+
+
+### Required
+
+<CodeDemo title="Required" files={datePickerContent.required} />
+
+
+### Variants
+
+<CodeDemo title="Variants" files={datePickerContent.variants} />
+
+
+### Label Placements
+
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
+
+<CodeDemo title="Label Placements" files={datePickerContent.labelPlacements} />
+
+> **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
+
+### With Description
+
+You can add a description to the date-picker by passing the `description` property.
+
+<CodeDemo title="With Description" files={datePickerContent.description} />
+
+
+### With Error Message
+
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
+
+<CodeDemo title="With Error Message" files={datePickerContent.errorMessage} />
+
+
+### With Month and Year Pickers
+
+<CodeDemo title="With Month and Year Pickers" files={datePickerContent.withMonthAndYearPickers} />
+
+
+### With Time Fields
+
+<CodeDemo title="With Time Fields" files={datePickerContent.withTimeField} />
+
+
+### Selector Icon
+
+You can use the `selector` to add content to the start and end of the date-picker.
+
+<CodeDemo title="Start and End Content" files={datePickerContent.selectorIcon} />
+
+
+### Controlled
+
+You can use the `value` and `onChange` properties to control the input value.
+
+<CodeDemo title="Controlled" files={datePickerContent.controlled} />
+
+
+### Time Zones
+
+DatePicker is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed, 
+and time zone concerns such as daylight saving time are taken into account when the value is manipulated.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date",
+    yarn: "yarn add @internationalized/date",
+    pnpm: "pnpm add @internationalized/date",
+  }}
+/>
+
+```jsx
+import {parseZonedDateTime} from "@internationalized/date";
+```
+
+<Spacer y={2} />
+
+<CodeDemo title="Time Zones" files={datePickerContent.timeZones} />
+
+
+### Granularity
+
+The granularity prop allows you to control the smallest unit that is displayed by DatePicker By default, 
+the value is displayed with "day" granularity (year, month, and day), 
+and `CalendarDateTime` and `ZonedDateTime` values are displayed with "minute" granularity.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {useDateFormatter} from "@react-aria/i18n";
+```
+
+<Spacer y={2} />
+
+<CodeDemo title="Time Zones" files={datePickerContent.granularity} />
+
+
+### Min Date And Max Date
+
+The minValue and maxValue props can also be used to ensure the value is within a specific range.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date",
+    yarn: "yarn add @internationalized/date",
+    pnpm: "pnpm add @internationalized/date",
+  }}
+/>
+
+```jsx
+import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
+```
+
+<CodeDemo title="Min Date And Max Date" files={datePickerContent.minAndMaxDate} />
+
+
+### International Calendar
+
+DatePicker supports selecting dates in many calendar systems used around the world, including Gregorian, Hebrew, Indian, Islamic, Buddhist, and more. 
+Dates are automatically displayed in the appropriate calendar system for the user's locale. 
+The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string), 
+passed to the [I18nProvider](https://react-spectrum.adobe.com/react-aria/I18nProvider.html) component.
+
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+```
+
+<CodeDemo title="International Calendar" files={datePickerContent.internationalCalendar} />
+
+
+### Unavailable Dates
+
+DatePicker supports marking certain dates as unavailable. These dates cannot be selected by the user and are displayed with a crossed out appearance in the calendar. In the date field, an invalid state is displayed if a user enters an unavailable date.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Unavailable Dates" files={datePickerContent.unavailableDates} />
+
+
+### Visible Months
+
+By default, the calendar popover displays a single month. The `visibleMonths` prop allows displaying up to 3 months at a time, if screen space permits.
+
+<CodeDemo title="Visible Months" files={datePickerContent.visibleMonth} />
+
+
+### Page Behavior
+
+By default, when pressing the next or previous buttons, pagination will advance by the `visibleMonths` value. This behavior can be changed to page by single months instead, by setting `pageBehavior` to `single`.
+
+<CodeDemo title="Page Behavior" files={datePickerContent.pageBehavior} />
+
+
+### Preset
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, useLocale, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Preset" files={datePickerContent.preset} />
+
+
+
+## Slots
+
+- **base**: Input wrapper, it handles alignment, placement, and general appearance.
+- **selectorButton**: Selector button element.
+- **selectorIcon**: Selector icon element.
+- **popoverContent**: The calendar popover element.
+- **calendar**: The calendar element.
+- **calendarContent**: The calendar's content element.
+- **timeInputLabel**: The time-input component's label element.
+- **timeInput**: The time-input component element.
+
+<Spacer y={4} />{" "}
+
+## Data Attributes
+
+`DatePicker` has the following attributes on the `base` element:
+
+- **data-slot**:
+  All slots have this prop. which slot the element represents(e.g. `canlendar`).
+- **data-open**:
+  Indicates if the calendar popover is open.
+- **data-invalid**:
+  When the date-picker is invalid. Based on `isInvalid` prop.
+- **data-required**:
+  When the date-picker is required. Based on `isRequired` prop.
+- **data-readonly**:
+  When the date-picker is readonly. Based on `isReadOnly` prop.
+- **data-disabled**:
+  When the date-picker is disabled. Based on `isDisabled` prop.
+
+<Spacer y={4} />{" "}
+
+## Accessibility
+
+- Each date and time unit is displayed as an individually focusable and editable segment, which allows users an easy way to edit dates using the keyboard, in any date format and locale.
+- Users can also open a calendar popover to select dates in a standard month grid.
+- Localized screen reader messages are included to announce when the selection and visible date range change.
+- Date segments are editable using an easy to use numeric keypad, and all interactions are accessible using touch-based screen readers.
+- Integrates with HTML forms, supporting required, minimum and maximum values, unavailable dates, custom validation functions, realtime validation, and server-side validation errors
+
+<Spacer y={4} />{" "}
+
+## API
+
+### DatePicker Props
+
+| Attribute             | Type                                                                                                                                                                   | Description                                                                                                           | Default   |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
+| children              | `ReactNode`                                                                                                                                                            | The content of the date-picker.                                                                                        | -         |
+| label                 | `ReactNode`                                                                                                                                                            | The content to display as the label.                                                                                  | -         |
+| value                 | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                                       | The current value of the date-picker (controlled).                                                                          | -         |
+| defaultValue          | `string` \| undefined                                                                                                                                                  | The default value of the date-picker (uncontrolled).                                                                        | -         |
+| placeholderValue      | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                                       | The placeholder of the date-picker.                                                                                         | -         |
+| description           | `ReactNode`                                                                                                                                                            | A description for the date-picker. Provides a hint such as specific requirements for what to choose.                        | -         |
+| errorMessage          | `ReactNode`                                                                                                                                                            | An error message for the date-picker.                                                                                       | -         |
+| startContent          | `ReactNode`                                                                                                                                                            | Element to be rendered in the left side of the date-picker.                                                                 | -         |
+| endContent            | `ReactNode`                                                                                                                                                            | Element to be rendered in the right side of the date-picker.                                                                | -         |
+| labelPlacement        | `inside` \| `outside` \| `outside-left`                                                                                                                                | The position of the label.                                                                                            | `inside`  |
+| isRequired            | `boolean`                                                                                                                                                              | Whether user input is required on the date-picker before form submission.                                                   | `false`   |
+| isReadOnly            | `boolean`                                                                                                                                                              | Whether the date-picker can be selected but not changed by the user.                                                        |           |
+| isDisabled            | `boolean`                                                                                                                                                              | Whether the date-picker is disabled.                                                                                        | `false`   |
+| isInvalid             | `boolean`                                                                                                                                                              | Whether the date-picker is invalid.                                                                                         | `false`   |
+| selectorIcon          | `ReactNode`                                                                                                                                                            | The icon to toggle the date picker popover. Usually a calendar icon.                                                                                         |         |
+| pageBehavior          | `PageBehavior` \| `undefined`                                                                                                                                            | Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.                                                                                         | `visible`   |
+| visibleMonths         | `number` \| `undefined`                                                                                                                                            | The number of months to display at once. Up to 3 months are supported. Passing a number greater than 1 will disable the `showMonthAndYearPickers` prop.                                                                                         | `1`   |
+| calendarWidth         | `number`                                                                                                                                                              | The width to be applied to the calendar component.                                                                                              | `256`   |
+| CalendarTopContent         | `ReactNode`                                                                                                                                                         | Top content to be rendered in the calendar component.                                                                                              |        |
+| CalendarBottomContent      | `ReactNode`                                                                                                                                                         | Bottom content to be rendered in the calendar component.                                                                                              |        |
+| showMonthAndYearPickers    | `boolean` \| `undefined`                                                                                                                                            |  Whether the calendar should show month and year pickers.                                                                                              | false |
+| popoverProps          | `PopoverProps` \| `undefined`                                                                                                                                            |  Props to be passed to the popover component.                                                                                              | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }` |
+| selectorButtonProps   | `ButtonProps` \| `undefined`                                                                                                                                            |  Props to be passed to the selector button component.                                                                                              | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| calendarProps         | `CalendarProps` \| `undefined`                                                                                                                                          |  Props to be passed to the selector button component.                                                                                              | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| timeInputProps         | `TimeInputProps`                                                                                                                                                       |  Props to be passed to the time input component.                                                                                              | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| disableAnimation       | `boolean`                                                                                                                                                              |   Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                         | `false` |
+| ref                   | `ReactRef<HTMLElement \| null>`                                                                                                                                         | The ref to the base element.                                                                                          | -         |
+| classNames            | `Record<"base" \| "selectorButton" \| "selectorIcon" \| "popoverContent" \| "calendar" \| "calendarContent" \| "timeInputLabel" \| "timeInput", string>`                        | Allows to set custom class names for the date-picker slots.                                                            | -       |
+
+### DatePicker Events
+
+| Attribute          | Type                                                                              | Description                                                                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- |
+| onChange           | `((value: ZonedDateTime | CalendarDate | CalendarDateTime) => void)` \| undefined | Handler that is called when the date-picker's value changes.                                                                        |
+| isDateUnavailable  | `((date: DateValue) => boolean)` \| `undefined`                                   |   Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.                          | 

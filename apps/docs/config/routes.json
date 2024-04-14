@@ -211,6 +211,13 @@
           "path": "/docs/components/code.mdx"
         },
         {
+          "key": "date-picker",
+          "title": "Date Picker",
+          "keywords": "date-picker, time, input, timezone",
+          "path": "/docs/components/date-picker.mdx",
+          "newPost": true
+        },
+        {
           "key": "date-input",
           "title": "DateInput",
           "keywords": "date-input, time, input, timezone",
