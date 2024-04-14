@@ -237,7 +237,7 @@ const PresetsTemplate = (args: RangeCalendarProps) => {
           </RadioGroup>
         }
         classNames={{
-          content: "w-[292px]",
+          content: "w-full",
         }}
         focusedValue={focusedValue}
         nextButtonProps={{
