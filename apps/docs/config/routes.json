@@ -28,8 +28,7 @@
           "key": "routing",
           "title": "Routing",
           "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
-          "path": "/docs/guide/routing.mdx",
-          "newPost": true
+          "path": "/docs/guide/routing.mdx"
         },
         {
           "key": "upgrade-to-v2",
@@ -141,8 +140,7 @@
           "key": "autocomplete",
           "title": "Autocomplete",
           "keywords": "autocomplete, auto suggest, search, typeahead",
-          "path": "/docs/components/autocomplete.mdx",
-          "newPost": true
+          "path": "/docs/components/autocomplete.mdx"
         },
         {
           "key": "badge",
@@ -160,8 +158,7 @@
           "key": "breadcrumbs",
           "title": "Breadcrumbs",
           "keywords": "breadcrumbs, navigation, path, trail, location",
-          "path": "/docs/components/breadcrumbs.mdx",
-          "newPost": true
+          "path": "/docs/components/breadcrumbs.mdx"
         },
         {
           "key": "card",
@@ -180,6 +177,20 @@
           "title": "Checkbox Group",
           "keywords": "checkbox group, binary choice, selection control, toggle",
           "path": "/docs/components/checkbox-group.mdx"
+        },
+        {
+          "key": "calendar",
+          "title": "Calendar",
+          "keywords": "calendar, date picker, month picker, year picker",
+          "path": "/docs/components/calendar.mdx",
+          "newPost": true
+        },
+        {
+          "key": "range-calendar",
+          "title": "Range Calendar",
+          "keywords": "range calendar, date picker, month picker, year picker",
+          "path": "/docs/components/range-calendar.mdx",
+          "newPost": true
         },
         {
           "key": "chip",
@@ -209,8 +220,7 @@
           "key": "dropdown",
           "title": "Dropdown",
           "keywords": "dropdown, menu, selection, option list",
-          "path": "/docs/components/dropdown.mdx",
-          "updated": true
+          "path": "/docs/components/dropdown.mdx"
         },
         {
           "key": "image",
@@ -234,15 +244,13 @@
           "key": "link",
           "title": "Link",
           "keywords": "link, navigation, href, web page connection",
-          "path": "/docs/components/link.mdx",
-          "updated": true
+          "path": "/docs/components/link.mdx"
         },
         {
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx",
-          "updated": true
+          "path": "/docs/components/listbox.mdx"
         },
         {
           "key": "modal",
@@ -326,8 +334,7 @@
           "key": "slider",
           "title": "Slider",
           "keywords": "slider, range input, value selector, sliding control",
-          "path": "/docs/components/slider.mdx",
-          "newPost": true
+          "path": "/docs/components/slider.mdx"
         },
         {
           "key": "table",
@@ -339,15 +346,13 @@
           "key": "tabs",
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
-          "path": "/docs/components/tabs.mdx",
-          "updated": true
+          "path": "/docs/components/tabs.mdx"
         },
         {
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",
-          "path": "/docs/components/textarea.mdx",
-          "updated": true
+          "path": "/docs/components/textarea.mdx"
         },
         {
           "key": "tooltip",
@@ -360,6 +365,20 @@
           "title": "User",
           "keywords": "user, account, user profile, identity",
           "path": "/docs/components/user.mdx"
+        }
+      ]
+    },
+    {
+      "key": "api-references",
+      "title": "API References",
+      "defaultOpen": true,
+      "keywords": "api references, nextui, api",
+      "routes": [
+        {
+          "key": "nextui-provider",
+          "title": "NextUI Provider",
+          "keywords": "api references, nextui, api, nextui provider",
+          "path": "/docs/api-references/nextui-provider.mdx"
         }
       ]
     }

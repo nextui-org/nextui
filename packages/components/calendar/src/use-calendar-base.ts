@@ -71,10 +71,10 @@ interface Props extends NextUIBaseProps {
   isHeaderDefaultExpanded?: boolean;
   /**
    * The event handler for the calendar header expanded state. This is only available if the `showMonthAndYearPickers` prop is set to `true`.
-   * @param ixExpanded boolean
+   * @param isExpanded boolean
    * @returns void
    */
-  onHeaderExpandedChange?: (ixExpanded: boolean) => void;
+  onHeaderExpandedChange?: (isExpanded: boolean) => void;
   /**
    * This function helps to reduce the bundle size by providing a custom calendar system.
    *
