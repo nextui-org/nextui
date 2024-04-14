@@ -497,7 +497,7 @@ importers:
         version: 2.2.4(react@18.2.0)
       tailwind-variants:
         specifier: ^0.1.18
-        version: 0.1.18(tailwindcss@3.3.5)
+        version: 0.1.18(tailwindcss@3.4.3)
       unified:
         specifier: ^9.2.2
         version: 9.2.2
@@ -525,7 +525,7 @@ importers:
         version: 3.21.0(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
-        version: 0.5.10(tailwindcss@3.3.5)
+        version: 0.5.10(tailwindcss@3.4.3)
       '@types/canvas-confetti':
         specifier: ^1.4.2
         version: 1.6.3
@@ -593,8 +593,8 @@ importers:
         specifier: ^2.7.1
         version: 2.8.8
       tailwindcss:
-        specifier: ^3.2.7
-        version: 3.3.5(ts-node@10.9.1)
+        specifier: ^3.4.0
+        version: 3.4.3(ts-node@10.9.1)
       tsx:
         specifier: ^3.8.2
         version: 3.14.0
@@ -5644,6 +5644,10 @@ packages:
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
+      '@effect-ts/core':
+        optional: true
+      '@effect-ts/otel':
+        optional: true
       '@effect-ts/otel-node':
         optional: true
     dependencies:
@@ -11403,7 +11407,7 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@tailwindcss/typography@0.5.10(tailwindcss@3.3.5):
+  /@tailwindcss/typography@0.5.10(tailwindcss@3.4.3):
     resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
@@ -11412,7 +11416,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.3.5(ts-node@10.9.1)
+      tailwindcss: 3.4.3(ts-node@10.9.1)
     dev: true
 
   /@testing-library/dom@8.20.1:
@@ -21928,6 +21932,9 @@ packages:
     resolution: {integrity: sha512-wRvsK9v12Nt2/EIjLp/uvxd3UeRSN9DRoSofDn21Ot+rEw4e98ODvbdSHi6dYr82s4oo6mF823ACmOp1hXd4wg==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
+    peerDependenciesMeta:
+      '@parcel/core':
+        optional: true
     dependencies:
       '@parcel/config-default': 2.10.2(@parcel/core@2.10.2)(typescript@4.9.5)
       '@parcel/core': 2.10.2
@@ -24888,16 +24895,6 @@ packages:
   /tailwind-merge@1.14.0:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
 
-  /tailwind-variants@0.1.18(tailwindcss@3.3.5):
-    resolution: {integrity: sha512-yoydMYm3FbZRw7wak+E2sqwYv2Uo3YWRqVZR03DGqDGm0ytzDrEnWO/Q/GMHdhaz8adOvycKw/bwCgQFCfmfhg==}
-    engines: {node: '>=16.x', pnpm: '>=7.x'}
-    peerDependencies:
-      tailwindcss: '*'
-    dependencies:
-      tailwind-merge: 1.14.0
-      tailwindcss: 3.3.5(ts-node@10.9.1)
-    dev: false
-
   /tailwind-variants@0.1.18(tailwindcss@3.4.3):
     resolution: {integrity: sha512-yoydMYm3FbZRw7wak+E2sqwYv2Uo3YWRqVZR03DGqDGm0ytzDrEnWO/Q/GMHdhaz8adOvycKw/bwCgQFCfmfhg==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
@@ -24936,6 +24933,7 @@ packages:
       sucrase: 3.34.0
     transitivePeerDependencies:
       - ts-node
+    dev: true
 
   /tailwindcss@3.4.3(ts-node@10.9.1):
     resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
