@@ -300,7 +300,7 @@ export const MaxDateValue = {
   args: {
     ...defaultProps,
     maxValue: today(getLocalTimeZone()),
-    defaultValue: parseDate("2024-04-05"),
+    defaultValue: today(getLocalTimeZone()).add({days: 1}),
   },
 };
 

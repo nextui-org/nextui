@@ -4,22 +4,20 @@ import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
 export default function App() {
   return (
     <div className="w-full max-w-xl flex flex-row gap-4">
-      <div className="flex flex-col gap-2">
+      <div className="w-full flex flex-col gap-1">
         <h3>Min date</h3>
         <DatePicker
-          className="max-w-[256px]"
           label="Date and time"
           minValue={today(getLocalTimeZone())}
-          defaultValue={parseDate("2024-04-03")}
+          defaultValue={today(getLocalTimeZone()).subtract({ days: 1 })}
         />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="w-full flex flex-col gap-1">
         <h3>Max date</h3>
         <DatePicker
-          className="max-w-[256px]"
           label="Date and time"
           maxValue={today(getLocalTimeZone())}
-          defaultValue={parseDate("2024-04-05")}
+          defaultValue={today(getLocalTimeZone()).add({ days: 1 })}
         />
       </div>
     </div>

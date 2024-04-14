@@ -14,7 +14,7 @@ export default function App() {
           {placements.map((placement) => (
             <DatePicker 
               label={"Birth date"} 
-              className="max-w-[256px]"
+              className="max-w-[284px]"
               description={placement}
               labelPlacement={placement}
             />
