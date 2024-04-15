@@ -440,7 +440,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     // avoid null node in `ariaHideOutside` from `@react-aria/overlays`
     return {
       ref: popoverRef,
-      classNames: "hidden",
+      className: "hidden",
     };
   };
 
