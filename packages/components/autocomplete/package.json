@@ -52,6 +52,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/combobox": "^3.8.4",
     "@react-aria/focus": "^3.16.2",
     "@react-aria/i18n": "^3.10.2",

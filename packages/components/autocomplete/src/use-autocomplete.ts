@@ -1,6 +1,7 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
 
 import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
@@ -297,6 +298,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const isOpen = slotsProps.listboxProps?.hideEmptyContent
     ? state.isOpen && !!state.collection.size
     : state.isOpen;
+
+  // if we use `react-hook-form`, it will set the native input value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!inputRef.current) return;
+
+    const key = inputRef.current.value;
+    const item = state.collection.getItem(key);
+
+    if (item) {
+      state.setSelectedKey(key);
+      state.setInputValue(item.textValue);
+    }
+  }, [inputRef.current, state]);
 
   // apply the same with to the popover as the select
   useEffect(() => {

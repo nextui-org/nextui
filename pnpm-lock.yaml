@@ -719,6 +719,9 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/combobox':
         specifier: ^3.8.4
         version: 3.8.4(react-dom@18.2.0)(react@18.2.0)
@@ -1131,6 +1134,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/checkbox':
         specifier: ^3.14.1
         version: 3.14.1(react@18.2.0)
@@ -2223,6 +2229,9 @@ importers:
       '@nextui-org/use-aria-multiselect':
         specifier: workspace:*
         version: link:../../hooks/use-aria-multiselect
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/focus':
         specifier: ^3.16.2
         version: 3.16.2(react@18.2.0)
