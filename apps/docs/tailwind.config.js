@@ -210,6 +210,12 @@ module.exports = {
               fontWeight: theme("fontWeight.normal"),
               fontStyle: "font-normal",
             },
+            "code::before": {
+              content: "",
+            },
+            "code::after": {
+              content: "",
+            },
             "blockquote p:first-of-type::before": {
               content: "",
             },

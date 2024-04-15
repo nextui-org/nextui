@@ -9,6 +9,8 @@ export default function App() {
     <div className="flex flex-col gap-4">
       <I18nProvider locale="hi-IN-u-ca-indian">
         <DatePicker
+          showMonthAndYearPickers
+          variant="bordered"
           className="max-w-md"
           label="Appointment date"
           value={date}
@@ -30,6 +32,8 @@ export default function App() {
     <div className="flex flex-col gap-4">
       <I18nProvider locale="hi-IN-u-ca-indian">
         <DatePicker
+          showMonthAndYearPickers
+          variant="bordered"
           className="max-w-md"
           label="Appointment date"
           value={date}

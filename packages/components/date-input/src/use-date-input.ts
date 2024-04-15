@@ -109,7 +109,7 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
 
 export type UseDateInputProps<T extends DateValue> = Props<T> &
   DateInputVariantProps &
-  Omit<AriaDateFieldProps<T>, "validationBehavior">;
+  AriaDateFieldProps<T>;
 
 export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
@@ -132,7 +132,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    // validationBehavior = "native", TODO: Uncomment this one we support `native` and `aria` validations
+    validationBehavior,
     shouldForceLeadingZeros = true,
     minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
     maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
@@ -152,7 +152,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     locale,
     minValue,
     maxValue,
-    validationBehavior: "native",
+    validationBehavior,
     isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
     createCalendar:
@@ -170,11 +170,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     descriptionProps,
     errorMessageProps,
     isInvalid: ariaIsInvalid,
-  } = useAriaDateField(
-    {...originalProps, label, validationBehavior: "native", inputRef},
-    state,
-    domRef,
-  );
+  } = useAriaDateField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
 

@@ -213,7 +213,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     description,
     startContent,
     validationState,
-    validationBehavior: "native",
     shouldForceLeadingZeros,
     isInvalid,
     errorMessage,

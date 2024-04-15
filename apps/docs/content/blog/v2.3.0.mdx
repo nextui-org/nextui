@@ -1,0 +1,325 @@
+---
+title: "Introducing v2.3.0 🎉"
+description: "NextUI v2.3.0 is here! includes six new components, NextUI CLI, bug fixes, React Aria, and a TailwindCSS upgrade, among other enhancements."
+date: "2024-04-16"
+draft: true
+image: "/blog/v2.3.0.jpg"
+tags: ["nextui", "cli", "date picker", "time input", "date input", "calendar"]
+author:
+  name: "Junior Garcia"
+  username: "@jrgarciadev"
+  link: "https://twitter.com/jrgarciadev"
+  avatar: "/avatars/junior-garcia.jpeg"
+---
+
+import {dateInputContent} from "@/content/components/date-input";
+import {timeInputContent} from "@/content/components/time-input";
+import {calendarContent} from "@/content/components/calendar";
+import {rangeCalendarContent} from "@/content/components/range-calendar";
+import {datePickerContent} from "@/content/components/date-picker";
+import {dateRangePickerContent} from "@/content/components/date-range-picker";
+
+<img
+  src="/blog/v2.3.0_2x.jpg"
+  width={700}
+  height={350}
+  alt="NextUI v2.3.0"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+We are excited to announce the latest update to NextUI, version **2.3.0**! This release introduces 6 new components,
+our new CLI, and several enhancements and bug fixes.
+
+## What's New in v2.3.0?
+
+- [NextUI CLI](/docs/guide/cli) - A command-line interface for creating and managing NextUI projects.
+- [DateInput](/docs/components/date-input) - Allows users to enter and edit date and time values using a keyboard.
+- [TimeInput](/docs/components/time-input) - Allows users to enter and edit time values using a keyboard.
+- [Calendar](/docs/components/calendar) - Displays a calendar for selecting dates and times.
+- [RangeCalendar](/docs/components/range-calendar) - Displays a calendar for selecting date ranges.
+- [DatePicker](/docs/components/date-picker) - Allows users to select a date from a calendar.
+- [DateRangePicker](/docs/components/date-range-picker) - Allows users to select a date range from a calendar.
+- [Other Changes](#other-changes) - Includes styling improvements, accessibility and usability enhancements.
+
+<Spacer y={4} />
+
+Requirements:
+
+- [Tailwind CSS 3.4](https://tailwindcss.com/) or later
+
+Upgrade today by running one of the following commands:
+
+<Spacer y={4} />
+
+<PackageManagers
+  commands={{
+    cli: "nextui upgrade",
+    npm: "npx nextui-cli@latest upgrade",
+  }}
+/>
+
+<Spacer y={4} />
+
+## NextUI CLI
+
+We are thrilled to introduce the [NextUI CLI](https://github.com/nextui-org/nextui-cli), a command-line interface, It offers a comprehensive suite
+of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or
+`upgrade` individual components, assess the health of your project, and more.
+
+### Installation
+
+To install the CLI globally, execute one of the following commands in your terminal:
+
+<PackageManagers
+  commands={{
+    npm: "npm install nextui-cli -g",
+    yarn: "yarn add nextui-cli -g",
+    pnpm: "pnpm add nextui-cli -g",
+    bun: "bun add nextui-cli -g",
+  }}
+/>
+
+Alternatively, you can use the CLI without a global installation by employing `npx`:
+
+```bash
+npx nextui-cli@latest
+```
+
+### Usage
+
+Once the CLI is installed, run the following command to display available commands:
+
+```bash
+nextui
+```
+
+NextUI CLI can help you create new projects, add components, upgrade components, remove components, detect issues in
+you setup, know your environment, and more.
+
+<Spacer y={4} />
+
+To initialize a new project, you can simply run:
+
+```bash
+nextui init my-nextui-app
+```
+
+<Spacer y={4} />
+
+You will be prompted to configure your project:
+
+```codeBlock bash
+? Select a template › - Use arrow-keys. Return to submit.
+❯   App
+    A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.
+    Pages
+    A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.
+```
+
+Select the template you want to use and the CLI will create a new project for you.
+
+> We're working on adding more templates to the CLI, so stay tuned for updates!
+
+<Spacer y={4} />
+
+If you already have a NextUI project, you can add components to it using the `add` command:
+
+```bash
+nextui add date-input
+```
+
+It will automatically detect the required dependencies, modify your `tailwind.config.(js|ts)` file,
+detect whether using `pnpm` if so, add the required configuration to your `.npmrc` file and add the component to your project.
+
+If instead of installing a single component you want to install multiple components, you can do so by separating them with a space:
+
+```bash
+nextui add date-input time-input calendar
+```
+
+You can alternatively install the `main` package which includes all the components by passing the `--all` flag:
+
+```bash
+nextui add --all
+```
+
+<Spacer y={4} />
+
+> The CLI is currentl in `Alpha` stage, we're working on adding more features and improvements. If you find any issues or have any suggestions, please let us know by [opening an issue](https://github.com/nextui-org/nextui-cli/issues/new).
+
+To learn more about the CLI and its commands, please refer to the [CLI documentation](/docs/guide/cli) and the [CLI API reference](/docs/api-references/cli-api).
+
+## New Components
+
+Since the beginning of NextUI, devs have been asking for date and time input components. After
+months of iteration and development, we are excited to introduce the following new components:
+
+### DateInput
+
+DateInput is a component that allows users to enter and edit date and time values using a keyboard.
+Each part of a date value is displayed in an individually editable segment.
+
+<CodeDemo title="Usage" files={dateInputContent.usage} />
+
+Go to the [DateInput documentation](/docs/components/date-input) to learn more about the component.
+
+### TimeInput
+
+The `TimeInput` component consists of a label, and a group of segments representing each unit of a time (e.g. hours, minutes, and seconds). Each segment is individually focusable and editable by the user, by typing or using the arrow keys to increment and decrement the value. This approach allows values to be formatted and parsed correctly regardless of the locale or time format, and offers an easy and error-free way to edit times using the keyboard.
+
+<CodeDemo title="Usage" files={timeInputContent.usage} />
+
+Go to the [TimeInput documentation](/docs/components/time-input) to learn more about the component.
+
+### Calendar
+
+A Calendar consists of a grouping element containing one or more date grids (e.g. months), and a previous and next button for navigating between date ranges. Each calendar grid consists of cells containing button elements that can be pressed and navigated to using the arrow keys to select a date.
+
+<CodeDemo title="Usage" files={calendarContent.usage} />
+
+The calendar also supports selecting years and months for rapid selection.
+
+<CodeDemo title="With Month And Year Picker" files={calendarContent.withMonthAndYearPicker} />
+
+Go to the [Calendar documentation](/docs/components/calendar) to learn more about the component.
+
+### RangeCalendar
+
+A Range calendar consists of a grouping element containing one or more date grids (e.g. months), and a previous and next button for navigating through time. Each calendar grid consists of cells containing button elements that can be pressed and navigated to using the arrow keys to select a date range. Once a start date is selected, the user can navigate to another date using the keyboard or by hovering over it, and clicking it or pressing the Enter key commits the selected date range.
+
+<CodeDemo title="Usage" files={rangeCalendarContent.usage} />
+
+Go to the [RangeCalendar documentation](/docs/components/range-calendar) to learn more about the component.
+
+### DatePicker
+
+A Date Picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.
+
+<CodeDemo title="Usage" files={datePickerContent.usage} />
+
+Go to the [DatePicker documentation](/docs/components/date-picker) to learn more about the component.
+
+### DateRangePicker
+
+Date Range Picker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range.
+
+<CodeDemo title="Usage" files={dateRangePickerContent.usage} />
+
+Go to the [DateRangePicker documentation](/docs/components/date-range-picker) to learn more about the component.
+
+### Internationalization
+
+These new components have built-in internationalization, time zones and granularity support, they supports selecting dates
+in many calendar systems used around the world, including `Gregorian`, `Hebrew`, `Indian`, `Islamic`, `Buddhist`, and more.
+
+Dates are automatically displayed in the appropriate calendar system for the user's locale this is possible thanks to [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) package, which
+includes functions for parsing strings in multiple formats into `ZonedDateTime` objects.
+
+Here's and example using the `Indian` calendar system:
+
+<CodeDemo title="International Calendar" files={datePickerContent.internationalCalendar} />
+
+Alternatively you can set the `locale` globally by using the `NextUIProvider` component:
+
+```jsx
+// Next.js App Router example
+"use client";
+
+import {NextUIProvider} from "@nextui-org/react";
+
+export interface ProvidersProps {
+  children: React.ReactNode;
+}
+
+export function Providers({children}: ProvidersProps) {
+  const router = useRouter();
+
+  return <NextUIProvider locale="hi-IN-u-ca-indian">{children}</NextUIProvider>;
+}
+```
+
+If no `locale` is provided, it will extract the locale from the browser.
+
+### NextUI Provider
+
+The `NextUIProvider` component was updated to include the `createCalendar` function, which allows you to create a calendar instance with the specified locale and time zone,
+and the `defaultDates` object which allows you to set global minimum and maximum dates for the components.
+
+```jsx
+// Next.js App Router example
+"use client";
+
+import {NextUIProvider, SupportedCalendars} from "@nextui-org/react";
+import {CalendarDate, GregorianCalendar} from "@internationalized/date";
+
+export interface ProvidersProps {
+  children: React.ReactNode;
+}
+
+function createCalendar(identifier: SupportedCalendars) {
+  switch (identifier) {
+    case "gregory":
+      return new GregorianCalendar();
+    default:
+      throw new Error(`Unsupported calendar ${identifier}`);
+  }
+}
+
+export function Providers({children}: ProvidersProps) {
+  const router = useRouter();
+
+  return (
+    <NextUIProvider
+      locale="hi-IN-u-ca-indian"
+      defaultDates={{
+        minDate: new CalendarDate(1900, 1, 1),
+        maxDate: new CalendarDate(2099, 12, 31),
+      }}
+      createCalendar={createCalendar}
+    >
+      {children}
+    </NextUIProvider>
+  );
+}
+```
+
+## Other Changes
+
+- Bug Fixes:
+
+- Styling Improvements:
+
+- Accessibility and Usability Enhancements:
+
+- Right-to-Left (RTL) Support:
+
+  - Implemented RTL support across various components including Accordion, Avatar & AvatarGroup, and ButtonGroup, enhancing usability for RTL languages.
+
+- Performance Improvements:
+
+  - We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above.
+
+- Visual and Interactive Tweaks:
+
+<Spacer y={4} />
+
+## Breaking Changes
+
+<Spacer y={6} />
+
+We hope you enjoy these new components and the new features. We're excited to see what you build with them!
+
+Thanks for reading and happy coding! 🚀
+
+---
+
+## Community
+
+We're excited to see the community adopt NextUI, raise issues, and provide feedback.
+Whether it's a feature request, bug report, or a project to showcase, please get involved!
+
+<Community />
+
+## Contributing
+
+PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
