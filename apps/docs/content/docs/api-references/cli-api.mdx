@@ -1,49 +1,20 @@
 ---
-title: CLI
-description: Use the CLI to manage and enhance your NextUI project components.
+title: NextUI CLI
+description: API References for NextUI CLI
 ---
 
-# CLI
+# NextUI CLI
 
-The CLI offers a comprehensive suite of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or `upgrade` individual components, assess the health of your project, and more.
+------
 
-## Installation
-
-Requirements:
-
-- [Node.js version 18.17.x or later](https://nodejs.org/en/)
-
-<Steps>
-
-### Global Installation
-
-To install the `CLI` globally, execute one of the following commands in your terminal:
-
-<PackageManagers
-  commands={{
-    npm: "npm install nextui-cli -g",
-    yarn: "yarn add nextui-cli -g",
-    pnpm: "pnpm add nextui-cli -g",
-    bun: "bun add nextui-cli -g",
-  }}
-/>
-
-### Without Installation
-
-Alternatively, you can use the `CLI` without a global installation by employing `npx`:
-
-```bash
-npx nextui-cli@latest
-```
-
-</Steps>
-
-## Quick Start
+Here's the API reference for the `NextUI CLI`.
 
 Once the `CLI` is installed, run the following command to display available commands:
 
+To get a list of the available CLI commands, run the following command inside your project directory:
+
 ```codeBlock bash
-nextui
+nextui -h
 ```
 
 This will produce the following help output:
@@ -72,39 +43,56 @@ Commands:
 
 ## init
 
-Initialize a new NextUI project using the `init` command. This sets up your project with the necessary configurations.
+To start a new project, use the init command:
 
 ```codeBlock bash
-nextui init [my-nextui-app-name]
+nextui init [projectName] [options]
 ```
+### Options
 
-<Spacer y={4} />
+- `-t --template [string]` The template to use for the new project e.g. app, pages
 
-You will be prompted to configure your project:
+### Example
 
 ```codeBlock bash
-? Select a template › - Use arrow-keys. Return to submit.
-❯   App
-    A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.
-    Pages
-    A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.
+nextui init my-nextui-app -t app
 ```
 
 ## add
 
-Add components to your NextUI project with the add command. This command manages component dependencies and updates your project configurations.
+> 1. Auto add the missing required `dependencies` to your project
+> 2. Auto add the required `tailwindcss.config.js` configuration to your project
+> 3. Detect whether using pnpm, if so, add the required configuration to your `.npmrc` file
 
-Without specifying a specific component:
+To add components to your project, use the add command:
+
+```codeBlock bash
+nextui add [components...] [options]
+```
+
+### Options
+
+- `-a --all` [boolean] Add all the NextUI components (default: `false`)
+- `-p --packagePath` [string] The path to the package.json file
+- `-tw --tailwindPath` [string] The path to the tailwind.config file file
+- `-app --appPath` [string] The path to the App.tsx file
+- `--prettier` [boolean] Add prettier format in the add content which required installed prettier - (default: false)
+- `--addApp` [boolean] Add App.tsx file content which required provider (default: `false`)
+
+
+### Example
+
+Without setting a specific component, the `add` command will show a list of available components.
 
 ```codeBlock bash
 nextui add
 ```
 
-<Spacer y={4} />
-
-You will be prompted to select the components you wish to add:
+Output:
 
 ```codeBlock bash
+NextUI CLI v0.1.2
+
 ? Which components would you like to add? › - Space to select. Return to submit
 Instructions:
     ↑/↓: Highlight option
@@ -114,102 +102,167 @@ Instructions:
 
 Filtered results for: Enter something to filter
 
-◯  accordion
+◉  accordion
 ◯  autocomplete
 ◯  avatar
 ◯  badge
 ◯  breadcrumbs
-◉  button
+◯  button
 ◯  card
 ◯  checkbox
 ◯  chip
 ◯  code
 ```
 
-To add a specific component:
+If you want to add a specific component, you can specify the component name.
 
 ```codeBlock bash
-nextui add button
+nextui add button input
 ```
 
-You will see an output confirming the addition of the component:
+Output:
 
-```codeBlock bash
+```bash
+NextUI CLI v0.1.2
+
 Adding the required dependencies: @nextui-org/button
+
+pnpm add @nextui-org/button
+Packages: +1
++
+Progress: resolved 470, reused 462, downloaded 0, added 0, done
+
+dependencies:
++ @nextui-org/button 2.0.24
+
+Done in 3.4s
 
 Tailwind CSS settings have been updated in: /project-path/tailwind.config.js
 
 ✅ Components added successfully
 ```
 
+
 ## upgrade
 
-Upgrade specific NextUI components within your project using the upgrade command to ensure they are up to date.
+Upgrade the NextUI components to the latest version.
+
+```codeBlock bash
+nextui upgrade [components...] [options]
+```
+
+### Options
+
+- `-p --packagePath` [string] The path to the package.json file.
+- `-a --all` [boolean] Upgrade all the NextUI components (default: `false`).
+- `-h, --help` Display help for commands.
+
+
+### Example
 
 ```codeBlock bash
 nextui upgrade button
 ```
 
-You will be asked to confirm the upgrade:
 
-```codeBlock bash
+Output:
+
+```bash
+NextUI CLI v0.1.2
 
 ╭───────────────────────────────────────────────────────────╮
-│  @nextui-org/button              2.0.24  ->  2.0.27       │
+│  @nextui-org/button              2.0.24  ->  2.0.27   │
 ╰───────────────────────────────────────────────────────────╯
-
 ? Would you like to proceed with the upgrade? › - Use arrow-keys. Return to submit.
 ❯   Yes
     No
-```
 
-Upon confirmation, the command will execute and provide an output similar to:
+pnpm add  @nextui-org/button@2.0.27
+Already up to date
+Progress: resolved 474, reused 465, downloaded 0, added 0, done
+Done in 2.9s
 
-```codeBlock bash
 ✅ Upgrade complete. All components are up to date.
 ```
 
 ## remove
 
-Remove components from your NextUI project with the remove command. This helps in managing the project's
-component structure and dependencies.
+Remove NextUI components from your project.
+
+> **Note**: If there are no NextUI components after removing, the required content will also be removed._createMdxContent
+  
+  ```codeBlock bash
+  nextui remove [components...] [options]
+  ```
+
+
+### Options
+
+- `-p --packagePath` [string] The path to the package.json file.
+- `-a --all` [boolean] Remove all the NextUI components (default: `false`).
+- `-tw --tailwindPath` [string] The path to the tailwind.config file file.
+- `--prettier` [boolean] Add prettier format in the add content which required installed prettier - (default: false).
+
+
+### Example
 
 ```codeBlock bash
 nextui remove button
 ```
 
-A confirmation prompt will be displayed:
+Output:
 
-```codeBlock bash
+```bash
+NextUI CLI v0.1.2
+
 ❗️ Components slated for removal:
 ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │   Package              │   Version              │   Status   │   Docs                                        │
 │──────────────────────────────────────────────────────────────────────────────────────────────────────────────│
 │   @nextui-org/button   │   2.0.27 🚀latest      │   stable   │   https://nextui.org/docs/components/button   │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-
 ? Confirm removal of these components: › - Use arrow-keys. Return to submit.
 ❯   Yes
     No
-```
 
-Following confirmation, the output will indicate successful removal:
+pnpm remove  @nextui-org/button
+Already up to date
+Progress: resolved 474, reused 465, downloaded 0, added 0, done
 
-```codeBlock bash
+dependencies:
+- @nextui-org/button 2.0.27
+
+Done in 2.1s
+
+Remove the removed components tailwind content in file:/project-path/tailwind.config.js
+
 ✅ Successfully removed the specified NextUI components: @nextui-org/button
 ```
 
 ## list
 
-List all installed NextUI components in your project with the list command. This provides a clear overview of what is currently included in your project.
+Show details of installed components.
+
+```codeBlock bash
+nextui list [options]
+```
+
+### Options
+
+- `-p --packagePath` [string] The path to the package.json file.
+- `-c --current` List the current installed components.
+
+### Example
 
 ```codeBlock bash
 nextui list
 ```
 
-The output will detail each component:
+Output:
 
 ```codeBlock bash
+NextUI CLI v0.1.2
+
 Current installed components:
 
 ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -224,35 +277,79 @@ Current installed components:
 
 ## doctor
 
-Diagnose and resolve issues within your project using the doctor command. This ensures your project's health and proper configuration.
+Diagnose problems in your project.
+
+> 1. Check whether have `redundant dependencies` in the project
+> 2. Check whether the NextUI components `required dependencies are installed` in the project
+> 3. Check the required `tailwind.config.js` file and the content is correct
+> 4. Check `.npmrc` is correct when using `pnpm`
+
+```codeBlock bash
+nextui doctor [options]
+```
+
+### Options
+
+- `-p` `--packagePath` [string] The path to the package.json file
+- `-tw` `--tailwindPath` [string] The path to the tailwind.config file file
+- `-app` `--appPath` [string] The path to the App.tsx file
+- `-ca` `--checkApp` [boolean] Open check App (default: `true`)
+- `-ct` `--checkTailwind` [boolean] Open check tailwind.config file (default: `true`)
+- `-cp` `--checkPnpm` [boolean] Open check Pnpm (default: `true`)
+
+
+### Example
 
 ```codeBlock bash
 nextui doctor
 ```
 
-Depending on your project's status, you might see:
+Output:
+
+
+If there is a problem in your project, the `doctor` command will display the problem information.
 
 ```codeBlock bash
-✅ Your project has no detected issues.
+NextUI CLI v0.1.2
+
+NextUI CLI: ❌ Your project has 1 issue that require attention
+
+❗️Issue 1: missingTailwind
+
+Missing tailwind.config.(j|t)s file. To set up, visit: https://nextui.org/docs/guide/installation#tailwind-css-setup
 ```
 
-Or, if issues are detected:
+Otherwise, the `doctor` command will display the following message.
 
 ```codeBlock bash
-❌ Your project has 1 issue that requires attention
+NextUI CLI v0.1.2
+
+✅ Your project has no detected issues.
 ```
 
 ## env
 
-Display detailed information about your project's environment settings using the env command. This includes system, dependencies, and configuration details.
+Display debug information about the local environment.
+
+```codeBlock bash
+nextui env [options]
+```
+
+### Options
+- `-p --packagePath` [string] The path to the package.json file
+
+
+### Example
 
 ```codeBlock bash
 nextui env
 ```
 
-The output will reflect your current environment setup:
+Output:
 
 ```codeBlock bash
+NextUI CLI 0.1.0
+
 Current installed components:
 
 ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -270,10 +367,4 @@ Environment Info:
     CPU: arm64
   Binaries:
     Node: v18.18.2
-```
-
-## API Reference
-
-Explore the complete CLI commands and features in the [API Reference](/docs/api-references/cli).
-
-For updates and source code, visit the [GitHub Repository](https://github.com/nextui-org/nextui-cli).
+```    
