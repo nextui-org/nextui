@@ -227,7 +227,7 @@
         },
         {
           "key": "date-range-picker",
-          "title": "DateRangePicker",
+          "title": "Date Range Picker",
           "keywords": "date-range-picker, date-picker, time, input, timezone",
           "path": "/docs/components/date-range-picker.mdx",
           "newPost": true

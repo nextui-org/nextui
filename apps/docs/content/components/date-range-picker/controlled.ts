@@ -29,7 +29,6 @@ export default function App() {
         </p>
       </div>
       <DateRangePicker
-        {...args}
         defaultValue={{
           start: parseDate("2024-04-01"),
           end: parseDate("2024-04-08"),

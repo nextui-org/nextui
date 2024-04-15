@@ -1,13 +1,13 @@
 ---
-title: "DateRangePicker"
+title: "Date Range Picker"
 description: "DateRangePicker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range."
 ---
 
 import {dateRangePickerContent} from "@/content/components/date-range-picker";
 
-# DateRangePicker
+# Date Range Picker
 
-DateRangePicker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range.
+Date Range Picker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range.
 
 <ComponentLinks component="date-range-picker" storybook="" />
 
@@ -45,11 +45,6 @@ If you pass the `isRequired` property to the input, it will have a `danger` aste
 the end of the label and the input will be required.
 
 <CodeDemo title="Required" files={dateRangePickerContent.required} />
-
-
-### Colors
-
-<CodeDemo title="Colors" files={dateRangePickerContent.colors} />
 
 
 ### Variants
@@ -378,4 +373,4 @@ import {I18nProvider} from "@react-aria/i18n";
 
 | Attribute          | Type                                                                                          | Description                                                                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- |
-| onChange           | `((value: RangeValue<CalendarDate | CalendarDateTime | ZonedDateTime>) => void)` \| undefined | Handler that is called when the date-range-picker's value changes.                                                                  |
+| onChange           | `((value: RangeValue<CalendarDate \| CalendarDateTime \| ZonedDateTime>) => void)` \| undefined | Handler that is called when the date-range-picker's value changes.                                                                  |

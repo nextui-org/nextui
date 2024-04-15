@@ -1,5 +1,6 @@
 const App = `import {DateRangePicker} from "@nextui-org/react";
-import {now, today, useLocale, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
+import {now, today, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
 
 export default function App() {
   let defaultDate = {
@@ -100,7 +101,6 @@ export default function App() {
         }}
         value={value}
         onChange={setValue}
-        {...args}
         label="Event date"
       />
       <p className="text-default-500 text-sm">
@@ -117,7 +117,8 @@ export default function App() {
 }`;
 
 const AppTs = `import {DateRangePicker} from "@nextui-org/react";
-import {now, today, useLocale, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
+import {now, today, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
 import {RangeValue} from "@react-types/shared";
 
 export default function App() {
@@ -219,7 +220,6 @@ export default function App() {
         }}
         value={value}
         onChange={setValue}
-        {...args}
         label="Event date"
       />
       <p className="text-default-500 text-sm">
