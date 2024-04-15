@@ -245,9 +245,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     if (!inputRef.current) return;
     const isInputRefChecked = !!inputRef.current.checked;
 
-    if (isInputRefChecked !== isChecked) {
-      setIsChecked(isInputRefChecked);
-    }
+    setIsChecked(isInputRefChecked);
   }, [inputRef.current]);
 
   const handleCheckboxChange = useCallback(
