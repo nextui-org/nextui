@@ -333,7 +333,6 @@ const select = tv({
       },
     },
     // underlined & color
-    // underlined & color
     {
       variant: "underlined",
       color: "default",
@@ -422,7 +421,7 @@ const select = tv({
         label: "text-danger",
       },
     },
-    // labelPlacement=outside & default
+    // labelPlacement=inside & default
     {
       labelPlacement: "inside",
       color: "default",
