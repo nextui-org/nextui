@@ -156,7 +156,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       ...originalProps,
       validationBehavior: "native",
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
-      value: inputValue ?? domRef?.current?.value,
+      value: domRef?.current?.value ?? inputValue,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
         originalProps?.label,
