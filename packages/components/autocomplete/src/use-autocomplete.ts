@@ -301,6 +301,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     state,
   );
 
+  // to prevent the error message:
+  // stopPropagation is now the default behavior for events in React Spectrum.
+  // You can use continuePropagation() to revert this behavior.
+  if (inputProps.onKeyDown) {
+    const originalOnKeyDown = inputProps.onKeyDown;
+
+    inputProps.onKeyDown = (e) => {
+      if ("continuePropagation" in e) {
+        e.stopPropagation = () => {};
+      }
+
+      return originalOnKeyDown(e);
+    };
+  }
+
   const Component = as || "div";
 
   const slots = useMemo(
