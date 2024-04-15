@@ -1,7 +1,13 @@
 import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {HiddenSelectProps} from "./hidden-select";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  DOMAttributes,
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  ShardSelection,
+} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
@@ -119,10 +125,17 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Classes object to style the select and its children.
    */
   classNames?: SlotsToClasses<SelectSlots>;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: ShardSelection) => any;
 }
 
-export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
-  MultiSelectProps<T> &
+export type UseSelectProps<T> = Omit<
+  Props<T>,
+  keyof Omit<MultiSelectProps<T>, "onSelectionChange">
+> &
+  Omit<MultiSelectProps<T>, "onSelectionChange"> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
