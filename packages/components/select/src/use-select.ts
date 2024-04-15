@@ -256,7 +256,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
   useSafeLayoutEffect(() => {
-    if (!domRef.current) return;
+    if (!domRef.current?.value) return;
 
     state.setSelectedKeys(new Set([...state.selectedKeys, domRef.current.value]));
   }, [domRef.current]);
