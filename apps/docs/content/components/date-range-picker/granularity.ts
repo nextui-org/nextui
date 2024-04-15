@@ -1,5 +1,5 @@
 const App = `import {DateRangePicker} from "@nextui-org/react";
-import {DateValue, parseAbsoluteToLocal} from "@internationalized/date";
+import {parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {
   let [date, setDate] = React.useState({
