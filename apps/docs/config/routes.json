@@ -187,61 +187,16 @@
           "path": "/docs/components/checkbox-group.mdx"
         },
         {
-          "key": "calendar",
-          "title": "Calendar",
-          "keywords": "calendar, date picker, month picker, year picker",
-          "path": "/docs/components/calendar.mdx",
-          "newPost": true
-        },
-        {
-          "key": "range-calendar",
-          "title": "Range Calendar",
-          "keywords": "range calendar, date picker, month picker, year picker",
-          "path": "/docs/components/range-calendar.mdx",
-          "newPost": true
-        },
-        {
           "key": "chip",
           "title": "Chip",
           "keywords": "chip, tag, label, small actionable entity",
           "path": "/docs/components/chip.mdx"
         },
         {
-          "key": "circular-progress",
-          "title": "Circular Progress",
-          "keywords": "circular progress, loading indicator, activity sign, process display",
-          "path": "/docs/components/circular-progress.mdx"
-        },
-        {
           "key": "code",
           "title": "Code",
           "keywords": "code, code snippet, inline code, coding",
           "path": "/docs/components/code.mdx"
-        },
-        {
-          "key": "date-picker",
-          "title": "Date Picker",
-          "keywords": "date-picker, time, input, timezone",
-          "path": "/docs/components/date-picker.mdx",
-          "newPost": true
-        },
-        {
-          "key": "divider",
-          "title": "Divider",
-          "keywords": "divider, boundary, separator, section divider",
-          "path": "/docs/components/divider.mdx"
-        },
-        {
-          "key": "dropdown",
-          "title": "Dropdown",
-          "keywords": "dropdown, menu, selection, option list",
-          "path": "/docs/components/dropdown.mdx"
-        },
-        {
-          "key": "image",
-          "title": "Image",
-          "keywords": "image, media, picture, photo, graphic display",
-          "path": "/docs/components/image.mdx"
         },
         {
           "key": "input",
@@ -262,6 +217,58 @@
           "keywords": "timeinput, time, input, timezone",
           "path": "/docs/components/time-input.mdx",
           "newPost": true
+        },
+        {
+          "key": "circular-progress",
+          "title": "Circular Progress",
+          "keywords": "circular progress, loading indicator, activity sign, process display",
+          "path": "/docs/components/circular-progress.mdx"
+        },
+        {
+          "key": "calendar",
+          "title": "Calendar",
+          "keywords": "calendar, date picker, month picker, year picker",
+          "path": "/docs/components/calendar.mdx",
+          "newPost": true
+        },
+        {
+          "key": "range-calendar",
+          "title": "Range Calendar",
+          "keywords": "range calendar, date picker, month picker, year picker",
+          "path": "/docs/components/range-calendar.mdx",
+          "newPost": true
+        },
+        {
+          "key": "date-picker",
+          "title": "Date Picker",
+          "keywords": "date-picker, time, input, timezone",
+          "path": "/docs/components/date-picker.mdx",
+          "newPost": true
+        },
+        {
+          "key": "date-range-picker",
+          "title": "Date Range Picker",
+          "keywords": "date-range-picker, date-picker, time, input, timezone",
+          "path": "/docs/components/date-range-picker.mdx",
+          "newPost": true
+        },
+        {
+          "key": "divider",
+          "title": "Divider",
+          "keywords": "divider, boundary, separator, section divider",
+          "path": "/docs/components/divider.mdx"
+        },
+        {
+          "key": "dropdown",
+          "title": "Dropdown",
+          "keywords": "dropdown, menu, selection, option list",
+          "path": "/docs/components/dropdown.mdx"
+        },
+        {
+          "key": "image",
+          "title": "Image",
+          "keywords": "image, media, picture, photo, graphic display",
+          "path": "/docs/components/image.mdx"
         },
         {
           "key": "kbd",

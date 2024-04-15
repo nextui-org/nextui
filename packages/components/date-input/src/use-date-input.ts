@@ -152,6 +152,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     locale,
     minValue,
     maxValue,
+    validationBehavior: "native",
     isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
     createCalendar:

@@ -224,6 +224,7 @@ export function useDateRangePicker<T extends DateValue>({
     return {
       ...buttonProps,
       ...selectorButtonProps,
+      onPress: state.toggle,
       className: slots.selectorButton({class: classNames?.selectorButton}),
     } as ButtonProps;
   };
@@ -263,7 +264,7 @@ export function useDateRangePicker<T extends DateValue>({
   const getStartDateInputProps = (props: DOMAttributes = {}) => {
     return {
       ...startFieldProps,
-      ref: popoverTriggerRef,
+      isInvalid,
       "data-slot": "start-input",
       slots: dateInputSlots,
       createCalendar,
@@ -286,6 +287,7 @@ export function useDateRangePicker<T extends DateValue>({
   const getEndDateInputProps = (props: DOMAttributes = {}) => {
     return {
       ...endFieldProps,
+      isInvalid,
       "data-slot": "end-input",
       slots: dateInputSlots,
       createCalendar,
@@ -327,6 +329,7 @@ export function useDateRangePicker<T extends DateValue>({
   const getInnerWrapperProps: PropGetter = (props) => {
     return {
       ...props,
+      ref: popoverTriggerRef,
       "data-slot": "inner-wrapper",
       className: dateInputSlots.innerWrapper({
         class: classNames?.innerWrapper,
