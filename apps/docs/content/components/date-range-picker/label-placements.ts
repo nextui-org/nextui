@@ -1,4 +1,4 @@
-const App = `import {Input} from "@nextui-org/react";
+const App = `import {DateRangePicker} from "@nextui-org/react";
 
 export default function App() {
   const placements = [
@@ -11,7 +11,7 @@ export default function App() {
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-2">
         {placements.map((placement) => (
-          <Input
+          <DateRangePicker
             key={placement}
             label="Stay duration"
             labelPlacement={placement}

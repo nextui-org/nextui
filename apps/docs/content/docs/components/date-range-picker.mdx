@@ -66,13 +66,6 @@ You can change the position of the label by setting the `labelPlacement` propert
 > **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
 
 
-### Start & End Content
-
-You can use the `startContent` and `endContent` properties to add content to the start and end of the input.
-
-<CodeDemo title="Start and End Content" files={dateRangePickerContent.startEndContent} />
-
-
 ### With Description
 
 You can add a description to the input by passing the `description` property.
@@ -87,116 +80,302 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 <CodeDemo title="With Error Message" files={dateRangePickerContent.errorMessage} />
 
 
+### With Time Fields
+
+<CodeDemo title="With Time Fields" files={dateRangePickerContent.withTimeField} />
+
+
+### Selector Icon
+
+You can use the `selector` to add content to the start and end of the date-range-picker.
+
+<CodeDemo title="Start and End Content" files={dateRangePickerContent.selectorIcon} />
+
+
 ### Controlled
 
-You can use the `value` and `onValueChange` properties to control the input value.
+You can use the `value` and `onChange` properties to control the input value.
 
 <CodeDemo title="Controlled" files={dateRangePickerContent.controlled} />
 
-> **Note**: NextUI `Input` also supports native events like `onChange`, useful for form libraries
-> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+### Time Zones
+
+DateRangePicker is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed, 
+and time zone concerns such as daylight saving time are taken into account when the value is manipulated.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date",
+    yarn: "yarn add @internationalized/date",
+    pnpm: "pnpm add @internationalized/date",
+  }}
+/>
+
+```jsx
+import {parseZonedDateTime} from "@internationalized/date";
+```
+
+<Spacer y={2} />
+
+<CodeDemo title="Time Zones" files={dateRangePickerContent.timeZones} />
+
+### Granularity
+
+The granularity prop allows you to control the smallest unit that is displayed by DateRangePicker By default, 
+the value is displayed with "day" granularity (year, month, and day), 
+and `CalendarDateTime` and `ZonedDateTime` values are displayed with "minute" granularity.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {useDateFormatter} from "@react-aria/i18n";
+```
+
+<Spacer y={2} />
+
+<CodeDemo title="Time Zones" files={dateRangePickerContent.granularity} />
+
+
+### Min Date And Max Date
+
+The minValue and maxValue props can also be used to ensure the value is within a specific range.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date",
+    yarn: "yarn add @internationalized/date",
+    pnpm: "pnpm add @internationalized/date",
+  }}
+/>
+
+```jsx
+import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
+```
+
+<CodeDemo title="Min Date And Max Date" files={dateRangePickerContent.minAndMaxDate} />
+
+
+### International Calendar
+
+DateRangePicker supports selecting dates in many calendar systems used around the world, including Gregorian, Hebrew, Indian, Islamic, Buddhist, and more. 
+Dates are automatically displayed in the appropriate calendar system for the user's locale. 
+The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string), 
+passed to the [I18nProvider](https://react-spectrum.adobe.com/react-aria/I18nProvider.html) component.
+
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+```
+
+<CodeDemo title="International Calendar" files={dateRangePickerContent.internationalCalendar} />
+
+
+### Unavailable Dates
+
+DateRangePicker supports marking certain dates as unavailable. These dates cannot be selected by the user and are displayed with a crossed out appearance in the calendar. In the date field, an invalid state is displayed if a user enters an unavailable date.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Unavailable Dates" files={dateRangePickerContent.unavailableDates} />
+
+
+### Non Contiguous
+
+The allowsNonContiguousRanges prop enables a range to be selected even if there are unavailable dates in the middle. 
+The value emitted in the onChange event will still be a single range with a start and end property, 
+but unavailable dates will not be displayed as selected. 
+It is up to applications to split the full selected range into multiple as needed for business logic.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Non Contiguous" files={dateRangePickerContent.nonContigous} />
+
+
+### Visible Months
+
+By default, the calendar popover displays a single month. The `visibleMonths` prop allows displaying up to 3 months at a time, if screen space permits.
+
+<CodeDemo title="Visible Months" files={dateRangePickerContent.visibleMonth} />
+
+
+### Page Behavior
+
+By default, when pressing the next or previous buttons, pagination will advance by the `visibleMonths` value. This behavior can be changed to page by single months instead, by setting `pageBehavior` to `single`.
+
+<CodeDemo title="Page Behavior" files={dateRangePickerContent.pageBehavior} />
+
+
+### Preset
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings 
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, useLocale, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Preset" files={dateRangePickerContent.preset} />
 
 
 ## Slots
 
-- **base**: Input wrapper, it handles alignment, placement, and general appearance.
-- **label**: Label of the input, it is the one that is displayed above, inside or left of the input.
-- **mainWrapper**: Wraps the `inputWrapper` when position is `outside` / `outside-left`.
+- **base**: base element. it handles alignment, placement, and general appearance.
+- **label**: Label of the date-range-picker, it is the one that is displayed above, inside or left of the date-input.
+- **calendar**: The calendar element.
+- **selectorButton**: Selector button element.
+- **selectorIcon**: Selector icon element.
+- **popoverContent**: The calendar popover element.
+- **calendarContent**: The calendar's content element.
 - **inputWrapper**: Wraps the `label` (when it is inside) and the `innerWrapper`.
-- **innerWrapper**: Wraps the `input`, the `startContent` and the `endContent`.
 - **input**: The input element.
-- **clearButton**: The clear button, it is at the end of the input.
+- **segment**: The segment element.
+- **separator**: The separator element.
+- **bottomContent**: The bottom content element.
+- **timeInputWrapper**: The wrapper element for the input element.
 - **helperWrapper**: Wraps the `description` and the `errorMessage`.
-- **description**: The description of the input.
-- **errorMessage**: The error message of the input.
-
-### Custom Styles
-
-You can customize the `Input` component by passing custom Tailwind CSS classes to the component slots.
-
-<CodeDemo title="Custom Styles" highlightedLines="14-32" files={dateRangePickerContent.customStyles} />
-
-### Custom Implementation
-
-In case you need to customize the input even further, you can use the `useInput` hook to create your own implementation.
-
-<CodeDemo
-  showPreview={false}
-  showOpenInCodeSandbox={true}
-  title="Custom Implementation"
-  files={dateRangePickerContent.customImpl}
-/>
+- **description**: The description of the date-input.
+- **errorMessage**: The error message of the date-input.
 
 <Spacer y={4} />{" "}
 
 ## Data Attributes
 
-`Input` has the following attributes on the `base` element:
+`DateRangePicker` has the following attributes on the `base` element:
 
+- **data-slot**:
+  All slots have this prop. which slot the element represents(e.g. `canlendar`).
+- **data-open**:
+  Indicates if the calendar popover is open.
 - **data-invalid**:
-  When the input is invalid. Based on `isInvalid` prop.
+  When the date-range-picker is invalid. Based on `isInvalid` prop.
 - **data-required**:
-  When the input is required. Based on `isRequired` prop.
+  When the date-range-picker is required. Based on `isRequired` prop.
 - **data-readonly**:
-  When the input is readonly. Based on `isReadOnly` prop.
-- **data-hover**:
-  When the input is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
-- **data-focus**:
-  When the input is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
-- **data-focus-within**:
-  When the input is being focused or any of its children. Based on [useFocusWithin](https://react-spectrum.adobe.com/react-aria/useFocusWithin.html).
-- **data-focus-visible**:
-  When the input is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+  When the date-range-picker is readonly. Based on `isReadOnly` prop.
 - **data-disabled**:
-  When the input is disabled. Based on `isDisabled` prop.
+  When the date-range-picker is disabled. Based on `isDisabled` prop.
+- **data-has-start-content**:
+  When the date-range-picker has a start content. Base on those `startContent` prop.
+- **data-has-end-content**:
+  When the date-range-picker has a end content. Base on those `endContent` prop.
+- **data-has-multiple-months**:
+  When the date-range-picker's `visibleMonth` is more than 2.
+
 
 <Spacer y={4} />{" "}
 
 ## Accessibility
 
-- Built with a native `<input>` element.
-- Visual and ARIA labeling support.
-- Change, clipboard, composition, selection, and input event support.
-- Required and invalid states exposed to assistive technology via ARIA.
-- Support for description and error message help text linked to the input via ARIA.
+- Each date and time unit is displayed as an individually focusable and editable segment, which allows users an easy way to edit dates using the keyboard, in any date format and locale
+- Users can also open a calendar popover to select date ranges in a standard month grid. Localized screen reader messages are included to announce when the selection and visible date range change.
+- Date segments are editable using an easy to use numeric keypad, date ranges can be selected by dragging over dates in the calendar using a touch screen, and all interactions are accessible using touch-based screen readers.
+- Integrates with HTML forms, supporting required, minimum and maximum values, unavailable dates, custom validation functions, realtime validation, and server-side validation errors
 
 <Spacer y={4} />{" "}
 
 ## API
 
-### Input Props
+### DateRangePicker Props
 
-| Attribute        | Type                                                                                                                                                                   | Description                                                                                                           | Default   |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
-| children         | `ReactNode`                                                                                                                                                            | The content of the input.                                                                                             | -         |
-| variant          | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                                        | The variant of the input.                                                                                             | `flat`    |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                            | The color of the input.                                                                                               | `default` |
-| size             | `sm` \| `md` \| `lg`                                                                                                                                                   | The size of the input.                                                                                                | `md`      |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                               | The radius of the input.                                                                                              | -         |
-| label            | `ReactNode`                                                                                                                                                            | The content to display as the label.                                                                                  | -         |
-| value            | `string`                                                                                                                                                               | The current value of the input (controlled).                                                                          | -         |
-| defaultValue     | `string`                                                                                                                                                               | The default value of the input (uncontrolled).                                                                        | -         |
-| placeholder      | `string`                                                                                                                                                               | The placeholder of the input.                                                                                         | -         |
-| description      | `ReactNode`                                                                                                                                                            | A description for the input. Provides a hint such as specific requirements for what to choose.                        | -         |
-| errorMessage     | `ReactNode`                                                                                                                                                            | An error message for the input.                                                                                       | -         |
-| startContent     | `ReactNode`                                                                                                                                                            | Element to be rendered in the left side of the input.                                                                 | -         |
-| endContent       | `ReactNode`                                                                                                                                                            | Element to be rendered in the right side of the input.                                                                | -         |
-| labelPlacement   | `inside` \| `outside` \| `outside-left`                                                                                                                                | The position of the label.                                                                                            | `inside`  |
-| fullWidth        | `boolean`                                                                                                                                                              | Whether the input should take up the width of its parent.                                                             | `true`    |
-| isClearable      | `boolean`                                                                                                                                                              | Whether the input should have a clear button.                                                                         | `false`   |
-| isRequired       | `boolean`                                                                                                                                                              | Whether user input is required on the input before form submission.                                                   | `false`   |
-| isReadOnly       | `boolean`                                                                                                                                                              | Whether the input can be selected but not changed by the user.                                                        |           |
-| isDisabled       | `boolean`                                                                                                                                                              | Whether the input is disabled.                                                                                        | `false`   |
-| isInvalid        | `boolean`                                                                                                                                                              | Whether the input is invalid.                                                                                         | `false`   |
-| baseRef          | `RefObject<HTMLDivElement>`                                                                                                                                            | The ref to the base element.                                                                                          | -         |
-| validationState  | `valid` \| `invalid`                                                                                                                                                   | Whether the input should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead. | -         |
-| disableAnimation | `boolean`                                                                                                                                                              | Whether the input should be animated.                                                                                 | `false`   |
-| classNames       | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "mainWrapper" ｜ "input" ｜ "clearButton" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the checkbox slots.                                                              | -         |
+| Attribute             | Type                                                                                                                                                                   | Description                                                                                                           | Default   |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
+| children              | `ReactNode`                                                                                                                                                            | The content of the date-range-picker.                                                                                        | -         |
+| label                 | `ReactNode`                                                                                                                                                            | The content to display as the label.                                                                                  | -         |
+| value                 | `RangeValue<CalendarDate \| CalendarDateTime \| ZonedDateTime>` \| `undefined` \| `null`                                                                                       | The current value of the date-range-picker (controlled).                                                                          | -         |
+| defaultValue          | `string` \| undefined                                                                                                                                                  | The default value of the date-range-picker (uncontrolled).                                                                        | -         |
+| placeholderValue      | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                                       | The placeholder of the date-range-picker.                                                                                         | -         |
+| description           | `ReactNode`                                                                                                                                                            | A description for the date-range-picker. Provides a hint such as specific requirements for what to choose.                        | -         |
+| errorMessage          | `ReactNode`                                                                                                                                                            | An error message for the date-range-picker.                                                                                       | -         |
+| startContent          | `ReactNode`                                                                                                                                                            | Element to be rendered in the left side of the date-range-picker.                                                                 | -         |
+| endContent            | `ReactNode`                                                                                                                                                            | Element to be rendered in the right side of the date-range-picker.                                                                | -         |
+| labelPlacement        | `inside` \| `outside` \| `outside-left`                                                                                                                                | The position of the label.                                                                                            | `inside`  |
+| isRequired            | `boolean`                                                                                                                                                              | Whether user input is required on the date-range-picker before form submission.                                                   | `false`   |
+| isReadOnly            | `boolean`                                                                                                                                                              | Whether the date-range-picker can be selected but not changed by the user.                                                        |           |
+| isDisabled            | `boolean`                                                                                                                                                              | Whether the date-range-picker is disabled.                                                                                        | `false`   |
+| isInvalid             | `boolean`                                                                                                                                                              | Whether the date-range-picker is invalid.                                                                                         | `false`   |
+| selectorIcon          | `ReactNode`                                                                                                                                                            | The icon to toggle the date picker popover. Usually a calendar icon.                                                                                         |         |
+| pageBehavior          | `PageBehavior` \| `undefined`                                                                                                                                            | Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.                                                                                         | `visible`   |
+| visibleMonths         | `number` \| `undefined`                                                                                                                                            | The number of months to display at once. Up to 3 months are supported. Passing a number greater than 1 will disable the `showMonthAndYearPickers` prop.                                                                                         | `1`   |
+| calendarWidth         | `number`                                                                                                                                                              | The width to be applied to the calendar component.                                                                                              | `256`   |
+| CalendarTopContent         | `ReactNode`                                                                                                                                                         | Top content to be rendered in the calendar component.                                                                                              |        |
+| CalendarBottomContent      | `ReactNode`                                                                                                                                                         | Bottom content to be rendered in the calendar component.                                                                                              |        |
+| allowsNonContiguousRanges | `boolean` \| `undefined`                                                                                                                                            |  enables a range to be selected even if there are unavailable dates in the middle                                                            | false |
+| popoverProps          | `PopoverProps` \| `undefined`                                                                                                                                            |  Props to be passed to the popover component.                                                                                              | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }` |
+| selectorButtonProps   | `ButtonProps` \| `undefined`                                                                                                                                            |  Props to be passed to the selector button component.                                                                                              | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| calendarProps         | `CalendarProps` \| `undefined`                                                                                                                                          |  Props to be passed to the selector button component.                                                                                              | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| timeInputProps         | `TimeInputProps`                                                                                                                                                       |  Props to be passed to the time input component.                                                                                              | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| disableAnimation       | `boolean`                                                                                                                                                              |   Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                         | `false` |
+| ref                   | `ReactRef<HTMLElement \| null>`                                                                                                                                         | The ref to the base element.                                                                                          | -         |
+| classNames            | `Record<"base" \| "selectorButton" \| "selectorIcon" \| "popoverContent" \| "calendar" \| "calendarContent" \| "timeInputLabel" \| "timeInput", string>`                        | Allows to set custom class names for the date-range-picker slots.                                                            | -       |
 
-### Input Events
+### DateRangePicker Events
 
-| Attribute     | Type                                  | Description                                                                                                                         |
-| ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's value changes. You can pull out the new value by accessing `event.target.value` (string). |
-| onValueChange | `(value: string) => void`             | Handler that is called when the element's value changes.                                                                            |
-| onClear       | `() => void`                          | Handler that is called when the clear button is clicked.                                                                            |
+| Attribute          | Type                                                                                          | Description                                                                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------- |
+| onChange           | `((value: RangeValue<CalendarDate | CalendarDateTime | ZonedDateTime>) => void)` \| undefined | Handler that is called when the date-range-picker's value changes.                                                                  |

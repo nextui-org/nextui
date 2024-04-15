@@ -14,13 +14,13 @@ const SelectorIcon = `export const SelectorIcon = () => (
   </svg>
 );`;
 
-const App = `import {DatePicker} from "@nextui-org/react";
+const App = `import {DateRangePicker} from "@nextui-org/react";
 import {SelectorIcon} from './SelectorIcon';
 export default function App() {
   return (
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <DatePicker 
-        label="Birth date"
+      <DateRangePicker 
+        label="Stay duration"
         selectorIcon={<SelectorIcon />}
       />
     </div> 

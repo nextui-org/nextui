@@ -7,10 +7,10 @@ export default function App() {
       label="Stay duration" 
       isInvalid
       errorMessage="Please enter a valid email"
-      defaultValue={
+      defaultValue={{
         start: parseDate("2024-04-01"),
         end: parseDate("2024-04-08"),
-      }
+      }}
       className="max-w-xs"
     />
   );

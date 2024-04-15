@@ -4,11 +4,20 @@ import readOnly from "./readonly";
 import required from "./required";
 import variants from "./variants";
 import labelPlacements from "./label-placements";
-import selectorIcon from "./selector-icon";
 import description from "./description";
-import startEndContent from "./start-end-content";
 import errorMessage from "./error-message";
+import withTimeField from "./with-time-field";
+import selectorIcon from "./selector-icon";
 import controlled from "./controlled";
+import timeZones from "./time-zones";
+import granularity from "./granularity";
+import minAndMaxDate from "./min-and-max-date";
+import internationalCalendar from "./international-calendar";
+import unavailableDates from "./unavailable-dates";
+import visibleMonth from "./visible-month";
+import pageBehavior from "./page-behavior";
+import nonContigous from "./non-contiguous";
+import presets from "./presets";
 
 export const dateRangePickerContent = {
   usage,
@@ -17,9 +26,18 @@ export const dateRangePickerContent = {
   required,
   variants,
   labelPlacements,
-  selectorIcon,
   description,
-  startEndContent,
   errorMessage,
+  withTimeField,
+  selectorIcon,
   controlled,
+  timeZones,
+  granularity,
+  minAndMaxDate,
+  internationalCalendar,
+  unavailableDates,
+  visibleMonth,
+  pageBehavior,
+  nonContigous,
+  presets,
 };

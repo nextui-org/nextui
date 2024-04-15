@@ -6,10 +6,10 @@ export default function App() {
     <DateRangePicker 
       label="Stay duration" 
       isRequired
-      defaultValue={
+      defaultValue={{
         start: parseDate("2024-04-01"),
         end: parseDate("2024-04-08"),
-      }
+      }}
       className="max-w-xs"
     />
   );
