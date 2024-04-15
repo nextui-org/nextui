@@ -24,10 +24,9 @@ Each part of a date value is displayed in an individually editable segment.
     npm: "npm install @nextui-org/date-input",
     yarn: "yarn add @nextui-org/date-input",
     pnpm: "pnpm add @nextui-org/date-input",
-    bun: "bun add @nextui-org/date-input"
+    bun: "bun add @nextui-org/date-input",
   }}
 />
-
 
 ## Import
 
@@ -277,7 +276,6 @@ import {parseZonedDateTime} from "@internationalized/date";
 - Support for description and error message help text linked to the input via ARIA.
 - Each date and time unit is displayed as an individually focusable and editable segment, which allows users an easy way to edit dates using the keyboard, in any date format and locale.
 - Date segments are editable using an easy to use numeric keypad, and all interactions are accessible using touch-based screen readers.
--
 
 <Spacer y={4} />
 
@@ -321,9 +319,9 @@ import {parseZonedDateTime} from "@internationalized/date";
 
 ### DateInput Events
 
-| Attribute     | Type                                                                   | Description                                                     |
+| Attribute     | Type                                                                   | Description                                                     |     |
 | ------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------- | --- |
-| onChange      | `((value: ZonedDateTime \| CalendarDate \| CalendarDateTime) => void)` | Handler that is called when the date-input's value changes.     |
+| onChange      | `((value: ZonedDateTime \| CalendarDate \| CalendarDateTime) => void)` | Handler that is called when the date-input's value changes.     | -   |
 | onFocus       | `(e: FocusEvent<HTMLInputElement>) => void`                            | Handler that is called when the element receives focus.         | -   |
 | onBlur        | `(e: FocusEvent<HTMLInputElement>) => void`                            | Handler that is called when the element loses focus.            | -   |
 | onFocusChange | `(isFocused: boolean) => void`                                         | Handler that is called when the element's focus status changes. | -   |

@@ -1,6 +1,6 @@
 ---
 title: "Introducing v2.3.0 🎉"
-description: "NextUI v2.3.0 is here! includes 6 new components, NextUI CLI, bug fixes, react-aria adn TailwindCSS upgrade and more."
+description: "NextUI v2.3.0 is here! includes six new components, NextUI CLI, bug fixes, React Aria, and a TailwindCSS upgrade, among other enhancements."
 date: "2024-04-16"
 image: "/blog/v2.3.0.jpg"
 tags: ["nextui", "cli", "date picker", "time input", "date input", "calendar"]
@@ -42,9 +42,29 @@ our new CLI, and several enhancements and bug fixes.
 
 <Spacer y={4} />
 
+Requirements:
+
+- [Tailwind CSS 3.4](https://tailwindcss.com/) or later
+
+Upgrade today by running the following command:
+
+<Spacer y={4} />
+
+```bash
+npx nextui-cli@latest upgrade
+```
+
+or
+
+```bash
+nextui upgrade
+```
+
+<Spacer y={4} />
+
 ## NextUI CLI
 
-We are excited to introduce the [NextUI CLI](https://github.com/nextui-org/nextui-cli), a command-line interface, It offers a comprehensive suite
+We are thrilled to introduce the [NextUI CLI](https://github.com/nextui-org/nextui-cli), a command-line interface, It offers a comprehensive suite
 of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or
 `upgrade` individual components, assess the health of your project, and more.
 
@@ -189,7 +209,81 @@ Date Range Picker combines two DateInputs and a RangeCalendar popover to allow u
 
 Go to the [DateRangePicker documentation](/docs/components/date-range-picker) to learn more about the component.
 
+### Internationalization
 
+These new components have built-in internationalization, time zones and granularity support, they supports selecting dates
+in many calendar systems used around the world, including `Gregorian`, `Hebrew`, `Indian`, `Islamic`, `Buddhist`, and more.
+
+Dates are automatically displayed in the appropriate calendar system for the user's locale this is possible thanks to [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) package, which
+includes functions for parsing strings in multiple formats into `ZonedDateTime` objects.
+
+Here's and example using the `Indian` calendar system:
+
+<CodeDemo title="International Calendar" files={datePickerContent.internationalCalendar} />
+
+Alternatively you can set the `locale` globally by using the `NextUIProvider` component:
+
+```jsx
+// Next.js App Router example
+"use client";
+
+import {NextUIProvider} from "@nextui-org/react";
+
+export interface ProvidersProps {
+  children: React.ReactNode;
+}
+
+export function Providers({children}: ProvidersProps) {
+  const router = useRouter();
+
+  return <NextUIProvider locale="hi-IN-u-ca-indian">{children}</NextUIProvider>;
+}
+```
+
+If no `locale` is provided, it will extract the locale from the browser.
+
+### NextUI Provider
+
+The `NextUIProvider` component was updated to include the `createCalendar` function, which allows you to create a calendar instance with the specified locale and time zone,
+and the `defaultDates` object which allows you to set global minimum and maximum dates for the components.
+
+```jsx
+// Next.js App Router example
+"use client";
+
+import {NextUIProvider, SupportedCalendars} from "@nextui-org/react";
+import {CalendarDate, GregorianCalendar} from "@internationalized/date";
+
+export interface ProvidersProps {
+  children: React.ReactNode;
+}
+
+function createCalendar(identifier: SupportedCalendars) {
+  switch (identifier) {
+    case "gregory":
+      return new GregorianCalendar();
+    default:
+      throw new Error(`Unsupported calendar ${identifier}`);
+  }
+}
+
+export function Providers({children}: ProvidersProps) {
+  const router = useRouter();
+
+  return (
+    <NextUIProvider
+      locale="hi-IN-u-ca-indian"
+      defaultDates={{
+        minDate: new CalendarDate(1900, 1, 1),
+        maxDate: new CalendarDate(2099, 12, 31),
+      }}
+      createCalendar={createCalendar}
+    >
+      {children}
+    </NextUIProvider>
+  );
+}
+```
 
 ## Other Changes
 
@@ -200,7 +294,7 @@ Go to the [DateRangePicker documentation](/docs/components/date-range-picker) to
 - Accessibility and Usability Enhancements:
 
 - Right-to-Left (RTL) Support:
-  
+
   - Implemented RTL support across various components including Accordion, Avatar & AvatarGroup, and ButtonGroup, enhancing usability for RTL languages.
 
 - Performance Improvements:
@@ -213,9 +307,7 @@ Go to the [DateRangePicker documentation](/docs/components/date-range-picker) to
 
 ## Breaking Changes
 
-
 <Spacer y={6} />
-
 
 We hope you enjoy these new components and the new features. We're excited to see what you build with them!
 
@@ -233,4 +325,3 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 ## Contributing
 
 PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
-
