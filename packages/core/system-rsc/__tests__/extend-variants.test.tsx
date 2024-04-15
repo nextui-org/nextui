@@ -128,9 +128,7 @@ describe("extendVariants function - no slots", () => {
 
     const button = container.querySelector("button");
 
-    expect(button).toHaveClass(
-      "px-unit-3 min-w-unit-16 h-unit-8 text-tiny gap-unit-2 rounded-small",
-    );
+    expect(button).toHaveClass("px-3 min-w-16 h-8 text-tiny gap-2 rounded-small");
   });
 
   test("should include the compound variant styles - extended", () => {

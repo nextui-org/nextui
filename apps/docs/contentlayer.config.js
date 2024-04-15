@@ -2,6 +2,7 @@ import {defineDocumentType, defineNestedType, makeSource} from "contentlayer/sou
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import {visit} from "unist-util-visit";
+import pluginCodeBlock from "./plugins/codeBlock";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -80,7 +81,7 @@ export default makeSource({
   contentDirPath: "./content",
   documentTypes: [Doc, BlogPost],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, pluginCodeBlock],
     rehypePlugins: [
       rehypeSlug,
       () => (tree) => {

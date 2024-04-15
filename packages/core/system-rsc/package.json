@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "react": "^18.0.0",
-    "tailwind-variants": "^0.1.18",
+   "tailwind-variants": "^0.1.20",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",

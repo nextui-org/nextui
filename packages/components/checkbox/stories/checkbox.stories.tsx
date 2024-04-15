@@ -2,6 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 import {CloseIcon} from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
 
 import {Checkbox, CheckboxIconProps, CheckboxProps} from "../src";
 
@@ -60,6 +61,25 @@ const ControlledTemplate = (args: CheckboxProps) => {
       </Checkbox>
       <p className="text-default-500">Selected: {selected ? "true" : "false"}</p>
     </div>
+  );
+};
+
+const FormTemplate = (args: CheckboxProps) => {
+  return (
+    <form
+      className="flex flex-col items-start gap-4"
+      onSubmit={(e) => {
+        alert(`Submitted value: ${e.target["check"].value}`);
+        e.preventDefault();
+      }}
+    >
+      <Checkbox name="check" value="checked" {...args}>
+        Check
+      </Checkbox>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
@@ -131,5 +151,14 @@ export const Controlled = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const Required = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
   },
 };

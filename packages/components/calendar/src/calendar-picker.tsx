@@ -24,6 +24,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
     yearsListRef,
     classNames,
     getItemRef,
+    isHeaderExpanded,
     onPickerItemPressed,
     onPickerItemKeyDown,
   } = useCalendarPicker(props);
@@ -82,7 +83,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
               ref={(node) => getItemRef(node, month.value, "months")}
               className={slots?.pickerItem({class: classNames?.pickerItem})}
               data-value={month.value}
-              tabIndex={state.focusedDate?.month === month.value ? 0 : -1}
+              tabIndex={!isHeaderExpanded || state.focusedDate?.month !== month.value ? -1 : 0}
               onKeyDown={(e) => onPickerItemKeyDown(e, month.value, "months")}
               onPress={(e) => onPickerItemPressed(e, "months")}
             >
@@ -103,7 +104,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
               ref={(node) => getItemRef(node, year.value, "years")}
               className={slots?.pickerItem({class: classNames?.pickerItem})}
               data-value={year.value}
-              tabIndex={state.focusedDate?.year === year.value ? 0 : -1}
+              tabIndex={!isHeaderExpanded || state.focusedDate?.year !== year.value ? -1 : 0}
               onKeyDown={(e) => onPickerItemKeyDown(e, year.value, "years")}
               onPress={(e) => onPickerItemPressed(e, "years")}
             >
