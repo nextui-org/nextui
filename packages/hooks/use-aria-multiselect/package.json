@@ -34,19 +34,20 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/i18n": "^3.8.4",
-    "@react-aria/interactions": "^3.19.1",
-    "@react-aria/label": "^3.7.2",
-    "@react-aria/listbox": "^3.11.1",
-    "@react-aria/menu": "^3.11.1",
-    "@react-aria/selection": "^3.17.1",
-    "@react-stately/list": "^3.10.0",
-    "@react-stately/menu": "^3.5.6",
-    "@react-types/button": "^3.9.0",
-    "@react-types/overlays": "^3.8.3",
-    "@react-types/select": "^3.8.4",
-    "@react-types/shared": "3.21.0",
-    "@react-aria/utils": "^3.21.1"
+    "@react-aria/i18n": "^3.10.2",
+    "@react-aria/interactions": "^3.21.1",
+    "@react-aria/label": "^3.7.6",
+    "@react-aria/listbox": "^3.11.5",
+    "@react-aria/menu": "^3.13.1",
+    "@react-aria/selection": "^3.17.5",
+    "@react-aria/utils": "^3.23.2",
+    "@react-stately/form": "^3.0.1",
+    "@react-stately/list": "^3.10.3",
+    "@react-stately/menu": "^3.6.1",
+    "@react-types/button": "^3.9.2",
+    "@react-types/overlays": "^3.8.5",
+    "@react-types/select": "^3.9.2",
+    "@react-types/shared": "^3.22.1"
   },
   "peerDependencies": {
     "react": ">=18",

@@ -1,0 +1,279 @@
+---
+title: CLI
+description: Use the CLI to manage and enhance your NextUI project components.
+---
+
+# CLI
+
+The CLI offers a comprehensive suite of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or `upgrade` individual components, assess the health of your project, and more.
+
+## Installation
+
+Requirements:
+
+- [Node.js version 18.17.x or later](https://nodejs.org/en/)
+
+<Steps>
+
+### Global Installation
+
+To install the `CLI` globally, execute one of the following commands in your terminal:
+
+<PackageManagers
+  commands={{
+    npm: "npm install nextui-cli -g",
+    yarn: "yarn add nextui-cli -g",
+    pnpm: "pnpm add nextui-cli -g",
+    bun: "bun add nextui-cli -g",
+  }}
+/>
+
+### Without Installation
+
+Alternatively, you can use the `CLI` without a global installation by employing `npx`:
+
+```bash
+npx nextui-cli@latest
+```
+
+</Steps>
+
+## Quick Start
+
+Once the `CLI` is installed, run the following command to display available commands:
+
+```codeBlock bash
+nextui
+```
+
+This will produce the following help output:
+
+```codeBlock bash
+NextUI CLI <version>
+
+A command line tool for seamless integration with NextUI
+
+Usage: nextui [command]
+
+Options:
+  -v, --version  Show the version number
+  -h, --help     Display help for commands
+
+Commands:
+  init [options] [projectName]       Start a new NextUI project
+  add [options] [components...]      Add NextUI components to your project
+  upgrade [options] [components...]  Update NextUI components to the latest versions
+  remove [options] [components...]   Remove NextUI components from your project
+  list [options]                     Show details of installed components
+  env [options]                      Display debug information about the local environment
+  doctor [options]                   Diagnose problems in your project
+  help [command]                     Get help on a specific command
+```
+
+## init
+
+Initialize a new NextUI project using the `init` command. This sets up your project with the necessary configurations.
+
+```codeBlock bash
+nextui init [my-nextui-app-name]
+```
+
+<Spacer y={4} />
+
+You will be prompted to configure your project:
+
+```codeBlock bash
+? Select a template › - Use arrow-keys. Return to submit.
+❯   App
+    A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.
+    Pages
+    A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.
+```
+
+## add
+
+Add components to your NextUI project with the add command. This command manages component dependencies and updates your project configurations.
+
+Without specifying a specific component:
+
+```codeBlock bash
+nextui add
+```
+
+<Spacer y={4} />
+
+You will be prompted to select the components you wish to add:
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+To add a specific component:
+
+```codeBlock bash
+nextui add button
+```
+
+You will see an output confirming the addition of the component:
+
+```codeBlock bash
+Adding the required dependencies: @nextui-org/button
+
+Tailwind CSS settings have been updated in: /project-path/tailwind.config.js
+
+✅ Components added successfully
+```
+
+## upgrade
+
+Upgrade specific NextUI components within your project using the upgrade command to ensure they are up to date.
+
+```codeBlock bash
+nextui upgrade button
+```
+
+You will be asked to confirm the upgrade:
+
+```codeBlock bash
+
+╭───────────────────────────────────────────────────────────╮
+│  @nextui-org/button              2.0.24  ->  2.0.27       │
+╰───────────────────────────────────────────────────────────╯
+
+? Would you like to proceed with the upgrade? › - Use arrow-keys. Return to submit.
+❯   Yes
+    No
+```
+
+Upon confirmation, the command will execute and provide an output similar to:
+
+```codeBlock bash
+✅ Upgrade complete. All components are up to date.
+```
+
+## remove
+
+Remove components from your NextUI project with the remove command. This helps in managing the project's
+component structure and dependencies.
+
+```codeBlock bash
+nextui remove button
+```
+
+A confirmation prompt will be displayed:
+
+```codeBlock bash
+❗️ Components slated for removal:
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   Package              │   Version              │   Status   │   Docs                                        │
+│──────────────────────────────────────────────────────────────────────────────────────────────────────────────│
+│   @nextui-org/button   │   2.0.27 🚀latest      │   stable   │   https://nextui.org/docs/components/button   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+? Confirm removal of these components: › - Use arrow-keys. Return to submit.
+❯   Yes
+    No
+```
+
+Following confirmation, the output will indicate successful removal:
+
+```codeBlock bash
+✅ Successfully removed the specified NextUI components: @nextui-org/button
+```
+
+## list
+
+List all installed NextUI components in your project with the list command. This provides a clear overview of what is currently included in your project.
+
+```codeBlock bash
+nextui list
+```
+
+The output will detail each component:
+
+```codeBlock bash
+Current installed components:
+
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   Package                    │   Version              │   Status    │   Docs                                              │
+│───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│
+│   @nextui-org/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://nextui.org/docs/components/autocomplete   │
+│   @nextui-org/badge          │   2.0.24 🚀latest      │   stable    │   https://nextui.org/docs/components/badge          │
+│   @nextui-org/button         │   2.0.27 🚀latest      │   stable    │   https://nextui.org/docs/components/button         │
+│   @nextui-org/chip           │   2.0.25 🚀latest      │   stable    │   https://nextui.org/docs/components/chip           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
+
+## doctor
+
+Diagnose and resolve issues within your project using the doctor command. This ensures your project's health and proper configuration.
+
+```codeBlock bash
+nextui doctor
+```
+
+Depending on your project's status, you might see:
+
+```codeBlock bash
+✅ Your project has no detected issues.
+```
+
+Or, if issues are detected:
+
+```codeBlock bash
+❌ Your project has 1 issue that requires attention
+```
+
+## env
+
+Display detailed information about your project's environment settings using the env command. This includes system, dependencies, and configuration details.
+
+```codeBlock bash
+nextui env
+```
+
+The output will reflect your current environment setup:
+
+```codeBlock bash
+Current installed components:
+
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   Package                    │   Version              │   Status    │   Docs                                              │
+│───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│
+│   @nextui-org/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://nextui.org/docs/components/autocomplete   │
+│   @nextui-org/badge          │   2.0.24 🚀latest      │   stable    │   https://nextui.org/docs/components/badge          │
+│   @nextui-org/button         │   2.0.27 🚀latest      │   stable    │   https://nextui.org/docs/components/button         │
+│   @nextui-org/chip           │   2.0.25 🚀latest      │   stable    │   https://nextui.org/docs/components/chip           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Environment Info:
+  System:
+    OS: darwin
+    CPU: arm64
+  Binaries:
+    Node: v18.18.2
+```
+
+## API Reference
+
+Explore the complete CLI commands and features in the [API Reference](/docs/api-references/cli).
+
+For updates and source code, visit the [GitHub Repository](https://github.com/nextui-org/nextui-cli).

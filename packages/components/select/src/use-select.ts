@@ -15,6 +15,7 @@ import {PopoverProps} from "@nextui-org/popover";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {
   MultiSelectProps,
+  MultiSelectState,
   useMultiSelect,
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
@@ -122,6 +123,15 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
   classNames?: SlotsToClasses<SelectSlots>;
 }
 
+interface SelectData {
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  name?: string;
+  validationBehavior?: "aria" | "native";
+}
+
+export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
+
 export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
   MultiSelectProps<T> &
   SelectVariantProps;
@@ -133,17 +143,16 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const {
     ref,
     as,
-    isOpen,
     label,
     name,
     isLoading,
     selectorIcon,
+    isOpen,
     defaultOpen,
     onOpenChange,
     startContent,
     endContent,
     description,
-    errorMessage,
     renderValue,
     onSelectionChange,
     placeholder,
@@ -205,7 +214,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useMultiSelectState<T>({
+  let state = useMultiSelectState<T>({
     ...props,
     isOpen,
     selectionMode,
@@ -236,6 +245,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
   });
 
+  state = {
+    ...state,
+    ...(originalProps?.isDisabled && {
+      disabledKeys: new Set([...state.collection.getKeys()]),
+    }),
+  };
+
   // if we use `react-hook-form`, it will set the native select value using the ref in register
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
@@ -245,12 +261,23 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     state.setSelectedKeys(new Set([...state.selectedKeys, domRef.current.value]));
   }, [domRef.current]);
 
-  const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useMultiSelect(
-      {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
-      state,
-      triggerRef,
-    );
+  const {
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+  } = useMultiSelect(
+    {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
+    state,
+    triggerRef,
+  );
+
+  const isInvalid = originalProps.isInvalid || validationState === "invalid" || isAriaInvalid;
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
@@ -265,13 +292,12 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
-  const hasHelper = !!description || !!errorMessage;
   const hasPlaceholder = !!placeholder;
-  const isInvalid = validationState === "invalid" || originalProps.isInvalid;
   const shouldLabelBeOutside =
     labelPlacement === "outside-left" ||
     (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
+  const isOutsideLeft = labelPlacement === "outside-left";
 
   const isFilled =
     state.isOpen ||
@@ -314,6 +340,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }
     }
   }, [state.isOpen, disableAnimation]);
+
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors?.join(" ");
+
+  const hasHelper = !!description || !!errorMessage;
 
   // apply the same with to the popover as the select
   useEffect(() => {
@@ -575,6 +608,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, spinnerRef, spinnerProps, classNames?.spinner],
   );
 
+  // store the data to be used in useHiddenSelect
+  selectData.set(state, {
+    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps?.isRequired,
+    name: originalProps?.name,
+    validationBehavior: "native",
+  });
+
   return {
     Component,
     domRef,
@@ -588,15 +629,17 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     endContent,
     description,
     selectorIcon,
-    errorMessage,
     hasHelper,
     labelPlacement,
     hasPlaceholder,
     renderValue,
     selectionMode,
     disableAnimation,
+    isOutsideLeft,
     shouldLabelBeOutside,
     shouldLabelBeInside,
+    isInvalid,
+    errorMessage,
     getBaseProps,
     getTriggerProps,
     getLabelProps,

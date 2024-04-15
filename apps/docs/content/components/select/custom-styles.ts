@@ -213,7 +213,7 @@ export default function App() {
       variant="bordered"
       classNames={{
         label: "group-data-[filled=true]:-translate-y-5",
-        trigger: "min-h-unit-16",
+        trigger: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}
       listboxProps={{

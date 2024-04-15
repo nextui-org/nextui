@@ -8,7 +8,9 @@ import {useFormReset} from "@react-aria/utils";
 import {useInteractionModality} from "@react-aria/interactions";
 import {useVisuallyHidden} from "@react-aria/visually-hidden";
 import {MultiSelectProps, MultiSelectState} from "@nextui-org/use-aria-multiselect";
+import {useFormValidation} from "@react-aria/form";
 
+import {selectData} from "./use-select";
 export interface AriaHiddenSelectProps {
   /**
    * Describes the type of autocomplete functionality the input should provide if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete).
@@ -59,12 +61,27 @@ export function useHiddenSelect<T>(
   state: MultiSelectState<T>,
   triggerRef: RefObject<FocusableElement>,
 ) {
-  let {autoComplete, name, isDisabled, isRequired, selectionMode, onChange} = props;
+  let data = selectData.get(state) || {};
+  let {
+    autoComplete,
+    name = data.name,
+    isDisabled = data.isDisabled,
+    selectionMode,
+    onChange,
+  } = props;
+  let {validationBehavior, isRequired} = data;
   let modality = useInteractionModality();
   let {visuallyHiddenProps} = useVisuallyHidden();
 
-  // @ts-ignore
-  useFormReset(props.selectRef, state.selectedKey, state.setSelectedKey);
+  useFormReset(props.selectRef!, state.selectedKeys, state.setSelectedKeys);
+  useFormValidation(
+    {
+      validationBehavior,
+      focus: () => triggerRef.current?.focus(),
+    },
+    state,
+    props.selectRef,
+  );
 
   return {
     containerProps: {
@@ -89,6 +106,8 @@ export function useHiddenSelect<T>(
       name,
       tabIndex: -1,
       autoComplete,
+      // TODO: Address validation for cases where an option is selected and then deselected.
+      // required: validationBehavior === "native" && isRequired,
       disabled: isDisabled,
       size: state.collection.size,
       value:

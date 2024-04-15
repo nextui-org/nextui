@@ -10,7 +10,7 @@ import {
 } from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
 
-import {TimeInput, TimeInputProps, TimeValue} from "../src";
+import {TimeInput, TimeInputProps, TimeInputValue as TimeValue} from "../src";
 
 export default {
   title: "Components/TimeInput",
@@ -167,7 +167,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    description: "Please enter your birth date",
+    description: "Please enter your meeting time",
   },
 };
 
@@ -230,7 +230,7 @@ export const Granularity = {
   },
 };
 
-export const MinDateValue = {
+export const MinTimeValue = {
   render: Template,
 
   args: {
@@ -240,7 +240,7 @@ export const MinDateValue = {
   },
 };
 
-export const MaxDateValue = {
+export const MaxTimeValue = {
   render: Template,
 
   args: {

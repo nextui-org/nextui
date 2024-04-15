@@ -6,8 +6,7 @@ import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps, chain} from "@react-aria/utils";
 import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
@@ -68,7 +67,7 @@ interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProp
 }
 
 export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
+  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange" | "validationBehavior"> &
   CheckboxVariantProps;
 
 export function useCheckbox(props: UseCheckboxProps = {}) {
@@ -82,7 +81,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     children,
     icon,
     name,
-    isRequired = false,
+    isRequired,
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,
@@ -97,7 +96,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isIndeterminate = false,
     defaultSelected,
     classNames,
-    onChange,
     className,
     onValueChange,
     ...otherProps
@@ -123,6 +121,18 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const domRef = useRef<HTMLLabelElement>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // This workaround might become unnecessary once the following issue is resolved
+  // https://github.com/adobe/react-spectrum/issues/5693
+  let onChange = props.onChange;
+
+  if (isInGroup) {
+    const dispatch = () => {
+      groupContext.groupState.resetValidation();
+    };
+
+    onChange = chain(dispatch, onChange);
+  }
 
   const labelId = useId();
 
@@ -172,11 +182,12 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         {
           ...ariaCheckboxProps,
           isInvalid,
+          validationBehavior: "native",
         },
         groupContext.groupState,
         inputRef,
       )
-    : useReactAriaCheckbox(ariaCheckboxProps, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
+    : useReactAriaCheckbox({...ariaCheckboxProps, validationBehavior: "native",}, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
 
   const isInteractionDisabled = isDisabled || isReadOnly;
 

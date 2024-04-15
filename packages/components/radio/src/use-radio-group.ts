@@ -47,7 +47,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
 }
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaRadioGroupProps, "onChange"> &
+  Omit<AriaRadioGroupProps, "onChange" | "validationBehavior"> &
   Partial<Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">>;
 
 export type ContextType = {
@@ -76,8 +76,6 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
-    validationState,
-    isInvalid = validationState === "invalid",
     isReadOnly,
     errorMessage,
     description,
@@ -99,8 +97,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       isRequired,
       isReadOnly,
-      isInvalid,
+      isInvalid: props.validationState === "invalid" || props.isInvalid,
       orientation,
+      validationBehavior: "native",
       onChange: onValueChange,
     };
   }, [
@@ -110,7 +109,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     isRequired,
     isReadOnly,
-    isInvalid,
+    props.isInvalid,
+    props.validationState,
     orientation,
     onValueChange,
   ]);
@@ -122,7 +122,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     radioGroupProps: groupProps,
     errorMessageProps,
     descriptionProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
+
+  const isInvalid = props.validationState === "invalid" || props.isInvalid || isAriaInvalid;
 
   const context: ContextType = useMemo(
     () => ({
@@ -209,8 +214,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     children,
     label,
     context,
-    errorMessage,
     description,
+    isInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage({isInvalid, validationErrors, validationDetails})
+        : errorMessage || validationErrors?.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

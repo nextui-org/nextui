@@ -28,7 +28,7 @@ const dateInput = tv({
       "group-data-[invalid=true]:text-danger",
     ], // this wraps the input and the start/end content
     segment: [
-      "group -ml-0.5 px-0.5 my-auto box-content tabular-nums text-start",
+      "group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start",
       "inline-block outline-none focus:shadow-sm rounded-md",
       "text-foreground-500 data-[editable=true]:text-foreground",
       "data-[editable=true]:data-[placeholder=true]:text-foreground-500",
@@ -133,16 +133,16 @@ const dateInput = tv({
       sm: {
         label: "text-tiny",
         input: "text-small",
-        inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        inputWrapper: "h-8 min-h-8 px-2 rounded-small",
       },
       md: {
         input: "text-small",
-        inputWrapper: "h-unit-10 min-h-unit-10 rounded-medium",
+        inputWrapper: "h-10 min-h-10 rounded-medium",
         clearButton: "text-large",
       },
       lg: {
         input: "text-medium",
-        inputWrapper: "h-unit-12 min-h-unit-12 rounded-large",
+        inputWrapper: "h-12 min-h-12 rounded-large",
       },
     },
     radius: {

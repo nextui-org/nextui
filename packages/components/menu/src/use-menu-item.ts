@@ -10,8 +10,7 @@ import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
 import {useMenuItem as useAriaMenuItem} from "@react-aria/menu";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 
 interface Props<T extends object> extends MenuItemBaseProps<T> {
