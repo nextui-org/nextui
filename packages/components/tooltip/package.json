@@ -59,7 +59,7 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "framer-motion": "^11.0.20",
+    "framer-motion": "^11.0.28",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

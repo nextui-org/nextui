@@ -69,7 +69,7 @@
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

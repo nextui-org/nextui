@@ -67,7 +67,7 @@
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/stories-utils": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.0.28",
     "@react-aria/i18n": "^3.10.2",
     "@react-stately/data": "^3.11.2",
     "clean-package": "2.2.0",
