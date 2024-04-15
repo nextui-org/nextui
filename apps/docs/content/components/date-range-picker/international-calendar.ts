@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4">
       <I18nProvider locale="hi-IN-u-ca-indian">
-        <DateRangePicker label="Appointment date" value={date} onChange={setDate} />
+        <DateRangePicker label="Stay duration" value={date} onChange={setDate} />
       </I18nProvider>
     </div>
   );
@@ -31,7 +31,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4">
       <I18nProvider locale="hi-IN-u-ca-indian">
-        <DateRangePicker label="Appointment date" value={date} onChange={setDate} />
+        <DateRangePicker label="Stay duration" value={date} onChange={setDate} />
       </I18nProvider>
     </div>
   );

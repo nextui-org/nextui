@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <DateRangePicker
-      aria-label="Appointment date"
+      label="Stay duration"
       isDateUnavailable={(date) =>
         disabledRanges.some(
           (interval) => date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0,

@@ -1,5 +1,5 @@
-const SelectorIcon = `export const SelectorIcon = () => (
-  <svg height="1em" viewBox="0 0 24 24" width="1em">
+const SelectorIcon = `export const SelectorIcon = (props) => (
+  <svg height="1em" viewBox="0 0 24 24" width="1em" {...props}>
     <g
       fill="none"
       stroke="currentColor"
@@ -21,7 +21,7 @@ export default function App() {
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
       <DateRangePicker 
         label="Stay duration"
-        selectorIcon={<SelectorIcon />}
+        selectorIcon={<SelectorIcon className="text-xl" />}
       />
     </div> 
   );

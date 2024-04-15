@@ -187,6 +187,44 @@
           "path": "/docs/components/checkbox-group.mdx"
         },
         {
+          "key": "chip",
+          "title": "Chip",
+          "keywords": "chip, tag, label, small actionable entity",
+          "path": "/docs/components/chip.mdx"
+        },
+        {
+          "key": "code",
+          "title": "Code",
+          "keywords": "code, code snippet, inline code, coding",
+          "path": "/docs/components/code.mdx"
+        },
+        {
+          "key": "input",
+          "title": "Input",
+          "keywords": "input, text box, form field, data entry",
+          "path": "/docs/components/input.mdx"
+        },
+        {
+          "key": "date-input",
+          "title": "Date Input",
+          "keywords": "date-input, time, input, timezone",
+          "path": "/docs/components/date-input.mdx",
+          "newPost": true
+        },
+        {
+          "key": "time-input",
+          "title": "Time Input",
+          "keywords": "timeinput, time, input, timezone",
+          "path": "/docs/components/time-input.mdx",
+          "newPost": true
+        },
+        {
+          "key": "circular-progress",
+          "title": "Circular Progress",
+          "keywords": "circular progress, loading indicator, activity sign, process display",
+          "path": "/docs/components/circular-progress.mdx"
+        },
+        {
           "key": "calendar",
           "title": "Calendar",
           "keywords": "calendar, date picker, month picker, year picker",
@@ -199,24 +237,6 @@
           "keywords": "range calendar, date picker, month picker, year picker",
           "path": "/docs/components/range-calendar.mdx",
           "newPost": true
-        },
-        {
-          "key": "chip",
-          "title": "Chip",
-          "keywords": "chip, tag, label, small actionable entity",
-          "path": "/docs/components/chip.mdx"
-        },
-        {
-          "key": "circular-progress",
-          "title": "Circular Progress",
-          "keywords": "circular progress, loading indicator, activity sign, process display",
-          "path": "/docs/components/circular-progress.mdx"
-        },
-        {
-          "key": "code",
-          "title": "Code",
-          "keywords": "code, code snippet, inline code, coding",
-          "path": "/docs/components/code.mdx"
         },
         {
           "key": "date-picker",
@@ -249,26 +269,6 @@
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
           "path": "/docs/components/image.mdx"
-        },
-        {
-          "key": "input",
-          "title": "Input",
-          "keywords": "input, text box, form field, data entry",
-          "path": "/docs/components/input.mdx"
-        },
-        {
-          "key": "date-input",
-          "title": "Date Input",
-          "keywords": "date-input, time, input, timezone",
-          "path": "/docs/components/date-input.mdx",
-          "newPost": true
-        },
-        {
-          "key": "time-input",
-          "title": "Time Input",
-          "keywords": "timeinput, time, input, timezone",
-          "path": "/docs/components/time-input.mdx",
-          "newPost": true
         },
         {
           "key": "kbd",

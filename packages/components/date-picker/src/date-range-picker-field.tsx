@@ -41,9 +41,12 @@ function DateRangePickerField<T extends DateValue>(
 
   const {locale} = useLocale();
 
-  const state = useDateFieldState({
+  let state = useDateFieldState({
     ...otherProps,
     locale,
+    isInvalid: true,
+    isDisabled: true,
+    validationBehavior: "native",
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"
         ? createCalendar
@@ -52,7 +55,15 @@ function DateRangePickerField<T extends DateValue>(
 
   const inputRef = useRef(null);
 
-  const {fieldProps, inputProps} = useAriaDateField({...otherProps, inputRef}, state, domRef);
+  const {
+    fieldProps,
+    inputProps,
+    isInvalid: ariaIsInvalid,
+  } = useAriaDateField({...otherProps, inputRef}, state, domRef);
+
+  const isInvalid = props.isInvalid || ariaIsInvalid;
+
+  state.isInvalid = isInvalid;
 
   return (
     <Component {...mergeProps(fieldProps, filterDOMProps(otherProps))} ref={domRef}>

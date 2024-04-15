@@ -3,8 +3,8 @@ const App = `import {DateRangePicker} from "@nextui-org/react";
 export default function App() {
   return (
     <DateRangePicker
-      label="Email"
-      description="We'll never share your email with anyone else."
+      label="Stay duration"
+      description="Please enter your stay duration"
       className="max-w-xs"
     />
   );

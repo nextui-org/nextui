@@ -4,9 +4,10 @@ import {parseDate} from "@internationalized/date";
 export default function App() {
   return (
     <DateRangePicker 
-      label="Stay duration" 
       isInvalid
-      errorMessage="Please enter a valid email"
+      label="Stay duration" 
+      variant="bordered"
+      errorMessage="Please enter your stay duration"
       defaultValue={{
         start: parseDate("2024-04-01"),
         end: parseDate("2024-04-08"),
