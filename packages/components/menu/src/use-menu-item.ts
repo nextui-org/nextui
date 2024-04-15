@@ -125,6 +125,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
         enabled: shouldFilterDOMProps,
       }),
       props,
+      {onClick: chain(pressProps.onClick, onClick)},
     ),
     "data-focus": dataAttr(isFocused),
     "data-selectable": dataAttr(isSelectable),
@@ -134,7 +135,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     "data-pressed": dataAttr(isPressed),
     "data-focus-visible": dataAttr(isFocusVisible),
     className: slots.base({class: clsx(baseStyles, props.className)}),
-    onClick: chain(pressProps.onClick, onClick),
   });
 
   const getLabelProps: PropGetter = (props = {}) => ({

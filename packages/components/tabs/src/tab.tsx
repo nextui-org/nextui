@@ -111,11 +111,11 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
           enabled: shouldFilterDOMProps,
           omitPropNames: new Set(["title"]),
         }),
+        {onClick: handleClick},
       )}
       className={slots.tab?.({class: tabStyles})}
       title={otherProps?.titleValue}
       type={Component === "button" ? "button" : undefined}
-      onClick={handleClick}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
         <LazyMotion features={domMax}>
