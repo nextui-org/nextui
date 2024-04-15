@@ -54,14 +54,13 @@
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/use-aria-accordion": "workspace:*",
-    "@nextui-org/use-aria-press": "workspace:*",
-    "@react-aria/interactions": "^3.19.1",
-    "@react-aria/focus": "^3.14.3",
-    "@react-aria/utils": "^3.21.1",
-    "@react-stately/tree": "^3.7.3",
-    "@react-aria/button": "^3.8.4",
-    "@react-types/accordion": "3.0.0-alpha.17",
-    "@react-types/shared": "3.21.0"
+    "@react-aria/interactions": "^3.21.1",
+    "@react-aria/focus": "^3.16.2",
+    "@react-aria/utils": "^3.23.2",
+    "@react-stately/tree": "^3.7.6",
+    "@react-aria/button": "^3.9.3",
+    "@react-types/accordion": "3.0.0-alpha.19",
+    "@react-types/shared": "^3.22.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

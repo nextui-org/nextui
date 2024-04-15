@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/focus": "^3.14.3",
-    "@react-stately/tree": "^3.7.3",
-    "@react-aria/button": "^3.8.4",
-    "@react-types/shared": "3.21.0"
+    "@react-aria/button": "^3.9.3",
+    "@react-aria/focus": "^3.16.2",
+    "@react-stately/tree": "^3.7.6",
+    "@react-types/shared": "^3.22.1"
   },
   "peerDependencies": {
     "react": ">=18"

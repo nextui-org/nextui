@@ -49,7 +49,7 @@ describe("Input", () => {
   });
 
   it("should have aria-describedby when errorMessage is provided", () => {
-    const {container} = render(<Input errorMessage="error text" label="test input" />);
+    const {container} = render(<Input isInvalid errorMessage="error text" label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-describedby");
   });

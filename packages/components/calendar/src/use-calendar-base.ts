@@ -224,7 +224,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
 
   const [isHeaderExpanded, setIsHeaderExpanded] = useControlledState<boolean | undefined>(
     isHeaderExpandedProp,
-    isHeaderDefaultExpanded,
+    isHeaderDefaultExpanded ?? false,
     handleHeaderExpandedChange,
   );
 

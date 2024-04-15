@@ -109,7 +109,7 @@ export type UseDatePickerBaseProps<T extends DateValue> = Props<T> &
     DateInputProps<T>,
     Variants | "ref" | "createCalendar" | "startContent" | "endContent" | "inputRef"
   > &
-  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate">;
+  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate" | "validationBehavior">;
 
 export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePickerBaseProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
@@ -128,7 +128,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     description,
     startContent,
     validationState,
-    validationBehavior,
+    // validationBehavior,  TODO: Uncomment this one we support `native` and `aria` validations
     visibleMonths = 1,
     pageBehavior = "visible",
     calendarWidth = 256,
@@ -213,7 +213,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     description,
     startContent,
     validationState,
-    validationBehavior,
+    validationBehavior: "native",
     shouldForceLeadingZeros,
     isInvalid,
     errorMessage,

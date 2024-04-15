@@ -46,22 +46,22 @@
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/overlays": "^3.18.1",
-    "@react-aria/tooltip": "^3.6.4",
-    "@react-stately/tooltip": "^3.4.5",
-    "@react-aria/interactions": "^3.19.1",
-    "@react-aria/utils": "^3.21.1",
-    "@react-types/tooltip": "^3.4.5",
-    "@react-types/overlays": "^3.8.3"
+    "@react-aria/interactions": "^3.21.1",
+    "@react-aria/overlays": "^3.21.1",
+    "@react-aria/tooltip": "^3.7.2",
+    "@react-aria/utils": "^3.23.2",
+    "@react-stately/tooltip": "^3.4.7",
+    "@react-types/overlays": "^3.8.5",
+    "@react-types/tooltip": "^3.4.7"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "framer-motion": "^10.16.4",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "framer-motion": "^11.0.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }
