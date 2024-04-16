@@ -44,8 +44,6 @@ function DateRangePickerField<T extends DateValue>(
   let state = useDateFieldState({
     ...otherProps,
     locale,
-    isInvalid: true,
-    isDisabled: true,
     validationBehavior: "native",
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"
