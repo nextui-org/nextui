@@ -8,7 +8,6 @@
 "@nextui-org/select": patch
 "@nextui-org/tabs": patch
 "@nextui-org/tooltip": patch
-"@nextui-org/framer-transitions": patch
 ---
 
 Fixed the issue where only two keyframes were supported with spring and inertia animations.
