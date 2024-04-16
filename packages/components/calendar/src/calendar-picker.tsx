@@ -65,6 +65,9 @@ export function CalendarPicker(props: CalendarPickerProps) {
         class: classNames?.pickerWrapper,
       })}
       data-slot="picker-wrapper"
+      // makes the browser ignore the element and its children when tabbing
+      // @ts-ignore
+      inert={isHeaderExpanded ? true : undefined}
     >
       <div
         ref={highlightRef}

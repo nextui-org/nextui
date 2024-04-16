@@ -8,6 +8,7 @@ const calendar = tv({
     base: [
       "relative w-fit max-w-full shadow-small inline-block overflow-y-hidden",
       "rounded-large overflow-x-auto bg-default-50 dark:bg-background",
+      "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
     ],
     prevButton: [],
     nextButton: [],
@@ -22,7 +23,7 @@ const calendar = tv({
     ],
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
-    content: "w-fit",
+    content: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
     gridWrapper: "flex max-w-full overflow-hidden pb-2 h-auto relative",
     grid: "w-full border-collapse z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",

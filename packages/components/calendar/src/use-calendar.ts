@@ -38,6 +38,7 @@ export function useCalendar<T extends DateValue>({
     showHelper,
     weekdayStyle,
     visibleDuration,
+    baseProps,
     shouldFilterDOMProps,
     isHeaderExpanded,
     visibleMonths,
@@ -81,6 +82,7 @@ export function useCalendar<T extends DateValue>({
 
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
+      ...baseProps,
       Component,
       showHelper,
       topContent,

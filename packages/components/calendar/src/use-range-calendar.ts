@@ -40,6 +40,7 @@ export function useRangeCalendar<T extends DateValue>({
     isHeaderExpanded,
     visibleMonths,
     createCalendar: createCalendarProp,
+    baseProps,
     getPrevButtonProps,
     getNextButtonProps,
     getErrorMessageProps,
@@ -73,6 +74,7 @@ export function useRangeCalendar<T extends DateValue>({
 
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
+      ...baseProps,
       Component,
       showHelper,
       topContent,

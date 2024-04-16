@@ -69,7 +69,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
 
   return (
     <td className={slots?.cell({class: classNames?.cell})} data-slot="cell" {...cellProps}>
-      <button
+      <span
         {...mergeProps(buttonProps, hoverProps, focusProps)}
         ref={ref}
         className={slots?.cellButton({class: classNames?.cellButton})}
@@ -88,10 +88,9 @@ export function CalendarCell(originalProps: CalendarCellProps) {
         data-selection-start={dataAttr(isSelectionStart)}
         data-today={dataAttr(isToday(props.date, state.timeZone))}
         data-unavailable={dataAttr(isUnavailable)}
-        tabIndex={isDisabled ? -1 : 0}
       >
         <span>{formattedDate}</span>
-      </button>
+      </span>
     </td>
   );
 }
