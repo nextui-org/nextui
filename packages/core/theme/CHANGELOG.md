@@ -1,5 +1,34 @@
 # @nextui-org/theme
 
+## 2.2.0
+
+### Minor Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+### Patch Changes
+
+- [#2538](https://github.com/nextui-org/nextui/pull/2538) [`0359bf308`](https://github.com/nextui-org/nextui/commit/0359bf3084d9f0fc29bf70505b600dab5e1c5da1) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed missing disableAnimation behavior in skeleton
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Support slots in AvatarGroup
+
+- [#2522](https://github.com/nextui-org/nextui/pull/2522) [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed unexpected props on a DOM element (#2474)
+
+- [#2677](https://github.com/nextui-org/nextui/pull/2677) [`4dd2605ac`](https://github.com/nextui-org/nextui/commit/4dd2605ac2270b419ff5b652a116e5048ec95c87) Thanks [@u3u](https://github.com/u3u)! - Fix: remove conflicting transition utilities (close #1502)
+
+  See: https://tailwindcss.com/docs/transition-property
+
+- [#2702](https://github.com/nextui-org/nextui/pull/2702) [`2829d4afa`](https://github.com/nextui-org/nextui/commit/2829d4afaef37ad899fec36d6a9e0e9d2f95094f) Thanks [@wingkwong](https://github.com/wingkwong)! - Changed the HSL rounding to 2 decimal places (#2697)
+
 ## 2.1.18
 
 ### Patch Changes

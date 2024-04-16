@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/kbd",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "The keyboard key components indicates which key or set of keys used to execute a specificv  action",
   "keywords": [
     "kbd"
