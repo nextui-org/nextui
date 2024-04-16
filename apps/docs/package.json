@@ -118,6 +118,7 @@
     "algoliasearch": "^4.10.3",
     "autoprefixer": "^10.4.14",
     "dotenv": "^16.0.1",
+    "esbuild-plugin-raw": "0.1.8",
     "eslint-config-next": "^13.5.1",
     "markdown-toc": "^1.2.0",
     "next-sitemap": "^4.1.8",
