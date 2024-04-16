@@ -1,5 +1,14 @@
 # @nextui-org/modal
 
+## 2.0.31
+
+### Patch Changes
+
+- [#2739](https://github.com/nextui-org/nextui/pull/2739) [`60c61aaf0`](https://github.com/nextui-org/nextui/commit/60c61aaf0c46a01ca1ee0d99a6b2d0a1784cc357) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix modal inside and outside scroll
+
+- Updated dependencies [[`60c61aaf0`](https://github.com/nextui-org/nextui/commit/60c61aaf0c46a01ca1ee0d99a6b2d0a1784cc357)]:
+  - @nextui-org/use-aria-modal-overlay@2.0.8
+
 ## 2.0.30
 
 ### Patch Changes

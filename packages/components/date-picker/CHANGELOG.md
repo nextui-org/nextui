@@ -1,5 +1,11 @@
 # @nextui-org/date-picker
 
+## 2.0.2
+
+### Patch Changes
+
+- [#2737](https://github.com/nextui-org/nextui/pull/2737) [`fdbfa1f29`](https://github.com/nextui-org/nextui/commit/fdbfa1f2999e3a6304c7cf36fd73ce5e4ef3fe50) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Static props removed from date range input picker field
+
 ## 2.0.1
 
 ### Patch Changes

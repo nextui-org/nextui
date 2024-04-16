@@ -1,5 +1,13 @@
 # @nextui-org/react
 
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`60c61aaf0`](https://github.com/nextui-org/nextui/commit/60c61aaf0c46a01ca1ee0d99a6b2d0a1784cc357), [`fdbfa1f29`](https://github.com/nextui-org/nextui/commit/fdbfa1f2999e3a6304c7cf36fd73ce5e4ef3fe50)]:
+  - @nextui-org/modal@2.0.31
+  - @nextui-org/date-picker@2.0.2
+
 ## 2.3.0
 
 ### Minor Changes
