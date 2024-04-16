@@ -1,5 +1,30 @@
 # @nextui-org/ripple
 
+## 2.0.25
+
+### Patch Changes
+
+- [#2622](https://github.com/nextui-org/nextui/pull/2622) [`2e49e0831`](https://github.com/nextui-org/nextui/commit/2e49e0831533350808e0fcbd48585f910981b39a) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed LazyMotion forwardRef issue
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.0.24
 
 ### Patch Changes

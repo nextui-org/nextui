@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-toggle-button",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Internal hook to handle button a11y and events, this is based on react-aria button hook but without the onClick warning",
   "keywords": [
     "use-aria-toggle-button"
