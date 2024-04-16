@@ -64,9 +64,9 @@ const input = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
-    description: "text-tiny text-foreground-400",
-    errorMessage: "text-tiny text-danger",
+    helperWrapper: "hidden group-data-[has-helper=true]:flex relative flex-col",
+    description: "text-tiny text-foreground-400 p-1",
+    errorMessage: "text-tiny text-danger p-1 absolute",
   },
   variants: {
     variant: {
