@@ -31,7 +31,7 @@ export default function App() {
         <Popover key={placement} placement={placement} color="secondary">
           <PopoverTrigger>
             <Button color="secondary" variant="flat" className="capitalize">
-              {placement?.replace("-", " ")}
+              {placement.replace("-", " ")}
             </Button>
           </PopoverTrigger>
           {content}
