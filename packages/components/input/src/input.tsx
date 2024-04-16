@@ -16,8 +16,8 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     endContent,
     labelPlacement,
     hasHelper,
-    isOutsideLeft,
     shouldLabelBeOutside,
+    shouldLabelBeOutsideLeft,
     errorMessage,
     isInvalid,
     getBaseProps,
@@ -87,7 +87,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       return (
         <div {...getMainWrapperProps()}>
           <div {...getInputWrapperProps()}>
-            {!isOutsideLeft ? labelContent : null}
+            {!shouldLabelBeOutsideLeft ? labelContent : null}
             {innerWrapper}
           </div>
           {helperWrapper}
@@ -120,7 +120,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {isOutsideLeft ? labelContent : null}
+      {shouldLabelBeOutsideLeft ? labelContent : null}
       {mainWrapper}
     </Component>
   );
