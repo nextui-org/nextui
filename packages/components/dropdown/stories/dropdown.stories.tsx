@@ -137,7 +137,7 @@ const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) 
     <DropdownTrigger>
       <Button>Trigger</Button>
     </DropdownTrigger>
-    <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+    <DropdownMenu aria-label="Actions" color={color} variant={variant}>
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
