@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system-rsc",
-  "version": "2.0.11",
+  "version": "2.1.0",
   "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "react": "^18.0.0",
-   "tailwind-variants": "^0.1.20",
+    "tailwind-variants": "^0.1.20",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
