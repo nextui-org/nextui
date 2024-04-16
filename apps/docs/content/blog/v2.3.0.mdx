@@ -283,27 +283,97 @@ export function Providers({children}: ProvidersProps) {
 }
 ```
 
-## Other Changes
+<Spacer y={4} />
 
-- Bug Fixes:
 
-- Styling Improvements:
+## Breaking Changes
 
-- Accessibility and Usability Enhancements:
+In order to improve the performance and reduce the bundle size, we have removed the `units` creation from the 
+`nextui` plugin. [TailwindCSS v3.4](https://tailwindcss.com/blog/tailwindcss-v3-4) added support for `min-h-*` and `min-w-*` classes, so it is no longer needed.
 
-- Right-to-Left (RTL) Support:
+How to upgrade:
 
-  - Implemented RTL support across various components including Accordion, Avatar & AvatarGroup, and ButtonGroup, enhancing usability for RTL languages.
+1. Upgrade TailwindCSS to version 3.4 or later (if you haven't already). You can do this by running:
 
-- Performance Improvements:
+```bash
+npm install tailwindcss@latest
+```
 
-  - We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above.
+2. Remove the `spacingUnit` configuration from your `tailwind.config.(js|ts)` file (if you have it):
 
-- Visual and Interactive Tweaks:
+```diff-js
+ plugins: [
+    nextui({
+      layout: {
+-       spacingUnit: 4,
+      },
+    }),
+  ],
+```
+
+3. Find all `-unit` classes in your project and replace them with a `-` separator. For example, replace `p-unit-4` with `p-4`.
+
+```diff-jsx
+import {Button} from "@nextui-org/react";
+
+export const MyButton = () => {
+  return (
+-    <Button className="px-unit-2 py-unit-1 min-w-unit-48">
++    <Button className="px-2 py-1 min-w-48">
+      My Button
+    </Button>
+  );
+};
+```
+
+That's it! Your project should now be using the latest version of TailwindCSS and NextUI.
+
 
 <Spacer y={4} />
 
-## Breaking Changes
+
+## Other Changes
+
+**Bug Fixes**:
+
+- Fixed an HSL color rounding issue in the theme settings to ensure accurate color representation. [PR](https://github.com/nextui-org/nextui/pull/2702) - [@wingkwong](https://github.com/wingkwong)
+- Removed conflicting transition definitions affecting CSS classes. [PR](https://github.com/nextui-org/nextui/pull/2677) - [@u3u](https://github.com/u3u)
+- Patched the "@nextui-org/autocomplete" package to fix an issue where empty items with `allowCustomValue` would not render properly due to a null node problem. [PR](https://github.com/nextui-org/nextui/pull/2674) - [@wingkwong](https://github.com/wingkwong)
+- Implemented a fix in modal components to prevent carryover of IME (Input Method Editor) input when switching fields using the Tab key. [PR](https://github.com/nextui-org/nextui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
+- Enhanced accessibility by handling Tab key press event in the `ModalContent` component. [PR](https://github.com/nextui-org/nextui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
+- Fixed an issue where disabled select components could still be changed using blur and keyboard shortcuts. [PR](https://github.com/nextui-org/nextui/pull/2649) - [@wingkwong](https://github.com/wingkwong)
+- Patched issues in "@nextui-org/use-aria-multiselect" and "@nextui-org/stories-utils" packages to fix a warning about `SELECT defaultSelectedKeys`. [PR](https://github.com/nextui-org/nextui/pull/2648) - [@wingkwong](https://github.com/wingkwong)
+- Fixed an issue with incorrect `onChange` typing in Checkbox Group, ensuring it now correctly handles an array of strings as values. [PR](https://github.com/nextui-org/nextui/pull/2595) - [@wingkwong](https://github.com/wingkwong)
+- Fixed the `label` placement issue in `Select` component if a `description` prop is used [PR](https://github.com/nextui-org/nextui/pull/2553) - [@novsource](https://github.com/novsource)
+- Fixed the `originalProps` spread issue in the `Dropdown` component. [PR](https://github.com/nextui-org/nextui/pull/2450) - [@wingkwong](https://github.com/wingkwong)
+
+**Improvements**
+- Framer Motion was updated to the latest version, improving performance and reducing bundle size. [Docs](https://www.framer.com/motion/guide-reduce-bundle-size/) [PR](https://github.com/nextui-org/nextui/pull/2464) - [@mezotv](https://github.com/mezotv)
+- `LazyMotion` was added to all components that use Framer Motion, improving performance by only loading the required motion components.
+- We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above. [PR](https://github.com/nextui-org/nextui/pull/2713) - [@jrgarciadev](https://github.com/jrgarciadev) 
+- Updated `framer-motion` package across various components and utilities to version `11.0.22` for enhanced performance and consistency. [PR](https://github.com/nextui-org/nextui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
+- Ensured compatibility with `react@18.2.0` and `react-dom@18.2.0` across the board. [PR](https://github.com/nextui-org/nextui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
+- Introduced patches for NextUI components to improve animations, including support for keyframes with spring and inertia animations. [PR](https://github.com/nextui-org/nextui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
+- Improved handling of numeric keys in the multi-select component to ensure consistent behavior. [PR](https://github.com/nextui-org/nextui/pull/2589) - [@wingkwong](https://github.com/wingkwong)
+- Updated the version of react-aria to include the latest changes as detailed in the [2024-02-13 release](https://react-spectrum.adobe.com/releases/2024-02-13.html). [PR](https://github.com/nextui-org/nextui/pull/2561) - [@ryo-manba](https://github.com/ryo-manba)
+- Added support for custom class names in the `AvatarGroup` component, enhancing flexibility in styling. [PR](https://github.com/nextui-org/nextui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
+- Introduced a `count` slot to the `AvatarGroup` for more customized rendering. [PR](https://github.com/nextui-org/nextui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
+- Improved the `AvatarGroup` component's count rendering logic for better performance and flexibility. [PR](https://github.com/nextui-org/nextui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
+- Add RTL support to the kbd component. [PR](https://github.com/nextui-org/nextui/pull/2482) - [@mrbadri](https://github.com/mrbadri)
+- Add RTL support to the Select component. [PR](https://github.com/nextui-org/nextui/pull/2485) - [@mrbadri](https://github.com/mrbadri)
+- Add RTL support to the avatar group componen. [PR](https://github.com/nextui-org/nextui/pull/2498) - [@mrbadri](https://github.com/mrbadri)
+- Add RTL support to the Table component. [PR](https://github.com/nextui-org/nextui/pull/2472) - [@mrbadri](https://github.com/mrbadri)
+
+**Documentation**:
+- Updated documentation to reflect the new features and changes in the `AvatarGroup` component.
+- Added support for the "bun" package manager across documentation and components. [PR](https://github.com/nextui-org/nextui/pull/2625) - [@sudongyuer](https://github.com/sudongyuer)
+- [Kapa.ai](https://www.kapa.ai/) widget was added to the documentation to provide AI support for users. [PR](https://github.com/nextui-org/nextui/pull/2428) - [@wingkwong](https://github.com/sudongyuer)
+- Layout docs updated to remove the `units` configuration from the `tailwind.config.(js|ts)` file.
+
+
+Special thanks to all the contributors who helped make this release possible! 🎉
+
+For a full list of changes, please refer to the [release notes](https://github.com/nextui-org/nextui/releases/tag/%40nextui-org%2Freact%402.3.0).
 
 <Spacer y={6} />
 
