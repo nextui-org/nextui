@@ -7,14 +7,14 @@
 - [#1946](https://github.com/nextui-org/nextui/pull/1946) [`36775dcee`](https://github.com/nextui-org/nextui/commit/36775dceee18e4b69684bab4cbdd122a6034c91f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1941 style prop added to the base navbar element.
 
 - Updated dependencies []:
-  - @nextui-org/framer-transitions@2.0.15
+  - @nextui-org/framer-utils@2.0.15
 
 ## 2.0.26
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @nextui-org/framer-transitions@2.0.14
+  - @nextui-org/framer-utils@2.0.14
 
 ## 2.0.25
 
@@ -23,7 +23,7 @@
 - [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
 
 - Updated dependencies []:
-  - @nextui-org/framer-transitions@2.0.13
+  - @nextui-org/framer-utils@2.0.13
 
 ## 2.0.24
 
@@ -33,7 +33,7 @@
 
 - Updated dependencies []:
   - @nextui-org/system@2.0.12
-  - @nextui-org/framer-transitions@2.0.12
+  - @nextui-org/framer-utils@2.0.12
 
 ## 2.0.23
 
@@ -46,7 +46,7 @@
   - @nextui-org/theme@2.1.10
   - @nextui-org/use-aria-toggle-button@2.0.6
   - @nextui-org/use-scroll-position@2.0.4
-  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/framer-utils@2.0.11
   - @nextui-org/react-utils@2.0.10
   - @nextui-org/shared-utils@2.0.4
 
@@ -58,7 +58,7 @@
   - @nextui-org/theme@2.1.9
   - @nextui-org/system@2.0.10
   - @nextui-org/react-utils@2.0.9
-  - @nextui-org/framer-transitions@2.0.10
+  - @nextui-org/framer-utils@2.0.10
 
 ## 2.0.21
 
@@ -71,7 +71,7 @@
   - @nextui-org/theme@2.1.8
   - @nextui-org/use-aria-toggle-button@2.0.5
   - @nextui-org/use-scroll-position@2.0.3
-  - @nextui-org/framer-transitions@2.0.9
+  - @nextui-org/framer-utils@2.0.9
   - @nextui-org/react-utils@2.0.8
   - @nextui-org/shared-utils@2.0.3
 
@@ -85,7 +85,7 @@
   - @nextui-org/theme@2.1.7
   - @nextui-org/use-aria-toggle-button@2.0.4
   - @nextui-org/system@2.0.8
-  - @nextui-org/framer-transitions@2.0.8
+  - @nextui-org/framer-utils@2.0.8
 
 ## 2.0.19
 
@@ -103,7 +103,7 @@
 - Updated dependencies [[`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23), [`4db10a47e`](https://github.com/nextui-org/nextui/commit/4db10a47e96ad8315b5b96c2ff15574ac0fdeecc)]:
   - @nextui-org/theme@2.1.5
   - @nextui-org/system@2.0.7
-  - @nextui-org/framer-transitions@2.0.7
+  - @nextui-org/framer-utils@2.0.7
 
 ## 2.0.17
 
@@ -114,7 +114,7 @@
 - Updated dependencies [[`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592), [`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5)]:
   - @nextui-org/theme@2.1.4
   - @nextui-org/system@2.0.6
-  - @nextui-org/framer-transitions@2.0.6
+  - @nextui-org/framer-utils@2.0.6
 
 ## 2.0.16
 
@@ -186,7 +186,7 @@
 
 - Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
   - @nextui-org/use-aria-toggle-button@2.0.3
-  - @nextui-org/framer-transitions@2.0.5
+  - @nextui-org/framer-utils@2.0.5
   - @nextui-org/system@2.0.5
 
 ## 2.0.7
@@ -195,7 +195,7 @@
 
 - Updated dependencies [[`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d)]:
   - @nextui-org/system@2.0.4
-  - @nextui-org/framer-transitions@2.0.4
+  - @nextui-org/framer-utils@2.0.4
 
 ## 2.0.6
 
@@ -236,7 +236,7 @@
   - @nextui-org/theme@2.0.3
   - @nextui-org/use-aria-toggle-button@2.0.2
   - @nextui-org/use-scroll-position@2.0.2
-  - @nextui-org/framer-transitions@2.0.3
+  - @nextui-org/framer-utils@2.0.3
   - @nextui-org/shared-utils@2.0.2
 
 ## 2.0.2
@@ -246,7 +246,7 @@
 - Updated dependencies [[`459ac5ed`](https://github.com/nextui-org/nextui/commit/459ac5ed4537942517803ba14129226a791d6feb)]:
   - @nextui-org/theme@2.0.2
   - @nextui-org/system@2.0.2
-  - @nextui-org/framer-transitions@2.0.2
+  - @nextui-org/framer-utils@2.0.2
 
 ## 2.0.1
 
@@ -258,7 +258,7 @@
 
 - Updated dependencies [[`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140), [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140)]:
   - @nextui-org/use-aria-toggle-button@2.0.1
-  - @nextui-org/framer-transitions@2.0.1
+  - @nextui-org/framer-utils@2.0.1
   - @nextui-org/use-scroll-position@2.0.1
   - @nextui-org/shared-utils@2.0.1
   - @nextui-org/react-utils@2.0.1

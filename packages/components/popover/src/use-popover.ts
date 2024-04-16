@@ -1,5 +1,6 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
 import type {HTMLMotionProps} from "framer-motion";
+import type {PressEvent} from "@react-types/shared";
 
 import {RefObject, Ref, useEffect} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
@@ -11,9 +12,9 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, useRef} from "react";
-import {PressEvent} from "@react-types/shared";
+import {AriaDialogProps, useDialog} from "@react-aria/dialog";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -35,6 +36,12 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * @default true
    */
   shouldBlockScroll?: boolean;
+  /**
+   * Custom props to be passed to the dialog container.
+   *
+   * @default {}
+   */
+  dialogProps?: AriaDialogProps;
   /**
    * Type of overlay that is opened by the trigger.
    */
@@ -79,8 +86,8 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {
     as,
-    children,
     ref,
+    children,
     state: stateProp,
     triggerRef: triggerRefProp,
     scrollRef,
@@ -95,6 +102,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     shouldCloseOnBlur,
     portalContainer,
     updatePositionDeps,
+    dialogProps: dialogPropsProp,
     placement: placementProp = "top",
     triggerType = "dialog",
     showArrow = false,
@@ -116,7 +124,7 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const domTriggerRef = useRef<HTMLElement>(null);
   const wasTriggerPressedRef = useRef(false);
-
+  const dialogRef = useRef(null);
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation = originalProps.disableAnimation ?? false;
@@ -144,7 +152,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       isNonModal,
       popoverRef: domRef,
       placement: placementProp,
-      offset: offset,
+      offset,
       scrollRef,
       isDismissable,
       shouldCloseOnBlur,
@@ -163,12 +171,14 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing();
 
+  const {dialogProps, titleProps} = useDialog({}, dialogRef);
+
   const slots = useMemo(
     () =>
       popover({
         ...variantProps,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -180,13 +190,14 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
+    ref: dialogRef,
     "data-slot": "base",
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
     "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
     "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-    ...mergeProps(focusProps, props),
+    ...mergeProps(focusProps, dialogProps, dialogPropsProp, props),
     className: slots.base({class: clsx(baseStyles)}),
     style: {
       // this prevent the dialog to have a default outline
@@ -206,7 +217,10 @@ export function usePopover(originalProps: UsePopoverProps) {
   );
 
   const placement = useMemo(
-    () => (getShouldUseAxisPlacement(ariaPlacement, placementProp) ? ariaPlacement : placementProp),
+    () =>
+      getShouldUseAxisPlacement(ariaPlacement, placementProp)
+        ? ariaPlacement || placementProp
+        : placementProp,
     [ariaPlacement, placementProp],
   );
 
@@ -291,6 +305,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     triggerRef,
     placement,
     isNonModal,
+    titleProps,
     popoverRef: domRef,
     portalContainer,
     isOpen: state.isOpen,

@@ -15,6 +15,18 @@ Radio Group allow users to select a single option from a list of mutually exclus
 
 <CarbonAd />
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add radio",
+    npm: "npm install @nextui-org/radio",
+    yarn: "yarn add @nextui-org/radio",
+    pnpm: "pnpm add @nextui-org/radio",
+    bun: "bun add @nextui-org/radio"
+  }}
+/>
+
 ## Import
 
 <ImportTabs
@@ -145,7 +157,8 @@ In case you need to customize the radio group even further, you can use the `use
 | value            | `string[]`                                                                  | The current selected value. (controlled).                                                                                                                         | -          |
 | defaultValue     | `string[]`                                                                  | The default selected value. (uncontrolled).                                                                                                                       | -          |
 | description      | `ReactNode`                                                                 | Radio group description .                                                                                                                                         | -          |
-| errorMessage     | `ReactNode`                                                                 | Radio group error message.                                                                                                                                        | -          |
+| errorMessage     | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                       | Radio group error message.                                                                                                                                        | -          |
+| validate         | `(value: string) => ValidationError ｜ true ｜ null ｜ undefined`            | Validate input values when committing (e.g. on blur), and return error messages for invalid values.                                                               | -          |
 | isDisabled       | `boolean`                                                                   | Whether the radio group is disabled.                                                                                                                              | `false`    |
 | isRequired       | `boolean`                                                                   | Whether user checkboxes are required on the input before form submission.                                                                                         | `false`    |
 | isReadOnly       | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.                                                                                               | -          |

@@ -16,7 +16,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {table} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 import {CheckboxProps} from "@nextui-org/checkbox";
@@ -193,7 +193,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
         isSelectable,
         isMultiSelectable,
       }),
-    [...Object.values(variantProps), isSelectable, isMultiSelectable],
+    [objectToDeps(variantProps), isSelectable, isMultiSelectable],
   );
 
   const baseStyles = clsx(classNames?.base, className);

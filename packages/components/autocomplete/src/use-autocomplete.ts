@@ -1,9 +1,9 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
 
 import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
-import {useComboBox} from "@react-aria/combobox";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
@@ -11,11 +11,12 @@ import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
 import {InputProps} from "@nextui-org/input";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
+import {useComboBox} from "@react-aria/combobox";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -110,8 +111,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
-  ComboBoxProps<T> &
+  Omit<
+    InputProps,
+    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "validationBehavior"
+  > &
+  Omit<ComboBoxProps<T>, "validationBehavior"> &
   AsyncLoadable &
   AutocompleteVariantProps;
 
@@ -154,6 +158,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     allowsCustomValue = false,
     className,
     classNames,
+    errorMessage,
     onOpenChange,
     onClose,
     isReadOnly = false,
@@ -167,6 +172,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
+    validationBehavior: "native",
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -192,6 +198,27 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const popoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
+
+  const {
+    buttonProps,
+    inputProps,
+    listBoxProps,
+    isInvalid: isAriaInvalid,
+    validationDetails,
+    validationErrors,
+  } = useComboBox(
+    {
+      validationBehavior: "native",
+      ...originalProps,
+      inputRef,
+      buttonRef,
+      listBoxRef,
+      popoverRef,
+    },
+    state,
+  );
+
+  const isInvalid = originalProps.isInvalid || isAriaInvalid;
 
   const slotsProps: {
     inputProps: InputProps;
@@ -248,7 +275,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         size: "sm",
         variant: "light",
         radius: "full",
-        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
       },
@@ -259,7 +286,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         size: "sm",
         variant: "light",
         radius: "full",
-        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
       },
@@ -271,6 +298,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const isOpen = slotsProps.listboxProps?.hideEmptyContent
     ? state.isOpen && !!state.collection.size
     : state.isOpen;
+
+  // if we use `react-hook-form`, it will set the native input value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!inputRef.current) return;
+
+    const key = inputRef.current.value;
+    const item = state.collection.getItem(key);
+
+    if (item) {
+      state.setSelectedKey(key);
+      state.setInputValue(item.textValue);
+    }
+  }, [inputRef.current, state]);
 
   // apply the same with to the popover as the select
   useEffect(() => {
@@ -289,17 +331,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       inputRef.current.blur();
     }
   }, [isOpen, allowsCustomValue]);
-
-  const {buttonProps, inputProps, listBoxProps} = useComboBox(
-    {
-      ...originalProps,
-      inputRef,
-      buttonRef,
-      listBoxRef,
-      popoverRef,
-    },
-    state,
-  );
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -326,7 +357,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         disableAnimation,
         className,
       }),
-    [...Object.values(variantProps), isClearable, disableAnimation, className],
+    [objectToDeps(variantProps), isClearable, disableAnimation, className],
   );
 
   const onClear = useCallback(() => {
@@ -343,7 +374,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   );
 
   const getBaseProps: PropGetter = () => ({
-    "data-invalid": dataAttr(originalProps?.isInvalid),
+    "data-invalid": dataAttr(isInvalid),
     "data-open": dataAttr(state.isOpen),
     className: slots.base({class: baseStyles}),
   });
@@ -384,6 +415,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...otherProps,
       ...inputProps,
       ...slotsProps.inputProps,
+      isInvalid,
+      errorMessage:
+        typeof errorMessage === "function"
+          ? errorMessage({isInvalid, validationErrors, validationDetails})
+          : errorMessage || validationErrors?.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 
@@ -391,8 +427,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ({
       state,
       ref: listBoxRef,
-      shouldHighlightOnFocus: true,
-      ...mergeProps(slotsProps.listboxProps, listBoxProps),
+      ...mergeProps(slotsProps.listboxProps, listBoxProps, {
+        shouldHighlightOnFocus: true,
+        shouldUseVirtualFocus: false,
+      }),
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {

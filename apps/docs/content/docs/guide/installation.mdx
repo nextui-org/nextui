@@ -8,16 +8,86 @@ description: Get started with NextUI in the official documentation, and learn mo
 Requirements:
 
 - [React 18](https://reactjs.org/) or later
-- [Tailwind CSS 3](https://tailwindcss.com/) or later
+- [Tailwind CSS 3.4](https://tailwindcss.com/) or later
 - [Framer Motion 4](https://www.framer.com/motion/) or later
 
 ---
 
 <CarbonAd />
 
-To use NextUI in your project, you need to follow the following steps:
+## Automatic Installation
 
-## Global Installation
+Using the CLI is now the easiest way to start a NextUI project. You can initialize your project and add components directly via the CLI:
+
+```codeBlock bash
+npm install -g nextui-cli
+```
+
+<Spacer y={4}/>
+
+```codeBlock bash
+nextui init my-nextui-app
+```
+
+You will be prompted to configure your project:
+
+```codeBlock bash
+? Select a template › - Use arrow-keys. Return to submit.
+❯   App
+    A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.
+    Pages
+    A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.
+```
+
+Once your NextUI project is initialized, you can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+## Manual Installation
+
+If you prefer not to use the CLI, follow these steps to manually set up NextUI in your project:
+
+### Global Installation
 
 The easiest way to get started with NextUI is to use the global installation. Which means
 that all the components are imported from a single package.
@@ -26,20 +96,20 @@ Follow the steps below to install all NextUI components:
 
 <Steps>
 
-### Install Packages
+#### Install Packages
 
 To install NextUI, run one of the following commands in your terminal:
 
 <PackageManagers
   commands={{
-    npm: "npm i @nextui-org/react framer-motion",
+    npm: "npm install @nextui-org/react framer-motion",
     yarn: "yarn add @nextui-org/react framer-motion",
     pnpm: "pnpm add @nextui-org/react framer-motion",
     bun: "bun add @nextui-org/react framer-motion"
   }}
 />
 
-### Tailwind CSS Setup
+#### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
 [installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add
@@ -63,7 +133,7 @@ module.exports = {
 };
 ```
 
-### Provider Setup
+#### Provider Setup
 
 It is essential to add the `NextUIProvider` at the `root` of your application.
 
@@ -83,7 +153,7 @@ function App() {
 }
 ```
 
-### Setup pnpm (optional)
+#### Setup pnpm (optional)
 
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 
@@ -95,7 +165,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 </Steps>
 
-## Individual Installation
+### Individual Installation
 
 NextUI is also available as individual packages. You can install each package separately. This
 is useful if you want to reduce the size of your CSS bundle as it will only include styles for the components
@@ -107,7 +177,7 @@ Follow the steps below to install each package separately:
 
 <Steps>
 
-### Install Core Packages
+#### Install Core Packages
 
 Although you can install each package separately, you need to install the core packages first
 to ensure that all components work correctly.
@@ -116,14 +186,14 @@ Run one of the following commands in your terminal to install the core packages:
 
 <PackageManagers
   commands={{
-    npm: "npm i @nextui-org/theme @nextui-org/system framer-motion",
+    npm: "npm install @nextui-org/theme @nextui-org/system framer-motion",
     yarn: "yarn add @nextui-org/theme @nextui-org/system framer-motion",
     pnpm: "pnpm add @nextui-org/theme @nextui-org/system framer-motion",
     bun: "bun add @nextui-org/theme @nextui-org/system framer-motion"
   }}
-/>{" "}
+/>
 
-### Install Component
+#### Install Component
 
 Now, let's install the component you want to use. For example, if you want to use the
 [Button](/docs/components/button) component, you need to run one of the following commands
@@ -131,14 +201,14 @@ in your terminal:
 
 <PackageManagers
   commands={{
-    npm: "npm i @nextui-org/button",
+    npm: "npm install @nextui-org/button",
     yarn: "yarn add @nextui-org/button",
     pnpm: "pnpm add @nextui-org/button",
     bun: "bun add @nextui-org/button"
   }}
 />
 
-### Tailwind CSS Setup
+#### Tailwind CSS Setup
 
 TailwindCSS setup changes a bit when you use individual packages. You only need to add the
 styles of the components your using to your `tailwind.config.js` file. For example, for the
@@ -165,7 +235,7 @@ module.exports = {
 };
 ```
 
-### Provider Setup
+#### Provider Setup
 
 It is essential to add the `NextUIProvider` at the `root` of your application.
 
@@ -185,7 +255,7 @@ function App() {
 }
 ```
 
-### Use the Component
+#### Use the Component
 
 Now, you can use the component you installed in your application:
 
@@ -201,7 +271,7 @@ function App() {
 ```
 
 
-### Setup pnpm (optional)
+#### Setup pnpm (optional)
 
 If you are using pnpm, you need to add the following code to your `.npmrc` file:
 

@@ -4,7 +4,7 @@ import type {HTMLMotionProps} from "framer-motion";
 import {cloneElement, isValidElement, ReactNode, useMemo, useCallback, ReactElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {RemoveScroll} from "react-remove-scroll";
 import {domAnimation, LazyMotion, m} from "framer-motion";
