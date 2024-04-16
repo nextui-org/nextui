@@ -17,21 +17,21 @@ export default function App() {
     "bottom-start",
     "bottom",
     "bottom-end",
-    "left-start",
-    "left",
-    "left-end",
     "right-start",
     "right",
     "right-end",
+    "left-start",
+    "left",
+    "left-end",
   ];
 
   return (
     <div className="flex flex-wrap md:inline-grid md:grid-cols-3 gap-4">
       {placements.map((placement) => (
-        <Popover key={placement} placement={placement} color="primary">
+        <Popover key={placement} placement={placement} color="secondary">
           <PopoverTrigger>
-            <Button color="primary" variant="flat" className="capitalize">
-              {placement}
+            <Button color="secondary" variant="flat" className="capitalize">
+              {placement?.replace("-", " ")}
             </Button>
           </PopoverTrigger>
           {content}
