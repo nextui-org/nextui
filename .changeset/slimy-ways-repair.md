@@ -4,4 +4,4 @@
 "@nextui-org/tabs": patch
 ---
 
-fix(components): Fix 'Tap to click' behavior on macOS for Accordion, Tab, and Dropdown
+Fix 'Tap to click' behavior on macOS for Accordion, Tab, and Dropdown
