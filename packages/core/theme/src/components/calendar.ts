@@ -6,8 +6,8 @@ import {tv} from "../utils/tv";
 const calendar = tv({
   slots: {
     base: [
-      "relative w-fit max-w-full shadow-small inline-block overflow-hidden",
-      "rounded-large overflow-x-scroll bg-default-50 dark:bg-background",
+      "relative w-fit max-w-full shadow-small inline-block overflow-y-hidden",
+      "rounded-large overflow-x-auto bg-default-50 dark:bg-background",
     ],
     prevButton: [],
     nextButton: [],
@@ -23,7 +23,7 @@ const calendar = tv({
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
     content: "w-fit",
-    gridWrapper: "flex max-w-full overflow-auto pb-2 h-auto relative",
+    gridWrapper: "flex max-w-full overflow-hidden pb-2 h-auto relative",
     grid: "w-full border-collapse z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "px-4 pb-2 flex justify-center text-default-400",

@@ -52,7 +52,7 @@ export default function App() {
             aria-label="Date precision"
             classNames={{
               base: "w-full pb-2",
-              wrapper: "-my-2.5 py-2.5 px-3 gap-1 flex-nowrap max-w-[280px] overflow-scroll",
+              wrapper: "-my-2.5 py-2.5 px-3 gap-1 flex-nowrap max-w-[280px] overflow-x-scroll",
             }}
             defaultValue="exact_dates"
             orientation="horizontal"
@@ -173,7 +173,7 @@ export default function App() {
             aria-label="Date precision"
             classNames={{
               base: "w-full pb-2",
-              wrapper: "-my-2.5 py-2.5 px-3 gap-1 flex-nowrap max-w-[280px] overflow-scroll",
+              wrapper: "-my-2.5 py-2.5 px-3 gap-1 flex-nowrap max-w-[280px] overflow-x-scroll",
             }}
             defaultValue="exact_dates"
             orientation="horizontal"
@@ -236,9 +236,13 @@ export default function App() {
 
 const react = {
   "/App.jsx": App,
+};
+
+const reactTs = {
   "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
+  ...reactTs,
 };
