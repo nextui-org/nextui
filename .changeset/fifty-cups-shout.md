@@ -47,7 +47,6 @@
 "@nextui-org/use-aria-link": patch
 "@nextui-org/use-aria-modal-overlay": patch
 "@nextui-org/use-aria-multiselect": patch
-"@nextui-org/use-aria-press": patch
 "@nextui-org/use-aria-toggle-button": patch
 "@nextui-org/use-callback-ref": patch
 "@nextui-org/use-clipboard": patch
