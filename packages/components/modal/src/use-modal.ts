@@ -122,6 +122,7 @@ export function useModal(originalProps: UseModalProps) {
   const {modalProps, underlayProps} = useAriaModalOverlay(
     {
       isDismissable,
+      shouldBlockScroll,
       isKeyboardDismissDisabled,
     },
     state,
