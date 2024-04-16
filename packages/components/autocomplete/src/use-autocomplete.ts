@@ -427,8 +427,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ({
       state,
       ref: listBoxRef,
-      shouldHighlightOnFocus: true,
-      ...mergeProps(slotsProps.listboxProps, listBoxProps),
+      ...mergeProps(slotsProps.listboxProps, listBoxProps, {
+        shouldHighlightOnFocus: true,
+        shouldUseVirtualFocus: false,
+      }),
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
