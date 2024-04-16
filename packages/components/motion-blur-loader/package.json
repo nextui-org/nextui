@@ -1,0 +1,56 @@
+{
+  "name": "@nextui-org/motion-blur-loader",
+  "version": "2.0.24",
+  "description": "Loaders express an unspecified wait time or display the length of a process.",
+  "keywords": [
+    "loading",
+    "motion",
+    "blur",
+    "progress"
+  ],
+  "author": "Shibani Dcosta <shibani.dcosta@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/loading"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.0"
+  },
+  "dependencies": {
+    "@nextui-org/system-rsc": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
