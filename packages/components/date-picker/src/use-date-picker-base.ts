@@ -236,18 +236,8 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
 
   const calendarProps = {
     ...slotsProps.calendarProps,
+    calendarWidth,
     "data-slot": "calendar",
-    "data-has-multiple-months": dataAttr(hasMultipleMonths),
-    style: mergeProps(
-      hasMultipleMonths
-        ? {
-            // @ts-ignore
-            "--visible-months": visibleMonths,
-          }
-        : {},
-      {"--calendar-width": `${calendarWidth}px`},
-      slotsProps.calendarProps.style,
-    ),
   } as CalendarProps;
 
   const selectorButtonProps = {

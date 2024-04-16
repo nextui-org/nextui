@@ -18,19 +18,6 @@ const datePicker = tv({
     timeInputLabel: "font-medium",
     timeInput: "px-5 pb-4 flex-wrap gap-x-6",
   },
-  variants: {
-    // @internal
-    hasMultipleMonths: {
-      true: {
-        calendar: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
-        calendarContent: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
-      },
-      false: {},
-    },
-  },
-  defaultVariants: {
-    hasMultipleMonths: false,
-  },
 });
 
 const dateRangePicker = tv({

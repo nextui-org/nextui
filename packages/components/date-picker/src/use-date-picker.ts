@@ -59,7 +59,6 @@ export function useDatePicker<T extends DateValue>({
     endContent,
     selectorIcon,
     createCalendar,
-    hasMultipleMonths,
     isCalendarHeaderExpanded,
     disableAnimation,
     CalendarTopContent,
@@ -88,10 +87,9 @@ export function useDatePicker<T extends DateValue>({
     () =>
       datePicker({
         ...variantProps,
-        hasMultipleMonths,
         className,
       }),
-    [objectToDeps(variantProps), hasMultipleMonths, className],
+    [objectToDeps(variantProps), className],
   );
 
   let {

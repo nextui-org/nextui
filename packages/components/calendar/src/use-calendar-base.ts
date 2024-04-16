@@ -16,7 +16,7 @@ import {calendar} from "@nextui-org/theme";
 import {useControlledState} from "@react-stately/utils";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useLocale} from "@react-aria/i18n";
-import {clamp, objectToDeps} from "@nextui-org/shared-utils";
+import {clamp, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useProviderContext} from "@nextui-org/system";
 
@@ -42,6 +42,13 @@ interface Props extends NextUIBaseProps {
    * @default 1
    */
   visibleMonths?: number;
+  /**
+   * The width to be applied to the calendar component. This value is multiplied by the number
+   * of visible months to determine the total width of the calendar.
+   *
+   * @default 256
+   */
+  calendarWidth?: number | string;
   /**
    * Props for the navigation button, prev button and next button.
    */
@@ -185,6 +192,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     topContent,
     bottomContent,
     showHelper = true,
+    calendarWidth = 256,
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
@@ -229,6 +237,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
   );
 
   const visibleDuration = useMemo(() => ({months: visibleMonths}), [visibleMonths]);
+  const hasMultipleMonths = visibleMonths > 1;
   const shouldFilterDOMProps = typeof Component === "string";
 
   const {locale} = useLocale();
@@ -254,6 +263,16 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isIconOnly: true,
     disableAnimation,
     ...navButtonProps,
+  };
+
+  const baseProps = {
+    "data-slot": "base",
+    "data-has-multiple-months": dataAttr(hasMultipleMonths),
+    style: {
+      // @ts-ignore
+      "--visible-months": visibleMonths,
+      "--calendar-width": calendarWidth,
+    } as React.CSSProperties,
   };
 
   const getPrevButtonProps = (props = {}) => {
@@ -290,6 +309,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     locale,
     minValue,
     maxValue,
+    baseProps,
     showHelper,
     weekdayStyle,
     visibleMonths,
