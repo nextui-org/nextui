@@ -1,3 +1,6 @@
+"use client";
+// only for development purpose, this directive is added by tsup at build time
+
 export * from "@nextui-org/system";
 export * from "@nextui-org/theme";
 export * from "@nextui-org/accordion";
