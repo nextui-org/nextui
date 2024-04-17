@@ -107,6 +107,28 @@ const FormTemplate = (args: CheckboxGroupProps) => {
   );
 };
 
+const ControlledTemplate = (args: CheckboxGroupProps) => {
+  const [selected, setSelected] = React.useState<string[]>(["buenos-aires"]);
+
+  React.useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("Checkbox ", selected);
+  }, [selected]);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <CheckboxGroup {...args} label="Select cities" value={selected} onValueChange={setSelected}>
+        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
+        <Checkbox value="sydney">Sydney</Checkbox>
+        <Checkbox value="san-francisco">San Francisco</Checkbox>
+        <Checkbox value="london">London</Checkbox>
+        <Checkbox value="tokyo">Tokyo</Checkbox>
+      </CheckboxGroup>
+      <p className="text-default-500">Selected: {selected.join(", ")}</p>
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
 
@@ -130,6 +152,14 @@ export const DefaultValue = {
     ...defaultProps,
     label: "Select cities",
     defaultValue: ["buenos-aires", "london"],
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
