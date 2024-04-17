@@ -247,7 +247,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const isControlled = isSelectedProp !== undefined;
 
-  const isChecked = isControlled ? isSelectedProp : checkedState;
+  const isChecked = isInGroup ? inputProps.checked : isControlled ? isSelectedProp : checkedState;
 
   // if we use `react-hook-form`, it will set the checkbox value using the ref in register
   // i.e. setting ref.current.checked to true or false which is uncontrolled
