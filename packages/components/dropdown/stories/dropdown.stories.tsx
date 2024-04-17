@@ -149,6 +149,8 @@ const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) 
         // eslint-disable-next-line no-console
         onPress={() => console.log("onPress new file")}
         // eslint-disable-next-line no-console
+        onPressChange={() => console.log("onPressChange new file")}
+        // eslint-disable-next-line no-console
         onPressEnd={() => console.log("onPressEnd new file")}
         // eslint-disable-next-line no-console
         onPressStart={() => console.log("onPressStart new file")}

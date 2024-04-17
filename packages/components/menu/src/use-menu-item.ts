@@ -4,15 +4,16 @@ import {useMemo, useRef, useCallback} from "react";
 import {menuItem} from "@nextui-org/theme";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
-import {Node} from "@react-types/shared";
+import {Node, PressEvent} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
 import {TreeState} from "@react-stately/tree";
-import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMenuItem as useAriaMenuItem} from "@react-aria/menu";
 import {mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
+import {removeEvents} from "@nextui-org/shared-utils";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
-
+import {chain} from "@react-aria/utils";
 interface Props<T extends object> extends MenuItemBaseProps<T> {
   item: Node<T>;
   state: TreeState<T>;
@@ -38,6 +39,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     classNames,
     onAction,
     autoFocus,
+    onClick,
     onPress,
     onPressStart,
     onPressUp,
@@ -63,16 +65,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
   const isSelectable = state.selectionManager.selectionMode !== "none";
 
   const isMobile = useIsMobile();
-
-  const {pressProps, isPressed} = usePress({
-    ref: domRef,
-    isDisabled,
-    onPressStart,
-    onPress,
-    onPressUp,
-    onPressEnd,
-    onPressChange,
-  });
 
   const {isHovered, hoverProps} = useHover({
     isDisabled,
@@ -115,6 +107,36 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     [objectToDeps(variantProps), isDisabled, disableAnimation],
   );
 
+  // Temporary handling of onPress events due to a bug in react-aria's useMenuItem.
+  // TODO: Remove this workaround and revert to useAriaMenuItem once the issue is resolved.
+  const onPressWrapper = useCallback(
+    (e: PressEvent) => {
+      onPress?.(e);
+      onAction?.(key);
+    },
+    [onPress, onAction, key],
+  );
+
+  const {pressProps, isPressed} = usePress({
+    onPressStart,
+    onPress: onPressWrapper,
+    onPressUp,
+    onPressEnd,
+    onPressChange,
+
+    isDisabled,
+    ref: domRef,
+  });
+
+  // Remove handlers set in useAriaMenuItem so that usePress handlers do not conflict.
+  delete itemProps.onClick;
+  delete itemProps.onDragStart;
+  delete itemProps.onKeyDown;
+  delete itemProps.onMouseDown;
+  delete itemProps.onPointerUp;
+  delete itemProps.onPointerDown;
+  delete itemProps.onPointerMove;
+
   const baseStyles = clsx(classNames?.base, className);
 
   if (isReadOnly) {
@@ -140,6 +162,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     "data-pressed": dataAttr(isPressed),
     "data-focus-visible": dataAttr(isFocusVisible),
     className: slots.base({class: clsx(baseStyles, props.className)}),
+    onClick: chain(onClick, pressProps.onClick),
   });
 
   const getLabelProps: PropGetter = (props = {}) => ({
