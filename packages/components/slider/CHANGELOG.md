@@ -1,5 +1,13 @@
 # @nextui-org/slider
 
+## 2.2.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/tooltip@2.0.32
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.2.7
 
 ### Patch Changes

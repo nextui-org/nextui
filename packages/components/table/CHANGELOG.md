@@ -1,5 +1,16 @@
 # @nextui-org/table
 
+## 2.0.30
+
+### Patch Changes
+
+- [#2747](https://github.com/nextui-org/nextui/pull/2747) [`2126ea186`](https://github.com/nextui-org/nextui/commit/2126ea186317e855bfb8f4a5ad326b4e65293466) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixes adding of empty content at the bottom of the table when rows present in Table (#2742)
+
+- Updated dependencies [[`cadbb30cf`](https://github.com/nextui-org/nextui/commit/cadbb30cfb786d2b54e1cb46ea9319d4cb9ce590)]:
+  - @nextui-org/checkbox@2.0.27
+  - @nextui-org/spacer@2.0.26
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.29
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @nextui-org/scroll-shadow
 
+## 2.1.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.1.14
 
 ### Patch Changes

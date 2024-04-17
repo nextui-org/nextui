@@ -1,5 +1,11 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.12
+
+### Patch Changes
+
+- [#2758](https://github.com/nextui-org/nextui/pull/2758) [`74eda3128`](https://github.com/nextui-org/nextui/commit/74eda312883b2e17df26f71442aba9fb3cd240be) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Named exports for rsc packages, "use client;" directive added to "@nextui-org/react" package
+
 ## 2.0.11
 
 ### Patch Changes

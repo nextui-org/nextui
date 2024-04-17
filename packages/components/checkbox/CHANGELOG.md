@@ -1,5 +1,14 @@
 # @nextui-org/checkbox
 
+## 2.0.27
+
+### Patch Changes
+
+- [#2754](https://github.com/nextui-org/nextui/pull/2754) [`cadbb30cf`](https://github.com/nextui-org/nextui/commit/cadbb30cfb786d2b54e1cb46ea9319d4cb9ce590) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes checkbox controlled state (#2752)
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.26
 
 ### Patch Changes

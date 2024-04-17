@@ -1,5 +1,12 @@
 # @nextui-org/date-input
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.1
 
 ### Patch Changes

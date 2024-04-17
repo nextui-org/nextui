@@ -1,5 +1,14 @@
 # @nextui-org/listbox
 
+## 2.1.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.0.17
+  - @nextui-org/divider@2.0.27
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.1.17
 
 ### Patch Changes
