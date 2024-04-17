@@ -137,8 +137,26 @@ const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) 
     <DropdownTrigger>
       <Button>Trigger</Button>
     </DropdownTrigger>
-    <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
-      <DropdownItem key="new">New file</DropdownItem>
+    <DropdownMenu
+      aria-label="Actions"
+      color={color}
+      variant={variant}
+      // eslint-disable-next-line no-console
+      onAction={() => console.log("onAction")}
+    >
+      <DropdownItem
+        key="new"
+        // eslint-disable-next-line no-console
+        onPress={() => console.log("onPress new file")}
+        // eslint-disable-next-line no-console
+        onPressEnd={() => console.log("onPressEnd new file")}
+        // eslint-disable-next-line no-console
+        onPressStart={() => console.log("onPressStart new file")}
+        // eslint-disable-next-line no-console
+        onPressUp={() => console.log("onPressUp new file")}
+      >
+        New file
+      </DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
