@@ -123,7 +123,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     onPressUp,
     onPressEnd,
     onPressChange,
-
     isDisabled,
     ref: domRef,
   });
