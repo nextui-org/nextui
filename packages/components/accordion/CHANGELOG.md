@@ -1,5 +1,15 @@
 # @nextui-org/accordion
 
+## 2.0.30
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.0.17
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/divider@2.0.27
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.29
 
 ### Patch Changes

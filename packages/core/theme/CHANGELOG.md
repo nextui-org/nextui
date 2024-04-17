@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.2.1
+
+### Patch Changes
+
+- [#2744](https://github.com/nextui-org/nextui/pull/2744) [`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Refactor calendar cell tab index, add calendar default width
+
 ## 2.2.0
 
 ### Minor Changes

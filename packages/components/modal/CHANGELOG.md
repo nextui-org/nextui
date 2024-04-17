@@ -1,5 +1,13 @@
 # @nextui-org/modal
 
+## 2.0.32
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.31
 
 ### Patch Changes

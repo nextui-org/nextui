@@ -1,5 +1,14 @@
 # @nextui-org/radio
 
+## 2.0.27
+
+### Patch Changes
+
+- [#2761](https://github.com/nextui-org/nextui/pull/2761) [`f728c0542`](https://github.com/nextui-org/nextui/commit/f728c0542c1f63398aa2fee4c7f2dedaf16ca185) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #2759 non-react props omitted from radio group component
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.26
 
 ### Patch Changes

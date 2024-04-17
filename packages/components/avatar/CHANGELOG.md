@@ -1,5 +1,12 @@
 # @nextui-org/avatar
 
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.25
 
 ### Patch Changes
