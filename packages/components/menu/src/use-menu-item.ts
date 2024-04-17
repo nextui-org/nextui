@@ -9,7 +9,7 @@ import {filterDOMProps} from "@nextui-org/react-utils";
 import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
 import {useMenuItem as useAriaMenuItem} from "@react-aria/menu";
-import {chain, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 
@@ -39,7 +39,10 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     onAction,
     autoFocus,
     onPress,
-    onClick,
+    onPressStart,
+    onPressUp,
+    onPressEnd,
+    onPressChange,
     hideSelectedIcon = false,
     isReadOnly = false,
     closeOnSelect,
@@ -63,8 +66,12 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const {pressProps, isPressed} = usePress({
     ref: domRef,
-    isDisabled: isDisabled,
+    isDisabled,
+    onPressStart,
     onPress,
+    onPressUp,
+    onPressEnd,
+    onPressChange,
   });
 
   const {isHovered, hoverProps} = useHover({
@@ -133,7 +140,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     "data-pressed": dataAttr(isPressed),
     "data-focus-visible": dataAttr(isFocusVisible),
     className: slots.base({class: clsx(baseStyles, props.className)}),
-    onClick: chain(pressProps.onClick, onClick),
   });
 
   const getLabelProps: PropGetter = (props = {}) => ({
