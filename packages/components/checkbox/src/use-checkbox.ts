@@ -6,6 +6,7 @@ import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
+import {useCallbackRef} from "@nextui-org/use-callback-ref";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps, chain} from "@react-aria/utils";
@@ -242,7 +243,11 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     [color, size, radius, isInvalid, lineThrough, isDisabled, disableAnimation],
   );
 
-  const [isChecked, setIsChecked] = useState(!!defaultSelected || !!isSelected);
+  const [checkedState, setCheckedState] = useState(!!defaultSelected);
+
+  const isControlled = isSelectedProp !== undefined;
+
+  const isChecked = isControlled ? isSelectedProp : checkedState;
 
   // if we use `react-hook-form`, it will set the checkbox value using the ref in register
   // i.e. setting ref.current.checked to true or false which is uncontrolled
@@ -251,8 +256,10 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     if (!inputRef.current) return;
     const isInputRefChecked = !!inputRef.current.checked;
 
-    setIsChecked(isInputRefChecked);
+    setCheckedState(isInputRefChecked);
   }, [inputRef.current]);
+
+  const onChangeProp = useCallbackRef(onChange);
 
   const handleCheckboxChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -262,7 +269,15 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         return;
       }
 
-      setIsChecked(!isChecked);
+      if (!isControlled) {
+        if (isChecked) {
+          setCheckedState(event.currentTarget.checked);
+        } else {
+          setCheckedState(isIndeterminate ? true : event.currentTarget.checked);
+        }
+      }
+
+      onChangeProp?.(event);
     },
     [isReadOnly, isDisabled, isChecked],
   );
@@ -316,9 +331,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     return {
       ref: mergeRefs(inputRef, ref),
       ...mergeProps(inputProps, focusProps, {checked: isChecked}),
-      onChange: chain(inputProps.onChange, onChange, handleCheckboxChange),
+      onChange: chain(inputProps.onChange, handleCheckboxChange),
     };
-  }, [inputProps, focusProps, onChange, handleCheckboxChange]);
+  }, [inputProps, focusProps, handleCheckboxChange]);
 
   const getLabelProps: PropGetter = useCallback(
     () => ({
