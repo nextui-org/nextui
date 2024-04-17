@@ -171,6 +171,8 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     onValueChange,
   ]);
 
+  const toggleState = useToggleState(ariaCheckboxProps);
+
   const {
     inputProps,
     isSelected,
@@ -192,7 +194,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       useReactAriaCheckbox(
         {...ariaCheckboxProps, validationBehavior: "native"},
         // eslint-disable-next-line
-        useToggleState(ariaCheckboxProps),
+        toggleState,
         inputRef,
       );
 
@@ -243,12 +245,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     [color, size, radius, isInvalid, lineThrough, isDisabled, disableAnimation],
   );
 
-  const [checkedState, setCheckedState] = useState(!!defaultSelected);
-
-  const isControlled = isSelectedProp !== undefined;
-
-  const isChecked = isInGroup ? inputProps.checked : isControlled ? isSelectedProp : checkedState;
-
   // if we use `react-hook-form`, it will set the checkbox value using the ref in register
   // i.e. setting ref.current.checked to true or false which is uncontrolled
   // hence, sync the state with `ref.current.checked`
@@ -256,7 +252,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     if (!inputRef.current) return;
     const isInputRefChecked = !!inputRef.current.checked;
 
-    setCheckedState(isInputRefChecked);
+    toggleState.setSelected(isInputRefChecked);
   }, [inputRef.current]);
 
   const onChangeProp = useCallbackRef(onChange);
@@ -269,17 +265,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         return;
       }
 
-      if (!isControlled) {
-        if (isChecked) {
-          setCheckedState(event.currentTarget.checked);
-        } else {
-          setCheckedState(isIndeterminate ? true : event.currentTarget.checked);
-        }
-      }
-
       onChangeProp?.(event);
     },
-    [isReadOnly, isDisabled, isChecked],
+    [isReadOnly, isDisabled],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -289,7 +277,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       ref: domRef,
       className: slots.base({class: baseStyles}),
       "data-disabled": dataAttr(isDisabled),
-      "data-selected": dataAttr(isSelected || isIndeterminate || isChecked),
+      "data-selected": dataAttr(isSelected || isIndeterminate),
       "data-invalid": dataAttr(isInvalid),
       "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
@@ -330,7 +318,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const getInputProps: PropGetter = useCallback(() => {
     return {
       ref: mergeRefs(inputRef, ref),
-      ...mergeProps(inputProps, focusProps, {checked: isChecked}),
+      ...mergeProps(inputProps, focusProps),
       onChange: chain(inputProps.onChange, handleCheckboxChange),
     };
   }, [inputProps, focusProps, handleCheckboxChange]);
@@ -346,12 +334,12 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const getIconProps = useCallback(
     () =>
       ({
-        isSelected: isSelected || isChecked,
+        isSelected: isSelected,
         isIndeterminate: !!isIndeterminate,
         disableAnimation: !!disableAnimation,
         className: slots.icon({class: classNames?.icon}),
       } as CheckboxIconProps),
-    [slots, classNames?.icon, isSelected, isIndeterminate, disableAnimation, isChecked],
+    [slots, classNames?.icon, isSelected, isIndeterminate, disableAnimation],
   );
 
   return {
