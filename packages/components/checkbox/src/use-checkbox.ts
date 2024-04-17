@@ -267,7 +267,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
       onChangeProp?.(event);
     },
-    [isReadOnly, isDisabled],
+    [isReadOnly, isDisabled, onChangeProp],
   );
 
   const baseStyles = clsx(classNames?.base, className);
