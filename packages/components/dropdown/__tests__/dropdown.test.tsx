@@ -3,6 +3,8 @@ import {act, render} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
 import {User} from "@nextui-org/user";
+import {Image} from "@nextui-org/image";
+import {Avatar} from "@nextui-org/avatar";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
 
@@ -146,6 +148,10 @@ describe("Dropdown", () => {
     });
 
     expect(spy).toBeCalledTimes(0);
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
   });
 
   it("should work with single selection (controlled)", async () => {
@@ -455,14 +461,11 @@ describe("Dropdown", () => {
     expect(onSelectionChange).toBeCalledTimes(0);
   });
 
-  it("should render without error (custom trigger + isDisabled)", async () => {
+  it("should render without error (custom trigger with isDisabled)", async () => {
     const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-    render(
-      <Dropdown isDisabled>
-        <DropdownTrigger>
-          <div>Trigger</div>
-        </DropdownTrigger>
+    const renderDropdownMenu = () => {
+      return (
         <DropdownMenu aria-label="Actions" onAction={alert}>
           <DropdownItem key="new">New file</DropdownItem>
           <DropdownItem key="copy">Copy link</DropdownItem>
@@ -471,6 +474,16 @@ describe("Dropdown", () => {
             Delete file
           </DropdownItem>
         </DropdownMenu>
+      );
+    };
+
+    // Non Next UI Element in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <div>Trigger</div>
+        </DropdownTrigger>
+        {renderDropdownMenu()}
       </Dropdown>,
     );
 
@@ -478,19 +491,45 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
+    // Next UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
           <User as="button" description="@tonyreichert" name="Tony Reichert" />
         </DropdownTrigger>
-        <DropdownMenu aria-label="Actions" onAction={alert}>
-          <DropdownItem key="new">New file</DropdownItem>
-          <DropdownItem key="copy">Copy link</DropdownItem>
-          <DropdownItem key="edit">Edit file</DropdownItem>
-          <DropdownItem key="delete" color="danger">
-            Delete file
-          </DropdownItem>
-        </DropdownMenu>
+        {renderDropdownMenu()}
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    // NextUI Element that supports isDisabled prop in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <Avatar isDisabled name="Marcus" />
+        </DropdownTrigger>
+        {renderDropdownMenu()}
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    // NextUI Element that doesn't support isDisabled prop in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <Image
+            alt="NextUI hero Image"
+            src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+            width={300}
+          />
+        </DropdownTrigger>
+        {renderDropdownMenu()}
       </Dropdown>,
     );
 
