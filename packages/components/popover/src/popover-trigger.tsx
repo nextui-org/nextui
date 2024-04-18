@@ -1,6 +1,6 @@
 import React, {Children, cloneElement, useMemo} from "react";
 import {forwardRef, isNextUIEl} from "@nextui-org/system";
-import {pickChildren, filterDOMProps} from "@nextui-org/react-utils";
+import {filterDOMProps, pickChildren} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
 import {mergeProps} from "@react-aria/utils";
@@ -42,18 +42,11 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  const isDisabled = !!restProps?.isDisabled;
-
-  const isNextUIElement = isNextUIEl(child);
-
   return cloneElement(
     child,
     mergeProps(
-      // if we add `isDisabled` prop to DOM elements,
-      // react will fail to recognize it on a DOM element,
-      // hence, apply filterDOMProps for such case
       filterDOMProps(restProps, {
-        enabled: isDisabled && !isNextUIElement,
+        enabled: !isNextUIEl(child),
       }),
       hasNextUIButton ? {onPress} : buttonProps,
     ),

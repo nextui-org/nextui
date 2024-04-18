@@ -109,6 +109,7 @@ describe("Dropdown", () => {
               items={section.children}
               title={section.title}
             >
+              {/* @ts-ignore */}
               {(item: any) => <DropdownItem key={item.key}>{item.name}</DropdownItem>}
             </DropdownSection>
           )}
