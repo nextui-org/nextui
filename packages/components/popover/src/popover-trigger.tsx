@@ -48,7 +48,7 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
       filterDOMProps(restProps, {
         enabled: !isNextUIEl(child),
       }),
-      hasNextUIButton ? {onPress} : buttonProps,
+      hasNextUIButton ? {onPress, ref: triggerRef} : buttonProps,
     ),
   );
 });
