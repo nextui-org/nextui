@@ -7,7 +7,7 @@ export default function App() {
       <DateInput 
         label={"Birth date"} 
         placeholderValue={new CalendarDate(1995, 11, 6)} 
-        description={"Thiis is my birth date."}
+        description={"This is my birth date."}
       />
     </div>
   );
