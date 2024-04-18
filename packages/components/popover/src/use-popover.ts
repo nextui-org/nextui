@@ -253,16 +253,19 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const getTriggerProps = useCallback<PropGetter>(
     (props = {}, _ref: Ref<any> | null | undefined = null) => {
+      const {isDisabled, ...otherProps} = props;
+
       return {
         "data-slot": "trigger",
         "aria-haspopup": "dialog",
-        ...mergeProps(triggerProps, props),
+        ...mergeProps(triggerProps, otherProps),
         onPress,
+        isDisabled,
         className: slots.trigger({
           class: clsx(classNames?.trigger, props.className),
           // apply isDisabled class names to make the trigger child disabled
           // e.g. for elements like div or NextUI elements that don't have `isDisabled` prop
-          isDropdownDisabled: !!props?.isDisabled,
+          isTriggerDisabled: isDisabled,
         }),
         ref: mergeRefs(_ref, triggerRef),
       };
