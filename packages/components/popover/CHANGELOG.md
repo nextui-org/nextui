@@ -1,5 +1,11 @@
 # @nextui-org/popover
 
+## 2.1.18
+
+### Patch Changes
+
+- [#2741](https://github.com/nextui-org/nextui/pull/2741) [`f89356691`](https://github.com/nextui-org/nextui/commit/f89356691cecb8e54f5f820b2b4491537e7c11f3) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes isDisabled prop on a DOM element
+
 ## 2.1.17
 
 ### Patch Changes

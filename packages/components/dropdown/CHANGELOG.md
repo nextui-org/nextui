@@ -1,5 +1,15 @@
 # @nextui-org/dropdown
 
+## 2.1.20
+
+### Patch Changes
+
+- [#2746](https://github.com/nextui-org/nextui/pull/2746) [`6b56e43a3`](https://github.com/nextui-org/nextui/commit/6b56e43a350d045c36eb9983c7f48ba61db7cdd2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #2743 #2751 internal react-aria use-menu hooks implemented to pass down the press events and control the pressUp one
+
+- Updated dependencies [[`6b56e43a3`](https://github.com/nextui-org/nextui/commit/6b56e43a350d045c36eb9983c7f48ba61db7cdd2), [`f89356691`](https://github.com/nextui-org/nextui/commit/f89356691cecb8e54f5f820b2b4491537e7c11f3)]:
+  - @nextui-org/menu@2.0.20
+  - @nextui-org/popover@2.1.18
+
 ## 2.1.19
 
 ### Patch Changes

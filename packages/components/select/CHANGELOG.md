@@ -1,5 +1,12 @@
 # @nextui-org/select
 
+## 2.1.24
+
+### Patch Changes
+
+- Updated dependencies [[`f89356691`](https://github.com/nextui-org/nextui/commit/f89356691cecb8e54f5f820b2b4491537e7c11f3)]:
+  - @nextui-org/popover@2.1.18
+
 ## 2.1.23
 
 ### Patch Changes
