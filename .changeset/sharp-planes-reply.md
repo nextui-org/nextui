@@ -6,4 +6,4 @@
 "@nextui-org/react-utils": patch
 ---
 
-Named exports implemented
+Fix #2749 Introduced named exports for several UI-related packages to enhance modularity and usability in Next.js projects.
