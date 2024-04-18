@@ -13,8 +13,7 @@ import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 import DateRangePickerField from "./date-range-picker-field";
 import {UseDateRangePickerProps, useDateRangePicker} from "./use-date-range-picker";
 
-export interface Props<T extends DateValue>
-  extends Omit<UseDateRangePickerProps<T>, "hasMultipleMonths"> {}
+export interface Props<T extends DateValue> extends UseDateRangePickerProps<T> {}
 
 function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
   const {

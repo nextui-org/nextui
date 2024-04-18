@@ -116,10 +116,9 @@ export function useDateRangePicker<T extends DateValue>({
     () =>
       dateRangePicker({
         ...variantProps,
-        hasMultipleMonths,
         className,
       }),
-    [objectToDeps(variantProps), hasMultipleMonths, className],
+    [objectToDeps(variantProps), className],
   );
 
   // Time field values
@@ -258,7 +257,7 @@ export function useDateRangePicker<T extends DateValue>({
         labelPlacement,
         className,
       }),
-    [objectToDeps(variantProps), hasMultipleMonths, className],
+    [objectToDeps(variantProps), className],
   );
 
   const getStartDateInputProps = (props: DOMAttributes = {}) => {

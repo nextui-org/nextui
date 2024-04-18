@@ -3,6 +3,7 @@ import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
+import {useForm} from "react-hook-form";
 
 import {Checkbox, CheckboxIconProps, CheckboxProps} from "../src";
 
@@ -60,6 +61,7 @@ const ControlledTemplate = (args: CheckboxProps) => {
         Subscribe (controlled)
       </Checkbox>
       <p className="text-default-500">Selected: {selected ? "true" : "false"}</p>
+      <button onClick={() => setSelected(!selected)}>Toggle</button>
     </div>
   );
 };
@@ -77,6 +79,63 @@ const FormTemplate = (args: CheckboxProps) => {
         Check
       </Checkbox>
       <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
+const GroupTemplate = (args: CheckboxProps) => {
+  const items = ["Apple", "Banana", "Orange", "Mango"];
+
+  const [selectedItems, setSelectedItems] = React.useState<string[]>([]);
+
+  const isSelected = (value: string) => {
+    return selectedItems.some((selected) => selected === value);
+  };
+
+  const handleValueChange = (value: string) => {
+    setSelectedItems([value]);
+  };
+
+  return (
+    <div className="text-white flex flex-col gap-2">
+      <h2>List of Fruits</h2>
+
+      {items.map((item, index) => (
+        <Checkbox
+          {...args}
+          key={index}
+          className="text-white"
+          color="primary"
+          isSelected={isSelected(item)}
+          onValueChange={() => handleValueChange(item)}
+        >
+          {item} {isSelected(item) ? "/ state: true" : "/ state: false"}
+        </Checkbox>
+      ))}
+    </div>
+  );
+};
+
+const WithReactHookFormTemplate = (args: CheckboxProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + data.example);
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <Checkbox {...args} {...register("example", {required: true})} />
+      {errors.example && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
         Submit
       </button>
     </form>
@@ -107,6 +166,22 @@ export const CustomIconNode = {
   args: {
     ...defaultProps,
     icon: <CloseIcon />,
+  },
+};
+
+export const Group = {
+  render: GroupTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

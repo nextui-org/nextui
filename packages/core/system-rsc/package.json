@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system-rsc",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"

@@ -1,5 +1,16 @@
 # @nextui-org/calendar
 
+## 2.0.2
+
+### Patch Changes
+
+- [#2744](https://github.com/nextui-org/nextui/pull/2744) [`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Refactor calendar cell tab index, add calendar default width
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.29
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.1
 
 ### Patch Changes

@@ -8,7 +8,7 @@ import {useCallback, useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
@@ -70,6 +70,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     value,
     name,
+    isInvalid: isInvalidProp,
+    validationState,
     size = "md",
     color = "primary",
     isDisabled = false,
@@ -86,6 +88,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -97,7 +100,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       isRequired,
       isReadOnly,
-      isInvalid: props.validationState === "invalid" || props.isInvalid,
+      isInvalid: validationState === "invalid" || isInvalidProp,
       orientation,
       validationBehavior: "native",
       onChange: onValueChange,
@@ -109,8 +112,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     isRequired,
     isReadOnly,
-    props.isInvalid,
-    props.validationState,
+    isInvalidProp,
+    validationState,
     orientation,
     onValueChange,
   ]);
@@ -127,7 +130,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
 
-  const isInvalid = props.validationState === "invalid" || props.isInvalid || isAriaInvalid;
+  const isInvalid = otherPropsWithOrientation.isInvalid || isAriaInvalid;
 
   const context: ContextType = useMemo(
     () => ({
@@ -168,7 +171,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
-      ...mergeProps(groupProps, otherProps),
+      ...mergeProps(
+        groupProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
     };
   }, [domRef, slots, baseStyles, groupProps, otherProps]);
 

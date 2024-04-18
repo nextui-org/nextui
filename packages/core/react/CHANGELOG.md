@@ -1,5 +1,56 @@
 # @nextui-org/react
 
+## 2.3.2
+
+### Patch Changes
+
+- [#2758](https://github.com/nextui-org/nextui/pull/2758) [`74eda3128`](https://github.com/nextui-org/nextui/commit/74eda312883b2e17df26f71442aba9fb3cd240be) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Named exports for rsc packages, "use client;" directive added to "@nextui-org/react" package
+
+- Updated dependencies [[`74eda3128`](https://github.com/nextui-org/nextui/commit/74eda312883b2e17df26f71442aba9fb3cd240be), [`2126ea186`](https://github.com/nextui-org/nextui/commit/2126ea186317e855bfb8f4a5ad326b4e65293466), [`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0), [`f728c0542`](https://github.com/nextui-org/nextui/commit/f728c0542c1f63398aa2fee4c7f2dedaf16ca185), [`cadbb30cf`](https://github.com/nextui-org/nextui/commit/cadbb30cfb786d2b54e1cb46ea9319d4cb9ce590)]:
+  - @nextui-org/system@2.1.1
+  - @nextui-org/table@2.0.30
+  - @nextui-org/calendar@2.0.2
+  - @nextui-org/date-picker@2.0.3
+  - @nextui-org/theme@2.2.1
+  - @nextui-org/radio@2.0.27
+  - @nextui-org/checkbox@2.0.27
+  - @nextui-org/accordion@2.0.30
+  - @nextui-org/autocomplete@2.0.12
+  - @nextui-org/avatar@2.0.26
+  - @nextui-org/breadcrumbs@2.0.6
+  - @nextui-org/button@2.0.29
+  - @nextui-org/card@2.0.26
+  - @nextui-org/chip@2.0.27
+  - @nextui-org/date-input@2.0.2
+  - @nextui-org/dropdown@2.1.19
+  - @nextui-org/image@2.0.26
+  - @nextui-org/input@2.1.19
+  - @nextui-org/link@2.0.28
+  - @nextui-org/listbox@2.1.18
+  - @nextui-org/menu@2.0.19
+  - @nextui-org/modal@2.0.32
+  - @nextui-org/navbar@2.0.29
+  - @nextui-org/pagination@2.0.29
+  - @nextui-org/popover@2.1.17
+  - @nextui-org/progress@2.0.27
+  - @nextui-org/ripple@2.0.26
+  - @nextui-org/scroll-shadow@2.1.15
+  - @nextui-org/select@2.1.23
+  - @nextui-org/slider@2.2.8
+  - @nextui-org/snippet@2.0.33
+  - @nextui-org/switch@2.0.27
+  - @nextui-org/tabs@2.0.28
+  - @nextui-org/tooltip@2.0.32
+  - @nextui-org/user@2.0.27
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/badge@2.0.26
+  - @nextui-org/code@2.0.26
+  - @nextui-org/divider@2.0.27
+  - @nextui-org/kbd@2.0.27
+  - @nextui-org/skeleton@2.0.26
+  - @nextui-org/spacer@2.0.26
+  - @nextui-org/spinner@2.0.27
+
 ## 2.3.1
 
 ### Patch Changes

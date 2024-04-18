@@ -1,5 +1,18 @@
 # @nextui-org/date-picker
 
+## 2.0.3
+
+### Patch Changes
+
+- [#2744](https://github.com/nextui-org/nextui/pull/2744) [`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Refactor calendar cell tab index, add calendar default width
+
+- Updated dependencies [[`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0)]:
+  - @nextui-org/calendar@2.0.2
+  - @nextui-org/button@2.0.29
+  - @nextui-org/date-input@2.0.2
+  - @nextui-org/popover@2.1.17
+  - @nextui-org/react-utils@2.0.12
+
 ## 2.0.2
 
 ### Patch Changes
