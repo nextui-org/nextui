@@ -1,5 +1,12 @@
 # @nextui-org/table
 
+## 2.0.31
+
+### Patch Changes
+
+- Updated dependencies [[`69f713cb0`](https://github.com/nextui-org/nextui/commit/69f713cb056d1d39db510b75bdd53eb29c459b19)]:
+  - @nextui-org/checkbox@2.0.28
+
 ## 2.0.30
 
 ### Patch Changes

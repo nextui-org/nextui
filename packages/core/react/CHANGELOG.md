@@ -1,5 +1,21 @@
 # @nextui-org/react
 
+## 2.3.4
+
+### Patch Changes
+
+- Updated dependencies [[`69f713cb0`](https://github.com/nextui-org/nextui/commit/69f713cb056d1d39db510b75bdd53eb29c459b19), [`9e5dd8ce3`](https://github.com/nextui-org/nextui/commit/9e5dd8ce37c94c9ca1ba7b2049a6e55f1803fee9)]:
+  - @nextui-org/checkbox@2.0.28
+  - @nextui-org/popover@2.1.19
+  - @nextui-org/modal@2.0.32
+  - @nextui-org/table@2.0.31
+  - @nextui-org/autocomplete@2.0.14
+  - @nextui-org/date-picker@2.0.5
+  - @nextui-org/dropdown@2.1.21
+  - @nextui-org/select@2.1.25
+  - @nextui-org/breadcrumbs@2.0.6
+  - @nextui-org/navbar@2.0.29
+
 ## 2.3.3
 
 ### Patch Changes

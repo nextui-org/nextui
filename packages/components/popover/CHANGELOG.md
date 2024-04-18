@@ -1,5 +1,11 @@
 # @nextui-org/popover
 
+## 2.1.19
+
+### Patch Changes
+
+- [`9e5dd8ce3`](https://github.com/nextui-org/nextui/commit/9e5dd8ce37c94c9ca1ba7b2049a6e55f1803fee9) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix ref not beign passed
+
 ## 2.1.18
 
 ### Patch Changes
