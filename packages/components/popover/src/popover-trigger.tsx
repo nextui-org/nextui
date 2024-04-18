@@ -42,15 +42,15 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  return cloneElement(
-    child,
-    mergeProps(
+  return cloneElement(child, {
+    ref: triggerRef,
+    ...mergeProps(
       filterDOMProps(restProps, {
         enabled: !isNextUIEl(child),
       }),
-      hasNextUIButton ? {onPress, ref: triggerRef} : buttonProps,
+      hasNextUIButton ? {onPress} : buttonProps,
     ),
-  );
+  });
 });
 
 PopoverTrigger.displayName = "NextUI.PopoverTrigger";
