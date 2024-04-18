@@ -57,6 +57,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/user": "workspace:*",
+    "@nextui-org/image": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",
