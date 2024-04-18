@@ -1,5 +1,11 @@
 # @nextui-org/checkbox
 
+## 2.0.28
+
+### Patch Changes
+
+- [#2772](https://github.com/nextui-org/nextui/pull/2772) [`69f713cb0`](https://github.com/nextui-org/nextui/commit/69f713cb056d1d39db510b75bdd53eb29c459b19) Thanks [@chirokas](https://github.com/chirokas)! - Fix non-react props omitted from checkbox group component
+
 ## 2.0.27
 
 ### Patch Changes
