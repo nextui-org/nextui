@@ -45,7 +45,6 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
   return cloneElement(
     child,
     mergeProps(
-      restProps,
       filterDOMProps(restProps, {
         enabled: !isNextUIEl(child),
       }),
