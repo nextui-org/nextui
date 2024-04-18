@@ -1,5 +1,14 @@
 # @nextui-org/calendar
 
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/framer-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/button@2.0.30
+
 ## 2.0.2
 
 ### Patch Changes

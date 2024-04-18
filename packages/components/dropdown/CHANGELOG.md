@@ -1,5 +1,16 @@
 # @nextui-org/dropdown
 
+## 2.1.22
+
+### Patch Changes
+
+- [#2784](https://github.com/nextui-org/nextui/pull/2784) [`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix `isDisabled` prop warning on NextUI components that don't support this property, it is also fixed for non-NextUI components.
+
+- Updated dependencies [[`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d), [`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/popover@2.1.20
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/menu@2.0.21
+
 ## 2.1.21
 
 ### Patch Changes

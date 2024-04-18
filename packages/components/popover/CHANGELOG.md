@@ -1,5 +1,17 @@
 # @nextui-org/popover
 
+## 2.1.20
+
+### Patch Changes
+
+- [#2784](https://github.com/nextui-org/nextui/pull/2784) [`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix `isDisabled` prop warning on NextUI components that don't support this property, it is also fixed for non-NextUI components.
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/aria-utils@2.0.18
+  - @nextui-org/framer-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/button@2.0.30
+
 ## 2.1.19
 
 ### Patch Changes
