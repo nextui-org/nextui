@@ -139,7 +139,11 @@ export function useDropdown(props: UseDropdownProps) {
     return {
       ref: mergeRefs(_ref, menuRef),
       menuProps,
-      ...mergeProps(props, {onAction: () => onMenuAction(props?.closeOnSelect)}),
+      closeOnSelect,
+      ...mergeProps(props, {
+        onAction: () => onMenuAction(props?.closeOnSelect),
+        onClose: state.close,
+      }),
     } as MenuProps;
   };
 

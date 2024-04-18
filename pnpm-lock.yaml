@@ -1716,6 +1716,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-aria-menu':
+        specifier: workspace:*
+        version: link:../../hooks/use-aria-menu
       '@nextui-org/use-is-mobile':
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
@@ -1750,6 +1753,9 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -3156,6 +3162,43 @@ importers:
       '@react-types/link':
         specifier: ^3.5.3
         version: 3.5.3(react@18.2.0)
+      '@react-types/shared':
+        specifier: ^3.22.1
+        version: 3.22.1(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
+  packages/hooks/use-aria-menu:
+    dependencies:
+      '@react-aria/i18n':
+        specifier: ^3.10.2
+        version: 3.10.2(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: ^3.21.1
+        version: 3.21.1(react@18.2.0)
+      '@react-aria/menu':
+        specifier: ^3.13.1
+        version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection':
+        specifier: ^3.17.5
+        version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/utils':
+        specifier: ^3.23.2
+        version: 3.23.2(react@18.2.0)
+      '@react-stately/collections':
+        specifier: ^3.10.5
+        version: 3.10.5(react@18.2.0)
+      '@react-stately/tree':
+        specifier: ^3.7.6
+        version: 3.7.6(react@18.2.0)
+      '@react-types/menu':
+        specifier: ^3.9.7
+        version: 3.9.7(react@18.2.0)
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
