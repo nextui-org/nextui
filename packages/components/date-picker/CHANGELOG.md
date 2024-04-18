@@ -1,5 +1,16 @@
 # @nextui-org/date-picker
 
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d), [`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/popover@2.1.20
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/button@2.0.30
+  - @nextui-org/calendar@2.0.3
+  - @nextui-org/date-input@2.0.3
+
 ## 2.0.5
 
 ### Patch Changes

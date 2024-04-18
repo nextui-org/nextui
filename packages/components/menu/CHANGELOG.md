@@ -1,5 +1,14 @@
 # @nextui-org/menu
 
+## 2.0.21
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/aria-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/divider@2.0.27
+
 ## 2.0.20
 
 ### Patch Changes
