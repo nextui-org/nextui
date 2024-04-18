@@ -148,6 +148,10 @@ describe("Dropdown", () => {
     });
 
     expect(spy).toBeCalledTimes(0);
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
   });
 
   it("should work with single selection (controlled)", async () => {
