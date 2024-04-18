@@ -10,7 +10,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 
 import {CheckboxProps} from "./index";
@@ -78,6 +78,8 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     value,
     name,
     defaultValue,
+    isInvalid: isInvalidProp,
+    validationState,
     size = "md",
     color = "primary",
     orientation = "vertical",
@@ -94,6 +96,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -108,7 +111,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       isReadOnly,
       orientation,
       validationBehavior: "native",
-      isInvalid: props.isInvalid || props.validationState === "invalid",
+      isInvalid: validationState === "invalid" || isInvalidProp,
       onChange: chain(props.onChange, onValueChange),
     };
   }, [
@@ -120,8 +123,8 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     isReadOnly,
     orientation,
     onValueChange,
-    props.isInvalid,
-    props.validationState,
+    isInvalidProp,
+    validationState,
     otherProps["aria-label"],
     otherProps,
   ]);
@@ -138,7 +141,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     validationDetails,
   } = useReactAriaCheckboxGroup(checkboxGroupProps, groupState);
 
-  let isInvalid = props.isInvalid || props.validationState === "invalid" || isAriaInvalid;
+  let isInvalid = checkboxGroupProps.isInvalid || isAriaInvalid;
 
   const context = useMemo<ContextType>(
     () => ({
@@ -178,7 +181,12 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
-      ...mergeProps(groupProps, otherProps),
+      ...mergeProps(
+        groupProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
     };
   }, [slots, domRef, baseStyles, groupProps, otherProps]);
 
