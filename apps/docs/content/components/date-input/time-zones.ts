@@ -1,5 +1,5 @@
 const App = `import {DateInput} from "@nextui-org/react";
-import {parseZonedDateTime} from "@internationalized/date";
+import {parseZonedDateTime, parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {
   return (
