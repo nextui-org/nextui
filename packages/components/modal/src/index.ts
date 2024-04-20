@@ -15,6 +15,7 @@ export type {UseDisclosureProps} from "@nextui-org/use-disclosure";
 // export hooks
 export {useModal} from "./use-modal";
 export {useDisclosure} from "@nextui-org/use-disclosure";
+export {useDraggable} from "@nextui-org/use-draggable";
 
 // export context
 export {ModalProvider, useModalContext} from "./modal-context";

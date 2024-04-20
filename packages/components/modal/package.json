@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@nextui-org/use-disclosure": "workspace:*",
+    "@nextui-org/use-draggable": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
