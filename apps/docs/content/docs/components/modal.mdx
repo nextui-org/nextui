@@ -41,18 +41,18 @@ NextUI exports 5 modal-related components:
 <ImportTabs
   commands={{
     main: `import {
-  Modal, 
-  ModalContent, 
-  ModalHeader, 
-  ModalBody, 
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
   ModalFooter
 } from "@nextui-org/react";`,
     individual:
       `import {
-  Modal, 
-  ModalContent, 
-  ModalHeader, 
-  ModalBody, 
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
   ModalFooter
 } from "@nextui-org/modal";`,
   }}
@@ -73,7 +73,7 @@ When the modal opens:
 
 ### Non-dissmissable
 
-By default, the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key. 
+By default, the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.
 You can disable this behavior by setting the following properties:
 
 - Set the `isDismissable` property to `false` to prevent the modal from closing when clicking on the overlay.
@@ -136,6 +136,18 @@ Modal offers a `motionProps` property to customize the `enter` / `exit` animatio
 <CodeDemo title="Custom Motion" highlightedLines="14-31" files={modalContent.customMotion} />
 
 > Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
+
+### Draggable
+
+Try to drag the header part.
+
+<CodeDemo title="Draggable" files={modalContent.draggable} />
+
+### Draggable Overflow
+
+Set draggable to true to drag, the default is true. Set overflow to true can drag overflow the viewport.
+
+<CodeDemo title="Draggable" files={modalContent.draggableOverflow} />
 
 ## Slots
 
