@@ -1,4 +1,4 @@
-# @nextui-org/use-disclosure
+# @nextui-org/use-draggable
 
 A Quick description of the component
 
