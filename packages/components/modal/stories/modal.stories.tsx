@@ -18,6 +18,7 @@ import {
   ModalFooter,
   ModalProps,
   useDisclosure,
+  useDraggable,
 } from "../src";
 
 export default {
@@ -204,6 +205,30 @@ const OpenChangeTemplate = (args: ModalProps) => {
     </div>
   );
 };
+const DraggableTemplate = (args: ModalProps) => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+  const targetRef = React.useRef(null);
+  const dragRef = React.useRef(null);
+
+  useDraggable({targetRef, dragRef});
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          <ModalHeader ref={dragRef}>Modal Title</ModalHeader>
+          <ModalBody>
+            <Lorem count={1} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onPress={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+  );
+};
 
 export const Default = {
   render: Template,
@@ -277,4 +302,8 @@ export const CustomMotion = {
       },
     },
   },
+};
+
+export const Draggable = {
+  render: DraggableTemplate,
 };
