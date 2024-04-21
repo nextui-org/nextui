@@ -147,7 +147,7 @@ module.exports = {
               fontWeight: "inherit",
             },
             strong: {
-              color: theme("colors.cyan.600"),
+              color: "hsl(var(--nextui-strong))",
               fontWeight: theme("fontWeight.semibold"),
             },
             "a strong": {
@@ -210,6 +210,12 @@ module.exports = {
               fontWeight: theme("fontWeight.normal"),
               fontStyle: "font-normal",
             },
+            "code::before": {
+              content: "",
+            },
+            "code::after": {
+              content: "",
+            },
             "blockquote p:first-of-type::before": {
               content: "",
             },
@@ -222,7 +228,7 @@ module.exports = {
           css: {
             color: "hsl(var(--nextui-default-700))",
             strong: {
-              color: theme("colors.pink.500"),
+              color: "hsl(var(--nextui-cyan-500))",
             },
           },
         },
@@ -327,11 +333,13 @@ module.exports = {
         light: {
           colors: {
             "code-background": "#363449",
+            strong: "#ff4ecd",
             "code-mdx": "#ff4ecd",
           },
         },
         dark: {
           colors: {
+            strong: "#06B7DB",
             "code-background": "#0D0B0B",
             "code-mdx": "#06B7DB",
           },

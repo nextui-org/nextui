@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
@@ -10,6 +12,7 @@ import {
   SearchIcon,
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -78,6 +81,21 @@ const MirrorTemplate = (args) => (
     <Input {...args} />
     <Input {...args} placeholder="Enter your email" />
   </div>
+);
+
+const FormTemplate = (args) => (
+  <form
+    className="w-full max-w-xl flex flex-row items-end gap-4"
+    onSubmit={(e) => {
+      alert(`Submitted value: ${e.target["example"].value}`);
+      e.preventDefault();
+    }}
+  >
+    <Input {...args} name="example" />
+    <button className={button({color: "primary"})} type="submit">
+      Submit
+    </button>
+  </form>
 );
 
 const PasswordTemplate = (args) => {
@@ -465,7 +483,7 @@ export const Default = {
 };
 
 export const Required = {
-  render: MirrorTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
@@ -581,7 +599,50 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please enter a valid email address",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    min: "0",
+    max: "100",
+    type: "number",
+    isRequired: true,
+    label: "Number",
+    placeholder: "Enter a number(0-100)",
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.rangeOverflow) {
+        return "Value is too high";
+      }
+      if (value.validationDetails.rangeUnderflow) {
+        return "Value is too low";
+      }
+      if (value.validationDetails.valueMissing) {
+        return "Value is required";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    type: "number",
+    validate: (value) => {
+      if (value < 0 || value > 100) {
+        return "Value must be between 0 and 100";
+      }
+    },
+    isRequired: true,
+    label: "Number",
+    placeholder: "Enter a number(0-100)",
   },
 };
 

@@ -3,13 +3,14 @@ import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactRef} from "@nextui-org/react-utils";
+import type {CheckboxGroupProps} from "@react-types/checkbox";
 
 import {useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 
 import {CheckboxProps} from "./index";
@@ -47,7 +48,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseCheckboxGroupProps = Omit<Props, "onChange"> &
-  AriaCheckboxGroupProps &
+  Omit<AriaCheckboxGroupProps, "validationBehavior"> &
   Partial<
     Pick<
       CheckboxProps,
@@ -77,14 +78,14 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     value,
     name,
     defaultValue,
+    isInvalid: isInvalidProp,
+    validationState,
     size = "md",
     color = "primary",
     orientation = "vertical",
     lineThrough = false,
     isDisabled = false,
     disableAnimation = false,
-    validationState,
-    isInvalid = validationState === "invalid",
     isReadOnly,
     isRequired,
     onValueChange,
@@ -95,43 +96,52 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
-  const checkboxGroupProps = useMemo(
-    () => ({
+  const checkboxGroupProps = useMemo<CheckboxGroupProps>(() => {
+    return {
+      ...otherProps,
       value,
       name,
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       defaultValue,
       isRequired,
-      isInvalid,
       isReadOnly,
       orientation,
-      onChange: onValueChange,
-      ...otherProps,
-    }),
-    [
-      value,
-      name,
-      label,
-      defaultValue,
-      isRequired,
-      isReadOnly,
-      isInvalid,
-      orientation,
-      onValueChange,
-      otherProps["aria-label"],
-      otherProps,
-    ],
-  );
+      validationBehavior: "native",
+      isInvalid: validationState === "invalid" || isInvalidProp,
+      onChange: chain(props.onChange, onValueChange),
+    };
+  }, [
+    value,
+    name,
+    label,
+    defaultValue,
+    isRequired,
+    isReadOnly,
+    orientation,
+    onValueChange,
+    isInvalidProp,
+    validationState,
+    otherProps["aria-label"],
+    otherProps,
+  ]);
 
   const groupState = useCheckboxGroupState(checkboxGroupProps);
 
-  const {labelProps, groupProps, descriptionProps, errorMessageProps} = useReactAriaCheckboxGroup(
-    checkboxGroupProps,
-    groupState,
-  );
+  const {
+    labelProps,
+    groupProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+  } = useReactAriaCheckboxGroup(checkboxGroupProps, groupState);
+
+  let isInvalid = checkboxGroupProps.isInvalid || isAriaInvalid;
 
   const context = useMemo<ContextType>(
     () => ({
@@ -171,7 +181,12 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
-      ...mergeProps(groupProps, otherProps),
+      ...mergeProps(
+        groupProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
     };
   }, [slots, domRef, baseStyles, groupProps, otherProps]);
 
@@ -218,7 +233,11 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     label,
     context,
     description,
-    errorMessage,
+    isInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage({isInvalid, validationErrors, validationDetails})
+        : errorMessage || validationErrors?.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

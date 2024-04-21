@@ -2,9 +2,20 @@ import {allBlogPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
 
 import {BlogPostList} from "@/components/blog-post";
+import {__DEV__, __PREVIEW__} from "@/utils";
+
+const isDraftVisible = __DEV__ || __PREVIEW__;
 
 export default function Blog() {
-  const posts = allBlogPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+  const posts = allBlogPosts
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+    ?.filter((post) => {
+      if (post.draft && !isDraftVisible) {
+        return false;
+      }
+
+      return true;
+    });
 
   return (
     <div className="w-full lg:px-16 mt-12">

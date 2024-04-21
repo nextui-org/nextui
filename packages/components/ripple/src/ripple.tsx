@@ -1,6 +1,7 @@
 import {FC} from "react";
 import {AnimatePresence, HTMLMotionProps, m, LazyMotion, domAnimation} from "framer-motion";
 import {HTMLNextUIProps} from "@nextui-org/system";
+import {clamp} from "@nextui-org/shared-utils";
 
 import {RippleType} from "./use-ripple";
 
@@ -11,10 +12,6 @@ export interface RippleProps extends HTMLNextUIProps<"span"> {
   style?: React.CSSProperties;
   onClear: (key: React.Key) => void;
 }
-
-const clamp = (value: number, min: number, max: number) => {
-  return Math.min(Math.max(value, min), max);
-};
 
 const Ripple: FC<RippleProps> = (props) => {
   const {ripples = [], motionProps, color = "currentColor", style, onClear} = props;

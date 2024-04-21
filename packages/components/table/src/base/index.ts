@@ -9,3 +9,4 @@ export type {TableBodyProps} from "./table-body";
 export type {TableCellProps} from "./table-cell";
 export type {TableColumnProps} from "./table-column";
 export type {TableHeaderProps} from "./table-header";
+export type {TableRowProps} from "./table-row";
