@@ -1,5 +1,5 @@
 ---
-"@nextui-org/slider": patch
+"@nextui-org/theme": patch
 ---
 
-Fixed slider component vertical mark y position focus
+Fixed slider component vertical mark y position focus (#2658)
