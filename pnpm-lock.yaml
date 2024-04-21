@@ -3205,6 +3205,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      react-dom:
+        specifier: '>=18'
+        version: 18.2.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
