@@ -131,7 +131,7 @@ export function useDatePicker<T extends DateValue>({
     } as DateInputProps;
   };
 
-  const getTimeInputProps = () => {
+  const getTimeInputProps = (): TimeInputProps => {
     if (!showTimeField) return {};
 
     return {
@@ -139,8 +139,8 @@ export function useDatePicker<T extends DateValue>({
       value: state.timeValue,
       onChange: state.setTimeValue,
       granularity: timeGranularity,
-      minValue: timeMinValue,
-      maxValue: timeMaxValue,
+      minValue: timeMinValue ?? undefined,
+      maxValue: timeMaxValue ?? undefined,
       classNames: {
         base: slots.timeInput({
           class: clsx(classNames?.timeInput, userTimeInputProps?.classNames?.base),
@@ -149,15 +149,14 @@ export function useDatePicker<T extends DateValue>({
           class: clsx(classNames?.timeInputLabel, userTimeInputProps?.classNames?.label),
         }),
       },
-    } as TimeInputProps;
+    };
   };
 
-  const getPopoverProps = (props: DOMAttributes = {}) => {
+  const getPopoverProps = (props: DOMAttributes = {}): PopoverProps => {
     return {
       state,
       dialogProps,
       ...popoverProps,
-      ...props,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -167,10 +166,10 @@ export function useDatePicker<T extends DateValue>({
           ),
         }),
       },
-    } as PopoverProps;
+    };
   };
 
-  const getCalendarProps = () => {
+  const getCalendarProps = (): CalendarProps => {
     return {
       ...ariaCalendarProps,
       ...calendarProps,
@@ -178,15 +177,15 @@ export function useDatePicker<T extends DateValue>({
         base: slots.calendar({class: classNames?.calendar}),
         content: slots.calendarContent({class: classNames?.calendarContent}),
       },
-    } as CalendarProps;
+    };
   };
 
-  const getSelectorButtonProps = () => {
+  const getSelectorButtonProps = (): ButtonProps => {
     return {
       ...buttonProps,
       ...selectorButtonProps,
       className: slots.selectorButton({class: classNames?.selectorButton}),
-    } as ButtonProps;
+    };
   };
 
   const getSelectorIconProps = () => {

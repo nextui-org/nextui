@@ -229,10 +229,11 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     hideTimeZone: props.hideTimeZone,
   } as TimeInputProps;
 
-  const popoverProps = {
-    ...mergeProps(slotsProps.popoverProps, props),
+  const popoverProps: PopoverProps = {
+    ...slotsProps.popoverProps,
+    children: slotsProps.popoverProps?.children ?? [],
     triggerRef: domRef,
-  } as PopoverProps;
+  };
 
   const calendarProps = {
     ...slotsProps.calendarProps,
