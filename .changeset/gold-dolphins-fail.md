@@ -2,4 +2,4 @@
 "@nextui-org/input": patch
 ---
 
-Fixes isClearable function in input (#2791)
+Fixes the isClearable function in the input component (#2791)
