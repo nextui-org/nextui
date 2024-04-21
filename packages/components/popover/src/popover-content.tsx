@@ -1,7 +1,7 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {DOMAttributes, ReactNode, useMemo, useCallback, ReactElement, useRef} from "react";
+import {DOMAttributes, ReactNode, useMemo, useCallback, ReactElement} from "react";
 import {DOMElement, forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
