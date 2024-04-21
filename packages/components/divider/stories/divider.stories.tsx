@@ -35,7 +35,7 @@ const Template = (args: DividerProps) => (
       <p className="text-sm text-default-400">Beautiful, fast and modern React UI library.</p>
     </div>
     <Divider className="my-4" />
-    <div className="flex h-5 items-center space-x-4 text-sm">
+    <div className="flex h-5 items-center space-x-4 rtl:space-x-reverse text-sm">
       <div>Blog</div>
       <Divider {...args} orientation="vertical" />
       <div>Docs</div>

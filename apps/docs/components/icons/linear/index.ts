@@ -20,3 +20,4 @@ export * from "./chevron-right";
 export * from "./search";
 export * from "./simple-grid";
 export * from "./rotate-left";
+export * from "./cli";
