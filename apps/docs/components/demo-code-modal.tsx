@@ -57,7 +57,7 @@ export const DemoCodeModal: FC<DemoCodeModalProps> = ({isOpen, code, title, subt
               <>
                 This is an example of how to use the {lowerTitle} component, for more information
                 please visit the&nbsp;
-                <NextUILink as={Link} href={`/docs/${lowerTitle}`}>
+                <NextUILink as={Link} href={`/docs/components/${lowerTitle}`}>
                   {lowerTitle}
                 </NextUILink>
                 &nbsp;docs.

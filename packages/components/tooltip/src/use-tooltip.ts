@@ -4,18 +4,19 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
-import {ReactNode, Ref, useId, useImperativeHandle, useLayoutEffect} from "react";
+import {ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {popover} from "@nextui-org/theme";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
 import {createDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
 interface Props extends Omit<HTMLNextUIProps, "content"> {
   /**
@@ -180,7 +181,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     containerPadding,
   });
 
-  useLayoutEffect(() => {
+  useSafeLayoutEffect(() => {
     if (!updatePositionDeps.length) return;
     // force update position when deps change
     updatePosition();
@@ -206,12 +207,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
         size: originalProps?.size ?? "md",
         shadow: originalProps?.shadow ?? "sm",
       }),
-    [
-      ...Object.values(variantProps),
-      originalProps?.radius,
-      originalProps?.size,
-      originalProps?.shadow,
-    ],
+    [objectToDeps(variantProps), originalProps?.radius, originalProps?.size, originalProps?.shadow],
   );
 
   const getTriggerProps = useCallback<PropGetter>(

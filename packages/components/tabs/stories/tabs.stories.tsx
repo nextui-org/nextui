@@ -265,7 +265,7 @@ const WithFormTemplate = (args: TabsProps) => {
   );
 };
 
-export const Static = {
+export const Default = {
   render: StaticTemplate,
 
   args: {
@@ -313,6 +313,38 @@ export const ManualKeyboardActivation = {
   args: {
     ...defaultProps,
     keyboardActivation: "manual",
+  },
+};
+
+export const Placement = {
+  render: StaticTemplate,
+
+  args: {
+    placement: "top",
+  },
+  argTypes: {
+    placement: {
+      options: ["top", "bottom", "start", "end"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    isVertical: {
+      type: "boolean",
+    },
+  },
+};
+
+export const Vertical = {
+  render: StaticTemplate,
+
+  args: {
+    isVertical: true,
+  },
+  argTypes: {
+    isVertical: {
+      type: "boolean",
+    },
   },
 };
 

@@ -1,5 +1,56 @@
 # @nextui-org/theme
 
+## 2.2.2
+
+### Patch Changes
+
+- [#2784](https://github.com/nextui-org/nextui/pull/2784) [`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix `isDisabled` prop warning on NextUI components that don't support this property, it is also fixed for non-NextUI components.
+
+## 2.2.1
+
+### Patch Changes
+
+- [#2744](https://github.com/nextui-org/nextui/pull/2744) [`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Refactor calendar cell tab index, add calendar default width
+
+## 2.2.0
+
+### Minor Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+### Patch Changes
+
+- [#2538](https://github.com/nextui-org/nextui/pull/2538) [`0359bf308`](https://github.com/nextui-org/nextui/commit/0359bf3084d9f0fc29bf70505b600dab5e1c5da1) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed missing disableAnimation behavior in skeleton
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Support slots in AvatarGroup
+
+- [#2522](https://github.com/nextui-org/nextui/pull/2522) [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed unexpected props on a DOM element (#2474)
+
+- [#2677](https://github.com/nextui-org/nextui/pull/2677) [`4dd2605ac`](https://github.com/nextui-org/nextui/commit/4dd2605ac2270b419ff5b652a116e5048ec95c87) Thanks [@u3u](https://github.com/u3u)! - Fix: remove conflicting transition utilities (close #1502)
+
+  See: https://tailwindcss.com/docs/transition-property
+
+- [#2702](https://github.com/nextui-org/nextui/pull/2702) [`2829d4afa`](https://github.com/nextui-org/nextui/commit/2829d4afaef37ad899fec36d6a9e0e9d2f95094f) Thanks [@wingkwong](https://github.com/wingkwong)! - Changed the HSL rounding to 2 decimal places (#2697)
+
+## 2.1.18
+
+### Patch Changes
+
+- [#2387](https://github.com/nextui-org/nextui/pull/2387) [`141887d38`](https://github.com/nextui-org/nextui/commit/141887d38c3b15a332b7d521448d4eb8e0743ba4) Thanks [@kuri-sun](https://github.com/kuri-sun)! - Chip with dot variant is not properly styled
+
+- [#2392](https://github.com/nextui-org/nextui/pull/2392) [`37bed2368`](https://github.com/nextui-org/nextui/commit/37bed2368e2414a6eb3cf8744896a18ca7299a91) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed incorrect RTL behaviour in toggle (#2266)
+
+- [#2379](https://github.com/nextui-org/nextui/pull/2379) [`e83595e06`](https://github.com/nextui-org/nextui/commit/e83595e06f8225ea590491906109721d46e5dc1f) Thanks [@sudongyuer](https://github.com/sudongyuer)! - fix(chip): fix isOneChar compound variants avoid chip malformed(#2350)
+
 ## 2.1.17
 
 ### Patch Changes
@@ -99,7 +150,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 

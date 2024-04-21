@@ -11,6 +11,7 @@ const select = tv({
       "absolute",
       "z-10",
       "origin-top-left",
+      "rtl:origin-top-right",
       "subpixel-antialiased",
       "text-small",
       "text-foreground-500",
@@ -20,10 +21,10 @@ const select = tv({
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
-      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] min-h-unit-4 items-center gap-1.5 box-border",
-    selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
-    spinner: "absolute right-3",
-    value: ["text-foreground-500", "font-normal", "w-full", "text-left"],
+      "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
+    selectorIcon: "absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4",
+    spinner: "absolute right-3 rtl:left-3 rtl:right-[unset]",
+    value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -97,15 +98,15 @@ const select = tv({
     size: {
       sm: {
         label: "text-tiny",
-        trigger: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        trigger: "h-8 min-h-8 px-2 rounded-small",
         value: "text-small",
       },
       md: {
-        trigger: "h-unit-10 min-h-unit-10 rounded-medium",
+        trigger: "h-10 min-h-10 rounded-medium",
         value: "text-small",
       },
       lg: {
-        trigger: "h-unit-12 min-h-unit-12 rounded-large",
+        trigger: "h-12 min-h-12 rounded-large",
         value: "text-medium",
       },
     },
@@ -132,7 +133,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative pr-2 text-foreground",
+        label: "relative pr-2 rtl:pl-2 rtl:pr-[unset] text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -183,6 +184,7 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
+          "rtl:origin-top-right",
           "!duration-200",
           "!ease-out",
           "transition-[transform,color,left,opacity]",
@@ -516,14 +518,14 @@ const select = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        trigger: "h-12 min-h-unit-12 py-1.5 px-3",
+        trigger: "h-12 min-h-12 py-1.5 px-3",
       },
     },
     {
       labelPlacement: "inside",
       size: "md",
       class: {
-        trigger: "h-14 min-h-unit-14 py-2",
+        trigger: "h-14 min-h-14 py-2",
       },
     },
     {
@@ -531,7 +533,7 @@ const select = tv({
       size: "lg",
       class: {
         label: "text-small",
-        trigger: "h-16 min-h-unit-16 py-2.5 gap-0",
+        trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },
     //  labelPlacement=[inside, outside]
@@ -546,7 +548,15 @@ const select = tv({
       isMultiline: false,
       class: {
         base: "group relative justify-end",
-        label: ["pb-0", "z-20", "top-1/2", "-translate-y-1/2", "group-data-[filled=true]:left-0"],
+        label: [
+          "pb-0",
+          "z-20",
+          "top-1/2",
+          "-translate-y-1/2",
+          "group-data-[filled=true]:left-0",
+          "rtl:group-data-[filled=true]:right-0",
+          "rtl:group-data-[filled=true]:left-[unset]",
+        ],
       },
     },
     // labelPlacement=[inside]
@@ -672,6 +682,8 @@ const select = tv({
       class: {
         label: [
           "left-2",
+          "rtl:right-2",
+          "rtl:left-[unset]",
           "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
@@ -685,6 +697,8 @@ const select = tv({
       class: {
         label: [
           "left-3",
+          "rtl:right-3",
+          "rtl:left-[unset]",
           "text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -698,6 +712,8 @@ const select = tv({
       class: {
         label: [
           "left-3",
+          "rtl:right-3",
+          "rtl:left-[unset]",
           "text-medium",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],

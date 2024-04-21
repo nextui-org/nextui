@@ -6,9 +6,8 @@ import {useMemo} from "react";
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps, shouldClientNavigate, useRouter} from "@react-aria/utils";
-import {usePress} from "@nextui-org/use-aria-press";
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
 interface Props extends Omit<HTMLNextUIProps<"li">, "onClick"> {

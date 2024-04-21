@@ -1,7 +1,5 @@
 import va from "@vercel/analytics";
 
-import {__PROD__} from "./env";
-
 export function getUniqueID(prefix: string) {
   return `${prefix}-${new Date().getTime()}`;
 }
@@ -27,8 +25,6 @@ const getSessionId = () => {
 };
 
 export const trackEvent = (label: string, event: TrackEvent) => {
-  if (!__PROD__) return;
-
   const sessionId = getSessionId();
 
   va.track(label, {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {render, waitFor} from "@testing-library/react";
+import {render} from "@testing-library/react";
 
 import {Input} from "../src";
 
@@ -49,7 +49,7 @@ describe("Input", () => {
   });
 
   it("should have aria-describedby when errorMessage is provided", () => {
-    const {container} = render(<Input errorMessage="error text" label="test input" />);
+    const {container} = render(<Input isInvalid errorMessage="error text" label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-describedby");
   });
@@ -99,7 +99,8 @@ describe("Input", () => {
 
     expect(onFocus).toHaveBeenCalledTimes(1);
   });
-  it("ref should update the value", async () => {
+
+  it("ref should update the value", () => {
     const ref = React.createRef<HTMLInputElement>();
 
     const {container} = render(<Input ref={ref} type="text" />);
@@ -113,11 +114,6 @@ describe("Input", () => {
 
     container.querySelector("input")?.focus();
 
-    await waitFor(() => {
-      return expect(ref.current?.value)?.toBe(value);
-    });
-    await waitFor(() => {
-      return expect(ref.current?.value)?.toBe(value);
-    });
+    expect(ref.current?.value)?.toBe(value);
   });
 });

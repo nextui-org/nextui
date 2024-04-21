@@ -15,6 +15,18 @@ Accordion display a list of high-level options that can expand/collapse to revea
 
 <CarbonAd />
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add accordion",
+    npm: "npm install @nextui-org/accordion",
+    yarn: "yarn add @nextui-org/accordion",
+    pnpm: "pnpm add @nextui-org/accordion",
+    bun: "bun add @nextui-org/accordion"
+  }}
+/>
+
 ## Import
 
 NextUI exports 2 accordion-related components:
@@ -132,7 +144,7 @@ Accordion is a controlled component, which means you need to control the `select
 You can customize the accordion and accordion items styles by using any of the following properties:
 
 - `className`: The class name of the accordion. Modify the accordion wrapper styles.(Accordion)
-- `itemStyles`: The styles of the accordion item. Modify all accordion items styles at once. (Accordion)
+- `itemClasses`: The class names of the accordion items. Modify all accordion items styles at once. (Accordion)
 - `classNames`: The class names of the accordion items. Modify each accordion item styles separately. (AccordionItem)
 
 Here's an example of how to customize the accordion styles:
@@ -184,8 +196,8 @@ Here's an example of how to customize the accordion styles:
 | selectionBehavior         | `toggle` \| `replace`                           | The accordion selection behavior.                                                                       | `toggle` |
 | isCompact                 | `boolean`                                       | Whether all Accordion items should be smaller.                                                          | `false`  |
 | isDisabled                | `boolean`                                       | Whether the Accordion items are disabled.                                                               |          |
-| showDivider               | `boolean`                                       | WWhether to display a divider at the bottom of the each accordion item.                                 | `true`   |
-| DividerProps              | [DividerProps](/docs/components/divider)        | The divider component props.                                                                            | -        |
+| showDivider               | `boolean`                                       | Whether to display a divider at the bottom of the each accordion item.                                  | `true`   |
+| dividerProps              | [DividerProps](/docs/components/divider)        | The divider component props.                                                                            | -        |
 | hideIndicator             | `boolean`                                       | Whether the Accordion items indicator is hidden.                                                        |          |
 | disableAnimation          | `boolean`                                       | Whether the Accordion items open/close animation is disabled.                                           |          |
 | disableIndicatorAnimation | `boolean`                                       | Whether the Accordion items indicator animation is disabled.                                            |          |

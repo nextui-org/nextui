@@ -3,7 +3,15 @@ import {act, render, fireEvent} from "@testing-library/react";
 
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Modal", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Modal isOpen>
@@ -16,6 +24,8 @@ describe("Modal", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    expect(spy).toBeCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {
