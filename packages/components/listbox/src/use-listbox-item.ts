@@ -6,7 +6,7 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
 import {useOption} from "@react-aria/listbox";
 import {mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
@@ -38,6 +38,8 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     autoFocus,
     onPress,
     onClick,
+    shouldHighlightOnFocus,
+    hideSelectedIcon = false,
     isReadOnly = false,
     ...otherProps
   } = props;
@@ -46,7 +48,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || "li";
+  const Component = as || (originalProps.href ? "a" : "li");
   const shouldFilterDOMProps = typeof Component === "string";
 
   const {rendered, key} = item;
@@ -90,7 +92,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
         isDisabled,
         disableAnimation,
       }),
-    [...Object.values(variantProps), isDisabled, disableAnimation],
+    [objectToDeps(variantProps), isDisabled, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -98,6 +100,14 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   if (isReadOnly) {
     itemProps = removeEvents(itemProps);
   }
+
+  const isHighlighted = useMemo(() => {
+    if (shouldHighlightOnFocus && isFocused) {
+      return true;
+    }
+
+    return isMobile ? isHovered || isPressed : isHovered;
+  }, [isHovered, isPressed, isFocused, isMobile, shouldHighlightOnFocus]);
 
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
@@ -113,7 +123,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     ),
     "data-selectable": dataAttr(isSelectable),
     "data-focus": dataAttr(isFocused),
-    "data-hover": dataAttr(isMobile ? isHovered || isPressed : isHovered),
+    "data-hover": dataAttr(isHighlighted),
     "data-disabled": dataAttr(isDisabled),
     "data-selected": dataAttr(isSelected),
     "data-pressed": dataAttr(isPressed),
@@ -162,6 +172,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     startContent,
     endContent,
     selectedIcon,
+    hideSelectedIcon,
     disableAnimation,
     getItemProps,
     getLabelProps,

@@ -11,7 +11,7 @@ import {CarbonAd} from "@/components/ads/carbon-ad";
 import * as DocsComponents from "@/components/docs/components";
 import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
-import {VirtualAnchor, virtualAnchorEncode} from "@/components";
+import {VirtualAnchor, virtualAnchorEncode} from "@/components/virtual-anchor";
 import {trackEvent} from "@/utils/va";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
@@ -105,7 +105,7 @@ const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
 
 const InlineCode = ({children}: {children?: React.ReactNode}) => {
   return (
-    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx">
+    <Components.Code className="font-normal text-default-700 bg-default-200/50 dark:bg-default-100/60 px-2 py-0.5">
       {children}
     </Components.Code>
   );
@@ -149,7 +149,6 @@ const Code = ({
         trackEvent("MDXComponents - Copy", {
           category: "docs",
           action: "copyCode",
-          data: codeString,
         });
       }}
     >
@@ -229,7 +228,7 @@ export const MDXComponents = {
   ),
   Steps: ({...props}) => (
     <div
-      className="[&>h3]:step [&>h3>a]:pt-0.5 mb-12 ml-4 relative border-l border-default-100 pl-[1.625rem] [counter-reset:step]"
+      className="[&>h3]:step [&>h3>a]:pt-0.5 [&>h4]:step [&>h4>a]:pt-0.5 mb-12 ml-4 relative border-l border-default-100 pl-[1.625rem] [counter-reset:step]"
       {...props}
     />
   ),

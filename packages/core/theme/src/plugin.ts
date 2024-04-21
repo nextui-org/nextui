@@ -16,12 +16,15 @@ import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
-import {createSpacingUnits, generateSpacingScale, isBaseTheme} from "./utils/theme";
+import {isBaseTheme} from "./utils/theme";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, defaultLayout} from "./default-layout";
 import {baseStyles} from "./utils/classes";
+import {DEFAULT_TRANSITION_DURATION} from "./utilities/transition";
 
 const DEFAULT_PREFIX = "nextui";
+
+const parsedColorsCache: Record<string, number[]> = {};
 
 // @internal
 const resolveConfig = (
@@ -42,7 +45,7 @@ const resolveConfig = (
     colors: {},
   };
 
-  forEach(themes, ({extend, layout, colors}: ConfigTheme, themeName: string) => {
+  for (const [themeName, {extend, layout, colors}] of Object.entries(themes)) {
     let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
     const scheme = themeName === "light" || themeName === "dark" ? themeName : extend;
 
@@ -58,7 +61,7 @@ const resolveConfig = (
       : {};
 
     // flatten color definitions
-    const flatColors = flattenThemeObject(colors);
+    const flatColors = flattenThemeObject(colors) as Record<string, string>;
 
     const flatLayout = layout ? mapKeys(layout, (value, key) => kebabCase(key)) : {};
 
@@ -71,12 +74,16 @@ const resolveConfig = (
     /**
      * Colors
      */
-    forEach(flatColors, (colorValue, colorName) => {
+    for (const [colorName, colorValue] of Object.entries(flatColors)) {
       if (!colorValue) return;
 
       try {
-        // const [h, s, l, defaultAlphaValue] = parseToHsla(colorValue);
-        const [h, s, l, defaultAlphaValue] = Color(colorValue).hsl().round().array();
+        const parsedColor =
+          parsedColorsCache[colorValue] || Color(colorValue).hsl().round(2).array();
+
+        parsedColorsCache[colorValue] = parsedColor;
+
+        const [h, s, l, defaultAlphaValue] = parsedColor;
         const nextuiColorVariable = `--${prefix}-${colorName}`;
         const nextuiOpacityVariable = `--${prefix}-${colorName}-opacity`;
 
@@ -106,41 +113,33 @@ const resolveConfig = (
         // eslint-disable-next-line no-console
         console.log("error", error?.message);
       }
-    });
+    }
 
     /**
      * Layout
      */
-    forEach(flatLayout, (value, key) => {
+    for (const [key, value] of Object.entries(flatLayout)) {
       if (!value) return;
 
+      const layoutVariablePrefix = `--${prefix}-${key}`;
+
       if (typeof value === "object") {
-        forEach(value, (v, k) => {
-          const layoutVariable = `--${prefix}-${key}-${k}`;
+        for (const [nestedKey, nestedValue] of Object.entries(value)) {
+          const nestedLayoutVariable = `${layoutVariablePrefix}-${nestedKey}`;
 
-          resolved.utilities[cssSelector]![layoutVariable] = v;
-        });
-      } else if (key === "spacing-unit") {
-        const layoutVariable = `--${prefix}-${key}`;
-
-        // add the base unit "--spacing-unit: value"
-        resolved.utilities[cssSelector]![layoutVariable] = value;
-
-        const spacingScale = generateSpacingScale(Number(value));
-
-        // add the list of spacing units "--spacing-unit-[key]: value"
-        forEach(spacingScale, (v, k) => {
-          const layoutVariable = `--${prefix}-${key}-${k}`;
-
-          resolved.utilities[cssSelector]![layoutVariable] = v;
-        });
+          resolved.utilities[cssSelector]![nestedLayoutVariable] = nestedValue;
+        }
       } else {
-        const layoutVariable = `--${prefix}-${key}`;
+        // Handle opacity values and other singular layout values
+        const formattedValue =
+          layoutVariablePrefix.includes("opacity") && typeof value === "number"
+            ? value.toString().replace(/^0\./, ".")
+            : value;
 
-        resolved.utilities[cssSelector]![layoutVariable] = value;
+        resolved.utilities[cssSelector]![layoutVariablePrefix] = formattedValue;
       }
-    });
-  });
+    }
+  }
 
   return resolved;
 };
@@ -152,24 +151,6 @@ const corePlugin = (
   addCommonColors: boolean,
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
-  const minSizes = {
-    "unit-1": `var(--${prefix}-spacing-unit)`,
-    "unit-2": `var(--${prefix}-spacing-unit-2`,
-    "unit-3": `var(--${prefix}-spacing-unit-3)`,
-    "unit-3.5": `var(--${prefix}-spacing-unit-3_5)`,
-    "unit-4": `var(--${prefix}-spacing-unit-4)`,
-    "unit-5": `var(--${prefix}-spacing-unit-5)`,
-    "unit-6": `var(--${prefix}-spacing-unit-6)`,
-    "unit-7": `var(--${prefix}-spacing-unit-7)`,
-    "unit-8": `var(--${prefix}-spacing-unit-8)`,
-    "unit-9": `var(--${prefix}-spacing-unit-9)`,
-    "unit-10": `var(--${prefix}-spacing-unit-10)`,
-    "unit-11": `var(--${prefix}-spacing-unit-11)`,
-    "unit-12": `var(--${prefix}-spacing-unit-12)`,
-    "unit-16": `var(--${prefix}-spacing-unit-16)`,
-    "unit-20": `var(--${prefix}-spacing-unit-20)`,
-    "unit-24": `var(--${prefix}-spacing-unit-24)`,
-  };
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
@@ -179,10 +160,11 @@ const corePlugin = (
           ...baseStyles(prefix),
         },
       });
+
       // add the css variables to "@layer utilities"
-      addUtilities({...resolved.utilities, ...utilities});
+      addUtilities({...resolved?.utilities, ...utilities});
       // add the theme as variant e.g. "[theme-name]:text-2xl"
-      resolved.variants.forEach((variant) => {
+      resolved?.variants.forEach((variant) => {
         addVariant(variant.name, variant.definition);
       });
     },
@@ -193,26 +175,17 @@ const corePlugin = (
           // @ts-ignore
           colors: {
             ...(addCommonColors ? commonColors : {}),
-            ...resolved.colors,
+            ...resolved?.colors,
           },
           scale: {
             "80": "0.8",
+            "85": "0.85",
           },
           height: {
             divider: `var(--${prefix}-divider-weight)`,
           },
           width: {
             divider: `var(--${prefix}-divider-weight)`,
-          },
-          spacing: {
-            unit: `var(--${prefix}-spacing-unit)`,
-            ...createSpacingUnits(prefix),
-          },
-          minWidth: {
-            ...minSizes,
-          },
-          minHeight: {
-            ...minSizes,
           },
           fontSize: {
             tiny: [`var(--${prefix}-font-size-tiny)`, `var(--${prefix}-line-height-tiny)`],
@@ -226,6 +199,7 @@ const corePlugin = (
             large: `var(--${prefix}-radius-large)`,
           },
           opacity: {
+            hover: `var(--${prefix}-hover-opacity)`,
             disabled: `var(--${prefix}-disabled-opacity)`,
           },
           borderWidth: {
@@ -250,6 +224,7 @@ const corePlugin = (
             0: "0ms",
             250: "250ms",
             400: "400ms",
+            DEFAULT: DEFAULT_TRANSITION_DURATION,
           },
           transitionTimingFunction: {
             "soft-spring": "cubic-bezier(0.155, 1.105, 0.295, 1.12)",

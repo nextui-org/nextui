@@ -11,7 +11,7 @@ import {AnimatePresence} from "framer-motion";
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
 
-interface Props<T> extends Omit<UseSelectProps<T>, "isLabelPlaceholder"> {}
+interface Props<T> extends UseSelectProps<T> {}
 
 function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectElement>) {
   const {
@@ -24,10 +24,12 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     selectorIcon = <ChevronDownIcon />,
     description,
     errorMessage,
+    isInvalid,
     startContent,
     endContent,
     placeholder,
     renderValue,
+    isOutsideLeft,
     disableAnimation,
     getBaseProps,
     getLabelProps,
@@ -37,7 +39,6 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     getPopoverProps,
     getSpinnerProps,
     getMainWrapperProps,
-    shouldLabelBeOutside,
     getInnerWrapperProps,
     getHiddenSelectProps,
     getHelperWrapperProps,
@@ -56,7 +57,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
 
     return (
       <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
+        {isInvalid && errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
@@ -65,6 +66,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     );
   }, [
     hasHelper,
+    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,
@@ -90,7 +92,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     }
 
     return state.selectedItems.map((item) => item.textValue).join(", ");
-  }, [state.selectedItems, renderValue]);
+  }, [state.selectedItems, renderValue, placeholder]);
 
   const renderIndicator = useMemo(() => {
     if (isLoading) {
@@ -103,7 +105,13 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const popoverContent = useMemo(
     () =>
       state.isOpen ? (
-        <FreeSoloPopover {...getPopoverProps()} state={state} triggerRef={triggerRef}>
+        <FreeSoloPopover
+          {...getPopoverProps()}
+          // avoid closing the popover when navigating with the keyboard
+          shouldCloseOnInteractOutside={undefined}
+          state={state}
+          triggerRef={triggerRef}
+        >
           <ScrollShadow {...getListboxWrapperProps()}>
             <Listbox {...getListboxProps()} />
           </ScrollShadow>
@@ -115,10 +123,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
-      {shouldLabelBeOutside ? labelContent : null}
+      {isOutsideLeft ? labelContent : null}
       <div {...getMainWrapperProps()}>
         <Component {...getTriggerProps()}>
-          {!shouldLabelBeOutside ? labelContent : null}
+          {!isOutsideLeft ? labelContent : null}
           <div {...getInnerWrapperProps()}>
             {startContent}
             <span {...getValueProps()}>

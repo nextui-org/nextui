@@ -2,7 +2,8 @@ import * as React from "react";
 import {act, render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import {Select, SelectItem, SelectSection} from "../src";
+import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
 
 type Item = {
   label: string;
@@ -212,6 +213,187 @@ describe("Select", () => {
       await userEvent.click(listboxItems[2]);
 
       expect(onSelectionChange).toBeCalledTimes(2);
+    });
+  });
+
+  it("should work with dynamic placeholder and renderValue", async () => {
+    const SelectWrapper = (props: {
+      placeholder?: SelectProps["placeholder"];
+      renderValue?: SelectProps["renderValue"];
+    }) => {
+      const {placeholder, renderValue} = props;
+
+      return (
+        <Select
+          aria-label="Favorite Animal"
+          data-testid="render-selected-item-test"
+          label="Favorite Animal"
+          placeholder={placeholder}
+          renderValue={renderValue}
+        >
+          <SelectItem key="penguin" value="penguin">
+            Penguin
+          </SelectItem>
+          <SelectItem key="zebra" value="zebra">
+            Zebra
+          </SelectItem>
+          <SelectItem key="shark" value="shark">
+            Shark
+          </SelectItem>
+        </Select>
+      );
+    };
+
+    const wrapper = render(<SelectWrapper placeholder="Select an animal" />);
+
+    expect(wrapper.getByText("Select an animal")).toBeInTheDocument();
+
+    wrapper.rerender(<SelectWrapper placeholder="Select an favorite animal" />);
+
+    expect(wrapper.getByText("Select an favorite animal")).toBeInTheDocument();
+
+    const select = wrapper.getByTestId("render-selected-item-test");
+
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    await act(async () => {
+      await userEvent.click(listboxItems[0]);
+    });
+
+    expect(select).toHaveTextContent("Penguin");
+    expect(wrapper.queryByText("Select an favorite animal")).toBe(null);
+
+    wrapper.rerender(
+      <SelectWrapper
+        placeholder="Select an favorite animal"
+        renderValue={(item) => `next ${item[0].textValue}`}
+      />,
+    );
+
+    expect(wrapper.getByText("next Penguin")).toBeInTheDocument();
+    expect(wrapper.queryByText("Select an favorite animal")).toBe(null);
+  });
+
+  it("should close dropdown when clicking outside select", async () => {
+    const wrapper = render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="close-when-clicking-outside-test"
+        label="Favorite Animal"
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("close-when-clicking-outside-test");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // click outside the select component
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the select is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should close dropdown when clicking outside select with modal open", async () => {
+    const wrapper = render(
+      <Modal isOpen>
+        <ModalContent>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalBody>
+            <Select
+              aria-label="Favorite Animal"
+              data-testid="close-when-clicking-outside-test"
+              label="Favorite Animal"
+            >
+              <SelectItem key="penguin" value="penguin">
+                Penguin
+              </SelectItem>
+              <SelectItem key="zebra" value="zebra">
+                Zebra
+              </SelectItem>
+              <SelectItem key="shark" value="shark">
+                Shark
+              </SelectItem>
+            </Select>
+          </ModalBody>
+          <ModalFooter>Modal footer</ModalFooter>
+        </ModalContent>
+      </Modal>,
+    );
+
+    const select = wrapper.getByTestId("close-when-clicking-outside-test");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // click outside the select component
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the select is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("disabled select shouldn't update by keyboard", async () => {
+    let onSelectionChange = jest.fn();
+
+    const wrapper = render(
+      <Select
+        isDisabled
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        label="Favorite Animal"
+        selectionMode="single"
+        value="penguin"
+        onSelectionChange={onSelectionChange}
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+    const select = wrapper.getByTestId("test-select");
+
+    await act(async () => {
+      await userEvent.click(document.body);
+      await userEvent.tab();
+      await userEvent.type(select, "z", {skipClick: true});
+
+      expect(onSelectionChange).toBeCalledTimes(0);
     });
   });
 });

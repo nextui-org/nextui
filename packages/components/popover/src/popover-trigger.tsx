@@ -29,20 +29,23 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     };
   }, [children]);
 
-  const {onPress, ...rest} = useMemo(() => {
-    return getTriggerProps(mergeProps(child.props, otherProps), child.ref);
+  const {onPress, isDisabled, ...restProps} = useMemo(() => {
+    return getTriggerProps(mergeProps(otherProps, child.props), child.ref);
   }, [getTriggerProps, child.props, otherProps, child.ref]);
 
   // validates if contains a NextUI Button as a child
   const [, triggerChildren] = pickChildren(children, Button);
 
-  const {buttonProps} = useAriaButton({onPress}, triggerRef);
+  const {buttonProps} = useAriaButton({onPress, isDisabled}, triggerRef);
 
   const hasNextUIButton = useMemo<boolean>(() => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  return cloneElement(child, mergeProps(rest, hasNextUIButton ? {onPress} : buttonProps));
+  return cloneElement(
+    child,
+    mergeProps(restProps, hasNextUIButton ? {onPress, isDisabled} : buttonProps),
+  );
 });
 
 PopoverTrigger.displayName = "NextUI.PopoverTrigger";

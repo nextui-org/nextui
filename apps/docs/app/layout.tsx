@@ -2,7 +2,6 @@ import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata} from "next";
 import {clsx} from "@nextui-org/shared-utils";
-import {Analytics} from "@vercel/analytics/react";
 
 import {Providers} from "./providers";
 
@@ -12,7 +11,8 @@ import {siteConfig} from "@/config/site";
 import {fontSans} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";
 import {Footer} from "@/components/footer";
-import {__PROD__} from "@/utils";
+import {ProBanner} from "@/components/pro-banner";
+import {ScriptProviders} from "@/components/scripts/script-providers";
 
 export const metadata: Metadata = {
   title: {
@@ -70,13 +70,14 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
           <div className="relative flex flex-col" id="app-container">
+            <ProBanner />
             <Navbar mobileRoutes={manifest.mobileRoutes} routes={manifest.routes} />
             {children}
             <Footer />
           </div>
           <Cmdk />
         </Providers>
-        {__PROD__ && <Analytics />}
+        <ScriptProviders />
       </body>
     </html>
   );

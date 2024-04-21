@@ -14,7 +14,19 @@ additional rich content on top of something.
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
+
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add popover",
+    npm: "npm install @nextui-org/popover",
+    yarn: "yarn add @nextui-org/popover",
+    pnpm: "pnpm add @nextui-org/popover",
+    bun: "bun add @nextui-org/popover"
+  }}
+/>
 
 ## Import
 
@@ -92,10 +104,10 @@ Popover offers a `motionProps` property to customize the `enter` / `exit` animat
 
 ## Slots
 
-- **base**: The main popover slot, it wraps the popover content.
+- **base**: The main popover slot, it wraps the popover content and contains the arrow as a pseudo-element (::before).
 - **trigger**: The popover trigger slot, it has small styles to ensure the trigger works correctly.
 - **backdrop**: The backdrop slot, it contains the backdrop styles.
-- **arrow**: The arrow slot, it wraps the popover arrow, the placement of the arrow is based on the popover placement, e.g. `data-[placement=top]:...`.
+- **content**: The content slot, it contains the popover content.
 
 ### Custom Styles
 
@@ -159,10 +171,11 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 | shouldCloseOnBlur         | `boolean`                                                                   | Whether the popover should close when focus is lost or moves outside it.                                                                                     | `false`         |
 | motionProps               | [MotionProps](#motion-props)                                                | The props to modify the framer motion animation. Use the `variants` API to create your own animation.                                                        |                 |
 | portalContainer           | `HTMLElement`                                                               | The container element in which the overlay portal will be placed.                                                                                            | `document.body` |
+| updatePositionDeps        | `any[]`                                                                     | The dependencies to force the popover position update.                                                                                                       | `[]`            |
 | triggerRef                | `RefObject<HTMLElement>`                                                    | The ref for the element which the popover positions itself with respect to.                                                                                  | -               |
 | scrollRef                 | `RefObject<HTMLElement>`                                                    | A ref for the scrollable region within the popover.                                                                                                          | `overlayRef`    |
 | disableAnimation          | `boolean`                                                                   | Whether the popover is animated.                                                                                                                             | `false`         |
-| classNames                | `Record<"base"｜ "trigger"｜ "backdrop"｜ "arrow", string>`                 | Allows to set custom class names for the popover slots.                                                                                                      | -               |
+| classNames                | `Record<"base"｜ "trigger"｜ "backdrop"｜ "content", string>`               | Allows to set custom class names for the popover slots.                                                                                                      | -               |
 
 <Spacer y={1} />
 
@@ -178,9 +191,9 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 
 ### PopoverTrigger Props
 
-| Attribute  | Type        | Description                                                                                                                                                               | Default |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children\* | `ReactNode` | The popover trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+| Attribute  | Type        | Description                                                                                                                                                                | Default |
+| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| children\* | `ReactNode` | The popover trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility. | -       |
 
 <Spacer y={2} />
 

@@ -1,23 +1,35 @@
 import React, {forwardRef, useEffect} from "react";
-import {clsx, getUniqueID} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
-import {debounce} from "lodash";
+import {debounce, omit} from "lodash";
 
 import defaultTheme from "@/libs/prism-theme";
-import {trackEvent} from "@/utils/va";
 
 interface CodeblockProps {
   language: Language;
   codeString: string;
   metastring?: string;
   theme?: PrismTheme;
+  children?: React.ReactNode;
   showLines?: boolean;
   removeIndent?: boolean;
   hideScrollBar?: boolean;
   className?: string;
-  children?: (props: any) => React.ReactNode;
 }
 
+type HighlightStyle = "inserted" | "deleted" | undefined;
+
+const nextuiCliCommand = [
+  /^init$/,
+  /^add$/,
+  /^upgrade$/,
+  /^remove$/,
+  /^list$/,
+  /^env$/,
+  /^doctor$/,
+];
+
+const highlightStyleToken = ["bun", /nextui\s\w+(?=\s?)/, /^nextui$/, "Usage", ...nextuiCliCommand];
 const RE = /{([\d,-]+)}/;
 
 const calculateLinesToHighlight = (meta?: string) => {
@@ -64,6 +76,32 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
 
     const lastSelectionText = React.useRef<string | null>(null);
 
+    const isDiff = language.includes("diff");
+
+    const codeLang = isDiff ? (language.split("-")[1] as Language) : language;
+
+    let highlightStyle: HighlightStyle[] = [];
+
+    if (isDiff) {
+      let code: string[] = [];
+
+      highlightStyle = codeString.split?.("\n").map((line) => {
+        if (line.startsWith("+")) {
+          code.push(line.substr(1));
+
+          return "inserted";
+        }
+        if (line.startsWith("-")) {
+          code.push(line.substr(1));
+
+          return "deleted";
+        }
+        code.push(line);
+      });
+
+      codeString = code.join("\n");
+    }
+
     useEffect(() => {
       const handleSelectionChange = () => {
         if (!window.getSelection) return;
@@ -84,12 +122,6 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
           return;
 
         lastSelectionText.current = selectionText;
-
-        trackEvent("Codeblock - Selection", {
-          action: "selectText",
-          category: "docs",
-          data: selectionText,
-        });
       };
 
       const debouncedHandleSelectionChange = debounce(handleSelectionChange, 1000);
@@ -105,7 +137,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
       <BaseHighlight
         {...defaultProps}
         code={codeString}
-        language={language}
+        language={codeLang}
         theme={theme}
         {...props}
       >
@@ -124,8 +156,8 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
 
                 return (
                   <div
+                    {...omit(lineProps, ["key"])}
                     key={`${i}-${getUniqueID("line-wrapper")}`}
-                    {...lineProps}
                     className={clsx(
                       lineProps.className,
                       removeIndent ? "pr-4" : "px-4",
@@ -138,17 +170,34 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                           shouldHighlightLine(i),
                       },
                     )}
+                    data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
+                    data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
                   >
                     {showLines && (
                       <span className="select-none text-xs mr-6 opacity-30">{i + 1}</span>
                     )}
-                    {line.map((token, key) => (
-                      <span
-                        key={`${key}-${getUniqueID("line")}`}
-                        {...getTokenProps({token, key})}
-                        className={className}
-                      />
-                    ))}
+                    {line.map((token, key) => {
+                      // Bun has no color style by default in the code block, so hack add in here
+                      const props = getTokenProps({token, key}) || {};
+
+                      return (
+                        <span
+                          {...omit(props, ["key"])}
+                          key={`${key}-${getUniqueID("line")}`}
+                          className={className}
+                          style={{
+                            ...props.style,
+                            ...(highlightStyleToken.some((t) => {
+                              const regex = t instanceof RegExp ? t : new RegExp(t);
+
+                              return regex.test(token.content.trim());
+                            })
+                              ? {color: "rgb(var(--code-function))"}
+                              : {}),
+                          }}
+                        />
+                      );
+                    })}
                   </div>
                 );
               })}

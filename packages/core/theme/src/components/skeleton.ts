@@ -40,17 +40,16 @@ const skeleton = tv({
       "after:bg-content3",
       "dark:after:bg-content2",
       // state
-      "data-[loaded=true]:bg-transparent",
+      "data-[loaded=true]:!bg-transparent",
       "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:animate-none",
       "data-[loaded=true]:after:opacity-0",
     ],
     content: ["opacity-0", "group-data-[loaded=true]:opacity-100"],
   },
-
   variants: {
     disableAnimation: {
       true: {
-        base: "before:transition-none",
+        base: "before:animate-none before:transition-none after:transition-none",
         content: "transition-none",
       },
       false: {

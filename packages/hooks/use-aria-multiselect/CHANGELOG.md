@@ -1,5 +1,36 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.1.5
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2589](https://github.com/nextui-org/nextui/pull/2589) [`a60c2d7b2`](https://github.com/nextui-org/nextui/commit/a60c2d7b22b3335084b4a846f9d39f00751e8c24) Thanks [@wingkwong](https://github.com/wingkwong)! - Handle numeric selectedKeys in Select
+
+- [#2648](https://github.com/nextui-org/nextui/pull/2648) [`abf532b54`](https://github.com/nextui-org/nextui/commit/abf532b548235689fb37a3e79f07776ff52f6caf) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed an issue where a warning was triggered in the Select component when `defaultSelectedKeys` were used and items were still loading (#2605).
+
+## 2.1.4
+
+### Patch Changes
+
+- [#2377](https://github.com/nextui-org/nextui/pull/2377) [`d8b0ef528`](https://github.com/nextui-org/nextui/commit/d8b0ef528b341b25c2032fdc4530956d1d15a5ba) Thanks [@sudongyuer](https://github.com/sudongyuer)! - fix won't display warning when placeholder (#2346)
+
+## 2.1.3
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
 ## 2.1.2
 
 ### Patch Changes

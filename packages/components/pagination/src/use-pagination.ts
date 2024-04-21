@@ -1,8 +1,9 @@
 import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nextui-org/theme";
-import type {Timer} from "@nextui-org/shared-utils";
-import type {ReactNode, Ref} from "react";
+import type {Key, ReactNode, Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
+import {objectToDeps, Timer} from "@nextui-org/shared-utils";
+import {useLocale} from "@react-aria/i18n";
 import {
   UsePaginationProps as UseBasePaginationProps,
   PaginationItemValue,
@@ -15,12 +16,21 @@ import scrollIntoView from "scroll-into-view-if-needed";
 import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {PressEvent} from "@react-types/shared";
 
 export type PaginationItemRenderProps = {
   /**
    * The pagination item ref.
    */
   ref?: Ref<any>;
+  /**
+   * React key.
+   */
+  key?: Key;
+  /**
+   * The pagination item value.
+   */
+  children?: ReactNode;
   /**
    * The pagination item value.
    */
@@ -30,6 +40,14 @@ export type PaginationItemRenderProps = {
    */
   index: number;
   /**
+   * Calculated pagination item position. This includes the dots.
+   */
+  page: number;
+  /**
+   * The pagination total number of pages.
+   */
+  total: number;
+  /**
    * The active page number.
    */
   activePage: number;
@@ -37,6 +55,10 @@ export type PaginationItemRenderProps = {
    * Whether the pagination item is active.
    */
   isActive: boolean;
+  /**
+   * Whether the item is before the active page.
+   */
+  isBefore: boolean;
   /**
    * Whether the pagination item is the first item in the pagination.
    */
@@ -49,6 +71,11 @@ export type PaginationItemRenderProps = {
    * Whether the pagination item is the next item in the pagination.
    */
   isNext: boolean;
+  /**
+   * Number of pages that are added or subtracted on the '...' button.
+   * @default 5
+   */
+  dotsJump: number;
   /**
    * Whether the pagination item is the previous item in the pagination.
    */
@@ -69,6 +96,15 @@ export type PaginationItemRenderProps = {
    * Callback to go to the page.
    */
   setPage: (page: number) => void;
+  /**
+   * Callback fired when the item is clicked.
+   * @param e PressEvent
+   */
+  onPress?: (e: PressEvent) => void;
+  /**
+   * Function to get the aria-label of the item.
+   */
+  getAriaLabel?: (page?: PaginationItemValue) => string | undefined;
 };
 
 interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
@@ -100,7 +136,7 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
   /**
    * Function to get the aria-label of the item. If not provided, pagination will use the default one.
    */
-  getItemAriaLabel?: (page?: string) => string;
+  getItemAriaLabel?: (page?: string | PaginationItemValue) => string;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -156,6 +192,10 @@ export function usePagination(originalProps: UsePaginationProps) {
 
   const cursorTimer = useRef<Timer>();
 
+  const {direction} = useLocale();
+
+  const isRTL = direction === "rtl";
+
   function getItemsRefMap() {
     if (!itemsRef.current) {
       // Initialize the Map on first usage.
@@ -175,42 +215,51 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
   }
 
-  function scrollTo(value: number) {
+  function scrollTo(value: number, skipAnimation: boolean) {
     const map = getItemsRefMap();
 
     const node = map.get(value);
 
+    if (!node || !cursorRef.current) return;
+
     // clean up the previous cursor timer (if any)
     cursorTimer.current && clearTimeout(cursorTimer.current);
 
-    if (node) {
-      // scroll parent to the item
-      scrollIntoView(node, {
-        scrollMode: "always",
-        behavior: "smooth",
-        block: "start",
-        inline: "start",
-        boundary: domRef.current,
-      });
+    // scroll parent to the item
+    scrollIntoView(node, {
+      scrollMode: "always",
+      behavior: "smooth",
+      block: "start",
+      inline: "start",
+      boundary: domRef.current,
+    });
 
-      // get position of the item
-      const {offsetLeft} = node;
+    // get position of the item
+    const {offsetLeft} = node;
 
-      // move the cursor to the item
+    // only shows the animation when the page changes, not on intial render or layout shift
+    if (skipAnimation) {
+      cursorRef.current.setAttribute("data-moving", "false");
+      cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
+
+      return;
+    }
+
+    // move the cursor to the item
+    cursorRef.current.setAttribute("data-moving", "true");
+    cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1.1)`;
+
+    cursorTimer.current = setTimeout(() => {
+      // reset the scale of the cursor
       if (cursorRef.current) {
-        cursorRef.current.setAttribute("data-moving", "true");
-        cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1.1)`;
+        cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
       }
-
       cursorTimer.current = setTimeout(() => {
-        // reset the scale of the cursor
-        if (cursorRef.current) {
-          cursorRef.current.setAttribute("data-moving", "false");
-          cursorRef.current.style.transform = `translateX(${offsetLeft}px) scale(1)`;
-        }
+        // remove the data-moving attribute
+        cursorRef.current?.setAttribute("data-moving", "false");
         cursorTimer.current && clearTimeout(cursorTimer.current);
       }, CURSOR_TRANSITION_TIMEOUT);
-    }
+    }, CURSOR_TRANSITION_TIMEOUT);
   }
 
   const {range, activePage, setPage, previous, next, first, last} = useBasePagination({
@@ -223,15 +272,20 @@ export function usePagination(originalProps: UsePaginationProps) {
     onChange,
   });
 
+  const activePageRef = useRef(activePage);
+
   useEffect(() => {
     if (activePage && !originalProps.disableAnimation) {
-      scrollTo(activePage);
+      scrollTo(activePage, activePage === activePageRef.current);
     }
+    activePageRef.current = activePage;
   }, [
     activePage,
     originalProps.disableAnimation,
-    originalProps.isCompact,
     originalProps.disableCursorAnimation,
+    originalProps.dotsJump,
+    originalProps.isCompact,
+    originalProps.showControls,
   ]);
 
   const slots = useMemo(
@@ -241,13 +295,13 @@ export function usePagination(originalProps: UsePaginationProps) {
         disableCursorAnimation:
           originalProps.disableCursorAnimation || originalProps.disableAnimation,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);
 
   const onNext = () => {
-    if (loop && activePage === total) {
+    if (loop && activePage === (isRTL ? 1 : total)) {
       return first();
     }
 
@@ -255,7 +309,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   };
 
   const onPrevious = () => {
-    if (loop && activePage === 1) {
+    if (loop && activePage === (isRTL ? total : 1)) {
       return last();
     }
 
@@ -287,7 +341,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     };
   };
 
-  const getItemAriaLabel = (page?: string) => {
+  const getItemAriaLabel = (page?: string | PaginationItemValue) => {
     if (!page) return;
 
     if (getItemAriaLabelProp) {

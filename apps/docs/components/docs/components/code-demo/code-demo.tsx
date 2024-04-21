@@ -9,7 +9,6 @@ import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 import WindowResizer, {WindowResizerProps} from "./window-resizer";
 
 import {GradientBoxProps} from "@/components/gradient-box";
-import {trackEvent} from "@/utils/va";
 
 const DynamicReactLiveDemo = dynamic(
   () => import("./react-live-demo").then((m) => m.ReactLiveDemo),
@@ -32,7 +31,6 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
   enableResize?: boolean;
-  showTabs?: boolean;
   showPreview?: boolean;
   hideWindowActions?: boolean;
   showOpenInCodeSandbox?: boolean;
@@ -54,6 +52,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   showEditor = true,
   showPreview = true,
   asIframe = false,
+  showTabs = true,
   resizeEnabled = true,
   hideWindowActions = false,
   showSandpackPreview = false,
@@ -66,7 +65,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   previewHeight = "auto",
   overflow = "visible",
   displayMode = "always",
-  showTabs = true,
   gradientColor,
   highlightedLines,
   iframeInitialWidth,
@@ -181,14 +179,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
             panel: "pt-0",
           }}
           variant="underlined"
-          onSelectionChange={(tabKey) => {
-            trackEvent("CodeDemo - Selection", {
-              name: tabKey as string,
-              action: "tabChange",
-              category: "docs",
-              data: tabKey ?? "",
-            });
-          }}
         >
           <Tab key="preview" title="Preview">
             {previewContent}

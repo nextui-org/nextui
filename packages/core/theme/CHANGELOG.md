@@ -1,5 +1,115 @@
 # @nextui-org/theme
 
+## 2.2.2
+
+### Patch Changes
+
+- [#2784](https://github.com/nextui-org/nextui/pull/2784) [`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix `isDisabled` prop warning on NextUI components that don't support this property, it is also fixed for non-NextUI components.
+
+## 2.2.1
+
+### Patch Changes
+
+- [#2744](https://github.com/nextui-org/nextui/pull/2744) [`158c2aa00`](https://github.com/nextui-org/nextui/commit/158c2aa004f0080449321f84b0efd37762e8adc0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Refactor calendar cell tab index, add calendar default width
+
+## 2.2.0
+
+### Minor Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+### Patch Changes
+
+- [#2538](https://github.com/nextui-org/nextui/pull/2538) [`0359bf308`](https://github.com/nextui-org/nextui/commit/0359bf3084d9f0fc29bf70505b600dab5e1c5da1) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed missing disableAnimation behavior in skeleton
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Support slots in AvatarGroup
+
+- [#2522](https://github.com/nextui-org/nextui/pull/2522) [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed unexpected props on a DOM element (#2474)
+
+- [#2677](https://github.com/nextui-org/nextui/pull/2677) [`4dd2605ac`](https://github.com/nextui-org/nextui/commit/4dd2605ac2270b419ff5b652a116e5048ec95c87) Thanks [@u3u](https://github.com/u3u)! - Fix: remove conflicting transition utilities (close #1502)
+
+  See: https://tailwindcss.com/docs/transition-property
+
+- [#2702](https://github.com/nextui-org/nextui/pull/2702) [`2829d4afa`](https://github.com/nextui-org/nextui/commit/2829d4afaef37ad899fec36d6a9e0e9d2f95094f) Thanks [@wingkwong](https://github.com/wingkwong)! - Changed the HSL rounding to 2 decimal places (#2697)
+
+## 2.1.18
+
+### Patch Changes
+
+- [#2387](https://github.com/nextui-org/nextui/pull/2387) [`141887d38`](https://github.com/nextui-org/nextui/commit/141887d38c3b15a332b7d521448d4eb8e0743ba4) Thanks [@kuri-sun](https://github.com/kuri-sun)! - Chip with dot variant is not properly styled
+
+- [#2392](https://github.com/nextui-org/nextui/pull/2392) [`37bed2368`](https://github.com/nextui-org/nextui/commit/37bed2368e2414a6eb3cf8744896a18ca7299a91) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed incorrect RTL behaviour in toggle (#2266)
+
+- [#2379](https://github.com/nextui-org/nextui/pull/2379) [`e83595e06`](https://github.com/nextui-org/nextui/commit/e83595e06f8225ea590491906109721d46e5dc1f) Thanks [@sudongyuer](https://github.com/sudongyuer)! - fix(chip): fix isOneChar compound variants avoid chip malformed(#2350)
+
+## 2.1.17
+
+### Patch Changes
+
+- [#1951](https://github.com/nextui-org/nextui/pull/1951) [`0f5cce5d6`](https://github.com/nextui-org/nextui/commit/0f5cce5d62713c59973b4330607cdcd3fd95d41a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1933 TV Function refactored to support twMerge false opts.
+
+## 2.1.16
+
+### Patch Changes
+
+- [#1923](https://github.com/nextui-org/nextui/pull/1923) [`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Textarea style rounded full styles issues fixed, start and end content props added
+
+## 2.1.15
+
+### Patch Changes
+
+- [#1914](https://github.com/nextui-org/nextui/pull/1914) [`7f6218b97`](https://github.com/nextui-org/nextui/commit/7f6218b97860d267f5208134948dfeadd04505d1) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1910 multiline select fixed, style improved.
+
+## 2.1.14
+
+### Patch Changes
+
+- [#1901](https://github.com/nextui-org/nextui/pull/1901) [`6a6d426b1`](https://github.com/nextui-org/nextui/commit/6a6d426b10fa7f92dfb20611e261347027393193) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Label position changed for Select and Input, this avoids to break the layout when having long descriptions and no placeholder
+
+  - Input/Select styles improved, label opacity removed
+
+- [#1902](https://github.com/nextui-org/nextui/pull/1902) [`85a820eef`](https://github.com/nextui-org/nextui/commit/85a820eeffe5df87e7622b0983788eb50adafe20) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1893, `endContent` prop fixed.
+
+- [#1905](https://github.com/nextui-org/nextui/pull/1905) [`11ef4365d`](https://github.com/nextui-org/nextui/commit/11ef4365dacf539001a39d596d2f60440bc0648b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Input/Select text size changed for sm size.
+
+## 2.1.13
+
+### Patch Changes
+
+- [#1884](https://github.com/nextui-org/nextui/pull/1884) [`acba2cf8f`](https://github.com/nextui-org/nextui/commit/acba2cf8f5ba1526bd44c6851e0ed7fdc6c0b8ae) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Input, Textarea, Select, Autocomplete and Textarea helper wrapper styles fixed
+
+- [#1891](https://github.com/nextui-org/nextui/pull/1891) [`e728a8967`](https://github.com/nextui-org/nextui/commit/e728a8967b1775be6a919f3b6bd6fc2267cc002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Input/Autocomplete/Textarea/Select styles adapted to custom default color, label truncate added
+
+- [#1876](https://github.com/nextui-org/nextui/pull/1876) [`71807e883`](https://github.com/nextui-org/nextui/commit/71807e88317c40aadfeb134125be1def9d679956) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Theme plugin optimization applied to make it faster
+
+## 2.1.12
+
+### Patch Changes
+
+- [#1869](https://github.com/nextui-org/nextui/pull/1869) [`e84158db6`](https://github.com/nextui-org/nextui/commit/e84158db620954b0f1d71206acbf3d46f43b0b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Select without label position fixed
+  - Input helperWrapper slot is now relative to its parent
+
+## 2.1.11
+
+### Patch Changes
+
+- [#1865](https://github.com/nextui-org/nextui/pull/1865) [`1fd5049f5`](https://github.com/nextui-org/nextui/commit/1fd5049f5a0b852862e8ca1816f1e83507fdd8b5) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix multiline select and inputs with description/errorMessage
+
+## 2.1.10
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
 ## 2.1.9
 
 ### Patch Changes
@@ -40,7 +150,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 

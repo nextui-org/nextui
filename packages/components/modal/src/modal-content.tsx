@@ -1,16 +1,16 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {cloneElement, isValidElement, ReactNode, useMemo} from "react";
+import {cloneElement, isValidElement, ReactNode, useMemo, useCallback} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
-import {RemoveScroll} from "react-remove-scroll";
-import {motion} from "framer-motion";
+import {domAnimation, LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
+import {KeyboardEvent} from "react";
 
 import {useModalContext} from "./modal-context";
 import {scaleInOut} from "./modal-transition";
@@ -28,14 +28,12 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     Component: DialogComponent,
     domRef,
     slots,
-    isOpen,
     classNames,
     motionProps,
     backdrop,
     closeButton,
     hideCloseButton,
     disableAnimation,
-    shouldBlockScroll,
     getDialogProps,
     getBackdropProps,
     getCloseButtonProps,
@@ -59,8 +57,17 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     </button>
   );
 
+  // Handle Tab key during IME composition to prevent input carryover
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Tab" && e.nativeEvent.isComposing) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }, []);
+
+  const contentProps = getDialogProps(mergeProps(dialogProps, otherProps));
   const content = (
-    <Component {...getDialogProps(mergeProps(dialogProps, otherProps))}>
+    <Component {...contentProps} onKeyDown={chain(contentProps.onKeyDown, onKeyDown)}>
       <DismissButton onDismiss={onClose} />
       {!hideCloseButton && closeButtonContent}
       {typeof children === "function" ? children(onClose) : children}
@@ -78,35 +85,42 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     }
 
     return (
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="exit"
-        variants={TRANSITION_VARIANTS.fade}
-        {...(getBackdropProps() as HTMLMotionProps<"div">)}
-      />
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.fade}
+          {...(getBackdropProps() as HTMLMotionProps<"div">)}
+        />
+      </LazyMotion>
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
+
+  const contents = disableAnimation ? (
+    <div className={slots.wrapper({class: classNames?.wrapper})} data-slot="wrapper">
+      {content}
+    </div>
+  ) : (
+    <LazyMotion features={domAnimation}>
+      <m.div
+        animate="enter"
+        className={slots.wrapper({class: classNames?.wrapper})}
+        data-slot="wrapper"
+        exit="exit"
+        initial="exit"
+        variants={scaleInOut}
+        {...motionProps}
+      >
+        {content}
+      </m.div>
+    </LazyMotion>
+  );
 
   return (
     <div tabIndex={-1}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-        {disableAnimation ? (
-          <div className={slots.wrapper({class: classNames?.wrapper})}>{content}</div>
-        ) : (
-          <motion.div
-            animate="enter"
-            className={slots.wrapper({class: classNames?.wrapper})}
-            exit="exit"
-            initial="exit"
-            variants={scaleInOut}
-            {...motionProps}
-          >
-            {content}
-          </motion.div>
-        )}
-      </RemoveScroll>
+      {contents}
     </div>
   );
 });

@@ -15,7 +15,29 @@ html {
 
 body {
   min-height: 100vh;
+  position: relative;
 }
+/* Experimental */
+/* body::after { 
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 40%),
+  radial-gradient(rgb(255, 209, 82) 30%, rgb(226, 105, 150), rgba(226, 105, 150, 0.4) 41%, transparent 52%),
+  radial-gradient(rgb(160, 51, 255) 37%, transparent 46%),
+  linear-gradient(155deg, transparent 65%, rgb(37, 212, 102) 95%),
+  linear-gradient(45deg, rgb(0, 101, 224), rgb(15, 139, 255));
+background-position: left bottom, 109% 68%, 109% 68%, center center, center center;
+background-repeat: no-repeat;
+background-size: 200% 200%, 285% 500%, 285% 500%, cover, cover;
+content: "";
+display: block;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+opacity: 0.17;
+position: fixed;
+z-index: 0;
+} */
+
 /* 
 @media screen and (max-width: 640px) {
   #app-container {

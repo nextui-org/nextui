@@ -16,8 +16,7 @@ import {Avatar} from "@nextui-org/avatar";
 import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 
-import {Accordion, AccordionProps, AccordionItem} from "../src";
-import {AccordionItemProps} from "../src";
+import {Accordion, AccordionProps, AccordionItem, AccordionItemProps} from "../src";
 
 export default {
   title: "Components/Accordion",
@@ -140,7 +139,7 @@ const TemplateWithStartContent = (args: AccordionProps) => (
       }
       subtitle={
         <p className="flex">
-          2 issues to&nbsp;<p className="text-primary">fix now</p>
+          2 issues to&nbsp;<span className="text-primary">fix now</span>
         </p>
       }
       title="Zoey Lang"
@@ -295,7 +294,7 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         startContent={<MonitorMobileIcon className="text-primary" />}
         subtitle={
           <p className="flex">
-            2 issues to&nbsp;<p className="text-primary">fix now</p>
+            2 issues to&nbsp;<span className="text-primary">fix now</span>
           </p>
         }
         title="Connected devices"
@@ -331,7 +330,7 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         title={
           <p className="flex gap-1 items-center">
             Card expired
-            <p className="text-default-400 text-sm">*4812</p>
+            <span className="text-default-400 text-sm">*4812</span>
           </p>
         }
       >

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/code",
-  "version": "2.0.19",
+  "version": "2.0.27",
   "description": "Code is a component used to display inline code.",
   "keywords": [
     "code"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
@@ -35,17 +35,19 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.1.0"
   },
   "dependencies": {
     "@nextui-org/system-rsc": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*"
   },
   "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

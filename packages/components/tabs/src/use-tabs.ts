@@ -3,7 +3,7 @@ import type {TabsVariantProps, SlotsToClasses, TabsSlots, TabsReturnType} from "
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, RefObject, useCallback} from "react";
 import {TabListState, TabListStateOptions, useTabListState} from "@react-stately/tabs";
@@ -22,6 +22,11 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
    * The props to modify the cursor motion animation. Use the `variants` API to create your own animation.
    */
   motionProps?: HTMLMotionProps<"span">;
+  /**
+   * Whether the tabs selection should occur on press up instead of press down.
+   * @default true
+   */
+  shouldSelectOnPressUp?: boolean;
   /**
    * Whether the cursor should be hidden.
    * @default false
@@ -42,11 +47,21 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
    * ``
    */
   classNames?: SlotsToClasses<TabsSlots>;
+  /**
+   * The position of the tabs.
+   * @default 'top'
+   */
+  placement?: "top" | "bottom" | "start" | "end";
+  /**
+   * Whether the tabs are vertical it will invalidate the placement prop when the value is true.
+   * @default false
+   */
+  isVertical?: boolean;
 }
 
 export type UseTabsProps<T> = Props &
   TabsVariantProps &
-  Omit<TabListStateOptions<T>, "children"> &
+  Omit<TabListStateOptions<T>, "children" | keyof AriaTabListProps<T>> &
   Omit<AriaTabListProps<T>, "children" | "orientation"> &
   CollectionProps<T>;
 
@@ -55,6 +70,7 @@ export type ValuesType<T = object> = {
   slots: TabsReturnType;
   disableCursorAnimation?: boolean;
   listRef?: RefObject<HTMLElement>;
+  shouldSelectOnPressUp?: boolean;
   classNames?: SlotsToClasses<TabsSlots>;
   motionProps?: HTMLMotionProps<"span">;
   disableAnimation?: boolean;
@@ -68,10 +84,12 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     ref,
     as,
     className,
-    children,
     classNames,
+    children,
     disableCursorAnimation,
     motionProps,
+    isVertical = false,
+    shouldSelectOnPressUp = true,
     ...otherProps
   } = props;
 
@@ -84,15 +102,16 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     children: children as CollectionChildren<T>,
     ...otherProps,
   });
-  const {tabListProps} = useTabList<T>(otherProps, state, domRef);
+  const {tabListProps} = useTabList<T>(otherProps as AriaTabListProps<T>, state, domRef);
 
   const slots = useMemo(
     () =>
       tabs({
         ...variantProps,
         className,
+        ...(isVertical ? {placement: "start"} : {}),
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className, isVertical],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -104,6 +123,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       classNames,
       motionProps,
       listRef: domRef,
+      shouldSelectOnPressUp,
       disableCursorAnimation,
       isDisabled: originalProps?.isDisabled,
       disableAnimation: originalProps?.disableAnimation,
@@ -114,6 +134,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       domRef,
       motionProps,
       disableCursorAnimation,
+      shouldSelectOnPressUp,
       originalProps?.disableAnimation,
       originalProps?.isDisabled,
       classNames,
@@ -134,6 +155,18 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     [baseStyles, otherProps, slots],
   );
 
+  const placement = (variantProps as Props).placement ?? (isVertical ? "start" : "top");
+  const getWrapperProps: PropGetter = useCallback(
+    (props) => ({
+      "data-slot": "tabWrapper",
+      className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
+      "data-placement": placement,
+      "data-vertical":
+        isVertical || placement === "start" || placement === "end" ? "vertical" : "horizontal",
+    }),
+    [classNames, slots, placement, isVertical],
+  );
+
   const getTabListProps: PropGetter = useCallback(
     (props) => ({
       ref: domRef,
@@ -151,6 +184,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     values,
     getBaseProps,
     getTabListProps,
+    getWrapperProps,
   };
 }
 

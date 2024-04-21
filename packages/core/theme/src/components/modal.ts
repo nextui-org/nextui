@@ -69,6 +69,8 @@ const modal = tv({
       "select-none",
       "top-1",
       "right-1",
+      "rtl:left-1",
+      "rtl:right-[unset]",
       "p-2",
       "text-foreground-500",
       "rounded-full",

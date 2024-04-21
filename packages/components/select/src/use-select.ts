@@ -8,19 +8,20 @@ import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
 import {ListboxProps} from "@nextui-org/listbox";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
-import {CollectionProps} from "@nextui-org/aria-utils";
-import {CollectionChildren} from "@react-types/shared";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {
   MultiSelectProps,
+  MultiSelectState,
   useMultiSelect,
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -122,42 +123,49 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
   classNames?: SlotsToClasses<SelectSlots>;
 }
 
+interface SelectData {
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  name?: string;
+  validationBehavior?: "aria" | "native";
+}
+
+export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
+
 export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
   MultiSelectProps<T> &
-  CollectionProps<T> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
   const disableAnimation = originalProps.disableAnimation ?? false;
 
-  let {
+  const {
     ref,
     as,
-    isOpen,
     label,
     name,
-    children,
     isLoading,
     selectorIcon,
+    isOpen,
     defaultOpen,
     onOpenChange,
     startContent,
     endContent,
     description,
-    errorMessage,
     renderValue,
     onSelectionChange,
     placeholder,
+    children,
     disallowEmptySelection = false,
     selectionMode = "single",
     spinnerRef,
     scrollRef: scrollRefProp,
-    popoverProps: userPopoverProps,
-    scrollShadowProps: userScrollShadowProps,
-    listboxProps: userListboxProps,
+    popoverProps = {},
+    scrollShadowProps = {},
+    listboxProps = {},
+    spinnerProps = {},
     validationState,
-    spinnerProps,
     onChange,
     onClose,
     className,
@@ -167,44 +175,46 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const scrollShadowRef = useDOMRef(scrollRefProp);
 
-  const defaultRelatedComponentsProps: {
+  const slotsProps: {
     popoverProps: UseSelectProps<T>["popoverProps"];
     scrollShadowProps: UseSelectProps<T>["scrollShadowProps"];
     listboxProps: UseSelectProps<T>["listboxProps"];
   } = {
-    popoverProps: {
-      placement: "bottom",
-      triggerScaleOnOpen: false,
-      offset: 5,
-      disableAnimation,
-    },
-    scrollShadowProps: {
-      ref: scrollShadowRef,
-      isEnabled: originalProps.showScrollIndicators ?? true,
-      hideScrollBar: true,
-      offset: 15,
-    },
-    listboxProps: {
-      disableAnimation,
-    },
+    popoverProps: mergeProps(
+      {
+        placement: "bottom",
+        triggerScaleOnOpen: false,
+        offset: 5,
+        disableAnimation,
+      },
+      popoverProps,
+    ),
+    scrollShadowProps: mergeProps(
+      {
+        ref: scrollShadowRef,
+        isEnabled: originalProps.showScrollIndicators ?? true,
+        hideScrollBar: true,
+        offset: 15,
+      },
+      scrollShadowProps,
+    ),
+    listboxProps: mergeProps(
+      {
+        disableAnimation,
+      },
+      listboxProps,
+    ),
   };
-
-  userPopoverProps = {...defaultRelatedComponentsProps.popoverProps, ...userPopoverProps};
-  userScrollShadowProps = {
-    ...defaultRelatedComponentsProps.scrollShadowProps,
-    ...userScrollShadowProps,
-  };
-  userListboxProps = {...defaultRelatedComponentsProps.listboxProps, ...userListboxProps};
 
   const Component = as || "button";
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
   const triggerRef = useRef<HTMLElement>(null);
-  const listboxRef = useRef<HTMLUListElement>(null);
+  const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useMultiSelectState<T>({
+  let state = useMultiSelectState<T>({
     ...props,
     isOpen,
     selectionMode,
@@ -235,12 +245,39 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
   });
 
-  const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useMultiSelect(
-      {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
-      state,
-      triggerRef,
-    );
+  state = {
+    ...state,
+    ...(originalProps?.isDisabled && {
+      disabledKeys: new Set([...state.collection.getKeys()]),
+    }),
+  };
+
+  // if we use `react-hook-form`, it will set the native select value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!domRef.current?.value) return;
+
+    state.setSelectedKeys(new Set([...state.selectedKeys, domRef.current.value]));
+  }, [domRef.current]);
+
+  const {
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+  } = useMultiSelect(
+    {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
+    state,
+    triggerRef,
+  );
+
+  const isInvalid = originalProps.isInvalid || validationState === "invalid" || isAriaInvalid;
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
@@ -255,14 +292,22 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
-  const hasHelper = !!description || !!errorMessage;
   const hasPlaceholder = !!placeholder;
-  const isInvalid = validationState === "invalid" || originalProps.isInvalid;
   const shouldLabelBeOutside =
-    labelPlacement === "outside-left" || (labelPlacement === "outside" && hasPlaceholder);
+    labelPlacement === "outside-left" ||
+    (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
-  const isLabelPlaceholder = !hasPlaceholder && labelPlacement !== "outside-left";
-  const isFilled = state.isOpen || !!state.selectedItems || !!startContent || !!endContent;
+  const isOutsideLeft = labelPlacement === "outside-left";
+
+  const isFilled =
+    state.isOpen ||
+    hasPlaceholder ||
+    !!state.selectedItems?.length ||
+    !!startContent ||
+    !!endContent ||
+    !!originalProps.isMultiline;
+  const hasValue = !!state.selectedItems?.length;
+  const hasLabel = !!label;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -270,17 +315,17 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     () =>
       select({
         ...variantProps,
-        isLabelPlaceholder,
         isInvalid,
+        labelPlacement,
         className,
       }),
-    [...Object.values(variantProps), isInvalid, isLabelPlaceholder, className],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, className],
   );
 
   // scroll the listbox to the selected item
   useEffect(() => {
-    if (state.isOpen && popoverRef.current && listboxRef.current) {
-      let selectedItem = listboxRef.current.querySelector("[aria-selected=true] [data-label=true]");
+    if (state.isOpen && popoverRef.current && listBoxRef.current) {
+      let selectedItem = listBoxRef.current.querySelector("[aria-selected=true] [data-label=true]");
       let scrollShadow = scrollShadowRef.current;
 
       // scroll the listbox to the selected item
@@ -296,6 +341,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     }
   }, [state.isOpen, disableAnimation]);
 
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors?.join(" ");
+
+  const hasHelper = !!description || !!errorMessage;
+
   // apply the same with to the popover as the select
   useEffect(() => {
     if (state.isOpen && popoverRef.current && triggerRef.current) {
@@ -308,20 +360,24 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "base",
       "data-filled": dataAttr(isFilled),
+      "data-has-value": dataAttr(hasValue),
+      "data-has-label": dataAttr(hasLabel),
       "data-has-helper": dataAttr(hasHelper),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
       ...props,
     }),
-    [slots, hasHelper, isFilled, baseStyles],
+    [slots, hasHelper, hasValue, hasLabel, isFilled, baseStyles],
   );
 
   const getTriggerProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         ref: triggerRef,
+        "data-slot": "trigger",
         "data-open": dataAttr(state.isOpen),
         "data-disabled": dataAttr(originalProps?.isDisabled),
         "data-focus": dataAttr(isFocused),
@@ -386,6 +442,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getLabelProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "label",
       className: slots.label({
         class: clsx(classNames?.label, props.className),
       }),
@@ -397,6 +454,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getValueProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "value",
       className: slots.value({
         class: clsx(classNames?.value, props.className),
       }),
@@ -408,22 +466,24 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getListboxWrapperProps: PropGetter = useCallback(
     (props = {}) => ({
+      "data-slot": "listboxWrapper",
       className: slots.listboxWrapper({
         class: clsx(classNames?.listboxWrapper, props?.className),
       }),
-      ...mergeProps(userScrollShadowProps, props),
+      ...mergeProps(slotsProps.scrollShadowProps, props),
     }),
-    [slots.listboxWrapper, classNames?.listboxWrapper, userScrollShadowProps],
+    [slots.listboxWrapper, classNames?.listboxWrapper, slotsProps.scrollShadowProps],
   );
 
   const getListboxProps = (props: any = {}) => {
     return {
       state,
-      ref: listboxRef,
+      ref: listBoxRef,
+      "data-slot": "listbox",
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),
       }),
-      ...mergeProps(userListboxProps, props, menuProps),
+      ...mergeProps(slotsProps.listboxProps, props, menuProps),
     } as ListboxProps;
   };
 
@@ -433,24 +493,35 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         state,
         triggerRef,
         ref: popoverRef,
-        scrollRef: listboxRef,
+        "data-slot": "popover",
+        scrollRef: listBoxRef,
         triggerType: "listbox",
-        className: slots.popover({
-          class: clsx(classNames?.popover, props.className),
-        }),
-        ...mergeProps(userPopoverProps, props),
+        classNames: {
+          content: slots.popoverContent({
+            class: clsx(classNames?.popoverContent, props.className),
+          }),
+        },
+        ...mergeProps(slotsProps.popoverProps, props),
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
-              state.selectedItems.length * 0.00000001 + (userPopoverProps?.offset || 0)
-            : userPopoverProps?.offset,
+              state.selectedItems.length * 0.00000001 + (slotsProps.popoverProps?.offset || 0)
+            : slotsProps.popoverProps?.offset,
       } as PopoverProps;
     },
-    [slots, classNames?.popover, userPopoverProps, triggerRef, state, state.selectedItems],
+    [
+      slots,
+      classNames?.popoverContent,
+      slotsProps.popoverProps,
+      triggerRef,
+      state,
+      state.selectedItems,
+    ],
   );
 
   const getSelectorIconProps = useCallback(
     () => ({
+      "data-slot": "selectorIcon",
       "aria-hidden": dataAttr(true),
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorIcon({class: classNames?.selectorIcon}),
@@ -462,6 +533,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "innerWrapper",
         className: slots.innerWrapper({
           class: clsx(classNames?.innerWrapper, props?.className),
         }),
@@ -474,6 +546,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "helperWrapper",
         className: slots.helperWrapper({
           class: clsx(classNames?.helperWrapper, props?.className),
         }),
@@ -487,6 +560,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         ...descriptionProps,
+        "data-slot": "description",
         className: slots.description({class: clsx(classNames?.description, props?.className)}),
       };
     },
@@ -497,6 +571,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         ...props,
+        "data-slot": "mainWrapper",
         className: slots.mainWrapper({
           class: clsx(classNames?.mainWrapper, props?.className),
         }),
@@ -510,6 +585,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         ...errorMessageProps,
+        "data-slot": "errorMessage",
         className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
       };
     },
@@ -520,6 +596,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (props = {}) => {
       return {
         "aria-hidden": dataAttr(true),
+        "data-slot": "spinner",
         color: "current",
         size: "sm",
         ...spinnerProps,
@@ -530,6 +607,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     [slots, spinnerRef, spinnerProps, classNames?.spinner],
   );
+
+  // store the data to be used in useHiddenSelect
+  selectData.set(state, {
+    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps?.isRequired,
+    name: originalProps?.name,
+    validationBehavior: "native",
+  });
 
   return {
     Component,
@@ -544,15 +629,17 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     endContent,
     description,
     selectorIcon,
-    errorMessage,
     hasHelper,
     labelPlacement,
     hasPlaceholder,
     renderValue,
     selectionMode,
     disableAnimation,
+    isOutsideLeft,
     shouldLabelBeOutside,
     shouldLabelBeInside,
+    isInvalid,
+    errorMessage,
     getBaseProps,
     getTriggerProps,
     getLabelProps,

@@ -6,7 +6,6 @@ export default function App() {
       isInvalid={true}
       variant="bordered"
       label="Description"
-      labelPlacement="outside"
       placeholder="Enter your description"
       defaultValue="NextUI is a React UI library with..."
       errorMessage="The description should be at least 255 characters long."

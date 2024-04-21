@@ -33,6 +33,11 @@ export default {
       },
       options: ["none", "sm", "md", "lg", "full"],
     },
+    showArrow: {
+      control: {
+        type: "boolean",
+      },
+    },
     placement: {
       control: {
         type: "select",
@@ -250,15 +255,9 @@ const ControlledTemplate = (args: TooltipProps) => {
     setIsOpen((prev) => !prev);
   };
 
-  const handleOpenChange = (open: boolean) => {
-    if (!open && isOpen) {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <div className="flex flex-col items-center gap-2">
-      <Tooltip {...args} content="Tooltip 1" isOpen={isOpen} onOpenChange={handleOpenChange}>
+      <Tooltip {...args} content="Tooltip 1" isOpen={isOpen}>
         <Button onPress={handleOpen}>{isOpen ? "Close" : "Open"}</Button>
       </Tooltip>
     </div>

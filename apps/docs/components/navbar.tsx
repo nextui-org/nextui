@@ -34,16 +34,11 @@ import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchLinearIcon,
-} from "@/components/icons";
+import {TwitterIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
+import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
 import {trackEvent} from "@/utils/va";
 
 export interface NavbarProps {
@@ -242,21 +237,35 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Figma
             </NextLink>
           </NavbarItem>
+          {/* hide feedback and changelog at this moment */}
+          {/* <NavbarItem>
+            <NextLink className={navLinkClasses} color="foreground" href="#">
+              <FbChangelogButton key="changelog" userName="" />
+            </NextLink>
+          </NavbarItem>
           <NavbarItem>
+            <NextLink className={navLinkClasses} color="foreground" href="#">
+              <FbFeedbackButton key="feedback" userEmail="" />
+            </NextLink>
+          </NavbarItem> */}
+          <NavbarItem>
+            <FbRoadmapLink className={navLinkClasses} />
+          </NavbarItem>
+          {/* <NavbarItem>
             <Chip
               as={NextLink}
               className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
               color="secondary"
-              href="/blog/v2.1.0"
+              href="/blog/v2.2.0"
               variant="dot"
-              onClick={() => handlePressNavbarItem("New components v2.1.0", "/blog/v2.1.0")}
+              onClick={() => handlePressNavbarItem("Introducing v2.2.0", "/blog/v2.2.0")}
             >
-              New components v2.1.0&nbsp;
-              <span aria-label="party emoji" role="img">
-                🎉
+              Introducing v2.2.0&nbsp;
+              <span aria-label="rocket emoji" role="img">
+                🚀
               </span>
             </Chip>
-          </NavbarItem>
+          </NavbarItem> */}
         </ul>
       </NavbarContent>
 
@@ -299,6 +308,21 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex">
+          <Chip
+            as={NextLink}
+            className="bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
+            color="default"
+            href="/blog/v2.3.0"
+            variant="dot"
+            onClick={() => handlePressNavbarItem("Introducing v2.3.0", "/blog/v2.3.0")}
+          >
+            Introducing v2.3.0&nbsp;
+            <span aria-label="tada emoji" role="img">
+              🎉
+            </span>
+          </Chip>
+        </NavbarItem>
+        <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
             aria-label="Twitter"
@@ -329,7 +353,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchButton}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
+        {/* <NavbarItem className="hidden md:flex">
           <Button
             isExternal
             as={Link}
@@ -343,7 +367,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           >
             Sponsor
           </Button>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="hidden sm:flex lg:hidden ml-4"
@@ -351,7 +375,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
       </NavbarContent>
 
       <NavbarMenu>
-        <DocsSidebar className="mt-4" routes={[...mobileRoutes, ...routes]} slug={slug} tag={tag} />
+        <DocsSidebar
+          className="mt-4 pt-8"
+          routes={[...mobileRoutes, ...routes]}
+          slug={slug}
+          tag={tag}
+        />
         {children}
       </NavbarMenu>
     </NextUINavbar>

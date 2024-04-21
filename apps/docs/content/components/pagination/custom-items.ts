@@ -52,6 +52,7 @@ import {ChevronIcon} from "./ChevronIcon";
 export default function App() {
   const renderItem = ({
     ref,
+    key,
     value,
     isActive,
     onNext,
@@ -61,7 +62,7 @@ export default function App() {
   }: PaginationItemRenderProps<HTMLButtonElement>) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
+        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -69,20 +70,21 @@ export default function App() {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
+        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
           <ChevronIcon />
         </button>
       );
     }
 
     if (value === PaginationItemType.DOTS) {
-      return <button className={className}>...</button>;
+      return <button key={key} className={className}>...</button>;
     }
 
     // cursor is the default item
     return (
       <button
         ref={ref}
+        key={key}
         className={cn(
           className,
           isActive &&
@@ -115,6 +117,7 @@ import {ChevronIcon} from "./ChevronIcon";
 export default function App() {
   const renderItem = ({
     ref,
+    key,
     value,
     isActive,
     onNext,
@@ -124,7 +127,7 @@ export default function App() {
   }) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
+        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
           <ChevronIcon className="rotate-180" />
         </button>
       );
@@ -132,19 +135,20 @@ export default function App() {
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
+        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
           <ChevronIcon />
         </button>
       );
     }
 
     if (value === PaginationItemType.DOTS) {
-      return <button className={className}>...</button>;
+      return <button key={key} className={className}>...</button>;
     }
 
     // cursor is the default item
     return (
       <button
+        key={key}
         ref={ref}
         className={cn(
           className,

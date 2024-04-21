@@ -131,9 +131,7 @@ export function useAriaButton(
       "aria-controls": props["aria-controls"],
       "aria-pressed": props["aria-pressed"],
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (deprecatedOnClick) {
-          deprecatedOnClick(e);
-        }
+        deprecatedOnClick?.(e);
       },
     }),
   };

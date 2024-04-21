@@ -1,5 +1,115 @@
 # @nextui-org/table
 
+## 2.0.32
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/checkbox@2.0.29
+  - @nextui-org/spacer@2.0.27
+
+## 2.0.31
+
+### Patch Changes
+
+- Updated dependencies [[`69f713cb0`](https://github.com/nextui-org/nextui/commit/69f713cb056d1d39db510b75bdd53eb29c459b19)]:
+  - @nextui-org/checkbox@2.0.28
+
+## 2.0.30
+
+### Patch Changes
+
+- [#2747](https://github.com/nextui-org/nextui/pull/2747) [`2126ea186`](https://github.com/nextui-org/nextui/commit/2126ea186317e855bfb8f4a5ad326b4e65293466) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixes adding of empty content at the bottom of the table when rows present in Table (#2742)
+
+- Updated dependencies [[`cadbb30cf`](https://github.com/nextui-org/nextui/commit/cadbb30cfb786d2b54e1cb46ea9319d4cb9ce590)]:
+  - @nextui-org/checkbox@2.0.27
+  - @nextui-org/spacer@2.0.26
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.29
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2509](https://github.com/nextui-org/nextui/pull/2509) [`5ea479f6c`](https://github.com/nextui-org/nextui/commit/5ea479f6c464ab5e9a62a0cb15e034638ea8dfd5) Thanks [@alphaxek](https://github.com/alphaxek)! - Fixed an issue where the `Table` component incorrectly rendered cell contents beneath the stripe when multiple computed values were provided in a `td` (table cell) element.
+
+- [#2472](https://github.com/nextui-org/nextui/pull/2472) [`0443ec1c8`](https://github.com/nextui-org/nextui/commit/0443ec1c878812de465966f2f65e3be56d1be9b5) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the table component.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2502](https://github.com/nextui-org/nextui/pull/2502) [`b0ee8e3fc`](https://github.com/nextui-org/nextui/commit/b0ee8e3fc22634fa8617d1b43f62ec89e87ee137) Thanks [@alphaxek](https://github.com/alphaxek)! - Fixed normal cursor to cursor-not-allowed for disabled rows in Table
+
+- [#2500](https://github.com/nextui-org/nextui/pull/2500) [`ea48ac2d0`](https://github.com/nextui-org/nextui/commit/ea48ac2d08ac641468c4b69e8ecdc0fb16cb5b46) Thanks [@alphaxek](https://github.com/alphaxek)! - fixed `Spinner` loading on top of columns instead of inside `Table` in case of `emptyContent` prop not passed to `Table` body
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`ef6ea6c1f`](https://github.com/nextui-org/nextui/commit/ef6ea6c1ffb57cd30f8994143a48b70f8ad2adeb), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`e4b3c7d1a`](https://github.com/nextui-org/nextui/commit/e4b3c7d1a19bc31c1f69c90a5b467bf8310602dc)]:
+  - @nextui-org/checkbox@2.0.26
+  - @nextui-org/spacer@2.0.25
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+
+## 2.0.28
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/checkbox@2.0.25
+  - @nextui-org/spacer@2.0.24
+
+## 2.0.27
+
+### Patch Changes
+
+- Updated dependencies [[`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291)]:
+  - @nextui-org/shared-icons@2.0.6
+  - @nextui-org/checkbox@2.0.25
+  - @nextui-org/spacer@2.0.23
+
+## 2.0.26
+
+### Patch Changes
+
+- [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
+
+- Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
+  - @nextui-org/checkbox@2.0.25
+  - @nextui-org/spacer@2.0.22
+
+## 2.0.25
+
+### Patch Changes
+
+- [#1874](https://github.com/nextui-org/nextui/pull/1874) [`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated to avoid the peer conflicts issue.
+
+- Updated dependencies [[`38af48faf`](https://github.com/nextui-org/nextui/commit/38af48faf5b62d2f81f2402f3d83d78991eb46e0)]:
+  - @nextui-org/checkbox@2.0.24
+  - @nextui-org/spacer@2.0.21
+  - @nextui-org/system@2.0.12
+
+## 2.0.24
+
+### Patch Changes
+
+- [`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
+
+- Updated dependencies [[`25e86fb41`](https://github.com/nextui-org/nextui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
+  - @nextui-org/checkbox@2.0.23
+  - @nextui-org/spacer@2.0.20
+  - @nextui-org/system@2.0.11
+  - @nextui-org/theme@2.1.10
+  - @nextui-org/react-utils@2.0.10
+  - @nextui-org/shared-icons@2.0.5
+  - @nextui-org/shared-utils@2.0.4
+
 ## 2.0.23
 
 ### Patch Changes
@@ -155,7 +265,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

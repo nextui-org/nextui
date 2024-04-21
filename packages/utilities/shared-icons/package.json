@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/shared-icons",
-  "version": "2.0.4",
+  "version": "2.0.7",
   "description": "Internal icons set, commonly used in the components stories",
   "keywords": [
     "icons-utils"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",

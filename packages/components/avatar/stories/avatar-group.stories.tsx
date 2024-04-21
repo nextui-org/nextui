@@ -42,6 +42,47 @@ const Template = (args: AvatarGroupProps) => (
   </AvatarGroup>
 );
 
+const CustomSlotsTemplate = (args: AvatarGroupProps) => (
+  <AvatarGroup {...args}>
+    <Avatar
+      classNames={{base: "border-2 border-yellow-400"}}
+      radius="sm"
+      size="sm"
+      src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+    />
+    <Avatar
+      classNames={{base: "border-2 border-yellow-500"}}
+      radius="sm"
+      size="sm"
+      src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+    />
+    <Avatar
+      classNames={{base: "border-2 border-yellow-600"}}
+      radius="sm"
+      size="sm"
+      src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+    />
+    <Avatar
+      classNames={{base: "border-2 border-yellow-700"}}
+      radius="sm"
+      size="sm"
+      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+    />
+    <Avatar
+      classNames={{base: "border-2 border-yellow-500"}}
+      radius="sm"
+      size="sm"
+      src="https://i.pravatar.cc/150?u=a04258114e29026702d"
+    />
+    <Avatar
+      classNames={{base: "border-2 border-yellow-500"}}
+      radius="sm"
+      size="sm"
+      src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+    />
+  </AvatarGroup>
+);
+
 export const Default = {
   render: Template,
 
@@ -102,7 +143,18 @@ export const CustomCount = {
     max: 3,
     total: 10,
     renderCount: (count: number) => (
-      <p className="text-sm text-black dark:text-white ml-2">+{count}</p>
+      <p className="text-sm text-black dark:text-white ms-2">+{count}</p>
     ),
+  },
+};
+
+export const CustomSlots = {
+  render: CustomSlotsTemplate,
+
+  args: {
+    classNames: {count: "border-2 border-yellow-400"},
+    max: 3,
+    radius: "sm",
+    size: "sm",
   },
 };

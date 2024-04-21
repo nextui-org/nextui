@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "2.0.10",
+  "version": "2.1.2",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src !src/extend-variants.d.ts --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src !src/extend-variants.d.ts",
@@ -39,7 +39,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {
@@ -52,7 +53,11 @@
   },
   "dependencies": {
     "@nextui-org/system-rsc": "workspace:*",
-    "@react-aria/i18n": "^3.8.2",
-    "@react-aria/overlays": "^3.17.0"
+    "@nextui-org/react-utils": "workspace:*",
+    "@react-aria/i18n": "^3.10.2",
+    "@internationalized/date": "^3.5.2",
+    "@react-aria/overlays": "^3.21.1",
+    "@react-aria/utils": "^3.23.2",
+    "@react-stately/utils": "^3.9.1"
   }
 }

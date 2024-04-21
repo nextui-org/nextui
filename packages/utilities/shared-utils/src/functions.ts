@@ -67,3 +67,15 @@ export function removeEvents(input: {[key: string]: any}) {
 
   return input;
 }
+
+export function objectToDeps(obj: Extractable) {
+  if (!obj || typeof obj !== "object") {
+    return "";
+  }
+
+  try {
+    return JSON.stringify(obj);
+  } catch (e) {
+    return "";
+  }
+}

@@ -84,6 +84,11 @@ export default {
         type: "boolean",
       },
     },
+    isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
     disableAnimation: {
       control: {
         type: "boolean",
@@ -109,22 +114,67 @@ const defaultProps = {
   ...dropdown.defaultVariants,
   placement: "bottom",
   offset: 7,
+  isDisabled: false,
   defaultOpen: false,
   disableAnimation: false,
 };
+
+const items = [
+  {
+    key: "new",
+    label: "New file",
+  },
+  {
+    key: "copy",
+    label: "Copy link",
+  },
+  {
+    key: "edit",
+    label: "Edit file",
+  },
+  {
+    key: "delete",
+    label: "Delete file",
+  },
+];
 
 const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
   <Dropdown {...args}>
     <DropdownTrigger>
       <Button>Trigger</Button>
     </DropdownTrigger>
-    <DropdownMenu aria-label="Actions" color={color} variant={variant} onAction={alert}>
+    <DropdownMenu aria-label="Actions" color={color} variant={variant}>
       <DropdownItem key="new">New file</DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
         Delete file
       </DropdownItem>
+    </DropdownMenu>
+  </Dropdown>
+);
+
+const DynamicTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
+  <Dropdown {...args}>
+    <DropdownTrigger>
+      <Button>Trigger</Button>
+    </DropdownTrigger>
+    <DropdownMenu
+      aria-label="Actions"
+      color={color}
+      items={items}
+      variant={variant}
+      onAction={alert}
+    >
+      {(item) => (
+        <DropdownItem
+          key={item.key}
+          className={item.key === "delete" ? "text-danger" : ""}
+          color={item.key === "delete" ? "danger" : "default"}
+        >
+          {item.label}
+        </DropdownItem>
+      )}
     </DropdownMenu>
   </Dropdown>
 );
@@ -525,8 +575,34 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
   );
 };
 
+const CustomHTMLTrigger = ({variant, ...args}) => {
+  return (
+    <Dropdown {...args}>
+      <DropdownTrigger>
+        <span className="flex items-center gap-2">Profile</span>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" variant={variant}>
+        <DropdownItem key="new">New file</DropdownItem>
+        <DropdownItem key="copy">Copy link</DropdownItem>
+        <DropdownItem key="edit">Edit file</DropdownItem>
+        <DropdownItem key="delete" className="text-danger" color="danger">
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
 export const Default = {
   render: Template,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Dynamic = {
+  render: DynamicTemplate,
 
   args: {
     ...defaultProps,
@@ -555,6 +631,15 @@ export const DisabledKeys = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const DisabledTrigger = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isDisabled: true,
   },
 };
 
@@ -626,6 +711,16 @@ export const WithSections = {
 
 export const WithCustomTrigger = {
   render: CustomTriggerTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    offset: 14,
+  },
+};
+
+export const WithCustomHTMLTrigger = {
+  render: CustomHTMLTrigger,
 
   args: {
     ...defaultProps,

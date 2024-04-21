@@ -10,7 +10,7 @@ Requirements:
 
 - [Next.js 12](https://nextjs.org/) or later
 - [React 18](https://reactjs.org/) or later
-- [Tailwind CSS 3](https://tailwindcss.com/docs/guides/nextjs) or later
+- [Tailwind CSS 3.4](https://tailwindcss.com/docs/guides/nextjs) or later
 - [Framer Motion 4](https://www.framer.com/motion/) or later
 
 ------
@@ -19,15 +19,29 @@ Requirements:
 
 To use NextUI in your Next.js project, you need to follow the steps below, depending on your project structure.
 
-## App directory Setup
+## App Directory Setup
 
 Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
 As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
 directly in your React Server Components (RSC).
 
+## NextUI CLI (recommended)
+
+If you are starting a new project, you can use the NextUI CLI to create a new project with NextUI pre-configured:
+
+```bash
+npm install -g nextui-cli
+```
+
+<Spacer y={4}/>
+
+```bash
+nextui init -t app
+```
+
 ### create-next-app 
 
-If you are starting a new project, you can run one of the following command to create a Next.js project pre-configured with NextUI:
+If you are starting a new project, you can run one of the following commands to create a Next.js project pre-configured with NextUI:
 
 <PackageManagers
   commands={{
@@ -37,13 +51,95 @@ If you are starting a new project, you can run one of the following command to c
   }}
 />
 
+
+## Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+```jsx
+// app/layout.tsx
+
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+
 ### Manual Installation
 
 <Steps>
 
 ### Add dependencies
 
-In your Next.js project, run one of the following command to install NextUI:
+In your Next.js project, run one of the following commands to install NextUI:
 
 <PackageManagers
   commands={{
@@ -101,7 +197,7 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 ### Add Provider to Root
 
-Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
+Now, Go to your `root` layout page and wrap it with the `Providers`:
 
 ```jsx {6,8,10}
 // app/layout.tsx
@@ -120,7 +216,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 }
 ```
 
-> **Note**: NextUI automatically add two themes `light` and `dark` to your application. You can use any 
+> **Note**: NextUI automatically adds two themes, `light` and `dark`, to your application. You can use any 
 of them by adding the `dark`/`light` class to the `html` tag. See the [theme docs](/docs/customization/customize-theme) for more details.
 
 
@@ -141,7 +237,7 @@ export default function Page() {
   )
 }
 ```
-> **Important 🚨**: Note that you need to import the component from the individual package, not the from `@nextui-org/react`. 
+> **Important 🚨**: Note that you need to import the component from the individual package, not from `@nextui-org/react`. 
 
 ### Setup pnpm (optional)
 
@@ -151,8 +247,7 @@ If you are using pnpm, you need to add the following code to your `.npmrc` file:
 public-hoist-pattern[]=*@nextui-org/*
 ```
 
-After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
+After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 </Steps>
 
@@ -160,11 +255,25 @@ After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 ## Pages Directory Setup 
 
+### NextUI CLI (recommended)
+
+If you are starting a new project, you can use the NextUI CLI to create a new project with NextUI pre-configured:
+
+```bash
+npm install -g nextui-cli
+```
+
+<Spacer y={4}/>
+
+```bash
+nextui init -t pages
+```
+
 If you are using the `/pages` Next.js project structure, you need to follow the steps below.
 
 ### create-next-app 
 
-If you are starting a new project, you can run one of the following command to create a Next.js project pre-configured with NextUI:
+If you are starting a new project, you can run one of the following commands to create a Next.js project pre-configured with NextUI:
 
 <PackageManagers
   commands={{
@@ -174,13 +283,93 @@ If you are starting a new project, you can run one of the following command to c
   }}
 />
 
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+```jsx
+// app/layout.tsx
+
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
 ### Manual Installation
 
 <Steps>
 
 ### Add dependencies
 
-In your Next.js project, run one of the following command to install NextUI:
+In your Next.js project, run one of the following commands to install NextUI:
 
 <PackageManagers
   commands={{
@@ -260,7 +449,7 @@ If you are using pnpm, you need to add the following code to your `.npmrc` file:
 public-hoist-pattern[]=*@nextui-org/*
 ```
 
-After modfiying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+After modifying the `.npmrc` file, you must run `pnpm install` again to ensure the dependencies are installed correctly.
 
 </Steps>
 

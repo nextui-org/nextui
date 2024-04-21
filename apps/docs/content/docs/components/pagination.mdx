@@ -15,6 +15,18 @@ The Pagination component allows you to display active page and navigate between 
 
 <CarbonAd/>
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add pagination",
+    npm: "npm install @nextui-org/pagination",
+    yarn: "yarn add @nextui-org/pagination",
+    pnpm: "pnpm add @nextui-org/pagination",
+    bun: "bun add @nextui-org/pagination"
+  }}
+/>
+
 ## Import
 
 NextUI exports 3 pagination-related components:
@@ -170,7 +182,7 @@ your own implementation.
 | size                   | `sm` \| `md` \| `lg`                                                                                                          | The pagination size.                                                     | `md`      |
 | radius                 | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                      | The pagination border radius.                                            | `xl`      |
 | total                  | `number`                                                                                                                      | The total number of pages.                                               | `1`       |
-| dotsJump               | `boolean`                                                                                                                     | The number of pages that are added or subtracted on the '...' button.    | `5`       |
+| dotsJump               | `number`                                                                                                                     | The number of pages that are added or subtracted on the '...' button.    | `5`       |
 | initialPage            | `number`                                                                                                                      | The initial page. (uncontrolled)                                         | `1`       |
 | page                   | `number`                                                                                                                      | The current page. (controlled)                                           | -         |
 | siblings               | `number`                                                                                                                      | The number of pages to show before and after the current page.           | `1`       |
@@ -190,7 +202,7 @@ your own implementation.
 
 | Attribute | Type                     | Description                                                     |
 | --------- | ------------------------ | --------------------------------------------------------------- |
-| onChange  | `(page: number) => void` | Handler that is called when the pagination acitve page changes. |
+| onChange  | `(page: number) => void` | Handler that is called when the pagination active page changes. |
 
 ---
 

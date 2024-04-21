@@ -4,7 +4,7 @@ import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
 
-export interface InputProps extends Omit<UseInputProps, "isLabelPlaceholder" | "isMultiline"> {}
+export interface InputProps extends Omit<UseInputProps, "isMultiline"> {}
 
 const Input = forwardRef<"input", InputProps>((props, ref) => {
   const {
@@ -15,12 +15,11 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     startContent,
     endContent,
     labelPlacement,
-    hasPlaceholder,
     hasHelper,
-    isLabelOutside,
-    isLabelOutsideAsPlaceholder,
+    isOutsideLeft,
     shouldLabelBeOutside,
     errorMessage,
+    isInvalid,
     getBaseProps,
     getLabelProps,
     getInputProps,
@@ -48,7 +47,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
     return (
       <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
+        {isInvalid && errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
@@ -57,6 +56,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     );
   }, [
     hasHelper,
+    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,
@@ -75,7 +75,11 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       );
     }
 
-    return <input {...getInputProps()} />;
+    return (
+      <div {...getInnerWrapperProps()}>
+        <input {...getInputProps()} />
+      </div>
+    );
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
 
   const mainWrapper = useMemo(() => {
@@ -83,7 +87,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       return (
         <div {...getMainWrapperProps()}>
           <div {...getInputWrapperProps()}>
-            {isLabelOutsideAsPlaceholder ? labelContent : null}
+            {!isOutsideLeft ? labelContent : null}
             {innerWrapper}
           </div>
           {helperWrapper}
@@ -104,8 +108,6 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     labelPlacement,
     helperWrapper,
     shouldLabelBeOutside,
-    isLabelOutsideAsPlaceholder,
-    hasPlaceholder,
     labelContent,
     innerWrapper,
     errorMessage,
@@ -118,7 +120,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {isLabelOutside ? labelContent : null}
+      {isOutsideLeft ? labelContent : null}
       {mainWrapper}
     </Component>
   );

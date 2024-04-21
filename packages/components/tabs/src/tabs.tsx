@@ -9,7 +9,7 @@ import TabPanel from "./tab-panel";
 interface Props<T> extends UseTabsProps<T> {}
 
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {Component, values, state, getBaseProps, getTabListProps} = useTabs<T>({
+  const {Component, values, state, getBaseProps, getTabListProps, getWrapperProps} = useTabs<T>({
     ...props,
     ref,
   });
@@ -26,14 +26,15 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
     isDisabled: values.isDisabled,
     motionProps: values.motionProps,
     disableAnimation: values.disableAnimation,
+    shouldSelectOnPressUp: values.shouldSelectOnPressUp,
     disableCursorAnimation: values.disableCursorAnimation,
   };
 
   const tabs = [...state.collection].map((item) => (
-    <Tab key={item.key} item={item} {...item.props} {...tabsProps} />
+    <Tab key={item.key} item={item} {...tabsProps} {...item.props} />
   ));
 
-  return (
+  const renderTabs = (
     <>
       <div {...getBaseProps()}>
         <Component {...getTabListProps()}>
@@ -48,6 +49,12 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
       />
     </>
   );
+
+  if ("placement" in props || "isVertical" in props) {
+    return <div {...getWrapperProps()}>{renderTabs}</div>;
+  }
+
+  return renderTabs;
 }
 
 export type TabsProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};

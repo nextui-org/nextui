@@ -1,11 +1,11 @@
-import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
-import {AnimatePresence, motion} from "framer-motion";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {AnimatePresence, m, LazyMotion, domAnimation} from "framer-motion";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {warn} from "@nextui-org/shared-utils";
-import {Children, cloneElement} from "react";
+import {Children, cloneElement, isValidElement} from "react";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
+import {mergeProps} from "@react-aria/utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
@@ -21,10 +21,9 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     placement,
     disableAnimation,
     motionProps,
-    showArrow,
     getTriggerProps,
     getTooltipProps,
-    getArrowProps,
+    getTooltipContentProps,
   } = useTooltip({
     ...props,
     ref,
@@ -32,56 +31,56 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
 
   let trigger: React.ReactElement;
 
-  const {className, ...otherTooltipProps} = getTooltipProps();
-
   try {
     /**
      * Ensure tooltip has only one child node
      */
-    const child = Children.only(children) as React.ReactElement & {
-      ref?: React.Ref<any>;
-    };
+    const childrenNum = Children.count(children);
 
-    trigger = cloneElement(child, getTriggerProps(child.props, child.ref));
+    if (childrenNum !== 1) throw new Error();
+
+    if (!isValidElement(children)) {
+      trigger = <p {...getTriggerProps()}>{children}</p>;
+    } else {
+      const child = children as React.ReactElement & {
+        ref?: React.Ref<any>;
+      };
+
+      trigger = cloneElement(child, getTriggerProps(child.props, child.ref));
+    }
   } catch (error) {
     trigger = <span />;
     warn("Tooltip must have only one child node. Please, check your code.");
   }
 
-  const arrowContent = useMemo(() => {
-    if (!showArrow) return null;
+  const {ref: tooltipRef, id, style, ...otherTooltipProps} = getTooltipProps();
 
-    return <span {...getArrowProps()} />;
-  }, [showArrow, getArrowProps]);
-
-  const animatedContent = useMemo(() => {
-    return (
-      <div {...otherTooltipProps}>
-        <motion.div
+  const animatedContent = (
+    <div ref={tooltipRef} id={id} style={style}>
+      <LazyMotion features={domAnimation}>
+        <m.div
           animate="enter"
           exit="exit"
           initial="exit"
+          variants={TRANSITION_VARIANTS.scaleSpring}
+          {...mergeProps(motionProps, otherTooltipProps)}
           style={{
             ...getTransformOrigins(placement),
           }}
-          variants={TRANSITION_VARIANTS.scaleSpring}
-          {...motionProps}
         >
-          <Component className={className}>{content}</Component>
-          {arrowContent}
-        </motion.div>
-      </div>
-    );
-  }, [otherTooltipProps, className, placement, motionProps, Component, content, arrowContent]);
+          <Component {...getTooltipContentProps()}>{content}</Component>
+        </m.div>
+      </LazyMotion>
+    </div>
+  );
 
   return (
     <>
       {trigger}
       {disableAnimation && isOpen ? (
         <OverlayContainer portalContainer={portalContainer}>
-          <div {...otherTooltipProps}>
-            <Component className={className}>{content}</Component>
-            {arrowContent}
+          <div ref={tooltipRef} id={id} style={style} {...otherTooltipProps}>
+            <Component {...getTooltipContentProps()}>{content}</Component>
           </div>
         </OverlayContainer>
       ) : (

@@ -1,13 +1,11 @@
 import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
-import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
+import {DOMAttributes, ReactNode, useMemo, useCallback, ReactElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
-import {motion} from "framer-motion";
-import {useDialog} from "@react-aria/dialog";
-import {mergeProps} from "@react-aria/utils";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
+import {m, domAnimation, LazyMotion} from "framer-motion";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {RemoveScroll} from "react-remove-scroll";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
@@ -21,46 +19,40 @@ export interface PopoverContentProps
 }
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
-  const {as, children, ...otherProps} = props;
+  const {as, children, className, ...otherProps} = props;
 
   const {
     Component: OverlayComponent,
     isOpen,
     placement,
-    showArrow,
-    motionProps,
     backdrop,
+    motionProps,
+    titleProps,
     disableAnimation,
     shouldBlockScroll,
     getPopoverProps,
-    getArrowProps,
     getDialogProps,
     getBackdropProps,
+    getContentProps,
     isNonModal,
     onClose,
   } = usePopoverContext();
 
-  const Component = as || OverlayComponent || "div";
-
-  const dialogRef = useRef(null);
-  const {dialogProps, titleProps} = useDialog({}, dialogRef);
+  const dialogProps = getDialogProps(otherProps);
 
   // Not needed in the popover context, the popover role comes from getPopoverProps
   delete dialogProps.role;
 
-  const arrowContent = useMemo(() => {
-    if (!showArrow) return null;
-
-    return <span {...getArrowProps()} />;
-  }, [showArrow, getArrowProps]);
+  const Component = as || OverlayComponent || "div";
 
   const content = (
     <>
       {!isNonModal && <DismissButton onDismiss={onClose} />}
-      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
-        {typeof children === "function" ? children(titleProps) : children}
+      <Component {...dialogProps}>
+        <div {...getContentProps({className})}>
+          {typeof children === "function" ? children(titleProps) : children}
+        </div>
       </Component>
-      {arrowContent}
       <DismissButton onDismiss={onClose} />
     </>
   );
@@ -75,37 +67,52 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     }
 
     return (
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="exit"
-        variants={TRANSITION_VARIANTS.fade}
-        {...(getBackdropProps() as HTMLMotionProps<"div">)}
-      />
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.fade}
+          {...(getBackdropProps() as HTMLMotionProps<"div">)}
+        />
+      </LazyMotion>
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
+
+  const RemoveScrollWrapper = useCallback(
+    ({children}: {children: ReactElement}) => {
+      return (
+        <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+          {children}
+        </RemoveScroll>
+      );
+    },
+    [shouldBlockScroll, isOpen],
+  );
+
+  const contents = disableAnimation ? (
+    <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
+  ) : (
+    <LazyMotion features={domAnimation}>
+      <m.div
+        animate="enter"
+        exit="exit"
+        initial="initial"
+        style={{
+          ...getTransformOrigins(placement === "center" ? "top" : placement),
+        }}
+        variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+        {...motionProps}
+      >
+        <RemoveScrollWrapper>{content}</RemoveScrollWrapper>
+      </m.div>
+    </LazyMotion>
+  );
 
   return (
     <div {...getPopoverProps()}>
       {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-        {disableAnimation ? (
-          content
-        ) : (
-          <motion.div
-            animate="enter"
-            exit="exit"
-            initial="initial"
-            style={{
-              ...getTransformOrigins(placement === "center" ? "top" : placement),
-            }}
-            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-            {...motionProps}
-          >
-            {content}
-          </motion.div>
-        )}
-      </RemoveScroll>
+      {contents}
     </div>
   );
 });

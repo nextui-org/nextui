@@ -5,20 +5,30 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: "group inline-flex flex-col relative w-full",
-    label: "block text-small font-medium text-foreground-500 pointer-events-none",
+    base: ["group inline-flex flex-col relative w-full"],
+    label: [
+      "block",
+      "absolute",
+      "z-10",
+      "origin-top-left",
+      "rtl:origin-top-right",
+      "subpixel-antialiased",
+      "text-small",
+      "text-foreground-500",
+      "pointer-events-none",
+    ],
     mainWrapper: "w-full flex flex-col",
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
-      "inline-flex h-full w-[calc(100%_-_theme(spacing.unit-6))] items-center gap-1.5 box-border",
-    selectorIcon: "absolute right-3 w-unit-4 h-unit-4",
-    spinner: "absolute right-3",
-    value: "font-normal w-full text-left opacity-60 group-data-[filled=true]:opacity-100",
+      "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
+    selectorIcon: "absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4",
+    spinner: "absolute right-3 rtl:left-3 rtl:right-[unset]",
+    value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
-    popover: "w-full p-1 overflow-hidden",
-    helperWrapper: "flex relative flex-col gap-1.5 pt-1 px-1",
+    popoverContent: "w-full p-1 overflow-hidden",
+    helperWrapper: "p-1 flex relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -38,14 +48,16 @@ const select = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       bordered: {
         trigger: [
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
-          "data-[open=true]:border-foreground",
-          "data-[focus=true]:border-foreground",
+          "data-[open=true]:border-default-foreground",
+          "data-[focus=true]:border-default-foreground",
+          "data-[focus=true]:border-default-foreground",
         ],
       },
       underlined: {
@@ -63,7 +75,7 @@ const select = tv({
           "after:content-['']",
           "after:w-0",
           "after:origin-center",
-          "after:bg-foreground",
+          "after:bg-default-foreground",
           "after:absolute",
           "after:left-1/2",
           "after:-translate-x-1/2",
@@ -72,6 +84,7 @@ const select = tv({
           "data-[open=true]:after:w-full",
           "data-[focus=true]:after:w-full",
         ],
+        label: "group-data-[filled=true]:text-foreground",
       },
     },
     color: {
@@ -85,15 +98,15 @@ const select = tv({
     size: {
       sm: {
         label: "text-tiny",
-        trigger: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        trigger: "h-8 min-h-8 px-2 rounded-small",
         value: "text-small",
       },
       md: {
-        trigger: "h-unit-10 min-h-unit-10 rounded-medium",
+        trigger: "h-10 min-h-10 rounded-medium",
         value: "text-small",
       },
       lg: {
-        trigger: "h-unit-12 min-h-unit-12 rounded-large",
+        trigger: "h-12 min-h-12 rounded-large",
         value: "text-medium",
       },
     },
@@ -117,11 +130,10 @@ const select = tv({
     labelPlacement: {
       outside: {
         base: "flex flex-col",
-        label: "text-foreground pb-1.5",
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "text-foreground pr-2",
+        label: "relative pr-2 rtl:pl-2 rtl:pr-[unset] text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -133,11 +145,6 @@ const select = tv({
         base: "w-full",
       },
     },
-    isLabelPlaceholder: {
-      true: {
-        label: "absolute z-10",
-      },
-    },
     isDisabled: {
       true: {
         base: "opacity-disabled pointer-events-none",
@@ -147,7 +154,7 @@ const select = tv({
     isInvalid: {
       true: {
         label: "!text-danger",
-        value: "text-danger",
+        value: "!text-danger",
         selectorIcon: "text-danger",
       },
     },
@@ -158,6 +165,7 @@ const select = tv({
     },
     isMultiline: {
       true: {
+        label: "relative",
         trigger: "!h-auto",
       },
       false: {
@@ -176,9 +184,10 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
-          "transition-all",
+          "rtl:origin-top-right",
           "!duration-200",
           "!ease-out",
+          "transition-[transform,color,left,opacity]",
           "motion-reduce:transition-none",
         ],
         selectorIcon: "transition-transform duration-150 ease motion-reduce:transition-none",
@@ -204,6 +213,13 @@ const select = tv({
   },
   compoundVariants: [
     // flat & color
+    {
+      variant: "flat",
+      color: "default",
+      class: {
+        value: "group-data-[has-value=true]:text-default-foreground",
+      },
+    },
     {
       variant: "flat",
       color: "primary",
@@ -319,6 +335,14 @@ const select = tv({
       },
     },
     // underlined & color
+    // underlined & color
+    {
+      variant: "underlined",
+      color: "default",
+      class: {
+        value: "group-data-[has-value=true]:text-foreground",
+      },
+    },
     {
       variant: "underlined",
       color: "primary",
@@ -400,6 +424,22 @@ const select = tv({
         label: "text-danger",
       },
     },
+    // labelPlacement=outside & default
+    {
+      labelPlacement: "inside",
+      color: "default",
+      class: {
+        label: "group-data-[filled=true]:text-default-600",
+      },
+    },
+    // labelPlacement=outside & default
+    {
+      labelPlacement: "outside",
+      color: "default",
+      class: {
+        label: "group-data-[filled=true]:text-foreground",
+      },
+    },
     // radius-full & size
     {
       radius: "full",
@@ -478,14 +518,14 @@ const select = tv({
       labelPlacement: "inside",
       size: "sm",
       class: {
-        trigger: "h-12 py-1.5 px-3",
+        trigger: "h-12 min-h-12 py-1.5 px-3",
       },
     },
     {
       labelPlacement: "inside",
       size: "md",
       class: {
-        trigger: "h-14 py-2",
+        trigger: "h-14 min-h-14 py-2",
       },
     },
     {
@@ -493,117 +533,206 @@ const select = tv({
       size: "lg",
       class: {
         label: "text-small",
-        trigger: "h-16 py-2.5 gap-0",
+        trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },
-    // isLabelPlaceholder & labelPlacement
+    //  labelPlacement=[inside, outside]
     {
-      isLabelPlaceholder: true,
       labelPlacement: ["inside", "outside"],
       class: {
-        label: [
-          "font-normal",
-          "group-data-[filled=true]:font-medium",
-          "group-data-[filled=true]:pointer-events-auto",
-        ],
+        label: ["group-data-[filled=true]:pointer-events-auto"],
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
+      isMultiline: false,
       class: {
         base: "group relative justify-end",
         label: [
           "pb-0",
           "z-20",
-          "opacity-60",
           "top-1/2",
           "-translate-y-1/2",
-          "group-data-[filled=true]:opacity-100",
           "group-data-[filled=true]:left-0",
+          "rtl:group-data-[filled=true]:right-0",
+          "rtl:group-data-[filled=true]:left-[unset]",
         ],
       },
     },
-    // isLabelPlaceholder & inside & size
+    // labelPlacement=[inside]
     {
-      isLabelPlaceholder: true,
+      labelPlacement: ["inside"],
+      class: {
+        label: "group-data-[filled=true]:scale-85",
+      },
+    },
+    // inside & size
+    {
       labelPlacement: "inside",
       size: ["sm", "md"],
       class: {
-        label: ["text-small", "group-data-[filled=true]:text-tiny"],
-        input: "pt-4",
+        label: "text-small",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
+      isMultiline: false,
       size: "sm",
       class: {
-        label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_3px)]"],
-        innerWrapper: "pt-4",
+        label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]"],
+        innerWrapper: "group-data-[has-label=true]:pt-4",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
         ],
-        innerWrapper: "pt-4",
+        innerWrapper: "group-data-[has-label=true]:pt-4",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "inside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
           "text-medium",
-          "group-data-[filled=true]:text-small",
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_5px)]",
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
         ],
-        innerWrapper: "pt-5",
+        innerWrapper: "group-data-[has-label=true]:pt-5",
       },
     },
-    // isLabelPlaceholder & outside & size
+    // inside & size & [faded, bordered]
     {
-      isLabelPlaceholder: true,
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      isMultiline: false,
+      size: "sm",
+      class: {
+        label: [
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      isMultiline: false,
+      size: "md",
+      class: {
+        label: [
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: ["faded", "bordered"],
+      isMultiline: false,
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px_-_theme(borderWidth.medium))]",
+        ],
+      },
+    },
+    // inside & size & underlined
+    {
+      labelPlacement: "inside",
+      variant: "underlined",
+      isMultiline: false,
+      size: "sm",
+      class: {
+        label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_5px)]"],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: "underlined",
+      isMultiline: false,
+      size: "md",
+      class: {
+        label: [
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_3.5px)]",
+        ],
+      },
+    },
+    {
+      labelPlacement: "inside",
+      variant: "underlined",
+      isMultiline: false,
+      size: "lg",
+      class: {
+        label: [
+          "text-medium",
+          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+        ],
+      },
+    },
+    // outside & size
+    {
       labelPlacement: "outside",
       size: "sm",
+      isMultiline: false,
       class: {
         label: [
           "left-2",
-          "text-small",
-          "group-data-[filled=true]:text-tiny",
+          "rtl:right-2",
+          "rtl:left-[unset]",
+          "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
+      isMultiline: false,
       size: "md",
       class: {
         label: [
           "left-3",
+          "rtl:right-3",
+          "rtl:left-[unset]",
           "text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
       },
     },
     {
-      isLabelPlaceholder: true,
       labelPlacement: "outside",
+      isMultiline: false,
       size: "lg",
       class: {
         label: [
           "left-3",
+          "rtl:right-3",
+          "rtl:left-[unset]",
           "text-medium",
-          "group-data-[filled=true]:text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
+      },
+    },
+    // isMultiline & labelPlacement="outside"
+    {
+      labelPlacement: "outside",
+      isMultiline: true,
+      class: {
+        label: "pb-1.5",
+      },
+    },
+    // text truncate labelPlacement=[inside,outside]
+    {
+      labelPlacement: ["inside", "outside"],
+      class: {
+        label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
       },
     },
   ],

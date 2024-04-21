@@ -4,7 +4,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {badge} from "@nextui-org/theme";
 import {mapPropsVariants} from "@nextui-org/system-rsc";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
@@ -21,6 +21,12 @@ interface Props extends HTMLNextUIProps<"span", "content"> {
    * The content of the badge. The badge will be rendered relative to its children.
    */
   content?: string | number | ReactNode;
+  /**
+   * Whether to disable the outline around the badge.
+   * @deprecated use `showOutline` instead
+   * @default false
+   */
+  disableOutline?: boolean;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -58,10 +64,13 @@ export function useBadge(originalProps: UseBadgeProps) {
     () =>
       badge({
         ...variantProps,
+        showOutline: !!originalProps?.disableOutline
+          ? !originalProps?.disableOutline
+          : originalProps?.showOutline,
         isOneChar,
         isDot,
       }),
-    [...Object.values(variantProps), isOneChar, isDot],
+    [objectToDeps(variantProps), isOneChar, isDot],
   );
 
   const getBadgeProps: PropGetter = () => {

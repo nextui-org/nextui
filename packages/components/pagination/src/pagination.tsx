@@ -1,5 +1,6 @@
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {useCallback} from "react";
+import {useLocale} from "@react-aria/i18n";
 import {forwardRef} from "@nextui-org/system";
 import {PaginationItemType} from "@nextui-org/use-pagination";
 import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@nextui-org/shared-icons";
@@ -35,15 +36,65 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
     getCursorProps,
   } = usePagination({...props, ref});
 
+  const {direction} = useLocale();
+
+  const isRTL = direction === "rtl";
+
   const renderItem = useCallback(
     (value: PaginationItemValue, index: number) => {
       const isBefore = index < range.indexOf(activePage);
 
       if (renderItemProp && typeof renderItemProp === "function") {
+        let page = typeof value == "number" ? value : index;
+
+        if (value === PaginationItemType.NEXT) {
+          page = activePage + 1;
+        }
+
+        if (value === PaginationItemType.PREV) {
+          page = activePage - 1;
+        }
+
+        if (value === PaginationItemType.DOTS) {
+          page = isBefore
+            ? activePage - dotsJump >= 1
+              ? activePage - dotsJump
+              : 1
+            : activePage + dotsJump <= total
+            ? activePage + dotsJump
+            : total;
+        }
+
+        const itemChildren: Record<PaginationItemType, React.ReactNode> = {
+          [PaginationItemType.PREV]: <ChevronIcon />,
+          [PaginationItemType.NEXT]: (
+            <ChevronIcon
+              className={slots.chevronNext({
+                class: classNames?.chevronNext,
+              })}
+            />
+          ),
+          [PaginationItemType.DOTS]: (
+            <>
+              <EllipsisIcon className={slots?.ellipsis({class: classNames?.ellipsis})} />
+              <ForwardIcon
+                className={slots?.forwardIcon({class: classNames?.forwardIcon})}
+                data-before={dataAttr(isBefore)}
+              />
+            </>
+          ),
+        };
+
         return renderItemProp({
           value,
           index,
+          key: `${value}-${index}`,
+          page,
+          total,
+          children: typeof value === "number" ? value : itemChildren[value],
           activePage,
+          dotsJump,
+          isBefore,
           isActive: value === activePage,
           isPrevious: value === activePage - 1,
           isNext: value === activePage + 1,
@@ -52,8 +103,10 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
           onNext,
           onPrevious,
           setPage,
+          onPress: () => setPage(page),
           ref: typeof value === "number" ? (node) => getItemRef(node, value) : undefined,
           className: slots.item({class: classNames?.item}),
+          getAriaLabel: getItemAriaLabel,
         });
       }
 
@@ -66,7 +119,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             })}
             data-slot="prev"
             getAriaLabel={getItemAriaLabel}
-            isDisabled={!loop && activePage === 1}
+            isDisabled={!loop && activePage === (isRTL ? total : 1)}
             value={value}
             onPress={onPrevious}
           >
@@ -83,7 +136,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             })}
             data-slot="next"
             getAriaLabel={getItemAriaLabel}
-            isDisabled={!loop && activePage === total}
+            isDisabled={!loop && activePage === (isRTL ? 1 : total)}
             value={value}
             onPress={onNext}
           >
@@ -115,7 +168,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
             <EllipsisIcon className={slots?.ellipsis({class: classNames?.ellipsis})} />
             <ForwardIcon
               className={slots?.forwardIcon({class: classNames?.forwardIcon})}
-              data-before={dataAttr(isBefore)}
+              data-before={dataAttr(isRTL ? !isBefore : isBefore)}
             />
           </PaginationItem>
         );
@@ -127,7 +180,18 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
         </PaginationItem>
       );
     },
-    [activePage, dotsJump, getItemProps, loop, range, renderItemProp, slots, classNames, total],
+    [
+      isRTL,
+      activePage,
+      dotsJump,
+      getItemProps,
+      loop,
+      range,
+      renderItemProp,
+      slots,
+      classNames,
+      total,
+    ],
   );
 
   return (

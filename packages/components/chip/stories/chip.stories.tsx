@@ -4,7 +4,7 @@ import {chip} from "@nextui-org/theme";
 import {Avatar} from "@nextui-org/avatar";
 import {CheckIcon} from "@nextui-org/shared-icons";
 
-import {Chip} from "../src";
+import {Chip, ChipProps} from "../src";
 
 export default {
   title: "Components/Chip",

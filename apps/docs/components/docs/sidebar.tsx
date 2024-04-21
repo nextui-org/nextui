@@ -1,6 +1,6 @@
 "use client";
 
-import {FC} from "react";
+import {FC, useEffect, useState} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
 import {BaseItem} from "@nextui-org/aria-utils";
@@ -21,12 +21,18 @@ import Link from "next/link";
 import {isEmpty} from "lodash";
 import {usePathname, useRouter} from "next/navigation";
 
+import {ScrollArea} from "../scroll-area";
+
 import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
-import {useScrollPosition} from "@/hooks/use-scroll-position";
 import {trackEvent} from "@/utils/va";
+import {FbFeedbackButton} from "@/components/featurebase/fb-feedback-button";
+import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
+import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
+import {openFeedbackWidget} from "@/utils/featurebase";
+import emitter from "@/libs/emitter";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
   slug?: string;
@@ -69,6 +75,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       };
 
   const isNew = item.props?.newPost;
+  const isUpdated = item.props?.updated;
 
   const isExpanded = state.expandedKeys.has(key);
   const isSelected =
@@ -82,6 +89,18 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   const hasChildNodes = !isEmpty([...childNodes]);
 
   const Component = hasChildNodes ? "ul" : "li";
+
+  const cn = clsx(
+    "w-full",
+    "font-normal",
+    "before:mr-4",
+    "before:content-['']",
+    "before:block",
+    "before:bg-default-300",
+    "before:w-1",
+    "before:h-1",
+    "before:rounded-full",
+  );
 
   const {pressProps} = usePress({
     onPress: () => {
@@ -101,6 +120,79 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
+  const renderFeaturebaseComponent = (key: string) => {
+    if (key === "roadmap")
+      return <FbRoadmapLink className={cn} innerClassName="opacity-80 dark:opacity-60" />;
+    if (key === "changelog")
+      return (
+        <NextUILink as={Link} className={cn} color="foreground" href="#">
+          <FbChangelogButton />
+        </NextUILink>
+      );
+
+    return (
+      <NextUILink as={Link} className={cn} color="foreground" href="#" onClick={openFeedbackWidget}>
+        <FbFeedbackButton />
+      </NextUILink>
+    );
+  };
+
+  const renderComponent = () => {
+    if (hasChildNodes) {
+      return (
+        <span className="flex items-center gap-3">
+          <span>{rendered}</span>
+          <ChevronIcon
+            className={clsx("transition-transform", {
+              "-rotate-90": isExpanded,
+            })}
+          />
+        </span>
+      );
+    }
+
+    if (typeof key === "string" && ["changelog", "feedback", "roadmap"].includes(key)) {
+      return renderFeaturebaseComponent(key);
+    }
+
+    return (
+      <NextUILink as={Link} className={clsx(cn)} color="foreground" href={paths.pathname}>
+        <span
+          className={clsx(
+            isSelected
+              ? "text-primary font-medium dark:text-foreground"
+              : "opacity-80 dark:opacity-60",
+            {
+              "pointer-events-none": item.props?.comingSoon,
+            },
+          )}
+        >
+          {rendered}
+        </span>
+        {isUpdated && (
+          <Chip
+            className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
+            color="default"
+            size="sm"
+            variant="flat"
+          >
+            Updated
+          </Chip>
+        )}
+        {isNew && (
+          <Chip className="ml-1 py-1 text-tiny" color="primary" size="sm" variant="flat">
+            New
+          </Chip>
+        )}
+        {item.props?.comingSoon && (
+          <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
+            Coming soon
+          </Chip>
+        )}
+      </NextUILink>
+    );
+  };
+
   return (
     <Component
       {...focusProps}
@@ -108,7 +200,9 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col gap-3 outline-none w-full tap-highlight-transparent",
+        "flex flex-col gap-3outline-none w-full tap-highlight-transparent",
+
+        hasChildNodes ? "mb-4" : "first:mt-4",
         // focus ring
         ...dataFocusVisibleClasses,
       )}
@@ -118,56 +212,9 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     >
       <div className="flex items-center gap-3 cursor-pointer" {...pressProps}>
         <Spacer x={spaceLeft} />
-        {hasChildNodes ? (
-          <span className="flex items-center gap-3">
-            <span>{rendered}</span>
-            <ChevronIcon
-              className={clsx("transition-transform", {
-                "-rotate-90": isExpanded,
-              })}
-            />
-          </span>
-        ) : (
-          <NextUILink
-            as={Link}
-            className={clsx(
-              "w-full",
-              "font-normal",
-              "before:mr-4",
-              "before:content-['']",
-              "before:block",
-              "before:bg-default-300",
-              "before:w-1",
-              "before:h-1",
-              "before:rounded-full",
-            )}
-            color="foreground"
-            href={paths.pathname}
-          >
-            <span
-              className={clsx(
-                isSelected
-                  ? "text-primary font-medium dark:text-foreground"
-                  : "opacity-80 dark:opacity-60",
-                {
-                  "pointer-events-none": item.props?.comingSoon,
-                },
-              )}
-            >
-              {rendered}
-            </span>
-            {isNew && (
-              <Chip className="ml-2" color="primary" size="sm" variant="flat">
-                New
-              </Chip>
-            )}
-            {item.props?.comingSoon && (
-              <Chip className="ml-2" color="default" size="sm" variant="flat">
-                Coming soon
-              </Chip>
-            )}
-          </NextUILink>
-        )}
+        {renderComponent()}
+        {/* Workaround to avoid scrollbar overlapping */}
+        <Spacer x={4} />
       </div>
       {isExpanded && hasChildNodes && (
         <div className="flex flex-col gap-3 items-start" role="group">
@@ -196,9 +243,7 @@ function TreeHeading({item}: {item: any}) {
 function Tree<T extends object>(props: CollectionBase<T> & Expandable & MultipleSelection) {
   let state = useTreeState(props);
 
-  let ref = useRef<HTMLUListElement>(null);
-
-  const scrollPosition = useScrollPosition(ref);
+  let ref = useRef<HTMLDivElement>(null);
 
   let keyboardDelegate = useMemo(
     // @ts-expect-error
@@ -213,16 +258,11 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
   });
 
   return (
-    <ul
-      {...collectionProps}
+    <ScrollArea
       ref={ref}
-      className="flex flex-col gap-4 scrollbar-hide lg:overflow-y-scroll lg:max-h-[calc(100vh_-_64px)] pb-28"
+      className="h-full lg:max-h-[calc(100vh_-_64px)]"
       role="tree"
-      style={{
-        WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
-          scrollPosition > 30 ? "90%" : "100%"
-        }, transparent 100%)`,
-      }}
+      {...collectionProps}
     >
       {[...state.collection].map((item) => {
         if (item.type === "section") {
@@ -231,7 +271,7 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
 
         return <TreeItem key={item.key} item={item} state={state} />;
       })}
-    </ul>
+    </ScrollArea>
   );
 }
 
@@ -243,6 +283,8 @@ export interface DocsSidebarProps {
 }
 
 export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}) => {
+  const [isProBannerVisible, setIsProBannerVisible] = useState(true);
+
   const expandedKeys = routes?.reduce((keys, route) => {
     if (route.defaultOpen) {
       keys.push(route.key as string);
@@ -251,8 +293,18 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
     return keys;
   }, [] as string[]);
 
-  return (
-    <div className={clsx("lg:fixed lg:top-20 mt-2 z-0 lg:h-[calc(100vh-121px)]", className)}>
+  useEffect(() => {
+    emitter.on("proBannerVisibilityChange", (value) => {
+      setIsProBannerVisible(value === "visible");
+    });
+
+    return () => {
+      emitter.off("proBannerVisibilityChange");
+    };
+  }, []);
+
+  const treeContent = useMemo(() => {
+    return (
       <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
         {(route) => (
           <Item
@@ -266,6 +318,18 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
           </Item>
         )}
       </Tree>
+    );
+  }, [routes]);
+
+  return (
+    <div
+      className={clsx(
+        "lg:fixed mt-2 z-0 lg:h-[calc(100vh-121px)]",
+        isProBannerVisible ? "lg:top-32" : "lg:top-20",
+        className,
+      )}
+    >
+      {treeContent}
     </div>
   );
 };

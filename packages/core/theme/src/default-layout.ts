@@ -1,9 +1,8 @@
 import {LayoutTheme} from "./types";
 
 export const defaultLayout: LayoutTheme = {
-  spacingUnit: 4,
-  disabledOpacity: ".5",
   dividerWeight: "1px",
+  disabledOpacity: ".5",
   fontSize: {
     tiny: "0.75rem",
     small: "0.875rem",
@@ -36,9 +35,12 @@ export const defaultLayout: LayoutTheme = {
   },
 };
 
-export const lightLayout: LayoutTheme = {};
+export const lightLayout: LayoutTheme = {
+  hoverOpacity: ".8",
+};
 
 export const darkLayout: LayoutTheme = {
+  hoverOpacity: ".9",
   boxShadow: {
     small:
       "0px 0px 5px 0px rgb(0 0 0 / 0.05), 0px 2px 10px 0px rgb(0 0 0 / 0.2), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15)",
