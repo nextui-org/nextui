@@ -124,15 +124,15 @@ const MyInput = extendVariants(Input, {
     },
     size: {
       xs: {
-        inputWrapper: "h-unit-6 min-h-unit-6 px-1",
+        inputWrapper: "h-6 min-h-6 px-1",
         input: "text-tiny",
       },
       md: {
-        inputWrapper: "h-unit-10 min-h-unit-10",
+        inputWrapper: "h-10 min-h-10",
         input: "text-small",
       },
       xl: {
-        inputWrapper: "h-unit-14 min-h-unit-14",
+        inputWrapper: "h-14 min-h-14",
         input: "text-medium",
       },
     },

@@ -1,0 +1,398 @@
+---
+title: "Date Range Picker"
+description: "DateRangePicker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range."
+---
+
+import {dateRangePickerContent} from "@/content/components/date-range-picker";
+
+# Date Range Picker
+
+Date Range Picker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range.
+
+<ComponentLinks component="date-picker" />
+
+---
+
+<CarbonAd />
+
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add date-picker",
+    npm: "npm install @nextui-org/date-picker",
+    yarn: "yarn add @nextui-org/date-picker",
+    pnpm: "pnpm add @nextui-org/date-picker",
+    bun: "bun add @nextui-org/date-picker",
+  }}
+/>
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {DateRangePicker} from "@nextui-org/react";',
+    individual: 'import {DateRangePicker} from "@nextui-org/date-picker";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={dateRangePickerContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={dateRangePickerContent.disabled} />
+
+### Read Only
+
+<CodeDemo title="Read Only" files={dateRangePickerContent.readOnly} />
+
+### Required
+
+If you pass the `isRequired` property to the input, it will have a `danger` asterisk at
+the end of the label and the input will be required.
+
+<CodeDemo title="Required" files={dateRangePickerContent.required} />
+
+### Variants
+
+<CodeDemo title="Variants" files={dateRangePickerContent.variants} />
+
+### Visible Months
+
+By default, the calendar popover displays a single month. The `visibleMonths` prop allows displaying up to 3 months at a time, if screen space permits.
+
+<CodeDemo title="Visible Months" files={dateRangePickerContent.visibleMonth} />
+
+### Page Behavior
+
+By default, when pressing the next or previous buttons, pagination will advance by the `visibleMonths` value. This behavior can be changed to page by single months instead, by setting `pageBehavior` to `single`.
+
+<CodeDemo title="Page Behavior" files={dateRangePickerContent.pageBehavior} />
+
+### Label Placements
+
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
+
+<CodeDemo title="Label Placements" files={dateRangePickerContent.labelPlacements} />
+
+> **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
+### With Description
+
+You can add a description to the input by passing the `description` property.
+
+<CodeDemo title="With Description" files={dateRangePickerContent.description} />
+
+### With Error Message
+
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
+
+<CodeDemo title="With Error Message" files={dateRangePickerContent.errorMessage} />
+
+### With Time Fields
+
+DateRangePicker automatically includes time fields when a `CalendarDateTime` or `ZonedDateTime` object is provided as the value.
+
+<CodeDemo title="With Time Fields" files={dateRangePickerContent.withTimeField} />
+
+### Selector Icon
+
+You can use the `selector` to add content to the start and end of the date-range-picker.
+
+<CodeDemo title="Start and End Content" files={dateRangePickerContent.selectorIcon} />
+
+### Controlled
+
+You can use the `value` and `onChange` properties to control the input value.
+
+<CodeDemo title="Controlled" files={dateRangePickerContent.controlled} />
+
+### Time Zones
+
+DateRangePicker is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed,
+and time zone concerns such as daylight saving time are taken into account when the value is manipulated.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date",
+    yarn: "yarn add @internationalized/date",
+    pnpm: "pnpm add @internationalized/date",
+  }}
+/>
+
+```jsx
+import {parseZonedDateTime} from "@internationalized/date";
+```
+
+<Spacer y={2} />
+
+<CodeDemo title="Time Zones" files={dateRangePickerContent.timeZones} />
+
+### Granularity
+
+The granularity prop allows you to control the smallest unit that is displayed by DateRangePicker By default,
+the value is displayed with "day" granularity (year, month, and day),
+and `CalendarDateTime` and `ZonedDateTime` values are displayed with "minute" granularity.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {useDateFormatter} from "@react-aria/i18n";
+```
+
+<Spacer y={2} />
+
+<CodeDemo title="Time Zones" files={dateRangePickerContent.granularity} />
+
+### Min Date And Max Date
+
+The minValue and maxValue props can also be used to ensure the value is within a specific range.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date",
+    yarn: "yarn add @internationalized/date",
+    pnpm: "pnpm add @internationalized/date",
+  }}
+/>
+
+```jsx
+import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
+```
+
+<CodeDemo title="Min Date And Max Date" files={dateRangePickerContent.minAndMaxDate} />
+
+### International Calendar
+
+DateRangePicker supports selecting dates in many calendar systems used around the world, including Gregorian, Hebrew, Indian, Islamic, Buddhist, and more.
+Dates are automatically displayed in the appropriate calendar system for the user's locale.
+The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string),
+passed to the [I18nProvider](https://react-spectrum.adobe.com/react-aria/I18nProvider.html) component.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+```
+
+<CodeDemo title="International Calendar" files={dateRangePickerContent.internationalCalendar} />
+
+### Unavailable Dates
+
+DateRangePicker supports marking certain dates as unavailable. These dates cannot be selected by the user and are displayed with a crossed out appearance in the calendar. In the date field, an invalid state is displayed if a user enters an unavailable date.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Unavailable Dates" files={dateRangePickerContent.unavailableDates} />
+
+### Non Contiguous
+
+The allowsNonContiguousRanges prop enables a range to be selected even if there are unavailable dates in the middle.
+The value emitted in the onChange event will still be a single range with a start and end property,
+but unavailable dates will not be displayed as selected.
+It is up to applications to split the full selected range into multiple as needed for business logic.
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
+import {useLocale} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Non Contiguous" files={dateRangePickerContent.nonContigous} />
+
+### Presets
+
+[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
+in multiple formats into `ZonedDateTime` objects.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @internationalized/date @react-aria/i18n",
+    yarn: "yarn add @internationalized/date @react-aria/i18n",
+    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+  }}
+/>
+
+```jsx
+import {
+  DateValue,
+  now,
+  useLocale,
+  startOfWeek,
+  startOfMonth,
+  useDateFormatter,
+  getLocalTimeZone,
+} from "@internationalized/date";
+import {I18nProvider} from "@react-aria/i18n";
+```
+
+<CodeDemo title="Presets" files={dateRangePickerContent.presets} />
+
+## Slots
+
+- **base**: base element. it handles alignment, placement, and general appearance.
+- **label**: Label of the date-range-picker, it is the one that is displayed above, inside or left of the date-input.
+- **calendar**: The calendar element.
+- **selectorButton**: Selector button element.
+- **selectorIcon**: Selector icon element.
+- **popoverContent**: The calendar popover element.
+- **calendarContent**: The calendar's content element.
+- **inputWrapper**: Wraps the `label` (when it is inside) and the `innerWrapper`.
+- **input**: The input element.
+- **segment**: The segment element.
+- **separator**: The separator element.
+- **bottomContent**: The bottom content element.
+- **timeInputWrapper**: The wrapper element for the input element.
+- **helperWrapper**: Wraps the `description` and the `errorMessage`.
+- **description**: The description of the date-input.
+- **errorMessage**: The error message of the date-input.
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`DateRangePicker` has the following attributes on the `base` element:
+
+- **data-slot**:
+  All slots have this prop. which slot the element represents(e.g. `canlendar`).
+- **data-open**:
+  Indicates if the calendar popover is open.
+- **data-invalid**:
+  When the date-range-picker is invalid. Based on `isInvalid` prop.
+- **data-required**:
+  When the date-range-picker is required. Based on `isRequired` prop.
+- **data-readonly**:
+  When the date-range-picker is readonly. Based on `isReadOnly` prop.
+- **data-disabled**:
+  When the date-range-picker is disabled. Based on `isDisabled` prop.
+- **data-has-start-content**:
+  When the date-range-picker has a start content. Base on those `startContent` prop.
+- **data-has-end-content**:
+  When the date-range-picker has a end content. Base on those `endContent` prop.
+- **data-has-multiple-months**:
+  When the date-range-picker's `visibleMonth` is more than 2.
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Each date and time unit is displayed as an individually focusable and editable segment, which allows users an easy way to edit dates using the keyboard, in any date format and locale
+- Users can also open a calendar popover to select date ranges in a standard month grid. Localized screen reader messages are included to announce when the selection and visible date range change.
+- Date segments are editable using an easy to use numeric keypad, date ranges can be selected by dragging over dates in the calendar using a touch screen, and all interactions are accessible using touch-based screen readers.
+- Integrates with HTML forms, supporting required, minimum and maximum values, unavailable dates, custom validation functions, realtime validation, and server-side validation errors
+
+<Spacer y={4} />
+
+## API
+
+### DateRangePicker Props
+
+| Attribute                 | Type                                                                                                                                                     | Description                                                                                                                                                             | Default                                                              |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| label                     | `ReactNode`                                                                                                                                              | The content to display as the label.                                                                                                                                    | -                                                                    |
+| value                     | `RangeValue<CalendarDate \| CalendarDateTime \| ZonedDateTime>` \| `undefined` \| `null`                                                                 | The current value of the date-range-picker (controlled).                                                                                                                | -                                                                    |
+| variant                   | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                          | The variant of the date input.                                                                                                                                          | `flat`                                                               |
+| color                     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                              | The color of the date input.                                                                                                                                            | `default`                                                            |
+| size                      | `sm` \| `md` \| `lg`                                                                                                                                     | The size of the date input.                                                                                                                                             | `md`                                                                 |
+| radius                    | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                 | The radius of the date input.                                                                                                                                           | -                                                                    |
+| minValue                  | `RangeValue<CalendarDate \| CalendarDateTime \| ZonedDateTime>` \| `undefined` \| `null`                                                                 | The minimum value of the date-range-picker.                                                                                                                             | -                                                                    |
+| maxValue                  | `RangeValue<CalendarDate \| CalendarDateTime \| ZonedDateTime>` \| `undefined` \| `null`                                                                 | The maximum value of the date-range-picker.                                                                                                                             | -                                                                    |
+| defaultValue              | `string` \| undefined                                                                                                                                    | The default value of the date-range-picker (uncontrolled).                                                                                                              | -                                                                    |
+| placeholderValue          | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                         | The placeholder of the date-range-picker.                                                                                                                               | -                                                                    |
+| description               | `ReactNode`                                                                                                                                              | A description for the date-range-picker. Provides a hint such as specific requirements for what to choose.                                                              | -                                                                    |
+| errorMessage              | `ReactNode \| (v: ValidationResult) => ReactNode`                                                                                                        | An error message for the date input.                                                                                                                                    | -                                                                    |
+| startContent              | `ReactNode`                                                                                                                                              | Element to be rendered in the left side of the date-range-picker.                                                                                                       | -                                                                    |
+| endContent                | `ReactNode`                                                                                                                                              | Element to be rendered in the right side of the date-range-picker.                                                                                                      | -                                                                    |
+| startName                 | `string`                                                                                                                                                 | The name of the start date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname) | -                                                                    |
+| endName                   | `string`                                                                                                                                                 | The name of the end date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)   | -                                                                    |
+| labelPlacement            | `inside` \| `outside` \| `outside-left`                                                                                                                  | The position of the label.                                                                                                                                              | `inside`                                                             |
+| isOpen                    | `boolean`                                                                                                                                                | Whether the date picker popover is open.                                                                                                                                | -                                                                    |
+| defaultOpen               | `boolean`                                                                                                                                                | Whether the date picker popover is open by default.                                                                                                                     | `false`                                                              |
+| isRequired                | `boolean`                                                                                                                                                | Whether user input is required on the date-range-picker before form submission.                                                                                         | `false`                                                              |
+| isReadOnly                | `boolean`                                                                                                                                                | Whether the date-range-picker can be selected but not changed by the user.                                                                                              |                                                                      |
+| isDisabled                | `boolean`                                                                                                                                                | Whether the date-range-picker is disabled.                                                                                                                              | `false`                                                              |
+| isInvalid                 | `boolean`                                                                                                                                                | Whether the date-range-picker is invalid.                                                                                                                               | `false`                                                              |
+| selectorIcon              | `ReactNode`                                                                                                                                              | The icon to toggle the date picker popover. Usually a calendar icon.                                                                                                    |                                                                      |
+| pageBehavior              | `single` \| `visible`                                                                                                                                    | Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.                     | `visible`                                                            |
+| validate                  | `(value: { inputValue: string, selectedKey: React.Key }) => ValidationError ｜ true ｜ null ｜ undefined`                                                | Validate input values when committing (e.g., on blur), and return error messages for invalid values.                                                                    | -                                                                    |
+| visibleMonths             | `number`                                                                                                                                                 | The number of months to display at once. Up to 3 months are supported. Passing a number greater than 1 will disable the `showMonthAndYearPickers` prop.                 | `1`                                                                  |
+| autoFocus                 | `boolean`                                                                                                                                                | Whether the element should receive focus on render.                                                                                                                     | `false`                                                              |
+| hourCycle                 | `12` \| `24`                                                                                                                                             | Whether to display the time in 12 or 24 hour format. This is determined by the user's locale.                                                                           | -                                                                    |
+| granularity               | `day` \| `hour` \| `minute` \| `second`                                                                                                                  | Determines the smallest unit that is displayed in the date picker. Typically "day" for dates.                                                                           | -                                                                    |
+| hideTimeZone              | `boolean`                                                                                                                                                | Whether to hide the time zone abbreviation.                                                                                                                             | `false`                                                              |
+| allowsNonContiguousRanges | `boolean`                                                                                                                                                | When combined with `isDateUnavailable`, determines whether non-contiguous ranges, i.e. ranges containing unavailable dates, may be selected.                            | false                                                                |
+| shouldForceLeadingZeros   | `boolean`                                                                                                                                                | Whether to always show leading zeros in the month, day, and hour fields.                                                                                                | `true`                                                               |
+| calendarWidth             | `number`                                                                                                                                                 | The width to be applied to the calendar component.                                                                                                                      | `256`                                                                |
+| CalendarTopContent        | `ReactNode`                                                                                                                                              | Top content to be rendered in the calendar component.                                                                                                                   |                                                                      |
+| CalendarBottomContent     | `ReactNode`                                                                                                                                              | Bottom content to be rendered in the calendar component.                                                                                                                |                                                                      |
+| allowsNonContiguousRanges | `boolean`                                                                                                                                                | enables a range to be selected even if there are unavailable dates in the middle                                                                                        | false                                                                |
+| popoverProps              | `PopoverProps`                                                                                                                                           | Props to be passed to the popover component.                                                                                                                            | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }`     |
+| selectorButtonProps       | `ButtonProps`                                                                                                                                            | Props to be passed to the selector button component.                                                                                                                    | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| calendarProps             | `CalendarProps`                                                                                                                                          | Props to be passed to the selector button component.                                                                                                                    | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| timeInputProps            | `TimeInputProps`                                                                                                                                         | Props to be passed to the time input component.                                                                                                                         | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| disableAnimation          | `boolean`                                                                                                                                                | Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                                           | `false`                                                              |
+| classNames                | `Record<"base" \| "selectorButton" \| "selectorIcon" \| "popoverContent" \| "calendar" \| "calendarContent" \| "timeInputLabel" \| "timeInput", string>` | Allows to set custom class names for the date-range-picker slots.                                                                                                       | -                                                                    |
+
+### DateRangePicker Events
+
+| Attribute     | Type                                                                                            | Description                                                              |     |
+| ------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --- |
+| onChange      | `((value: RangeValue<CalendarDate \| CalendarDateTime \| ZonedDateTime>) => void)` \| undefined | Handler that is called when the date-range-picker's value changes.       | -   |
+| onOpenChange  | `(isOpen: boolean) => void`                                                                     | Handler that is called when the date picker popover is opened or closed. | -   |
+| onFocus       | `(e: FocusEvent<HTMLInputElement>) => void`                                                     | Handler that is called when the element receives focus.                  | -   |
+| onBlur        | `(e: FocusEvent<HTMLInputElement>) => void`                                                     | Handler that is called when the element loses focus.                     | -   |
+| onFocusChange | `(isFocused: boolean) => void`                                                                  | Handler that is called when the element's focus status changes.          | -   |
+| onKeyDown     | `(e: KeyboardEvent) => void`                                                                    | Handler that is called when a key is pressed.                            | -   |
+| onKeyUp       | `(e: KeyboardEvent) => void`                                                                    | Handler that is called when a key is released.                           | -   |

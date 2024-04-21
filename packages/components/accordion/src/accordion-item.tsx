@@ -2,7 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {AnimatePresence, LazyMotion, domAnimation, m, useWillChange} from "framer-motion";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
