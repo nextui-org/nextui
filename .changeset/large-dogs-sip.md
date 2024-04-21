@@ -1,6 +1,5 @@
 ---
-"@nextui-org/react": minor
-"@nextui-org/use-aria-accordion": minor
+"@nextui-org/use-aria-accordion": patch
 ---
 
-Fix #2055 ctrl+a keyboard shortcut enabled inside Accordion with `selectionMode="multiple"`
+Fixes ctrl+a keyboard shortcut enabled inside Accordion with `selectionMode="multiple"` (#2055)
