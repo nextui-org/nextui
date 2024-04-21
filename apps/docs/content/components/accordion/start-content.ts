@@ -51,7 +51,7 @@ export default function App() {
         }
         subtitle={
           <p className="flex">
-            2 issues to<p className="text-primary ml-1">fix now</p>
+            2 issues to<span className="text-primary ml-1">fix now</span>
           </p>
         }
         title="Zoey Lang"

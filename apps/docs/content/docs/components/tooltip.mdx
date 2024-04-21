@@ -15,6 +15,19 @@ Tooltips display a brief, informative message that appears when a user interacts
 
 <CarbonAd />
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add tooltip",
+    npm: "npm install @nextui-org/tooltip",
+    yarn: "yarn add @nextui-org/tooltip",
+    pnpm: "pnpm add @nextui-org/tooltip",
+    bun: "bun add @nextui-org/tooltip"
+  }}
+/>
+
+
 ## Import
 
 <ImportTabs
@@ -120,14 +133,13 @@ You can customize the `Tooltip` component by passing custom Tailwind CSS classes
 | radius                    | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The tooltip border radius.                                                                                   | `md`            |
 | shadow                    | `none` \| `sm` \| `md` \| `lg`                                              | The tooltip shadow.                                                                                          | `sm`            |
 | placement                 | [TooltipPlacement](#tooltip-placement)                                      | The placement of the tooltip relative to its trigger reference.                                              | `top`           |
-| delay                     | `number`                                                                    | The delay in milliseconds before the tooltip opens.                                                          | `500`           |
-| closeDelay                | `number`                                                                    | The delay in milliseconds before the tooltip closes.                                                         | `0`             |
+| delay                     | `number`                                                                    | The delay in milliseconds before the tooltip opens.                                                          | `0`           |
+| closeDelay                | `number`                                                                    | The delay in milliseconds before the tooltip closes.                                                         | `500`             |
 | isOpen                    | `boolean`                                                                   | Whether the tooltip is open by default (controlled).                                                         | -               |
 | defaultOpen               | `boolean`                                                                   | Whether the tooltip is open by default (uncontrolled).                                                       | -               |
 | offset(px)                | `number`                                                                    | The distance or margin between the reference and popper. It is used internally to create an offset modifier. | `7`             |
 | containerPadding(px)      | `number`                                                                    | The placement padding that should be applied between the element and its surrounding container.              | `12`            |
 | crossOffset(px)           | `number`                                                                    | The additional offset applied along the cross axis between the element and its anchor element.               | `0`             |
-| triggerType               | `dialog` \| `menu` \| `listbox` \| `tree` \| `grid`;                        | Type of tooltip that is opened by the trigger.                                                               | `dialog`        |
 | showArrow                 | `boolean`                                                                   | Whether the tooltip should have an arrow.                                                                    | `false`         |
 | shouldFlip                | `boolean`                                                                   | Whether the tooltip should change its placement and flip when it's about to overflow its boundary area.      | `true`          |
 | triggerScaleOnOpen        | `boolean`                                                                   | Whether the trigger should scale down when the tooltip is open.                                              | `true`          |

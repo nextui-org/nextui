@@ -1,9 +1,9 @@
 import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
-import {AnimatePresence, motion} from "framer-motion";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {AnimatePresence, m, LazyMotion, domAnimation} from "framer-motion";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {warn} from "@nextui-org/shared-utils";
-import {Children, cloneElement} from "react";
+import {Children, cloneElement, isValidElement} from "react";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {mergeProps} from "@react-aria/utils";
 
@@ -35,11 +35,19 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     /**
      * Ensure tooltip has only one child node
      */
-    const child = Children.only(children) as React.ReactElement & {
-      ref?: React.Ref<any>;
-    };
+    const childrenNum = Children.count(children);
 
-    trigger = cloneElement(child, getTriggerProps(child.props, child.ref));
+    if (childrenNum !== 1) throw new Error();
+
+    if (!isValidElement(children)) {
+      trigger = <p {...getTriggerProps()}>{children}</p>;
+    } else {
+      const child = children as React.ReactElement & {
+        ref?: React.Ref<any>;
+      };
+
+      trigger = cloneElement(child, getTriggerProps(child.props, child.ref));
+    }
   } catch (error) {
     trigger = <span />;
     warn("Tooltip must have only one child node. Please, check your code.");
@@ -49,18 +57,20 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
 
   const animatedContent = (
     <div ref={tooltipRef} id={id} style={style}>
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="exit"
-        variants={TRANSITION_VARIANTS.scaleSpring}
-        {...mergeProps(motionProps, otherTooltipProps)}
-        style={{
-          ...getTransformOrigins(placement),
-        }}
-      >
-        <Component {...getTooltipContentProps()}>{content}</Component>
-      </motion.div>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.scaleSpring}
+          {...mergeProps(motionProps, otherTooltipProps)}
+          style={{
+            ...getTransformOrigins(placement),
+          }}
+        >
+          <Component {...getTooltipContentProps()}>{content}</Component>
+        </m.div>
+      </LazyMotion>
     </div>
   );
 

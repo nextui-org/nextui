@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-image",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "React hook for progressing image loading",
   "keywords": [
     "use-image"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",

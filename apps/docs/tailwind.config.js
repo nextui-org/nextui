@@ -17,7 +17,7 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./libs/**/*.{js,ts,jsx,tsx,mdx}",
     "./content/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -147,7 +147,7 @@ module.exports = {
               fontWeight: "inherit",
             },
             strong: {
-              color: theme("colors.cyan.600"),
+              color: "hsl(var(--nextui-strong))",
               fontWeight: theme("fontWeight.semibold"),
             },
             "a strong": {
@@ -210,6 +210,12 @@ module.exports = {
               fontWeight: theme("fontWeight.normal"),
               fontStyle: "font-normal",
             },
+            "code::before": {
+              content: "",
+            },
+            "code::after": {
+              content: "",
+            },
             "blockquote p:first-of-type::before": {
               content: "",
             },
@@ -222,7 +228,7 @@ module.exports = {
           css: {
             color: "hsl(var(--nextui-default-700))",
             strong: {
-              color: theme("colors.pink.500"),
+              color: "hsl(var(--nextui-cyan-500))",
             },
           },
         },
@@ -305,12 +311,18 @@ module.exports = {
             transform: "scale(1.295)",
           },
         },
+        "text-gradient": {
+          to: {
+            backgroundPosition: "-200% center",
+          },
+        },
       },
       animation: {
         heartbeat: "heartbeat 1s ease-in-out infinite",
         levitate: "levitate 5s ease infinite",
         expand: "expand 6s ease-out infinite both",
         "expand-opacity": "expand-opacity 6s linear infinite both",
+        "text-gradient": "text-gradient 4s linear 0s infinite normal forwards running",
       },
     },
   },
@@ -321,11 +333,13 @@ module.exports = {
         light: {
           colors: {
             "code-background": "#363449",
+            strong: "#ff4ecd",
             "code-mdx": "#ff4ecd",
           },
         },
         dark: {
           colors: {
+            strong: "#06B7DB",
             "code-background": "#0D0B0B",
             "code-mdx": "#06B7DB",
           },

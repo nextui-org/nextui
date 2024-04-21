@@ -78,7 +78,7 @@ const checkbox = tv({
     size: {
       sm: {
         wrapper: [
-          "w-4 h-4 mr-2",
+          "w-4 h-4 mr-2 rtl:ml-2 rtl:mr-[unset]",
           "rounded-[calc(theme(borderRadius.medium)*0.5)]",
           "before:rounded-[calc(theme(borderRadius.medium)*0.5)]",
           "after:rounded-[calc(theme(borderRadius.medium)*0.5)]",
@@ -88,7 +88,7 @@ const checkbox = tv({
       },
       md: {
         wrapper: [
-          "w-5 h-5 mr-2",
+          "w-5 h-5 mr-2 rtl:ml-2 rtl:mr-[unset]",
           "rounded-[calc(theme(borderRadius.medium)*0.6)]",
           "before:rounded-[calc(theme(borderRadius.medium)*0.6)]",
           "after:rounded-[calc(theme(borderRadius.medium)*0.6)]",
@@ -98,7 +98,7 @@ const checkbox = tv({
       },
       lg: {
         wrapper: [
-          "w-6 h-6 mr-2",
+          "w-6 h-6 mr-2 rtl:ml-2 rtl:mr-[unset]",
           "rounded-[calc(theme(borderRadius.medium)*0.7)]",
           "before:rounded-[calc(theme(borderRadius.medium)*0.7)]",
           "after:rounded-[calc(theme(borderRadius.medium)*0.7)]",
