@@ -222,13 +222,7 @@ const DisabledKeysTemplate = ({color, variant, ...args}: DropdownProps & Dropdow
 const SingleSelectionTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => {
   const [selected, setSelected] = React.useState<string | Set<React.Key>>(new Set(["text"]));
 
-  const selectedValue = React.useMemo(
-    () =>
-      Array.from(selected)
-        .map((key) => key.toString().replace("_", " "))
-        .join(", "),
-    [selected],
-  );
+  const selectedValue = React.useMemo(() => Array.from(selected)[0], [selected]);
 
   return (
     <Dropdown {...args}>
