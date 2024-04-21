@@ -64,6 +64,7 @@
     "@nextui-org/checkbox": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/link": "workspace:*",
+    "@nextui-org/switch": "workspace:*",
     "react-lorem-component": "0.13.0",
     "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",

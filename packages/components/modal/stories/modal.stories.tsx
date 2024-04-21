@@ -7,6 +7,7 @@ import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Checkbox} from "@nextui-org/checkbox";
 import {Link} from "@nextui-org/link";
+import {Switch} from "@nextui-org/switch";
 import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
 import Lorem from "react-lorem-component";
 
@@ -229,6 +230,38 @@ const DraggableTemplate = (args: ModalProps) => {
     </div>
   );
 };
+const DraggableOverflowTemplate = (args: ModalProps) => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+  const targetRef = React.useRef(null);
+  const dragRef = React.useRef(null);
+  const [draggable, setDraggable] = React.useState(true);
+  const [overflow, setOverflow] = React.useState(true);
+
+  useDraggable({targetRef, dragRef, draggable, overflow});
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Switch isSelected={draggable} onValueChange={setDraggable}>
+        Draggable
+      </Switch>
+      <Switch isSelected={overflow} onValueChange={setOverflow}>
+        Overflow viewport
+      </Switch>
+      <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          <ModalHeader ref={dragRef}>Modal Title</ModalHeader>
+          <ModalBody>
+            <Lorem count={1} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onPress={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+  );
+};
 
 export const Default = {
   render: Template,
@@ -306,4 +339,16 @@ export const CustomMotion = {
 
 export const Draggable = {
   render: DraggableTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const DraggableOverflow = {
+  render: DraggableOverflowTemplate,
+
+  args: {
+    ...defaultProps,
+  },
 };
