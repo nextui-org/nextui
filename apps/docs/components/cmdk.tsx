@@ -266,7 +266,7 @@ export const Cmdk: FC<{}> = () => {
         }
       }
     },
-    [activeItem, items, router, query],
+    [activeItem, items, router],
   );
 
   useUpdateEffect(() => {
