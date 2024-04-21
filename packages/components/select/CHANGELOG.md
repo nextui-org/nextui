@@ -1,5 +1,47 @@
 # @nextui-org/select
 
+## 2.1.22
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2556](https://github.com/nextui-org/nextui/pull/2556) [`888d86184`](https://github.com/nextui-org/nextui/commit/888d8618410741c7e00500ee812c6431e5239877) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed isFilled & hasValue logic for state.selectedItems in select
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the bug of positioning the label in the `Select` component if the description field was used
+
+- [#2485](https://github.com/nextui-org/nextui/pull/2485) [`aab1f19a9`](https://github.com/nextui-org/nextui/commit/aab1f19a96f0b07ee064bb1ccbdc782bd288fd8a) Thanks [@mrbadri](https://github.com/mrbadri)! - add RTL support to the select component
+
+- [#2536](https://github.com/nextui-org/nextui/pull/2536) [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8) Thanks [@wingkwong](https://github.com/wingkwong)! - revise shouldCloseOnInteractOutside for FreeSoloPopover
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed react-hook-form uncontrolled components (#1969)
+
+- [#2649](https://github.com/nextui-org/nextui/pull/2649) [`e45843255`](https://github.com/nextui-org/nextui/commit/e4584325504fd728cb7177dd2619f1083d80819c) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed Disabled Select Allows Changes Using Blur + Keyboard (#2345)
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`a05aef0ac`](https://github.com/nextui-org/nextui/commit/a05aef0acb5a7b000c8131e8ba4f50f0adec01e5), [`a60c2d7b2`](https://github.com/nextui-org/nextui/commit/a60c2d7b22b3335084b4a846f9d39f00751e8c24), [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8), [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9), [`abf532b54`](https://github.com/nextui-org/nextui/commit/abf532b548235689fb37a3e79f07776ff52f6caf), [`8761168d3`](https://github.com/nextui-org/nextui/commit/8761168d3459cd83ce571f4e65eb8ea6db8516ef), [`eb51bf226`](https://github.com/nextui-org/nextui/commit/eb51bf226170e4bb37ae30990d1c3aa26d8c504b), [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17), [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae)]:
+  - @nextui-org/listbox@2.1.17
+  - @nextui-org/popover@2.1.16
+  - @nextui-org/scroll-shadow@2.1.14
+  - @nextui-org/spinner@2.0.26
+  - @nextui-org/use-aria-button@2.0.7
+  - @nextui-org/use-aria-multiselect@2.1.5
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+  - @nextui-org/use-safe-layout-effect@2.0.5
+
 ## 2.1.21
 
 ### Patch Changes

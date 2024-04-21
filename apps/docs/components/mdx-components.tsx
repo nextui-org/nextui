@@ -105,7 +105,7 @@ const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
 
 const InlineCode = ({children}: {children?: React.ReactNode}) => {
   return (
-    <Components.Code className="font-normal bg-transparent px-0 py-0 text-code-mdx">
+    <Components.Code className="font-normal text-default-700 bg-default-200/50 dark:bg-default-100/60 px-2 py-0.5">
       {children}
     </Components.Code>
   );

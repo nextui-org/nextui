@@ -3,7 +3,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {skeleton} from "@nextui-org/theme";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo, Ref} from "react";
 
 interface Props extends HTMLNextUIProps<"div"> {
@@ -45,7 +45,7 @@ export function useSkeleton(originalProps: UseSkeletonProps) {
       skeleton({
         ...variantProps,
       }),
-    [...Object.values(variantProps), children],
+    [objectToDeps(variantProps), children],
   );
 
   const baseStyles = clsx(classNames?.base, className);

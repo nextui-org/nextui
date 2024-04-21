@@ -1,5 +1,54 @@
 # @nextui-org/autocomplete
 
+## 2.0.11
+
+### Patch Changes
+
+- [#2674](https://github.com/nextui-org/nextui/pull/2674) [`86a78c9b9`](https://github.com/nextui-org/nextui/commit/86a78c9b91042f871a60a9a2d6e3e3acc636637d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed empty items with allowCustomValue by avoiding null node in `ariaHideOutside` from `@react-aria/overlays`
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2536](https://github.com/nextui-org/nextui/pull/2536) [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8) Thanks [@wingkwong](https://github.com/wingkwong)! - revise shouldCloseOnInteractOutside for FreeSoloPopover
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed react-hook-form uncontrolled components (#1969)
+
+- [#2100](https://github.com/nextui-org/nextui/pull/2100) [`af877f7dd`](https://github.com/nextui-org/nextui/commit/af877f7ddbfd0de5b2e025be077f22155762e93d) Thanks [@black197](https://github.com/black197)! - Fix #1909 overwrite `onKeyDown` to prevent meaningless error msg
+
+- [#2654](https://github.com/nextui-org/nextui/pull/2654) [`a1c112431`](https://github.com/nextui-org/nextui/commit/a1c112431f211bb0417443e771a67bdd912f4d66) Thanks [@wingkwong](https://github.com/wingkwong)! - Removed unnecessary map after getting all collection keys
+
+- [#2716](https://github.com/nextui-org/nextui/pull/2716) [`25640e42f`](https://github.com/nextui-org/nextui/commit/25640e42ff2656440f0fc33b9b75150005b9086d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes incorrect prop name in getEmptyPopoverProps (#2715)
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed autocomplete listbox keyboard navigation (#2680)
+
+- [#2429](https://github.com/nextui-org/nextui/pull/2429) [`bae544d19`](https://github.com/nextui-org/nextui/commit/bae544d1985dc093aedfa652578acdfcdae83983) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed isReadOnly logic in Autocomplete (#2420)
+
+- [#2458](https://github.com/nextui-org/nextui/pull/2458) [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17) Thanks [@wingkwong](https://github.com/wingkwong)! - fix(autocomplete): support isReadOnly for dynamic collections in Autocomplete
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`a05aef0ac`](https://github.com/nextui-org/nextui/commit/a05aef0acb5a7b000c8131e8ba4f50f0adec01e5), [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8), [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`52dafd08f`](https://github.com/nextui-org/nextui/commit/52dafd08f178483e79dc847b61d1c761af26eb8e), [`8761168d3`](https://github.com/nextui-org/nextui/commit/8761168d3459cd83ce571f4e65eb8ea6db8516ef), [`eb51bf226`](https://github.com/nextui-org/nextui/commit/eb51bf226170e4bb37ae30990d1c3aa26d8c504b), [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17), [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae)]:
+  - @nextui-org/button@2.0.28
+  - @nextui-org/input@2.1.18
+  - @nextui-org/listbox@2.1.17
+  - @nextui-org/popover@2.1.16
+  - @nextui-org/scroll-shadow@2.1.14
+  - @nextui-org/spinner@2.0.26
+  - @nextui-org/use-aria-button@2.0.7
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+  - @nextui-org/use-safe-layout-effect@2.0.5
+
 ## 2.0.10
 
 ### Patch Changes
