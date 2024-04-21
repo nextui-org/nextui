@@ -316,6 +316,38 @@ export const ManualKeyboardActivation = {
   },
 };
 
+export const Placement = {
+  render: StaticTemplate,
+
+  args: {
+    placement: "top",
+  },
+  argTypes: {
+    placement: {
+      options: ["top", "bottom", "start", "end"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+    isVertical: {
+      type: "boolean",
+    },
+  },
+};
+
+export const Vertical = {
+  render: StaticTemplate,
+
+  args: {
+    isVertical: true,
+  },
+  argTypes: {
+    isVertical: {
+      type: "boolean",
+    },
+  },
+};
+
 export const DisabledItems = {
   render: StaticTemplate,
 
