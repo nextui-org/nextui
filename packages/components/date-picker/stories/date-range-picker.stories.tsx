@@ -138,6 +138,7 @@ const TimeZonesTemplate = (args: DateRangePickerProps) => (
     />
     <DateRangePicker
       // {...args}
+      aria-label="Event date"
       className="max-w-xs"
       defaultValue={{
         start: parseAbsoluteToLocal("2024-04-01T07:45:00Z"),
