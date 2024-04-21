@@ -102,6 +102,7 @@ const table = tv({
       "data-[selected=true]:before:opacity-100",
       // disabled
       "group-data-[disabled=true]:text-foreground-300",
+      "group-data-[disabled=true]:cursor-not-allowed",
     ],
     tfoot: "",
     sortIcon: [
@@ -185,6 +186,7 @@ const table = tv({
         td: [
           "group-data-[odd=true]:before:bg-default-100",
           "group-data-[odd=true]:before:opacity-100",
+          "group-data-[odd=true]:before:-z-10",
         ],
       },
     },

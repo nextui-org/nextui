@@ -1,4 +1,4 @@
-export * from "./children";
-export * from "./filter-dom-props";
-export * from "./dom-props";
-export * from "./functions";
+export {getValidChildren, pickChildren} from "./children";
+export {filterDOMProps} from "./filter-dom-props";
+export {DOMPropNames, DOMEventNames} from "./dom-props";
+export {renderFn} from "./functions";

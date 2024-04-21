@@ -11,7 +11,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {breadcrumbItem} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useBreadcrumbItem as useAriaBreadcrumbItem} from "@react-aria/breadcrumbs";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 
@@ -94,7 +94,7 @@ export function useBreadcrumbItem(originalProps: UseBreadcrumbItemProps) {
           originalProps?.underline !== undefined && !isCurrent ? originalProps?.underline : "none",
         className,
       }),
-    [...Object.values(variantProps), isCurrent, className],
+    [objectToDeps(variantProps), isCurrent, className],
   );
 
   const baseStyles = clsx(classNames?.base, className);
