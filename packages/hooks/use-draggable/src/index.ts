@@ -78,6 +78,7 @@ export function useDraggable(props: UseDraggableProps) {
     if (dragRef?.current && targetRef?.current) {
       dragRef.current.addEventListener("mousedown", onMousedown);
       dragRef.current.style.cursor = "move";
+      dragRef.current.style.userSelect = "none";
     }
   };
 
