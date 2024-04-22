@@ -1,5 +1,5 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {render} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import {Input} from "../src";
@@ -123,7 +123,7 @@ describe("Input", () => {
 
     const ref = React.createRef<HTMLInputElement>();
 
-    const {container} = render(
+    const {getByRole} = render(
       <Input
         ref={ref}
         isClearable
@@ -133,13 +133,13 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = container.querySelector("[data-slot='clear-button']") as HTMLElement;
+    const clearButton = getByRole("button");
 
     expect(clearButton).not.toBeNull();
 
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
 
     expect(ref.current?.value)?.toBe("");
 
