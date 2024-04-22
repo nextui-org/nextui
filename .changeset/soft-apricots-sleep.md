@@ -3,4 +3,4 @@
 "@nextui-org/use-draggable": minor
 ---
 
-Add draggable modal
+Add draggable modal (#2647)
