@@ -47,10 +47,10 @@ export function useDropdown(props: UseDropdownProps) {
     isOpen,
     defaultOpen,
     onOpenChange,
+    isDisabled,
     type = "menu",
     trigger = "press",
     placement = "bottom",
-    isDisabled = false,
     closeOnSelect = true,
     shouldBlockScroll = true,
     classNames: classNamesProp,
@@ -139,7 +139,11 @@ export function useDropdown(props: UseDropdownProps) {
     return {
       ref: mergeRefs(_ref, menuRef),
       menuProps,
-      ...mergeProps(props, {onAction: () => onMenuAction(props?.closeOnSelect)}),
+      closeOnSelect,
+      ...mergeProps(props, {
+        onAction: () => onMenuAction(props?.closeOnSelect),
+        onClose: state.close,
+      }),
     } as MenuProps;
   };
 

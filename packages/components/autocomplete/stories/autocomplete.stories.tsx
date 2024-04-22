@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {autocomplete, input, button} from "@nextui-org/theme";
@@ -127,7 +129,7 @@ const DynamicTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) =
   </Autocomplete>
 );
 
-const RequiredTemplate = ({color, variant, ...args}: AutocompleteProps) => {
+const FormTemplate = ({color, variant, ...args}: AutocompleteProps) => {
   return (
     <form
       className="w-full max-w-xs items-start flex flex-col gap-4"
@@ -137,7 +139,6 @@ const RequiredTemplate = ({color, variant, ...args}: AutocompleteProps) => {
       }}
     >
       <Autocomplete
-        isRequired
         color={color}
         label="Favorite Animal"
         name="favorite-animal"
@@ -570,7 +571,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
     <Autocomplete
       className="max-w-xs"
       classNames={{
-        base: "min-h-unit-16",
+        base: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}
       color={color}
@@ -694,10 +695,11 @@ export const Default = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
+    isRequired: true,
   },
 };
 
@@ -812,7 +814,36 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please select an animal",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "Value is required";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    validate: (value) => {
+      if (value.inputValue === "Cat" || value.selectedKey === "dog") {
+        return "Please select a valid animal";
+      }
+    },
   },
 };
 

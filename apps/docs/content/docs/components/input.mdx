@@ -15,6 +15,19 @@ Input is a component that allows users to enter text. It can be used to get user
 
 <CarbonAd />
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add input",
+    npm: "npm install @nextui-org/input",
+    yarn: "yarn add @nextui-org/input",
+    pnpm: "pnpm add @nextui-org/input",
+    bun: "bun add @nextui-org/input"
+  }}
+/>
+
+
 ## Import
 
 <ImportTabs
@@ -192,7 +205,8 @@ In case you need to customize the input even further, you can use the `useInput`
 | defaultValue     | `string`                                                                                                                                                               | The default value of the input (uncontrolled).                                                                        | -         |
 | placeholder      | `string`                                                                                                                                                               | The placeholder of the input.                                                                                         | -         |
 | description      | `ReactNode`                                                                                                                                                            | A description for the input. Provides a hint such as specific requirements for what to choose.                        | -         |
-| errorMessage     | `ReactNode`                                                                                                                                                            | An error message for the input.                                                                                       | -         |
+| errorMessage     | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                                                  | An error message for the input.                                                                                       | -         |
+| validate         | `(value: string) => ValidationError ｜ true ｜ null ｜ undefined`                                                                                                       | Validate input values when committing (e.g. on blur), and return error messages for invalid values.                   | -         |
 | startContent     | `ReactNode`                                                                                                                                                            | Element to be rendered in the left side of the input.                                                                 | -         |
 | endContent       | `ReactNode`                                                                                                                                                            | Element to be rendered in the right side of the input.                                                                | -         |
 | labelPlacement   | `inside` \| `outside` \| `outside-left`                                                                                                                                | The position of the label.                                                                                            | `inside`  |

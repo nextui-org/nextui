@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -87,11 +89,13 @@ const Template = (args: RadioGroupProps) => {
     <form
       className="flex flex-col items-start gap-4"
       onSubmit={(e) => {
+        alert(`Submitted value: ${e.target["sample"].value}`);
         e.preventDefault();
-        alert("Submitted!");
       }}
     >
-      <RadioGroup {...args}>{items}</RadioGroup>
+      <RadioGroup {...args} name="sample">
+        {items}
+      </RadioGroup>
       <button className={button({color: "primary"})} type="submit">
         Submit
       </button>
@@ -129,16 +133,16 @@ const InvalidTemplate = (args: RadioGroupProps) => {
   const items = (
     <>
       <Radio value="A" {...radioProps.a}>
-        Option A
+        Option A (Invalid)
       </Radio>
       <Radio value="B" {...radioProps.b}>
-        Option B
+        Option B (Valid)
       </Radio>
       <Radio value="C" {...radioProps.c}>
-        Option C
+        Option C (Valid)
       </Radio>
       <Radio value="D" {...radioProps.d}>
-        Option D
+        Option D (Invalid)
       </Radio>
     </>
   );
@@ -255,8 +259,37 @@ export const WithErrorMessage = {
   args: {
     ...defaultProps,
     isRequired: true,
-    validationState: "invalid",
+    isInvalid: true,
     errorMessage: "The selected option is invalid",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "Please select an option";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    description: "Please select an option",
+    validate: (value: string) => {
+      if (value === "A") {
+        return "Option A is not allowed";
+      }
+    },
   },
 };
 
