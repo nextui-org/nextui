@@ -124,7 +124,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
       }),
       itemProps,
       props,
-      {onClick: chain(pressProps.onClick, onClick)},
     ),
     "data-focus": dataAttr(isFocused),
     "data-selectable": dataAttr(isSelectable),
