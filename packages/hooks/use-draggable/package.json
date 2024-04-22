@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-draggable",
-  "version": "2.0.7",
+  "version": "0.1.0",
   "description": "This hook can provide drag and drop interaction",
   "keywords": [
     "use-draggable"
