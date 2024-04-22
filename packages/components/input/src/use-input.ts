@@ -2,6 +2,7 @@ import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/th
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
@@ -143,6 +144,15 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef.current?.focus();
   }, [setInputValue, onClear]);
 
+  // if we use `react-hook-form`, it will set the input value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!domRef.current) return;
+
+    setInputValue(domRef.current.value);
+  }, [domRef.current]);
+
   const {
     labelProps,
     inputProps,
@@ -156,7 +166,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       ...originalProps,
       validationBehavior: "native",
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
-      value: domRef?.current?.value ?? inputValue,
+      value: inputValue,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
         originalProps?.label,
