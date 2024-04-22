@@ -38,3 +38,5 @@ export * from "./selector";
 export * from "./bulk";
 export * from "./bold";
 export * from "./linear";
+
+export type {IconSvgProps} from "./types";

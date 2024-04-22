@@ -46,11 +46,10 @@ const skeleton = tv({
     ],
     content: ["opacity-0", "group-data-[loaded=true]:opacity-100"],
   },
-
   variants: {
     disableAnimation: {
       true: {
-        base: "before:transition-none",
+        base: "before:animate-none before:transition-none after:transition-none",
         content: "transition-none",
       },
       false: {

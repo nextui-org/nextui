@@ -5,7 +5,15 @@ import userEvent from "@testing-library/user-event";
 
 import {Accordion, AccordionItem} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Accordion", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Accordion>
@@ -14,6 +22,8 @@ describe("Accordion", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    expect(spy).toBeCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {
@@ -66,6 +76,25 @@ describe("Accordion", () => {
     );
 
     expect(wrapper.getAllByRole("button")[0]).toBeDisabled();
+  });
+
+  it("should hide the accordion item when the hidden prop is set", () => {
+    const wrapper = render(
+      <Accordion>
+        <AccordionItem key="1" title="Accordion Item 1">
+          Accordion Item 1 description
+        </AccordionItem>
+        <AccordionItem key="2" hidden title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
+        <AccordionItem key="3" title="Accordion Item 3">
+          Accordion Item 3 description
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    expect(wrapper.getAllByRole("button")).toHaveLength(2);
+    expect(wrapper.getAllByRole("separator")).toHaveLength(1);
   });
 
   it("should expand the accordion item when clicked", async () => {

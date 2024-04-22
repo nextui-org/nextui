@@ -3,6 +3,7 @@ import {
   AriaModalOverlayProps,
   ModalOverlayAria,
   useOverlay,
+  usePreventScroll,
   useOverlayFocusContain,
 } from "@react-aria/overlays";
 import {mergeProps} from "@react-aria/utils";
@@ -12,7 +13,11 @@ import {RefObject, useEffect} from "react";
 export interface UseAriaModalOverlayProps extends AriaModalOverlayProps {}
 
 export function useAriaModalOverlay(
-  props: UseAriaModalOverlayProps = {},
+  props: UseAriaModalOverlayProps & {
+    shouldBlockScroll?: boolean;
+  } = {
+    shouldBlockScroll: true,
+  },
   state: OverlayTriggerState,
   ref: RefObject<HTMLElement>,
 ): ModalOverlayAria {
@@ -24,6 +29,10 @@ export function useAriaModalOverlay(
     },
     ref,
   );
+
+  usePreventScroll({
+    isDisabled: !state.isOpen || !props.shouldBlockScroll,
+  });
 
   useOverlayFocusContain();
 
