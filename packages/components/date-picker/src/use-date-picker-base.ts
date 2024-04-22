@@ -250,6 +250,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     "data-slot": "selector-icon",
   };
 
+  const onClose = () => {
+    setIsCalendarHeaderExpanded(false);
+  };
+
   return {
     domRef,
     endContent,
@@ -273,6 +277,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    onClose,
   };
 }
 

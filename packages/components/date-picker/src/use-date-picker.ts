@@ -74,11 +74,17 @@ export function useDatePicker<T extends DateValue>({
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    onClose,
   } = useDatePickerBase(originalProps);
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
     shouldCloseOnSelect: () => !state.hasTime,
+    onOpenChange: (isOpen) => {
+      if (!isOpen) {
+        onClose();
+      }
+    },
   });
 
   const baseStyles = clsx(classNames?.base, className);
