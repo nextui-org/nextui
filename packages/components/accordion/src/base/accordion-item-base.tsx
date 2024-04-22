@@ -25,6 +25,7 @@ export type AccordionItemIndicatorProps = {
    */
   isDisabled?: boolean;
 };
+
 export interface Props<T extends object = {}>
   extends Omit<ItemProps<"button", T>, "children" | "title" | keyof FocusableProps>,
     FocusableProps,
@@ -85,7 +86,6 @@ export interface Props<T extends object = {}>
    * ```
    */
   classNames?: SlotsToClasses<AccordionItemSlots>;
-
   /**
    * Customizable heading tag for Web accessibility:
    * use headings to describe content and use them consistently and semantically.
