@@ -65,19 +65,11 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
   ]);
 
   const innerWrapper = useMemo(() => {
-    if (startContent || end) {
-      return (
-        <div {...getInnerWrapperProps()}>
-          {startContent}
-          <input {...getInputProps()} />
-          {end}
-        </div>
-      );
-    }
-
     return (
       <div {...getInnerWrapperProps()}>
+        {startContent}
         <input {...getInputProps()} />
+        {end}
       </div>
     );
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
