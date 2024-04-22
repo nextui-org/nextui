@@ -84,6 +84,11 @@ export default {
         type: "boolean",
       },
     },
+    isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
     disableAnimation: {
       control: {
         type: "boolean",
@@ -109,6 +114,7 @@ const defaultProps = {
   ...dropdown.defaultVariants,
   placement: "bottom",
   offset: 7,
+  isDisabled: false,
   defaultOpen: false,
   disableAnimation: false,
 };
@@ -569,6 +575,24 @@ const CustomTriggerTemplate = ({variant, ...args}) => {
   );
 };
 
+const CustomHTMLTrigger = ({variant, ...args}) => {
+  return (
+    <Dropdown {...args}>
+      <DropdownTrigger>
+        <span className="flex items-center gap-2">Profile</span>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" variant={variant}>
+        <DropdownItem key="new">New file</DropdownItem>
+        <DropdownItem key="copy">Copy link</DropdownItem>
+        <DropdownItem key="edit">Edit file</DropdownItem>
+        <DropdownItem key="delete" className="text-danger" color="danger">
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
 export const Default = {
   render: Template,
 
@@ -687,6 +711,16 @@ export const WithSections = {
 
 export const WithCustomTrigger = {
   render: CustomTriggerTemplate,
+
+  args: {
+    ...defaultProps,
+    variant: "flat",
+    offset: 14,
+  },
+};
+
+export const WithCustomHTMLTrigger = {
+  render: CustomHTMLTrigger,
 
   args: {
     ...defaultProps,

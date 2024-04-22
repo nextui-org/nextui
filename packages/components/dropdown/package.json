@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/dropdown",
-  "version": "2.1.21",
+  "version": "2.1.22",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"
@@ -57,6 +57,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/user": "workspace:*",
+    "@nextui-org/image": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",

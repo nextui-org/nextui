@@ -1,5 +1,5 @@
 import React, {Children, cloneElement, useMemo} from "react";
-import {forwardRef, isNextUIEl} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
@@ -29,27 +29,23 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     };
   }, [children]);
 
-  const {onPress, ...restProps} = useMemo(() => {
+  const {onPress, isDisabled, ...restProps} = useMemo(() => {
     return getTriggerProps(mergeProps(otherProps, child.props), child.ref);
   }, [getTriggerProps, child.props, otherProps, child.ref]);
 
   // validates if contains a NextUI Button as a child
   const [, triggerChildren] = pickChildren(children, Button);
 
-  const {buttonProps} = useAriaButton({onPress}, triggerRef);
+  const {buttonProps} = useAriaButton({onPress, isDisabled}, triggerRef);
 
   const hasNextUIButton = useMemo<boolean>(() => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
-  const isNextUIElement = isNextUIEl(child);
-
-  // `isDisabled` is added in `getMenuTriggerProps()` in `use-dropdown.ts`.
-  // if we include `isDisabled` prop in a DOM element, react will fail to recognize it on a DOM element.
-  // hence, apply filterDOMProps for such case
-  if (!isNextUIElement) delete restProps["isDisabled"];
-
-  return cloneElement(child, mergeProps(restProps, hasNextUIButton ? {onPress} : buttonProps));
+  return cloneElement(
+    child,
+    mergeProps(restProps, hasNextUIButton ? {onPress, isDisabled} : buttonProps),
+  );
 });
 
 PopoverTrigger.displayName = "NextUI.PopoverTrigger";
