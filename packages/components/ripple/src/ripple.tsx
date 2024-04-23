@@ -36,7 +36,7 @@ const Ripple: FC<RippleProps> = (props) => {
                     borderRadius: "100%",
                     transformOrigin: "center",
                     pointerEvents: "none",
-                    zIndex: 10,
+                    zIndex: -1,
                     top: ripple.y,
                     left: ripple.x,
                     width: `${ripple.size}px`,
