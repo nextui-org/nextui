@@ -172,6 +172,9 @@ describe("Autocomplete", () => {
 
     // assert that the autocomplete is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+
+    // assert that input is not focused
+    expect(autocomplete).not.toHaveFocus();
   });
 
   it("should close dropdown when clicking outside autocomplete with modal open", async () => {
@@ -218,5 +221,8 @@ describe("Autocomplete", () => {
 
     // assert that the autocomplete dropdown is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+
+    // assert that input is not focused
+    expect(autocomplete).not.toHaveFocus();
   });
 });
