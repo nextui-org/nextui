@@ -1,4 +1,7 @@
-import {useEffect} from "react";
+import type {MoveMoveEvent, MoveResult} from "@react-aria/interactions";
+
+import {useEffect, useRef} from "react";
+import {useMove} from "@react-aria/interactions";
 
 export interface UseDraggableProps {
   /**
@@ -16,20 +19,17 @@ export interface UseDraggableProps {
   draggable?: boolean;
   /**
    * Whether the target can overflow the viewport.
+   * @default false
    */
   overflow?: boolean;
 }
 
-export function useDraggable(props: UseDraggableProps) {
+export function useDraggable(props: UseDraggableProps): MoveResult {
   const {targetRef, dragRef, draggable = true, overflow = false} = props;
-  let transform = {
-    offsetX: 0,
-    offsetY: 0,
-  };
+  const boundary = useRef({minLeft: 0, minTop: 0, maxLeft: 0, maxTop: 0});
+  let transform = {offsetX: 0, offsetY: 0};
 
-  const onMousedown = (e: MouseEvent) => {
-    const downX = e.clientX;
-    const downY = e.clientY;
+  const onMoveStart = () => {
     const {offsetX, offsetY} = transform;
 
     const targetRect = targetRef?.current?.getBoundingClientRect();
@@ -46,57 +46,51 @@ export function useDraggable(props: UseDraggableProps) {
     const maxLeft = clientWidth - targetLeft - targetWidth + offsetX;
     const maxTop = clientHeight - targetTop - targetHeight + offsetY;
 
-    const onMousemove = (e: MouseEvent) => {
-      let moveX = offsetX + e.clientX - downX;
-      let moveY = offsetY + e.clientY - downY;
-
-      if (!overflow) {
-        moveX = Math.min(Math.max(moveX, minLeft), maxLeft);
-        moveY = Math.min(Math.max(moveY, minTop), maxTop);
-      }
-
-      transform = {
-        offsetX: moveX,
-        offsetY: moveY,
-      };
-
-      if (targetRef?.current) {
-        targetRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
-      }
+    boundary.current = {
+      minLeft,
+      minTop,
+      maxLeft,
+      maxTop,
     };
-
-    const onMouseup = () => {
-      document.removeEventListener("mousemove", onMousemove);
-      document.removeEventListener("mouseup", onMouseup);
-    };
-
-    document.addEventListener("mousemove", onMousemove);
-    document.addEventListener("mouseup", onMouseup);
   };
 
-  const onDraggable = () => {
-    if (dragRef?.current && targetRef?.current) {
-      dragRef.current.addEventListener("mousedown", onMousedown);
+  const onMove = (e: MoveMoveEvent) => {
+    if (!draggable) {
+      return;
+    }
+    const {offsetX, offsetY} = transform;
+    const {minLeft, minTop, maxLeft, maxTop} = boundary.current;
+    let moveX = offsetX + e.deltaX;
+    let moveY = offsetY + e.deltaY;
+
+    if (!overflow) {
+      moveX = Math.min(Math.max(moveX, minLeft), maxLeft);
+      moveY = Math.min(Math.max(moveY, minTop), maxTop);
+    }
+
+    transform = {
+      offsetX: moveX,
+      offsetY: moveY,
+    };
+
+    if (targetRef?.current) {
+      targetRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    }
+  };
+
+  const {moveProps} = useMove({
+    onMoveStart,
+    onMove,
+  });
+
+  useEffect(() => {
+    if (draggable && dragRef?.current) {
       dragRef.current.style.cursor = "move";
       dragRef.current.style.userSelect = "none";
     }
+  }, [draggable, onMoveStart, onMove]);
+
+  return {
+    moveProps,
   };
-
-  const offDraggable = () => {
-    if (dragRef?.current && targetRef?.current) {
-      dragRef.current.removeEventListener("mousedown", onMousedown);
-    }
-  };
-
-  useEffect(() => {
-    if (draggable) {
-      onDraggable();
-    } else {
-      offDraggable();
-    }
-
-    return () => {
-      offDraggable();
-    };
-  }, [draggable, onDraggable, offDraggable]);
 }

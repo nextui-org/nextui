@@ -211,14 +211,16 @@ const DraggableTemplate = (args: ModalProps) => {
   const targetRef = React.useRef(null);
   const dragRef = React.useRef(null);
 
-  useDraggable({targetRef, dragRef});
+  const {moveProps} = useDraggable({targetRef, dragRef});
 
   return (
     <div className="flex flex-col gap-2">
       <Button onPress={onOpen}>Open Modal</Button>
       <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          <ModalHeader ref={dragRef}>Modal Title</ModalHeader>
+          <ModalHeader {...moveProps} ref={dragRef}>
+            Modal Title
+          </ModalHeader>
           <ModalBody>
             <Lorem count={1} />
           </ModalBody>
@@ -237,7 +239,7 @@ const DraggableOverflowTemplate = (args: ModalProps) => {
   const [draggable, setDraggable] = React.useState(true);
   const [overflow, setOverflow] = React.useState(true);
 
-  useDraggable({targetRef, dragRef, draggable, overflow});
+  const {moveProps} = useDraggable({targetRef, dragRef, draggable, overflow});
 
   return (
     <div className="flex flex-col gap-2">
@@ -250,7 +252,9 @@ const DraggableOverflowTemplate = (args: ModalProps) => {
       </Switch>
       <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          <ModalHeader ref={dragRef}>Modal Title</ModalHeader>
+          <ModalHeader {...moveProps} ref={dragRef}>
+            Modal Title
+          </ModalHeader>
           <ModalBody>
             <Lorem count={1} />
           </ModalBody>

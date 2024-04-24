@@ -48,5 +48,8 @@
       "cjs",
       "esm"
     ]
+  },
+  "dependencies": {
+    "@react-aria/interactions": "^3.21.1"
   }
 }

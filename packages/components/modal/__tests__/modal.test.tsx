@@ -11,12 +11,14 @@ const ModalDraggable = ({overflow = false}) => {
   const targetRef = React.useRef(null);
   const dragRef = React.useRef(null);
 
-  useDraggable({targetRef, dragRef, overflow});
+  const {moveProps} = useDraggable({targetRef, dragRef, overflow});
 
   return (
     <Modal ref={targetRef} isOpen>
       <ModalContent>
-        <ModalHeader ref={dragRef}>Modal header</ModalHeader>
+        <ModalHeader {...moveProps} ref={dragRef}>
+          Modal header
+        </ModalHeader>
         <ModalBody>Modal body</ModalBody>
         <ModalFooter>Modal footer</ModalFooter>
       </ModalContent>
@@ -130,6 +132,7 @@ describe("Modal", () => {
     // mock viewport size to 1920x1080
     jest.spyOn(document.documentElement, "clientWidth", "get").mockImplementation(() => 1920);
     jest.spyOn(document.documentElement, "clientHeight", "get").mockImplementation(() => 1080);
+
     const wrapper = render(<ModalDraggable />);
 
     const modal = wrapper.getByRole("dialog");
@@ -143,6 +146,7 @@ describe("Modal", () => {
     expect(document.documentElement.clientWidth).toBe(1920);
     expect(document.documentElement.clientHeight).toBe(1080);
     expect(modalHeader.style.cursor).toBe("move");
+    expect(modalHeader.style.userSelect).toBe("none");
     expect(modal.style.transform).toBe("translate(100px, 50px)");
   });
 
