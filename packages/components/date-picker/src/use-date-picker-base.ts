@@ -8,12 +8,13 @@ import type {ReactNode} from "react";
 import type {ValueBase} from "@react-types/shared";
 
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
-import {useState} from "react";
+import {useCallback} from "react";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
+import {useControlledState} from "@react-stately/utils";
 
 import intlMessages from "../intl/messages";
 
@@ -114,8 +115,6 @@ export type UseDatePickerBaseProps<T extends DateValue> = Props<T> &
 export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePickerBaseProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
-  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useState(false);
-
   const {
     as,
     ref,
@@ -143,6 +142,24 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     CalendarBottomContent,
     createCalendar,
   } = props;
+
+  const {
+    isHeaderExpanded,
+    isHeaderDefaultExpanded,
+    onHeaderExpandedChange,
+    ...restUserCalendarProps
+  } = userCalendarProps;
+
+  const handleHeaderExpandedChange = useCallback(
+    (isExpanded: boolean | undefined) => {
+      onHeaderExpandedChange?.(isExpanded || false);
+    },
+    [onHeaderExpandedChange],
+  );
+
+  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useControlledState<
+    boolean | undefined
+  >(isHeaderExpanded, isHeaderDefaultExpanded ?? false, handleHeaderExpandedChange);
 
   const domRef = useDOMRef(ref);
   const disableAnimation = originalProps.disableAnimation ?? false;
@@ -191,6 +208,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
         pageBehavior,
         isDateUnavailable,
         showMonthAndYearPickers,
+        isHeaderExpanded: isCalendarHeaderExpanded,
         onHeaderExpandedChange: setIsCalendarHeaderExpanded,
         color:
           (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
@@ -201,7 +219,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
             : originalProps.color,
         disableAnimation,
       },
-      userCalendarProps,
+      restUserCalendarProps,
     ),
   };
 
@@ -251,7 +269,9 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   };
 
   const onClose = () => {
-    setIsCalendarHeaderExpanded(false);
+    if (isHeaderExpanded === undefined) {
+      setIsCalendarHeaderExpanded(false);
+    }
   };
 
   return {

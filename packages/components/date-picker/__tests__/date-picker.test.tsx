@@ -458,4 +458,85 @@ describe("DatePicker", () => {
       expect(getTextValue(combobox)).toBe("2/4/2019"); // uncontrolled
     });
   });
+
+  describe("Month and Year Picker", () => {
+    const onHeaderExpandedChangeSpy = jest.fn();
+
+    afterEach(() => {
+      onHeaderExpandedChangeSpy.mockClear();
+    });
+
+    it("should show the month and year picker (uncontrolled)", async () => {
+      const {getByRole} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          calendarProps={{
+            onHeaderExpandedChange: onHeaderExpandedChangeSpy,
+          }}
+          defaultValue={new CalendarDate(2024, 4, 26)}
+          label="Date"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+
+      expect(dialog).toBeVisible();
+
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+
+      triggerPress(header);
+
+      const month = getByRole("button", {name: "April"});
+      const year = getByRole("button", {name: "2024"});
+
+      expect(month).toHaveAttribute("data-value", "4");
+      expect(year).toHaveAttribute("data-value", "2024");
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledWith(true);
+
+      triggerPress(button);
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledTimes(2);
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledWith(false);
+    });
+
+    it("should show the month and year picker (controlled)", async () => {
+      const {getByRole} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          calendarProps={{
+            isHeaderExpanded: true,
+            onHeaderExpandedChange: onHeaderExpandedChangeSpy,
+          }}
+          defaultValue={new CalendarDate(2024, 4, 26)}
+          label="Date"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+      const month = getByRole("button", {name: "April"});
+      const year = getByRole("button", {name: "2024"});
+
+      expect(dialog).toBeVisible();
+      expect(month).toHaveAttribute("data-value", "4");
+      expect(year).toHaveAttribute("data-value", "2024");
+      expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+
+      triggerPress(button);
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+    });
+  });
 });
