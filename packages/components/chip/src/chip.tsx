@@ -33,7 +33,11 @@ const Chip = forwardRef<"div", ChipProps>((props, ref) => {
 
   const end = useMemo(() => {
     if (isCloseable) {
-      return <span {...getCloseButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
+      return (
+        <span {...getCloseButtonProps()} aria-label="close-button">
+          {endContent || <CloseFilledIcon />}
+        </span>
+      );
     }
 
     return endContent;
