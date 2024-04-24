@@ -1,5 +1,12 @@
 # @nextui-org/popover
 
+## 2.1.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.31
+
 ## 2.1.20
 
 ### Patch Changes
