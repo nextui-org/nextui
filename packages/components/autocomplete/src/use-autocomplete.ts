@@ -326,13 +326,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   }, [isOpen]);
 
   useEffect(() => {
-    if (state.isOpen) {
+    if (isOpen) {
       onFocus(true);
     } else {
       // TODO(FIXME): autocomplete within modal will block combobox closing
       // inputRef.current?.blur();
     }
-  }, [state.isOpen]);
+  }, [isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
