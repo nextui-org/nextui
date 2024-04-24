@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-accordion
 
+## 2.0.4
+
+### Patch Changes
+
+- [#2063](https://github.com/nextui-org/nextui/pull/2063) [`10f2b8f42`](https://github.com/nextui-org/nextui/commit/10f2b8f42b1d208e4edea366c6bbc37ef8614ef6) Thanks [@black197](https://github.com/black197)! - Fixes ctrl+a keyboard shortcut enabled inside Accordion with `selectionMode="multiple"` (#2055)
+
 ## 2.0.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/input
 
+## 2.1.21
+
+### Patch Changes
+
+- [#2796](https://github.com/nextui-org/nextui/pull/2796) [`355235320`](https://github.com/nextui-org/nextui/commit/35523532030468837939d127b68bee30bbc4e2b0) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes the isClearable function in the input component (#2791)
+
+- [#2072](https://github.com/nextui-org/nextui/pull/2072) [`1dacf52f3`](https://github.com/nextui-org/nextui/commit/1dacf52f305a410cbf59d067d1977024d982ad03) Thanks [@black197](https://github.com/black197)! - Fix #2069 keep input component's position steady
+
 ## 2.1.20
 
 ### Patch Changes

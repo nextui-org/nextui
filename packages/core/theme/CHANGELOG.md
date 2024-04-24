@@ -1,5 +1,15 @@
 # @nextui-org/theme
 
+## 2.2.3
+
+### Patch Changes
+
+- [#2508](https://github.com/nextui-org/nextui/pull/2508) [`31934017a`](https://github.com/nextui-org/nextui/commit/31934017a54627cbc78583674e990dc66dbe303e) Thanks [@khatabakhsh](https://github.com/khatabakhsh)! - Improved styling for radio button labels, including adjustments for different screen sizes and support for right-to-left (RTL) languages. (#2507)
+
+- [#2660](https://github.com/nextui-org/nextui/pull/2660) [`25484f866`](https://github.com/nextui-org/nextui/commit/25484f866338cf6df549ba0b1082ffd57384eee2) Thanks [@sossost](https://github.com/sossost)! - Fixed slider component vertical mark y position focus (#2658)
+
+- [#2668](https://github.com/nextui-org/nextui/pull/2668) [`6b96ea9c9`](https://github.com/nextui-org/nextui/commit/6b96ea9c9c091d025a886361f50970599a260715) Thanks [@caebwallace](https://github.com/caebwallace)! - Fix custom slot styling with twMerge set to true (#2153)
+
 ## 2.2.2
 
 ### Patch Changes
