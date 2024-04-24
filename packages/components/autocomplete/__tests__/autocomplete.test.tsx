@@ -302,4 +302,45 @@ describe("Autocomplete", () => {
     // assert that input is not focused
     expect(autocomplete).not.toHaveFocus();
   });
+
+  it("should set the input after selection", async () => {
+    const wrapper = render(
+      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(autocomplete);
+    });
+
+    // assert that the autocomplete dropdown is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+
+    let options = wrapper.getAllByRole("option");
+
+    expect(options.length).toBe(3);
+
+    // select the target item
+    await act(async () => {
+      await userEvent.click(options[0]);
+    });
+
+    // assert that the input has target selection
+    expect(autocomplete).toHaveValue("Penguin");
+  });
 });
