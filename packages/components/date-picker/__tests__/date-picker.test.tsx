@@ -372,8 +372,17 @@ describe("DatePicker", () => {
   describe("Calendar popover", function () {
     it("should emit onChange when selecting a date in the calendar in controlled mode", function () {
       let onChange = jest.fn();
+      const consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
+      const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+
       let {getByRole, getAllByRole, queryByLabelText} = render(
-        <DatePicker label="Date" value={new CalendarDate(2019, 2, 3)} onChange={onChange} />,
+        <DatePicker
+          hideTimeZone
+          isRequired
+          label="Date"
+          value={new CalendarDate(2019, 2, 3)}
+          onChange={onChange}
+        />,
       );
 
       let combobox = getAllByRole("group")[0];
@@ -406,6 +415,11 @@ describe("DatePicker", () => {
       expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
       expect(getTextValue(combobox)).toBe("2/3/2019"); // controlled
+
+      expect(consoleWarnSpy).not.toHaveBeenCalled();
+      expect(consoleErrorSpy).not.toHaveBeenCalled();
+      consoleWarnSpy.mockRestore();
+      consoleErrorSpy.mockRestore();
     });
 
     it("should emit onChange when selecting a date in the calendar in uncontrolled mode", function () {

@@ -13,6 +13,7 @@ import {
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
+import {useForm} from "react-hook-form";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -474,6 +475,38 @@ const CustomWithHooksTemplate = (args: InputProps) => {
   );
 };
 
+const WithReactHookFormTemplate = (args: InputProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "wkw",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <Input isClearable label="With default value" {...register("withDefaultValue")} />
+      <Input {...args} label="Without default value" {...register("withoutDefaultValue")} />
+      <Input {...args} label="Required" {...register("requiredField", {required: true})} />
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -704,5 +737,13 @@ export const CustomWithHooks = {
     startContent: (
       <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
     ),
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
