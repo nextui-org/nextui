@@ -325,12 +325,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen]);
 
-  // unfocus the input when the popover closes & there's no selected item & no allows custom value
   useEffect(() => {
-    if (!isOpen && !state.selectedItem && inputRef.current && !allowsCustomValue) {
-      inputRef.current.blur();
+    if (state.isOpen) {
+      onFocus(true);
+    } else {
+      // TODO(FIXME): autocomplete within modal will block combobox closing
+      // inputRef.current?.blur();
     }
-  }, [isOpen, allowsCustomValue]);
+  }, [state.isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -363,6 +365,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const onClear = useCallback(() => {
     state.setInputValue("");
     state.setSelectedKey(null);
+    state.close();
   }, [state]);
 
   const onFocus = useCallback(
