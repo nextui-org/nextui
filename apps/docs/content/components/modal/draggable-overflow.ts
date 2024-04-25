@@ -4,7 +4,7 @@ export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const targetRef = React.useRef(null);
   const dragRef = React.useRef(null);
-  useDraggable({targetRef, dragRef, draggable: true, overflow: true});
+  const {moveProps} = useDraggable({targetRef, dragRef, draggable: true, overflow: true});
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function App() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader ref={dragRef} className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalHeader {...moveProps} ref={dragRef} className="flex flex-col gap-1">Modal Title</ModalHeader>
               <ModalBody>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
