@@ -46,8 +46,8 @@
     "create:hook": "plop hook",
     "version": "changeset version",
     "release": "changeset publish",
-    "version:dev": "changeset version --snapshot dev-v2",
-    "release:dev": "changeset publish --snapshot --no-git-tag --tag dev-v2",
+    "version:canary": "changeset version --snapshot canary",
+    "release:canary": "changeset publish --snapshot --no-git-tag --tag canary",
     "postinstall": "husky install && pnpm --filter @nextui-org/theme build"
   },
   "devDependencies": {
