@@ -1,4 +1,4 @@
-name: Sync Develop to Main
+name: Sync Canary to Main
 
 on:
   # triggered manually in Github
@@ -22,14 +22,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: "canary"
           destination_branch: "main"
-          pr_title: "Auto-sync Develop to Main"
+          pr_title: "Auto-sync Canary to Main"
           pr_body: |
-            ## Automated: Sync from Develop to Main
+            ## Automated: Sync from Canary to Main
 
-            This Pull Request is automatically generated to sync the changes from the Develop branch to the Main branch. Below are the included updates:
+            This Pull Request is automatically generated to sync the changes from the Canary branch to the Main branch. Below are the included updates:
 
-            ###  Triggered by a Direct Push to Develop:
-            - Please check the recent commits on the Develop branch directly as this sync may include multiple changes.
+            ###  Triggered by a Direct Push to Canary:
+            - Please check the recent commits on the Canary branch directly as this sync may include multiple changes.
 
             ### Triggered by a Pull Request Merge:
             - Merged Pull Request: [PR#${{ github.event.pull_request.number }}](${{ github.event.pull_request.html_url }}) - ${{ github.event.pull_request.title }}
