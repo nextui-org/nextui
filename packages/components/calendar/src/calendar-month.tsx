@@ -1,5 +1,3 @@
-import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
-
 import {CalendarDate, endOfMonth, getWeeksInMonth} from "@internationalized/date";
 import {CalendarPropsBase} from "@react-types/calendar";
 import {HTMLNextUIProps} from "@nextui-org/system";
@@ -7,7 +5,6 @@ import {useLocale} from "@react-aria/i18n";
 import {useCalendarGrid} from "@react-aria/calendar";
 import {m} from "framer-motion";
 import {dataAttr} from "@nextui-org/shared-utils";
-import {useEffect, useState} from "react";
 
 import {CalendarCell} from "./calendar-cell";
 import {slideVariants} from "./calendar-transitions";
@@ -25,29 +22,8 @@ export function CalendarMonth(props: CalendarMonthProps) {
   const {locale} = useLocale();
   const weeksInMonth = getWeeksInMonth(startDate, locale);
 
-  const {
-    state: stateProp,
-    slots,
-    weekdayStyle,
-    isHeaderExpanded,
-    disableAnimation,
-    classNames,
-  } = useCalendarContext();
-
-  // Self-controlled state
-  const [state, setState] = useState<CalendarState | RangeCalendarState>(() => stateProp);
-
-  /**
-   * This avoid focusing the date cell when navigating through the picker'
-   * months/years with the keyboard.
-   */
-  useEffect(() => {
-    if (isHeaderExpanded) {
-      return;
-    }
-
-    setState(stateProp);
-  }, [stateProp, isHeaderExpanded]);
+  const {state, slots, weekdayStyle, isHeaderExpanded, disableAnimation, classNames} =
+    useCalendarContext();
 
   const {gridProps, headerProps, weekDays} = useCalendarGrid(
     {

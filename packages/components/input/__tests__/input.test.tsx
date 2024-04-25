@@ -1,5 +1,6 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import {Input} from "../src";
 
@@ -115,5 +116,33 @@ describe("Input", () => {
     container.querySelector("input")?.focus();
 
     expect(ref.current?.value)?.toBe(value);
+  });
+
+  it("should clear the value and onClear is triggered", async () => {
+    const onClear = jest.fn();
+
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {getByRole} = render(
+      <Input
+        ref={ref}
+        isClearable
+        defaultValue="junior@nextui.org"
+        label="test input"
+        onClear={onClear}
+      />,
+    );
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(ref.current?.value)?.toBe("");
+
+    expect(onClear).toHaveBeenCalledTimes(1);
   });
 });

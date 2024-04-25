@@ -1,5 +1,15 @@
 # @nextui-org/table
 
+## 2.0.33
+
+### Patch Changes
+
+- [#2584](https://github.com/nextui-org/nextui/pull/2584) [`d532a9da7`](https://github.com/nextui-org/nextui/commit/d532a9da7a24d3552ef1bf0706c9fbf984887ddb) Thanks [@sapkra](https://github.com/sapkra)! - Add missing export of TableRowProps type
+
+- Updated dependencies []:
+  - @nextui-org/checkbox@2.0.29
+  - @nextui-org/spacer@2.0.27
+
 ## 2.0.32
 
 ### Patch Changes

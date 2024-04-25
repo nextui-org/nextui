@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-menu
 
+## 2.0.2
+
+### Patch Changes
+
+- [#2862](https://github.com/nextui-org/nextui/pull/2862) [`b8e6b2fe2`](https://github.com/nextui-org/nextui/commit/b8e6b2fe25bbbf52f656bbcac52fc00714f464bc) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add react-dom as peerDependency to user-aria-menu hook
+
 ## 2.0.1
 
 ### Patch Changes

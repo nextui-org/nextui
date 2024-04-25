@@ -1,5 +1,19 @@
 # @nextui-org/date-picker
 
+## 2.0.7
+
+### Patch Changes
+
+- [#2832](https://github.com/nextui-org/nextui/pull/2832) [`1cc5215ce`](https://github.com/nextui-org/nextui/commit/1cc5215ce6026da7e7736d74a5479b2f5b86c1ff) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed missing aria labels in date range picker (#2804)
+
+- [#2833](https://github.com/nextui-org/nextui/pull/2833) [`308b32c0f`](https://github.com/nextui-org/nextui/commit/308b32c0f1611ecc72d8cf3b91a4481cc0fc09a5) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed console errors for non-DOM props in DatePicker (#2823)
+
+- Updated dependencies [[`e9fef9bd9`](https://github.com/nextui-org/nextui/commit/e9fef9bd922ae1efdf3f796cfe88a579bf693c1d)]:
+  - @nextui-org/calendar@2.0.4
+  - @nextui-org/popover@2.1.21
+  - @nextui-org/button@2.0.31
+  - @nextui-org/date-input@2.0.3
+
 ## 2.0.6
 
 ### Patch Changes

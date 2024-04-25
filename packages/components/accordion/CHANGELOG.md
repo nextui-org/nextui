@@ -1,5 +1,13 @@
 # @nextui-org/accordion
 
+## 2.0.32
+
+### Patch Changes
+
+- Updated dependencies [[`10f2b8f42`](https://github.com/nextui-org/nextui/commit/10f2b8f42b1d208e4edea366c6bbc37ef8614ef6)]:
+  - @nextui-org/use-aria-accordion@2.0.4
+  - @nextui-org/divider@2.0.27
+
 ## 2.0.31
 
 ### Patch Changes
