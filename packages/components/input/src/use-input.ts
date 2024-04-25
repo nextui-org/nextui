@@ -1,12 +1,14 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
+import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -76,8 +78,10 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
   onValueChange?: (value: string) => void;
 }
 
+type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
+
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
@@ -92,7 +96,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     baseRef,
     wrapperRef,
     description,
-    errorMessage,
     className,
     classNames,
     autoFocus,
@@ -113,26 +116,26 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [onValueChange],
   );
 
-  const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value,
-    props.defaultValue,
-    handleValueChange,
-  );
-
   const [isFocusWithin, setFocusWithin] = useState(false);
 
   const Component = as || "div";
+
+  const domRef = useDOMRef<T>(ref);
+  const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
+  const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
+  const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
+
+  const [inputValue, setInputValue] = useControlledState<string | undefined>(
+    props.value,
+    props.defaultValue ?? "",
+    handleValueChange,
+  );
 
   const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
   const isFilled = !isEmpty(inputValue) || isFilledByDefault;
   const isFilledWithin = isFilled || isFocusWithin;
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
   const isMultiline = originalProps.isMultiline;
-
-  const domRef = useDOMRef<T>(ref);
-  const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
-  const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
-  const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -141,9 +144,28 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef.current?.focus();
   }, [setInputValue, onClear]);
 
-  const {labelProps, inputProps, descriptionProps, errorMessageProps} = useTextField(
+  // if we use `react-hook-form`, it will set the input value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!domRef.current) return;
+
+    setInputValue(domRef.current.value);
+  }, [domRef.current]);
+
+  const {
+    labelProps,
+    inputProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+    descriptionProps,
+    errorMessageProps,
+  } = useTextField(
     {
       ...originalProps,
+      validationBehavior: "native",
+      autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
         originalProps?.["aria-label"],
@@ -174,7 +196,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onPress: handleClear,
   });
 
-  const isInvalid = validationState === "invalid" || originalProps.isInvalid;
+  const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
@@ -184,6 +206,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors?.join(" ");
   const isClearable = !!onClear || originalProps.isClearable;
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
@@ -214,7 +240,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         labelPlacement,
         isClearable,
       }),
-    [...Object.values(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
   );
 
   const getBaseProps: PropGetter = useCallback(
@@ -445,7 +471,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     endContent,
     labelPlacement,
     isClearable,
-    isInvalid,
     hasHelper,
     hasStartContent,
     isLabelOutside,
@@ -454,6 +479,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     shouldLabelBeOutside,
     shouldLabelBeInside,
     hasPlaceholder,
+    isInvalid,
     errorMessage,
     getBaseProps,
     getLabelProps,

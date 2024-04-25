@@ -1,5 +1,51 @@
 # @nextui-org/button
 
+## 2.0.31
+
+### Patch Changes
+
+- Updated dependencies [[`765c04e2a`](https://github.com/nextui-org/nextui/commit/765c04e2a5b3e3a072d87a4ae1bcb8ae389d53a0)]:
+  - @nextui-org/ripple@2.0.28
+  - @nextui-org/spinner@2.0.28
+
+## 2.0.30
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/ripple@2.0.27
+  - @nextui-org/spinner@2.0.28
+
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/ripple@2.0.26
+  - @nextui-org/spinner@2.0.27
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.28
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+- Updated dependencies [[`2e49e0831`](https://github.com/nextui-org/nextui/commit/2e49e0831533350808e0fcbd48585f910981b39a), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae)]:
+  - @nextui-org/ripple@2.0.25
+  - @nextui-org/spinner@2.0.26
+  - @nextui-org/use-aria-button@2.0.7
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.0.27
 
 ### Patch Changes

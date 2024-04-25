@@ -4,8 +4,7 @@ import type {RadioVariantProps, RadioSlots, SlotsToClasses} from "@nextui-org/th
 import {Ref, ReactNode, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
@@ -218,10 +217,8 @@ export function useRadio(props: UseRadioProps) {
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ...props,
         ref: inputRef,
-        required: isRequired,
-        ...mergeProps(inputProps, focusProps),
+        ...mergeProps(props, inputProps, focusProps, {required: isRequired}),
         onChange: chain(inputProps.onChange, onChange),
       };
     },

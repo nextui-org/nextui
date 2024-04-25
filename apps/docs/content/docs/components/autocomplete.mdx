@@ -15,6 +15,19 @@ An autocomplete combines a text input with a listbox, allowing users to filter a
 
 <CarbonAd />
 
+## Installation
+
+<PackageManagers
+  commands={{
+    cli: "nextui add autocomplete",
+    npm: "npm install @nextui-org/autocomplete",
+    yarn: "yarn add @nextui-org/autocomplete",
+    pnpm: "pnpm add @nextui-org/autocomplete",
+    bun: "bun add @nextui-org/autocomplete"
+  }}
+/>
+
+
 ## Import
 
 NextUI exports 3 autocomplete-related components:
@@ -67,6 +80,13 @@ If you pass the `isRequired` property to the autocomplete, it will have a `dange
 the end of the label and the autocomplete will be required.
 
 <CodeDemo title="Required" highlightedLines="8" files={autocompleteContent.required} />
+
+### Read Only
+
+If you pass the `isReadOnly` property to the Autocomplete, the Listbox will open to display 
+all available options, but users won't be able to select any of the listed options.
+
+<CodeDemo title="Read Only" highlightedLines="8" files={autocompleteContent.readOnly} />
 
 ### Sizes
 
@@ -405,7 +425,8 @@ properties to customize the popover, listbox and input components.
 | selectedKey                 | `React.Key`                                                                                                                           | The currently selected key in the collection (controlled).                                                                                                    | -                        |
 | defaultSelectedKey          | `React.Key`                                                                                                                           | The initial selected key in the collection (uncontrolled).                                                                                                    | -                        |
 | disabledKeys                | `all` \| `React.Key[]`                                                                                                                | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.                                                       | -                        |
-| errorMessage                | `ReactNode`                                                                                                                           | An error message to display below the field.                                                                                                                  | -                        |
+| errorMessage                | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                 | An error message to display below the field.                                                                                                                  | -                        |
+| validate                    | `(value: { inputValue: string, selectedKey: React.Key }) => ValidationError ｜ true ｜ null ｜ undefined`                              | Validate input values when committing (e.g. on blur), and return error messages for invalid values.                                                           | -                        |
 | startContent                | `ReactNode`                                                                                                                           | Element to be rendered in the left side of the Autocomplete.                                                                                                  | -                        |
 | endContent                  | `ReactNode`                                                                                                                           | Element to be rendered in the right side of the Autocomplete.                                                                                                 | -                        |
 | autoFocus                   | `boolean`                                                                                                                             | Whether the Autocomplete should be focused on render.                                                                                                         | `false`                  |

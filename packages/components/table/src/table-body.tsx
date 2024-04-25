@@ -121,7 +121,9 @@ const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
         >
           {bodyProps.loadingContent}
         </td>
-        {!emptyContent && <td className={slots?.emptyWrapper({class: classNames?.emptyWrapper})} />}
+        {!emptyContent && collection.size === 0 ? (
+          <td className={slots?.emptyWrapper({class: classNames?.emptyWrapper})} />
+        ) : null}
       </tr>
     );
   }

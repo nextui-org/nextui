@@ -237,7 +237,7 @@ const WithDropdownEllipsisTemplate = (args: BreadcrumbsProps & {page: number}) =
       <div className="flex items-center">
         <Dropdown>
           <DropdownTrigger>
-            <Button isIconOnly className="min-w-unit-6 w-unit-6 h-unit-6" size="sm" variant="flat">
+            <Button isIconOnly className="min-w-6 w-6 h-6" size="sm" variant="flat">
               {ellipsisIcon}
             </Button>
           </DropdownTrigger>

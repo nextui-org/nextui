@@ -24,11 +24,12 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     selectorIcon = <ChevronDownIcon />,
     description,
     errorMessage,
+    isInvalid,
     startContent,
     endContent,
     placeholder,
     renderValue,
-    shouldLabelBeOutside,
+    isOutsideLeft,
     disableAnimation,
     getBaseProps,
     getLabelProps,
@@ -56,7 +57,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
 
     return (
       <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
+        {isInvalid && errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
@@ -65,6 +66,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     );
   }, [
     hasHelper,
+    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,
@@ -121,10 +123,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
-      {shouldLabelBeOutside ? labelContent : null}
+      {isOutsideLeft ? labelContent : null}
       <div {...getMainWrapperProps()}>
         <Component {...getTriggerProps()}>
-          {!shouldLabelBeOutside ? labelContent : null}
+          {!isOutsideLeft ? labelContent : null}
           <div {...getInnerWrapperProps()}>
             {startContent}
             <span {...getValueProps()}>
