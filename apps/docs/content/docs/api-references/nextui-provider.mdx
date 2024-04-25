@@ -19,9 +19,47 @@ Here's the API reference for the `NextUIProvider`.
 
 ### locale
 
-The locale to apply to the children. The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the locale. By default, It is `en-US`. 
+The locale to apply to the children.
 
 **type**: `string | undefined`
+
+Here's the supported locales. By default, It is `en-US`.
+
+```tsx
+const localeValues = [
+  'fr-FR', 'fr-CA', 'de-DE', 'en-US', 'en-GB', 'ja-JP',
+  'da-DK', 'nl-NL', 'fi-FI', 'it-IT', 'nb-NO', 'es-ES', 
+  'sv-SE', 'pt-BR', 'zh-CN', 'zh-TW', 'ko-KR', 'bg-BG', 
+  'hr-HR', 'cs-CZ', 'et-EE', 'hu-HU', 'lv-LV', 'lt-LT', 
+  'pl-PL', 'ro-RO', 'ru-RU', 'sr-SP', 'sk-SK', 'sl-SI', 
+  'tr-TR', 'uk-UA', 'ar-AE', 'ar-DZ', 'AR-EG', 'ar-SA', 
+  'el-GR', 'he-IL', 'fa-AF', 'am-ET', 'hi-IN', 'th-TH'
+];
+```
+
+Here's an example to set a Spanish locale.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider locale="es-ES" className={className}>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
 
 ### defaultDates
 
