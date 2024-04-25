@@ -330,7 +330,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onFocus(true);
     } else {
       // TODO(FIXME): autocomplete within modal will block combobox closing
-      // inputRef.current?.blur();
+      inputRef.current?.blur();
     }
   }, [isOpen]);
 
