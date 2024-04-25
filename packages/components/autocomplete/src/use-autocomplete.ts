@@ -432,7 +432,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ref: listBoxRef,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
-        shouldUseVirtualFocus: false,
       }),
     } as ListboxProps);
 
