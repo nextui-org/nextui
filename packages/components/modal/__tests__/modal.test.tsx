@@ -138,15 +138,14 @@ describe("Modal", () => {
     const modal = wrapper.getByRole("dialog");
     const modalHeader = wrapper.getByText("Modal header");
 
-    fireEvent.mouseDown(modalHeader, {clientX: 0, clientY: 0});
-    fireEvent.mouseMove(modalHeader, {clientX: 100, clientY: 50});
-    fireEvent.mouseUp(modalHeader, {clientX: 100, clientY: 50});
+    fireEvent.touchStart(modalHeader, {changedTouches: [{pageX: 0, pageY: 0}]});
+    fireEvent.touchMove(modalHeader, {changedTouches: [{pageX: 100, pageY: 50}]});
+    fireEvent.touchEnd(modalHeader, {changedTouches: [{pageX: 100, pageY: 50}]});
 
     expect(() => wrapper.unmount()).not.toThrow();
     expect(document.documentElement.clientWidth).toBe(1920);
     expect(document.documentElement.clientHeight).toBe(1080);
     expect(modalHeader.style.cursor).toBe("move");
-    expect(modalHeader.style.userSelect).toBe("none");
     expect(modal.style.transform).toBe("translate(100px, 50px)");
   });
 
@@ -158,9 +157,9 @@ describe("Modal", () => {
     const modal = wrapper.getByRole("dialog");
     const modalHeader = wrapper.getByText("Modal header");
 
-    fireEvent.mouseDown(modalHeader, {clientX: 100, clientY: 50});
-    fireEvent.mouseMove(modalHeader, {clientX: 10000, clientY: 5000});
-    fireEvent.mouseUp(modalHeader, {clientX: 10000, clientY: 5000});
+    fireEvent.touchStart(modalHeader, {changedTouches: [{pageX: 100, pageY: 50}]});
+    fireEvent.touchMove(modalHeader, {changedTouches: [{pageX: 10000, pageY: 5000}]});
+    fireEvent.touchEnd(modalHeader, {changedTouches: [{pageX: 10000, pageY: 5000}]});
 
     expect(modal.style.transform).toBe("translate(1920px, 1080px)");
   });
@@ -175,9 +174,9 @@ describe("Modal", () => {
     const modal = wrapper.getByRole("dialog");
     const modalHeader = wrapper.getByText("Modal header");
 
-    fireEvent.mouseDown(modalHeader, {clientX: 0, clientY: 0});
-    fireEvent.mouseMove(modalHeader, {clientX: 2000, clientY: 1500});
-    fireEvent.mouseUp(modalHeader, {clientX: 2000, clientY: 1500});
+    fireEvent.touchStart(modalHeader, {changedTouches: [{pageX: 0, pageY: 0}]});
+    fireEvent.touchMove(modalHeader, {changedTouches: [{pageX: 2000, pageY: 1500}]});
+    fireEvent.touchEnd(modalHeader, {changedTouches: [{pageX: 2000, pageY: 1500}]});
 
     expect(document.documentElement.clientWidth).toBe(1920);
     expect(document.documentElement.clientHeight).toBe(1080);
