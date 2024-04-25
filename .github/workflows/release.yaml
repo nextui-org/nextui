@@ -28,7 +28,7 @@ jobs:
       - name: Tests
         run: pnpm test
 
-      - name: Create Release Pull Request
+      - name: Create Release Pull Request or Publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
