@@ -86,7 +86,6 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
   useEffect(() => {
     if (draggable && dragRef?.current) {
       dragRef.current.style.cursor = "move";
-      dragRef.current.style.userSelect = "none";
     }
   }, [draggable, onMoveStart, onMove]);
 
