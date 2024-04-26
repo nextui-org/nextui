@@ -537,4 +537,40 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
   });
+
+  it("should respect closeOnSelect setting of DropdownItem", async () => {
+    const onOpenChange = jest.fn();
+    const wrapper = render(
+      <Dropdown onOpenChange={onOpenChange}>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions">
+          <DropdownItem key="new" closeOnSelect={false}>
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.click();
+    });
+    expect(onOpenChange).toBeCalledTimes(1);
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[0]);
+      expect(onOpenChange).toBeCalledTimes(1);
+    });
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+      expect(onOpenChange).toBeCalledTimes(2);
+    });
+  });
 });
