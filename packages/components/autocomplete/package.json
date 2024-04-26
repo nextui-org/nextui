@@ -70,7 +70,7 @@
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/stories-utils": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
-    "@react-stately/data": "^3.11.0",
+    "@react-stately/data": "^3.11.2",
     "framer-motion": "^11.0.28",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
