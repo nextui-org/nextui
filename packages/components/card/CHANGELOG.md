@@ -1,5 +1,12 @@
 # @nextui-org/card
 
+## 2.0.28
+
+### Patch Changes
+
+- Updated dependencies [[`765c04e2a`](https://github.com/nextui-org/nextui/commit/765c04e2a5b3e3a072d87a4ae1bcb8ae389d53a0)]:
+  - @nextui-org/ripple@2.0.28
+
 ## 2.0.27
 
 ### Patch Changes

@@ -1,6 +1,6 @@
-const App = `import {DatePicker} from "@nextui-org/react";
-import {now, useLocale, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
+const App = `import {DatePicker, RadioGroup, Radio, ButtonGroup, Button, cn} from "@nextui-org/react";
+import {startOfWeek, startOfMonth, getLocalTimeZone, today} from "@internationalized/date";
+import {useLocale, useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
   let defaultDate = today(getLocalTimeZone());
@@ -91,9 +91,9 @@ export default function App() {
   );
 }`;
 
-const AppTs = `import {DatePicker} from "@nextui-org/react";
-import {DateValue, now, useLocale, startOfWeek, startOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
+const AppTs = `import {DatePicker, RadioGroup, Radio, ButtonGroup, Button, cn} from "@nextui-org/react";
+import {DateValue, startOfWeek, startOfMonth, getLocalTimeZone, today} from "@internationalized/date";
+import {useLocale, useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
   let defaultDate = today(getLocalTimeZone());

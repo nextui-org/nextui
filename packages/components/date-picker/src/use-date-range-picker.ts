@@ -57,7 +57,6 @@ export type UseDateRangePickerProps<T extends DateValue> = Props<T> & AriaDateRa
 
 export function useDateRangePicker<T extends DateValue>({
   as,
-  label,
   isInvalid,
   description,
   startContent,
@@ -96,8 +95,6 @@ export function useDateRangePicker<T extends DateValue>({
 
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
 
-  originalProps.minValue;
-
   let {
     groupProps,
     labelProps,
@@ -131,12 +128,15 @@ export function useDateRangePicker<T extends DateValue>({
   const showTimeField = !!timeGranularity;
 
   const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+    if (
+      (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
+      !originalProps.label
+    ) {
       return "outside";
     }
 
     return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, label]);
+  }, [originalProps.labelPlacement, originalProps.label]);
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 
@@ -371,7 +371,7 @@ export function useDateRangePicker<T extends DateValue>({
   const getDateInputGroupProps = () => {
     return {
       as,
-      label,
+      label: originalProps.label,
       description,
       endContent,
       errorMessage,
@@ -400,7 +400,7 @@ export function useDateRangePicker<T extends DateValue>({
 
   return {
     state,
-    label,
+    label: originalProps.label,
     slots,
     classNames,
     endContent,
