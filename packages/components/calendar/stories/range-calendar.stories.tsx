@@ -382,7 +382,6 @@ export const InternationalCalendars = {
   render: InternationalCalendarsTemplate,
   args: {
     ...defaultProps,
-    showMonthAndYearPickers: true,
   },
 };
 
