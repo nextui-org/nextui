@@ -144,7 +144,7 @@ export function useMenuItem<T>(
   let onAction = isTrigger ? () => {} : props.onAction || data.onAction;
   let router = useRouter();
   let performAction = (e: PressEvent) => {
-    if (onAction) {
+    if (onAction && closeOnSelect) {
       // @ts-ignore
       onAction(key);
     }
