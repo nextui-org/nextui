@@ -2,4 +2,4 @@
 "@nextui-org/calendar": patch
 ---
 
-Fixed hiding of Unvavailable dates in RangeCalendar (#2890)
+Fixed hiding of Unavailable dates in RangeCalendar (#2890)
