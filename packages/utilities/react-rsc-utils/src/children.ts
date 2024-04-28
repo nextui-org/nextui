@@ -1,4 +1,4 @@
-import {Children, isValidElement, ReactNode} from "react";
+import {Children, ComponentType, isValidElement, ReactElement, ReactNode} from "react";
 
 /**
  * Gets only the valid children of a component,
@@ -6,21 +6,23 @@ import {Children, isValidElement, ReactNode} from "react";
  *
  * @param children the children
  */
-export function getValidChildren(children: React.ReactNode) {
-  return Children.toArray(children).filter((child) =>
-    isValidElement(child),
-  ) as React.ReactElement[];
+export function getValidChildren(children: ReactNode) {
+  return Children.toArray(children).filter((child) => isValidElement(child)) as ReactElement[];
 }
 
 export const pickChildren = <T = ReactNode>(
   children: T | undefined,
-  targetChild: React.ElementType,
+  targetChild: {displayName?: string},
 ): [T | undefined, T[] | undefined] => {
   let target: T[] = [];
 
   const withoutTargetChildren = Children.map(children, (item) => {
     if (!isValidElement(item)) return item;
-    if (item.type === targetChild) {
+    if (
+      targetChild.displayName &&
+      typeof item.type === "object" &&
+      (item.type as ComponentType).displayName === targetChild.displayName
+    ) {
       target.push(item as T);
 
       return null;
