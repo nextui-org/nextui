@@ -1,0 +1,69 @@
+name: Pre-release
+
+on:
+  push:
+    branches:
+      - "beta/release-*"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  prerelease:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Check if pre.json exists
+        id: check_if_pre_json_exists
+        uses: andstor/file-existence-action@v3.0.0
+        with:
+          files: ".changeset/pre.json"
+
+      - name: Enter pre-release mode
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'false' && !contains(github.event.head_commit.message, 'ci(changesets): exit pre-release mode') }}"
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          npx changeset pre enter beta
+          git add -A
+          git commit -m 'chore(pre-release): enter pre-release mode'
+          git push
+
+      - name: Get pre-release changesets
+        id: pre-release-changesets
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: ".changeset/pre.json"
+          prop_path: "changesets"
+
+      - name: Get changesets array length
+        id: number-of-changesets
+        run: |
+          arrayLength=$(echo '${{steps.pre-release-changesets.outputs.prop}}' | jq '. | length')
+          echo "length=$arrayLength" >> "$GITHUB_OUTPUT"
+
+      - name: Create pre-release PR
+        if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && !startsWith(github.event.head_commit.message, 'ci(changesets): version packages') && steps.number-of-changesets.outputs.length > 0}}"
+        uses: changesets/action@v1
+        with:
+          version: pnpm version:beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to NPM
+        id: publish-beta-to-npm
+        if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && startsWith(github.event.head_commit.message, 'ci(changesets): version packages')}}"
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release:beta
+          title: "ci(changesets): :package: version packages (beta)"
+          commit: "ci(changesets): version packages (beta)"
+          setupGitUser: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
