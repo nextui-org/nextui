@@ -146,7 +146,7 @@ importers:
         version: 4.0.2(eslint@7.32.0)(webpack@5.91.0)
       eslint-plugin-import:
         specifier: ^2.26.0
-        version: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+        version: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       eslint-plugin-jest:
         specifier: ^24.3.6
         version: 24.7.0(@typescript-eslint/eslint-plugin@5.62.0)(eslint@7.32.0)(typescript@4.9.5)
@@ -652,6 +652,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -749,6 +752,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -804,6 +810,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -887,6 +896,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -948,6 +960,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       framer-motion:
         specifier: '>=4.0.0'
         version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
@@ -1030,6 +1045,9 @@ importers:
       '@types/lodash.debounce':
         specifier: ^4.0.7
         version: 4.0.9
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -1091,6 +1109,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       framer-motion:
         specifier: '>=4.0.0'
         version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
@@ -1167,6 +1188,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/chip':
         specifier: workspace:*
@@ -1222,6 +1246,9 @@ importers:
       '@react-types/checkbox':
         specifier: ^3.7.1
         version: 3.7.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1296,6 +1323,9 @@ importers:
       '@react-types/shared':
         specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1369,6 +1399,9 @@ importers:
       '@react-types/shared':
         specifier: 3.21.0
         version: 3.21.0(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/radio':
         specifier: workspace:*
@@ -1449,6 +1482,9 @@ importers:
       '@react-types/menu':
         specifier: ^3.9.7
         version: 3.9.7(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1495,6 +1531,9 @@ importers:
       '@nextui-org/use-image':
         specifier: workspace:*
         version: link:../../hooks/use-image
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -1547,6 +1586,9 @@ importers:
       '@react-types/textfield':
         specifier: ^3.9.1
         version: 3.9.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       react-textarea-autosize:
         specifier: ^8.5.3
         version: 8.5.3(@types/react@18.2.8)(react@18.2.0)
@@ -1624,6 +1666,9 @@ importers:
       '@react-types/link':
         specifier: ^3.5.3
         version: 3.5.3(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -1679,6 +1724,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1755,6 +1803,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1822,6 +1873,9 @@ importers:
       '@react-types/overlays':
         specifier: ^3.8.5
         version: 3.8.5(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -1892,6 +1946,9 @@ importers:
       '@react-stately/utils':
         specifier: ^3.9.1
         version: 3.9.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       framer-motion:
         specifier: '>=4.0.0'
         version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
@@ -1962,6 +2019,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -2029,6 +2089,9 @@ importers:
       '@react-types/overlays':
         specifier: ^3.8.5
         version: 3.8.5(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.9(@types/react@18.2.8)(react@18.2.0)
@@ -2081,6 +2144,9 @@ importers:
       '@react-types/progress':
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/card':
         specifier: workspace:*
@@ -2136,6 +2202,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2164,6 +2233,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2195,6 +2267,9 @@ importers:
       '@nextui-org/use-data-scroll-overflow':
         specifier: workspace:*
         version: link:../../hooks/use-data-scroll-overflow
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2268,6 +2343,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -2375,6 +2453,9 @@ importers:
       '@react-stately/slider':
         specifier: ^3.5.2
         version: 3.5.2(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2424,6 +2505,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       framer-motion:
         specifier: '>=4.0.0'
         version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
@@ -2523,6 +2607,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2587,6 +2674,9 @@ importers:
       '@react-types/table':
         specifier: ^3.9.3
         version: 3.9.3(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2672,6 +2762,9 @@ importers:
       '@react-types/tabs':
         specifier: ^3.3.5
         version: 3.3.5(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -2751,6 +2844,9 @@ importers:
       '@react-types/tooltip':
         specifier: ^3.4.7
         version: 3.4.7(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2791,6 +2887,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@nextui-org/link':
         specifier: workspace:*
@@ -2982,6 +3081,9 @@ importers:
       '@react-stately/utils':
         specifier: ^3.9.1
         version: 3.9.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3633,6 +3735,9 @@ importers:
       '@react-types/shared':
         specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3655,6 +3760,9 @@ importers:
       '@nextui-org/use-measure':
         specifier: workspace:*
         version: link:../../hooks/use-measure
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3683,6 +3791,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../shared-utils
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -16023,7 +16134,7 @@ packages:
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 7.32.0
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       object.assign: 4.1.5
       object.entries: 1.1.8
     dev: true
@@ -16056,7 +16167,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-airbnb-base: 14.2.1(eslint-plugin-import@2.29.1)(eslint@7.32.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@7.32.0)
       eslint-plugin-react: 7.34.1(eslint@7.32.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@7.32.0)
@@ -16079,7 +16190,7 @@ packages:
       eslint: 7.32.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@7.32.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@7.32.0)
       eslint-plugin-react: 7.34.1(eslint@7.32.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@7.32.0)
@@ -16128,7 +16239,7 @@ packages:
       confusing-browser-globals: 1.0.11
       eslint: 7.32.0
       eslint-plugin-flowtype: 5.10.0(eslint@7.32.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       eslint-plugin-jest: 24.7.0(@typescript-eslint/eslint-plugin@5.62.0)(eslint@7.32.0)(typescript@4.9.5)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@7.32.0)
       eslint-plugin-react: 7.34.1(eslint@7.32.0)
@@ -16169,7 +16280,7 @@ packages:
     dependencies:
       debug: 4.3.4
       eslint: 7.32.0
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.8
@@ -16189,7 +16300,7 @@ packages:
       enhanced-resolve: 5.16.0
       eslint: 7.32.0
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.3
       is-core-module: 2.13.1
@@ -16300,7 +16411,7 @@ packages:
       string-natural-compare: 3.0.1
     dev: true
 
-  /eslint-plugin-import@2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0):
+  /eslint-plugin-import@2.29.1(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@7.32.0):
     resolution: {integrity: sha512-BbPC0cuExzhiMo4Ff1BTVwHpjjv28C5R+btTOGaCRC7UEz801up0JadwkeSk5Ued6TG34uaczuVuH6qyy5YUxw==}
     engines: {node: '>=4'}
     peerDependencies:

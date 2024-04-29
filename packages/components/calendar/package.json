@@ -60,7 +60,8 @@
     "@react-aria/interactions": "^3.19.1",
     "@react-types/shared": "3.21.0",
     "scroll-into-view-if-needed": "3.0.10",
-    "@types/lodash.debounce": "^4.0.7"
+    "@types/lodash.debounce": "^4.0.7",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",

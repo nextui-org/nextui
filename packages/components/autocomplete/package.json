@@ -61,7 +61,8 @@
     "@react-aria/visually-hidden": "^3.8.10",
     "@react-stately/combobox": "^3.8.2",
     "@react-types/combobox": "^3.10.1",
-    "@react-types/shared": "^3.22.1"
+    "@react-types/shared": "^3.22.1",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

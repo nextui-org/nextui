@@ -60,7 +60,8 @@
     "@react-stately/tree": "^3.7.6",
     "@react-aria/button": "^3.9.3",
     "@react-types/accordion": "3.0.0-alpha.19",
-    "@react-types/shared": "^3.22.1"
+    "@react-types/shared": "^3.22.1",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

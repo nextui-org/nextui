@@ -53,7 +53,8 @@
     "@react-stately/menu": "^3.6.1",
     "@react-stately/tree": "^3.7.6",
     "@react-types/menu": "^3.9.7",
-    "@react-types/shared": "^3.22.1"
+    "@react-types/shared": "^3.22.1",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

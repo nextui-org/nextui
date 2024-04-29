@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-rsc-utils": "workspace:*"
+    "@nextui-org/react-rsc-utils": "workspace:*",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

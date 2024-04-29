@@ -41,7 +41,8 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/use-measure": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*"
+    "@nextui-org/shared-utils": "workspace:*",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "react": "^18.0.0",

@@ -34,16 +34,16 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",
+    "@nextui-org/system": ">=2.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "framer-motion": ">=4.0.0",
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-aria-toggle-button": "workspace:*",
     "@nextui-org/use-scroll-position": "workspace:*",
     "@react-aria/focus": "^3.16.2",
@@ -52,21 +52,22 @@
     "@react-aria/utils": "^3.23.2",
     "@react-stately/toggle": "^3.7.2",
     "@react-stately/utils": "^3.9.1",
+    "client-only": "^0.0.1",
     "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/dropdown": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "react-lorem-component": "0.13.0",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-lorem-component": "0.13.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

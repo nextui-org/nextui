@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
+    "@nextui-org/system": ">=2.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@nextui-org/checkbox": "workspace:*",
@@ -53,15 +53,16 @@
     "@react-stately/table": "^3.11.6",
     "@react-stately/virtualizer": "^3.6.8",
     "@react-types/grid": "^3.2.4",
-    "@react-types/table": "^3.9.3"
+    "@react-types/table": "^3.9.3",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@nextui-org/user": "workspace:*",

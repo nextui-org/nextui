@@ -54,7 +54,8 @@
     "@react-aria/overlays": "^3.21.1",
     "@react-aria/utils": "^3.23.2",
     "@react-stately/overlays": "^3.6.5",
-    "@react-types/overlays": "^3.8.5"
+    "@react-types/overlays": "^3.8.5",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

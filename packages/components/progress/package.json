@@ -34,25 +34,26 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
+    "@nextui-org/system": ">=2.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
     "@react-aria/i18n": "^3.10.2",
     "@react-aria/progress": "^3.4.11",
     "@react-aria/utils": "^3.23.2",
-    "@react-types/progress": "^3.5.2"
+    "@react-types/progress": "^3.5.2",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/card": "workspace:*",
     "@nextui-org/chip": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

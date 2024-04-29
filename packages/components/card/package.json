@@ -49,7 +49,8 @@
     "@react-aria/utils": "^3.23.2",
     "@react-aria/interactions": "^3.21.1",
     "@react-aria/button": "^3.9.3",
-    "@react-types/shared": "^3.22.1"
+    "@react-types/shared": "^3.22.1",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

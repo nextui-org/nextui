@@ -34,17 +34,17 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",
+    "@nextui-org/system": ">=2.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "framer-motion": ">=4.0.0",
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
     "@nextui-org/use-update-effect": "workspace:*",
     "@react-aria/focus": "^3.16.2",
@@ -54,21 +54,22 @@
     "@react-stately/tabs": "^3.6.4",
     "@react-types/shared": "^3.22.1",
     "@react-types/tabs": "^3.3.5",
+    "client-only": "^0.0.1",
     "scroll-into-view-if-needed": "3.0.10"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "framer-motion": "^11.0.22",
-    "react-lorem-component": "0.13.0",
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/card": "workspace:*",
     "@nextui-org/input": "workspace:*",
-    "@nextui-org/test-utils": "workspace:*",
-    "@nextui-org/button": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
+    "framer-motion": "^11.0.22",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-lorem-component": "0.13.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

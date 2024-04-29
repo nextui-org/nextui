@@ -55,7 +55,8 @@
     "@react-stately/datepicker": "^3.9.2",
     "@react-types/datepicker": "^3.7.2",
     "@react-types/shared": "3.21.0",
-    "@react-aria/utils": "^3.21.1"
+    "@react-aria/utils": "^3.21.1",
+    "client-only": "^0.0.1"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
