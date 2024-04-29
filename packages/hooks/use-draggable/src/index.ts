@@ -83,10 +83,29 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
     onMove,
   });
 
+  const preventDefault = (e: Event) => {
+    e.preventDefault();
+  };
+
+  const onBodyTouchMove = () => {
+    document.body.addEventListener("touchmove", preventDefault, {passive: false});
+  };
+
+  const offBodyTouchMove = () => {
+    document.body.removeEventListener("touchmove", preventDefault);
+  };
+
   useEffect(() => {
     if (draggable && dragRef?.current) {
       dragRef.current.style.cursor = "move";
+      onBodyTouchMove();
+    } else {
+      offBodyTouchMove();
     }
+
+    return () => {
+      offBodyTouchMove();
+    };
   }, [draggable, onMoveStart, onMove]);
 
   return {
