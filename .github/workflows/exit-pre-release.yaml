@@ -1,0 +1,35 @@
+name: Exit pre-release mode
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Exit pre-release mode on beta release branch"
+        type: string
+        default: "beta/release-"
+        required: true
+
+jobs:
+  exit_prerelease:
+    name: Changesets Exit Prerelease
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0
+
+      - name: Remove pre.json
+        run: npx rimraf .changeset/pre.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add -A
+          git commit -m "ci(changesets): exit pre-release mode"
+          git push
