@@ -483,11 +483,9 @@ describe("DatePicker", () => {
       triggerPress(button);
 
       const dialog = getByRole("dialog");
-
-      expect(dialog).toBeVisible();
-
       const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
 
+      expect(dialog).toBeVisible();
       expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
 
       triggerPress(header);
@@ -537,6 +535,45 @@ describe("DatePicker", () => {
 
       expect(dialog).not.toBeInTheDocument();
       expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it("CalendarBottomContent should render correctly", async () => {
+      const {getByRole, getByTestId} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          CalendarBottomContent={<div data-testid="calendar-bottom-content" />}
+          label="Date"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      let dialog = getByRole("dialog");
+      let calendarBottomContent = getByTestId("calendar-bottom-content");
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      expect(dialog).toBeVisible();
+      expect(calendarBottomContent).toBeVisible();
+
+      triggerPress(header);
+
+      expect(dialog).toBeVisible();
+      expect(calendarBottomContent).not.toBeInTheDocument();
+
+      triggerPress(button); // close date picker
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(calendarBottomContent).not.toBeInTheDocument();
+
+      triggerPress(button);
+
+      dialog = getByRole("dialog");
+      calendarBottomContent = getByTestId("calendar-bottom-content");
+
+      expect(dialog).toBeVisible();
+      expect(calendarBottomContent).toBeVisible();
     });
   });
 });
