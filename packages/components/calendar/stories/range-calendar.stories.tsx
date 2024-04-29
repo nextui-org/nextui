@@ -16,7 +16,7 @@ import {
 import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {RangeCalendar, RangeCalendarProps} from "../src";
 
