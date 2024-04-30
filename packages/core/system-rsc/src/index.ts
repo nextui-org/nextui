@@ -15,7 +15,6 @@ export type {
 } from "./types";
 
 export {
-  cn,
   forwardRef,
   toIterator,
   mapPropsVariants,

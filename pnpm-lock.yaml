@@ -58,7 +58,7 @@ importers:
         specifier: ^3.4.4
         version: 3.5.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.0
+        specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
       '@storybook/react':
         specifier: ^7.4.6
@@ -337,46 +337,46 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(@types/react-dom@18.2.4)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.3
+        specifier: ^3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: ^3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.1
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.1
+        specifier: ^3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/ssr':
-        specifier: ^3.8.0
+        specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/virtualizer':
-        specifier: ^3.9.4
+        specifier: ^3.9.10
         version: 3.9.10(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.6
+        specifier: ^3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/data':
-        specifier: ^3.10.3
+        specifier: ^3.11.2
         version: 3.11.2(react@18.2.0)
       '@react-stately/layout':
-        specifier: ^3.13.3
+        specifier: ^3.13.7
         version: 3.13.7(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.3
+        specifier: ^3.7.6
         version: 3.7.6(react@18.2.0)
       '@rehooks/local-storage':
         specifier: ^2.4.5
         version: 2.4.5(react@18.2.0)
       '@vercel/analytics':
-        specifier: ^1.1.1
+        specifier: ^1.2.2
         version: 1.2.2(next@13.5.1)(react@18.2.0)
       canvas-confetti:
-        specifier: ^1.9.0
+        specifier: ^1.9.2
         version: 1.9.2
       cmdk:
         specifier: ^0.2.0
@@ -391,8 +391,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -524,7 +524,7 @@ importers:
         specifier: ^13.4.12
         version: 13.5.6
       '@react-types/shared':
-        specifier: ^3.22.0
+        specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
@@ -775,7 +775,7 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-infinite-scroll
       '@react-stately/data':
-        specifier: ^3.11.0
+        specifier: ^3.11.2
         version: 3.11.2(react@18.2.0)
       clean-package:
         specifier: 2.2.0
@@ -1010,38 +1010,38 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/calendar':
-        specifier: 3.5.1
-        version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.5.6
+        version: 3.5.6(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.3
+        specifier: ^3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: ^3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.1
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.6
+        specifier: ^3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/calendar':
-        specifier: 3.4.1
-        version: 3.4.1(react@18.2.0)
+        specifier: 3.4.4
+        version: 3.4.4(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.8.0
+        specifier: ^3.9.1
         version: 3.9.1(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.0
+        specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/calendar':
-        specifier: 3.4.1
-        version: 3.4.1(react@18.2.0)
+        specifier: 3.4.4
+        version: 3.4.4(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
       '@types/lodash.debounce':
         specifier: ^4.0.7
         version: 4.0.9
@@ -1309,10 +1309,10 @@ importers:
         specifier: ^3.9.3
         version: 3.9.3(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: ^3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/datepicker':
         specifier: ^3.9.2
@@ -1321,8 +1321,8 @@ importers:
         specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
       client-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -1379,26 +1379,26 @@ importers:
         specifier: ^3.9.3
         version: 3.9.3(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: ^3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/datepicker':
         specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-stately/overlays':
-        specifier: ^3.6.3
+        specifier: ^3.6.5
         version: 3.6.5(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.8.0
+        specifier: ^3.9.1
         version: 3.9.1(react@18.2.0)
       '@react-types/datepicker':
         specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
       client-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -3122,6 +3122,9 @@ importers:
 
   packages/core/theme:
     dependencies:
+      clsx:
+        specifier: ^1.2.1
+        version: 1.2.1
       color:
         specifier: ^4.2.3
         version: 4.2.3
@@ -3149,6 +3152,9 @@ importers:
       lodash.omit:
         specifier: ^4.5.0
         version: 4.5.0
+      tailwind-merge:
+        specifier: ^1.14.0
+        version: 1.14.0
       tailwind-variants:
         specifier: ^0.1.20
         version: 0.1.20(tailwindcss@3.4.3)
@@ -3515,17 +3521,17 @@ importers:
   packages/hooks/use-intersection-observer:
     dependencies:
       '@react-aria/interactions':
-        specifier: ^3.19.1
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/ssr':
-        specifier: ^3.8.0
+        specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: ^3.22.1
+        version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -9727,8 +9733,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-aria/calendar@3.5.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-3gGiI2arrGQtlPD9633l00TR4y5dj9IMFapEiCDuwVwNSCsnH8aiz/emg+3hGFq86QoyvkFBvnKmezJIVKfPkA==}
+  /@react-aria/calendar@3.5.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PA0Ur5WcODMn7t2gCUvq61YktkB+WlSZjzDr5kcY3sdl53ZjiyqCa2hYgrb6R0J859LVJXAp+5Qaproz8g1oLA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -9738,9 +9744,9 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-stately/calendar': 3.4.1(react@18.2.0)
+      '@react-stately/calendar': 3.4.4(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
-      '@react-types/calendar': 3.4.1(react@18.2.0)
+      '@react-types/calendar': 3.4.4(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -10277,15 +10283,14 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-stately/calendar@3.4.1(react@18.2.0):
-    resolution: {integrity: sha512-XKCdrXNA7/ukZ842EeDZfLqYUQDv/x5RoAVkzTbp++3U/MLM1XZXsqj+5xVlQfJiWpQzM9L6ySjxzzgepJDeuw==}
+  /@react-stately/calendar@3.4.4(react@18.2.0):
+    resolution: {integrity: sha512-f9ZOd096gGGD+3LmU1gkmfqytGyQtrgi+Qjn+70GbM2Jy65pwOR4I9YrobbmeAFov5Tff13mQEa0yqWvbcDLZQ==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
       '@internationalized/date': 3.5.2
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/calendar': 3.4.1(react@18.2.0)
-      '@react-types/datepicker': 3.7.2(react@18.2.0)
+      '@react-types/calendar': 3.4.4(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -10598,16 +10603,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-types/calendar@3.4.1(react@18.2.0):
-    resolution: {integrity: sha512-tiCkHi6IQtYcVoAESG79eUBWDXoo8NImo+Mj8WAWpo1lOA3SV1W2PpeXkoRNqtloilQ0aYcmsaJJUhciQG4ndg==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@internationalized/date': 3.5.2
-      '@react-types/shared': 3.22.1(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
   /@react-types/calendar@3.4.4(react@18.2.0):
     resolution: {integrity: sha512-hV1Thmb/AES5OmfPvvmyjSkmsEULjiDfA7Yyy70L/YKuSNKb7Su+Bf2VnZuDW3ec+GxO4JJNlpJ0AkbphWBvcg==}
     peerDependencies:
@@ -10727,14 +10722,6 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-types/shared': 3.22.1(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@react-types/shared@3.21.0(react@18.2.0):
-    resolution: {integrity: sha512-wJA2cUF8dP4LkuNUt9Vh2kkfiQb2NLnV2pPXxVnKJZ7d4x2/7VPccN+LYPnH8m0X3+rt50cxWuPKQmjxSsCFOg==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
       react: 18.2.0
     dev: false
 
@@ -17485,6 +17472,25 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
+
+  /framer-motion@11.1.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+    dev: false
 
   /fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}

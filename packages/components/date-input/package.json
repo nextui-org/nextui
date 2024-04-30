@@ -44,11 +44,11 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@internationalized/date": "^3.5.2",
     "@react-aria/datepicker": "^3.9.3",
-    "@react-aria/i18n": "^3.8.4",
+    "@react-aria/i18n": "^3.10.2",
     "@react-stately/datepicker": "^3.9.2",
     "@react-types/datepicker": "^3.7.2",
-    "@react-types/shared": "3.21.0",
-    "@react-aria/utils": "^3.21.1",
+    "@react-types/shared": "3.22.1",
+    "@react-aria/utils": "^3.23.2",
     "client-only": "^0.0.1"
   },
   "devDependencies": {

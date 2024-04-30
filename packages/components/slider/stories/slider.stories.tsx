@@ -4,7 +4,7 @@ import {Meta} from "@storybook/react";
 import {slider} from "@nextui-org/theme";
 import {InfoIcon, VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
 import {Tooltip} from "@nextui-org/tooltip";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {Slider, SliderProps, SliderValue} from "../src";
 
