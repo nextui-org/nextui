@@ -9,6 +9,13 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   prerelease:
+    name: changesets pre-release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
@@ -28,7 +35,7 @@ jobs:
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          npx changeset pre enter beta
+          pnpm changeset:beta
           git add -A
           git commit -m 'chore(pre-release): enter pre-release mode'
           git push
