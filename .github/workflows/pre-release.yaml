@@ -17,7 +17,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -47,29 +47,22 @@ jobs:
           path: ".changeset/pre.json"
           prop_path: "changesets"
 
-      - name: Get changesets array length
-        id: number-of-changesets
-        run: |
-          arrayLength=$(echo '${{steps.pre-release-changesets.outputs.prop}}' | jq '. | length')
-          echo "length=$arrayLength" >> "$GITHUB_OUTPUT"
-
       - name: Create pre-release PR
-        if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && !startsWith(github.event.head_commit.message, 'ci(changesets): version packages') && steps.number-of-changesets.outputs.length > 0}}"
+        if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && !startsWith(github.event.head_commit.message, 'ci(changesets): version packages')}}"
         uses: changesets/action@v1
         with:
           version: pnpm version
+          title: "ci(changesets): :package: version packages"
+          commit: "ci(changesets): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
         id: publish-beta-to-npm
-        if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && startsWith(github.event.head_commit.message, 'ci(changesets): version packages')}}"
+        if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): :package: version packages (beta)')}}"
         uses: changesets/action@v1
         with:
           publish: pnpm release
-          title: "ci(changesets): :package: version packages (beta)"
-          commit: "ci(changesets): version packages (beta)"
-          setupGitUser: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
