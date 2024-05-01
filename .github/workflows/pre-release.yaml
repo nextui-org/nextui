@@ -51,7 +51,7 @@ jobs:
         if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && !startsWith(github.event.head_commit.message, 'ci(changesets): version packages')}}"
         uses: changesets/action@v1
         with:
-          version: pnpm version
+          version: pnpm run version
           title: "ci(changesets): :package: version packages"
           commit: "ci(changesets): version packages"
         env:
@@ -62,7 +62,7 @@ jobs:
         if: "${{steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): :package: version packages (beta)')}}"
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: pnpm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
