@@ -11,10 +11,12 @@ on:
 
 jobs:
   exit_prerelease:
-    name: Changesets Exit Prerelease
+    name: exit pre-release
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
+      id-token: write
 
     steps:
       - name: Checkout branch
@@ -23,8 +25,15 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
           fetch-depth: 0
 
-      - name: Remove pre.json
-        run: npx rimraf .changeset/pre.json
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: clean up pre.json, update versions and add changelogs
+        run: |
+          pnpm run changeset:exit
+          pnpm run version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit and push changes
         run: |
