@@ -188,9 +188,11 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                           style={{
                             ...props.style,
                             ...(highlightStyleToken.some((t) => {
+                              const content = token.content.trim();
+
                               const regex = t instanceof RegExp ? t : new RegExp(t);
 
-                              return regex.test(token.content.trim());
+                              return regex.test(content);
                             })
                               ? {color: "rgb(var(--code-function))"}
                               : {}),
