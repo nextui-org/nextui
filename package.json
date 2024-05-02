@@ -45,7 +45,6 @@
     "create:pkg": "plop package",
     "create:hook": "plop hook",
     "changeset:beta": "changeset pre enter beta",
-    "changeset:exit": "changeset pre exit",
     "version": "changeset version",
     "release": "changeset publish",
     "version:canary": "changeset version --snapshot canary",
