@@ -1,0 +1,29 @@
+name: Enter pre-release mode
+on: create
+
+jobs:
+  build:
+    if: ${{ startsWith(github.ref, 'refs/heads/beta/release') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Enter pre-release mode
+        id: enter-pre-release-mode
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          pnpm changeset:beta
+          git add -A
+          git commit -m 'chore(pre-release): enter pre-release mode'
+          git push
