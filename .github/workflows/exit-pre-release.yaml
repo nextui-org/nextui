@@ -29,6 +29,10 @@ jobs:
         uses: ./.github/common-actions/install
 
       - name: remove pre.json
+        # we only remove .changeset/pre.json here 
+        # since we want to keep the changeset files introduced in this beta/release-* branch
+        # once we merge it to canary, those files will be removed in version PR in canary 
+        # and converted to corresponding changelogs
         run: npx rimraf .changeset/pre.json
 
       - name: Commit and push changes

@@ -1,9 +1,14 @@
+# this workflow simply adds `pre.json` under `.changeset` for branch `beta/release-*`
+# so that commits pushed to `beta/release-*` would create / update version PR
 name: Enter pre-release mode
+# the create event doesn't support branch filter and tag filter
+# hence, we use on create and check in job level
 on: create
 
 jobs:
-  build:
-    if: ${{ startsWith(github.ref, 'refs/heads/beta/release') }}
+  enter-pre-release-mode:
+    # only run this job for branch `beta/release-*`
+    if: ${{ startsWith(github.ref, 'refs/heads/beta/release-') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
