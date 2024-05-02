@@ -15,7 +15,7 @@ export function Providers({children, themeProps}: ProvidersProps) {
   const router = useRouter();
 
   return (
-    <NextUIProvider disableAnimation navigate={router.push}>
+    <NextUIProvider navigate={router.push}>
       <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
     </NextUIProvider>
   );
