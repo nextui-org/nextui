@@ -15,6 +15,14 @@ export interface NextUIProviderProps
     ProviderContextProps {
   children: React.ReactNode;
   /**
+   * Controls whether `framer-motion` animations are skipped within the application.
+   * This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`,
+   * effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while
+   * using the `disableAnimation` prop for other purposes, set this to `false`. However, note that
+   * animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+   */
+  skipFramerMotionAnimations?: boolean;
+  /**
    * The locale to apply to the children.
    * @default "en-US"
    */
@@ -31,6 +39,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   navigate,
   disableAnimation = false,
   disableRipple = false,
+  skipFramerMotionAnimations = disableAnimation,
   locale = "en-US",
   defaultDates = {
     minDate: new CalendarDate(1900, 1, 1),
@@ -46,7 +55,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   }
 
   const context = useMemo<ProviderContextProps>(() => {
-    if (disableAnimation) {
+    if (disableAnimation && skipFramerMotionAnimations) {
       MotionGlobalConfig.skipAnimations = true;
     }
 

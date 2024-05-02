@@ -126,6 +126,7 @@ const avatar = tv({
     },
     disableAnimation: {
       true: {
+        base: "transition-none",
         img: "transition-none",
       },
       false: {},
