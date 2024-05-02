@@ -47,7 +47,7 @@ jobs:
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/owner/repo/dispatches \
+            https://api.github.com/repos/nextui-org/nextui/dispatches \
             -d '{"event_type":"sync-canary-to-main"}'
 
       - name: Create canary release
