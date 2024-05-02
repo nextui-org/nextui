@@ -33,17 +33,6 @@ jobs:
         with:
           files: ".changeset/pre.json"
 
-      - name: Enter pre-release mode
-        id: enter-pre-release-mode
-        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'false' && !contains(github.event.head_commit.message, 'ci(changesets): exit pre-release mode') }}"
-        run: |
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          pnpm changeset:beta
-          git add -A
-          git commit -m 'chore(pre-release): enter pre-release mode'
-          git push
-
       - name: Get pre-release changesets
         id: get-pre-release-changesets
         uses: notiz-dev/github-action-json-property@release
