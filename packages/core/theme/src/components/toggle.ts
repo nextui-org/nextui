@@ -166,7 +166,6 @@ const toggle = tv({
     color: "primary",
     size: "md",
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     {

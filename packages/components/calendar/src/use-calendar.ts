@@ -39,6 +39,7 @@ export function useCalendar<T extends DateValue>({
     weekdayStyle,
     visibleDuration,
     baseProps,
+    disableAnimation,
     shouldFilterDOMProps,
     isHeaderExpanded,
     visibleMonths,
@@ -73,7 +74,6 @@ export function useCalendar<T extends DateValue>({
     useAriaCalendar(originalProps, state);
 
   const baseStyles = clsx(classNames?.base, className);
-  const disableAnimation = originalProps.disableAnimation ?? false;
 
   const buttonPickerProps: ButtonProps = {
     ...buttonPickerPropsProp,

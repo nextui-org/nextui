@@ -8,7 +8,12 @@ import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overla
 import {useFocusRing} from "@react-aria/focus";
 import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
@@ -82,6 +87,8 @@ export type UsePopoverProps = Props &
   PopoverVariantProps;
 
 export function usePopover(originalProps: UsePopoverProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
 
   const {
@@ -127,7 +134,8 @@ export function usePopover(originalProps: UsePopoverProps) {
   const dialogRef = useRef(null);
   const triggerRef = triggerRefProp || domTriggerRef;
 
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const innerState = useOverlayTriggerState({
     isOpen: isOpenProp,

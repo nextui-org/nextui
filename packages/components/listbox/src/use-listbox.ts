@@ -1,7 +1,7 @@
 import type {KeyboardDelegate} from "@react-types/shared";
 
 import {AriaListBoxProps, useListBox as useAriaListbox} from "@react-aria/listbox";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {listbox, ListboxVariantProps, ListboxSlots, SlotsToClasses} from "@nextui-org/theme";
 import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
@@ -97,6 +97,8 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
 export type UseListboxProps<T = object> = Props<T> & AriaListBoxOptions<T> & ListboxVariantProps;
 
 export function useListbox<T extends object>(props: UseListboxProps<T>) {
+  const globalContext = useProviderContext();
+
   const {
     ref,
     as,
@@ -106,7 +108,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     onAction,
     children,
     onSelectionChange,
-    disableAnimation,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     itemClasses,
     className,
     topContent,

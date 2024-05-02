@@ -10,7 +10,7 @@ import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {RefObject, ReactNode} from "react";
 
 import {Calendar, CalendarDate} from "@internationalized/date";
-import {mapPropsVariants} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useCallback, useMemo} from "react";
 import {calendar} from "@nextui-org/theme";
 import {useControlledState} from "@react-stately/utils";
@@ -18,7 +18,6 @@ import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useLocale} from "@react-aria/i18n";
 import {clamp, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {useProviderContext} from "@nextui-org/system";
 
 type NextUIBaseProps = Omit<HTMLNextUIProps<"div">, keyof AriaCalendarPropsBase | "onChange">;
 
@@ -182,7 +181,7 @@ export type ContextType<T extends CalendarState | RangeCalendarState> = {
 export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
   const [props, variantProps] = mapPropsVariants(originalProps, calendar.variantKeys);
 
-  const providerContext = useProviderContext();
+  const globalContext = useProviderContext();
 
   const {
     ref,
@@ -199,9 +198,9 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isHeaderExpanded: isHeaderExpandedProp,
     isHeaderDefaultExpanded,
     onHeaderExpandedChange = () => {},
-    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
-    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
-    createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
+    minValue = globalContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
+    maxValue = globalContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
+    createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
     prevButtonProps: prevButtonPropsProp,
     nextButtonProps: nextButtonPropsProp,
     errorMessage,
@@ -254,7 +253,8 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     [objectToDeps(variantProps), showMonthAndYearPickers, isHeaderExpanded, className],
   );
 
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const commonButtonProps: ButtonProps = {
     size: "sm",
@@ -317,6 +317,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     shouldFilterDOMProps,
     isHeaderExpanded,
     showMonthAndYearPickers,
+    disableAnimation,
     createCalendar: createCalendarProp,
     getPrevButtonProps,
     getNextButtonProps,

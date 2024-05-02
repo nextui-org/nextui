@@ -3,7 +3,12 @@ import type {ReactRef} from "@nextui-org/react-utils";
 import type {ButtonGroupVariantProps} from "@nextui-org/theme";
 
 import {buttonGroup} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  PropGetter,
+  mapPropsVariants,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
 import {objectToDeps} from "@nextui-org/shared-utils";
@@ -40,6 +45,7 @@ export type UseButtonGroupProps = Props &
   >;
 
 export function useButtonGroup(originalProps: UseButtonGroupProps) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, buttonGroup.variantKeys);
 
   const {
@@ -51,9 +57,9 @@ export function useButtonGroup(originalProps: UseButtonGroupProps) {
     variant = "solid",
     radius,
     isDisabled = false,
-    disableAnimation = false,
-    disableRipple = false,
     isIconOnly = false,
+    disableRipple = globalContext?.disableRipple ?? false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     className,
     ...otherProps
   } = props;

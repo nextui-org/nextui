@@ -1,9 +1,9 @@
 import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {ReactNode} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {badge} from "@nextui-org/theme";
-import {mapPropsVariants} from "@nextui-org/system-rsc";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
@@ -45,6 +45,10 @@ interface Props extends HTMLNextUIProps<"span", "content"> {
 export type UseBadgeProps = Props & BadgeVariantProps;
 
 export function useBadge(originalProps: UseBadgeProps) {
+  const globalContext = useProviderContext();
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
   const [props, variantProps] = mapPropsVariants(originalProps, badge.variantKeys);
 
   const {as, children, className, content, classNames, ...otherProps} = props;
@@ -87,7 +91,7 @@ export function useBadge(originalProps: UseBadgeProps) {
     content,
     slots,
     classNames,
-    disableAnimation: originalProps?.disableAnimation,
+    disableAnimation,
     isInvisible: originalProps?.isInvisible,
     getBadgeProps,
   };

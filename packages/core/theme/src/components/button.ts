@@ -96,7 +96,6 @@ const button = tv({
     fullWidth: false,
     isDisabled: false,
     isInGroup: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // solid / color

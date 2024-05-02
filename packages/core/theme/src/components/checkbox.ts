@@ -189,7 +189,6 @@ const checkbox = tv({
     size: "md",
     isDisabled: false,
     lineThrough: false,
-    disableAnimation: false,
   },
 });
 
@@ -235,7 +234,6 @@ const checkboxGroup = tv({
   defaultVariants: {
     isInvalid: false,
     isRequired: false,
-    disableAnimation: false,
   },
 });
 

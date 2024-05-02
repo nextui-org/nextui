@@ -90,7 +90,6 @@ const circularProgress = tv({
     color: "primary",
     size: "md",
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // disableAnimation && !isIndeterminate

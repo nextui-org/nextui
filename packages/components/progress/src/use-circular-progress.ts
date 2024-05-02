@@ -6,7 +6,7 @@ import type {
 import type {PropGetter} from "@nextui-org/system";
 import type {AriaProgressBarProps} from "@react-types/progress";
 
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {circularProgress} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clampPercentage, clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -53,6 +53,7 @@ export interface Props extends HTMLNextUIProps<"div"> {
 export type UseCircularProgressProps = Props & AriaProgressBarProps & CircularProgressVariantProps;
 
 export function useCircularProgress(originalProps: UseCircularProgressProps) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, circularProgress.variantKeys);
 
   const {
@@ -86,6 +87,8 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
 
   // default isIndeterminate to true
   const isIndeterminate = (originalProps.isIndeterminate ?? true) && value === undefined;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const {progressBarProps, labelProps} = useAriaProgress({
     id,
@@ -104,12 +107,13 @@ export function useCircularProgress(originalProps: UseCircularProgressProps) {
     () =>
       circularProgress({
         ...variantProps,
+        disableAnimation,
         isIndeterminate,
       }),
-    [objectToDeps(variantProps), isIndeterminate],
+    [objectToDeps(variantProps), disableAnimation, isIndeterminate],
   );
 
-  const selfMounted = originalProps.disableAnimation ? true : isMounted;
+  const selfMounted = disableAnimation ? true : isMounted;
 
   const center = 16;
   const strokeWidth = strokeWidthProp || (originalProps.size === "sm" ? 2 : 3);

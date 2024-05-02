@@ -1,7 +1,7 @@
 import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
 import {avatar} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
@@ -96,7 +96,8 @@ interface Props extends HTMLNextUIProps<"span"> {
 export type UseAvatarProps = Props &
   Omit<AvatarVariantProps, "children" | "isInGroup" | "isInGridGroup">;
 
-export function useAvatar(props: UseAvatarProps = {}) {
+export function useAvatar(originalProps: UseAvatarProps = {}) {
+  const globalContext = useProviderContext();
   const groupContext = useAvatarGroupContext();
   const isInGroup = !!groupContext;
 
@@ -124,7 +125,7 @@ export function useAvatar(props: UseAvatarProps = {}) {
     className,
     onError,
     ...otherProps
-  } = props;
+  } = originalProps;
 
   const Component = as || "span";
 
@@ -133,6 +134,8 @@ export function useAvatar(props: UseAvatarProps = {}) {
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing();
   const {isHovered, hoverProps} = useHover({isDisabled});
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const imageStatus = useImage({src, onError, ignoreFallback});
 
@@ -156,9 +159,19 @@ export function useAvatar(props: UseAvatarProps = {}) {
         isBordered,
         isDisabled,
         isInGroup,
+        disableAnimation,
         isInGridGroup: groupContext?.isGrid ?? false,
       }),
-    [color, radius, size, isBordered, isDisabled, isInGroup, groupContext?.isGrid],
+    [
+      color,
+      radius,
+      size,
+      isBordered,
+      isDisabled,
+      disableAnimation,
+      isInGroup,
+      groupContext?.isGrid,
+    ],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -186,11 +199,12 @@ export function useAvatar(props: UseAvatarProps = {}) {
     (props = {}) => ({
       ref: imgRef,
       src: src,
+      disableAnimation,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
       ...mergeProps(imgProps, props),
     }),
-    [slots, isImgLoaded, imgProps, src, imgRef],
+    [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef],
   );
 
   return {

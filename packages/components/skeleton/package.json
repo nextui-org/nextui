@@ -36,10 +36,10 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0"
+    "@nextui-org/theme": ">=2.1.0",
+    "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
-    "@nextui-org/system-rsc": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*"
   },
@@ -47,6 +47,7 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/card": "workspace:*",
     "@nextui-org/button": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

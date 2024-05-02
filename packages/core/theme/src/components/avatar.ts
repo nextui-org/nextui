@@ -124,6 +124,12 @@ const avatar = tv({
         base: "m-0 data-[hover=true]:translate-x-0",
       },
     },
+    disableAnimation: {
+      true: {
+        img: "transition-none",
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     size: "md",

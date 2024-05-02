@@ -175,7 +175,6 @@ const popover = tv({
     size: "md",
     shadow: "md",
     backdrop: "transparent",
-    disableAnimation: false,
     triggerScaleOnOpen: true,
   },
   compoundVariants: [

@@ -58,9 +58,7 @@ const skeleton = tv({
       },
     },
   },
-  defaultVariants: {
-    disableAnimation: false,
-  },
+  defaultVariants: {},
 });
 
 export type SkeletonVariantProps = VariantProps<typeof skeleton>;

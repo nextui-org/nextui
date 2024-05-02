@@ -111,7 +111,6 @@ const badge = tv({
     shape: "rectangle",
     placement: "top-right",
     showOutline: true,
-    disableAnimation: false,
     isInvisible: false,
   },
   compoundVariants: [

@@ -104,7 +104,6 @@ const defaultProps = {
   offset: 7,
   defaultOpen: false,
   isDisabled: false,
-  disableAnimation: false,
   content: "I am a tooltip",
   children: <Button>Hover me</Button>,
 };

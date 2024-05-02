@@ -1,6 +1,11 @@
 import type {TabsVariantProps, SlotsToClasses, TabsSlots, TabsReturnType} from "@nextui-org/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {tabs} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, objectToDeps} from "@nextui-org/shared-utils";
@@ -78,6 +83,8 @@ export type ValuesType<T = object> = {
 };
 
 export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, tabs.variantKeys);
 
   const {
@@ -98,6 +105,9 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
 
   const domRef = useDOMRef(ref);
 
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
   const state = useTabListState<T>({
     children: children as CollectionChildren<T>,
     ...otherProps,
@@ -109,9 +119,10 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       tabs({
         ...variantProps,
         className,
+        disableAnimation,
         ...(isVertical ? {placement: "start"} : {}),
       }),
-    [objectToDeps(variantProps), className, isVertical],
+    [objectToDeps(variantProps), className, disableAnimation, isVertical],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -122,20 +133,20 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
       slots,
       classNames,
       motionProps,
+      disableAnimation,
       listRef: domRef,
       shouldSelectOnPressUp,
       disableCursorAnimation,
       isDisabled: originalProps?.isDisabled,
-      disableAnimation: originalProps?.disableAnimation,
     }),
     [
       state,
       slots,
       domRef,
       motionProps,
+      disableAnimation,
       disableCursorAnimation,
       shouldSelectOnPressUp,
-      originalProps?.disableAnimation,
       originalProps?.isDisabled,
       classNames,
     ],

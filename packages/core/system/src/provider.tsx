@@ -6,6 +6,7 @@ import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
 import {useMemo} from "react";
 import {CalendarDate} from "@internationalized/date";
+import {MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
 
@@ -28,6 +29,8 @@ export interface NextUIProviderProps
 export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   children,
   navigate,
+  disableAnimation = false,
+  disableRipple = false,
   locale = "en-US",
   defaultDates = {
     minDate: new CalendarDate(1900, 1, 1),
@@ -42,10 +45,24 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
     contents = <RouterProvider navigate={navigate}>{contents}</RouterProvider>;
   }
 
-  const context = useMemo<ProviderContextProps>(
-    () => ({createCalendar, defaultDates}),
-    [createCalendar, defaultDates?.maxDate, defaultDates?.minDate],
-  );
+  const context = useMemo<ProviderContextProps>(() => {
+    if (disableAnimation) {
+      MotionGlobalConfig.skipAnimations = true;
+    }
+
+    return {
+      createCalendar,
+      defaultDates,
+      disableAnimation,
+      disableRipple,
+    };
+  }, [
+    createCalendar,
+    defaultDates?.maxDate,
+    defaultDates?.minDate,
+    disableAnimation,
+    disableRipple,
+  ]);
 
   return (
     <ProviderContext value={context}>

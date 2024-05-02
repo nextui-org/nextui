@@ -3,7 +3,12 @@ import type {LinkVariantProps} from "@nextui-org/theme";
 
 import {link} from "@nextui-org/theme";
 import {useAriaLink} from "@nextui-org/use-aria-link";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -36,6 +41,8 @@ interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
 export type UseLinkProps = Props & AriaLinkProps;
 
 export function useLink(originalProps: UseLinkProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, link.variantKeys);
 
   const {
@@ -57,6 +64,8 @@ export function useLink(originalProps: UseLinkProps) {
   const Component = as || "a";
 
   const domRef = useDOMRef(ref);
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const {linkProps} = useAriaLink(
     {
@@ -85,9 +94,10 @@ export function useLink(originalProps: UseLinkProps) {
     () =>
       link({
         ...variantProps,
+        disableAnimation,
         className,
       }),
-    [objectToDeps(variantProps), className],
+    [objectToDeps(variantProps), disableAnimation, className],
   );
 
   const getLinkProps: PropGetter = useCallback(() => {

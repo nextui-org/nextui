@@ -154,7 +154,6 @@ const calendar = tv({
     showShadow: false,
     hideDisabledDates: false,
     showMonthAndYearPickers: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // !isRange & colors --> Calendar

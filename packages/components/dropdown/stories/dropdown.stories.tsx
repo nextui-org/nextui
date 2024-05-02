@@ -116,7 +116,6 @@ const defaultProps = {
   offset: 7,
   isDisabled: false,
   defaultOpen: false,
-  disableAnimation: false,
 };
 
 const items = [

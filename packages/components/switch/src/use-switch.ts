@@ -4,7 +4,7 @@ import type {AriaSwitchProps} from "@react-aria/switch";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {ReactNode, Ref, useCallback, useId, useRef, useState} from "react";
-import {mapPropsVariants} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useHover, usePress} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -76,6 +76,8 @@ export type UseSwitchProps = Omit<Props, "defaultChecked"> &
   ToggleVariantProps;
 
 export function useSwitch(originalProps: UseSwitchProps = {}) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, toggle.variantKeys);
 
   const {
@@ -102,6 +104,9 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
 
   const inputRef = useRef(null);
   const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const labelId = useId();
 
@@ -177,8 +182,9 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     () =>
       toggle({
         ...variantProps,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps)],
+    [objectToDeps(variantProps), disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);

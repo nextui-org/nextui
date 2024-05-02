@@ -3,7 +3,12 @@ import type {Node} from "@react-types/shared";
 
 import {useMemo, useRef, useCallback} from "react";
 import {menuItem} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
@@ -21,6 +26,8 @@ export type UseMenuItemProps<T extends object> = Props<T> &
   Omit<HTMLNextUIProps<"li">, keyof Props<T>>;
 
 export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, menuItem.variantKeys);
 
   const {
@@ -50,7 +57,8 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     ...otherProps
   } = props;
 
-  const disableAnimation = originalProps.disableAnimation;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const domRef = useRef<HTMLLIElement>(null);
 

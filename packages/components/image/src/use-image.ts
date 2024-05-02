@@ -1,7 +1,12 @@
 import type {ImageVariantProps, SlotsToClasses, ImageSlots} from "@nextui-org/theme";
 
 import {ImgHTMLAttributes, useCallback} from "react";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {image} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -70,6 +75,8 @@ interface Props extends HTMLNextUIProps<"img"> {
 export type UseImageProps = Props & ImageVariantProps;
 
 export function useImage(originalProps: UseImageProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, image.variantKeys);
 
   const {
@@ -103,6 +110,9 @@ export function useImage(originalProps: UseImageProps) {
     crossOrigin,
   });
 
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
   const isImgLoaded = imageStatus === "loaded" && !isLoadingProp;
   const isLoading = imageStatus === "loading" || isLoadingProp;
   const isZoomed = originalProps.isZoomed;
@@ -128,9 +138,10 @@ export function useImage(originalProps: UseImageProps) {
     () =>
       image({
         ...variantProps,
+        disableAnimation,
         showSkeleton,
       }),
-    [objectToDeps(variantProps), showSkeleton],
+    [objectToDeps(variantProps), disableAnimation, showSkeleton],
   );
 
   const baseStyles = clsx(className, classNames?.img);

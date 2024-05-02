@@ -5,7 +5,12 @@ import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";
 import {useCallback, useId, useRef, useState, useMemo, ReactNode} from "react";
 import {modal} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -74,6 +79,8 @@ interface Props extends HTMLNextUIProps<"section"> {
 export type UseModalProps = Props & OverlayTriggerProps & AriaModalOverlayProps & ModalVariantProps;
 
 export function useModal(originalProps: UseModalProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, modal.variantKeys);
 
   const {
@@ -81,7 +88,7 @@ export function useModal(originalProps: UseModalProps) {
     as,
     className,
     classNames,
-    disableAnimation = false,
+
     isOpen,
     defaultOpen,
     onOpenChange,
@@ -103,6 +110,9 @@ export function useModal(originalProps: UseModalProps) {
 
   const [headerMounted, setHeaderMounted] = useState(false);
   const [bodyMounted, setBodyMounted] = useState(false);
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const dialogId = useId();
   const headerId = useId();
@@ -139,8 +149,9 @@ export function useModal(originalProps: UseModalProps) {
     () =>
       modal({
         ...variantProps,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps)],
+    [objectToDeps(variantProps), disableAnimation],
   );
 
   const getDialogProps: PropGetter = (props = {}, ref = null) => ({

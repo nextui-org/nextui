@@ -1,6 +1,12 @@
 import type {SliderSlots, SliderVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  DOMAttributes,
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {slider} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useSliderState} from "@react-stately/slider";
@@ -133,6 +139,8 @@ export type UseSliderProps = Omit<Props, keyof ValueBase<SliderValue>> &
   SliderVariantProps;
 
 export function useSlider(originalProps: UseSliderProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, slider.variantKeys);
 
   const {
@@ -167,6 +175,8 @@ export function useSlider(originalProps: UseSliderProps) {
 
   const Component = as || "div";
   const shouldFilterDOMProps = typeof Component === "string";
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const domRef = useDOMRef(ref);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -231,11 +241,12 @@ export function useSlider(originalProps: UseSliderProps) {
       slider({
         ...variantProps,
         hasMarks,
+        disableAnimation,
         hasSingleThumb,
         isVertical,
         className,
       }),
-    [objectToDeps(variantProps), isVertical, hasSingleThumb, hasMarks, className],
+    [objectToDeps(variantProps), isVertical, disableAnimation, hasSingleThumb, hasMarks, className],
   );
 
   const [startOffset, endOffset] = [

@@ -154,7 +154,6 @@ const pagination = tv({
     isCompact: false,
     isDisabled: false,
     showShadow: false,
-    disableAnimation: false,
     disableCursorAnimation: false,
   },
   compoundVariants: [

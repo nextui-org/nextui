@@ -218,7 +218,6 @@ const dateInput = tv({
     fullWidth: true,
     labelPlacement: "inside",
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // flat & color

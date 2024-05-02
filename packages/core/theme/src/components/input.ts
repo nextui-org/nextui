@@ -245,7 +245,6 @@ const input = tv({
     labelPlacement: "inside",
     isDisabled: false,
     isMultiline: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // flat & color

@@ -1,6 +1,11 @@
 import type {NavbarVariantProps, SlotsToClasses, NavbarSlots} from "@nextui-org/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {navbar} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -86,6 +91,8 @@ interface Props extends HTMLNextUIProps<"nav"> {
 export type UseNavbarProps = Props & NavbarVariantProps;
 
 export function useNavbar(originalProps: UseNavbarProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, navbar.variantKeys);
 
   const {
@@ -106,6 +113,8 @@ export function useNavbar(originalProps: UseNavbarProps) {
   } = props;
 
   const Component = as || "nav";
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const domRef = useDOMRef(ref);
 
@@ -159,9 +168,10 @@ export function useNavbar(originalProps: UseNavbarProps) {
     () =>
       navbar({
         ...variantProps,
+        disableAnimation,
         hideOnScroll: shouldHideOnScroll,
       }),
-    [objectToDeps(variantProps), shouldHideOnScroll],
+    [objectToDeps(variantProps), disableAnimation, shouldHideOnScroll],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -206,7 +216,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     domRef,
     height,
     isHidden,
-    disableAnimation: originalProps.disableAnimation ?? false,
+    disableAnimation,
     shouldHideOnScroll,
     isMenuOpen,
     classNames,
