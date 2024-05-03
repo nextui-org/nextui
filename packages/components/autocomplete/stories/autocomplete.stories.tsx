@@ -2,6 +2,7 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
+import {useForm} from "react-hook-form";
 import {autocomplete, input, button} from "@nextui-org/theme";
 import {
   Pokemon,
@@ -686,6 +687,45 @@ const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps
   );
 };
 
+const WithReactHookFormTemplate = (args: AutocompleteProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "cat",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+      <Autocomplete {...args} {...register("withDefaultValue")}>
+        {items}
+      </Autocomplete>
+      <Autocomplete {...args} {...register("withoutDefaultValue")}>
+        {items}
+      </Autocomplete>
+      <Autocomplete {...args} {...register("requiredField", {required: true})}>
+        {items}
+      </Autocomplete>
+
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -922,6 +962,14 @@ export const CustomStyles = {
 
 export const CustomStylesWithCustomItems = {
   render: CustomStylesWithCustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
 
   args: {
     ...defaultProps,
