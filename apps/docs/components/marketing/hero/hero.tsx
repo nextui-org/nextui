@@ -1,14 +1,14 @@
 "use client";
 
 import NextLink from "next/link";
-import {Button, Link, Chip} from "@nextui-org/react";
+import {Button, Link, Chip, Snippet} from "@nextui-org/react";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import dynamic from "next/dynamic";
 
 import {FloatingComponents} from "./floating-components";
 
-import {title, subtitle} from "@/components/primitives";
 import {GithubIcon} from "@/components/icons";
+import {title, subtitle} from "@/components/primitives";
 import {trackEvent} from "@/utils/va";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
@@ -56,7 +56,7 @@ export const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}
-            className="w-full md:w-auto"
+            className="h-11 w-full md:w-auto"
             color="primary"
             endContent={
               <ArrowRightIcon
@@ -78,12 +78,27 @@ export const Hero = () => {
           >
             Get Started
           </Button>
-
+          <Snippet
+            className="w-full rounded-full hidden md:flex sm:w-auto"
+            copyButtonProps={{
+              radius: "full",
+            }}
+            onCopy={() => {
+              trackEvent("Hero - Copy", {
+                name: "Copy",
+                action: "click",
+                category: "landing-page",
+                data: "npx nextui-cli@latest init",
+              });
+            }}
+          >
+            npx nextui-cli@latest init
+          </Snippet>
           <Button
             fullWidth
             isExternal
             as={Link}
-            className="w-full md:w-auto"
+            className="w-full md:hidden"
             href="https://github.com/nextui-org/nextui"
             radius="full"
             size="lg"
