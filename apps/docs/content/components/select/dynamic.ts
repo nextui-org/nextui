@@ -1,29 +1,17 @@
 const data = `export const animals = [
-  {label: "Cat", value: "cat", description: "The second most popular pet in the world"},
-  {label: "Dog", value: "dog", description: "The most popular pet in the world"},
-  {label: "Elephant", value: "elephant", description: "The largest land animal"},
-  {label: "Lion", value: "lion", description: "The king of the jungle"},
-  {label: "Tiger", value: "tiger", description: "The largest cat species"},
-  {label: "Giraffe", value: "giraffe", description: "The tallest land animal"},
-  {
-    label: "Dolphin",
-    value: "dolphin",
-    description: "A widely distributed and diverse group of aquatic mammals",
-  },
-  {label: "Penguin", value: "penguin", description: "A group of aquatic flightless birds"},
-  {label: "Zebra", value: "zebra", description: "A several species of African equids"},
-  {
-    label: "Shark",
-    value: "shark",
-    description: "A group of elasmobranch fish characterized by a cartilaginous skeleton",
-  },
-  {
-    label: "Whale",
-    value: "whale",
-    description: "Diverse group of fully aquatic placental marine mammals",
-  },
-  {label: "Otter", value: "otter", description: "A carnivorous mammal in the subfamily Lutrinae"},
-  {label: "Crocodile", value: "crocodile", description: "A large semiaquatic reptile"},
+  {key: "cat", label: "Cat"},
+  {key: "dog", label: "Dog"},
+  {key: "elephant", label: "Elephant"},
+  {key: "lion", label: "Lion"},
+  {key: "tiger", label: "Tiger"},
+  {key: "giraffe", label: "Giraffe"},
+  {key: "dolphin", label: "Dolphin"},
+  {key: "penguin", label: "Penguin"},
+  {key: "zebra", label: "Zebra"},
+  {key: "shark", label: "Shark"},
+  {key: "whale", label: "Whale"},
+  {key: "otter", label: "Otter"},
+  {key: "crocodile", label: "Crocodile"}
 ];`;
 
 const App = `import {Select, SelectItem} from "@nextui-org/react";
@@ -37,7 +25,7 @@ export default function App() {
       placeholder="Select an animal"
       className="max-w-xs"
     >
-      {(animal) => <SelectItem key={animal.value}>{animal.label}</SelectItem>}
+      {(animal) => <SelectItem>{animal.label}</SelectItem>}
     </Select>
   );
 }`;
