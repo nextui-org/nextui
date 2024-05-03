@@ -421,12 +421,13 @@ describe("Select with React Hook Form", () => {
     const {
       register,
       formState: {errors},
+      handleSubmit,
     } = result.current;
 
     onSubmit = jest.fn();
 
     wrapper = render(
-      <form className="flex flex-col gap-4" onSubmit={onSubmit}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Select data-testid="select-1" items={itemsData} {...register("withDefaultValue")}>
           {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
         </Select>
@@ -444,14 +445,16 @@ describe("Select with React Hook Form", () => {
         </Select>
 
         {errors.requiredField && <span className="text-danger">This field is required</span>}
-        <button type="submit">Submit</button>
+        <button data-testid="submit-button" type="submit">
+          Submit
+        </button>
       </form>,
     );
 
     select1 = wrapper.getByTestId("select-1");
     select2 = wrapper.getByTestId("select-2");
     select3 = wrapper.getByTestId("select-3");
-    submitButton = document.querySelector("button")!;
+    submitButton = wrapper.getByTestId("submit-button");
   });
 
   it("should work with defaultValues", () => {
@@ -483,7 +486,6 @@ describe("Select with React Hook Form", () => {
 
     await user.click(submitButton);
 
-    // TODO: FIX ME
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });
