@@ -149,7 +149,11 @@ describe("Input", () => {
 });
 
 describe("Input with React Hook Form", () => {
-  let input1, input2, input3, onSubmit, submitButton;
+  let input1: HTMLInputElement;
+  let input2: HTMLInputElement;
+  let input3: HTMLInputElement;
+  let submitButton: HTMLButtonElement;
+  let onSubmit: () => void;
 
   beforeEach(() => {
     const {result} = renderHook(() =>
@@ -188,10 +192,10 @@ describe("Input with React Hook Form", () => {
       </form>,
     );
 
-    input1 = document.querySelector("input[name=withDefaultValue]");
-    input2 = document.querySelector("input[name=withoutDefaultValue]");
-    input3 = document.querySelector("input[name=requiredField]");
-    submitButton = document.querySelector("button");
+    input1 = document.querySelector("input[name=withDefaultValue]")!;
+    input2 = document.querySelector("input[name=withoutDefaultValue]")!;
+    input3 = document.querySelector("input[name=requiredField]")!;
+    submitButton = document.querySelector("button")!;
   });
 
   it("should work with defaultValues", () => {
