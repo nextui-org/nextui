@@ -227,7 +227,7 @@ describe("Autocomplete with React Hook Form", () => {
   let autocomplete2: HTMLInputElement;
   let autocomplete3: HTMLInputElement;
   let submitButton: HTMLButtonElement;
-  let wrapper: React.ReactElement;
+  let wrapper: any;
   let onSubmit: () => void;
 
   beforeEach(() => {
