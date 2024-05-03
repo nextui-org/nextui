@@ -74,7 +74,8 @@
     "framer-motion": "^11.0.28",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.51.3"
   },
   "clean-package": "../../../clean-package.config.json"
 }
