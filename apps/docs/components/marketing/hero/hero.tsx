@@ -56,7 +56,7 @@ export const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}
-            className="h-11 w-full md:w-auto"
+            className="w-full md:h-11 md:w-auto"
             color="primary"
             endContent={
               <ArrowRightIcon
