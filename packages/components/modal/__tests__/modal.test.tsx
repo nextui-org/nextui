@@ -9,16 +9,13 @@ const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 const ModalDraggable = ({overflow = false}) => {
   const targetRef = React.useRef(null);
-  const dragRef = React.useRef(null);
 
-  const {moveProps} = useDraggable({targetRef, dragRef, overflow});
+  const {moveProps} = useDraggable({targetRef, overflow});
 
   return (
     <Modal ref={targetRef} isOpen>
       <ModalContent>
-        <ModalHeader {...moveProps} ref={dragRef}>
-          Modal header
-        </ModalHeader>
+        <ModalHeader {...moveProps}>Modal header</ModalHeader>
         <ModalBody>Modal body</ModalBody>
         <ModalFooter>Modal footer</ModalFooter>
       </ModalContent>

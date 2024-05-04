@@ -9,10 +9,6 @@ export interface UseDraggableProps {
    */
   targetRef?: React.RefObject<HTMLElement>;
   /**
-   * Ref to the drag DOM node.
-   */
-  dragRef?: React.RefObject<HTMLElement>;
-  /**
    * Whether the target is draggable.
    * @default true
    */
@@ -24,8 +20,13 @@ export interface UseDraggableProps {
   overflow?: boolean;
 }
 
+/**
+ * A hook to make a target draggable.
+ * @param props UseDraggableProps
+ * @returns MoveResult for the drag DOM node.
+ */
 export function useDraggable(props: UseDraggableProps): MoveResult {
-  const {targetRef, dragRef, draggable = true, overflow = false} = props;
+  const {targetRef, draggable = true, overflow = false} = props;
   const boundary = useRef({minLeft: 0, minTop: 0, maxLeft: 0, maxTop: 0});
   let transform = {offsetX: 0, offsetY: 0};
 
@@ -96,8 +97,7 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
   };
 
   useEffect(() => {
-    if (draggable && dragRef?.current) {
-      dragRef.current.style.cursor = "move";
+    if (draggable) {
       onBodyTouchMove();
     } else {
       offBodyTouchMove();
@@ -106,9 +106,12 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
     return () => {
       offBodyTouchMove();
     };
-  }, [draggable, onMoveStart, onMove]);
+  }, [draggable, onBodyTouchMove, offBodyTouchMove]);
 
   return {
-    moveProps,
+    moveProps: {
+      ...moveProps,
+      style: {cursor: draggable ? "move" : undefined},
+    },
   };
 }

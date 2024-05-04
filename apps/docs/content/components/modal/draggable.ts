@@ -3,8 +3,7 @@ const App = `import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, B
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const targetRef = React.useRef(null);
-  const dragRef = React.useRef(null);
-  const {moveProps} = useDraggable({ targetRef, dragRef });
+  const {moveProps} = useDraggable({ targetRef });
 
   return (
     <>
@@ -13,7 +12,7 @@ export default function App() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader {...moveProps} ref={dragRef} className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalHeader {...moveProps} className="flex flex-col gap-1">Modal Title</ModalHeader>
               <ModalBody>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
