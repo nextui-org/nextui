@@ -102,7 +102,7 @@ export const usersData: User[] = [
     age: "29",
     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/3.png",
     email: "brian.kim@example.com",
-    status: "Active",
+    status: "active",
   },
   {
     id: 7,
