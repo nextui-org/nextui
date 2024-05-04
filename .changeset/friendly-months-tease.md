@@ -4,4 +4,4 @@
 "@nextui-org/use-aria-menu": patch
 ---
 
-Add missing router.open parameters due to rounter change
+Add missing router.open parameters due to router change
