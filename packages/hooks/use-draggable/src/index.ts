@@ -89,6 +89,7 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
   };
 
   const onBodyTouchMove = () => {
+    // Prevent body scroll when dragging at mobile.
     document.body.addEventListener("touchmove", preventDefault, {passive: false});
   };
 
