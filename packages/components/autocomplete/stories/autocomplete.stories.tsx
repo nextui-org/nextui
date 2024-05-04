@@ -773,15 +773,6 @@ export const DisabledOptions = {
   },
 };
 
-export const WithDescription = {
-  render: MirrorTemplate,
-
-  args: {
-    ...defaultProps,
-    description: "Select your favorite animal",
-  },
-};
-
 export const LabelPlacement = {
   render: LabelPlacementTemplate,
 
@@ -819,6 +810,27 @@ export const EndContent = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const IsInvalid = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    variant: "bordered",
+    defaultSelectedKey: "dog",
+    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const WithDescription = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Select your favorite animal",
   },
 };
 
@@ -887,15 +899,37 @@ export const WithValidation = {
   },
 };
 
-export const IsInvalid = {
-  render: Template,
+export const WithSections = {
+  render: WithSectionsTemplate,
 
   args: {
     ...defaultProps,
-    isInvalid: true,
-    variant: "bordered",
-    defaultSelectedKey: "dog",
-    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const WithCustomSectionsStyles = {
+  render: WithCustomSectionsStylesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithAriaLabel = {
+  render: WithAriaLabelTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Select an animal 🐹",
+    "aria-label": "Select an animal",
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
@@ -925,32 +959,6 @@ export const CustomItems = {
   },
 };
 
-export const WithSections = {
-  render: WithSectionsTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithCustomSectionsStyles = {
-  render: WithCustomSectionsStylesTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithAriaLabel = {
-  render: WithAriaLabelTemplate,
-
-  args: {
-    ...defaultProps,
-    label: "Select an animal 🐹",
-    "aria-label": "Select an animal",
-  },
-};
-
 export const CustomStyles = {
   render: CustomStylesTemplate,
 
@@ -962,14 +970,6 @@ export const CustomStyles = {
 
 export const CustomStylesWithCustomItems = {
   render: CustomStylesWithCustomItemsTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithReactHookForm = {
-  render: WithReactHookFormTemplate,
 
   args: {
     ...defaultProps,

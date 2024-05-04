@@ -221,6 +221,14 @@ export const WithIcons = {
   },
 };
 
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const Controlled = {
   render: ControlledTemplate,
 
@@ -239,14 +247,6 @@ export const CustomWithClassNames = {
 
 export const CustomWithHooks = {
   render: CustomWithHooksTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithReactHookForm = {
-  render: WithReactHookFormTemplate,
 
   args: {
     ...defaultProps,
