@@ -84,7 +84,7 @@ export const Hero = () => {
               radius: "full",
             }}
             onCopy={() => {
-              trackEvent("Hero - Copy", {
+              trackEvent("Hero - Copy Install Command", {
                 name: "Copy",
                 action: "click",
                 category: "landing-page",
