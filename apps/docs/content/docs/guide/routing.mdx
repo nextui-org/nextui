@@ -95,6 +95,41 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 
 > **Note**: Skip this step if you already set up the `NextUIProvider` in your app.
 
+#### Add useHref (Optional)
+
+If you are using the Next.js [basePath](https://nextjs.org/docs/app/api-reference/next-config-js/basePath) setting, you'll need to configure an environment variable to access it. 
+
+```js
+// next.config.js
+const basePath = '...';
+const nextConfig = {
+  basePath,
+  env: {
+    BASE_PATH: basePath
+  }
+};
+```
+Then, provide a custom `useHref` function to prepend it to the href for all links.
+
+```tsx {9,12}
+// app/providers.tsx
+'use client'
+
+import {NextUIProvider} from '@nextui-org/react';
+import {useRouter} from 'next/navigation'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  const router = useRouter();
+  const useHref = (href: string) => process.env.BASE_PATH + href;
+
+  return (
+    <NextUIProvider navigate={router.push} useHref={useHref}>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
 </Steps>
 
 ### Pages Router
@@ -102,8 +137,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the`useRouter` hook 
 from `next/router`, it returns a router object that can be used to perform navigation.
 
-
-```tsx {7}
+```tsx {7,10}
 // pages/_app.tsx
 import type { AppProps } from 'next/app';
 import {NextUIProvider} from '@nextui-org/react';
@@ -122,23 +156,47 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
+When using the [basePath](https://nextjs.org/docs/app/api-reference/next-config-js/basePath) configuration option, provide a `useHref` option to the router passed to Provider to prepend it to links automatically.
+
+```tsx {8,11}
+// pages/_app.tsx
+import type { AppProps } from 'next/app';
+import {NextUIProvider} from '@nextui-org/react';
+import {useRouter} from 'next/router';
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const useHref = (href: string) => router.basePath + href;
+
+  return (
+    <NextUIProvider navigate={router.push} useHref={useHref}>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
+}
+
+export default MyApp;
+```
+
 ## React Router
 
-The `useNavigate` hook from `react-router-dom` returns a `navigate` function that can be used to perform navigation.
+The `useNavigate` hook from `react-router-dom` returns a `navigate` function that can be used to perform navigation. 
+
+The `useHref` hook can also be provided if you're using React Router's `basename` option. Ensure that the component that calls useNavigate and renders Provider is inside the router component (e.g. `BrowserRouter`) so that it has access to React Router's internal context. The React Router `<Routes>` element should also be defined inside `<NextUIProvider>` so that links inside the rendered routes have access to the router.
 
 Go to the `App` file commonly called `App.jsx` or `App.tsx`, add the `useNavigate` hook and pass the 
 `navigate` function to the `NextUIProvider`:
 
 ```jsx {6,9}
 // App.tsx or App.jsx
-import {BrowserRouter, useNavigate} from 'react-router-dom';
+import {BrowserRouter, useNavigate, useHref} from 'react-router-dom';
 import {NextUIProvider} from '@nextui-org/react';
 
 function App() {
   const navigate = useNavigate();
 
   return (
-    <NextUIProvider navigate={navigate}>
+    <NextUIProvider navigate={navigate} useHref={useHref}>
       {/* Your app here... */}
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -166,14 +224,14 @@ to the router.
 
 ## Remix
 
-Remix uses React Router under the hood, so the same `useNavigate` hook described above also works in Remix 
+Remix uses React Router under the hood, so the same `useNavigate` and `useHref` hook described above also works in Remix 
 apps. `NextUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in 
 `app/root.tsx` to add it to all pages. See the [Remix docs](https://remix.run/docs/en/main/file-conventions/root) 
 for more details.
 
 ```jsx {14}
 // app/root.tsx
-import {useNavigate, Outlet} from '@remix-run/react';
+import {useNavigate, useHref, Outlet} from '@remix-run/react';
 import {NextUIProvider} from '@nextui-org/react';
 
 export default function App() {
@@ -185,7 +243,7 @@ export default function App() {
         {/* ... */}
       </head>
       <body>
-        <NextUIProvider navigate={navigate}>
+        <NextUIProvider navigate={navigate} useHref={useHref}>
           <Outlet />
         </NextUIProvider>
         {/* ... */}
