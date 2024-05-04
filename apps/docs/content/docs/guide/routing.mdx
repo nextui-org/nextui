@@ -17,7 +17,7 @@ component configures all NextUI components within it to navigate using the clien
 Set this up once in the root of your app, and any NextUI component with the href prop will automatically navigate
 using your router.
 
-### NextUIProvider Setup
+## NextUIProvider Setup
 
 The `NextUIProvider` accepts a prop called `navigate`. This should be set to a function received from your
 router for performing a client side navigation programmatically. The following example shows the general
@@ -43,9 +43,9 @@ function App() {
 
 <Spacer y={2} />
 
-### Next.js 
+## Next.js 
 
-#### App Router
+### App Router
 
 Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and add the
 `useRouter` hook from `next/navigation`, it returns a router object that can be used to perform navigation.
@@ -97,7 +97,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 
 </Steps>
 
-#### Pages Router
+### Pages Router
 
 Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the`useRouter` hook 
 from `next/router`, it returns a router object that can be used to perform navigation.
@@ -122,7 +122,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-### React Router
+## React Router
 
 The `useNavigate` hook from `react-router-dom` returns a `navigate` function that can be used to perform navigation.
 
@@ -164,8 +164,7 @@ component (e.g. `BrowserRouter`) so that it has access to React Router's interna
 element should also be defined inside `NextUIProvider` so that links inside the rendered routes have access
 to the router.
 
-
-### Remix
+## Remix
 
 Remix uses React Router under the hood, so the same `useNavigate` hook described above also works in Remix 
 apps. `NextUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in 
@@ -196,8 +195,7 @@ export default function App() {
 }
 ```
 
-
-### Usage examples
+## Usage examples
 
 Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`, 
 `Listbox` and `Dropdown` items to navigate between pages.
