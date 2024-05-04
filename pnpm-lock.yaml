@@ -58,8 +58,8 @@ importers:
         specifier: ^3.4.4
         version: 3.5.4(react@18.3.1)
       '@react-types/shared':
-        specifier: ^3.22.1
-        version: 3.22.1(react@18.3.1)
+        specifier: ^3.23.0
+        version: 3.23.0(react@18.3.1)
       '@storybook/react':
         specifier: ^7.4.6
         version: 7.6.19(react-dom@18.3.1)(react@18.3.1)(typescript@4.9.5)
