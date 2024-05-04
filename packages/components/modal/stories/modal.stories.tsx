@@ -232,18 +232,18 @@ const DraggableTemplate = (args: ModalProps) => {
 const DraggableOverflowTemplate = (args: ModalProps) => {
   const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
   const targetRef = React.useRef(null);
-  const [draggable, setDraggable] = React.useState(true);
-  const [overflow, setOverflow] = React.useState(true);
+  const [disableDraggable, setDisableDraggable] = React.useState(false);
+  const [canOverflow, setCanOverflow] = React.useState(true);
 
-  const {moveProps} = useDraggable({targetRef, draggable, overflow});
+  const {moveProps} = useDraggable({targetRef, isDisabled: disableDraggable, canOverflow});
 
   return (
     <div className="flex flex-col gap-2">
       <Button onPress={onOpen}>Open Modal</Button>
-      <Switch isSelected={draggable} onValueChange={setDraggable}>
-        Draggable
+      <Switch isSelected={disableDraggable} onValueChange={setDisableDraggable}>
+        Disable Draggable
       </Switch>
-      <Switch isSelected={overflow} onValueChange={setOverflow}>
+      <Switch isSelected={canOverflow} onValueChange={setCanOverflow}>
         Overflow viewport
       </Switch>
       <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>

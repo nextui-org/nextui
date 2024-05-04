@@ -3,7 +3,7 @@ const App = `import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, B
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const targetRef = React.useRef(null);
-  const {moveProps} = useDraggable({targetRef, draggable: true, overflow: true});
+  const {moveProps} = useDraggable({targetRef, canOverflow: true});
 
   return (
     <>

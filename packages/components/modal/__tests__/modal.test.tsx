@@ -7,10 +7,10 @@ import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, useDraggable} 
 // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
 const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-const ModalDraggable = ({overflow = false}) => {
+const ModalDraggable = ({canOverflow = false}) => {
   const targetRef = React.useRef(null);
 
-  const {moveProps} = useDraggable({targetRef, overflow});
+  const {moveProps} = useDraggable({targetRef, canOverflow});
 
   return (
     <Modal ref={targetRef} isOpen>
@@ -166,7 +166,7 @@ describe("Modal", () => {
     jest.spyOn(document.documentElement, "clientWidth", "get").mockImplementation(() => 1920);
     jest.spyOn(document.documentElement, "clientHeight", "get").mockImplementation(() => 1080);
 
-    const wrapper = render(<ModalDraggable overflow />);
+    const wrapper = render(<ModalDraggable canOverflow />);
 
     const modal = wrapper.getByRole("dialog");
     const modalHeader = wrapper.getByText("Modal header");

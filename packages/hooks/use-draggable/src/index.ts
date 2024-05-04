@@ -9,15 +9,15 @@ export interface UseDraggableProps {
    */
   targetRef?: React.RefObject<HTMLElement>;
   /**
-   * Whether the target is draggable.
-   * @default true
+   * Whether to disable the target is draggable.
+   * @default false
    */
-  draggable?: boolean;
+  isDisabled?: boolean;
   /**
    * Whether the target can overflow the viewport.
    * @default false
    */
-  overflow?: boolean;
+  canOverflow?: boolean;
 }
 
 /**
@@ -26,7 +26,7 @@ export interface UseDraggableProps {
  * @returns MoveResult for the drag DOM node.
  */
 export function useDraggable(props: UseDraggableProps): MoveResult {
-  const {targetRef, draggable = true, overflow = false} = props;
+  const {targetRef, isDisabled = false, canOverflow = false} = props;
   const boundary = useRef({minLeft: 0, minTop: 0, maxLeft: 0, maxTop: 0});
   let transform = {offsetX: 0, offsetY: 0};
 
@@ -56,7 +56,7 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
   };
 
   const onMove = (e: MoveMoveEvent) => {
-    if (!draggable) {
+    if (isDisabled) {
       return;
     }
     const {offsetX, offsetY} = transform;
@@ -64,7 +64,7 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
     let moveX = offsetX + e.deltaX;
     let moveY = offsetY + e.deltaY;
 
-    if (!overflow) {
+    if (!canOverflow) {
       moveX = Math.min(Math.max(moveX, minLeft), maxLeft);
       moveY = Math.min(Math.max(moveY, minTop), maxTop);
     }
@@ -97,7 +97,7 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
   };
 
   useEffect(() => {
-    if (draggable) {
+    if (!isDisabled) {
       onBodyTouchMove();
     } else {
       offBodyTouchMove();
@@ -106,12 +106,12 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
     return () => {
       offBodyTouchMove();
     };
-  }, [draggable, onBodyTouchMove, offBodyTouchMove]);
+  }, [isDisabled, onBodyTouchMove, offBodyTouchMove]);
 
   return {
     moveProps: {
       ...moveProps,
-      style: {cursor: draggable ? "move" : undefined},
+      style: {cursor: !isDisabled ? "move" : undefined},
     },
   };
 }
