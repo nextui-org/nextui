@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@react-aria/i18n": "^3.10.2"
+    "@react-aria/i18n": "3.10.2"
   },
   "peerDependencies": {
     "react": ">=18"

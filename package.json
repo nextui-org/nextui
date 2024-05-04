@@ -32,6 +32,7 @@
     "lint:fix": "eslint --fix -c .eslintrc.json ./packages/**/**/*.{ts,tsx}",
     "lint:docs-fix": "eslint --fix -c .eslintrc.json ./apps/docs/**/*.{ts,tsx}",
     "check:rap": "tsx scripts/check-rap-updates.ts",
+    "fix:rap": "tsx scripts/fix-rap.ts",
     "format:check": "prettier --check packages/**/**/src --cache",
     "format:write": "prettier --write packages/**/**/src --cache",
     "turbo:clean": "turbo clean && rimraf ./node_modules/.cache/turbo",
