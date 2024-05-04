@@ -7,10 +7,10 @@ import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, useDraggable} 
 // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
 const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
-const ModalDraggable = ({canOverflow = false}) => {
+const ModalDraggable = ({canOverflow = false, isDisabled = false}) => {
   const targetRef = React.useRef(null);
 
-  const {moveProps} = useDraggable({targetRef, canOverflow});
+  const {moveProps} = useDraggable({targetRef, canOverflow, isDisabled});
 
   return (
     <Modal ref={targetRef} isOpen>
@@ -159,6 +159,21 @@ describe("Modal", () => {
     fireEvent.touchEnd(modalHeader, {changedTouches: [{pageX: 10000, pageY: 5000}]});
 
     expect(modal.style.transform).toBe("translate(1920px, 1080px)");
+  });
+
+  it("should not drag when disabled", () => {
+    // mock viewport size to 1920x1080
+    jest.spyOn(document.documentElement, "clientWidth", "get").mockImplementation(() => 1920);
+    jest.spyOn(document.documentElement, "clientHeight", "get").mockImplementation(() => 1080);
+    const wrapper = render(<ModalDraggable isDisabled />);
+    const modal = wrapper.getByRole("dialog");
+    const modalHeader = wrapper.getByText("Modal header");
+
+    fireEvent.touchStart(modalHeader, {changedTouches: [{pageX: 100, pageY: 50}]});
+    fireEvent.touchMove(modalHeader, {changedTouches: [{pageX: 200, pageY: 100}]});
+    fireEvent.touchEnd(modalHeader, {changedTouches: [{pageX: 200, pageY: 100}]});
+
+    expect(modal.style.transform).toBe("");
   });
 
   test("should be rendered a draggable modal with overflow", () => {
