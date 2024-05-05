@@ -6,7 +6,7 @@ import {ForwardedRef, ReactElement, Ref} from "react";
 
 import {useDropdownContext} from "./dropdown-context";
 
-interface Props<T> extends Omit<MenuProps<T>, "menuProps"> {}
+interface Props<T extends object = object> extends Omit<MenuProps<T>, "menuProps"> {}
 
 function DropdownMenu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
   const {getMenuProps} = useDropdownContext();
