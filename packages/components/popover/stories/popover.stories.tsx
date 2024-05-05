@@ -149,6 +149,28 @@ const WithTitlePropsTemplate = (args: PopoverProps) => {
   );
 };
 
+const WithOnCloseTemplate = (args: PopoverProps) => {
+  return (
+    <Popover {...args}>
+      <PopoverTrigger>
+        <Button disableAnimation={!!args.disableAnimation}>Open Popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        {(_, onClose) => (
+          <div className="px-1 py-2">
+            <div className="text-xs">This is a content of the popover</div>
+            <div className="flex justify-end mt-2">
+              <Button color="primary" onClick={onClose}>
+                Close
+              </Button>
+            </div>
+          </div>
+        )}
+      </PopoverContent>
+    </Popover>
+  );
+};
+
 const OpenChangeTemplate = (args: PopoverProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -510,6 +532,14 @@ export const WithOffset = {
 
 export const WithTitleProps = {
   render: WithTitlePropsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithOnClose = {
+  render: WithOnCloseTemplate,
 
   args: {
     ...defaultProps,
