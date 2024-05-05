@@ -1,6 +1,7 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import {useForm} from "react-hook-form";
 
 import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
@@ -395,5 +396,96 @@ describe("Select", () => {
 
       expect(onSelectionChange).toBeCalledTimes(0);
     });
+  });
+});
+
+describe("Select with React Hook Form", () => {
+  let select1: HTMLElement;
+  let select2: HTMLElement;
+  let select3: HTMLElement;
+  let submitButton: HTMLButtonElement;
+  let wrapper: any;
+  let onSubmit: () => void;
+
+  beforeEach(() => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withDefaultValue: "cat",
+          withoutDefaultValue: "",
+          requiredField: "",
+        },
+      }),
+    );
+
+    const {
+      register,
+      formState: {errors},
+      handleSubmit,
+    } = result.current;
+
+    onSubmit = jest.fn();
+
+    wrapper = render(
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <Select data-testid="select-1" items={itemsData} {...register("withDefaultValue")}>
+          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+        </Select>
+
+        <Select data-testid="select-2" items={itemsData} {...register("withoutDefaultValue")}>
+          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+        </Select>
+
+        <Select
+          data-testid="select-3"
+          items={itemsData}
+          {...register("requiredField", {required: true})}
+        >
+          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+        </Select>
+
+        {errors.requiredField && <span className="text-danger">This field is required</span>}
+        <button data-testid="submit-button" type="submit">
+          Submit
+        </button>
+      </form>,
+    );
+
+    select1 = wrapper.getByTestId("select-1");
+    select2 = wrapper.getByTestId("select-2");
+    select3 = wrapper.getByTestId("select-3");
+    submitButton = wrapper.getByTestId("submit-button");
+  });
+
+  it("should work with defaultValues", () => {
+    expect(select1).toHaveTextContent("Cat");
+    expect(select2).toHaveTextContent("");
+    expect(select3).toHaveTextContent("");
+  });
+
+  it("should not submit form when required field is empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("should submit form when required field is not empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(select3);
+
+    expect(select3).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(select3).toHaveTextContent("Dog");
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });
