@@ -6,7 +6,7 @@ on:
       - ".changeset/**"
       - "packages/**"
     branches:
-      - canary
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -39,23 +39,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Sync files from canary to main branch if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/nextui-org/nextui/dispatches \
-            -d '{"event_type":"sync-canary-to-main"}'
-
-      - name: Create canary release
-        if: steps.changesets.outputs.published != 'true'
-        run: |
-          git checkout canary
-          pnpm version:canary
-          pnpm release:canary
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

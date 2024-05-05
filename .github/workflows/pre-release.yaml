@@ -6,7 +6,8 @@ on:
       - ".changeset/**"
       - "packages/**"
     branches:
-      - "beta/release-*"
+      - "beta/release-next"
+      - "canary"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -52,8 +53,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to NPM
-        id: publish-beta-to-npm
-        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): :package: version packages (beta)') }}"
+        id: publish-to-npm
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): :package: version packages') }}"
         uses: changesets/action@v1
         with:
           publish: pnpm run release

@@ -1,17 +1,10 @@
 name: Exit pre-release mode
 
-on:
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: "Exit pre-release mode on beta release branch"
-        type: string
-        default: "beta/release-"
-        required: true
-
+on: workflow_dispatch
 jobs:
-  exit_prerelease:
-    name: exit pre-release
+  exit-pre-release-mode:
+    if: ${{ github.ref == 'refs/heads/beta/release-next' || github.ref == 'refs/heads/canary' }}
+    name: exit pre-release mode
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -30,8 +23,8 @@ jobs:
 
       - name: remove pre.json
         # we only remove .changeset/pre.json here 
-        # since we want to keep the changeset files introduced in this beta/release-* branch
-        # once we merge it to canary, those files will be removed in version PR in canary 
+        # since we want to keep the changeset files introduced in beta/release-next or canary branch
+        # once we merge it to canary / main, those files will be removed in version PR in canary 
         # and converted to corresponding changelogs
         run: npx rimraf .changeset/pre.json
 
