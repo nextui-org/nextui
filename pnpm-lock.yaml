@@ -194,7 +194,7 @@ importers:
         version: 8.0.3
       intl-messageformat:
         specifier: ^10.1.0
-        version: 10.5.11
+        version: 10.5.12
       jest:
         specifier: ^28.1.1
         version: 28.1.3(@types/node@15.14.9)(ts-node@10.9.2)
@@ -3190,8 +3190,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3(react@18.3.1)
       '@react-types/shared':
-        specifier: 3.22.1
-        version: 3.22.1(react@18.3.1)
+        specifier: 3.23.0
+        version: 3.23.0(react@18.3.1)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -6711,7 +6711,7 @@ packages:
     resolution: {integrity: sha512-jba3kGxnh4hN4zoeJZuMft99Ly1zbmon4fyDz3VAmO39Kb5Aw+usGub7oU/sGoBIcVQ7REEwsvjIWtIO1nitbw==}
     dependencies:
       '@swc/helpers': 0.5.11
-      intl-messageformat: 10.5.11
+      intl-messageformat: 10.5.12
 
   /@internationalized/number@3.5.2:
     resolution: {integrity: sha512-4FGHTi0rOEX1giSkt5MH4/te0eHBq3cvAYsfLlpguV6pzJAReXymiYpE5wPCqKqjkUO3PIsyvk+tBiIV1pZtbA==}
@@ -18875,8 +18875,8 @@ packages:
     resolution: {integrity: sha512-fn4bQ0Xq8FTej09YC/jqKZwtijpvARlRp6wxL5WTA6yPe2YWSJ5RJh7Nm79rK2qB0wr6iDQzH60XGq5V/7u8YQ==}
     dev: false
 
-  /intl-messageformat@10.5.11:
-    resolution: {integrity: sha512-eYq5fkFBVxc7GIFDzpFQkDOZgNayNTQn4Oufe8jw6YY6OHVw70/4pA3FyCsQ0Gb2DnvEJEMmN2tOaXUGByM+kg==}
+  /intl-messageformat@10.5.12:
+    resolution: {integrity: sha512-izl0uxhy/melhw8gP2r8pGiVieviZmM4v5Oqx3c1/R7g9cwER2smmGfSjcIsp8Y3Q53bfciL/gkxacJRx/dUvg==}
     dependencies:
       '@formatjs/ecma402-abstract': 1.18.2
       '@formatjs/fast-memoize': 2.2.0
