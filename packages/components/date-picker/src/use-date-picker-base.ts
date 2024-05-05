@@ -192,13 +192,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
         isDateUnavailable,
         showMonthAndYearPickers,
         onHeaderExpandedChange: setIsCalendarHeaderExpanded,
-        color:
-          (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
-          isDefaultColor
-            ? "foreground"
-            : isDefaultColor
-            ? "primary"
-            : originalProps.color,
+        color: isDefaultColor ? "primary" : originalProps.color,
         disableAnimation,
       },
       userCalendarProps,
@@ -229,10 +223,11 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     hideTimeZone: props.hideTimeZone,
   } as TimeInputProps;
 
-  const popoverProps = {
-    ...mergeProps(slotsProps.popoverProps, props),
+  const popoverProps: PopoverProps = {
+    ...slotsProps.popoverProps,
+    children: slotsProps.popoverProps?.children ?? [],
     triggerRef: domRef,
-  } as PopoverProps;
+  };
 
   const calendarProps = {
     ...slotsProps.calendarProps,

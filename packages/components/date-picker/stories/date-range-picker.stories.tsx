@@ -18,7 +18,7 @@ import {DateValue} from "@react-types/datepicker";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {DateRangePicker, DateRangePickerProps} from "../src";
 
@@ -138,6 +138,7 @@ const TimeZonesTemplate = (args: DateRangePickerProps) => (
     />
     <DateRangePicker
       // {...args}
+      aria-label="Event date"
       className="max-w-xs"
       defaultValue={{
         start: parseAbsoluteToLocal("2024-04-01T07:45:00Z"),

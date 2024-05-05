@@ -1,5 +1,52 @@
 # @nextui-org/react
 
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [[`d532a9da7`](https://github.com/nextui-org/nextui/commit/d532a9da7a24d3552ef1bf0706c9fbf984887ddb), [`1cc5215ce`](https://github.com/nextui-org/nextui/commit/1cc5215ce6026da7e7736d74a5479b2f5b86c1ff), [`355235320`](https://github.com/nextui-org/nextui/commit/35523532030468837939d127b68bee30bbc4e2b0), [`31934017a`](https://github.com/nextui-org/nextui/commit/31934017a54627cbc78583674e990dc66dbe303e), [`25484f866`](https://github.com/nextui-org/nextui/commit/25484f866338cf6df549ba0b1082ffd57384eee2), [`6b96ea9c9`](https://github.com/nextui-org/nextui/commit/6b96ea9c9c091d025a886361f50970599a260715), [`308b32c0f`](https://github.com/nextui-org/nextui/commit/308b32c0f1611ecc72d8cf3b91a4481cc0fc09a5), [`e9fef9bd9`](https://github.com/nextui-org/nextui/commit/e9fef9bd922ae1efdf3f796cfe88a579bf693c1d), [`1dacf52f3`](https://github.com/nextui-org/nextui/commit/1dacf52f305a410cbf59d067d1977024d982ad03), [`765c04e2a`](https://github.com/nextui-org/nextui/commit/765c04e2a5b3e3a072d87a4ae1bcb8ae389d53a0)]:
+  - @nextui-org/table@2.0.33
+  - @nextui-org/date-picker@2.0.7
+  - @nextui-org/input@2.1.21
+  - @nextui-org/theme@2.2.3
+  - @nextui-org/calendar@2.0.4
+  - @nextui-org/ripple@2.0.28
+  - @nextui-org/accordion@2.0.32
+  - @nextui-org/autocomplete@2.0.16
+  - @nextui-org/modal@2.0.33
+  - @nextui-org/navbar@2.0.30
+  - @nextui-org/popover@2.1.21
+  - @nextui-org/select@2.1.27
+  - @nextui-org/tabs@2.0.29
+  - @nextui-org/avatar@2.0.27
+  - @nextui-org/badge@2.0.27
+  - @nextui-org/breadcrumbs@2.0.7
+  - @nextui-org/button@2.0.31
+  - @nextui-org/card@2.0.28
+  - @nextui-org/checkbox@2.0.29
+  - @nextui-org/chip@2.0.28
+  - @nextui-org/code@2.0.27
+  - @nextui-org/date-input@2.0.3
+  - @nextui-org/divider@2.0.27
+  - @nextui-org/dropdown@2.1.23
+  - @nextui-org/image@2.0.27
+  - @nextui-org/kbd@2.0.28
+  - @nextui-org/link@2.0.29
+  - @nextui-org/listbox@2.1.19
+  - @nextui-org/menu@2.0.22
+  - @nextui-org/pagination@2.0.30
+  - @nextui-org/progress@2.0.28
+  - @nextui-org/radio@2.0.28
+  - @nextui-org/scroll-shadow@2.1.16
+  - @nextui-org/skeleton@2.0.27
+  - @nextui-org/slider@2.2.9
+  - @nextui-org/snippet@2.0.35
+  - @nextui-org/spacer@2.0.27
+  - @nextui-org/spinner@2.0.28
+  - @nextui-org/switch@2.0.28
+  - @nextui-org/tooltip@2.0.33
+  - @nextui-org/user@2.0.28
+
 ## 2.3.5
 
 ### Patch Changes

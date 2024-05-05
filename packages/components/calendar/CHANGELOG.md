@@ -1,5 +1,14 @@
 # @nextui-org/calendar
 
+## 2.0.4
+
+### Patch Changes
+
+- [#2861](https://github.com/nextui-org/nextui/pull/2861) [`e9fef9bd9`](https://github.com/nextui-org/nextui/commit/e9fef9bd922ae1efdf3f796cfe88a579bf693c1d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #2820 #2857 Maximum update depth exceeded on Calendar & RangeCalendar when hovering the dates.
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.31
+
 ## 2.0.3
 
 ### Patch Changes

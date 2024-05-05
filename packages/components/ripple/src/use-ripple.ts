@@ -24,8 +24,8 @@ export function useRipple(props: UseRippleProps = {}) {
       {
         key: getUniqueID(prevRipples.length.toString()),
         size,
-        x: event.clientX - rect.x - size / 2,
-        y: event.clientY - rect.y - size / 2,
+        x: event.clientX - rect.left - size / 2,
+        y: event.clientY - rect.top - size / 2,
       },
     ]);
   }, []);

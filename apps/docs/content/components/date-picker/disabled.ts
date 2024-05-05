@@ -1,5 +1,4 @@
 const App = `import {DatePicker} from "@nextui-org/react";
-import {CalendarDate, parseDate} from "@internationalized/date";
 
 export default function App() {
   return (
