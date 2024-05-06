@@ -69,7 +69,7 @@ export default function App() {
 const AppTs = `import {Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader} from "@nextui-org/react";
 
 export default function App() {
-  const [selected, setSelected] = React.useState<string | number>("login");
+  const [selected, setSelected] = React.useState<React.Key>("login");
 
   return (
     <div className="flex flex-col w-full">

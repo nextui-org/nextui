@@ -14,7 +14,7 @@ reviews:
       drafts: false
       base_branches:
         - "main"
-        - "develop"
+        - "canary"
         - "fix/.*"
         - "chore/.*"
         - "feat/.*"
