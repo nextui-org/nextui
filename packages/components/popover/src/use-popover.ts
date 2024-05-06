@@ -121,10 +121,8 @@ export function usePopover(originalProps: UsePopoverProps) {
   const Component = as || "div";
 
   const domRef = useDOMRef(ref);
-
   const domTriggerRef = useRef<HTMLElement>(null);
   const wasTriggerPressedRef = useRef(false);
-  const dialogRef = useRef(null);
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation = originalProps.disableAnimation ?? false;
@@ -171,7 +169,7 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing();
 
-  const {dialogProps, titleProps} = useDialog({}, dialogRef);
+  const {dialogProps, titleProps} = useDialog({}, domRef);
 
   const slots = useMemo(
     () =>
@@ -190,7 +188,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
-    ref: dialogRef,
+    ref: domRef,
     "data-slot": "base",
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
