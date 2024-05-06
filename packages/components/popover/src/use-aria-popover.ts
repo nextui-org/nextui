@@ -53,7 +53,6 @@ export function useReactAriaPopover(
     scrollRef,
     shouldFlip,
     boundaryElement,
-    isDismissable = true,
     shouldCloseOnBlur = true,
     placement: placementProp = "top",
     containerPadding,
@@ -64,14 +63,14 @@ export function useReactAriaPopover(
     ...otherProps
   } = props;
 
-  const isNonModal = isNonModalProp || true;
+  const isNonModal = isNonModalProp ?? true;
 
   const {overlayProps, underlayProps} = useOverlay(
     {
       isOpen: state.isOpen,
       onClose: state.close,
       shouldCloseOnBlur,
-      isDismissable,
+      isDismissable: !isNonModal,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside
