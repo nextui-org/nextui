@@ -328,9 +328,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   useEffect(() => {
     if (isOpen) {
       onFocus(true);
-    } else {
-      // TODO(FIXME): autocomplete within modal will block combobox closing
-      inputRef.current?.blur();
     }
   }, [isOpen]);
 
