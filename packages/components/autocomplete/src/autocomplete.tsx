@@ -15,7 +15,6 @@ interface Props<T> extends UseAutocompleteProps<T> {}
 function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLInputElement>) {
   const {
     Component,
-    state,
     isOpen,
     disableAnimation,
     selectorIcon = <ChevronDownIcon />,
@@ -33,7 +32,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   } = useAutocomplete<T>({...props, ref});
 
   const popoverContent = isOpen ? (
-    <FreeSoloPopover {...getPopoverProps()} state={state}>
+    <FreeSoloPopover {...getPopoverProps()}>
       <ScrollShadow {...getListBoxWrapperProps()}>
         <Listbox {...getListBoxProps()} />
       </ScrollShadow>
