@@ -1,6 +1,7 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import {useForm} from "react-hook-form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteSection} from "../src";
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../../modal/src";
@@ -218,5 +219,107 @@ describe("Autocomplete", () => {
 
     // assert that the autocomplete dropdown is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+});
+
+describe("Autocomplete with React Hook Form", () => {
+  let autocomplete1: HTMLInputElement;
+  let autocomplete2: HTMLInputElement;
+  let autocomplete3: HTMLInputElement;
+  let submitButton: HTMLButtonElement;
+  let wrapper: any;
+  let onSubmit: () => void;
+
+  beforeEach(() => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withDefaultValue: "cat",
+          withoutDefaultValue: "",
+          requiredField: "",
+        },
+      }),
+    );
+
+    const {
+      handleSubmit,
+      register,
+      formState: {errors},
+    } = result.current;
+
+    onSubmit = jest.fn();
+
+    wrapper = render(
+      <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+        <Autocomplete
+          data-testid="autocomplete-1"
+          {...register("withDefaultValue")}
+          aria-label="Favorite Animal"
+          items={itemsData}
+          label="Favorite Animal"
+        >
+          {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+        </Autocomplete>
+        <Autocomplete
+          data-testid="autocomplete-2"
+          {...register("withoutDefaultValue")}
+          aria-label="Favorite Animal"
+          items={itemsData}
+          label="Favorite Animal"
+        >
+          {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+        </Autocomplete>
+        <Autocomplete
+          data-testid="autocomplete-3"
+          {...register("requiredField", {required: true})}
+          aria-label="Favorite Animal"
+          items={itemsData}
+          label="Favorite Animal"
+        >
+          {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+        </Autocomplete>
+        {errors.requiredField && <span className="text-danger">This field is required</span>}
+        <button data-testid="submit-button" type="submit">
+          Submit
+        </button>
+      </form>,
+    );
+
+    autocomplete1 = wrapper.getByTestId("autocomplete-1");
+    autocomplete2 = wrapper.getByTestId("autocomplete-2");
+    autocomplete3 = wrapper.getByTestId("autocomplete-3");
+    submitButton = wrapper.getByTestId("submit-button");
+  });
+
+  it("should work with defaultValues", () => {
+    expect(autocomplete1).toHaveValue("Cat");
+    expect(autocomplete2).toHaveValue("");
+    expect(autocomplete3).toHaveValue("");
+  });
+
+  it("should not submit form when required field is empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("should submit form when required field is not empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(autocomplete3);
+
+    expect(autocomplete3).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete3).toHaveValue("Dog");
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

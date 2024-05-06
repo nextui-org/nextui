@@ -19,7 +19,7 @@ export default function App() {
       variant="bordered"
       isInvalid={isInvalid}
       color={isInvalid ? "danger" : "success"}
-      errorMessage={isInvalid && "Please enter a valid email"}
+      errorMessage="Please enter a valid email"
       onValueChange={setValue}
       className="max-w-xs"
     />

@@ -1,6 +1,7 @@
 import * as React from "react";
-import {render, act} from "@testing-library/react";
+import {render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import {useForm} from "react-hook-form";
 
 import {Checkbox, CheckboxProps} from "../src";
 
@@ -126,5 +127,76 @@ describe("Checkbox", () => {
     });
 
     expect(onChange).toBeCalled();
+  });
+});
+
+describe("Checkbox with React Hook Form", () => {
+  let checkbox1: HTMLInputElement;
+  let checkbox2: HTMLInputElement;
+  let checkbox3: HTMLInputElement;
+  let submitButton: HTMLButtonElement;
+  let onSubmit: () => void;
+
+  beforeEach(() => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withDefaultValue: true,
+          withoutDefaultValue: false,
+          requiredField: false,
+        },
+      }),
+    );
+
+    const {
+      handleSubmit,
+      register,
+      formState: {errors},
+    } = result.current;
+
+    onSubmit = jest.fn();
+
+    render(
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <Checkbox {...register("withDefaultValue")} />
+        <Checkbox {...register("withoutDefaultValue")} />
+        <Checkbox {...register("requiredField", {required: true})} />
+        {errors.requiredField && <span className="text-danger">This field is required</span>}
+        <button type="submit">Submit</button>
+      </form>,
+    );
+
+    checkbox1 = document.querySelector("input[name=withDefaultValue]")!;
+    checkbox2 = document.querySelector("input[name=withoutDefaultValue]")!;
+    checkbox3 = document.querySelector("input[name=requiredField]")!;
+    submitButton = document.querySelector("button")!;
+  });
+
+  it("should work with defaultValues", () => {
+    expect(checkbox1.checked).toBe(true);
+    expect(checkbox2.checked).toBe(false);
+    expect(checkbox3.checked).toBe(false);
+  });
+
+  it("should not submit form when required field is empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("should submit form when required field is not empty", async () => {
+    act(() => {
+      checkbox3.click();
+    });
+
+    expect(checkbox3.checked).toBe(true);
+
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

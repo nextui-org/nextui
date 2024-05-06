@@ -9,12 +9,12 @@ type PackageManager = {
 
 const importTabs: PackageManager[] = [
   {
-    key: "main",
-    name: "Main",
-  },
-  {
     key: "individual",
     name: "Individual",
+  },
+  {
+    key: "main",
+    name: "Global",
   },
 ];
 
