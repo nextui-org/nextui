@@ -1,5 +1,7 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {render, renderHook, act} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import {useForm} from "react-hook-form";
 
 import {Switch} from "../src";
 
@@ -11,7 +13,7 @@ describe("Switch", () => {
   });
 
   it("ref should be forwarded", () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLInputElement>();
 
     render(<Switch ref={ref} aria-label="switch" />);
     expect(ref.current).not.toBeNull();
@@ -196,5 +198,76 @@ describe("Switch", () => {
 
     expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
     expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
+  });
+});
+
+describe("Switch with React Hook Form", () => {
+  let switch1: HTMLInputElement;
+  let switch2: HTMLInputElement;
+  let switch3: HTMLInputElement;
+  let submitButton: HTMLButtonElement;
+  let onSubmit: () => void;
+
+  beforeEach(() => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          defaultTrue: true,
+          defaultFalse: false,
+          requiredField: false,
+        },
+      }),
+    );
+
+    const {
+      register,
+      formState: {errors},
+      handleSubmit,
+    } = result.current;
+
+    onSubmit = jest.fn();
+
+    render(
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <Switch {...register("defaultTrue")}>By default this switch is true</Switch>
+        <Switch {...register("defaultFalse")}>By default this switch is false</Switch>
+        <Switch {...register("requiredField", {required: true})}>This switch is required</Switch>
+        {errors.requiredField && <span className="text-danger">This switch is required</span>}
+        <button type="submit">Submit</button>
+      </form>,
+    );
+
+    switch1 = document.querySelector("input[name=defaultTrue]")!;
+    switch2 = document.querySelector("input[name=defaultFalse]")!;
+    switch3 = document.querySelector("input[name=requiredField]")!;
+    submitButton = document.querySelector("button")!;
+  });
+
+  it("should work with defaultValues", () => {
+    expect(switch1.checked).toBe(true);
+    expect(switch2.checked).toBe(false);
+    expect(switch3.checked).toBe(false);
+  });
+
+  it("should not submit form when required field is empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("should submit form when required field is not empty", async () => {
+    act(() => {
+      switch3.click();
+    });
+
+    expect(switch3.checked).toBe(true);
+
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

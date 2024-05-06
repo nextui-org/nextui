@@ -13,6 +13,7 @@ module.exports = {
   darkMode: "class",
   plugins: [
     nextui({
+      addCommonColors: true,
       themes: {
         // "dark": {
         //   extend: "dark", // <- inherit default values from dark theme

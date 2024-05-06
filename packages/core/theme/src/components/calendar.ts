@@ -106,7 +106,7 @@ const calendar = tv({
     },
     hideDisabledDates: {
       true: {
-        cellButton: "data-[disabled=true]:opacity-0",
+        cellButton: "data-[disabled=true]:data-[outside-month=true]:opacity-0",
       },
       false: {},
     },

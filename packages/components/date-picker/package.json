@@ -47,15 +47,15 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/date-input": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "@react-stately/overlays": "^3.6.3",
-    "@react-stately/utils": "^3.8.0",
+    "@react-stately/overlays": "3.6.5",
+    "@react-stately/utils": "3.9.1",
     "@internationalized/date": "^3.5.2",
-    "@react-aria/datepicker": "^3.9.3",
-    "@react-aria/i18n": "^3.8.4",
-    "@react-stately/datepicker": "^3.9.2",
-    "@react-types/datepicker": "^3.7.2",
-    "@react-types/shared": "3.21.0",
-    "@react-aria/utils": "^3.21.1"
+    "@react-aria/datepicker": "3.9.3",
+    "@react-aria/i18n": "3.10.2",
+    "@react-stately/datepicker": "3.9.2",
+    "@react-types/datepicker": "3.7.2",
+    "@react-types/shared": "3.22.1",
+    "@react-aria/utils": "3.23.2"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
