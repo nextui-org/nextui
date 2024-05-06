@@ -172,7 +172,7 @@ const input = tv({
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "relative text-foreground pr-2 rtl:pr-0 rtl:pl-2",
+        label: "relative text-foreground pr-2 rtl:pr-0 rtl:pl-2 pointer-events-auto",
       },
       inside: {
         label: "text-tiny cursor-text",
