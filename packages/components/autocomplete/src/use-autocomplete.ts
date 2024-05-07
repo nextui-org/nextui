@@ -448,6 +448,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
+      disableFocusManagement: true,
     } as unknown as PopoverProps;
   };
 
