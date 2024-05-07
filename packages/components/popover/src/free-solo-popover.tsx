@@ -23,6 +23,7 @@ export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> 
     originX?: number;
     originY?: number;
   };
+  disableFocusManagement?: boolean;
 }
 
 type FreeSoloPopoverWrapperProps = {
@@ -86,7 +87,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
 FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
-  ({children, transformOrigin, ...props}, ref) => {
+  ({children, transformOrigin, disableFocusManagement = false, ...props}, ref) => {
     const {
       Component,
       state,
@@ -129,7 +130,7 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
     }, [backdrop, disableAnimation, getBackdropProps]);
 
     return (
-      <Overlay disableFocusManagement portalContainer={portalContainer}>
+      <Overlay disableFocusManagement={disableFocusManagement} portalContainer={portalContainer}>
         {!isNonModal && backdropContent}
         <Component {...getPopoverProps()}>
           <FreeSoloPopoverWrapper
