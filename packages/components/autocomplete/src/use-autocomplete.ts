@@ -326,9 +326,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      onFocus(true);
-    }
+    onFocus(isOpen);
   }, [isOpen]);
 
   // to prevent the error message:
@@ -367,7 +365,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   const onFocus = useCallback(
     (isFocused: boolean) => {
-      inputRef.current?.focus();
+      if (isFocused) inputRef.current?.focus();
+      else inputRef.current?.blur();
       state.setFocused(isFocused);
     },
     [state, inputRef],
