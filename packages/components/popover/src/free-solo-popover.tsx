@@ -129,7 +129,7 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
     }, [backdrop, disableAnimation, getBackdropProps]);
 
     return (
-      <Overlay portalContainer={portalContainer}>
+      <Overlay disableFocusManagement portalContainer={portalContainer}>
         {!isNonModal && backdropContent}
         <Component {...getPopoverProps()}>
           <FreeSoloPopoverWrapper
