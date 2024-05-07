@@ -185,7 +185,7 @@ describe("Autocomplete", () => {
 
     const selectorButton = container.querySelector(
       "[data-slot='inner-wrapper'] button:nth-of-type(2)",
-    );
+    )!;
 
     expect(selectorButton).not.toBeNull();
 
