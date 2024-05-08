@@ -154,12 +154,12 @@ describe("Autocomplete", () => {
 
     const autocomplete = wrapper.getByTestId("autocomplete");
 
-    // open the select dropdown
+    // open the select listbox
     await act(async () => {
       await userEvent.click(autocomplete);
     });
 
-    // assert that the autocomplete dropdown is open
+    // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // assert that input is focused
@@ -183,12 +183,12 @@ describe("Autocomplete", () => {
 
     const autocomplete = wrapper.getByTestId("autocomplete");
 
-    // open the select dropdown
+    // open the select listbox
     await act(async () => {
       await userEvent.click(autocomplete);
     });
 
-    // assert that the autocomplete dropdown is open
+    // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     let options = wrapper.getAllByRole("option");
@@ -218,7 +218,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
   });
 
-  it("should open and close dropdown by clicking selector button", async () => {
+  it("should open and close listbox by clicking selector button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
         <AutocompleteItem key="penguin" value="penguin">
@@ -243,30 +243,30 @@ describe("Autocomplete", () => {
 
     const autocomplete = wrapper.getByTestId("autocomplete");
 
-    // open the select dropdown by clicking selector button
+    // open the select listbox by clicking selector button
     await act(async () => {
       await userEvent.click(selectorButton);
     });
 
-    // assert that the autocomplete dropdown is open
+    // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // assert that input is focused
     expect(autocomplete).toHaveFocus();
 
-    // close the select dropdown by clicking selector button again
+    // close the select listbox by clicking selector button again
     await act(async () => {
       await userEvent.click(selectorButton);
     });
 
-    // assert that the autocomplete dropdown is closed
+    // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
 
     // assert that input is still focused
     expect(autocomplete).toHaveFocus();
   });
 
-  it("should close dropdown when clicking outside autocomplete", async () => {
+  it("should close listbox when clicking outside autocomplete", async () => {
     const wrapper = render(
       <Autocomplete
         aria-label="Favorite Animal"
@@ -287,12 +287,12 @@ describe("Autocomplete", () => {
 
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
-    // open the select dropdown
+    // open the select listbox
     await act(async () => {
       await userEvent.click(autocomplete);
     });
 
-    // assert that the autocomplete dropdown is open
+    // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
@@ -307,7 +307,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).not.toHaveFocus();
   });
 
-  it("should close dropdown when clicking outside autocomplete with modal open", async () => {
+  it("should close listbox when clicking outside autocomplete with modal open", async () => {
     const wrapper = render(
       <Modal isOpen>
         <ModalContent>
@@ -336,12 +336,12 @@ describe("Autocomplete", () => {
 
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
-    // open the autocomplete dropdown
+    // open the autocomplete listbox
     await act(async () => {
       await userEvent.click(autocomplete);
     });
 
-    // assert that the autocomplete dropdown is open
+    // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
@@ -349,7 +349,7 @@ describe("Autocomplete", () => {
       await userEvent.click(document.body);
     });
 
-    // assert that the autocomplete dropdown is closed
+    // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
 
     // assert that input is not focused
@@ -373,12 +373,12 @@ describe("Autocomplete", () => {
 
     const autocomplete = wrapper.getByTestId("autocomplete");
 
-    // open the select dropdown
+    // open the listbox
     await act(async () => {
       await userEvent.click(autocomplete);
     });
 
-    // assert that the autocomplete dropdown is open
+    // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // assert that input is focused
