@@ -333,6 +333,12 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   }, [isOpen]);
 
   useEffect(() => {
+    if (!!state.selectedItem) {
+      setShouldFocus(true);
+    }
+  }, [state.selectedItem]);
+
+  useEffect(() => {
     if (shouldFocus || isOpen) {
       inputRef?.current?.focus();
     } else {
