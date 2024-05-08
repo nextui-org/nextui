@@ -281,6 +281,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         isIconOnly: true,
         disableAnimation,
         onClick: () => {
+          // if the listbox is open, clicking selector button should
+          // close the listbox and focus on the input
           if (state.isOpen) {
             setShouldFocus(true);
           }
@@ -332,20 +334,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen]);
 
+  // react aria has different focus strategies internally
+  // hence, handle focus behaviours on our side for better flexibilty
   useEffect(() => {
     if (!!state.selectedItem) {
       setShouldFocus(true);
-    }
-  }, [state.selectedItem]);
-
-  useEffect(() => {
-    if (shouldFocus || isOpen) {
+    } else if (shouldFocus || isOpen) {
       inputRef?.current?.focus();
     } else {
       inputRef?.current?.blur();
       if (shouldFocus) setShouldFocus(false);
     }
-  }, [isOpen]);
+  }, [shouldFocus, isOpen, state.selectedItem]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -469,12 +469,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
+      // react aria would update the focus back to trigger
+      // while we have different behaviour in autocomplete
+      // hence, disable focus management and manage on our side
       disableFocusManagement: true,
       shouldCloseOnInteractOutside: (element: any) => {
-        // Don't close if the click is within the trigger or the popover itself
         let trigger = inputWrapperRef?.current;
 
         if (!trigger || !trigger.contains(element)) {
+          // adding blur logic in shouldCloseOnInteractOutside
+          // to cater the case like autocomplete inside modal
           setShouldFocus(false);
         }
 
