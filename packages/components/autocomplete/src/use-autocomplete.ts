@@ -336,16 +336,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // react aria has different focus strategies internally
   // hence, handle focus behaviours on our side for better flexibilty
+
   useEffect(() => {
-    if (!!state.selectedItem) {
-      setShouldFocus(true);
-    } else if (shouldFocus || isOpen) {
+    if (shouldFocus || isOpen) {
       inputRef?.current?.focus();
     } else {
       inputRef?.current?.blur();
       if (shouldFocus) setShouldFocus(false);
     }
-  }, [shouldFocus, isOpen, state.selectedItem]);
+  }, [shouldFocus, isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -408,21 +407,20 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getClearButtonProps = () =>
     ({
       ...mergeProps(buttonProps, slotsProps.clearButtonProps),
+      // disable original focus and state toggle from react aria
+      onPressStart: () => {},
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
 
-        const inputFocused = inputRef.current === document.activeElement;
-
         if (state.selectedItem) {
           onClear();
-          setShouldFocus(true);
         } else {
-          allowsCustomValue && state.setInputValue("");
-          if (!inputFocused) {
-            onFocus(true);
-            setShouldFocus(true);
+          if (allowsCustomValue) {
+            state.setInputValue("");
+            state.close();
           }
         }
+        inputRef?.current?.focus();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
@@ -479,7 +477,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         if (!trigger || !trigger.contains(element)) {
           // adding blur logic in shouldCloseOnInteractOutside
           // to cater the case like autocomplete inside modal
-          setShouldFocus(false);
+          if (shouldFocus) {
+            setShouldFocus(false);
+          }
+        } else {
+          // keep it focus
+          if (!shouldFocus) {
+            setShouldFocus(true);
+          }
         }
 
         return !trigger || !trigger.contains(element);
