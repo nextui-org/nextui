@@ -84,30 +84,22 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
     onMove,
   });
 
-  const preventDefault = (e: Event) => {
+  const preventDefault = useCallback((e: TouchEvent) => {
     e.preventDefault();
-  };
+  }, []);
 
-  const onBodyTouchMove = () => {
-    // Prevent body scroll when dragging at mobile.
-    document.body.addEventListener("touchmove", preventDefault, {passive: false});
-  };
-
-  const offBodyTouchMove = () => {
-    document.body.removeEventListener("touchmove", preventDefault);
-  };
-
+  // NOTE: This process is due to the modal being displayed at the bottom instead of the center when opened on mobile sizes.
+  // It will become unnecessary once the modal is centered properly.
   useEffect(() => {
     if (!isDisabled) {
-      onBodyTouchMove();
-    } else {
-      offBodyTouchMove();
+      // Prevent body scroll when dragging at mobile.
+      document.body.addEventListener("touchmove", preventDefault, {passive: false});
     }
 
     return () => {
-      offBodyTouchMove();
+      document.body.removeEventListener("touchmove", preventDefault);
     };
-  }, [isDisabled, onBodyTouchMove, offBodyTouchMove]);
+  }, [isDisabled]);
 
   return {
     moveProps: {
