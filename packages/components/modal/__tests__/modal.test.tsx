@@ -146,6 +146,25 @@ describe("Modal", () => {
     expect(modal.style.transform).toBe("translate(100px, 50px)");
   });
 
+  it("should be rendered a draggable modal on mobile", () => {
+    // mock viewport size to 375x667
+    jest.spyOn(document.documentElement, "clientWidth", "get").mockImplementation(() => 375);
+    jest.spyOn(document.documentElement, "clientHeight", "get").mockImplementation(() => 667);
+
+    const wrapper = render(<ModalDraggable />);
+
+    const modal = wrapper.getByRole("dialog");
+    const modalHeader = wrapper.getByText("Modal header");
+
+    fireEvent.touchStart(modalHeader, {changedTouches: [{pageX: 0, pageY: 0}]});
+    fireEvent.touchMove(modalHeader, {changedTouches: [{pageX: 0, pageY: 50}]});
+    fireEvent.touchEnd(modalHeader, {changedTouches: [{pageX: 0, pageY: 50}]});
+
+    expect(document.documentElement.clientWidth).toBe(375);
+    expect(document.documentElement.clientHeight).toBe(667);
+    expect(modal.style.transform).toBe("translate(0px, 50px)");
+  });
+
   it("should not drag overflow viewport", () => {
     // mock viewport size to 1920x1080
     jest.spyOn(document.documentElement, "clientWidth", "get").mockImplementation(() => 1920);
