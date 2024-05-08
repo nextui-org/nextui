@@ -1,6 +1,6 @@
 import type {MoveMoveEvent, MoveResult} from "@react-aria/interactions";
 
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useCallback} from "react";
 import {useMove} from "@react-aria/interactions";
 
 export interface UseDraggableProps {
