@@ -166,6 +166,58 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
   });
 
+  it("should clear value after clicking clear button", async () => {
+    const wrapper = render(
+      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(autocomplete);
+    });
+
+    // assert that the autocomplete dropdown is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await act(async () => {
+      await userEvent.click(options[0]);
+    });
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // select the target item
+    await act(async () => {
+      await userEvent.click(clearButton);
+    });
+
+    // assert that the input has empty value
+    expect(autocomplete).toHaveValue("");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+  });
+
   it("should open and close dropdown by clicking selector button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
