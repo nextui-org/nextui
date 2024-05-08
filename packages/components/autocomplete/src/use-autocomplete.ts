@@ -6,7 +6,7 @@ import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -199,6 +199,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
+  const [shouldFocus, setShouldFocus] = useState(false);
+
   const {
     buttonProps,
     inputProps,
@@ -278,6 +280,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
+        onClick: () => {
+          if (state.isOpen) {
+            setShouldFocus(true);
+          }
+        },
       },
       selectorButtonProps,
     ),
@@ -326,10 +333,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen || !!state.selectedItem) {
+    if (shouldFocus || isOpen) {
       inputRef?.current?.focus();
     } else {
       inputRef?.current?.blur();
+      if (shouldFocus) setShouldFocus(false);
     }
   }, [isOpen]);
 
@@ -397,13 +405,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
 
+        const inputFocused = inputRef.current === document.activeElement;
+
         if (state.selectedItem) {
           onClear();
+          setShouldFocus(true);
         } else {
-          const inputFocused = inputRef.current === document.activeElement;
-
           allowsCustomValue && state.setInputValue("");
-          !inputFocused && onFocus(true);
+          if (!inputFocused) {
+            onFocus(true);
+            setShouldFocus(true);
+          }
         }
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
@@ -452,6 +464,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         }),
       },
       disableFocusManagement: true,
+      shouldCloseOnInteractOutside: (element: any) => {
+        // Don't close if the click is within the trigger or the popover itself
+        let trigger = inputWrapperRef?.current;
+
+        if (!trigger || !trigger.contains(element)) {
+          setShouldFocus(false);
+        }
+
+        return !trigger || !trigger.contains(element);
+      },
     } as unknown as PopoverProps;
   };
 
