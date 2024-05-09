@@ -144,6 +144,7 @@ export function useDropdown(props: UseDropdownProps) {
         onAction: () => onMenuAction(props?.closeOnSelect),
         onClose: state.close,
       }),
+      autoFocus: "first",
     } as MenuProps;
   };
 
