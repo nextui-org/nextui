@@ -538,3 +538,85 @@ describe("Dropdown", () => {
     spy.mockRestore();
   });
 });
+
+describe("Keyboard interactions", () => {
+  it("should focus on the first item on keyDown (Enter)", async () => {
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu disallowEmptySelection aria-label="Actions" selectionMode="single">
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    await act(async () => {
+      await userEvent.keyboard("[Enter]");
+    });
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+  });
+
+  it("should focus on the first item on keyDown (Space)", async () => {
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu disallowEmptySelection aria-label="Actions" selectionMode="single">
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    await act(async () => {
+      await userEvent.keyboard("[Space]");
+    });
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+  });
+});
