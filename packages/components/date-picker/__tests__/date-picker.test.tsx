@@ -466,7 +466,7 @@ describe("DatePicker", () => {
       onHeaderExpandedChangeSpy.mockClear();
     });
 
-    it("should show the month and year picker (uncontrolled)", async () => {
+    it("should show the month and year picker (uncontrolled)", () => {
       const {getByRole} = render(
         <DatePicker
           showMonthAndYearPickers
@@ -505,7 +505,7 @@ describe("DatePicker", () => {
       expect(onHeaderExpandedChangeSpy).toHaveBeenCalledWith(false);
     });
 
-    it("should show the month and year picker (controlled)", async () => {
+    it("should show the month and year picker (controlled)", () => {
       const {getByRole} = render(
         <DatePicker
           showMonthAndYearPickers
@@ -537,7 +537,7 @@ describe("DatePicker", () => {
       expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
     });
 
-    it("CalendarBottomContent should render correctly", async () => {
+    it("CalendarBottomContent should render correctly", () => {
       const {getByRole, getByTestId} = render(
         <DatePicker
           showMonthAndYearPickers
