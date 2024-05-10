@@ -59,7 +59,7 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
 
   const isSelected = tabKey === selectedItem?.key;
 
-  if (!content || (!isSelected && !destroyInactiveTabPanel)) {
+  if (!content || (!isSelected && destroyInactiveTabPanel)) {
     return null;
   }
 
