@@ -3,4 +3,4 @@
 "@nextui-org/theme": patch
 ---
 
-Add `destroyInactiveTabPanel` prop for Tabs component
+Add `destroyInactiveTabPanel` prop for Tabs component (#1562)
