@@ -59,7 +59,7 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
   isVertical?: boolean;
   /**
    * Whether to destroy inactive tab panel when switching tabs. Inactive tab panels are inert and cannot be interacted with.
-   * @default false
+   * @default true
    */
   destroyInactiveTabPanel?: boolean;
 }
