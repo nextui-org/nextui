@@ -95,7 +95,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     motionProps,
     isVertical = false,
     shouldSelectOnPressUp = true,
-    destroyInactiveTabPanel = false,
+    destroyInactiveTabPanel = true,
     ...otherProps
   } = props;
 
