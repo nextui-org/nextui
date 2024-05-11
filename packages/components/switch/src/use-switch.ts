@@ -1,15 +1,15 @@
 import type {ToggleVariantProps, ToggleSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {FocusableRef} from "@react-types/shared";
 import type {AriaSwitchProps} from "@react-aria/switch";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {ReactNode, Ref, useCallback, useId, useRef, useState} from "react";
 import {mapPropsVariants} from "@nextui-org/system";
+import {mergeRefs} from "@nextui-org/react-utils";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {useHover, usePress} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
 import {chain, mergeProps} from "@react-aria/utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {useFocusableRef} from "@nextui-org/react-utils";
 import {useSwitch as useReactAriaSwitch} from "@react-aria/switch";
 import {useMemo} from "react";
 import {useToggleState} from "@react-stately/toggle";
@@ -27,7 +27,7 @@ interface Props extends HTMLNextUIProps<"input"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: Ref<HTMLElement>;
+  ref?: Ref<HTMLInputElement>;
   /**
    * The label of the switch.
    */
@@ -100,8 +100,9 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
 
   const Component = as || "label";
 
-  const inputRef = useRef(null);
-  const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
+  const domRef = useRef<HTMLLabelElement>(null);
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const labelId = useId();
 
@@ -138,6 +139,16 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
   ]);
 
   const state = useToggleState(ariaSwitchProps);
+
+  // if we use `react-hook-form`, it will set the switch value using the ref in register
+  // i.e. setting ref.current.checked to true or false which is uncontrolled
+  // hence, sync the state with `ref.current.checked`
+  useSafeLayoutEffect(() => {
+    if (!inputRef.current) return;
+    const isInputRefChecked = !!inputRef.current.checked;
+
+    state.setSelected(isInputRefChecked);
+  }, [inputRef.current]);
 
   const {
     inputProps,
@@ -212,7 +223,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
   const getInputProps: PropGetter = (props = {}) => {
     return {
       ...mergeProps(inputProps, focusProps, props),
-      ref: inputRef,
+      ref: mergeRefs(inputRef, ref),
       id: inputProps.id,
       onChange: chain(onChange, inputProps.onChange),
     };

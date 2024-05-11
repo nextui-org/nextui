@@ -4,8 +4,9 @@ import React, {useMemo} from "react";
 import {SlotsToClasses, tv, type VariantProps} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {objectToDeps} from "@nextui-org/shared-utils";
+import clsx from "clsx";
 
-import {cn, forwardRef, mapPropsVariants} from "../src/utils";
+import {forwardRef, mapPropsVariants} from "../src/utils";
 
 const card = tv({
   slots: {
@@ -171,7 +172,7 @@ export const Card = forwardRef<"div", CardProps>((originalProps, ref) => {
 
   const styles = useMemo(() => card({...variantProps}), [objectToDeps(variantProps)]);
 
-  const baseStyles = cn(classNames?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const domRef = useDOMRef(ref);
 

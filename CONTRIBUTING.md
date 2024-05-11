@@ -57,7 +57,7 @@ https://www.conventionalcommits.org/ or check out the
 
 ## Pull Request Guidelines
 
-- The `main` branch is basically a snapshot of the latest stable version. All development must be done in dedicated branches.
+- The `main` branch is basically a snapshot of the latest production version. All development must be done in dedicated branches and will be merged to `canary` branch.
 - Make sure that Github Actions are green
 - It is good to have multiple small commits while working on the PR. We'll let GitHub squash it automatically before the merge.
 - If you add a new feature:
@@ -73,14 +73,14 @@ https://www.conventionalcommits.org/ or check out the
 
 1. Fork of the nextui repository and clone your fork
 
-2. Create a new branch out of the `main` branch. We follow the convention
+2. Create a new branch out of the `canary` branch. We follow the convention
    `[type/scope]`. For example `fix/dropdown-hook` or `docs/menu-typo`. `type`
    can be either `docs`, `fix`, `feat`, `build`, or any other conventional
    commit type. `scope` is just a short id that describes the scope of work.
 
 3. Make and commit your changes following the
    [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
-   As you develop, you can run `pnpm build --filter=<module>` and
+   As you canary, you can run `pnpm build --filter=<module>` and
    `pnpm test packages/<module>/<pkg>` e.g. `pnpm build --filter=avatar & pnpm test packages/components/avatar` to make sure everything works as expected.
 
    > To know more about the `--filter` option, please check the turborepo [docs](https://turborepo.org/docs/core-concepts/filtering).
@@ -200,9 +200,9 @@ npm run build
 
 6. Send your pull request:
 
-- Send your pull request to the `main` branch
+- Send your pull request to the `canary` branch
 - Your pull request will be reviewed by the maintainers and the maintainers will decide if it is accepted or not
-- Once the pull request is accepted, the maintainers will merge it to the `main` branch
+- Once the pull request is accepted, the maintainers will merge it to the `canary` branch
 
 ## Visual Changes
 

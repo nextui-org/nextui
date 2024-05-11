@@ -58,7 +58,7 @@ importers:
         specifier: ^3.4.4
         version: 3.5.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.0
+        specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
       '@storybook/react':
         specifier: ^7.4.6
@@ -337,46 +337,46 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(@types/react-dom@18.2.4)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.3
+        specifier: ^3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: ^3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.1
+        specifier: ^3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.1
+        specifier: ^3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/ssr':
-        specifier: ^3.8.0
+        specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/virtualizer':
-        specifier: ^3.9.4
+        specifier: ^3.9.10
         version: 3.9.10(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.6
+        specifier: ^3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/data':
-        specifier: ^3.10.3
+        specifier: ^3.11.2
         version: 3.11.2(react@18.2.0)
       '@react-stately/layout':
-        specifier: ^3.13.3
+        specifier: ^3.13.7
         version: 3.13.7(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.3
+        specifier: ^3.7.6
         version: 3.7.6(react@18.2.0)
       '@rehooks/local-storage':
         specifier: ^2.4.5
         version: 2.4.5(react@18.2.0)
       '@vercel/analytics':
-        specifier: ^1.1.1
+        specifier: ^1.2.2
         version: 1.2.2(next@13.5.1)(react@18.2.0)
       canvas-confetti:
-        specifier: ^1.9.0
+        specifier: ^1.9.2
         version: 1.9.2
       cmdk:
         specifier: ^0.2.0
@@ -391,8 +391,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -524,7 +524,7 @@ importers:
         specifier: ^13.4.12
         version: 13.5.6
       '@react-types/shared':
-        specifier: ^3.22.0
+        specifier: ^3.22.1
         version: 3.22.1(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
@@ -632,25 +632,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-accordion
       '@react-aria/button':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.19
         version: 3.0.0-alpha.19(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -723,31 +723,31 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
       '@react-aria/combobox':
-        specifier: ^3.8.4
+        specifier: 3.8.4
         version: 3.8.4(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/combobox':
-        specifier: ^3.8.2
+        specifier: 3.8.2
         version: 3.8.2(react@18.2.0)
       '@react-types/combobox':
-        specifier: ^3.10.1
+        specifier: 3.10.1
         version: 3.10.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -769,7 +769,7 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-infinite-scroll
       '@react-stately/data':
-        specifier: ^3.11.0
+        specifier: 3.11.2
         version: 3.11.2(react@18.2.0)
       clean-package:
         specifier: 2.2.0
@@ -783,6 +783,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.51.3(react@18.2.0)
 
   packages/components/avatar:
     dependencies:
@@ -796,13 +799,13 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-image
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -873,19 +876,19 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/breadcrumbs':
-        specifier: ^3.5.11
+        specifier: 3.5.11
         version: 3.5.11(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/breadcrumbs':
-        specifier: ^3.7.3
+        specifier: 3.7.3
         version: 3.7.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -931,22 +934,22 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/button':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -995,38 +998,38 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/calendar':
-        specifier: 3.5.1
-        version: 3.5.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.5.6
+        version: 3.5.6(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.14.3
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.19.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.6
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/calendar':
-        specifier: 3.4.1
-        version: 3.4.1(react@18.2.0)
+        specifier: 3.4.4
+        version: 3.4.4(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.8.0
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.0
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/calendar':
-        specifier: 3.4.1
-        version: 3.4.1(react@18.2.0)
+        specifier: 3.4.4
+        version: 3.4.4(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
       '@types/lodash.debounce':
         specifier: ^4.0.7
         version: 4.0.9
@@ -1077,19 +1080,19 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@react-aria/button':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -1141,31 +1144,31 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
       '@react-aria/checkbox':
-        specifier: ^3.14.1
+        specifier: 3.14.1
         version: 3.14.1(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/checkbox':
-        specifier: ^3.6.3
+        specifier: 3.6.3
         version: 3.6.3(react@18.2.0)
       '@react-stately/toggle':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/checkbox':
-        specifier: ^3.7.1
+        specifier: 3.7.1
         version: 3.7.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/chip':
@@ -1211,16 +1214,16 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/checkbox':
-        specifier: ^3.7.1
+        specifier: 3.7.1
         version: 3.7.1(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -1279,23 +1282,23 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/datepicker':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/datepicker':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/datepicker':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1346,29 +1349,29 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/datepicker':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.8.4
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/datepicker':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-stately/overlays':
-        specifier: ^3.6.3
+        specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.8.0
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       '@react-types/datepicker':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/radio':
         specifier: workspace:*
@@ -1404,7 +1407,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/system-rsc
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/theme':
@@ -1435,19 +1438,19 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.13.1
+        specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/menu':
-        specifier: ^3.6.1
+        specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-types/menu':
-        specifier: ^3.9.7
+        specifier: 3.9.7
         version: 3.9.7(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -1527,25 +1530,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/textfield':
-        specifier: ^3.14.3
+        specifier: 3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.9.1
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       '@react-types/textfield':
-        specifier: ^3.9.1
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       react-textarea-autosize:
         specifier: ^8.5.3
@@ -1582,7 +1585,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/system-rsc
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
     devDependencies:
       '@nextui-org/theme':
@@ -1613,16 +1616,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-link
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/link':
-        specifier: ^3.6.5
+        specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/link':
-        specifier: ^3.5.3
+        specifier: 3.5.3
         version: 3.5.3(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
@@ -1659,25 +1662,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/listbox':
-        specifier: ^3.11.5
+        specifier: 3.11.5
         version: 3.11.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/list':
-        specifier: ^3.10.3
+        specifier: 3.10.3
         version: 3.10.3(react@18.2.0)
       '@react-types/menu':
-        specifier: ^3.9.7
+        specifier: 3.9.7
         version: 3.9.7(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -1732,28 +1735,28 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-is-mobile
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.13.1
+        specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/menu':
-        specifier: ^3.6.1
+        specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-types/menu':
-        specifier: ^3.9.7
+        specifier: 3.9.7
         version: 3.9.7(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -1802,25 +1805,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-disclosure
       '@react-aria/dialog':
-        specifier: ^3.5.12
+        specifier: 3.5.12
         version: 3.5.12(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/overlays':
-        specifier: ^3.6.5
+        specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
       '@react-types/overlays':
-        specifier: ^3.8.5
+        specifier: 3.8.5
         version: 3.8.5(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -1875,22 +1878,22 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-scroll-position
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/toggle':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.9.1
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -1951,16 +1954,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-pagination
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
@@ -2006,28 +2009,28 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
       '@react-aria/dialog':
-        specifier: ^3.5.12
+        specifier: 3.5.12
         version: 3.5.12(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/overlays':
-        specifier: ^3.6.5
+        specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/overlays':
-        specifier: ^3.8.5
+        specifier: 3.8.5
         version: 3.8.5(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
@@ -2070,16 +2073,16 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-is-mounted
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/progress':
-        specifier: ^3.4.11
+        specifier: 3.4.11
         version: 3.4.11(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/progress':
-        specifier: ^3.5.2
+        specifier: 3.5.2
         version: 3.5.2(react@18.2.0)
     devDependencies:
       '@nextui-org/card':
@@ -2113,28 +2116,28 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/radio':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/radio':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-types/radio':
-        specifier: ^3.7.1
+        specifier: 3.7.1
         version: 3.7.1(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -2251,22 +2254,22 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/form':
-        specifier: ^3.0.3
+        specifier: 3.0.3
         version: 3.0.3(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -2294,10 +2297,10 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-infinite-scroll
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-stately/data':
-        specifier: ^3.11.2
+        specifier: 3.11.2
         version: 3.11.2(react@18.2.0)
       clean-package:
         specifier: 2.2.0
@@ -2311,6 +2314,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.51.3(react@18.2.0)
 
   packages/components/skeleton:
     dependencies:
@@ -2355,25 +2361,25 @@ importers:
         specifier: workspace:*
         version: link:../tooltip
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/slider':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/slider':
-        specifier: ^3.5.2
+        specifier: 3.5.2
         version: 3.5.2(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -2419,10 +2425,10 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-clipboard
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -2502,26 +2508,29 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/switch':
-        specifier: ^3.6.2
+        specifier: 3.6.2
         version: 3.6.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/toggle':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -2542,6 +2551,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.51.3(react@18.2.0)
 
   packages/components/table:
     dependencies:
@@ -2561,31 +2573,31 @@ importers:
         specifier: workspace:*
         version: link:../spacer
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/table':
-        specifier: ^3.13.5
+        specifier: 3.13.5
         version: 3.13.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       '@react-stately/table':
-        specifier: ^3.11.6
+        specifier: 3.11.6
         version: 3.11.6(react@18.2.0)
       '@react-stately/virtualizer':
-        specifier: ^3.6.8
+        specifier: 3.6.8
         version: 3.6.8(react@18.2.0)
       '@react-types/grid':
-        specifier: ^3.2.4
+        specifier: 3.2.4
         version: 3.2.4(react@18.2.0)
       '@react-types/table':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -2616,7 +2628,7 @@ importers:
         specifier: workspace:*
         version: link:../user
       '@react-stately/data':
-        specifier: ^3.11.2
+        specifier: 3.11.2
         version: 3.11.2(react@18.2.0)
       clean-package:
         specifier: 2.2.0
@@ -2652,25 +2664,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-update-effect
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/tabs':
-        specifier: ^3.8.5
+        specifier: 3.8.5
         version: 3.8.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/tabs':
-        specifier: ^3.6.4
+        specifier: 3.6.4
         version: 3.6.4(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       '@react-types/tabs':
-        specifier: ^3.3.5
+        specifier: 3.3.5
         version: 3.3.5(react@18.2.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
@@ -2731,25 +2743,25 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/tooltip':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/tooltip':
-        specifier: ^3.4.7
+        specifier: 3.4.7
         version: 3.4.7(react@18.2.0)
       '@react-types/overlays':
-        specifier: ^3.8.5
+        specifier: 3.8.5
         version: 3.8.5(react@18.2.0)
       '@react-types/tooltip':
-        specifier: ^3.4.7
+        specifier: 3.4.7
         version: 3.4.7(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
@@ -2786,10 +2798,10 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
     devDependencies:
       '@nextui-org/link':
@@ -2943,7 +2955,7 @@ importers:
         specifier: workspace:*
         version: link:../../components/user
       '@react-aria/visually-hidden':
-        specifier: ^3.8.10
+        specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       framer-motion:
         specifier: '>=4.0.0'
@@ -2971,16 +2983,16 @@ importers:
         specifier: workspace:*
         version: link:../system-rsc
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/overlays':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.9.1
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3020,6 +3032,9 @@ importers:
 
   packages/core/theme:
     dependencies:
+      clsx:
+        specifier: ^1.2.1
+        version: 1.2.1
       color:
         specifier: ^4.2.3
         version: 4.2.3
@@ -3047,6 +3062,9 @@ importers:
       lodash.omit:
         specifier: ^4.5.0
         version: 4.5.0
+      tailwind-merge:
+        specifier: ^1.14.0
+        version: 1.14.0
       tailwind-variants:
         specifier: ^0.1.20
         version: 0.1.20(tailwindcss@3.4.3)
@@ -3082,25 +3100,25 @@ importers:
   packages/hooks/use-aria-accordion:
     dependencies:
       '@react-aria/button':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.5
+        specifier: 3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.19
         version: 3.0.0-alpha.19(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3113,16 +3131,16 @@ importers:
   packages/hooks/use-aria-accordion-item:
     dependencies:
       '@react-aria/button':
-        specifier: ^3.9.3
+        specifier: 3.9.3
         version: 3.9.3(react@18.2.0)
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3135,19 +3153,19 @@ importers:
   packages/hooks/use-aria-button:
     dependencies:
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3160,19 +3178,19 @@ importers:
   packages/hooks/use-aria-link:
     dependencies:
       '@react-aria/focus':
-        specifier: ^3.16.2
+        specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/link':
-        specifier: ^3.5.3
+        specifier: 3.5.3
         version: 3.5.3(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3185,31 +3203,31 @@ importers:
   packages/hooks/use-aria-menu:
     dependencies:
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.13.1
+        specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.5
+        specifier: 3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/collections':
-        specifier: ^3.10.5
+        specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-types/menu':
-        specifier: ^3.9.7
+        specifier: 3.9.7
         version: 3.9.7(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
@@ -3225,16 +3243,16 @@ importers:
   packages/hooks/use-aria-modal-overlay:
     dependencies:
       '@react-aria/overlays':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/overlays':
-        specifier: ^3.6.5
+        specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3250,46 +3268,46 @@ importers:
   packages/hooks/use-aria-multiselect:
     dependencies:
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/interactions':
-        specifier: ^3.21.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/label':
-        specifier: ^3.7.6
+        specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-aria/listbox':
-        specifier: ^3.11.5
+        specifier: 3.11.5
         version: 3.11.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/menu':
-        specifier: ^3.13.1
+        specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.5
+        specifier: 3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/form':
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1(react@18.2.0)
       '@react-stately/list':
-        specifier: ^3.10.3
+        specifier: 3.10.3
         version: 3.10.3(react@18.2.0)
       '@react-stately/menu':
-        specifier: ^3.6.1
+        specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/overlays':
-        specifier: ^3.8.5
+        specifier: 3.8.5
         version: 3.8.5(react@18.2.0)
       '@react-types/select':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3308,16 +3326,16 @@ importers:
         specifier: workspace:*
         version: link:../use-aria-button
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/toggle':
-        specifier: ^3.7.2
+        specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-types/button':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3368,10 +3386,10 @@ importers:
         specifier: workspace:*
         version: link:../use-callback-ref
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/utils':
-        specifier: ^3.9.1
+        specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3413,17 +3431,17 @@ importers:
   packages/hooks/use-intersection-observer:
     dependencies:
       '@react-aria/interactions':
-        specifier: ^3.19.1
+        specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/ssr':
-        specifier: ^3.8.0
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.21.1
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.21.0
-        version: 3.21.0(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3435,7 +3453,7 @@ importers:
   packages/hooks/use-is-mobile:
     dependencies:
       '@react-aria/ssr':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3469,7 +3487,7 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/i18n':
-        specifier: ^3.10.2
+        specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
     devDependencies:
       clean-package:
@@ -3622,16 +3640,16 @@ importers:
         specifier: workspace:*
         version: link:../../core/system
       '@react-aria/utils':
-        specifier: ^3.23.2
+        specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       '@react-stately/collections':
-        specifier: ^3.10.5
+        specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
       '@react-types/overlays':
-        specifier: ^3.8.5
+        specifier: 3.8.5
         version: 3.8.5(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.1
+        specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
     devDependencies:
       clean-package:
@@ -9616,8 +9634,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-aria/calendar@3.5.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-3gGiI2arrGQtlPD9633l00TR4y5dj9IMFapEiCDuwVwNSCsnH8aiz/emg+3hGFq86QoyvkFBvnKmezJIVKfPkA==}
+  /@react-aria/calendar@3.5.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PA0Ur5WcODMn7t2gCUvq61YktkB+WlSZjzDr5kcY3sdl53ZjiyqCa2hYgrb6R0J859LVJXAp+5Qaproz8g1oLA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -9627,9 +9645,9 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
       '@react-aria/utils': 3.23.2(react@18.2.0)
-      '@react-stately/calendar': 3.4.1(react@18.2.0)
+      '@react-stately/calendar': 3.4.4(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
-      '@react-types/calendar': 3.4.1(react@18.2.0)
+      '@react-types/calendar': 3.4.4(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -10166,15 +10184,14 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-stately/calendar@3.4.1(react@18.2.0):
-    resolution: {integrity: sha512-XKCdrXNA7/ukZ842EeDZfLqYUQDv/x5RoAVkzTbp++3U/MLM1XZXsqj+5xVlQfJiWpQzM9L6ySjxzzgepJDeuw==}
+  /@react-stately/calendar@3.4.4(react@18.2.0):
+    resolution: {integrity: sha512-f9ZOd096gGGD+3LmU1gkmfqytGyQtrgi+Qjn+70GbM2Jy65pwOR4I9YrobbmeAFov5Tff13mQEa0yqWvbcDLZQ==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
       '@internationalized/date': 3.5.2
       '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/calendar': 3.4.1(react@18.2.0)
-      '@react-types/datepicker': 3.7.2(react@18.2.0)
+      '@react-types/calendar': 3.4.4(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -10487,16 +10504,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-types/calendar@3.4.1(react@18.2.0):
-    resolution: {integrity: sha512-tiCkHi6IQtYcVoAESG79eUBWDXoo8NImo+Mj8WAWpo1lOA3SV1W2PpeXkoRNqtloilQ0aYcmsaJJUhciQG4ndg==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@internationalized/date': 3.5.2
-      '@react-types/shared': 3.22.1(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
   /@react-types/calendar@3.4.4(react@18.2.0):
     resolution: {integrity: sha512-hV1Thmb/AES5OmfPvvmyjSkmsEULjiDfA7Yyy70L/YKuSNKb7Su+Bf2VnZuDW3ec+GxO4JJNlpJ0AkbphWBvcg==}
     peerDependencies:
@@ -10616,14 +10623,6 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-types/shared': 3.22.1(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@react-types/shared@3.21.0(react@18.2.0):
-    resolution: {integrity: sha512-wJA2cUF8dP4LkuNUt9Vh2kkfiQb2NLnV2pPXxVnKJZ7d4x2/7VPccN+LYPnH8m0X3+rt50cxWuPKQmjxSsCFOg==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
       react: 18.2.0
     dev: false
 
@@ -17374,6 +17373,25 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
+
+  /framer-motion@11.1.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+    dev: false
 
   /fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}

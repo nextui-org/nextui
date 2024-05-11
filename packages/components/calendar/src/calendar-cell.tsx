@@ -42,7 +42,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
     ref,
   );
 
-  const isUnavailable = state.isCellUnavailable(props.date) && !isDisabled;
+  const isUnavailable = state.isCellUnavailable(props.date);
   const isLastSelectedBeforeDisabled =
     !isDisabled && !isInvalid && state.isCellUnavailable(props.date.add({days: 1}));
   const isFirstSelectedAfterDisabled =

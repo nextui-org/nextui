@@ -421,7 +421,8 @@
           "key": "nextui-provider",
           "title": "NextUI Provider",
           "keywords": "api references, nextui, api, nextui provider",
-          "path": "/docs/api-references/nextui-provider.mdx"
+          "path": "/docs/api-references/nextui-provider.mdx",
+          "updated": true
         }
       ]
     }

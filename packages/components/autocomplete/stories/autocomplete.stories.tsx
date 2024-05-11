@@ -2,6 +2,7 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
+import {useForm} from "react-hook-form";
 import {autocomplete, input, button} from "@nextui-org/theme";
 import {
   Pokemon,
@@ -686,6 +687,45 @@ const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps
   );
 };
 
+const WithReactHookFormTemplate = (args: AutocompleteProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "cat",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+      <Autocomplete {...args} {...register("withDefaultValue")}>
+        {items}
+      </Autocomplete>
+      <Autocomplete {...args} {...register("withoutDefaultValue")}>
+        {items}
+      </Autocomplete>
+      <Autocomplete {...args} {...register("requiredField", {required: true})}>
+        {items}
+      </Autocomplete>
+
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -733,15 +773,6 @@ export const DisabledOptions = {
   },
 };
 
-export const WithDescription = {
-  render: MirrorTemplate,
-
-  args: {
-    ...defaultProps,
-    description: "Select your favorite animal",
-  },
-};
-
 export const LabelPlacement = {
   render: LabelPlacementTemplate,
 
@@ -779,6 +810,27 @@ export const EndContent = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const IsInvalid = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    variant: "bordered",
+    defaultSelectedKey: "dog",
+    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const WithDescription = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Select your favorite animal",
   },
 };
 
@@ -847,15 +899,37 @@ export const WithValidation = {
   },
 };
 
-export const IsInvalid = {
-  render: Template,
+export const WithSections = {
+  render: WithSectionsTemplate,
 
   args: {
     ...defaultProps,
-    isInvalid: true,
-    variant: "bordered",
-    defaultSelectedKey: "dog",
-    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const WithCustomSectionsStyles = {
+  render: WithCustomSectionsStylesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithAriaLabel = {
+  render: WithAriaLabelTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Select an animal 🐹",
+    "aria-label": "Select an animal",
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
@@ -882,32 +956,6 @@ export const CustomItems = {
 
   args: {
     ...defaultProps,
-  },
-};
-
-export const WithSections = {
-  render: WithSectionsTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithCustomSectionsStyles = {
-  render: WithCustomSectionsStylesTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithAriaLabel = {
-  render: WithAriaLabelTemplate,
-
-  args: {
-    ...defaultProps,
-    label: "Select an animal 🐹",
-    "aria-label": "Select an animal",
   },
 };
 

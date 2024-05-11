@@ -38,15 +38,15 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@react-aria/utils": "^3.23.2",
-    "@react-types/shared": "^3.22.1",
-    "@react-aria/menu": "^3.13.1",
-    "@react-aria/interactions": "^3.21.1",
-    "@react-stately/tree": "^3.7.6",
-    "@react-aria/i18n": "^3.10.2",
-    "@react-aria/selection": "^3.17.5",
-    "@react-stately/collections": "^3.10.5",
-    "@react-types/menu": "^3.9.7"
+    "@react-aria/utils": "3.23.2",
+    "@react-types/shared": "3.22.1",
+    "@react-aria/menu": "3.13.1",
+    "@react-aria/interactions": "3.21.1",
+    "@react-stately/tree": "3.7.6",
+    "@react-aria/i18n": "3.10.2",
+    "@react-aria/selection": "3.17.5",
+    "@react-stately/collections": "3.10.5",
+    "@react-types/menu": "3.9.7"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
