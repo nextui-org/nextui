@@ -86,7 +86,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
 FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
-  ({children, transformOrigin = false, ...props}, ref) => {
+  ({children, transformOrigin, ...props}, ref) => {
     const {
       Component,
       state,
