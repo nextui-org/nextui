@@ -68,7 +68,7 @@ interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProp
 }
 
 export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange" | "validationBehavior"> &
+  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
   CheckboxVariantProps;
 
 export function useCheckbox(props: UseCheckboxProps = {}) {
@@ -86,21 +86,25 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,
-    validationState,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     radius = groupContext?.radius,
     lineThrough = groupContext?.lineThrough ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? false,
-    isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
+    validationState,
+    isInvalid: isInvalidProp,
     isIndeterminate = false,
+    validationBehavior = groupContext?.validationBehavior ?? "native",
     defaultSelected,
     classNames,
     className,
     onValueChange,
     ...otherProps
   } = props;
+
+  const isInvalid =
+    (validationState === "invalid" || isInvalidProp || groupContext?.isInvalid) ?? false;
 
   if (groupContext && __DEV__) {
     if (isSelectedProp) {
@@ -185,15 +189,14 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         {
           ...ariaCheckboxProps,
           isInvalid,
-          validationBehavior: "native",
+          validationBehavior,
         },
         groupContext.groupState,
         inputRef,
       )
     : // eslint-disable-next-line
       useReactAriaCheckbox(
-        {...ariaCheckboxProps, validationBehavior: "native"},
-        // eslint-disable-next-line
+        {...ariaCheckboxProps, validationBehavior},
         toggleState,
         inputRef,
       );
