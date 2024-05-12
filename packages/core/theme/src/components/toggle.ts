@@ -30,7 +30,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const toggle = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent",
+    base: "group/switch relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent",
     wrapper: [
       "px-1",
       "relative",
@@ -63,38 +63,38 @@ const toggle = tv({
     color: {
       default: {
         wrapper: [
-          "group-data-[selected=true]:bg-default-400",
-          "group-data-[selected=true]:text-default-foreground",
+          "group-data-[selected=true]/switch:bg-default-400",
+          "group-data-[selected=true]/switch:text-default-foreground",
         ],
       },
       primary: {
         wrapper: [
-          "group-data-[selected=true]:bg-primary",
-          "group-data-[selected=true]:text-primary-foreground",
+          "group-data-[selected=true]/switch:bg-primary",
+          "group-data-[selected=true]/switch:text-primary-foreground",
         ],
       },
       secondary: {
         wrapper: [
-          "group-data-[selected=true]:bg-secondary",
-          "group-data-[selected=true]:text-secondary-foreground",
+          "group-data-[selected=true]/switch:bg-secondary",
+          "group-data-[selected=true]/switch:text-secondary-foreground",
         ],
       },
       success: {
         wrapper: [
-          "group-data-[selected=true]:bg-success",
-          "group-data-[selected=true]:text-success-foreground",
+          "group-data-[selected=true]/switch:bg-success",
+          "group-data-[selected=true]/switch:text-success-foreground",
         ],
       },
       warning: {
         wrapper: [
-          "group-data-[selected=true]:bg-warning",
-          "group-data-[selected=true]:text-warning-foreground",
+          "group-data-[selected=true]/switch:bg-warning",
+          "group-data-[selected=true]/switch:text-warning-foreground",
         ],
       },
       danger: {
         wrapper: [
-          "group-data-[selected=true]:bg-danger",
-          "data-[selected=true]:text-danger-foreground",
+          "group-data-[selected=true]/switch:bg-danger",
+          "data-[selected=true]/switch:text-danger-foreground",
         ],
       },
     },
@@ -104,7 +104,7 @@ const toggle = tv({
         thumb: [
           "w-4 h-4 text-tiny",
           //selected
-          "group-data-[selected=true]:ml-4 rtl:group-data-[selected=true]:ml-0 rtl:group-data-[selected=true]:mr-4",
+          "group-data-[selected=true]/switch:ml-4 rtl:group-data-[selected=true]/switch:ml-0 rtl:group-data-[selected=true]/switch:mr-4",
         ],
         endContent: "text-tiny",
         startContent: "text-tiny",
@@ -115,7 +115,7 @@ const toggle = tv({
         thumb: [
           "w-5 h-5 text-small",
           //selected
-          "group-data-[selected=true]:ml-5 rtl:group-data-[selected=true]:ml-0 rtl:group-data-[selected=true]:mr-5",
+          "group-data-[selected=true]/switch:ml-5 rtl:group-data-[selected=true]/switch:ml-0 rtl:group-data-[selected=true]/switch:mr-5",
         ],
         endContent: "text-small",
         startContent: "text-small",
@@ -126,7 +126,7 @@ const toggle = tv({
         thumb: [
           "w-6 h-6 text-medium",
           //selected
-          "group-data-[selected=true]:ml-6 rtl:group-data-[selected=true]:ml-0 rtl:group-data-[selected=true]:mr-6",
+          "group-data-[selected=true]/switch:ml-6 rtl:group-data-[selected=true]/switch:ml-0 rtl:group-data-[selected=true]/switch:mr-6",
         ],
         endContent: "text-medium",
         startContent: "text-medium",
@@ -150,14 +150,14 @@ const toggle = tv({
           "opacity-0",
           "scale-50",
           "transition-transform-opacity",
-          "group-data-[selected=true]:scale-100",
-          "group-data-[selected=true]:opacity-100",
+          "group-data-[selected=true]/switch:scale-100",
+          "group-data-[selected=true]/switch:opacity-100",
         ],
         endContent: [
           "opacity-100",
           "transition-transform-opacity",
-          "group-data-[selected=true]:translate-x-3",
-          "group-data-[selected=true]:opacity-0",
+          "group-data-[selected=true]/switch:translate-x-3",
+          "group-data-[selected=true]/switch:opacity-0",
         ],
       },
     },
@@ -173,21 +173,30 @@ const toggle = tv({
       disableAnimation: false,
       size: "sm",
       class: {
-        thumb: ["group-data-[pressed=true]:w-5", "group-data-[selected]:group-data-[pressed]:ml-3"],
+        thumb: [
+          "group-data-[pressed=true]/switch:w-5",
+          "group-data-[selected]/switch:group-data-[pressed]/switch:ml-3",
+        ],
       },
     },
     {
       disableAnimation: false,
       size: "md",
       class: {
-        thumb: ["group-data-[pressed=true]:w-6", "group-data-[selected]:group-data-[pressed]:ml-4"],
+        thumb: [
+          "group-data-[pressed=true]/switch:w-6",
+          "group-data-[selected]/switch:group-data-[pressed]/switch:ml-4",
+        ],
       },
     },
     {
       disableAnimation: false,
       size: "lg",
       class: {
-        thumb: ["group-data-[pressed=true]:w-7", "group-data-[selected]:group-data-[pressed]:ml-5"],
+        thumb: [
+          "group-data-[pressed=true]/switch:w-7",
+          "group-data-[selected]/switch:group-data-[pressed]/switch:ml-5",
+        ],
       },
     },
   ],
