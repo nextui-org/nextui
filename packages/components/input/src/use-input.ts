@@ -304,7 +304,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         "data-slot": "label",
         className: slots.label({class: classNames?.label}),
-        ...mergeProps(labelProps, props, labelHoverProps),
+        ...mergeProps(labelProps, labelHoverProps, props),
       };
     },
     [slots, isLabelHovered, labelProps, classNames?.label],
