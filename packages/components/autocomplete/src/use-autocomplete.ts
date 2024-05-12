@@ -467,10 +467,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
-      // react aria would update the focus back to trigger
-      // while we have different behaviour in autocomplete
-      // hence, disable focus management and manage on our side
-      disableFocusManagement: true,
       shouldCloseOnInteractOutside: (element: any) => {
         let trigger = inputWrapperRef?.current;
 
