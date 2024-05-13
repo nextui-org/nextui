@@ -470,27 +470,27 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       shouldCloseOnInteractOutside: (element: any) => {
         let trigger = inputWrapperRef?.current;
 
-        const isOverlay = element?.children?.[0]?.getAttribute("role") === "dialog";
+        // check if the current autocomplete is within the modal
+        const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
 
+        // if interacting outside the autocomplete
         if (!trigger || !trigger.contains(element)) {
-          // adding blur logic in shouldCloseOnInteractOutside
-          // to cater the case like autocomplete inside modal
-          if (shouldFocus) {
-            setShouldFocus(false);
-          }
-          // if it is not clicking overlay, close the listbox
+          // blur the input in case it is currently focused
+          setShouldFocus(false);
+          // close the listbox close the listboxif it is not clicking overlay
           // e.g. clicking another autocomplete
-          if (!isOverlay) {
+          if (!isWithinModal) {
             state.close();
           }
         } else {
-          // keep it focus
-          if (!shouldFocus) {
-            setShouldFocus(true);
-          }
+          // otherwise the autocomplete input should keep focused
+          setShouldFocus(true);
         }
 
-        return isOverlay;
+        // if the autocomplete is in modal,
+        // clicking the overlay should close the listbox instead of closing the modal
+        // otherwise, allow interaction with other elements
+        return isWithinModal;
       },
     } as unknown as PopoverProps;
   };
