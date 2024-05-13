@@ -57,6 +57,11 @@ export interface Props extends Omit<HTMLNextUIProps, "children"> {
    * @default false
    */
   isVertical?: boolean;
+  /**
+   * Whether to destroy inactive tab panel when switching tabs. Inactive tab panels are inert and cannot be interacted with.
+   * @default true
+   */
+  destroyInactiveTabPanel?: boolean;
 }
 
 export type UseTabsProps<T> = Props &
@@ -90,6 +95,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     motionProps,
     isVertical = false,
     shouldSelectOnPressUp = true,
+    destroyInactiveTabPanel = true,
     ...otherProps
   } = props;
 
@@ -182,6 +188,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     domRef,
     state,
     values,
+    destroyInactiveTabPanel,
     getBaseProps,
     getTabListProps,
     getWrapperProps,
