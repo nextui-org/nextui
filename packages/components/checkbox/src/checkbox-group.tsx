@@ -21,7 +21,7 @@ const CheckboxGroup = forwardRef<"div", CheckboxGroupProps>((props, ref) => {
     getErrorMessageProps,
   } = useCheckboxGroup({...props, ref});
 
-  const errorMessageContent = useMemo(() => errorMessage, [isInvalid]);
+  const errorMessageContent = useMemo(() => errorMessage, [errorMessage, isInvalid]);
 
   return (
     <div {...getGroupProps()}>
@@ -31,7 +31,7 @@ const CheckboxGroup = forwardRef<"div", CheckboxGroupProps>((props, ref) => {
       </div>
       {errorMessageContent ? (
         <div {...getErrorMessageProps()}>{errorMessageContent}</div>
-      ) : isInvalid && description ? (
+      ) : description ? (
         <div {...getDescriptionProps()}>{description}</div>
       ) : null}
     </div>

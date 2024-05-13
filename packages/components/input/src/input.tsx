@@ -19,7 +19,6 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     isOutsideLeft,
     shouldLabelBeOutside,
     errorMessage,
-    isInvalid,
     getBaseProps,
     getLabelProps,
     getInputProps,
@@ -49,14 +48,13 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
       <div {...getHelperWrapperProps()}>
         {errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : isInvalid && description ? (
+        ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
         ) : null}
       </div>
     );
   }, [
     hasHelper,
-    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,
