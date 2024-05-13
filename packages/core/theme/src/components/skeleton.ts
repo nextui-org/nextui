@@ -19,6 +19,7 @@ const skeleton = tv({
       "relative",
       "overflow-hidden",
       "bg-content3 dark:bg-content2",
+      "pointer-events-none",
       // before
       "before:opacity-100",
       "before:absolute",
