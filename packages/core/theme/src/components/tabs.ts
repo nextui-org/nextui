@@ -184,7 +184,6 @@ const tabs = tv({
     size: "md",
     fullWidth: false,
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     /**
