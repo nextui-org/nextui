@@ -38,7 +38,6 @@ const button = tv({
     "overflow-hidden",
     "tap-highlight-transparent",
     "data-[pressed=true]:scale-[0.97]",
-    "origin-bottom",
     // focus ring
     ...dataFocusVisibleClasses,
   ],
