@@ -632,7 +632,6 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
-    isInvalid: true,
     errorMessage: "Please enter a valid email address",
   },
 };
