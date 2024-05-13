@@ -58,6 +58,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     disableAnimation = false,
     keepContentMounted = false,
     disableIndicatorAnimation = false,
+    HeadingComponent = as || "h2",
     onPress,
     onPressStart,
     onPressEnd,
@@ -237,6 +238,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
 
   return {
     Component,
+    HeadingComponent,
     item,
     slots,
     classNames,
