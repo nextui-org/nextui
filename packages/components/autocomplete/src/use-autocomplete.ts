@@ -470,11 +470,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       shouldCloseOnInteractOutside: (element: any) => {
         let trigger = inputWrapperRef?.current;
 
+        const isOverlay = element?.children?.[0]?.getAttribute("role") === "dialog";
+
         if (!trigger || !trigger.contains(element)) {
           // adding blur logic in shouldCloseOnInteractOutside
           // to cater the case like autocomplete inside modal
           if (shouldFocus) {
             setShouldFocus(false);
+          }
+          // if it is not clicking overlay, close the listbox
+          // e.g. clicking another autocomplete
+          if (!isOverlay) {
+            state.close();
           }
         } else {
           // keep it focus
@@ -483,7 +490,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           }
         }
 
-        return !trigger || !trigger.contains(element);
+        return isOverlay;
       },
     } as unknown as PopoverProps;
   };
