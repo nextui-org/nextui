@@ -41,6 +41,7 @@ const skeleton = tv({
       "after:bg-content3",
       "dark:after:bg-content2",
       // state
+      "data-[loaded=true]:overflow-visible",
       "data-[loaded=true]:!bg-transparent",
       "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:animate-none",
       "data-[loaded=true]:after:opacity-0",
