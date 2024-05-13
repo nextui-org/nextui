@@ -47,9 +47,9 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
     return (
       <div {...getHelperWrapperProps()}>
-        {isInvalid && errorMessage ? (
+        {errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
+        ) : isInvalid && description ? (
           <div {...getDescriptionProps()}>{description}</div>
         ) : null}
       </div>

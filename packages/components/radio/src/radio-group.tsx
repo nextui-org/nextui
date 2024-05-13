@@ -27,9 +27,9 @@ const RadioGroup = forwardRef<"div", RadioGroupProps>((props, ref) => {
       <div {...getWrapperProps()}>
         <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
       </div>
-      {isInvalid && errorMessage ? (
+      {errorMessage ? (
         <div {...getErrorMessageProps()}>{errorMessage}</div>
-      ) : description ? (
+      ) : isInvalid && description ? (
         <div {...getDescriptionProps()}>{description}</div>
       ) : null}
     </Component>

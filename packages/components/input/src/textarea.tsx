@@ -145,9 +145,9 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
         </div>
         {hasHelper ? (
           <div {...getHelperWrapperProps()}>
-            {isInvalid && errorMessage ? (
+            {errorMessage ? (
               <div {...getErrorMessageProps()}>{errorMessage}</div>
-            ) : description ? (
+            ) : isInvalid && description ? (
               <div {...getDescriptionProps()}>{description}</div>
             ) : null}
           </div>

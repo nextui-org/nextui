@@ -57,9 +57,9 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
 
     return (
       <div {...getHelperWrapperProps()}>
-        {isInvalid && errorMessage ? (
+        {errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
+        ) : isInvalid && description ? (
           <div {...getDescriptionProps()}>{description}</div>
         ) : null}
       </div>
