@@ -1,10 +1,10 @@
 import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {CheckboxGroupProps} from "@react-types/checkbox";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";
@@ -69,6 +69,8 @@ export type ContextType = {
 };
 
 export function useCheckboxGroup(props: UseCheckboxGroupProps) {
+  const globalContext = useProviderContext();
+
   const {
     as,
     ref,
@@ -86,8 +88,8 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     orientation = "vertical",
     lineThrough = false,
     isDisabled = false,
-    disableAnimation = false,
     validationBehavior = "native",
+    disableAnimation = globalContext?.disableAnimation ?? false,
     isReadOnly,
     isRequired,
     onValueChange,

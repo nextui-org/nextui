@@ -5,6 +5,19 @@ import {createContext} from "@nextui-org/react-utils";
 
 export type ProviderContextProps = {
   /**
+   * Whether to disable animations in the whole application.
+   *
+   * @default false
+   */
+  disableAnimation?: boolean;
+  /**
+   * Whether to disable the ripple effect in the whole application.
+   * If `disableAnimation` is set to `true`, this prop will be ignored.
+   *
+   * @default false
+   */
+  disableRipple?: boolean;
+  /**
    * The default dates range that can be selected in the calendar.
    */
   defaultDates?: {

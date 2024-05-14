@@ -1,8 +1,8 @@
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import React, {Key, useCallback} from "react";
 import {TreeState, useTreeState} from "@react-stately/tree";
@@ -73,6 +73,8 @@ export type ValuesType<T extends object = {}> = {
 };
 
 export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
+  const globalContext = useProviderContext();
+
   const {
     ref,
     as,
@@ -97,7 +99,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     isDisabled = false,
     showDivider = true,
     hideIndicator = false,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     disableIndicatorAnimation = false,
     itemClasses,
     ...otherProps

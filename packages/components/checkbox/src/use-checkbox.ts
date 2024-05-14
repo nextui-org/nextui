@@ -1,7 +1,7 @@
 import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxProps} from "@react-types/checkbox";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
@@ -72,6 +72,7 @@ export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
   CheckboxVariantProps;
 
 export function useCheckbox(props: UseCheckboxProps = {}) {
+  const globalContext = useProviderContext();
   const groupContext = useCheckboxGroupContext();
   const isInGroup = !!groupContext;
 
@@ -91,9 +92,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     radius = groupContext?.radius,
     lineThrough = groupContext?.lineThrough ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    disableAnimation = groupContext?.disableAnimation ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
     validationState,
-    isInvalid: isInvalidProp,
+    isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
     validationBehavior = groupContext?.validationBehavior ?? "native",
     defaultSelected,
@@ -102,9 +103,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     onValueChange,
     ...otherProps
   } = props;
-
-  const isInvalid =
-    (validationState === "invalid" || isInvalidProp || groupContext?.isInvalid) ?? false;
 
   if (groupContext && __DEV__) {
     if (isSelectedProp) {
@@ -337,9 +335,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const getIconProps = useCallback(
     () =>
       ({
-        isSelected: isSelected,
-        isIndeterminate: !!isIndeterminate,
-        disableAnimation: !!disableAnimation,
+        isSelected,
+        isIndeterminate,
+        disableAnimation,
         className: slots.icon({class: classNames?.icon}),
       } as CheckboxIconProps),
     [slots, classNames?.icon, isSelected, isIndeterminate, disableAnimation],

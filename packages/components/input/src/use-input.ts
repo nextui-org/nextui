@@ -1,7 +1,12 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
@@ -86,6 +91,8 @@ export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTM
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
 ) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
 
   const {
@@ -120,6 +127,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const [isFocusWithin, setFocusWithin] = useState(false);
 
   const Component = as || "div";
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const domRef = useDOMRef<T>(ref);
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
@@ -240,8 +250,16 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         isInvalid,
         labelPlacement,
         isClearable,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
+    [
+      objectToDeps(variantProps),
+      isInvalid,
+      labelPlacement,
+      isClearable,
+      hasStartContent,
+      disableAnimation,
+    ],
   );
 
   const getBaseProps: PropGetter = useCallback(

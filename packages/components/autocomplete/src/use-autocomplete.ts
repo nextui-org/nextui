@@ -1,6 +1,7 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
+import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
@@ -117,8 +118,11 @@ export type UseAutocompleteProps<T> = Props<T> &
   AutocompleteVariantProps;
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   // TODO: Remove disableClearable prop in the next minor release.
   const isClearable =
