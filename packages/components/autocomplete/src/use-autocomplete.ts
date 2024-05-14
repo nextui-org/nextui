@@ -157,7 +157,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
-    validationBehavior = "native",
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
     errorMessage,
@@ -418,6 +418,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...inputProps,
       ...slotsProps.inputProps,
       isInvalid,
+      validationBehavior,
       errorMessage:
         typeof errorMessage === "function"
           ? errorMessage({isInvalid, validationErrors, validationDetails})

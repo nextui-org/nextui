@@ -111,7 +111,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
-    validationBehavior = "native",
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
@@ -349,7 +349,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ),
         required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
-        "aria-required": dataAttr(originalProps.isRequired),
+        "aria-required": dataAttr(originalProps.isRequired && validationBehavior === "aria"),
         onChange: chain(inputProps.onChange, onChange),
       };
     },

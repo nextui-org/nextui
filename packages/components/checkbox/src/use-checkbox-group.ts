@@ -88,7 +88,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     orientation = "vertical",
     lineThrough = false,
     isDisabled = false,
-    validationBehavior = "native",
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     disableAnimation = globalContext?.disableAnimation ?? false,
     isReadOnly,
     isRequired,

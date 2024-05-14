@@ -176,7 +176,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     listboxProps = {},
     spinnerProps = {},
     validationState,
-    validationBehavior = "native",
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     onChange,
     onClose,
     className,

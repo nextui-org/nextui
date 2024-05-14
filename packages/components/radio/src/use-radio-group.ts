@@ -74,7 +74,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     name,
     isInvalid: isInvalidProp,
     validationState,
-    validationBehavior = "native",
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     size = "md",
     color = "primary",
     isDisabled = false,

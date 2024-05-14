@@ -896,11 +896,13 @@ export const WithValidation = {
 
   args: {
     ...defaultProps,
-    isRequired: true,
+    label: "Select Cat or Dog",
     validate: (value) => {
-      if (value.inputValue === "Cat" || value.selectedKey === "dog") {
-        return "Please select a valid animal";
+      if (value.selectedKey == null || value.selectedKey === "cat" || value.selectedKey === "dog") {
+        return;
       }
+
+      return "Please select a valid animal";
     },
   },
 };
