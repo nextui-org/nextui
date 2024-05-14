@@ -838,9 +838,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system-rsc':
-        specifier: workspace:*
-        version: link:../../core/system-rsc
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -851,6 +848,9 @@ importers:
       '@nextui-org/switch':
         specifier: workspace:*
         version: link:../switch
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -952,8 +952,8 @@ importers:
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1095,8 +1095,8 @@ importers:
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1896,8 +1896,8 @@ importers:
         specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.9(@types/react@18.2.8)(react@18.2.0)
@@ -2326,9 +2326,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system-rsc':
-        specifier: workspace:*
-        version: link:../../core/system-rsc
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2336,6 +2333,9 @@ importers:
       '@nextui-org/card':
         specifier: workspace:*
         version: link:../card
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -2431,8 +2431,8 @@ importers:
         specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2958,8 +2958,8 @@ importers:
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2998,6 +2998,9 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+      framer-motion:
+        specifier: ^11.0.22
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -17373,6 +17376,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
+    dev: true
 
   /framer-motion@11.1.7(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
@@ -17391,7 +17395,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
-    dev: false
 
   /fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}

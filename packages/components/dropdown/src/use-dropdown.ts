@@ -1,8 +1,8 @@
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {MenuTriggerType} from "@react-types/menu";
 import type {Ref} from "react";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {useMenuTriggerState} from "@react-stately/menu";
 import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
@@ -41,6 +41,8 @@ interface Props extends HTMLNextUIProps<"div"> {
 export type UseDropdownProps = Props & Omit<PopoverProps, "children" | "color" | "variant">;
 
 export function useDropdown(props: UseDropdownProps) {
+  const globalContext = useProviderContext();
+
   const {
     as,
     triggerRef: triggerRefProp,
@@ -54,7 +56,7 @@ export function useDropdown(props: UseDropdownProps) {
     closeOnSelect = true,
     shouldBlockScroll = true,
     classNames: classNamesProp,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     onClose,
     className,
     ...otherProps

@@ -1,9 +1,9 @@
 import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@nextui-org/use-aria-button";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactNode} from "react";
 import type {RippleProps} from "@nextui-org/ripple";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {MouseEventHandler, useCallback} from "react";
@@ -65,6 +65,7 @@ export type UseButtonProps = Props &
 
 export function useButton(props: UseButtonProps) {
   const groupContext = useButtonGroupContext();
+  const globalContext = useProviderContext();
   const isInGroup = !!groupContext;
 
   const {
@@ -76,16 +77,16 @@ export function useButton(props: UseButtonProps) {
     autoFocus,
     className,
     spinner,
+    isLoading = false,
+    disableRipple: disableRippleProp = false,
     fullWidth = groupContext?.fullWidth ?? false,
+    radius = groupContext?.radius,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "default",
     variant = groupContext?.variant ?? "solid",
-    disableAnimation = groupContext?.disableAnimation ?? false,
-    radius = groupContext?.radius,
-    disableRipple = groupContext?.disableRipple ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     isIconOnly = groupContext?.isIconOnly ?? false,
-    isLoading = false,
     spinnerPlacement = "start",
     onPress,
     onClick,
@@ -96,6 +97,8 @@ export function useButton(props: UseButtonProps) {
   const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
+
+  const disableRipple = (disableRippleProp || globalContext?.disableRipple) ?? disableAnimation;
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,

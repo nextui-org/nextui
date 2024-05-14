@@ -12,7 +12,12 @@ import type {TableCollection} from "@react-types/table";
 import {ReactNode, Key, useCallback} from "react";
 import {useTableState} from "@react-stately/table";
 import {AriaTableProps, useTable as useReactAriaTable} from "@react-aria/table";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {table} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -140,6 +145,8 @@ export type ValuesType<T = object> = {
 };
 
 export function useTable<T extends object>(originalProps: UseTableProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, table.variantKeys);
 
   const {
@@ -151,7 +158,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     classNames,
     layoutNode,
     removeWrapper = false,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     selectionMode = "none",
     topContentPlacement = "inside",
     bottomContentPlacement = "inside",
