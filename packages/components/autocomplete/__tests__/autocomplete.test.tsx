@@ -1,9 +1,9 @@
 import * as React from "react";
-import {render, renderHook, act} from "@testing-library/react";
+import {within, render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
-import {Autocomplete, AutocompleteItem, AutocompleteSection} from "../src";
+import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../../modal/src";
 
 type Item = {
@@ -48,21 +48,23 @@ const itemsSectionData = [
   },
 ];
 
+const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
+  <Autocomplete label="Favorite Animal" {...props}>
+    <AutocompleteItem key="penguin" value="penguin">
+      Penguin
+    </AutocompleteItem>
+    <AutocompleteItem key="zebra" value="zebra">
+      Zebra
+    </AutocompleteItem>
+    <AutocompleteItem key="shark" value="shark">
+      Shark
+    </AutocompleteItem>
+  </Autocomplete>
+);
+
 describe("Autocomplete", () => {
   it("should render correctly", () => {
-    const wrapper = render(
-      <Autocomplete aria-label="Favorite Animal" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
-      </Autocomplete>,
-    );
+    const wrapper = render(<AutocompleteExample />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -70,19 +72,7 @@ describe("Autocomplete", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    render(
-      <Autocomplete ref={ref} aria-label="Favorite Animal" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
-      </Autocomplete>,
-    );
+    render(<AutocompleteExample ref={ref} label="Favorite Animal" />);
     expect(ref.current).not.toBeNull();
   });
 
@@ -219,6 +209,85 @@ describe("Autocomplete", () => {
 
     // assert that the autocomplete dropdown is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+
+  describe("validation", () => {
+    let user;
+
+    beforeAll(() => {
+      user = userEvent.setup();
+    });
+
+    describe("validationBehavior=native", () => {
+      it("supports isRequired", async () => {
+        const {getByTestId, getByRole, findByRole} = render(
+          <form data-testid="form">
+            <AutocompleteExample isRequired validationBehavior="native" />
+          </form>,
+        );
+
+        const input = getByRole("combobox") as HTMLInputElement;
+
+        expect(input).toHaveAttribute("required");
+        expect(input).not.toHaveAttribute("aria-required");
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(false);
+
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Constraints not satisfied",
+        );
+
+        await user.click(input);
+        await user.keyboard("pe");
+
+        const listbox = await findByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        expect(input).toHaveAttribute("aria-describedby");
+      });
+    });
+
+    describe("validationBehavior=aria", () => {
+      it("supports validate function", async () => {
+        let {getByRole, findByRole} = render(
+          <form data-testid="form">
+            <AutocompleteExample
+              defaultInputValue="Penguin"
+              validate={(v) => (v === "Penguin" ? "Invalid value" : null)}
+              validationBehavior="aria"
+            />
+          </form>,
+        );
+
+        const input = getByRole("combobox") as HTMLInputElement;
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid value",
+        );
+        expect(input.validity.valid).toBe(true);
+
+        await user.tab();
+        await user.click();
+        // open the select dropdown
+        await user.keyboard("{ArrowDown}");
+
+        const listbox = await findByRole("listbox");
+        const item = within(listbox).getByRole("option", {name: "Zebra"});
+
+        await user.click(item);
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input).not.toHaveAttribute("aria-invalid");
+      });
+    });
   });
 });
 
