@@ -195,7 +195,7 @@ const avatar = tv({
  */
 const avatarGroup = tv({
   slots: {
-    base: "flex items-center justify-center h-auto w-max-content",
+    base: "flex items-center justify-center h-auto w-max",
     count: "hover:-translate-x-0",
   },
   variants: {
