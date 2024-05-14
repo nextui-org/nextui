@@ -299,7 +299,7 @@ export function Providers({children}: ProvidersProps) {
 
 ### Removal of the `units` creation
 
-In order to improve the performance and reduce the bundle size, we have removed the `units` creation from the 
+To improve performance and reduce bundle size, we have removed the `units` creation from the 
 `nextui` plugin. [TailwindCSS v3.4](https://tailwindcss.com/blog/tailwindcss-v3-4) added support for `min-h-*` and `min-w-*` classes, so it is no longer needed.
 
 How to upgrade:
@@ -344,7 +344,7 @@ Due to this reason, the requirements for displaying error messages have become m
 
 How to upgrade:
 
-1. In order to display `errorMessage`, `isInvalid` has to be set to `true`. Therefore, you can add `isInvalid` props and set it to `true`.
+1. To display `errorMessage`, `isInvalid` must be set to `true`.
 
 ```diff-jsx
 <Input
