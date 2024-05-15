@@ -77,8 +77,14 @@ const FormTemplate = (args: CheckboxProps) => {
     <form
       className="flex flex-col items-start gap-4"
       onSubmit={(e) => {
-        alert(`Submitted value: ${e.target["check"].value}`);
         e.preventDefault();
+        const checkbox = e.target["check"] as HTMLInputElement;
+
+        if (checkbox.checked) {
+          alert(`Submitted value: ${checkbox.value}`);
+        } else {
+          alert("Checkbox is not checked");
+        }
       }}
     >
       <Checkbox name="check" value="checked" {...args}>

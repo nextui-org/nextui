@@ -96,7 +96,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     validationState,
     isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
-    validationBehavior = groupContext?.validationBehavior ?? "native",
+    validationBehavior = groupContext?.validationBehavior ?? "aria",
     defaultSelected,
     classNames,
     className,
@@ -146,6 +146,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       children,
       autoFocus,
       defaultSelected,
+      validationBehavior,
       isIndeterminate,
       isRequired,
       isInvalid,
@@ -168,6 +169,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isReadOnlyProp,
     isSelectedProp,
     defaultSelected,
+    validationBehavior,
     otherProps["aria-label"],
     otherProps["aria-labelledby"],
     onValueChange,
@@ -184,17 +186,13 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   } = isInGroup
     ? // eslint-disable-next-line
       useReactAriaCheckboxGroupItem(
-        {
-          ...ariaCheckboxProps,
-          isInvalid,
-          validationBehavior,
-        },
+        {...ariaCheckboxProps},
         groupContext.groupState,
         inputRef,
       )
     : // eslint-disable-next-line
       useReactAriaCheckbox(
-        {...ariaCheckboxProps, validationBehavior},
+        {...ariaCheckboxProps},
         toggleState,
         inputRef,
       );
@@ -219,10 +217,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   });
 
   const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
-
-  if (isRequired) {
-    inputProps.required = true;
-  }
 
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,

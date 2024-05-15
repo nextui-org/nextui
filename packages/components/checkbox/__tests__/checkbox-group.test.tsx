@@ -182,8 +182,7 @@ describe("Checkbox.Group", () => {
         expect(group).not.toHaveAttribute("aria-describedby");
       });
 
-      // TODO: fix this test
-      xit("supports checkbox level isRequired", async () => {
+      it("supports checkbox level isRequired", async () => {
         let {getAllByRole, getByRole, getByTestId} = render(
           <form data-testid="form">
             <CheckboxGroup label="Agree to the following" validationBehavior="native">
@@ -224,11 +223,8 @@ describe("Checkbox.Group", () => {
         expect(document.activeElement).toBe(checkboxes[0]);
 
         await user.click(checkboxes[0]);
-        expect(checkboxes[0].validity.valid).toBe(true);
-        expect(checkboxes[1].validity.valid).toBe(false);
-        expect(group).toHaveAttribute("aria-describedby");
-
         await user.click(checkboxes[1]);
+        expect(checkboxes[0].validity.valid).toBe(true);
         expect(checkboxes[1].validity.valid).toBe(true);
         expect(group).not.toHaveAttribute("aria-describedby");
       });

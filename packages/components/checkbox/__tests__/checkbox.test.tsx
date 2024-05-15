@@ -128,6 +128,60 @@ describe("Checkbox", () => {
 
     expect(onChange).toBeCalled();
   });
+
+  describe("validation", () => {
+    let user;
+
+    beforeEach(() => {
+      user = userEvent.setup();
+    });
+
+    describe("validationBehavior=native", () => {
+      it("supports isRequired", async () => {
+        const {getByRole, getByTestId} = render(
+          <form data-testid="form">
+            <Checkbox isRequired validationBehavior="native">
+              Terms and conditions
+            </Checkbox>
+          </form>,
+        );
+
+        const checkbox = getByRole("checkbox") as HTMLInputElement;
+
+        expect(checkbox).toHaveAttribute("required");
+        expect(checkbox).not.toHaveAttribute("aria-required");
+        expect(checkbox.validity.valid).toBe(false);
+
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        await user.click(checkbox);
+        expect(checkbox.validity.valid).toBe(true);
+      });
+    });
+
+    describe("validationBehavior=aria", () => {
+      it("supports validate function", async () => {
+        const {getByRole} = render(
+          <Checkbox
+            validate={(v) => (!v ? "You must accept the terms." : null)}
+            validationBehavior="aria"
+            value="terms"
+          >
+            Terms and conditions
+          </Checkbox>,
+        );
+
+        const checkbox = getByRole("checkbox") as HTMLInputElement;
+
+        expect(checkbox.validity.valid).toBe(true);
+
+        await user.click(checkbox);
+        expect(checkbox.validity.valid).toBe(true);
+      });
+    });
+  });
 });
 
 describe("Checkbox with React Hook Form", () => {
