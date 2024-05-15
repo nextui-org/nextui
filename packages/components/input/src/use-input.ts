@@ -347,9 +347,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           }),
           props,
         ),
-        required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
-        "aria-required": dataAttr(originalProps.isRequired && validationBehavior === "aria"),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
