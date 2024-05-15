@@ -1,7 +1,8 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {act, render, fireEvent} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
+import {keyCodes} from "@nextui-org/test-utils";
 import {User} from "@nextui-org/user";
 import {Image} from "@nextui-org/image";
 import {Avatar} from "@nextui-org/avatar";
@@ -565,9 +566,7 @@ describe("Keyboard interactions", () => {
 
     expect(triggerButton).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[Enter]");
-    });
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
 
     let menu = wrapper.queryByRole("menu");
 
@@ -605,9 +604,7 @@ describe("Keyboard interactions", () => {
 
     expect(triggerButton).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[Space]");
-    });
+    fireEvent.keyDown(triggerButton, {key: " ", charCode: keyCodes.Space});
 
     let menu = wrapper.queryByRole("menu");
 
