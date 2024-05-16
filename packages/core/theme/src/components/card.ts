@@ -149,7 +149,6 @@ const card = tv({
   compoundVariants: [
     {
       isPressable: true,
-      disableAnimation: false,
       class: "data-[pressed=true]:scale-[0.97] tap-highlight-transparent",
     },
   ],
@@ -160,7 +159,6 @@ const card = tv({
     isHoverable: false,
     isPressable: false,
     isDisabled: false,
-    disableAnimation: false,
     isFooterBlurred: false,
   },
 });

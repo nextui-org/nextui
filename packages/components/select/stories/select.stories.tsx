@@ -2,6 +2,7 @@
 import type {ValidationResult} from "@react-types/shared";
 
 import React, {ChangeEvent} from "react";
+import {useForm} from "react-hook-form";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
 import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
@@ -585,6 +586,47 @@ const AsyncLoadingTemplate = ({color, variant, ...args}: SelectProps<Pokemon>) =
   );
 };
 
+const WithReactHookFormTemplate = (args: SelectProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "cat",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+      <Select data-testid="select-1" {...args} {...register("withDefaultValue")}>
+        {items}
+      </Select>
+
+      <Select data-testid="select-2" {...args} {...register("withoutDefaultValue")}>
+        {items}
+      </Select>
+
+      <Select data-testid="select-3" {...args} {...register("requiredField", {required: true})}>
+        {items}
+      </Select>
+
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -631,23 +673,15 @@ export const DisabledOptions = {
   },
 };
 
-export const WithDescription = {
-  render: MirrorTemplate,
-
-  args: {
-    ...defaultProps,
-    description: "Select your favorite animal",
-  },
-};
-
-export const WithoutLabel = {
+export const IsInvalid = {
   render: Template,
 
   args: {
     ...defaultProps,
-    label: null,
-    "aria-label": "Select an animal",
-    placeholder: "Select an animal",
+    isInvalid: true,
+    variant: "bordered",
+    defaultSelectedKeys: ["dog"],
+    errorMessage: "Please select a valid animal",
   },
 };
 
@@ -672,6 +706,26 @@ export const StartContent = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithDescription = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Select your favorite animal",
+  },
+};
+
+export const WithoutLabel = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: null,
+    "aria-label": "Select an animal",
+    placeholder: "Select an animal",
   },
 };
 
@@ -726,15 +780,62 @@ export const WithErrorMessageFunction = {
   },
 };
 
-export const IsInvalid = {
-  render: Template,
+export const WithChips = {
+  render: CustomItemsTemplate,
 
   args: {
     ...defaultProps,
-    isInvalid: true,
     variant: "bordered",
-    defaultSelectedKeys: ["dog"],
-    errorMessage: "Please select a valid animal",
+    selectionMode: "multiple",
+    isMultiline: true,
+    labelPlacement: "outside",
+    classNames: {
+      base: "max-w-xs",
+      trigger: "min-h-12 py-2",
+    },
+    renderValue: (items: SelectedItems<User>) => {
+      return (
+        <div className="flex flex-wrap gap-2">
+          {items.map((item) => (
+            <Chip key={item.key}>{item.data?.name}</Chip>
+          ))}
+        </div>
+      );
+    },
+  },
+};
+
+export const WithSections = {
+  render: WithSectionsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithCustomSectionsStyles = {
+  render: WithCustomSectionsStylesTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithAriaLabel = {
+  render: WithAriaLabelTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Select an animal 🐹",
+    "aria-label": "Select an animal",
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
@@ -805,57 +906,6 @@ export const CustomRenderValue = {
         </div>
       ));
     },
-  },
-};
-
-export const WithChips = {
-  render: CustomItemsTemplate,
-
-  args: {
-    ...defaultProps,
-    variant: "bordered",
-    selectionMode: "multiple",
-    isMultiline: true,
-    labelPlacement: "outside",
-    classNames: {
-      base: "max-w-xs",
-      trigger: "min-h-12 py-2",
-    },
-    renderValue: (items: SelectedItems<User>) => {
-      return (
-        <div className="flex flex-wrap gap-2">
-          {items.map((item) => (
-            <Chip key={item.key}>{item.data?.name}</Chip>
-          ))}
-        </div>
-      );
-    },
-  },
-};
-
-export const WithSections = {
-  render: WithSectionsTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithCustomSectionsStyles = {
-  render: WithCustomSectionsStylesTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithAriaLabel = {
-  render: WithAriaLabelTemplate,
-
-  args: {
-    ...defaultProps,
-    label: "Select an animal 🐹",
-    "aria-label": "Select an animal",
   },
 };
 

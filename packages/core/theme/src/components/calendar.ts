@@ -106,7 +106,7 @@ const calendar = tv({
     },
     hideDisabledDates: {
       true: {
-        cellButton: "data-[disabled=true]:opacity-0",
+        cellButton: "data-[disabled=true]:data-[outside-month=true]:opacity-0",
       },
       false: {},
     },
@@ -154,7 +154,6 @@ const calendar = tv({
     showShadow: false,
     hideDisabledDates: false,
     showMonthAndYearPickers: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // !isRange & colors --> Calendar

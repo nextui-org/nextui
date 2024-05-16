@@ -5,80 +5,167 @@ description: API References for NextUI Provider
 
 # NextUI Provider
 
+API reference for the `NextUIProvider`. 
+
 ------
 
-Here's the API reference for the `NextUIProvider`.
+## Import
 
-## Props
+<ImportTabs
+  commands={{
+    main: 'import {NextUIProvider} from "@nextui-org/react";',
+    individual: 'import {NextUIProvider} from "@nextui-org/system";',
+  }}
+/>
 
-### navigate
+## Usage
 
-`navigate` provides a client side router to all nested components such as Link, Menu, Tabs, Table, etc.
+```jsx
+import * as React from "react";
+import {NextUIProvider} from "@nextui-org/react";
 
-**type**: `((path: string) => void) | undefined`
-
-### locale
-
-The locale to apply to the children. The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the locale. By default, It is `en-US`. 
-
-**type**: `string | undefined`
-
-### defaultDates
-
-The default dates range that can be selected in the calendar.
-
-**type**: `{ minDate?: CalendarDate | undefined; maxDate?: CalendarDate | undefined; }`
-
-- minDate
-
-    The minimum date that can be selected in the calendar.
-
-    **type**: `CalendarDate | undefined`
-
-    **default**: `new CalendarDate(1900, 1, 1)`
-
-- maxDate
-
-    The maximum date that can be selected in the calendar.
-
-    **type**: `CalendarDate | undefined`
-
-    **default**: `new CalendarDate(2099, 12, 31)`
-
-### createCalendar
-
-This function helps to reduce the bundle size by providing a custom calendar system.
-
-By default, this includes all calendar systems supported by `@internationalized/date`. However,
-if your application supports a more limited set of regions, or you know you will only be picking dates
-in a certain calendar system, you can reduce your bundle size by providing your own implementation
-of `createCalendar` that includes a subset of these Calendar implementations.
-
-For example, if your application only supports Gregorian dates, you could implement a `createCalendar`
-function like this:
-
-```tsx
-import {GregorianCalendar} from '@internationalized/date';
-
-function createCalendar(identifier) {
- switch (identifier) {
-   case 'gregory':
-     return new GregorianCalendar();
-   default:
-     throw new Error(`Unsupported calendar ${identifier}`);
- }
+function App() {
+  return (
+    <NextUIProvider>
+      <YourApplication />
+    </NextUIProvider>
+  );
 }
 ```
 
-This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
+## Props
 
-**type**: `((calendar: SupportedCalendars) => Calendar | null) | undefined`
+<Spacer y={6}/>
+
+`navigate`
+
+- **Description**: Provides a client side router to all nested components such as Link, Menu, Tabs, Table, etc.
+- **Type**: `((path: string) => void) | undefined`
+
+<Spacer y={2}/>
+
+`locale`
+
+- **Description**: The locale to apply to the children.
+- **Type**: `string | undefined`
+- **Default**: `en-US`
+
+
+Here's the supported locales. By default, It is `en-US`.
+
+```tsx
+const localeValues = [
+  'fr-FR', 'fr-CA', 'de-DE', 'en-US', 'en-GB', 'ja-JP',
+  'da-DK', 'nl-NL', 'fi-FI', 'it-IT', 'nb-NO', 'es-ES', 
+  'sv-SE', 'pt-BR', 'zh-CN', 'zh-TW', 'ko-KR', 'bg-BG', 
+  'hr-HR', 'cs-CZ', 'et-EE', 'hu-HU', 'lv-LV', 'lt-LT', 
+  'pl-PL', 'ro-RO', 'ru-RU', 'sr-SP', 'sk-SK', 'sl-SI', 
+  'tr-TR', 'uk-UA', 'ar-AE', 'ar-DZ', 'AR-EG', 'ar-SA', 
+  'el-GR', 'he-IL', 'fa-AF', 'am-ET', 'hi-IN', 'th-TH'
+];
+```
+
+Here's an example to set a Spanish locale.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider locale="es-ES" className={className}>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+<Spacer y={2}/>
+
+`defaultDates`
+
+- **Description**: The default dates range that can be selected in the calendar.
+- **Type**: `{ minDate?: CalendarDate | undefined; maxDate?: CalendarDate | undefined; }`
+- **Default**: `{ minDate: new CalendarDate(1900, 1, 1), maxDate: new CalendarDate(2099, 12, 31) }`
+
+<Spacer y={2}/>
+
+`createCalendar`
+
+- **Description**: 
+    This function helps to reduce the bundle size by providing a custom calendar system.
+
+    By default, this includes all calendar systems supported by `@internationalized/date`. However,
+    if your application supports a more limited set of regions, or you know you will only be picking dates
+    in a certain calendar system, you can reduce your bundle size by providing your own implementation
+    of `createCalendar` that includes a subset of these Calendar implementations.
+
+    For example, if your application only supports Gregorian dates, you could implement a `createCalendar`
+    function like this:
+
+    ```tsx
+    import {GregorianCalendar} from '@internationalized/date';
+
+    function createCalendar(identifier) {
+    switch (identifier) {
+      case 'gregory':
+        return new GregorianCalendar();
+      default:
+        throw new Error(`Unsupported calendar ${identifier}`);
+    }
+    }
+    ```
+
+    This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
+
+- **Type**: `((calendar: SupportedCalendars) => Calendar | null) | undefined`
+
+<Spacer y={2}/>
+
+`disableAnimation`
+
+- **Description**: Disables animations globally. This will also avoid `framer-motion` features to be loaded in the bundle which can potentially reduce the bundle size.
+- **Type**: `boolean`
+- **Default**: `false`
+
+<Spacer y={2}/>
+
+`disableRipple`
+
+- **Description**: Disables ripple effect globally.
+- **Type**: `boolean`
+- **Default**: `false`
+
+<Spacer y={2}/>
+
+`skipFramerMotionAnimations`
+
+- **Description**:
+  Controls whether `framer-motion` animations are skipped within the application.
+  This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`,
+  effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while
+  using the `disableAnimation` prop for other purposes, set this to `false`. However, note that
+  animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+- **Type**: `boolean`
+- **Default**: Same as `disableAnimation`
+
+---
 
 ## Types
 
-### CalendarDate
+`CalendarDate`
 
-A [CalendarDate](https://react-spectrum.adobe.com/internationalized/date/CalendarDate.html) represents a date without any time components in a specific calendar system from `@internationalized/date`. 
+- **Description**: A [CalendarDate](https://react-spectrum.adobe.com/internationalized/date/CalendarDate.html) represents a date without any time components in a specific calendar system from `@internationalized/date`.
+- **Type**: `import {CalendarDate} from '@internationalized/date';`
 
 ### SupportedCalendars
 

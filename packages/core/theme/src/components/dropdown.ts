@@ -124,7 +124,6 @@ const dropdownItem = tv({
   defaultVariants: {
     variant: "solid",
     color: "default",
-    disableAnimation: false,
   },
   compoundVariants: [
     // solid / color

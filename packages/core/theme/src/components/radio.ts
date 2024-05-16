@@ -141,7 +141,6 @@ const radio = tv({
     size: "md",
     isDisabled: false,
     isInvalid: false,
-    disableAnimation: false,
   },
 });
 
@@ -187,7 +186,6 @@ const radioGroup = tv({
   defaultVariants: {
     isInvalid: false,
     isRequired: false,
-    disableAnimation: false,
   },
 });
 

@@ -19,6 +19,7 @@ const nextConfig = {
       "avatars.githubusercontent.com",
       "logo.clearbit.com",
       "i.pravatar.cc",
+      "nextui.org",
     ],
   },
 };

@@ -1,10 +1,11 @@
 import type {SkeletonVariantProps, SkeletonSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {mapPropsVariants} from "@nextui-org/system-rsc";
+import {mapPropsVariants} from "@nextui-org/system";
 import {skeleton} from "@nextui-org/theme";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo, Ref} from "react";
+import {useProviderContext} from "@nextui-org/system";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -34,18 +35,24 @@ interface Props extends HTMLNextUIProps<"div"> {
 export type UseSkeletonProps = Props & SkeletonVariantProps;
 
 export function useSkeleton(originalProps: UseSkeletonProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, skeleton.variantKeys);
 
   const {as, children, isLoaded = false, className, classNames, ...otherProps} = props;
 
   const Component = as || "div";
 
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
   const slots = useMemo(
     () =>
       skeleton({
         ...variantProps,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps), children],
+    [objectToDeps(variantProps), disableAnimation, children],
   );
 
   const baseStyles = clsx(classNames?.base, className);

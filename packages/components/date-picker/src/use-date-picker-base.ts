@@ -9,7 +9,7 @@ import type {ValueBase} from "@react-types/shared";
 
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
 import {useCallback} from "react";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {dataAttr} from "@nextui-org/shared-utils";
@@ -113,6 +113,8 @@ export type UseDatePickerBaseProps<T extends DateValue> = Props<T> &
   Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate" | "validationBehavior">;
 
 export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePickerBaseProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
@@ -162,7 +164,8 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   >(isHeaderExpanded, isHeaderDefaultExpanded ?? false, handleHeaderExpandedChange);
 
   const domRef = useDOMRef(ref);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   let stringFormatter = useLocalizedStringFormatter(intlMessages) as any;
 
@@ -210,13 +213,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
         showMonthAndYearPickers,
         isHeaderExpanded: isCalendarHeaderExpanded,
         onHeaderExpandedChange: setIsCalendarHeaderExpanded,
-        color:
-          (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
-          isDefaultColor
-            ? "foreground"
-            : isDefaultColor
-            ? "primary"
-            : originalProps.color,
+        color: isDefaultColor ? "primary" : originalProps.color,
         disableAnimation,
       },
       restUserCalendarProps,

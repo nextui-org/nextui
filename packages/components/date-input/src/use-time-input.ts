@@ -6,7 +6,7 @@ import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
-import {PropGetter} from "@nextui-org/system";
+import {PropGetter, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useTimeField as useAriaTimeField} from "@react-aria/datepicker";
@@ -73,6 +73,8 @@ export type UseTimeInputProps<T extends TimeValue> = Props<T> &
   Omit<AriaTimeFieldProps<T>, "validationBehavior">;
 
 export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
@@ -104,12 +106,15 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
 
   const {locale} = useLocale();
 
+  const disableAnimation = originalProps.disableAnimation ?? globalContext?.disableAnimation;
+
   const state = useTimeFieldState({
     ...originalProps,
     label,
     locale,
     minValue,
     maxValue,
+
     isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
   });
@@ -150,10 +155,11 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     () =>
       dateInput({
         ...variantProps,
+        disableAnimation,
         labelPlacement,
         className,
       }),
-    [objectToDeps(variantProps), labelPlacement, className],
+    [objectToDeps(variantProps), labelPlacement, disableAnimation, className],
   );
 
   const getLabelProps: PropGetter = (props) => {

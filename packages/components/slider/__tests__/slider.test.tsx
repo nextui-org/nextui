@@ -214,3 +214,77 @@ describe("Slider", () => {
     expect(setValues).toStrictEqual([[15, 25]]);
   });
 });
+
+it("should supports hideThumb", async function () {
+  const {container} = render(<Slider hideThumb defaultValue={20} label="The Label" />);
+
+  const track = container.querySelector("[data-slot='track']");
+
+  expect(track).toHaveAttribute("data-thumb-hidden", "true");
+});
+
+it("should supports marks", async function () {
+  const {container} = render(
+    <Slider
+      hideThumb
+      defaultValue={20}
+      label="The Label"
+      marks={[
+        {
+          value: 0.2,
+          label: "20%",
+        },
+        {
+          value: 0.5,
+          label: "50%",
+        },
+        {
+          value: 0.8,
+          label: "80%",
+        },
+      ]}
+      maxValue={1}
+      minValue={0}
+      step={0.1}
+    />,
+  );
+
+  const marks = container.querySelectorAll("[data-slot='mark']");
+
+  expect(marks).toHaveLength(3);
+});
+
+it("should supports marks with hideThumb", async function () {
+  const {container} = render(
+    <Slider
+      hideThumb
+      defaultValue={20}
+      label="The Label"
+      marks={[
+        {
+          value: 0.2,
+          label: "20%",
+        },
+        {
+          value: 0.5,
+          label: "50%",
+        },
+        {
+          value: 0.8,
+          label: "80%",
+        },
+      ]}
+      maxValue={1}
+      minValue={0}
+      step={0.1}
+    />,
+  );
+
+  const track = container.querySelector("[data-slot='track']");
+
+  expect(track).toHaveAttribute("data-thumb-hidden", "true");
+
+  const marks = container.querySelectorAll("[data-slot='mark']");
+
+  expect(marks).toHaveLength(3);
+});
