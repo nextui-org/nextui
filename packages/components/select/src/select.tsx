@@ -131,7 +131,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
             {startContent}
             <span {...getValueProps()}>
               {renderSelectedItem}
-              {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
+              {state.selectedItems && <VisuallyHidden elementType="span">,</VisuallyHidden>}
             </span>
             {endContent}
           </div>
