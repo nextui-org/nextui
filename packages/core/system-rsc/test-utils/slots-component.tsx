@@ -15,7 +15,7 @@ const card = tv({
       "flex-col",
       "relative",
       "overflow-hidden",
-      "height-auto",
+      "h-auto",
       "outline-none",
       "text-foreground",
       "box-border",
