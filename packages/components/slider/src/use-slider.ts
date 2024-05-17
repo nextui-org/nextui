@@ -399,14 +399,14 @@ export function useSlider(originalProps: UseSliderProps) {
         if (state.values.length === 1) {
           state.setThumbPercent(0, percent);
         } else {
-          const leftThumbPos = state.values[0];
-          const rightThumbPos = state.values[1];
+          const leftThumbVal = state.values[0];
+          const rightThumbVal = state.values[1];
 
-          if (mark.value < leftThumbPos) {
+          if (mark.value < leftThumbVal) {
             state.setThumbPercent(0, percent);
-          } else if (mark.value > rightThumbPos) {
+          } else if (mark.value > rightThumbVal) {
             state.setThumbPercent(1, percent);
-          } else if (Math.abs(mark.value - leftThumbPos) < Math.abs(mark.value - rightThumbPos)) {
+          } else if (Math.abs(mark.value - leftThumbVal) < Math.abs(mark.value - rightThumbVal)) {
             state.setThumbPercent(0, percent);
           } else {
             state.setThumbPercent(1, percent);
