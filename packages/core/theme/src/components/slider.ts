@@ -418,7 +418,6 @@ const slider = tv({
     hideThumb: false,
     isDisabled: false,
     disableThumbScale: false,
-    disableAnimation: false,
     showOutline: false,
   },
 });

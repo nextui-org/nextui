@@ -100,7 +100,6 @@ const snippet = tv({
     variant: "flat",
     size: "md",
     fullWidth: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // solid - shadow / color

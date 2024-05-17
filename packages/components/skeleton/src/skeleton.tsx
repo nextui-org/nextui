@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@nextui-org/system";
 
 import {UseSkeletonProps, useSkeleton} from "./use-skeleton";
 

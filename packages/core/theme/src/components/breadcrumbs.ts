@@ -108,7 +108,6 @@ const breadcrumbItem = tv({
     color: "foreground",
     underline: "hover",
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // isCurrent && color

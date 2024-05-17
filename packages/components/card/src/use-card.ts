@@ -9,7 +9,12 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useAriaButton} from "@nextui-org/use-aria-button";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
@@ -64,13 +69,14 @@ export type ContextType = {
 };
 
 export function useCard(originalProps: UseCardProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, card.variantKeys);
 
   const {
     ref,
     as,
     children,
-    disableRipple = false,
     onClick,
     onPress,
     autoFocus,
@@ -84,12 +90,16 @@ export function useCard(originalProps: UseCardProps) {
   const Component = as || (originalProps.isPressable ? "button" : "div");
   const shouldFilterDOMProps = typeof Component === "string";
 
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+  const disableRipple = originalProps.disableRipple ?? globalContext?.disableRipple ?? false;
+
   const baseStyles = clsx(classNames?.base, className);
 
   const {onClick: onRippleClickHandler, onClear: onClearRipple, ripples} = useRipple();
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-    if (!originalProps.disableAnimation && !disableRipple && domRef.current) {
+    if (!disableAnimation && !disableRipple && domRef.current) {
       onRippleClickHandler(e);
     }
   };
@@ -119,25 +129,26 @@ export function useCard(originalProps: UseCardProps) {
     () =>
       card({
         ...variantProps,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps)],
+    [objectToDeps(variantProps), disableAnimation],
   );
 
   const context = useMemo<ContextType>(
     () => ({
-      isDisabled: originalProps.isDisabled,
-      isFooterBlurred: originalProps.isFooterBlurred,
-      disableAnimation: originalProps.disableAnimation,
-      fullWidth: originalProps.fullWidth,
       slots,
       classNames,
+      disableAnimation,
+      isDisabled: originalProps.isDisabled,
+      isFooterBlurred: originalProps.isFooterBlurred,
+      fullWidth: originalProps.fullWidth,
     }),
     [
       slots,
       classNames,
       originalProps.isDisabled,
       originalProps.isFooterBlurred,
-      originalProps.disableAnimation,
+      disableAnimation,
       originalProps.fullWidth,
     ],
   );
@@ -194,9 +205,9 @@ export function useCard(originalProps: UseCardProps) {
     children,
     isHovered,
     isPressed,
+    disableAnimation,
     isPressable: originalProps.isPressable,
     isHoverable: originalProps.isHoverable,
-    disableAnimation: originalProps.disableAnimation,
     disableRipple,
     handleClick,
     isFocusVisible,
