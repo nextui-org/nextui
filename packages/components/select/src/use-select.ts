@@ -176,7 +176,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     listboxProps = {},
     spinnerProps = {},
     validationState,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
     onChange,
     onClose,
     className,
@@ -233,7 +232,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     children: children as CollectionChildren<T>,
     isRequired: originalProps.isRequired,
     isDisabled: originalProps.isDisabled,
-    validationBehavior,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
@@ -284,7 +282,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     validationErrors,
     validationDetails,
   } = useMultiSelect(
-    {...props, disallowEmptySelection, isDisabled: originalProps.isDisabled, validationBehavior},
+    {...props, disallowEmptySelection, isDisabled: originalProps.isDisabled},
     state,
     triggerRef,
   );
@@ -626,7 +624,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isDisabled: originalProps?.isDisabled,
     isRequired: originalProps?.isRequired,
     name: originalProps?.name,
-    validationBehavior,
+    // TODO: Future enhancement to support "aria" validation behavior.
+    validationBehavior: "native",
   });
 
   return {

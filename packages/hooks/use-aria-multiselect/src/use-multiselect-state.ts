@@ -76,7 +76,7 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
 
   const validationState = useFormValidationState({
     ...props,
-    // TODO: Future enhancement support "aria" validation behavior.
+    // TODO: Future enhancement to support "aria" validation behavior.
     validationBehavior: "native",
     // @ts-ignore
     value: listState.selectedKeys,
