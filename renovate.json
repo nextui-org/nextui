@@ -5,6 +5,7 @@
   "labels": [":sparkles: Type: Enhancement"],
   "rebaseWhen": "conflicted",
   "timezone": "UTC",
+  "commitMessagePrefix": "chore(deps): ",
   "packageRules": [
     {
       "excludeDepPatterns": ["@react-stately/", "@react-aria/"]
