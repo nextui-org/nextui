@@ -72,7 +72,20 @@ describe("Autocomplete", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    render(<AutocompleteExample ref={ref} label="Favorite Animal" />);
+    render(
+      <Autocomplete ref={ref} aria-label="Favorite Animal" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
     expect(ref.current).not.toBeNull();
   });
 

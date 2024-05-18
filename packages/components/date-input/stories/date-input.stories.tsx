@@ -359,6 +359,21 @@ export const HourCycle = {
   },
 };
 
+export const UnavailableDates = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Appointment date (Unavailable: Jan 1 - Jan 8, 2024)",
+    isDateUnavailable: (date) => {
+      return (
+        date.compare(new CalendarDate(2024, 1, 1)) >= 0 &&
+        date.compare(new CalendarDate(2024, 1, 8)) <= 0
+      );
+    },
+  },
+};
+
 export const WithValidation = {
   render: FormTemplate,
 

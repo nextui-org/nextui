@@ -90,10 +90,26 @@ describe("Checkbox", () => {
     expect(onFocus).toBeCalled();
   });
 
-  it('should work correctly with "isRequired" prop', () => {
-    const {container} = render(<Checkbox isRequired>Option</Checkbox>);
+  it("should have required attribute when isRequired with native validationBehavior", () => {
+    const {container} = render(
+      <Checkbox isRequired validationBehavior="native">
+        Option
+      </Checkbox>,
+    );
 
-    expect(container.querySelector("input")?.required).toBe(true);
+    expect(container.querySelector("input")).toHaveAttribute("required");
+    expect(container.querySelector("input")).not.toHaveAttribute("aria-required");
+  });
+
+  it("should have aria-required attribute when isRequired with aria validationBehavior", () => {
+    const {container} = render(
+      <Checkbox isRequired validationBehavior="aria">
+        Option
+      </Checkbox>,
+    );
+
+    expect(container.querySelector("input")).not.toHaveAttribute("required");
+    expect(container.querySelector("input")).toHaveAttribute("aria-required", "true");
   });
 
   it("should work correctly with controlled value", () => {
