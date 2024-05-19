@@ -129,10 +129,8 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
           {!isOutsideLeft ? labelContent : null}
           <div {...getInnerWrapperProps()}>
             {startContent}
-            <span {...getValueProps()}>
-              {renderSelectedItem}
-              {state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
-            </span>
+            <span {...getValueProps()}>{renderSelectedItem}</span>
+            {endContent && state.selectedItems && <VisuallyHidden>,</VisuallyHidden>}
             {endContent}
           </div>
           {renderIndicator}
