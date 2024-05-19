@@ -118,6 +118,26 @@ export function useDropdown(props: UseDropdownProps) {
       ...props.classNames,
       content: clsx(classNames, classNamesProp?.content, props.className),
     },
+    shouldCloseOnInteractOutside: (element: any) => {
+      let trigger = triggerRef?.current;
+
+      // check if the current dropdown is within the modal
+      const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
+
+      // if interacting outside the dropdown
+      if (!trigger || !trigger.contains(element)) {
+        // close the listbox close the listbox if it is not clicking overlay
+        // e.g. clicking another dropdown should close the current one and open the another one
+        if (!isWithinModal) {
+          state.close();
+        }
+      }
+
+      // if the dropdown is in modal,
+      // clicking the overlay should close the listbox instead of closing the modal
+      // otherwise, allow interaction with other elements
+      return isWithinModal;
+    },
   });
 
   const getMenuTriggerProps: PropGetter = (
