@@ -284,13 +284,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
-        onClick: () => {
+        onClick: chain(() => {
           // if the listbox is open, clicking selector button should
           // close the listbox and focus on the input
           if (state.isOpen) {
             setShouldFocus(true);
           }
-        },
+        }, selectorButtonProps.onClick),
       },
       selectorButtonProps,
     ),
