@@ -480,8 +480,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         if (!trigger || !trigger.contains(element)) {
           // blur the input in case it is currently focused
           setShouldFocus(false);
-          // close the listbox close the listboxif it is not clicking overlay
-          // e.g. clicking another autocomplete
+          // close the listbox close the listbox if it is not clicking overlay
+          // e.g. clicking another autocomplete should close the current one and open the another one
           if (!isWithinModal) {
             state.close();
           }
