@@ -134,7 +134,7 @@ export function useDropdown(props: UseDropdownProps) {
     };
   };
 
-  const getMenuProps = <T>(
+  const getMenuProps = <T extends object>(
     props?: Partial<MenuProps<T>>,
     _ref: Ref<any> | null | undefined = null,
   ) => {
