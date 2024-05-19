@@ -119,11 +119,11 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
   const domRef = useDOMRef(ref);
   const shouldFilterDOMProps = typeof Component === "string";
 
-  const innerState = useTreeState({...otherProps, children});
+  const innerState = useTreeState({...otherProps, ...userMenuProps, children});
 
   const state = propState || innerState;
 
-  const {menuProps} = useAriaMenu(otherProps, state, domRef);
+  const {menuProps} = useAriaMenu({...otherProps, ...userMenuProps}, state, domRef);
 
   const slots = useMemo(() => menu({className}), [className]);
   const baseStyles = clsx(classNames?.base, className);
@@ -144,9 +144,7 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     return {
       "data-slot": "list",
       className: slots.list({class: classNames?.list}),
-      ...userMenuProps,
       ...menuProps,
-
       ...props,
     };
   };
