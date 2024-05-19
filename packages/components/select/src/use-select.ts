@@ -518,6 +518,26 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             ? // forces the popover to update its position when the selected items change
               state.selectedItems.length * 0.00000001 + (slotsProps.popoverProps?.offset || 0)
             : slotsProps.popoverProps?.offset,
+        shouldCloseOnInteractOutside: (element: any) => {
+          let trigger = triggerRef?.current;
+
+          // check if the current select is within the modal
+          const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
+
+          // if interacting outside the select
+          if (!trigger || !trigger.contains(element)) {
+            // close the listbox close the listbox if it is not clicking overlay
+            // e.g. clicking another select should close the current one and open the another one
+            if (!isWithinModal) {
+              state.close();
+            }
+          }
+
+          // if the select is in modal,
+          // clicking the overlay should close the listbox instead of closing the modal
+          // otherwise, allow interaction with other elements
+          return isWithinModal;
+        },
       } as PopoverProps;
     },
     [
