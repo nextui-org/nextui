@@ -315,6 +315,7 @@ export function useDateRangePicker<T extends DateValue>({
 
   const getInputWrapperProps = (props = {}) => {
     return {
+      ref: domRef,
       ...props,
       ...groupProps,
       "data-slot": "input-wrapper",

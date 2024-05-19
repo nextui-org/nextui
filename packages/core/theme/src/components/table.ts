@@ -259,7 +259,6 @@ const table = tv({
     hideHeader: false,
     isStriped: false,
     fullWidth: true,
-    disableAnimation: false,
   },
 });
 

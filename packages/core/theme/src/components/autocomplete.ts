@@ -46,7 +46,6 @@ const autocomplete = tv({
     },
   },
   defaultVariants: {
-    disableAnimation: false,
     isClearable: true,
     disableSelectorIconRotation: false,
   },

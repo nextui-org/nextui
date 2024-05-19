@@ -1,7 +1,13 @@
 import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {HiddenSelectProps} from "./hidden-select";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  DOMAttributes,
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
@@ -137,8 +143,12 @@ export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const {
     ref,
@@ -317,9 +327,10 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         ...variantProps,
         isInvalid,
         labelPlacement,
+        disableAnimation,
         className,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, className],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, disableAnimation, className],
   );
 
   // scroll the listbox to the selected item

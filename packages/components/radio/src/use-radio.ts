@@ -7,7 +7,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {useHover, usePress} from "@react-aria/interactions";
 import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -51,6 +51,7 @@ export type UseRadioProps = Omit<Props, "defaultChecked"> &
   RadioVariantProps;
 
 export function useRadio(props: UseRadioProps) {
+  const globalContext = useProviderContext();
   const groupContext = useRadioGroupContext();
 
   const {
@@ -64,7 +65,7 @@ export function useRadio(props: UseRadioProps) {
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    disableAnimation = groupContext?.disableAnimation ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
     onChange = groupContext?.onChange,
     autoFocus = false,
     className,

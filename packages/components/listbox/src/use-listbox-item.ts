@@ -2,7 +2,12 @@ import type {ListboxItemBaseProps} from "./base/listbox-item-base";
 
 import {useMemo, useRef, useCallback} from "react";
 import {listboxItem} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
@@ -22,6 +27,8 @@ export type UseListboxItemProps<T extends object> = Props<T> &
   Omit<HTMLNextUIProps<"li">, keyof Props<T>>;
 
 export function useListboxItem<T extends object>(originalProps: UseListboxItemProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, listboxItem.variantKeys);
 
   const {
@@ -44,7 +51,8 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     ...otherProps
   } = props;
 
-  const disableAnimation = originalProps.disableAnimation;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const domRef = useRef<HTMLLIElement>(null);
 
