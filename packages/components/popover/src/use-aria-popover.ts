@@ -79,7 +79,23 @@ export function useReactAriaPopover(
             // Don't close if the click is within the trigger or the popover itself
             let trigger = triggerRef?.current;
 
-            return !trigger || !trigger.contains(element);
+            // check if the current popover is within the modal
+            const isWithinModal =
+              element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
+
+            // if interacting outside the popover
+            if (!trigger || !trigger.contains(element)) {
+              // close the listbox close the listbox if it is not clicking overlay
+              // e.g. clicking another popover should close the current one and open the another one
+              if (!isWithinModal) {
+                state.close();
+              }
+            }
+
+            // if the popover is in modal,
+            // clicking the overlay should close the listbox instead of closing the modal
+            // otherwise, allow interaction with other elements
+            return isWithinModal;
           },
     },
     popoverRef,
