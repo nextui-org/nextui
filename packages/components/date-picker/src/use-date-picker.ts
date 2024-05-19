@@ -166,6 +166,26 @@ export function useDatePicker<T extends DateValue>({
           ),
         }),
       },
+      shouldCloseOnInteractOutside: (element: any) => {
+        let trigger = domRef?.current;
+
+        // check if the current date picker is within the modal
+        const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
+
+        // if interacting outside the date picker
+        if (!trigger || !trigger.contains(element)) {
+          // close the listbox close the listbox if it is not clicking overlay
+          // e.g. clicking another date picker should close the current one and open the another one
+          if (!isWithinModal) {
+            state.close();
+          }
+        }
+
+        // if the date picker is in modal,
+        // clicking the overlay should close the listbox instead of closing the modal
+        // otherwise, allow interaction with other elements
+        return isWithinModal;
+      },
     };
   };
 
