@@ -340,7 +340,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // react aria has different focus strategies internally
   // hence, handle focus behaviours on our side for better flexibilty
-
   useEffect(() => {
     if (shouldFocus || isOpen) {
       inputRef?.current?.focus();
