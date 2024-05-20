@@ -18,6 +18,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -470,31 +471,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
-      shouldCloseOnInteractOutside: (element: any) => {
-        let trigger = inputWrapperRef?.current;
-
-        // check if the current autocomplete is within the modal
-        const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
-
-        // if interacting outside the autocomplete
-        if (!trigger || !trigger.contains(element)) {
-          // blur the input in case it is currently focused
-          setShouldFocus(false);
-          // close the listbox close the listbox if it is not clicking overlay
-          // e.g. clicking another autocomplete should close the current one and open the another one
-          if (!isWithinModal) {
-            state.close();
-          }
-        } else {
-          // otherwise the autocomplete input should keep focused
-          setShouldFocus(true);
-        }
-
-        // if the autocomplete is in modal,
-        // clicking the overlay should close the listbox instead of closing the modal
-        // otherwise, allow interaction with other elements
-        return isWithinModal;
-      },
+      shouldCloseOnInteractOutside: (element: Element) =>
+        ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, setShouldFocus),
     } as unknown as PopoverProps;
   };
 
