@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react-utils",
-  "version": "2.0.10",
+  "version": "2.0.13",
   "description": "A set of utilities for react on client side",
   "keywords": [
     "react-utils"
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",

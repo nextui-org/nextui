@@ -1,5 +1,43 @@
 # @nextui-org/listbox
 
+## 2.1.19
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/aria-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/divider@2.0.27
+
+## 2.1.18
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.0.17
+  - @nextui-org/divider@2.0.27
+  - @nextui-org/react-utils@2.0.12
+
+## 2.1.17
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/divider@2.0.26
+  - @nextui-org/use-is-mobile@2.0.7
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.1.16
 
 ### Patch Changes

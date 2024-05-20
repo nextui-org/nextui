@@ -1,0 +1,102 @@
+---
+title: NextUI Provider
+description: API References for NextUI Provider
+---
+
+# NextUI Provider
+
+------
+
+Here's the API reference for the `NextUIProvider`.
+
+## Props
+
+### navigate
+
+`navigate` provides a client side router to all nested components such as Link, Menu, Tabs, Table, etc.
+
+**type**: `((path: string) => void) | undefined`
+
+### locale
+
+The locale to apply to the children. The [BCP47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code for the locale. By default, It is `en-US`. 
+
+**type**: `string | undefined`
+
+### defaultDates
+
+The default dates range that can be selected in the calendar.
+
+**type**: `{ minDate?: CalendarDate | undefined; maxDate?: CalendarDate | undefined; }`
+
+- minDate
+
+    The minimum date that can be selected in the calendar.
+
+    **type**: `CalendarDate | undefined`
+
+    **default**: `new CalendarDate(1900, 1, 1)`
+
+- maxDate
+
+    The maximum date that can be selected in the calendar.
+
+    **type**: `CalendarDate | undefined`
+
+    **default**: `new CalendarDate(2099, 12, 31)`
+
+### createCalendar
+
+This function helps to reduce the bundle size by providing a custom calendar system.
+
+By default, this includes all calendar systems supported by `@internationalized/date`. However,
+if your application supports a more limited set of regions, or you know you will only be picking dates
+in a certain calendar system, you can reduce your bundle size by providing your own implementation
+of `createCalendar` that includes a subset of these Calendar implementations.
+
+For example, if your application only supports Gregorian dates, you could implement a `createCalendar`
+function like this:
+
+```tsx
+import {GregorianCalendar} from '@internationalized/date';
+
+function createCalendar(identifier) {
+ switch (identifier) {
+   case 'gregory':
+     return new GregorianCalendar();
+   default:
+     throw new Error(`Unsupported calendar ${identifier}`);
+ }
+}
+```
+
+This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
+
+**type**: `((calendar: SupportedCalendars) => Calendar | null) | undefined`
+
+## Types
+
+### CalendarDate
+
+A [CalendarDate](https://react-spectrum.adobe.com/internationalized/date/CalendarDate.html) represents a date without any time components in a specific calendar system from `@internationalized/date`. 
+
+### SupportedCalendars
+
+Supported react-aria i18n calendars.
+
+```tsx
+type SupportedCalendars =
+  | "buddhist"
+  | "ethiopic"
+  | "ethioaa"
+  | "coptic"
+  | "hebrew"
+  | "indian"
+  | "islamic-civil"
+  | "islamic-tbla"
+  | "islamic-umalqura"
+  | "japanese"
+  | "persian"
+  | "roc"
+  | "gregory";
+```

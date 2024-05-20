@@ -12,7 +12,7 @@ describe("Checkbox", () => {
   });
 
   it("ref should be forwarded", () => {
-    const ref = React.createRef<HTMLLabelElement>();
+    const ref = React.createRef<HTMLInputElement>();
 
     render(<Checkbox ref={ref}>Option</Checkbox>);
     expect(ref.current).not.toBeNull();

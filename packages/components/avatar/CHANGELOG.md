@@ -1,5 +1,43 @@
 # @nextui-org/avatar
 
+## 2.0.27
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.25
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Support slots in AvatarGroup
+
+- [#2498](https://github.com/nextui-org/nextui/pull/2498) [`5d84634c0`](https://github.com/nextui-org/nextui/commit/5d84634c0af3a5a66622d188950f2bcacde7c2e4) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the avatar group component
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+  - @nextui-org/use-image@2.0.5
+
 ## 2.0.24
 
 ### Patch Changes
@@ -141,7 +179,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

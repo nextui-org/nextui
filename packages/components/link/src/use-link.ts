@@ -6,7 +6,7 @@ import {useAriaLink} from "@nextui-org/use-aria-link";
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useFocusRing} from "@react-aria/focus";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
@@ -87,7 +87,7 @@ export function useLink(originalProps: UseLinkProps) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const getLinkProps: PropGetter = useCallback(() => {

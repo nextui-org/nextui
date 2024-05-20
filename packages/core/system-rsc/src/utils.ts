@@ -100,3 +100,12 @@ export const mapPropsVariantsWithCommon = <
  * Classnames utility
  */
 export const cn = clsx;
+
+/**
+ * Checks if a component is a NextUI component.
+ * @param component - The component to check.
+ * @returns `true` if the component is a NextUI component, `false` otherwise.
+ */
+export const isNextUIEl = (component: React.ReactComponentElement<any>) => {
+  return !!component.type?.render?.displayName?.includes("NextUI");
+};

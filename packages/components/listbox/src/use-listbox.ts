@@ -48,11 +48,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
    */
   color?: ListboxItemProps["color"];
   /**
-   * Provides content to include a component in the top of the table.
+   * Custom content to be included in the top of the listbox.
    */
   topContent?: ReactNode;
   /**
-   * Provides content to include a component in the bottom of the table.
+   * Custom content to be included in the bottom of the listbox.
    */
   bottomContent?: ReactNode;
   /**
@@ -129,7 +129,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
 
   const {listBoxProps} = useAriaListbox({...props, onAction}, state, domRef);
 
-  const slots = useMemo(() => listbox({className}), [, className]);
+  const slots = useMemo(() => listbox({className}), [className]);
 
   const baseStyles = clsx(classNames?.base, className);
 

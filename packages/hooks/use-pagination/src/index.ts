@@ -1,4 +1,5 @@
 import {useMemo, useCallback, useState, useEffect} from "react";
+import {useLocale} from "@react-aria/i18n";
 import {range} from "@nextui-org/shared-utils";
 
 export enum PaginationItemType {
@@ -56,6 +57,10 @@ export function usePagination(props: UsePaginationProps) {
   } = props;
   const [activePage, setActivePage] = useState(page || initialPage);
 
+  const {direction} = useLocale();
+
+  const isRTL = direction === "rtl";
+
   const onChangeActivePage = (newPage: number) => {
     setActivePage(newPage);
     onChange && onChange(newPage);
@@ -80,20 +85,22 @@ export function usePagination(props: UsePaginationProps) {
     [total, activePage],
   );
 
-  const next = () => setPage(activePage + 1);
-  const previous = () => setPage(activePage - 1);
-  const first = () => setPage(1);
-  const last = () => setPage(total);
+  const next = () => (isRTL ? setPage(activePage - 1) : setPage(activePage + 1));
+  const previous = () => (isRTL ? setPage(activePage + 1) : setPage(activePage - 1));
+  const first = () => (isRTL ? setPage(total) : setPage(1));
+  const last = () => (isRTL ? setPage(1) : setPage(total));
 
   const formatRange = useCallback(
     (range: PaginationItemValue[]) => {
       if (showControls) {
-        return [PaginationItemType.PREV, ...range, PaginationItemType.NEXT];
+        return isRTL
+          ? [PaginationItemType.NEXT, ...range, PaginationItemType.PREV]
+          : [PaginationItemType.PREV, ...range, PaginationItemType.NEXT];
       }
 
       return range;
     },
-    [showControls],
+    [isRTL, showControls],
   );
 
   const paginationRange = useMemo((): PaginationItemValue[] => {

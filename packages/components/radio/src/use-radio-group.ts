@@ -8,7 +8,7 @@ import {useCallback, useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
@@ -47,7 +47,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
 }
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaRadioGroupProps, "onChange"> &
+  Omit<AriaRadioGroupProps, "onChange" | "validationBehavior"> &
   Partial<Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">>;
 
 export type ContextType = {
@@ -70,14 +70,14 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     value,
     name,
+    isInvalid: isInvalidProp,
+    validationState,
     size = "md",
     color = "primary",
     isDisabled = false,
     disableAnimation = false,
     orientation = "vertical",
     isRequired = false,
-    validationState,
-    isInvalid = validationState === "invalid",
     isReadOnly,
     errorMessage,
     description,
@@ -88,6 +88,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
   } = props;
 
   const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
 
   const domRef = useDOMRef(ref);
 
@@ -99,8 +100,9 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       "aria-label": safeAriaLabel(otherProps["aria-label"], label),
       isRequired,
       isReadOnly,
-      isInvalid,
+      isInvalid: validationState === "invalid" || isInvalidProp,
       orientation,
+      validationBehavior: "native",
       onChange: onValueChange,
     };
   }, [
@@ -110,7 +112,8 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     label,
     isRequired,
     isReadOnly,
-    isInvalid,
+    isInvalidProp,
+    validationState,
     orientation,
     onValueChange,
   ]);
@@ -122,7 +125,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     radioGroupProps: groupProps,
     errorMessageProps,
     descriptionProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
+
+  const isInvalid = otherPropsWithOrientation.isInvalid || isAriaInvalid;
 
   const context: ContextType = useMemo(
     () => ({
@@ -163,7 +171,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     return {
       ref: domRef,
       className: slots.base({class: baseStyles}),
-      ...mergeProps(groupProps, otherProps),
+      ...mergeProps(
+        groupProps,
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
     };
   }, [domRef, slots, baseStyles, groupProps, otherProps]);
 
@@ -209,8 +222,12 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     children,
     label,
     context,
-    errorMessage,
     description,
+    isInvalid,
+    errorMessage:
+      typeof errorMessage === "function"
+        ? errorMessage({isInvalid, validationErrors, validationDetails})
+        : errorMessage || validationErrors?.join(" "),
     getGroupProps,
     getLabelProps,
     getWrapperProps,

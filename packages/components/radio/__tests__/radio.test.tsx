@@ -1,5 +1,6 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import {RadioGroup, Radio, RadioGroupProps} from "../src";
 
@@ -144,20 +145,20 @@ describe("Radio", () => {
   });
 
   it('should work correctly with "isRequired" prop', () => {
-    const {container} = render(
+    const {getByRole, getAllByRole} = render(
       <RadioGroup isRequired label="Options">
         <Radio value="1">Option 1</Radio>
-        <Radio className="radio-test-2" value="2">
-          Option 2
-        </Radio>
+        <Radio value="2">Option 2</Radio>
       </RadioGroup>,
     );
 
-    let radio2 = container
-      .querySelector(".radio-test-2")
-      ?.querySelector("input") as HTMLInputElement;
+    const group = getByRole("radiogroup");
 
-    expect(radio2?.required).toBe(true);
+    expect(group).toHaveAttribute("aria-required", "true");
+
+    const radios = getAllByRole("radio");
+
+    expect(radios[0]).toHaveAttribute("required");
   });
 
   it("should work correctly with controlled value", () => {
@@ -194,5 +195,55 @@ describe("Radio", () => {
     expect(onValueChange).toBeCalled();
 
     expect(radio2).toBeChecked();
+  });
+});
+
+describe("validation", () => {
+  let user = userEvent.setup();
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+  describe("validationBehavior=native (default)", () => {
+    it("supports isRequired", async () => {
+      const {getAllByRole, getByRole, getByTestId} = render(
+        <form data-testid="form">
+          <RadioGroup isRequired aria-label="favorite pet">
+            <Radio value="dogs">Dogs</Radio>
+            <Radio value="cats">Cats</Radio>
+            <Radio value="dragons">Dragons</Radio>
+          </RadioGroup>
+        </form>,
+      );
+
+      const group = getByRole("radiogroup");
+
+      expect(group).not.toHaveAttribute("aria-describedby");
+
+      const radios = getAllByRole("radio") as HTMLInputElement[];
+
+      for (let input of radios) {
+        expect(input).toHaveAttribute("required");
+        expect(input).not.toHaveAttribute("aria-required");
+        expect(input.validity.valid).toBe(false);
+      }
+
+      act(() => {
+        (getByTestId("form") as HTMLFormElement).checkValidity();
+      });
+
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(
+        document.getElementById(group.getAttribute("aria-describedby") as string),
+      ).toHaveTextContent("Constraints not satisfied");
+      expect(document.activeElement).toBe(radios[0]);
+
+      await user.click(radios[0]);
+      for (let input of radios) {
+        expect(input.validity.valid).toBe(true);
+      }
+
+      expect(group).not.toHaveAttribute("aria-describedby");
+    });
   });
 });

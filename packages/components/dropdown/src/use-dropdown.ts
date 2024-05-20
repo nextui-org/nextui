@@ -47,10 +47,10 @@ export function useDropdown(props: UseDropdownProps) {
     isOpen,
     defaultOpen,
     onOpenChange,
+    isDisabled,
     type = "menu",
     trigger = "press",
     placement = "bottom",
-    isDisabled = false,
     closeOnSelect = true,
     shouldBlockScroll = true,
     classNames: classNamesProp,
@@ -119,7 +119,7 @@ export function useDropdown(props: UseDropdownProps) {
   });
 
   const getMenuTriggerProps: PropGetter = (
-    props = {},
+    originalProps = {},
     _ref: Ref<any> | null | undefined = null,
   ) => {
     // These props are not needed for the menu trigger since it is handled by the popover trigger.
@@ -127,7 +127,7 @@ export function useDropdown(props: UseDropdownProps) {
     const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
 
     return {
-      ...mergeProps(otherMenuTriggerProps, props),
+      ...mergeProps(otherMenuTriggerProps, {isDisabled}, originalProps),
       ref: mergeRefs(_ref, triggerRef),
     };
   };
@@ -139,7 +139,11 @@ export function useDropdown(props: UseDropdownProps) {
     return {
       ref: mergeRefs(_ref, menuRef),
       menuProps,
-      ...mergeProps(props, {onAction: () => onMenuAction(props?.closeOnSelect)}),
+      closeOnSelect,
+      ...mergeProps(props, {
+        onAction: () => onMenuAction(props?.closeOnSelect),
+        onClose: state.close,
+      }),
     } as MenuProps;
   };
 

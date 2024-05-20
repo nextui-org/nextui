@@ -6,11 +6,10 @@ import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system"
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr, removeEvents} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
 import {useOption} from "@react-aria/listbox";
 import {mergeProps} from "@react-aria/utils";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 import {ListState} from "@react-stately/list";
 
@@ -93,7 +92,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
         isDisabled,
         disableAnimation,
       }),
-    [...Object.values(variantProps), isDisabled, disableAnimation],
+    [objectToDeps(variantProps), isDisabled, disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);

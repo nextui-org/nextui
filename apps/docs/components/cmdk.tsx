@@ -410,8 +410,8 @@ export const Cmdk: FC<{}> = () => {
             </Kbd>
           </div>
           <Command.List ref={listRef} className={slots.list()} role="listbox">
-            {query.length > 0 && (
-              <Command.Empty>
+            <Command.Empty>
+              {query.length > 0 && (
                 <div className={slots.emptyWrapper()}>
                   <div>
                     <p>No results for &quot;{query}&quot;</p>
@@ -424,8 +424,8 @@ export const Cmdk: FC<{}> = () => {
                     )}
                   </div>
                 </div>
-              </Command.Empty>
-            )}
+              )}
+            </Command.Empty>
 
             {isEmpty(query) &&
               (isEmpty(recentSearches) ? (

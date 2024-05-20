@@ -29,6 +29,7 @@ const input = tv({
       "z-10",
       "pointer-events-none",
       "origin-top-left",
+      "rtl:origin-top-right",
       "subpixel-antialiased",
       "block",
       "text-small",
@@ -50,6 +51,8 @@ const input = tv({
       "hidden",
       "absolute",
       "right-3",
+      "rtl:right-auto",
+      "rtl:left-3",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -129,17 +132,17 @@ const input = tv({
     size: {
       sm: {
         label: "text-tiny",
-        inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        inputWrapper: "h-8 min-h-8 px-2 rounded-small",
         input: "text-small",
         clearButton: "text-medium",
       },
       md: {
-        inputWrapper: "h-unit-10 min-h-unit-10 rounded-medium",
+        inputWrapper: "h-10 min-h-10 rounded-medium",
         input: "text-small",
         clearButton: "text-large",
       },
       lg: {
-        inputWrapper: "h-unit-12 min-h-unit-12 rounded-large",
+        inputWrapper: "h-12 min-h-12 rounded-large",
         input: "text-medium",
         clearButton: "text-large",
       },
@@ -169,7 +172,7 @@ const input = tv({
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "relative text-foreground pr-2",
+        label: "relative text-foreground pr-2 rtl:pr-0 rtl:pl-2",
       },
       inside: {
         label: "text-tiny cursor-text",
@@ -184,7 +187,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6",
+        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
@@ -772,6 +775,8 @@ const input = tv({
       class: {
         label: [
           "left-3",
+          "rtl:left-auto",
+          "rtl:right-3",
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -785,6 +790,8 @@ const input = tv({
       class: {
         label: [
           "left-3",
+          "rtl:left-auto",
+          "rtl:right-3",
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],

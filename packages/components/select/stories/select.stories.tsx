@@ -1,4 +1,6 @@
 /* eslint-disable react/display-name */
+import type {ValidationResult} from "@react-types/shared";
+
 import React, {ChangeEvent} from "react";
 import {Meta} from "@storybook/react";
 import {select, button} from "@nextui-org/theme";
@@ -249,7 +251,7 @@ const ControlledMultipleTemplate = ({color, variant, ...args}: SelectProps<Anima
   );
 };
 
-const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
+const FormTemplate = ({color, variant, ...args}: SelectProps) => {
   return (
     <form
       className="w-full max-w-xs items-end flex flex-col gap-4"
@@ -259,7 +261,6 @@ const RequiredTemplate = ({color, variant, ...args}: SelectProps) => {
       }}
     >
       <Select
-        isRequired
         color={color}
         label="Favorite Animal"
         name="favorite-animal"
@@ -504,7 +505,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: SelectProps<User>) => {
       className="max-w-xs"
       classNames={{
         label: "group-data-[filled=true]:-translate-y-5",
-        trigger: "min-h-unit-16",
+        trigger: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}
       color={color}
@@ -602,10 +603,11 @@ export const Multiple = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
+    isRequired: true,
   },
 };
 
@@ -705,7 +707,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please select an animal",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: DynamicTemplate,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please select an animal";
+      }
+    },
   },
 };
 
@@ -802,7 +819,7 @@ export const WithChips = {
     labelPlacement: "outside",
     classNames: {
       base: "max-w-xs",
-      trigger: "min-h-unit-12 py-2",
+      trigger: "min-h-12 py-2",
     },
     renderValue: (items: SelectedItems<User>) => {
       return (

@@ -7,6 +7,7 @@ import {format, parseISO} from "date-fns";
 import NextLink from "next/link";
 import {Balancer} from "react-wrap-balancer";
 
+import {__DEV__, __PREVIEW__} from "@/utils";
 import {MDXContent} from "@/components/mdx-content";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
@@ -17,6 +18,8 @@ interface BlogPostProps {
     slug: string;
   };
 }
+
+const isDraftVisible = __DEV__ || __PREVIEW__;
 
 async function getBlogPostFromParams({params}: BlogPostProps) {
   const slug = params.slug || "";
@@ -78,7 +81,7 @@ export async function generateStaticParams(): Promise<BlogPostProps["params"][]>
 export default async function DocPage({params}: BlogPostProps) {
   const {post} = await getBlogPostFromParams({params});
 
-  if (!post) {
+  if (!post || (post.draft && !isDraftVisible)) {
     notFound();
   }
 
@@ -96,6 +99,7 @@ export default async function DocPage({params}: BlogPostProps) {
           <ChevronRightLinearIcon className="rotate-180 inline-block mr-1" size={15} />
           Back to blog
         </Link>
+
         <time className="block text-small mb-2 text-default-500" dateTime={post.date}>
           {format(parseISO(post.date), "LLLL d, yyyy")}
         </time>
@@ -119,6 +123,7 @@ export default async function DocPage({params}: BlogPostProps) {
         </div>
         <h1 className="mb-2 font-bold text-4xl">
           <Balancer>{post.title}</Balancer>
+          <strong className="text-default-300">{post?.draft && " (Draft)"}</strong>
         </h1>
         <MDXContent code={post.body.code} />
       </div>

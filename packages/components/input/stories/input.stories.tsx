@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
@@ -10,6 +12,8 @@ import {
   SearchIcon,
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
+import {useForm} from "react-hook-form";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -78,6 +82,21 @@ const MirrorTemplate = (args) => (
     <Input {...args} />
     <Input {...args} placeholder="Enter your email" />
   </div>
+);
+
+const FormTemplate = (args) => (
+  <form
+    className="w-full max-w-xl flex flex-row items-end gap-4"
+    onSubmit={(e) => {
+      alert(`Submitted value: ${e.target["example"].value}`);
+      e.preventDefault();
+    }}
+  >
+    <Input {...args} name="example" />
+    <button className={button({color: "primary"})} type="submit">
+      Submit
+    </button>
+  </form>
 );
 
 const PasswordTemplate = (args) => {
@@ -456,6 +475,38 @@ const CustomWithHooksTemplate = (args: InputProps) => {
   );
 };
 
+const WithReactHookFormTemplate = (args: InputProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "wkw",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <Input isClearable label="With default value" {...register("withDefaultValue")} />
+      <Input {...args} label="Without default value" {...register("withoutDefaultValue")} />
+      <Input {...args} label="Required" {...register("requiredField", {required: true})} />
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -465,7 +516,7 @@ export const Default = {
 };
 
 export const Required = {
-  render: MirrorTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
@@ -581,7 +632,50 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please enter a valid email address",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    min: "0",
+    max: "100",
+    type: "number",
+    isRequired: true,
+    label: "Number",
+    placeholder: "Enter a number(0-100)",
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.rangeOverflow) {
+        return "Value is too high";
+      }
+      if (value.validationDetails.rangeUnderflow) {
+        return "Value is too low";
+      }
+      if (value.validationDetails.valueMissing) {
+        return "Value is required";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    type: "number",
+    validate: (value) => {
+      if (value < 0 || value > 100) {
+        return "Value must be between 0 and 100";
+      }
+    },
+    isRequired: true,
+    label: "Number",
+    placeholder: "Enter a number(0-100)",
   },
 };
 
@@ -643,5 +737,13 @@ export const CustomWithHooks = {
     startContent: (
       <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
     ),
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

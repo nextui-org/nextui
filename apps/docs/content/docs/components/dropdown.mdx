@@ -13,7 +13,21 @@ Displays a list of actions or options that a user can choose.
 
 ---
 
-<CarbonAd />
+
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add dropdown",
+    npm: "npm install @nextui-org/dropdown",
+    yarn: "yarn add @nextui-org/dropdown",
+    pnpm: "pnpm add @nextui-org/dropdown",
+    bun: "bun add @nextui-org/dropdown"
+  }}
+/>
+
 
 ## Import
 
@@ -343,7 +357,7 @@ you to customize each item individually.
 | items            | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                   | -       |
 | hideSelectedIcon | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                 | `false` |
 | showDivider      | `boolean`                                                                                              | Whether to show the divider between the groups.                                             | `false` |
-| DividerProps     | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
+| dividerProps     | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
 | classNames       | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
 | itemClasses      | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
 

@@ -1,0 +1,370 @@
+---
+title: NextUI CLI
+description: API References for NextUI CLI
+---
+
+# NextUI CLI
+
+------
+
+Here's the API reference for the `NextUI CLI`.
+
+Once the `CLI` is installed, run the following command to display available commands:
+
+To get a list of the available CLI commands, run the following command inside your project directory:
+
+```codeBlock bash
+nextui -h
+```
+
+This will produce the following help output:
+
+```codeBlock bash
+NextUI CLI <version>
+
+A command line tool for seamless integration with NextUI
+
+Usage: nextui [command]
+
+Options:
+  -v, --version  Show the version number
+  -h, --help     Display help for commands
+
+Commands:
+  init [options] [projectName]       Start a new NextUI project
+  add [options] [components...]      Add NextUI components to your project
+  upgrade [options] [components...]  Update NextUI components to the latest versions
+  remove [options] [components...]   Remove NextUI components from your project
+  list [options]                     Show details of installed components
+  env [options]                      Display debug information about the local environment
+  doctor [options]                   Diagnose problems in your project
+  help [command]                     Get help on a specific command
+```
+
+## init
+
+To start a new project, use the init command:
+
+```codeBlock bash
+nextui init [projectName] [options]
+```
+### Options
+
+- `-t --template [string]` The template to use for the new project e.g. app, pages
+
+### Example
+
+```codeBlock bash
+nextui init my-nextui-app -t app
+```
+
+## add
+
+> 1. Auto add the missing required `dependencies` to your project
+> 2. Auto add the required `tailwindcss.config.js` configuration to your project
+> 3. Detect whether using pnpm, if so, add the required configuration to your `.npmrc` file
+
+To add components to your project, use the add command:
+
+```codeBlock bash
+nextui add [components...] [options]
+```
+
+### Options
+
+- `-a --all` [boolean] Add all the NextUI components (default: `false`)
+- `-p --packagePath` [string] The path to the package.json file
+- `-tw --tailwindPath` [string] The path to the tailwind.config file file
+- `-app --appPath` [string] The path to the App.tsx file
+- `--prettier` [boolean] Add prettier format in the add content which required installed prettier - (default: false)
+- `--addApp` [boolean] Add App.tsx file content which required provider (default: `false`)
+
+
+### Example
+
+Without setting a specific component, the `add` command will show a list of available components.
+
+```codeBlock bash
+nextui add
+```
+
+Output:
+
+```codeBlock bash
+NextUI CLI v0.1.2
+
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◉  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◯  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+If you want to add a specific component, you can specify the component name.
+
+```codeBlock bash
+nextui add button input
+```
+
+Output:
+
+```bash
+NextUI CLI v0.1.2
+
+Adding the required dependencies: @nextui-org/button
+
+pnpm add @nextui-org/button
+Packages: +1
++
+Progress: resolved 470, reused 462, downloaded 0, added 0, done
+
+dependencies:
++ @nextui-org/button 2.0.24
+
+Done in 3.4s
+
+Tailwind CSS settings have been updated in: /project-path/tailwind.config.js
+
+✅ Components added successfully
+```
+
+
+## upgrade
+
+Upgrade the NextUI components to the latest version.
+
+```codeBlock bash
+nextui upgrade [components...] [options]
+```
+
+### Options
+
+- `-p --packagePath` [string] The path to the package.json file.
+- `-a --all` [boolean] Upgrade all the NextUI components (default: `false`).
+- `-h, --help` Display help for commands.
+
+
+### Example
+
+```codeBlock bash
+nextui upgrade button
+```
+
+
+Output:
+
+```bash
+NextUI CLI v0.1.2
+
+╭───────────────────────────────────────────────────────────╮
+│  @nextui-org/button              2.0.24  ->  2.0.27   │
+╰───────────────────────────────────────────────────────────╯
+? Would you like to proceed with the upgrade? › - Use arrow-keys. Return to submit.
+❯   Yes
+    No
+
+pnpm add  @nextui-org/button@2.0.27
+Already up to date
+Progress: resolved 474, reused 465, downloaded 0, added 0, done
+Done in 2.9s
+
+✅ Upgrade complete. All components are up to date.
+```
+
+## remove
+
+Remove NextUI components from your project.
+
+> **Note**: If there are no NextUI components after removing, the required content will also be removed._createMdxContent
+  
+  ```codeBlock bash
+  nextui remove [components...] [options]
+  ```
+
+
+### Options
+
+- `-p --packagePath` [string] The path to the package.json file.
+- `-a --all` [boolean] Remove all the NextUI components (default: `false`).
+- `-tw --tailwindPath` [string] The path to the tailwind.config file file.
+- `--prettier` [boolean] Add prettier format in the add content which required installed prettier - (default: false).
+
+
+### Example
+
+```codeBlock bash
+nextui remove button
+```
+
+Output:
+
+```bash
+NextUI CLI v0.1.2
+
+❗️ Components slated for removal:
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   Package              │   Version              │   Status   │   Docs                                        │
+│──────────────────────────────────────────────────────────────────────────────────────────────────────────────│
+│   @nextui-org/button   │   2.0.27 🚀latest      │   stable   │   https://nextui.org/docs/components/button   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+? Confirm removal of these components: › - Use arrow-keys. Return to submit.
+❯   Yes
+    No
+
+pnpm remove  @nextui-org/button
+Already up to date
+Progress: resolved 474, reused 465, downloaded 0, added 0, done
+
+dependencies:
+- @nextui-org/button 2.0.27
+
+Done in 2.1s
+
+Remove the removed components tailwind content in file:/project-path/tailwind.config.js
+
+✅ Successfully removed the specified NextUI components: @nextui-org/button
+```
+
+## list
+
+Show details of installed components.
+
+```codeBlock bash
+nextui list [options]
+```
+
+### Options
+
+- `-p --packagePath` [string] The path to the package.json file.
+- `-c --current` List the current installed components.
+
+### Example
+
+```codeBlock bash
+nextui list
+```
+
+Output:
+
+```codeBlock bash
+NextUI CLI v0.1.2
+
+Current installed components:
+
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   Package                    │   Version              │   Status    │   Docs                                              │
+│───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│
+│   @nextui-org/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://nextui.org/docs/components/autocomplete   │
+│   @nextui-org/badge          │   2.0.24 🚀latest      │   stable    │   https://nextui.org/docs/components/badge          │
+│   @nextui-org/button         │   2.0.27 🚀latest      │   stable    │   https://nextui.org/docs/components/button         │
+│   @nextui-org/chip           │   2.0.25 🚀latest      │   stable    │   https://nextui.org/docs/components/chip           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
+
+## doctor
+
+Diagnose problems in your project.
+
+> 1. Check whether have `redundant dependencies` in the project
+> 2. Check whether the NextUI components `required dependencies are installed` in the project
+> 3. Check the required `tailwind.config.js` file and the content is correct
+> 4. Check `.npmrc` is correct when using `pnpm`
+
+```codeBlock bash
+nextui doctor [options]
+```
+
+### Options
+
+- `-p` `--packagePath` [string] The path to the package.json file
+- `-tw` `--tailwindPath` [string] The path to the tailwind.config file file
+- `-app` `--appPath` [string] The path to the App.tsx file
+- `-ca` `--checkApp` [boolean] Open check App (default: `true`)
+- `-ct` `--checkTailwind` [boolean] Open check tailwind.config file (default: `true`)
+- `-cp` `--checkPnpm` [boolean] Open check Pnpm (default: `true`)
+
+
+### Example
+
+```codeBlock bash
+nextui doctor
+```
+
+Output:
+
+
+If there is a problem in your project, the `doctor` command will display the problem information.
+
+```codeBlock bash
+NextUI CLI v0.1.2
+
+NextUI CLI: ❌ Your project has 1 issue that require attention
+
+❗️Issue 1: missingTailwind
+
+Missing tailwind.config.(j|t)s file. To set up, visit: https://nextui.org/docs/guide/installation#tailwind-css-setup
+```
+
+Otherwise, the `doctor` command will display the following message.
+
+```codeBlock bash
+NextUI CLI v0.1.2
+
+✅ Your project has no detected issues.
+```
+
+## env
+
+Display debug information about the local environment.
+
+```codeBlock bash
+nextui env [options]
+```
+
+### Options
+- `-p --packagePath` [string] The path to the package.json file
+
+
+### Example
+
+```codeBlock bash
+nextui env
+```
+
+Output:
+
+```codeBlock bash
+NextUI CLI 0.1.0
+
+Current installed components:
+
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   Package                    │   Version              │   Status    │   Docs                                              │
+│───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│
+│   @nextui-org/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://nextui.org/docs/components/autocomplete   │
+│   @nextui-org/badge          │   2.0.24 🚀latest      │   stable    │   https://nextui.org/docs/components/badge          │
+│   @nextui-org/button         │   2.0.27 🚀latest      │   stable    │   https://nextui.org/docs/components/button         │
+│   @nextui-org/chip           │   2.0.25 🚀latest      │   stable    │   https://nextui.org/docs/components/chip           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Environment Info:
+  System:
+    OS: darwin
+    CPU: arm64
+  Binaries:
+    Node: v18.18.2
+```    

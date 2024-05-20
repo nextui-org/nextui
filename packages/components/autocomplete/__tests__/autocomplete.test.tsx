@@ -1,7 +1,9 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import {Autocomplete, AutocompleteItem, AutocompleteSection} from "../src";
+import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../../modal/src";
 
 type Item = {
   label: string;
@@ -132,5 +134,89 @@ describe("Autocomplete", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("should close dropdown when clicking outside autocomplete", async () => {
+    const wrapper = render(
+      <Autocomplete
+        aria-label="Favorite Animal"
+        data-testid="close-when-clicking-outside-test"
+        label="Favorite Animal"
+      >
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
+
+    // open the select dropdown
+    await act(async () => {
+      await userEvent.click(autocomplete);
+    });
+
+    // assert that the autocomplete dropdown is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    // click outside the autocomplete component
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the autocomplete is closed
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should close dropdown when clicking outside autocomplete with modal open", async () => {
+    const wrapper = render(
+      <Modal isOpen>
+        <ModalContent>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalBody>
+            <Autocomplete
+              aria-label="Favorite Animal"
+              data-testid="close-when-clicking-outside-test"
+              label="Favorite Animal"
+            >
+              <AutocompleteItem key="penguin" value="penguin">
+                Penguin
+              </AutocompleteItem>
+              <AutocompleteItem key="zebra" value="zebra">
+                Zebra
+              </AutocompleteItem>
+              <AutocompleteItem key="shark" value="shark">
+                Shark
+              </AutocompleteItem>
+            </Autocomplete>
+          </ModalBody>
+          <ModalFooter>Modal footer</ModalFooter>
+        </ModalContent>
+      </Modal>,
+    );
+
+    const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
+
+    // open the autocomplete dropdown
+    await act(async () => {
+      await userEvent.click(autocomplete);
+    });
+
+    // assert that the autocomplete dropdown is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    // click outside the autocomplete component
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the autocomplete dropdown is closed
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
   });
 });

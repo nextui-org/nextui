@@ -41,7 +41,10 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
             {...item.props}
             classNames={classNames}
           />
-          {!isSplitted && showDivider && index < state.collection.size - 1 && <Divider />}
+          {!item.props.hidden &&
+            !isSplitted &&
+            showDivider &&
+            index < state.collection.size - 1 && <Divider />}
         </Fragment>
       );
     });

@@ -97,14 +97,14 @@ const radio = tv({
       md: {
         wrapper: "w-5 h-5",
         control: "w-2 h-2",
-        labelWrapper: "ml-2",
+        labelWrapper: "ml-2 rtl:mr-2 rtl:ml-[unset]",
         label: "text-medium",
         description: "text-small",
       },
       lg: {
         wrapper: "w-6 h-6",
         control: "w-2.5 h-2.5",
-        labelWrapper: "ml-2",
+        labelWrapper: "ml-2 rtl:mr-2 rtl:ml-[unset]",
         label: "text-large",
         description: "text-medium",
       },

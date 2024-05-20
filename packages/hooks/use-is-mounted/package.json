@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-is-mounted",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "This hook can be used to render client-based components or run client logic",
   "keywords": [
     "use-is-mounted"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",

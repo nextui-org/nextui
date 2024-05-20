@@ -144,7 +144,7 @@ const slider = tv({
         track: "h-full border-y-transparent",
         labelWrapper: "flex-col justify-center items-center",
         step: ["left-1/2", "-translate-x-1/2", "translate-y-1/2"],
-        mark: ["left-1/2", "ml-1", "translate-x-1/2", "-translate-y-1/2"],
+        mark: ["left-1/2", "ml-1", "translate-x-1/2", "translate-y-1/2"],
       },
       false: {
         thumb: "top-1/2",

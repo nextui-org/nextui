@@ -52,8 +52,8 @@ export default function App() {
             "backdrop-saturate-200",
             "hover:bg-default-200/70",
             "dark:hover:bg-default/70",
-            "group-data-[focused=true]:bg-default-200/50",
-            "dark:group-data-[focused=true]:bg-default/60",
+            "group-data-[focus=true]:bg-default-200/50",
+            "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
           ],
         }}

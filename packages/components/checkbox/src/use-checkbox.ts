@@ -6,17 +6,17 @@ import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useCallbackRef} from "@nextui-org/use-callback-ref";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
-import {chain, mergeProps} from "@react-aria/utils";
-import {useFocusableRef} from "@nextui-org/react-utils";
+import {mergeProps, chain} from "@react-aria/utils";
 import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
 import {
   useCheckbox as useReactAriaCheckbox,
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
 } from "@react-aria/checkbox";
-import {FocusableRef} from "@react-types/shared";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {mergeRefs} from "@nextui-org/react-utils";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
@@ -32,7 +32,7 @@ interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProp
   /**
    * Ref to the DOM node.
    */
-  ref?: Ref<HTMLLabelElement>;
+  ref?: Ref<HTMLInputElement>;
   /**
    * The label of the checkbox.
    */
@@ -68,7 +68,7 @@ interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProp
 }
 
 export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
+  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange" | "validationBehavior"> &
   CheckboxVariantProps;
 
 export function useCheckbox(props: UseCheckboxProps = {}) {
@@ -82,7 +82,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     children,
     icon,
     name,
-    isRequired = false,
+    isRequired,
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,
@@ -97,7 +97,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isIndeterminate = false,
     defaultSelected,
     classNames,
-    onChange,
     className,
     onValueChange,
     ...otherProps
@@ -120,8 +119,21 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const Component = as || "label";
 
-  const inputRef = useRef(null);
-  const domRef = useFocusableRef(ref as FocusableRef<HTMLLabelElement>, inputRef);
+  const domRef = useRef<HTMLLabelElement>(null);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // This workaround might become unnecessary once the following issue is resolved
+  // https://github.com/adobe/react-spectrum/issues/5693
+  let onChange = props.onChange;
+
+  if (isInGroup) {
+    const dispatch = () => {
+      groupContext.groupState.resetValidation();
+    };
+
+    onChange = chain(dispatch, onChange);
+  }
 
   const labelId = useId();
 
@@ -159,6 +171,8 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     onValueChange,
   ]);
 
+  const toggleState = useToggleState(ariaCheckboxProps);
+
   const {
     inputProps,
     isSelected,
@@ -171,11 +185,18 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         {
           ...ariaCheckboxProps,
           isInvalid,
+          validationBehavior: "native",
         },
         groupContext.groupState,
         inputRef,
       )
-    : useReactAriaCheckbox(ariaCheckboxProps, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
+    : // eslint-disable-next-line
+      useReactAriaCheckbox(
+        {...ariaCheckboxProps, validationBehavior: "native"},
+        // eslint-disable-next-line
+        toggleState,
+        inputRef,
+      );
 
   const isInteractionDisabled = isDisabled || isReadOnly;
 
@@ -222,6 +243,31 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
         disableAnimation,
       }),
     [color, size, radius, isInvalid, lineThrough, isDisabled, disableAnimation],
+  );
+
+  // if we use `react-hook-form`, it will set the checkbox value using the ref in register
+  // i.e. setting ref.current.checked to true or false which is uncontrolled
+  // hence, sync the state with `ref.current.checked`
+  useSafeLayoutEffect(() => {
+    if (!inputRef.current) return;
+    const isInputRefChecked = !!inputRef.current.checked;
+
+    toggleState.setSelected(isInputRefChecked);
+  }, [inputRef.current]);
+
+  const onChangeProp = useCallbackRef(onChange);
+
+  const handleCheckboxChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (isReadOnly || isDisabled) {
+        event.preventDefault();
+
+        return;
+      }
+
+      onChangeProp?.(event);
+    },
+    [isReadOnly, isDisabled, onChangeProp],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -271,11 +317,11 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const getInputProps: PropGetter = useCallback(() => {
     return {
-      ref: inputRef,
+      ref: mergeRefs(inputRef, ref),
       ...mergeProps(inputProps, focusProps),
-      onChange: chain(inputProps.onChange, onChange),
+      onChange: chain(inputProps.onChange, handleCheckboxChange),
     };
-  }, [inputProps, focusProps, onChange]);
+  }, [inputProps, focusProps, handleCheckboxChange]);
 
   const getLabelProps: PropGetter = useCallback(
     () => ({

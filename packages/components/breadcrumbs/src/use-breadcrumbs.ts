@@ -8,7 +8,7 @@ import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@nextui-org/rea
 import {mergeProps} from "@react-aria/utils";
 import {useBreadcrumbs as useAriaBreadcrumbs} from "@react-aria/breadcrumbs";
 import {useMemo} from "react";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 
 import BreadcrumbItem, {BreadcrumbItemProps} from "./breadcrumb-item";
 
@@ -143,7 +143,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const baseStyles = clsx(classNames?.base, className);
