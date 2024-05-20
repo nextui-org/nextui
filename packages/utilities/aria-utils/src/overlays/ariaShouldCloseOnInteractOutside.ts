@@ -6,12 +6,14 @@ import {RefObject} from "react";
  * @param element - element originally from `shouldCloseOnInteractOutside`
  * @param triggerRef - The trigger ref
  * @param state - The trigger state from the target component
+ * @param setShouldFocus - Set the focus state (used in input-based component such as autocomplete)
  * @returns - a boolean value which is same as shouldCloseOnInteractOutside
  */
 export const ariaShouldCloseOnInteractOutside = (
   element: Element,
   triggerRef: RefObject<Element>,
   state: any,
+  setShouldFocus?: (shouldFocus: boolean) => void,
 ) => {
   // Don't close if the click is within the trigger or the popover itself
   let trigger = triggerRef?.current;
@@ -21,10 +23,19 @@ export const ariaShouldCloseOnInteractOutside = (
 
   // if interacting outside the component
   if (!trigger || !trigger.contains(element)) {
+    if (setShouldFocus) {
+      // blur the component (e.g. autocomplete)
+      setShouldFocus(false);
+    }
     // close the popover close the popover if it is not clicking overlay
     // e.g. clicking another component should close the current one and open the another one
     if (!isWithinModal) {
       state.close();
+    }
+  } else {
+    if (setShouldFocus) {
+      // otherwise the component (e.g. autocomplete) should keep focused
+      setShouldFocus(true);
     }
   }
 
