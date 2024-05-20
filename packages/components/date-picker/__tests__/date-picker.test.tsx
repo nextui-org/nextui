@@ -458,4 +458,35 @@ describe("DatePicker", () => {
       expect(getTextValue(combobox)).toBe("2/4/2019"); // uncontrolled
     });
   });
+
+  it("should close listbox by clicking another datepicker", async () => {
+    const {getByRole, getAllByRole} = render(
+      <>
+        <DatePicker data-testid="datepicker" label="Date" />
+        <DatePicker data-testid="datepicker2" label="Date" />
+      </>,
+    );
+
+    const dateButtons = getAllByRole("button");
+
+    expect(dateButtons[0]).not.toBeNull();
+
+    expect(dateButtons[1]).not.toBeNull();
+
+    // open the datepicker dialog by clicking datepicker button in the first datepicker
+    triggerPress(dateButtons[0]);
+
+    let dialog = getByRole("dialog");
+
+    // assert that the first datepicker dialog is open
+    expect(dialog).toBeVisible();
+
+    // close the datepicker dialog by clicking the second datepicker
+    triggerPress(dateButtons[1]);
+
+    dialog = getByRole("dialog");
+
+    // assert that the second datepicker dialog is open
+    expect(dialog).toBeVisible();
+  });
 });
