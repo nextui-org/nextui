@@ -20,6 +20,7 @@ import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepick
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {dateRangePicker, dateInput} from "@nextui-org/theme";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 interface Props<T extends DateValue>
@@ -205,26 +206,8 @@ export function useDateRangePicker<T extends DateValue>({
           ),
         }),
       },
-      shouldCloseOnInteractOutside: (element: any) => {
-        let trigger = domRef?.current;
-
-        // check if the current date range picker is within the modal
-        const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
-
-        // if interacting outside the date range picker
-        if (!trigger || !trigger.contains(element)) {
-          // close the listbox close the listbox if it is not clicking overlay
-          // e.g. clicking another date range picker should close the current one and open the another one
-          if (!isWithinModal) {
-            state.close();
-          }
-        }
-
-        // if the date range picker is in modal,
-        // clicking the overlay should close the listbox instead of closing the modal
-        // otherwise, allow interaction with other elements
-        return isWithinModal;
-      },
+      shouldCloseOnInteractOutside: (element: Element) =>
+        ariaShouldCloseOnInteractOutside(element, domRef, state),
     } as PopoverProps;
   };
 
