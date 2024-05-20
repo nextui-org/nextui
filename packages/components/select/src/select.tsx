@@ -129,10 +129,8 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
           {!isOutsideLeft ? labelContent : null}
           <div {...getInnerWrapperProps()}>
             {startContent}
-            <span {...getValueProps()}>
-              {renderSelectedItem}
-              {state.selectedItems && <VisuallyHidden elementType="span">,</VisuallyHidden>}
-            </span>
+            <span {...getValueProps()}>{renderSelectedItem}</span>
+            {endContent && state.selectedItems && <VisuallyHidden elementType="span">,</VisuallyHidden>}
             {endContent}
           </div>
           {renderIndicator}
@@ -144,9 +142,9 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   );
 }
 
-export type SelectProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+export type SelectProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Select) as <T = object>(props: SelectProps<T>) => ReactElement;
+export default forwardRef(Select) as <T extends object>(props: SelectProps<T>) => ReactElement;
 
 Select.displayName = "NextUI.Select";

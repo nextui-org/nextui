@@ -58,10 +58,10 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   );
 }
 
-export type AutocompleteProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+export type AutocompleteProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Autocomplete) as <T = object>(
+export default forwardRef(Autocomplete) as <T extends object>(
   props: AutocompleteProps<T>,
 ) => ReactElement;
 
