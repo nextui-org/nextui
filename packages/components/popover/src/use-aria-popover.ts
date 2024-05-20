@@ -10,6 +10,7 @@ import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-o
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 export interface Props {
   /**
@@ -75,28 +76,7 @@ export function useReactAriaPopover(
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside
-        : (element) => {
-            // Don't close if the click is within the trigger or the popover itself
-            let trigger = triggerRef?.current;
-
-            // check if the current popover is within the modal
-            const isWithinModal =
-              element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
-
-            // if interacting outside the popover
-            if (!trigger || !trigger.contains(element)) {
-              // close the listbox close the listbox if it is not clicking overlay
-              // e.g. clicking another popover should close the current one and open the another one
-              if (!isWithinModal) {
-                state.close();
-              }
-            }
-
-            // if the popover is in modal,
-            // clicking the overlay should close the listbox instead of closing the modal
-            // otherwise, allow interaction with other elements
-            return isWithinModal;
-          },
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
     },
     popoverRef,
   );
