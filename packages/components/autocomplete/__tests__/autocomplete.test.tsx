@@ -396,6 +396,87 @@ describe("Autocomplete", () => {
     // assert that the input has target selection
     expect(autocomplete).toHaveValue("Penguin");
   });
+
+  it("should close listbox by clicking another autocomplete", async () => {
+    const wrapper = render(
+      <>
+        <Autocomplete
+          aria-label="Favorite Animal"
+          data-testid="autocomplete"
+          label="Favorite Animal"
+        >
+          <AutocompleteItem key="penguin" value="penguin">
+            Penguin
+          </AutocompleteItem>
+          <AutocompleteItem key="zebra" value="zebra">
+            Zebra
+          </AutocompleteItem>
+          <AutocompleteItem key="shark" value="shark">
+            Shark
+          </AutocompleteItem>
+        </Autocomplete>
+        <Autocomplete
+          aria-label="Favorite Animal"
+          data-testid="autocomplete2"
+          label="Favorite Animal"
+        >
+          <AutocompleteItem key="penguin" value="penguin">
+            Penguin
+          </AutocompleteItem>
+          <AutocompleteItem key="zebra" value="zebra">
+            Zebra
+          </AutocompleteItem>
+          <AutocompleteItem key="shark" value="shark">
+            Shark
+          </AutocompleteItem>
+        </Autocomplete>
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    const autocomplete2 = wrapper.getByTestId("autocomplete2");
+
+    const innerWrappers = container.querySelectorAll("[data-slot='inner-wrapper']");
+
+    const selectorButton = innerWrappers[0].querySelector("button:nth-of-type(2)")!;
+
+    const selectorButton2 = innerWrappers[1].querySelector("button:nth-of-type(2)")!;
+
+    expect(selectorButton).not.toBeNull();
+
+    expect(selectorButton2).not.toBeNull();
+
+    // open the select listbox by clicking selector button in the first autocomplete
+    await act(async () => {
+      await userEvent.click(selectorButton);
+    });
+
+    // assert that the first autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+
+    // close the select listbox by clicking the second autocomplete
+    await act(async () => {
+      await userEvent.click(selectorButton2);
+    });
+
+    // assert that the first autocomplete listbox is closed
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the second autocomplete listbox is open
+    expect(autocomplete2).toHaveAttribute("aria-expanded", "true");
+
+    // assert that the first autocomplete is not focused
+    expect(autocomplete).not.toHaveFocus();
+
+    // assert that the second autocomplete is focused
+    expect(autocomplete2).toHaveFocus();
+  });
 });
 
 describe("Autocomplete with React Hook Form", () => {
@@ -498,81 +579,4 @@ describe("Autocomplete with React Hook Form", () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
-});
-
-it("should close listbox by clicking another autocomplete", async () => {
-  const wrapper = render(
-    <>
-      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
-      </Autocomplete>
-      <Autocomplete
-        aria-label="Favorite Animal"
-        data-testid="autocomplete2"
-        label="Favorite Animal"
-      >
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
-      </Autocomplete>
-    </>,
-  );
-
-  const {container} = wrapper;
-
-  const autocomplete = wrapper.getByTestId("autocomplete");
-
-  const autocomplete2 = wrapper.getByTestId("autocomplete2");
-
-  const innerWrappers = container.querySelectorAll("[data-slot='inner-wrapper']");
-
-  const selectorButton = innerWrappers[0].querySelector("button:nth-of-type(2)")!;
-
-  const selectorButton2 = innerWrappers[1].querySelector("button:nth-of-type(2)")!;
-
-  expect(selectorButton).not.toBeNull();
-
-  expect(selectorButton2).not.toBeNull();
-
-  // open the select listbox by clicking selector button in the first autocomplete
-  await act(async () => {
-    await userEvent.click(selectorButton);
-  });
-
-  // assert that the first autocomplete listbox is open
-  expect(autocomplete).toHaveAttribute("aria-expanded", "true");
-
-  // assert that input is focused
-  expect(autocomplete).toHaveFocus();
-
-  // close the select listbox by clicking the second autocomplete
-  await act(async () => {
-    await userEvent.click(selectorButton2);
-  });
-
-  // assert that the first autocomplete listbox is closed
-  expect(autocomplete).toHaveAttribute("aria-expanded", "false");
-
-  // assert that the second autocomplete listbox is open
-  expect(autocomplete2).toHaveAttribute("aria-expanded", "true");
-
-  // assert that the first autocomplete is not focused
-  expect(autocomplete).not.toHaveFocus();
-
-  // assert that the second autocomplete is focused
-  expect(autocomplete2).toHaveFocus();
 });
