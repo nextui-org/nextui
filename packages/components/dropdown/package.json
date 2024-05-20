@@ -45,6 +45,7 @@
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
     "@react-aria/menu": "3.13.1",
     "@react-aria/utils": "3.23.2",
     "@react-stately/menu": "3.6.1",

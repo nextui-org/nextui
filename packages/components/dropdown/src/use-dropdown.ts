@@ -8,6 +8,7 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
@@ -118,26 +119,8 @@ export function useDropdown(props: UseDropdownProps) {
       ...props.classNames,
       content: clsx(classNames, classNamesProp?.content, props.className),
     },
-    shouldCloseOnInteractOutside: (element: any) => {
-      let trigger = triggerRef?.current;
-
-      // check if the current dropdown is within the modal
-      const isWithinModal = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
-
-      // if interacting outside the dropdown
-      if (!trigger || !trigger.contains(element)) {
-        // close the listbox close the listbox if it is not clicking overlay
-        // e.g. clicking another dropdown should close the current one and open the another one
-        if (!isWithinModal) {
-          state.close();
-        }
-      }
-
-      // if the dropdown is in modal,
-      // clicking the overlay should close the listbox instead of closing the modal
-      // otherwise, allow interaction with other elements
-      return isWithinModal;
-    },
+    shouldCloseOnInteractOutside: (element: Element) =>
+      ariaShouldCloseOnInteractOutside(element, triggerRef, state),
   });
 
   const getMenuTriggerProps: PropGetter = (
