@@ -18,6 +18,7 @@ import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
   extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
@@ -92,6 +93,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   originalProps: UseInputProps<T>,
 ) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
 
@@ -111,7 +113,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps

@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/input",
-  "version": "2.1.21",
-  "description": "The input component is designed for capturing user input within a text field.",
+  "name": "@nextui-org/form",
+  "version": "2.0.0",
+  "description": "A form is a group of inputs that allows users submit data to a server and supports field validation errors.",
   "keywords": [
-    "input"
+    "form"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/input"
+    "directory": "packages/components/form"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -35,32 +35,22 @@
   },
   "peerDependencies": {
     "@nextui-org/system": ">=2.0.0",
-    "@nextui-org/theme": ">=2.1.0",
+    "@nextui-org/theme": ">=2.0.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@nextui-org/form": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/focus": "3.16.2",
-    "@react-aria/interactions": "3.21.1",
-    "@react-aria/textfield": "3.14.3",
-    "@react-aria/utils": "3.23.2",
-    "@react-stately/utils": "3.9.1",
-    "@react-types/shared": "3.22.1",
-    "@react-types/textfield": "3.9.1",
-    "react-textarea-autosize": "^8.5.3"
+    "@nextui-org/input": "workspace:*",
+    "react-aria-components": "^1.2.1"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-hook-form": "^7.51.3"
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }
