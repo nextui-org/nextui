@@ -417,7 +417,8 @@
           "key": "cli-api",
           "title": "NextUI CLI",
           "keywords": "api references, nextui, api, cli",
-          "path": "/docs/api-references/cli-api.mdx"
+          "path": "/docs/api-references/cli-api.mdx",
+          "updated": true
         },
         {
           "key": "nextui-provider",
