@@ -86,7 +86,7 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
@@ -111,6 +111,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
@@ -174,13 +175,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = useTextField(
     {
       ...originalProps,
-      validationBehavior: "native",
+      validationBehavior,
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
-        originalProps?.["aria-label"],
-        originalProps?.label,
-        originalProps?.placeholder,
+        originalProps["aria-label"],
+        originalProps.label,
+        originalProps.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
       onChange: setInputValue,
@@ -346,9 +347,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           }),
           props,
         ),
-        required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
-        "aria-required": dataAttr(originalProps.isRequired),
         onChange: chain(inputProps.onChange, onChange),
       };
     },

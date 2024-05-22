@@ -40,6 +40,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   disableAnimation = false,
   disableRipple = false,
   skipFramerMotionAnimations = disableAnimation,
+  validationBehavior = "aria",
   locale = "en-US",
   defaultDates = {
     minDate: new CalendarDate(1900, 1, 1),
@@ -64,6 +65,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
       defaultDates,
       disableAnimation,
       disableRipple,
+      validationBehavior,
     };
   }, [
     createCalendar,
@@ -71,6 +73,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
     defaultDates?.minDate,
     disableAnimation,
     disableRipple,
+    validationBehavior,
   ]);
 
   return (

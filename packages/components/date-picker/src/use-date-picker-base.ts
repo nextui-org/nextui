@@ -7,12 +7,12 @@ import type {PopoverProps} from "@nextui-org/popover";
 import type {ReactNode} from "react";
 import type {ValueBase} from "@react-types/shared";
 
+import {dataAttr} from "@nextui-org/shared-utils";
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
 import {useState} from "react";
 import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {dataAttr} from "@nextui-org/shared-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
 
 import intlMessages from "../intl/messages";
@@ -109,7 +109,7 @@ export type UseDatePickerBaseProps<T extends DateValue> = Props<T> &
     DateInputProps<T>,
     Variants | "ref" | "createCalendar" | "startContent" | "endContent" | "inputRef"
   > &
-  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate" | "validationBehavior">;
+  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate">;
 
 export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePickerBaseProps<T>) {
   const globalContext = useProviderContext();
@@ -130,7 +130,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     description,
     startContent,
     validationState,
-    // validationBehavior,  TODO: Uncomment this one we support `native` and `aria` validations
+    validationBehavior,
     visibleMonths = 1,
     pageBehavior = "visible",
     calendarWidth = 256,
@@ -213,6 +213,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     shouldForceLeadingZeros,
     isInvalid,
     errorMessage,
+    validationBehavior,
     "data-invalid": dataAttr(originalProps?.isInvalid),
   } as DateInputProps;
 
@@ -224,6 +225,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     placeholderValue: timePlaceholder,
     hourCycle: props.hourCycle,
     hideTimeZone: props.hideTimeZone,
+    validationBehavior,
   } as TimeInputProps;
 
   const popoverProps: PopoverProps = {

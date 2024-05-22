@@ -14,6 +14,7 @@ import type {DateInputGroupProps} from "@nextui-org/date-input";
 import type {DateRangePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {DateInputProps} from "@nextui-org/date-input";
 
+import {useProviderContext} from "@nextui-org/system";
 import {useMemo, useRef} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
@@ -57,7 +58,7 @@ export type UseDateRangePickerProps<T extends DateValue> = Props<T> & AriaDateRa
 
 export function useDateRangePicker<T extends DateValue>({
   as,
-  isInvalid,
+  isInvalid: isInvalidProp,
   description,
   startContent,
   endContent,
@@ -67,6 +68,11 @@ export function useDateRangePicker<T extends DateValue>({
   classNames,
   ...originalProps
 }: UseDateRangePickerProps<T>) {
+  const globalContext = useProviderContext();
+
+  const validationBehavior =
+    originalProps.validationBehavior ?? globalContext?.validationBehavior ?? "aria";
+
   const {
     domRef,
     slotsProps,
@@ -86,10 +92,11 @@ export function useDateRangePicker<T extends DateValue>({
     hasMultipleMonths,
     selectorButtonProps,
     selectorIconProps,
-  } = useDatePickerBase(originalProps);
+  } = useDatePickerBase({...originalProps, validationBehavior});
 
   let state: DateRangePickerState = useDateRangePickerState({
     ...originalProps,
+    validationBehavior,
     shouldCloseOnSelect: () => !state.hasTime,
   });
 
@@ -107,7 +114,10 @@ export function useDateRangePicker<T extends DateValue>({
     validationErrors,
     descriptionProps,
     errorMessageProps,
-  } = useAriaDateRangePicker(originalProps, state, domRef);
+    isInvalid: isAriaInvalid,
+  } = useAriaDateRangePicker({...originalProps, validationBehavior}, state, domRef);
+
+  const isInvalid = isInvalidProp || isAriaInvalid;
 
   const slots = useMemo(
     () =>
