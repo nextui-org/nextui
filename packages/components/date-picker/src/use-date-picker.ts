@@ -174,8 +174,9 @@ export function useDatePicker<T extends DateValue>({
           ),
         }),
       },
-      shouldCloseOnInteractOutside: (element: Element) =>
-        ariaShouldCloseOnInteractOutside(element, domRef, state),
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
     };
   };
 

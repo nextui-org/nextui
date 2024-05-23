@@ -455,13 +455,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
+    const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
     return {
       state,
       ref: popoverRef,
       triggerRef: inputWrapperRef,
       scrollRef: listBoxRef,
       triggerType: "listbox",
-      ...mergeProps(slotsProps.popoverProps, props),
+      ...popoverProps,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -471,8 +473,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
-      shouldCloseOnInteractOutside: (element: Element) =>
-        ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) =>
+            ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
     } as unknown as PopoverProps;
   };
 

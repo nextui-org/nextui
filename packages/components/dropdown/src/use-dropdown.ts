@@ -105,23 +105,28 @@ export function useDropdown(props: UseDropdownProps) {
     }
   };
 
-  const getPopoverProps: PropGetter = (props = {}) => ({
-    state,
-    placement,
-    ref: popoverRef,
-    disableAnimation,
-    shouldBlockScroll,
-    scrollRef: menuRef,
-    triggerRef: menuTriggerRef,
-    ...mergeProps(otherProps, props),
-    classNames: {
-      ...classNamesProp,
-      ...props.classNames,
-      content: clsx(classNames, classNamesProp?.content, props.className),
-    },
-    shouldCloseOnInteractOutside: (element: Element) =>
-      ariaShouldCloseOnInteractOutside(element, triggerRef, state),
-  });
+  const getPopoverProps: PropGetter = (props = {}) => {
+    const popoverProps = mergeProps(otherProps, props);
+
+    return {
+      state,
+      placement,
+      ref: popoverRef,
+      disableAnimation,
+      shouldBlockScroll,
+      scrollRef: menuRef,
+      triggerRef: menuTriggerRef,
+      ...popoverProps,
+      classNames: {
+        ...classNamesProp,
+        ...props.classNames,
+        content: clsx(classNames, classNamesProp?.content, props.className),
+      },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+    };
+  };
 
   const getMenuTriggerProps: PropGetter = (
     originalProps = {},

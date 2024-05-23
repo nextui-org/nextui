@@ -501,6 +501,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getPopoverProps = useCallback(
     (props: DOMAttributes = {}) => {
+      const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
       return {
         state,
         triggerRef,
@@ -513,14 +515,15 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             class: clsx(classNames?.popoverContent, props.className),
           }),
         },
-        ...mergeProps(slotsProps.popoverProps, props),
+        ...popoverProps,
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
               state.selectedItems.length * 0.00000001 + (slotsProps.popoverProps?.offset || 0)
             : slotsProps.popoverProps?.offset,
-        shouldCloseOnInteractOutside: (element: Element) =>
-          ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+        shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+          ? popoverProps.shouldCloseOnInteractOutside
+          : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
       } as PopoverProps;
     },
     [
