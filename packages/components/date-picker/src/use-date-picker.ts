@@ -8,6 +8,7 @@ import type {UseDatePickerBaseProps} from "./use-date-picker-base";
 import type {DOMAttributes} from "@nextui-org/system";
 import type {DatePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 
+import {useProviderContext} from "@nextui-org/system";
 import {useMemo} from "react";
 import {datePicker} from "@nextui-org/theme";
 import {useDatePickerState} from "@react-stately/datepicker";
@@ -55,6 +56,11 @@ export function useDatePicker<T extends DateValue>({
   classNames,
   ...originalProps
 }: UseDatePickerProps<T>) {
+  const globalContext = useProviderContext();
+
+  const validationBehavior =
+    originalProps.validationBehavior ?? globalContext?.validationBehavior ?? "aria";
+
   const {
     domRef,
     endContent,
@@ -75,10 +81,11 @@ export function useDatePicker<T extends DateValue>({
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
-  } = useDatePickerBase(originalProps);
+  } = useDatePickerBase({...originalProps, validationBehavior});
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
+    validationBehavior,
     shouldCloseOnSelect: () => !state.hasTime,
   });
 
@@ -102,7 +109,7 @@ export function useDatePicker<T extends DateValue>({
     calendarProps: ariaCalendarProps,
     descriptionProps,
     errorMessageProps,
-  } = useAriaDatePicker(originalProps, state, domRef);
+  } = useAriaDatePicker({...originalProps, validationBehavior}, state, domRef);
 
   // Time field values
   originalProps.maxValue && "hour" in originalProps.maxValue ? originalProps.maxValue : null;

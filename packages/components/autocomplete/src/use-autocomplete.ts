@@ -113,11 +113,8 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<
-    InputProps,
-    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "validationBehavior"
-  > &
-  Omit<ComboBoxProps<T>, "validationBehavior"> &
+  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
+  ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
 
@@ -161,6 +158,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
     errorMessage,
@@ -177,7 +175,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
-    validationBehavior: "native",
+    validationBehavior,
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -215,7 +213,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     validationErrors,
   } = useComboBox(
     {
-      validationBehavior: "native",
+      validationBehavior,
       ...originalProps,
       inputRef,
       buttonRef,
@@ -438,6 +436,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...inputProps,
       ...slotsProps.inputProps,
       isInvalid,
+      validationBehavior,
       errorMessage:
         typeof errorMessage === "function"
           ? errorMessage({isInvalid, validationErrors, validationDetails})

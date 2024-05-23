@@ -37,10 +37,17 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
-  it("should have required attribute when isRequired", () => {
-    const {container} = render(<Input isRequired label="test input" />);
+  it("should have required attribute when isRequired with native validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
     expect(container.querySelector("input")).toHaveAttribute("required");
+    expect(container.querySelector("input")).not.toHaveAttribute("aria-required");
+  });
+
+  it("should have aria-required attribute when isRequired with aria validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="aria" />);
+
+    expect(container.querySelector("input")).not.toHaveAttribute("required");
     expect(container.querySelector("input")).toHaveAttribute("aria-required", "true");
   });
 

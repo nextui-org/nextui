@@ -231,8 +231,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     selectionMode,
     disallowEmptySelection,
     children: children as CollectionChildren<T>,
-    isRequired: originalProps?.isRequired,
-    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps.isRequired,
+    isDisabled: originalProps.isDisabled,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
@@ -258,7 +258,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   state = {
     ...state,
-    ...(originalProps?.isDisabled && {
+    ...(originalProps.isDisabled && {
       disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
@@ -283,7 +283,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     validationErrors,
     validationDetails,
   } = useMultiSelect(
-    {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
+    {...props, disallowEmptySelection, isDisabled: originalProps.isDisabled},
     state,
     triggerRef,
   );
@@ -293,7 +293,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
-  const {isHovered, hoverProps} = useHover({isDisabled: originalProps?.isDisabled});
+  const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const labelPlacement = useMemo<SelectVariantProps["labelPlacement"]>(() => {
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
@@ -627,6 +627,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isDisabled: originalProps?.isDisabled,
     isRequired: originalProps?.isRequired,
     name: originalProps?.name,
+    // TODO: Future enhancement to support "aria" validation behavior.
     validationBehavior: "native",
   });
 
