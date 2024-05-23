@@ -7,7 +7,7 @@ import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -202,7 +202,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
-  const [shouldFocus, setShouldFocus] = useState(false);
+  // control the input focus behaviours internally
+  const shouldFocus = useRef(false);
 
   const {
     buttonProps,
@@ -287,7 +288,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           // if the listbox is open, clicking selector button should
           // close the listbox and focus on the input
           if (state.isOpen) {
-            setShouldFocus(true);
+            shouldFocus.current = true;
           }
         }, selectorButtonProps.onClick),
       },
@@ -340,13 +341,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // react aria has different focus strategies internally
   // hence, handle focus behaviours on our side for better flexibilty
   useEffect(() => {
-    if (shouldFocus || isOpen) {
+    if (shouldFocus.current || isOpen) {
       inputRef?.current?.focus();
     } else {
       inputRef?.current?.blur();
-      if (shouldFocus) setShouldFocus(false);
+      if (shouldFocus.current) shouldFocus.current = false;
     }
-  }, [shouldFocus, isOpen]);
+  }, [shouldFocus.current, isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -471,7 +472,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         }),
       },
       shouldCloseOnInteractOutside: (element: Element) =>
-        ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, setShouldFocus),
+        ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
     } as unknown as PopoverProps;
   };
 
