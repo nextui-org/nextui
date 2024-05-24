@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",
+    "framer-motion": ">=10.17.0",
     "@nextui-org/theme": ">=2.1.0",
     "@nextui-org/system": ">=2.0.0"
   },
@@ -45,6 +45,7 @@
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
     "@react-aria/menu": "3.13.1",
     "@react-aria/utils": "3.23.2",
     "@react-stately/menu": "3.6.1",
@@ -59,6 +60,7 @@
     "@nextui-org/user": "workspace:*",
     "@nextui-org/image": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
     "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",
     "react": "^18.0.0",

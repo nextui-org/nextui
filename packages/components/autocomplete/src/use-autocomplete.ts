@@ -1,6 +1,7 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
+import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
@@ -17,6 +18,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -111,17 +113,17 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<
-    InputProps,
-    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "validationBehavior"
-  > &
-  Omit<ComboBoxProps<T>, "validationBehavior"> &
+  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
+  ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   // TODO: Remove disableClearable prop in the next minor release.
   const isClearable =
@@ -156,6 +158,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
     errorMessage,
@@ -172,7 +175,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ...originalProps,
     children,
     menuTrigger,
-    validationBehavior: "native",
+    validationBehavior,
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -199,6 +202,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
+  // control the input focus behaviours internally
+  const shouldFocus = useRef(false);
+
   const {
     buttonProps,
     inputProps,
@@ -208,7 +214,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     validationErrors,
   } = useComboBox(
     {
-      validationBehavior: "native",
+      validationBehavior,
       ...originalProps,
       inputRef,
       buttonRef,
@@ -325,12 +331,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen]);
 
-  // unfocus the input when the popover closes & there's no selected item & no allows custom value
+  // react aria has different focus strategies internally
+  // hence, handle focus behaviours on our side for better flexibilty
   useEffect(() => {
-    if (!isOpen && !state.selectedItem && inputRef.current && !allowsCustomValue) {
-      inputRef.current.blur();
-    }
-  }, [isOpen, allowsCustomValue]);
+    const action = shouldFocus.current || isOpen ? "focus" : "blur";
+
+    inputRef?.current?.[action]();
+    if (action === "blur") shouldFocus.current = false;
+  }, [shouldFocus.current, isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -363,6 +371,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const onClear = useCallback(() => {
     state.setInputValue("");
     state.setSelectedKey(null);
+    state.close();
   }, [state]);
 
   const onFocus = useCallback(
@@ -392,17 +401,20 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getClearButtonProps = () =>
     ({
       ...mergeProps(buttonProps, slotsProps.clearButtonProps),
+      // disable original focus and state toggle from react aria
+      onPressStart: () => {},
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
 
         if (state.selectedItem) {
           onClear();
         } else {
-          const inputFocused = inputRef.current === document.activeElement;
-
-          allowsCustomValue && state.setInputValue("");
-          !inputFocused && onFocus(true);
+          if (allowsCustomValue) {
+            state.setInputValue("");
+            state.close();
+          }
         }
+        inputRef?.current?.focus();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
@@ -416,6 +428,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...inputProps,
       ...slotsProps.inputProps,
       isInvalid,
+      validationBehavior,
       errorMessage:
         typeof errorMessage === "function"
           ? errorMessage({isInvalid, validationErrors, validationDetails})
@@ -429,18 +442,19 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ref: listBoxRef,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
-        shouldUseVirtualFocus: false,
       }),
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
+    const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
     return {
       state,
       ref: popoverRef,
       triggerRef: inputWrapperRef,
       scrollRef: listBoxRef,
       triggerType: "listbox",
-      ...mergeProps(slotsProps.popoverProps, props),
+      ...popoverProps,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -450,6 +464,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) =>
+            ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
     } as unknown as PopoverProps;
   };
 

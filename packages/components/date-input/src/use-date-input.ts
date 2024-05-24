@@ -112,9 +112,9 @@ export type UseDateInputProps<T extends DateValue> = Props<T> &
   AriaDateFieldProps<T>;
 
 export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
-  const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
+  const globalContext = useProviderContext();
 
-  const providerContext = useProviderContext();
+  const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
     ref,
@@ -132,17 +132,19 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     shouldForceLeadingZeros = true,
-    minValue = providerContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
-    maxValue = providerContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
-    createCalendar: createCalendarProp = providerContext?.createCalendar ?? null,
+    minValue = globalContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
+    maxValue = globalContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
+    createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
     errorMessage,
   } = props;
 
   const domRef = useDOMRef(ref);
   const inputRef = useDOMRef(inputRefProp);
+
+  const disableAnimation = originalProps.disableAnimation ?? globalContext?.disableAnimation;
 
   const {locale} = useLocale();
 
@@ -193,10 +195,11 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     () =>
       dateInput({
         ...variantProps,
+        disableAnimation,
         labelPlacement,
         className,
       }),
-    [objectToDeps(variantProps), labelPlacement, className],
+    [objectToDeps(variantProps), disableAnimation, labelPlacement, className],
   );
 
   const getLabelProps: PropGetter = (props) => {

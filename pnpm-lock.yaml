@@ -838,9 +838,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system-rsc':
-        specifier: workspace:*
-        version: link:../../core/system-rsc
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -851,6 +848,9 @@ importers:
       '@nextui-org/switch':
         specifier: workspace:*
         version: link:../switch
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -952,8 +952,8 @@ importers:
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1095,8 +1095,8 @@ importers:
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1327,6 +1327,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.2
         version: 3.5.2
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1425,6 +1428,9 @@ importers:
 
   packages/components/dropdown:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/menu':
         specifier: workspace:*
         version: link:../menu
@@ -1468,6 +1474,9 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -1896,8 +1905,8 @@ importers:
         specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.9(@types/react@18.2.8)(react@18.2.0)
@@ -2326,9 +2335,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/system-rsc':
-        specifier: workspace:*
-        version: link:../../core/system-rsc
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2336,6 +2342,9 @@ importers:
       '@nextui-org/card':
         specifier: workspace:*
         version: link:../card
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -2431,8 +2440,8 @@ importers:
         specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2958,8 +2967,8 @@ importers:
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
       framer-motion:
-        specifier: '>=4.0.0'
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: '>=10.17.0'
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -2998,6 +3007,9 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+      framer-motion:
+        specifier: ^11.0.22
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3645,6 +3657,9 @@ importers:
       '@react-stately/collections':
         specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
+      '@react-stately/overlays':
+        specifier: 3.6.5
+        version: 3.6.5(react@18.2.0)
       '@react-types/overlays':
         specifier: 3.8.5
         version: 3.8.5(react@18.2.0)
@@ -5964,10 +5979,6 @@ packages:
     peerDependencies:
       '@effect-ts/otel-node': '*'
     peerDependenciesMeta:
-      '@effect-ts/core':
-        optional: true
-      '@effect-ts/otel':
-        optional: true
       '@effect-ts/otel-node':
         optional: true
     dependencies:
@@ -17373,6 +17384,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
+    dev: true
 
   /framer-motion@11.1.7(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
@@ -17391,7 +17403,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
-    dev: false
 
   /fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
@@ -22461,9 +22472,6 @@ packages:
     resolution: {integrity: sha512-W+gxAq7aQ9dJIg/XLKGcRT0cvnStFAQHPaI0pvD0U2l6IVLueUAm3nwN7lkY62zZNmlvNx6jNtE4wlbS+CyqSg==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
-    peerDependenciesMeta:
-      '@parcel/core':
-        optional: true
     dependencies:
       '@parcel/config-default': 2.12.0(@parcel/core@2.12.0)(typescript@4.9.5)
       '@parcel/core': 2.12.0

@@ -13,7 +13,7 @@ const calendar = tv({
     prevButton: [],
     nextButton: [],
     headerWrapper: [
-      "px-4 py-2 flex items-center justify-between gap-2 bg-content1",
+      "px-4 py-2 flex items-center justify-between gap-2 bg-content1 overflow-hidden",
       "[&_.chevron-icon]:flex-none",
       // month/year picker wrapper
       "after:content-['']",
@@ -154,7 +154,6 @@ const calendar = tv({
     showShadow: false,
     hideDisabledDates: false,
     showMonthAndYearPickers: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // !isRange & colors --> Calendar

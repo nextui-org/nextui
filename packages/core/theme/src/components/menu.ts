@@ -148,7 +148,6 @@ const menuItem = tv({
   defaultVariants: {
     variant: "solid",
     color: "default",
-    disableAnimation: false,
     showDivider: false,
   },
   compoundVariants: [

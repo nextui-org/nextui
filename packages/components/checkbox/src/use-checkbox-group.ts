@@ -1,10 +1,10 @@
 import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {CheckboxGroupProps} from "@react-types/checkbox";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";
@@ -48,7 +48,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseCheckboxGroupProps = Omit<Props, "onChange"> &
-  Omit<AriaCheckboxGroupProps, "validationBehavior"> &
+  AriaCheckboxGroupProps &
   Partial<
     Pick<
       CheckboxProps,
@@ -65,9 +65,12 @@ export type ContextType = {
   lineThrough?: CheckboxProps["lineThrough"];
   isDisabled?: CheckboxProps["isDisabled"];
   disableAnimation?: CheckboxProps["disableAnimation"];
+  validationBehavior?: CheckboxProps["validationBehavior"];
 };
 
 export function useCheckboxGroup(props: UseCheckboxGroupProps) {
+  const globalContext = useProviderContext();
+
   const {
     as,
     ref,
@@ -85,7 +88,8 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     orientation = "vertical",
     lineThrough = false,
     isDisabled = false,
-    disableAnimation = false,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    disableAnimation = globalContext?.disableAnimation ?? false,
     isReadOnly,
     isRequired,
     onValueChange,
@@ -110,7 +114,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       isRequired,
       isReadOnly,
       orientation,
-      validationBehavior: "native",
+      validationBehavior,
       isInvalid: validationState === "invalid" || isInvalidProp,
       onChange: chain(props.onChange, onValueChange),
     };
@@ -125,6 +129,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     onValueChange,
     isInvalidProp,
     validationState,
+    validationBehavior,
     otherProps["aria-label"],
     otherProps,
   ]);
@@ -136,12 +141,9 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     groupProps,
     descriptionProps,
     errorMessageProps,
-    isInvalid: isAriaInvalid,
     validationErrors,
     validationDetails,
   } = useReactAriaCheckboxGroup(checkboxGroupProps, groupState);
-
-  let isInvalid = checkboxGroupProps.isInvalid || isAriaInvalid;
 
   const context = useMemo<ContextType>(
     () => ({
@@ -149,9 +151,10 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       color,
       radius,
       lineThrough,
-      isInvalid,
+      isInvalid: groupState.isInvalid,
       isDisabled,
       disableAnimation,
+      validationBehavior,
       groupState,
     }),
     [
@@ -161,18 +164,18 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
       lineThrough,
       isDisabled,
       disableAnimation,
-      isInvalid,
-      groupState?.value,
-      groupState?.isDisabled,
-      groupState?.isReadOnly,
-      groupState?.isInvalid,
-      groupState?.isSelected,
+      validationBehavior,
+      groupState.value,
+      groupState.isDisabled,
+      groupState.isReadOnly,
+      groupState.isInvalid,
+      groupState.isSelected,
     ],
   );
 
   const slots = useMemo(
-    () => checkboxGroup({isRequired, isInvalid, disableAnimation}),
-    [isRequired, isInvalid, disableAnimation],
+    () => checkboxGroup({isRequired, isInvalid: groupState.isInvalid, disableAnimation}),
+    [isRequired, groupState.isInvalid, , disableAnimation],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -233,10 +236,10 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     label,
     context,
     description,
-    isInvalid,
+    isInvalid: groupState.isInvalid,
     errorMessage:
       typeof errorMessage === "function"
-        ? errorMessage({isInvalid, validationErrors, validationDetails})
+        ? errorMessage({isInvalid: groupState.isInvalid, validationErrors, validationDetails})
         : errorMessage || validationErrors?.join(" "),
     getGroupProps,
     getLabelProps,

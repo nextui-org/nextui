@@ -1,4 +1,4 @@
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
 import {clsx, callAllHandlers, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -39,6 +39,8 @@ export type UseAccordionItemProps<T extends object = {}> = Props<T> &
   Omit<AccordionItemBaseProps, "onFocusChange">;
 
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
+  const globalContext = useProviderContext();
+
   const {ref, as, item, onFocusChange} = props;
 
   const {
@@ -55,9 +57,10 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     classNames: classNamesProp = {},
     isDisabled: isDisabledProp = false,
     hideIndicator = false,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     keepContentMounted = false,
     disableIndicatorAnimation = false,
+    HeadingComponent = as || "h2",
     onPress,
     onPressStart,
     onPressEnd,
@@ -169,8 +172,9 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         otherProps.onBlur,
         item.props?.onBlur,
       ),
-      ...mergeProps(buttonProps, hoverProps, pressProps, props),
-      onClick: chain(pressProps.onClick, onClick),
+      ...mergeProps(buttonProps, hoverProps, pressProps, props, {
+        onClick: chain(pressProps.onClick, onClick),
+      }),
     };
   };
 
@@ -237,6 +241,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
 
   return {
     Component,
+    HeadingComponent,
     item,
     slots,
     classNames,

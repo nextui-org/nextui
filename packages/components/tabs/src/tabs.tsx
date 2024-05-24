@@ -9,7 +9,15 @@ import TabPanel from "./tab-panel";
 interface Props<T> extends UseTabsProps<T> {}
 
 function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {Component, values, state, getBaseProps, getTabListProps, getWrapperProps} = useTabs<T>({
+  const {
+    Component,
+    values,
+    state,
+    destroyInactiveTabPanel,
+    getBaseProps,
+    getTabListProps,
+    getWrapperProps,
+  } = useTabs<T>({
     ...props,
     ref,
   });
@@ -41,12 +49,18 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
           {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
         </Component>
       </div>
-      <TabPanel
-        key={state.selectedItem?.key}
-        classNames={values.classNames}
-        slots={values.slots}
-        state={values.state}
-      />
+      {[...state.collection].map((item) => {
+        return (
+          <TabPanel
+            key={item.key}
+            classNames={values.classNames}
+            destroyInactiveTabPanel={destroyInactiveTabPanel}
+            slots={values.slots}
+            state={values.state}
+            tabKey={item.key}
+          />
+        );
+      })}
     </>
   );
 
@@ -57,9 +71,9 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
   return renderTabs;
 }
 
-export type TabsProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+export type TabsProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Tabs) as <T = object>(props: TabsProps<T>) => ReactElement;
+export default forwardRef(Tabs) as <T extends object>(props: TabsProps<T>) => ReactElement;
 
 Tabs.displayName = "NextUI.Tabs";
