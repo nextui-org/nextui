@@ -826,6 +826,7 @@ const input = tv({
       isMultiline: true,
       class: {
         inputWrapper: "py-2",
+        label: "text-foreground",
       },
     },
     // isMultiline & labelPlacement="outside"

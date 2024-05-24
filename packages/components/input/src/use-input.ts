@@ -492,6 +492,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     hasStartContent,
     isLabelOutside,
     isOutsideLeft,
+    isMultiline,
     isLabelOutsideAsPlaceholder,
     shouldLabelBeOutside,
     shouldLabelBeInside,

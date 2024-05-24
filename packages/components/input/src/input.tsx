@@ -17,6 +17,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     labelPlacement,
     hasHelper,
     isOutsideLeft,
+    isMultiline,
     shouldLabelBeOutside,
     errorMessage,
     isInvalid,
@@ -78,8 +79,9 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     if (shouldLabelBeOutside) {
       return (
         <div {...getMainWrapperProps()}>
+          {!isOutsideLeft && isMultiline ? labelContent : null}
           <div {...getInputWrapperProps()}>
-            {!isOutsideLeft ? labelContent : null}
+            {!isOutsideLeft && !isMultiline ? labelContent : null}
             {innerWrapper}
           </div>
           {helperWrapper}
