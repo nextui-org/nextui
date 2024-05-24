@@ -576,7 +576,7 @@ describe("DatePicker", () => {
       expect(dialog).toBeVisible();
       expect(calendarBottomContent).toBeVisible();
     });
-
+   });
   it("should close listbox by clicking another datepicker", async () => {
     const {getByRole, getAllByRole} = render(
       <>
