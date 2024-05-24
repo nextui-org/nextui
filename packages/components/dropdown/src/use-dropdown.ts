@@ -8,6 +8,7 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
@@ -104,21 +105,28 @@ export function useDropdown(props: UseDropdownProps) {
     }
   };
 
-  const getPopoverProps: PropGetter = (props = {}) => ({
-    state,
-    placement,
-    ref: popoverRef,
-    disableAnimation,
-    shouldBlockScroll,
-    scrollRef: menuRef,
-    triggerRef: menuTriggerRef,
-    ...mergeProps(otherProps, props),
-    classNames: {
-      ...classNamesProp,
-      ...props.classNames,
-      content: clsx(classNames, classNamesProp?.content, props.className),
-    },
-  });
+  const getPopoverProps: PropGetter = (props = {}) => {
+    const popoverProps = mergeProps(otherProps, props);
+
+    return {
+      state,
+      placement,
+      ref: popoverRef,
+      disableAnimation,
+      shouldBlockScroll,
+      scrollRef: menuRef,
+      triggerRef: menuTriggerRef,
+      ...popoverProps,
+      classNames: {
+        ...classNamesProp,
+        ...props.classNames,
+        content: clsx(classNames, classNamesProp?.content, props.className),
+      },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+    };
+  };
 
   const getMenuTriggerProps: PropGetter = (
     originalProps = {},

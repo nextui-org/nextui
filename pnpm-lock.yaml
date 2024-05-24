@@ -1327,6 +1327,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.2
         version: 3.5.2
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1425,6 +1428,9 @@ importers:
 
   packages/components/dropdown:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/menu':
         specifier: workspace:*
         version: link:../menu
@@ -3651,6 +3657,9 @@ importers:
       '@react-stately/collections':
         specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
+      '@react-stately/overlays':
+        specifier: 3.6.5
+        version: 3.6.5(react@18.2.0)
       '@react-types/overlays':
         specifier: 3.8.5
         version: 3.8.5(react@18.2.0)

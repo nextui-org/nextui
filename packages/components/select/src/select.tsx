@@ -105,13 +105,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const popoverContent = useMemo(
     () =>
       state.isOpen ? (
-        <FreeSoloPopover
-          {...getPopoverProps()}
-          // avoid closing the popover when navigating with the keyboard
-          shouldCloseOnInteractOutside={undefined}
-          state={state}
-          triggerRef={triggerRef}
-        >
+        <FreeSoloPopover {...getPopoverProps()}>
           <ScrollShadow {...getListboxWrapperProps()}>
             <Listbox {...getListboxProps()} />
           </ScrollShadow>

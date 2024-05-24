@@ -538,6 +538,69 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
   });
+
+  it("should close listbox by clicking another dropdown", async () => {
+    const wrapper = render(
+      <>
+        <Dropdown>
+          <DropdownTrigger>
+            <Button data-testid="dropdown">Trigger</Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Actions">
+            <DropdownItem key="new">New file</DropdownItem>
+            <DropdownItem key="copy">Copy link</DropdownItem>
+            <DropdownItem key="edit">Edit file</DropdownItem>
+            <DropdownItem key="delete" color="danger">
+              Delete file
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Dropdown>
+          <DropdownTrigger>
+            <Button data-testid="dropdown2">Trigger</Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Actions">
+            <DropdownItem key="new">New file</DropdownItem>
+            <DropdownItem key="copy">Copy link</DropdownItem>
+            <DropdownItem key="edit">Edit file</DropdownItem>
+            <DropdownItem key="delete" color="danger">
+              Delete file
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </>,
+    );
+
+    const dropdown = wrapper.getByTestId("dropdown");
+
+    const dropdown2 = wrapper.getByTestId("dropdown2");
+
+    expect(dropdown).not.toBeNull();
+
+    expect(dropdown2).not.toBeNull();
+
+    // open the dropdown listbox by clicking dropdownor button in the first dropdown
+    await act(async () => {
+      await userEvent.click(dropdown);
+    });
+
+    // assert that the first dropdown listbox is open
+    expect(dropdown).toHaveAttribute("aria-expanded", "true");
+
+    // assert that the second dropdown listbox is close
+    expect(dropdown2).toHaveAttribute("aria-expanded", "false");
+
+    // close the dropdown listbox by clicking the second dropdown
+    await act(async () => {
+      await userEvent.click(dropdown2);
+    });
+
+    // assert that the first dropdown listbox is closed
+    expect(dropdown).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the second dropdown listbox is open
+    expect(dropdown2).toHaveAttribute("aria-expanded", "true");
+  });
 });
 
 describe("Keyboard interactions", () => {

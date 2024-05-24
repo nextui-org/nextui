@@ -447,6 +447,65 @@ describe("Select", () => {
 
     expect(displayedText).toBe("Penguin, Zebra");
   });
+
+  it("should close listbox by clicking another select", async () => {
+    const wrapper = render(
+      <>
+        <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
+          <SelectItem key="penguin" value="penguin">
+            Penguin
+          </SelectItem>
+          <SelectItem key="zebra" value="zebra">
+            Zebra
+          </SelectItem>
+          <SelectItem key="shark" value="shark">
+            Shark
+          </SelectItem>
+        </Select>
+        <Select aria-label="Favorite Animal" data-testid="select2" label="Favorite Animal">
+          <SelectItem key="penguin" value="penguin">
+            Penguin
+          </SelectItem>
+          <SelectItem key="zebra" value="zebra">
+            Zebra
+          </SelectItem>
+          <SelectItem key="shark" value="shark">
+            Shark
+          </SelectItem>
+        </Select>
+      </>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    const select2 = wrapper.getByTestId("select2");
+
+    expect(select).not.toBeNull();
+
+    expect(select2).not.toBeNull();
+
+    // open the select listbox by clicking selector button in the first select
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the first select listbox is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // assert that the second select listbox is close
+    expect(select2).toHaveAttribute("aria-expanded", "false");
+
+    // close the select listbox by clicking the second select
+    await act(async () => {
+      await userEvent.click(select2);
+    });
+
+    // assert that the first select listbox is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the second select listbox is open
+    expect(select2).toHaveAttribute("aria-expanded", "true");
+  });
 });
 
 describe("Select with React Hook Form", () => {
