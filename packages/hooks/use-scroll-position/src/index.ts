@@ -77,7 +77,7 @@ export const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue 
         clearTimeout(throttleTimeout.current);
       }
     };
-  }, [elementRef?.current, delay, isEnabled]);
+  }, [elementRef?.current, delay, handler, isEnabled]);
 
   return position.current;
 };
