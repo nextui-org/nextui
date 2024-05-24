@@ -172,8 +172,9 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         otherProps.onBlur,
         item.props?.onBlur,
       ),
-      ...mergeProps(buttonProps, hoverProps, pressProps, props),
-      onClick: chain(pressProps.onClick, onClick),
+      ...mergeProps(buttonProps, hoverProps, pressProps, props, {
+        onClick: chain(pressProps.onClick, onClick),
+      }),
     };
   };
 

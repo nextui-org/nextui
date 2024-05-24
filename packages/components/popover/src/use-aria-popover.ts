@@ -10,6 +10,7 @@ import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-o
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 export interface Props {
   /**
@@ -64,7 +65,7 @@ export function useReactAriaPopover(
     ...otherProps
   } = props;
 
-  const isNonModal = isNonModalProp || true;
+  const isNonModal = isNonModalProp ?? true;
 
   const {overlayProps, underlayProps} = useOverlay(
     {
@@ -75,12 +76,7 @@ export function useReactAriaPopover(
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside
-        : (element) => {
-            // Don't close if the click is within the trigger or the popover itself
-            let trigger = triggerRef?.current;
-
-            return !trigger || !trigger.contains(element);
-          },
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
     },
     popoverRef,
   );

@@ -20,7 +20,11 @@ const Popover = forwardRef<"div", PopoverProps>((props, ref) => {
 
   const [trigger, content] = Children.toArray(children);
 
-  const overlay = <Overlay portalContainer={context.portalContainer}>{content}</Overlay>;
+  const overlay = (
+    <Overlay disableFocusManagement portalContainer={context.portalContainer}>
+      {content}
+    </Overlay>
+  );
 
   return (
     <PopoverProvider value={context}>

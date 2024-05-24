@@ -22,7 +22,7 @@ const Radio = forwardRef<"input", RadioProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden>
+      <VisuallyHidden elementType="span">
         <input {...getInputProps()} />
       </VisuallyHidden>
       <span {...getWrapperProps()}>
