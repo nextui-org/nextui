@@ -48,7 +48,7 @@ const itemsSectionData = [
   },
 ];
 
-const ControlledAutocomplete = <T = object,>(props: AutocompleteProps<T>) => {
+const ControlledAutocomplete = <T = object>(props: AutocompleteProps<T>) => {
   const [selectedKey, setSelectedKey] = React.useState<React.Key>("cat");
 
   return (
