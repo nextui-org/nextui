@@ -459,7 +459,6 @@ describe("DatePicker", () => {
     });
   });
 
-
   describe("Month and Year Picker", () => {
     const onHeaderExpandedChangeSpy = jest.fn();
 
@@ -576,35 +575,36 @@ describe("DatePicker", () => {
       expect(dialog).toBeVisible();
       expect(calendarBottomContent).toBeVisible();
     });
-   });
-  it("should close listbox by clicking another datepicker", async () => {
-    const {getByRole, getAllByRole} = render(
-      <>
-        <DatePicker data-testid="datepicker" label="Date" />
-        <DatePicker data-testid="datepicker2" label="Date" />
-      </>,
-    );
 
-    const dateButtons = getAllByRole("button");
+    it("should close listbox by clicking another datepicker", async () => {
+      const {getByRole, getAllByRole} = render(
+        <>
+          <DatePicker data-testid="datepicker" label="Date" />
+          <DatePicker data-testid="datepicker2" label="Date" />
+        </>,
+      );
 
-    expect(dateButtons[0]).not.toBeNull();
+      const dateButtons = getAllByRole("button");
 
-    expect(dateButtons[1]).not.toBeNull();
+      expect(dateButtons[0]).not.toBeNull();
 
-    // open the datepicker dialog by clicking datepicker button in the first datepicker
-    triggerPress(dateButtons[0]);
+      expect(dateButtons[1]).not.toBeNull();
 
-    let dialog = getByRole("dialog");
+      // open the datepicker dialog by clicking datepicker button in the first datepicker
+      triggerPress(dateButtons[0]);
 
-    // assert that the first datepicker dialog is open
-    expect(dialog).toBeVisible();
+      let dialog = getByRole("dialog");
 
-    // close the datepicker dialog by clicking the second datepicker
-    triggerPress(dateButtons[1]);
+      // assert that the first datepicker dialog is open
+      expect(dialog).toBeVisible();
 
-    dialog = getByRole("dialog");
+      // close the datepicker dialog by clicking the second datepicker
+      triggerPress(dateButtons[1]);
 
-    // assert that the second datepicker dialog is open
-    expect(dialog).toBeVisible();
+      dialog = getByRole("dialog");
+
+      // assert that the second datepicker dialog is open
+      expect(dialog).toBeVisible();
+    });
   });
 });
