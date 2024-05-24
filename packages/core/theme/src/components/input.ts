@@ -214,7 +214,7 @@ const input = tv({
       true: {
         label: "relative",
         inputWrapper: "!h-auto",
-        innerWrapper: "items-start group-data-[has-label=true]:items-start",
+        innerWrapper: "items-center group-data-[has-label=true]:items-center",
         input: "resize-none data-[hide-scroll=true]:scrollbar-hide",
       },
     },
