@@ -165,6 +165,7 @@ const navbar = tv({
       "flex",
       "max-w-full",
       "top-[var(--navbar-height)]",
+      "h-[calc(100vh_-_var(--navbar-height))]",
       "inset-x-0",
       "bottom-0",
       "w-screen",
@@ -230,7 +231,7 @@ const navbar = tv({
     },
     disableAnimation: {
       true: {
-        menu: ["hidden", "h-[calc(100dvh_-_var(--navbar-height)_-_1px)]", "data-[open=true]:flex"],
+        menu: ["hidden", "h-[calc(100dvh_-_var(--navbar-height))]", "data-[open=true]:flex"],
       },
     },
   },
