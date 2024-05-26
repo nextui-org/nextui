@@ -40,6 +40,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@nextui-org/form": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@internationalized/date": "^3.5.2",

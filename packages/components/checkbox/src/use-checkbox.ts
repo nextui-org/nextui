@@ -17,6 +17,7 @@ import {
 } from "@react-aria/checkbox";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {mergeRefs} from "@nextui-org/react-utils";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
@@ -74,6 +75,7 @@ export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
 export function useCheckbox(props: UseCheckboxProps = {}) {
   const globalContext = useProviderContext();
   const groupContext = useCheckboxGroupContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
   const isInGroup = !!groupContext;
 
   const {
@@ -96,7 +98,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     validationState,
     isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
-    validationBehavior = groupContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     defaultSelected,
     classNames,
     className,

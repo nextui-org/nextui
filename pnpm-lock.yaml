@@ -692,6 +692,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../input
@@ -1131,6 +1134,9 @@ importers:
 
   packages/components/checkbox:
     dependencies:
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1275,6 +1281,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.2
         version: 3.5.2
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1336,6 +1345,9 @@ importers:
       '@nextui-org/date-input':
         specifier: workspace:*
         version: link:../date-input
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/popover':
         specifier: workspace:*
         version: link:../popover
@@ -1489,9 +1501,6 @@ importers:
 
   packages/components/form:
     dependencies:
-      '@nextui-org/input':
-        specifier: workspace:*
-        version: link:../input
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1502,6 +1511,15 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@nextui-org/checkbox':
+        specifier: workspace:*
+        version: link:../checkbox
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
+      '@nextui-org/radio':
+        specifier: workspace:*
+        version: link:../radio
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
@@ -2143,6 +2161,9 @@ importers:
 
   packages/components/radio:
     dependencies:
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils

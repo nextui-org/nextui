@@ -41,6 +41,7 @@
     "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
+    "@nextui-org/form": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/listbox": "workspace:*",
     "@nextui-org/popover": "workspace:*",

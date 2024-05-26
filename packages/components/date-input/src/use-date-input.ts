@@ -18,6 +18,7 @@ import {createCalendar} from "@internationalized/date";
 import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {dateInput} from "@nextui-org/theme";
 import {useMemo} from "react";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -113,6 +114,7 @@ export type UseDateInputProps<T extends DateValue> = Props<T> &
 
 export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
@@ -132,7 +134,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     shouldForceLeadingZeros = true,
     minValue = globalContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
     maxValue = globalContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),

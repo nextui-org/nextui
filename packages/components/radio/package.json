@@ -40,6 +40,7 @@
     "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
+    "@nextui-org/form": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@react-aria/focus": "3.16.2",

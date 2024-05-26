@@ -21,6 +21,7 @@ import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepick
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {dateRangePicker, dateInput} from "@nextui-org/theme";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 interface Props<T extends DateValue>
@@ -70,8 +71,12 @@ export function useDateRangePicker<T extends DateValue>({
 }: UseDateRangePickerProps<T>) {
   const globalContext = useProviderContext();
 
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
   const validationBehavior =
-    originalProps.validationBehavior ?? globalContext?.validationBehavior ?? "aria";
+    originalProps.validationBehavior ??
+    formValidationBehavior ??
+    globalContext?.validationBehavior ??
+    "aria";
 
   const {
     domRef,

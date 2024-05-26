@@ -14,6 +14,7 @@ import {useTimeFieldState} from "@react-stately/datepicker";
 import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {dateInput} from "@nextui-org/theme";
 import {useMemo} from "react";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 type NextUIBaseProps<T extends TimeValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -74,6 +75,7 @@ export type UseTimeInputProps<T extends TimeValue> = Props<T> &
 
 export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputProps<T>) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
@@ -93,7 +95,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     shouldForceLeadingZeros = true,
     minValue,
     maxValue,
