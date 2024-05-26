@@ -75,7 +75,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   ]);
 
   const renderSelectedItem = useMemo(() => {
-    if (!state.selectedItems) return placeholder;
+    if (!state.selectedItems?.length) return placeholder;
 
     if (renderValue && typeof renderValue === "function") {
       const mappedItems = [...state.selectedItems].map((item) => ({
