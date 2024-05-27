@@ -1,5 +1,19 @@
 # @nextui-org/table
 
+## 2.0.34
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2866](https://github.com/nextui-org/nextui/pull/2866) [`5f5ad7a1d`](https://github.com/nextui-org/nextui/commit/5f5ad7a1ddae1fb30be4a25e6aad4f87666ee1ce) Thanks [@sapkra](https://github.com/sapkra)! - Add missing export of `TableRowProps` type (#2584)
+
+- [#3020](https://github.com/nextui-org/nextui/pull/3020) [`9d63259ee`](https://github.com/nextui-org/nextui/commit/9d63259eeacfe8b8714629e612a20e00293f0a43) Thanks [@wingkwong](https://github.com/wingkwong)! - set `onKeyDownCapture` to `undefined` so that users can type with spaces in input or textarea inside a table component (#1968)
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2), [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a), [`06ecd213c`](https://github.com/nextui-org/nextui/commit/06ecd213cf85db2dfaa5fc26c1fed62dcb5fbc85)]:
+  - @nextui-org/checkbox@2.1.0
+  - @nextui-org/spacer@2.0.28
+
 ## 2.0.33
 
 ### Patch Changes

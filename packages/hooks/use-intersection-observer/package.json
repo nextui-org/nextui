@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-intersection-observer",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Tracks the intersection of a DOM element and its containing element or the viewport.",
   "keywords": [
     "use-intersection-observer"
