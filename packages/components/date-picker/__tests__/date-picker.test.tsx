@@ -475,7 +475,9 @@ describe("DatePicker", () => {
 
       expect(dialog).toBeVisible();
 
-      expect(getTextValue(combobox)).toBe("5/1/2024");
+      const content = getByRole("application");
+
+      expect(content).toHaveAttribute("aria-label", "May 2024");
     });
   });
 });
