@@ -41,7 +41,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
       data-slot="grid-body-row"
       // makes the browser ignore the element and its children when tabbing
       // @ts-ignore
-      inert={isHeaderExpanded ? true : undefined}
+      {...{inert: isHeaderExpanded ? "" : undefined}}
     >
       {state
         .getDatesInWeek(weekIndex, startDate)
