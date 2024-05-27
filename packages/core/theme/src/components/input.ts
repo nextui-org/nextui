@@ -206,7 +206,8 @@ const input = tv({
     },
     isRequired: {
       true: {
-        label: "after:content-['*'] after:text-danger after:ml-0.5",
+        label:
+          "after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5",
       },
     },
     isMultiline: {
@@ -244,7 +245,6 @@ const input = tv({
     labelPlacement: "inside",
     isDisabled: false,
     isMultiline: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // flat & color
@@ -535,9 +535,9 @@ const input = tv({
       variant: "flat",
       class: {
         inputWrapper: [
-          "bg-danger-50",
-          "data-[hover=true]:bg-danger-100",
-          "group-data-[focus=true]:bg-danger-50",
+          "!bg-danger-50",
+          "data-[hover=true]:!bg-danger-100",
+          "group-data-[focus=true]:!bg-danger-50",
         ],
       },
     },
@@ -545,14 +545,14 @@ const input = tv({
       isInvalid: true,
       variant: "bordered",
       class: {
-        inputWrapper: "!border-danger group-data-[focus=true]:border-danger",
+        inputWrapper: "!border-danger group-data-[focus=true]:!border-danger",
       },
     },
     {
       isInvalid: true,
       variant: "underlined",
       class: {
-        inputWrapper: "after:bg-danger",
+        inputWrapper: "after:!bg-danger",
       },
     },
     // size & labelPlacement

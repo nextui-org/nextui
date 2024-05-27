@@ -6,7 +6,7 @@ import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
-import {PropGetter} from "@nextui-org/system";
+import {PropGetter, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useTimeField as useAriaTimeField} from "@react-aria/datepicker";
@@ -70,9 +70,11 @@ interface Props<T extends TimeValue> extends NextUIBaseProps<T> {
 
 export type UseTimeInputProps<T extends TimeValue> = Props<T> &
   DateInputVariantProps &
-  Omit<AriaTimeFieldProps<T>, "validationBehavior">;
+  AriaTimeFieldProps<T>;
 
 export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
@@ -91,7 +93,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    // validationBehavior = "native", TODO: Uncomment this one we support `native` and `aria` validations
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     shouldForceLeadingZeros = true,
     minValue,
     maxValue,
@@ -104,12 +106,15 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
 
   const {locale} = useLocale();
 
+  const disableAnimation = originalProps.disableAnimation ?? globalContext?.disableAnimation;
+
   const state = useTimeFieldState({
     ...originalProps,
     label,
     locale,
     minValue,
     maxValue,
+    validationBehavior,
     isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
   });
@@ -123,11 +128,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     descriptionProps,
     errorMessageProps,
     isInvalid: ariaIsInvalid,
-  } = useAriaTimeField(
-    {...originalProps, label, validationBehavior: "native", inputRef},
-    state,
-    domRef,
-  );
+  } = useAriaTimeField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -150,10 +151,11 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     () =>
       dateInput({
         ...variantProps,
+        disableAnimation,
         labelPlacement,
         className,
       }),
-    [objectToDeps(variantProps), labelPlacement, className],
+    [objectToDeps(variantProps), labelPlacement, disableAnimation, className],
   );
 
   const getLabelProps: PropGetter = (props) => {

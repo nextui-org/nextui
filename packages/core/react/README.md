@@ -36,7 +36,18 @@ Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextu
 
 Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
 
-### Community
+## Storybook
+
+Visit [https://storybook.nextui.org](https://storybook.nextui.org/) to view the storybook for all components.
+
+## Canary Release
+
+Canary versions are available after every merge into `canary` branch. You can install the packages with the tag `canary` in npm to use the latest changes before the next production release.
+
+- [Documentation](https://canary.nextui.org/docs)
+- [Storybook](https://canary-storybook.nextui.org)
+
+## Community
 
 We're excited to see the community adopt NextUI, raise issues, and provide feedback.
 Whether it's a feature request, bug report, or a project to showcase, please get involved!

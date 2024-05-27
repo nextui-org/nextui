@@ -1,5 +1,4 @@
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";
 import {useAriaMenu} from "@nextui-org/use-aria-menu";
@@ -90,13 +89,15 @@ export type UseMenuProps<T = object> = Props<T> &
   MenuVariantProps;
 
 export function useMenu<T extends object>(props: UseMenuProps<T>) {
+  const globalContext = useProviderContext();
+
   const {
     as,
     ref,
     variant,
     color,
     children,
-    disableAnimation,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     onAction,
     closeOnSelect,
     itemClasses,
@@ -118,11 +119,11 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
   const domRef = useDOMRef(ref);
   const shouldFilterDOMProps = typeof Component === "string";
 
-  const innerState = useTreeState({...otherProps, children});
+  const innerState = useTreeState({...otherProps, ...userMenuProps, children});
 
   const state = propState || innerState;
 
-  const {menuProps} = useAriaMenu(otherProps, state, domRef);
+  const {menuProps} = useAriaMenu({...otherProps, ...userMenuProps}, state, domRef);
 
   const slots = useMemo(() => menu({className}), [className]);
   const baseStyles = clsx(classNames?.base, className);
@@ -143,9 +144,7 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     return {
       "data-slot": "list",
       className: slots.list({class: classNames?.list}),
-      ...userMenuProps,
       ...menuProps,
-
       ...props,
     };
   };

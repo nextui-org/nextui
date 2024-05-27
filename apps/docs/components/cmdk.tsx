@@ -154,6 +154,16 @@ export const Cmdk: FC<{}> = () => {
     }
   };
 
+  const prioritizeFirstLevelItems = (a: SearchResultItem, b: SearchResultItem) => {
+    if (a.type === "lvl1") {
+      return -1;
+    } else if (b.type === "lvl1") {
+      return 1;
+    }
+
+    return 0;
+  };
+
   const results = useMemo<SearchResultItem[]>(
     function getResults() {
       if (query.length < 2) return [];
@@ -165,12 +175,22 @@ export const Cmdk: FC<{}> = () => {
       if (words.length === 1) {
         return matchSorter(data, query, {
           keys: MATCH_KEYS,
+          sorter: (matches) => {
+            matches.sort((a, b) => prioritizeFirstLevelItems(a.item, b.item));
+
+            return matches;
+          },
         }).slice(0, MAX_RESULTS);
       }
 
       const matchesForEachWord = words.map((word) =>
         matchSorter(data, word, {
           keys: MATCH_KEYS,
+          sorter: (matches) => {
+            matches.sort((a, b) => prioritizeFirstLevelItems(a.item, b.item));
+
+            return matches;
+          },
         }),
       );
 

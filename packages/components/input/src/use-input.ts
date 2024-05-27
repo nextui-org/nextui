@@ -1,7 +1,12 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
@@ -81,11 +86,13 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
 ) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
 
   const {
@@ -104,6 +111,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
@@ -119,6 +127,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const [isFocusWithin, setFocusWithin] = useState(false);
 
   const Component = as || "div";
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const domRef = useDOMRef<T>(ref);
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
@@ -164,13 +175,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = useTextField(
     {
       ...originalProps,
-      validationBehavior: "native",
+      validationBehavior,
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
-        originalProps?.["aria-label"],
-        originalProps?.label,
-        originalProps?.placeholder,
+        originalProps["aria-label"],
+        originalProps.label,
+        originalProps.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
       onChange: setInputValue,
@@ -239,8 +250,16 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         isInvalid,
         labelPlacement,
         isClearable,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
+    [
+      objectToDeps(variantProps),
+      isInvalid,
+      labelPlacement,
+      isClearable,
+      hasStartContent,
+      disableAnimation,
+    ],
   );
 
   const getBaseProps: PropGetter = useCallback(
@@ -328,9 +347,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           }),
           props,
         ),
-        required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
-        "aria-required": dataAttr(originalProps.isRequired),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
