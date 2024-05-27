@@ -25,7 +25,7 @@ We are excited to announce the latest update to NextUI, version **2.4.0**! This 
 
 - [Disable Animations Globally](#disable-animations-globally) - Allows users to disable animation globally via NextUIProvider
 - [API Improvements](#api-improvements) - Includes several props like `disableRipple`, `skipFramerMotionAnimations` and `validationBehavior`
-- [CLI Improvements](#cli-improvements) - Includes new command options and optimize performance
+- [CLI Improvements](#cli-improvements) - Includes new command options and optimizes performance
 - [React Aria Packages Upgrades](#react-aria-packages-upgrades) - Upgrades and fixes the exact versions of React Aria
 - [Other Changes](#other-changes) - Includes styling improvements, accessibility, usability enhancements and over 60 bug fixes across different component packages
 
@@ -77,7 +77,7 @@ interface AppProviderProps {
 
 ### disableRipple
 
-By default there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `NextUIProvider`.
+By default, there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `NextUIProvider`.
 
 ```tsx
 "use client";
@@ -159,7 +159,7 @@ interface AppProviderProps {
 
 ### Package Manager Flag
 
-We've introduced a new flag `-p` (or `--package`) to init command to allow users to choose the package manager to use for the new project. By default `npm` is used. For example, the following command will initialize a new NextUI project with the app template named my-nextui-app using pnpm package manager.
+We've introduced a new flag `-p` (or `--package`) to init command to allow users to choose the package manager to use for the new project. By default, `npm` is used. For example, the following command will initialize a new NextUI project with the app template named my-nextui-app using pnpm package manager.
 
 ```bash
 nextui init my-nextui-app -t app -p pnpm
@@ -167,7 +167,7 @@ nextui init my-nextui-app -t app -p pnpm
 
 ### no-cache Flag
 
-We've introduced a new flag `--no-cache` to allow users to disable the cache. By default, the data will be cached for 30 mins after the first request. It is useful when the data is cached and you wish to upgrade to the new version just released after the first request. In this way, you can run the following command
+We've introduced a new flag `--no-cache` to allow users to disable the cache. By default, the data will be cached for 30 mins after the first request. It is useful when the data is cached, and you wish to upgrade to the new version just released after the first request. In this way, you can run the following command
 
 ```bash
 nextui --no-cache upgrade
@@ -179,9 +179,9 @@ nextui --no-cache upgrade
 
 You can now run the upgrade command with option either `--major`, `--minor`, or `--patch`.
 
-- If the option is `major`, then it will detect all updatable versions. 
-- If the option is `minor`, which is the default option, it will detect all `minor` and `patch` updatable versions.
-- If the option is `patch`, it will detect `patch` updatable versions.
+- The `major` option detects all updatable versions.
+- The default `minor` option detects all `minor` and `patch` updatable versions.
+- The `patch` option specifically detects `patch` updatable versions.
 
 ### Add Vite Template
 
