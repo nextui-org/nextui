@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-menu
 
+## 2.0.3
+
+### Patch Changes
+
+- [#3064](https://github.com/nextui-org/nextui/pull/3064) [`f24a97311`](https://github.com/nextui-org/nextui/commit/f24a97311ab4dd16dafb56d35fe7c6db81798129) Thanks [@Gaic4o](https://github.com/Gaic4o)! - Fixed a type error in the onKeyDown event handler for the menu component
+
 ## 2.0.2
 
 ### Patch Changes
