@@ -269,6 +269,9 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
         }),
         props,
       ),
+      // avoid typeahead debounce wait for input / textarea
+      // so that typing with space won't be blocked
+      onKeyDownCapture: undefined,
       ref: domRef,
       className: slots.table({class: clsx(classNames?.table, props?.className)}),
     }),

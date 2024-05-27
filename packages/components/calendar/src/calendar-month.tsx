@@ -40,8 +40,9 @@ export function CalendarMonth(props: CalendarMonthProps) {
       className={slots?.gridBodyRow({class: classNames?.gridBodyRow})}
       data-slot="grid-body-row"
       // makes the browser ignore the element and its children when tabbing
+      // TODO: invert inert when switching to React 19 (ref: https://github.com/facebook/react/issues/17157)
       // @ts-ignore
-      inert={isHeaderExpanded ? true : undefined}
+      inert={isHeaderExpanded ? "" : undefined}
     >
       {state
         .getDatesInWeek(weekIndex, startDate)

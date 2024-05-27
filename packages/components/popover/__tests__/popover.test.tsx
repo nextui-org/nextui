@@ -1,5 +1,6 @@
 import * as React from "react";
 import {render, fireEvent, act} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import {Button} from "@nextui-org/button";
 
 import {Popover, PopoverContent, PopoverTrigger} from "../src";
@@ -158,5 +159,58 @@ describe("Popover", () => {
     });
 
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it("should close listbox by clicking another popover", async () => {
+    const wrapper = render(
+      <>
+        <Popover>
+          <PopoverTrigger>
+            <button data-testid="popover">Open popover</button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <p>This is the content of the popover.</p>
+          </PopoverContent>
+        </Popover>
+        <Popover>
+          <PopoverTrigger>
+            <button data-testid="popover2">Open popover</button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <p>This is the content of the popover.</p>
+          </PopoverContent>
+        </Popover>
+      </>,
+    );
+
+    const popover = wrapper.getByTestId("popover");
+
+    const popover2 = wrapper.getByTestId("popover2");
+
+    expect(popover).not.toBeNull();
+
+    expect(popover2).not.toBeNull();
+
+    // open the popover by clicking popover in the first popover
+    await act(async () => {
+      await userEvent.click(popover);
+    });
+
+    // assert that the first popover is open
+    expect(popover).toHaveAttribute("aria-expanded", "true");
+
+    // assert that the second popover is close
+    expect(popover2).toHaveAttribute("aria-expanded", "false");
+
+    // close the popover by clicking the second popover
+    await act(async () => {
+      await userEvent.click(popover2);
+    });
+
+    // assert that the first popover is closed
+    expect(popover).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the second popover is open
+    expect(popover2).toHaveAttribute("aria-expanded", "true");
   });
 });

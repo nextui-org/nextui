@@ -16,6 +16,7 @@ import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-ar
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 
@@ -85,12 +86,18 @@ export function useDatePicker<T extends DateValue>({
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    onClose,
   } = useDatePickerBase({...originalProps, validationBehavior});
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
     validationBehavior,
     shouldCloseOnSelect: () => !state.hasTime,
+    onOpenChange: (isOpen) => {
+      if (!isOpen) {
+        onClose();
+      }
+    },
   });
 
   const baseStyles = clsx(classNames?.base, className);
@@ -178,6 +185,9 @@ export function useDatePicker<T extends DateValue>({
           ),
         }),
       },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
     };
   };
 

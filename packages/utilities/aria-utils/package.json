@@ -43,6 +43,7 @@
     "@nextui-org/react-rsc-utils": "workspace:*",
     "@react-aria/utils": "3.23.2",
     "@react-stately/collections": "3.10.5",
+    "@react-stately/overlays": "3.6.5",
     "@react-types/overlays": "3.8.5",
     "@react-types/shared": "3.22.1"
   },

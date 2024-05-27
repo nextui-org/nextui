@@ -17,7 +17,11 @@ const Modal = forwardRef<"div", ModalProps>((props, ref) => {
   const {children, ...otherProps} = props;
   const context = useModal({...otherProps, ref});
 
-  const overlay = <Overlay portalContainer={context.portalContainer}>{children}</Overlay>;
+  const overlay = (
+    <Overlay disableFocusManagement portalContainer={context.portalContainer}>
+      {children}
+    </Overlay>
+  );
 
   return (
     <ModalProvider value={context}>

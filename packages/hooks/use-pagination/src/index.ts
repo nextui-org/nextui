@@ -82,7 +82,7 @@ export function usePagination(props: UsePaginationProps) {
         onChangeActivePage(pageNumber);
       }
     },
-    [total, activePage],
+    [total, activePage, onChangeActivePage],
   );
 
   const next = () => (isRTL ? setPage(activePage - 1) : setPage(activePage + 1));
