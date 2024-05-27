@@ -457,5 +457,29 @@ describe("DatePicker", () => {
       expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
       expect(getTextValue(combobox)).toBe("2/4/2019"); // uncontrolled
     });
+
+    it("should keep the selected date when the picker is toggled, in showMonthAndYearPickers mode", function () {
+      const {getByRole, getAllByRole} = render(
+        <DatePicker showMonthAndYearPickers label="Date" value={new CalendarDate(2024, 5, 1)} />,
+      );
+
+      let combobox = getAllByRole("group")[0];
+
+      expect(getTextValue(combobox)).toBe("5/1/2024");
+
+      let button = getByRole("button");
+
+      triggerPress(button);
+
+      let dialog = getByRole("dialog");
+
+      expect(dialog).toBeVisible();
+
+      triggerPress(button);
+
+      expect(dialog).not.toBeVisible();
+
+      expect(getTextValue(combobox)).toBe("5/1/2024");
+    });
   });
 });
