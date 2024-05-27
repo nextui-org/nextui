@@ -157,6 +157,49 @@ interface AppProviderProps {
 
 ## CLI Improvements
 
+### Refactor Init Flow View
+
+We've refactored the init flow view to provide a better user experience.
+
+The latest flow view output:
+
+```bash
+┌  Create a new project
+│
+◇  Select a template (Enter to select)
+│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
+│
+◇  New project name (Enter to skip with default name)
+│  my-nextui-app
+│
+◇  Select a package manager (Enter to select)
+│  ● npm
+│  ○ yarn
+│  ○ pnpm
+│  ○ bun
+│
+◇  Template created successfully!
+│
+◇  Next steps ───────╮
+│                    │
+│  cd my-nextui-app  │
+│  npm install       │
+│                    │
+├────────────────────╯
+│
+└  🚀 Get started with npm run dev
+```
+
+### Add Vite Template
+
+We've introduced a new Vite template pre-configured with NextUI v2 and TailwindCSS. The following command is to initialize a new Vite project named `my-vite-app`.
+
+```bash
+nextui init my-vite-app -t vite
+```
+
 ### Package Manager Flag
 
 We've introduced a new flag `-p` (or `--package`) to init command to allow users to choose the package manager to use for the new project. By default, `npm` is used. For example, the following command will initialize a new NextUI project with the app template named my-nextui-app using pnpm package manager.
@@ -175,21 +218,19 @@ nextui --no-cache upgrade
 
 ### Upgrade Version Output
 
+You can now run the upgrade command and see the summary version of the package you are upgrading to.
+
 ![image](https://github.com/nextui-org/nextui-cli/assets/96854855/2a5945dd-5187-4e20-81b8-4136e9791dde)
 
-You can now run the upgrade command with option either `--major`, `--minor`, or `--patch`.
+### Upgrade And Remove Select View Optimization
 
-- The `major` option detects all updatable versions.
-- The default `minor` option detects all `minor` and `patch` updatable versions.
-- The `patch` option specifically detects `patch` updatable versions.
+The disabled option(s) will be displayed in the bottom of the list.
 
-### Add Vite Template
+![image](https://github.com/nextui-org/nextui-cli/assets/96854855/c7ddf9e4-3054-4bf1-b8e3-dc2f6226091a)
 
-We've introduced a new Vite template pre-configured with NextUI v2 and TailwindCSS. The following command is to initialize a new Vite project named `my-vite-app`.
+### Doctor Command add peerDependencies check
 
-```bash
-nextui init my-vite-app -t vite
-```
+The `doctor` command now checks for peerDependencies and displays the incorrect peerDependencies, relation: [nextui-org/nextui#2954](https://github.com/nextui-org/nextui/issues/2954).
 
 <Spacer y={4} />
 
