@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/checkbox",
-  "version": "2.0.29",
+  "version": "2.1.0",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
     "checkbox"
@@ -44,15 +44,15 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-callback-ref": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/checkbox": "^3.14.1",
-    "@react-aria/focus": "^3.16.2",
-    "@react-aria/interactions": "^3.21.1",
-    "@react-aria/utils": "^3.23.2",
-    "@react-aria/visually-hidden": "^3.8.10",
-    "@react-stately/checkbox": "^3.6.3",
-    "@react-stately/toggle": "^3.7.2",
-    "@react-types/checkbox": "^3.7.1",
-    "@react-types/shared": "^3.22.1"
+    "@react-aria/checkbox": "3.14.1",
+    "@react-aria/focus": "3.16.2",
+    "@react-aria/interactions": "3.21.1",
+    "@react-aria/utils": "3.23.2",
+    "@react-aria/visually-hidden": "3.8.10",
+    "@react-stately/checkbox": "3.6.3",
+    "@react-stately/toggle": "3.7.2",
+    "@react-types/checkbox": "3.7.1",
+    "@react-types/shared": "3.22.1"
   },
   "devDependencies": {
     "@nextui-org/chip": "workspace:*",

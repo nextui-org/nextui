@@ -68,6 +68,7 @@ const tabs = tv({
       "py-3",
       "px-1",
       "outline-none",
+      "data-[inert=true]:hidden",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -183,7 +184,6 @@ const tabs = tv({
     size: "md",
     fullWidth: false,
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     /**

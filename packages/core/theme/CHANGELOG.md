@@ -1,5 +1,33 @@
 # @nextui-org/theme
 
+## 2.2.4
+
+### Patch Changes
+
+- [#2883](https://github.com/nextui-org/nextui/pull/2883) [`76f4dd8e7`](https://github.com/nextui-org/nextui/commit/76f4dd8e76d4c0047953fc8a5b8b65614d7375f0) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise slider styles (#2880)
+
+- [#2915](https://github.com/nextui-org/nextui/pull/2915) [`e3afa4789`](https://github.com/nextui-org/nextui/commit/e3afa4789a1ac0fa929b2acaca5bd9c520567ab8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - The `cn` utility was moved the `theme` package and updated to support NextUI custom classes.
+
+- [#3010](https://github.com/nextui-org/nextui/pull/3010) [`77e85e665`](https://github.com/nextui-org/nextui/commit/77e85e665c94a188db46ec08c61c872e5d8e7d8c) Thanks [@wingkwong](https://github.com/wingkwong)! - revise isInvalid input styles (#3007)
+
+- [#3018](https://github.com/nextui-org/nextui/pull/3018) [`1109baea6`](https://github.com/nextui-org/nextui/commit/1109baea6ac6aa3feb2be90ef065f61b2c2a06a9) Thanks [@wingkwong](https://github.com/wingkwong)! - fix incorrect tailwind classnames
+
+- [#2990](https://github.com/nextui-org/nextui/pull/2990) [`ad08010fe`](https://github.com/nextui-org/nextui/commit/ad08010fe58438c8d8f264ee1671b53d6638a724) Thanks [@wingkwong](https://github.com/wingkwong)! - remove unnecessary origin-bottom in button
+
+- [#2973](https://github.com/nextui-org/nextui/pull/2973) [`e34c5e307`](https://github.com/nextui-org/nextui/commit/e34c5e307d1dfa2747e7fd77752983ad30a7e3eb) Thanks [@wingkwong](https://github.com/wingkwong)! - Add `destroyInactiveTabPanel` prop for Tabs component (#1562)
+
+- [#2906](https://github.com/nextui-org/nextui/pull/2906) [`c83ff382b`](https://github.com/nextui-org/nextui/commit/c83ff382b9e5deaa08ed7e64eee484cc4904704d) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixed hiding of unavailable dates in RangeCalendar (#2890)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2972](https://github.com/nextui-org/nextui/pull/2972) [`5f735a989`](https://github.com/nextui-org/nextui/commit/5f735a989297dd5b5b82eba84b91ddbdb33cd3c4) Thanks [@wingkwong](https://github.com/wingkwong)! - add pointer-events-none to skeleton base (#1714)
+
+- [#2949](https://github.com/nextui-org/nextui/pull/2949) [`0108d06d3`](https://github.com/nextui-org/nextui/commit/0108d06d3b4167b28d4be03813d883d9d4d7d9f6) Thanks [@novsource](https://github.com/novsource)! - Removed scrolling display during month change animation (#2945)
+
+- [#2986](https://github.com/nextui-org/nextui/pull/2986) [`8988981c5`](https://github.com/nextui-org/nextui/commit/8988981c532b35577b0efa3a68496499973acb33) Thanks [@wingkwong](https://github.com/wingkwong)! - set overflow visible after skeleton loaded (#2125)
+
+- [#2781](https://github.com/nextui-org/nextui/pull/2781) [`648edad77`](https://github.com/nextui-org/nextui/commit/648edad77ea6265baecbc8cd7d1caee5a983da7c) Thanks [@mrbadri](https://github.com/mrbadri)! - Fixed incorrect margin on labels for RTL required inputs. (#2780)
+
 ## 2.2.3
 
 ### Patch Changes

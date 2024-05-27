@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/ripple",
-  "version": "2.0.28",
+  "version": "2.0.29",
   "description": "A simple implementation to display a ripple animation when the source component is clicked",
   "keywords": [
     "ripple"
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",
+    "framer-motion": ">=10.17.0",
     "@nextui-org/theme": ">=2.1.0",
     "@nextui-org/system": ">=2.0.0"
   },

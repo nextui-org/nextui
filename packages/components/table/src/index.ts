@@ -19,4 +19,10 @@ export {default as Table} from "./table";
 
 // export base components
 export {TableBody, TableCell, TableColumn, TableHeader, TableRow} from "./base";
-export type {TableBodyProps, TableCellProps, TableColumnProps, TableHeaderProps} from "./base";
+export type {
+  TableBodyProps,
+  TableCellProps,
+  TableColumnProps,
+  TableHeaderProps,
+  TableRowProps,
+} from "./base";

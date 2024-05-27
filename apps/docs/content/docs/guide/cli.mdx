@@ -57,6 +57,7 @@ Usage: nextui [command]
 
 Options:
   -v, --version  Show the version number
+  --no-cache     Disable cache, by default data will be cached for 30m after the first request
   -h, --help     Display help for commands
 
 Commands:
@@ -75,7 +76,7 @@ Commands:
 Initialize a new NextUI project using the `init` command. This sets up your project with the necessary configurations.
 
 ```codeBlock bash
-nextui init [my-nextui-app-name]
+nextui init my-nextui-app
 ```
 
 <Spacer y={4} />
@@ -83,11 +84,44 @@ nextui init [my-nextui-app-name]
 You will be prompted to configure your project:
 
 ```codeBlock bash
-? Select a template › - Use arrow-keys. Return to submit.
-❯   App
-    A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.
-    Pages
-    A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.
+┌  Create a new project
+│
+◇  Select a template (Enter to select)
+│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
+│
+◇  New project name (Enter to skip with default name)
+│  my-nextui-app
+│
+◇  Select a package manager (Enter to select)
+│  ● npm
+│  ○ yarn
+│  ○ pnpm
+│  ○ bun
+│
+◇  Template created successfully!
+│
+◇  Next steps ───────╮
+│                    │
+│  cd my-nextui-app  │
+│  npm install       │
+│                    │
+├────────────────────╯
+│
+└  🚀 Get started with npm run dev
+```
+
+Install the dependencies to start the local server:
+
+```codeBlock bash
+cd my-nextui-app && npm install
+```
+
+Start the local server:
+
+```codeBlock bash
+npm run dev
 ```
 
 ## add
@@ -154,9 +188,16 @@ You will be asked to confirm the upgrade:
 
 ```codeBlock bash
 
-╭───────────────────────────────────────────────────────────╮
-│  @nextui-org/button              2.0.24  ->  2.0.27       │
-╰───────────────────────────────────────────────────────────╯
+╭───────────────────────── Component ─────────────────────────╮
+│  @nextui-org/button              ^2.0.11  ->  ^2.0.31       │
+╰─────────────────────────────────────────────────────────────╯
+
+Required min version: @nextui-org/theme>=2.1.0, tailwindcss>=3.4.0
+╭───────────────────── PeerDependencies ─────────────────────╮
+│  @nextui-org/theme               2.0.1    ->  2.1.0        │
+│  tailwindcss                     ^3.2.3   ->  ^3.4.0       │
+╰────────────────────────────────────────────────────────────╯
+2 minor, 1 patch
 
 ? Would you like to proceed with the upgrade? › - Use arrow-keys. Return to submit.
 ❯   Yes

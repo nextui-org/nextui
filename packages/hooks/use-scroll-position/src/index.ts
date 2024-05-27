@@ -1,8 +1,8 @@
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, useCallback} from "react";
 
 const isBrowser = typeof window !== "undefined";
 
-export type ScrollValue = {x: any; y: any};
+export type ScrollValue = {x: number; y: number};
 
 function getScrollPosition(element: HTMLElement | undefined | null): ScrollValue {
   if (!isBrowser) return {x: 0, y: 0};
@@ -41,9 +41,9 @@ export const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue 
     isEnabled ? getScrollPosition(elementRef?.current) : {x: 0, y: 0},
   );
 
-  let throttleTimeout: ReturnType<typeof setTimeout> | null = null;
+  const throttleTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handler = () => {
+  const handler = useCallback(() => {
     const currPos = getScrollPosition(elementRef?.current);
 
     if (typeof callback === "function") {
@@ -51,16 +51,16 @@ export const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue 
     }
 
     position.current = currPos;
-    throttleTimeout = null;
-  };
+    throttleTimeout.current = null;
+  }, [callback, elementRef]);
 
   useEffect(() => {
     if (!isEnabled) return;
 
     const handleScroll = () => {
       if (delay) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(handler, delay);
+        if (throttleTimeout.current === null) {
+          throttleTimeout.current = setTimeout(handler, delay);
         }
       } else {
         handler();
@@ -71,8 +71,13 @@ export const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue 
 
     target.addEventListener("scroll", handleScroll);
 
-    return () => target.removeEventListener("scroll", handleScroll);
-  }, [elementRef?.current, delay, isEnabled]);
+    return () => {
+      target.removeEventListener("scroll", handleScroll);
+      if (throttleTimeout.current) {
+        clearTimeout(throttleTimeout.current);
+      }
+    };
+  }, [elementRef?.current, delay, handler, isEnabled]);
 
   return position.current;
 };

@@ -7,7 +7,7 @@ import {radioGroup} from "@nextui-org/theme";
 import {useCallback, useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -47,7 +47,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
 }
 
 export type UseRadioGroupProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaRadioGroupProps, "onChange" | "validationBehavior"> &
+  Omit<AriaRadioGroupProps, "onChange"> &
   Partial<Pick<RadioProps, "color" | "size" | "isDisabled" | "disableAnimation" | "onChange">>;
 
 export type ContextType = {
@@ -62,6 +62,8 @@ export type ContextType = {
 };
 
 export function useRadioGroup(props: UseRadioGroupProps) {
+  const globalContext = useProviderContext();
+
   const {
     as,
     ref,
@@ -72,10 +74,11 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     name,
     isInvalid: isInvalidProp,
     validationState,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     size = "md",
     color = "primary",
     isDisabled = false,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     orientation = "vertical",
     isRequired = false,
     isReadOnly,
@@ -102,7 +105,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       isReadOnly,
       isInvalid: validationState === "invalid" || isInvalidProp,
       orientation,
-      validationBehavior: "native",
+      validationBehavior,
       onChange: onValueChange,
     };
   }, [
@@ -114,6 +117,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     isReadOnly,
     isInvalidProp,
     validationState,
+    validationBehavior,
     orientation,
     onValueChange,
   ]);
@@ -130,7 +134,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     validationDetails,
   } = useReactAriaRadioGroup(otherPropsWithOrientation, groupState);
 
-  const isInvalid = otherPropsWithOrientation.isInvalid || isAriaInvalid;
+  const isInvalid = otherPropsWithOrientation.isInvalid || isAriaInvalid || groupState.isInvalid;
 
   const context: ContextType = useMemo(
     () => ({
@@ -152,11 +156,11 @@ export function useRadioGroup(props: UseRadioGroupProps) {
       onChange,
       disableAnimation,
       groupState.name,
-      groupState?.isDisabled,
-      groupState?.isReadOnly,
-      groupState?.isRequired,
-      groupState?.selectedValue,
-      groupState?.lastFocusedValue,
+      groupState.isDisabled,
+      groupState.isReadOnly,
+      groupState.isRequired,
+      groupState.selectedValue,
+      groupState.lastFocusedValue,
     ],
   );
 

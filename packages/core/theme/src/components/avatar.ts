@@ -124,6 +124,13 @@ const avatar = tv({
         base: "m-0 data-[hover=true]:translate-x-0",
       },
     },
+    disableAnimation: {
+      true: {
+        base: "transition-none",
+        img: "transition-none",
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     size: "md",
@@ -188,7 +195,7 @@ const avatar = tv({
  */
 const avatarGroup = tv({
   slots: {
-    base: "flex items-center justify-center h-auto w-max-content",
+    base: "flex items-center justify-center h-auto w-max",
     count: "hover:-translate-x-0",
   },
   variants: {

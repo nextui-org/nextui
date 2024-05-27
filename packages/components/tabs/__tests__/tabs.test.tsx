@@ -318,4 +318,40 @@ describe("Tabs", () => {
     expect(tabWrapper).toHaveAttribute("data-placement", "top");
     expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
   });
+
+  test("should destory inactive tab panels", () => {
+    const {container} = render(
+      <Tabs aria-label="Tabs test (destroyInactiveTabPanel=true)">
+        <Tab key="item1" title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" title="Item 2">
+          <div>Content 2</div>
+        </Tab>
+        <Tab key="item3" title="Item 3">
+          <div>Content 3</div>
+        </Tab>
+      </Tabs>,
+    );
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(1);
+  });
+
+  test("should destory inactive tab panels", () => {
+    const {container} = render(
+      <Tabs aria-label="Tabs test (destroyInactiveTabPanel=false)" destroyInactiveTabPanel={false}>
+        <Tab key="item1" title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" title="Item 2">
+          <div>Content 2</div>
+        </Tab>
+        <Tab key="item3" title="Item 3">
+          <div>Content 3</div>
+        </Tab>
+      </Tabs>,
+    );
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(3);
+  });
 });

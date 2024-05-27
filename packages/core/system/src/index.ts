@@ -18,7 +18,6 @@ export type {
 } from "@nextui-org/system-rsc";
 
 export {
-  cn,
   forwardRef,
   toIterator,
   mapPropsVariants,

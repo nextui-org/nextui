@@ -1,13 +1,14 @@
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {PopoverProps} from "@nextui-org/popover";
 import type {MenuTriggerType} from "@react-types/menu";
 import type {Ref} from "react";
 
+import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {useMenuTriggerState} from "@react-stately/menu";
 import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
@@ -41,6 +42,8 @@ interface Props extends HTMLNextUIProps<"div"> {
 export type UseDropdownProps = Props & Omit<PopoverProps, "children" | "color" | "variant">;
 
 export function useDropdown(props: UseDropdownProps) {
+  const globalContext = useProviderContext();
+
   const {
     as,
     triggerRef: triggerRefProp,
@@ -54,7 +57,7 @@ export function useDropdown(props: UseDropdownProps) {
     closeOnSelect = true,
     shouldBlockScroll = true,
     classNames: classNamesProp,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     onClose,
     className,
     ...otherProps
@@ -102,21 +105,28 @@ export function useDropdown(props: UseDropdownProps) {
     }
   };
 
-  const getPopoverProps: PropGetter = (props = {}) => ({
-    state,
-    placement,
-    ref: popoverRef,
-    disableAnimation,
-    shouldBlockScroll,
-    scrollRef: menuRef,
-    triggerRef: menuTriggerRef,
-    ...mergeProps(otherProps, props),
-    classNames: {
-      ...classNamesProp,
-      ...props.classNames,
-      content: clsx(classNames, classNamesProp?.content, props.className),
-    },
-  });
+  const getPopoverProps: PropGetter = (props = {}) => {
+    const popoverProps = mergeProps(otherProps, props);
+
+    return {
+      state,
+      placement,
+      ref: popoverRef,
+      disableAnimation,
+      shouldBlockScroll,
+      scrollRef: menuRef,
+      triggerRef: menuTriggerRef,
+      ...popoverProps,
+      classNames: {
+        ...classNamesProp,
+        ...props.classNames,
+        content: clsx(classNames, classNamesProp?.content, props.className),
+      },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+    };
+  };
 
   const getMenuTriggerProps: PropGetter = (
     originalProps = {},
@@ -124,7 +134,7 @@ export function useDropdown(props: UseDropdownProps) {
   ) => {
     // These props are not needed for the menu trigger since it is handled by the popover trigger.
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const {onKeyDown, onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
+    const {onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
 
     return {
       ...mergeProps(otherMenuTriggerProps, {isDisabled}, originalProps),
@@ -132,7 +142,7 @@ export function useDropdown(props: UseDropdownProps) {
     };
   };
 
-  const getMenuProps = <T>(
+  const getMenuProps = <T extends object>(
     props?: Partial<MenuProps<T>>,
     _ref: Ref<any> | null | undefined = null,
   ) => {

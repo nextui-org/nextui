@@ -1,5 +1,11 @@
 # @nextui-org/use-intersection-observer
 
+## 2.0.2
+
+### Patch Changes
+
+- [#2889](https://github.com/nextui-org/nextui/pull/2889) [`aba1716ed`](https://github.com/nextui-org/nextui/commit/aba1716edc2a85c94e6baeb4acc481f67589d002) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Update React Aria packages
+
 ## 2.0.1
 
 ### Patch Changes

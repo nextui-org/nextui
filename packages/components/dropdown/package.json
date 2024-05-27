@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/dropdown",
-  "version": "2.1.23",
+  "version": "2.1.24",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",
+    "framer-motion": ">=10.17.0",
     "@nextui-org/theme": ">=2.1.0",
     "@nextui-org/system": ">=2.0.0"
   },
@@ -45,11 +45,12 @@
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/menu": "^3.13.1",
-    "@react-aria/utils": "^3.23.2",
-    "@react-stately/menu": "^3.6.1",
-    "@react-aria/focus": "^3.16.2",
-    "@react-types/menu": "^3.9.7"
+    "@nextui-org/aria-utils": "workspace:*",
+    "@react-aria/menu": "3.13.1",
+    "@react-aria/utils": "3.23.2",
+    "@react-stately/menu": "3.6.1",
+    "@react-aria/focus": "3.16.2",
+    "@react-types/menu": "3.9.7"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
@@ -59,6 +60,7 @@
     "@nextui-org/user": "workspace:*",
     "@nextui-org/image": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
     "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",
     "react": "^18.0.0",

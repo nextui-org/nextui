@@ -1,7 +1,13 @@
 import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {HiddenSelectProps} from "./hidden-select";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  DOMAttributes,
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
@@ -21,6 +27,7 @@ import {
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
@@ -137,8 +144,12 @@ export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const {
     ref,
@@ -220,8 +231,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     selectionMode,
     disallowEmptySelection,
     children: children as CollectionChildren<T>,
-    isRequired: originalProps?.isRequired,
-    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps.isRequired,
+    isDisabled: originalProps.isDisabled,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
@@ -247,7 +258,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   state = {
     ...state,
-    ...(originalProps?.isDisabled && {
+    ...(originalProps.isDisabled && {
       disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
@@ -272,7 +283,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     validationErrors,
     validationDetails,
   } = useMultiSelect(
-    {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
+    {...props, disallowEmptySelection, isDisabled: originalProps.isDisabled},
     state,
     triggerRef,
   );
@@ -282,7 +293,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
-  const {isHovered, hoverProps} = useHover({isDisabled: originalProps?.isDisabled});
+  const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const labelPlacement = useMemo<SelectVariantProps["labelPlacement"]>(() => {
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
@@ -317,9 +328,10 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         ...variantProps,
         isInvalid,
         labelPlacement,
+        disableAnimation,
         className,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, className],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, disableAnimation, className],
   );
 
   // scroll the listbox to the selected item
@@ -489,6 +501,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getPopoverProps = useCallback(
     (props: DOMAttributes = {}) => {
+      const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
       return {
         state,
         triggerRef,
@@ -501,12 +515,15 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             class: clsx(classNames?.popoverContent, props.className),
           }),
         },
-        ...mergeProps(slotsProps.popoverProps, props),
+        ...popoverProps,
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
               state.selectedItems.length * 0.00000001 + (slotsProps.popoverProps?.offset || 0)
             : slotsProps.popoverProps?.offset,
+        shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+          ? popoverProps.shouldCloseOnInteractOutside
+          : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
       } as PopoverProps;
     },
     [
@@ -613,6 +630,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isDisabled: originalProps?.isDisabled,
     isRequired: originalProps?.isRequired,
     name: originalProps?.name,
+    // TODO: Future enhancement to support "aria" validation behavior.
     validationBehavior: "native",
   });
 

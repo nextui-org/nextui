@@ -1,6 +1,7 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {render, renderHook, fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import {useForm} from "react-hook-form";
 
 import {Input} from "../src";
 
@@ -36,10 +37,17 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
-  it("should have required attribute when isRequired", () => {
-    const {container} = render(<Input isRequired label="test input" />);
+  it("should have required attribute when isRequired with native validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
     expect(container.querySelector("input")).toHaveAttribute("required");
+    expect(container.querySelector("input")).not.toHaveAttribute("aria-required");
+  });
+
+  it("should have aria-required attribute when isRequired with aria validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="aria" />);
+
+    expect(container.querySelector("input")).not.toHaveAttribute("required");
     expect(container.querySelector("input")).toHaveAttribute("aria-required", "true");
   });
 
@@ -144,5 +152,80 @@ describe("Input", () => {
     expect(ref.current?.value)?.toBe("");
 
     expect(onClear).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("Input with React Hook Form", () => {
+  let input1: HTMLInputElement;
+  let input2: HTMLInputElement;
+  let input3: HTMLInputElement;
+  let submitButton: HTMLButtonElement;
+  let onSubmit: () => void;
+
+  beforeEach(() => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withDefaultValue: "wkw",
+          withoutDefaultValue: "",
+          requiredField: "",
+        },
+      }),
+    );
+
+    const {
+      handleSubmit,
+      register,
+      formState: {errors},
+    } = result.current;
+
+    onSubmit = jest.fn();
+
+    render(
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <Input isClearable label="With default value" {...register("withDefaultValue")} />
+        <Input
+          data-testid="input-2"
+          label="Without default value"
+          {...register("withoutDefaultValue")}
+        />
+        <Input
+          data-testid="input-3"
+          label="Required"
+          {...register("requiredField", {required: true})}
+        />
+        {errors.requiredField && <span className="text-danger">This field is required</span>}
+        <button type="submit">Submit</button>
+      </form>,
+    );
+
+    input1 = document.querySelector("input[name=withDefaultValue]")!;
+    input2 = document.querySelector("input[name=withoutDefaultValue]")!;
+    input3 = document.querySelector("input[name=requiredField]")!;
+    submitButton = document.querySelector("button")!;
+  });
+
+  it("should work with defaultValues", () => {
+    expect(input1).toHaveValue("wkw");
+    expect(input2).toHaveValue("");
+    expect(input3).toHaveValue("");
+  });
+
+  it("should not submit form when required field is empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("should submit form when required field is not empty", async () => {
+    fireEvent.change(input3, {target: {value: "updated"}});
+
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

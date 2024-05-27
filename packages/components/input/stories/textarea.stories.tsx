@@ -52,6 +52,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (

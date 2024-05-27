@@ -1,5 +1,22 @@
 # @nextui-org/dropdown
 
+## 2.1.24
+
+### Patch Changes
+
+- [#2854](https://github.com/nextui-org/nextui/pull/2854) [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise popover-based focus behaviours (#2849, #2834, #2779, #2962, #2872, #2974, #1920, #1287, #3060)
+
+- [#2953](https://github.com/nextui-org/nextui/pull/2953) [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix update type definition to prevent primitive values as items (#2938)
+
+- [#2970](https://github.com/nextui-org/nextui/pull/2970) [`7df2c71ec`](https://github.com/nextui-org/nextui/commit/7df2c71ecc5f06d60807b6b3502d3a118080a0d5) Thanks [@wingkwong](https://github.com/wingkwong)! - Focus on the first item when pressing Space / Enter key on dropdown menu open (#2863)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531), [`7df2c71ec`](https://github.com/nextui-org/nextui/commit/7df2c71ecc5f06d60807b6b3502d3a118080a0d5), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/popover@2.1.22
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/menu@2.0.23
+
 ## 2.1.23
 
 ### Patch Changes
